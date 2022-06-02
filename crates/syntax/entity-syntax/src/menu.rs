@@ -10,6 +10,7 @@ pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<Enti
             parent: std_mod,
             ident: db.intern_word("ops").custom(),
         },
+        temporal_arguments: vec![],
         spatial_arguments: vec![],
     });
     let std_ops_index_trai = db.intern_entity_route(EntityRoute {
@@ -17,6 +18,7 @@ pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<Enti
             parent: std_ops_mod,
             ident: db.intern_word("Index").custom(),
         },
+        temporal_arguments: vec![],
         spatial_arguments: vec![],
     });
     let std_slice_mod = db.intern_entity_route(EntityRoute {
@@ -24,6 +26,7 @@ pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<Enti
             parent: std_mod,
             ident: db.intern_word("slice").custom(),
         },
+        temporal_arguments: vec![],
         spatial_arguments: vec![],
     });
     let std_slice_cyclic_slice = db.make_subroute(

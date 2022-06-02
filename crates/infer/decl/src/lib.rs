@@ -46,14 +46,15 @@ pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
 }
 
 pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferResult<bool> {
-    match ty {
-        EntityRoutePtr::Root(builtin_ident) => Ok(match builtin_ident {
+    match ty.kind {
+        EntityRouteKind::Root { ident } => Ok(match ident {
             RootIdentifier::Void
             | RootIdentifier::I32
             | RootIdentifier::F32
             | RootIdentifier::B32
             | RootIdentifier::B64
-            | RootIdentifier::Bool => true,
+            | RootIdentifier::Bool
+            | RootIdentifier::Ref => true,
             RootIdentifier::Vec => false,
             RootIdentifier::True => todo!(),
             RootIdentifier::False => todo!(),
@@ -61,12 +62,12 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
             RootIdentifier::Debug => todo!(),
             RootIdentifier::Std => todo!(),
             RootIdentifier::Core => todo!(),
-            RootIdentifier::Fp => todo!(),
+            RootIdentifier::Fp => true,
             RootIdentifier::Fn => todo!(),
             RootIdentifier::FnMut => todo!(),
             RootIdentifier::FnOnce => todo!(),
-            RootIdentifier::Array => todo!(),
-            RootIdentifier::DatasetType => todo!(),
+            RootIdentifier::Array => false,
+            RootIdentifier::DatasetType => false,
             RootIdentifier::TypeType => false,
             RootIdentifier::Datasets => todo!(),
             RootIdentifier::CloneTrait => todo!(),
@@ -75,13 +76,12 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
             RootIdentifier::EqTrait => todo!(),
             RootIdentifier::ModuleType => todo!(),
         }),
-        EntityRoutePtr::Custom(_) => {
+        _ => {
             let ty_decl = db.ty_decl(ty)?;
             Ok(ty_decl
                 .trait_impl(db.entity_route_menu().copy_trait)
                 .is_some())
         }
-        EntityRoutePtr::ThisType => todo!(),
     }
 }
 

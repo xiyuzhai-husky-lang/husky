@@ -1,6 +1,6 @@
 use ast::*;
 use check_utils::should;
-use defn_head::InputParameter;
+use defn_head::Parameter;
 use entity_kind::EntityKind;
 use infer_error::derived;
 use infer_error::derived_not_none;
@@ -16,7 +16,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     pub(super) fn infer_lazy_call_form(
         &mut self,
         arena: &RawExprArena,
-        inputs: &[InputParameter],
+        inputs: &[Parameter],
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
         output_liason: OutputLiason,
@@ -25,7 +25,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         self.infer_lazy_stmts(arena, ast_iter, opt_output_ty, output_liason)
     }
 
-    fn add_lazy_inputs(&mut self, inputs: &[InputParameter]) {
+    fn add_lazy_inputs(&mut self, inputs: &[Parameter]) {
         for input in inputs {
             let ty = input.ranged_ty.route;
             self.qualified_ty_sheet
@@ -387,7 +387,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             match this_qt.qual {
                 LazyQualifier::Copyable => todo!(),
                 LazyQualifier::PureRef => todo!(),
-                LazyQualifier::GlobalRef => LazyQualifier::GlobalRef,
+                LazyQualifier::EvalRef => LazyQualifier::EvalRef,
                 LazyQualifier::Transient => todo!(),
             }
         };

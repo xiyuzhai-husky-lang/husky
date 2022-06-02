@@ -1,10 +1,10 @@
 use std::sync::Arc;
 
 use crate::*;
-use defn_head::{CallableDefnHead, GenericPlaceholderVariant, InputParameter, SpatialParameter};
+use defn_head::{CallableDefnHead, GenericPlaceholderVariant, Parameter, SpatialParameter};
 use entity_route::*;
 use token::SemanticTokenKind;
-use vm::{InputLiason, OutputLiason};
+use vm::{OutputLiason, ParameterLiason};
 use word::{IdentDict, Paradigm};
 
 use super::*;
@@ -28,12 +28,12 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             Paradigm::EagerFunctional => {
                 for parameter in parameters.iter() {
                     match parameter.liason {
-                        InputLiason::Pure | InputLiason::Move => (),
-                        InputLiason::LocalRefMut | InputLiason::MoveMut => {
+                        ParameterLiason::Pure | ParameterLiason::Move => (),
+                        ParameterLiason::TempRefMut | ParameterLiason::MoveMut => {
                             todo!("report invalid input contract")
                         }
-                        InputLiason::MemberAccess => todo!(),
-                        InputLiason::GlobalRef => todo!(),
+                        ParameterLiason::MemberAccess => todo!(),
+                        ParameterLiason::EvalRef => todo!(),
                     }
                 }
             }
@@ -52,7 +52,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     pub fn method_defn_head(
         mut self,
-        this: InputLiason,
+        this: ParameterLiason,
         paradigm: Paradigm,
     ) -> AtomResult<CallableDefnHead> {
         let routine_ident = get!(self, custom_ident);
@@ -108,12 +108,12 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         })
     }
 
-    fn call_parameters(&mut self) -> AtomResultArc<Vec<InputParameter>> {
+    fn call_parameters(&mut self) -> AtomResultArc<Vec<Parameter>> {
         eat!(self, "(");
         Ok(Arc::new(comma_list!(self, call_input_placeholder!, ")")))
     }
 
-    fn call_input_placeholder(&mut self) -> AtomResult<InputParameter> {
+    fn call_input_placeholder(&mut self) -> AtomResult<Parameter> {
         let ident = get!(self, custom_ident);
         self.atom_context
             .push_abs_semantic_token(AbsSemanticToken::new(
@@ -122,9 +122,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             ));
         eat!(self, ":");
         let ty = get!(self, ranged_ty?);
-        Ok(InputParameter {
+        Ok(Parameter {
             ranged_ident: ident,
-            liason: InputLiason::Pure,
+            liason: ParameterLiason::Pure,
             ranged_ty: ty,
         })
     }

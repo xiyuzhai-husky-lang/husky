@@ -11,7 +11,7 @@ mod proc_stmt;
 
 use avec::Avec;
 use compile_time_db::{AskCompileTime, HuskyLangCompileTime};
-use defn_head::InputParameter;
+use defn_head::Parameter;
 use eval_feature::EvalFeature;
 use expr::ExprTokenConfig;
 use feature::*;
@@ -235,7 +235,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
                         routine_defn.clone(),
                         &self.compile_time().text(routine_defn.file).unwrap(),
                     ));
-                    let parameters: &[InputParameter] = match routine_defn.variant {
+                    let parameters: &[Parameter] = match routine_defn.variant {
                         EntityDefnVariant::Func { ref parameters, .. } => parameters,
                         EntityDefnVariant::Proc {
                             parameters: ref parameters,

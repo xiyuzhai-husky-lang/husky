@@ -50,7 +50,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                         VMValue::FullyOwnedRef(unsafe { &*ptr })
                     }
                     MemberValue::GlobalPure(_) => todo!(),
-                    MemberValue::GlobalRef(_) => todo!(),
+                    MemberValue::EvalRef(_) => todo!(),
                     MemberValue::Moved => todo!(),
                 },
             },
@@ -61,7 +61,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                     MemberValue::Copyable(value) => VMValue::Copyable(value),
                     MemberValue::Boxed(_) => todo!(),
                     MemberValue::GlobalPure(_) => todo!(),
-                    MemberValue::GlobalRef(_) => todo!(),
+                    MemberValue::EvalRef(_) => todo!(),
                     MemberValue::Moved => todo!(),
                 },
             },
@@ -73,7 +73,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
         //         MemberValue::Copyable(value) => VMValue::Copyable(value),
         //         MemberValue::Boxed(_) => todo!(),
         //         MemberValue::GlobalPure(_) => todo!(),
-        //         MemberValue::GlobalRef(_) => todo!(),
+        //         MemberValue::EvalRef(_) => todo!(),
         //         MemberValue::Moved => todo!(),
         //     },
         // },
@@ -88,7 +88,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
         //             VMValue::FullyOwnedRef(unsafe { &*ptr })
         //         }
         //         MemberValue::GlobalPure(_) => todo!(),
-        //         MemberValue::GlobalRef(_) => todo!(),
+        //         MemberValue::EvalRef(_) => todo!(),
         //         MemberValue::Moved => todo!(),
         //     },
         // },
@@ -111,7 +111,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                         MemberValue::Copyable(ref mut value) => value.any_mut(),
                         MemberValue::Boxed(_) => todo!(),
                         MemberValue::GlobalPure(_) => todo!(),
-                        MemberValue::GlobalRef(_) => todo!(),
+                        MemberValue::EvalRef(_) => todo!(),
                         MemberValue::Moved => todo!(),
                     };
                     VMValue::CopyableOrFullyOwnedMut {

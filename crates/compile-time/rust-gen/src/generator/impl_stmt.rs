@@ -255,6 +255,7 @@ impl<'a> RustGenerator<'a> {
                 RootIdentifier::PartialEqTrait => todo!(),
                 RootIdentifier::EqTrait => todo!(),
                 RootIdentifier::ModuleType => todo!(),
+                RootIdentifier::Ref => todo!(),
             },
             EntityRoutePtr::Custom(_) => panic!(),
             EntityRoutePtr::ThisType => todo!(),

@@ -7,7 +7,7 @@ use crate::*;
 use atom::context::{Symbol, SymbolKind};
 use text::TextRanged;
 use token::*;
-use vm::{InputLiason, MemberLiason};
+use vm::{ParameterLiason, MemberLiason};
 use word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
@@ -96,7 +96,7 @@ impl<'a> AstTransformer<'a> {
         expect_block_head!(token_group);
         enter_block(self);
         self.context.set(AstContext::Visual);
-        self.opt_this_liason.set(Some(InputLiason::Pure));
+        self.opt_this_liason.set(Some(ParameterLiason::Pure));
         context_update_result?;
         Ok(AstVariant::Visual)
     }

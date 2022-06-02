@@ -22,7 +22,7 @@ pub(super) struct LazyStmtParser<'a> {
 
 impl<'a> LazyStmtParser<'a> {
     pub(super) fn new(
-        parameters: &[InputParameter],
+        parameters: &[Parameter],
         db: &'a dyn InferQueryGroup,
         arena: &'a RawExprArena,
         file: FilePtr,

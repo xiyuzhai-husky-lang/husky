@@ -81,6 +81,7 @@ impl<'a> AstTransformer<'a> {
                         ident: ident.into(),
                         kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {
                             kind: EntityRouteKind::Child { parent, ident },
+                            temporal_arguments: vec![],
                             spatial_arguments: vec![],
                         })),
                     })

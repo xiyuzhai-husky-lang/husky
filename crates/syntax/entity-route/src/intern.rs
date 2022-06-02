@@ -27,6 +27,15 @@ impl EntityRoutePtr {
     pub fn to_str(&self) -> String {
         format!("{:?}", self)
     }
+
+    pub fn deref_route(self) -> EntityRoutePtr {
+        match self.kind {
+            EntityRouteKind::Root {
+                ident: RootIdentifier::Ref,
+            } => self.spatial_arguments[0].take_entity_route(),
+            _ => self,
+        }
+    }
 }
 
 impl std::fmt::Display for EntityRoutePtr {
@@ -80,6 +89,7 @@ impl Deref for EntityRoutePtr {
                             kind: EntityRouteKind::Root {
                                 ident: RootIdentifier::$reserved,
                             },
+                            temporal_arguments: vec![],
                             spatial_arguments: vec![],
                         };
                     )*
@@ -95,6 +105,7 @@ impl Deref for EntityRoutePtr {
 
         const THIS_TYPE_ROUTE: &EntityRoute = &EntityRoute {
             kind: EntityRouteKind::ThisType,
+            temporal_arguments: vec![],
             spatial_arguments: vec![],
         };
 
@@ -105,7 +116,7 @@ impl Deref for EntityRoutePtr {
                 CloneTrait,
                 CopyTrait,
                 PartialEqTrait,
-                EqTrait
+                EqTrait, Ref
             ),
             EntityRoutePtr::Custom(scope) => scope,
             EntityRoutePtr::ThisType => THIS_TYPE_ROUTE,
@@ -162,6 +173,7 @@ pub trait AllocateUniqueScope {
         generics.extend(generic_arguments);
         self.intern_entity_route(EntityRoute {
             kind: route.kind,
+            temporal_arguments: vec![],
             spatial_arguments: generics,
         })
     }
@@ -174,6 +186,7 @@ pub trait AllocateUniqueScope {
     ) -> EntityRoutePtr {
         self.intern_entity_route(EntityRoute {
             kind: EntityRouteKind::Child { parent, ident },
+            temporal_arguments: vec![],
             spatial_arguments: generics,
         })
     }

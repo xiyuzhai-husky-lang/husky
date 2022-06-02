@@ -64,7 +64,7 @@ impl<'a> RustGenerator<'a> {
                 },
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::EnumVariant { .. } => todo!(),
-                EntityDefnVariant::TypeField {
+                EntityDefnVariant::TyField {
                     ty,
                     field_variant: ref field_variant,
                     liason: contract,

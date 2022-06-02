@@ -58,7 +58,7 @@ fn entity_instruction_sheet(
             todo!()
         }
         EntityDefnVariant::EnumVariant { .. } => todo!(),
-        EntityDefnVariant::TypeField { .. } => todo!(),
+        EntityDefnVariant::TyField { .. } => todo!(),
         EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
         EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         EntityDefnVariant::Method {

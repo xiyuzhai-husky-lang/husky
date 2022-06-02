@@ -136,6 +136,7 @@ impl TraitDecl {
                 should_eq!(base_route.spatial_arguments.len(), 0);
                 let trai = db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
+                    temporal_arguments: vec![],
                     spatial_arguments: generic_arguments,
                 });
                 symbol_context.kind = AtomContextKind::Trait {

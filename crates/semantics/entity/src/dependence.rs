@@ -126,7 +126,7 @@ impl EntityDefn {
                 ..
             } => {
                 type_members.iter().for_each(|member| match member.variant {
-                    EntityDefnVariant::TypeField { ty, .. } => builder.push(ty),
+                    EntityDefnVariant::TyField { ty, .. } => builder.push(ty),
                     _ => (),
                 });
                 variants.iter().for_each(|enum_variant| {
@@ -139,7 +139,7 @@ impl EntityDefn {
             EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
                 EnumVariantDefnVariant::Constant => (),
             },
-            EntityDefnVariant::TypeField {
+            EntityDefnVariant::TyField {
                 ty,
                 ref field_variant,
                 ..
@@ -209,7 +209,7 @@ impl EntityDefn {
         return builder.finish();
 
         fn extract_call_head_dependees(
-            inputs: &[InputParameter],
+            inputs: &[Parameter],
             output: RangedEntityRoute,
             builder: &mut DependeeMapBuilder,
         ) {
@@ -444,7 +444,7 @@ impl EntityDefn {
                 EntityDefnVariant::Type { .. } => todo!(),
                 EntityDefnVariant::EnumVariant { .. } => todo!(),
                 EntityDefnVariant::Builtin => todo!(),
-                EntityDefnVariant::TypeField {
+                EntityDefnVariant::TyField {
                     ty,
                     field_variant: ref field_variant,
                     liason: contract,

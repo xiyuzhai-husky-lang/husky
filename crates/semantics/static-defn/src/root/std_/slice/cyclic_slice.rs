@@ -88,7 +88,7 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
     name: "first",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::MemberAccess,
+        this_contract: ParameterLiason::MemberAccess,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
@@ -159,7 +159,7 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
     name: "last",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::MemberAccess,
+        this_contract: ParameterLiason::MemberAccess,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],

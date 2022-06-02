@@ -262,7 +262,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 .set(InstructionGenContext::NewVirtualStruct { output_stack_idx });
                             for (i, ty_member) in ty_members.iter().enumerate() {
                                 match ty_member.variant {
-                                    EntityDefnVariant::TypeField {
+                                    EntityDefnVariant::TyField {
                                         ty,
                                         ref field_variant,
                                         liason,
@@ -283,7 +283,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             }
                             self.context.exit();
 
-                            if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
+                            if let Some(linkage) = self.db.ty_call_linkage(ranged_ty.route) {
                                 InstructionVariant::CallCompiled { linkage }
                             } else {
                                 InstructionVariant::NewVirtualStruct {
@@ -296,7 +296,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         }
                         TyKind::Primitive => todo!(),
                         TyKind::Vec | TyKind::Array => InstructionVariant::CallCompiled {
-                            linkage: self.db.type_call_linkage(ranged_ty.route).unwrap(),
+                            linkage: self.db.ty_call_linkage(ranged_ty.route).unwrap(),
                         },
                         TyKind::Other => todo!(),
                     },

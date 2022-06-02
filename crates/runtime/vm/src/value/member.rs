@@ -7,7 +7,7 @@ pub enum MemberValue<'eval> {
     Copyable(CopyableValue),
     Boxed(OwnedValue<'eval, 'eval>),
     GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    GlobalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
+    EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
     Moved,
 }
 
@@ -17,7 +17,7 @@ impl<'eval> PartialEq for MemberValue<'eval> {
             (Self::Copyable(l0), Self::Copyable(r0)) => l0 == r0,
             (Self::Boxed(l0), Self::Boxed(r0)) => l0 == r0,
             (Self::GlobalPure(l0), Self::GlobalPure(r0)) => todo!(),
-            (Self::GlobalRef(l0), Self::GlobalRef(r0)) => todo!(),
+            (Self::EvalRef(l0), Self::EvalRef(r0)) => todo!(),
             _ => core::mem::discriminant(self) == core::mem::discriminant(other),
         }
     }
@@ -31,7 +31,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::Copyable(value) => VMValue::Copyable(value),
             MemberValue::Boxed(value) => VMValue::FullyOwned(value),
             MemberValue::GlobalPure(value) => VMValue::EvalPure(value),
-            MemberValue::GlobalRef(value) => VMValue::GlobalRef(value),
+            MemberValue::EvalRef(value) => VMValue::EvalRef(value),
             MemberValue::Moved => panic!(),
         }
     }
@@ -41,7 +41,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::Copyable(_) => todo!(),
             MemberValue::Boxed(ref value) => value.any_ref(),
             MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::GlobalRef(_) => todo!(),
+            MemberValue::EvalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         }
     }
@@ -51,7 +51,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::Copyable(_) => todo!(),
             MemberValue::Boxed(ref value) => value.any_ref(),
             MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::GlobalRef(_) => todo!(),
+            MemberValue::EvalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         }
     }
@@ -65,7 +65,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::Copyable(value) => value.any_mut(),
             MemberValue::Boxed(value) => value.any_mut_ptr(),
             MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::GlobalRef(_) => todo!(),
+            MemberValue::EvalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         };
         VMValue::CopyableOrFullyOwnedMut {
@@ -80,7 +80,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::Copyable(value) => EvalValue::Copyable(*value),
             MemberValue::Boxed(_) => todo!(),
             MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::GlobalRef(_) => todo!(),
+            MemberValue::EvalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         }
     }
@@ -90,7 +90,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::Copyable(value) => VMValue::Copyable(*value),
             MemberValue::Boxed(_) => todo!(),
             MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::GlobalRef(_) => todo!(),
+            MemberValue::EvalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         }
     }
@@ -110,7 +110,7 @@ impl<'eval> AnyValue<'eval> for MemberValue<'eval> {
             MemberValue::Copyable(value) => value.get_primitive_json_value(),
             MemberValue::Boxed(value) => value.get_json_value(),
             MemberValue::GlobalPure(value) => value.get_json_value_dyn(),
-            MemberValue::GlobalRef(value) => value.get_json_value_dyn(),
+            MemberValue::EvalRef(value) => value.get_json_value_dyn(),
             MemberValue::Moved => todo!(),
         }
     }

@@ -6,7 +6,7 @@ pub struct AtomContextStandalone<'a> {
     pub opt_package_main: Option<FilePtr>,
     pub db: &'a dyn EntityRouteQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
-    pub opt_this_contract: Option<InputLiason>,
+    pub opt_this_contract: Option<ParameterLiason>,
     pub symbols: Cow<'a, [Symbol]>,
     pub kind: AtomContextKind<'a>,
 }
@@ -24,7 +24,7 @@ impl<'a> AtomContext for AtomContextStandalone<'a> {
         self.opt_this_ty
     }
 
-    fn opt_this_liason(&self) -> Option<InputLiason> {
+    fn opt_this_liason(&self) -> Option<ParameterLiason> {
         self.opt_this_contract
     }
 

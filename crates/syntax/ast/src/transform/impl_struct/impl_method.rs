@@ -24,7 +24,7 @@ impl<'a> AstTransformer<'a> {
         expect_block_head!(token_group);
         const funcname_idx: usize = 1;
         let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
-            parser.method_defn_head(InputLiason::Pure, Paradigm::EagerFunctional)
+            parser.method_defn_head(ParameterLiason::Pure, Paradigm::EagerFunctional)
         })?;
         self.opt_this_liason
             .set(Some(head.opt_this_contract.unwrap()));

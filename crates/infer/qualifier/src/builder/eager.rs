@@ -2,9 +2,9 @@ use std::iter::zip;
 
 use ast::*;
 use check_utils::should;
-use defn_head::InputParameter;
+use defn_head::Parameter;
 use entity_kind::EntityKind;
-use entity_route::EntityRoutePtr;
+use entity_route::{EntityRouteKind, EntityRoutePtr};
 use infer_error::{
     derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
 };
@@ -18,7 +18,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     pub(super) fn infer_eager_call_form(
         &mut self,
         arena: &RawExprArena,
-        inputs: &[InputParameter],
+        inputs: &[Parameter],
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
         output_liason: OutputLiason,
@@ -27,19 +27,17 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         self.infer_eager_stmts(arena, ast_iter, opt_output_ty, output_liason)
     }
 
-    fn add_eager_inputs(&mut self, inputs: &[InputParameter]) {
-        for input in inputs {
-            let ty = input.ranged_ty.route;
+    fn add_eager_inputs(&mut self, inputs: &[Parameter]) {
+        for parameter in inputs {
+            let ty = parameter.ranged_ty.route;
             self.qualified_ty_sheet
                 .eager_variable_qualified_tys
                 .insert_new((
-                    (input.ranged_ident.ident.into(), input.ranged_ident.range),
-                    (|| -> InferResult<_> {
-                        (Ok(EagerQualifiedTy::new(
-                            EagerQualifier::from_parameter(input.liason, self.db.is_copyable(ty)?),
-                            ty,
-                        )))
-                    })(),
+                    (
+                        parameter.ranged_ident.ident.into(),
+                        parameter.ranged_ident.range,
+                    ),
+                    EagerQualifiedTy::from_parameter(self.db, ty, parameter.liason),
                 ));
         }
     }
@@ -241,10 +239,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
                 Err(ref e) => Err(e.derived()),
             },
-            RawExprVariant::FrameVariable { .. } => Ok(EagerQualifiedTy::new(
-                EagerQualifier::Copyable,
-                EntityRoutePtr::Root(RootIdentifier::I32),
-            )),
+            RawExprVariant::FrameVariable { .. } => Ok(EagerQualifiedTy {
+                qual: EagerQualifier::Copyable,
+                ty: EntityRoutePtr::Root(RootIdentifier::I32),
+            }),
             RawExprVariant::ThisValue {
                 opt_this_ty,
                 opt_this_liason,
@@ -277,15 +275,19 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     .bind_into(&arena[raw_expr_idx]);
                 let this_contract = this_contract_result?;
                 let this_qual = EagerQualifier::from_parameter_use(
+                    self.db.upcast(),
+                    this_ty,
                     this_liason,
-                    self.db.is_copyable(this_ty)?,
                     this_contract,
                     raw_expr.range,
                 )?;
-                Ok(EagerQualifiedTy::new(
-                    EagerQualifier::from_field(this_qual, field_liason, is_field_copyable)?,
+                Ok(EagerQualifiedTy::from_field(
+                    self.db,
+                    this_qual,
                     field_ty.route,
-                ))
+                    field_liason,
+                    is_field_copyable,
+                )?)
             }
             RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized")),
             RawExprVariant::Entity { route, kind } => match kind {
@@ -295,16 +297,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Function { .. } => todo!(),
                 EntityKind::Feature => todo!(),
-                EntityKind::EnumLiteral => Ok(EagerQualifiedTy::new(
-                    EagerQualifier::Copyable,
-                    self.raw_expr_ty(raw_expr_idx)?,
-                )),
+                EntityKind::EnumLiteral => Ok(EagerQualifiedTy {
+                    qual: EagerQualifier::Copyable,
+                    ty: self.raw_expr_ty(raw_expr_idx)?,
+                }),
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::CopyableLiteral(_) => Ok(EagerQualifiedTy::new(
-                EagerQualifier::Copyable,
-                self.raw_expr_ty(raw_expr_idx).unwrap(),
-            )),
+            RawExprVariant::CopyableLiteral(_) => Ok(EagerQualifiedTy {
+                qual: EagerQualifier::Copyable,
+                ty: self.raw_expr_ty(raw_expr_idx).unwrap(),
+            }),
             RawExprVariant::Bracketed(expr) => {
                 derived_not_none!(self.infer_eager_expr(arena, expr))
             }
@@ -359,13 +361,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             BinaryOpr::Assign(_) => match this_qt.qual {
                 EagerQualifier::Copyable
                 | EagerQualifier::PureRef
-                | EagerQualifier::GlobalRef
-                | EagerQualifier::LocalRef
+                | EagerQualifier::EvalRef
+                | EagerQualifier::TempRef
                 | EagerQualifier::Transient
                 | EagerQualifier::Owned => throw!("lopd is not mutable", range),
                 EagerQualifier::CopyableMut
                 | EagerQualifier::OwnedMut
-                | EagerQualifier::LocalRefMut => (),
+                | EagerQualifier::TempRefMut => (),
             },
         }
         self.infer_eager_expr(arena, opds.start + 1);
@@ -421,7 +423,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<EagerQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(arena, opds.start))?;
-        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
+        let this_deref_ty = match this_qt.ty.kind {
+            EntityRouteKind::Root {
+                ident: RootIdentifier::Ref,
+            } => this_qt.ty.spatial_arguments[0].take_entity_route(),
+            _ => this_qt.ty,
+        };
+        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let qual = EagerQualifier::from_field(
             this_qt.qual,
@@ -473,10 +481,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     |(opd_idx, parameter)| -> InferResult<Option<EagerQualifiedTy>> {
                         if let Some(qt) = self.infer_eager_expr(arena, opd_idx) {
                             match parameter.liason {
-                                InputLiason::Pure => Ok(Some(qt)),
-                                InputLiason::GlobalRef => todo!(),
-                                InputLiason::LocalRefMut => todo!(),
-                                InputLiason::Move | InputLiason::MoveMut => match qt.qual {
+                                ParameterLiason::Pure => Ok(Some(qt)),
+                                ParameterLiason::EvalRef => todo!(),
+                                ParameterLiason::TempRefMut => todo!(),
+                                ParameterLiason::Move | ParameterLiason::MoveMut => match qt.qual {
                                     EagerQualifier::Copyable | EagerQualifier::CopyableMut => {
                                         panic!()
                                     }
@@ -489,11 +497,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                                     EagerQualifier::Owned
                                     | EagerQualifier::OwnedMut
                                     | EagerQualifier::Transient => Ok(Some(qt)),
-                                    EagerQualifier::GlobalRef => todo!(),
-                                    EagerQualifier::LocalRef => todo!(),
-                                    EagerQualifier::LocalRefMut => todo!(),
+                                    EagerQualifier::EvalRef => todo!(),
+                                    EagerQualifier::TempRef => todo!(),
+                                    EagerQualifier::TempRefMut => todo!(),
                                 },
-                                InputLiason::MemberAccess => todo!(),
+                                ParameterLiason::MemberAccess => todo!(),
                             }
                         } else {
                             Ok(None)

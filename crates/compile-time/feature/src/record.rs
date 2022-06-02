@@ -40,42 +40,33 @@ pub(crate) fn expr_record_field(
                 ref trait_impls,
                 ref members,
                 ..
-            } => match kind {
-                TyKind::Record => {
-                    if let Some((idx, type_member)) = type_members.iget_entry(field_ident) {
-                        match type_member.variant {
-                            EntityDefnVariant::TypeField {
-                                ty,
-                                field_variant: ref field_variant,
-                                liason: contract,
-                            } => match field_variant {
-                                FieldDefnVariant::StructOriginal => panic!(),
-                                FieldDefnVariant::RecordOriginal => opds[idx].clone().into(),
-                                FieldDefnVariant::StructDerivedLazy { defn_repr: block } => {
-                                    todo!()
-                                }
-                                FieldDefnVariant::RecordDerived { ref defn_repr } => {
-                                    todo!()
-                                }
-                                FieldDefnVariant::StructDefault { default } => todo!(),
-                                FieldDefnVariant::StructDerivedEager { derivation: value } => {
-                                    todo!()
-                                }
-                            },
-                            _ => panic!(),
-                        }
-                    } else {
-                        todo!()
+            } => {
+                if let Some((idx, type_member)) = type_members.iget_entry(field_ident) {
+                    match type_member.variant {
+                        EntityDefnVariant::TyField {
+                            ty,
+                            field_variant: ref field_variant,
+                            liason: contract,
+                        } => match field_variant {
+                            FieldDefnVariant::StructOriginal => panic!(),
+                            FieldDefnVariant::RecordOriginal => opds[idx].clone().into(),
+                            FieldDefnVariant::StructDerivedLazy { defn_repr: block } => {
+                                todo!()
+                            }
+                            FieldDefnVariant::RecordDerived { ref defn_repr } => {
+                                todo!()
+                            }
+                            FieldDefnVariant::StructDefault { default } => todo!(),
+                            FieldDefnVariant::StructDerivedEager { derivation: value } => {
+                                todo!()
+                            }
+                        },
+                        _ => panic!(),
                     }
+                } else {
+                    todo!()
                 }
-                _ => panic!(),
-                TyKind::Enum => todo!(),
-                TyKind::Struct => todo!(),
-                TyKind::Primitive => todo!(),
-                TyKind::Vec => todo!(),
-                TyKind::Array => todo!(),
-                TyKind::Other => todo!(),
-            },
+            }
             _ => panic!(),
         },
         FeatureExprVariant::EnumKindLiteral { .. }

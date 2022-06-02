@@ -25,7 +25,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     name: "leading_zeros",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
@@ -48,7 +48,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     name: "trailing_zeros",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
@@ -71,10 +71,10 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
     name: "last_bits",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[StaticInputParameter {
             name: "k",
-            contract: InputLiason::Pure,
+            contract: ParameterLiason::Pure,
             ty: "i32",
         }],
         output_ty: "b32",

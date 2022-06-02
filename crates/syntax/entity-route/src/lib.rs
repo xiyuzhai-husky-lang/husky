@@ -11,6 +11,7 @@ use word::{CustomIdentifier, Identifier, RootIdentifier};
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct EntityRoute {
     pub kind: EntityRouteKind,
+    pub temporal_arguments: Vec<TemporalArgument>,
     pub spatial_arguments: Vec<SpatialArgument>,
 }
 
@@ -63,6 +64,12 @@ impl std::fmt::Debug for EntityRoute {
         }
         Ok(())
     }
+}
+
+// the actual value that is passed to the generic entity
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum TemporalArgument {
+    Global,
 }
 
 // the actual value that is passed to the generic entity
@@ -137,6 +144,7 @@ impl EntityRoute {
     pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
             kind: EntityRouteKind::Package { main, ident },
+            temporal_arguments: vec![],
             spatial_arguments: Vec::new(),
         }
     }
@@ -160,6 +168,7 @@ impl EntityRoute {
     ) -> EntityRoute {
         EntityRoute {
             kind: EntityRouteKind::Child { parent, ident },
+            temporal_arguments: vec![],
             spatial_arguments: generics,
         }
     }
@@ -167,6 +176,7 @@ impl EntityRoute {
     pub fn new_root(ident: RootIdentifier, generic_arguments: Vec<SpatialArgument>) -> EntityRoute {
         EntityRoute {
             kind: EntityRouteKind::Root { ident },
+            temporal_arguments: vec![],
             spatial_arguments: generic_arguments,
         }
     }
@@ -179,6 +189,7 @@ impl EntityRoute {
         spatial_arguments.extend(new_spatial_arguments);
         EntityRoute {
             kind: self.kind,
+            temporal_arguments: vec![],
             spatial_arguments,
         }
     }

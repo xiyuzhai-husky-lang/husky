@@ -37,7 +37,7 @@ impl<'a> AstTransformer<'a> {
             enter_block(self);
             self.context
                 .set(AstContext::Stmt(Paradigm::EagerFunctional));
-            self.opt_this_liason.set(Some(InputLiason::Pure));
+            self.opt_this_liason.set(Some(ParameterLiason::Pure));
             let mut parser = AtomParser::new(self, &mut token_stream);
             let atoms = parser.parse_all()?;
             FieldAstKind::StructDefault {
@@ -56,7 +56,7 @@ impl<'a> AstTransformer<'a> {
             enter_block(self);
             self.context
                 .set(AstContext::Stmt(Paradigm::EagerFunctional));
-            self.opt_this_liason.set(Some(InputLiason::Pure));
+            self.opt_this_liason.set(Some(ParameterLiason::Pure));
             let mut parser = AtomParser::new(self, &mut token_stream);
             let atoms = parser.parse_all()?;
             FieldAstKind::StructDerivedEager {
@@ -112,7 +112,7 @@ impl<'a> AstTransformer<'a> {
             _ => todo!(),
         };
         self.context.set(AstContext::Stmt(paradigm));
-        self.opt_this_liason.set(Some(InputLiason::GlobalRef));
+        self.opt_this_liason.set(Some(ParameterLiason::EvalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);
         match token_group[2].kind {
             TokenKind::Special(SpecialToken::LightArrow) => (),

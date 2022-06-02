@@ -70,7 +70,7 @@ pub enum ProcStmtVariant {
 }
 
 pub fn parse_impr_stmts(
-    parameters: &[InputParameter],
+    parameters: &[Parameter],
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: fold::FoldableIter<AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>,

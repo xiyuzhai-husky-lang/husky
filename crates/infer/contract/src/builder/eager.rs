@@ -213,7 +213,7 @@ impl<'a> ContractSheetBuilder<'a> {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
                     EagerContract::Pure | EagerContract::Move | EagerContract::Return => (),
-                    EagerContract::RefMut => todo!(),
+                    EagerContract::TempRefMut => todo!(),
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForLetInit => (),
@@ -221,7 +221,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
-                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::EvalRef => todo!(),
                 }
                 self.infer_eager_expr(lopd, EagerContract::Pure, arena);
                 self.infer_eager_expr(ropd, EagerContract::Pure, arena);
@@ -237,7 +237,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         todo!()
                     }
                 }
-                self.infer_eager_expr(lopd, EagerContract::RefMut, arena);
+                self.infer_eager_expr(lopd, EagerContract::TempRefMut, arena);
                 self.infer_eager_expr(
                     ropd,
                     match (opt_opr, is_lopd_copyable) {
@@ -268,11 +268,11 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::Return => todo!(),
-                    EagerContract::RefMut => todo!(),
+                    EagerContract::TempRefMut => todo!(),
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
-                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::EvalRef => todo!(),
                 }
                 EagerContract::Pure
             }
@@ -293,7 +293,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         match opr {
             SuffixOpr::Incr | SuffixOpr::Decr => {
-                self.infer_eager_expr(opd, EagerContract::RefMut, arena);
+                self.infer_eager_expr(opd, EagerContract::TempRefMut, arena);
                 match contract {
                     EagerContract::Exec => Ok(()),
                     _ => todo!(),
@@ -310,11 +310,11 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::UseForVarInit => todo!(),
                         EagerContract::UseMemberForLetInit => todo!(),
                         EagerContract::UseMemberForVarInit => todo!(),
-                        EagerContract::RefMut => todo!(),
+                        EagerContract::TempRefMut => todo!(),
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
                         EagerContract::UseForAssignRvalue => todo!(),
-                        EagerContract::GlobalRef => todo!(),
+                        EagerContract::EvalRef => todo!(),
                     },
                     arena,
                 );
@@ -487,7 +487,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::Move
                 }
             }
-            EagerContract::RefMut => EagerContract::RefMut,
+            EagerContract::TempRefMut => EagerContract::TempRefMut,
             EagerContract::MoveMut => EagerContract::MoveMut,
             EagerContract::Exec => Err(InferError {
                 variant: InferErrorVariant::Derived {
@@ -503,7 +503,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     arena[raw_expr_idx].range
                 )
             }
-            EagerContract::GlobalRef => todo!(),
+            EagerContract::EvalRef => todo!(),
         };
         self.infer_eager_expr(total_opds.start, this_contract, arena);
         for opd in (total_opds.start + 1)..total_opds.end {

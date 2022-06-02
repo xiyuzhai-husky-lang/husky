@@ -11,7 +11,7 @@ pub struct EagerVariable {
 impl EagerVariable {
     pub(crate) fn from_input(
         qualified_ty_sheet: &QualifiedTySheet,
-        input_placeholder: &InputParameter,
+        input_placeholder: &Parameter,
     ) -> SemanticResult<Self> {
         Ok(EagerVariable {
             ident: input_placeholder.ranged_ident.ident,

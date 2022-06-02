@@ -19,14 +19,14 @@ impl TestDisplay for LazyQualifiedTy {
 impl LazyQualifiedTy {
     pub(crate) fn ty_ty() -> Self {
         Self {
-            qual: LazyQualifier::GlobalRef,
+            qual: LazyQualifier::EvalRef,
             ty: EntityRoutePtr::Root(RootIdentifier::TypeType),
         }
     }
 
     pub(crate) fn from_input(
         db: &dyn InferQualifiedTyQueryGroup,
-        input_liason: InputLiason,
+        input_liason: ParameterLiason,
         ty: EntityRoutePtr,
     ) -> InferResult<Self> {
         Ok(LazyQualifiedTy::new(
@@ -48,7 +48,7 @@ impl LazyQualifiedTy {
             InitKind::Decl => match self.qual {
                 LazyQualifier::Copyable => LazyQualifier::Copyable,
                 LazyQualifier::PureRef => LazyQualifier::PureRef,
-                LazyQualifier::GlobalRef | LazyQualifier::Transient => LazyQualifier::GlobalRef,
+                LazyQualifier::EvalRef | LazyQualifier::Transient => LazyQualifier::EvalRef,
             },
         };
         Ok(Self { qual, ty: self.ty })
@@ -67,7 +67,7 @@ impl LazyQualifiedTy {
             OutputLiason::Transfer => match self.qual {
                 LazyQualifier::Copyable => true,
                 LazyQualifier::PureRef => todo!(),
-                LazyQualifier::GlobalRef => todo!(),
+                LazyQualifier::EvalRef => todo!(),
                 LazyQualifier::Transient => true,
             },
             OutputLiason::MemberAccess { .. } => todo!(),
@@ -79,7 +79,7 @@ impl LazyQualifiedTy {
 pub enum LazyQualifier {
     Copyable,
     PureRef,
-    GlobalRef,
+    EvalRef,
     Transient,
 }
 
@@ -88,7 +88,7 @@ impl LazyQualifier {
         if is_copyable {
             LazyQualifier::Copyable
         } else {
-            LazyQualifier::GlobalRef
+            LazyQualifier::EvalRef
         }
     }
 
@@ -96,7 +96,7 @@ impl LazyQualifier {
         match self {
             LazyQualifier::PureRef => match contract {
                 LazyContract::Pure => Binding::Ref,
-                LazyContract::GlobalRef => todo!(),
+                LazyContract::EvalRef => todo!(),
                 LazyContract::Move => todo!(),
                 LazyContract::Init => todo!(),
                 LazyContract::UseMemberForInit => Binding::Ref,
@@ -105,7 +105,7 @@ impl LazyQualifier {
             },
             LazyQualifier::Transient => todo!(),
             LazyQualifier::Copyable => Binding::Copy,
-            LazyQualifier::GlobalRef => Binding::Ref,
+            LazyQualifier::EvalRef => Binding::Ref,
         }
     }
 
@@ -116,7 +116,7 @@ impl LazyQualifier {
                 LazyContract::Return => LazyQualifier::Copyable,
                 LazyContract::UseMemberForInit => todo!(),
                 LazyContract::UseMemberForReturn => todo!(),
-                LazyContract::GlobalRef => todo!(),
+                LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyQualifier::Copyable,
                 LazyContract::Move => todo!(),
             },
@@ -125,16 +125,16 @@ impl LazyQualifier {
                 LazyContract::Return => todo!(),
                 LazyContract::UseMemberForInit => todo!(),
                 LazyContract::UseMemberForReturn => todo!(),
-                LazyContract::GlobalRef => todo!(),
+                LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyQualifier::PureRef,
                 LazyContract::Move => todo!(),
             },
-            LazyQualifier::GlobalRef => match contract {
+            LazyQualifier::EvalRef => match contract {
                 LazyContract::Init => todo!(),
                 LazyContract::Return => todo!(),
-                LazyContract::UseMemberForInit => LazyQualifier::GlobalRef,
-                LazyContract::UseMemberForReturn => LazyQualifier::GlobalRef,
-                LazyContract::GlobalRef => todo!(),
+                LazyContract::UseMemberForInit => LazyQualifier::EvalRef,
+                LazyContract::UseMemberForReturn => LazyQualifier::EvalRef,
+                LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyQualifier::PureRef,
                 LazyContract::Move => todo!(),
             },
@@ -144,20 +144,20 @@ impl LazyQualifier {
 }
 
 impl LazyQualifier {
-    pub fn from_input(input_liason: InputLiason, is_copyable: bool) -> Self {
+    pub fn from_input(input_liason: ParameterLiason, is_copyable: bool) -> Self {
         match input_liason {
-            InputLiason::Pure => {
+            ParameterLiason::Pure => {
                 if is_copyable {
                     LazyQualifier::Copyable
                 } else {
                     LazyQualifier::PureRef
                 }
             }
-            InputLiason::GlobalRef => LazyQualifier::GlobalRef,
-            InputLiason::Move => todo!(),
-            InputLiason::LocalRefMut => todo!(),
-            InputLiason::MoveMut => todo!(),
-            InputLiason::MemberAccess => todo!(),
+            ParameterLiason::EvalRef => LazyQualifier::EvalRef,
+            ParameterLiason::Move => todo!(),
+            ParameterLiason::TempRefMut => todo!(),
+            ParameterLiason::MoveMut => todo!(),
+            ParameterLiason::MemberAccess => todo!(),
         }
     }
 
@@ -174,27 +174,27 @@ impl LazyQualifier {
     }
 
     pub fn from_parameter_use(
-        input_liason: InputLiason,
+        input_liason: ParameterLiason,
         is_copyable: bool,
         contract: LazyContract,
     ) -> InferResult<Self> {
         Self::from_parameter(input_liason, is_copyable).variable_use(contract)
     }
 
-    pub fn from_parameter(input_liason: InputLiason, is_copyable: bool) -> Self {
+    pub fn from_parameter(input_liason: ParameterLiason, is_copyable: bool) -> Self {
         match input_liason {
-            InputLiason::Pure => {
+            ParameterLiason::Pure => {
                 if is_copyable {
                     LazyQualifier::Copyable
                 } else {
                     LazyQualifier::PureRef
                 }
             }
-            InputLiason::GlobalRef => LazyQualifier::GlobalRef,
-            InputLiason::Move => todo!(),
-            InputLiason::LocalRefMut => todo!(),
-            InputLiason::MoveMut => todo!(),
-            InputLiason::MemberAccess => todo!(),
+            ParameterLiason::EvalRef => LazyQualifier::EvalRef,
+            ParameterLiason::Move => todo!(),
+            ParameterLiason::TempRefMut => todo!(),
+            ParameterLiason::MoveMut => todo!(),
+            ParameterLiason::MemberAccess => todo!(),
         }
     }
 
@@ -224,7 +224,7 @@ impl LazyQualifier {
                 LazyContract::Return => todo!(),
                 LazyContract::UseMemberForInit => todo!(),
                 LazyContract::UseMemberForReturn => todo!(),
-                LazyContract::GlobalRef => todo!(),
+                LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => Binding::Copy,
                 LazyContract::Move => todo!(),
             }
@@ -234,13 +234,13 @@ impl LazyQualifier {
                 LazyContract::Init => match self {
                     LazyQualifier::Copyable => todo!(),
                     LazyQualifier::PureRef => Binding::Ref,
-                    LazyQualifier::GlobalRef => Binding::Ref,
+                    LazyQualifier::EvalRef => Binding::Ref,
                     LazyQualifier::Transient => Binding::Move,
                 },
                 LazyContract::Return => todo!(),
                 LazyContract::UseMemberForInit => todo!(),
                 LazyContract::UseMemberForReturn => todo!(),
-                LazyContract::GlobalRef => todo!(),
+                LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => todo!(),
                 LazyContract::Move => todo!(),
             }

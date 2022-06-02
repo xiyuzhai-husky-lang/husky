@@ -1,4 +1,4 @@
-use vm::InputLiason;
+use vm::ParameterLiason;
 
 use super::*;
 

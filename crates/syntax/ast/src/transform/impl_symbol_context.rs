@@ -15,7 +15,7 @@ impl<'a> AtomContext for AstTransformer<'a> {
         self.opt_this_ty.value()
     }
 
-    fn opt_this_liason(&self) -> Option<vm::InputLiason> {
+    fn opt_this_liason(&self) -> Option<vm::ParameterLiason> {
         self.opt_this_liason.value()
     }
 

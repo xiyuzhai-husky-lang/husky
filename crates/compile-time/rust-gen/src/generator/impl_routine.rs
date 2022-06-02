@@ -1,6 +1,6 @@
 use entity_route::EntityRoutePtr;
 use semantics_eager::{FuncStmt, ProcStmt};
-use vm::InputLiason;
+use vm::ParameterLiason;
 use word::CustomIdentifier;
 
 use super::*;
@@ -9,7 +9,7 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_proc_defn(
         &mut self,
         ident: CustomIdentifier,
-        parameters: &[InputParameter],
+        parameters: &[Parameter],
         output: EntityRoutePtr,
         stmts: &[Arc<ProcStmt>],
     ) {
@@ -23,7 +23,7 @@ impl<'a> RustGenerator<'a> {
             self.write(&input_placeholder.ranged_ident.ident);
             self.write(": ");
             match input_placeholder.liason {
-                InputLiason::Pure => {
+                ParameterLiason::Pure => {
                     if !self
                         .db
                         .is_copyable(input_placeholder.ranged_ty.route)
@@ -32,11 +32,11 @@ impl<'a> RustGenerator<'a> {
                         self.write("&")
                     }
                 }
-                InputLiason::GlobalRef => todo!(),
-                InputLiason::Move => todo!(),
-                InputLiason::LocalRefMut => todo!(),
-                InputLiason::MoveMut => todo!(),
-                InputLiason::MemberAccess => todo!(),
+                ParameterLiason::EvalRef => todo!(),
+                ParameterLiason::Move => todo!(),
+                ParameterLiason::TempRefMut => todo!(),
+                ParameterLiason::MoveMut => todo!(),
+                ParameterLiason::MemberAccess => todo!(),
             }
             self.gen_entity_route(input_placeholder.ranged_ty.route);
         }
@@ -50,7 +50,7 @@ impl<'a> RustGenerator<'a> {
     pub(super) fn gen_func_defn(
         &mut self,
         ident: CustomIdentifier,
-        parameters: &[InputParameter],
+        parameters: &[Parameter],
         output: EntityRoutePtr,
         stmts: &[Arc<FuncStmt>],
     ) {
@@ -64,7 +64,7 @@ impl<'a> RustGenerator<'a> {
             self.write(&input_placeholder.ranged_ident.ident);
             self.write(": ");
             match input_placeholder.liason {
-                InputLiason::Pure => {
+                ParameterLiason::Pure => {
                     if !self
                         .db
                         .is_copyable(input_placeholder.ranged_ty.route)
@@ -73,11 +73,11 @@ impl<'a> RustGenerator<'a> {
                         self.write("&")
                     }
                 }
-                InputLiason::GlobalRef => todo!(),
-                InputLiason::Move => todo!(),
-                InputLiason::LocalRefMut => todo!(),
-                InputLiason::MoveMut => todo!(),
-                InputLiason::MemberAccess => todo!(),
+                ParameterLiason::EvalRef => todo!(),
+                ParameterLiason::Move => todo!(),
+                ParameterLiason::TempRefMut => todo!(),
+                ParameterLiason::MoveMut => todo!(),
+                ParameterLiason::MemberAccess => todo!(),
             }
             self.gen_entity_route(input_placeholder.ranged_ty.route);
         }

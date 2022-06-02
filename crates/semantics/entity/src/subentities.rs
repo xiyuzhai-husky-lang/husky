@@ -7,7 +7,7 @@ impl EntityDefnVariant {
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Module { ref module_items } => module_items.clone(),
             EntityDefnVariant::Feature { .. }
-            | EntityDefnVariant::TypeField { .. }
+            | EntityDefnVariant::TyField { .. }
             | EntityDefnVariant::Func { .. }
             | EntityDefnVariant::Proc { .. }
             | EntityDefnVariant::Method { .. } => Arc::new(Vec::new()),

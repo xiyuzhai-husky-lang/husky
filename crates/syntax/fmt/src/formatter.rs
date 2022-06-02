@@ -4,7 +4,7 @@ use ast::{
     Ast, AstContext, AstResult, AstVariant, RawExpr, RawExprVariant, RawStmtVariant,
     StructItemContext,
 };
-use defn_head::InputParameter;
+use defn_head::Parameter;
 use entity_kind::TyKind;
 use entity_route::EntityRoutePtr;
 use fold::LocalValue;
@@ -170,14 +170,14 @@ impl<'a> Formatter<'a> {
         self.result.add_assign(&ident)
     }
 
-    fn fmt_func_input_liasoned_type(&mut self, ty: &InputParameter) {
+    fn fmt_func_input_liasoned_type(&mut self, ty: &Parameter) {
         match ty.liason {
-            InputLiason::Pure => (),
-            InputLiason::GlobalRef => self.write("&"),
-            InputLiason::Move => self.write("!"),
-            InputLiason::LocalRefMut => self.write("mut &"),
-            InputLiason::MoveMut => self.write("mut !"),
-            InputLiason::MemberAccess => todo!(),
+            ParameterLiason::Pure => (),
+            ParameterLiason::EvalRef => self.write("&"),
+            ParameterLiason::Move => self.write("!"),
+            ParameterLiason::TempRefMut => self.write("mut &"),
+            ParameterLiason::MoveMut => self.write("mut !"),
+            ParameterLiason::MemberAccess => todo!(),
         }
         self.fmt_ty(ty.ranged_ty.route);
     }

@@ -15,14 +15,14 @@
     k           25:22..25:23  Copyable     i32
 
 [35mlazy expr qualified types
-[0m    32:9..32:14    input                  GlobalRef datasets::cv::mnist::BinaryImage28
+[0m    32:9..32:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
     33:9..33:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     33:11..33:12   1                      Copyable i32
     33:9..33:13    a[1]                   Copyable b32
     34:9..34:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     34:11..34:13   12                     Copyable i32
     34:9..34:14    a[12]                  Copyable b32
-    35:35..35:40   input                  GlobalRef datasets::cv::mnist::BinaryImage28
+    35:35..35:40   input                  EvalRef datasets::cv::mnist::BinaryImage28
     35:9..35:41    find_connected_components(input)   Transient Vec<datasets::cv::mnist::BinaryImage28>
     36:5..36:6     d                      PureRef Vec<datasets::cv::mnist::BinaryImage28>
     36:5..36:12    d.len()                Copyable i32
@@ -87,7 +87,7 @@
     19:15..19:25   unsearched             PureRef      datasets::cv::mnist::BinaryImage28
     19:26..19:27   j                      Copyable     i32
     19:15..19:28   unsearched[j]          Copyable     b32
-    20:21..20:31   unsearched             LocalRef     datasets::cv::mnist::BinaryImage28
+    20:21..20:31   unsearched             TempRef      datasets::cv::mnist::BinaryImage28
     20:32..20:33   j                      Copyable     i32
     20:21..20:34   unsearched[j]          Copyable     b32
     21:25..21:26   a                      Copyable     b32
@@ -120,14 +120,14 @@
     28:12..28:18   result                 Transient    Vec<datasets::cv::mnist::BinaryImage28>
 
 [35mlazy expr qualified types
-[0m    32:9..32:14    input                  GlobalRef datasets::cv::mnist::BinaryImage28
+[0m    32:9..32:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
     33:9..33:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     33:11..33:12   1                      Copyable i32
     33:9..33:13    a[1]                   Copyable b32
     34:9..34:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     34:11..34:13   12                     Copyable i32
     34:9..34:14    a[12]                  Copyable b32
-    35:35..35:40   input                  GlobalRef datasets::cv::mnist::BinaryImage28
+    35:35..35:40   input                  EvalRef datasets::cv::mnist::BinaryImage28
     35:9..35:41    find_connected_components(input)   Transient Vec<datasets::cv::mnist::BinaryImage28>
     36:5..36:6     d                      PureRef Vec<datasets::cv::mnist::BinaryImage28>
     36:5..36:12    d.len()                Copyable i32

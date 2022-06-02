@@ -57,12 +57,12 @@ impl EntityDefnVariant {
             TyKind::Enum => None,
             TyKind::Record => Some(Arc::new(TyCallDefn {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
-                    EntityDefnVariant::TypeField {
+                    EntityDefnVariant::TyField {
                         ty,
                         field_variant: ref field_variant,
                         liason: contract,
                     } => match field_variant {
-                        FieldDefnVariant::RecordOriginal => InputParameter {
+                        FieldDefnVariant::RecordOriginal => Parameter {
                             ranged_ident: ident,
                             liason: contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
                             ranged_ty: RangedEntityRoute {
@@ -85,12 +85,12 @@ impl EntityDefnVariant {
             })),
             TyKind::Struct => Some(Arc::new(TyCallDefn {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
-                    EntityDefnVariant::TypeField {
+                    EntityDefnVariant::TyField {
                         ty,
                         field_variant: ref field_variant,
                         liason: contract,
                     } => match field_variant {
-                        FieldDefnVariant::StructOriginal => InputParameter {
+                        FieldDefnVariant::StructOriginal => Parameter {
                             ranged_ident: ident,
                             liason: contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
                             ranged_ty: RangedEntityRoute {
@@ -179,6 +179,7 @@ impl EntityDefnVariant {
                     symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
                 let this_ty = symbol_context.db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
+                    temporal_arguments: vec![],
                     spatial_arguments: generic_arguments,
                 });
                 let symbols = symbol_context.symbols_from_generic_parameters(&generic_parameters);
@@ -234,13 +235,7 @@ impl EntityDefnVariant {
                                 EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
                             },
                         },
-                        db.intern_entity_route(EntityRoute {
-                            kind: EntityRouteKind::Child {
-                                parent: ty_route,
-                                ident: ident.ident,
-                            },
-                            spatial_arguments: vec![],
-                        }),
+                        db.make_subroute(ty_route, ident.ident, vec![]),
                         file,
                         ast.range,
                     ));
