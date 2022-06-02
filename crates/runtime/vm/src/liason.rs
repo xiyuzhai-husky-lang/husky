@@ -42,13 +42,14 @@ impl InputLiason {
                     EagerContract::MoveMut => todo!(),
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 }
                 Ok(match self {
                     InputLiason::Pure => EagerContract::Pure,
                     InputLiason::Move | InputLiason::MoveMut => EagerContract::Move,
                     InputLiason::LocalRefMut => EagerContract::RefMut,
                     InputLiason::MemberAccess => panic!(),
-                    InputLiason::GlobalRef => todo!(),
+                    InputLiason::GlobalRef => EagerContract::GlobalRef,
                 })
             }
             OutputLiason::MemberAccess { .. } => {
@@ -74,6 +75,7 @@ impl InputLiason {
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
                         EagerContract::UseForAssignRvalue => todo!(),
+                        EagerContract::GlobalRef => todo!(),
                     })
                 }
             }
@@ -171,6 +173,7 @@ impl MemberLiason {
                 },
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
+                EagerContract::GlobalRef => todo!(),
             })
         } else {
             match self {
@@ -192,6 +195,7 @@ impl MemberLiason {
                     EagerContract::UseForAssignRvalue => Err(vm_compile_error!(format!(
                         "can't assign to an immutable field"
                     ))),
+                    EagerContract::GlobalRef => Ok(EagerContract::GlobalRef),
                 },
                 MemberLiason::Mutable => match member_contract {
                     EagerContract::Pure => Ok(EagerContract::Pure),
@@ -206,6 +210,7 @@ impl MemberLiason {
                     EagerContract::Return => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 },
                 MemberLiason::Derived => panic!(),
             }
