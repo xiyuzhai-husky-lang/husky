@@ -4,7 +4,7 @@ use file::FilePtr;
 use infer_contract::InferContract;
 use infer_entity_route::InferEntityRoute;
 use infer_qualifier::{EagerQualifier, InferQualifiedTy};
-use text::RangedCustomIdentifier;
+use text::{BindTextRangeInto, RangedCustomIdentifier};
 use vm::*;
 use word::{ContextualIdentifier, Identifier, RootIdentifier};
 
@@ -113,7 +113,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     opt_this_liason.unwrap(),
                     self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
                     this_contract,
-                )?;
+                )
+                .unwrap();
                 let ty_decl = self.decl_db().ty_decl(opt_this_ty.unwrap()).unwrap();
                 EagerExprVariant::ThisField {
                     field_ident,

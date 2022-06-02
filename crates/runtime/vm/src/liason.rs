@@ -58,7 +58,7 @@ impl InputLiason {
                     // this
                     Ok(match output_contract {
                         EagerContract::Pure => EagerContract::Pure,
-                        EagerContract::Move => todo!(),
+                        EagerContract::Move => EagerContract::Move,
                         EagerContract::UseForLetInit => {
                             if is_output_ty_copyable {
                                 EagerContract::Pure

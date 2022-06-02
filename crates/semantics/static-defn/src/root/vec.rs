@@ -1,3 +1,11 @@
+mod cyclic_slice;
+mod first;
+mod last;
+
+pub use cyclic_slice::*;
+pub use first::*;
+pub use last::*;
+
 use super::*;
 use check_utils::should_eq;
 
@@ -10,67 +18,55 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
         }],
-        static_trait_impls: &[
-            // StaticTraitImplDefn {
-            //     dev_src: static_dev_src!(),
-            //     trai: "Clone",
-            //     member_impls: &[EntityStaticDefn {
-            //         dev_src: static_dev_src!(),
-            //         name: "clone",
-            //         subscopes: &[],
-            //         variant: EntityStaticDefnVariant::Method {
-            //             this_contract: InputLiason::Pure,
-            //             input_parameters: &[],
-            //             output_ty: "Vec<E>",
-            //             output_liason: OutputLiason::Transfer,
-            //             generic_parameters: &[],
-            //             kind: MethodStaticDefnVariant::TraitMethodImpl { opt_source: None },
-            //         },
-            //     }],
-            // },
-            StaticTraitImplDefn {
-                trai: "std::ops::Index<i32>",
-                member_impls: &[
-                    associated_type_impl!("Output", "E"),
-                    EntityStaticDefn {
-                        dev_src: static_dev_src!(),
-                        name: "index",
-                        subscopes: &[],
-                        variant: EntityStaticDefnVariant::Method {
-                            this_contract: InputLiason::MemberAccess,
-                            input_parameters: &[],
-                            output_ty: "E",
-                            output_liason: OutputLiason::MemberAccess {
-                                member_liason: MemberLiason::Mutable,
-                            },
-                            generic_parameters: &[],
-                            kind: MethodStaticDefnVariant::TraitMethodImpl {
-                                opt_source: Some(LinkageSource::MemberAccess {
-                                    copy_access: Linkage {
-                                        call: generic_vec_element_copy_access,
-                                        nargs: 2,
-                                    },
-                                    ref_access: Linkage {
-                                        call: generic_vec_element_ref_access,
-                                        nargs: 2,
-                                    },
-                                    move_access: Linkage {
-                                        call: generic_vec_element_move_access,
-                                        nargs: 2,
-                                    },
-                                    ref_mut_access: Linkage {
-                                        call: generic_vec_element_borrow_mut_access,
-                                        nargs: 2,
-                                    },
-                                }),
-                            },
+        static_trait_impls: &[StaticTraitImplDefn {
+            trai: "std::ops::Index<i32>",
+            member_impls: &[
+                associated_type_impl!("Output", "E"),
+                EntityStaticDefn {
+                    dev_src: static_dev_src!(),
+                    name: "index",
+                    subscopes: &[],
+                    variant: EntityStaticDefnVariant::Method {
+                        this_contract: InputLiason::MemberAccess,
+                        input_parameters: &[],
+                        output_ty: "E",
+                        output_liason: OutputLiason::MemberAccess {
+                            member_liason: MemberLiason::Mutable,
+                        },
+                        generic_parameters: &[],
+                        kind: MethodStaticDefnVariant::TraitMethodImpl {
+                            opt_source: Some(LinkageSource::MemberAccess {
+                                copy_access: Linkage {
+                                    call: generic_vec_element_copy_access,
+                                    nargs: 2,
+                                },
+                                ref_access: Linkage {
+                                    call: generic_vec_element_ref_access,
+                                    nargs: 2,
+                                },
+                                move_access: Linkage {
+                                    call: generic_vec_element_move_access,
+                                    nargs: 2,
+                                },
+                                ref_mut_access: Linkage {
+                                    call: generic_vec_element_borrow_mut_access,
+                                    nargs: 2,
+                                },
+                            }),
                         },
                     },
-                ],
-                dev_src: static_dev_src!(),
-            },
+                },
+            ],
+            dev_src: static_dev_src!(),
+        }],
+        ty_members: &[
+            &VEC_LEN,
+            &VEC_PUSH,
+            &VEC_POP,
+            &VEC_FIRST,
+            &VEC_LAST,
+            &VEC_CYCLIC_SLICE,
         ],
-        ty_members: &[&VEC_LEN, &VEC_PUSH, &VEC_POP, &VEC_FIRST, &VEC_LAST],
         variants: &[],
         kind: TyKind::Vec,
         visualizer: StaticVisualizer::Vec,
@@ -114,18 +110,6 @@ fn generic_vec_push<'vm, 'eval>(
 }
 
 fn generic_vec_pop<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    todo!()
-}
-
-fn generic_vec_first<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    todo!()
-}
-
-fn generic_vec_last<'vm, 'eval>(
     values: &mut [VMValue<'vm, 'eval>],
 ) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     todo!()
@@ -208,7 +192,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::Transfer(Linkage {
-                call: generic_list_len,
+                call: generic_vec_len,
                 nargs: 1,
             }),
         },
@@ -217,7 +201,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
     dev_src: static_dev_src!(),
 };
 
-fn generic_list_len<'vm, 'eval>(
+fn generic_vec_len<'vm, 'eval>(
     values: &mut [VMValue<'vm, 'eval>],
 ) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
     let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
@@ -266,139 +250,3 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
     },
     dev_src: static_dev_src!(),
 };
-
-pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
-    name: "first",
-    subscopes: &[],
-    variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::MemberAccess,
-        input_parameters: &[],
-        output_ty: "E",
-        generic_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::MemberAccess {
-                copy_access: Linkage {
-                    call: generic_vec_first_copy,
-                    nargs: 1,
-                },
-                ref_access: Linkage {
-                    call: generic_vec_first_ref,
-                    nargs: 1,
-                },
-                ref_mut_access: Linkage {
-                    call: generic_vec_first_mut,
-                    nargs: 1,
-                },
-                move_access: Linkage {
-                    call: generic_vec_first_move,
-                    nargs: 1,
-                },
-            },
-        },
-        output_liason: OutputLiason::MemberAccess {
-            member_liason: MemberLiason::Mutable,
-        },
-    },
-    dev_src: static_dev_src!(),
-};
-
-fn generic_vec_first_copy<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    todo!()
-}
-
-fn generic_vec_first_ref<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
-    match generic_vec.first() {
-        Some(value) => Ok(value.stack_ref()),
-        None => Err(vm_runtime_error!("empty vec")),
-    }
-}
-
-fn generic_vec_first_mut<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    let (generic_vec, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
-        values[0].downcast_mut_full();
-    match generic_vec.first_mut() {
-        Some(value) => Ok(value.stack_mut(stack_idx)),
-        None => Err(vm_runtime_error!("empty vec")),
-    }
-}
-
-fn generic_vec_first_move<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    todo!()
-}
-
-pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
-    name: "last",
-    subscopes: &[],
-    variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::MemberAccess,
-        input_parameters: &[],
-        output_ty: "E",
-        generic_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::MemberAccess {
-                copy_access: Linkage {
-                    call: generic_vec_last_copy,
-                    nargs: 1,
-                },
-                ref_access: Linkage {
-                    call: generic_vec_last_ref,
-                    nargs: 1,
-                },
-                ref_mut_access: Linkage {
-                    call: generic_vec_last_mut,
-                    nargs: 1,
-                },
-                move_access: Linkage {
-                    call: generic_vec_last_move,
-                    nargs: 1,
-                },
-            },
-        },
-        output_liason: OutputLiason::MemberAccess {
-            member_liason: MemberLiason::Mutable,
-        },
-    },
-    dev_src: static_dev_src!(),
-};
-
-fn generic_vec_last_copy<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    todo!()
-}
-
-fn generic_vec_last_ref<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
-    match generic_vec.last() {
-        Some(value) => Ok(value.stack_ref()),
-        None => Err(vm_runtime_error!("empty vec")),
-    }
-}
-
-fn generic_vec_last_mut<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    let (generic_vec, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
-        values[0].downcast_mut_full();
-    match generic_vec.last_mut() {
-        Some(value) => Ok(value.stack_mut(stack_idx)),
-        None => Err(vm_runtime_error!("empty vec")),
-    }
-}
-
-fn generic_vec_last_move<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
-    todo!()
-}

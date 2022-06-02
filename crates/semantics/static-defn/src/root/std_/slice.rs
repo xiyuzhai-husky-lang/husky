@@ -1,4 +1,5 @@
 mod cyclic_slice;
+mod full_slice;
 
 pub use cyclic_slice::*;
 

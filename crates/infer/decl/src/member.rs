@@ -99,7 +99,9 @@ pub enum TyMemberDecl {
 impl TyMemberDecl {
     pub(crate) fn instantiate(&self, instantiator: &Instantiator) -> Self {
         match self {
-            TyMemberDecl::Field(_) => todo!(),
+            TyMemberDecl::Field(field_decl) => {
+                TyMemberDecl::Field(field_decl.instantiate(instantiator))
+            }
             TyMemberDecl::Method(method_decl) => {
                 TyMemberDecl::Method(method_decl.instantiate(instantiator))
             }
@@ -114,7 +116,10 @@ impl TyMemberDecl {
     ) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::Method { .. } => {
-                TyMemberDecl::Method(MethodDecl::from_static(db, static_defn, symbol_context))
+                TyMemberDecl::Method(MethodDecl::from_static(symbol_context, static_defn))
+            }
+            EntityStaticDefnVariant::TyField { .. } => {
+                TyMemberDecl::Field(FieldDecl::from_static(symbol_context, static_defn))
             }
             _ => panic!(""),
         }

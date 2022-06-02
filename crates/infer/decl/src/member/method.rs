@@ -40,9 +40,8 @@ impl MethodKind {
     }
 
     pub fn from_static(
-        db: &dyn DeclQueryGroup,
-        method_variant: &MethodStaticDefnVariant,
         symbol_context: &mut dyn AtomContext,
+        method_variant: &MethodStaticDefnVariant,
     ) -> Self {
         match method_variant {
             MethodStaticDefnVariant::TypeMethod { .. } => Self::Type,
@@ -94,11 +93,7 @@ impl MethodDecl {
         })
     }
 
-    pub fn from_static(
-        db: &dyn DeclQueryGroup,
-        defn: &EntityStaticDefn,
-        symbol_context: &mut dyn AtomContext,
-    ) -> Arc<Self> {
+    pub fn from_static(symbol_context: &mut dyn AtomContext, defn: &EntityStaticDefn) -> Arc<Self> {
         match defn.variant {
             EntityStaticDefnVariant::Method {
                 this_contract,
@@ -108,20 +103,25 @@ impl MethodDecl {
                 generic_parameters: generic_parameters,
                 ref kind,
             } => {
-                let output_ty = parse_route(symbol_context, &db.tokenize(output_ty)).unwrap();
+                let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
                 Arc::new(Self {
-                    ident: db.intern_word(defn.name).custom(),
+                    ident: symbol_context
+                        .entity_syntax_db()
+                        .intern_word(defn.name)
+                        .custom(),
                     this_liason: this_contract,
-                    parameters: inputs
-                        .map(|input| InputDecl::from_static(db, input, symbol_context)),
+                    parameters: inputs.map(|input| InputDecl::from_static(symbol_context, input)),
                     output: OutputDecl {
                         liason: output_liason,
-                        ty: output_ty.route,
+                        ty: output_ty,
                     },
                     generic_parameters: generic_parameters.map(|static_generic_placeholder| {
-                        SpatialParameter::from_static(db.upcast(), static_generic_placeholder)
+                        SpatialParameter::from_static(
+                            symbol_context.entity_syntax_db(),
+                            static_generic_placeholder,
+                        )
                     }),
-                    kind: MethodKind::from_static(db, kind, symbol_context),
+                    kind: MethodKind::from_static(symbol_context, kind),
                 })
             }
             _ => panic!(""),
