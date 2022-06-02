@@ -67,6 +67,7 @@ impl TyDecl {
                 let base_ty = symbol_context.entity_route_from_str(base_route).unwrap();
                 let this_ty = db.intern_entity_route(EntityRoute {
                     kind: base_ty.kind,
+                    temporal_arguments: vec![],
                     spatial_arguments: generic_arguments,
                 });
                 symbol_context.opt_this_ty = Some(this_ty);
@@ -112,6 +113,7 @@ impl TyDecl {
         let generic_arguments = db.generic_arguments_from_generic_parameters(&generic_parameters);
         let this_ty = db.intern_entity_route(EntityRoute {
             kind: ty.kind,
+            temporal_arguments: vec![],
             spatial_arguments: generic_arguments,
         });
         let mut children = children.peekable();

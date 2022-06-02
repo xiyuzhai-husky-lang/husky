@@ -5,7 +5,7 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InputDecl {
-    pub liason: InputLiason,
+    pub liason: ParameterLiason,
     pub ty: EntityRoutePtr,
     pub ident: CustomIdentifier,
 }
@@ -41,7 +41,7 @@ impl InputDecl {
     }
 }
 
-impl Into<InputDecl> for &InputParameter {
+impl Into<InputDecl> for &Parameter {
     fn into(self) -> InputDecl {
         InputDecl {
             liason: self.liason,

@@ -13,7 +13,7 @@ pub enum EvalValue<'eval> {
     Copyable(CopyableValue),
     Owned(OwnedValue<'eval, 'eval>),
     GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    GlobalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
+    EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
     Undefined,
 }
 
@@ -23,7 +23,7 @@ impl<'eval> PartialEq for EvalValue<'eval> {
             (Self::Copyable(l0), Self::Copyable(r0)) => l0 == r0,
             (Self::Owned(l0), Self::Owned(r0)) => l0 == r0,
             (Self::GlobalPure(l0), Self::GlobalPure(r0)) => todo!(),
-            (Self::GlobalRef(l0), Self::GlobalRef(r0)) => todo!(),
+            (Self::EvalRef(l0), Self::EvalRef(r0)) => todo!(),
             _ => core::mem::discriminant(self) == core::mem::discriminant(other),
         }
     }
@@ -43,7 +43,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Copyable(value) => *value,
             EvalValue::Owned(_) => todo!(),
             EvalValue::GlobalPure(_) => todo!(),
-            EvalValue::GlobalRef(_) => todo!(),
+            EvalValue::EvalRef(_) => todo!(),
             EvalValue::Undefined => todo!(),
         }
     }
@@ -60,7 +60,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Copyable(value) => Ok(VMValue::Copyable(value)),
             EvalValue::Owned(value) => Ok(VMValue::FullyOwned(value)),
             EvalValue::GlobalPure(value) => Ok(VMValue::EvalPure(value)),
-            EvalValue::GlobalRef(value) => Ok(VMValue::GlobalRef(value)),
+            EvalValue::EvalRef(value) => Ok(VMValue::EvalRef(value)),
             EvalValue::Undefined => todo!(),
         }
     }
@@ -70,7 +70,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Copyable(value) => StackValueSnapshot::Copyable(*value),
             EvalValue::Owned(_) => todo!(),
             EvalValue::GlobalPure(_) => todo!(),
-            EvalValue::GlobalRef(_) => todo!(),
+            EvalValue::EvalRef(_) => todo!(),
             EvalValue::Undefined => todo!(),
         }
     }
@@ -84,7 +84,7 @@ impl<'eval> EvalValue<'eval> {
                 value.take_field(field_idx).into_eval()
             }
             EvalValue::GlobalPure(_) => panic!("expect global ref"),
-            EvalValue::GlobalRef(value) => unsafe {
+            EvalValue::EvalRef(value) => unsafe {
                 value
                     .downcast_ref::<VirtualTy<'eval>>()
                     .eval_field(field_idx)
@@ -97,7 +97,7 @@ impl<'eval> EvalValue<'eval> {
     // unsafe fn share_globally(&self) -> EvalValue<'eval> {
     //     match self {
     //         EvalValue::Primitive(value) => EvalValue::Primitive(*value),
-    //         EvalValue::GlobalRef(value) => EvalValue::GlobalRef(*value),
+    //         EvalValue::EvalRef(value) => EvalValue::EvalRef(*value),
     //         EvalValue::GlobalPure(value) => EvalValue::GlobalPure(value.clone()),
     //         EvalValue::Undefined => EvalValue::Undefined,
     //         EvalValue::Boxed(_) => todo!(),
@@ -109,7 +109,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Copyable(_) => todo!(),
             EvalValue::Owned(_) => todo!(),
             EvalValue::GlobalPure(_) => self.clone(),
-            EvalValue::GlobalRef(_) => todo!(),
+            EvalValue::EvalRef(_) => todo!(),
             EvalValue::Undefined => todo!(),
         }
     }
@@ -119,7 +119,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Copyable(value) => value.any_ref(),
             EvalValue::Owned(value) => value.any_ref(),
             EvalValue::GlobalPure(value) => &**value,
-            EvalValue::GlobalRef(value) => *value,
+            EvalValue::EvalRef(value) => *value,
             EvalValue::Undefined => todo!(),
         }
     }
@@ -129,7 +129,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Copyable(value) => panic!(),
             EvalValue::Owned(value) => panic!(),
             EvalValue::GlobalPure(value) => panic!(),
-            EvalValue::GlobalRef(value) => *value,
+            EvalValue::EvalRef(value) => *value,
             EvalValue::Undefined => todo!(),
         }
     }

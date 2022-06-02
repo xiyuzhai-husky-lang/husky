@@ -125,7 +125,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         self.exit_block()
     }
 
-    fn add_inputs(&mut self, inputs: &[InputParameter]) {
+    fn add_inputs(&mut self, inputs: &[Parameter]) {
         for input in inputs {
             should!(self
                 .entity_route_sheet

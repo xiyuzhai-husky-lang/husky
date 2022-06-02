@@ -5,7 +5,7 @@ use std::sync::Arc;
 pub use opr::*;
 
 use entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
-use vm::{InputLiason, MemberLiason};
+use vm::{ParameterLiason, MemberLiason};
 use word::{CustomIdentifier, IdentDict};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

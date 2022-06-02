@@ -4,7 +4,7 @@ use vm::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticInputParameter {
     pub name: &'static str,
-    pub contract: InputLiason,
+    pub contract: ParameterLiason,
     pub ty: &'static str,
 }
 

@@ -4,7 +4,7 @@ use check_utils::should_eq;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EagerContract {
     Pure,
-    GlobalRef,
+    EvalRef,
     Move,
     UseForLetInit,
     UseForVarInit,
@@ -12,7 +12,7 @@ pub enum EagerContract {
     UseMemberForLetInit,
     UseMemberForVarInit,
     Return,
-    RefMut,
+    TempRefMut,
     MoveMut,
     Exec,
 }
@@ -23,7 +23,7 @@ pub enum LazyContract {
     Return,
     UseMemberForInit,
     UseMemberForReturn,
-    GlobalRef,
+    EvalRef,
     Pure,
     Move,
 }

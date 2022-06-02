@@ -31,7 +31,7 @@ pub enum SymbolKind {
     Unrecognized(CustomIdentifier),
     ThisValue {
         opt_this_ty: Option<EntityRoutePtr>,
-        opt_this_liason: Option<InputLiason>,
+        opt_this_liason: Option<ParameterLiason>,
     },
     ThisField {
         opt_this_ty: Option<EntityRoutePtr>,

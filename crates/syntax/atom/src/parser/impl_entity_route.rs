@@ -21,7 +21,16 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     ));
                 Some(AtomVariant::EntityRoute {
                     route: self.symbolic_ty()?,
-                    kind: EntityKind::Type(TyKind::Vec),
+                    kind: EntityKind::Type(TyKind::Other),
+                })
+            } else if token.kind == SpecialToken::Ambersand.into() {
+                let ty = get!(self, ty?);
+                Some(AtomVariant::EntityRoute {
+                    route: self
+                        .atom_context
+                        .entity_syntax_db()
+                        .make_route(EntityRoutePtr::Root(RootIdentifier::Ref), vec![ty.into()]),
+                    kind: EntityKind::Type(TyKind::Other),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
                 let symbol_kind = self.atom_context.resolve_symbol_kind(ident, token.range)?;
@@ -238,6 +247,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::DatasetType => self.angled_generics(),
                 RootIdentifier::TypeType => todo!(),
                 RootIdentifier::ModuleType => todo!(),
+                RootIdentifier::Ref => todo!(),
             },
             _ => match self
                 .atom_context

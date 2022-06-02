@@ -1,5 +1,5 @@
 use atom::AtomContext;
-use defn_head::InputParameter;
+use defn_head::Parameter;
 use entity_route::RangedEntityRoute;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
@@ -8,7 +8,7 @@ use vm::Linkage;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyCallDefn {
-    pub parameters: Arc<Vec<InputParameter>>,
+    pub parameters: Arc<Vec<Parameter>>,
     pub output_ty: RangedEntityRoute,
     pub source: TyCallSource,
 }

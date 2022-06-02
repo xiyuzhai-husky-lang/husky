@@ -67,7 +67,7 @@ impl EntityDefnVariant {
                         }
                     }
                 };
-                Ok(Self::TypeField {
+                Ok(Self::TyField {
                     ty: ty.route,
                     liason,
                     field_variant,
@@ -113,6 +113,7 @@ impl EntityDefnVariant {
                                 parent: ty_route,
                                 ident: ranged_ident.ident,
                             },
+                            temporal_arguments: vec![],
                             spatial_arguments: vec![],
                         }),
                         file,

@@ -26,7 +26,7 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
             name: "clone",
             subscopes: &[],
             variant: EntityStaticDefnVariant::Method {
-                this_contract: vm::InputLiason::Pure,
+                this_contract: vm::ParameterLiason::Pure,
                 input_parameters: &[],
                 output_ty: "This",
                 generic_parameters: &[],

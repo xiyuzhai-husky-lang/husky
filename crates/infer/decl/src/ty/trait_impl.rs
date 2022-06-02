@@ -6,7 +6,7 @@ use entity_kind::{FieldKind, MemberKind};
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
-use vm::{InputLiason, OutputLiason};
+use vm::{ParameterLiason, OutputLiason};
 
 use crate::*;
 
@@ -85,7 +85,7 @@ impl TraitImplDecl {
                 this_ty,
                 member_impls: vec![TraitMemberImplDecl::Method(Arc::new(MethodDecl {
                     ident: db.intern_word("clone").custom(),
-                    this_liason: InputLiason::Pure,
+                    this_liason: ParameterLiason::Pure,
                     parameters: vec![],
                     output: OutputDecl {
                         liason: OutputLiason::Transfer,

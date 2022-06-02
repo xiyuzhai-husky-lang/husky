@@ -39,7 +39,7 @@ use std::sync::Arc;
 use text::*;
 use vec_map::HasKey;
 use visual_semantics::VisualizerSource;
-use vm::{InputLiason, Linkage, MemberLiason, OutputLiason};
+use vm::{Linkage, MemberLiason, OutputLiason, ParameterLiason};
 use word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -148,13 +148,13 @@ pub enum EntityDefnVariant {
     },
     Func {
         generic_parameters: IdentDict<SpatialParameter>,
-        parameters: Arc<Vec<InputParameter>>,
+        parameters: Arc<Vec<Parameter>>,
         output: RangedEntityRoute,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     Proc {
         generic_parameters: IdentDict<SpatialParameter>,
-        parameters: Arc<Vec<InputParameter>>,
+        parameters: Arc<Vec<Parameter>>,
         output: RangedEntityRoute,
         stmts: Avec<ProcStmt>,
     },
@@ -177,15 +177,15 @@ pub enum EntityDefnVariant {
         variant: EnumVariantDefnVariant,
     },
     Builtin,
-    TypeField {
+    TyField {
         ty: EntityRoutePtr,
         field_variant: FieldDefnVariant,
         liason: MemberLiason,
     },
     Method {
         generic_parameters: IdentDict<SpatialParameter>,
-        this_contract: InputLiason,
-        parameters: Arc<Vec<InputParameter>>,
+        this_contract: ParameterLiason,
+        parameters: Arc<Vec<Parameter>>,
         output_ty: RangedEntityRoute,
         output_liason: OutputLiason,
         method_variant: MethodDefnVariant,
@@ -227,6 +227,7 @@ impl EntityDefnVariant {
                     symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
                 let this_trai = symbol_context.db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
+                    temporal_arguments: vec![],
                     spatial_arguments: generic_arguments,
                 });
                 let member_kinds: Vec<_> = members.map(|member| {

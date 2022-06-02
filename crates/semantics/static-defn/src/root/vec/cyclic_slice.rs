@@ -4,7 +4,7 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
     name: "cyclic_slice",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::GlobalRef,
+        this_contract: ParameterLiason::EvalRef,
         input_parameters: &[],
         output_ty: "[%]E",
         generic_parameters: &[],

@@ -81,6 +81,7 @@ impl Implementable for EntityRoutePtr {
         }
         implementor.db.intern_entity_route(EntityRoute {
             kind,
+            temporal_arguments: vec![],
             spatial_arguments: generic_arguments,
         })
     }

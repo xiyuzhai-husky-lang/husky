@@ -5,7 +5,7 @@ pub use standalone::*;
 pub use symbol::*;
 
 use super::*;
-use defn_head::{GenericPlaceholderVariant, InputParameter, SpatialParameter};
+use defn_head::{GenericPlaceholderVariant, Parameter, SpatialParameter};
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
 use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResult};
@@ -16,7 +16,7 @@ use static_defn::{StaticGenericPlaceholder, StaticInputParameter};
 use std::borrow::Cow;
 use text::*;
 use token::AbsSemanticToken;
-use vm::InputLiason;
+use vm::ParameterLiason;
 use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 
 #[derive(Clone, Copy)]
@@ -37,7 +37,7 @@ pub trait AtomContext {
     fn opt_package_main(&self) -> Option<FilePtr>;
     fn entity_syntax_db(&self) -> &dyn EntityRouteQueryGroup;
     fn opt_this_ty(&self) -> Option<EntityRoutePtr>;
-    fn opt_this_liason(&self) -> Option<InputLiason>;
+    fn opt_this_liason(&self) -> Option<ParameterLiason>;
     fn symbols(&self) -> &[Symbol];
     fn kind(&self) -> AtomContextKind;
     fn as_dyn_mut(&mut self) -> &mut dyn AtomContext;
@@ -82,6 +82,7 @@ pub trait AtomContext {
                 RootIdentifier::PartialEqTrait => todo!(),
                 RootIdentifier::EqTrait => todo!(),
                 RootIdentifier::ModuleType => todo!(),
+                RootIdentifier::Ref => todo!(),
             }),
         };
         Atom::new(tail, kind)
@@ -98,6 +99,7 @@ pub trait AtomContext {
                                 .opt_package_main()
                                 .ok_or(error!("can't use implicit without main", range))?,
                         },
+                        temporal_arguments: vec![],
                         spatial_arguments: vec![],
                     }),
                 )),
@@ -192,8 +194,8 @@ pub trait AtomContext {
     fn input_placeholder_from_static(
         &mut self,
         static_input_placeholder: &StaticInputParameter,
-    ) -> InputParameter {
-        InputParameter {
+    ) -> Parameter {
+        Parameter {
             ranged_ident: RangedCustomIdentifier {
                 ident: self
                     .entity_syntax_db()
@@ -243,6 +245,7 @@ pub trait AtomContext {
                     ident: generic_placeholder.ident,
                     entity_kind: generic_placeholder.entity_kind(),
                 },
+                temporal_arguments: vec![],
                 spatial_arguments: vec![],
             }))
         })
@@ -262,6 +265,7 @@ pub trait AtomContext {
                             ident: generic_placeholder.ident,
                             entity_kind: generic_placeholder.entity_kind(),
                         },
+                        temporal_arguments: vec![],
                         spatial_arguments: vec![],
                     },
                 )),

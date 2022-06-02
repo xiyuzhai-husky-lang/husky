@@ -8,13 +8,13 @@ use implement::{Implementable, Implementor};
 use map_collect::MapCollect;
 use print_utils::p;
 use vec_map::HasKey;
-use vm::InputLiason;
+use vm::ParameterLiason;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct MethodDecl {
     pub ident: CustomIdentifier,
-    pub this_liason: InputLiason,
+    pub this_liason: ParameterLiason,
     pub parameters: Vec<InputDecl>,
     pub output: OutputDecl,
     pub generic_parameters: IdentDict<SpatialParameter>,

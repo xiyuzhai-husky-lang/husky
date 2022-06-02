@@ -80,7 +80,7 @@
     15:15..15:25   unsearched             PureRef      datasets::cv::mnist::BinaryImage28
     15:26..15:27   j                      Copyable     i32
     15:15..15:28   unsearched[j]          Copyable     b32
-    16:21..16:31   unsearched             LocalRef     datasets::cv::mnist::BinaryImage28
+    16:21..16:31   unsearched             TempRef      datasets::cv::mnist::BinaryImage28
     16:32..16:33   j                      Copyable     i32
     16:21..16:34   unsearched[j]          Copyable     b32
     17:25..17:26   a                      Copyable     b32
@@ -107,7 +107,7 @@
     24:28..24:34   30 - 1                 Copyable     i32
     25:40..25:41   i                      Copyable     i32
     25:44..25:45   1                      Copyable     i32
-    25:35..25:39   mask                   LocalRef     datasets::cv::mnist::BinaryImage28
+    25:35..25:39   mask                   TempRef      datasets::cv::mnist::BinaryImage28
     25:40..25:45   i + 1                  Copyable     i32
     25:35..25:46   mask[i + 1]            Copyable     b32
     26:67..26:68   i                      Copyable     i32
@@ -137,7 +137,7 @@
     31:39..31:46   new_row                Copyable     b32
     31:25..31:46   mask[i + 1] = new_row   Copyable     void
     32:29..32:30   j                      Copyable     i32
-    33:35..33:39   mask                   LocalRef     datasets::cv::mnist::BinaryImage28
+    33:35..33:39   mask                   TempRef      datasets::cv::mnist::BinaryImage28
     33:40..33:41   i                      Copyable     i32
     33:35..33:42   mask[i]                Copyable     b32
     34:63..34:66   img                    PureRef      datasets::cv::mnist::BinaryImage28

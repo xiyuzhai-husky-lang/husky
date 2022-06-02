@@ -22,6 +22,9 @@ fn is_implicitly_castable(
     src_ty: EntityRoutePtr,
     dst_ty: EntityRoutePtr,
 ) -> bool {
+    // deref
+    let src_ty = src_ty.deref_route();
+    let dst_ty = dst_ty.deref_route();
     if src_ty == dst_ty {
         return true;
     }
@@ -83,6 +86,7 @@ fn is_implicitly_castable(
             RootIdentifier::PartialEqTrait => todo!(),
             RootIdentifier::EqTrait => todo!(),
             RootIdentifier::ModuleType => todo!(),
+            RootIdentifier::Ref => todo!(),
         },
         EntityRoutePtr::Custom(_) => {
             msg_once!("handle convertible");

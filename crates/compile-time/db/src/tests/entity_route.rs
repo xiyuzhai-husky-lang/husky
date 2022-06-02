@@ -95,12 +95,7 @@ struct B {}
 #[test]
 fn datasets() {
     let db = HuskyLangCompileTime::default();
-    let dataset_scope = db.intern_entity_route(EntityRoute {
-        kind: EntityRouteKind::Root {
-            ident: RootIdentifier::Datasets,
-        },
-        spatial_arguments: vec![],
-    });
+    let dataset_scope = db.make_route(EntityRoutePtr::Root(RootIdentifier::Datasets), vec![]);
     let synthetic_scope = db
         .subroute_result(
             dataset_scope,

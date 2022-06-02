@@ -34,10 +34,10 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             return linkage;
         }
         let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
-        let std_ops_index_trai = self.intern_entity_route(EntityRoute {
-            kind: self.entity_route_menu().std_ops_index_trai.kind,
-            spatial_arguments: vec![SpatialArgument::EntityRoute(opd_tys[1])],
-        });
+        let std_ops_index_trai = self.make_route(
+            self.entity_route_menu().std_ops_index_trai,
+            vec![SpatialArgument::EntityRoute(opd_tys[1])],
+        );
         let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();
         match index_trai_impl.member_impls[1].variant {
             EntityDefnVariant::Method {
@@ -201,7 +201,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             .struct_field_access(self.entity_uid(this_ty), field_ident)
     }
 
-    fn type_call_linkage(&self, ty: EntityRoutePtr) -> Option<Linkage> {
+    fn ty_call_linkage(&self, ty: EntityRoutePtr) -> Option<Linkage> {
         if let Some(linkage) = self.linkage_table().type_call(self.entity_uid(ty)) {
             return Some(linkage);
         }

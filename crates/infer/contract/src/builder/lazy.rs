@@ -153,7 +153,7 @@ impl<'a> ContractSheetBuilder<'a> {
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
-                    LazyContract::GlobalRef => todo!(),
+                    LazyContract::EvalRef => todo!(),
                     LazyContract::Pure => (),
                     LazyContract::Init => todo!(),
                     LazyContract::Return => (),
@@ -318,7 +318,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 };
                 self.infer_lazy_expr(total_opds.start, this_contract, arena)
             }
-            LazyContract::GlobalRef => todo!(),
+            LazyContract::EvalRef => todo!(),
             LazyContract::Pure => todo!(),
             LazyContract::UseMemberForInit => todo!(),
             LazyContract::Return => todo!(),

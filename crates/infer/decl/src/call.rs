@@ -14,7 +14,7 @@ use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{emsg_once, msg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticInputParameter};
-use vm::{InputLiason, OutputLiason};
+use vm::{ParameterLiason, OutputLiason};
 use word::IdentDict;
 
 use crate::*;

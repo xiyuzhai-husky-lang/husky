@@ -4,7 +4,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     name: "last",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::MemberAccess,
+        this_contract: ParameterLiason::MemberAccess,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],

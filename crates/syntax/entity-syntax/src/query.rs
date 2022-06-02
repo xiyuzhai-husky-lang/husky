@@ -116,6 +116,7 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::CopyTrait
             | RootIdentifier::PartialEqTrait
             | RootIdentifier::EqTrait => EntityKind::Trait,
+            RootIdentifier::Ref => todo!(),
         },
         EntityRouteKind::Package { .. } => EntityKind::Module,
         EntityRouteKind::Child { parent, ident } => match parent.kind {
@@ -208,6 +209,7 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::PartialEqTrait => todo!(),
         RootIdentifier::EqTrait => todo!(),
         RootIdentifier::ModuleType => todo!(),
+        RootIdentifier::Ref => panic!(),
     }
     .into()
 }
@@ -338,6 +340,7 @@ pub trait EntityRouteQueryGroup:
                     Identifier::Builtin(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
                         kind: EntityRouteKind::Child { parent, ident },
+                        temporal_arguments: vec![],
                         spatial_arguments: vec![],
                     })),
                     Identifier::Contextual(_) => todo!(),

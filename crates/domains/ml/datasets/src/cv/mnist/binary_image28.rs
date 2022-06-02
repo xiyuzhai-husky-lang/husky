@@ -19,9 +19,9 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                     name: "index",
                     subscopes: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_contract: InputLiason::MemberAccess,
+                        this_contract: ParameterLiason::MemberAccess,
                         input_parameters: &[StaticInputParameter {
-                            contract: InputLiason::Pure,
+                            contract: ParameterLiason::Pure,
                             ty: "i32",
                             name: "todo!()",
                         }],

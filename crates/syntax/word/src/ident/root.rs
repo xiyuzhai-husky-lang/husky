@@ -28,6 +28,7 @@ pub enum RootIdentifier {
     CopyTrait,
     PartialEqTrait,
     EqTrait,
+    Ref,
 }
 
 impl From<RootIdentifier> for Identifier {
@@ -73,6 +74,7 @@ impl RootIdentifier {
             RootIdentifier::CopyTrait => "Copy",
             RootIdentifier::PartialEqTrait => "PartialEq",
             RootIdentifier::EqTrait => "Eq",
+            RootIdentifier::Ref => "Ref",
         }
     }
 }

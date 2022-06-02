@@ -23,10 +23,10 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
     name: "min",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[StaticInputParameter {
             name: "other",
-            contract: InputLiason::Pure,
+            contract: ParameterLiason::Pure,
             ty: "f32",
         }],
         output_ty: "f32",
@@ -46,10 +46,10 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
     name: "max",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[StaticInputParameter {
             name: "other",
-            contract: InputLiason::Pure,
+            contract: ParameterLiason::Pure,
             ty: "f32",
         }],
         output_ty: "f32",
@@ -69,7 +69,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
     name: "sgn",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
@@ -100,7 +100,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
     name: "abs",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -123,7 +123,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
     name: "sqrt",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -146,7 +146,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
     name: "cos",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -169,7 +169,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
     name: "sin",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -192,7 +192,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
     name: "tan",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -215,7 +215,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
     name: "acos",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -238,7 +238,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
     name: "asin",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -261,7 +261,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
     name: "atan",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,

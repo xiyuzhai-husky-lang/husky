@@ -27,7 +27,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     name: "index",
                     subscopes: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_contract: InputLiason::MemberAccess,
+                        this_contract: ParameterLiason::MemberAccess,
                         input_parameters: &[],
                         output_ty: "E",
                         output_liason: OutputLiason::MemberAccess {
@@ -161,7 +161,7 @@ pub(crate) fn generic_vec_element_ref_access<'vm, 'eval>(
     }
     let any_ptr: *const (dyn AnyValueDyn<'eval> + 'eval) = this_value[i].any_ref();
     Ok(match values[0] {
-        VMValue::GlobalRef(_) => VMValue::GlobalRef(unsafe { &*any_ptr }),
+        VMValue::EvalRef(_) => VMValue::EvalRef(unsafe { &*any_ptr }),
         VMValue::FullyOwnedRef(_) => VMValue::FullyOwnedRef(unsafe { &*any_ptr }),
         _ => panic!(),
     })
@@ -186,7 +186,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
     name: "len",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::Pure,
+        this_contract: ParameterLiason::Pure,
         input_parameters: &[],
         output_ty: "i32",
         generic_parameters: &[],
@@ -213,9 +213,9 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     name: "push",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::LocalRefMut,
+        this_contract: ParameterLiason::TempRefMut,
         input_parameters: &[StaticInputParameter {
-            contract: InputLiason::Move,
+            contract: ParameterLiason::Move,
             ty: "E",
             name: "element",
         }],
@@ -236,7 +236,7 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
     name: "pop",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: InputLiason::LocalRefMut,
+        this_contract: ParameterLiason::TempRefMut,
         input_parameters: &[],
         output_ty: "E",
         generic_parameters: &[],

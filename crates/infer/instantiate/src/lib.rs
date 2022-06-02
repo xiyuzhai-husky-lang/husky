@@ -62,6 +62,7 @@ impl<'a> Instantiator<'a> {
                 generics.extend(self.instantiate_generic_arguments(&src_scope.spatial_arguments));
                 SpatialArgument::EntityRoute(self.db.intern_entity_route(EntityRoute {
                     kind,
+                    temporal_arguments: vec![],
                     spatial_arguments: generics,
                 }))
             }

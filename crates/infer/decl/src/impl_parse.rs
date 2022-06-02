@@ -37,6 +37,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
                     ident: generic_placeholder.ident,
                     entity_kind: generic_placeholder.entity_kind(),
                 },
+                temporal_arguments: vec![],
                 spatial_arguments: vec![],
             }))
         })
@@ -55,6 +56,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
                         ident: generic_placeholder.ident,
                         entity_kind: generic_placeholder.entity_kind(),
                     },
+                    temporal_arguments: vec![],
                     spatial_arguments: vec![],
                 })),
             })

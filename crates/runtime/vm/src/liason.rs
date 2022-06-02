@@ -4,16 +4,16 @@ use print_utils::p;
 use word::LiasonKeyword;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum InputLiason {
+pub enum ParameterLiason {
     Pure,
     Move,
-    LocalRefMut,
+    TempRefMut,
     MoveMut,
     MemberAccess,
-    GlobalRef,
+    EvalRef,
 }
 
-impl InputLiason {
+impl ParameterLiason {
     pub fn eager(
         self,
         output_liason: OutputLiason,
@@ -31,7 +31,7 @@ impl InputLiason {
                     | EagerContract::UseForVarInit
                     | EagerContract::Exec
                     | EagerContract::UseForAssignRvalue => (),
-                    EagerContract::RefMut => match output_liason {
+                    EagerContract::TempRefMut => match output_liason {
                         OutputLiason::Transfer => {
                             return Err(vm_compile_error!(format!(
                                 "can't mutate transferred output"
@@ -42,14 +42,14 @@ impl InputLiason {
                     EagerContract::MoveMut => todo!(),
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
-                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::EvalRef => todo!(),
                 }
                 Ok(match self {
-                    InputLiason::Pure => EagerContract::Pure,
-                    InputLiason::Move | InputLiason::MoveMut => EagerContract::Move,
-                    InputLiason::LocalRefMut => EagerContract::RefMut,
-                    InputLiason::MemberAccess => panic!(),
-                    InputLiason::GlobalRef => EagerContract::GlobalRef,
+                    ParameterLiason::Pure => EagerContract::Pure,
+                    ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
+                    ParameterLiason::TempRefMut => EagerContract::TempRefMut,
+                    ParameterLiason::MemberAccess => panic!(),
+                    ParameterLiason::EvalRef => EagerContract::EvalRef,
                 })
             }
             OutputLiason::MemberAccess { .. } => {
@@ -71,11 +71,11 @@ impl InputLiason {
                         EagerContract::UseMemberForLetInit => EagerContract::UseMemberForLetInit,
                         EagerContract::UseMemberForVarInit => todo!(),
                         EagerContract::Return => todo!(),
-                        EagerContract::RefMut => output_contract,
+                        EagerContract::TempRefMut => output_contract,
                         EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
                         EagerContract::UseForAssignRvalue => todo!(),
-                        EagerContract::GlobalRef => todo!(),
+                        EagerContract::EvalRef => todo!(),
                     })
                 }
             }
@@ -85,12 +85,12 @@ impl InputLiason {
     pub fn lazy(self, output: OutputLiason) -> VMCompileResult<LazyContract> {
         match output {
             OutputLiason::Transfer => Ok(match self {
-                InputLiason::Pure => LazyContract::Pure,
-                InputLiason::Move => todo!(),
-                InputLiason::LocalRefMut => todo!(),
-                InputLiason::MoveMut => todo!(),
-                InputLiason::MemberAccess => todo!(),
-                InputLiason::GlobalRef => todo!(),
+                ParameterLiason::Pure => LazyContract::Pure,
+                ParameterLiason::Move => todo!(),
+                ParameterLiason::TempRefMut => todo!(),
+                ParameterLiason::MoveMut => todo!(),
+                ParameterLiason::MemberAccess => todo!(),
+                ParameterLiason::EvalRef => todo!(),
             }),
             OutputLiason::MemberAccess { .. } => todo!(),
         }
@@ -127,20 +127,20 @@ impl MemberLiason {
         }
     }
 
-    pub fn constructor_input_liason(self, is_copyable: bool) -> InputLiason {
+    pub fn constructor_input_liason(self, is_copyable: bool) -> ParameterLiason {
         match self {
             MemberLiason::Immutable => {
                 if is_copyable {
-                    InputLiason::Pure
+                    ParameterLiason::Pure
                 } else {
-                    InputLiason::Move
+                    ParameterLiason::Move
                 }
             }
             MemberLiason::Mutable => {
                 if is_copyable {
-                    InputLiason::Pure
+                    ParameterLiason::Pure
                 } else {
-                    InputLiason::MoveMut
+                    ParameterLiason::MoveMut
                 }
             }
             MemberLiason::Derived => panic!(),
@@ -162,18 +162,18 @@ impl MemberLiason {
                 EagerContract::UseMemberForLetInit => todo!(),
                 EagerContract::UseMemberForVarInit => todo!(),
                 EagerContract::Return => EagerContract::Pure,
-                EagerContract::RefMut => match self {
+                EagerContract::TempRefMut => match self {
                     MemberLiason::Immutable => {
                         return Err(vm_compile_error!(format!(
                             "can't turn an immutable member into ref mut"
                         )))
                     }
-                    MemberLiason::Mutable => EagerContract::RefMut,
+                    MemberLiason::Mutable => EagerContract::TempRefMut,
                     MemberLiason::Derived => todo!(),
                 },
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
-                EagerContract::GlobalRef => todo!(),
+                EagerContract::EvalRef => todo!(),
             })
         } else {
             match self {
@@ -189,18 +189,18 @@ impl MemberLiason {
                         Ok(EagerContract::UseMemberForVarInit)
                     }
                     EagerContract::Return => todo!(),
-                    EagerContract::RefMut => Err(vm_compile_error!(format!(
+                    EagerContract::TempRefMut => Err(vm_compile_error!(format!(
                         "can't bind mutable reference to an immutable field"
                     ))),
                     EagerContract::UseForAssignRvalue => Err(vm_compile_error!(format!(
                         "can't assign to an immutable field"
                     ))),
-                    EagerContract::GlobalRef => Ok(EagerContract::GlobalRef),
+                    EagerContract::EvalRef => Ok(EagerContract::EvalRef),
                 },
                 MemberLiason::Mutable => match member_contract {
                     EagerContract::Pure => Ok(EagerContract::Pure),
                     EagerContract::Move => Ok(EagerContract::Move),
-                    EagerContract::RefMut => Ok(EagerContract::RefMut),
+                    EagerContract::TempRefMut => Ok(EagerContract::TempRefMut),
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
@@ -210,7 +210,7 @@ impl MemberLiason {
                     EagerContract::Return => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
-                    EagerContract::GlobalRef => todo!(),
+                    EagerContract::EvalRef => todo!(),
                 },
                 MemberLiason::Derived => panic!(),
             }
@@ -242,7 +242,7 @@ impl MemberLiason {
         //             arena[raw_expr_idx].range
         //         ),
         //     },
-        //     FieldLiason::GlobalRef => todo!(),
+        //     FieldLiason::EvalRef => todo!(),
         //     FieldLiason::LazyOwn => todo!(),
         // };
     }
@@ -258,7 +258,7 @@ impl MemberLiason {
                 LazyContract::Return => todo!(),
                 LazyContract::UseMemberForInit => todo!(),
                 LazyContract::UseMemberForReturn => todo!(),
-                LazyContract::GlobalRef => todo!(),
+                LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyContract::Pure,
                 LazyContract::Move => todo!(),
             }
@@ -267,7 +267,7 @@ impl MemberLiason {
                 MemberLiason::Immutable | MemberLiason::Mutable => match field_contract {
                     LazyContract::Move => LazyContract::Move,
                     LazyContract::Pure => LazyContract::Pure,
-                    LazyContract::GlobalRef => todo!(),
+                    LazyContract::EvalRef => todo!(),
                     LazyContract::Init => todo!(),
                     LazyContract::Return => todo!(),
                     LazyContract::UseMemberForInit => todo!(),

@@ -18,7 +18,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> Option<EntityRoutePtr> {
         let ty_result: InferResult<EntityRoutePtr> =
             self.expr_ty_result(raw_expr_idx, expectation, arena);
-        let opt_ty = ty_result.as_ref().ok().map(|ty| *ty);
+        let opt_ty = match ty_result {
+            Ok(opd_ty) => Some(opd_ty),
+            Err(_) => None,
+        };
         self.entity_route_sheet
             .expr_tys
             .insert_new(raw_expr_idx, ty_result);
@@ -68,7 +71,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::ThisField { opt_field_ty, .. } => {
                 Ok(derived_not_none!(opt_field_ty)?.route)
             }
-        }?;
+        }?
+        .deref_route();
         if let Some(expected_ty) = expectation {
             if !self.db.is_implicitly_castable(ty, expected_ty) {
                 throw!(
@@ -201,7 +205,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             },
             BinaryOpr::Assign(_) => {
                 if lopd_ty != ropd_ty {
-                    todo!()
+                    throw!(format!("expect same type for assignment"), range)
                 }
                 Ok(RootIdentifier::Void.into())
             }
@@ -344,6 +348,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     RootIdentifier::CopyTrait => todo!(),
                     RootIdentifier::PartialEqTrait => todo!(),
                     RootIdentifier::EqTrait => todo!(),
+                    RootIdentifier::Ref => todo!(),
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
                 EntityRoutePtr::ThisType => todo!(),
@@ -515,6 +520,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         trai,
                     },
                 },
+                temporal_arguments: vec![],
                 spatial_arguments: generic_arguments,
             })),
         );
@@ -537,6 +543,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
         let index_trai = self.db.intern_entity_route(EntityRoute {
             kind: self.db.entity_route_menu().std_ops_index_trai.kind,
+            temporal_arguments: vec![],
             spatial_arguments: vec![SpatialArgument::EntityRoute(index_ty)],
         });
         let trai_impl = ok_or!(

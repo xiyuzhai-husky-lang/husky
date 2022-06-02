@@ -1,6 +1,6 @@
 use crate::*;
 use datasets::LabeledData;
-use defn_head::InputParameter;
+use defn_head::Parameter;
 use eval_feature::EvalFeature;
 use feature::*;
 use semantics_eager::ProcStmtVariant;

@@ -178,7 +178,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 match this_ty_defn.variant {
                     EntityDefnVariant::Type { ref ty_members, .. } => {
                         match ty_members.get_entry(field_ident.ident).unwrap().variant {
-                            EntityDefnVariant::TypeField {
+                            EntityDefnVariant::TyField {
                                 ref field_variant, ..
                             } => match field_variant {
                                 FieldDefnVariant::StructDerivedLazy { ref defn_repr } => {
@@ -233,7 +233,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 match this_ty_defn.variant {
                     EntityDefnVariant::Type { ref ty_members, .. } => {
                         match ty_members.get_entry(field_ident.ident).unwrap().variant {
-                            EntityDefnVariant::TypeField {
+                            EntityDefnVariant::TyField {
                                 ref field_variant, ..
                             } => match field_variant {
                                 FieldDefnVariant::RecordDerived { defn_repr } => {
@@ -313,15 +313,10 @@ impl<'a> FeatureExprBuilder<'a> {
                 ref opds,
                 ..
             } => match entity.variant {
-                EntityDefnVariant::Type { kind, .. } => match kind {
-                    TyKind::Record => {
-                        todo!()
-                        // p!(field_ident, ty.fields);
-                        // let idx = ty.fields.position(field_ident).unwrap();
-                        // opds[idx].clone()
-                    }
-                    _ => panic!(),
-                },
+                EntityDefnVariant::Type { kind, .. } => todo!(),
+                // p!(field_ident, ty.fields);
+                // let idx = ty.fields.position(field_ident).unwrap();
+                // opds[idx].clone()
                 _ => panic!(),
             },
             FeatureExprVariant::RoutineCall { .. }
