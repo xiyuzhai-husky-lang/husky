@@ -1,4 +1,5 @@
 use crate::*;
+use infer_error::*;
 use std::fmt::Write;
 use test_utils::{TestDisplay, TestDisplayConfig};
 use word::RootIdentifier;
@@ -343,7 +344,7 @@ impl EagerQualifier {
         input_liason: InputLiason,
         is_copyable: bool,
         contract: EagerContract,
-    ) -> InferResult<Self> {
+    ) -> InferQueryResult<Self> {
         Self::from_parameter(input_liason, is_copyable).variable_use(contract)
     }
 
@@ -409,7 +410,7 @@ impl EagerQualifier {
         }
     }
 
-    pub fn variable_use(self, contract: EagerContract) -> InferResult<Self> {
+    pub fn variable_use(self, contract: EagerContract) -> InferQueryResult<Self> {
         Ok(match self {
             EagerQualifier::Copyable => match contract {
                 EagerContract::Pure => EagerQualifier::Copyable,
@@ -465,7 +466,9 @@ impl EagerQualifier {
             },
             EagerQualifier::PureRef => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
-                EagerContract::Move => todo!(),
+                EagerContract::Move => {
+                    return Err(query_error!(format!("can't move from a pure ref",)))
+                }
                 EagerContract::UseForLetInit => todo!(),
                 EagerContract::UseForVarInit => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),

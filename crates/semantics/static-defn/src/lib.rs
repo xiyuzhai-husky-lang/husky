@@ -9,7 +9,7 @@ pub use ty::*;
 
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use visual_syntax::StaticVisualizer;
-use vm::{InputLiason, Linkage, OutputLiason};
+use vm::{InputLiason, Linkage, MemberLiason, OutputLiason};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityStaticDefn {
@@ -47,6 +47,8 @@ pub enum EntityStaticDefnVariant {
     Module,
     TyField {
         field_kind: FieldKind,
+        liason: MemberLiason,
+        ty: &'static str,
     },
     Method {
         this_contract: InputLiason,

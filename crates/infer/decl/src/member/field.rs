@@ -1,4 +1,5 @@
 use crate::*;
+use atom::AtomContext;
 use entity_kind::FieldKind;
 use entity_route::EntityRoutePtr;
 use instantiate::Instantiator;
@@ -15,18 +16,35 @@ pub struct FieldDecl {
 }
 
 impl FieldDecl {
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
-        todo!()
+    pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
+        Arc::new(Self {
+            ident: self.ident,
+            liason: self.liason,
+            ty: instantiator
+                .instantiate_entity_route(self.ty)
+                .take_entity_route(),
+            field_kind: self.field_kind,
+        })
     }
 
-    pub fn from_static(db: &dyn DeclQueryGroup, static_decl: &EntityStaticDefn) -> Self {
+    pub fn from_static(
+        symbol_context: &mut dyn AtomContext,
+        static_decl: &EntityStaticDefn,
+    ) -> Arc<Self> {
         match static_decl.variant {
-            EntityStaticDefnVariant::TyField { field_kind } => Self {
-                ident: db.intern_word(static_decl.name).custom(),
-                liason: todo!(),
-                ty: todo!(),
+            EntityStaticDefnVariant::TyField {
                 field_kind,
-            },
+                liason,
+                ty,
+            } => Arc::new(Self {
+                ident: symbol_context
+                    .entity_syntax_db()
+                    .intern_word(static_decl.name)
+                    .custom(),
+                liason,
+                ty: symbol_context.entity_route_from_str(ty).unwrap(),
+                field_kind,
+            }),
             _ => panic!(""),
         }
     }

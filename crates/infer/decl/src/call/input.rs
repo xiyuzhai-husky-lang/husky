@@ -17,16 +17,12 @@ impl HasKey<CustomIdentifier> for InputDecl {
 }
 
 impl InputDecl {
-    pub fn from_static(
-        db: &dyn DeclQueryGroup,
-        input: &StaticInputParameter,
-        symbol_context: &mut dyn AtomContext,
-    ) -> Self {
+    pub fn from_static(symbol_context: &mut dyn AtomContext, input: &StaticInputParameter) -> Self {
         // opt_this_ty,
         Self {
             ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
             liason: input.contract,
-            ident: db.custom_ident(input.name),
+            ident: symbol_context.entity_syntax_db().custom_ident(input.name),
         }
     }
 

@@ -35,9 +35,9 @@ impl TraitMemberDecl {
         symbol_context: &mut dyn AtomContext,
     ) -> Self {
         match static_member_defn.variant {
-            EntityStaticDefnVariant::Method { .. } => TraitMemberDecl::Method(
-                MethodDecl::from_static(db, static_member_defn, symbol_context),
-            ),
+            EntityStaticDefnVariant::Method { .. } => {
+                TraitMemberDecl::Method(MethodDecl::from_static(symbol_context, static_member_defn))
+            }
             EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => {
                 TraitMemberDecl::Type {
                     ident: db.intern_word(static_member_defn.name).custom(),

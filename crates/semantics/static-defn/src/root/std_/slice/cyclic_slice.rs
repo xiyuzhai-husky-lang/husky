@@ -47,10 +47,15 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
         }],
-        ty_members: &[],
+        ty_members: &[
+            &STD_SLICE_CYCLIC_SLICE_START_DEFN,
+            &STD_SLICE_CYCLIC_SLICE_END_DEFN,
+            &STD_SLICE_CYCLIC_SLICE_FIRST_DEFN,
+            &STD_SLICE_CYCLIC_SLICE_LAST_DEFN,
+        ],
         static_trait_impls: &[],
         variants: &[],
-        kind: TyKind::Other,
+        kind: TyKind::Struct,
         visualizer: StaticVisualizer::Vec,
         opt_type_call: None,
     },
@@ -62,6 +67,8 @@ pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDef
     subscopes: &[],
     variant: EntityStaticDefnVariant::TyField {
         field_kind: FieldKind::StructOriginal,
+        liason: MemberLiason::Mutable,
+        ty: "i32",
     },
     dev_src: dev_utils::static_dev_src!(),
 };
@@ -71,11 +78,13 @@ pub static STD_SLICE_CYCLIC_SLICE_END_DEFN: EntityStaticDefn = EntityStaticDefn 
     subscopes: &[],
     variant: EntityStaticDefnVariant::TyField {
         field_kind: FieldKind::StructOriginal,
+        liason: MemberLiason::Mutable,
+        ty: "i32",
     },
     dev_src: dev_utils::static_dev_src!(),
 };
 
-pub static CYCLIC_SLICE_FIRST: EntityStaticDefn = EntityStaticDefn {
+pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "first",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
@@ -146,7 +155,7 @@ fn generic_cyclic_slice_first_move<'vm, 'eval>(
     todo!()
 }
 
-pub static CYCLIC_SLICE_LAST: EntityStaticDefn = EntityStaticDefn {
+pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "last",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
