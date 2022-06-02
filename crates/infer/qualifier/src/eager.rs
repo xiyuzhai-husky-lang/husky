@@ -189,6 +189,7 @@ impl EagerQualifier {
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::LocalRef => match contract {
                 EagerContract::Pure => Binding::Ref,
@@ -202,6 +203,7 @@ impl EagerQualifier {
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::Transient => todo!(),
             EagerQualifier::Copyable => Binding::Copy,
@@ -217,6 +219,7 @@ impl EagerQualifier {
                 EagerContract::MoveMut => Binding::Copy,
                 EagerContract::Exec => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::Owned => match contract {
                 EagerContract::Pure => Binding::Ref,
@@ -230,6 +233,7 @@ impl EagerQualifier {
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::UseForAssignRvalue => Binding::Move,
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::OwnedMut => match contract {
                 EagerContract::Pure => Binding::Ref,
@@ -243,6 +247,7 @@ impl EagerQualifier {
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::GlobalRef => todo!(),
             EagerQualifier::LocalRefMut => todo!(),
@@ -286,6 +291,7 @@ impl EagerQualifier {
                 },
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
+                EagerContract::GlobalRef => todo!(),
             }
         } else {
             // non-copyable
@@ -306,6 +312,7 @@ impl EagerQualifier {
                     EagerContract::RefMut => todo!(),
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 },
                 EagerQualifier::GlobalRef => todo!(),
                 EagerQualifier::LocalRef => match member_contract {
@@ -321,6 +328,7 @@ impl EagerQualifier {
                     EagerContract::RefMut => todo!(),
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 },
                 EagerQualifier::LocalRefMut => match member_contract {
                     EagerContract::Pure => todo!(),
@@ -334,6 +342,7 @@ impl EagerQualifier {
                     EagerContract::RefMut => Binding::RefMut,
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 },
                 EagerQualifier::Transient => todo!(),
             }
@@ -424,6 +433,7 @@ impl EagerQualifier {
                 EagerContract::RefMut => EagerQualifier::LocalRefMut,
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::CopyableMut => match contract {
                 EagerContract::Pure => EagerQualifier::Copyable,
@@ -437,6 +447,7 @@ impl EagerQualifier {
                 EagerContract::RefMut => EagerQualifier::LocalRefMut,
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::Owned => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
@@ -450,6 +461,7 @@ impl EagerQualifier {
                 EagerContract::RefMut => todo!(),
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::OwnedMut => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
@@ -463,6 +475,7 @@ impl EagerQualifier {
                 EagerContract::RefMut => EagerQualifier::LocalRefMut,
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::PureRef => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
@@ -478,6 +491,11 @@ impl EagerQualifier {
                 EagerContract::RefMut => todo!(),
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
+                EagerContract::GlobalRef => {
+                    return Err(query_error!(format!(
+                        "can't turn a pure ref to a global ref",
+                    )))
+                }
             },
             EagerQualifier::GlobalRef => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
@@ -491,6 +509,7 @@ impl EagerQualifier {
                 EagerContract::RefMut => todo!(),
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::LocalRef => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
@@ -504,6 +523,7 @@ impl EagerQualifier {
                 EagerContract::RefMut => todo!(),
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
+                EagerContract::GlobalRef => todo!(),
             },
             EagerQualifier::LocalRefMut => todo!(),
             EagerQualifier::Transient => todo!(),
@@ -536,6 +556,7 @@ impl EagerQualifier {
                 EagerContract::UseForAssignRvalue => todo!(),
                 EagerContract::MoveMut => panic!(),
                 EagerContract::Exec => panic!(),
+                EagerContract::GlobalRef => todo!(),
             }
         } else {
             match this_qual {
@@ -552,6 +573,7 @@ impl EagerQualifier {
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 },
                 EagerQualifier::LocalRef => match this_contract {
                     EagerContract::Pure => todo!(),
@@ -565,6 +587,7 @@ impl EagerQualifier {
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 },
                 EagerQualifier::Transient => match this_contract {
                     EagerContract::Pure => todo!(),
@@ -578,6 +601,7 @@ impl EagerQualifier {
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 },
                 EagerQualifier::Owned => match this_contract {
                     EagerContract::Pure => todo!(),
@@ -591,6 +615,7 @@ impl EagerQualifier {
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 },
                 EagerQualifier::OwnedMut => panic!(),
                 EagerQualifier::GlobalRef => todo!(),
@@ -607,6 +632,7 @@ impl EagerQualifier {
                     EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
+                    EagerContract::GlobalRef => todo!(),
                 },
             }
         }

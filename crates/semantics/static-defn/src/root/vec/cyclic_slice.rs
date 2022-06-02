@@ -14,9 +14,8 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
                 nargs: 1,
             }),
         },
-        output_liason: OutputLiason::MemberAccess {
-            member_liason: MemberLiason::Mutable,
-        },
+        output_liason: OutputLiason::Transfer,
+        // bug if output_liason is OutputLiason::MemberAccess
     },
     dev_src: static_dev_src!(),
 };
