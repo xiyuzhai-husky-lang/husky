@@ -42,9 +42,10 @@ impl EagerQualifiedTy {
         input_liason: InputLiason,
         ty: EntityRoutePtr,
         contract: EagerContract,
+        range: TextRange,
     ) -> InferResult<Self> {
         Ok(EagerQualifiedTy::new(
-            EagerQualifier::from_parameter_use(input_liason, db.is_copyable(ty)?, contract)?,
+            EagerQualifier::from_parameter_use(input_liason, db.is_copyable(ty)?, contract, range)?,
             ty,
         ))
     }
@@ -189,7 +190,7 @@ impl EagerQualifier {
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),
-                EagerContract::GlobalRef => todo!(),
+                EagerContract::GlobalRef => panic!(),
             },
             EagerQualifier::LocalRef => match contract {
                 EagerContract::Pure => Binding::Ref,
@@ -353,8 +354,9 @@ impl EagerQualifier {
         input_liason: InputLiason,
         is_copyable: bool,
         contract: EagerContract,
-    ) -> InferQueryResult<Self> {
-        Self::from_parameter(input_liason, is_copyable).variable_use(contract)
+        range: TextRange,
+    ) -> InferResult<Self> {
+        Self::from_parameter(input_liason, is_copyable).variable_use(contract, range)
     }
 
     pub fn from_parameter(input_liason: InputLiason, is_copyable: bool) -> Self {
@@ -419,7 +421,7 @@ impl EagerQualifier {
         }
     }
 
-    pub fn variable_use(self, contract: EagerContract) -> InferQueryResult<Self> {
+    pub fn variable_use(self, contract: EagerContract, range: TextRange) -> InferResult<Self> {
         Ok(match self {
             EagerQualifier::Copyable => match contract {
                 EagerContract::Pure => EagerQualifier::Copyable,
@@ -480,7 +482,7 @@ impl EagerQualifier {
             EagerQualifier::PureRef => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
                 EagerContract::Move => {
-                    return Err(query_error!(format!("can't move from a pure ref",)))
+                    return throw!(format!("can't move from a pure ref",), range)
                 }
                 EagerContract::UseForLetInit => todo!(),
                 EagerContract::UseForVarInit => todo!(),
@@ -492,9 +494,7 @@ impl EagerQualifier {
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::GlobalRef => {
-                    return Err(query_error!(format!(
-                        "can't turn a pure ref to a global ref",
-                    )))
+                    throw!(format!("can't turn a pure ref to a global ref",), range)
                 }
             },
             EagerQualifier::GlobalRef => match contract {
