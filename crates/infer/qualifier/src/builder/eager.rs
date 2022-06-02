@@ -233,7 +233,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 Ok(variable_qt) => {
                     let variable_contract = self.eager_expr_contract(raw_expr_idx)?;
                     Ok(EagerQualifiedTy {
-                        qual: variable_qt.qual.variable_use(variable_contract)?,
+                        qual: variable_qt
+                            .qual
+                            .variable_use(variable_contract, raw_expr.range)?,
                         ty: variable_qt.ty,
                     })
                 }
@@ -250,7 +252,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let this_ty = derived_not_none!(opt_this_ty)?;
                 let this_liason = derived_not_none!(opt_this_liason)?;
                 let this_contract = self.eager_expr_contract(raw_expr_idx)?;
-                EagerQualifiedTy::from_parameter_use(self.db, this_liason, this_ty, this_contract)
+                EagerQualifiedTy::from_parameter_use(
+                    self.db,
+                    this_liason,
+                    this_ty,
+                    this_contract,
+                    raw_expr.range,
+                )
             }
             RawExprVariant::ThisField {
                 opt_this_ty,
@@ -272,6 +280,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     this_liason,
                     self.db.is_copyable(this_ty)?,
                     this_contract,
+                    raw_expr.range,
                 )?;
                 Ok(EagerQualifiedTy::new(
                     EagerQualifier::from_field(this_qual, field_liason, is_field_copyable)?,

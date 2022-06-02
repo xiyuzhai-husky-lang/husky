@@ -28,6 +28,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     .eager_variable_qualified_ty(varname.into(), init_range)
                     .unwrap();
                 let contract = self.eager_expr_contract(raw_expr_idx).unwrap();
+                p!(self.file(), self.arena()[raw_expr_idx].range);
                 EagerExprVariant::Variable {
                     varname,
                     binding: variable_qt.qual.binding(contract),
@@ -89,6 +90,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                         opt_this_liason.unwrap(),
                         self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
                         this_contract,
+                        raw_expr.range,
                     )
                     .unwrap();
                     this_qual.binding(this_contract)
@@ -113,6 +115,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     opt_this_liason.unwrap(),
                     self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
                     this_contract,
+                    raw_expr.range,
                 )
                 .unwrap();
                 let ty_decl = self.decl_db().ty_decl(opt_this_ty.unwrap()).unwrap();
