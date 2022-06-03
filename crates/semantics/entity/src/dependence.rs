@@ -117,7 +117,7 @@ impl EntityDefn {
                 extract_call_head_dependees(parameters, output, &mut builder);
                 extract_proc_stmts_dependees(stmts, &mut builder);
             }
-            EntityDefnVariant::Type {
+            EntityDefnVariant::Ty {
                 ty_members: ref type_members,
                 ref variants,
                 kind,
@@ -441,13 +441,14 @@ impl EntityDefn {
                 EntityDefnVariant::Feature { ty, ref defn_repr } => todo!(),
                 EntityDefnVariant::Func { .. } => todo!(),
                 EntityDefnVariant::Proc { .. } => todo!(),
-                EntityDefnVariant::Type { .. } => todo!(),
+                EntityDefnVariant::Ty { .. } => todo!(),
                 EntityDefnVariant::EnumVariant { .. } => todo!(),
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::TyField {
                     ty,
                     field_variant: ref field_variant,
                     liason: contract,
+                    ..
                 } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),

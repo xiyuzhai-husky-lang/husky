@@ -50,6 +50,7 @@ pub enum EntityStaticDefnVariant {
         field_kind: FieldKind,
         liason: MemberLiason,
         ty: &'static str,
+        static_linkage_source: &'static LinkageSource,
     },
     Method {
         this_liason: ParameterLiason,

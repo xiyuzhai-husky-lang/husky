@@ -59,8 +59,9 @@ impl EntityDefnVariant {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TyField {
                         ty,
-                        field_variant: ref field_variant,
+                        ref field_variant,
                         liason: contract,
+                        ..
                     } => match field_variant {
                         FieldDefnVariant::RecordOriginal => Parameter {
                             ranged_ident: ident,
@@ -87,8 +88,9 @@ impl EntityDefnVariant {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TyField {
                         ty,
-                        field_variant: ref field_variant,
+                        ref field_variant,
                         liason: contract,
+                        ..
                     } => match field_variant {
                         FieldDefnVariant::StructOriginal => Parameter {
                             ranged_ident: ident,
@@ -137,7 +139,7 @@ impl EntityDefnVariant {
         opt_visualizer_source: Option<VisualizerSource>,
     ) -> Self {
         let members = collect_all_members(&type_members, &trait_impls);
-        EntityDefnVariant::Type {
+        EntityDefnVariant::Ty {
             generic_parameters,
             ty_members: type_members,
             variants,
@@ -314,7 +316,17 @@ impl EntityDefnVariant {
 impl EntityDefn {
     pub fn method(&self, member_idx: MemberIdx) -> &Arc<EntityDefn> {
         match self.variant {
-            EntityDefnVariant::Type { ref members, .. } => &members[member_idx.0 as usize],
+            EntityDefnVariant::Ty { ref members, .. } => &members[member_idx.0 as usize],
+            EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
+            EntityDefnVariant::Builtin => todo!(),
+            _ => panic!(),
+        }
+    }
+    pub fn field(&self, field_ident: CustomIdentifier) -> &Arc<EntityDefn> {
+        match self.variant {
+            EntityDefnVariant::Ty { ref ty_members, .. } => {
+                ty_members.get_entry(field_ident).unwrap()
+            }
             EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
             _ => panic!(),

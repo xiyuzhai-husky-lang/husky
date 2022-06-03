@@ -1,5 +1,9 @@
-use std::any::TypeId;
+mod end;
+mod start;
 
+use end::*;
+use start::*;
+use std::any::TypeId;
 use vm::*;
 
 use super::*;
@@ -72,28 +76,6 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Struct,
         visualizer: StaticVisualizer::Vec,
         opt_type_call: None,
-    },
-    dev_src: dev_utils::static_dev_src!(),
-};
-
-pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "start",
-    subscopes: &[],
-    variant: EntityStaticDefnVariant::TyField {
-        field_kind: FieldKind::StructOriginal,
-        liason: MemberLiason::Mutable,
-        ty: "i32",
-    },
-    dev_src: dev_utils::static_dev_src!(),
-};
-
-pub static STD_SLICE_CYCLIC_SLICE_END_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "end",
-    subscopes: &[],
-    variant: EntityStaticDefnVariant::TyField {
-        field_kind: FieldKind::StructOriginal,
-        liason: MemberLiason::Mutable,
-        ty: "i32",
     },
     dev_src: dev_utils::static_dev_src!(),
 };

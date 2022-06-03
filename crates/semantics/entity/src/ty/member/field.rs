@@ -10,6 +10,7 @@ impl EntityDefnVariant {
                 field_kind,
                 liason,
                 ty,
+                static_linkage_source,
             } => Self::TyField {
                 ty: symbol_context.parse_entity_route(ty).unwrap(),
                 liason,
@@ -21,6 +22,7 @@ impl EntityDefnVariant {
                     FieldKind::RecordOriginal => todo!(),
                     FieldKind::RecordDerived => todo!(),
                 },
+                opt_static_linkage_source: Some(static_linkage_source),
             },
             _ => todo!(),
         }
@@ -96,6 +98,7 @@ impl EntityDefnVariant {
                     ty: ty.route,
                     liason,
                     field_variant,
+                    opt_static_linkage_source: None,
                 })
             }
             _ => panic!(),

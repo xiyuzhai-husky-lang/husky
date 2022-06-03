@@ -44,7 +44,7 @@ impl<'a> RustGenerator<'a> {
                     ref stmts,
                     ..
                 } => self.gen_proc_defn(entity.ident.custom(), parameters, output.route, stmts),
-                EntityDefnVariant::Type {
+                EntityDefnVariant::Ty {
                     ref ty_members,
                     ref variants,
                     kind,
@@ -66,8 +66,9 @@ impl<'a> RustGenerator<'a> {
                 EntityDefnVariant::EnumVariant { .. } => todo!(),
                 EntityDefnVariant::TyField {
                     ty,
-                    field_variant: ref field_variant,
+                    ref field_variant,
                     liason: contract,
+                    ..
                 } => todo!(),
                 EntityDefnVariant::Method { .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),

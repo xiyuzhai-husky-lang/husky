@@ -51,7 +51,7 @@ fn entity_instruction_sheet(
             stmts,
             false, // has_this
         )),
-        EntityDefnVariant::Type { .. } => todo!(),
+        EntityDefnVariant::Ty { .. } => todo!(),
         EntityDefnVariant::Main(_) => todo!(),
         EntityDefnVariant::Builtin => {
             p!(route.ident());
@@ -99,7 +99,7 @@ fn method_opt_instruction_sheet(
     let ty = member_route.parent();
     let entity_defn = db.entity_defn(ty).unwrap();
     match entity_defn.variant {
-        EntityDefnVariant::Type {
+        EntityDefnVariant::Ty {
             ty_members: ref type_members,
             ref variants,
             kind,

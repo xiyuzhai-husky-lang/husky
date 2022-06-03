@@ -35,6 +35,7 @@ impl FieldDecl {
                 field_kind,
                 liason,
                 ty,
+                ..
             } => Arc::new(Self {
                 ident: symbol_context
                     .entity_syntax_db()

@@ -40,8 +40,9 @@ impl<'a> RustGenerator<'a> {
             match member.variant {
                 EntityDefnVariant::TyField {
                     ty,
-                    field_variant: ref field_variant,
+                    ref field_variant,
                     liason: contract,
+                    ..
                 } => {
                     match field_variant {
                         FieldDefnVariant::StructOriginal => (),
