@@ -28,7 +28,7 @@ pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRoutePtr) 
     let ty_defn = db.entity_defn(ty).unwrap();
     let member_idx = db.member_idx(member_route);
     match ty_defn.variant {
-        EntityDefnVariant::Type { ref members, .. } => members[member_idx.0 as usize].clone(),
+        EntityDefnVariant::Ty { ref members, .. } => members[member_idx.0 as usize].clone(),
         _ => panic!(),
     }
 }

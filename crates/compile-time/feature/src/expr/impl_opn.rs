@@ -149,19 +149,11 @@ impl<'a> FeatureExprBuilder<'a> {
                         field_ident,
                         field_idx: this_ty_decl.field_idx(field_ident.ident),
                         field_binding,
-                        opt_linkage: self
-                            .db
-                            .struct_field_access(this.expr.ty(), field_ident.ident)
-                            .map(|linkage_source| match linkage_source {
-                                LinkageSource::MemberAccess {
-                                    eval_ref_access,
-                                    temp_ref_access,
-                                    move_access,
-                                    temp_mut_access: borrow_mut_access,
-                                    ..
-                                } => todo!(),
-                                LinkageSource::Transfer(_) => todo!(),
-                            }),
+                        opt_linkage: self.db.struct_field_access_linkage(
+                            this.expr.ty(),
+                            field_ident.ident,
+                            field_binding,
+                        ),
                         this,
                     },
                     feature,
@@ -177,7 +169,7 @@ impl<'a> FeatureExprBuilder<'a> {
                             vec![],
                         )));
                 match this_ty_defn.variant {
-                    EntityDefnVariant::Type { ref ty_members, .. } => {
+                    EntityDefnVariant::Ty { ref ty_members, .. } => {
                         match ty_members.get_entry(field_ident.ident).unwrap().variant {
                             EntityDefnVariant::TyField {
                                 ref field_variant, ..
@@ -232,7 +224,7 @@ impl<'a> FeatureExprBuilder<'a> {
                             vec![],
                         )));
                 match this_ty_defn.variant {
-                    EntityDefnVariant::Type { ref ty_members, .. } => {
+                    EntityDefnVariant::Ty { ref ty_members, .. } => {
                         match ty_members.get_entry(field_ident.ident).unwrap().variant {
                             EntityDefnVariant::TyField {
                                 ref field_variant, ..
@@ -314,7 +306,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 ref opds,
                 ..
             } => match entity.variant {
-                EntityDefnVariant::Type { kind, .. } => todo!(),
+                EntityDefnVariant::Ty { kind, .. } => todo!(),
                 // p!(field_ident, ty.fields);
                 // let idx = ty.fields.position(field_ident).unwrap();
                 // opds[idx].clone()

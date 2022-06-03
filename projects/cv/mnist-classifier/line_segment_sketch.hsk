@@ -18,6 +18,12 @@ struct LineSegmentSketch:
     visual:
         this.line_segments
 
+func get_line_segment(ct: &RawContour, from: i32, to: i32) -> LineSegment:
+    L = ct.points.len()
+    pt_start = ct.points[from%L].clone()
+    pt_end = ct.points[to%L].clone()
+    LineSegment(ct.points.cyclic_slice(from, to + 1))
+
 func go_right(u: Vector2d, r: f32) -> Vector2d:
     L = (u.x*u.x+u.y*u.y).sqrt()
     assert L > r
@@ -152,9 +158,3 @@ proc find_line_segments(ct: &RawContour, r: f32) -> []LineSegment:
         line_segments.pop();
         line_segments.first() = get_line_segment(ct, last_line_segment.points.start - N, line_segments.first().points.end)
     return line_segments
-
-func get_line_segment(ct: &RawContour, start: i32, end: i32) -> LineSegment:
-    L = ct.points.len()
-    pt_start = ct.points[start%L].clone()
-    pt_end = ct.points[end%L].clone()
-    LineSegment(ct.points.cyclic_slice(start, end))

@@ -69,12 +69,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                         expr.clone(),
                     ));
                     self.push_instruction(Instruction::new(
-                        if let Some(field_access_fp) =
-                            self.db.field_access_fp(this_ty, field_ident.ident)
-                        {
-                            InstructionVariant::FieldAccessCompiled {
-                                linkage: field_access_fp,
-                            }
+                        if let Some(linkage) = self.db.struct_field_access_linkage(
+                            this_ty,
+                            field_ident.ident,
+                            field_binding,
+                        ) {
+                            InstructionVariant::CallLinkage { linkage }
                         } else {
                             let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
                             InstructionVariant::FieldAccessInterpreted {
@@ -181,7 +181,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::RoutineCall(routine) => {
                 if let Some(linkage) = self.db.routine_linkage(routine.route) {
                     self.push_instruction(Instruction::new(
-                        InstructionVariant::CallCompiled { linkage },
+                        InstructionVariant::CallLinkage { linkage },
                         expr.clone(),
                     ))
                 } else {
@@ -203,10 +203,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                 field_binding,
             } => {
                 self.push_instruction(Instruction::new(
-                    if let Some(field_access_fp) =
-                        self.db.field_access_fp(*this_ty, field_ident.ident)
-                    {
-                        InstructionVariant::FieldAccessCompiled {
+                    if let Some(field_access_fp) = self.db.struct_field_access_linkage(
+                        *this_ty,
+                        field_ident.ident,
+                        *field_binding,
+                    ) {
+                        InstructionVariant::CallLinkage {
                             linkage: field_access_fp,
                         }
                     } else {
@@ -249,7 +251,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             } => {
                 let ty_defn = self.db.entity_defn(ranged_ty.route).unwrap();
                 let instruction_kind = match ty_defn.variant {
-                    EntityDefnVariant::Type {
+                    EntityDefnVariant::Ty {
                         kind,
                         ref ty_members,
                         ..
@@ -266,6 +268,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                         ty,
                                         ref field_variant,
                                         liason,
+                                        ..
                                     } => match field_variant {
                                         FieldDefnVariant::StructOriginal => (),
                                         FieldDefnVariant::StructDefault { default } => {
@@ -284,7 +287,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             self.context.exit();
 
                             if let Some(linkage) = self.db.ty_call_linkage(ranged_ty.route) {
-                                InstructionVariant::CallCompiled { linkage }
+                                InstructionVariant::CallLinkage { linkage }
                             } else {
                                 InstructionVariant::NewVirtualStruct {
                                     fields: ty_decl.eager_fields().map(|decl| decl.ident).collect(),
@@ -292,7 +295,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             }
                         }
                         TyKind::Primitive => todo!(),
-                        TyKind::Vec | TyKind::Array => InstructionVariant::CallCompiled {
+                        TyKind::Vec | TyKind::Array => InstructionVariant::CallLinkage {
                             linkage: self.db.ty_call_linkage(ranged_ty.route).unwrap(),
                         },
                         TyKind::Other => todo!(),
@@ -311,7 +314,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         element_binding: Binding,
     ) {
         self.push_instruction(Instruction::new(
-            InstructionVariant::CallCompiled {
+            InstructionVariant::CallLinkage {
                 linkage: self
                     .db
                     .element_access_linkage(opds.map(|opd| opd.ty()), element_binding),
@@ -329,7 +332,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         opt_output_binding: Option<Binding>,
     ) -> InstructionVariant {
         if let Some(linkage) = self.db.method_linkage(method_route, opt_output_binding) {
-            InstructionVariant::CallCompiled { linkage }
+            InstructionVariant::CallLinkage { linkage }
         } else {
             let method_uid = self.db.entity_uid(method_route);
             let method_decl = self.db.method_decl(method_route).unwrap();

@@ -1,5 +1,5 @@
 use infer_total::InferQueryGroup;
-use linkage_table::{LinkageTable, ResolveLinkage};
+use linkage_table::{LinkageSourceTable, ResolveLinkage};
 use semantics_entity::{EntityRouteStore, StoreEntityRoute};
 use upcast::Upcast;
 use vm::InterpreterQueryGroup;
@@ -126,7 +126,7 @@ impl infer_contract::InferContractQueryGroup for HuskyLangCompileTime {}
 impl infer_total::InferQueryGroup for HuskyLangCompileTime {}
 
 impl ResolveLinkage for HuskyLangCompileTime {
-    fn linkage_table(&self) -> &LinkageTable {
+    fn linkage_table(&self) -> &LinkageSourceTable {
         &self.linkage_table
     }
 }

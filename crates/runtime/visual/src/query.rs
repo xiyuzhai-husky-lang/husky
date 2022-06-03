@@ -15,7 +15,7 @@ pub trait VisualQueryGroup: AskCompileTime {
 fn visualizer(db: &dyn VisualQueryGroup, ty: EntityRoutePtr) -> Arc<RuntimeVisualizer> {
     let ty_defn = db.compile_time().entity_defn(ty).unwrap();
     Arc::new(match ty_defn.variant {
-        EntityDefnVariant::Type {
+        EntityDefnVariant::Ty {
             ref opt_visualizer_source,
             ..
         } => match opt_visualizer_source {

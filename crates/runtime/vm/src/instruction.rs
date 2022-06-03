@@ -71,14 +71,11 @@ pub enum InstructionVariant {
     },
     PushPrimitiveLiteral(CopyableValue),
     PushEnumKindLiteral(EnumKindValue),
-    FieldAccessCompiled {
-        linkage: Linkage,
-    },
     FieldAccessInterpreted {
         field_idx: u8,
         field_binding: Binding,
     },
-    CallCompiled {
+    CallLinkage {
         linkage: Linkage,
     },
     CallInterpreted {

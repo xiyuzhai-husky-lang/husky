@@ -16,11 +16,11 @@ use std::collections::HashMap;
 use sync_utils::ARwLock;
 use vec::*;
 use vm::{Binding, EntityUid};
-use vm::{EvalValue, Linkage, OwnedValue, VMRuntimeResult, TempValue};
+use vm::{EvalValue, Linkage, OwnedValue, TempValue, VMRuntimeResult};
 use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup {
-    fn linkage_table(&self) -> &LinkageTable;
+    fn linkage_table(&self) -> &LinkageSourceTable;
 
     fn element_access_linkage(
         &self,
@@ -66,18 +66,29 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         }
     }
 
-    fn struct_field_access(
+    fn struct_field_access_linkage(
         &self,
         this_ty: EntityRoutePtr,
         field_ident: CustomIdentifier,
-    ) -> Option<LinkageSource> {
-        if let Some(linkage) = self
-            .linkage_table()
-            .struct_field_access(self.entity_uid(this_ty), field_ident)
-        {
-            return Some(LinkageSource::Transfer(linkage));
-        } else {
-            None
+        field_binding: Binding,
+    ) -> Option<Linkage> {
+        if let Some(linkage) = self.linkage_table().struct_field_access_linkage_source(
+            self.entity_uid(this_ty),
+            field_ident,
+            field_binding,
+        ) {
+            return Some(linkage);
+        }
+        let this_ty_defn = self.entity_defn(this_ty).unwrap();
+        let ty_field_defn = this_ty_defn.field(field_ident);
+        match ty_field_defn.variant {
+            EntityDefnVariant::TyField {
+                ty,
+                ref field_variant,
+                liason,
+                opt_static_linkage_source,
+            } => opt_static_linkage_source.map(|source| source.bind(Some(field_binding))),
+            _ => panic!(""),
         }
     }
 
@@ -86,8 +97,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         method_route: EntityRoutePtr,
         opt_output_binding: Option<Binding>,
     ) -> Option<Linkage> {
-        let opt_linkage = if let Some(linkage) =
-            self.linkage_table().routine(self.entity_uid(method_route))
+        let opt_linkage = if let Some(linkage) = self
+            .linkage_table()
+            .routine_linkage(self.entity_uid(method_route))
         {
             Some(linkage)
         } else {
@@ -182,9 +194,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                 _ => todo!(),
             },
             EntityLocus::WithinBuiltinModule => todo!(),
-            EntityLocus::WithinModule { .. } => {
-                self.linkage_table().routine(self.entity_uid(routine))
-            }
+            EntityLocus::WithinModule { .. } => self
+                .linkage_table()
+                .routine_linkage(self.entity_uid(routine)),
             EntityLocus::Module { file } => todo!(),
             EntityLocus::Input { main } => todo!(),
             EntityLocus::StaticTypeMember => todo!(),
@@ -197,22 +209,13 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         opt_linkage
     }
 
-    fn field_access_fp(
-        &self,
-        this_ty: EntityRoutePtr,
-        field_ident: CustomIdentifier,
-    ) -> Option<Linkage> {
-        self.linkage_table()
-            .struct_field_access(self.entity_uid(this_ty), field_ident)
-    }
-
     fn ty_call_linkage(&self, ty: EntityRoutePtr) -> Option<Linkage> {
-        if let Some(linkage) = self.linkage_table().type_call(self.entity_uid(ty)) {
+        if let Some(linkage) = self.linkage_table().type_call_linkage(self.entity_uid(ty)) {
             return Some(linkage);
         }
         let ty_defn = self.entity_defn(ty).unwrap();
         match ty_defn.variant {
-            EntityDefnVariant::Type {
+            EntityDefnVariant::Ty {
                 ref opt_type_call, ..
             } => opt_type_call
                 .as_ref()

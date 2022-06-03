@@ -29,7 +29,7 @@ pub use word::InternWord;
 use check_utils::*;
 use entity_route::EntityRoutePtr;
 use file::FilePtr;
-use linkage_table::LinkageTable;
+use linkage_table::LinkageSourceTable;
 use print_utils::*;
 use semantics_entity::{EntityDefnVariant, EntityRouteStore};
 use std::{
@@ -64,7 +64,7 @@ pub struct HuskyLangCompileTime {
     scope_unique_allocator: entity_route::EntityRouteInterner,
     live_docs: ARwLock<IndexMap<FilePtr, ARwLock<String>>>,
     features: feature::FeatureUniqueAllocator,
-    linkage_table: LinkageTable,
+    linkage_table: LinkageSourceTable,
     entity_route_store: EntityRouteStore,
 }
 

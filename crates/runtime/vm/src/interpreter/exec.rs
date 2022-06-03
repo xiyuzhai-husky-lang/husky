@@ -66,7 +66,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::CallCompiled { linkage } => {
+                InstructionVariant::CallLinkage { linkage } => {
                     let control = self.call_compiled(linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -156,7 +156,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     };
                     control
                 }
-                InstructionVariant::FieldAccessCompiled { linkage } => todo!(),
                 InstructionVariant::FieldAccessInterpreted {
                     field_idx,
                     field_binding,

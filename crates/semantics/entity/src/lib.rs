@@ -34,7 +34,7 @@ use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
 use semantics_lazy::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
-use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
+use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, LinkageSource};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::*;
@@ -120,7 +120,7 @@ impl EntityDefn {
 
     pub fn trait_impl(&self, trai: EntityRoutePtr) -> Option<&Arc<TraitImplDefn>> {
         match self.variant {
-            EntityDefnVariant::Type {
+            EntityDefnVariant::Ty {
                 ref trait_impls, ..
             } => trait_impls
                 .iter()
@@ -159,7 +159,7 @@ pub enum EntityDefnVariant {
         output: RangedEntityRoute,
         stmts: Avec<ProcStmt>,
     },
-    Type {
+    Ty {
         generic_parameters: IdentDict<SpatialParameter>,
         ty_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
@@ -182,6 +182,7 @@ pub enum EntityDefnVariant {
         ty: EntityRoutePtr,
         field_variant: FieldDefnVariant,
         liason: MemberLiason,
+        opt_static_linkage_source: Option<&'static LinkageSource>,
     },
     Method {
         generic_parameters: IdentDict<SpatialParameter>,
@@ -427,7 +428,7 @@ pub(crate) fn entity_defn(
             EntityRouteKind::Child { parent: ty, ident } => {
                 let ty_defn = db.entity_defn(ty).unwrap();
                 match ty_defn.variant {
-                    EntityDefnVariant::Type {
+                    EntityDefnVariant::Ty {
                         ty_members: ref type_members,
                         ..
                     } => Ok(type_members[ident].clone()),
