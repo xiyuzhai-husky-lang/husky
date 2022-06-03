@@ -1,3 +1,4 @@
+use ast::MatchLiason;
 use text::TextRange;
 
 use crate::*;
@@ -29,6 +30,45 @@ impl LazyContract {
                 ParameterLiason::EvalRef => todo!(),
             }),
             OutputLiason::MemberAccess { .. } => todo!(),
+        }
+    }
+
+    pub fn from_field_access(
+        field_liason: MemberLiason,
+        field_contract: LazyContract,
+        is_member_copyable: bool,
+        range: TextRange,
+    ) -> InferResult<LazyContract> {
+        // infer this contract
+        Ok(if is_member_copyable {
+            match field_contract {
+                LazyContract::Init => todo!(),
+                LazyContract::Return => todo!(),
+                LazyContract::UseMemberForInit => todo!(),
+                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::EvalRef => todo!(),
+                LazyContract::Pure => LazyContract::Pure,
+                LazyContract::Move => todo!(),
+            }
+        } else {
+            match field_liason {
+                MemberLiason::Immutable | MemberLiason::Mutable => match field_contract {
+                    LazyContract::Move => LazyContract::Move,
+                    LazyContract::Pure => LazyContract::Pure,
+                    LazyContract::EvalRef => todo!(),
+                    LazyContract::Init => todo!(),
+                    LazyContract::Return => todo!(),
+                    LazyContract::UseMemberForInit => todo!(),
+                    LazyContract::UseMemberForReturn => todo!(),
+                },
+                MemberLiason::Derived => todo!(),
+            }
+        })
+    }
+
+    pub fn from_match(match_liason: MatchLiason) -> Self {
+        match match_liason {
+            MatchLiason::Pure => LazyContract::Pure,
         }
     }
 }

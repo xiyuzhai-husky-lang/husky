@@ -60,9 +60,8 @@ impl<'a> ContractSheetBuilder<'a> {
             RawStmtVariant::Break => todo!(),
             RawStmtVariant::Match {
                 match_expr,
-                match_liason: match_contract,
-            } => self.infer_lazy_expr(match_expr, todo!(), arena),
-            // match_contract.lazy()
+                match_liason,
+            } => self.infer_lazy_expr(match_expr, LazyContract::from_match(match_liason), arena),
             RawStmtVariant::ReturnXml(_) => todo!(),
         }
     }
@@ -204,12 +203,13 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.raw_expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract_result: InferResult<_> = todo!();
-        // field_decl
-        //     .liason
-        //     .this_lazy_contract(contract, self.db.is_copyable(field_decl.ty)?)
-        //     .bind_into(&arena[opd]);
-        self.infer_lazy_expr(opd, this_contract_result?, arena);
+        let this_contract = LazyContract::from_field_access(
+            field_decl.liason,
+            contract,
+            self.db.is_copyable(field_decl.ty)?,
+            arena[opd].range,
+        )?;
+        self.infer_lazy_expr(opd, this_contract, arena);
         Ok(())
     }
 

@@ -127,12 +127,13 @@ impl EagerContract {
         }
     }
 
-    pub fn this_contract_from_field_access(
+    pub fn from_field_access(
         field_liason: MemberLiason,
         member_contract: EagerContract,
         is_member_copyable: bool,
         range: TextRange,
     ) -> InferResult<EagerContract> {
+        // infer this contract
         if is_member_copyable {
             Ok(match member_contract {
                 EagerContract::Pure => EagerContract::Pure,
@@ -205,41 +206,4 @@ impl EagerContract {
             MatchLiason::Pure => EagerContract::Pure,
         }
     }
-
-    // pub fn lazy(self) -> LazyContract {
-    //     match self {
-    //         MatchContract::Pure => LazyContract::Pure,
-    //     }
-    // }
-
-    // pub fn this_lazy_contract(
-    //     self,
-    //     field_contract: LazyContract,
-    //     is_member_copyable: bool,
-    // ) -> VMCompileResult<LazyContract> {
-    //     Ok(if is_member_copyable {
-    //         match field_contract {
-    //             LazyContract::Init => todo!(),
-    //             LazyContract::Return => todo!(),
-    //             LazyContract::UseMemberForInit => todo!(),
-    //             LazyContract::UseMemberForReturn => todo!(),
-    //             LazyContract::EvalRef => todo!(),
-    //             LazyContract::Pure => LazyContract::Pure,
-    //             LazyContract::Move => todo!(),
-    //         }
-    //     } else {
-    //         match self {
-    //             MemberLiason::Immutable | MemberLiason::Mutable => match field_contract {
-    //                 LazyContract::Move => LazyContract::Move,
-    //                 LazyContract::Pure => LazyContract::Pure,
-    //                 LazyContract::EvalRef => todo!(),
-    //                 LazyContract::Init => todo!(),
-    //                 LazyContract::Return => todo!(),
-    //                 LazyContract::UseMemberForInit => todo!(),
-    //                 LazyContract::UseMemberForReturn => todo!(),
-    //             },
-    //             MemberLiason::Derived => todo!(),
-    //         }
-    //     })
-    // }
 }

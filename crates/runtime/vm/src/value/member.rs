@@ -56,16 +56,65 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn stack_eval_ref(&self) -> TempValue<'temp, 'eval> {
+    pub fn bind(&self, binding: Binding) -> TempValue<'temp, 'eval> {
+        match binding {
+            Binding::EvalRef => self.bind_eval_ref(),
+            Binding::TempRef => self.bind_temp_ref(),
+            Binding::TempRefMut => todo!(),
+            Binding::Move => todo!(),
+            Binding::Copy => match self {
+                MemberValue::Copyable(value) => TempValue::Copyable(*value),
+                MemberValue::Boxed(_) => todo!(),
+                MemberValue::GlobalPure(_) => todo!(),
+                MemberValue::EvalRef(_) => todo!(),
+                MemberValue::Moved => todo!(),
+            },
+        }
+        // EagerContract::Move => todo!(),
+        // EagerContract::UseForVarInit => todo!(),
+        // EagerContract::Return => match self {
+        //     VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
+        //         MemberValue::Copyable(value) => VMValue::Copyable(value),
+        //         MemberValue::Boxed(_) => todo!(),
+        //         MemberValue::GlobalPure(_) => todo!(),
+        //         MemberValue::EvalRef(_) => todo!(),
+        //         MemberValue::Moved => todo!(),
+        //     },
+        // },
+        // EagerContract::RefMut => todo!(),
+        // EagerContract::MoveMut => todo!(),
+        // EagerContract::Exec => todo!(),
+        // EagerContract::UseMemberForLetInit => match self {
+        //     VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
+        //         MemberValue::Copyable(_) => todo!(),
+        //         MemberValue::Boxed(ref value) => {
+        //             let ptr = value.any_ptr();
+        //             VMValue::FullyOwnedRef(unsafe { &*ptr })
+        //         }
+        //         MemberValue::GlobalPure(_) => todo!(),
+        //         MemberValue::EvalRef(_) => todo!(),
+        //         MemberValue::Moved => todo!(),
+        //     },
+        // },
+        // EagerContract::UseMemberForVarInit => todo!(),
+        // EagerContract::UseForAssignRvalue => todo!(),
+    }
+
+    pub fn bind_eval_ref(&self) -> TempValue<'temp, 'eval> {
         match self {
             MemberValue::EvalRef(value) => TempValue::EvalRef(*value),
-            _ => panic!(),
+            MemberValue::Copyable(_) => todo!(),
+            MemberValue::Boxed(ref boxed_value) => {
+                TempValue::EvalRef(unsafe { &*boxed_value.any_ptr() })
+            }
+            MemberValue::GlobalPure(_) => todo!(),
+            MemberValue::Moved => todo!(),
         }
     }
 
-    pub fn stack_temp_ref(&self) -> TempValue<'temp, 'eval> {
+    pub fn bind_temp_ref(&self) -> TempValue<'temp, 'eval> {
         match self {
-            MemberValue::Copyable(_) => todo!(),
+            MemberValue::Copyable(_) => panic!(),
             MemberValue::Boxed(boxed_value) => {
                 TempValue::TempRefEval(unsafe { &*boxed_value.any_ptr() })
             }
@@ -75,7 +124,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn stack_mut<'a>(&'a mut self, owner: VMStackIdx) -> TempValue<'temp, 'eval> {
+    pub fn binding_mut<'a>(&'a mut self, owner: VMStackIdx) -> TempValue<'temp, 'eval> {
         let value_mut: *mut dyn AnyValueDyn<'eval> = match self {
             MemberValue::Copyable(value) => value.any_mut(),
             MemberValue::Boxed(value) => value.any_mut_ptr(),

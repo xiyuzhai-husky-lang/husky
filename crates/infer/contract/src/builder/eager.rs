@@ -334,7 +334,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.raw_expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = EagerContract::this_contract_from_field_access(
+        let this_contract = EagerContract::from_field_access(
             field_decl.liason,
             contract,
             self.db.is_copyable(field_decl.ty)?,

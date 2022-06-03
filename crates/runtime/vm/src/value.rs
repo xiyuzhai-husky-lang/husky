@@ -559,6 +559,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             }
             TempValue::CopyableOrTempMutEval { value, owner, gen } => {
                 let virtual_value: &mut VirtualTy = value.downcast_mut();
+                msg_once!("need cleaning");
                 virtual_value.field_mut(field_idx, field_binding, owner)
             }
             TempValue::OwnedTemp(_) => todo!(),

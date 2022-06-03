@@ -35,7 +35,7 @@ fn generic_vec_first_eval_ref<'temp, 'eval>(
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
     let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     match generic_vec.first() {
-        Some(value) => Ok(value.stack_eval_ref()),
+        Some(value) => Ok(value.bind_eval_ref()),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
@@ -45,7 +45,7 @@ fn generic_vec_first_temp_ref<'temp, 'eval>(
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
     let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
     match generic_vec.first() {
-        Some(value) => Ok(value.stack_temp_ref()),
+        Some(value) => Ok(value.bind_temp_ref()),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
@@ -56,7 +56,7 @@ fn generic_vec_first_mut<'temp, 'eval>(
     let (generic_vec, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
         values[0].downcast_mut_full();
     match generic_vec.first_mut() {
-        Some(value) => Ok(value.stack_mut(stack_idx)),
+        Some(value) => Ok(value.binding_mut(stack_idx)),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
