@@ -1,6 +1,6 @@
 use std::iter::Peekable;
 
-use vm::{EagerContract, InitKind, XmlTagKind};
+use vm::{InitKind, XmlTagKind};
 use word::IdentPairDict;
 
 use super::parser::EagerParser;
@@ -49,7 +49,7 @@ impl<'a> EagerParser<'a> {
                         RawStmtVariant::Break => todo!(),
                         RawStmtVariant::Match {
                             match_expr,
-                            match_contract,
+                            match_liason: match_contract,
                         } => self.parse_func_match(
                             stmt,
                             not_none!(item.opt_children),
@@ -137,7 +137,7 @@ impl<'a> EagerParser<'a> {
         stmt: &RawStmt,
         children: AstIter,
         match_expr: RawExprIdx,
-        match_contract: MatchContract,
+        match_contract: MatchLiason,
     ) -> SemanticResult<FuncStmtVariant> {
         Ok(FuncStmtVariant::Match {
             match_expr: self.parse_eager_expr(match_expr)?,

@@ -4,8 +4,9 @@ use crate::*;
 
 #[derive(Clone, Copy)]
 pub struct Linkage {
-    pub call:
-        for<'vm, 'eval> fn(&mut [TempValue<'vm, 'eval>]) -> VMRuntimeResult<TempValue<'vm, 'eval>>,
+    pub call: for<'temp, 'eval> fn(
+        &mut [TempValue<'temp, 'eval>],
+    ) -> VMRuntimeResult<TempValue<'temp, 'eval>>,
     pub nargs: u8,
     pub dev_src: &'static StaticDevSource,
 }

@@ -4,6 +4,8 @@ mod labeled;
 mod loader;
 pub mod synthetic;
 
+use liason::*;
+
 pub static DATASETS_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "datasets",
     subscopes: &[

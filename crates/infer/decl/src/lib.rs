@@ -24,6 +24,7 @@ use fold::FoldableStorage;
 use global::*;
 use infer_error::*;
 use instantiate::*;
+use liason::*;
 use static_defn::*;
 use std::sync::Arc;
 use word::{CustomIdentifier, RootIdentifier};

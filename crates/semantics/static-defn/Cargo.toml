@@ -16,3 +16,4 @@ print-utils = { path = "../../utils/print", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 visual-syntax = { path = "../../syntax/visual", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
+liason = { path = "../liason", version = "0.0.0" }

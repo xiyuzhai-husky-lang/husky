@@ -10,6 +10,7 @@ use bin_main_rs_content::*;
 use cargo_toml_content::*;
 use defn_head::*;
 use file::FilePtr;
+use liason::*;
 use lib_rs_content::*;
 use pack_semantics::PackageQueryGroup;
 use print_utils::*;

@@ -1,8 +1,8 @@
 use super::*;
 
-impl<'vm, 'eval: 'vm, T: AnyValue<'eval> + 'vm> AnyValue<'eval> for &'vm [T] {
+impl<'temp, 'eval: 'temp, T: AnyValue<'eval> + 'temp> AnyValue<'eval> for &'temp [T] {
     fn static_type_id() -> StaticTypeId {
-        StaticTypeId::VecOf(Box::new(T::static_type_id()))
+        StaticTypeId::Vec(Box::new(T::static_type_id()))
     }
 
     fn static_type_name() -> Cow<'static, str> {
@@ -18,11 +18,11 @@ impl<'vm, 'eval: 'vm, T: AnyValue<'eval> + 'vm> AnyValue<'eval> for &'vm [T] {
     }
 }
 
-fn gen_iter<'vm, 'eval: 'vm, T>(
-    slice: &'vm [T],
-) -> Box<dyn Iterator<Item = TempValue<'vm, 'eval>> + 'vm>
+fn gen_iter<'temp, 'eval: 'temp, T>(
+    slice: &'temp [T],
+) -> Box<dyn Iterator<Item = TempValue<'temp, 'eval>> + 'temp>
 where
     T: AnyValueDyn<'eval> + 'eval,
 {
-    Box::new(slice.iter().map(|t| TempValue::FullyOwnedRef(t)))
+    Box::new(slice.iter().map(|t| TempValue::TempRefEval(t)))
 }

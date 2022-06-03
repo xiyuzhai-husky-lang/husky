@@ -8,7 +8,7 @@ use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
 use text::TextRange;
-use vm::{Binding, InstructionSheet, LazyContract, Linkage};
+use vm::{Binding, InstructionSheet, Linkage};
 use word::{ContextualIdentifier, RootIdentifier};
 
 use crate::{eval::FeatureEvalId, *};

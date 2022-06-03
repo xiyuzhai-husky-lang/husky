@@ -32,7 +32,6 @@ entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity-syntax", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
-syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 semantics-error = { path = "../../semantics/error", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }

@@ -9,12 +9,12 @@ pub use lazy::*;
 pub use query::*;
 pub use sheet::*;
 
-use entity_route::EntityRoutePtr;
-use print_utils::emsg_once;
-
 use ast::RawExprIdx;
+use entity_route::EntityRoutePtr;
+use infer_contract::*;
 use infer_error::InferResult;
-
+use liason::*;
+use print_utils::emsg_once;
 use text::{Row, TextRange};
 use vm::*;
 use word::{CustomIdentifier, Identifier};

@@ -2,7 +2,7 @@ use super::*;
 
 impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for Vec<T> {
     fn static_type_id() -> StaticTypeId {
-        StaticTypeId::VecOf(Box::new(T::static_type_id()))
+        StaticTypeId::Vec(Box::new(T::static_type_id()))
     }
 
     fn static_type_name() -> Cow<'static, str> {

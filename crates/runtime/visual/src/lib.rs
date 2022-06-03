@@ -39,7 +39,7 @@ impl RuntimeVisualizer {
                 db.compile_time(),
                 Some(instruction_sheet),
                 None,
-                vec![Ok(TempValue::FullyOwnedRef(value))].into_iter(),
+                vec![Ok(TempValue::TempRefEval(value))].into_iter(),
                 [].into_iter(),
             ) {
                 Ok(value) => {

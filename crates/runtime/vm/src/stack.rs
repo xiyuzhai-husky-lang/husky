@@ -49,11 +49,11 @@ impl VMStackIdx {
 
 pub const STACK_SIZE: usize = 255;
 
-pub struct VMStack<'vm, 'eval: 'vm> {
-    values: ArrayVec<TempValue<'vm, 'eval>, STACK_SIZE>,
+pub struct VMStack<'temp, 'eval: 'temp> {
+    values: ArrayVec<TempValue<'temp, 'eval>, STACK_SIZE>,
 }
 
-impl<'vm, 'eval> std::fmt::Debug for VMStack<'vm, 'eval> {
+impl<'temp, 'eval> std::fmt::Debug for VMStack<'temp, 'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("VMStack")
             .field("values", &self.values)
@@ -61,15 +61,15 @@ impl<'vm, 'eval> std::fmt::Debug for VMStack<'vm, 'eval> {
     }
 }
 
-impl<'vm, 'eval: 'vm, T: Iterator<Item = TempValue<'vm, 'eval>>> From<T> for VMStack<'vm, 'eval> {
+impl<'temp, 'eval: 'temp, T: Iterator<Item = TempValue<'temp, 'eval>>> From<T> for VMStack<'temp, 'eval> {
     fn from(t: T) -> Self {
         Self::new(t)
     }
 }
 
-impl<'vm, 'eval: 'vm> VMStack<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
     pub(crate) fn try_new(
-        argument_iter: impl Iterator<Item = VMRuntimeResult<TempValue<'vm, 'eval>>>,
+        argument_iter: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>,
     ) -> VMRuntimeResult<Self> {
         let mut values = ArrayVec::new();
         for result in argument_iter {
@@ -78,7 +78,7 @@ impl<'vm, 'eval: 'vm> VMStack<'vm, 'eval> {
         Ok(Self { values })
     }
 
-    pub(crate) fn new(argument_iter: impl Iterator<Item = TempValue<'vm, 'eval>>) -> Self {
+    pub(crate) fn new(argument_iter: impl Iterator<Item = TempValue<'temp, 'eval>>) -> Self {
         let mut values = ArrayVec::new();
         for value in argument_iter {
             values.push(value)
@@ -86,11 +86,11 @@ impl<'vm, 'eval: 'vm> VMStack<'vm, 'eval> {
         Self { values }
     }
 
-    pub(crate) fn value(&self, idx: VMStackIdx) -> &TempValue<'vm, 'eval> {
+    pub(crate) fn value(&self, idx: VMStackIdx) -> &TempValue<'temp, 'eval> {
         &self.values[idx.raw()]
     }
 
-    pub(crate) fn value_mut(&mut self, idx: VMStackIdx) -> &mut TempValue<'vm, 'eval> {
+    pub(crate) fn value_mut(&mut self, idx: VMStackIdx) -> &mut TempValue<'temp, 'eval> {
         &mut self.values[idx.raw()]
     }
 
@@ -98,7 +98,7 @@ impl<'vm, 'eval: 'vm> VMStack<'vm, 'eval> {
         &mut self,
         stack_idx: VMStackIdx,
         binding: Binding,
-    ) -> &mut TempValue<'vm, 'eval> {
+    ) -> &mut TempValue<'temp, 'eval> {
         unsafe {
             let value = &mut self.values[stack_idx.raw()];
             let stack_value = value.bind(binding, stack_idx);
@@ -126,17 +126,17 @@ impl<'vm, 'eval: 'vm> VMStack<'vm, 'eval> {
         self.values.len()
     }
 
-    pub(crate) fn push(&mut self, value: TempValue<'vm, 'eval>) {
+    pub(crate) fn push(&mut self, value: TempValue<'temp, 'eval>) {
         self.values.push(value);
     }
-    pub(crate) fn pop(&mut self) -> TempValue<'vm, 'eval> {
+    pub(crate) fn pop(&mut self) -> TempValue<'temp, 'eval> {
         self.values.pop().unwrap()
     }
 
     pub(crate) fn drain<'a>(
         &'a mut self,
         k: u8,
-    ) -> impl Iterator<Item = TempValue<'vm, 'eval>> + 'a {
+    ) -> impl Iterator<Item = TempValue<'temp, 'eval>> + 'a {
         self.values.drain((self.len() - k as usize)..)
     }
 

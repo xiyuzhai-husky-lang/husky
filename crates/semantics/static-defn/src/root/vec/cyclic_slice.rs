@@ -1,10 +1,12 @@
+use print_utils::ps;
+
 use super::*;
 
 pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
     name: "cyclic_slice",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: ParameterLiason::EvalRef,
+        this_liason: ParameterLiason::EvalRef,
         parameters: &[
             StaticParameter {
                 name: "start",
@@ -28,13 +30,13 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
     dev_src: static_dev_src!(),
 };
 
-fn cyclic_slice<'vm, 'eval>(
-    values: &mut [TempValue<'vm, 'eval>],
-) -> VMRuntimeResult<TempValue<'vm, 'eval>> {
+fn cyclic_slice<'temp, 'eval>(
+    values: &mut [TempValue<'temp, 'eval>],
+) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
     let this: &'eval Vec<MemberValue<'eval>> = values[0].downcast_eval_ref();
     let start = values[1].take_copyable().take_i32();
     let end = values[2].take_copyable().take_i32();
-    Ok(TempValue::EvalOwned(OwnedValue::new(CyclicSlice::<
+    Ok(TempValue::OwnedEval(OwnedValue::new(CyclicSlice::<
         'eval,
         MemberValue<'eval>,
     > {

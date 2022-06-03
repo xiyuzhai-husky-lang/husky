@@ -9,7 +9,6 @@ pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
 use entity_route::{EntityRoute, EntityRoutePtr, RangedEntityRoute};
-use syntax_types::*;
 use text::TextRange;
 use vm::*;
 use word::{CustomIdentifier, Identifier};

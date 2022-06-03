@@ -9,9 +9,9 @@ impl<'eval> AnyValue<'eval> for () {
         "i32".into()
     }
 
-    fn clone_into_box<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm,
+        Self: 'temp,
     {
         Box::new(*self)
     }
@@ -23,7 +23,7 @@ impl<'eval> AnyValue<'eval> for () {
     fn from_stack(stack_value: TempValue) -> Self {
         match stack_value {
             TempValue::Copyable(CopyableValue::Void(value)) => value,
-            TempValue::EvalOwned(boxed_value) => boxed_value.take().unwrap(),
+            TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
@@ -45,9 +45,9 @@ impl<'eval> AnyValue<'eval> for i32 {
         "i32".into()
     }
 
-    fn clone_into_box<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm,
+        Self: 'temp,
     {
         Box::new(*self)
     }
@@ -59,7 +59,7 @@ impl<'eval> AnyValue<'eval> for i32 {
     fn from_stack(stack_value: TempValue) -> Self {
         match stack_value {
             TempValue::Copyable(CopyableValue::I32(value)) => value,
-            TempValue::EvalOwned(boxed_value) => boxed_value.take().unwrap(),
+            TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
@@ -81,9 +81,9 @@ impl<'eval> AnyValue<'eval> for f32 {
         "f32".into()
     }
 
-    fn clone_into_box<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm,
+        Self: 'temp,
     {
         Box::new(*self)
     }
@@ -95,7 +95,7 @@ impl<'eval> AnyValue<'eval> for f32 {
     fn from_stack(stack_value: TempValue) -> Self {
         match stack_value {
             TempValue::Copyable(CopyableValue::F32(value)) => value,
-            TempValue::EvalOwned(boxed_value) => boxed_value.take().unwrap(),
+            TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
@@ -117,9 +117,9 @@ impl<'eval> AnyValue<'eval> for u32 {
         "u32".into()
     }
 
-    fn clone_into_box<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm,
+        Self: 'temp,
     {
         Box::new(*self)
     }
@@ -131,7 +131,7 @@ impl<'eval> AnyValue<'eval> for u32 {
     fn from_stack(stack_value: TempValue) -> Self {
         match stack_value {
             TempValue::Copyable(CopyableValue::B32(value)) => value,
-            TempValue::EvalOwned(boxed_value) => boxed_value.take().unwrap(),
+            TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
@@ -157,9 +157,9 @@ impl<'eval> AnyValue<'eval> for u64 {
         "u64".into()
     }
 
-    fn clone_into_box<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm,
+        Self: 'temp,
     {
         Box::new(*self)
     }
@@ -171,7 +171,7 @@ impl<'eval> AnyValue<'eval> for u64 {
     fn from_stack(stack_value: TempValue) -> Self {
         match stack_value {
             TempValue::Copyable(CopyableValue::B64(value)) => value,
-            TempValue::EvalOwned(boxed_value) => boxed_value.take().unwrap(),
+            TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }
@@ -197,9 +197,9 @@ impl<'eval> AnyValue<'eval> for bool {
         "bool".into()
     }
 
-    fn clone_into_box<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm,
+        Self: 'temp,
     {
         Box::new(*self)
     }
@@ -211,7 +211,7 @@ impl<'eval> AnyValue<'eval> for bool {
     fn from_stack(stack_value: TempValue) -> Self {
         match stack_value {
             TempValue::Copyable(CopyableValue::Bool(value)) => value,
-            TempValue::EvalOwned(boxed_value) => boxed_value.take().unwrap(),
+            TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
             _ => panic!(),
         }
     }

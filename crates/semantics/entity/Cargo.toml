@@ -24,7 +24,6 @@ text = { path = "../../syntax/text", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
-syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 semantics-error = { path = "../../semantics/error", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
@@ -37,3 +36,4 @@ defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
 static-defn = { path = "../../semantics/static-defn", version = "0.0.0" }
 atom = { path = "../../syntax/atom", version = "0.0.0" }
 visual-semantics = { path = "../visual", version = "0.0.0" }
+liason = { path = "../../semantics/liason", version = "0.0.0" }

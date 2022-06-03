@@ -1,6 +1,5 @@
 use entity_route::EntityRoutePtr;
 use semantics_eager::{FuncStmt, ProcStmt};
-use vm::ParameterLiason;
 use word::CustomIdentifier;
 
 use super::*;

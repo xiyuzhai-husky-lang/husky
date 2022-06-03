@@ -9,7 +9,7 @@ impl<'a> AstTransformer<'a> {
         let match_expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         Ok(RawStmtVariant::Match {
             match_expr,
-            match_contract: MatchContract::Pure,
+            match_liason: MatchLiason::Pure,
         })
     }
 

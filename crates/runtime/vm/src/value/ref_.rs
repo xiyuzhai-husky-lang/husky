@@ -1,13 +1,13 @@
 use super::*;
 
-pub enum RefValue<'vm, 'eval: 'vm> {
-    Thin(&'vm dyn AnyValueDyn<'eval>),
+pub enum RefValue<'temp, 'eval: 'temp> {
+    Thin(&'temp dyn AnyValueDyn<'eval>),
     Slice {
-        slice: &'vm [()],
+        slice: &'temp [()],
         void_caster: VoidCaster<'eval>,
     },
     CyclicSlice {
-        slice: &'vm [()],
+        slice: &'temp [()],
         prototype: VoidCaster<'eval>,
         range: std::ops::Range<usize>,
     },

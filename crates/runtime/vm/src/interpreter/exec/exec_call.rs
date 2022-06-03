@@ -1,8 +1,9 @@
 use super::*;
 
-impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn call_compiled(&mut self, f: Linkage) -> VMRuntimeResult<()> {
-        let result = (f.call)(&mut self.stack.drain(f.nargs).collect::<Vec<_>>())?;
+        let mut parameters = self.stack.drain(f.nargs).collect::<Vec<_>>();
+        let result = (f.call)(&mut parameters)?;
         self.stack.push(result.into());
         Ok(())
     }

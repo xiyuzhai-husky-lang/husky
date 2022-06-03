@@ -3,7 +3,6 @@ mod match_stmt;
 
 pub use loop_kind::{RawBoundary, RawLoopKind};
 pub use match_stmt::*;
-use vm::ParameterLiason;
 
 use crate::{expr::RawExprIdx, *};
 use text::{TextRange, TextRanged};
@@ -45,7 +44,7 @@ pub enum RawStmtVariant {
     Break,
     Match {
         match_expr: RawExprIdx,
-        match_contract: MatchContract,
+        match_liason: MatchLiason,
     },
 }
 

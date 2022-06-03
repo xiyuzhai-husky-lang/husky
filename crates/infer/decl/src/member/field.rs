@@ -4,7 +4,6 @@ use entity_kind::FieldKind;
 use entity_route::EntityRoutePtr;
 use instantiate::Instantiator;
 use vec_map::HasKey;
-use vm::MemberLiason;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

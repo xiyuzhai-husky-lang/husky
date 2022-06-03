@@ -10,11 +10,11 @@ pub use error::*;
 pub use parser::AtomParser;
 pub use parser::*;
 use print_utils::p;
-pub use syntax_types::*;
 pub use variant::{AtomVariant, LambdaHead};
 
 use entity_kind::*;
 use entity_route::EntityRoutePtr;
+use liason::*;
 use text::TextRange;
 use text::TextRanged;
 use token::{Token, TokenKind};

@@ -13,7 +13,7 @@ use std::sync::Arc;
 use entity_route::EntityRoutePtr;
 use semantics_error::SemanticResultArc;
 use text::{RangedCustomIdentifier, TextRange};
-use vm::{Binding, CopyableValue, EagerContract, InstructionId, InstructionSource, Linkage};
+use vm::{Binding, CopyableValue, InstructionId, InstructionSource, Linkage};
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

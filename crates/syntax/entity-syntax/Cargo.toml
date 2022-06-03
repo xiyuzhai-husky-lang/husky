@@ -23,7 +23,6 @@ token = { path = "../token", version = "0.0.0" }
 entity-route = { path = "../entity-route", version = "0.0.0" }
 datasets = { path = "../../domains/ml/datasets", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }
-syntax-types = { path = "../types", version = "0.0.0" }
 visual-syntax = { path = "../visual", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
 static-defn = { path = "../../semantics/static-defn", version = "0.0.0" }

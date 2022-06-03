@@ -1,13 +1,12 @@
+use super::*;
 use entity_route::{EntityKind, RangedEntityRoute};
 use text::*;
 use token::SpecialToken;
 use vm::{
-    BinaryOpr, Bracket, CopyableValue, ListEndAttr, ListStartAttr, MemberLiason, ParameterLiason,
-    PrefixOpr, PureBinaryOpr, SuffixOpr,
+    BinaryOpr, Bracket, CopyableValue, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr,
+    SuffixOpr,
 };
 use word::{CustomIdentifier, WordOpr};
-
-use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AtomVariant {

@@ -1,6 +1,5 @@
 use crate::*;
 use entity_route::EntityRoutePtr;
-use vm::ParameterLiason;
 use word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -11,11 +10,11 @@ pub struct LazyVariable {
 }
 
 impl LazyVariable {
-    pub(crate) fn from_input(input_placeholder: &Parameter) -> Self {
+    pub(crate) fn from_parameter(parameter: &Parameter) -> Self {
         LazyVariable {
-            ident: input_placeholder.ranged_ident.ident,
-            ty: input_placeholder.ranged_ty.route,
-            is_reference: match input_placeholder.liason {
+            ident: parameter.ranged_ident.ident,
+            ty: parameter.ranged_ty.route,
+            is_reference: match parameter.liason {
                 ParameterLiason::Pure => false,
                 ParameterLiason::EvalRef => todo!(),
                 ParameterLiason::Move => todo!(),

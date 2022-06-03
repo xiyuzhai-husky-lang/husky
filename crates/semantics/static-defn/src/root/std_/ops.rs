@@ -1,5 +1,4 @@
 use dev_utils::static_dev_src;
-use vm::{MemberLiason, OutputLiason, ParameterLiason};
 
 use crate::*;
 
@@ -36,7 +35,7 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
                 name: "index",
                 subscopes: &[],
                 variant: EntityStaticDefnVariant::Method {
-                    this_contract: ParameterLiason::MemberAccess,
+                    this_liason: ParameterLiason::MemberAccess,
                     parameters: &[],
                     output_ty: "This::Output",
                     output_liason: OutputLiason::MemberAccess {

@@ -8,14 +8,13 @@ use implement::{Implementable, Implementor};
 use map_collect::MapCollect;
 use print_utils::p;
 use vec_map::HasKey;
-use vm::ParameterLiason;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct MethodDecl {
     pub ident: CustomIdentifier,
     pub this_liason: ParameterLiason,
-    pub parameters: Vec<InputDecl>,
+    pub parameters: Vec<ParameterDecl>,
     pub output: OutputDecl,
     pub generic_parameters: IdentDict<SpatialParameter>,
     pub kind: MethodKind,
@@ -96,7 +95,7 @@ impl MethodDecl {
     pub fn from_static(symbol_context: &mut dyn AtomContext, defn: &EntityStaticDefn) -> Arc<Self> {
         match defn.variant {
             EntityStaticDefnVariant::Method {
-                this_contract,
+                this_liason: this_contract,
                 parameters: inputs,
                 output_ty,
                 output_liason,
@@ -110,7 +109,8 @@ impl MethodDecl {
                         .intern_word(defn.name)
                         .custom(),
                     this_liason: this_contract,
-                    parameters: inputs.map(|input| InputDecl::from_static(symbol_context, input)),
+                    parameters: inputs
+                        .map(|input| ParameterDecl::from_static(symbol_context, input)),
                     output: OutputDecl {
                         liason: output_liason,
                         ty: output_ty,

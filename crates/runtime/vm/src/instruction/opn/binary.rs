@@ -15,14 +15,6 @@ impl Into<RawOpnVariant> for BinaryOpr {
 }
 
 impl BinaryOpr {
-    pub fn lopd_contract(self) -> EagerContract {
-        todo!()
-    }
-
-    pub fn ropd_contract(self) -> EagerContract {
-        todo!()
-    }
-
     pub fn spaced_code(self) -> &'static str {
         match self {
             BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr.spaced_code(),

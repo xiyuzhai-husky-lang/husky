@@ -82,8 +82,9 @@ pub enum MethodStaticDefnVariant {
 pub enum LinkageSource {
     MemberAccess {
         copy_access: Linkage,
-        ref_access: Linkage,
-        ref_mut_access: Linkage,
+        eval_ref_access: Linkage,
+        temp_ref_access: Linkage,
+        temp_mut_access: Linkage,
         move_access: Linkage,
     },
     Transfer(Linkage),
@@ -94,12 +95,14 @@ impl LinkageSource {
         match self {
             LinkageSource::MemberAccess {
                 copy_access,
-                ref_access,
-                ref_mut_access,
+                eval_ref_access,
+                temp_ref_access,
+                temp_mut_access,
                 move_access,
             } => match opt_binding.unwrap() {
-                Binding::Ref => *ref_access,
-                Binding::RefMut => *ref_mut_access,
+                Binding::EvalRef => *eval_ref_access,
+                Binding::TempRef => *temp_ref_access,
+                Binding::TempRefMut => *temp_mut_access,
                 Binding::Move => *move_access,
                 Binding::Copy => *copy_access,
             },

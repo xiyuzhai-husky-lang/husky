@@ -1,6 +1,5 @@
 use crate::*;
 use token::*;
-use vm::{ParameterLiason, MemberLiason};
 use word::Paradigm;
 
 impl<'a> AstTransformer<'a> {

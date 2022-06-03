@@ -1,11 +1,11 @@
 mod generic;
 
 pub use generic::*;
+use liason::{OutputLiason, ParameterLiason};
 use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use text::RangedCustomIdentifier;
-use vm::{MemberLiason, OutputLiason, ParameterLiason};
 use word::{CustomIdentifier, IdentDict, Paradigm};
 
 // function or method

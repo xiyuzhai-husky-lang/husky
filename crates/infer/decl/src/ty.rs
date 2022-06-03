@@ -7,6 +7,7 @@ use std::iter::Peekable;
 
 use check_utils::{should, should_eq};
 use entity_kind::{EnumVariantKind, FieldKind};
+use liason::OutputLiason;
 use print_utils::p;
 pub use trait_impl::*;
 pub use vec::*;
@@ -24,7 +25,7 @@ use fold::LocalStack;
 use map_collect::MapCollect;
 use text::*;
 use vec_map::VecMap;
-use vm::{MemberLiason, OutputLiason, TySignature};
+use vm::TySignature;
 use word::{IdentArcDict, IdentDict, Paradigm};
 
 #[derive(Debug, PartialEq, Eq)]
@@ -139,7 +140,7 @@ impl TyDecl {
                     match ty_member {
                         TyMemberDecl::Field(ref field_decl) => match field_decl.field_kind {
                             FieldKind::StructOriginal | FieldKind::RecordOriginal => {
-                                primary_parameters.insert(InputDecl {
+                                primary_parameters.insert(ParameterDecl {
                                     liason: field_decl
                                         .liason
                                         .constructor_input_liason(db.is_copyable(field_decl.ty)?),
@@ -147,7 +148,7 @@ impl TyDecl {
                                     ident: field_decl.ident,
                                 })
                             }
-                            FieldKind::StructDefault => keyword_parameters.insert(InputDecl {
+                            FieldKind::StructDefault => keyword_parameters.insert(ParameterDecl {
                                 liason: field_decl
                                     .liason
                                     .constructor_input_liason(db.is_copyable(field_decl.ty)?),
@@ -685,7 +686,7 @@ pub(crate) fn method_decl_from_static(
 ) -> Arc<MethodDecl> {
     match static_defn.variant {
         EntityStaticDefnVariant::Method {
-            this_contract,
+            this_liason,
             parameters: inputs,
             output_ty,
             output_liason,
@@ -702,7 +703,7 @@ pub(crate) fn method_decl_from_static(
                 symbols: symbols.into(),
                 kind: AtomContextKind::Normal,
             };
-            let inputs = inputs.map(|input| InputDecl {
+            let inputs = inputs.map(|input| ParameterDecl {
                 ty: symbol_context.parse_entity_route(input.ty).unwrap(),
                 liason: input.contract,
                 ident: db.custom_ident(input.name),
@@ -716,7 +717,7 @@ pub(crate) fn method_decl_from_static(
                     liason: output_liason,
                     ty: output_ty,
                 },
-                this_liason: this_contract,
+                this_liason,
                 ident: db.intern_word(static_defn.name).custom(),
                 kind: MethodKind::Type,
             })

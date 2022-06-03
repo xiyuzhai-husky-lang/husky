@@ -26,9 +26,10 @@ use entity_kind::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use error::*;
 use file::FilePtr;
+use liason::*;
 use print_utils::*;
 use text::*;
-use vm::{InitKind, MemberLiason};
+use vm::InitKind;
 use word::{CustomIdentifier, IdentDict, Identifier, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]

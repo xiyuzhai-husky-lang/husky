@@ -1,8 +1,8 @@
-mod input;
 mod output;
+mod parameter;
 
-pub use input::*;
 pub use output::*;
+pub use parameter::*;
 
 use atom::{
     context::{AtomContextKind, Symbol},
@@ -14,7 +14,6 @@ use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{emsg_once, msg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticParameter};
-use vm::{OutputLiason, ParameterLiason};
 use word::IdentDict;
 
 use crate::*;
@@ -23,8 +22,8 @@ use crate::*;
 pub struct CallDecl {
     pub route: EntityRoutePtr,
     pub spatial_parameters: IdentDict<SpatialParameter>,
-    pub primary_parameters: IdentDict<InputDecl>,
-    pub keyword_parameters: IdentDict<InputDecl>,
+    pub primary_parameters: IdentDict<ParameterDecl>,
+    pub keyword_parameters: IdentDict<ParameterDecl>,
     pub output: OutputDecl,
 }
 
@@ -143,7 +142,7 @@ pub(crate) fn routine_decl_from_static(
                 symbols: (&symbols as &[Symbol]).into(),
                 kind: AtomContextKind::Normal,
             };
-            let inputs = inputs.map(|input| InputDecl {
+            let inputs = inputs.map(|input| ParameterDecl {
                 ty: symbol_context.parse_entity_route(input.ty).unwrap(),
                 liason: input.contract,
                 ident: db.custom_ident(input.name),
