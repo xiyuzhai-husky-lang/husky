@@ -9,15 +9,15 @@ pub struct EagerVariable {
 }
 
 impl EagerVariable {
-    pub(crate) fn from_input(
+    pub(crate) fn from_parameter(
         qualified_ty_sheet: &QualifiedTySheet,
-        input_placeholder: &Parameter,
+        parameter: &Parameter,
     ) -> SemanticResult<Self> {
         Ok(EagerVariable {
-            ident: input_placeholder.ranged_ident.ident,
+            ident: parameter.ranged_ident.ident,
             qualified_ty: qualified_ty_sheet.eager_variable_qualified_ty(
-                input_placeholder.ranged_ident.ident.into(),
-                input_placeholder.ranged_ident.range,
+                parameter.ranged_ident.ident.into(),
+                parameter.ranged_ident.range,
             )?,
         })
     }

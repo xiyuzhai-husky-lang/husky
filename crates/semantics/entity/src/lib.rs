@@ -29,6 +29,7 @@ use entity_route::{EntityRoute, EntityRouteKind};
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use fold::{FoldIterItem, FoldableStorage};
+use liason::*;
 use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
@@ -39,7 +40,7 @@ use std::sync::Arc;
 use text::*;
 use vec_map::HasKey;
 use visual_semantics::VisualizerSource;
-use vm::{Linkage, MemberLiason, OutputLiason, ParameterLiason};
+use vm::Linkage;
 use word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -263,7 +264,7 @@ impl EntityDefnVariant {
             }
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Method {
-                this_contract,
+                this_liason: this_contract,
                 parameters,
                 output_ty,
                 output_liason,

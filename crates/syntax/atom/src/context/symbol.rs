@@ -1,5 +1,3 @@
-use vm::MemberLiason;
-
 use super::*;
 
 #[derive(Debug, Clone)]

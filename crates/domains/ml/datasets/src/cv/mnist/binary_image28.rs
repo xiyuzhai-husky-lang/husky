@@ -19,7 +19,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                     name: "index",
                     subscopes: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_contract: ParameterLiason::MemberAccess,
+                        this_liason: ParameterLiason::MemberAccess,
                         parameters: &[StaticParameter {
                             contract: ParameterLiason::Pure,
                             ty: "i32",
@@ -49,12 +49,16 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                     },
                                     2
                                 ),
-                                ref_access: linkage!(
+                                eval_ref_access: linkage!(
+                                    |values| -> VMRuntimeResult<TempValue> { todo!() },
+                                    2
+                                ),
+                                temp_ref_access: linkage!(
                                     |values| -> VMRuntimeResult<TempValue> { todo!() },
                                     2
                                 ),
                                 move_access: linkage!(|_| todo!(), 2),
-                                ref_mut_access: linkage!(
+                                temp_mut_access: linkage!(
                                     |values| {
                                         let index_value: usize = values[1]
                                             .take_copyable()
@@ -65,7 +69,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             values[0].downcast_mut_full();
                                         this_value
                                             .get_mut(index_value)
-                                            .map(|value| TempValue::CopyableOrFullyOwnedMut {
+                                            .map(|value| TempValue::CopyableOrTempMutEval {
                                                 value,
                                                 owner,
                                                 gen: (),
@@ -101,9 +105,9 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(
             |_values| {
-                Ok(TempValue::EvalOwned(
-                    OwnedValue::new(BinaryImage28::default()),
-                ))
+                Ok(TempValue::OwnedEval(OwnedValue::new(
+                    BinaryImage28::default(),
+                )))
             },
             0
         ),

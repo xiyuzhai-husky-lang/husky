@@ -6,7 +6,6 @@ use entity_kind::{FieldKind, MemberKind};
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
-use vm::{OutputLiason, ParameterLiason};
 
 use crate::*;
 

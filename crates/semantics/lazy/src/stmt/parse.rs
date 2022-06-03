@@ -32,7 +32,7 @@ impl<'a> LazyStmtParser<'a> {
             arena,
             variables: parameters
                 .iter()
-                .map(|input_placeholder| LazyVariable::from_input(input_placeholder))
+                .map(|input_placeholder| LazyVariable::from_parameter(input_placeholder))
                 .collect(),
             file,
             entity_route_sheet: db.entity_route_sheet(file).unwrap(),

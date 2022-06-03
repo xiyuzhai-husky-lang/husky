@@ -24,7 +24,6 @@ use file::FilePtr;
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use text::TextRanged;
 use token::*;
-use vm::ParameterLiason;
 
 pub type AstIter<'a> = FoldableIter<'a, AstResult<Ast>, FoldableList<AstResult<Ast>>>;
 

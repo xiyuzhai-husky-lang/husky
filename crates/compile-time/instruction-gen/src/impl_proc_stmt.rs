@@ -1,9 +1,7 @@
 use crate::*;
 
 use avec::Avec;
-use vm::{
-    EagerContract, Instruction, InstructionVariant, VMConditionBranch, VMLoopKind, VMPatternBranch,
-};
+use vm::{Instruction, InstructionVariant, VMConditionBranch, VMLoopKind, VMPatternBranch};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {

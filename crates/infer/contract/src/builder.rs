@@ -9,7 +9,6 @@ use entity_syntax::EntitySyntaxResult;
 use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
-use vm::MemberLiason;
 use word::{Paradigm, RootIdentifier};
 
 use crate::*;

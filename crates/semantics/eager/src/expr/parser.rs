@@ -1,7 +1,7 @@
 use ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
-use infer_contract::InferContract;
+use infer_contract::{EagerContract, InferContract};
 use infer_entity_route::InferEntityRoute;
 use infer_qualifier::{EagerQualifier, InferQualifiedTy};
 use text::{BindTextRangeInto, RangedCustomIdentifier};
@@ -112,9 +112,12 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     .decl_db()
                     .is_copyable(opt_field_ty.unwrap().route)
                     .unwrap();
-                let this_contract = field_liason
-                    .this_eager_contract(field_contract, is_field_copyable)
-                    .unwrap();
+                let this_contract = EagerContract::this_contract_from_field_access(
+                    field_liason,
+                    field_contract,
+                    is_field_copyable,
+                    self.arena()[raw_expr_idx].range,
+                )?;
                 let this_qual = EagerQualifier::from_parameter_use(
                     self.decl_db(),
                     opt_this_ty.unwrap(),

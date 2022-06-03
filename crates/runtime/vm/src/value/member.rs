@@ -25,11 +25,11 @@ impl<'eval> PartialEq for MemberValue<'eval> {
 
 impl<'eval> Eq for MemberValue<'eval> {}
 
-impl<'vm, 'eval: 'vm> MemberValue<'eval> {
-    pub fn into_stack(self) -> TempValue<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> MemberValue<'eval> {
+    pub fn into_stack(self) -> TempValue<'temp, 'eval> {
         match self {
             MemberValue::Copyable(value) => TempValue::Copyable(value),
-            MemberValue::Boxed(value) => TempValue::EvalOwned(value),
+            MemberValue::Boxed(value) => TempValue::OwnedEval(value),
             MemberValue::GlobalPure(value) => TempValue::EvalPure(value),
             MemberValue::EvalRef(value) => TempValue::EvalRef(value),
             MemberValue::Moved => panic!(),
@@ -56,11 +56,26 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
         }
     }
 
-    pub fn stack_ref(&self) -> TempValue<'vm, 'eval> {
-        TempValue::FullyOwnedRef(unsafe { &*self.any_ptr() })
+    pub fn stack_eval_ref(&self) -> TempValue<'temp, 'eval> {
+        match self {
+            MemberValue::EvalRef(value) => TempValue::EvalRef(*value),
+            _ => panic!(),
+        }
     }
 
-    pub fn stack_mut<'a>(&'a mut self, owner: VMStackIdx) -> TempValue<'vm, 'eval> {
+    pub fn stack_temp_ref(&self) -> TempValue<'temp, 'eval> {
+        match self {
+            MemberValue::Copyable(_) => todo!(),
+            MemberValue::Boxed(boxed_value) => {
+                TempValue::TempRefEval(unsafe { &*boxed_value.any_ptr() })
+            }
+            MemberValue::GlobalPure(_) => todo!(),
+            MemberValue::EvalRef(_) => todo!(),
+            MemberValue::Moved => todo!(),
+        }
+    }
+
+    pub fn stack_mut<'a>(&'a mut self, owner: VMStackIdx) -> TempValue<'temp, 'eval> {
         let value_mut: *mut dyn AnyValueDyn<'eval> = match self {
             MemberValue::Copyable(value) => value.any_mut(),
             MemberValue::Boxed(value) => value.any_mut_ptr(),
@@ -68,7 +83,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
             MemberValue::EvalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
         };
-        TempValue::CopyableOrFullyOwnedMut {
+        TempValue::CopyableOrTempMutEval {
             value: unsafe { &mut *value_mut },
             owner,
             gen: (),
@@ -85,7 +100,7 @@ impl<'vm, 'eval: 'vm> MemberValue<'eval> {
         }
     }
 
-    pub fn copy_into_stack(&self) -> TempValue<'vm, 'eval> {
+    pub fn copy_into_stack(&self) -> TempValue<'temp, 'eval> {
         match self {
             MemberValue::Copyable(value) => TempValue::Copyable(*value),
             MemberValue::Boxed(_) => todo!(),

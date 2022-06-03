@@ -5,7 +5,6 @@ pub use cyclic_slice::*;
 
 use crate::*;
 use dev_utils::static_dev_src;
-use vm::{ParameterLiason, MemberLiason, OutputLiason};
 
 pub static STD_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "slice",

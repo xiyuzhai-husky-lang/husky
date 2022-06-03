@@ -1,8 +1,6 @@
 use crate::*;
 use avec::Avec;
-use vm::{
-    EagerContract, InitKind, Instruction, InstructionVariant, VMConditionBranch, VMPatternBranch,
-};
+use vm::{InitKind, Instruction, InstructionVariant, VMConditionBranch, VMPatternBranch};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {

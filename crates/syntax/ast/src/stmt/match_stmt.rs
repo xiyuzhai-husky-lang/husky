@@ -1,26 +1,12 @@
 use crate::*;
 use entity_route::EntityRoutePtr;
 use map_collect::MapCollect;
-use vm::{CopyableValue, EagerContract, LazyContract, VMCasePattern};
+use vm::{CopyableValue, VMCasePattern};
 use word::RootIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum MatchContract {
+pub enum MatchLiason {
     Pure,
-}
-
-impl MatchContract {
-    pub fn lazy(self) -> LazyContract {
-        match self {
-            MatchContract::Pure => LazyContract::Pure,
-        }
-    }
-
-    pub fn eager(self) -> EagerContract {
-        match self {
-            MatchContract::Pure => EagerContract::Pure,
-        }
-    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

@@ -18,3 +18,4 @@ dev-utils = { path = "../../../utils/dev", version = "0.0.0" }
 visual-syntax = { path = "../../../syntax/visual", version = "0.0.0" }
 entity-kind = { path = "../../../syntax/entity-kind", version = "0.0.0" }
 static-defn = { path = "../../../semantics/static-defn", version = "0.0.0" }
+liason = { path = "../../../semantics/liason", version = "0.0.0" }

@@ -8,7 +8,7 @@ use defn_head::Parameter;
 use entity_kind::TyKind;
 use entity_route::EntityRoutePtr;
 use fold::LocalValue;
-use syntax_types::*;
+use liason::{MemberLiason, ParameterLiason};
 use vm::*;
 use word::{Paradigm, RootIdentifier, WordAllocator};
 

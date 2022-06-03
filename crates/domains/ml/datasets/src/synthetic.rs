@@ -118,9 +118,9 @@ impl<'eval> AnyValue<'eval> for SimpleSyntheticDataset<'eval> {
         todo!()
     }
 
-    fn clone_into_box<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm,
+        Self: 'temp,
     {
         Box::new(self.clone())
     }

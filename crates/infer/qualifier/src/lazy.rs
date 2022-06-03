@@ -24,13 +24,13 @@ impl LazyQualifiedTy {
         }
     }
 
-    pub(crate) fn from_input(
+    pub(crate) fn from_parameter(
         db: &dyn InferQualifiedTyQueryGroup,
-        input_liason: ParameterLiason,
+        parameter_liason: ParameterLiason,
         ty: EntityRoutePtr,
     ) -> InferResult<Self> {
         Ok(LazyQualifiedTy::new(
-            LazyQualifier::from_input(input_liason, db.is_copyable(ty)?),
+            LazyQualifier::from_parameter(parameter_liason, db.is_copyable(ty)?),
             ty,
         ))
     }
@@ -95,17 +95,17 @@ impl LazyQualifier {
     pub fn binding(self, contract: LazyContract) -> Binding {
         match self {
             LazyQualifier::PureRef => match contract {
-                LazyContract::Pure => Binding::Ref,
+                LazyContract::Pure => Binding::TempRef,
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Move => todo!(),
                 LazyContract::Init => todo!(),
-                LazyContract::UseMemberForInit => Binding::Ref,
+                LazyContract::UseMemberForInit => Binding::TempRef,
                 LazyContract::UseMemberForReturn => todo!(),
                 LazyContract::Return => todo!(),
             },
             LazyQualifier::Transient => todo!(),
             LazyQualifier::Copyable => Binding::Copy,
-            LazyQualifier::EvalRef => Binding::Ref,
+            LazyQualifier::EvalRef => Binding::EvalRef,
         }
     }
 
@@ -144,23 +144,6 @@ impl LazyQualifier {
 }
 
 impl LazyQualifier {
-    pub fn from_input(input_liason: ParameterLiason, is_copyable: bool) -> Self {
-        match input_liason {
-            ParameterLiason::Pure => {
-                if is_copyable {
-                    LazyQualifier::Copyable
-                } else {
-                    LazyQualifier::PureRef
-                }
-            }
-            ParameterLiason::EvalRef => LazyQualifier::EvalRef,
-            ParameterLiason::Move => todo!(),
-            ParameterLiason::TempRefMut => todo!(),
-            ParameterLiason::MoveMut => todo!(),
-            ParameterLiason::MemberAccess => todo!(),
-        }
-    }
-
     pub fn from_field(
         this_qual: LazyQualifier,
         field_liason: MemberLiason,
@@ -233,8 +216,8 @@ impl LazyQualifier {
             match member_contract {
                 LazyContract::Init => match self {
                     LazyQualifier::Copyable => todo!(),
-                    LazyQualifier::PureRef => Binding::Ref,
-                    LazyQualifier::EvalRef => Binding::Ref,
+                    LazyQualifier::PureRef => Binding::TempRef,
+                    LazyQualifier::EvalRef => Binding::EvalRef,
                     LazyQualifier::Transient => Binding::Move,
                 },
                 LazyContract::Return => todo!(),

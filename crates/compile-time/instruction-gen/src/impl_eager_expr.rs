@@ -287,10 +287,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 InstructionVariant::CallCompiled { linkage }
                             } else {
                                 InstructionVariant::NewVirtualStruct {
-                                    fields: ty_decl
-                                        .eager_fields()
-                                        .map(|decl| (decl.ident, decl.liason))
-                                        .collect(),
+                                    fields: ty_decl.eager_fields().map(|decl| decl.ident).collect(),
                                 }
                             }
                         }

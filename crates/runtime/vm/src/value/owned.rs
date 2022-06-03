@@ -5,34 +5,34 @@ use crate::*;
 
 use super::*;
 
-pub struct OwnedValue<'vm, 'eval: 'vm>(Box<dyn AnyValueDyn<'eval> + 'vm>);
+pub struct OwnedValue<'temp, 'eval: 'temp>(Box<dyn AnyValueDyn<'eval> + 'temp>);
 
-impl<'vm, 'eval: 'vm> From<Box<dyn AnyValueDyn<'eval> + 'eval>> for OwnedValue<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> From<Box<dyn AnyValueDyn<'eval> + 'eval>> for OwnedValue<'temp, 'eval> {
     fn from(boxed_value: Box<dyn AnyValueDyn<'eval> + 'eval>) -> Self {
         Self(boxed_value)
     }
 }
 
-impl<'vm, 'eval: 'vm> Clone for OwnedValue<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> Clone for OwnedValue<'temp, 'eval> {
     fn clone(&self) -> Self {
         Self(self.0.clone_into_box_dyn())
     }
 }
 
-impl<'vm, 'eval: 'vm> PartialEq for OwnedValue<'vm, 'eval> {
-    fn eq(&self, other: &OwnedValue<'vm, 'eval>) -> bool {
+impl<'temp, 'eval: 'temp> PartialEq for OwnedValue<'temp, 'eval> {
+    fn eq(&self, other: &OwnedValue<'temp, 'eval>) -> bool {
         self.0.equal_any(&*other.0)
     }
 }
 
-impl<'vm, 'eval: 'vm> Eq for OwnedValue<'vm, 'eval> {}
+impl<'temp, 'eval: 'temp> Eq for OwnedValue<'temp, 'eval> {}
 
-impl<'vm, 'eval: 'vm> OwnedValue<'vm, 'eval> {
-    pub fn new<T: AnyValueDyn<'eval> + 'eval>(value: T) -> OwnedValue<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> OwnedValue<'temp, 'eval> {
+    pub fn new<T: AnyValueDyn<'eval> + 'eval>(value: T) -> OwnedValue<'temp, 'eval> {
         Self(Box::new(value))
     }
 
-    pub fn from_any_ref(value: &(dyn AnyValueDyn<'eval> + 'eval)) -> OwnedValue<'vm, 'eval> {
+    pub fn from_any_ref(value: &(dyn AnyValueDyn<'eval> + 'eval)) -> OwnedValue<'temp, 'eval> {
         Self(value.clone_into_box_dyn())
     }
 
@@ -46,27 +46,27 @@ impl<'vm, 'eval: 'vm> OwnedValue<'vm, 'eval> {
         }
     }
 
-    pub fn take_into_arc(self) -> Arc<dyn AnyValueDyn<'eval> + 'vm>
+    pub fn take_into_arc(self) -> Arc<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'eval,
     {
-        let raw_pointer = Box::<(dyn AnyValueDyn<'eval> + 'vm)>::into_raw(self.0);
+        let raw_pointer = Box::<(dyn AnyValueDyn<'eval> + 'temp)>::into_raw(self.0);
         unsafe { (*raw_pointer).take_into_arc() }
     }
 
-    pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval> + 'vm) {
+    pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval> + 'temp) {
         &*(self.0)
     }
 
-    pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'vm) {
+    pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'temp) {
         &*self.0
     }
 
-    pub fn any_mut_ptr(&mut self) -> *mut (dyn AnyValueDyn<'eval> + 'vm) {
+    pub fn any_mut_ptr(&mut self) -> *mut (dyn AnyValueDyn<'eval> + 'temp) {
         &mut *self.0
     }
 
-    pub fn downcast_ref<T: AnyValue<'eval> + 'vm>(&self) -> &T {
+    pub fn downcast_ref<T: AnyValue<'eval> + 'temp>(&self) -> &T {
         self.0.downcast_ref()
         // if T::static_type_id() != self.0.static_type_id() {
         //     panic!()
@@ -81,7 +81,7 @@ impl<'vm, 'eval: 'vm> OwnedValue<'vm, 'eval> {
     }
 }
 
-impl<'vm, 'eval: 'vm> std::fmt::Debug for OwnedValue<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> std::fmt::Debug for OwnedValue<'temp, 'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.0.fmt(f)
     }

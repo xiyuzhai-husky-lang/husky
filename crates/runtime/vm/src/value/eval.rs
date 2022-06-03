@@ -58,7 +58,7 @@ impl<'eval> EvalValue<'eval> {
     pub fn into_stack<'stack>(self) -> VMRuntimeResult<TempValue<'stack, 'eval>> {
         match self {
             EvalValue::Copyable(value) => Ok(TempValue::Copyable(value)),
-            EvalValue::Owned(value) => Ok(TempValue::EvalOwned(value)),
+            EvalValue::Owned(value) => Ok(TempValue::OwnedEval(value)),
             EvalValue::GlobalPure(value) => Ok(TempValue::EvalPure(value)),
             EvalValue::EvalRef(value) => Ok(TempValue::EvalRef(value)),
             EvalValue::Undefined => todo!(),

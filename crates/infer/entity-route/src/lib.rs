@@ -14,7 +14,6 @@ use file::FilePtr;
 use infer_decl::{CallDecl, DeclQueryGroup, MethodDecl, TyDecl};
 use infer_error::*;
 use print_utils::*;
-use syntax_types::*;
 use word::RootIdentifier;
 
 pub trait InferEntityRoute {

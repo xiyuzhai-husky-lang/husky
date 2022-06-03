@@ -2,7 +2,6 @@ use infer_decl::FieldDecl;
 use semantics_entity::{
     EnumVariantDefnVariant, FieldDefnVariant, MethodDefnVariant, MethodSource, TraitImplDefn,
 };
-use vm::{MemberLiason, ParameterLiason};
 use word::CustomIdentifier;
 
 use super::*;

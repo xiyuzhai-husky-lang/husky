@@ -11,7 +11,7 @@ use crate::{history::HistoryEntry, *};
 use check_utils::{should, should_eq};
 use print_utils::{p, ps};
 
-impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
         for ins in &sheet.instructions {
             let control = match ins.variant {
@@ -26,7 +26,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => match binding {
-                            Binding::RefMut => {
+                            Binding::TempRefMut => {
                                 self.record_mutation(stack_idx, varname, ins.src.file(), range, ty)
                             }
                             _ => (),
@@ -216,7 +216,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                         .collect(),
                     };
                     self.stack
-                        .push(TempValue::EvalOwned(OwnedValue::new(xml_value)));
+                        .push(TempValue::OwnedEval(OwnedValue::new(xml_value)));
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => todo!(),

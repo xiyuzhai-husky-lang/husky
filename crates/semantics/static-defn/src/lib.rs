@@ -4,12 +4,13 @@ mod ty;
 
 pub use call::*;
 use dev_utils::StaticDevSource;
+use liason::{MemberLiason, OutputLiason, ParameterLiason};
 pub use root::*;
 pub use ty::*;
 
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use visual_syntax::StaticVisualizer;
-use vm::{Linkage, MemberLiason, OutputLiason, ParameterLiason};
+use vm::Linkage;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityStaticDefn {
@@ -51,7 +52,7 @@ pub enum EntityStaticDefnVariant {
         ty: &'static str,
     },
     Method {
-        this_contract: ParameterLiason,
+        this_liason: ParameterLiason,
         parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,

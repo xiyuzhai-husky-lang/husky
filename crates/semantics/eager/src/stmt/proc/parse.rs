@@ -102,7 +102,7 @@ impl<'a> EagerParser<'a> {
             RawStmtVariant::Break => Ok(ProcStmtVariant::Break),
             RawStmtVariant::Match {
                 match_expr,
-                match_contract,
+                match_liason: match_contract,
             } => self.parse_proc_match(stmt, not_none!(children), match_expr, match_contract),
             RawStmtVariant::PatternBranch { .. } => {
                 panic!("pattern branch must be inside match stmt")
@@ -260,7 +260,7 @@ impl<'a> EagerParser<'a> {
         stmt: &RawStmt,
         children: AstIter,
         match_expr: RawExprIdx,
-        match_contract: MatchContract,
+        match_contract: MatchLiason,
     ) -> SemanticResult<ProcStmtVariant> {
         Ok(ProcStmtVariant::Match {
             match_expr: self.parse_eager_expr(match_expr)?,

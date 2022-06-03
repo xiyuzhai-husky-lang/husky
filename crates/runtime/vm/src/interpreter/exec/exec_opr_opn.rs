@@ -3,7 +3,7 @@ use print_utils::{epin, p};
 
 use crate::*;
 
-impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn exec_opr_opn(
         &mut self,
         opn: OprOpn,

@@ -34,7 +34,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     (input.ranged_ident.ident.into(), input.ranged_ident.range),
                     self.db.is_copyable(ty).map(|is_copyable| {
                         LazyQualifiedTy::new(
-                            LazyQualifier::from_input(input.liason, is_copyable),
+                            LazyQualifier::from_parameter(input.liason, is_copyable),
                             ty,
                         )
                     }),
@@ -188,7 +188,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             } => {
                 let ty = derived_not_none!(opt_ty)?;
                 let contract = derived_not_none!(opt_contract)?;
-                LazyQualifiedTy::from_input(self.db, contract, ty)
+                LazyQualifiedTy::from_parameter(self.db, contract, ty)
             }
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::Entity { route, kind } => match kind {

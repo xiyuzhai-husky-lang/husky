@@ -13,20 +13,20 @@ use word::{CustomIdentifier, Identifier};
 
 use crate::*;
 
-pub struct Interpreter<'vm, 'eval: 'vm> {
-    db: &'vm dyn InterpreterQueryGroup,
-    stack: VMStack<'vm, 'eval>,
+pub struct Interpreter<'temp, 'eval: 'temp> {
+    db: &'temp dyn InterpreterQueryGroup,
+    stack: VMStack<'temp, 'eval>,
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
     variable_mutations: IndexMap<VMStackIdx, (Identifier, FilePtr, TextRange, EntityRoutePtr)>,
 }
 
-impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn try_new(
-        db: &'vm dyn InterpreterQueryGroup,
-        argument_iter: impl Iterator<Item = VMRuntimeResult<TempValue<'vm, 'eval>>>,
-    ) -> VMRuntimeResult<Interpreter<'vm, 'eval>> {
+        db: &'temp dyn InterpreterQueryGroup,
+        argument_iter: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>,
+    ) -> VMRuntimeResult<Interpreter<'temp, 'eval>> {
         Ok(Self {
             db,
             stack: VMStack::try_new(argument_iter)?,
@@ -38,10 +38,10 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
     }
 
     pub(crate) fn new(
-        db: &'vm dyn InterpreterQueryGroup,
-        argument_iter: impl Iterator<Item = TempValue<'vm, 'eval>>,
+        db: &'temp dyn InterpreterQueryGroup,
+        argument_iter: impl Iterator<Item = TempValue<'temp, 'eval>>,
         has_this: bool,
-    ) -> Interpreter<'vm, 'eval> {
+    ) -> Interpreter<'temp, 'eval> {
         Self {
             db,
             stack: VMStack::new(argument_iter),
@@ -53,9 +53,9 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
     }
 
     pub(crate) fn from_prestack(
-        db: &'vm dyn InterpreterQueryGroup,
-        prestack: impl Into<VMStack<'vm, 'eval>>,
-    ) -> Interpreter<'vm, 'eval> {
+        db: &'temp dyn InterpreterQueryGroup,
+        prestack: impl Into<VMStack<'temp, 'eval>>,
+    ) -> Interpreter<'temp, 'eval> {
         Self {
             db,
             stack: prestack.into(),
@@ -81,12 +81,9 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
         }
     }
 
-    fn new_virtual_struct(
-        &mut self,
-        fields: &[(CustomIdentifier, MemberLiason)],
-    ) -> VMRuntimeResult<()> {
-        let inputs = self.stack.drain(fields.len().try_into().unwrap());
-        let value = VirtualTy::new_struct(inputs, fields).into();
+    fn new_virtual_struct(&mut self, fields: &[CustomIdentifier]) -> VMRuntimeResult<()> {
+        let parameters = self.stack.drain(fields.len().try_into().unwrap());
+        let value = VirtualTy::new_struct(parameters, fields).into();
         self.stack.push(value);
         Ok(())
     }

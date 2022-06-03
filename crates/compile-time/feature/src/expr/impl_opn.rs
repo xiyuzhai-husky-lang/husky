@@ -4,7 +4,7 @@ use entity_kind::{FieldKind, TyKind};
 use entity_route::EntityRoute;
 use map_collect::MapCollect;
 use static_defn::LinkageSource;
-use vm::{Binding, LazyContract};
+use vm::Binding;
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
@@ -154,9 +154,10 @@ impl<'a> FeatureExprBuilder<'a> {
                             .struct_field_access(this.expr.ty(), field_ident.ident)
                             .map(|linkage_source| match linkage_source {
                                 LinkageSource::MemberAccess {
-                                    ref_access,
+                                    eval_ref_access,
+                                    temp_ref_access,
                                     move_access,
-                                    ref_mut_access: borrow_mut_access,
+                                    temp_mut_access: borrow_mut_access,
                                     ..
                                 } => todo!(),
                                 LinkageSource::Transfer(_) => todo!(),

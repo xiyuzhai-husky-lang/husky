@@ -27,9 +27,9 @@ entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity-syntax", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
-syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 infer-error = { path = "../error", version = "0.0.0" }
 infer-entity-route = { path = "../entity-route", version = "0.0.0" }
 atom = { path = "../../syntax/atom", version = "0.0.0" }
 infer-decl = { path = "../decl", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
+liason = { path = "../../semantics/liason", version = "0.0.0" }

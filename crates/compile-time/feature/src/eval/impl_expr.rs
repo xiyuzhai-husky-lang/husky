@@ -6,7 +6,7 @@ use vm::*;
 
 use super::FeatureEvaluator;
 
-impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(super) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalResult<'eval> {
         match expr.variant {
             FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),

@@ -15,19 +15,19 @@ pub enum VMCasePattern {
 }
 
 impl VMCasePattern {
-    pub fn matches<'vm, 'eval>(&self, value: &TempValue<'vm, 'eval>) -> bool {
+    pub fn matches<'temp, 'eval>(&self, value: &TempValue<'temp, 'eval>) -> bool {
         match self {
             VMCasePattern::Primitive(v0) => match value {
                 TempValue::Moved => todo!(),
                 TempValue::Copyable(v1) => v0 == v1,
-                TempValue::EvalOwned(_) => todo!(),
+                TempValue::OwnedEval(_) => todo!(),
                 TempValue::EvalPure(_) => todo!(),
                 TempValue::EvalRef(_) => todo!(),
-                TempValue::FullyOwnedRef(value) => todo!(),
-                TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
-                TempValue::TempOwned(_) => todo!(),
-                TempValue::PartiallyOwnedRef(_) => todo!(),
-                TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+                TempValue::TempRefEval(value) => todo!(),
+                TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
+                TempValue::OwnedTemp(_) => todo!(),
+                TempValue::TempRefTemp(_) => todo!(),
+                TempValue::TempMutTemp { value, owner, gen } => todo!(),
             },
             VMCasePattern::OneOf(subpatterns) => {
                 for subpattern in subpatterns {
@@ -48,14 +48,14 @@ impl VMCasePattern {
                     CopyableValue::Void(_) => todo!(),
                     CopyableValue::EnumKind(enum_kind) => enum_kind.route == *route,
                 },
-                TempValue::EvalOwned(_) => todo!(),
+                TempValue::OwnedEval(_) => todo!(),
                 TempValue::EvalPure(_) => todo!(),
                 TempValue::EvalRef(_) => todo!(),
-                TempValue::FullyOwnedRef(value) => todo!(),
-                TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
-                TempValue::TempOwned(_) => todo!(),
-                TempValue::PartiallyOwnedRef(_) => todo!(),
-                TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+                TempValue::TempRefEval(value) => todo!(),
+                TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
+                TempValue::OwnedTemp(_) => todo!(),
+                TempValue::TempRefTemp(_) => todo!(),
+                TempValue::TempMutTemp { value, owner, gen } => todo!(),
             },
         }
     }

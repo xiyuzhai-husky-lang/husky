@@ -7,7 +7,6 @@ use crate::*;
 use atom::context::{Symbol, SymbolKind};
 use text::TextRanged;
 use token::*;
-use vm::{ParameterLiason, MemberLiason};
 use word::Paradigm;
 
 impl<'a> AstTransformer<'a> {

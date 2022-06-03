@@ -7,6 +7,7 @@ mod val;
 
 pub use binary_grid28::*;
 pub use binary_image28::*;
+use liason::OutputLiason;
 
 use super::*;
 use crate::*;
@@ -40,7 +41,7 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         output_ty: "Dataset<datasets::cv::mnist::BinaryImage28, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(
-            |_| Ok(TempValue::EvalOwned(OwnedValue::new(new_binary_dataset()))),
+            |_| Ok(TempValue::OwnedEval(OwnedValue::new(new_binary_dataset()))),
             0
         ),
         routine_kind: RoutineKind::Normal,

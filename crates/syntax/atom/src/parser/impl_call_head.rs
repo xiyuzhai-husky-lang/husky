@@ -4,7 +4,6 @@ use crate::*;
 use defn_head::{CallableDefnHead, GenericPlaceholderVariant, Parameter, SpatialParameter};
 use entity_route::*;
 use token::SemanticTokenKind;
-use vm::{OutputLiason, ParameterLiason};
 use word::{IdentDict, Paradigm};
 
 use super::*;

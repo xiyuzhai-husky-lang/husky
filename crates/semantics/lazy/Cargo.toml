@@ -18,7 +18,6 @@ entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity-syntax", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
-syntax-types = { path = "../../syntax/types", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 semantics-error = { path = "../error", version = "0.0.0" }
 infer-total = { path = "../../infer/total", version = "0.0.0" }
@@ -28,3 +27,4 @@ infer-decl = { path = "../../infer/decl", version = "0.0.0" }
 infer-qualifier = { path = "../../infer/qualifier", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
+liason = { path = "../../semantics/liason", version = "0.0.0" }

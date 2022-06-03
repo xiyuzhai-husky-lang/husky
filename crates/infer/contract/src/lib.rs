@@ -1,7 +1,12 @@
 mod builder;
+mod eager;
+mod lazy;
 mod query;
 mod sheet;
 
+pub use eager::*;
+pub use lazy::*;
+pub use liason::*;
 pub use query::*;
 pub use sheet::*;
 
@@ -11,8 +16,8 @@ use entity_syntax::EntitySyntaxResultArc;
 use file::FilePtr;
 use infer_entity_route::InferEntityRouteQueryGroup;
 use infer_error::InferResult;
+use liason::*;
 use print_utils::*;
-use vm::{EagerContract, LazyContract};
 
 pub trait InferContract {
     fn contract_sheet(&self) -> &ContractSheet;

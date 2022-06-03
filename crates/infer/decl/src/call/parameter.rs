@@ -1,22 +1,23 @@
 use atom::AtomContext;
+use text::TextRange;
 use vec_map::HasKey;
 
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct InputDecl {
+pub struct ParameterDecl {
     pub liason: ParameterLiason,
     pub ty: EntityRoutePtr,
     pub ident: CustomIdentifier,
 }
 
-impl HasKey<CustomIdentifier> for InputDecl {
+impl HasKey<CustomIdentifier> for ParameterDecl {
     fn key(&self) -> CustomIdentifier {
         self.ident
     }
 }
 
-impl InputDecl {
+impl ParameterDecl {
     pub fn from_static(symbol_context: &mut dyn AtomContext, input: &StaticParameter) -> Self {
         // opt_this_ty,
         Self {
@@ -41,9 +42,9 @@ impl InputDecl {
     }
 }
 
-impl Into<InputDecl> for &Parameter {
-    fn into(self) -> InputDecl {
-        InputDecl {
+impl Into<ParameterDecl> for &Parameter {
+    fn into(self) -> ParameterDecl {
+        ParameterDecl {
             liason: self.liason,
             ty: self.ranged_ty.route,
             ident: self.ranged_ident.ident,

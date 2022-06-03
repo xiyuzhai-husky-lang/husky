@@ -16,7 +16,6 @@ use static_defn::{StaticGenericPlaceholder, StaticParameter};
 use std::borrow::Cow;
 use text::*;
 use token::AbsSemanticToken;
-use vm::ParameterLiason;
 use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 
 #[derive(Clone, Copy)]

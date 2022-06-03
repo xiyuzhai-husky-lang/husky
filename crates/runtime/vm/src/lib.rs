@@ -1,5 +1,4 @@
 mod binding;
-mod contract;
 mod control;
 mod entity;
 mod error;
@@ -7,7 +6,6 @@ mod frame;
 mod history;
 mod instruction;
 mod interpreter;
-mod liason;
 mod linkage;
 mod loop_kind;
 mod mode;
@@ -19,7 +17,6 @@ mod ty;
 mod value;
 
 pub use binding::*;
-pub use contract::*;
 pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
 pub use error::*;
@@ -27,7 +24,6 @@ pub use frame::{FrameKind, LoopFrameData};
 pub use history::{History, HistoryEntry};
 pub use instruction::*;
 pub use interpreter::{Interpreter, InterpreterQueryGroup};
-pub use liason::*;
 pub use linkage::Linkage;
 pub use loop_kind::{BoundaryKind, LoopStep, VMLoopKind};
 pub use mode::Mode;
@@ -42,12 +38,12 @@ use error::*;
 use std::sync::Arc;
 use word::CustomIdentifier;
 
-pub fn eval_fast<'vm, 'eval: 'vm>(
-    db: &'vm dyn InterpreterQueryGroup,
+pub fn eval_fast<'temp, 'eval: 'temp>(
+    db: &'temp dyn InterpreterQueryGroup,
     opt_instrn_sheet: Option<&InstructionSheet>,
     opt_linkage: Option<Linkage>,
-    args: impl Iterator<Item = VMRuntimeResult<TempValue<'vm, 'eval>>>, // including this value
-    kwargs: impl Iterator<Item = (CustomIdentifier, VMRuntimeResult<TempValue<'vm, 'eval>>)>,
+    args: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>, // including this value
+    kwargs: impl Iterator<Item = (CustomIdentifier, VMRuntimeResult<TempValue<'temp, 'eval>>)>,
 ) -> EvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, args)?;
     if let Some(linkage) = opt_linkage {
@@ -57,18 +53,18 @@ pub fn eval_fast<'vm, 'eval: 'vm>(
     }
 }
 
-pub fn exec_debug<'vm, 'eval: 'vm>(
-    db: &'vm dyn InterpreterQueryGroup,
+pub fn exec_debug<'temp, 'eval: 'temp>(
+    db: &'temp dyn InterpreterQueryGroup,
     sheet: &InstructionSheet,
-    prestack: impl Into<VMStack<'vm, 'eval>>,
+    prestack: impl Into<VMStack<'temp, 'eval>>,
 ) -> Arc<History<'eval>> {
     let mut interpreter = Interpreter::from_prestack(db, prestack);
     interpreter.exec_all(sheet, Mode::TrackHistory);
     Arc::new(interpreter.history)
 }
 
-pub fn exec_loop_debug<'vm, 'eval: 'vm>(
-    db: &'vm dyn InterpreterQueryGroup,
+pub fn exec_loop_debug<'temp, 'eval: 'temp>(
+    db: &'temp dyn InterpreterQueryGroup,
     loop_kind: VMLoopKind,
     sheet: &InstructionSheet,
     stack_snapshot: &StackSnapshot<'eval>,

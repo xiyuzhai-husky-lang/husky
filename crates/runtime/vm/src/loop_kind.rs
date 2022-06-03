@@ -43,7 +43,7 @@ impl LoopStep {
         a + self.0 * i
     }
 
-    pub fn update<'vm, 'eval: 'vm>(&self, frame_var: &mut TempValue<'vm, 'eval>) {
+    pub fn update<'temp, 'eval: 'temp>(&self, frame_var: &mut TempValue<'temp, 'eval>) {
         match frame_var {
             TempValue::Copyable(CopyableValue::I32(ref mut frame_var)) => {
                 *frame_var = *frame_var + self.0;

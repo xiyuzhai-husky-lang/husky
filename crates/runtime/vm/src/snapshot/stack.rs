@@ -6,8 +6,8 @@ pub struct StackSnapshot<'eval> {
     pub(crate) values: Vec<StackValueSnapshot<'eval>>,
 }
 
-impl<'vm, 'eval: 'vm> StackSnapshot<'eval> {
-    pub(crate) fn stack(&self) -> VMStack<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> StackSnapshot<'eval> {
+    pub(crate) fn stack(&self) -> VMStack<'temp, 'eval> {
         todo!()
     }
 
@@ -16,8 +16,8 @@ impl<'vm, 'eval: 'vm> StackSnapshot<'eval> {
     }
 }
 
-impl<'vm, 'eval: 'vm> Into<VMStack<'vm, 'eval>> for &StackSnapshot<'eval> {
-    fn into(self) -> VMStack<'vm, 'eval> {
+impl<'temp, 'eval: 'temp> Into<VMStack<'temp, 'eval>> for &StackSnapshot<'eval> {
+    fn into(self) -> VMStack<'temp, 'eval> {
         VMStack::new(
             self.values
                 .iter()

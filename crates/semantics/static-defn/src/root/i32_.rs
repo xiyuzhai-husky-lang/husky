@@ -20,7 +20,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
     name: "min",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: ParameterLiason::Pure,
+        this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
             name: "other",
             contract: ParameterLiason::Pure,
@@ -40,7 +40,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
     name: "max",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: ParameterLiason::Pure,
+        this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
             name: "other",
             contract: ParameterLiason::Pure,
@@ -60,7 +60,7 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
     name: "sgn",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: ParameterLiason::Pure,
+        this_liason: ParameterLiason::Pure,
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
@@ -76,7 +76,7 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
     name: "abs",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_contract: ParameterLiason::Pure,
+        this_liason: ParameterLiason::Pure,
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,

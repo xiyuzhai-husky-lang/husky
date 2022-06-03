@@ -12,7 +12,8 @@ use std::{any::TypeId, borrow::Cow, fmt::Debug, panic::RefUnwindSafe, sync::Arc}
 pub enum StaticTypeId {
     RustBuiltin(TypeId),
     HuskyBuiltin(HuskyBuiltinStaticTypeId),
-    VecOf(Box<StaticTypeId>),
+    Vec(Box<StaticTypeId>),
+    CyclicSlice(Box<StaticTypeId>),
     AnyMemberValue,
 }
 
@@ -41,9 +42,9 @@ pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + Ref
     fn static_type_name() -> Cow<'static, str>;
     // fn clone_shared(&self) -> Arc<dyn AnyValueDyn<'eval>>;
 
-    fn clone_into_box<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm,
+        Self: 'temp,
     {
         Box::new(self.clone())
     }
@@ -55,9 +56,9 @@ pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + Ref
         Arc::new(self.clone())
     }
 
-    fn from_stack<'vm>(stack_value: TempValue<'vm, 'eval>) -> Self {
+    fn from_stack<'temp>(stack_value: TempValue<'temp, 'eval>) -> Self {
         match stack_value {
-            TempValue::EvalOwned(boxed_value) => boxed_value.take().unwrap(),
+            TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
             _ => {
                 p!(Self::static_type_name());
                 p!(stack_value);
@@ -81,14 +82,14 @@ pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + Ref
 pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe {
     fn static_type_id_dyn(&self) -> StaticTypeId;
     fn static_type_name_dyn(&self) -> Cow<'static, str>;
-    fn clone_into_box_dyn<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box_dyn<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm;
+        Self: 'temp;
     fn clone_into_arc_dyn(&self) -> Arc<dyn AnyValueDyn<'eval> + 'eval>
     where
         Self: 'eval;
     fn equal_any(&self, other: &dyn AnyValueDyn<'eval>) -> bool;
-    fn assign<'vm>(&mut self, other: TempValue<'vm, 'eval>);
+    fn assign<'temp>(&mut self, other: TempValue<'temp, 'eval>);
     fn take_copyable(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval>);
     fn print_short(&self) -> String;
@@ -99,7 +100,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe {
     fn get_json_value_dyn(&self) -> serde_json::value::Value;
 }
 
-impl<'vm, 'eval: 'vm> dyn AnyValueDyn<'eval> + 'vm {
+impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
     #[inline]
     pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
         if T::static_type_id() != self.static_type_id_dyn() {
@@ -132,9 +133,9 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         T::static_type_name()
     }
 
-    fn clone_into_box_dyn<'vm>(&self) -> Box<dyn AnyValueDyn<'eval> + 'vm>
+    fn clone_into_box_dyn<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
-        Self: 'vm,
+        Self: 'temp,
     {
         T::clone_into_box(self)
     }
@@ -150,7 +151,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         todo!()
     }
 
-    fn assign<'vm>(&mut self, other: TempValue<'vm, 'eval>) {
+    fn assign<'temp>(&mut self, other: TempValue<'temp, 'eval>) {
         *self = T::from_stack(other)
     }
 

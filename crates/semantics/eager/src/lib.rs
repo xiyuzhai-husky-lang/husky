@@ -11,6 +11,7 @@ pub use xml::*;
 use defn_head::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use infer_total::InferQueryGroup;
+use liason::*;
 use print_utils::*;
 use semantics_error::*;
 use std::sync::Arc;

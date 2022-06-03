@@ -11,16 +11,14 @@ pub enum VirtualTy<'eval> {
     },
 }
 
-impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
+impl<'temp, 'eval: 'temp> VirtualTy<'eval> {
     pub fn new_struct(
-        mut arguments: impl Iterator<Item = TempValue<'vm, 'eval>>,
-        field_liasons: &[(CustomIdentifier, MemberLiason)],
+        mut arguments: impl Iterator<Item = TempValue<'temp, 'eval>>,
+        field_liasons: &[CustomIdentifier],
     ) -> Self {
         let mut fields = IdentPairDict::<MemberValue<'eval>>::default();
-        for (i, mut argument) in arguments.enumerate() {
-            let (ident, liason) = field_liasons[i];
-            msg_once!("check liason");
-            fields.insert_new((ident, argument.bind_move().into_member()));
+        for (ident, mut argument) in std::iter::zip(field_liasons.iter(), arguments) {
+            fields.insert_new((*ident, argument.into_member()));
         }
         VirtualTy::Struct { fields }
     }
@@ -31,7 +29,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
         }
     }
 
-    pub fn take_field(&mut self, field_idx: usize) -> TempValue<'vm, 'eval> {
+    pub fn take_field(&mut self, field_idx: usize) -> TempValue<'temp, 'eval> {
         match self {
             VirtualTy::Struct { fields } => {
                 std::mem::replace(&mut fields.data_mut()[field_idx].1, MemberValue::Moved)
@@ -40,21 +38,36 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
         }
     }
 
-    pub fn access_field(&self, field_idx: usize, field_binding: Binding) -> TempValue<'vm, 'eval> {
+    pub fn access_field(
+        &self,
+        field_idx: usize,
+        field_binding: Binding,
+    ) -> TempValue<'temp, 'eval> {
         match field_binding {
-            Binding::Ref => match self {
+            Binding::EvalRef => match self {
+                VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
+                    MemberValue::EvalRef(_) => todo!(),
+                    MemberValue::Copyable(_) => todo!(),
+                    MemberValue::Boxed(ref boxed_value) => {
+                        TempValue::EvalRef(unsafe { &*boxed_value.any_ptr() })
+                    }
+                    MemberValue::GlobalPure(_) => todo!(),
+                    MemberValue::Moved => todo!(),
+                },
+            },
+            Binding::TempRef => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
                     MemberValue::Copyable(value) => TempValue::Copyable(value),
                     MemberValue::Boxed(ref value) => {
                         let ptr = value.any_ptr();
-                        TempValue::FullyOwnedRef(unsafe { &*ptr })
+                        TempValue::TempRefEval(unsafe { &*ptr })
                     }
                     MemberValue::GlobalPure(_) => todo!(),
                     MemberValue::EvalRef(_) => todo!(),
                     MemberValue::Moved => todo!(),
                 },
             },
-            Binding::RefMut => todo!(),
+            Binding::TempRefMut => todo!(),
             Binding::Move => todo!(),
             Binding::Copy => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
@@ -101,10 +114,11 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
         field_idx: usize,
         field_binding: Binding,
         owner: VMStackIdx,
-    ) -> TempValue<'vm, 'eval> {
+    ) -> TempValue<'temp, 'eval> {
         match field_binding {
-            Binding::Ref => todo!(),
-            Binding::RefMut => match self {
+            Binding::EvalRef => todo!(),
+            Binding::TempRef => todo!(),
+            Binding::TempRefMut => match self {
                 VirtualTy::Struct { fields } => {
                     let field_value = &mut fields.data_mut()[field_idx].1;
                     let ptr: *mut dyn AnyValueDyn = match field_value {
@@ -114,7 +128,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                         MemberValue::EvalRef(_) => todo!(),
                         MemberValue::Moved => todo!(),
                     };
-                    TempValue::CopyableOrFullyOwnedMut {
+                    TempValue::CopyableOrTempMutEval {
                         value: unsafe { &mut *ptr },
                         owner,
                         gen: (),
@@ -172,9 +186,9 @@ impl<'eval> AnyValue<'eval> for VirtualTy<'eval> {
     }
 }
 
-impl<'vm, 'eval: 'vm> Into<TempValue<'vm, 'eval>> for VirtualTy<'eval> {
-    fn into(self) -> TempValue<'vm, 'eval> {
-        TempValue::EvalOwned(OwnedValue::new(self))
+impl<'temp, 'eval: 'temp> Into<TempValue<'temp, 'eval>> for VirtualTy<'eval> {
+    fn into(self) -> TempValue<'temp, 'eval> {
+        TempValue::OwnedEval(OwnedValue::new(self))
     }
 }
 

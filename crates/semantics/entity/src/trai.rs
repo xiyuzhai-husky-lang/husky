@@ -83,7 +83,7 @@ impl EntityDefnVariant {
                 }
             }
             EntityStaticDefnVariant::Method {
-                this_contract,
+                this_liason: this_contract,
                 parameters: inputs,
                 output_ty,
                 output_liason,
