@@ -424,13 +424,13 @@
     117:11..117:14 end                    Copyable     i32
     117:18..117:25 max_end                Copyable     i32
     117:11..117:25 end <= max_end         Copyable     bool
-    118:26..118:28 ct                     PureRef      mnist_classifier004::raw_contour::RawContour
+    118:26..118:28 ct                     EvalRef      mnist_classifier004::raw_contour::RawContour
     118:30..118:35 start                  Copyable     i32
     118:37..118:38 r                      Copyable     f32
     118:9..118:12  end                    RefMut       i32
     118:15..118:39 extend_end(ct, start, r)   Copyable     i32
     118:9..118:39  end = extend_end(ct, start, r)   Copyable     void
-    119:46..119:48 ct                     PureRef      mnist_classifier004::raw_contour::RawContour
+    119:46..119:48 ct                     EvalRef      mnist_classifier004::raw_contour::RawContour
     119:50..119:55 start                  Copyable     i32
     119:57..119:60 end                    Copyable     i32
     119:29..119:61 get_line_segment(ct, start, end)   Transient    mnist_classifier004::line_segment_sketch::LineSegment
@@ -463,7 +463,7 @@
     127:61..127:74 line_segments          PureRef      Vec<mnist_classifier004::line_segment_sketch::LineSegment>
     127:61..127:81 line_segments.last()   PureRef      mnist_classifier004::line_segment_sketch::LineSegment
     127:61..127:82 line_segments.last().   PureRef      std::slice::CyclicSlice<mnist_classifier004::geom2d::Point2d>
-    127:57..127:59 ct                     PureRef      mnist_classifier004::raw_contour::RawContour
+    127:57..127:59 ct                     EvalRef      mnist_classifier004::raw_contour::RawContour
     127:61..127:89 line_segments.last().points.   Copyable     i32
     127:96..127:99 end                    Copyable     i32
     127:17..127:37 line_segments.last()   RefMut       mnist_classifier004::line_segment_sketch::LineSegment
@@ -473,14 +473,14 @@
     128:37..128:42 false                  Copyable     bool
     128:17..128:42 extend_start_flag = false   Copyable     void
     129:12..129:29 extend_start_flag      Copyable     bool
-    130:34..130:36 ct                     PureRef      mnist_classifier004::raw_contour::RawContour
+    130:34..130:36 ct                     EvalRef      mnist_classifier004::raw_contour::RawContour
     130:38..130:43 start                  Copyable     i32
     130:45..130:48 end                    Copyable     i32
     130:50..130:51 r                      Copyable     f32
     130:13..130:18 start                  RefMut       i32
     130:21..130:52 extend_start(ct, start, end, r)   Copyable     i32
     130:13..130:52 start = extend_start(ct, start, end, r)   Copyable     void
-    131:39..131:41 ct                     PureRef      mnist_classifier004::raw_contour::RawContour
+    131:39..131:41 ct                     EvalRef      mnist_classifier004::raw_contour::RawContour
     131:43..131:48 start                  Copyable     i32
     131:50..131:53 end                    Copyable     i32
     131:22..131:54 get_line_segment(ct, start, end)   Transient    mnist_classifier004::line_segment_sketch::LineSegment
@@ -530,7 +530,7 @@
     142:47..142:55 ls_last.               PureRef      std::slice::CyclicSlice<mnist_classifier004::geom2d::Point2d>
     142:69..142:71 ls                     PureRef      mnist_classifier004::line_segment_sketch::LineSegment
     142:69..142:72 ls.                    PureRef      std::slice::CyclicSlice<mnist_classifier004::geom2d::Point2d>
-    142:43..142:45 ct                     PureRef      mnist_classifier004::raw_contour::RawContour
+    142:43..142:45 ct                     EvalRef      mnist_classifier004::raw_contour::RawContour
     142:47..142:62 ls_last.points.        Copyable     i32
     142:69..142:79 ls.points.             Copyable     i32
     142:21..142:23 ls                     RefMut       mnist_classifier004::line_segment_sketch::LineSegment
@@ -580,7 +580,7 @@
     153:90..153:103line_segments          PureRef      Vec<mnist_classifier004::line_segment_sketch::LineSegment>
     153:90..153:111line_segments.first()   PureRef      mnist_classifier004::line_segment_sketch::LineSegment
     153:90..153:112line_segments.first().   PureRef      std::slice::CyclicSlice<mnist_classifier004::geom2d::Point2d>
-    153:50..153:52 ct                     PureRef      mnist_classifier004::raw_contour::RawContour
+    153:50..153:52 ct                     EvalRef      mnist_classifier004::raw_contour::RawContour
     153:54..153:88 last_line_segment.points.start - N   Copyable     i32
     153:90..153:119line_segments.first().points.   Copyable     i32
     153:9..153:30  line_segments.first()   RefMut       mnist_classifier004::line_segment_sketch::LineSegment

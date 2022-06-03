@@ -133,7 +133,7 @@ fn generic_cyclic_slice_first_eval_ref<'temp, 'eval>(
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.first() {
-        Some(value) => Ok(value.stack_eval_ref()),
+        Some(value) => Ok(value.bind_eval_ref()),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
@@ -143,7 +143,7 @@ fn generic_cyclic_slice_first_temp_ref<'temp, 'eval>(
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.first() {
-        Some(value) => Ok(value.stack_temp_ref()),
+        Some(value) => Ok(value.bind_temp_ref()),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
@@ -157,7 +157,7 @@ fn generic_cyclic_slice_first_mut<'temp, 'eval>(
         _,
     ) = values[0].downcast_mut_full();
     match generic_cyclic_slice.first_mut() {
-        Some(value) => Ok(value.stack_mut(stack_idx)),
+        Some(value) => Ok(value.binding_mut(stack_idx)),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
@@ -203,7 +203,7 @@ fn generic_cyclic_slice_last_eval_ref<'temp, 'eval>(
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.last() {
-        Some(value) => Ok(value.stack_eval_ref()),
+        Some(value) => Ok(value.bind_eval_ref()),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
@@ -213,7 +213,7 @@ fn generic_cyclic_slice_last_temp_ref<'temp, 'eval>(
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.last() {
-        Some(value) => Ok(value.stack_temp_ref()),
+        Some(value) => Ok(value.bind_temp_ref()),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
@@ -227,7 +227,7 @@ fn generic_cyclic_slice_last_mut<'temp, 'eval>(
         _,
     ) = values[0].downcast_mut_full();
     match generic_cyclic_slice.last_mut() {
-        Some(value) => Ok(value.stack_mut(stack_idx)),
+        Some(value) => Ok(value.binding_mut(stack_idx)),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
