@@ -1,7 +1,7 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
 use entity_kind::RoutineKind;
 use std::sync::Arc;
-use vm::{Linkage, OutputLiason, OwnedValue, VMValue};
+use vm::{linkage, Linkage, OutputLiason, OwnedValue, TempValue};
 use xrng::XRng;
 
 pub const REAL_1D_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
@@ -22,10 +22,7 @@ pub const DATASET1_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         parameters: vec![],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: Linkage {
-            call: |_| Ok(VMValue::FullyOwned(OwnedValue::new(dataset1()))),
-            nargs: 0,
-        },
+        linkage: linkage!(|_| Ok(TempValue::EvalOwned(OwnedValue::new(dataset1()))), 0),
         routine_kind: RoutineKind::Normal,
     },
     dev_src: dev_utils::static_dev_src!(),
@@ -39,10 +36,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         parameters: vec![],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: Linkage {
-            call: |_| Ok(VMValue::FullyOwned(OwnedValue::new(dataset2()))),
-            nargs: 0,
-        },
+        linkage: linkage!(|_| Ok(TempValue::EvalOwned(OwnedValue::new(dataset2()))), 0),
         routine_kind: RoutineKind::Normal,
     },
     dev_src: dev_utils::static_dev_src!(),

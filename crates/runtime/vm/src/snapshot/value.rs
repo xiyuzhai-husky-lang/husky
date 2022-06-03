@@ -73,14 +73,14 @@ impl<'eval> From<CopyableValue> for StackValueSnapshot<'eval> {
     }
 }
 
-impl<'vm, 'eval: 'vm> Into<VMValue<'vm, 'eval>> for &StackValueSnapshot<'eval> {
-    fn into(self) -> VMValue<'vm, 'eval> {
+impl<'vm, 'eval: 'vm> Into<TempValue<'vm, 'eval>> for &StackValueSnapshot<'eval> {
+    fn into(self) -> TempValue<'vm, 'eval> {
         match self {
-            StackValueSnapshot::Copyable(value) => VMValue::Copyable(*value),
+            StackValueSnapshot::Copyable(value) => TempValue::Copyable(*value),
             StackValueSnapshot::RefMut { owner, gen, .. } => todo!(),
-            StackValueSnapshot::GlobalPure(value) => VMValue::EvalPure(value.clone()),
-            StackValueSnapshot::Owned(value) => VMValue::FullyOwned(value.clone()),
-            StackValueSnapshot::EvalRef(value) => VMValue::EvalRef(*value),
+            StackValueSnapshot::GlobalPure(value) => TempValue::EvalPure(value.clone()),
+            StackValueSnapshot::Owned(value) => TempValue::EvalOwned(value.clone()),
+            StackValueSnapshot::EvalRef(value) => TempValue::EvalRef(*value),
             StackValueSnapshot::FullyOwnedRef(_) => todo!(),
         }
     }

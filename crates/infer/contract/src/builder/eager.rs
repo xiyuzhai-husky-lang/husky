@@ -128,7 +128,8 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         arena: &RawExprArena,
     ) {
-        let infer_result = match arena[raw_expr_idx].variant {
+        let raw_expr = &arena[raw_expr_idx];
+        let infer_result = match raw_expr.variant {
             RawExprVariant::Variable {
                 varname,
                 init_range,
@@ -435,7 +436,7 @@ impl<'a> ContractSheetBuilder<'a> {
         arena: &RawExprArena,
         this: RawExprIdx,
         ranged_ident: RangedCustomIdentifier,
-        inputs: RawExprRange,
+        parameters: RawExprRange,
         contract: EagerContract,
         range: TextRange,
         raw_expr_idx: RawExprIdx,
@@ -452,7 +453,7 @@ impl<'a> ContractSheetBuilder<'a> {
             )
             .bind_into(&arena[this]);
         self.infer_eager_expr(this, this_contract_result?, arena);
-        for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
+        for (argument, parameter) in zip(parameters.into_iter(), method_decl.parameters.iter()) {
             let argument_contract_result: InferResult<_> = parameter
                 .liason
                 .eager(

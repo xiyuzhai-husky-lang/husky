@@ -13,7 +13,7 @@ pub enum VirtualTy<'eval> {
 
 impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
     pub fn new_struct(
-        mut arguments: impl Iterator<Item = VMValue<'vm, 'eval>>,
+        mut arguments: impl Iterator<Item = TempValue<'vm, 'eval>>,
         field_liasons: &[(CustomIdentifier, MemberLiason)],
     ) -> Self {
         let mut fields = IdentPairDict::<MemberValue<'eval>>::default();
@@ -31,7 +31,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
         }
     }
 
-    pub fn take_field(&mut self, field_idx: usize) -> VMValue<'vm, 'eval> {
+    pub fn take_field(&mut self, field_idx: usize) -> TempValue<'vm, 'eval> {
         match self {
             VirtualTy::Struct { fields } => {
                 std::mem::replace(&mut fields.data_mut()[field_idx].1, MemberValue::Moved)
@@ -40,14 +40,14 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
         }
     }
 
-    pub fn access_field(&self, field_idx: usize, field_binding: Binding) -> VMValue<'vm, 'eval> {
+    pub fn access_field(&self, field_idx: usize, field_binding: Binding) -> TempValue<'vm, 'eval> {
         match field_binding {
             Binding::Ref => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
-                    MemberValue::Copyable(value) => VMValue::Copyable(value),
+                    MemberValue::Copyable(value) => TempValue::Copyable(value),
                     MemberValue::Boxed(ref value) => {
                         let ptr = value.any_ptr();
-                        VMValue::FullyOwnedRef(unsafe { &*ptr })
+                        TempValue::FullyOwnedRef(unsafe { &*ptr })
                     }
                     MemberValue::GlobalPure(_) => todo!(),
                     MemberValue::EvalRef(_) => todo!(),
@@ -58,7 +58,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
             Binding::Move => todo!(),
             Binding::Copy => match self {
                 VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
-                    MemberValue::Copyable(value) => VMValue::Copyable(value),
+                    MemberValue::Copyable(value) => TempValue::Copyable(value),
                     MemberValue::Boxed(_) => todo!(),
                     MemberValue::GlobalPure(_) => todo!(),
                     MemberValue::EvalRef(_) => todo!(),
@@ -101,7 +101,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
         field_idx: usize,
         field_binding: Binding,
         owner: VMStackIdx,
-    ) -> VMValue<'vm, 'eval> {
+    ) -> TempValue<'vm, 'eval> {
         match field_binding {
             Binding::Ref => todo!(),
             Binding::RefMut => match self {
@@ -114,7 +114,7 @@ impl<'vm, 'eval: 'vm> VirtualTy<'eval> {
                         MemberValue::EvalRef(_) => todo!(),
                         MemberValue::Moved => todo!(),
                     };
-                    VMValue::CopyableOrFullyOwnedMut {
+                    TempValue::CopyableOrFullyOwnedMut {
                         value: unsafe { &mut *ptr },
                         owner,
                         gen: (),
@@ -172,9 +172,9 @@ impl<'eval> AnyValue<'eval> for VirtualTy<'eval> {
     }
 }
 
-impl<'vm, 'eval: 'vm> Into<VMValue<'vm, 'eval>> for VirtualTy<'eval> {
-    fn into(self) -> VMValue<'vm, 'eval> {
-        VMValue::FullyOwned(OwnedValue::new(self))
+impl<'vm, 'eval: 'vm> Into<TempValue<'vm, 'eval>> for VirtualTy<'eval> {
+    fn into(self) -> TempValue<'vm, 'eval> {
+        TempValue::EvalOwned(OwnedValue::new(self))
     }
 }
 

@@ -42,7 +42,7 @@ impl FieldDecl {
                     .intern_word(static_decl.name)
                     .custom(),
                 liason,
-                ty: symbol_context.entity_route_from_str(ty).unwrap(),
+                ty: symbol_context.parse_entity_route(ty).unwrap(),
                 field_kind,
             }),
             _ => panic!(""),

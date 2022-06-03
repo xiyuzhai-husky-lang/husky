@@ -124,7 +124,7 @@ impl<'vm, 'eval: 'vm> FeatureEvaluator<'vm, 'eval> {
         let db = self.db;
         let values = arguments
             .iter()
-            .map(|expr| VMValue::from_eval(self.eval_feature_expr(expr)?));
+            .map(|expr| TempValue::from_eval(self.eval_feature_expr(expr)?));
         msg_once!("kwargs");
         eval_fast(
             db.upcast(),

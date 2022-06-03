@@ -25,22 +25,22 @@ use word::CustomIdentifier;
 // the primary concerns are safety and stability
 // this whole vm thing will be replaced by JIT for fast evaluation purposes
 // so we don't need to worry too much about speed here
-pub enum VMValue<'vm, 'eval: 'vm> {
+pub enum TempValue<'temp, 'eval: 'temp> {
     Moved,
     Copyable(CopyableValue),
-    FullyOwned(OwnedValue<'eval, 'eval>),
-    PartiallyOwned(OwnedValue<'vm, 'eval>),
+    EvalOwned(OwnedValue<'eval, 'eval>),
+    TempOwned(OwnedValue<'temp, 'eval>),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
-    FullyOwnedRef(&'vm (dyn AnyValueDyn<'eval> + 'eval)),
-    PartiallyOwnedRef(&'vm (dyn AnyValueDyn<'eval> + 'vm)),
+    FullyOwnedRef(&'temp (dyn AnyValueDyn<'eval> + 'eval)),
+    PartiallyOwnedRef(&'temp (dyn AnyValueDyn<'eval> + 'temp)),
     CopyableOrFullyOwnedMut {
-        value: &'vm mut (dyn AnyValueDyn<'eval> + 'eval),
+        value: &'temp mut (dyn AnyValueDyn<'eval> + 'eval),
         owner: VMStackIdx,
         gen: MutRefGenerator,
     },
     PartiallyOwnedMut {
-        value: &'vm mut (dyn AnyValueDyn<'eval> + 'vm),
+        value: &'temp mut (dyn AnyValueDyn<'eval> + 'temp),
         owner: VMStackIdx,
         gen: MutRefGenerator,
     },
@@ -48,99 +48,99 @@ pub enum VMValue<'vm, 'eval: 'vm> {
 
 pub type MutRefGenerator = ();
 
-impl<'vm, 'eval: 'vm> std::fmt::Debug for VMValue<'vm, 'eval> {
+impl<'vm, 'eval: 'vm> std::fmt::Debug for TempValue<'vm, 'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            VMValue::Copyable(arg0) => {
+            TempValue::Copyable(arg0) => {
                 f.write_str("Primitive ")?;
                 arg0.fmt(f)
             }
-            VMValue::FullyOwned(arg0) => f.debug_tuple("Boxed").field(arg0).finish(),
-            VMValue::EvalPure(arg0) => f.debug_tuple("GlobalPure").field(arg0).finish(),
-            VMValue::EvalRef(arg0) => f.debug_tuple("EvalRef").field(arg0).finish(),
-            VMValue::FullyOwnedRef(value) => f.debug_tuple("Ref").field(value).finish(),
-            VMValue::CopyableOrFullyOwnedMut { value, .. } => {
+            TempValue::EvalOwned(arg0) => f.debug_tuple("Boxed").field(arg0).finish(),
+            TempValue::EvalPure(arg0) => f.debug_tuple("GlobalPure").field(arg0).finish(),
+            TempValue::EvalRef(arg0) => f.debug_tuple("EvalRef").field(arg0).finish(),
+            TempValue::FullyOwnedRef(value) => f.debug_tuple("Ref").field(value).finish(),
+            TempValue::CopyableOrFullyOwnedMut { value, .. } => {
                 f.debug_tuple("MutRef").field(value).finish()
             }
-            VMValue::Moved => f.write_str("Taken"),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Moved => f.write_str("Taken"),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 }
 
-impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
+impl<'vm, 'eval: 'vm> TempValue<'vm, 'eval> {
     pub fn print_short(&self) -> String {
         let mut result = String::new();
         match self {
-            VMValue::Moved => result.push_str("Moved"),
-            VMValue::Copyable(value) => {
+            TempValue::Moved => result.push_str("Moved"),
+            TempValue::Copyable(value) => {
                 result.push_str("Primitive ");
                 result.push_str(&value.any_ref().print_short())
             }
-            VMValue::FullyOwned(value) => {
+            TempValue::EvalOwned(value) => {
                 result.push_str("Boxed ");
                 result.push_str(&value.any_ref().print_short())
             }
-            VMValue::EvalPure(value) => {
+            TempValue::EvalPure(value) => {
                 result.push_str("GlobalPure ");
                 result.push_str(&value.print_short())
             }
-            VMValue::EvalRef(value) => {
+            TempValue::EvalRef(value) => {
                 result.push_str("EvalRef ");
                 result.push_str(&value.print_short());
             }
-            VMValue::FullyOwnedRef(value) => {
+            TempValue::FullyOwnedRef(value) => {
                 result.push_str("TempRef ");
                 result.push_str(&value.print_short());
             }
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
                 result.push_str("TempRefMut ");
                 result.push_str(&value.print_short());
                 write!(result, " Owner({:?}) ", owner);
             }
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
         result
     }
 
     pub fn to_json_value(self) -> serde_json::value::Value {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(_) => todo!(),
-            VMValue::FullyOwned(_) => todo!(),
-            VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
-            VMValue::FullyOwnedRef(value) => value.get_json_value_dyn(),
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(_) => todo!(),
+            TempValue::EvalOwned(_) => todo!(),
+            TempValue::EvalPure(_) => todo!(),
+            TempValue::EvalRef(_) => todo!(),
+            TempValue::FullyOwnedRef(value) => value.get_json_value_dyn(),
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 }
 
-impl<'vm, 'eval: 'vm> From<CopyableValue> for VMValue<'vm, 'eval> {
+impl<'vm, 'eval: 'vm> From<CopyableValue> for TempValue<'vm, 'eval> {
     fn from(value: CopyableValue) -> Self {
-        VMValue::Copyable(value)
+        TempValue::Copyable(value)
     }
 }
 
-impl<'vm, 'eval: 'vm> From<&CopyableValue> for VMValue<'vm, 'eval> {
+impl<'vm, 'eval: 'vm> From<&CopyableValue> for TempValue<'vm, 'eval> {
     fn from(value: &CopyableValue) -> Self {
-        VMValue::Copyable(*value)
+        TempValue::Copyable(*value)
     }
 }
 
-impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
+impl<'vm, 'eval: 'vm> TempValue<'vm, 'eval> {
     pub fn from_eval(eval_value: EvalValue<'eval>) -> VMRuntimeResult<Self> {
         Ok(match eval_value {
             EvalValue::Copyable(value) => Self::Copyable(value),
             EvalValue::Owned(_) => todo!(),
-            EvalValue::GlobalPure(value) => VMValue::EvalPure(value),
+            EvalValue::GlobalPure(value) => TempValue::EvalPure(value),
             EvalValue::EvalRef(value) => Self::EvalRef(value),
             EvalValue::Undefined => todo!(),
         })
@@ -148,72 +148,72 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
 
     pub fn into_eval(self) -> EvalValue<'eval> {
         match self {
-            VMValue::Copyable(copyable_value) => EvalValue::Copyable(copyable_value),
-            VMValue::FullyOwned(boxed_value) => EvalValue::Owned(boxed_value),
-            VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(value) => EvalValue::EvalRef(value),
-            VMValue::FullyOwnedRef { .. }
-            | VMValue::CopyableOrFullyOwnedMut { .. }
-            | VMValue::Moved => {
+            TempValue::Copyable(copyable_value) => EvalValue::Copyable(copyable_value),
+            TempValue::EvalOwned(boxed_value) => EvalValue::Owned(boxed_value),
+            TempValue::EvalPure(_) => todo!(),
+            TempValue::EvalRef(value) => EvalValue::EvalRef(value),
+            TempValue::FullyOwnedRef { .. }
+            | TempValue::CopyableOrFullyOwnedMut { .. }
+            | TempValue::Moved => {
                 panic!()
             }
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub fn eval(&self) -> EvalValue<'eval> {
         match self {
-            VMValue::Copyable(primitive_value) => EvalValue::Copyable(*primitive_value),
-            VMValue::FullyOwned(boxed_value) => EvalValue::Owned(boxed_value.clone()),
-            VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(value) => EvalValue::EvalRef(*value),
-            VMValue::FullyOwnedRef(value) => EvalValue::Owned(value.clone_into_box_dyn().into()),
-            VMValue::CopyableOrFullyOwnedMut { value, .. } => {
+            TempValue::Copyable(primitive_value) => EvalValue::Copyable(*primitive_value),
+            TempValue::EvalOwned(boxed_value) => EvalValue::Owned(boxed_value.clone()),
+            TempValue::EvalPure(_) => todo!(),
+            TempValue::EvalRef(value) => EvalValue::EvalRef(*value),
+            TempValue::FullyOwnedRef(value) => EvalValue::Owned(value.clone_into_box_dyn().into()),
+            TempValue::CopyableOrFullyOwnedMut { value, .. } => {
                 EvalValue::Owned(value.clone_into_box_dyn().into())
             }
-            VMValue::Moved => {
+            TempValue::Moved => {
                 panic!()
             }
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub fn to_bool(&self) -> bool {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(v) => v.to_bool(),
-            VMValue::FullyOwned(_) => todo!(),
-            VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
-            VMValue::FullyOwnedRef(value) => todo!(),
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(v) => v.to_bool(),
+            TempValue::EvalOwned(_) => todo!(),
+            TempValue::EvalPure(_) => todo!(),
+            TempValue::EvalRef(_) => todo!(),
+            TempValue::FullyOwnedRef(value) => todo!(),
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub fn into_member(&mut self) -> MemberValue<'eval> {
         match self {
-            VMValue::Copyable(primitive_value) => MemberValue::Copyable(*primitive_value),
-            VMValue::FullyOwned(boxed_value) => match std::mem::replace(self, VMValue::Moved) {
-                VMValue::FullyOwned(boxed_value) => MemberValue::Boxed(boxed_value),
+            TempValue::Copyable(primitive_value) => MemberValue::Copyable(*primitive_value),
+            TempValue::EvalOwned(boxed_value) => match std::mem::replace(self, TempValue::Moved) {
+                TempValue::EvalOwned(boxed_value) => MemberValue::Boxed(boxed_value),
                 _ => panic!(),
             },
-            VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
-            VMValue::FullyOwnedRef { .. }
-            | VMValue::CopyableOrFullyOwnedMut { .. }
-            | VMValue::Moved => {
+            TempValue::EvalPure(_) => todo!(),
+            TempValue::EvalRef(_) => todo!(),
+            TempValue::FullyOwnedRef { .. }
+            | TempValue::CopyableOrFullyOwnedMut { .. }
+            | TempValue::Moved => {
                 panic!()
             }
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
@@ -228,114 +228,114 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
 
     unsafe fn bind_ref(&self) -> Self {
         match self {
-            VMValue::Moved => panic!(),
-            VMValue::Copyable(_) => panic!(),
-            VMValue::FullyOwned(value) => {
+            TempValue::Moved => panic!(),
+            TempValue::Copyable(_) => panic!(),
+            TempValue::EvalOwned(value) => {
                 let ptr: *const dyn AnyValueDyn = value.any_ptr();
-                VMValue::FullyOwnedRef(&*ptr)
+                TempValue::FullyOwnedRef(&*ptr)
             }
-            VMValue::EvalPure(value) => {
+            TempValue::EvalPure(value) => {
                 let ptr: *const dyn AnyValueDyn = &**value;
-                VMValue::FullyOwnedRef(&*ptr)
+                TempValue::FullyOwnedRef(&*ptr)
             }
-            VMValue::EvalRef(value) => VMValue::EvalRef(*value),
-            VMValue::FullyOwnedRef(value) => VMValue::FullyOwnedRef(*value),
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::EvalRef(value) => TempValue::EvalRef(*value),
+            TempValue::FullyOwnedRef(value) => TempValue::FullyOwnedRef(*value),
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     fn bind_copy(&self) -> Self {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(value) => VMValue::Copyable(*value),
-            VMValue::FullyOwned(_) => todo!(),
-            VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
-            VMValue::FullyOwnedRef(value) => {
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(value) => TempValue::Copyable(*value),
+            TempValue::EvalOwned(_) => todo!(),
+            TempValue::EvalPure(_) => todo!(),
+            TempValue::EvalRef(_) => todo!(),
+            TempValue::FullyOwnedRef(value) => {
                 p!(value);
                 todo!()
             }
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
-    unsafe fn bind_ref_mut(&mut self, stack_idx: VMStackIdx) -> VMValue<'vm, 'eval> {
+    unsafe fn bind_ref_mut(&mut self, stack_idx: VMStackIdx) -> TempValue<'vm, 'eval> {
         match self {
-            VMValue::Copyable(value) => {
+            TempValue::Copyable(value) => {
                 let ptr: *mut dyn AnyValueDyn<'eval> = value.any_mut();
-                VMValue::CopyableOrFullyOwnedMut {
+                TempValue::CopyableOrFullyOwnedMut {
                     value: &mut *ptr,
                     owner: stack_idx,
                     gen: (),
                 }
             }
-            VMValue::FullyOwned(value) => {
+            TempValue::EvalOwned(value) => {
                 let ptr: *mut dyn AnyValueDyn = &mut *value.any_mut_ptr();
-                VMValue::CopyableOrFullyOwnedMut {
+                TempValue::CopyableOrFullyOwnedMut {
                     value: &mut *ptr,
                     owner: stack_idx,
                     gen: (),
                 }
             }
-            VMValue::Moved
-            | VMValue::EvalPure(_)
-            | VMValue::EvalRef(_)
-            | VMValue::FullyOwnedRef { .. }
-            | VMValue::CopyableOrFullyOwnedMut { .. } => panic!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Moved
+            | TempValue::EvalPure(_)
+            | TempValue::EvalRef(_)
+            | TempValue::FullyOwnedRef { .. }
+            | TempValue::CopyableOrFullyOwnedMut { .. } => panic!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     unsafe fn pure(&self, stack_idx: VMStackIdx) -> Self {
         match self {
-            VMValue::Copyable(value) => VMValue::Copyable(*value),
-            VMValue::FullyOwned(value) => VMValue::FullyOwnedRef(&*value.any_ptr()),
-            VMValue::EvalPure(value) => VMValue::EvalPure(value.clone()),
-            VMValue::EvalRef(value) => VMValue::EvalRef(*value),
-            VMValue::FullyOwnedRef { .. } => todo!(),
-            VMValue::CopyableOrFullyOwnedMut { .. } => todo!(),
-            VMValue::Moved => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Copyable(value) => TempValue::Copyable(*value),
+            TempValue::EvalOwned(value) => TempValue::FullyOwnedRef(&*value.any_ptr()),
+            TempValue::EvalPure(value) => TempValue::EvalPure(value.clone()),
+            TempValue::EvalRef(value) => TempValue::EvalRef(*value),
+            TempValue::FullyOwnedRef { .. } => todo!(),
+            TempValue::CopyableOrFullyOwnedMut { .. } => todo!(),
+            TempValue::Moved => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub(crate) fn bind_move(&mut self) -> Self {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(value) => VMValue::Copyable(*value),
-            VMValue::FullyOwned(_) => std::mem::replace(self, VMValue::Moved),
-            VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
-            VMValue::FullyOwnedRef { .. } => todo!(),
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(value) => TempValue::Copyable(*value),
+            TempValue::EvalOwned(_) => std::mem::replace(self, TempValue::Moved),
+            TempValue::EvalPure(_) => todo!(),
+            TempValue::EvalRef(_) => todo!(),
+            TempValue::FullyOwnedRef { .. } => todo!(),
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub(crate) fn bind_return(&mut self) -> Self {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(value) => Self::Copyable(*value),
-            VMValue::FullyOwned(_) => std::mem::replace(self, VMValue::Moved),
-            VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(_) => todo!(),
-            VMValue::FullyOwnedRef { .. } => todo!(),
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(value) => Self::Copyable(*value),
+            TempValue::EvalOwned(_) => std::mem::replace(self, TempValue::Moved),
+            TempValue::EvalPure(_) => todo!(),
+            TempValue::EvalRef(_) => todo!(),
+            TempValue::FullyOwnedRef { .. } => todo!(),
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
@@ -349,21 +349,21 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
 
     fn owner(&self, self_stack_idx: VMStackIdx) -> Option<VMStackIdx> {
         match self {
-            VMValue::Copyable(_) | VMValue::FullyOwned(_) => Some(self_stack_idx),
-            VMValue::EvalRef(_) | VMValue::EvalPure(_) => None,
-            VMValue::FullyOwnedRef { .. } => todo!(),
-            VMValue::CopyableOrFullyOwnedMut { owner, .. } => Some(*owner),
-            VMValue::Moved => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Copyable(_) | TempValue::EvalOwned(_) => Some(self_stack_idx),
+            TempValue::EvalRef(_) | TempValue::EvalPure(_) => None,
+            TempValue::FullyOwnedRef { .. } => todo!(),
+            TempValue::CopyableOrFullyOwnedMut { owner, .. } => Some(*owner),
+            TempValue::Moved => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub fn any_ref(&self) -> &dyn AnyValueDyn<'eval> {
         {
             match self {
-                VMValue::Copyable(value) => match value {
+                TempValue::Copyable(value) => match value {
                     CopyableValue::I32(value) => value,
                     CopyableValue::F32(value) => value,
                     CopyableValue::B32(value) => value,
@@ -372,15 +372,15 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
                     CopyableValue::Void(_) => todo!(),
                     CopyableValue::EnumKind(value) => value,
                 },
-                VMValue::FullyOwned(value) => value.any_ref(),
-                VMValue::EvalPure(value) => (&**value),
-                VMValue::EvalRef(_) => todo!(),
-                VMValue::FullyOwnedRef(value) => *value,
-                VMValue::CopyableOrFullyOwnedMut { value, .. } => *value,
-                VMValue::Moved => todo!(),
-                VMValue::PartiallyOwned(_) => todo!(),
-                VMValue::PartiallyOwnedRef(_) => todo!(),
-                VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+                TempValue::EvalOwned(value) => value.any_ref(),
+                TempValue::EvalPure(value) => (&**value),
+                TempValue::EvalRef(_) => todo!(),
+                TempValue::FullyOwnedRef(value) => *value,
+                TempValue::CopyableOrFullyOwnedMut { value, .. } => *value,
+                TempValue::Moved => todo!(),
+                TempValue::TempOwned(_) => todo!(),
+                TempValue::PartiallyOwnedRef(_) => todo!(),
+                TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
             }
         }
     }
@@ -388,7 +388,7 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
     fn any_mut_ptr(&mut self) -> *mut (dyn AnyValueDyn<'eval> + 'eval) {
         {
             match self {
-                VMValue::Copyable(value) => match value {
+                TempValue::Copyable(value) => match value {
                     CopyableValue::I32(value) => value,
                     CopyableValue::F32(value) => value,
                     CopyableValue::B32(value) => value,
@@ -397,77 +397,92 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
                     CopyableValue::Void(_) => todo!(),
                     CopyableValue::EnumKind(value) => value,
                 },
-                VMValue::FullyOwned(value) => value.any_mut_ptr(),
-                VMValue::CopyableOrFullyOwnedMut { value, .. } => *value,
-                VMValue::FullyOwnedRef { .. } => {
+                TempValue::EvalOwned(value) => value.any_mut_ptr(),
+                TempValue::CopyableOrFullyOwnedMut { value, .. } => *value,
+                TempValue::FullyOwnedRef { .. } => {
                     panic!("TempRef cannot be mutated, this is a bug.")
                 }
-                VMValue::EvalPure(_) => panic!("GlobalPure cannot be mutated, this is a bug."),
-                VMValue::EvalRef(_) => panic!("EvalRef cannot be mutated, this is a bug."),
-                VMValue::Moved => panic!("Move cannot be mutated, this is a bug."),
-                VMValue::PartiallyOwned(_) => todo!(),
-                VMValue::PartiallyOwnedRef(_) => todo!(),
-                VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+                TempValue::EvalPure(_) => panic!("GlobalPure cannot be mutated, this is a bug."),
+                TempValue::EvalRef(_) => panic!("EvalRef cannot be mutated, this is a bug."),
+                TempValue::Moved => panic!("Move cannot be mutated, this is a bug."),
+                TempValue::TempOwned(_) => todo!(),
+                TempValue::PartiallyOwnedRef(_) => todo!(),
+                TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
             }
         }
     }
 
     pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(_) => todo!(),
-            VMValue::FullyOwned(_) => todo!(),
-            VMValue::EvalPure(value) => value.downcast_ref(),
-            VMValue::EvalRef(value) => value.downcast_ref(),
-            VMValue::FullyOwnedRef(value) => value.downcast_ref(),
-            VMValue::CopyableOrFullyOwnedMut { value, .. } => value.downcast_ref(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(_) => todo!(),
+            TempValue::EvalOwned(_) => todo!(),
+            TempValue::EvalPure(value) => value.downcast_ref(),
+            TempValue::EvalRef(value) => value.downcast_ref(),
+            TempValue::FullyOwnedRef(value) => value.downcast_ref(),
+            TempValue::CopyableOrFullyOwnedMut { value, .. } => value.downcast_ref(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+        }
+    }
+
+    pub fn downcast_eval_ref<T: AnyValue<'eval>>(&self) -> &'eval T {
+        match self {
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(_) => todo!(),
+            TempValue::EvalOwned(_) => todo!(),
+            TempValue::EvalPure(value) => panic!(),
+            TempValue::EvalRef(value) => value.downcast_ref(),
+            TempValue::FullyOwnedRef(value) => panic!(),
+            TempValue::CopyableOrFullyOwnedMut { value, .. } => panic!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub fn downcast_mut<T: AnyValue<'eval>>(&mut self) -> &mut T {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(_) => todo!(),
-            VMValue::FullyOwned(_)
-            | VMValue::EvalPure(_)
-            | VMValue::EvalRef(_)
-            | VMValue::FullyOwnedRef { .. } => {
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(_) => todo!(),
+            TempValue::EvalOwned(_)
+            | TempValue::EvalPure(_)
+            | TempValue::EvalRef(_)
+            | TempValue::FullyOwnedRef { .. } => {
                 panic!()
             }
-            VMValue::CopyableOrFullyOwnedMut { ref mut value, .. } => value.downcast_mut(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::CopyableOrFullyOwnedMut { ref mut value, .. } => value.downcast_mut(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub fn downcast_mut_full<T: AnyValue<'eval>>(&mut self) -> (&'vm mut T, VMStackIdx, ()) {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(_) => todo!(),
-            VMValue::FullyOwned(_)
-            | VMValue::EvalPure(_)
-            | VMValue::EvalRef(_)
-            | VMValue::FullyOwnedRef { .. } => {
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(_) => todo!(),
+            TempValue::EvalOwned(_)
+            | TempValue::EvalPure(_)
+            | TempValue::EvalRef(_)
+            | TempValue::FullyOwnedRef { .. } => {
                 panic!()
             }
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
                 let ptr: *mut T = value.downcast_mut();
                 (unsafe { &mut *ptr }, *owner, *gen)
             }
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub fn take_copyable(&self) -> CopyableValue {
         match self {
-            VMValue::Copyable(value) => *value,
-            VMValue::CopyableOrFullyOwnedMut { value, .. } => value.take_copyable(),
+            TempValue::Copyable(value) => *value,
+            TempValue::CopyableOrFullyOwnedMut { value, .. } => value.take_copyable(),
             _ => {
                 p!(self);
                 panic!("")
@@ -475,38 +490,40 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
         }
     }
 
-    pub fn clone_into_stack(&self) -> VMValue<'vm, 'eval> {
+    pub fn clone_into_stack(&self) -> TempValue<'vm, 'eval> {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(_) => todo!(),
-            VMValue::FullyOwned(_) => todo!(),
-            VMValue::EvalPure(value) => VMValue::FullyOwned(value.clone_into_box_dyn().into()),
-            VMValue::EvalRef(_) => todo!(),
-            VMValue::FullyOwnedRef(value) => VMValue::FullyOwned(value.clone_into_box_dyn().into()),
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(_) => todo!(),
+            TempValue::EvalOwned(_) => todo!(),
+            TempValue::EvalPure(value) => TempValue::EvalOwned(value.clone_into_box_dyn().into()),
+            TempValue::EvalRef(_) => todo!(),
+            TempValue::FullyOwnedRef(value) => {
+                TempValue::EvalOwned(value.clone_into_box_dyn().into())
+            }
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
     pub(crate) fn snapshot(&self) -> StackValueSnapshot<'eval> {
         match self {
-            VMValue::Copyable(value) => StackValueSnapshot::Copyable(*value),
-            VMValue::FullyOwned(value) => StackValueSnapshot::Owned(value.clone()),
-            VMValue::EvalPure(value) => StackValueSnapshot::GlobalPure(value.clone()),
-            VMValue::EvalRef(value) => StackValueSnapshot::EvalRef(*value),
-            VMValue::FullyOwnedRef(value) => {
+            TempValue::Copyable(value) => StackValueSnapshot::Copyable(*value),
+            TempValue::EvalOwned(value) => StackValueSnapshot::Owned(value.clone()),
+            TempValue::EvalPure(value) => StackValueSnapshot::GlobalPure(value.clone()),
+            TempValue::EvalRef(value) => StackValueSnapshot::EvalRef(*value),
+            TempValue::FullyOwnedRef(value) => {
                 StackValueSnapshot::FullyOwnedRef(value.clone_into_arc_dyn())
             }
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
                 p!(value);
                 todo!()
             }
-            VMValue::Moved => todo!(),
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::Moved => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 
@@ -514,30 +531,30 @@ impl<'vm, 'eval: 'vm> VMValue<'vm, 'eval> {
         self.any_ref().static_type_id_dyn()
     }
 
-    pub fn field(self, field_idx: usize, field_binding: Binding) -> VMValue<'vm, 'eval> {
+    pub fn field(self, field_idx: usize, field_binding: Binding) -> TempValue<'vm, 'eval> {
         match self {
-            VMValue::Moved => todo!(),
-            VMValue::Copyable(_) => todo!(),
-            VMValue::FullyOwned(boxed_value) => {
+            TempValue::Moved => todo!(),
+            TempValue::Copyable(_) => todo!(),
+            TempValue::EvalOwned(boxed_value) => {
                 let mut value: VirtualTy = boxed_value.take().unwrap();
                 value.take_field(field_idx)
             }
-            VMValue::EvalPure(_) => todo!(),
-            VMValue::EvalRef(value) => {
+            TempValue::EvalPure(_) => todo!(),
+            TempValue::EvalRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
                 value.access_field(field_idx, field_binding)
             }
-            VMValue::FullyOwnedRef(value) => {
+            TempValue::FullyOwnedRef(value) => {
                 let value: &VirtualTy = value.downcast_ref();
                 value.access_field(field_idx, field_binding)
             }
-            VMValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
+            TempValue::CopyableOrFullyOwnedMut { value, owner, gen } => {
                 let virtual_value: &mut VirtualTy = value.downcast_mut();
                 virtual_value.field_mut(field_idx, field_binding, owner)
             }
-            VMValue::PartiallyOwned(_) => todo!(),
-            VMValue::PartiallyOwnedRef(_) => todo!(),
-            VMValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
+            TempValue::TempOwned(_) => todo!(),
+            TempValue::PartiallyOwnedRef(_) => todo!(),
+            TempValue::PartiallyOwnedMut { value, owner, gen } => todo!(),
         }
     }
 }

@@ -44,7 +44,10 @@ impl std::fmt::Debug for RawOpnVariant {
             RawOpnVariant::Prefix(_) => todo!(),
             RawOpnVariant::Suffix(_) => todo!(),
             RawOpnVariant::List(_) => todo!(),
-            RawOpnVariant::FieldAccess(_) => todo!(),
+            RawOpnVariant::FieldAccess(field_ident) => {
+                f.write_str("FieldAccess .")?;
+                field_ident.ident.fmt(f)
+            }
         }
     }
 }

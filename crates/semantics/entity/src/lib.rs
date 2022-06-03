@@ -220,7 +220,7 @@ impl EntityDefnVariant {
                     symbols: (&[] as &[Symbol]).into(),
                     kind: AtomContextKind::Normal,
                 };
-                let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
+                let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let generic_parameters =
                     symbol_context.generic_parameters_from_static(generic_parameters);
                 let generic_arguments =
@@ -264,7 +264,7 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Method {
                 this_contract,
-                input_parameters: parameters,
+                parameters,
                 output_ty,
                 output_liason,
                 generic_parameters: generic_parameters,
@@ -281,14 +281,16 @@ impl EntityDefnVariant {
                     symbol_context.input_placeholder_from_static(input_placeholder)
                 })),
                 output_ty: RangedEntityRoute {
-                    route: symbol_context.entity_route_from_str(output_ty).unwrap(),
+                    route: symbol_context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
                 output_liason,
                 method_variant: MethodDefnVariant::from_static(symbol_context, kind),
             },
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
-            EntityStaticDefnVariant::TyField { .. } => todo!(),
+            EntityStaticDefnVariant::TyField { .. } => {
+                Self::ty_field_from_static(symbol_context, static_defn)
+            }
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         }

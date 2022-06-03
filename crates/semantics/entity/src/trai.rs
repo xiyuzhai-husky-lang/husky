@@ -22,7 +22,7 @@ impl TraitImplDefn {
         static_trait_impl: &StaticTraitImplDefn,
     ) -> Arc<Self> {
         let trai = symbol_context
-            .entity_route_from_str(static_trait_impl.trai)
+            .parse_entity_route(static_trait_impl.trai)
             .unwrap();
         Arc::new(Self {
             trai,
@@ -79,12 +79,12 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => {
                 Self::TraitAssociatedTypeImpl {
                     trai,
-                    ty: context.entity_route_from_str(ty).unwrap(),
+                    ty: context.parse_entity_route(ty).unwrap(),
                 }
             }
             EntityStaticDefnVariant::Method {
                 this_contract,
-                input_parameters: inputs,
+                parameters: inputs,
                 output_ty,
                 output_liason,
                 generic_parameters: generic_parameters,
@@ -114,7 +114,7 @@ impl EntityDefnVariant {
                         context.input_placeholder_from_static(input_placeholder)
                     })),
                     output_ty: RangedEntityRoute {
-                        route: context.entity_route_from_str(output_ty).unwrap(),
+                        route: context.parse_entity_route(output_ty).unwrap(),
                         range: Default::default(),
                     },
                     this_contract,

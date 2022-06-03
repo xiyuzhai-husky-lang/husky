@@ -41,7 +41,7 @@ impl TraitMemberDecl {
             EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => {
                 TraitMemberDecl::Type {
                     ident: db.intern_word(static_member_defn.name).custom(),
-                    traits: traits.map(|trai| symbol_context.entity_route_from_str(trai).unwrap()),
+                    traits: traits.map(|trai| symbol_context.parse_entity_route(trai).unwrap()),
                 }
             }
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
@@ -130,7 +130,7 @@ impl TraitDecl {
                     symbols: symbols.into(),
                     kind: AtomContextKind::Normal,
                 };
-                let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
+                let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let generic_arguments =
                     db.generic_arguments_from_generic_parameters(&generic_parameters);
                 should_eq!(base_route.spatial_arguments.len(), 0);

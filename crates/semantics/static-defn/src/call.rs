@@ -2,7 +2,7 @@ use crate::*;
 use vm::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct StaticInputParameter {
+pub struct StaticParameter {
     pub name: &'static str,
     pub contract: ParameterLiason,
     pub ty: &'static str,

@@ -64,7 +64,7 @@ impl TyDecl {
                     symbols: (&symbols as &[Symbol]).into(),
                     kind: AtomContextKind::Normal,
                 };
-                let base_ty = symbol_context.entity_route_from_str(base_route).unwrap();
+                let base_ty = symbol_context.parse_entity_route(base_route).unwrap();
                 let this_ty = db.intern_entity_route(EntityRoute {
                     kind: base_ty.kind,
                     temporal_arguments: vec![],
@@ -686,7 +686,7 @@ pub(crate) fn method_decl_from_static(
     match static_defn.variant {
         EntityStaticDefnVariant::Method {
             this_contract,
-            input_parameters: inputs,
+            parameters: inputs,
             output_ty,
             output_liason,
             generic_parameters: generic_parameters,
@@ -703,11 +703,11 @@ pub(crate) fn method_decl_from_static(
                 kind: AtomContextKind::Normal,
             };
             let inputs = inputs.map(|input| InputDecl {
-                ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
+                ty: symbol_context.parse_entity_route(input.ty).unwrap(),
                 liason: input.contract,
                 ident: db.custom_ident(input.name),
             });
-            let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
+            let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
             Arc::new(MethodDecl {
                 generic_parameters,

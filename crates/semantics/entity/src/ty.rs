@@ -172,7 +172,7 @@ impl EntityDefnVariant {
                     symbols: (&[] as &[Symbol]).into(),
                     kind: AtomContextKind::Normal,
                 };
-                let base_route = symbol_context.entity_route_from_str(base_route).unwrap();
+                let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let generic_parameters =
                     symbol_context.generic_parameters_from_static(generic_parameters);
                 let generic_arguments =

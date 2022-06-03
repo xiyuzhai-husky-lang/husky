@@ -37,7 +37,7 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
                 subscopes: &[],
                 variant: EntityStaticDefnVariant::Method {
                     this_contract: ParameterLiason::MemberAccess,
-                    input_parameters: &[],
+                    parameters: &[],
                     output_ty: "This::Output",
                     output_liason: OutputLiason::MemberAccess {
                         member_liason: MemberLiason::Mutable,

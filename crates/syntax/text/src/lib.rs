@@ -17,9 +17,15 @@ pub use column::Column;
 pub use query::{TextQueryGroup, TextQueryGroupStorage};
 pub use row::Row;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct Text {
     lines: Vec<Vec<char>>,
+}
+
+impl std::fmt::Debug for Text {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("Text...")
+    }
 }
 
 impl Text {

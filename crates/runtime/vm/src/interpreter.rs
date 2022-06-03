@@ -25,7 +25,7 @@ pub struct Interpreter<'vm, 'eval: 'vm> {
 impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
     pub(crate) fn try_new(
         db: &'vm dyn InterpreterQueryGroup,
-        argument_iter: impl Iterator<Item = VMRuntimeResult<VMValue<'vm, 'eval>>>,
+        argument_iter: impl Iterator<Item = VMRuntimeResult<TempValue<'vm, 'eval>>>,
     ) -> VMRuntimeResult<Interpreter<'vm, 'eval>> {
         Ok(Self {
             db,
@@ -39,7 +39,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
 
     pub(crate) fn new(
         db: &'vm dyn InterpreterQueryGroup,
-        argument_iter: impl Iterator<Item = VMValue<'vm, 'eval>>,
+        argument_iter: impl Iterator<Item = TempValue<'vm, 'eval>>,
         has_this: bool,
     ) -> Interpreter<'vm, 'eval> {
         Self {

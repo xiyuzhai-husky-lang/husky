@@ -27,17 +27,20 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 let variable_qt = self
                     .eager_variable_qualified_ty(varname.into(), init_range)
                     .unwrap();
-                let contract = self.eager_expr_contract(raw_expr_idx).unwrap();
-                p!(self.file(), self.arena()[raw_expr_idx].range);
+
+                let contract = match self.eager_expr_contract(raw_expr_idx) {
+                    Ok(contract) => contract,
+                    Err(_) => {
+                        p!(self.file(), raw_expr_idx, raw_expr);
+                        panic!("what's the contract?");
+                    }
+                };
                 EagerExprVariant::Variable {
                     varname,
                     binding: variable_qt.qual.binding(contract),
                 }
             }
-            RawExprVariant::FrameVariable {
-                varname,
-                init_range: init_row,
-            } => EagerExprVariant::Variable {
+            RawExprVariant::FrameVariable { varname, .. } => EagerExprVariant::Variable {
                 varname,
                 binding: Binding::Copy,
             },

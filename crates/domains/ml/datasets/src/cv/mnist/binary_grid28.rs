@@ -20,7 +20,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                     subscopes: &[],
                     variant: EntityStaticDefnVariant::Method {
                         this_contract: ParameterLiason::MemberAccess,
-                        input_parameters: &[StaticInputParameter {
+                        parameters: &[StaticParameter {
                             contract: ParameterLiason::Pure,
                             ty: "i32",
                             name: "todo!()",
@@ -32,8 +32,8 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                         generic_parameters: &[],
                         kind: MethodStaticDefnVariant::TraitMethodImpl {
                             opt_source: Some(LinkageSource::MemberAccess {
-                                copy_access: Linkage {
-                                    call: |values| -> VMRuntimeResult<VMValue> {
+                                copy_access: linkage!(
+                                    |values| -> VMRuntimeResult<TempValue> {
                                         let this_value: &BinaryGrid28 = values[0].downcast_ref();
                                         let index_value: usize = values[1]
                                             .take_copyable()
@@ -42,23 +42,20 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             .expect("todo");
                                         this_value
                                             .get(index_value)
-                                            .map(|v| VMValue::Copyable(v.into()))
+                                            .map(|v| TempValue::Copyable(v.into()))
                                             .ok_or(VMRuntimeError {
                                                 message: "todo".into(),
                                             })
                                     },
-                                    nargs: 2,
-                                },
-                                ref_access: Linkage {
-                                    call: |values| -> VMRuntimeResult<VMValue> { todo!() },
-                                    nargs: 2,
-                                },
-                                move_access: Linkage {
-                                    call: |_| todo!(),
-                                    nargs: 2,
-                                },
-                                ref_mut_access: Linkage {
-                                    call: |values| {
+                                    2
+                                ),
+                                ref_access: linkage!(
+                                    |values| -> VMRuntimeResult<TempValue> { todo!() },
+                                    2
+                                ),
+                                move_access: linkage!(|_| todo!(), 2),
+                                ref_mut_access: linkage!(
+                                    |values| {
                                         let index_value: usize = values[1]
                                             .take_copyable()
                                             .take_i32()
@@ -68,7 +65,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             values[0].downcast_mut_full();
                                         this_value
                                             .get_mut(index_value)
-                                            .map(|value| VMValue::CopyableOrFullyOwnedMut {
+                                            .map(|value| TempValue::CopyableOrFullyOwnedMut {
                                                 value,
                                                 owner,
                                                 gen: (),
@@ -77,8 +74,8 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                                 message: "todo".into(),
                                             })
                                     },
-                                    nargs: 2,
-                                },
+                                    2
+                                ),
                             }),
                         },
                     },
@@ -102,14 +99,14 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         parameters: vec![],
         output_ty: "datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
-        linkage: Linkage {
-            call: |_values| {
-                Ok(VMValue::FullyOwned(
-                    OwnedValue::new(BinaryGrid28::default()),
-                ))
+        linkage: linkage!(
+            |_values| {
+                Ok(TempValue::EvalOwned(OwnedValue::new(
+                    BinaryGrid28::default(),
+                )))
             },
-            nargs: 0,
-        },
+            0
+        ),
         routine_kind: RoutineKind::TypeCall,
     },
     dev_src: static_dev_src!(),

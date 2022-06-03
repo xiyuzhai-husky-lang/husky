@@ -21,7 +21,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[StaticInputParameter {
+        parameters: &[StaticParameter {
             name: "other",
             contract: ParameterLiason::Pure,
             ty: "i32",
@@ -30,10 +30,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
-            }),
+            source: LinkageSource::Transfer(linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -44,7 +41,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[StaticInputParameter {
+        parameters: &[StaticParameter {
             name: "other",
             contract: ParameterLiason::Pure,
             ty: "i32",
@@ -53,10 +50,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
-            }),
+            source: LinkageSource::Transfer(linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -67,15 +61,12 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 1,
-            }),
+            source: LinkageSource::Transfer(linkage!(|values| todo!(), 1)),
         },
     },
     dev_src: static_dev_src!(),
@@ -86,19 +77,19 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
-                    Ok(VMValue::Copyable(
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
+                    Ok(TempValue::Copyable(
                         values[0].take_copyable().take_i32().abs().into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),
