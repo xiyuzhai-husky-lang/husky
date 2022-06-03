@@ -97,13 +97,13 @@ impl MethodDecl {
         match defn.variant {
             EntityStaticDefnVariant::Method {
                 this_contract,
-                input_parameters: inputs,
+                parameters: inputs,
                 output_ty,
                 output_liason,
                 generic_parameters: generic_parameters,
                 ref kind,
             } => {
-                let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
+                let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
                 Arc::new(Self {
                     ident: symbol_context
                         .entity_syntax_db()

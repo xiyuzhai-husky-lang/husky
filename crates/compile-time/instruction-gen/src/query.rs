@@ -4,7 +4,7 @@ use entity_kind::TyKind;
 use file::FilePtr;
 use linkage_table::ResolveLinkage;
 use pack_semantics::PackageQueryGroup;
-use vm::{EvalValue, Linkage, MemberValue, OwnedValue, VMRuntimeResult, VMValue};
+use vm::{EvalValue, Linkage, MemberValue, OwnedValue, TempValue, VMRuntimeResult};
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
 pub trait InstructionGenQueryGroup:

@@ -9,7 +9,7 @@ pub use ty::*;
 
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use visual_syntax::StaticVisualizer;
-use vm::{ParameterLiason, Linkage, MemberLiason, OutputLiason};
+use vm::{Linkage, MemberLiason, OutputLiason, ParameterLiason};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityStaticDefn {
@@ -23,7 +23,7 @@ pub struct EntityStaticDefn {
 pub enum EntityStaticDefnVariant {
     Routine {
         generic_parameters: &'static [StaticGenericPlaceholder],
-        parameters: Vec<StaticInputParameter>,
+        parameters: Vec<StaticParameter>,
         output_ty: &'static str,
         output_liason: OutputLiason,
         linkage: Linkage,
@@ -52,7 +52,7 @@ pub enum EntityStaticDefnVariant {
     },
     Method {
         this_contract: ParameterLiason,
-        input_parameters: &'static [StaticInputParameter],
+        parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,
         generic_parameters: &'static [StaticGenericPlaceholder],

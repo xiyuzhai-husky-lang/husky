@@ -13,6 +13,7 @@ pub enum StaticTypeId {
     RustBuiltin(TypeId),
     HuskyBuiltin(HuskyBuiltinStaticTypeId),
     VecOf(Box<StaticTypeId>),
+    AnyMemberValue,
 }
 
 impl From<TypeId> for StaticTypeId {
@@ -54,9 +55,9 @@ pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + Ref
         Arc::new(self.clone())
     }
 
-    fn from_stack<'vm>(stack_value: VMValue<'vm, 'eval>) -> Self {
+    fn from_stack<'vm>(stack_value: TempValue<'vm, 'eval>) -> Self {
         match stack_value {
-            VMValue::FullyOwned(boxed_value) => boxed_value.take().unwrap(),
+            TempValue::EvalOwned(boxed_value) => boxed_value.take().unwrap(),
             _ => {
                 p!(Self::static_type_name());
                 p!(stack_value);
@@ -87,7 +88,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe {
     where
         Self: 'eval;
     fn equal_any(&self, other: &dyn AnyValueDyn<'eval>) -> bool;
-    fn assign<'vm>(&mut self, other: VMValue<'vm, 'eval>);
+    fn assign<'vm>(&mut self, other: TempValue<'vm, 'eval>);
     fn take_copyable(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval>);
     fn print_short(&self) -> String;
@@ -149,7 +150,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         todo!()
     }
 
-    fn assign<'vm>(&mut self, other: VMValue<'vm, 'eval>) {
+    fn assign<'vm>(&mut self, other: TempValue<'vm, 'eval>) {
         *self = T::from_stack(other)
     }
 

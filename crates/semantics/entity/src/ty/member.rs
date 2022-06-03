@@ -98,7 +98,7 @@ impl EntityDefnVariant {
                 AstVariant::Use { .. } => todo!(),
                 AstVariant::FieldDefnHead { ranged_ident, .. } => (
                     ranged_ident.ident,
-                    EntityDefnVariant::type_field_from_ast(
+                    EntityDefnVariant::ty_field_from_ast(
                         db,
                         arena,
                         file,

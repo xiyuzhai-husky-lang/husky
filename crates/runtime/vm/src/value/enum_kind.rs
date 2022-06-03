@@ -37,9 +37,9 @@ impl<'eval> AnyValue<'eval> for EnumKindValue {
         CopyableValue::EnumKind(*self)
     }
 
-    fn from_stack<'vm>(stack_value: VMValue<'vm, 'eval>) -> Self {
+    fn from_stack<'vm>(stack_value: TempValue<'vm, 'eval>) -> Self {
         match stack_value {
-            VMValue::Copyable(CopyableValue::EnumKind(enum_kind)) => enum_kind,
+            TempValue::Copyable(CopyableValue::EnumKind(enum_kind)) => enum_kind,
             _ => {
                 p!(Self::static_type_name());
                 p!(stack_value);

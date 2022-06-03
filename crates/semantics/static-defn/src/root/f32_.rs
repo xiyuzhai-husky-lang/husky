@@ -24,7 +24,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[StaticInputParameter {
+        parameters: &[StaticParameter {
             name: "other",
             contract: ParameterLiason::Pure,
             ty: "f32",
@@ -33,10 +33,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
-            }),
+            source: LinkageSource::Transfer(linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -47,7 +44,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[StaticInputParameter {
+        parameters: &[StaticParameter {
             name: "other",
             contract: ParameterLiason::Pure,
             ty: "f32",
@@ -56,10 +53,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| todo!(),
-                nargs: 2,
-            }),
+            source: LinkageSource::Transfer(linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -70,15 +64,15 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
                     let f = values[0].take_copyable().take_f32();
-                    Ok(VMValue::Copyable(
+                    Ok(TempValue::Copyable(
                         (if f > 0. {
                             1
                         } else if f == 0. {
@@ -89,8 +83,8 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
                         .into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),
@@ -101,19 +95,19 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
-                    Ok(VMValue::Copyable(
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
+                    Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().abs().into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),
@@ -124,19 +118,19 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
-                    Ok(VMValue::Copyable(
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
+                    Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().sqrt().into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),
@@ -147,19 +141,19 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
-                    Ok(VMValue::Copyable(
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
+                    Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().cos().into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),
@@ -170,19 +164,19 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
-                    Ok(VMValue::Copyable(
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
+                    Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().sin().into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),
@@ -193,19 +187,19 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
-                    Ok(VMValue::Copyable(
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
+                    Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().tan().into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),
@@ -216,19 +210,19 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
-                    Ok(VMValue::Copyable(
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
+                    Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().acos().into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),
@@ -239,19 +233,19 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
-                    Ok(VMValue::Copyable(
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
+                    Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().asin().into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),
@@ -262,19 +256,19 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::Pure,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(Linkage {
-                call: |values| {
-                    Ok(VMValue::Copyable(
+            source: LinkageSource::Transfer(linkage!(
+                |values| {
+                    Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().atan().into(),
                     ))
                 },
-                nargs: 1,
-            }),
+                1
+            )),
         },
     },
     dev_src: static_dev_src!(),

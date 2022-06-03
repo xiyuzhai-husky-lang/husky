@@ -20,9 +20,9 @@ impl<'vm, 'eval: 'vm, T: AnyValue<'eval> + 'vm> AnyValue<'eval> for &'vm [T] {
 
 fn gen_iter<'vm, 'eval: 'vm, T>(
     slice: &'vm [T],
-) -> Box<dyn Iterator<Item = VMValue<'vm, 'eval>> + 'vm>
+) -> Box<dyn Iterator<Item = TempValue<'vm, 'eval>> + 'vm>
 where
     T: AnyValueDyn<'eval> + 'eval,
 {
-    Box::new(slice.iter().map(|t| VMValue::FullyOwnedRef(t)))
+    Box::new(slice.iter().map(|t| TempValue::FullyOwnedRef(t)))
 }

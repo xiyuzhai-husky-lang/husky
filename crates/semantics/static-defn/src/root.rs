@@ -27,14 +27,14 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
             subscopes: &[],
             variant: EntityStaticDefnVariant::Method {
                 this_contract: vm::ParameterLiason::Pure,
-                input_parameters: &[],
+                parameters: &[],
                 output_ty: "This",
                 generic_parameters: &[],
                 kind: MethodStaticDefnVariant::TraitMethod {
-                    opt_default_source: Some(LinkageSource::Transfer(Linkage {
-                        call: |values| Ok(values[0].clone_into_stack()),
-                        nargs: 1,
-                    })),
+                    opt_default_source: Some(LinkageSource::Transfer(linkage!(
+                        |values| Ok(values[0].clone_into_stack()),
+                        1
+                    ))),
                 },
                 output_liason: OutputLiason::Transfer,
             },

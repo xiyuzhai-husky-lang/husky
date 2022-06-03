@@ -1,7 +1,32 @@
 use super::*;
 
 impl EntityDefnVariant {
-    pub(crate) fn type_field_from_ast(
+    pub(crate) fn ty_field_from_static(
+        symbol_context: &mut dyn AtomContext,
+        static_defn: &EntityStaticDefn,
+    ) -> Self {
+        match static_defn.variant {
+            EntityStaticDefnVariant::TyField {
+                field_kind,
+                liason,
+                ty,
+            } => Self::TyField {
+                ty: symbol_context.parse_entity_route(ty).unwrap(),
+                liason,
+                field_variant: match field_kind {
+                    FieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
+                    FieldKind::StructDefault => todo!(),
+                    FieldKind::StructDerivedEager => todo!(),
+                    FieldKind::StructDerivedLazy => todo!(),
+                    FieldKind::RecordOriginal => todo!(),
+                    FieldKind::RecordDerived => todo!(),
+                },
+            },
+            _ => todo!(),
+        }
+    }
+
+    pub(crate) fn ty_field_from_ast(
         db: &dyn InferQueryGroup,
         arena: &RawExprArena,
         file: FilePtr,
@@ -100,7 +125,7 @@ impl EntityDefnVariant {
                     }
                     members.insert_new(EntityDefn::new(
                         ranged_ident.ident.into(),
-                        EntityDefnVariant::type_field_from_ast(
+                        EntityDefnVariant::ty_field_from_ast(
                             db,
                             arena,
                             file,

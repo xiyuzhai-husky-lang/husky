@@ -491,14 +491,24 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         &mut self,
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
-        inputs: RawExprRange,
+        parameters: RawExprRange,
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
         let method_decl = this_ty_decl.method(method_ident, &self.trait_uses)?;
-        for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
+        if method_decl.parameters.len() != parameters.end - parameters.start {
+            self.entity_route_sheet.extra_errors.push(error!(
+                format!(
+                    "expect {} parameters, but got {}",
+                    method_decl.parameters.len(),
+                    parameters.end - parameters.start
+                ),
+                arena[raw_expr_idx].range
+            ));
+        }
+        for (argument, parameter) in zip(parameters.into_iter(), method_decl.parameters.iter()) {
             self.infer_expr(argument, Some(parameter.ty), arena);
         }
         let generic_arguments = if method_decl.generic_parameters.len() > 0 {

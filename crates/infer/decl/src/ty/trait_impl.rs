@@ -6,7 +6,7 @@ use entity_kind::{FieldKind, MemberKind};
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
-use vm::{ParameterLiason, OutputLiason};
+use vm::{OutputLiason, ParameterLiason};
 
 use crate::*;
 
@@ -24,7 +24,7 @@ impl TraitImplDecl {
         symbol_context: &mut dyn AtomContext,
     ) -> Arc<Self> {
         let trait_route = symbol_context
-            .entity_route_from_str(static_trait_impl.trai)
+            .parse_entity_route(static_trait_impl.trai)
             .unwrap();
         let trait_decl = db.trait_decl(trait_route).unwrap();
         let member_impls = TraitMemberImplDecl::collect_from_static(
@@ -253,7 +253,7 @@ impl TraitMemberImplDecl {
                 EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => todo!(),
                 EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => Some((
                     db.intern_word(static_member_impl.name).custom(),
-                    SpatialArgument::EntityRoute(symbol_context.entity_route_from_str(ty).unwrap()),
+                    SpatialArgument::EntityRoute(symbol_context.parse_entity_route(ty).unwrap()),
                 )),
                 EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
                 _ => panic!(),

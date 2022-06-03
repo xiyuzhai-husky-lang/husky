@@ -46,8 +46,8 @@ pub fn eval_fast<'vm, 'eval: 'vm>(
     db: &'vm dyn InterpreterQueryGroup,
     opt_instrn_sheet: Option<&InstructionSheet>,
     opt_linkage: Option<Linkage>,
-    args: impl Iterator<Item = VMRuntimeResult<VMValue<'vm, 'eval>>>, // including this value
-    kwargs: impl Iterator<Item = (CustomIdentifier, VMRuntimeResult<VMValue<'vm, 'eval>>)>,
+    args: impl Iterator<Item = VMRuntimeResult<TempValue<'vm, 'eval>>>, // including this value
+    kwargs: impl Iterator<Item = (CustomIdentifier, VMRuntimeResult<TempValue<'vm, 'eval>>)>,
 ) -> EvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, args)?;
     if let Some(linkage) = opt_linkage {

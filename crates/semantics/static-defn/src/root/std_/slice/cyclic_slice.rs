@@ -4,8 +4,8 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct CyclicSlice<'a, T> {
-    pub start: usize,
-    pub end: usize,
+    pub start: i32,
+    pub end: i32,
     pub total: &'a [T],
 }
 
@@ -89,27 +89,15 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::MemberAccess,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::MemberAccess {
-                copy_access: Linkage {
-                    call: generic_cyclic_slice_first_copy,
-                    nargs: 1,
-                },
-                ref_access: Linkage {
-                    call: generic_cyclic_slice_first_ref,
-                    nargs: 1,
-                },
-                ref_mut_access: Linkage {
-                    call: generic_cyclic_slice_first_mut,
-                    nargs: 1,
-                },
-                move_access: Linkage {
-                    call: generic_cyclic_slice_first_move,
-                    nargs: 1,
-                },
+                copy_access: linkage!(generic_cyclic_slice_first_copy, 1),
+                ref_access: linkage!(generic_cyclic_slice_first_ref, 1),
+                ref_mut_access: linkage!(generic_cyclic_slice_first_mut, 1),
+                move_access: linkage!(generic_cyclic_slice_first_move, 1),
             },
         },
         output_liason: OutputLiason::MemberAccess {
@@ -120,14 +108,14 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
 };
 
 fn generic_cyclic_slice_first_copy<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
+    values: &mut [TempValue<'vm, 'eval>],
+) -> VMRuntimeResult<TempValue<'vm, 'eval>> {
     todo!()
 }
 
 fn generic_cyclic_slice_first_ref<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
+    values: &mut [TempValue<'vm, 'eval>],
+) -> VMRuntimeResult<TempValue<'vm, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.first() {
         Some(value) => Ok(value.stack_ref()),
@@ -136,8 +124,8 @@ fn generic_cyclic_slice_first_ref<'vm, 'eval>(
 }
 
 fn generic_cyclic_slice_first_mut<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
+    values: &mut [TempValue<'vm, 'eval>],
+) -> VMRuntimeResult<TempValue<'vm, 'eval>> {
     let (generic_cyclic_slice, stack_idx, gen): (
         &mut CyclicSlice<'eval, MemberValue<'eval>>,
         _,
@@ -150,8 +138,8 @@ fn generic_cyclic_slice_first_mut<'vm, 'eval>(
 }
 
 fn generic_cyclic_slice_first_move<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
+    values: &mut [TempValue<'vm, 'eval>],
+) -> VMRuntimeResult<TempValue<'vm, 'eval>> {
     todo!()
 }
 
@@ -160,27 +148,15 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
         this_contract: ParameterLiason::MemberAccess,
-        input_parameters: &[],
+        parameters: &[],
         output_ty: "E",
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::MemberAccess {
-                copy_access: Linkage {
-                    call: generic_cyclic_slice_last_copy,
-                    nargs: 1,
-                },
-                ref_access: Linkage {
-                    call: generic_cyclic_slice_last_ref,
-                    nargs: 1,
-                },
-                ref_mut_access: Linkage {
-                    call: generic_cyclic_slice_last_mut,
-                    nargs: 1,
-                },
-                move_access: Linkage {
-                    call: generic_cyclic_slice_last_move,
-                    nargs: 1,
-                },
+                copy_access: linkage!(generic_cyclic_slice_last_copy, 1),
+                ref_access: linkage!(generic_cyclic_slice_last_ref, 1),
+                ref_mut_access: linkage!(generic_cyclic_slice_last_mut, 1),
+                move_access: linkage!(generic_cyclic_slice_last_move, 1),
             },
         },
         output_liason: OutputLiason::MemberAccess {
@@ -191,14 +167,14 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
 };
 
 fn generic_cyclic_slice_last_copy<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
+    values: &mut [TempValue<'vm, 'eval>],
+) -> VMRuntimeResult<TempValue<'vm, 'eval>> {
     todo!()
 }
 
 fn generic_cyclic_slice_last_ref<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
+    values: &mut [TempValue<'vm, 'eval>],
+) -> VMRuntimeResult<TempValue<'vm, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.last() {
         Some(value) => Ok(value.stack_ref()),
@@ -207,8 +183,8 @@ fn generic_cyclic_slice_last_ref<'vm, 'eval>(
 }
 
 fn generic_cyclic_slice_last_mut<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
+    values: &mut [TempValue<'vm, 'eval>],
+) -> VMRuntimeResult<TempValue<'vm, 'eval>> {
     let (generic_cyclic_slice, stack_idx, gen): (
         &mut CyclicSlice<'eval, MemberValue<'eval>>,
         _,
@@ -221,7 +197,7 @@ fn generic_cyclic_slice_last_mut<'vm, 'eval>(
 }
 
 fn generic_cyclic_slice_last_move<'vm, 'eval>(
-    values: &mut [VMValue<'vm, 'eval>],
-) -> VMRuntimeResult<VMValue<'vm, 'eval>> {
+    values: &mut [TempValue<'vm, 'eval>],
+) -> VMRuntimeResult<TempValue<'vm, 'eval>> {
     todo!()
 }

@@ -12,7 +12,7 @@ use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResult};
 use file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;
-use static_defn::{StaticGenericPlaceholder, StaticInputParameter};
+use static_defn::{StaticGenericPlaceholder, StaticParameter};
 use std::borrow::Cow;
 use text::*;
 use token::AbsSemanticToken;
@@ -169,7 +169,7 @@ pub trait AtomContext {
         }
     }
 
-    fn entity_route_from_str(&mut self, text: &str) -> AtomResult<EntityRoutePtr> {
+    fn parse_entity_route(&mut self, text: &str) -> AtomResult<EntityRoutePtr> {
         let tokens = self.entity_syntax_db().tokenize(text);
         let result =
             AtomParser::new(self.as_dyn_mut(), &mut (&tokens as &[_]).into()).parse_all()?;
@@ -193,7 +193,7 @@ pub trait AtomContext {
 
     fn input_placeholder_from_static(
         &mut self,
-        static_input_placeholder: &StaticInputParameter,
+        static_input_placeholder: &StaticParameter,
     ) -> Parameter {
         Parameter {
             ranged_ident: RangedCustomIdentifier {
@@ -206,7 +206,7 @@ pub trait AtomContext {
             liason: static_input_placeholder.contract,
             ranged_ty: RangedEntityRoute {
                 route: self
-                    .entity_route_from_str(static_input_placeholder.ty)
+                    .parse_entity_route(static_input_placeholder.ty)
                     .unwrap(),
                 range: Default::default(),
             },

@@ -13,8 +13,8 @@ use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{emsg_once, msg_once, p};
-use static_defn::{EntityStaticDefnVariant, StaticInputParameter};
-use vm::{ParameterLiason, OutputLiason};
+use static_defn::{EntityStaticDefnVariant, StaticParameter};
+use vm::{OutputLiason, ParameterLiason};
 use word::IdentDict;
 
 use crate::*;
@@ -144,11 +144,11 @@ pub(crate) fn routine_decl_from_static(
                 kind: AtomContextKind::Normal,
             };
             let inputs = inputs.map(|input| InputDecl {
-                ty: symbol_context.entity_route_from_str(input.ty).unwrap(),
+                ty: symbol_context.parse_entity_route(input.ty).unwrap(),
                 liason: input.contract,
                 ident: db.custom_ident(input.name),
             });
-            let output_ty = symbol_context.entity_route_from_str(output_ty).unwrap();
+            let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             msg_once!("todo: keyword parameters");
             Arc::new(CallDecl {
                 route,

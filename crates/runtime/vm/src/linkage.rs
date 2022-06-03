@@ -1,10 +1,24 @@
+use dev_utils::{DevSource, StaticDevSource};
+
 use crate::*;
 
 #[derive(Clone, Copy)]
 pub struct Linkage {
     pub call:
-        for<'vm, 'eval> fn(&mut [VMValue<'vm, 'eval>]) -> VMRuntimeResult<VMValue<'vm, 'eval>>,
+        for<'vm, 'eval> fn(&mut [TempValue<'vm, 'eval>]) -> VMRuntimeResult<TempValue<'vm, 'eval>>,
     pub nargs: u8,
+    pub dev_src: &'static StaticDevSource,
+}
+
+#[macro_export]
+macro_rules! linkage {
+    ($fp: expr, $nargs: expr) => {{
+        Linkage {
+            call: $fp,
+            nargs: $nargs,
+            dev_src: &dev_utils::static_dev_src!(),
+        }
+    }};
 }
 
 impl std::fmt::Debug for Linkage {

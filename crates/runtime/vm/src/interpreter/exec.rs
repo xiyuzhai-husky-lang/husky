@@ -54,7 +54,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::PushEnumKindLiteral(entity_kind) => {
-                    self.stack.push(VMValue::Copyable(entity_kind.into()));
+                    self.stack.push(TempValue::Copyable(entity_kind.into()));
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -156,9 +156,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                     };
                     control
                 }
-                InstructionVariant::FieldAccessCompiled {
-                    linkage: field_access_fp,
-                } => todo!(),
+                InstructionVariant::FieldAccessCompiled { linkage } => todo!(),
                 InstructionVariant::FieldAccessInterpreted {
                     field_idx,
                     field_binding,
@@ -218,7 +216,7 @@ impl<'vm, 'eval: 'vm> Interpreter<'vm, 'eval> {
                         .collect(),
                     };
                     self.stack
-                        .push(VMValue::FullyOwned(OwnedValue::new(xml_value)));
+                        .push(TempValue::EvalOwned(OwnedValue::new(xml_value)));
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => todo!(),

@@ -16,7 +16,7 @@ use std::collections::HashMap;
 use sync_utils::ARwLock;
 use vec::*;
 use vm::{Binding, EntityUid};
-use vm::{EvalValue, Linkage, OwnedValue, VMRuntimeResult, VMValue};
+use vm::{EvalValue, Linkage, OwnedValue, VMRuntimeResult, TempValue};
 use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup {
@@ -165,7 +165,12 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         };
         let method_decl = self.method_decl(method_route).unwrap();
         if let Some(linkage) = opt_linkage {
-            should_eq!(linkage.nargs, method_decl.nargs());
+            should_eq!(
+                linkage.nargs,
+                method_decl.nargs(),
+                "src: {:?}",
+                linkage.dev_src
+            );
         }
         opt_linkage
     }
