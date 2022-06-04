@@ -59,3 +59,6 @@ mnist-with-backtrace-filtered:
 
 count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 1
+
+update-requirements:
+	pipreqs ./
