@@ -29,6 +29,9 @@ test-analyzer-with-backtrace:
 test-debugger:
 	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger --input-id 23 --mode test
 
+test-debugger-v:
+	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger -v --input-id 23 --mode test
+
 test-temp:
 	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger/proc/loop2 --input-id 23 --mode run
 

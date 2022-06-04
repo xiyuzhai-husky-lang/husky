@@ -1,6 +1,6 @@
 use crate::*;
 
-impl HuskyLangCompileTime {
+impl HuskyCompileTime {
     pub fn print_diagnostics(&self) {
         let modules = self.all_modules();
         for module in modules.iter() {

@@ -8,7 +8,7 @@ fn file_should_exists(dir: &Path, filename: &str) {
     assert!(dir.join(filename).exists())
 }
 
-impl HuskyLangCompileTime {
+impl HuskyCompileTime {
     pub fn load_package(&mut self, package_dir: &Path) {
         self.load_dir(package_dir);
         file_should_exists(package_dir, "main.hsk")

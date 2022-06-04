@@ -20,11 +20,13 @@ pub fn eval_feature_lazy_block<'eval>(
     block: &FeatureLazyBlock,
     eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut EvalSheet<'eval>,
+    verbose: bool,
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator {
         db,
         eval_input,
         sheet,
+        verbose,
     };
     evaluator.eval_feature_lazy_block(block)
 }
@@ -34,6 +36,7 @@ pub fn eval_feature_stmt<'eval>(
     stmt: &FeatureStmt,
     eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut EvalSheet<'eval>,
+    verbose: bool,
 ) -> EvalResult<'eval> {
     if let Some(value) = sheet.cached_value(EvalKey::Feature(stmt.opt_feature.unwrap())) {
         value
@@ -42,6 +45,7 @@ pub fn eval_feature_stmt<'eval>(
             db,
             eval_input,
             sheet,
+            verbose,
         };
         evaluator.eval_feature_stmt(stmt)
     }
@@ -50,16 +54,18 @@ pub fn eval_feature_stmt<'eval>(
 pub fn eval_feature_expr<'eval>(
     db: &dyn FeatureQueryGroup,
     expr: &FeatureExpr,
-    input: Arc<dyn AnyValueDyn<'eval>>,
+    eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut EvalSheet<'eval>,
+    verbose: bool,
 ) -> EvalResult<'eval> {
     if let Some(value) = sheet.cached_value(EvalKey::Feature(expr.feature)) {
         value
     } else {
         let mut evaluator = FeatureEvaluator {
             db,
-            eval_input: input,
+            eval_input,
             sheet,
+            verbose,
         };
         evaluator.eval_feature_expr(expr)
     }
@@ -70,11 +76,13 @@ pub fn eval_feature_repr<'eval>(
     repr: &FeatureRepr,
     eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &mut EvalSheet<'eval>,
+    verbose: bool,
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator {
         db,
         eval_input,
         sheet,
+        verbose,
     };
     evaluator.eval_feature_repr(repr)
 }
@@ -83,6 +91,7 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
     eval_input: Arc<dyn AnyValueDyn<'eval>>,
     sheet: &'a mut EvalSheet<'eval>,
     db: &'a dyn FeatureQueryGroup,
+    verbose: bool,
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {

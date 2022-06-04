@@ -44,8 +44,9 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
     opt_linkage: Option<Linkage>,
     args: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>, // including this value
     kwargs: impl Iterator<Item = (CustomIdentifier, VMRuntimeResult<TempValue<'temp, 'eval>>)>,
+    verbose: bool,
 ) -> EvalResult<'eval> {
-    let mut interpreter = Interpreter::try_new(db, args)?;
+    let mut interpreter = Interpreter::try_new(db, args, verbose)?;
     if let Some(linkage) = opt_linkage {
         interpreter.eval_linkage(linkage)
     } else {
@@ -57,8 +58,9 @@ pub fn exec_debug<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
     sheet: &InstructionSheet,
     prestack: impl Into<VMStack<'temp, 'eval>>,
+    verbose: bool,
 ) -> Arc<History<'eval>> {
-    let mut interpreter = Interpreter::from_prestack(db, prestack);
+    let mut interpreter = Interpreter::from_prestack(db, prestack, verbose);
     interpreter.exec_all(sheet, Mode::TrackHistory);
     Arc::new(interpreter.history)
 }
@@ -68,8 +70,9 @@ pub fn exec_loop_debug<'temp, 'eval: 'temp>(
     loop_kind: VMLoopKind,
     sheet: &InstructionSheet,
     stack_snapshot: &StackSnapshot<'eval>,
+    verbose: bool,
 ) -> Vec<LoopFrameData<'eval>> {
-    let mut interpreter = Interpreter::from_prestack(db, stack_snapshot);
+    let mut interpreter = Interpreter::from_prestack(db, stack_snapshot, verbose);
     interpreter.exec_loop_tracking_frame(loop_kind, &sheet);
     interpreter.frames
 }

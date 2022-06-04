@@ -11,7 +11,7 @@ macro_rules! batch_into {
     }};
 }
 
-pub(crate) fn send_updates(db: &HuskyLangCompileTime, comm: &ClientCommunicator) {
+pub(crate) fn send_updates(db: &HuskyCompileTime, comm: &ClientCommunicator) {
     let modules: Vec<_> = db.module_iter().collect();
     db.module_iter().for_each(|module| {
         db.diagnostics_reserve(module).release(|diagnostics| {

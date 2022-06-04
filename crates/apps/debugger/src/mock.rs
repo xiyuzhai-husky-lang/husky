@@ -1,6 +1,6 @@
 use compile_time_db::*;
 
-pub fn init_compile_time1(compile_time: &mut HuskyLangCompileTime) {
+pub fn init_compile_time1(compile_time: &mut HuskyCompileTime) {
     compile_time.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -20,7 +20,7 @@ main:
     );
 }
 
-pub fn init_compile_time2(compile_time: &mut HuskyLangCompileTime) {
+pub fn init_compile_time2(compile_time: &mut HuskyCompileTime) {
     compile_time.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -43,7 +43,7 @@ main:
     );
 }
 
-pub fn init_compile_time3(compile_time: &mut HuskyLangCompileTime) {
+pub fn init_compile_time3(compile_time: &mut HuskyCompileTime) {
     compile_time.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -66,7 +66,7 @@ main:
     );
 }
 
-pub fn init_compile_time4(compile_time: &mut HuskyLangCompileTime) {
+pub fn init_compile_time4(compile_time: &mut HuskyCompileTime) {
     compile_time.set_live_file_text(
         "haha/main.hsk".into(),
         r#"

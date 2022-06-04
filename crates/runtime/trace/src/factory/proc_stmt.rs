@@ -1,4 +1,4 @@
-use compile_time_db::HuskyLangCompileTime;
+use compile_time_db::HuskyCompileTime;
 use print_utils::epin;
 use text::Text;
 use upcast::Upcast;
@@ -283,13 +283,14 @@ impl<'eval> TraceFactory<'eval> {
 
     pub(super) fn loop_subtraces(
         &self,
-        compile_time: &HuskyLangCompileTime,
+        compile_time: &HuskyCompileTime,
         parent: &Trace,
         loop_kind: VMLoopKind,
         loop_stmt: &Arc<ProcStmt>,
         body_stmts: &Arc<Vec<Arc<ProcStmt>>>,
         stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
+        verbose: bool,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         let text = compile_time.text(parent.file).unwrap();
         let frames = exec_loop_debug(
@@ -297,6 +298,7 @@ impl<'eval> TraceFactory<'eval> {
             loop_kind,
             &body_instruction_sheet,
             stack_snapshot,
+            verbose,
         );
         Arc::new(
             frames
@@ -320,18 +322,20 @@ impl<'eval> TraceFactory<'eval> {
 
     pub(super) fn loop_frame_subtraces(
         &self,
-        compile_time: &HuskyLangCompileTime,
+        compile_time: &HuskyCompileTime,
         text: &Text,
         loop_stmt: &Arc<ProcStmt>,
         stmts: &[Arc<ProcStmt>],
         instruction_sheet: &InstructionSheet,
         loop_frame_data: &LoopFrameData<'eval>,
         parent: &Trace,
+        verbose: bool,
     ) -> Avec<Trace<'eval>> {
         let history = exec_debug(
             compile_time.upcast(),
             instruction_sheet,
             &loop_frame_data.stack_snapshot,
+            verbose,
         );
         let mut subtraces: Vec<_> =
             self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history);
@@ -399,14 +403,20 @@ impl<'eval> TraceFactory<'eval> {
 
     pub(super) fn proc_branch_subtraces(
         &self,
-        compile_time: &HuskyLangCompileTime,
+        compile_time: &HuskyCompileTime,
         text: &Text,
         stmts: &[Arc<ProcStmt>],
         instruction_sheet: &InstructionSheet,
         stack_snapshot: &StackSnapshot<'eval>,
         parent: &Trace,
+        verbose: bool,
     ) -> Avec<Trace<'eval>> {
-        let history = exec_debug(compile_time.upcast(), instruction_sheet, stack_snapshot);
+        let history = exec_debug(
+            compile_time.upcast(),
+            instruction_sheet,
+            stack_snapshot,
+            verbose,
+        );
         Arc::new(self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history))
     }
 

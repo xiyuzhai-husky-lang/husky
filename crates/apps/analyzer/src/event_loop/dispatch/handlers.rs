@@ -1,6 +1,6 @@
 use crate::{convert::from_lsp_types, *};
 
-type HuskyLangDatabaseSnapshot = salsa::Snapshot<compile_time_db::HuskyLangCompileTime>;
+type HuskyLangDatabaseSnapshot = salsa::Snapshot<compile_time_db::HuskyCompileTime>;
 
 use compile_time_db::{AllocateUniqueFile, AstSalsaQueryGroup};
 use lsp_types::{

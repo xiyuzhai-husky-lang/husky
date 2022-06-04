@@ -4,9 +4,7 @@ mod line_map;
 mod query;
 mod utils;
 
-pub use allocate_unique::{
-    new_file_unique_allocator, AllocateUniqueFile, FilePtr, UniqueFileAllocator,
-};
+pub use allocate_unique::{new_file_unique_allocator, AllocateUniqueFile, FileInterner, FilePtr};
 pub use error::*;
 pub use query::{FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFiles};
 pub use utils::*;

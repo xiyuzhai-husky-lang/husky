@@ -1,5 +1,5 @@
 use crate::*;
-use compile_time_db::HuskyLangCompileTime;
+use compile_time_db::HuskyCompileTime;
 use diagnostic::Diagnostic;
 use path_utils::collect_all_package_dirs;
 use std::path::PathBuf;
@@ -40,7 +40,7 @@ async fn run(path: PathBuf) {
         .expect("")
 }
 
-fn init_compile_time_from_dir(compile_time: &mut HuskyLangCompileTime, path: PathBuf) {
+fn init_compile_time_from_dir(compile_time: &mut HuskyCompileTime, path: PathBuf) {
     compile_time.load_package(&path)
 }
 
@@ -55,7 +55,7 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
     );
 
     for package_dir in package_dirs {
-        let mut compile_time = HuskyLangCompileTime::default();
+        let mut compile_time = HuskyCompileTime::default();
         init_compile_time_from_dir(&mut compile_time, package_dir.to_path_buf());
         println!(
             "\n{}test{} {}",

@@ -14,7 +14,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         nargs: u8,
         has_this: bool,
     ) -> VMRuntimeResult<()> {
-        let mut interpreter = Interpreter::new(self.db, self.stack.drain(nargs), has_this);
+        let mut interpreter =
+            Interpreter::new(self.db, self.stack.drain(nargs), has_this, self.verbose);
         self.stack.push(
             interpreter
                 .eval_instructions(sheet, Mode::Fast)?

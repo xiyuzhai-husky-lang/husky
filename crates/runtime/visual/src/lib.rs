@@ -30,6 +30,7 @@ impl RuntimeVisualizer {
         &self,
         db: &dyn VisualQueryGroup,
         value: &(dyn AnyValueDyn<'eval> + 'eval),
+        verbose: bool,
     ) -> VisualProps {
         match self {
             RuntimeVisualizer::Compiled(compiled) => compiled(value),
@@ -41,6 +42,7 @@ impl RuntimeVisualizer {
                 None,
                 vec![Ok(TempValue::TempRefEval(value))].into_iter(),
                 [].into_iter(),
+                verbose,
             ) {
                 Ok(value) => {
                     let xml_value: XmlValue = value.owned().unwrap().take().unwrap();
@@ -55,7 +57,7 @@ impl RuntimeVisualizer {
                 VisualProps::Group(
                     virtual_vec
                         .iter()
-                        .map(|elem| elem_visualizer.visualize(db, elem.any_ref()))
+                        .map(|elem| elem_visualizer.visualize(db, elem.any_ref(), verbose))
                         .collect(),
                 )
             }

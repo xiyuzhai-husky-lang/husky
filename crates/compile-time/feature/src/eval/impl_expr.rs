@@ -122,6 +122,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         has_this: bool,
     ) -> EvalResult<'eval> {
         let db = self.db;
+        let verbose = self.verbose;
         let values = arguments
             .iter()
             .map(|expr| TempValue::from_eval(self.eval_feature_expr(expr)?));
@@ -132,6 +133,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             opt_linkage,
             values,
             [].into_iter(),
+            verbose,
         )
     }
 }

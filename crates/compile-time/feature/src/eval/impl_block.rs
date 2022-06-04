@@ -37,6 +37,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             None,
             arguments.into_iter(),
             [].into_iter(),
+            self.verbose,
         )
     }
 }

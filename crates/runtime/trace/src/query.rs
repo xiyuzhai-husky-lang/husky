@@ -66,7 +66,15 @@ pub fn subtraces(
                         body_instruction_sheet: ref body,
                         loop_kind,
                         ..
-                    } => db.loop_subtraces(trace, *loop_kind, stmt, stmts, stack_snapshot, body),
+                    } => db.loop_subtraces(
+                        trace,
+                        *loop_kind,
+                        stmt,
+                        stmts,
+                        stack_snapshot,
+                        body,
+                        db.verbose(),
+                    ),
                     HistoryEntry::ControlFlow {
                         opt_branch_entered: enter,
                         ..
@@ -100,6 +108,7 @@ pub fn subtraces(
             body_instruction_sheet,
             loop_frame_data,
             trace,
+            db.verbose(),
         ),
         TraceVariant::ProcBranch {
             ref stmt,
@@ -120,6 +129,7 @@ pub fn subtraces(
                     &opt_vm_branch.as_ref().unwrap().body,
                     stack_snapshot,
                     trace,
+                    db.verbose(),
                 )
             }
             _ => panic!(),

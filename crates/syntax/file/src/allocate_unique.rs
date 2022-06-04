@@ -3,14 +3,15 @@ use std::path::{Path, PathBuf};
 use unique_allocator::UniqueAllocator;
 use word::CustomIdentifier;
 
-pub type UniqueFileAllocator = UniqueAllocator<Path, PathBuf>;
+pub type FileInterner = UniqueAllocator<Path, PathBuf>;
 pub type FilePtr = unique_allocator::BasicUniqueAllocatorPtr<Path>;
 
 pub trait AllocateUniqueFile {
-    fn file_unique_allocator(&self) -> &UniqueFileAllocator;
+    fn file_unique_allocator(&self) -> &FileInterner;
 
     fn intern_file(&self, path: PathBuf) -> FilePtr {
-        self.file_unique_allocator().alloc(path)
+        self.file_unique_allocator()
+            .alloc(std::fs::canonicalize(path).unwrap())
     }
 
     fn submodule_file(&self, module_file: FilePtr, ident: CustomIdentifier) {
@@ -18,8 +19,8 @@ pub trait AllocateUniqueFile {
     }
 }
 
-pub fn new_file_unique_allocator() -> UniqueFileAllocator {
-    UniqueFileAllocator::empty()
+pub fn new_file_unique_allocator() -> FileInterner {
+    FileInterner::empty()
 }
 
 #[test]

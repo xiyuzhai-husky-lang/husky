@@ -26,9 +26,9 @@ use visual_runtime::*;
 use vm::{AnyValueDyn, Instruction};
 
 #[salsa::database(VisualQueryGroupStorage, TraceQueryGroupStorage)]
-pub struct HuskyLangRuntime {
-    storage: salsa::Storage<HuskyLangRuntime>,
-    compile_time: HuskyLangCompileTime,
+pub struct HuskyRuntime {
+    storage: salsa::Storage<HuskyRuntime>,
+    compile_time: HuskyCompileTime,
     compile_time_version: usize,
     traces: TraceFactory<'static>,
     session: Arc<Mutex<Session<'static>>>,
@@ -37,21 +37,26 @@ pub struct HuskyLangRuntime {
     showns: HashMap<TraceId, bool>,
     figure_controls: HashMap<String, FigureControlProps>,
     package_main: FilePtr,
+    config: HuskyRuntimeConfig,
 }
 
-impl AskCompileTime for HuskyLangRuntime {
-    fn compile_time(&self) -> &HuskyLangCompileTime {
+pub struct HuskyRuntimeConfig {
+    verbose: bool,
+}
+
+impl AskCompileTime for HuskyRuntime {
+    fn compile_time(&self) -> &HuskyCompileTime {
         &self.compile_time
     }
 }
 
-impl ProduceTrace<'static> for HuskyLangRuntime {
+impl ProduceTrace<'static> for HuskyRuntime {
     fn trace_factory(&self) -> &trace::TraceFactory<'static> {
         &self.traces
     }
 }
 
-impl EvalFeature<'static> for HuskyLangRuntime {
+impl EvalFeature<'static> for HuskyRuntime {
     fn session(&self) -> &Arc<Mutex<Session<'static>>> {
         &self.session
     }
@@ -59,11 +64,15 @@ impl EvalFeature<'static> for HuskyLangRuntime {
     fn feature_query_group(&self) -> &dyn FeatureQueryGroup {
         &self.compile_time
     }
+
+    fn verbose(&self) -> bool {
+        self.config.verbose
+    }
 }
 
-impl HuskyLangRuntime {
-    pub fn new(init_compile_time: impl FnOnce(&mut HuskyLangCompileTime)) -> Self {
-        let mut compile_time = HuskyLangCompileTime::default();
+impl HuskyRuntime {
+    pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime), verbose: bool) -> Self {
+        let mut compile_time = HuskyCompileTime::default();
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);
@@ -85,7 +94,9 @@ impl HuskyLangRuntime {
         };
         let mut runtime = Self {
             storage: Default::default(),
-            session: Arc::new(Mutex::new(Session::new(&pack, &compile_time).unwrap())),
+            session: Arc::new(Mutex::new(
+                Session::new(&pack, &compile_time, verbose).unwrap(),
+            )),
             compile_time,
             compile_time_version: 0,
             traces: Default::default(),
@@ -94,6 +105,7 @@ impl HuskyLangRuntime {
             showns: Default::default(),
             package_main,
             figure_controls: Default::default(),
+            config: HuskyRuntimeConfig { verbose },
         };
         runtime.set_version(0);
         runtime.set_pack_main(package_main);
@@ -162,4 +174,4 @@ impl HuskyLangRuntime {
     }
 }
 
-impl salsa::Database for HuskyLangRuntime {}
+impl salsa::Database for HuskyRuntime {}

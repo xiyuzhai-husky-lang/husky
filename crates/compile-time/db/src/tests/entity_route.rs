@@ -6,7 +6,7 @@ use crate::*;
 
 #[test]
 fn no_error_single_file() {
-    let mut db = HuskyLangCompileTime::default();
+    let mut db = HuskyCompileTime::default();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -30,7 +30,7 @@ main:
 
 #[test]
 fn no_error_many_files() {
-    let mut db = HuskyLangCompileTime::default();
+    let mut db = HuskyCompileTime::default();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -94,7 +94,7 @@ struct B {}
 // }
 #[test]
 fn datasets() {
-    let db = HuskyLangCompileTime::default();
+    let db = HuskyCompileTime::default();
     let dataset_scope = db.make_route(EntityRoutePtr::Root(RootIdentifier::Datasets), vec![]);
     let synthetic_scope = db
         .subroute_result(
