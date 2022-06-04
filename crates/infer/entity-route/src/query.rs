@@ -57,18 +57,13 @@ fn is_implicitly_castable(
                 EntityRoutePtr::Custom(_) => todo!(),
                 EntityRoutePtr::ThisType => todo!(),
             },
-            RootIdentifier::True => todo!(),
-            RootIdentifier::False => todo!(),
-            RootIdentifier::Vec => todo!(),
-            RootIdentifier::Tuple => todo!(),
-            RootIdentifier::Debug => todo!(),
-            RootIdentifier::Std => todo!(),
-            RootIdentifier::Core => todo!(),
-            RootIdentifier::Fp => todo!(),
-            RootIdentifier::Fn => todo!(),
-            RootIdentifier::FnMut => todo!(),
-            RootIdentifier::FnOnce => todo!(),
-            RootIdentifier::Array => todo!(),
+            RootIdentifier::Vec => false,
+            RootIdentifier::Tuple => false,
+            RootIdentifier::Fp => false,
+            RootIdentifier::Fn => false,
+            RootIdentifier::FnMut => false,
+            RootIdentifier::FnOnce => false,
+            RootIdentifier::Array => false,
             RootIdentifier::DatasetType => match src_ty {
                 EntityRoutePtr::Root(RootIdentifier::DatasetType) => true,
                 EntityRoutePtr::Custom(scope) => match scope.kind {
@@ -79,14 +74,10 @@ fn is_implicitly_castable(
                 },
                 _ => false,
             },
-            RootIdentifier::TypeType => todo!(),
-            RootIdentifier::Datasets => panic!(),
-            RootIdentifier::CloneTrait => todo!(),
-            RootIdentifier::CopyTrait => todo!(),
-            RootIdentifier::PartialEqTrait => todo!(),
-            RootIdentifier::EqTrait => todo!(),
-            RootIdentifier::ModuleType => todo!(),
-            RootIdentifier::Ref => todo!(),
+            RootIdentifier::TypeType => false,
+            RootIdentifier::ModuleType => false,
+            RootIdentifier::Ref => false,
+            _ => panic!(),
         },
         EntityRoutePtr::Custom(_) => {
             msg_once!("handle convertible");
@@ -115,22 +106,17 @@ fn is_explicitly_castable(
     }
     let src_ty_decl = db.ty_decl(src_ty)?;
     let dst_ty_decl = db.ty_decl(dst_ty)?;
-    match src_ty_decl.kind {
+    Ok(match src_ty_decl.kind {
         TyKind::Enum => match dst_ty {
             EntityRoutePtr::Root(dst_ty_ident) => match dst_ty_ident {
-                RootIdentifier::I32 | RootIdentifier::B32 | RootIdentifier::B64 => Ok(true),
+                RootIdentifier::I32 | RootIdentifier::B32 | RootIdentifier::B64 => true,
                 _ => todo!(),
             },
             EntityRoutePtr::Custom(_) => todo!(),
             EntityRoutePtr::ThisType => todo!(),
         },
-        TyKind::Record => todo!(),
-        TyKind::Struct => todo!(),
-        TyKind::Primitive => todo!(),
-        TyKind::Vec => todo!(),
-        TyKind::Array => todo!(),
-        TyKind::Other => todo!(),
-    }
+        _ => false,
+    })
 }
 
 fn are_different_root_tys_explicity_castable(
@@ -144,10 +130,10 @@ fn are_different_root_tys_explicity_castable(
         | (RootIdentifier::I32, RootIdentifier::B64)
         | (RootIdentifier::B32, RootIdentifier::I32)
         | (RootIdentifier::B32, RootIdentifier::B64) => true,
-        (RootIdentifier::B32, _) => todo!(),
-        (RootIdentifier::B64, _) => todo!(),
-        (RootIdentifier::Bool, _) => todo!(),
-        (RootIdentifier::F32, _) => todo!(),
+        (RootIdentifier::B32, _) => false,
+        (RootIdentifier::B64, _) => false,
+        (RootIdentifier::Bool, _) => false,
+        (RootIdentifier::F32, _) => false,
         _ => false,
     }
 }
