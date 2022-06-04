@@ -31,6 +31,7 @@ impl<'a> AstTransformer<'a> {
                             SymbolKind::Unrecognized(_) => todo!(),
                             SymbolKind::ThisValue { .. } => todo!(),
                             SymbolKind::ThisField { .. } => todo!(),
+                            SymbolKind::ThisMethod => todo!(),
                         },
                         None => atom,
                     }

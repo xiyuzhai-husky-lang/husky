@@ -106,6 +106,10 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                             init_range,
                         }
                     }
+                    SymbolKind::ThisMethod => {
+                        p!(self.atom_context.opt_package_main(), token.range);
+                        todo!()
+                    }
                 })
             } else {
                 None

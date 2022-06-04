@@ -45,6 +45,16 @@ pub trait AtomContext {
     fn rollback(&mut self, state: AtomContextState);
     fn push_symbol(&mut self, new_symbol: Symbol);
 
+    fn push_new_symbol(&mut self, new: Symbol) -> Option<Symbol> {
+        let old = self
+            .symbols()
+            .iter()
+            .find(|old| old.ident == new.ident)
+            .map(|s| s.clone());
+        self.push_symbol(new);
+        old
+    }
+
     fn builtin_type_atom(
         &self,
         ident: RootIdentifier,

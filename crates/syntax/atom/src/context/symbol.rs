@@ -31,6 +31,7 @@ pub enum SymbolKind {
         opt_this_ty: Option<EntityRoutePtr>,
         opt_this_liason: Option<ParameterLiason>,
     },
+    ThisMethod,
     ThisField {
         opt_this_ty: Option<EntityRoutePtr>,
         opt_field_ty: Option<RangedEntityRoute>,

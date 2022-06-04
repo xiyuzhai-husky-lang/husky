@@ -10,19 +10,38 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         let mut token_stream: TokenStream = token_group.into();
+        let opt_this_ty = self.opt_this_ty();
         let mut parser = AtomParser::new(self, &mut token_stream);
         let field_liason = MemberLiason::from_opt_keyword(try_get!(parser, liason));
         let ident = get!(parser, sema_custom_ident, SemanticTokenKind::Field);
         eat!(parser, ":");
         let opt_field_ty = try_get!(parser, ranged_ty?);
-        parser.push_symbol(|atom_context| Symbol {
+        match self.push_new_symbol(Symbol {
             ident: ident.ident,
             kind: SymbolKind::ThisField {
-                opt_this_ty: atom_context.opt_this_ty(),
+                opt_this_ty,
                 opt_field_ty,
                 field_liason,
             },
-        });
+        }) {
+            Some(old) => match old.kind {
+                SymbolKind::ThisMethod => {
+                    return err!(
+                        format!("a method with the same name already exists"),
+                        ident.range
+                    )
+                }
+                SymbolKind::ThisField { .. } => {
+                    return err!(
+                        format!("a field with the same name already exists"),
+                        ident.range
+                    )
+                }
+                _ => (),
+            },
+            _ => (),
+        };
+        let mut parser = AtomParser::new(self, &mut token_stream);
         let ty = if let Some(ty) = opt_field_ty {
             ty
         } else {
