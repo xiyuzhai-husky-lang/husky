@@ -273,7 +273,6 @@ impl TyDecl {
                 AstVariant::TypeDefnHead { .. }
                 | AstVariant::MainDefn
                 | AstVariant::CallFormDefnHead(_)
-                | AstVariant::PatternDefnHead
                 | AstVariant::FeatureDecl { .. }
                 | AstVariant::DatasetConfigDefnHead
                 | AstVariant::Stmt(_)

@@ -31,7 +31,6 @@ impl<'a> EagerParser<'a> {
                 AstVariant::MainDefn => todo!(),
                 AstVariant::DatasetConfigDefnHead => todo!(),
                 AstVariant::CallFormDefnHead { .. } => todo!(),
-                AstVariant::PatternDefnHead => todo!(),
                 AstVariant::Use { .. } => todo!(),
                 AstVariant::Stmt(ref stmt) => ProcStmt {
                     file: self.file,

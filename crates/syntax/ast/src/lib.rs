@@ -47,7 +47,6 @@ pub enum AstVariant {
     },
     MainDefn,
     CallFormDefnHead(CallableDefnHead),
-    PatternDefnHead,
     FeatureDecl {
         ident: RangedCustomIdentifier,
         ty: RangedEntityRoute,

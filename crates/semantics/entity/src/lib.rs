@@ -395,7 +395,6 @@ pub(crate) fn entity_defn(
                     ),
                 },
                 AstVariant::FieldDefnHead { .. } => return Ok(db.member_defn(entity_route)),
-                AstVariant::PatternDefnHead => todo!(),
                 AstVariant::Use { .. } => todo!(),
                 AstVariant::MainDefn | AstVariant::DatasetConfigDefnHead | AstVariant::Stmt(_) => {
                     panic!()
