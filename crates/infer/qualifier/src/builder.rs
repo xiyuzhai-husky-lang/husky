@@ -106,7 +106,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         None,
                         OutputLiason::Transfer,
                     ),
-                    AstVariant::PatternDefnHead => todo!(),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
                         field_ast_kind: field_kind,

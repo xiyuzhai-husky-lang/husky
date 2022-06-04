@@ -93,7 +93,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         &arena,
                     ),
                     AstVariant::Visual => self.infer_function(&[], None, children, &arena),
-                    AstVariant::PatternDefnHead => todo!(),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
                         field_ast_kind: field_kind,

@@ -104,7 +104,6 @@ impl<'a> ContractSheetBuilder<'a> {
                         self.infer_eager_stmts(children, &arena)
                     }
                     AstVariant::Visual => self.infer_eager_stmts(children, &arena),
-                    AstVariant::PatternDefnHead => todo!(),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
                         field_ast_kind: field_kind,

@@ -93,7 +93,6 @@ impl EntityDefnVariant {
                         )?,
                     ),
                 },
-                AstVariant::PatternDefnHead => todo!(),
                 AstVariant::FeatureDecl { ident, ty } => todo!(),
                 AstVariant::Use { .. } => todo!(),
                 AstVariant::FieldDefnHead { ranged_ident, .. } => (

@@ -136,7 +136,6 @@ impl<'a> Formatter<'a> {
                 }
                 self.write(":");
             }
-            AstVariant::PatternDefnHead => todo!(),
             AstVariant::FieldDefnHead {
                 liason,
                 ranged_ident,
