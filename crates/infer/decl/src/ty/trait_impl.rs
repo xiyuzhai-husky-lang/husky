@@ -172,8 +172,6 @@ fn derive_is_clonable(
         TyKind::Vec => {
             msg_once!("Vec<E>, E should be copyable or clonable");
             true
-            // let elem_ty = this_ty.generic_arguments[0].take_entity_route();
-            // db.is_copyable(elem_ty)? || db.is_clonable(elem_ty)?
         }
         TyKind::Array => true,
         TyKind::Other => {
@@ -182,23 +180,6 @@ fn derive_is_clonable(
         }
     })
 }
-
-// fn is_partial_equatable(
-//     db: &dyn DeclQueryGroup,
-//     ty_kind: TyKind,
-//     ty_members: &[TyMemberDecl],
-//     variants: &[EnumVariantDecl],
-// ) -> bool {
-//     match ty_kind {
-//         TyKind::Enum => todo!(),
-//         TyKind::Record => true,
-//         TyKind::Struct => todo!(),
-//         TyKind::Primitive => todo!(),
-//         TyKind::Vec => todo!(),
-//         TyKind::Array => todo!(),
-//         TyKind::Other => todo!(),
-//     }
-// }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TraitMemberImplDecl {
