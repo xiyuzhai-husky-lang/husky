@@ -184,7 +184,7 @@ pub(crate) fn generic_vec_element_borrow_mut_access<'temp, 'eval>(
     if i >= this_value.len() {
         todo!()
     }
-    Ok(this_value[i].bind_eval_ref())
+    Ok(this_value[i].bind_mut(stack_idx))
 }
 
 pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {

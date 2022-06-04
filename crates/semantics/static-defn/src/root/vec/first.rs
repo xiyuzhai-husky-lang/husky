@@ -56,7 +56,7 @@ fn generic_vec_first_mut<'temp, 'eval>(
     let (generic_vec, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
         values[0].downcast_mut_full();
     match generic_vec.first_mut() {
-        Some(value) => Ok(value.binding_mut(stack_idx)),
+        Some(value) => Ok(value.bind_mut(stack_idx)),
         None => Err(vm_runtime_error!("empty vec")),
     }
 }
