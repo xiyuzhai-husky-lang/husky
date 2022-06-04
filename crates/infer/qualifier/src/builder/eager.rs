@@ -144,6 +144,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             (varname.ident.into(), varname.range),
                             initial_value_qualified_ty.init_variable_qualified_ty(init_kind),
                         ))
+                        .unwrap()
                 }
             }
             RawStmtVariant::Return(expr) => {

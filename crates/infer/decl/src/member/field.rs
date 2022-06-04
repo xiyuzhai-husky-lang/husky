@@ -3,7 +3,7 @@ use atom::AtomContext;
 use entity_kind::FieldKind;
 use entity_route::EntityRoutePtr;
 use instantiate::Instantiator;
-use vec_map::HasKey;
+use vec_map::VecMapEntry;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -67,7 +67,7 @@ impl FieldDecl {
     }
 }
 
-impl HasKey<CustomIdentifier> for FieldDecl {
+impl VecMapEntry<CustomIdentifier> for FieldDecl {
     fn key(&self) -> CustomIdentifier {
         self.ident
     }

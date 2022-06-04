@@ -7,7 +7,7 @@ use fold::LocalStack;
 use implement::{Implementable, Implementor};
 use map_collect::MapCollect;
 use print_utils::p;
-use vec_map::HasKey;
+use vec_map::VecMapEntry;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -55,7 +55,7 @@ impl MethodKind {
     }
 }
 
-impl HasKey<CustomIdentifier> for MethodDecl {
+impl VecMapEntry<CustomIdentifier> for MethodDecl {
     fn key(&self) -> CustomIdentifier {
         self.ident
     }

@@ -2,7 +2,7 @@ use entity_kind::TyKind;
 use entity_route::{EntityKind, RangedEntityRoute};
 use entity_syntax::EntityRouteQueryGroup;
 use static_defn::StaticGenericPlaceholder;
-use vec_map::HasKey;
+use vec_map::VecMapEntry;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -11,7 +11,7 @@ pub struct SpatialParameter {
     pub variant: GenericPlaceholderVariant,
 }
 
-impl HasKey<CustomIdentifier> for SpatialParameter {
+impl VecMapEntry<CustomIdentifier> for SpatialParameter {
     fn key(&self) -> CustomIdentifier {
         self.ident
     }

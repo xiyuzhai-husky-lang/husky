@@ -1,5 +1,5 @@
 use entity_kind::EnumVariantKind;
-use vec_map::HasKey;
+use vec_map::VecMapEntry;
 
 use super::*;
 
@@ -61,7 +61,7 @@ pub enum EnumVariantDeclVariant {
     Constant,
 }
 
-impl HasKey<CustomIdentifier> for EnumVariantDecl {
+impl VecMapEntry<CustomIdentifier> for EnumVariantDecl {
     fn key(&self) -> CustomIdentifier {
         self.ident
     }
