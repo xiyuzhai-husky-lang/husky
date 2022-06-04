@@ -98,7 +98,8 @@ fn generic_vec_push<'temp, 'eval>(
 fn generic_vec_pop<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
-    todo!()
+    let generic_vec: &mut Vec<MemberValue<'eval>> = values[0].downcast_mut();
+    Ok(generic_vec.pop().unwrap().into_stack())
 }
 
 pub(crate) fn construct_generic_vec<'temp, 'eval>(
