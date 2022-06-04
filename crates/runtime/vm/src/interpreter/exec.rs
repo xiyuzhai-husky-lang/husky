@@ -24,7 +24,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         .to_str()
                         .unwrap()
                         .green(),
-                    format!("{:?}", ins.src.text_range()).bright_yellow(),
+                    format!(
+                        "{:?} .. {:?}",
+                        ins.src.text_range().start,
+                        ins.src.text_range().end
+                    )
+                    .bright_yellow(),
                 )
             }
             let control = match ins.variant {

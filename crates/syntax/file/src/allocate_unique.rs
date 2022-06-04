@@ -11,7 +11,10 @@ pub trait AllocateUniqueFile {
 
     fn intern_file(&self, path: PathBuf) -> FilePtr {
         self.file_unique_allocator()
-            .alloc(std::fs::canonicalize(path).unwrap())
+            .alloc(match std::fs::canonicalize(path.clone()) {
+                Ok(path) => path,
+                Err(_) => path,
+            })
     }
 
     fn submodule_file(&self, module_file: FilePtr, ident: CustomIdentifier) {
