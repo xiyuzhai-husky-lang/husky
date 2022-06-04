@@ -30,6 +30,6 @@ for line in fileinput.input():
             lines.append(stripped_line)
         else:
             last_line = lines.pop()
-            lines.append(last_line + "\t"+stripped_line)
+            lines.append(last_line + "\t" + stripped_line)
 for line in lines:
     print(line)
