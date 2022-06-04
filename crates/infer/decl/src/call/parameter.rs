@@ -1,6 +1,6 @@
 use atom::AtomContext;
 use text::TextRange;
-use vec_map::HasKey;
+use vec_map::VecMapEntry;
 
 use super::*;
 
@@ -11,7 +11,7 @@ pub struct ParameterDecl {
     pub ident: CustomIdentifier,
 }
 
-impl HasKey<CustomIdentifier> for ParameterDecl {
+impl VecMapEntry<CustomIdentifier> for ParameterDecl {
     fn key(&self) -> CustomIdentifier {
         self.ident
     }

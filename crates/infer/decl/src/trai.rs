@@ -7,7 +7,7 @@ use check_utils::should_eq;
 use entity_kind::MemberKind;
 use implement::Implementor;
 use map_collect::MapCollect;
-use vec_map::HasKey;
+use vec_map::VecMapEntry;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -89,7 +89,7 @@ impl TraitMemberDecl {
     }
 }
 
-impl HasKey<CustomIdentifier> for TraitMemberDecl {
+impl VecMapEntry<CustomIdentifier> for TraitMemberDecl {
     fn key(&self) -> CustomIdentifier {
         match self {
             TraitMemberDecl::Method(method_decl) => method_decl.ident,

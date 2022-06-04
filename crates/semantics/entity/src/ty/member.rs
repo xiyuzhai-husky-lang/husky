@@ -116,13 +116,15 @@ impl EntityDefnVariant {
                 AstVariant::Visual => break,
             };
             children.next();
-            members.insert_new(EntityDefn::new(
-                ident.into(),
-                variant,
-                db.make_subroute(ty_route, ident, Vec::new()),
-                file,
-                ast.range,
-            ))
+            members
+                .insert_new(EntityDefn::new(
+                    ident.into(),
+                    variant,
+                    db.make_subroute(ty_route, ident, Vec::new()),
+                    file,
+                    ast.range,
+                ))
+                .unwrap()
         }
         Ok(())
     }

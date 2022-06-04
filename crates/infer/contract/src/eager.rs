@@ -21,7 +21,7 @@ pub enum EagerContract {
 }
 
 impl EagerContract {
-    pub(crate) fn from_this(
+    pub(crate) fn from_this_argument(
         parameter_liason: ParameterLiason,
         output_liason: OutputLiason,
         output_contract: EagerContract,
@@ -78,7 +78,7 @@ impl EagerContract {
         }
     }
 
-    pub(crate) fn from_parameter(
+    pub(crate) fn from_parameter_argument(
         parameter_ty: EntityRoutePtr,
         parameter_liason: ParameterLiason,
         output_liason: OutputLiason,

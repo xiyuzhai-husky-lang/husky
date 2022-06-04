@@ -38,7 +38,7 @@ use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, LinkageSource};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::*;
-use vec_map::HasKey;
+use vec_map::VecMapEntry;
 use visual_semantics::VisualizerSource;
 use vm::Linkage;
 use word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
@@ -67,7 +67,7 @@ pub struct EntityDefn {
     pub range: TextRange,
 }
 
-impl HasKey<CustomIdentifier> for EntityDefn {
+impl VecMapEntry<CustomIdentifier> for EntityDefn {
     fn key(&self) -> CustomIdentifier {
         self.ident.custom()
     }

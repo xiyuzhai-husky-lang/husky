@@ -8,7 +8,7 @@ use atom::{context::Symbol, AtomContext};
 use fold::LocalStack;
 use map_collect::MapCollect;
 use print_utils::{epin, p};
-use vec_map::HasKey;
+use vec_map::VecMapEntry;
 
 use crate::*;
 
@@ -126,7 +126,7 @@ impl TyMemberDecl {
     }
 }
 
-impl HasKey<CustomIdentifier> for TyMemberDecl {
+impl VecMapEntry<CustomIdentifier> for TyMemberDecl {
     fn key(&self) -> CustomIdentifier {
         match self {
             TyMemberDecl::Method(method_decl) => method_decl.ident,

@@ -230,7 +230,9 @@ impl TyDecl {
                         _ => break,
                     }
                     children.next();
-                    members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast)))
+                    members
+                        .insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast)))
+                        .unwrap()
                 }
                 _ => break,
             }
@@ -250,15 +252,20 @@ impl TyDecl {
                 AstVariant::CallFormDefnHead(ref head) => match head.opt_this_contract {
                     Some(_) => match head.paradigm {
                         Paradigm::EagerProcedural => todo!(),
-                        Paradigm::EagerFunctional => members.insert_new(TyMemberDecl::Method(
-                            MethodDecl::from_ast(head, MethodKind::Type),
-                        )),
+                        Paradigm::EagerFunctional => members
+                            .insert_new(TyMemberDecl::Method(MethodDecl::from_ast(
+                                head,
+                                MethodKind::Type,
+                            )))
+                            .unwrap(),
                         Paradigm::LazyFunctional => todo!(),
                     },
-                    None => members.insert_new(TyMemberDecl::Call(CallDecl::from_ast(
-                        db.make_subroute(this_ty, head.ident.ident, vec![]),
-                        head,
-                    ))),
+                    None => members
+                        .insert_new(TyMemberDecl::Call(CallDecl::from_ast(
+                            db.make_subroute(this_ty, head.ident.ident, vec![]),
+                            head,
+                        )))
+                        .unwrap(),
                 },
                 AstVariant::Use { .. } => todo!(),
                 AstVariant::FieldDefnHead {
@@ -267,7 +274,9 @@ impl TyDecl {
                 } => match field_kind {
                     FieldAstKind::StructOriginal => todo!("no original at this point"),
                     FieldAstKind::RecordOriginal => todo!("no original at this point"),
-                    _ => members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast))),
+                    _ => members
+                        .insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast)))
+                        .unwrap(),
                 },
                 AstVariant::Visual => break,
                 AstVariant::TypeDefnHead { .. }

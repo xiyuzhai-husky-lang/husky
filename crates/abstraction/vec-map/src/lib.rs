@@ -2,14 +2,14 @@ mod impl_compare;
 
 use std::{marker::PhantomData, ops::Deref, sync::Arc};
 
-pub trait HasKey<K>
+pub trait VecMapEntry<K>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
 {
     fn key(&self) -> K;
 }
 
-impl<K, T> HasKey<K> for (K, T)
+impl<K, T> VecMapEntry<K> for (K, T)
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
 {
@@ -18,10 +18,10 @@ where
     }
 }
 
-impl<K, T> HasKey<K> for Arc<T>
+impl<K, T> VecMapEntry<K> for Arc<T>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    T: HasKey<K>,
+    T: VecMapEntry<K>,
 {
     fn key(&self) -> K {
         (**self).key()
@@ -32,7 +32,7 @@ where
 pub struct VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: HasKey<K>,
+    V: VecMapEntry<K>,
 {
     entries: Vec<V>,
     phantom: PhantomData<K>,
@@ -41,7 +41,7 @@ where
 impl<K, V> std::fmt::Debug for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: HasKey<K> + std::fmt::Debug,
+    V: VecMapEntry<K> + std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.entries.fmt(f)
@@ -50,15 +50,16 @@ where
 
 pub type VecPairMap<K, V> = VecMap<K, (K, V)>;
 
-pub struct Repeat {
-    pub i: usize,
-    pub j: usize,
+#[derive(Debug)]
+pub struct EntryRepeatError<Entry> {
+    pub old: Entry,
+    pub new: Entry,
 }
 
 impl<K, Entry> VecMap<K, Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    Entry: HasKey<K>,
+    Entry: VecMapEntry<K>,
 {
     pub fn take_data(self) -> Vec<Entry> {
         self.entries
@@ -70,11 +71,23 @@ where
         &mut self.entries
     }
 
-    pub fn from_vec(data: Vec<Entry>) -> Result<Self, Repeat> {
+    pub fn from_vec(mut data: Vec<Entry>) -> Result<Self, EntryRepeatError<Entry>> {
         for i in 0..data.len() {
             for j in (i + 1)..data.len() {
                 if data[i].key() == data[j].key() {
-                    return Err(Repeat { i, j });
+                    let new = loop {
+                        let entry = data.pop().unwrap();
+                        if data.len() == j {
+                            break entry;
+                        }
+                    };
+                    let old = loop {
+                        let entry = data.pop().unwrap();
+                        if data.len() == i {
+                            break entry;
+                        }
+                    };
+                    return Err(EntryRepeatError { old, new });
                 }
             }
         }
@@ -114,11 +127,18 @@ where
         self.entries.iter_mut().find(|entry| entry.key() == key)
     }
 
-    pub fn insert_new(&mut self, value: Entry) {
-        if self.has(value.key()) {
-            panic!("key `{:?}` already exists", value.key())
+    pub fn insert_new(&mut self, new: Entry) -> Result<(), EntryRepeatError<Entry>> {
+        if self.has(new.key()) {
+            let old = loop {
+                let entry = self.entries.pop().unwrap();
+                if entry.key() == new.key() {
+                    break entry;
+                }
+            };
+            Err(EntryRepeatError { old, new })
         } else {
-            self.entries.push(value)
+            self.entries.push(new);
+            Ok(())
         }
     }
 
@@ -144,10 +164,11 @@ where
         self.entries.iter().position(|entry| entry.key() == key)
     }
 
-    pub fn extends(&mut self, other: Self) {
+    pub fn extends(&mut self, other: Self) -> Result<(), EntryRepeatError<Entry>> {
         for v in other.entries {
-            self.insert_new(v)
+            self.insert_new(v)?
         }
+        Ok(())
     }
 
     pub fn extends_from_ref(&mut self, other: &Self)
@@ -160,12 +181,12 @@ where
     }
 }
 
-impl<K, V> FromIterator<V> for VecMap<K, V>
+impl<K, Entry> FromIterator<Entry> for VecMap<K, Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: HasKey<K>,
+    Entry: VecMapEntry<K>,
 {
-    fn from_iter<T: IntoIterator<Item = V>>(iter: T) -> Self {
+    fn from_iter<T: IntoIterator<Item = Entry>>(iter: T) -> Self {
         let mut map = Self::default();
         for v in iter {
             map.insert_new(v);
@@ -177,7 +198,7 @@ where
 impl<K, V> Deref for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: HasKey<K>,
+    V: VecMapEntry<K>,
 {
     type Target = [V];
 
@@ -189,7 +210,7 @@ where
 impl<K, V> Default for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: HasKey<K>,
+    V: VecMapEntry<K>,
 {
     fn default() -> Self {
         Self {
@@ -201,8 +222,8 @@ where
 
 impl<K, V> std::ops::Index<K> for VecMap<K, V>
 where
-    K: PartialEq + Eq + Clone + Copy + std::fmt::Debug,
-    V: HasKey<K>,
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    V: VecMapEntry<K>,
 {
     type Output = V;
 
