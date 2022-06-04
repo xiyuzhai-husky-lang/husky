@@ -215,7 +215,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 match contract {
                     EagerContract::Pure | EagerContract::Move | EagerContract::Return => (),
                     EagerContract::TempRefMut => todo!(),
-                    EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForLetInit => (),
                     EagerContract::UseForVarInit => (),
@@ -270,7 +269,6 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::Return => todo!(),
                     EagerContract::TempRefMut => todo!(),
-                    EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
                     EagerContract::EvalRef => todo!(),
@@ -312,7 +310,6 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::UseMemberForLetInit => todo!(),
                         EagerContract::UseMemberForVarInit => todo!(),
                         EagerContract::TempRefMut => todo!(),
-                        EagerContract::MoveMut => todo!(),
                         EagerContract::Exec => todo!(),
                         EagerContract::UseForAssignRvalue => todo!(),
                         EagerContract::EvalRef => todo!(),
@@ -487,7 +484,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 }
             }
             EagerContract::TempRefMut => EagerContract::TempRefMut,
-            EagerContract::MoveMut => EagerContract::MoveMut,
             EagerContract::Exec => Err(InferError {
                 variant: InferErrorVariant::Derived {
                     message: "can't exec element access".to_string(),

@@ -68,8 +68,9 @@ impl<'a> ContractSheetBuilder<'a> {
                             let contract = match is_field_copyable {
                                 true => EagerContract::Pure,
                                 false => match liason {
-                                    MemberLiason::Immutable => EagerContract::Move,
-                                    MemberLiason::Mutable => EagerContract::MoveMut,
+                                    MemberLiason::Immutable | MemberLiason::Mutable => {
+                                        EagerContract::Move
+                                    }
                                     MemberLiason::Derived => panic!(),
                                 },
                             };

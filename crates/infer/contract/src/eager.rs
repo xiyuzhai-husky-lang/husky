@@ -17,7 +17,6 @@ pub enum EagerContract {
     UseMemberForVarInit,
     Return,
     TempRefMut,
-    MoveMut,
     Exec,
 }
 
@@ -45,7 +44,6 @@ impl EagerContract {
                         }
                         OutputLiason::MemberAccess { .. } => todo!(),
                     },
-                    EagerContract::MoveMut => todo!(),
                     EagerContract::UseMemberForLetInit => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::EvalRef => todo!(),
@@ -73,7 +71,6 @@ impl EagerContract {
                 EagerContract::UseMemberForVarInit => todo!(),
                 EagerContract::Return => todo!(),
                 EagerContract::TempRefMut => output_contract,
-                EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),
                 EagerContract::EvalRef => todo!(),
@@ -109,7 +106,6 @@ impl EagerContract {
                             }
                             OutputLiason::MemberAccess { .. } => todo!(),
                         },
-                        EagerContract::MoveMut => todo!(),
                         EagerContract::UseMemberForLetInit => todo!(),
                         EagerContract::UseMemberForVarInit => todo!(),
                         EagerContract::EvalRef => todo!(),
@@ -154,7 +150,6 @@ impl EagerContract {
                     MemberLiason::Mutable => EagerContract::TempRefMut,
                     MemberLiason::Derived => todo!(),
                 },
-                EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::EvalRef => todo!(),
             })
@@ -163,7 +158,7 @@ impl EagerContract {
                 MemberLiason::Immutable => match member_contract {
                     EagerContract::Pure => Ok(EagerContract::Pure),
 
-                    EagerContract::Move | EagerContract::MoveMut => Ok(EagerContract::Move),
+                    EagerContract::Move => Ok(EagerContract::Move),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
                         Ok(EagerContract::UseMemberForLetInit)
@@ -185,7 +180,6 @@ impl EagerContract {
                     EagerContract::Pure => Ok(EagerContract::Pure),
                     EagerContract::Move => Ok(EagerContract::Move),
                     EagerContract::TempRefMut => Ok(EagerContract::TempRefMut),
-                    EagerContract::MoveMut => todo!(),
                     EagerContract::Exec => todo!(),
                     EagerContract::UseForLetInit | EagerContract::UseMemberForLetInit => {
                         Ok(EagerContract::UseMemberForLetInit)
