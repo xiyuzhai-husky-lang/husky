@@ -183,7 +183,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             todo!()
                         }
                     }
-                    _ => todo!(),
+                    _ => {
+                        p!(pure_binary_opr);
+                        todo!()
+                    }
                 },
                 EntityRoutePtr::ThisType => todo!(),
             },

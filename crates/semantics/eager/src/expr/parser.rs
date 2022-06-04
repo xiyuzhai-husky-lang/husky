@@ -89,7 +89,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             } => EagerExprVariant::ThisValue {
                 binding: {
                     let this_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
-                    let this_qual = EagerQualifier::from_parameter_use(
+                    let this_qual = EagerQualifier::parameter_use(
                         self.decl_db(),
                         opt_this_ty.unwrap(),
                         opt_this_liason.unwrap(),
@@ -118,7 +118,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     is_field_copyable,
                     self.arena()[raw_expr_idx].range,
                 )?;
-                let this_qual = EagerQualifier::from_parameter_use(
+                let this_qual = EagerQualifier::parameter_use(
                     self.decl_db(),
                     opt_this_ty.unwrap(),
                     opt_this_liason.unwrap(),

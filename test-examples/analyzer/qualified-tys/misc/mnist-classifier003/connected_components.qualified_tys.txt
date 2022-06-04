@@ -92,7 +92,7 @@
     19:52..19:57   shift                  Copyable     i32
     19:41..19:42   a                      Copyable     b32
     19:44..19:57   1b32 << shift          Copyable     b32
-    19:13..19:20   mask[j]                CopyableMut  b32
+    19:13..19:20   mask[j]                RefMut       b32
     19:23..19:58   horizontal_extend(a, 1b32 << shift)   Copyable     b32
     19:13..19:58   mask[j] = horizontal_extend(a, 1b32 << shift)   Copyable     void
     20:24..20:29   false                  Copyable     bool
@@ -133,7 +133,7 @@
     31:34..31:35   1                      Copyable     i32
     31:25..31:29   mask                   RefMut       datasets::cv::mnist::BinaryImage28
     31:30..31:35   i + 1                  Copyable     i32
-    31:25..31:36   mask[i + 1]            CopyableMut  b32
+    31:25..31:36   mask[i + 1]            RefMut       b32
     31:39..31:46   new_row                Copyable     b32
     31:25..31:46   mask[i + 1] = new_row   Copyable     void
     32:29..32:30   j                      Copyable     i32
@@ -159,7 +159,7 @@
     36:25..36:37   flag = false           Copyable     void
     37:25..37:29   mask                   RefMut       datasets::cv::mnist::BinaryImage28
     37:30..37:31   i                      Copyable     i32
-    37:25..37:32   mask[i]                CopyableMut  b32
+    37:25..37:32   mask[i]                RefMut       b32
     37:35..37:42   new_row                Copyable     b32
     37:25..37:42   mask[i] = new_row      Copyable     void
     38:17..38:18   j                      Copyable     i32
@@ -170,7 +170,7 @@
     39:41..39:42   k                      Copyable     i32
     39:36..39:43   mask[k]                Copyable     b32
     39:35..39:43   ~mask[k]               Copyable     b32
-    39:17..39:30   unsearched[k]          CopyableMut  b32
+    39:17..39:30   unsearched[k]          RefMut       b32
     39:35..39:44   ~mask[k])              Copyable     b32
     39:17..39:44   unsearched[k] &= (~mask[k])   Copyable     void
     40:13..40:19   result                 RefMut       Vec<datasets::cv::mnist::BinaryImage28>

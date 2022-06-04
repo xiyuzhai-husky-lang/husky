@@ -5,7 +5,7 @@ use word::LiasonKeyword;
 pub enum ParameterLiason {
     Pure,
     Move,
-    TempRefMut,
+    TempMut,
     MoveMut,
     MemberAccess,
     EvalRef,

@@ -28,7 +28,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 for parameter in parameters.iter() {
                     match parameter.liason {
                         ParameterLiason::Pure | ParameterLiason::Move => (),
-                        ParameterLiason::TempRefMut | ParameterLiason::MoveMut => {
+                        ParameterLiason::TempMut | ParameterLiason::MoveMut => {
                             todo!("report invalid input contract")
                         }
                         ParameterLiason::MemberAccess => todo!(),

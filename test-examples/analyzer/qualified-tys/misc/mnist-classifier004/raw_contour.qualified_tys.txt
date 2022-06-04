@@ -229,7 +229,7 @@
     140:59..140:81 ~(r_ur&r_dr&r_ul&r_dl)   Copyable     b32
     140:35..140:55 r_ur|r_dr|r_ul|r_dl)   Copyable     b32
     140:59..140:82 ~(r_ur&r_dr&r_ul&r_dl))   Copyable     b32
-    140:9..140:31  boundary_unsearched[i]   CopyableMut  b32
+    140:9..140:31  boundary_unsearched[i]   RefMut       b32
     140:35..140:82 r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))   Copyable     b32
     140:9..140:82  boundary_unsearched[i] = (r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))   Copyable     void
     141:9..141:10  1                      Copyable     i32
@@ -296,7 +296,7 @@
     168:68..168:80 ~(1b32 << j)           Copyable     b32
     168:42..168:64 boundary_unsearched[i]   Copyable     b32
     168:68..168:81 ~(1b32 << j))          Copyable     b32
-    168:17..168:39 boundary_unsearched[i]   CopyableMut  b32
+    168:17..168:39 boundary_unsearched[i]   RefMut       b32
     168:42..168:81 boundary_unsearched[i] & (~(1b32 << j))   Copyable     b32
     168:17..168:81 boundary_unsearched[i] = boundary_unsearched[i] & (~(1b32 << j))   Copyable     void
     169:20..169:32 angle_change           Copyable     i32

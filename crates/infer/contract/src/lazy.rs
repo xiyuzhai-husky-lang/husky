@@ -23,9 +23,8 @@ impl LazyContract {
         match output {
             OutputLiason::Transfer => Ok(match parameter_liason {
                 ParameterLiason::Pure => LazyContract::Pure,
-                ParameterLiason::Move => todo!(),
-                ParameterLiason::TempRefMut => todo!(),
-                ParameterLiason::MoveMut => todo!(),
+                ParameterLiason::Move | ParameterLiason::MoveMut => LazyContract::Move,
+                ParameterLiason::TempMut => todo!(),
                 ParameterLiason::MemberAccess => todo!(),
                 ParameterLiason::EvalRef => todo!(),
             }),

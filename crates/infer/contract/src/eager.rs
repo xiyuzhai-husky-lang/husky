@@ -51,7 +51,7 @@ impl EagerContract {
                 Ok(match parameter_liason {
                     ParameterLiason::Pure => EagerContract::Pure,
                     ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                    ParameterLiason::TempRefMut => EagerContract::TempRefMut,
+                    ParameterLiason::TempMut => EagerContract::TempRefMut,
                     ParameterLiason::MemberAccess => panic!(),
                     ParameterLiason::EvalRef => EagerContract::EvalRef,
                 })
@@ -73,7 +73,7 @@ impl EagerContract {
                 EagerContract::TempRefMut => output_contract,
                 EagerContract::Exec => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),
-                EagerContract::EvalRef => todo!(),
+                EagerContract::EvalRef => EagerContract::EvalRef,
             }),
         }
     }
@@ -113,7 +113,7 @@ impl EagerContract {
                     Ok(match parameter_liason {
                         ParameterLiason::Pure => EagerContract::Pure,
                         ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                        ParameterLiason::TempRefMut => EagerContract::TempRefMut,
+                        ParameterLiason::TempMut => EagerContract::TempRefMut,
                         ParameterLiason::MemberAccess => panic!(),
                         ParameterLiason::EvalRef => EagerContract::EvalRef,
                     })
@@ -188,7 +188,7 @@ impl EagerContract {
                     EagerContract::Return => todo!(),
                     EagerContract::UseMemberForVarInit => todo!(),
                     EagerContract::UseForAssignRvalue => todo!(),
-                    EagerContract::EvalRef => todo!(),
+                    EagerContract::EvalRef => Ok(EagerContract::EvalRef),
                 },
                 MemberLiason::Derived => panic!(),
             }

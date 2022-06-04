@@ -30,7 +30,7 @@ impl LazyQualifiedTy {
         ty: EntityRoutePtr,
     ) -> InferResult<Self> {
         Ok(LazyQualifiedTy::new(
-            LazyQualifier::from_parameter(parameter_liason, db.is_copyable(ty)?),
+            LazyQualifier::parameter(parameter_liason, db.is_copyable(ty)?),
             ty,
         ))
     }
@@ -144,7 +144,7 @@ impl LazyQualifier {
 }
 
 impl LazyQualifier {
-    pub fn from_field(
+    pub fn field(
         this_qual: LazyQualifier,
         field_liason: MemberLiason,
         is_field_copyable: bool,
@@ -152,19 +152,25 @@ impl LazyQualifier {
         Ok(if is_field_copyable {
             LazyQualifier::Copyable
         } else {
-            todo!()
+            // non-copyable
+            match this_qual {
+                LazyQualifier::Copyable => panic!(),
+                LazyQualifier::PureRef => LazyQualifier::PureRef,
+                LazyQualifier::EvalRef => todo!(),
+                LazyQualifier::Transient => todo!(),
+            }
         })
     }
 
-    pub fn from_parameter_use(
+    pub fn parameter_use(
         input_liason: ParameterLiason,
         is_copyable: bool,
         contract: LazyContract,
     ) -> InferResult<Self> {
-        Self::from_parameter(input_liason, is_copyable).variable_use(contract)
+        Self::parameter(input_liason, is_copyable).variable_use(contract)
     }
 
-    pub fn from_parameter(input_liason: ParameterLiason, is_copyable: bool) -> Self {
+    pub fn parameter(input_liason: ParameterLiason, is_copyable: bool) -> Self {
         match input_liason {
             ParameterLiason::Pure => {
                 if is_copyable {
@@ -175,7 +181,7 @@ impl LazyQualifier {
             }
             ParameterLiason::EvalRef => LazyQualifier::EvalRef,
             ParameterLiason::Move => todo!(),
-            ParameterLiason::TempRefMut => todo!(),
+            ParameterLiason::TempMut => todo!(),
             ParameterLiason::MoveMut => todo!(),
             ParameterLiason::MemberAccess => todo!(),
         }
