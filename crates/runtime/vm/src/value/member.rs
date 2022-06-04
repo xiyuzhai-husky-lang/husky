@@ -103,7 +103,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
     pub fn bind_eval_ref(&self) -> TempValue<'temp, 'eval> {
         match self {
             MemberValue::EvalRef(value) => TempValue::EvalRef(*value),
-            MemberValue::Copyable(_) => todo!(),
+            MemberValue::Copyable(_) => panic!(),
             MemberValue::Boxed(ref boxed_value) => {
                 TempValue::EvalRef(unsafe { &*boxed_value.any_ptr() })
             }

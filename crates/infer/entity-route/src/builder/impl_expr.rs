@@ -183,23 +183,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             todo!()
                         }
                     }
-                    PureBinaryOpr::Add => todo!(),
-                    PureBinaryOpr::And => todo!(),
-                    PureBinaryOpr::BitAnd => todo!(),
-                    PureBinaryOpr::BitOr => todo!(),
-                    PureBinaryOpr::BitXor => todo!(),
-                    PureBinaryOpr::Div => todo!(),
-                    PureBinaryOpr::Geq => todo!(),
-                    PureBinaryOpr::Greater => todo!(),
-                    PureBinaryOpr::Leq => todo!(),
-                    PureBinaryOpr::Less => todo!(),
-                    PureBinaryOpr::Mul => todo!(),
-                    PureBinaryOpr::RemEuclid => todo!(),
-                    PureBinaryOpr::Or => todo!(),
-                    PureBinaryOpr::Power => todo!(),
-                    PureBinaryOpr::Shl => todo!(),
-                    PureBinaryOpr::Shr => todo!(),
-                    PureBinaryOpr::Sub => todo!(),
+                    _ => todo!(),
                 },
                 EntityRoutePtr::ThisType => todo!(),
             },
@@ -303,9 +287,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             }
             PureBinaryOpr::RemEuclid => match (lopd_builtin_ty, ropd_builtin_ty) {
                 (RootIdentifier::I32, RootIdentifier::I32) => RootIdentifier::I32,
+                (RootIdentifier::F32, RootIdentifier::F32) => RootIdentifier::F32,
                 _ => {
-                    p!(lopd_builtin_ty, ropd_builtin_ty);
-                    todo!()
+                    throw!("expect use of rem euclid \"%\" on i32 or f32", range)
                 }
             },
         }
@@ -322,33 +306,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         match opr {
             PrefixOpr::Minus => match opd_ty {
                 EntityRoutePtr::Root(root_ident) => match root_ident {
-                    RootIdentifier::Void => todo!(),
                     RootIdentifier::I32 => Ok(EntityRoutePtr::Root(RootIdentifier::I32)),
                     RootIdentifier::F32 => Ok(EntityRoutePtr::Root(RootIdentifier::F32)),
-                    RootIdentifier::B32 => todo!(),
-                    RootIdentifier::B64 => todo!(),
-                    RootIdentifier::Bool => todo!(),
-                    RootIdentifier::True => todo!(),
-                    RootIdentifier::False => todo!(),
-                    RootIdentifier::Vec => todo!(),
-                    RootIdentifier::Tuple => todo!(),
-                    RootIdentifier::Debug => todo!(),
-                    RootIdentifier::Std => todo!(),
-                    RootIdentifier::Core => todo!(),
-                    RootIdentifier::Fp => todo!(),
-                    RootIdentifier::Fn => todo!(),
-                    RootIdentifier::FnMut => todo!(),
-                    RootIdentifier::FnOnce => todo!(),
-                    RootIdentifier::Array => todo!(),
-                    RootIdentifier::Datasets => todo!(),
-                    RootIdentifier::DatasetType => todo!(),
-                    RootIdentifier::TypeType => todo!(),
-                    RootIdentifier::ModuleType => todo!(),
-                    RootIdentifier::CloneTrait => todo!(),
-                    RootIdentifier::CopyTrait => todo!(),
-                    RootIdentifier::PartialEqTrait => todo!(),
-                    RootIdentifier::EqTrait => todo!(),
-                    RootIdentifier::Ref => todo!(),
+                    _ => Err(todo!()),
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
                 EntityRoutePtr::ThisType => todo!(),
