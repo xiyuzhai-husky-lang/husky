@@ -57,15 +57,11 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
             | RootIdentifier::Bool
             | RootIdentifier::Ref => true,
             RootIdentifier::Vec => false,
-            RootIdentifier::Tuple => todo!(),
+            RootIdentifier::Tuple => false,
             RootIdentifier::Array => false,
             RootIdentifier::DatasetType => false,
             RootIdentifier::TypeType => false,
-            RootIdentifier::CloneTrait => todo!(),
-            RootIdentifier::CopyTrait => todo!(),
-            RootIdentifier::PartialEqTrait => todo!(),
-            RootIdentifier::EqTrait => todo!(),
-            RootIdentifier::ModuleType => todo!(),
+            RootIdentifier::ModuleType => false,
             _ => panic!(),
         }),
         _ => {
