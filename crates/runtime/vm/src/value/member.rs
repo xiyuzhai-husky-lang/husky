@@ -103,7 +103,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
     pub fn bind_eval_ref(&self) -> TempValue<'temp, 'eval> {
         match self {
             MemberValue::EvalRef(value) => TempValue::EvalRef(*value),
-            MemberValue::Copyable(_) => panic!(),
+            MemberValue::Copyable(_) => panic!("can't bind eval ref to a copyable value"),
             MemberValue::Boxed(ref boxed_value) => {
                 TempValue::EvalRef(unsafe { &*boxed_value.any_ptr() })
             }
@@ -124,7 +124,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn binding_mut<'a>(&'a mut self, owner: VMStackIdx) -> TempValue<'temp, 'eval> {
+    pub fn bind_mut<'a>(&'a mut self, owner: VMStackIdx) -> TempValue<'temp, 'eval> {
         let value_mut: *mut dyn AnyValueDyn<'eval> = match self {
             MemberValue::Copyable(value) => value.any_mut(),
             MemberValue::Boxed(value) => value.any_mut_ptr(),
