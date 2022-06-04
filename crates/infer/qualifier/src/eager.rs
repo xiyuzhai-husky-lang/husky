@@ -576,12 +576,14 @@ impl EagerQualifier {
                 EagerContract::MoveMut => todo!(),
                 EagerContract::Exec => todo!(),
                 EagerContract::EvalRef => {
-                    throw!(format!("can't turn a pure ref to a global ref",), range)
+                    throw!(format!("can't turn a pure ref to a eval ref",), range)
                 }
             },
             EagerQualifier::EvalRef => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
-                EagerContract::Move => todo!(),
+                EagerContract::Move => {
+                    throw!(format!("can't move from an eval ref",), range)
+                }
                 EagerContract::UseForLetInit => todo!(),
                 EagerContract::UseForVarInit => todo!(),
                 EagerContract::UseForAssignRvalue => todo!(),
