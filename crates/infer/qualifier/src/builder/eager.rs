@@ -8,7 +8,7 @@ use entity_route::{EntityRouteKind, EntityRoutePtr};
 use infer_error::{
     derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
 };
-use print_utils::{emsg_once, epin, p};
+use print_utils::{emsg_once, epin, msg_once, p};
 use text::{BindTextRangeInto, RangedCustomIdentifier};
 use text::{TextRange, TextRanged};
 
@@ -277,14 +277,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     is_field_copyable,
                     arena[raw_expr_idx].range,
                 )?;
-                let this_qual = EagerQualifier::from_parameter_use(
+                let this_qual = EagerQualifier::parameter_use(
                     self.db.upcast(),
                     this_ty,
                     this_liason,
                     this_contract,
                     raw_expr.range,
                 )?;
-                Ok(EagerQualifiedTy::from_field(
+                Ok(EagerQualifiedTy::from_member(
                     self.db,
                     this_qual,
                     field_ty.route,
@@ -368,9 +368,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 | EagerQualifier::TempRef
                 | EagerQualifier::Transient
                 | EagerQualifier::Owned => throw!("lopd is not mutable", range),
-                EagerQualifier::CopyableMut
+                EagerQualifier::TempMut
                 | EagerQualifier::OwnedMut
-                | EagerQualifier::TempRefMut => (),
+                | EagerQualifier::CopyableMut => (),
             },
         }
         self.infer_eager_expr(arena, opds.start + 1);
@@ -434,12 +434,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         };
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let qual = EagerQualifier::from_field(
+        Ok(EagerQualifiedTy::from_member(
+            self.db,
             this_qt.qual,
+            field_decl.ty,
             field_decl.liason,
             self.db.is_copyable(field_decl.ty)?,
-        )?;
-        Ok(EagerQualifiedTy::new(qual, field_decl.ty))
+        )?)
     }
 
     fn eager_list(
@@ -486,7 +487,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             match parameter.liason {
                                 ParameterLiason::Pure => Ok(Some(qt)),
                                 ParameterLiason::EvalRef => todo!(),
-                                ParameterLiason::TempRefMut => todo!(),
+                                ParameterLiason::TempMut => todo!(),
                                 ParameterLiason::Move | ParameterLiason::MoveMut => match qt.qual {
                                     EagerQualifier::Copyable | EagerQualifier::CopyableMut => {
                                         panic!()
@@ -502,7 +503,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                                     | EagerQualifier::Transient => Ok(Some(qt)),
                                     EagerQualifier::EvalRef => todo!(),
                                     EagerQualifier::TempRef => todo!(),
-                                    EagerQualifier::TempRefMut => todo!(),
+                                    EagerQualifier::TempMut => todo!(),
                                 },
                                 ParameterLiason::MemberAccess => todo!(),
                             }
@@ -554,12 +555,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             self.infer_eager_expr(arena, opd);
         }
         let element_ty = self.raw_expr_ty(raw_expr_idx)?;
-        let qual = EagerQualifier::element_access_qual(
+        msg_once!("todo: other member liason");
+        EagerQualifiedTy::from_member(
+            self.db,
             this_qt.qual,
-            this_contract,
+            element_ty,
+            MemberLiason::Mutable,
             self.db.is_copyable(element_ty)?,
-        );
-        Ok(EagerQualifiedTy::new(qual, element_ty))
+        )
     }
 
     fn eager_method_call(
@@ -585,11 +588,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     EagerQualifier::Transient
                 }
             }
-            OutputLiason::MemberAccess { .. } => EagerQualifier::element_access_qual(
-                this_qt.qual,
-                this_contract,
-                is_element_copyable,
-            ),
+            OutputLiason::MemberAccess { member_liason } => {
+                EagerQualifier::member(this_qt.qual, member_liason, is_element_copyable)
+            }
         };
         Ok(EagerQualifiedTy::new(qual, method_decl.output.ty))
     }

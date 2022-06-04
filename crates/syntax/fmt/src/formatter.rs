@@ -174,7 +174,7 @@ impl<'a> Formatter<'a> {
             ParameterLiason::Pure => (),
             ParameterLiason::EvalRef => self.write("&"),
             ParameterLiason::Move => self.write("!"),
-            ParameterLiason::TempRefMut => self.write("mut &"),
+            ParameterLiason::TempMut => self.write("mut &"),
             ParameterLiason::MoveMut => self.write("mut !"),
             ParameterLiason::MemberAccess => todo!(),
         }

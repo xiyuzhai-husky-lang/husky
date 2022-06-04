@@ -215,7 +215,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     name: "push",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::TempRefMut,
+        this_liason: ParameterLiason::TempMut,
         parameters: &[StaticParameter {
             contract: ParameterLiason::Move,
             ty: "E",
@@ -235,7 +235,7 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
     name: "pop",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::TempRefMut,
+        this_liason: ParameterLiason::TempMut,
         parameters: &[],
         output_ty: "E",
         generic_parameters: &[],

@@ -34,7 +34,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     (input.ranged_ident.ident.into(), input.ranged_ident.range),
                     self.db.is_copyable(ty).map(|is_copyable| {
                         LazyQualifiedTy::new(
-                            LazyQualifier::from_parameter(input.liason, is_copyable),
+                            LazyQualifier::parameter(input.liason, is_copyable),
                             ty,
                         )
                     }),
@@ -294,7 +294,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let qual = LazyQualifier::from_field(
+        let qual = LazyQualifier::field(
             this_qt.qual,
             field_decl.liason,
             self.db.is_copyable(field_decl.ty)?,

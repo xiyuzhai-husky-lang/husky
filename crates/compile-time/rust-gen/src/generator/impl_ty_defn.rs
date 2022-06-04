@@ -136,7 +136,7 @@ impl<'a> RustGenerator<'a> {
                         ParameterLiason::Pure => self.write("&self"),
                         ParameterLiason::EvalRef => todo!(),
                         ParameterLiason::Move => todo!(),
-                        ParameterLiason::TempRefMut => todo!(),
+                        ParameterLiason::TempMut => todo!(),
                         ParameterLiason::MoveMut => todo!(),
                         ParameterLiason::MemberAccess => todo!(),
                     }
@@ -156,7 +156,7 @@ impl<'a> RustGenerator<'a> {
                             }
                             ParameterLiason::EvalRef => todo!(),
                             ParameterLiason::Move => todo!(),
-                            ParameterLiason::TempRefMut => todo!(),
+                            ParameterLiason::TempMut => todo!(),
                             ParameterLiason::MoveMut => todo!(),
                             ParameterLiason::MemberAccess => todo!(),
                         }
