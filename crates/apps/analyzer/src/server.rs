@@ -4,14 +4,14 @@ pub(crate) mod event_loop_comm;
 use crossbeam_channel::Sender;
 
 use client_comm::ClientCommunicator;
-use compile_time_db::HuskyLangCompileTime;
+use compile_time_db::HuskyCompileTime;
 use event_loop_comm::EventLoopCommunicator;
 use threadpool::ThreadPool;
 
 pub(crate) struct Server {
     pub(crate) client_comm: ClientCommunicator,
     pub(crate) event_loop_comm: EventLoopCommunicator,
-    pub(crate) db: HuskyLangCompileTime,
+    pub(crate) db: HuskyCompileTime,
     pub(crate) threadpool: ThreadPool,
 }
 

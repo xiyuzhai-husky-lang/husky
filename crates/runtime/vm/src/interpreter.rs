@@ -20,12 +20,14 @@ pub struct Interpreter<'temp, 'eval: 'temp> {
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
     variable_mutations: IndexMap<VMStackIdx, (Identifier, FilePtr, TextRange, EntityRoutePtr)>,
+    verbose: bool,
 }
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn try_new(
         db: &'temp dyn InterpreterQueryGroup,
         argument_iter: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>,
+        verbose: bool,
     ) -> VMRuntimeResult<Interpreter<'temp, 'eval>> {
         Ok(Self {
             db,
@@ -34,6 +36,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             opt_snapshot_saved: None,
             frames: vec![],
             variable_mutations: Default::default(),
+            verbose,
         })
     }
 
@@ -41,6 +44,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         db: &'temp dyn InterpreterQueryGroup,
         argument_iter: impl Iterator<Item = TempValue<'temp, 'eval>>,
         has_this: bool,
+        verbose: bool,
     ) -> Interpreter<'temp, 'eval> {
         Self {
             db,
@@ -49,12 +53,14 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             opt_snapshot_saved: None,
             frames: vec![],
             variable_mutations: Default::default(),
+            verbose,
         }
     }
 
     pub(crate) fn from_prestack(
         db: &'temp dyn InterpreterQueryGroup,
         prestack: impl Into<VMStack<'temp, 'eval>>,
+        verbose: bool,
     ) -> Interpreter<'temp, 'eval> {
         Self {
             db,
@@ -63,6 +69,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             opt_snapshot_saved: None,
             frames: vec![],
             variable_mutations: Default::default(),
+            verbose,
         }
     }
 

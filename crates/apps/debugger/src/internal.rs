@@ -1,7 +1,7 @@
 use crate::*;
 
 pub struct DebuggerInternal {
-    pub(crate) runtime: HuskyLangRuntime,
+    pub(crate) runtime: HuskyRuntime,
     pub(crate) state: DebuggerState,
     pub(crate) config: DebuggerConfig,
 }

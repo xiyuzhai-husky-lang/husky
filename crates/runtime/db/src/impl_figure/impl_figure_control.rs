@@ -34,7 +34,7 @@ impl FigureControlProps {
     }
 }
 
-impl HuskyLangRuntime {
+impl HuskyRuntime {
     pub fn figure_control(&mut self, trace: &Trace, focus: &Focus) -> FigureControlProps {
         let key = focus.figure_control_key(trace);
         if let Some(control) = self.figure_controls.get(&key) {

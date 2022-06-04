@@ -16,7 +16,7 @@ pub fn compile_all(dir: PathBuf) {
 }
 
 pub fn compile_pack(package_dir: PathBuf) {
-    let mut compile_time = HuskyLangCompileTime::default();
+    let mut compile_time = HuskyCompileTime::default();
     compile_time.load_package(&package_dir);
     let main_file = compile_time.unique_main_file();
     p!(package_dir);
@@ -47,11 +47,7 @@ pub fn compile_pack(package_dir: PathBuf) {
     );
 }
 
-fn save_code_snapshot(
-    compile_time: &HuskyLangCompileTime,
-    snapshot_dir: &Path,
-    main_file: FilePtr,
-) {
+fn save_code_snapshot(compile_time: &HuskyCompileTime, snapshot_dir: &Path, main_file: FilePtr) {
     diff_write(
         &snapshot_dir.join("main.hsk"),
         compile_time.file_content(main_file).to_str().unwrap(),

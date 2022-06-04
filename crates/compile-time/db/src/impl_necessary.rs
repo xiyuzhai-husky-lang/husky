@@ -6,17 +6,17 @@ use vm::InterpreterQueryGroup;
 
 use crate::*;
 
-impl fmt::Debug for HuskyLangCompileTime {
+impl fmt::Debug for HuskyCompileTime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("HuskyLangCompileTime").finish()
     }
 }
 
-impl salsa::Database for HuskyLangCompileTime {}
+impl salsa::Database for HuskyCompileTime {}
 
-impl salsa::ParallelDatabase for HuskyLangCompileTime {
-    fn snapshot(&self) -> salsa::Snapshot<HuskyLangCompileTime> {
-        salsa::Snapshot::new(HuskyLangCompileTime {
+impl salsa::ParallelDatabase for HuskyCompileTime {
+    fn snapshot(&self) -> salsa::Snapshot<HuskyCompileTime> {
+        salsa::Snapshot::new(HuskyCompileTime {
             storage: self.storage.snapshot(),
             file_unique_allocator: self.file_unique_allocator.clone(),
             word_unique_allocator: self.word_unique_allocator.clone(),
@@ -29,7 +29,7 @@ impl salsa::ParallelDatabase for HuskyLangCompileTime {
     }
 }
 
-impl Default for HuskyLangCompileTime {
+impl Default for HuskyCompileTime {
     fn default() -> Self {
         let live_docs = Default::default();
         let scope_unique_allocator = entity_route::new_entity_route_interner();
@@ -49,19 +49,19 @@ impl Default for HuskyLangCompileTime {
     }
 }
 
-impl AllocateUniqueFile for HuskyLangCompileTime {
-    fn file_unique_allocator(&self) -> &file::UniqueFileAllocator {
+impl AllocateUniqueFile for HuskyCompileTime {
+    fn file_unique_allocator(&self) -> &file::FileInterner {
         &self.file_unique_allocator
     }
 }
 
-impl InternWord for HuskyLangCompileTime {
+impl InternWord for HuskyCompileTime {
     fn word_allocator(&self) -> &word::WordAllocator {
         &self.word_unique_allocator
     }
 }
 
-impl LiveFiles for HuskyLangCompileTime {
+impl LiveFiles for HuskyCompileTime {
     fn get_live_files(&self) -> &ARwLock<IndexMap<file::FilePtr, ARwLock<String>>> {
         &self.live_docs
     }
@@ -71,67 +71,67 @@ impl LiveFiles for HuskyLangCompileTime {
     }
 }
 
-impl FileQueryGroup for HuskyLangCompileTime {}
+impl FileQueryGroup for HuskyCompileTime {}
 
-impl AllocateUniqueScope for HuskyLangCompileTime {
+impl AllocateUniqueScope for HuskyCompileTime {
     fn scope_unique_allocator(&self) -> &entity_route::EntityRouteInterner {
         &self.scope_unique_allocator
     }
 }
 
-impl TokenQueryGroup for HuskyLangCompileTime {}
+impl TokenQueryGroup for HuskyCompileTime {}
 
-impl EntityRouteQueryGroup for HuskyLangCompileTime {}
+impl EntityRouteQueryGroup for HuskyCompileTime {}
 
-impl AstQueryGroup for HuskyLangCompileTime {}
+impl AstQueryGroup for HuskyCompileTime {}
 
-impl Upcast<dyn InferQueryGroup> for HuskyLangCompileTime {
+impl Upcast<dyn InferQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn infer_total::InferQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn semantics_entity::EntityDefnQueryGroup> for HuskyLangCompileTime {
+impl Upcast<dyn semantics_entity::EntityDefnQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn semantics_entity::EntityDefnQueryGroup + 'static) {
         self
     }
 }
 
-impl AllocateUniqueFeature for HuskyLangCompileTime {
+impl AllocateUniqueFeature for HuskyCompileTime {
     fn features(&self) -> &feature::FeatureUniqueAllocator {
         &self.features
     }
 }
 
-impl Upcast<dyn entity_syntax::EntityRouteSalsaQueryGroup> for HuskyLangCompileTime {
+impl Upcast<dyn entity_syntax::EntityRouteSalsaQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn entity_syntax::EntityRouteSalsaQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn entity_syntax::EntityRouteQueryGroup> for HuskyLangCompileTime {
+impl Upcast<dyn entity_syntax::EntityRouteQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn entity_syntax::EntityRouteQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn DeclQueryGroup> for HuskyLangCompileTime {
+impl Upcast<dyn DeclQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn DeclQueryGroup + 'static) {
         self
     }
 }
 
-impl infer_contract::InferContractQueryGroup for HuskyLangCompileTime {}
+impl infer_contract::InferContractQueryGroup for HuskyCompileTime {}
 
-impl infer_total::InferQueryGroup for HuskyLangCompileTime {}
+impl infer_total::InferQueryGroup for HuskyCompileTime {}
 
-impl ResolveLinkage for HuskyLangCompileTime {
+impl ResolveLinkage for HuskyCompileTime {
     fn linkage_table(&self) -> &LinkageSourceTable {
         &self.linkage_table
     }
 }
 
-impl InterpreterQueryGroup for HuskyLangCompileTime {
+impl InterpreterQueryGroup for HuskyCompileTime {
     fn entity_opt_instruction_sheet_by_uid(
         &self,
         uid: vm::EntityUid,
@@ -141,19 +141,19 @@ impl InterpreterQueryGroup for HuskyLangCompileTime {
     }
 }
 
-impl Upcast<dyn InstructionGenQueryGroup> for HuskyLangCompileTime {
+impl Upcast<dyn InstructionGenQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn InstructionGenQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn InterpreterQueryGroup> for HuskyLangCompileTime {
+impl Upcast<dyn InterpreterQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn InterpreterQueryGroup + 'static) {
         self
     }
 }
 
-impl StoreEntityRoute for HuskyLangCompileTime {
+impl StoreEntityRoute for HuskyCompileTime {
     fn entity_route_store(&self) -> &EntityRouteStore {
         &self.entity_route_store
     }

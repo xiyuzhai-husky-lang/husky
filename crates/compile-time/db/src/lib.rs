@@ -57,9 +57,9 @@ use sync_utils::ARwLock;
     instruction_gen::InstructionGenQueryGroupStorage,
     rust_gen::RustGenQueryStorage
 )]
-pub struct HuskyLangCompileTime {
-    storage: salsa::Storage<HuskyLangCompileTime>,
-    file_unique_allocator: file::UniqueFileAllocator,
+pub struct HuskyCompileTime {
+    storage: salsa::Storage<HuskyCompileTime>,
+    file_unique_allocator: file::FileInterner,
     word_unique_allocator: word::WordAllocator,
     scope_unique_allocator: entity_route::EntityRouteInterner,
     live_docs: ARwLock<IndexMap<FilePtr, ARwLock<String>>>,
@@ -69,5 +69,5 @@ pub struct HuskyLangCompileTime {
 }
 
 pub trait AskCompileTime {
-    fn compile_time(&self) -> &HuskyLangCompileTime;
+    fn compile_time(&self) -> &HuskyCompileTime;
 }

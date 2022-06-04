@@ -17,7 +17,7 @@ use json_map::JsonListMap;
 use json_result::JsonResult;
 pub use mode::Mode;
 
-use compile_time_db::HuskyLangCompileTime;
+use compile_time_db::HuskyCompileTime;
 use config::DebuggerConfig;
 use futures::executor::{block_on, ThreadPool};
 use gui::handle_query;
@@ -37,9 +37,9 @@ pub struct Debugger {
 }
 
 impl Debugger {
-    pub fn new(init_compile_time: impl FnOnce(&mut HuskyLangCompileTime)) -> Self {
+    pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime)) -> Self {
         let config = DebuggerConfig::from_env();
-        let mut runtime = HuskyLangRuntime::new(init_compile_time);
+        let mut runtime = HuskyRuntime::new(init_compile_time, config.verbose);
         if let Some(ref input_id_str) = config.opt_input_id {
             match runtime.lock_input(input_id_str) {
                 (_, Some(msg)) => panic!("{}", msg),

@@ -37,7 +37,7 @@ impl From<StaticDevSource> for TextRange {
 
 impl std::fmt::Debug for TextRange {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.pad(&format!("{:?}..{:?}", self.start, self.end))
+        f.pad(&format!("{:?} .. {:?}", self.start, self.end))
     }
 }
 

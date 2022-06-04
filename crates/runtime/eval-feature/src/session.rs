@@ -1,7 +1,7 @@
 mod division;
 mod tests;
 
-use compile_time_db::{HuskyLangCompileTime, InstructionGenQueryGroup};
+use compile_time_db::{HuskyCompileTime, InstructionGenQueryGroup};
 use pack_semantics::{Config, Pack};
 use semantics_eager::FuncStmt;
 use trivial_iter::TrivialIter;
@@ -44,14 +44,19 @@ impl<'sess> Default for ValidationReport<'sess> {
 }
 
 impl<'sess> Session<'sess> {
-    pub fn new(pack: &Pack, compile_time: &HuskyLangCompileTime) -> VMRuntimeResult<Self> {
-        let config = pack.config.clone();
+    pub fn new(
+        package: &Pack,
+        compile_time: &HuskyCompileTime,
+        verbose: bool,
+    ) -> VMRuntimeResult<Self> {
+        let config = package.config.clone();
         let dataset: Dataset = eval_fast(
             compile_time,
-            Some(&compile_time.dataset_config_instruction_sheet(pack.main_defn.file)),
+            Some(&compile_time.dataset_config_instruction_sheet(package.main_defn.file)),
             None,
             [].into_iter(),
             [].into_iter(),
+            verbose,
         )?
         .owned()?
         .take()?;

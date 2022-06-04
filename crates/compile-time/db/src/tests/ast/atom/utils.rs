@@ -5,17 +5,13 @@ use atom::{
     *,
 };
 
-pub(super) fn check_atom_kind(
-    db: &mut HuskyLangCompileTime,
-    line: &'static str,
-    kind: AtomVariant,
-) {
+pub(super) fn check_atom_kind(db: &mut HuskyCompileTime, line: &'static str, kind: AtomVariant) {
     let atoms = get_atoms_in_line(db, line);
     let atom = &atoms[0];
     should_eq!(atom.kind, kind);
 }
 
-pub(super) fn get_atoms_in_line(db: &mut HuskyLangCompileTime, line: &'static str) -> Vec<Atom> {
+pub(super) fn get_atoms_in_line(db: &mut HuskyCompileTime, line: &'static str) -> Vec<Atom> {
     db.set_live_file_text("haha/main.hsk".into(), line.into());
     let tokens = db.tokenize(line);
     let main = db.intern_file("haha/main.hsk".into());

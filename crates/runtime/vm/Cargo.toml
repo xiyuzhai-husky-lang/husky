@@ -8,8 +8,10 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 arrayvec = "0.7.2"
 indexmap = "1.8.1"
+colored = "2.0.0"
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
+path-utils = { path = "../../utils/path", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }

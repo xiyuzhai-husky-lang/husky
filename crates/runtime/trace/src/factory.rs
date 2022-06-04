@@ -10,7 +10,7 @@ mod func_stmt;
 mod proc_stmt;
 
 use avec::Avec;
-use compile_time_db::{AskCompileTime, HuskyLangCompileTime};
+use compile_time_db::{AskCompileTime, HuskyCompileTime};
 use defn_head::Parameter;
 use eval_feature::EvalFeature;
 use expr::ExprTokenConfig;
@@ -262,6 +262,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
                         self.compile_time(),
                         instruction_sheet,
                         func_input_values.into_iter(),
+                        self.verbose(),
                     );
                     match routine_defn.variant {
                         EntityDefnVariant::Func { ref stmts, .. } => {
@@ -329,6 +330,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
         stmts: &Arc<Vec<Arc<ProcStmt>>>,
         stack_snapshot: &StackSnapshot<'eval>,
         body_instruction_sheet: &Arc<InstructionSheet>,
+        verbose: bool,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         self.trace_factory().loop_subtraces(
             self.compile_time(),
@@ -338,6 +340,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
             stmts,
             stack_snapshot,
             body_instruction_sheet,
+            verbose,
         )
     }
 
@@ -348,6 +351,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
         instruction_sheet: &InstructionSheet,
         loop_frame_data: &LoopFrameData<'eval>,
         parent: &Trace,
+        verbose: bool,
     ) -> Avec<Trace<'eval>> {
         let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory().loop_frame_subtraces(
@@ -358,6 +362,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
             instruction_sheet,
             loop_frame_data,
             parent,
+            verbose,
         )
     }
 
@@ -367,6 +372,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
         instruction_sheet: &InstructionSheet,
         stack_snapshot: &StackSnapshot<'eval>,
         parent: &Trace,
+        verbose: bool,
     ) -> Avec<Trace<'eval>> {
         let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory().proc_branch_subtraces(
@@ -376,6 +382,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
             instruction_sheet,
             stack_snapshot,
             parent,
+            verbose,
         )
     }
 

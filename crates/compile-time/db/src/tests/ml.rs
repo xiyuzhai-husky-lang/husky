@@ -2,7 +2,7 @@ use crate::*;
 
 #[test]
 fn haha() {
-    let mut db = HuskyLangCompileTime::default();
+    let mut db = HuskyCompileTime::default();
     let source: &'static str = r#"
 dataset:
     synthetic::trivial::real1d::dataset1()

@@ -6,7 +6,7 @@ use crate::*;
 
 #[test]
 fn eval_sheet() {
-    let mut db = HuskyLangCompileTime::default();
+    let mut db = HuskyCompileTime::default();
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -28,7 +28,7 @@ main:
     let main_file = db.intern_file("haha/main.hsk".into());
     let main_block = db.main_feature_repr(main_file).unwrap();
     let mut sheet = EvalSheet::default();
-    let result = eval_feature_repr(&db, &main_block, Arc::new(1i32), &mut sheet)
+    let result = eval_feature_repr(&db, &main_block, Arc::new(1i32), &mut sheet, false)
         .unwrap()
         .primitive();
     should_eq!(result, 1.into());

@@ -1,3 +1,7 @@
+mod rel;
+
+pub use rel::*;
+
 use std::path::{Path, PathBuf};
 
 pub fn path_has_file_name(path: &Path, name: &str) -> bool {

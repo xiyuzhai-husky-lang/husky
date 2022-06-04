@@ -1,7 +1,7 @@
 mod control;
 mod graphics2d;
 
-use compile_time_db::HuskyLangCompileTime;
+use compile_time_db::HuskyCompileTime;
 pub use control::*;
 pub use graphics2d::*;
 
@@ -50,6 +50,7 @@ impl<'eval> MutationFigureProps {
         visualizer: &RuntimeVisualizer,
         mutation_data: &MutationData<'eval>,
         idx: usize,
+        verbose: bool,
     ) -> Self {
         MutationFigureProps {
             name: match mutation_data.kind {
@@ -57,15 +58,19 @@ impl<'eval> MutationFigureProps {
                 vm::MutationDataKind::Block { varname, .. } => varname.as_str().to_string(),
             },
             before: if let Some(before) = mutation_data.before.as_ref() {
-                Some(FigureProps::new_specific(
-                    visualizer.visualize(db, before.any_ref()),
-                ))
+                Some(FigureProps::new_specific(visualizer.visualize(
+                    db,
+                    before.any_ref(),
+                    verbose,
+                )))
             } else {
                 None
             },
-            after: FigureProps::new_specific(
-                visualizer.visualize(db, mutation_data.after.any_ref()),
-            ),
+            after: FigureProps::new_specific(visualizer.visualize(
+                db,
+                mutation_data.after.any_ref(),
+                verbose,
+            )),
             idx,
         }
     }

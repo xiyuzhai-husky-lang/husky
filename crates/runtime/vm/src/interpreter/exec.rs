@@ -5,15 +5,28 @@ mod exec_loop;
 mod exec_opr_opn;
 mod exec_pattern_match;
 
-use std::iter::zip;
-
 use crate::{history::HistoryEntry, *};
 use check_utils::{should, should_eq};
+use colored::Colorize;
+use path_utils::get_relative_path;
 use print_utils::{p, ps};
+use std::iter::zip;
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
         for ins in &sheet.instructions {
+            if self.verbose {
+                println!(
+                    "{} {}:{}",
+                    "exec".red(),
+                    get_relative_path(&ins.src.file())
+                        .as_os_str()
+                        .to_str()
+                        .unwrap()
+                        .green(),
+                    format!("{:?}", ins.src.text_range()).bright_yellow(),
+                )
+            }
             let control = match ins.variant {
                 InstructionVariant::PushVariable {
                     binding,

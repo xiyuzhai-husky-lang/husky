@@ -15,7 +15,7 @@ use text::TextQueryGroup;
 use trace::MutationFigureProps;
 use vm::{History, HistoryEntry, MutationData, MutationDataKind, StackSnapshot};
 
-impl HuskyLangRuntime {
+impl HuskyRuntime {
     pub fn figure(&self, trace_id: TraceId, focus: &Focus) -> FigureProps {
         let trace = self.trace(trace_id);
         match trace.variant {
@@ -89,7 +89,7 @@ impl HuskyLangRuntime {
             Some(input_id) => {
                 if let Ok(value) = self.eval_feature_expr(expr, input_id) {
                     let visualizer = self.visualizer(expr.expr.ty());
-                    let visual_props = visualizer.visualize(self, value.any_ref());
+                    let visual_props = visualizer.visualize(self, value.any_ref(), self.verbose());
                     FigureProps::new_specific(visual_props)
                 } else {
                     FigureProps::void()
@@ -168,7 +168,8 @@ impl HuskyLangRuntime {
             match entry {
                 HistoryEntry::PureExpr { output } => match output {
                     Ok(output) => {
-                        let visual_props = visualizer.visualize(self, output.any_ref());
+                        let visual_props =
+                            visualizer.visualize(self, output.any_ref(), self.verbose());
                         FigureProps::new_specific(visual_props)
                     }
                     Err(e) => FigureProps::void(),
@@ -199,6 +200,7 @@ impl HuskyLangRuntime {
                         &self.visualizer(mutation.ty),
                         mutation,
                         i,
+                        self.verbose(),
                     )
                 })
                 .collect(),
@@ -237,6 +239,7 @@ impl HuskyLangRuntime {
                                 &self.visualizer(frame_mutation.ty),
                                 frame_mutation,
                                 idx,
+                                self.verbose(),
                             )
                         } else {
                             MutationFigureProps {
@@ -251,6 +254,7 @@ impl HuskyLangRuntime {
                                     self.visualizer(mutation.ty).visualize(
                                         self,
                                         frame_stack_snapshot[mutation.varidx()].any_ref(),
+                                        self.verbose(),
                                     ),
                                 ),
                                 idx,
