@@ -58,7 +58,7 @@ impl Into<ParameterDecl> for &Parameter {
     fn into(self) -> ParameterDecl {
         ParameterDecl {
             liason: self.liason,
-            ty: self.ranged_ty.route.deref_route(),
+            ty: self.ranged_ty.route,
             ident: self.ranged_ident.ident,
         }
     }
