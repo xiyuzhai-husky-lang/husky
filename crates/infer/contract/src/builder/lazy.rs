@@ -51,10 +51,16 @@ impl<'a> ContractSheetBuilder<'a> {
                 initial_value,
                 ..
             } => {
-                self.infer_lazy_expr(initial_value, LazyContract::Pass, arena);
+                if let Ok(ty) = self.raw_expr_ty(initial_value) {
+                    LazyContract::pure_or_pass(self.db, ty)
+                        .map(|contract| self.infer_lazy_expr(initial_value, contract, arena));
+                }
             }
             RawStmtVariant::Return(result) => {
-                self.infer_lazy_expr(result, LazyContract::Pass, arena)
+                if let Ok(ty) = self.raw_expr_ty(result) {
+                    LazyContract::pure_or_pass(self.db, ty)
+                        .map(|contract| self.infer_lazy_expr(result, contract, arena));
+                }
             }
             RawStmtVariant::Assert(condition) => self.infer_lazy_condition(condition, arena),
             RawStmtVariant::Break => todo!(),
@@ -62,7 +68,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 match_expr,
                 match_liason,
             } => self.infer_lazy_expr(match_expr, LazyContract::from_match(match_liason), arena),
-            RawStmtVariant::ReturnXml(_) => todo!(),
+            RawStmtVariant::ReturnXml(_) => panic!(),
         }
     }
 
@@ -89,7 +95,8 @@ impl<'a> ContractSheetBuilder<'a> {
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }
             | RawExprVariant::CopyableLiteral(_)
-            | RawExprVariant::ThisValue { .. } => Ok(()),
+            | RawExprVariant::ThisValue { .. }
+            | RawExprVariant::ThisField { .. } => Ok(()),
             RawExprVariant::Bracketed(bracketed_expr) => {
                 self.infer_lazy_expr(bracketed_expr, contract, arena);
                 Ok(())
@@ -110,7 +117,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 varname,
                 init_range: init_row,
             } => todo!(),
-            RawExprVariant::ThisField { .. } => todo!(),
         };
         self.contract_sheet
             .lazy_expr_contract_results
@@ -200,7 +206,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.raw_expr_deref_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = LazyContract::from_field_access(
+        let this_contract = LazyContract::field_access_lazy_contract(
             field_decl.liason,
             contract,
             self.db.is_copyable(field_decl.ty)?,
@@ -310,20 +316,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: LazyContract,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        match contract {
-            LazyContract::Pass => {
-                let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
-                let this_contract = if self.db.is_copyable(ty)? {
-                    LazyContract::Pure
-                } else {
-                    LazyContract::Pass
-                };
-                self.infer_lazy_expr(total_opds.start, this_contract, arena)
-            }
-            LazyContract::EvalRef => todo!(),
-            LazyContract::Pure => todo!(),
-            LazyContract::Move => todo!(),
-        }
+        self.infer_lazy_expr(total_opds.start, contract, arena);
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_lazy_expr(opd, LazyContract::Pure, arena)
         }

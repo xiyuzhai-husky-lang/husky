@@ -94,8 +94,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         if self.stack.is_convex() {
             Ok(self.stack.into())
         } else {
-            let last_atom = self.stack.atoms.last().unwrap();
-            err!(format!("last atom is not right convex"), last_atom.range)
+            if let Some(last_atom) = self.stack.atoms.last() {
+                err!(format!("last atom is not right convex"), last_atom.range)
+            } else {
+                Ok(vec![])
+            }
         }
     }
 

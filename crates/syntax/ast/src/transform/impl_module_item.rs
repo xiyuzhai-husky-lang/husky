@@ -23,11 +23,8 @@ impl<'a> AstTransformer<'a> {
         };
         match keyword {
             Keyword::Paradigm(paradigm) => {
-                if token_group.len() < 2 {
-                    return err!(
-                        format!("expect <paradigm> <identifier>"),
-                        token_group.text_range()
-                    );
+                if token_group.len() < 3 {
+                    return err!(format!("expect more tokens"), token_group.text_range());
                 }
                 match token_group[2].kind {
                     TokenKind::Special(SpecialToken::LightArrow) => {
@@ -37,7 +34,11 @@ impl<'a> AstTransformer<'a> {
                     TokenKind::Special(SpecialToken::LPar) => {
                         self.call_defn_head(token_group, None, enter_block)
                     }
-                    _ => todo!(),
+                    _ => {
+                        enter_block(self);
+                        self.context.set(AstContext::Stmt(paradigm));
+                        return err!(format!("expect `->` or `(`"), token_group[2].range);
+                    }
                 }
             }
             Keyword::Type(ty_kw) => {

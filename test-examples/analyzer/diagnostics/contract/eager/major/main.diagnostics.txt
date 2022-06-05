@@ -1,7 +1,0 @@
-13:30..13:36	Ast Error: invalid  parameter liason
-16:34..16:37	Ast Error: invalid  parameter liason
-25:13..25:21	Infer Error: unrecognized caller
-24:5..24:6	Infer Error: can't bind this to a temp mut ref
-26:57..26:58	Infer Error: can't move from ref
-24:5..24:6	Infer Error: can't bind this to a temp mut ref
-26:57..26:58	Infer Error: can't move from ref

@@ -23,6 +23,7 @@ impl<'a> AstTransformer<'a> {
                 ));
                 match keyword {
                     Keyword::Paradigm(routine_keyword) => {
+                        expect_at_least!(token_group, token_group.text_range(), 4);
                         match token_group[2].kind {
                             TokenKind::Special(SpecialToken::LPar) => {
                                 self.parse_struct_method(token_group,  enter_block)

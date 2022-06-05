@@ -322,7 +322,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.raw_expr_deref_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = EagerContract::from_field_access(
+        let this_contract = EagerContract::field_access_contract(
             field_decl.liason,
             contract,
             self.db.is_copyable(field_decl.ty)?,
@@ -382,7 +382,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     ((total_opds.start + 1)..total_opds.end).into_iter(),
                     call_decl.primary_parameters.iter(),
                 ) {
-                    let argument_contract = EagerContract::from_parameter_argument(
+                    let argument_contract = EagerContract::argument_contract(
                         parameter.ty,
                         parameter.liason,
                         call_decl.output.liason,
@@ -432,7 +432,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let method_decl = self.method_decl(raw_expr_idx)?;
         let is_output_ty_copyable = self.db.is_copyable(method_decl.output.ty)?;
-        let this_contract = EagerContract::from_this_argument(
+        let this_contract = EagerContract::this_contract(
             method_decl.this_liason,
             method_decl.output.liason,
             contract,
@@ -441,7 +441,7 @@ impl<'a> ContractSheetBuilder<'a> {
         )?;
         self.infer_eager_expr(this, this_contract, arena);
         for (argument, parameter) in zip(parameters.into_iter(), method_decl.parameters.iter()) {
-            let argument_contract = EagerContract::from_parameter_argument(
+            let argument_contract = EagerContract::argument_contract(
                 parameter.ty,
                 parameter.liason,
                 method_decl.output.liason,
@@ -461,8 +461,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        let this_contract = contract;
-        self.infer_eager_expr(total_opds.start, this_contract, arena);
+        self.infer_eager_expr(total_opds.start, contract, arena);
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_eager_expr(opd, EagerContract::Pure, arena)
         }

@@ -1,4 +1,5 @@
 use ast::MatchLiason;
+use entity_route::EntityRoutePtr;
 use infer_error::throw;
 use text::TextRange;
 
@@ -13,6 +14,17 @@ pub enum LazyContract {
 }
 
 impl LazyContract {
+    pub(crate) fn pure_or_pass(
+        db: &dyn InferContractSalsaQueryGroup,
+        ty: EntityRoutePtr,
+    ) -> InferResult<Self> {
+        Ok(if db.is_copyable(ty)? {
+            LazyContract::Pure
+        } else {
+            LazyContract::Pass
+        })
+    }
+
     pub(crate) fn from_parameter(
         parameter_liason: ParameterLiason,
         output: OutputLiason,
@@ -31,22 +43,26 @@ impl LazyContract {
         }
     }
 
-    pub fn from_field_access(
+    pub fn field_access_lazy_contract(
         field_liason: MemberLiason,
-        field_contract: LazyContract,
+        member_contract: LazyContract,
         is_member_copyable: bool,
         range: TextRange,
     ) -> InferResult<LazyContract> {
         // infer this contract
         Ok(if is_member_copyable {
-            match field_contract {
+            match member_contract {
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyContract::Pure,
-                LazyContract::Pass | LazyContract::Move => panic!(),
+                LazyContract::Pass => {
+                    p!(range);
+                    panic!()
+                }
+                LazyContract::Move => panic!(),
             }
         } else {
             match field_liason {
-                MemberLiason::Immutable | MemberLiason::Mutable => field_contract,
+                MemberLiason::Immutable | MemberLiason::Mutable => member_contract,
                 MemberLiason::Derived => todo!(),
             }
         })

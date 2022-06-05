@@ -87,7 +87,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             } => LazyExprVariant::This {
                 binding: {
                     let this_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
-                    let this_qual = LazyQualifier::parameter_use(
+                    let this_qual = LazyQualifier::parameter_use_lazy_qualifier(
                         opt_this_liason.unwrap(),
                         self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
                         this_contract,

@@ -78,7 +78,7 @@ impl EagerQualifiedTy {
         }
     }
 
-    pub(crate) fn from_member(
+    pub(crate) fn member_eager_qualified_ty(
         db: &dyn InferQualifiedTyQueryGroup,
         this_qual: EagerQualifier,
         field_ty: EntityRoutePtr,

@@ -10,6 +10,7 @@ mod ty;
 pub use call::*;
 pub use input::*;
 pub use member::*;
+use print_utils::p;
 pub use trai::*;
 pub use ty::*;
 
@@ -61,8 +62,12 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
             RootIdentifier::Array => false,
             RootIdentifier::DatasetType => false,
             RootIdentifier::TypeType => false,
+            RootIdentifier::TraitType => false,
             RootIdentifier::ModuleType => false,
-            _ => panic!(),
+            _ => {
+                p!(ident);
+                panic!()
+            }
         }),
         _ => {
             let ty_decl = db.ty_decl(ty)?;
