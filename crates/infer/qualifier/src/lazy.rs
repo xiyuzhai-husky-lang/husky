@@ -98,10 +98,7 @@ impl LazyQualifier {
                 LazyContract::Pure => Binding::TempRef,
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Move => todo!(),
-                LazyContract::Init => todo!(),
-                LazyContract::UseMemberForInit => Binding::TempRef,
-                LazyContract::UseMemberForReturn => todo!(),
-                LazyContract::Return => todo!(),
+                LazyContract::Pass => Binding::TempRef,
             },
             LazyQualifier::Transient => todo!(),
             LazyQualifier::Copyable => Binding::Copy,
@@ -112,28 +109,19 @@ impl LazyQualifier {
     pub fn variable_use(self, contract: LazyContract) -> InferResult<Self> {
         Ok(match self {
             LazyQualifier::Copyable => match contract {
-                LazyContract::Init => todo!(),
-                LazyContract::Return => LazyQualifier::Copyable,
-                LazyContract::UseMemberForInit => todo!(),
-                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::Pass => LazyQualifier::Copyable,
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyQualifier::Copyable,
                 LazyContract::Move => todo!(),
             },
             LazyQualifier::PureRef => match contract {
-                LazyContract::Init => todo!(),
-                LazyContract::Return => todo!(),
-                LazyContract::UseMemberForInit => todo!(),
-                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::Pass => todo!(),
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyQualifier::PureRef,
                 LazyContract::Move => todo!(),
             },
             LazyQualifier::EvalRef => match contract {
-                LazyContract::Init => todo!(),
-                LazyContract::Return => todo!(),
-                LazyContract::UseMemberForInit => LazyQualifier::EvalRef,
-                LazyContract::UseMemberForReturn => LazyQualifier::EvalRef,
+                LazyContract::Pass => LazyQualifier::EvalRef,
                 LazyContract::EvalRef => LazyQualifier::EvalRef,
                 LazyContract::Pure => LazyQualifier::PureRef,
                 LazyContract::Move => todo!(),
@@ -205,10 +193,7 @@ impl LazyQualifier {
     ) -> Binding {
         if is_member_ty_copyable {
             match member_contract {
-                LazyContract::Init => Binding::Copy,
-                LazyContract::Return => todo!(),
-                LazyContract::UseMemberForInit => todo!(),
-                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::Pass => Binding::Copy,
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => Binding::Copy,
                 LazyContract::Move => todo!(),
@@ -216,15 +201,12 @@ impl LazyQualifier {
         } else {
             // non-copyable
             match member_contract {
-                LazyContract::Init => match self {
+                LazyContract::Pass => match self {
                     LazyQualifier::Copyable => todo!(),
                     LazyQualifier::PureRef => Binding::TempRef,
                     LazyQualifier::EvalRef => Binding::EvalRef,
                     LazyQualifier::Transient => Binding::Move,
                 },
-                LazyContract::Return => todo!(),
-                LazyContract::UseMemberForInit => todo!(),
-                LazyContract::UseMemberForReturn => todo!(),
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => todo!(),
                 LazyContract::Move => todo!(),
