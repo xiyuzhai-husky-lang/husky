@@ -173,7 +173,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                         this_ty: *this_ty,
                         this_range: opds[0].range,
                     },
-                    SuffixOpr::WithTy(_) => todo!(),
                 };
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)

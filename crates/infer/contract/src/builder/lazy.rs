@@ -137,7 +137,9 @@ impl<'a> ContractSheetBuilder<'a> {
             RawOpnVariant::Prefix(opr) => {
                 self.infer_lazy_prefix_opn(*opr, opds.start, contract, arena)
             }
-            RawOpnVariant::Suffix(opr) => self.infer_lazy_suffix(*opr, opds.start, contract, arena),
+            RawOpnVariant::Suffix(opr) => {
+                self.infer_lazy_suffix(*opr, opds.start, contract, arena, raw_expr_idx)
+            }
             RawOpnVariant::FieldAccess(field_ident) => {
                 self.infer_lazy_field_access(*field_ident, opds.start, contract, arena)
             }
@@ -188,12 +190,17 @@ impl<'a> ContractSheetBuilder<'a> {
         opd: RawExprIdx,
         contract: LazyContract,
         arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
-            SuffixOpr::Incr => todo!(),
-            SuffixOpr::Decr => todo!(),
-            SuffixOpr::WithTy(_) => todo!(),
-            SuffixOpr::AsTy(_) => todo!(),
+            SuffixOpr::Incr | SuffixOpr::Decr => throw!(
+                format!("mutation not allowed in lazy functional context"),
+                arena[raw_expr_idx].range
+            ),
+            SuffixOpr::AsTy(expr) => {
+                self.infer_lazy_expr(opd, contract, arena);
+                Ok(())
+            }
         }
     }
 

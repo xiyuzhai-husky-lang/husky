@@ -413,7 +413,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 qual: EagerQualifier::Copyable,
                 ty: EntityRoutePtr::Root(RootIdentifier::Void),
             }),
-            SuffixOpr::WithTy(_) => todo!(),
             SuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
         }
     }

@@ -305,12 +305,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<LazyQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
-        Ok(match opr {
-            SuffixOpr::Incr => todo!(),
-            SuffixOpr::Decr => todo!(),
-            SuffixOpr::WithTy(_) => todo!(),
-            SuffixOpr::AsTy(_) => todo!(),
-        })
+        match opr {
+            SuffixOpr::Incr | SuffixOpr::Decr => {
+                throw_derived!(format!("mutation not allowed in lazy functional context"))
+            }
+            SuffixOpr::AsTy(_) => Ok(this_qt),
+        }
     }
 
     fn lazy_field_access(

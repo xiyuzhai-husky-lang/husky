@@ -260,7 +260,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         Ok(match opr {
             SuffixOpr::Incr => todo!(),
             SuffixOpr::Decr => todo!(),
-            SuffixOpr::WithTy(_) => todo!(),
             SuffixOpr::AsTy(_) => todo!(),
         })
     }

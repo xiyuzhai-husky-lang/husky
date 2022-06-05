@@ -41,8 +41,11 @@ proc proc_temp_ref_mut_is_ok(b: mut B) -> i32:
     let pass_is_ok = b.x
     return 1
 
-def suffix_arithmetic -> i32:
-    a = 1++ // mutation not allowed in lazy functional context
+def lazy_mutation_is_err -> i32:
+    a = 1++
+
+def lazy_as_ty_is_ok -> i32:
+    a = 1 as b32
 
 main:
     b = B(3, A(1))
