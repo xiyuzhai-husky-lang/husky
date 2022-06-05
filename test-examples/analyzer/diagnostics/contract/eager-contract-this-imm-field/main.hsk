@@ -28,7 +28,7 @@ proc i2(v: &[]A) -> i32:
 
 proc i3(v: &[]A) -> i32:
     var t1 = g(v.first())
-    v.first() = v
+    v.first() = v.first()
     return 1
 
 proc i4(a: &A) -> i32:
