@@ -4,9 +4,9 @@ use liason::{MemberLiason, OutputLiason, ParameterLiason};
 pub use spatial::*;
 use std::sync::Arc;
 
-use entity_route::{EntityRoutePtr, RangedEntityRoute};
+use entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
 use text::RangedCustomIdentifier;
-use word::{CustomIdentifier, IdentDict, Paradigm};
+use word::{CustomIdentifier, IdentDict, Paradigm, RootIdentifier};
 
 // function or method
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -28,8 +28,17 @@ pub struct Parameter {
 }
 
 impl Parameter {
-    pub fn new(ranged_ident: RangedCustomIdentifier, ranged_ty: RangedEntityRoute) -> Self {
-        let liason = ParameterLiason::new(ranged_ty.route);
+    pub fn new(
+        ranged_ident: RangedCustomIdentifier,
+        liason: ParameterLiason,
+        ranged_ty: RangedEntityRoute,
+    ) -> Self {
+        match ranged_ty.route.kind {
+            EntityRouteKind::Root {
+                ident: RootIdentifier::Ref,
+            } => panic!(),
+            _ => (),
+        }
         Self {
             ranged_ident,
             liason,

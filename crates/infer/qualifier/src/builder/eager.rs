@@ -277,7 +277,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     is_field_copyable,
                     arena[raw_expr_idx].range,
                 )?;
-                let this_qual = EagerQualifier::parameter_use(
+                let this_qual = EagerQualifier::parameter_use_eager_qualifier(
                     self.db.upcast(),
                     this_ty,
                     this_liason,

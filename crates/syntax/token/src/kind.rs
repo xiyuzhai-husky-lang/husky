@@ -36,3 +36,9 @@ impl From<WordPtr> for TokenKind {
         }
     }
 }
+
+impl From<Keyword> for TokenKind {
+    fn from(keyword: Keyword) -> Self {
+        TokenKind::Keyword(keyword)
+    }
+}

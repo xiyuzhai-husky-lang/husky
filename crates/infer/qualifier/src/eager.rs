@@ -48,7 +48,7 @@ impl EagerQualifiedTy {
         range: TextRange,
     ) -> InferResult<Self> {
         Ok(EagerQualifiedTy {
-            qual: EagerQualifier::parameter_use(
+            qual: EagerQualifier::parameter_use_eager_qualifier(
                 db.upcast(),
                 ty,
                 parameter_liason,
@@ -64,7 +64,7 @@ impl EagerQualifiedTy {
         parameter_liason: ParameterLiason,
     ) -> InferResult<Self> {
         Ok(EagerQualifiedTy {
-            qual: EagerQualifier::parameter(db.upcast(), ty, parameter_liason)?,
+            qual: EagerQualifier::parameter_eager_qualifier(db.upcast(), ty, parameter_liason)?,
             ty: ty.deref_route(),
         })
     }
@@ -336,17 +336,18 @@ impl EagerQualifier {
         }
     }
 
-    pub fn parameter_use(
+    pub fn parameter_use_eager_qualifier(
         db: &dyn DeclQueryGroup,
         parameter_ty: EntityRoutePtr,
         parameter_liason: ParameterLiason,
         contract: EagerContract,
         range: TextRange,
     ) -> InferResult<Self> {
-        Self::parameter(db, parameter_ty, parameter_liason)?.variable_use(contract, range)
+        Self::parameter_eager_qualifier(db, parameter_ty, parameter_liason)?
+            .variable_use(contract, range)
     }
 
-    pub fn parameter(
+    pub fn parameter_eager_qualifier(
         db: &dyn DeclQueryGroup,
         parameter_ty: EntityRoutePtr,
         parameter_liason: ParameterLiason,
@@ -372,7 +373,7 @@ impl EagerQualifier {
                         }
                     }
                     ParameterLiason::EvalRef => EagerQualifier::EvalRef,
-                    ParameterLiason::Move => todo!(),
+                    ParameterLiason::Move => EagerQualifier::Owned,
                     ParameterLiason::TempRefMut => todo!(),
                     ParameterLiason::MoveMut => todo!(),
                     ParameterLiason::MemberAccess => todo!(),

@@ -121,6 +121,18 @@ macro_rules! try_eat {
         try_eat!($parser, SpecialToken::Lifetime)
     }};
 
+    ($parser:expr, "&") => {{
+        try_eat!($parser, SpecialToken::Ambersand)
+    }};
+
+    ($parser:expr, "mut") => {{
+        try_eat!($parser, token_kind, TokenKind::Keyword(word::Keyword::Liason(word::LiasonKeyword::Mut)))
+    }};
+
+    ($parser:expr, "!!") => {{
+        try_eat!($parser, SpecialToken::DoubleExclamation)
+    }};
+
     ($parser:expr, "_") => {{
         try_eat!($parser, elide)
     }};

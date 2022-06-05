@@ -3,6 +3,7 @@ use std::sync::Arc;
 use crate::*;
 use defn_head::{CallableDefnHead, GenericPlaceholderVariant, Parameter, SpatialParameter};
 use entity_route::*;
+use print_utils::msg_once;
 use token::SemanticTokenKind;
 use word::{IdentDict, Paradigm};
 
@@ -81,8 +82,26 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 ident.range,
             ));
         eat!(self, ":");
-        let ty = get!(self, ranged_ty?);
-        Ok(Parameter::new(ident, ty))
+        let parameter_liason = self.parameter_liason();
+        let ranged_ty = get!(self, ranged_ty?);
+        Ok(Parameter::new(ident, parameter_liason, ranged_ty))
+    }
+
+    pub fn parameter_liason(&mut self) -> ParameterLiason {
+        if try_eat!(self, "&") {
+            msg_once!("todo: temporal parameter");
+            ParameterLiason::EvalRef
+        } else if try_eat!(self, "mut") {
+            if try_eat!(self, "!!") {
+                ParameterLiason::MoveMut
+            } else {
+                ParameterLiason::TempRefMut
+            }
+        } else if try_eat!(self, "!!") {
+            ParameterLiason::Move
+        } else {
+            ParameterLiason::Pure
+        }
     }
 
     pub fn func_output_ty(&mut self) -> AtomResult<RangedEntityRoute> {
