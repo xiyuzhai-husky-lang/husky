@@ -13,7 +13,6 @@ impl From<SuffixOpr> for RawOpnVariant {
 pub enum SuffixOpr {
     Incr,                    // ++
     Decr,                    // --
-    WithTy(EntityRoutePtr),  // :
     AsTy(RangedEntityRoute), // :
 }
 
@@ -22,7 +21,6 @@ impl SuffixOpr {
         match self {
             SuffixOpr::Incr => "++".into(),
             SuffixOpr::Decr => "--".into(),
-            SuffixOpr::WithTy(ty) => format!(": {}", ty),
             SuffixOpr::AsTy(ty) => format!(" as {}", ty.route),
         }
     }

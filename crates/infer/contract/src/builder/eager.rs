@@ -304,7 +304,6 @@ impl<'a> ContractSheetBuilder<'a> {
                     _ => todo!(),
                 }
             }
-            SuffixOpr::WithTy(_) => todo!(),
             SuffixOpr::AsTy(_) => {
                 self.infer_eager_expr(opd, contract, arena);
                 Ok(())

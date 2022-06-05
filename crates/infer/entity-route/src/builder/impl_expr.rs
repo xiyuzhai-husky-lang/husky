@@ -359,7 +359,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 Ok(EntityRoutePtr::Root(RootIdentifier::Void))
             }
-            SuffixOpr::WithTy(_) => todo!(),
             SuffixOpr::AsTy(ranged_ty) => Ok(ranged_ty.route),
         }
     }

@@ -24,12 +24,6 @@ impl<'a> RustGenerator<'a> {
                 EagerOpnVariant::Suffix { opr, this_ty: this } => match opr {
                     SuffixOpr::Incr => todo!(),
                     SuffixOpr::Decr => todo!(),
-                    // SuffixOpr::FieldAccess(field_ident) => {
-                    //     self.gen_expr(&opds[0]);
-                    //     self.write(".");
-                    //     self.write(&field_ident.ident)
-                    // }
-                    SuffixOpr::WithTy(_) => todo!(),
                     SuffixOpr::AsTy(_) => todo!(),
                 },
                 EagerOpnVariant::RoutineCall(_) => todo!(),
