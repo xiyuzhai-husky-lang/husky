@@ -7,6 +7,7 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         token_group: &[Token],
     ) -> AstResult<AstVariant> {
+        self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
         expect_head!(token_group);
         expect_at_least!(token_group, token_group.text_range(), 5);
         let ident = identify_token!(
@@ -15,7 +16,6 @@ impl<'a> AstTransformer<'a> {
             SemanticTokenKind::Entity(EntityKind::Feature)
         );
         let ty = atom::parse_route(self, &token_group[3..])?;
-        self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
         Ok(AstVariant::FeatureDecl { ident, ty })
     }
 }
