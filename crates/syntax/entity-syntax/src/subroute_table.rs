@@ -24,11 +24,9 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
             TokenKind::Special(SpecialToken::LPar) => EntityKind::Function {
                 is_lazy: paradigm.is_lazy(),
             },
-            TokenKind::Special(SpecialToken::LightArrow) => EntityKind::Feature,
-            _ => {
-                p!(third_token);
-                todo!()
-            }
+            TokenKind::Special(SpecialToken::LightArrow)
+            | TokenKind::Special(SpecialToken::Colon) => EntityKind::Feature,
+            _ => return None,
         }),
         Keyword::Type(keyword) => Some(EntityKind::Type(keyword.into())),
         Keyword::Main => Some(EntityKind::Main),

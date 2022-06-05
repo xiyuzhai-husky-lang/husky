@@ -17,7 +17,7 @@ pub enum EagerContract {
 }
 
 impl EagerContract {
-    pub(crate) fn from_this_argument(
+    pub(crate) fn this_contract(
         parameter_liason: ParameterLiason,
         output_liason: OutputLiason,
         output_contract: EagerContract,
@@ -50,7 +50,7 @@ impl EagerContract {
         }
     }
 
-    pub(crate) fn from_parameter_argument(
+    pub(crate) fn argument_contract(
         parameter_ty: EntityRoutePtr,
         parameter_liason: ParameterLiason,
         output_liason: OutputLiason,
@@ -92,7 +92,7 @@ impl EagerContract {
         }
     }
 
-    pub fn from_field_access(
+    pub fn field_access_contract(
         field_liason: MemberLiason,
         member_contract: EagerContract,
         is_member_copyable: bool,

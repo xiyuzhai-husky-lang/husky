@@ -271,7 +271,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let field_contract = self.eager_expr_contract(raw_expr_idx)?;
                 let field_ty = derived_not_none!(opt_field_ty)?;
                 let is_field_copyable = self.db.is_copyable(field_ty.route)?;
-                let this_contract = EagerContract::from_field_access(
+                let this_contract = EagerContract::field_access_contract(
                     field_liason,
                     field_contract,
                     is_field_copyable,
@@ -284,7 +284,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     this_contract,
                     raw_expr.range,
                 )?;
-                Ok(EagerQualifiedTy::from_member(
+                Ok(EagerQualifiedTy::member_eager_qualified_ty(
                     self.db,
                     this_qual,
                     field_ty.route,
@@ -434,7 +434,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         };
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        Ok(EagerQualifiedTy::from_member(
+        Ok(EagerQualifiedTy::member_eager_qualified_ty(
             self.db,
             this_qt.qual,
             field_decl.ty,
@@ -562,7 +562,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
         let element_ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         msg_once!("todo: other member liason");
-        EagerQualifiedTy::from_member(
+        EagerQualifiedTy::member_eager_qualified_ty(
             self.db,
             this_qt.qual,
             element_ty,

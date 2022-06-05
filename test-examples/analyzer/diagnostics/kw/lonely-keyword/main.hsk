@@ -1,2 +1,6 @@
-fn hell() -> i32:
-    1s
+struct A:
+    x: i32
+
+    def
+
+func

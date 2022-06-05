@@ -1,1 +1,2 @@
-func
+fn hell() -> i32:
+    1s

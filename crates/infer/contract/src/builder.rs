@@ -124,9 +124,9 @@ impl<'a> ContractSheetBuilder<'a> {
                         | FieldAstKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
                         _ => (),
                     },
-                    AstVariant::Stmt(_) => todo!(),
                     AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_stmts(children, &arena),
                     AstVariant::Submodule { ident, source_file } => (),
+                    AstVariant::Stmt(_) => panic!(),
                 }
             }
         }

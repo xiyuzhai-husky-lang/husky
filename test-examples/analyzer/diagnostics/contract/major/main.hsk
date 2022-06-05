@@ -1,10 +1,24 @@
 dataset:
     synthetic::trivial::real1d::dataset1()
 
-struct B:
+struct A:
     x: i32
 
+    def lazy_field -> i32:
+        x
+
+struct B:
+    x: i32
+    a: A
+
 func func_pure_is_ok(b: B) -> i32:
+    a = b.a
+    x = b.x
+    1
+
+func func_eval_ref_is_ok(b: &B) -> i32:
+    a = b.a
+    x = b.x
     1
 
 func func_move_is_ok(b: !!B) -> i32:
@@ -17,15 +31,19 @@ func func_temp_ref_mut_is_err(b: mut B) -> i32:
     1
 
 proc proc_move_mut_is_ok(b: mut !!B) -> i32:
-    b = B(3)
+    b = B(3, A(1))
     return 1
 
 proc proc_temp_ref_mut_is_ok(b: mut B) -> i32:
-    b = B(3)
-    let c = pure_use(b)
+    let b = B(3, A(1))
+    let c = func_pure_is_ok(b)
     let move_from_temp_ref_mut_is_err = func_move_is_ok(b)
     let pass_is_ok = b.x
     return 1
 
+def suffix_arithmetic -> :
+    a = 1++ // mutation not allowed in lazy functional context
+
 main:
+    b = B(3, A(1))
     1

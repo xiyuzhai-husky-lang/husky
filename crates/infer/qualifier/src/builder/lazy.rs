@@ -188,7 +188,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             } => {
                 let ty = derived_not_none!(opt_ty)?;
                 let contract = derived_not_none!(opt_contract)?;
-                LazyQualifiedTy::from_parameter(self.db, contract, ty)
+                LazyQualifiedTy::parameter_lazy_qualified_ty(self.db, contract, ty)
             }
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::Entity { route, kind } => match kind {
@@ -216,7 +216,36 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 ref opds,
             } => self.lazy_opn(arena, raw_expr_idx, opr, opds.clone()),
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::ThisField { .. } => todo!(),
+            RawExprVariant::ThisField {
+                opt_this_ty,
+                opt_this_liason,
+                field_ident: ident,
+                field_liason,
+                opt_field_ty,
+            } => {
+                let this_ty = derived_not_none!(opt_this_ty)?;
+                let this_liason = derived_not_none!(opt_this_liason)?;
+                let field_contract = self.lazy_expr_contract(raw_expr_idx)?;
+                let field_ty = derived_not_none!(opt_field_ty)?;
+                let is_field_copyable = self.db.is_copyable(field_ty.route)?;
+                let this_contract = LazyContract::field_access_lazy_contract(
+                    field_liason,
+                    field_contract,
+                    is_field_copyable,
+                    arena[raw_expr_idx].range,
+                )?;
+                let this_qual = LazyQualifier::parameter_use_lazy_qualifier(
+                    this_liason,
+                    self.db.is_copyable(this_ty)?,
+                    this_contract,
+                )?;
+                Ok(LazyQualifiedTy::member_lazy_qualified_ty(
+                    self.db,
+                    this_qual,
+                    field_ty.route,
+                    field_liason,
+                )?)
+            }
         }
     }
 
@@ -294,7 +323,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let qual = LazyQualifier::field(
+        let qual = LazyQualifier::member_lazy_qualifier(
             this_qt.qual,
             field_decl.liason,
             self.db.is_copyable(field_decl.ty)?,

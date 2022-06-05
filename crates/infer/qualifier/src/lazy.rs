@@ -31,7 +31,23 @@ impl LazyQualifiedTy {
         }
     }
 
-    pub(crate) fn from_parameter(
+    pub(crate) fn member_lazy_qualified_ty(
+        db: &dyn InferQualifiedTyQueryGroup,
+        this_qual: LazyQualifier,
+        field_ty: EntityRoutePtr,
+        field_liason: MemberLiason,
+    ) -> InferResult<Self> {
+        Ok(Self::new(
+            LazyQualifier::member_lazy_qualifier(
+                this_qual,
+                field_liason,
+                db.is_copyable(field_ty)?,
+            )?,
+            field_ty,
+        ))
+    }
+
+    pub(crate) fn parameter_lazy_qualified_ty(
         db: &dyn InferQualifiedTyQueryGroup,
         parameter_liason: ParameterLiason,
         ty: EntityRoutePtr,
@@ -136,10 +152,8 @@ impl LazyQualifier {
             LazyQualifier::Transient => todo!(),
         })
     }
-}
 
-impl LazyQualifier {
-    pub fn field(
+    pub fn member_lazy_qualifier(
         this_qual: LazyQualifier,
         field_liason: MemberLiason,
         is_field_copyable: bool,
@@ -152,7 +166,7 @@ impl LazyQualifier {
         })
     }
 
-    pub fn parameter_use(
+    pub fn parameter_use_lazy_qualifier(
         input_liason: ParameterLiason,
         is_copyable: bool,
         contract: LazyContract,
