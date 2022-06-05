@@ -349,7 +349,13 @@ impl TyDecl {
                     ),
                     ranged_ident.range
                 ),
-                TyMemberDecl::Call(_) => todo!(),
+                TyMemberDecl::Call(_) => throw!(
+                    format!(
+                        "expect a field, but `{}` is an associated call in type `{:?}`",
+                        &ranged_ident.ident, self.this_ty
+                    ),
+                    ranged_ident.range
+                ),
             },
             None => {
                 throw!(
@@ -361,31 +367,6 @@ impl TyDecl {
                 )
             }
         }
-        // match self.kind {
-        //     TyKind::Struct {
-        //         fields: ref fields,
-        //         ..
-        //     } => ok_or!(
-        //         fields.get(ranged_ident.ident),
-        //         format!("no such member variable {}", &ranged_ident.ident),
-        //         ranged_ident.range
-        //     )
-        //     .map(|signature| signature.ty),
-        //     TyKind::Enum { ref variants } => todo!(),
-        //     TyKind::Record {
-        //         fields: ref fields,
-        //         derived_fields: ref field_features,
-        //     } => {
-        //         if let Some(field) = fields.get(ranged_ident.ident) {
-        //             Ok(field.ty)
-        //         } else if let Some(field_feature) = field_features.get(ranged_ident.ident) {
-        //             Ok(*field_feature)
-        //         } else {
-        //             todo!()
-        //         }
-        //     }
-        //     TyKind::Vec { element_ty } => todo!(),
-        // }
     }
 
     pub fn field_decl(&self, ranged_ident: RangedCustomIdentifier) -> InferResultArcRef<FieldDecl> {
@@ -399,30 +380,6 @@ impl TyDecl {
             },
             None => Err(derived!(format!("no such field"))),
         }
-        // self.fields[field_ident]
-        // match self.kind {
-        //     TyKind::Struct {
-        //         fields: ref fields,
-        //         ..
-        //     } => *fields.get(ranged_ident.ident).unwrap(),
-        //     TyKind::Enum { ref variants } => todo!(),
-        //     TyKind::Record {
-        //         fields: ref fields,
-        //         derived_fields: ref field_features,
-        //     } => {
-        //         if let Some(field) = fields.get(ranged_ident.ident) {
-        //             *field
-        //         } else if let Some(field_feature) = field_features.get(ranged_ident.ident) {
-        //             FieldDecl {
-        //                 contract: MembAccessContract::LazyOwn,
-        //                 ty: *field_feature,
-        //             }
-        //         } else {
-        //             todo!()
-        //         }
-        //     }
-        //     TyKind::Vec { element_ty } => todo!(),
-        // }
     }
 
     pub fn field_kind(&self, field_ident: CustomIdentifier) -> FieldKind {
@@ -430,56 +387,6 @@ impl TyDecl {
             TyMemberDecl::Field(field) => field.field_kind,
             _ => panic!(""),
         }
-        // match self.kind {
-        //     TyKind::Struct {
-        //         fields: ref fields,
-        //         methods: ref field_routines,
-        //     } => {
-        //         if fields.get(field_ident).is_some() {
-        //             FieldAccessKind::StructMembVar
-        //         } else {
-        //             panic!("todo: memb feature of struct")
-        //         }
-        //     }
-        //     TyKind::Enum { ref variants } => todo!(),
-        //     TyKind::Record {
-        //         fields: ref fields,
-        //         derived_fields: ref field_features,
-        //     } => {
-        //         if fields.get(field_ident).is_some() {
-        //             FieldAccessKind::RecordMemb
-        //         } else if field_features.get(field_ident).is_some() {
-        //             FieldAccessKind::RecordMemb
-        //         } else {
-        //             todo!()
-        //         }
-        //     }
-        //     TyKind::Vec { element_ty } => todo!(),
-        // }
-    }
-
-    pub fn signature(&self) -> TySignature {
-        todo!()
-        // match self.kind {
-        //     TyKind::Struct {
-        //         fields: ref fields,
-        //         ..
-        //     } => {
-        //         let mut vm_fields = IdentDict::<MembAccessContract>::default();
-        //         fields.iter().for_each(|(ident, field_sig)| {
-        //             vm_fields.insert_new(*ident, field_sig.contract)
-        //         });
-        //         TySignature::Struct {
-        //             fields: vm_fields,
-        //         }
-        //     }
-        //     TyKind::Enum { ref variants } => todo!(),
-        //     TyKind::Record {
-        //         fields: ref fields,
-        //         derived_fields: ref field_features,
-        //     } => todo!(),
-        //     TyKind::Vec { element_ty } => TySignature::Vec,
-        // }
     }
 
     pub fn method(
