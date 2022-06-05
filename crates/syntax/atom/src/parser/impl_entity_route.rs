@@ -252,6 +252,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 RootIdentifier::TypeType => todo!(),
                 RootIdentifier::ModuleType => todo!(),
                 RootIdentifier::Ref => todo!(),
+                RootIdentifier::VisualType => todo!(),
             },
             _ => match self
                 .atom_context

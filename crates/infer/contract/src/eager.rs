@@ -10,6 +10,7 @@ use word::RootIdentifier;
 pub enum EagerContract {
     Pure,
     Move,
+    Pass,
     EvalRef,
     TempRef,
     TempRefMut,
@@ -26,7 +27,7 @@ impl EagerContract {
         match output_liason {
             OutputLiason::Transfer => {
                 match output_contract {
-                    EagerContract::Pure | EagerContract::Move => (),
+                    EagerContract::Pure | EagerContract::Move | EagerContract::Pass => (),
                     EagerContract::TempRefMut => match output_liason {
                         OutputLiason::Transfer => {
                             throw!(format!("can't mutate transferred output"), range)
@@ -44,13 +45,7 @@ impl EagerContract {
                     ParameterLiason::EvalRef => EagerContract::EvalRef,
                 })
             }
-            OutputLiason::MemberAccess { .. } => Ok(match output_contract {
-                EagerContract::Pure => EagerContract::Pure,
-                EagerContract::Move => EagerContract::Move,
-                EagerContract::TempRefMut => output_contract,
-                EagerContract::TempRef => todo!(),
-                EagerContract::EvalRef => EagerContract::EvalRef,
-            }),
+            OutputLiason::MemberAccess { .. } => Ok(output_contract),
         }
     }
 
@@ -69,7 +64,10 @@ impl EagerContract {
             _ => match output_liason {
                 OutputLiason::Transfer => {
                     match output_contract {
-                        EagerContract::Pure | EagerContract::Move | EagerContract::Pure => (),
+                        EagerContract::Pure
+                        | EagerContract::Move
+                        | EagerContract::Pure
+                        | EagerContract::Pass => (),
                         EagerContract::TempRefMut => match output_liason {
                             OutputLiason::Transfer => {
                                 throw!(format!("can't mutate transferred output"), range)
@@ -116,20 +114,16 @@ impl EagerContract {
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => todo!(),
             })
         } else {
             match field_liason {
                 MemberLiason::Immutable => match member_contract {
-                    EagerContract::Pure => Ok(EagerContract::Pure),
-
-                    EagerContract::Move => Ok(EagerContract::Move),
-                    EagerContract::Pure => todo!(),
                     EagerContract::TempRefMut => throw!(
                         format!("can't bind mutable reference to an immutable field"),
                         range
                     ),
-                    EagerContract::EvalRef => Ok(EagerContract::EvalRef),
-                    EagerContract::TempRef => todo!(),
+                    _ => Ok(member_contract),
                 },
                 MemberLiason::Mutable => match member_contract {
                     EagerContract::Pure => Ok(EagerContract::Pure),
@@ -138,6 +132,7 @@ impl EagerContract {
                     EagerContract::Pure => todo!(),
                     EagerContract::EvalRef => Ok(EagerContract::EvalRef),
                     EagerContract::TempRef => todo!(),
+                    EagerContract::Pass => todo!(),
                 },
                 MemberLiason::Derived => panic!(),
             }
@@ -150,11 +145,28 @@ impl EagerContract {
         }
     }
 
-    pub fn pure_or_move(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferResult<Self> {
+    pub fn init_contract(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferResult<Self> {
         Ok(if db.is_copyable(ty)? {
             EagerContract::Pure
         } else {
-            EagerContract::Move
+            EagerContract::Pass
+        })
+    }
+
+    pub fn ret_contract(
+        db: &dyn DeclQueryGroup,
+        output_ty: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
+    ) -> InferResult<Self> {
+        Ok(if output_ty.kind == return_ty.kind {
+            if db.is_copyable(output_ty)? {
+                EagerContract::Pure
+            } else {
+                EagerContract::Move
+            }
+        } else {
+            p!(output_ty, return_ty);
+            todo!()
         })
     }
 }

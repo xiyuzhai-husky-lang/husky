@@ -101,7 +101,7 @@ impl EagerQualifiedTy {
                 EagerQualifier::Transient | EagerQualifier::OwnedMut => EagerQualifier::Owned,
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::EvalRef => todo!(),
-                EagerQualifier::TempMut => todo!(),
+                EagerQualifier::TempRefMut => todo!(),
             },
             InitKind::Var => match self.qual {
                 EagerQualifier::Copyable | EagerQualifier::CopyableMut => {
@@ -113,7 +113,7 @@ impl EagerQualifiedTy {
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::OwnedMut => todo!(),
                 EagerQualifier::EvalRef => EagerQualifier::CopyableMut,
-                EagerQualifier::TempMut => todo!(),
+                EagerQualifier::TempRefMut => todo!(),
             },
             InitKind::Decl => match self.qual {
                 EagerQualifier::Copyable => EagerQualifier::Copyable,
@@ -124,7 +124,7 @@ impl EagerQualifiedTy {
                 EagerQualifier::Transient => EagerQualifier::Owned,
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::OwnedMut => panic!(),
-                EagerQualifier::TempMut => todo!(),
+                EagerQualifier::TempRefMut => todo!(),
             },
         };
         Ok(Self { qual, ty: self.ty })
@@ -148,7 +148,7 @@ impl EagerQualifiedTy {
                 | EagerQualifier::Owned
                 | EagerQualifier::OwnedMut => true,
                 EagerQualifier::EvalRef => todo!(),
-                EagerQualifier::TempMut => todo!(),
+                EagerQualifier::TempRefMut => todo!(),
             },
             OutputLiason::MemberAccess { .. } => todo!(),
         }
@@ -178,7 +178,7 @@ pub enum EagerQualifier {
     PureRef,
     EvalRef,
     TempRef,
-    TempMut,
+    TempRefMut,
     Transient,
 }
 
@@ -192,7 +192,7 @@ impl std::fmt::Debug for EagerQualifier {
             EagerQualifier::PureRef => "PureRef",
             EagerQualifier::EvalRef => "EvalRef",
             EagerQualifier::TempRef => "TempRef",
-            EagerQualifier::TempMut => "RefMut",
+            EagerQualifier::TempRefMut => "RefMut",
             EagerQualifier::Transient => "Transient",
         })
     }
@@ -207,7 +207,7 @@ impl EagerQualifier {
             | EagerQualifier::TempRef
             | EagerQualifier::Owned
             | EagerQualifier::Transient => false,
-            EagerQualifier::CopyableMut | EagerQualifier::OwnedMut | EagerQualifier::TempMut => {
+            EagerQualifier::CopyableMut | EagerQualifier::OwnedMut | EagerQualifier::TempRefMut => {
                 true
             }
         }
@@ -215,20 +215,12 @@ impl EagerQualifier {
 
     pub fn binding(self, contract: EagerContract) -> Binding {
         match self {
-            EagerQualifier::PureRef => match contract {
-                EagerContract::Pure => Binding::TempRef,
+            EagerQualifier::PureRef | EagerQualifier::TempRef => match contract {
+                EagerContract::Pure | EagerContract::Pass => Binding::TempRef,
                 EagerContract::Move => panic!(),
                 EagerContract::TempRefMut => todo!(),
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => panic!(),
-                EagerContract::TempRef => todo!(),
-            },
-            EagerQualifier::TempRef => match contract {
-                EagerContract::Pure => Binding::TempRef,
-                EagerContract::Move => todo!(),
-                EagerContract::TempRefMut => todo!(),
-                EagerContract::Pure => todo!(),
-                EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
             },
             EagerQualifier::Transient => todo!(),
@@ -240,6 +232,7 @@ impl EagerQualifier {
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => todo!(),
             },
             EagerQualifier::Owned => match contract {
                 EagerContract::Pure => Binding::TempRef,
@@ -248,6 +241,7 @@ impl EagerQualifier {
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => todo!(),
             },
             EagerQualifier::OwnedMut => match contract {
                 EagerContract::Pure => Binding::TempRef,
@@ -256,6 +250,7 @@ impl EagerQualifier {
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => Binding::TempRef,
             },
             EagerQualifier::EvalRef => match contract {
                 EagerContract::Pure => Binding::TempRef,
@@ -264,8 +259,9 @@ impl EagerQualifier {
                 EagerContract::TempRefMut => todo!(),
                 EagerContract::Pure => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => todo!(),
             },
-            EagerQualifier::TempMut => todo!(),
+            EagerQualifier::TempRefMut => todo!(),
         }
     }
 
@@ -300,6 +296,7 @@ impl EagerQualifier {
                 },
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => todo!(),
             }
         } else {
             // non-copyable
@@ -309,7 +306,7 @@ impl EagerQualifier {
                 EagerQualifier::Owned => todo!(),
                 EagerQualifier::OwnedMut => todo!(),
                 EagerQualifier::PureRef => match member_contract {
-                    EagerContract::Pure => Binding::TempRef,
+                    EagerContract::Pure | EagerContract::Pass => Binding::TempRef,
                     EagerContract::Move => todo!(),
                     EagerContract::TempRef => todo!(),
                     EagerContract::TempRefMut => todo!(),
@@ -323,6 +320,7 @@ impl EagerQualifier {
                     EagerContract::TempRef => todo!(),
                     EagerContract::TempRefMut => todo!(),
                     EagerContract::Pure => todo!(),
+                    EagerContract::Pass => todo!(),
                 },
                 EagerQualifier::TempRef => match member_contract {
                     EagerContract::Pure => todo!(),
@@ -331,14 +329,16 @@ impl EagerQualifier {
                     EagerContract::Pure => todo!(),
                     EagerContract::EvalRef => todo!(),
                     EagerContract::TempRef => todo!(),
+                    EagerContract::Pass => Binding::TempRef,
                 },
-                EagerQualifier::TempMut => match member_contract {
+                EagerQualifier::TempRefMut => match member_contract {
                     EagerContract::Pure => todo!(),
                     EagerContract::Move => todo!(),
                     EagerContract::TempRefMut => Binding::TempRefMut,
                     EagerContract::Pure => todo!(),
                     EagerContract::EvalRef => todo!(),
                     EagerContract::TempRef => todo!(),
+                    EagerContract::Pass => todo!(),
                 },
                 EagerQualifier::Transient => todo!(),
             }
@@ -440,18 +440,20 @@ impl EagerQualifier {
             EagerQualifier::Copyable => match contract {
                 EagerContract::Pure => EagerQualifier::Copyable,
                 EagerContract::Move => todo!(),
-                EagerContract::TempRefMut => EagerQualifier::TempMut,
+                EagerContract::TempRefMut => EagerQualifier::TempRefMut,
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => todo!(),
             },
             EagerQualifier::CopyableMut => match contract {
                 EagerContract::Pure => EagerQualifier::Copyable,
                 EagerContract::Move => todo!(),
-                EagerContract::TempRefMut => EagerQualifier::TempMut,
+                EagerContract::TempRefMut => EagerQualifier::TempRefMut,
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => todo!(),
             },
             EagerQualifier::Owned => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
@@ -460,14 +462,16 @@ impl EagerQualifier {
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => todo!(),
             },
             EagerQualifier::OwnedMut => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
                 EagerContract::Move => EagerQualifier::Transient,
-                EagerContract::TempRefMut => EagerQualifier::TempMut,
+                EagerContract::TempRefMut => EagerQualifier::TempRefMut,
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => EagerQualifier::TempRef,
             },
             EagerQualifier::PureRef => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
@@ -480,6 +484,7 @@ impl EagerQualifier {
                     throw!(format!("can't turn a pure ref to a eval ref",), range)
                 }
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => EagerQualifier::PureRef,
             },
             EagerQualifier::EvalRef => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
@@ -490,6 +495,7 @@ impl EagerQualifier {
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => EagerQualifier::EvalRef,
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => EagerQualifier::EvalRef,
             },
             EagerQualifier::TempRef => match contract {
                 EagerContract::Pure => EagerQualifier::PureRef,
@@ -498,8 +504,9 @@ impl EagerQualifier {
                 EagerContract::Pure => todo!(),
                 EagerContract::EvalRef => todo!(),
                 EagerContract::TempRef => todo!(),
+                EagerContract::Pass => todo!(),
             },
-            EagerQualifier::TempMut => todo!(),
+            EagerQualifier::TempRefMut => todo!(),
             EagerQualifier::Transient => todo!(),
         })
     }
@@ -523,7 +530,7 @@ impl EagerQualifier {
                 EagerQualifier::CopyableMut | EagerQualifier::Owned | EagerQualifier::OwnedMut => {
                     panic!()
                 }
-                EagerQualifier::TempMut => EagerQualifier::TempMut,
+                EagerQualifier::TempRefMut => EagerQualifier::TempRefMut,
             }
         } else {
             match this_qual {
@@ -535,7 +542,7 @@ impl EagerQualifier {
                 | EagerQualifier::EvalRef
                 | EagerQualifier::TempRef
                 | EagerQualifier::Transient
-                | EagerQualifier::TempMut => this_qual,
+                | EagerQualifier::TempRefMut => this_qual,
             }
         }
     }

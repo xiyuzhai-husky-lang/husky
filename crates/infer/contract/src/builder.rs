@@ -4,7 +4,7 @@ mod lazy;
 use std::sync::Arc;
 
 use ast::{AstIter, AstVariant, FieldAstKind};
-use entity_route::EntityRouteKind;
+use entity_route::{EntityRouteKind, EntityRoutePtr};
 use entity_syntax::EntitySyntaxResult;
 use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
@@ -97,14 +97,20 @@ impl<'a> ContractSheetBuilder<'a> {
                         self.infer_all(children)
                     }
                     AstVariant::MainDefn => self.infer_lazy_stmts(children, &arena),
-                    AstVariant::DatasetConfigDefnHead => self.infer_eager_stmts(children, &arena),
-                    AstVariant::CallFormDefnHead(ref head) => {
-                        self.infer_eager_stmts(children, &arena)
+                    AstVariant::DatasetConfigDefnHead => {
+                        self.infer_eager_stmts(children, &arena, RootIdentifier::DatasetType.into())
                     }
                     AstVariant::CallFormDefnHead(ref head) => {
-                        self.infer_eager_stmts(children, &arena)
+                        self.infer_eager_stmts(children, &arena, head.output_ty.route)
                     }
-                    AstVariant::Visual => self.infer_eager_stmts(children, &arena),
+                    AstVariant::CallFormDefnHead(ref head) => {
+                        self.infer_eager_stmts(children, &arena, head.output_ty.route)
+                    }
+                    AstVariant::Visual => self.infer_eager_stmts(
+                        children,
+                        &arena,
+                        EntityRoutePtr::Root(RootIdentifier::VisualType),
+                    ),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
                         field_ast_kind: field_kind,
@@ -114,7 +120,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     } => match field_kind {
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
-                        } => self.infer_eager_stmts(children, &arena),
+                        } => self.infer_eager_stmts(children, &arena, ty.route),
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::LazyFunctional,
                         }
@@ -123,7 +129,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     },
                     AstVariant::Stmt(_) => todo!(),
                     AstVariant::CallFormDefnHead(ref head) => {
-                        self.infer_eager_stmts(children, &arena)
+                        self.infer_eager_stmts(children, &arena, head.output_ty.route)
                     }
                     AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_stmts(children, &arena),
                     AstVariant::Submodule { ident, source_file } => (),

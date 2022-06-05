@@ -14,21 +14,31 @@ use super::*;
 use crate::*;
 
 impl<'a> ContractSheetBuilder<'a> {
-    pub(super) fn infer_eager_stmts(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
+    pub(super) fn infer_eager_stmts(
+        &mut self,
+        ast_iter: AstIter,
+        arena: &RawExprArena,
+        output_ty: EntityRoutePtr,
+    ) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.variant {
-                    AstVariant::Stmt(ref stmt) => self.infer_eager_stmt(stmt, arena),
+                    AstVariant::Stmt(ref stmt) => self.infer_eager_stmt(stmt, arena, output_ty),
                     _ => (),
                 }
             }
             if let Some(children) = item.opt_children {
-                self.infer_eager_stmts(children, arena)
+                self.infer_eager_stmts(children, arena, output_ty)
             }
         }
     }
 
-    fn infer_eager_stmt(&mut self, stmt: &RawStmt, arena: &RawExprArena) {
+    fn infer_eager_stmt(
+        &mut self,
+        stmt: &RawStmt,
+        arena: &RawExprArena,
+        output_ty: EntityRoutePtr,
+    ) {
         match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
@@ -68,14 +78,16 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawStmtVariant::Init { initial_value, .. } => {
                 if let Ok(ty) = self.raw_expr_ty(initial_value) {
-                    if let Ok(contract) = EagerContract::pure_or_move(self.db.upcast(), ty) {
+                    if let Ok(contract) = EagerContract::init_contract(self.db.upcast(), ty) {
                         self.infer_eager_expr(initial_value, contract, arena);
                     }
                 }
             }
             RawStmtVariant::Return(result) => {
-                if let Ok(ty) = self.raw_expr_ty(result) {
-                    if let Ok(contract) = EagerContract::pure_or_move(self.db.upcast(), ty) {
+                if let Ok(return_ty) = self.raw_expr_ty(result) {
+                    if let Ok(contract) =
+                        EagerContract::ret_contract(self.db.upcast(), output_ty, return_ty)
+                    {
                         self.infer_eager_expr(result, contract, arena);
                     }
                 }
@@ -215,6 +227,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::Pure => todo!(),
                     EagerContract::TempRef => todo!(),
                     EagerContract::EvalRef => todo!(),
+                    EagerContract::Pass => todo!(),
                 }
                 self.infer_eager_expr(lopd, EagerContract::Pure, arena);
                 self.infer_eager_expr(ropd, EagerContract::Pure, arena);
@@ -260,6 +273,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::Pure => todo!(),
                     EagerContract::EvalRef => todo!(),
                     EagerContract::TempRef => todo!(),
+                    EagerContract::Pass => todo!(),
                 }
                 EagerContract::Pure
             }
@@ -297,6 +311,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         EagerContract::Pure => todo!(),
                         EagerContract::EvalRef => todo!(),
                         EagerContract::TempRef => todo!(),
+                        EagerContract::Pass => todo!(),
                     },
                     arena,
                 );
