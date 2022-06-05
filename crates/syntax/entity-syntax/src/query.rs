@@ -117,6 +117,7 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::PartialEqTrait
             | RootIdentifier::EqTrait => EntityKind::Trait,
             RootIdentifier::Ref => todo!(),
+            RootIdentifier::VisualType => todo!(),
         },
         EntityRouteKind::Package { .. } => EntityKind::Module,
         EntityRouteKind::Child { parent, ident } => match parent.kind {
@@ -210,6 +211,7 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::EqTrait => todo!(),
         RootIdentifier::ModuleType => todo!(),
         RootIdentifier::Ref => panic!(),
+        RootIdentifier::VisualType => todo!(),
     }
     .into()
 }

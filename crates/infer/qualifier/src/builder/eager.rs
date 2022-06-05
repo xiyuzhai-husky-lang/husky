@@ -368,7 +368,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 | EagerQualifier::TempRef
                 | EagerQualifier::Transient
                 | EagerQualifier::Owned => throw!("lopd is not mutable", range),
-                EagerQualifier::TempMut
+                EagerQualifier::TempRefMut
                 | EagerQualifier::OwnedMut
                 | EagerQualifier::CopyableMut => (),
             },
@@ -503,7 +503,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                                     | EagerQualifier::Transient => Ok(Some(qt)),
                                     EagerQualifier::EvalRef => todo!(),
                                     EagerQualifier::TempRef => todo!(),
-                                    EagerQualifier::TempMut => todo!(),
+                                    EagerQualifier::TempRefMut => todo!(),
                                 },
                                 ParameterLiason::MemberAccess => todo!(),
                             }

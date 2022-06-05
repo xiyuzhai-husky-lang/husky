@@ -87,6 +87,7 @@ pub fn new_word_interner() -> WordAllocator {
         RootIdentifier::FnOnce.into(),
         RootIdentifier::Datasets.into(),
         RootIdentifier::DatasetType.into(),
+        RootIdentifier::VisualType.into(),
         RootIdentifier::CloneTrait.into(),
         RootIdentifier::CopyTrait.into(),
         RootIdentifier::PartialEqTrait.into(),

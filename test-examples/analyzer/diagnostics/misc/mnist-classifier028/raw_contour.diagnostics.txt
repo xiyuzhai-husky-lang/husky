@@ -7,7 +7,3 @@
 171:33..171:37	Infer Error: no method named `last` for type `mnist_classifier028::raw_contour::RawContour`
 175:33..175:37	Infer Error: no method named `push` for type `mnist_classifier028::raw_contour::RawContour`
 204:25..204:33	Infer Error: no method named `pop_back` for type `mnist_classifier028::raw_contour::RawContour`
-115:10..115:17	Infer Error: can't move from a pure ref
-116:10..116:17	Infer Error: can't move from a pure ref
-115:10..115:17	Infer Error: can't move from a pure ref
-116:10..116:17	Infer Error: can't move from a pure ref

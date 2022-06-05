@@ -92,6 +92,7 @@ pub trait AtomContext {
                 RootIdentifier::EqTrait => todo!(),
                 RootIdentifier::ModuleType => todo!(),
                 RootIdentifier::Ref => todo!(),
+                RootIdentifier::VisualType => todo!(),
             }),
         };
         Atom::new(tail, kind)
