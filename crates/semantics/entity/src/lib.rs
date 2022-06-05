@@ -303,9 +303,9 @@ pub(crate) fn main_defn(
     this: &dyn EntityDefnQueryGroup,
     main_file: file::FilePtr,
 ) -> SemanticResultArc<MainDefn> {
-    let ast_text = this.ast_text(main_file)?;
+    let ast_text = this.ast_text(main_file).unwrap();
     for item in ast_text.folded_results.iter() {
-        match item.value.as_ref()?.variant {
+        match item.value.as_ref().unwrap().variant {
             AstVariant::MainDefn => {
                 return Ok(Arc::new(MainDefn {
                     defn_repr: DefinitionRepr::LazyBlock {
@@ -330,7 +330,7 @@ pub(crate) fn entity_defn(
     db: &dyn EntityDefnQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> SemanticResultArc<EntityDefn> {
-    let source = db.entity_locus(entity_route)?;
+    let source = db.entity_locus(entity_route).unwrap();
     match source {
         EntityLocus::StaticModuleItem(static_defn) => Ok(EntityDefn::from_static(
             &mut AtomContextStandalone {
@@ -349,7 +349,7 @@ pub(crate) fn entity_defn(
             file,
             token_group_index,
         } => {
-            let ast_text = db.ast_text(file)?;
+            let ast_text = db.ast_text(file).unwrap();
             let arena = &ast_text.arena;
             let FoldIterItem {
                 value,
@@ -360,7 +360,7 @@ pub(crate) fn entity_defn(
                 .iter_from(token_group_index)
                 .next()
                 .unwrap();
-            let ast = value.as_ref()?;
+            let ast = value.as_ref().unwrap();
 
             let (ident, entity_kind) = match ast.variant {
                 AstVariant::TypeDefnHead {

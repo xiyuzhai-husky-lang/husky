@@ -213,7 +213,7 @@ impl EntityDefnVariant {
     ) -> SemanticResult<IdentDict<Arc<EntityDefn>>> {
         let mut variants = VecMap::default();
         while let Some(child) = children.peek() {
-            let ast = child.value.as_ref()?;
+            let ast = child.value.as_ref().unwrap();
             match ast.variant {
                 AstVariant::EnumVariantDefnHead {
                     ident,

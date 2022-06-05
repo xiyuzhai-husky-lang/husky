@@ -50,7 +50,7 @@ impl Default for HuskyCompileTime {
 }
 
 impl AllocateUniqueFile for HuskyCompileTime {
-    fn file_unique_allocator(&self) -> &file::FileInterner {
+    fn file_interner(&self) -> &file::FileInterner {
         &self.file_unique_allocator
     }
 }

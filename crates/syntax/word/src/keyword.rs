@@ -122,9 +122,7 @@ impl Deref for Paradigm {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TyKeyword {
     Struct,
-    Rename,
     Enum,
-    Props,
     Record,
 }
 
@@ -132,9 +130,7 @@ impl TyKeyword {
     fn as_str(&self) -> &'static str {
         match self {
             TyKeyword::Struct => "struct",
-            TyKeyword::Rename => "rename",
             TyKeyword::Enum => "enum",
-            TyKeyword::Props => "props",
             TyKeyword::Record => "record",
         }
     }

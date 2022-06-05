@@ -15,7 +15,7 @@ impl<'a> EagerParser<'a> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
-            match item.value.as_ref()?.variant {
+            match item.value.as_ref().unwrap().variant {
                 AstVariant::Use { .. } => todo!(),
                 AstVariant::Stmt(ref stmt) => {
                     let variant = match stmt.variant {
@@ -96,14 +96,14 @@ impl<'a> EagerParser<'a> {
             RawConditionBranchKind::Else => todo!(),
         }
         while let Some(item) = iter.peek() {
-            let item = match item.value.as_ref()?.variant {
+            let item = match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant: RawStmtVariant::ConditionBranch { .. },
                     ..
                 }) => iter.next().unwrap(),
                 _ => break,
             };
-            match item.value.as_ref()?.variant {
+            match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {

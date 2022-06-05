@@ -32,7 +32,6 @@ impl<'eval> AnyValue<'eval> for XmlValue {
     }
 }
 
-#[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum XmlTagKind {
     Point2d,

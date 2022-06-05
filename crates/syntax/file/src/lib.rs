@@ -1,11 +1,11 @@
-mod allocate_unique;
 mod error;
+mod intern;
 mod line_map;
 mod query;
 mod utils;
 
-pub use allocate_unique::{new_file_unique_allocator, AllocateUniqueFile, FileInterner, FilePtr};
 pub use error::*;
+pub use intern::{new_file_unique_allocator, AllocateUniqueFile, FileInterner, FilePtr};
 pub use query::{FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFiles};
 pub use utils::*;
 pub type URange = std::ops::Range<usize>;

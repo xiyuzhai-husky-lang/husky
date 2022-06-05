@@ -52,6 +52,12 @@ impl<'a> AstTransformer<'a> {
             self.context
                 .set(AstContext::Stmt(Paradigm::EagerFunctional));
             self.opt_this_liason.set(Some(ParameterLiason::Pure));
+            if token_stream.empty() {
+                return err!(
+                    format!("expect expr but got nothing"),
+                    token_stream.next_range()
+                );
+            }
             let mut parser = AtomParser::new(self, &mut token_stream);
             let atoms = parser.parse_all()?;
             FieldAstKind::StructDefault {
@@ -67,6 +73,12 @@ impl<'a> AstTransformer<'a> {
             self.context
                 .set(AstContext::Stmt(Paradigm::EagerFunctional));
             self.opt_this_liason.set(Some(ParameterLiason::Pure));
+            if token_stream.empty() {
+                return err!(
+                    format!("expect expr but got nothing"),
+                    token_stream.next_range()
+                );
+            }
             let mut parser = AtomParser::new(self, &mut token_stream);
             let atoms = parser.parse_all()?;
             FieldAstKind::StructDerivedEager {

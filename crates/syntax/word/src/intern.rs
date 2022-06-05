@@ -1,6 +1,6 @@
 use std::{borrow::Borrow, ops::Deref};
 
-use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
+use unique_allocator::{Intern, UniqueAllocator};
 
 use crate::{ident::ContextualIdentifier, *};
 
@@ -31,7 +31,7 @@ impl From<&'static str> for WordPtr {
     }
 }
 
-impl UniqueAllocatorPtr for WordPtr {
+impl Intern for WordPtr {
     type Thing = str;
 }
 
@@ -47,9 +47,7 @@ pub fn new_word_interner() -> WordAllocator {
         Paradigm::EagerProcedural.into(),
         Paradigm::EagerFunctional.into(),
         TyKeyword::Struct.into(),
-        TyKeyword::Rename.into(),
         TyKeyword::Enum.into(),
-        TyKeyword::Props.into(),
         TyKeyword::Record.into(),
         StmtKeyword::Let.into(),
         StmtKeyword::Var.into(),

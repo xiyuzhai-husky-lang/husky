@@ -85,7 +85,7 @@ pub trait FileQueryGroup: FileSalsaQuery {
     }
 
     fn all_main_files(&self) -> Vec<FilePtr> {
-        self.file_unique_allocator()
+        self.file_interner()
             .id_iter()
             .filter_map(|id| self.main_file(id))
             .unique()

@@ -2,7 +2,7 @@ use core::hash::Hash;
 use paste::paste;
 use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
 use text::RangedCustomIdentifier;
-use unique_allocator::{UniqueAllocator, UniqueAllocatorPtr};
+use unique_allocator::{Intern, UniqueAllocator};
 
 use crate::*;
 
@@ -136,7 +136,7 @@ impl From<&'static EntityRoute> for EntityRoutePtr {
     }
 }
 
-impl UniqueAllocatorPtr for EntityRoutePtr {
+impl Intern for EntityRoutePtr {
     type Thing = EntityRoute;
 }
 

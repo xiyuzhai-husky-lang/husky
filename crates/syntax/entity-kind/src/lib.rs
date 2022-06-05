@@ -17,9 +17,7 @@ impl From<TyKeyword> for TyKind {
     fn from(keyword: TyKeyword) -> Self {
         match keyword {
             TyKeyword::Struct => TyKind::Struct,
-            TyKeyword::Rename => todo!(),
             TyKeyword::Enum => TyKind::Enum,
-            TyKeyword::Props => todo!(),
             TyKeyword::Record => TyKind::Record,
         }
     }

@@ -14,7 +14,7 @@ pub trait PackageQueryGroup: EntityDefnQueryGroup {
 }
 
 fn package(db: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Pack> {
-    let module = db.module(main_file)?;
+    let module = db.module(main_file).unwrap();
     let ident = match module.kind {
         EntityRouteKind::Package { ident, .. } => ident,
         _ => panic!(),
@@ -28,7 +28,7 @@ fn package(db: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResu
 }
 
 fn config(this: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Config> {
-    let ast_text = this.ast_text(main_file)?;
+    let ast_text = this.ast_text(main_file).unwrap();
     config_from_ast(this, &ast_text, main_file)
 }
 
@@ -48,7 +48,7 @@ fn dataset_config_from_ast_text(
     file: FilePtr,
 ) -> SemanticResult<DatasetConfig> {
     for item in ast_text.folded_results.iter() {
-        match item.value.as_ref()?.variant {
+        match item.value.as_ref().unwrap().variant {
             AstVariant::DatasetConfigDefnHead => {
                 return Ok(DatasetConfig::new(parse_func_stmts(
                     this.upcast(),

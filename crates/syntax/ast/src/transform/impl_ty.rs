@@ -12,10 +12,8 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstVariant> {
         match ty_kw {
             TyKeyword::Struct => self.parse_struct(tokens),
-            TyKeyword::Props => todo!(),
             TyKeyword::Record => self.parse_record(tokens),
             TyKeyword::Enum => self.parse_enum(tokens),
-            TyKeyword::Rename => todo!(),
         }
     }
 
