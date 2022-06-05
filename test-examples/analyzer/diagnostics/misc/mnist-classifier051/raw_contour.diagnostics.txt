@@ -1,0 +1,8 @@
+10:20..10:24	Infer Error: can't move from a pure ref
+11:18..11:22	Infer Error: can't move from a pure ref
+125:10..125:16	Infer Error: can't move from a pure ref
+126:10..126:16	Infer Error: can't move from a pure ref
+10:20..10:24	Infer Error: can't move from a pure ref
+11:18..11:22	Infer Error: can't move from a pure ref
+125:10..125:16	Infer Error: can't move from a pure ref
+126:10..126:16	Infer Error: can't move from a pure ref

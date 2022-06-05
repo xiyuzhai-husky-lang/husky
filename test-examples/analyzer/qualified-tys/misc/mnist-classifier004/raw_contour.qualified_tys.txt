@@ -3,8 +3,6 @@
 [0m    start       8:23..8:28  Copyable     i32
     end         8:35..8:38  Copyable     i32
     N           9:9..9:10  Copyable     i32
-    ct_start    10:9..10:17  PureRef      mnist_classifier004::geom2d::Point2d
-    ct_end      11:9..11:15  PureRef      mnist_classifier004::geom2d::Point2d
     row         28:21..28:24  Copyable     b32
     j           28:31..28:32  Copyable     i32
     row         31:28..31:31  Copyable     b32
@@ -27,8 +25,6 @@
     pixel_pair_below  79:5..79:21  Copyable     b32
     points      123:31..123:37  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
     N           124:5..124:6  Copyable     i32
-    p0          125:5..125:7  PureRef      mnist_classifier004::geom2d::Point2d
-    p2          126:5..126:7  PureRef      mnist_classifier004::geom2d::Point2d
     cc          132:24..132:26  PureRef      datasets::cv::mnist::BinaryImage28
     result      133:9..133:15  OwnedMut     Vec<mnist_classifier004::raw_contour::RawContour>
     boundary_unsearched  134:9..134:28  OwnedMut     datasets::cv::mnist::BinaryGrid28
@@ -62,21 +58,14 @@
 [0m    9:13..9:17     this                   PureRef      mnist_classifier004::raw_contour::RawContour
     9:13..9:18     this.                  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
     9:13..9:30     this.points.len()      Copyable     i32
-    10:20..10:24   this                   PureRef      mnist_classifier004::raw_contour::RawContour
-    10:32..10:37   start                  Copyable     i32
-    10:38..10:39   N                      Copyable     i32
-    10:20..10:25   this.                  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
-    10:32..10:39   start%N                Copyable     i32
-    10:20..10:40   this.points[start%N]   PureRef      mnist_classifier004::geom2d::Point2d
-    11:18..11:22   this                   PureRef      mnist_classifier004::raw_contour::RawContour
-    11:30..11:33   end                    Copyable     i32
-    11:34..11:35   N                      Copyable     i32
-    11:18..11:23   this.                  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
-    11:30..11:35   end%N                  Copyable     i32
-    11:18..11:36   this.points[end%N]     PureRef      mnist_classifier004::geom2d::Point2d
-    12:9..12:17    ct_start               PureRef      mnist_classifier004::geom2d::Point2d
-    12:21..12:27   ct_end                 PureRef      mnist_classifier004::geom2d::Point2d
-    12:9..12:28    ct_start.to(ct_end)    Transient    mnist_classifier004::geom2d::Vector2d
+    10:20..10:24   this                   InferError: can't move from a pure ref
+    10:20..10:25   this.                  InferError: expect not none
+    10:20..10:40   this.points[start%N]   InferError: expect not none
+    11:18..11:22   this                   InferError: can't move from a pure ref
+    11:18..11:23   this.                  InferError: expect not none
+    11:18..11:36   this.points[end%N]     InferError: expect not none
+    12:9..12:17    ct_start               InferError: expect not none
+    12:9..12:28    ct_start.to(ct_end)    InferError: expect not none
     15:26..15:30   this                   PureRef      mnist_classifier004::raw_contour::RawContour
     15:26..15:31   this.                  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
     29:14..29:15   j                      Copyable     i32
@@ -164,32 +153,20 @@
     116:21..116:36 Direction::DOWN        Copyable     mnist_classifier004::raw_contour::Direction
     124:9..124:15  points                 PureRef      Vec<mnist_classifier004::geom2d::Point2d>
     124:9..124:21  points.len()           Copyable     i32
-    125:17..125:18 N                      Copyable     i32
-    125:19..125:20 2                      Copyable     i32
-    125:10..125:16 points                 PureRef      Vec<mnist_classifier004::geom2d::Point2d>
-    125:17..125:20 N-2                    Copyable     i32
-    125:10..125:21 points[N-2]            PureRef      mnist_classifier004::geom2d::Point2d
-    126:17..126:18 N                      Copyable     i32
-    126:19..126:20 1                      Copyable     i32
-    126:10..126:16 points                 PureRef      Vec<mnist_classifier004::geom2d::Point2d>
-    126:17..126:20 N-1                    Copyable     i32
-    126:10..126:21 points[N-1]            PureRef      mnist_classifier004::geom2d::Point2d
-    128:10..128:12 p0                     PureRef      mnist_classifier004::geom2d::Point2d
-    128:17..128:19 p2                     PureRef      mnist_classifier004::geom2d::Point2d
-    128:10..128:13 p0.                    Copyable     f32
-    128:17..128:20 p2.                    Copyable     f32
-    128:10..128:20 p0.x + p2.             Copyable     f32
-    128:10..128:22 p0.x + p2.x)           Copyable     f32
-    128:25..128:28 2.0                    Copyable     f32
-    129:10..129:12 p0                     PureRef      mnist_classifier004::geom2d::Point2d
-    129:17..129:19 p2                     PureRef      mnist_classifier004::geom2d::Point2d
-    129:10..129:13 p0.                    Copyable     f32
-    129:17..129:20 p2.                    Copyable     f32
-    129:10..129:20 p0.y + p2.             Copyable     f32
-    129:10..129:22 p0.y + p2.y)           Copyable     f32
-    129:25..129:28 2.0                    Copyable     f32
-    128:10..128:28 p0.x + p2.x) / 2.0     Copyable     f32
-    129:10..129:28 p0.y + p2.y) / 2.0     Copyable     f32
+    125:10..125:16 points                 InferError: can't move from a pure ref
+    125:10..125:21 points[N-2]            InferError: expect not none
+    126:10..126:16 points                 InferError: can't move from a pure ref
+    126:10..126:21 points[N-1]            InferError: expect not none
+    128:10..128:12 p0                     InferError: expect not none
+    128:10..128:13 p0.                    InferError: expect not none
+    128:10..128:20 p0.x + p2.             InferError: expect not none
+    128:10..128:22 p0.x + p2.x)           InferError: expect not none
+    129:10..129:12 p0                     InferError: expect not none
+    129:10..129:13 p0.                    InferError: expect not none
+    129:10..129:20 p0.y + p2.             InferError: expect not none
+    129:10..129:22 p0.y + p2.y)           InferError: expect not none
+    128:10..128:28 p0.x + p2.x) / 2.0     InferError: expect not none
+    129:10..129:28 p0.y + p2.y) / 2.0     InferError: expect not none
     127:5..130:6   Point2d(        (p0.x + p2.x) / 2.0,         (p0.y + p2.y) / 2.0,    )   Transient    mnist_classifier004::geom2d::Point2d
     133:18..133:32 []RawContour()         Transient    Vec<mnist_classifier004::raw_contour::RawContour>
     134:31..134:45 BinaryGrid28()         Transient    datasets::cv::mnist::BinaryGrid28

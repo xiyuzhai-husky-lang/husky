@@ -1,4 +1,2 @@
 58:13..58:29	Infer Error: expect i32 but get b32 instead
 124:31..124:43	Infer Error: unrecognized caller
-58:13..58:29	Infer Error: expect return type to be `i32`,
-  but got `EagerQualifiedTy { qual: Copyable, ty: b32 }` instead

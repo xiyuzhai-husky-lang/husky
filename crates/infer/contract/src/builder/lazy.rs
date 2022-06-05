@@ -201,7 +201,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: LazyContract,
         arena: &RawExprArena,
     ) -> InferResult<()> {
-        let this_ty_decl = self.raw_expr_ty_decl(opd)?;
+        let this_ty_decl = self.raw_expr_deref_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let this_contract = LazyContract::from_field_access(
             field_decl.liason,
@@ -315,7 +315,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         match contract {
             LazyContract::Init => {
-                let ty = self.raw_expr_ty(raw_expr_idx)?;
+                let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
                 let this_contract = if self.db.is_copyable(ty)? {
                     LazyContract::Pure
                 } else {

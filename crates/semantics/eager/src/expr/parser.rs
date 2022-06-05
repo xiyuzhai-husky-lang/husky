@@ -138,7 +138,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 }
             }
         };
-        if let Err(e) = self.raw_expr_ty(raw_expr_idx) {
+        if let Err(e) = self.raw_expr_deref_ty(raw_expr_idx) {
             p!(self.contract_sheet());
             p!(self.file(), raw_expr, raw_expr_idx);
             panic!()
@@ -356,7 +356,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         opds: RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
-        let element_ty = self.raw_expr_ty(raw_expr_idx).unwrap();
+        let element_ty = self.raw_expr_deref_ty(raw_expr_idx).unwrap();
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::ElementAccess {
                 element_binding: {

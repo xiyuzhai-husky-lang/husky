@@ -302,13 +302,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Feature => todo!(),
                 EntityKind::EnumLiteral => Ok(EagerQualifiedTy {
                     qual: EagerQualifier::Copyable,
-                    ty: self.raw_expr_ty(raw_expr_idx)?,
+                    ty: self.raw_expr_deref_ty(raw_expr_idx)?,
                 }),
                 EntityKind::Main => panic!(),
             },
             RawExprVariant::CopyableLiteral(_) => Ok(EagerQualifiedTy {
                 qual: EagerQualifier::Copyable,
-                ty: self.raw_expr_ty(raw_expr_idx).unwrap(),
+                ty: self.raw_expr_deref_ty(raw_expr_idx).unwrap(),
             }),
             RawExprVariant::Bracketed(expr) => {
                 derived_not_none!(self.infer_eager_expr(arena, expr))
@@ -374,7 +374,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             },
         }
         self.infer_eager_expr(arena, opds.start + 1);
-        let ty = self.raw_expr_ty(raw_expr_idx)?;
+        let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         Ok(EagerQualifiedTy::new(
             if self.db.is_copyable(ty)? {
                 EagerQualifier::Copyable
@@ -392,10 +392,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<EagerQualifiedTy> {
         self.infer_eager_expr(arena, opds.start);
-        let ty = self.raw_expr_ty(raw_expr_idx)?;
+        let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         Ok(EagerQualifiedTy::new(
             EagerQualifier::transitive(self.db.is_copyable(ty)?),
-            self.raw_expr_ty(raw_expr_idx)?,
+            self.raw_expr_deref_ty(raw_expr_idx)?,
         ))
     }
 
@@ -554,7 +554,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_eager_expr(arena, opd);
         }
-        let element_ty = self.raw_expr_ty(raw_expr_idx)?;
+        let element_ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         msg_once!("todo: other member liason");
         EagerQualifiedTy::from_member(
             self.db,
