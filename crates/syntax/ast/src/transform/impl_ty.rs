@@ -20,21 +20,25 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_struct(&mut self, tokens: &[Token]) -> AstResult<AstVariant> {
-        if tokens.len() >= 2 {
+        let opt_base_ty = if tokens.len() >= 2 {
             match tokens[1].kind {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
-                        let this_ty = self.context().subroute(self.db, custom_ident);
-                        self.opt_this_ty.set(Some(this_ty));
-                        self.opt_this_liason.set(None);
+                        self.context().opt_subroute(self.db.upcast(), custom_ident)
                     }
-                    _ => (),
+                    _ => None,
                 },
-                _ => (),
+                _ => None,
             }
+        } else {
+            None
         };
-        self.context
-            .set(AstContext::Struct(StructItemContext::OriginalField));
+        self.opt_base_ty.set(opt_base_ty);
+        self.opt_this_liason.set(None);
+        self.context.set(AstContext::Struct {
+            opt_base_ty,
+            item_context: StructItemContext::OriginalField,
+        });
         expect_head!(tokens);
         emsg_once!("struct generic placeholders");
         Ok(AstVariant::TypeDefnHead {
@@ -53,8 +57,8 @@ impl<'a> AstTransformer<'a> {
             match tokens[1].kind {
                 TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
-                        self.opt_this_ty
-                            .set(Some(self.context().subroute(self.db, custom_ident)));
+                        self.opt_base_ty
+                            .set(self.context().opt_subroute(self.db.upcast(), custom_ident));
                         self.opt_this_liason.set(None);
                     }
                     _ => (),
@@ -86,9 +90,12 @@ impl<'a> AstTransformer<'a> {
             tokens[1],
             SemanticTokenKind::Entity(EntityKind::Type(TyKind::Enum))
         );
-        let this_ty = self.context().subroute(self.db, ident.ident);
-        self.context.set(AstContext::Enum(this_ty));
-        self.opt_this_ty.set(Some(this_ty));
+        let base_ty = self
+            .context()
+            .opt_subroute(self.db.upcast(), ident.ident)
+            .unwrap();
+        self.context.set(AstContext::Enum(base_ty));
+        self.opt_base_ty.set(Some(base_ty));
         self.opt_this_liason.set(None);
         Ok(AstVariant::TypeDefnHead {
             ident,

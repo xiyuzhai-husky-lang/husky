@@ -62,7 +62,7 @@ impl<'a> AstTransformer<'a> {
                     _ => todo!(),
                 }
             };
-            self.use_route(route)?;
+            self.use_route(route, token_group.last().unwrap().range)?;
             Ok(AstVariant::Use {
                 use_variant: UseVariant::Route { route },
             })
@@ -78,9 +78,12 @@ impl<'a> AstTransformer<'a> {
                 .iter()
                 .filter_map(|entry| {
                     entry.ident.map(|ident| Symbol {
-                        ident: ident.into(),
+                        init_ident: ident.into(),
                         kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {
-                            kind: EntityRouteKind::Child { parent, ident },
+                            kind: EntityRouteKind::Child {
+                                parent,
+                                ident: ident.ident,
+                            },
                             temporal_arguments: vec![],
                             spatial_arguments: vec![],
                         })),
@@ -90,12 +93,15 @@ impl<'a> AstTransformer<'a> {
         Ok(())
     }
 
-    fn use_route(&mut self, route: EntityRoutePtr) -> AstResult<()> {
+    fn use_route(&mut self, route: EntityRoutePtr, range: TextRange) -> AstResult<()> {
         if route.spatial_arguments.len() != 0 {
             todo!()
         }
         self.symbols.push(Symbol {
-            ident: route.ident().custom(),
+            init_ident: RangedCustomIdentifier {
+                ident: route.ident().custom(),
+                range,
+            },
             kind: SymbolKind::EntityRoute(route),
         });
         Ok(())

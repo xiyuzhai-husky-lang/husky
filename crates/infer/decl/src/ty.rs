@@ -220,9 +220,9 @@ impl TyDecl {
                         _ => break,
                     }
                     children.next();
-                    members
-                        .insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast)))
-                        .unwrap()
+                    throw_query_derived!(
+                        members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast)))
+                    )
                 }
                 _ => break,
             }
@@ -247,20 +247,14 @@ impl TyDecl {
                 } => match opt_this_liason {
                     Some(_) => match paradigm {
                         Paradigm::EagerProcedural => todo!(),
-                        Paradigm::EagerFunctional => members
-                            .insert_new(TyMemberDecl::Method(MethodDecl::from_ast(
-                                ast,
-                                MethodKind::Type,
-                            )))
-                            .unwrap(),
+                        Paradigm::EagerFunctional => throw_query_derived!(members.insert_new(
+                            TyMemberDecl::Method(MethodDecl::from_ast(ast, MethodKind::Type,))
+                        )),
                         Paradigm::LazyFunctional => todo!(),
                     },
-                    None => members
-                        .insert_new(TyMemberDecl::Call(CallDecl::from_ast(
-                            db.make_subroute(this_ty, ident.ident, vec![]),
-                            ast,
-                        )))
-                        .unwrap(),
+                    None => throw_query_derived!(members.insert_new(TyMemberDecl::Call(
+                        CallDecl::from_ast(db.make_subroute(this_ty, ident.ident, vec![]), ast,)
+                    ))),
                 },
                 AstVariant::Use { .. } => todo!(),
                 AstVariant::FieldDefnHead {
@@ -269,9 +263,9 @@ impl TyDecl {
                 } => match field_kind {
                     FieldAstKind::StructOriginal => todo!("no original at this point"),
                     FieldAstKind::RecordOriginal => todo!("no original at this point"),
-                    _ => members
-                        .insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast)))
-                        .unwrap(),
+                    _ => throw_query_derived!(
+                        members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast)))
+                    ),
                 },
                 AstVariant::Visual => break,
                 AstVariant::TypeDefnHead { .. }

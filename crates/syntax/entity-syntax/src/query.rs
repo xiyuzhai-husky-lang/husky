@@ -15,7 +15,7 @@ use fold::FoldableStorage;
 
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
-pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
+pub trait EntitySyntaxSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueScope {
     fn subroute_table(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResultArc<SubrouteTable>;
 
     fn subscopes(&self, entity_route: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
@@ -28,7 +28,7 @@ pub trait EntityRouteSalsaQueryGroup: token::TokenQueryGroup + AllocateUniqueSco
 }
 
 fn subroute_table(
-    db: &dyn EntityRouteSalsaQueryGroup,
+    db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResultArc<SubrouteTable> {
     let entity_kind = db.entity_kind(entity_route)?;
@@ -69,7 +69,7 @@ fn subroute_table(
 }
 
 fn subscopes(
-    db: &dyn EntityRouteSalsaQueryGroup,
+    db: &dyn EntitySyntaxSalsaQueryGroup,
     scope: EntityRoutePtr,
 ) -> Arc<Vec<EntityRoutePtr>> {
     Arc::new(
@@ -79,14 +79,14 @@ fn subscopes(
 }
 
 fn entity_kind(
-    db: &dyn EntityRouteSalsaQueryGroup,
+    db: &dyn EntitySyntaxSalsaQueryGroup,
     scope: EntityRoutePtr,
 ) -> EntitySyntaxResult<EntityKind> {
     entity_kind_from_entity_route_kind(db, scope.kind)
 }
 
 fn entity_kind_from_entity_route_kind(
-    db: &dyn EntityRouteSalsaQueryGroup,
+    db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route_kind: EntityRouteKind,
 ) -> EntitySyntaxResult<EntityKind> {
     Ok(match entity_route_kind {
@@ -136,7 +136,7 @@ fn entity_kind_from_entity_route_kind(
 }
 
 fn entity_locus(
-    db: &dyn EntityRouteSalsaQueryGroup,
+    db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResult<EntityLocus> {
     match entity_route.kind {
@@ -227,8 +227,8 @@ pub enum ModuleFromFileRule {
     FileShouldHaveExtensionHSK,
 }
 
-pub trait EntityRouteQueryGroup:
-    EntityRouteSalsaQueryGroup + AllocateUniqueScope + Upcast<dyn EntityRouteSalsaQueryGroup>
+pub trait EntitySyntaxQueryGroup:
+    EntitySyntaxSalsaQueryGroup + AllocateUniqueScope + Upcast<dyn EntitySyntaxSalsaQueryGroup>
 {
     fn subroute_result(
         &self,
@@ -280,7 +280,7 @@ pub trait EntityRouteQueryGroup:
                         .submodule_idents()
                         .into_iter()
                         .filter_map(|ident| {
-                            self.submodule_file_id(file, ident)
+                            self.submodule_file_id(file, ident.ident)
                                 .map_or(None, |id| Some(self.collect_modules(id)))
                         })
                         .flatten(),

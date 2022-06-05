@@ -7,12 +7,12 @@ impl<'a> AtomContext for AstTransformer<'a> {
         Some(self.main)
     }
 
-    fn entity_syntax_db(&self) -> &dyn entity_syntax::EntityRouteQueryGroup {
+    fn entity_syntax_db(&self) -> &dyn entity_syntax::EntitySyntaxQueryGroup {
         self.db.upcast()
     }
 
     fn opt_this_ty(&self) -> Option<EntityRoutePtr> {
-        self.opt_this_ty.value()
+        self.opt_base_ty.value()
     }
 
     fn opt_this_liason(&self) -> Option<ParameterLiason> {

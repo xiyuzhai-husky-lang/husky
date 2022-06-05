@@ -7,7 +7,7 @@ use print_utils::p;
 use word::CustomIdentifier;
 
 pub struct Instantiator<'a> {
-    pub db: &'a dyn EntityRouteSalsaQueryGroup,
+    pub db: &'a dyn EntitySyntaxSalsaQueryGroup,
     pub generic_parameters: &'a [SpatialParameter],
     pub dst_generics: &'a [SpatialArgument],
 }
@@ -16,7 +16,7 @@ impl<'a> Instantiator<'a> {
     fn find_generic(&self, ident: CustomIdentifier) -> Option<usize> {
         self.generic_parameters
             .iter()
-            .position(|p| p.ident == ident)
+            .position(|p| p.ident.ident == ident)
     }
 
     pub fn instantiate_entity_route(&self, src_scope: EntityRoutePtr) -> SpatialArgument {

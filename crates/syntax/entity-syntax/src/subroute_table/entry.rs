@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct SubrouteEntry {
-    pub ident: Option<CustomIdentifier>,
+    pub ident: Option<RangedCustomIdentifier>,
     pub kind: EntityKind,
     pub source: EntityLocus,
 }
@@ -18,7 +18,7 @@ impl std::fmt::Debug for SubrouteEntry {
 
 impl SubrouteEntry {
     pub fn from_token_group(
-        db: &dyn EntityRouteSalsaQueryGroup,
+        db: &dyn EntitySyntaxSalsaQueryGroup,
         file: FilePtr,
         parent_entity_kind: EntityKind,
         token_group_index: usize,
@@ -31,7 +31,10 @@ impl SubrouteEntry {
             match token_group[0].kind {
                 TokenKind::Identifier(Identifier::Custom(ident)) => {
                     return Ok(Some(SubrouteEntry {
-                        ident: Some(ident),
+                        ident: Some(RangedCustomIdentifier {
+                            ident,
+                            range: token_group[0].range,
+                        }),
                         kind: EntityKind::EnumLiteral,
                         source: EntityLocus::from_file(file, token_group_index),
                     }))
@@ -68,7 +71,10 @@ impl SubrouteEntry {
                                     token_group[1].text_range()
                                 )),
                                 Identifier::Custom(ident) => Ok(Some(SubrouteEntry {
-                                    ident: Some(ident),
+                                    ident: Some(RangedCustomIdentifier {
+                                        ident,
+                                        range: token_group[2].range,
+                                    }),
                                     kind,
                                     source: EntityLocus::from_file(file, token_group_index),
                                 })),
@@ -89,7 +95,10 @@ impl SubrouteEntry {
             TokenKind::Decorator(Decorator::Static) => match token_group[1].kind {
                 TokenKind::Keyword(Keyword::Paradigm(paradigm)) => match token_group[2].kind {
                     TokenKind::Identifier(Identifier::Custom(ident)) => Ok(Some(SubrouteEntry {
-                        ident: Some(ident),
+                        ident: Some(RangedCustomIdentifier {
+                            ident,
+                            range: token_group[2].range,
+                        }),
                         kind: EntityKind::Function {
                             is_lazy: paradigm.is_lazy(),
                         },
@@ -104,7 +113,7 @@ impl SubrouteEntry {
     }
 
     pub fn submodule(
-        db: &dyn EntityRouteSalsaQueryGroup,
+        db: &dyn EntitySyntaxSalsaQueryGroup,
         file: FilePtr,
         token_group_index: usize,
         token_group: &[Token],
@@ -115,7 +124,10 @@ impl SubrouteEntry {
         };
         if let Some(submodule_file) = db.get_submodule_file(&file, ident) {
             Ok(Some(SubrouteEntry {
-                ident: Some(ident),
+                ident: Some(RangedCustomIdentifier {
+                    ident,
+                    range: token_group[1].range,
+                }),
                 kind: EntityKind::Module,
                 source: EntityLocus::Module {
                     file: submodule_file,

@@ -6,7 +6,6 @@ impl<'a> AstTransformer<'a> {
     pub(super) fn parse_struct_eager_field(
         &mut self,
         token_group: &[Token],
-        struct_item_context: StructItemContext,
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         let mut token_stream: TokenStream = token_group.into();
@@ -17,7 +16,7 @@ impl<'a> AstTransformer<'a> {
         eat!(parser, ":");
         let opt_field_ty = try_get!(parser, ranged_ty?);
         match self.push_new_symbol(Symbol {
-            ident: ident.ident,
+            init_ident: ident,
             kind: SymbolKind::ThisField {
                 opt_this_ty,
                 opt_field_ty,
@@ -48,11 +47,7 @@ impl<'a> AstTransformer<'a> {
             return err!(format!("expect type"), parser.token_stream.next_range());
         };
         let field_kind = if try_eat!(parser, token_kind, TokenKind::Special(SpecialToken::Assign)) {
-            self.update_struct_item_context(
-                struct_item_context,
-                StructItemContext::DefaultField,
-                token_group,
-            )?;
+            self.update_struct_item_context(StructItemContext::DefaultField, token_group)?;
             enter_block(self);
             self.context
                 .set(AstContext::Stmt(Paradigm::EagerFunctional));
@@ -67,11 +62,7 @@ impl<'a> AstTransformer<'a> {
             token_kind,
             TokenKind::Special(SpecialToken::DeriveAssign)
         ) {
-            self.update_struct_item_context(
-                struct_item_context,
-                StructItemContext::DerivedEagerField,
-                token_group,
-            )?;
+            self.update_struct_item_context(StructItemContext::DerivedEagerField, token_group)?;
             enter_block(self);
             self.context
                 .set(AstContext::Stmt(Paradigm::EagerFunctional));
@@ -83,11 +74,7 @@ impl<'a> AstTransformer<'a> {
             }
         } else {
             end!(parser);
-            self.update_struct_item_context(
-                struct_item_context,
-                StructItemContext::OriginalField,
-                token_group,
-            )?;
+            self.update_struct_item_context(StructItemContext::OriginalField, token_group)?;
             FieldAstKind::StructOriginal
         };
         Ok(AstVariant::FieldDefnHead {
@@ -117,14 +104,10 @@ impl<'a> AstTransformer<'a> {
     pub(super) fn parse_struct_derived_lazy_field(
         &mut self,
         token_group: &[Token],
-        struct_item_context: StructItemContext,
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
-        let context_update_result = self.update_struct_item_context(
-            struct_item_context,
-            StructItemContext::DerivedLazyField,
-            token_group,
-        );
+        let context_update_result =
+            self.update_struct_item_context(StructItemContext::DerivedLazyField, token_group);
         enter_block(self);
         let paradigm = match token_group[0].kind {
             TokenKind::Keyword(Keyword::Paradigm(paradigm)) => paradigm,
@@ -139,7 +122,7 @@ impl<'a> AstTransformer<'a> {
         }
         let ty_result = atom::parse_route(self, &token_group[3..]);
         self.symbols.push(Symbol {
-            ident: ident.ident,
+            init_ident: ident,
             kind: SymbolKind::ThisField {
                 opt_this_ty: self.opt_this_ty(),
                 opt_field_ty: ty_result.clone().ok(),

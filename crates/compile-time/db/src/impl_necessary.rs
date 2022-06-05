@@ -81,7 +81,7 @@ impl AllocateUniqueScope for HuskyCompileTime {
 
 impl TokenQueryGroup for HuskyCompileTime {}
 
-impl EntityRouteQueryGroup for HuskyCompileTime {}
+impl EntitySyntaxQueryGroup for HuskyCompileTime {}
 
 impl AstQueryGroup for HuskyCompileTime {}
 
@@ -103,14 +103,14 @@ impl AllocateUniqueFeature for HuskyCompileTime {
     }
 }
 
-impl Upcast<dyn entity_syntax::EntityRouteSalsaQueryGroup> for HuskyCompileTime {
-    fn upcast(&self) -> &(dyn entity_syntax::EntityRouteSalsaQueryGroup + 'static) {
+impl Upcast<dyn entity_syntax::EntitySyntaxSalsaQueryGroup> for HuskyCompileTime {
+    fn upcast(&self) -> &(dyn entity_syntax::EntitySyntaxSalsaQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn entity_syntax::EntityRouteQueryGroup> for HuskyCompileTime {
-    fn upcast(&self) -> &(dyn entity_syntax::EntityRouteQueryGroup + 'static) {
+impl Upcast<dyn entity_syntax::EntitySyntaxQueryGroup> for HuskyCompileTime {
+    fn upcast(&self) -> &(dyn entity_syntax::EntitySyntaxQueryGroup + 'static) {
         self
     }
 }

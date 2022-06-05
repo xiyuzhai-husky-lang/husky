@@ -23,7 +23,7 @@ impl<'a> AstTransformer<'a> {
                 | AtomVariant::EntityRoute { .. }
                 | AtomVariant::FrameVariable { .. } => stack.accept_atom_expr(atom.into()),
                 AtomVariant::Unrecognized(ident) => stack.accept_atom_expr(
-                    match self.symbols.find(|symbol| symbol.ident == ident) {
+                    match self.symbols.find(|symbol| symbol.init_ident.ident == ident) {
                         Some(symbol) => match symbol.kind {
                             SymbolKind::EntityRoute(_) => todo!(),
                             SymbolKind::Variable { .. } => todo!(),

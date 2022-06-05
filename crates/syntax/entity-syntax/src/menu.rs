@@ -3,7 +3,7 @@ use entity_route::*;
 use std::sync::Arc;
 use word::RootIdentifier;
 
-pub(crate) fn entity_route_menu(db: &dyn EntityRouteSalsaQueryGroup) -> Arc<EntityRouteMenu> {
+pub(crate) fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMenu> {
     let std_mod = EntityRoutePtr::Root(RootIdentifier::Std);
     let std_ops_mod = db.intern_entity_route(EntityRoute {
         kind: EntityRouteKind::Child {

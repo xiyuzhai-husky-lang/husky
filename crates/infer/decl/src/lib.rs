@@ -30,7 +30,7 @@ use std::sync::Arc;
 use word::{CustomIdentifier, RootIdentifier};
 
 #[salsa::query_group(DeclQueryGroupStorage)]
-pub trait DeclQueryGroup: EntityRouteQueryGroup + ast::AstQueryGroup {
+pub trait DeclQueryGroup: EntitySyntaxQueryGroup + ast::AstQueryGroup {
     fn call_decl(&self, call_route: EntityRoutePtr) -> InferQueryResultArc<CallDecl>;
     fn method_decl(&self, method_route: EntityRoutePtr) -> InferResultArc<MethodDecl>;
     fn ty_decl(&self, ty: EntityRoutePtr) -> InferQueryResultArc<TyDecl>;

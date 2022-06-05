@@ -2,16 +2,16 @@ use super::*;
 
 #[derive(Debug, Clone)]
 pub struct Symbol {
-    pub ident: CustomIdentifier,
+    pub init_ident: RangedCustomIdentifier,
     pub kind: SymbolKind,
 }
 
 impl Symbol {
-    pub fn variable(ranged_ident: RangedCustomIdentifier) -> Self {
+    pub fn variable(init_ident: RangedCustomIdentifier) -> Self {
         Self {
-            ident: ranged_ident.ident.into(),
+            init_ident: init_ident,
             kind: SymbolKind::Variable {
-                init_range: ranged_ident.range,
+                init_range: init_ident.range,
             },
         }
     }

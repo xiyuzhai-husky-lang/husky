@@ -1,13 +1,1 @@
 6:9..6:10	Ast Error: expect "special" after it
-22:6..22:8	Ast Error: a method with the same name already exists
-23:5..23:16	Ast Error: no stmt in module level
-25:6..25:8	Ast Error: a method with the same name already exists
-26:5..26:17	Ast Error: no stmt in module level
-27:5..27:6	Ast Error: expect keyword at the beginning of module item
-28:5..28:13	Ast Error: no stmt in module level
-30:6..30:8	Ast Error: a method with the same name already exists
-31:5..31:17	Ast Error: no stmt in module level
-32:5..32:26	Ast Error: no stmt in module level
-34:6..34:8	Ast Error: a method with the same name already exists
-35:5..35:6	Ast Error: expect keyword at the beginning of module item
-36:5..36:15	Ast Error: no stmt in module level

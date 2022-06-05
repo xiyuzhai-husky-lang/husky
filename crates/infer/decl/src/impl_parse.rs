@@ -6,6 +6,7 @@ use atom::{
 use entity_route::*;
 use fold::LocalStack;
 use map_collect::MapCollect;
+use text::RangedCustomIdentifier;
 use word::IdentDict;
 
 impl<'a> dyn DeclQueryGroup + 'a {
@@ -22,7 +23,10 @@ impl<'a> dyn DeclQueryGroup + 'a {
         static_generic_parameters: &[StaticGenericPlaceholder],
     ) -> IdentDict<SpatialParameter> {
         static_generic_parameters.map(|static_generic_placeholder| SpatialParameter {
-            ident: self.intern_word(static_generic_placeholder.name).custom(),
+            ident: RangedCustomIdentifier {
+                ident: self.intern_word(static_generic_placeholder.name).custom(),
+                range: Default::default(),
+            },
             variant: GenericPlaceholderVariant::Type { traits: vec![] },
         })
     }
@@ -34,7 +38,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
         generic_parameters.map(|generic_placeholder| {
             SpatialArgument::EntityRoute(self.intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
-                    ident: generic_placeholder.ident,
+                    ident: generic_placeholder.ident.ident,
                     entity_kind: generic_placeholder.entity_kind(),
                 },
                 temporal_arguments: vec![],
@@ -50,10 +54,10 @@ impl<'a> dyn DeclQueryGroup + 'a {
         let mut symbols = Vec::new();
         for generic_placeholder in generic_parameters.iter() {
             symbols.push(Symbol {
-                ident: generic_placeholder.ident,
+                init_ident: generic_placeholder.ident,
                 kind: SymbolKind::EntityRoute(self.intern_entity_route(EntityRoute {
                     kind: EntityRouteKind::Generic {
-                        ident: generic_placeholder.ident,
+                        ident: generic_placeholder.ident.ident,
                         entity_kind: generic_placeholder.entity_kind(),
                     },
                     temporal_arguments: vec![],
