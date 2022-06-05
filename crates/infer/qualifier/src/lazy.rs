@@ -24,6 +24,13 @@ impl LazyQualifiedTy {
         }
     }
 
+    pub(crate) fn trait_ty() -> Self {
+        Self {
+            qual: LazyQualifier::EvalRef,
+            ty: EntityRoutePtr::Root(RootIdentifier::TraitType),
+        }
+    }
+
     pub(crate) fn from_parameter(
         db: &dyn InferQualifiedTyQueryGroup,
         parameter_liason: ParameterLiason,

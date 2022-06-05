@@ -250,6 +250,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::Tuple
                 | RootIdentifier::DatasetType => self.angled_generics(),
                 RootIdentifier::TypeType => todo!(),
+                RootIdentifier::TraitType => todo!(),
                 RootIdentifier::ModuleType => todo!(),
                 RootIdentifier::Ref => todo!(),
                 RootIdentifier::VisualType => todo!(),

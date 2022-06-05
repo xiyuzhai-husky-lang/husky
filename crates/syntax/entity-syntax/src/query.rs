@@ -102,6 +102,7 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::Fp
             | RootIdentifier::Array
             | RootIdentifier::DatasetType
+            | RootIdentifier::TraitType
             | RootIdentifier::TypeType
             | RootIdentifier::ModuleType => EntityKind::Type(TyKind::Other),
             RootIdentifier::True | RootIdentifier::False => EntityKind::EnumLiteral,
@@ -205,6 +206,7 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::Datasets => datasets::DATASETS_MODULE_DEFN,
         RootIdentifier::DatasetType => &datasets::DATASET_TYPE_DEFN,
         RootIdentifier::TypeType => todo!(),
+        RootIdentifier::TraitType => todo!(),
         RootIdentifier::CloneTrait => &CLONE_TRAIT_DEFN,
         RootIdentifier::CopyTrait => todo!(),
         RootIdentifier::PartialEqTrait => todo!(),

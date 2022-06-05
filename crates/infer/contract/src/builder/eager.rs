@@ -300,18 +300,7 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             SuffixOpr::WithTy(_) => todo!(),
             SuffixOpr::AsTy(_) => {
-                self.infer_eager_expr(
-                    opd,
-                    match contract {
-                        EagerContract::Pure => contract,
-                        EagerContract::Move => todo!(),
-                        EagerContract::TempRefMut => todo!(),
-                        EagerContract::EvalRef => todo!(),
-                        EagerContract::TempRef => todo!(),
-                        EagerContract::Pass => todo!(),
-                    },
-                    arena,
-                );
+                self.infer_eager_expr(opd, contract, arena);
                 Ok(())
             }
         }

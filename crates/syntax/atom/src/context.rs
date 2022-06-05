@@ -85,6 +85,7 @@ pub trait AtomContext {
                 RootIdentifier::Array => todo!(),
                 RootIdentifier::DatasetType => todo!(),
                 RootIdentifier::TypeType => todo!(),
+                RootIdentifier::TraitType => todo!(),
                 RootIdentifier::Datasets => todo!(),
                 RootIdentifier::CloneTrait => todo!(),
                 RootIdentifier::CopyTrait => todo!(),
