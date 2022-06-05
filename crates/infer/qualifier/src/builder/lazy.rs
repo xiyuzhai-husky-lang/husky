@@ -76,9 +76,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawStmtVariant::ConditionBranch {
                 condition_branch_kind,
             } => match condition_branch_kind {
-                RawConditionBranchKind::If { condition } => todo!(),
-                RawConditionBranchKind::Elif { condition } => todo!(),
-                RawConditionBranchKind::Else => todo!(),
+                RawConditionBranchKind::If { condition } => {
+                    self.infer_lazy_expr(arena, condition);
+                }
+                RawConditionBranchKind::Elif { condition } => {
+                    self.infer_lazy_expr(arena, condition);
+                }
+                RawConditionBranchKind::Else => (),
             },
             RawStmtVariant::PatternBranch {
                 ref pattern_branch_variant,
@@ -88,7 +92,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
                 RawPatternBranchVariant::Default => (),
             },
-            RawStmtVariant::Exec { .. } => todo!(),
+            RawStmtVariant::Exec { .. } => (),
             RawStmtVariant::Init {
                 init_kind,
                 varname,
