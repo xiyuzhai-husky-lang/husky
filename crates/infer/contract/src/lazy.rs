@@ -25,7 +25,7 @@ impl LazyContract {
         })
     }
 
-    pub(crate) fn from_parameter(
+    pub(crate) fn parameter_lazy_contract(
         parameter_liason: ParameterLiason,
         output: OutputLiason,
         range: TextRange,

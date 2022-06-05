@@ -32,9 +32,13 @@ impl<'a> ContractSheetBuilder<'a> {
             RawStmtVariant::ConditionBranch {
                 condition_branch_kind,
             } => match condition_branch_kind {
-                RawConditionBranchKind::If { condition } => todo!(),
-                RawConditionBranchKind::Elif { condition } => todo!(),
-                RawConditionBranchKind::Else => todo!(),
+                RawConditionBranchKind::If { condition } => {
+                    self.infer_lazy_condition(condition, arena)
+                }
+                RawConditionBranchKind::Elif { condition } => {
+                    self.infer_lazy_condition(condition, arena)
+                }
+                RawConditionBranchKind::Else => (),
             },
             RawStmtVariant::PatternBranch {
                 ref pattern_branch_variant,
@@ -271,7 +275,7 @@ impl<'a> ContractSheetBuilder<'a> {
             ((total_opds.start + 1)..total_opds.end).into_iter(),
             call_decl.primary_parameters.iter(),
         ) {
-            let argument_contract = LazyContract::from_parameter(
+            let argument_contract = LazyContract::parameter_lazy_contract(
                 parameter.liason,
                 call_decl.output.liason,
                 arena[argument].range,
@@ -291,14 +295,14 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let method_decl = self.method_decl(raw_expr_idx)?;
-        let this_contract = LazyContract::from_parameter(
+        let this_contract = LazyContract::parameter_lazy_contract(
             method_decl.this_liason,
             method_decl.output.liason,
             arena[this].range,
         )?;
         self.infer_lazy_expr(this, this_contract, arena);
         for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
-            let argument_contract = LazyContract::from_parameter(
+            let argument_contract = LazyContract::parameter_lazy_contract(
                 parameter.liason,
                 method_decl.output.liason,
                 arena[argument].range,
