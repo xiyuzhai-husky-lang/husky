@@ -66,7 +66,7 @@ mnist-with-backtrace-filtered:
 	RUST_BACKTRACE=1 cargo run -q --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 23 --mode run 2>&1 | python scripts/filter_rust_backtrace.py
 
 count-todo:
-	scripts/pattern_statistics.py "todo!()" crates 1
+	scripts/pattern_statistics.py "todo!()" crates 2
 
 update-requirements:
 	pipreqs ./

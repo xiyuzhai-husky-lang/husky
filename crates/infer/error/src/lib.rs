@@ -81,11 +81,12 @@ pub type InferResultArcRef<'a, T> = Result<&'a Arc<T>, InferError>;
 
 impl From<EntitySyntaxError> for InferError {
     fn from(error: EntitySyntaxError) -> Self {
-        todo!()
-        // Self {
-        //     message: format!("ScopeError {:?}", error),
-        //     src: error.src,
-        // }
+        Self {
+            variant: InferErrorVariant::Derived {
+                message: format!("ScopeError {:?}", error),
+            },
+            dev_src: error.dev_src,
+        }
     }
 }
 
