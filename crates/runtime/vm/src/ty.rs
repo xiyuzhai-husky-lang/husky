@@ -77,17 +77,6 @@ impl<'temp, 'eval: 'temp> VirtualTy<'eval> {
             Binding::Move => todo!(),
             Binding::Copy => todo!(),
         }
-        //  EagerContract::Pure => todo!(),
-
-        // EagerContract::Move => todo!(),
-        // EagerContract::MoveMut => todo!(),
-        // EagerContract::Exec => todo!(),
-        // EagerContract::UseForLetInit => todo!(),
-        // EagerContract::UseForVarInit => todo!(),
-        // EagerContract::Return => todo!(),
-        // EagerContract::UseMemberForLetInit => todo!(),
-        // EagerContract::UseMemberForVarInit => todo!(),
-        // EagerContract::UseForAssignRvalue => todo!(),
     }
 }
 

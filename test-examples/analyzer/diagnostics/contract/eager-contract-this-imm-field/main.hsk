@@ -21,6 +21,22 @@ proc i(v: &[]A) -> i32:
     var t2 = v.first()
     return 1
 
+proc i2(v: &[]A) -> i32:
+    var t1 = g(v.first())
+    v.first() = v
+    return 1
+
+proc i3(v: &[]A) -> i32:
+    var t1 = g(v.first())
+    v.first() = v
+    return 1
+
+proc i4(a: &A) -> i32:
+    return i5(a)
+
+proc i5(a: A) -> i32:
+    1
+
 struct A:
     b: B
 
