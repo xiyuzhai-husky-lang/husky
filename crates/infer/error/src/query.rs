@@ -21,7 +21,18 @@ pub type InferQueryResult<T> = Result<T, InferQueryError>;
 
 impl BindTextRangeInto<InferError> for InferQueryError {
     fn ref_bind_text_range_into(&self, range: TextRange) -> InferError {
-        todo!()
+        InferError {
+            variant: match self.kind {
+                InferQueryErrorKind::Derived => InferErrorVariant::Derived {
+                    message: self.message.clone(),
+                },
+                InferQueryErrorKind::Original => InferErrorVariant::Original {
+                    message: self.message.clone(),
+                    range,
+                },
+            },
+            dev_src: self.dev_src.clone(),
+        }
     }
 
     fn bind_text_range_into(self, range: TextRange) -> InferError {
