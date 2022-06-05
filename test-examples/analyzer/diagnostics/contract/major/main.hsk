@@ -10,6 +10,15 @@ struct A:
 struct B:
     x: i32
     a: A
+    y: i32 := x + 1
+    func clone_a() -> A:
+        a.clone()
+
+func use_eval_ref_a(a: &A) -> i32:
+    1
+
+func use_eval_ref_copyable_is_ok(x: &i32) -> i32:
+    1
 
 func func_pure_is_ok(b: B) -> i32:
     a = b.a
@@ -18,6 +27,8 @@ func func_pure_is_ok(b: B) -> i32:
 
 func func_eval_ref_is_ok(b: &B) -> i32:
     a = b.a
+    c = use_eval_ref_a(b.a)
+    d = use_eval_ref_copyable_is_ok(b.x)
     x = b.x
     1
 
