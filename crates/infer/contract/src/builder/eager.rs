@@ -189,7 +189,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_binary_opn(*opr, opds, contract, arena, raw_expr_idx)
             }
             RawOpnVariant::Prefix(opr) => {
-                self.infer_eager_prefix_opn(*opr, opds.start, contract, arena)
+                self.infer_eager_prefix_opn(*opr, opds.start, contract, arena, raw_expr_idx)
             }
             RawOpnVariant::Suffix(opr) => {
                 self.infer_eager_suffix(*opr, opds.start, contract, arena, raw_expr_idx)
@@ -223,10 +223,13 @@ impl<'a> ContractSheetBuilder<'a> {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
                     EagerContract::Pure | EagerContract::Move => (),
-                    EagerContract::TempRefMut => todo!(),
-                    EagerContract::TempRef => todo!(),
-                    EagerContract::EvalRef => todo!(),
-                    EagerContract::Pass => todo!(),
+                    EagerContract::Pass => panic!(),
+                    _ => {
+                        throw!(
+                            format!("can't bind this to a ref"),
+                            arena[raw_expr_idx].range
+                        )
+                    }
                 }
                 self.infer_eager_expr(lopd, EagerContract::Pure, arena);
                 self.infer_eager_expr(ropd, EagerContract::Pure, arena);
@@ -262,16 +265,19 @@ impl<'a> ContractSheetBuilder<'a> {
         opd: RawExprIdx,
         contract: EagerContract,
         arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let opd_contract = match opr {
             PrefixOpr::Minus | PrefixOpr::Not | PrefixOpr::BitNot => {
                 match contract {
-                    EagerContract::Pure => (),
-                    EagerContract::Move => todo!(),
-                    EagerContract::TempRefMut => todo!(),
-                    EagerContract::EvalRef => todo!(),
-                    EagerContract::TempRef => todo!(),
-                    EagerContract::Pass => todo!(),
+                    EagerContract::Pure | EagerContract::Move => (),
+                    EagerContract::Pass => panic!(),
+                    EagerContract::TempRefMut | EagerContract::EvalRef | EagerContract::TempRef => {
+                        throw!(
+                            format!("can't bind this to a ref"),
+                            arena[raw_expr_idx].range
+                        )
+                    }
                 }
                 EagerContract::Pure
             }

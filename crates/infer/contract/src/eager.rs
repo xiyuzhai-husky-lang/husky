@@ -102,20 +102,24 @@ impl EagerContract {
         if is_member_copyable {
             Ok(match member_contract {
                 EagerContract::Pure => EagerContract::Pure,
-                EagerContract::Move => todo!(),
-                EagerContract::TempRefMut => match field_liason {
+                EagerContract::Move => panic!(),
+                EagerContract::EvalRef => todo!(),
+                EagerContract::TempRef | EagerContract::TempRefMut => match field_liason {
                     MemberLiason::Immutable => {
                         throw!(
-                            format!("can't turn an immutable member into ref mut"),
+                            format!("can't turn a copyable immutable member into temp ref (mut)"),
                             range
                         )
                     }
                     MemberLiason::Mutable => EagerContract::TempRefMut,
-                    MemberLiason::Derived => todo!(),
+                    MemberLiason::Derived => {
+                        throw!(
+                            format!("can't turn a copyable derived member into temp ref (mut)"),
+                            range
+                        )
+                    }
                 },
-                EagerContract::EvalRef => todo!(),
-                EagerContract::TempRef => todo!(),
-                EagerContract::Pass => todo!(),
+                EagerContract::Pass => panic!(),
             })
         } else {
             match field_liason {
