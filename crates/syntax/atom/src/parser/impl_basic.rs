@@ -1,12 +1,24 @@
 use text::RangedCustomIdentifier;
 use vm::CopyableValue;
-use word::{Keyword, LiasonKeyword};
+use word::{Keyword, LiasonKeyword, Paradigm};
 
 use super::*;
 
 impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn special(&mut self, target: SpecialToken) -> Option<()> {
         self.token_kind(target.into())
+    }
+
+    pub fn paradigm(&mut self) -> Option<Paradigm> {
+        if let Some(Token {
+            kind: TokenKind::Keyword(Keyword::Paradigm(paradigm)),
+            ..
+        }) = self.token_stream.next()
+        {
+            Some(*paradigm)
+        } else {
+            None
+        }
     }
 
     pub(crate) fn usize_literal(&mut self) -> Option<usize> {

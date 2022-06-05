@@ -165,8 +165,8 @@ impl LazyQualifier {
         Self::parameter(input_liason, is_copyable).variable_use(contract)
     }
 
-    pub fn parameter(input_liason: ParameterLiason, is_copyable: bool) -> Self {
-        match input_liason {
+    pub fn parameter(parameter_liason: ParameterLiason, is_copyable: bool) -> Self {
+        match parameter_liason {
             ParameterLiason::Pure => {
                 if is_copyable {
                     LazyQualifier::Copyable

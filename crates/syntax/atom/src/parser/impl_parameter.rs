@@ -10,7 +10,11 @@ use super::*;
 
 // inner ops
 impl<'a, 'b> AtomParser<'a, 'b> {
-    pub fn routine_defn_head(mut self, paradigm: Paradigm) -> AtomResult<CallableDefnHead> {
+    pub fn call_defn_head(
+        mut self,
+        opt_this_liason: Option<ParameterLiason>,
+        paradigm: Paradigm,
+    ) -> AtomResult<CallableDefnHead> {
         let routine_ident = get!(self, custom_ident);
         self.atom_context
             .push_abs_semantic_token(AbsSemanticToken::new(
@@ -19,8 +23,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 }),
                 routine_ident.range,
             ));
-        let generic_parameters = self.parameters()?;
-        let parameters = self.call_parameters()?;
+        let generic_parameters = self.generic_parameters()?;
+        let parameters = self.parameters()?;
         let output_ty = self.func_output_type()?;
         match paradigm {
             Paradigm::EagerProcedural => (),
@@ -43,11 +47,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         Ok(CallableDefnHead {
             ident: routine_ident,
             paradigm,
-            generic_parameters: generic_parameters,
-            parameters: parameters,
+            generic_parameters,
+            parameters,
             output_ty,
             output_liason: OutputLiason::Transfer,
-            opt_this_contract: None,
+            opt_this_liason,
         })
     }
 
@@ -64,11 +68,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 }),
                 routine_ident.range,
             ));
-        let generics = self.parameters()?;
-        let parameters = self.call_parameters()?;
+        let generics = self.generic_parameters()?;
+        let parameters = self.parameters()?;
         let output_ty = self.func_output_type()?;
         Ok(CallableDefnHead {
-            opt_this_contract: Some(this),
+            opt_this_liason: Some(this),
             paradigm,
             ident: routine_ident,
             generic_parameters: generics,
@@ -78,9 +82,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         })
     }
 
-    fn parameters(&mut self) -> AtomResult<IdentDict<SpatialParameter>> {
+    fn generic_parameters(&mut self) -> AtomResult<IdentDict<SpatialParameter>> {
         if try_eat!(self, "<") {
-            match IdentDict::from_vec(comma_list![self, parameter!+, ">"]) {
+            match IdentDict::from_vec(comma_list![self, spatial_parameter!+, ">"]) {
                 Ok(generic_parameters) => Ok(generic_parameters),
                 Err(repeat) => todo!(),
             }
@@ -89,7 +93,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    fn parameter(&mut self) -> AtomResult<SpatialParameter> {
+    fn spatial_parameter(&mut self) -> AtomResult<SpatialParameter> {
         let ranged_ident = get!(self, custom_ident);
         let mut traits = Vec::new();
         if try_eat!(self, ":") {
@@ -109,12 +113,12 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         })
     }
 
-    fn call_parameters(&mut self) -> AtomResultArc<Vec<Parameter>> {
+    fn parameters(&mut self) -> AtomResultArc<Vec<Parameter>> {
         eat!(self, "(");
-        Ok(Arc::new(comma_list!(self, call_parameter!, ")")))
+        Ok(Arc::new(comma_list!(self, parameter!, ")")))
     }
 
-    fn call_parameter(&mut self) -> AtomResult<Parameter> {
+    fn parameter(&mut self) -> AtomResult<Parameter> {
         let ident = get!(self, custom_ident);
         self.atom_context
             .push_abs_semantic_token(AbsSemanticToken::new(

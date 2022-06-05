@@ -13,15 +13,15 @@ impl<'a> AstTransformer<'a> {
             StructItemContext::Method,
             token_group,
         );
-        let routine_keyword = match token_group[0].kind {
-            TokenKind::Keyword(Keyword::Paradigm(routine_keyword)) => routine_keyword,
+        let paradigm = match token_group[0].kind {
+            TokenKind::Keyword(Keyword::Paradigm(paradigm)) => paradigm,
             _ => todo!(),
         };
         expect_at_least!(token_group, token_group.text_range(), 5);
         expect_block_head!(token_group);
         const funcname_idx: usize = 1;
         let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
-            parser.method_defn_head(ParameterLiason::Pure, Paradigm::EagerFunctional)
+            parser.call_defn_head(Some(ParameterLiason::Pure), paradigm)
         })?;
         match self.push_new_symbol(Symbol {
             ident: head.ident.ident,
@@ -46,13 +46,13 @@ impl<'a> AstTransformer<'a> {
         };
         enter_block(self);
         self.opt_this_liason
-            .set(Some(head.opt_this_contract.unwrap()));
+            .set(Some(head.opt_this_liason.unwrap()));
         self.symbols.extend(
             head.parameters
                 .iter()
                 .map(|parameter| Symbol::variable(parameter.ranged_ident)),
         );
-        self.context.set(AstContext::Stmt(routine_keyword));
+        self.context.set(AstContext::Stmt(paradigm));
         context_update_result?;
         Ok(AstVariant::CallFormDefnHead(head))
     }

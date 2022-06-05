@@ -16,14 +16,14 @@ impl<'a> AstTransformer<'a> {
                 self.context
                     .set(AstContext::Stmt(Paradigm::EagerProcedural));
                 self.parse_atoms(tokens, |parser| {
-                    parser.routine_defn_head(Paradigm::EagerProcedural)
+                    parser.call_defn_head(None, Paradigm::EagerProcedural)
                 })?
             }
             Paradigm::EagerFunctional => {
                 self.context
                     .set(AstContext::Stmt(Paradigm::EagerFunctional));
                 self.parse_atoms(tokens, |parser| {
-                    parser.routine_defn_head(Paradigm::EagerFunctional)
+                    parser.call_defn_head(None, Paradigm::EagerFunctional)
                 })?
             }
             Paradigm::LazyFunctional => todo!(),

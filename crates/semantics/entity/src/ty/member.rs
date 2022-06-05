@@ -51,7 +51,7 @@ impl EntityDefnVariant {
                     ref generic_parameters,
                 } => todo!(),
                 AstVariant::MainDefn => todo!(),
-                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_contract {
+                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_liason {
                     Some(this_contract) => {
                         let method_source = match head.paradigm {
                             Paradigm::EagerProcedural => todo!(),
