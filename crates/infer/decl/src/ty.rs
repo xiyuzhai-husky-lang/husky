@@ -702,7 +702,7 @@ pub(crate) fn method_decl_from_static(
             };
             let parameters = parameters.map(|parameter| ParameterDecl {
                 ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),
-                liason: parameter.contract,
+                liason: parameter.liason,
                 ident: db.custom_ident(parameter.name),
             });
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();

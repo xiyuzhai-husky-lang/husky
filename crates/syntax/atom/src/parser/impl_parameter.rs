@@ -82,13 +82,14 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 ident.range,
             ));
         eat!(self, ":");
-        let parameter_liason = self.parameter_liason();
+        let ranged_parameter_liason = self.ranged_parameter_liason();
         let ranged_ty = get!(self, ranged_ty?);
-        Ok(Parameter::new(ident, parameter_liason, ranged_ty))
+        Ok(Parameter::new(ident, ranged_parameter_liason, ranged_ty))
     }
 
-    pub fn parameter_liason(&mut self) -> ParameterLiason {
-        if try_eat!(self, "&") {
+    pub fn ranged_parameter_liason(&mut self) -> RangedParameterLiason {
+        let text_start = self.token_stream.text_start();
+        let liason = if try_eat!(self, "&") {
             msg_once!("todo: temporal parameter");
             ParameterLiason::EvalRef
         } else if try_eat!(self, "mut") {
@@ -100,7 +101,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         } else if try_eat!(self, "!!") {
             ParameterLiason::Move
         } else {
-            ParameterLiason::Pure
+            return ParameterLiason::Pure.into();
+        };
+        RangedParameterLiason {
+            liason,
+            opt_range: Some(self.token_stream.text_range(text_start)),
         }
     }
 

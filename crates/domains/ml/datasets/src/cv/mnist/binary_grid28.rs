@@ -22,7 +22,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                     variant: EntityStaticDefnVariant::Method {
                         this_liason: ParameterLiason::MemberAccess,
                         parameters: &[StaticParameter {
-                            contract: ParameterLiason::Pure,
+                            liason: ParameterLiason::Pure,
                             ty: "i32",
                             name: "todo!()",
                         }],

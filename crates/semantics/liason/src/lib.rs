@@ -1,4 +1,5 @@
 use entity_route::{EntityRouteKind, EntityRoutePtr, TemporalArgument};
+use text::TextRange;
 use word::{LiasonKeyword, RootIdentifier};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -10,6 +11,21 @@ pub enum ParameterLiason {
     EvalRef,
     TempRef,
     TempRefMut,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct RangedParameterLiason {
+    pub liason: ParameterLiason,
+    pub opt_range: Option<TextRange>,
+}
+
+impl From<ParameterLiason> for RangedParameterLiason {
+    fn from(liason: ParameterLiason) -> Self {
+        Self {
+            liason,
+            opt_range: None,
+        }
+    }
 }
 
 impl ParameterLiason {

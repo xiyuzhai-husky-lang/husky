@@ -145,7 +145,7 @@ impl<'a> RustGenerator<'a> {
                         self.write(", ");
                         self.write(&input_placeholder.ranged_ident.ident);
                         self.write(": ");
-                        match input_placeholder.liason {
+                        match input_placeholder.ranged_liason.liason {
                             ParameterLiason::Pure => {
                                 if !self
                                     .db

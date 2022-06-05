@@ -1,4 +1,4 @@
-123:46..123:48	Infer Error: can't turn a pure ref to a eval ref
-136:39..136:41	Infer Error: can't turn a pure ref to a eval ref
-123:46..123:48	Infer Error: can't turn a pure ref to a eval ref
-136:39..136:41	Infer Error: can't turn a pure ref to a eval ref
+123:46..123:48	Infer Error: expect eval ref
+136:39..136:41	Infer Error: expect eval ref
+123:46..123:48	Infer Error: expect eval ref
+136:39..136:41	Infer Error: expect eval ref

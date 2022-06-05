@@ -1,0 +1,31 @@
+dataset:
+    synthetic::trivial::real1d::dataset1()
+
+struct B:
+    x: i32
+
+func func_pure_is_ok(b: B) -> i32:
+    1
+
+func func_move_is_ok(b: !!B) -> i32:
+    1
+
+func func_move_mut_is_err(b: mut !!B) -> i32:
+    1
+
+func func_temp_ref_mut_is_err(b: mut B) -> i32:
+    1
+
+proc proc_move_mut_is_ok(b: mut !!B) -> i32:
+    b = B(3)
+    return 1
+
+proc proc_temp_ref_mut_is_ok(b: mut B) -> i32:
+    b = B(3)
+    let c = pure_use(b)
+    let move_from_temp_ref_mut_is_err = func_move_is_ok(b)
+    let pass_is_ok = b.x
+    return 1
+
+main:
+    1

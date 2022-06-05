@@ -15,19 +15,15 @@ impl<'a> RustGenerator<'a> {
         self.write("\npub(crate) fn ");
         self.write(&ident);
         self.write("(");
-        for (i, input_placeholder) in parameters.iter().enumerate() {
+        for (i, parameter) in parameters.iter().enumerate() {
             if i > 0 {
                 self.write(", ");
             }
-            self.write(&input_placeholder.ranged_ident.ident);
+            self.write(&parameter.ranged_ident.ident);
             self.write(": ");
-            match input_placeholder.liason {
+            match parameter.ranged_liason.liason {
                 ParameterLiason::Pure => {
-                    if !self
-                        .db
-                        .is_copyable(input_placeholder.ranged_ty.route)
-                        .unwrap()
-                    {
+                    if !self.db.is_copyable(parameter.ranged_ty.route).unwrap() {
                         self.write("&")
                     }
                 }
@@ -38,7 +34,7 @@ impl<'a> RustGenerator<'a> {
                 ParameterLiason::MemberAccess => todo!(),
                 ParameterLiason::TempRef => todo!(),
             }
-            self.gen_entity_route(input_placeholder.ranged_ty.route);
+            self.gen_entity_route(parameter.ranged_ty.route);
         }
         self.write(") -> ");
         self.gen_entity_route(output);
@@ -57,19 +53,15 @@ impl<'a> RustGenerator<'a> {
         self.write("\npub(crate) fn ");
         self.write(&ident);
         self.write("(");
-        for (i, input_placeholder) in parameters.iter().enumerate() {
+        for (i, parameter) in parameters.iter().enumerate() {
             if i > 0 {
                 self.write(", ");
             }
-            self.write(&input_placeholder.ranged_ident.ident);
+            self.write(&parameter.ranged_ident.ident);
             self.write(": ");
-            match input_placeholder.liason {
+            match parameter.ranged_liason.liason {
                 ParameterLiason::Pure => {
-                    if !self
-                        .db
-                        .is_copyable(input_placeholder.ranged_ty.route)
-                        .unwrap()
-                    {
+                    if !self.db.is_copyable(parameter.ranged_ty.route).unwrap() {
                         self.write("&")
                     }
                 }
@@ -80,7 +72,7 @@ impl<'a> RustGenerator<'a> {
                 ParameterLiason::MemberAccess => todo!(),
                 ParameterLiason::TempRef => todo!(),
             }
-            self.gen_entity_route(input_placeholder.ranged_ty.route);
+            self.gen_entity_route(parameter.ranged_ty.route);
         }
         self.write(") -> ");
         self.gen_entity_route(output);

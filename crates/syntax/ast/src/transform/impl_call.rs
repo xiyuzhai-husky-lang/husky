@@ -26,23 +26,6 @@ impl<'a> AstTransformer<'a> {
         let generic_parameters = parser.generic_parameters()?;
         let parameters = parser.parameters()?;
         let output_ty = parser.func_output_ty()?;
-        match paradigm {
-            Paradigm::EagerProcedural => (),
-            Paradigm::EagerFunctional | Paradigm::LazyFunctional => {
-                for parameter in parameters.iter() {
-                    match parameter.liason {
-                        ParameterLiason::Pure
-                        | ParameterLiason::Move
-                        | ParameterLiason::EvalRef
-                        | ParameterLiason::TempRef => (),
-                        ParameterLiason::TempRefMut | ParameterLiason::MoveMut => {
-                            todo!("invalid  parameter liason")
-                        }
-                        ParameterLiason::MemberAccess => todo!(),
-                    }
-                }
-            }
-        }
         if let Some(route) = self
             .context
             .value()
@@ -72,6 +55,26 @@ impl<'a> AstTransformer<'a> {
                 .map(|parameter| Symbol::variable(parameter.ranged_ident)),
         );
         self.context.set(AstContext::Stmt(paradigm));
+        match paradigm {
+            Paradigm::EagerProcedural => (),
+            Paradigm::EagerFunctional | Paradigm::LazyFunctional => {
+                for parameter in parameters.iter() {
+                    match parameter.ranged_liason.liason {
+                        ParameterLiason::Pure
+                        | ParameterLiason::Move
+                        | ParameterLiason::EvalRef
+                        | ParameterLiason::TempRef => (),
+                        ParameterLiason::TempRefMut | ParameterLiason::MoveMut => {
+                            return err!(
+                                "invalid  parameter liason",
+                                parameter.ranged_liason.opt_range.unwrap()
+                            )
+                        }
+                        ParameterLiason::MemberAccess => todo!(),
+                    }
+                }
+            }
+        }
         Ok(AstVariant::CallFormDefnHead {
             ident: ranged_ident,
             paradigm,

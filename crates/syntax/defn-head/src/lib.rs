@@ -1,6 +1,6 @@
 mod spatial;
 
-use liason::{MemberLiason, OutputLiason, ParameterLiason};
+use liason::{MemberLiason, OutputLiason, ParameterLiason, RangedParameterLiason};
 pub use spatial::*;
 use std::sync::Arc;
 
@@ -23,14 +23,14 @@ pub struct CallableDefnHead {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Parameter {
     pub ranged_ident: RangedCustomIdentifier,
-    pub liason: ParameterLiason,
+    pub ranged_liason: RangedParameterLiason,
     pub ranged_ty: RangedEntityRoute,
 }
 
 impl Parameter {
     pub fn new(
         ranged_ident: RangedCustomIdentifier,
-        liason: ParameterLiason,
+        ranged_liason: RangedParameterLiason,
         ranged_ty: RangedEntityRoute,
     ) -> Self {
         match ranged_ty.route.kind {
@@ -41,7 +41,7 @@ impl Parameter {
         }
         Self {
             ranged_ident,
-            liason,
+            ranged_liason,
             ranged_ty,
         }
     }
@@ -54,7 +54,10 @@ impl Parameter {
     ) -> Self {
         Parameter {
             ranged_ident,
-            liason: ParameterLiason::from_member(liason, member_ty, is_member_ty_copyable),
+            ranged_liason: RangedParameterLiason {
+                liason: ParameterLiason::from_member(liason, member_ty, is_member_ty_copyable),
+                opt_range: None,
+            },
             ranged_ty: RangedEntityRoute {
                 route: member_ty.deref_route(),
                 range: Default::default(),
