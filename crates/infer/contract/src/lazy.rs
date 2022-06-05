@@ -50,18 +50,7 @@ impl LazyContract {
         range: TextRange,
     ) -> InferResult<LazyContract> {
         // infer this contract
-        Ok(if is_member_copyable {
-            match member_contract {
-                LazyContract::EvalRef => todo!(),
-                LazyContract::Pure => LazyContract::Pure,
-                LazyContract::Pass | LazyContract::Move => panic!(),
-            }
-        } else {
-            match field_liason {
-                MemberLiason::Immutable | MemberLiason::Mutable => member_contract,
-                MemberLiason::Derived => todo!(),
-            }
-        })
+        Ok(member_contract)
     }
 
     pub fn from_match(match_liason: MatchLiason) -> Self {

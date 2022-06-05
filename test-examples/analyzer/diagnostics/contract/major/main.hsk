@@ -60,4 +60,5 @@ def lazy_as_ty_is_ok -> i32:
 
 main:
     b = B(3, A(1))
+    c = use_eval_ref_copyable_is_ok(b.x)
     1
