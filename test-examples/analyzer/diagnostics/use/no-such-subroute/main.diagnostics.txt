@@ -1,9 +1,2 @@
 4:27..4:29	Ast Error: route `no_such_subroute::connected_components` has no subroute named `co`
-10:6..10:23	Ast Error: a method with the same name already exists
-11:5..11:42	Ast Error: no stmt in module level
-12:5..12:42	Ast Error: no stmt in module level
-13:5..13:18	Ast Error: no stmt in module level
-14:9..14:10	Ast Error: expect keyword at the beginning of module item
-15:9..15:10	Ast Error: expect keyword at the beginning of module item
-16:5..16:13	Ast Error: no stmt in module level
 22:9..22:34	Infer Error: unrecognized caller

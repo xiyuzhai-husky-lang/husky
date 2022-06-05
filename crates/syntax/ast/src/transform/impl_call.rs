@@ -43,25 +43,29 @@ impl<'a> AstTransformer<'a> {
                 }
             }
         }
-        match self.push_new_symbol(Symbol {
-            ident: ranged_ident.ident,
-            kind: match opt_this_liason {
-                Some(_) => SymbolKind::ThisMethod,
-                None => SymbolKind::EntityRoute(
-                    self.context.value().subroute(self.db, ranged_ident.ident),
-                ),
-            },
-        }) {
-            Some(old) => {
-                return err!(
-                    format!("a symbol with the same name already exists"),
-                    ranged_ident.range
-                )
+        if let Some(route) = self
+            .context
+            .value()
+            .opt_subroute(self.db.upcast(), ranged_ident.ident)
+        {
+            match self.push_new_symbol(Symbol {
+                init_ident: ranged_ident,
+                kind: match opt_this_liason {
+                    Some(_) => SymbolKind::ThisMethod,
+                    None => SymbolKind::EntityRoute(route),
+                },
+            }) {
+                Some(old) => {
+                    return err!(
+                        format!("a symbol with the same name already exists"),
+                        ranged_ident.range
+                    )
+                }
+                _ => (),
             }
-            _ => (),
         };
         enter_block(self);
-        self.opt_this_liason.set(Some(opt_this_liason.unwrap()));
+        self.opt_this_liason.set(opt_this_liason);
         self.symbols.extend(
             parameters
                 .iter()

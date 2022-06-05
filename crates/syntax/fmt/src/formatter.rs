@@ -1,12 +1,13 @@
 use std::ops::AddAssign;
 
 use ast::{
-    Ast, AstContext, AstResult, AstVariant, RawExpr, RawExprVariant, RawStmtVariant,
+    Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant, RawStmtVariant,
     StructItemContext,
 };
 use defn_head::Parameter;
 use entity_kind::TyKind;
 use entity_route::EntityRoutePtr;
+use entity_syntax::EntitySyntaxQueryGroup;
 use fold::LocalValue;
 use liason::{MemberLiason, ParameterLiason};
 use print_utils::msg_once;
@@ -14,7 +15,7 @@ use vm::*;
 use word::{Paradigm, RootIdentifier, WordAllocator};
 
 pub struct Formatter<'a> {
-    word_unique_allocator: &'a WordAllocator,
+    db: &'a dyn EntitySyntaxQueryGroup,
     arena: &'a ast::RawExprArena,
     indent: fold::Indent,
     result: String,
@@ -23,12 +24,12 @@ pub struct Formatter<'a> {
 
 impl<'a> Formatter<'a> {
     pub(crate) fn new(
-        word_unique_allocator: &'a WordAllocator,
+        db: &'a dyn EntitySyntaxQueryGroup,
         arena: &'a ast::RawExprArena,
         context: AstContext,
     ) -> Self {
         Self {
-            word_unique_allocator,
+            db,
             arena,
             indent: 0,
             result: String::new(),
@@ -85,14 +86,17 @@ impl<'a> Formatter<'a> {
             AstVariant::TypeDefnHead {
                 ident,
                 ref kind,
-                spatial_parameters: ref generics,
+                ref spatial_parameters,
             } => {
                 enter_block(self);
                 match kind {
                     TyKind::Enum => todo!(),
                     TyKind::Struct => {
-                        self.context
-                            .set(AstContext::Struct(StructItemContext::OriginalField));
+                        let opt_base_ty = self.context.value().opt_subroute(self.db, ident.ident);
+                        self.context.set(AstContext::Struct {
+                            item_context: StructItemContext::OriginalField,
+                            opt_base_ty: None,
+                        });
                         self.write("struct ")
                     }
                     TyKind::Record => todo!(),
@@ -102,7 +106,7 @@ impl<'a> Formatter<'a> {
                     TyKind::Other => todo!(),
                 }
                 self.fmt_ident(ident.ident.into());
-                if generics.len() > 0 {
+                if spatial_parameters.len() > 0 {
                     todo!()
                 }
             }
@@ -234,7 +238,7 @@ impl<'a> Formatter<'a> {
                     AstContext::Stmt(Paradigm::EagerProcedural) => self.write("return "),
                     AstContext::Package(_) => todo!(),
                     AstContext::Module(_) => todo!(),
-                    AstContext::Struct(_) => todo!(),
+                    AstContext::Struct { .. } => todo!(),
                     AstContext::Record => todo!(),
                     AstContext::Props => todo!(),
                     AstContext::Enum(_) => todo!(),

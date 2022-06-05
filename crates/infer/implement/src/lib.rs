@@ -1,17 +1,17 @@
 use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
-use entity_syntax::EntityRouteSalsaQueryGroup;
+use entity_syntax::EntitySyntaxSalsaQueryGroup;
 use print_utils::p;
 use word::CustomIdentifier;
 
 pub struct Implementor<'a> {
-    db: &'a dyn EntityRouteSalsaQueryGroup,
+    db: &'a dyn EntitySyntaxSalsaQueryGroup,
     this_ty: EntityRoutePtr,
     member_impls: &'a [(CustomIdentifier, SpatialArgument)],
 }
 
 impl<'a> Implementor<'a> {
     pub fn new(
-        db: &'a dyn EntityRouteSalsaQueryGroup,
+        db: &'a dyn EntitySyntaxSalsaQueryGroup,
         this_ty: EntityRoutePtr,
         member_impls: &'a [(CustomIdentifier, SpatialArgument)],
     ) -> Self {

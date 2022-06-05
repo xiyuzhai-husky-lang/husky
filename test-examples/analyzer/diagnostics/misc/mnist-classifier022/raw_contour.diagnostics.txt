@@ -1,5 +1,78 @@
 2:15..2:22	Ast Error: expect ty
 110:55..110:62	Ast Error: expect ranged_ty
-116:29..116:30	Ast Error: unrecognized char `\`
+111:5..111:6	Ast Error: expect keyword at the beginning of module item
+112:5..112:7	Ast Error: expect keyword at the beginning of module item
+113:5..113:7	Ast Error: expect keyword at the beginning of module item
+114:5..114:12	Ast Error: expect keyword at the beginning of module item
 120:28..120:41	Ast Error: expect ranged_ty
+121:5..121:32	Ast Error: no stmt in module level
+122:5..122:45	Ast Error: no stmt in module level
+123:5..123:22	Ast Error: no stmt in module level
+124:9..124:27	Ast Error: no stmt in module level
+125:9..125:25	Ast Error: no stmt in module level
+126:9..126:29	Ast Error: no stmt in module level
+127:9..127:29	Ast Error: no stmt in module level
+128:9..128:28	Ast Error: expect keyword at the beginning of module item
+129:5..129:22	Ast Error: no stmt in module level
+130:9..130:38	Ast Error: no stmt in module level
+131:13..131:39	Ast Error: no stmt in module level
+132:13..132:22	Ast Error: no stmt in module level
+133:13..133:60	Ast Error: no stmt in module level
+135:13..135:36	Ast Error: no stmt in module level
+136:13..136:34	Ast Error: no stmt in module level
+138:13..138:81	Ast Error: no stmt in module level
+140:13..140:23	Ast Error: no stmt in module level
+141:13..141:23	Ast Error: no stmt in module level
+142:13..142:40	Ast Error: no stmt in module level
+143:13..143:39	Ast Error: no stmt in module level
+144:13..144:39	Ast Error: no stmt in module level
+145:13..145:39	Ast Error: no stmt in module level
+148:13..148:34	Ast Error: no stmt in module level
+149:13..149:34	Ast Error: no stmt in module level
+150:13..150:36	Ast Error: no stmt in module level
+152:13..152:74	Ast Error: no stmt in module level
+153:17..153:105	Ast Error: no stmt in module level
+154:17..154:89	Ast Error: no stmt in module level
+156:17..156:36	Ast Error: expect keyword at the beginning of module item
+157:17..157:33	Ast Error: no stmt in module level
+159:21..159:147	Ast Error: no stmt in module level
+160:25..160:32	Ast Error: expect keyword at the beginning of module item
+161:25..161:32	Ast Error: expect keyword at the beginning of module item
+162:25..162:37	Ast Error: expect keyword at the beginning of module item
+163:25..163:37	Ast Error: expect keyword at the beginning of module item
+164:21..164:94	Ast Error: no stmt in module level
+165:25..165:32	Ast Error: expect keyword at the beginning of module item
+166:25..166:37	Ast Error: expect keyword at the beginning of module item
+167:25..167:37	Ast Error: expect keyword at the beginning of module item
+168:21..168:117	Ast Error: no stmt in module level
+169:25..169:32	Ast Error: expect keyword at the beginning of module item
+170:25..170:37	Ast Error: expect keyword at the beginning of module item
+171:25..171:37	Ast Error: expect keyword at the beginning of module item
+172:21..172:26	Ast Error: no stmt in module level
+173:25..173:32	Ast Error: expect keyword at the beginning of module item
+174:25..174:37	Ast Error: expect keyword at the beginning of module item
+175:25..175:37	Ast Error: expect keyword at the beginning of module item
+177:21..177:35	Ast Error: expect keyword at the beginning of module item
+179:21..179:39	Ast Error: expect keyword at the beginning of module item
+180:21..180:39	Ast Error: expect keyword at the beginning of module item
+183:17..183:41	Ast Error: no stmt in module level
+184:21..184:40	Ast Error: no stmt in module level
+185:25..185:26	Ast Error: expect keyword at the beginning of module item
+186:25..186:34	Ast Error: expect keyword at the beginning of module item
+187:25..187:34	Ast Error: expect keyword at the beginning of module item
+188:21..188:42	Ast Error: no stmt in module level
+189:25..189:26	Ast Error: expect keyword at the beginning of module item
+190:25..190:34	Ast Error: expect keyword at the beginning of module item
+191:25..191:34	Ast Error: expect keyword at the beginning of module item
+192:21..192:42	Ast Error: no stmt in module level
+193:25..193:26	Ast Error: expect keyword at the beginning of module item
+194:21..194:43	Ast Error: no stmt in module level
+195:25..195:26	Ast Error: expect keyword at the beginning of module item
+197:17..197:33	Ast Error: expect keyword at the beginning of module item
+199:17..199:41	Ast Error: no stmt in module level
+200:21..200:35	Ast Error: expect keyword at the beginning of module item
+201:13..201:86	Ast Error: no stmt in module level
+202:17..202:24	Ast Error: expect keyword at the beginning of module item
+203:13..203:19	Ast Error: expect keyword at the beginning of module item
+204:5..204:18	Ast Error: no stmt in module level
 52:33..52:39	Infer Error: no method named `to_i32` for type `mnist_classifier022::raw_contour::Direction`

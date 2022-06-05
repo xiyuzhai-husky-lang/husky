@@ -1,19 +1,20 @@
 use entity_kind::TyKind;
 use entity_route::{EntityKind, RangedEntityRoute};
-use entity_syntax::EntityRouteQueryGroup;
+use entity_syntax::EntitySyntaxQueryGroup;
 use static_defn::StaticGenericPlaceholder;
+use text::RangedCustomIdentifier;
 use vec_map::VecMapEntry;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SpatialParameter {
-    pub ident: CustomIdentifier,
+    pub ident: RangedCustomIdentifier,
     pub variant: GenericPlaceholderVariant,
 }
 
 impl VecMapEntry<CustomIdentifier> for SpatialParameter {
     fn key(&self) -> CustomIdentifier {
-        self.ident
+        self.ident.ident
     }
 }
 
@@ -24,7 +25,7 @@ pub enum GenericPlaceholderVariant {
 }
 
 impl SpatialParameter {
-    pub fn from_static(db: &dyn EntityRouteQueryGroup, _: &StaticGenericPlaceholder) -> Self {
+    pub fn from_static(db: &dyn EntitySyntaxQueryGroup, _: &StaticGenericPlaceholder) -> Self {
         todo!()
     }
 }

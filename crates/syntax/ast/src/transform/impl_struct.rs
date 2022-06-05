@@ -13,7 +13,6 @@ impl<'a> AstTransformer<'a> {
     pub(super) fn parse_struct_item(
         &mut self,
         token_group: &[Token],
-        struct_item_context: StructItemContext,
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         match token_group[0].kind {
@@ -26,15 +25,15 @@ impl<'a> AstTransformer<'a> {
                     Keyword::Paradigm(routine_keyword) => {
                         match token_group[2].kind {
                             TokenKind::Special(SpecialToken::LPar) => {
-                                self.parse_struct_method(token_group, struct_item_context, enter_block)
+                                self.parse_struct_method(token_group,  enter_block)
                             },
                             TokenKind::Special(SpecialToken::LightArrow) =>{
-                                self.parse_struct_derived_lazy_field(token_group, struct_item_context, enter_block)
+                                self.parse_struct_derived_lazy_field(token_group,  enter_block)
                             },
                             _=> todo!(),
                         }
                     },
-                    Keyword::Visual => self.parse_visual(token_group, struct_item_context, enter_block),
+                    Keyword::Visual => self.parse_visual(token_group,   enter_block),
                     Keyword::Config(_)
                     | Keyword::Type(_)
                     | Keyword::Stmt(_)
@@ -44,14 +43,14 @@ impl<'a> AstTransformer<'a> {
                         p!(self.context, keyword);
                         todo!()
                     },
-                    Keyword::Liason(_) =>  self.parse_struct_eager_field(token_group, struct_item_context, enter_block),
+                    Keyword::Liason(_) =>  self.parse_struct_eager_field(token_group,   enter_block),
                 }
             },
             TokenKind::Identifier(_) => {
-                self.parse_struct_eager_field(token_group, struct_item_context, enter_block)
+                self.parse_struct_eager_field(token_group,  enter_block)
             },
             TokenKind::Decorator(_) => {
-                self.parse_struct_associated_routine(token_group, struct_item_context, enter_block)
+                self.parse_struct_associated_routine(token_group,   enter_block)
             },
             _ => err!(
                 format!("expect <keyword> or <identifier> or <decorator> at the beginning of each struct item"),
@@ -62,13 +61,21 @@ impl<'a> AstTransformer<'a> {
 
     fn update_struct_item_context(
         &mut self,
-        old_struct_item_context: StructItemContext,
         new_struct_item_context: StructItemContext,
         token_group: &[Token],
     ) -> AstResult<()> {
+        let (opt_base_ty, old_struct_item_context) = match self.context.value() {
+            AstContext::Struct {
+                opt_base_ty,
+                item_context,
+            } => (opt_base_ty, item_context),
+            _ => panic!(),
+        };
         if old_struct_item_context < new_struct_item_context {
-            self.context
-                .set(AstContext::Struct(new_struct_item_context));
+            let opt_base_ty = self.context.set(AstContext::Struct {
+                opt_base_ty,
+                item_context: new_struct_item_context,
+            });
             Ok(())
         } else if old_struct_item_context > new_struct_item_context {
             err!(
@@ -83,14 +90,10 @@ impl<'a> AstTransformer<'a> {
     fn parse_visual(
         &mut self,
         token_group: &[Token],
-        struct_item_context: StructItemContext,
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
-        let context_update_result = self.update_struct_item_context(
-            struct_item_context,
-            StructItemContext::Visual,
-            token_group,
-        );
+        let context_update_result =
+            self.update_struct_item_context(StructItemContext::Visual, token_group);
         expect_len!(token_group, 2);
         expect_block_head!(token_group);
         enter_block(self);

@@ -34,7 +34,7 @@ pub struct AstTransformer<'a> {
     arena: RawExprArena,
     symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,
-    opt_this_ty: LocalValue<Option<EntityRoutePtr>>,
+    opt_base_ty: LocalValue<Option<EntityRoutePtr>>,
     opt_this_liason: LocalValue<Option<ParameterLiason>>,
     pub(crate) folded_results: FoldableList<AstResult<Ast>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
@@ -59,7 +59,7 @@ impl<'a> AstTransformer<'a> {
                 EntityRouteKind::Child { .. } => AstContext::Module(module),
                 _ => panic!(),
             }),
-            opt_this_ty: LocalValue::new(None),
+            opt_base_ty: LocalValue::new(None),
             opt_this_liason: LocalValue::new(None),
             abs_semantic_tokens: vec![],
             tokenized_text: db.tokenized_text(module_file)?,
@@ -70,18 +70,17 @@ impl<'a> AstTransformer<'a> {
             module: EntityRoutePtr,
         ) -> LocalStack<Symbol> {
             let mut symbols = LocalStack::new();
-            for route in db.subscopes(module).iter() {
-                match route.kind {
-                    EntityRouteKind::Root { .. }
-                    | EntityRouteKind::Package { .. }
-                    | EntityRouteKind::Input { .. } => panic!(),
-                    EntityRouteKind::Child { ident, .. } => symbols.push(Symbol {
-                        ident,
-                        kind: SymbolKind::EntityRoute(*route),
-                    }),
-                    EntityRouteKind::Generic { .. } => panic!(),
-                    EntityRouteKind::ThisType => panic!(),
-                    EntityRouteKind::TypeAsTraitMember { .. } => panic!(),
+            let subroute_table = db.subroute_table(module).unwrap();
+            for entry in subroute_table.entries.iter() {
+                if let Some(entry_ident) = entry.ident {
+                    symbols.push(Symbol {
+                        init_ident: entry_ident,
+                        kind: SymbolKind::EntityRoute(db.make_subroute(
+                            module,
+                            entry_ident.ident,
+                            vec![],
+                        )),
+                    })
                 }
             }
             symbols
@@ -107,14 +106,14 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
     fn _enter_block(&mut self) {
         self.context.enter();
         self.symbols.enter();
-        self.opt_this_ty.enter();
+        self.opt_base_ty.enter();
         self.opt_this_liason.enter();
     }
 
     fn _exit_block(&mut self) {
         self.context.exit();
         self.symbols.exit();
-        self.opt_this_ty.exit();
+        self.opt_base_ty.exit();
         self.opt_this_liason.exit();
     }
 
@@ -148,9 +147,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                         _ => self.parse_stmt_without_keyword(token_group)?.into(),
                     }
                 }
-                AstContext::Struct(struct_item_context) => {
-                    self.parse_struct_item(token_group, struct_item_context, enter_block)?
-                }
+                AstContext::Struct { .. } => self.parse_struct_item(token_group, enter_block)?,
                 AstContext::Enum(_) => self.parse_enum_variant(token_group)?,
                 AstContext::Record => self.parse_record_item(token_group, enter_block)?,
                 AstContext::Props => todo!(),

@@ -8,7 +8,7 @@ pub mod utils;
 pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use diagnostic::DiagnosticQuery;
 pub use entity_route::{AllocateUniqueScope, EntityRoute};
-pub use entity_syntax::{EntityRouteQueryGroup, EntityRouteSalsaQueryGroup};
+pub use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
 pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;

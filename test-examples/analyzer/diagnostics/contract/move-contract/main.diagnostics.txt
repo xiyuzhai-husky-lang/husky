@@ -1,1 +1,2 @@
 7:12..7:14	Ast Error: expect ranged_ty
+8:5..8:6	Ast Error: expect keyword at the beginning of module item

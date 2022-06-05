@@ -19,7 +19,7 @@ fn fmt_text(
 ) -> entity_syntax::EntitySyntaxResultArc<String> {
     let ast_text = db.ast_text(file)?;
     let mut formatter = Formatter::new(
-        db.word_allocator(),
+        db.upcast(),
         &ast_text.arena,
         AstContext::Module(db.module(file).unwrap()),
     );

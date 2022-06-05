@@ -4,7 +4,7 @@ use super::*;
 
 pub struct AtomContextStandalone<'a> {
     pub opt_package_main: Option<FilePtr>,
-    pub db: &'a dyn EntityRouteQueryGroup,
+    pub db: &'a dyn EntitySyntaxQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
     pub opt_this_contract: Option<ParameterLiason>,
     pub symbols: Cow<'a, [Symbol]>,
@@ -16,7 +16,7 @@ impl<'a> AtomContext for AtomContextStandalone<'a> {
         self.opt_package_main
     }
 
-    fn entity_syntax_db(&self) -> &dyn EntityRouteQueryGroup {
+    fn entity_syntax_db(&self) -> &dyn EntitySyntaxQueryGroup {
         self.db
     }
 

@@ -1,5 +1,6 @@
 mod struct_item_context;
 
+use entity_syntax::EntitySyntaxQueryGroup;
 pub use struct_item_context::*;
 
 use file::FilePtr;
@@ -14,25 +15,32 @@ pub enum AstContext {
     Stmt(Paradigm),
     Match(Paradigm),
     Visual,
-    Struct(StructItemContext),
+    Struct {
+        opt_base_ty: Option<EntityRoutePtr>,
+        item_context: StructItemContext,
+    },
     Record,
     Props,
     Enum(EntityRoutePtr),
 }
 
 impl AstContext {
-    pub fn subroute(&self, db: &dyn AstSalsaQueryGroup, ident: CustomIdentifier) -> EntityRoutePtr {
-        match self {
-            AstContext::Package(main) => db.make_subroute(db.module(*main).unwrap(), ident, vec![]),
-            AstContext::Module(route) => db.make_subroute(*route, ident, Vec::new()),
+    pub fn opt_subroute(
+        self,
+        db: &dyn EntitySyntaxQueryGroup,
+        ident: CustomIdentifier,
+    ) -> Option<EntityRoutePtr> {
+        Some(match self {
+            AstContext::Package(main) => db.make_subroute(db.module(main).unwrap(), ident, vec![]),
+            AstContext::Module(route) => db.make_subroute(route, ident, Vec::new()),
             AstContext::Stmt(_) => todo!(),
             AstContext::Match(_) => todo!(),
-            AstContext::Struct(item_context) => todo!(),
+            AstContext::Struct { opt_base_ty, .. } => db.make_subroute(opt_base_ty?, ident, vec![]),
             AstContext::Enum(_) => todo!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
             AstContext::Visual => todo!(),
-        }
+        })
     }
 }
 
@@ -55,7 +63,7 @@ impl std::fmt::Display for AstContext {
             AstContext::Stmt(Paradigm::EagerFunctional) => "func",
             AstContext::Stmt(Paradigm::EagerProcedural) => "proc",
             AstContext::Visual => "visual",
-            AstContext::Struct(_) => "struct",
+            AstContext::Struct { .. } => "struct",
             AstContext::Enum(_) => "enum",
             AstContext::Record => "record",
             AstContext::Props => "props",

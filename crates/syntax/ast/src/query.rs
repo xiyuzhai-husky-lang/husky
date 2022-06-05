@@ -1,6 +1,6 @@
 use crate::*;
 use arena::map::ArenaKeyQuery;
-use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResultArc};
+use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldableList, FoldableStorage};
@@ -14,7 +14,7 @@ use upcast::Upcast;
 
 #[salsa::query_group(AstQueryGroupStorage)]
 pub trait AstSalsaQueryGroup:
-    EntityRouteQueryGroup + Upcast<dyn EntityRouteQueryGroup> + TextQueryGroup
+    EntitySyntaxQueryGroup + Upcast<dyn EntitySyntaxQueryGroup> + TextQueryGroup
 {
     fn ast_text(&self, file: FilePtr) -> EntitySyntaxResultArc<AstText>;
 }

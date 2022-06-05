@@ -1,2 +1,0 @@
-17:10..17:15	Ast Error: a method with the same name already exists
-18:13..18:14	Ast Error: expect "sema_custom_ident" after it

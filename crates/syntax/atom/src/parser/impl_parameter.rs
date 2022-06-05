@@ -63,7 +63,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 ranged_ident.range,
             ));
         Ok(SpatialParameter {
-            ident: ranged_ident.ident,
+            ident: ranged_ident,
             variant: GenericPlaceholderVariant::Type { traits },
         })
     }

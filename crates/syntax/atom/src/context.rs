@@ -8,7 +8,7 @@ use super::*;
 use defn_head::{GenericPlaceholderVariant, Parameter, SpatialParameter};
 use entity_kind::TyKind;
 use entity_route::{EntityRouteKind, *};
-use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResult};
+use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
 use file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;
@@ -34,7 +34,7 @@ pub struct AtomContextState {
 
 pub trait AtomContext {
     fn opt_package_main(&self) -> Option<FilePtr>;
-    fn entity_syntax_db(&self) -> &dyn EntityRouteQueryGroup;
+    fn entity_syntax_db(&self) -> &dyn EntitySyntaxQueryGroup;
     fn opt_this_ty(&self) -> Option<EntityRoutePtr>;
     fn opt_this_liason(&self) -> Option<ParameterLiason>;
     fn symbols(&self) -> &[Symbol];
@@ -49,7 +49,7 @@ pub trait AtomContext {
         let old = self
             .symbols()
             .iter()
-            .find(|old| old.ident == new.ident)
+            .find(|old| old.init_ident == new.init_ident)
             .map(|s| s.clone());
         self.push_symbol(new);
         old
@@ -138,7 +138,7 @@ pub trait AtomContext {
         self.symbols()
             .iter()
             .rev()
-            .find(|symbol| symbol.ident == ident)
+            .find(|symbol| symbol.init_ident.ident == ident)
     }
 
     fn entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
@@ -237,10 +237,13 @@ pub trait AtomContext {
         static_generic_parameters: &[StaticGenericPlaceholder],
     ) -> IdentDict<SpatialParameter> {
         static_generic_parameters.map(|static_generic_placeholder| SpatialParameter {
-            ident: self
-                .entity_syntax_db()
-                .intern_word(static_generic_placeholder.name)
-                .custom(),
+            ident: RangedCustomIdentifier {
+                ident: self
+                    .entity_syntax_db()
+                    .intern_word(static_generic_placeholder.name)
+                    .custom(),
+                range: Default::default(),
+            },
             variant: GenericPlaceholderVariant::Type { traits: vec![] },
         })
     }
@@ -252,7 +255,7 @@ pub trait AtomContext {
         generic_parameters.map(|generic_placeholder| {
             SpatialArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
-                    ident: generic_placeholder.ident,
+                    ident: generic_placeholder.ident.ident,
                     entity_kind: generic_placeholder.entity_kind(),
                 },
                 temporal_arguments: vec![],
@@ -266,14 +269,14 @@ pub trait AtomContext {
         generic_parameters: &[SpatialParameter],
     ) -> Vec<Symbol> {
         let mut symbols = Vec::new();
-        for generic_placeholder in generic_parameters.iter() {
+        for generic_parameter in generic_parameters.iter() {
             symbols.push(Symbol {
-                ident: generic_placeholder.ident,
+                init_ident: generic_parameter.ident,
                 kind: SymbolKind::EntityRoute(self.entity_syntax_db().intern_entity_route(
                     EntityRoute {
                         kind: EntityRouteKind::Generic {
-                            ident: generic_placeholder.ident,
-                            entity_kind: generic_placeholder.entity_kind(),
+                            ident: generic_parameter.ident.ident,
+                            entity_kind: generic_parameter.entity_kind(),
                         },
                         temporal_arguments: vec![],
                         spatial_arguments: vec![],

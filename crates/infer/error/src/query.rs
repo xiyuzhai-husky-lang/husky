@@ -96,12 +96,12 @@ macro_rules! query_derived_not_none {
 }
 
 #[macro_export]
-macro_rules! query_derived_ok {
+macro_rules! throw_query_derived {
     ($result: expr) => {{
-        $result.or(infer_error::InferQueryError {
-            variant: infer_error::InferQueryErrorKind::Derived,
+        $result.map_err(|_| infer_error::InferQueryError {
+            kind: infer_error::InferQueryErrorKind::Derived,
             message: "expect ok".to_string(),
             dev_src: dev_utils::dev_src!(),
-        })
+        })?
     }};
 }

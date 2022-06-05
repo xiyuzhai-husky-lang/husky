@@ -10,7 +10,7 @@ use print_utils::p;
 use static_defn::*;
 use word::{CustomIdentifier, Decorator, Keyword};
 
-use crate::EntityRouteSalsaQueryGroup;
+use crate::EntitySyntaxSalsaQueryGroup;
 use crate::{error::*, *};
 use text::{RangedCustomIdentifier, TextRange, TextRanged};
 use token::{SpecialToken, Token, TokenGroupIter, TokenKind};
@@ -67,7 +67,7 @@ impl SubrouteTable {
     }
 
     pub fn parse(
-        db: &dyn EntityRouteSalsaQueryGroup,
+        db: &dyn EntitySyntaxSalsaQueryGroup,
         file: FilePtr,
         route: EntityRoutePtr,
         entity_kind: EntityKind,
@@ -93,7 +93,7 @@ impl SubrouteTable {
         }
     }
 
-    pub fn submodule_idents(&self) -> Vec<CustomIdentifier> {
+    pub fn submodule_idents(&self) -> Vec<RangedCustomIdentifier> {
         self.entries
             .iter()
             .filter_map(|entry| {
@@ -111,7 +111,11 @@ impl SubrouteTable {
         query_not_none!(
             self.entries
                 .iter()
-                .find(|entry| entry.ident == Some(ident))
+                .find(|entry| if let Some(entry_ident) = entry.ident {
+                    entry_ident.ident == ident
+                } else {
+                    false
+                })
                 .map(|entry| entry.source),
             format!("No entity route with ident: \"{}\" among {}", ident, self)
         )
@@ -120,7 +124,13 @@ impl SubrouteTable {
     pub fn entity_kind(&self, ident: CustomIdentifier) -> EntitySyntaxResult<EntityKind> {
         self.entries
             .iter()
-            .find(|entry| entry.ident == Some(ident))
+            .find(|entry| {
+                if let Some(entry_ident) = entry.ident {
+                    entry_ident.ident == ident
+                } else {
+                    false
+                }
+            })
             .map(|entry| entry.kind)
             .ok_or(query_error!(format!(
                 "route `{:?}` has no subroute named `{}`",
@@ -138,7 +148,13 @@ impl SubrouteTable {
         }
         self.entries
             .iter()
-            .find(|entry| entry.ident == Some(ident))
+            .find(|entry| {
+                if let Some(entry_ident) = entry.ident {
+                    entry_ident.ident == ident
+                } else {
+                    false
+                }
+            })
             .is_some()
     }
 
@@ -151,19 +167,19 @@ impl SubrouteTable {
 
     pub fn subroute_iter<'a>(
         &'a self,
-        db: &'a dyn EntityRouteSalsaQueryGroup,
+        db: &'a dyn EntitySyntaxSalsaQueryGroup,
         parent_route: EntityRoutePtr,
     ) -> impl Iterator<Item = EntityRoutePtr> + 'a {
         self.entries.iter().filter_map(move |entry| {
             entry
                 .ident
-                .map(|ident| db.make_subroute(parent_route, ident, Vec::new()))
+                .map(|ident| db.make_subroute(parent_route, ident.ident, Vec::new()))
         })
     }
 
     pub fn non_module_subroute_iter<'a>(
         &'a self,
-        db: &'a dyn EntityRouteSalsaQueryGroup,
+        db: &'a dyn EntitySyntaxSalsaQueryGroup,
         parent_route: EntityRoutePtr,
     ) -> impl Iterator<Item = EntityRoutePtr> + 'a {
         self.entries
@@ -172,12 +188,12 @@ impl SubrouteTable {
                 EntityKind::Module => None,
                 _ => entry
                     .ident
-                    .map(|ident| db.make_subroute(parent_route, ident, Vec::new())),
+                    .map(|ident| db.make_subroute(parent_route, ident.ident, Vec::new())),
             })
     }
 
     pub(crate) fn from_static(
-        db: &dyn EntityRouteSalsaQueryGroup,
+        db: &dyn EntitySyntaxSalsaQueryGroup,
         route: EntityRoutePtr,
         entity_kind: EntityKind,
         data: &EntityStaticDefn,
@@ -186,7 +202,10 @@ impl SubrouteTable {
             .subscopes
             .iter()
             .map(|(s, data)| SubrouteEntry {
-                ident: Some(db.intern_word(s).opt_custom().unwrap()),
+                ident: Some(RangedCustomIdentifier {
+                    ident: db.intern_word(s).opt_custom().unwrap(),
+                    range: Default::default(),
+                }),
                 kind: data.variant.entity_kind(),
                 source: (*data).into(),
             })
@@ -200,7 +219,10 @@ impl SubrouteTable {
             } => {
                 for type_member in type_members {
                     entries.push(SubrouteEntry {
-                        ident: Some(db.intern_word(type_member.name).custom()),
+                        ident: Some(RangedCustomIdentifier {
+                            ident: db.intern_word(type_member.name).custom(),
+                            range: Default::default(),
+                        }),
                         kind: EntityKind::Member(match type_member.variant {
                             EntityStaticDefnVariant::TyField { .. } => MemberKind::Field,
                             EntityStaticDefnVariant::Method { .. } => MemberKind::Method,

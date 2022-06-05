@@ -9,7 +9,7 @@ use ast::*;
 use check_utils::*;
 use defn_head::*;
 use entity_route::*;
-use entity_syntax::{EntityRouteQueryGroup, EntitySyntaxResultArc};
+use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use file::FilePtr;
 use infer_decl::{CallDecl, DeclQueryGroup, MethodDecl, TyDecl};
 use infer_error::*;

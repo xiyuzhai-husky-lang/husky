@@ -170,7 +170,7 @@ impl<'a> AstTransformer<'a> {
                     },
                 }
             }
-            AstContext::Struct(_) | AstContext::Enum(_) => panic!(),
+            AstContext::Struct { .. } | AstContext::Enum(_) => panic!(),
             AstContext::Record => todo!(),
             AstContext::Props => todo!(),
             AstContext::Match(_) => err!(format!("expect case stmt"), token_group.text_range())?,
@@ -304,7 +304,7 @@ impl<'a> AstTransformer<'a> {
                             frame_var.range,
                         ));
                         self.symbols.push(Symbol {
-                            ident: frame_var.ident,
+                            init_ident: frame_var,
                             kind: SymbolKind::FrameVariable {
                                 init_range: frame_var.range,
                             },
