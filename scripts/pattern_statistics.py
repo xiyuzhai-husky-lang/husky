@@ -17,10 +17,12 @@ def subpaths(path: str) -> "list[str]":
 
 def search(pattern: str, search_path: str, depth: int):
     if depth <= 0 or os.path.isfile(search_path):
-        print(
-            "    {:30s}".format(colored(search_path, "green")),
-            colored("{}".format(count_patterns(pattern, search_path)), "yellow"),
-        )
+        number_of_patterns = count_patterns(pattern, search_path)
+        if number_of_patterns > 0:
+            print(
+                "    {:30s}".format(colored(search_path, "green")),
+                colored("{}".format(number_of_patterns), "yellow"),
+            )
     else:
         for subpath in subpaths(search_path):
             search(pattern, subpath, depth - 1)
