@@ -22,7 +22,7 @@ impl LazyContract {
             OutputLiason::Transfer => Ok(match parameter_liason {
                 ParameterLiason::Pure => LazyContract::Pure,
                 ParameterLiason::Move | ParameterLiason::MoveMut => LazyContract::Move,
-                ParameterLiason::TempRefMut => todo!(),
+                ParameterLiason::TempRefMut => panic!(),
                 ParameterLiason::MemberAccess => todo!(),
                 ParameterLiason::EvalRef => LazyContract::EvalRef,
                 ParameterLiason::TempRef => todo!(),
@@ -40,17 +40,13 @@ impl LazyContract {
         // infer this contract
         Ok(if is_member_copyable {
             match field_contract {
-                LazyContract::Pass => todo!(),
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyContract::Pure,
-                LazyContract::Move => todo!(),
+                LazyContract::Pass | LazyContract::Move => panic!(),
             }
         } else {
             match field_liason {
-                MemberLiason::Immutable | MemberLiason::Mutable => match field_contract {
-                    LazyContract::Pass => todo!(),
-                    _ => field_contract,
-                },
+                MemberLiason::Immutable | MemberLiason::Mutable => field_contract,
                 MemberLiason::Derived => todo!(),
             }
         })
