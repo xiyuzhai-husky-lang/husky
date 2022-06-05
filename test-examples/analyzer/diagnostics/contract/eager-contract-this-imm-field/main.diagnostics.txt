@@ -1,5 +1,4 @@
 26:5..26:18	Infer Error: expect same type for assignment
-31:5..31:18	Infer Error: expect same type for assignment
 38:5..38:6	Infer Error: expect void but get i32 instead
 26:5..26:6	Infer Error: can't turn eval ref into a temp mut ref
 31:5..31:6	Infer Error: can't turn eval ref into a temp mut ref
