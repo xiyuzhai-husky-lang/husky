@@ -18,9 +18,10 @@ impl LazyVariable {
                 ParameterLiason::Pure => false,
                 ParameterLiason::EvalRef => todo!(),
                 ParameterLiason::Move => todo!(),
-                ParameterLiason::TempMut => todo!(),
+                ParameterLiason::TempRefMut => todo!(),
                 ParameterLiason::MoveMut => todo!(),
                 ParameterLiason::MemberAccess => todo!(),
+                ParameterLiason::TempRef => todo!(),
             },
         }
     }

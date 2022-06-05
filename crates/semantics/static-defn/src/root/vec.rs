@@ -73,7 +73,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(vec_type_call, 0),
-        routine_kind: RoutineKind::TypeCall,
+        paradigm: RoutineKind::TypeCall,
     },
     dev_src: static_dev_src!(),
 };
@@ -215,7 +215,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     name: "push",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::TempMut,
+        this_liason: ParameterLiason::TempRefMut,
         parameters: &[StaticParameter {
             contract: ParameterLiason::Move,
             ty: "E",
@@ -235,7 +235,7 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
     name: "pop",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::TempMut,
+        this_liason: ParameterLiason::TempRefMut,
         parameters: &[],
         output_ty: "E",
         generic_parameters: &[],

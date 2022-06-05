@@ -27,6 +27,18 @@ impl ParameterDecl {
         }
     }
 
+    pub fn from_field(db: &dyn DeclQueryGroup, field_decl: &FieldDecl) -> InferResult<Self> {
+        Ok(ParameterDecl {
+            liason: ParameterLiason::from_member(
+                field_decl.liason,
+                field_decl.ty,
+                db.is_copyable(field_decl.ty)?,
+            ),
+            ty: field_decl.ty,
+            ident: field_decl.ident,
+        })
+    }
+
     pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
         Self {
             ty: instantiator
@@ -46,7 +58,7 @@ impl Into<ParameterDecl> for &Parameter {
     fn into(self) -> ParameterDecl {
         ParameterDecl {
             liason: self.liason,
-            ty: self.ranged_ty.route,
+            ty: self.ranged_ty.route.deref_route(),
             ident: self.ranged_ident.ident,
         }
     }

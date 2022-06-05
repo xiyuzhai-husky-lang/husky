@@ -486,8 +486,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         if let Some(qt) = self.infer_eager_expr(arena, opd_idx) {
                             match parameter.liason {
                                 ParameterLiason::Pure => Ok(Some(qt)),
-                                ParameterLiason::EvalRef => todo!(),
-                                ParameterLiason::TempMut => todo!(),
+                                ParameterLiason::EvalRef => match qt.qual {
+                                    EagerQualifier::EvalRef => Ok(Some(qt)),
+                                    _ => {
+                                        throw!(format!("expect eval ref"), arena[opd_idx].range)
+                                    }
+                                },
+                                ParameterLiason::TempRefMut => todo!(),
                                 ParameterLiason::Move | ParameterLiason::MoveMut => match qt.qual {
                                     EagerQualifier::Copyable | EagerQualifier::CopyableMut => {
                                         panic!()
@@ -506,6 +511,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                                     EagerQualifier::TempRefMut => todo!(),
                                 },
                                 ParameterLiason::MemberAccess => todo!(),
+                                ParameterLiason::TempRef => todo!(),
                             }
                         } else {
                             Ok(None)

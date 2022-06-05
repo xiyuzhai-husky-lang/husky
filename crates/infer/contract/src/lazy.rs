@@ -1,4 +1,5 @@
 use ast::MatchLiason;
+use infer_error::throw;
 use text::TextRange;
 
 use crate::*;
@@ -24,9 +25,10 @@ impl LazyContract {
             OutputLiason::Transfer => Ok(match parameter_liason {
                 ParameterLiason::Pure => LazyContract::Pure,
                 ParameterLiason::Move | ParameterLiason::MoveMut => LazyContract::Move,
-                ParameterLiason::TempMut => todo!(),
+                ParameterLiason::TempRefMut => todo!(),
                 ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::EvalRef => todo!(),
+                ParameterLiason::EvalRef => LazyContract::EvalRef,
+                ParameterLiason::TempRef => todo!(),
             }),
             OutputLiason::MemberAccess { .. } => todo!(),
         }
@@ -52,13 +54,11 @@ impl LazyContract {
         } else {
             match field_liason {
                 MemberLiason::Immutable | MemberLiason::Mutable => match field_contract {
-                    LazyContract::Move => LazyContract::Move,
-                    LazyContract::Pure => LazyContract::Pure,
-                    LazyContract::EvalRef => todo!(),
                     LazyContract::Init => todo!(),
                     LazyContract::Return => todo!(),
                     LazyContract::UseMemberForInit => todo!(),
                     LazyContract::UseMemberForReturn => todo!(),
+                    _ => field_contract,
                 },
                 MemberLiason::Derived => todo!(),
             }

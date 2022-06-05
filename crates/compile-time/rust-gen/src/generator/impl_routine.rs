@@ -33,9 +33,10 @@ impl<'a> RustGenerator<'a> {
                 }
                 ParameterLiason::EvalRef => todo!(),
                 ParameterLiason::Move => todo!(),
-                ParameterLiason::TempMut => todo!(),
+                ParameterLiason::TempRefMut => todo!(),
                 ParameterLiason::MoveMut => todo!(),
                 ParameterLiason::MemberAccess => todo!(),
+                ParameterLiason::TempRef => todo!(),
             }
             self.gen_entity_route(input_placeholder.ranged_ty.route);
         }
@@ -74,9 +75,10 @@ impl<'a> RustGenerator<'a> {
                 }
                 ParameterLiason::EvalRef => todo!(),
                 ParameterLiason::Move => todo!(),
-                ParameterLiason::TempMut => todo!(),
+                ParameterLiason::TempRefMut => todo!(),
                 ParameterLiason::MoveMut => todo!(),
                 ParameterLiason::MemberAccess => todo!(),
+                ParameterLiason::TempRef => todo!(),
             }
             self.gen_entity_route(input_placeholder.ranged_ty.route);
         }

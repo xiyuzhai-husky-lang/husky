@@ -60,17 +60,12 @@ impl EntityDefnVariant {
                     EntityDefnVariant::TyField {
                         ty,
                         ref field_variant,
-                        liason: contract,
+                        liason,
                         ..
                     } => match field_variant {
-                        FieldDefnVariant::RecordOriginal => Parameter {
-                            ranged_ident: ident,
-                            liason: contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
-                            ranged_ty: RangedEntityRoute {
-                                route: ty,
-                                range: Default::default(),
-                            },
-                        },
+                        FieldDefnVariant::RecordOriginal => {
+                            Parameter::from_member(ident, liason, ty, db.is_copyable(ty).unwrap())
+                        }
                         _ => {
                             p!(field_variant);
                             panic!()
@@ -89,17 +84,12 @@ impl EntityDefnVariant {
                     EntityDefnVariant::TyField {
                         ty,
                         ref field_variant,
-                        liason: contract,
+                        liason,
                         ..
                     } => match field_variant {
-                        FieldDefnVariant::StructOriginal => Parameter {
-                            ranged_ident: ident,
-                            liason: contract.constructor_input_liason(db.is_copyable(ty).unwrap()),
-                            ranged_ty: RangedEntityRoute {
-                                route: ty,
-                                range: Default::default(),
-                            },
-                        },
+                        FieldDefnVariant::StructOriginal => {
+                            Parameter::from_member(ident, liason, ty, db.is_copyable(ty).unwrap())
+                        }
                         _ => panic!(),
                     },
                     _ => panic!(),

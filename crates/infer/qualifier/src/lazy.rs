@@ -134,7 +134,7 @@ impl LazyQualifier {
                 LazyContract::Return => todo!(),
                 LazyContract::UseMemberForInit => LazyQualifier::EvalRef,
                 LazyContract::UseMemberForReturn => LazyQualifier::EvalRef,
-                LazyContract::EvalRef => todo!(),
+                LazyContract::EvalRef => LazyQualifier::EvalRef,
                 LazyContract::Pure => LazyQualifier::PureRef,
                 LazyContract::Move => todo!(),
             },
@@ -153,12 +153,7 @@ impl LazyQualifier {
             LazyQualifier::Copyable
         } else {
             // non-copyable
-            match this_qual {
-                LazyQualifier::Copyable => panic!(),
-                LazyQualifier::PureRef => LazyQualifier::PureRef,
-                LazyQualifier::EvalRef => todo!(),
-                LazyQualifier::Transient => todo!(),
-            }
+            this_qual
         })
     }
 
@@ -181,9 +176,10 @@ impl LazyQualifier {
             }
             ParameterLiason::EvalRef => LazyQualifier::EvalRef,
             ParameterLiason::Move => todo!(),
-            ParameterLiason::TempMut => todo!(),
+            ParameterLiason::TempRefMut => todo!(),
             ParameterLiason::MoveMut => todo!(),
             ParameterLiason::MemberAccess => todo!(),
+            ParameterLiason::TempRef => todo!(),
         }
     }
 

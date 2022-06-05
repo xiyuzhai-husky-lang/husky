@@ -27,12 +27,14 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             Paradigm::EagerFunctional => {
                 for parameter in parameters.iter() {
                     match parameter.liason {
-                        ParameterLiason::Pure | ParameterLiason::Move => (),
-                        ParameterLiason::TempMut | ParameterLiason::MoveMut => {
-                            todo!("report invalid input contract")
+                        ParameterLiason::Pure
+                        | ParameterLiason::Move
+                        | ParameterLiason::EvalRef
+                        | ParameterLiason::TempRef => (),
+                        ParameterLiason::TempRefMut | ParameterLiason::MoveMut => {
+                            todo!("invalid  parameter liason")
                         }
                         ParameterLiason::MemberAccess => todo!(),
-                        ParameterLiason::EvalRef => todo!(),
                     }
                 }
             }
@@ -109,10 +111,10 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     fn call_parameters(&mut self) -> AtomResultArc<Vec<Parameter>> {
         eat!(self, "(");
-        Ok(Arc::new(comma_list!(self, call_input_placeholder!, ")")))
+        Ok(Arc::new(comma_list!(self, call_parameter!, ")")))
     }
 
-    fn call_input_placeholder(&mut self) -> AtomResult<Parameter> {
+    fn call_parameter(&mut self) -> AtomResult<Parameter> {
         let ident = get!(self, custom_ident);
         self.atom_context
             .push_abs_semantic_token(AbsSemanticToken::new(
@@ -121,11 +123,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             ));
         eat!(self, ":");
         let ty = get!(self, ranged_ty?);
-        Ok(Parameter {
-            ranged_ident: ident,
-            liason: ParameterLiason::Pure,
-            ranged_ty: ty,
-        })
+        Ok(Parameter::new(ident, ty))
     }
 
     fn func_output_type(&mut self) -> AtomResult<RangedEntityRoute> {

@@ -40,9 +40,10 @@ impl EagerContract {
                 Ok(match parameter_liason {
                     ParameterLiason::Pure => EagerContract::Pure,
                     ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                    ParameterLiason::TempMut => EagerContract::TempMutRef,
+                    ParameterLiason::TempRefMut => EagerContract::TempMutRef,
                     ParameterLiason::MemberAccess => panic!(),
                     ParameterLiason::EvalRef => EagerContract::EvalRef,
+                    ParameterLiason::TempRef => todo!(),
                 })
             }
             OutputLiason::MemberAccess { .. } => Ok(output_contract),
@@ -80,9 +81,10 @@ impl EagerContract {
                     Ok(match parameter_liason {
                         ParameterLiason::Pure => EagerContract::Pure,
                         ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                        ParameterLiason::TempMut => EagerContract::TempMutRef,
+                        ParameterLiason::TempRefMut => EagerContract::TempMutRef,
                         ParameterLiason::MemberAccess => panic!(),
                         ParameterLiason::EvalRef => EagerContract::EvalRef,
+                        ParameterLiason::TempRef => todo!(),
                     })
                 }
                 OutputLiason::MemberAccess { .. } => Ok(EagerContract::Pure),

@@ -69,7 +69,7 @@ impl std::fmt::Debug for EntityRoute {
 // the actual value that is passed to the generic entity
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TemporalArgument {
-    Global,
+    Eval,
 }
 
 // the actual value that is passed to the generic entity

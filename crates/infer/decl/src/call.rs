@@ -126,11 +126,11 @@ pub(crate) fn routine_decl_from_static(
     match static_defn.variant {
         EntityStaticDefnVariant::Routine {
             ref generic_parameters,
-            parameters: ref inputs,
+            ref parameters,
             output_ty,
             output_liason,
             linkage,
-            routine_kind: paradigm,
+            paradigm,
         } => {
             let generic_parameters = db.generic_parameters_from_static(generic_parameters);
             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
@@ -142,17 +142,17 @@ pub(crate) fn routine_decl_from_static(
                 symbols: (&symbols as &[Symbol]).into(),
                 kind: AtomContextKind::Normal,
             };
-            let inputs = inputs.map(|input| ParameterDecl {
-                ty: symbol_context.parse_entity_route(input.ty).unwrap(),
-                liason: input.contract,
-                ident: db.custom_ident(input.name),
+            let parameters = parameters.map(|parameter| ParameterDecl {
+                ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),
+                liason: parameter.contract,
+                ident: db.custom_ident(parameter.name),
             });
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             msg_once!("todo: keyword parameters");
             Arc::new(CallDecl {
                 route,
                 spatial_parameters: generic_parameters,
-                primary_parameters: inputs,
+                primary_parameters: parameters,
                 output: OutputDecl {
                     liason: output_liason,
                     ty: output_ty,

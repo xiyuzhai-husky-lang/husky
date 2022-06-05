@@ -373,9 +373,10 @@ impl EagerQualifier {
                     }
                     ParameterLiason::EvalRef => EagerQualifier::EvalRef,
                     ParameterLiason::Move => todo!(),
-                    ParameterLiason::TempMut => todo!(),
+                    ParameterLiason::TempRefMut => todo!(),
                     ParameterLiason::MoveMut => todo!(),
                     ParameterLiason::MemberAccess => todo!(),
+                    ParameterLiason::TempRef => todo!(),
                 }
             }
         })
