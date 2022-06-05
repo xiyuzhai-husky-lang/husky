@@ -87,7 +87,7 @@
     19:15..19:25   unsearched             PureRef      datasets::cv::mnist::BinaryImage28
     19:26..19:27   j                      Copyable     i32
     19:15..19:28   unsearched[j]          Copyable     b32
-    20:21..20:31   unsearched             TempRef      datasets::cv::mnist::BinaryImage28
+    20:21..20:31   unsearched             PureRef      datasets::cv::mnist::BinaryImage28
     20:32..20:33   j                      Copyable     i32
     20:21..20:34   unsearched[j]          Copyable     b32
     21:25..21:26   a                      Copyable     b32

@@ -20,11 +20,16 @@ pub trait InferEntityRoute {
     fn decl_db(&self) -> &dyn DeclQueryGroup;
     fn entity_route_sheet(&self) -> &EntityRouteSheet;
     fn raw_expr_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        emsg_once!("deprecated");
         self.entity_route_sheet().expr_ty_result(raw_expr_idx)
     }
-    fn raw_expr_ty_decl(&self, raw_expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
-        let ty = self.raw_expr_ty(raw_expr_idx)?;
+    fn raw_expr_deref_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+        self.entity_route_sheet()
+            .expr_ty_result(raw_expr_idx)
+            .map(|ty| ty.deref_route())
+    }
+
+    fn raw_expr_deref_ty_decl(&self, raw_expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
+        let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         Ok(derived_unwrap!(self.decl_db().ty_decl(ty)))
     }
 

@@ -71,8 +71,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::ThisField { opt_field_ty, .. } => {
                 Ok(derived_not_none!(opt_field_ty)?.route)
             }
-        }?
-        .deref_route();
+        }?;
         if let Some(expected_ty) = expectation {
             if !self.db.is_implicitly_castable(ty, expected_ty) {
                 throw!(
@@ -373,7 +372,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         let opd_ty = derived_not_none!(self.infer_expr(opd, None, arena))?;
-        derived_unwrap!(self.db.ty_decl(opd_ty)).field_ty_result(field_ident)
+        derived_unwrap!(self.db.ty_decl(opd_ty.deref_route())).field_ty_result(field_ident)
     }
 
     fn list_opn_ty_result(
@@ -458,9 +457,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
-        let this_ty = derived_not_none!(self.infer_expr(this, None, arena))?;
-        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
-        let method_decl = this_ty_decl.method(method_ident, &self.trait_uses)?;
+        let this_deref_ty = derived_not_none!(self.infer_expr(this, None, arena))?.deref_route();
+        let this_deref_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
+        let method_decl = this_deref_ty_decl.method(method_ident, &self.trait_uses)?;
         if method_decl.parameters.len() != parameters.end - parameters.start {
             self.entity_route_sheet.extra_errors.push(error!(
                 format!(
@@ -484,11 +483,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             Ok(self.db.intern_entity_route(EntityRoute {
                 kind: match method_decl.kind {
                     MethodKind::Type => EntityRouteKind::Child {
-                        parent: this_ty,
+                        parent: this_deref_ty,
                         ident: method_decl.ident,
                     },
                     MethodKind::Trait { trai } => EntityRouteKind::TypeAsTraitMember {
-                        ty: this_ty,
+                        ty: this_deref_ty,
                         ident: method_decl.ident,
                         trai,
                     },

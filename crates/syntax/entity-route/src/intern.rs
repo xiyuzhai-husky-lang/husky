@@ -32,7 +32,7 @@ impl EntityRoutePtr {
         match self.kind {
             EntityRouteKind::Root {
                 ident: RootIdentifier::Ref,
-            } => self.spatial_arguments[0].take_entity_route(),
+            } => self.spatial_arguments[0].take_entity_route().deref_route(),
             _ => self,
         }
     }

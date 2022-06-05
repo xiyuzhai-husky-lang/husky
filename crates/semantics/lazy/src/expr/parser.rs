@@ -272,7 +272,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         let this = self.parse_lazy_expr(this_idx)?;
-        let ty_decl = self.raw_expr_ty_decl(this_idx).unwrap();
+        let ty_decl = self.raw_expr_deref_ty_decl(this_idx).unwrap();
         let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
         let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
         let field_liason = field_decl.liason;
@@ -395,7 +395,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         opds: RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
-        let element_ty = self.raw_expr_ty(raw_expr_idx).unwrap();
+        let element_ty = self.raw_expr_deref_ty(raw_expr_idx).unwrap();
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::ElementAccess {
                 element_binding: {

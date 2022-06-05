@@ -1,0 +1,4 @@
+16:10..16:11	Infer Error: can't move from an eval ref
+21:14..21:15	Infer Error: can't move from an eval ref
+16:10..16:11	Infer Error: can't move from an eval ref
+21:14..21:15	Infer Error: can't move from an eval ref
