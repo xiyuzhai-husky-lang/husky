@@ -44,7 +44,7 @@ impl<'a> AstTransformer<'a> {
                 SemanticTokenKind::Entity(EntityKind::Type(TyKind::Struct))
             ),
             kind: TyKind::Struct,
-            generic_parameters: Default::default(),
+            spatial_parameters: Default::default(),
         })
     }
 
@@ -73,7 +73,7 @@ impl<'a> AstTransformer<'a> {
                 SemanticTokenKind::Entity(EntityKind::Type(TyKind::Record))
             ),
             kind: TyKind::Record,
-            generic_parameters: Default::default(),
+            spatial_parameters: Default::default(),
         })
     }
 
@@ -93,7 +93,7 @@ impl<'a> AstTransformer<'a> {
         Ok(AstVariant::TypeDefnHead {
             ident,
             kind: TyKind::Enum,
-            generic_parameters: Default::default(),
+            spatial_parameters: Default::default(),
         })
     }
 }

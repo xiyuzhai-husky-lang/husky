@@ -100,11 +100,8 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstVariant::DatasetConfigDefnHead => {
                         self.infer_eager_stmts(children, &arena, RootIdentifier::DatasetType.into())
                     }
-                    AstVariant::CallFormDefnHead(ref head) => {
-                        self.infer_eager_stmts(children, &arena, head.output_ty.route)
-                    }
-                    AstVariant::CallFormDefnHead(ref head) => {
-                        self.infer_eager_stmts(children, &arena, head.output_ty.route)
+                    AstVariant::CallFormDefnHead { output_ty, .. } => {
+                        self.infer_eager_stmts(children, &arena, output_ty.route)
                     }
                     AstVariant::Visual => self.infer_eager_stmts(
                         children,
@@ -128,9 +125,6 @@ impl<'a> ContractSheetBuilder<'a> {
                         _ => (),
                     },
                     AstVariant::Stmt(_) => todo!(),
-                    AstVariant::CallFormDefnHead(ref head) => {
-                        self.infer_eager_stmts(children, &arena, head.output_ty.route)
-                    }
                     AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_stmts(children, &arena),
                     AstVariant::Submodule { ident, source_file } => (),
                 }

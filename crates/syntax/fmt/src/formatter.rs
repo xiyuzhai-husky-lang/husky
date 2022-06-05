@@ -9,6 +9,7 @@ use entity_kind::TyKind;
 use entity_route::EntityRoutePtr;
 use fold::LocalValue;
 use liason::{MemberLiason, ParameterLiason};
+use print_utils::msg_once;
 use vm::*;
 use word::{Paradigm, RootIdentifier, WordAllocator};
 
@@ -84,7 +85,7 @@ impl<'a> Formatter<'a> {
             AstVariant::TypeDefnHead {
                 ident,
                 ref kind,
-                generic_parameters: ref generics,
+                spatial_parameters: ref generics,
             } => {
                 enter_block(self);
                 match kind {
@@ -110,29 +111,36 @@ impl<'a> Formatter<'a> {
                 self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
                 self.write("main:")
             }
-            AstVariant::CallFormDefnHead(ref head) => {
+            AstVariant::CallFormDefnHead {
+                paradigm,
+                ident,
+                ref parameters,
+                output_ty,
+                ..
+            } => {
                 enter_block(self);
-                self.context.set((head.paradigm).into());
-                self.write(match head.paradigm {
+                self.context.set((paradigm).into());
+                self.write(match paradigm {
                     Paradigm::EagerProcedural => "proc ",
                     Paradigm::EagerFunctional => "func ",
                     Paradigm::LazyFunctional => todo!(),
                 });
-                self.write(&head.ident.ident);
+                msg_once!("generic parameters");
+                self.write(&ident.ident);
                 self.write("(");
-                for i in 0..head.parameters.len() {
+                for i in 0..parameters.len() {
                     if i > 0 {
                         self.write(", ");
                     }
-                    let input_placeholder = &head.parameters[i];
+                    let input_placeholder = &parameters[i];
                     self.fmt_ident(input_placeholder.ranged_ident.ident.into());
                     self.write(": ");
                     self.fmt_func_input_liasoned_type(input_placeholder);
                 }
                 self.write(")");
-                if head.output_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if output_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
                     self.write(" -> ");
-                    self.fmt_ty(head.output_ty.route);
+                    self.fmt_ty(output_ty.route);
                 }
                 self.write(":");
             }
@@ -160,7 +168,7 @@ impl<'a> Formatter<'a> {
             AstVariant::FeatureDecl { .. } => todo!(),
             AstVariant::Use { ref use_variant } => todo!(),
             AstVariant::Submodule { ident, source_file } => todo!(),
-            AstVariant::CallFormDefnHead(_) => todo!(),
+            AstVariant::CallFormDefnHead { .. } => todo!(),
             AstVariant::Visual => todo!(),
         }
     }

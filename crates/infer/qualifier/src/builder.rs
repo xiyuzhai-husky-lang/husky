@@ -85,19 +85,17 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
                         OutputLiason::Transfer,
                     ),
-                    AstVariant::CallFormDefnHead(ref head) => self.infer_eager_call_form(
+                    AstVariant::CallFormDefnHead {
+                        ref parameters,
+                        output_ty,
+                        output_liason,
+                        ..
+                    } => self.infer_eager_call_form(
                         &arena,
-                        &head.parameters,
+                        parameters,
                         children,
-                        Some(head.output_ty.route),
-                        head.output_liason,
-                    ),
-                    AstVariant::CallFormDefnHead(ref head) => self.infer_eager_call_form(
-                        &arena,
-                        &head.parameters,
-                        children,
-                        Some(head.output_ty.route),
-                        head.output_liason,
+                        Some(output_ty.route),
+                        output_liason,
                     ),
                     AstVariant::Visual => self.infer_eager_call_form(
                         &arena,
@@ -136,13 +134,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         _ => todo!(),
                     },
                     AstVariant::Stmt(_) => todo!(),
-                    AstVariant::CallFormDefnHead(ref head) => self.infer_eager_call_form(
-                        &arena,
-                        &head.parameters,
-                        children,
-                        Some(head.output_ty.route),
-                        head.output_liason,
-                    ),
                     AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_call_form(
                         &arena,
                         &[],

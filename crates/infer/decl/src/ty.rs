@@ -239,12 +239,17 @@ impl TyDecl {
         while let Some(child) = children.peek() {
             let ast = &child.value.as_ref()?;
             match ast.variant {
-                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_liason {
-                    Some(_) => match head.paradigm {
+                AstVariant::CallFormDefnHead {
+                    opt_this_liason,
+                    paradigm,
+                    ident,
+                    ..
+                } => match opt_this_liason {
+                    Some(_) => match paradigm {
                         Paradigm::EagerProcedural => todo!(),
                         Paradigm::EagerFunctional => members
                             .insert_new(TyMemberDecl::Method(MethodDecl::from_ast(
-                                head,
+                                ast,
                                 MethodKind::Type,
                             )))
                             .unwrap(),
@@ -252,8 +257,8 @@ impl TyDecl {
                     },
                     None => members
                         .insert_new(TyMemberDecl::Call(CallDecl::from_ast(
-                            db.make_subroute(this_ty, head.ident.ident, vec![]),
-                            head,
+                            db.make_subroute(this_ty, ident.ident, vec![]),
+                            ast,
                         )))
                         .unwrap(),
                 },
@@ -271,7 +276,7 @@ impl TyDecl {
                 AstVariant::Visual => break,
                 AstVariant::TypeDefnHead { .. }
                 | AstVariant::MainDefn
-                | AstVariant::CallFormDefnHead(_)
+                | AstVariant::CallFormDefnHead { .. }
                 | AstVariant::FeatureDecl { .. }
                 | AstVariant::DatasetConfigDefnHead
                 | AstVariant::Stmt(_)
@@ -632,7 +637,7 @@ pub(crate) fn ty_decl(
             match ast.variant {
                 AstVariant::TypeDefnHead {
                     kind,
-                    ref generic_parameters,
+                    spatial_parameters: ref generic_parameters,
                     ..
                 } => {
                     if ty_route.spatial_arguments.len() > 0 {

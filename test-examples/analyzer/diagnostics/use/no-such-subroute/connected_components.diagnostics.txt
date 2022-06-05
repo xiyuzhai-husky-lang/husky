@@ -1,3 +1,31 @@
-12:23..12:40	Infer Error: unrecognized caller
-19:45..19:62	Infer Error: unrecognized caller
-27:45..27:62	Infer Error: unrecognized caller
+4:6..4:31	Ast Error: a method with the same name already exists
+5:5..5:35	Ast Error: no stmt in module level
+6:5..6:33	Ast Error: no stmt in module level
+7:5..7:16	Ast Error: no stmt in module level
+8:9..8:29	Ast Error: no stmt in module level
+9:13..9:34	Ast Error: no stmt in module level
+10:13..10:43	Ast Error: no stmt in module level
+11:13..11:39	Ast Error: no stmt in module level
+12:13..12:17	Ast Error: expect keyword at the beginning of module item
+13:13..13:29	Ast Error: no stmt in module level
+14:13..14:26	Ast Error: no stmt in module level
+15:17..15:21	Ast Error: expect keyword at the beginning of module item
+16:17..16:26	Ast Error: no stmt in module level
+17:17..17:35	Ast Error: no stmt in module level
+18:21..18:46	Ast Error: no stmt in module level
+19:21..19:83	Ast Error: no stmt in module level
+20:21..20:33	Ast Error: no stmt in module level
+21:25..21:30	Ast Error: no stmt in module level
+22:21..22:44	Ast Error: no stmt in module level
+23:25..23:29	Ast Error: expect keyword at the beginning of module item
+24:25..24:29	Ast Error: expect keyword at the beginning of module item
+25:17..25:31	Ast Error: no stmt in module level
+26:21..26:42	Ast Error: no stmt in module level
+27:21..27:83	Ast Error: no stmt in module level
+28:21..28:43	Ast Error: no stmt in module level
+29:25..29:29	Ast Error: expect keyword at the beginning of module item
+30:25..30:29	Ast Error: expect keyword at the beginning of module item
+31:13..31:29	Ast Error: no stmt in module level
+32:17..32:27	Ast Error: expect keyword at the beginning of module item
+33:13..33:19	Ast Error: expect keyword at the beginning of module item
+34:5..34:18	Ast Error: no stmt in module level

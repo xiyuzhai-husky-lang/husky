@@ -47,7 +47,7 @@ impl<'a> EagerParser<'a> {
                 AstVariant::CallFormDefnHead { .. } => todo!(),
                 AstVariant::FeatureDecl { .. } => todo!(),
                 AstVariant::Submodule { ident, source_file } => todo!(),
-                AstVariant::CallFormDefnHead(_) => todo!(),
+                AstVariant::CallFormDefnHead { .. } => todo!(),
                 AstVariant::Visual => todo!(),
             }))
         }

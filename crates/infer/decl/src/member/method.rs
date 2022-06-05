@@ -128,20 +128,29 @@ impl MethodDecl {
         }
     }
 
-    pub fn from_ast(method_defn_head: &CallableDefnHead, kind: MethodKind) -> Arc<Self> {
-        Arc::new(MethodDecl {
-            ident: method_defn_head.ident.ident,
-            parameters: method_defn_head
-                .parameters
-                .map(|input_placeholder| input_placeholder.into()),
-            output: OutputDecl {
-                liason: method_defn_head.output_liason,
-                ty: method_defn_head.output_ty.route,
-            },
-            this_liason: method_defn_head.opt_this_liason.unwrap(),
-            generic_parameters: method_defn_head.generic_parameters.clone(),
-            kind,
-        })
+    pub fn from_ast(ast: &Ast, kind: MethodKind) -> Arc<Self> {
+        match ast.variant {
+            AstVariant::CallFormDefnHead {
+                ident,
+                paradigm,
+                spatial_parameters: ref generic_parameters,
+                ref parameters,
+                output_ty,
+                output_liason,
+                opt_this_liason,
+            } => Arc::new(MethodDecl {
+                ident: ident.ident,
+                parameters: parameters.map(|input_placeholder| input_placeholder.into()),
+                output: OutputDecl {
+                    liason: output_liason,
+                    ty: output_ty.route,
+                },
+                this_liason: opt_this_liason.unwrap(),
+                generic_parameters: generic_parameters.clone(),
+                kind,
+            }),
+            _ => panic!(),
+        }
     }
 }
 

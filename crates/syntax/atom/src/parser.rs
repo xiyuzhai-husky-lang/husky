@@ -23,7 +23,7 @@ use utils::*;
 use vm::{BinaryOpr, Bracket, PureBinaryOpr};
 
 pub struct AtomParser<'a, 'b> {
-    atom_context: &'a mut dyn AtomContext,
+    pub atom_context: &'a mut dyn AtomContext,
     pub token_stream: &'a mut TokenStream<'b>,
     stack: AtomStack,
 }

@@ -80,18 +80,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         children,
                         &arena,
                     ),
-                    AstVariant::CallFormDefnHead(ref head) => self.infer_function(
-                        &head.parameters,
-                        Some(head.output_ty.route),
-                        children,
-                        &arena,
-                    ),
-                    AstVariant::CallFormDefnHead(ref head) => self.infer_function(
-                        &head.parameters,
-                        Some(head.output_ty.route),
-                        children,
-                        &arena,
-                    ),
+                    AstVariant::CallFormDefnHead {
+                        ref parameters,
+                        output_ty,
+                        ..
+                    } => self.infer_function(parameters, Some(output_ty.route), children, &arena),
                     AstVariant::Visual => self.infer_function(&[], None, children, &arena),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
@@ -108,12 +101,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         FieldAstKind::StructDerivedEager { .. } => todo!(),
                     },
                     AstVariant::Stmt(_) => todo!(),
-                    AstVariant::CallFormDefnHead(ref head) => self.infer_function(
-                        &head.parameters,
-                        Some(head.output_ty.route),
-                        children,
-                        &arena,
-                    ),
                     AstVariant::FeatureDecl { ty, .. } => {
                         self.infer_function(&[], Some(ty.route), children, &arena)
                     }

@@ -1,4 +1,4 @@
-mod impl_call;
+mod impl_associated_call;
 mod impl_field;
 mod impl_method;
 mod impl_visual;
