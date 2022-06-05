@@ -6,10 +6,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LazyContract {
-    Init,
-    Return,
-    UseMemberForInit,
-    UseMemberForReturn,
+    Pass,
     EvalRef,
     Pure,
     Move,
@@ -43,10 +40,7 @@ impl LazyContract {
         // infer this contract
         Ok(if is_member_copyable {
             match field_contract {
-                LazyContract::Init => todo!(),
-                LazyContract::Return => todo!(),
-                LazyContract::UseMemberForInit => todo!(),
-                LazyContract::UseMemberForReturn => todo!(),
+                LazyContract::Pass => todo!(),
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyContract::Pure,
                 LazyContract::Move => todo!(),
@@ -54,10 +48,7 @@ impl LazyContract {
         } else {
             match field_liason {
                 MemberLiason::Immutable | MemberLiason::Mutable => match field_contract {
-                    LazyContract::Init => todo!(),
-                    LazyContract::Return => todo!(),
-                    LazyContract::UseMemberForInit => todo!(),
-                    LazyContract::UseMemberForReturn => todo!(),
+                    LazyContract::Pass => todo!(),
                     _ => field_contract,
                 },
                 MemberLiason::Derived => todo!(),

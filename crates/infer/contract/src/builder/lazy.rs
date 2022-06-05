@@ -51,10 +51,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 initial_value,
                 ..
             } => {
-                self.infer_lazy_expr(initial_value, LazyContract::Init, arena);
+                self.infer_lazy_expr(initial_value, LazyContract::Pass, arena);
             }
             RawStmtVariant::Return(result) => {
-                self.infer_lazy_expr(result, LazyContract::Return, arena)
+                self.infer_lazy_expr(result, LazyContract::Pass, arena)
             }
             RawStmtVariant::Assert(condition) => self.infer_lazy_condition(condition, arena),
             RawStmtVariant::Break => todo!(),
@@ -155,10 +155,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 match contract {
                     LazyContract::EvalRef => todo!(),
                     LazyContract::Pure => (),
-                    LazyContract::Init => todo!(),
-                    LazyContract::Return => (),
-                    LazyContract::UseMemberForInit => todo!(),
-                    LazyContract::UseMemberForReturn => todo!(),
+                    LazyContract::Pass => (),
                     LazyContract::Move => todo!(),
                 }
                 self.infer_lazy_expr(lopd, LazyContract::Pure, arena);
@@ -314,20 +311,17 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match contract {
-            LazyContract::Init => {
+            LazyContract::Pass => {
                 let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
                 let this_contract = if self.db.is_copyable(ty)? {
                     LazyContract::Pure
                 } else {
-                    LazyContract::UseMemberForInit
+                    LazyContract::Pass
                 };
                 self.infer_lazy_expr(total_opds.start, this_contract, arena)
             }
             LazyContract::EvalRef => todo!(),
             LazyContract::Pure => todo!(),
-            LazyContract::UseMemberForInit => todo!(),
-            LazyContract::Return => todo!(),
-            LazyContract::UseMemberForReturn => todo!(),
             LazyContract::Move => todo!(),
         }
         for opd in (total_opds.start + 1)..total_opds.end {
