@@ -308,7 +308,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             },
             RawExprVariant::CopyableLiteral(_) => Ok(EagerQualifiedTy {
                 qual: EagerQualifier::Copyable,
-                ty: self.raw_expr_deref_ty(raw_expr_idx).unwrap(),
+                ty: self.raw_expr_deref_ty(raw_expr_idx)?,
             }),
             RawExprVariant::Bracketed(expr) => {
                 derived_not_none!(self.infer_eager_expr(arena, expr))

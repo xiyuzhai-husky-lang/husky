@@ -223,8 +223,7 @@ impl<'a> ContractSheetBuilder<'a> {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
                     EagerContract::Pure | EagerContract::Move => (),
-                    EagerContract::TempRefMut => todo!(),
-                    EagerContract::Pure => todo!(),
+                    EagerContract::TempMutRef => todo!(),
                     EagerContract::TempRef => todo!(),
                     EagerContract::EvalRef => todo!(),
                     EagerContract::Pass => todo!(),
@@ -243,7 +242,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         todo!()
                     }
                 }
-                self.infer_eager_expr(lopd, EagerContract::TempRefMut, arena);
+                self.infer_eager_expr(lopd, EagerContract::TempMutRef, arena);
                 self.infer_eager_expr(
                     ropd,
                     match (opt_opr, is_lopd_copyable) {
@@ -269,8 +268,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 match contract {
                     EagerContract::Pure => (),
                     EagerContract::Move => todo!(),
-                    EagerContract::TempRefMut => todo!(),
-                    EagerContract::Pure => todo!(),
+                    EagerContract::TempMutRef => todo!(),
                     EagerContract::EvalRef => todo!(),
                     EagerContract::TempRef => todo!(),
                     EagerContract::Pass => todo!(),
@@ -294,7 +292,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         match opr {
             SuffixOpr::Incr | SuffixOpr::Decr => {
-                self.infer_eager_expr(opd, EagerContract::TempRefMut, arena);
+                self.infer_eager_expr(opd, EagerContract::TempMutRef, arena);
                 match contract {
                     EagerContract::Pure => Ok(()),
                     _ => todo!(),
@@ -307,8 +305,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     match contract {
                         EagerContract::Pure => contract,
                         EagerContract::Move => todo!(),
-                        EagerContract::TempRefMut => todo!(),
-                        EagerContract::Pure => todo!(),
+                        EagerContract::TempMutRef => todo!(),
                         EagerContract::EvalRef => todo!(),
                         EagerContract::TempRef => todo!(),
                         EagerContract::Pass => todo!(),
