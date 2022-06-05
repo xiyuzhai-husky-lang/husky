@@ -260,33 +260,25 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let call_expr = &arena[total_opds.start];
-        match call_expr.variant {
+        let call_decl = match call_expr.variant {
             RawExprVariant::Entity { route, .. } => {
-                let call_decl = derived_unwrap!(self.db.call_decl(route));
-                for (argument, parameter) in zip(
-                    ((total_opds.start + 1)..total_opds.end).into_iter(),
-                    call_decl.primary_parameters.iter(),
-                ) {
-                    let argument_contract = LazyContract::from_parameter(
-                        parameter.liason,
-                        call_decl.output.liason,
-                        arena[argument].range,
-                    )?;
-                    self.infer_lazy_expr(argument, argument_contract, arena)
-                }
-                Ok(())
+                derived_unwrap!(self.db.call_decl(route))
             }
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
-            RawExprVariant::CopyableLiteral(_) | RawExprVariant::FrameVariable { .. } => {
-                throw_derived!("a primitive literal can't be a caller")
-            }
-            RawExprVariant::Variable { .. }
-            | RawExprVariant::Bracketed(_)
-            | RawExprVariant::Opn { .. }
-            | RawExprVariant::ThisValue { .. } => todo!(),
-            RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::ThisField { .. } => todo!(),
+            _ => todo!(),
+        };
+        for (argument, parameter) in zip(
+            ((total_opds.start + 1)..total_opds.end).into_iter(),
+            call_decl.primary_parameters.iter(),
+        ) {
+            let argument_contract = LazyContract::from_parameter(
+                parameter.liason,
+                call_decl.output.liason,
+                arena[argument].range,
+            )?;
+            self.infer_lazy_expr(argument, argument_contract, arena)
         }
+        Ok(())
     }
 
     fn lazy_method_call(

@@ -54,11 +54,7 @@ impl LazyContract {
             match member_contract {
                 LazyContract::EvalRef => todo!(),
                 LazyContract::Pure => LazyContract::Pure,
-                LazyContract::Pass => {
-                    p!(range);
-                    panic!()
-                }
-                LazyContract::Move => panic!(),
+                LazyContract::Pass | LazyContract::Move => panic!(),
             }
         } else {
             match field_liason {

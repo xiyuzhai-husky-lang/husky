@@ -2,7 +2,7 @@ use crate::*;
 use ast::MatchLiason;
 use entity_route::{EntityRouteKind, EntityRoutePtr};
 use infer_decl::DeclQueryGroup;
-use infer_error::throw;
+use infer_error::{throw, throw_derived};
 use text::TextRange;
 use word::RootIdentifier;
 
@@ -21,31 +21,17 @@ impl EagerContract {
         parameter_liason: ParameterLiason,
         output_liason: OutputLiason,
         output_contract: EagerContract,
-        is_output_ty_copyable: bool,
         range: TextRange,
     ) -> InferResult<EagerContract> {
         match output_liason {
-            OutputLiason::Transfer => {
-                match output_contract {
-                    EagerContract::Pure | EagerContract::Move | EagerContract::Pass => (),
-                    EagerContract::TempRefMut => match output_liason {
-                        OutputLiason::Transfer => {
-                            throw!(format!("can't mutate transferred output"), range)
-                        }
-                        OutputLiason::MemberAccess { .. } => todo!(),
-                    },
-                    EagerContract::EvalRef => todo!(),
-                    EagerContract::TempRef => todo!(),
-                }
-                Ok(match parameter_liason {
-                    ParameterLiason::Pure => EagerContract::Pure,
-                    ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                    ParameterLiason::TempRefMut => EagerContract::TempRefMut,
-                    ParameterLiason::MemberAccess => panic!(),
-                    ParameterLiason::EvalRef => EagerContract::EvalRef,
-                    ParameterLiason::TempRef => todo!(),
-                })
-            }
+            OutputLiason::Transfer => Ok(match parameter_liason {
+                ParameterLiason::Pure => EagerContract::Pure,
+                ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
+                ParameterLiason::TempRefMut => EagerContract::TempRefMut,
+                ParameterLiason::MemberAccess => panic!(),
+                ParameterLiason::EvalRef => EagerContract::EvalRef,
+                ParameterLiason::TempRef => todo!(),
+            }),
             OutputLiason::MemberAccess { .. } => Ok(output_contract),
         }
     }
@@ -63,36 +49,20 @@ impl EagerContract {
                 ident: RootIdentifier::Ref,
             } => Ok(EagerContract::EvalRef),
             _ => match output_liason {
-                OutputLiason::Transfer => {
-                    match output_contract {
-                        EagerContract::Pure
-                        | EagerContract::Move
-                        | EagerContract::Pure
-                        | EagerContract::Pass => (),
-                        EagerContract::TempRefMut => match output_liason {
-                            OutputLiason::Transfer => {
-                                throw!(format!("can't mutate transferred output"), range)
-                            }
-                            OutputLiason::MemberAccess { .. } => todo!(),
-                        },
-                        EagerContract::EvalRef => todo!(),
-                        EagerContract::TempRef => todo!(),
-                    }
-                    Ok(match parameter_liason {
-                        ParameterLiason::Pure => EagerContract::Pure,
-                        ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                        ParameterLiason::TempRefMut => EagerContract::TempRefMut,
-                        ParameterLiason::MemberAccess => panic!(),
-                        ParameterLiason::EvalRef => EagerContract::EvalRef,
-                        ParameterLiason::TempRef => todo!(),
-                    })
-                }
+                OutputLiason::Transfer => Ok(match parameter_liason {
+                    ParameterLiason::Pure => EagerContract::Pure,
+                    ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
+                    ParameterLiason::TempRefMut => EagerContract::TempRefMut,
+                    ParameterLiason::MemberAccess => panic!(),
+                    ParameterLiason::EvalRef => EagerContract::EvalRef,
+                    ParameterLiason::TempRef => todo!(),
+                }),
                 OutputLiason::MemberAccess { .. } => Ok(EagerContract::Pure),
             },
         }
     }
 
-    pub fn field_access_contract(
+    pub fn field_access_eager_contract(
         field_liason: MemberLiason,
         member_contract: EagerContract,
         is_member_copyable: bool,
@@ -103,7 +73,7 @@ impl EagerContract {
             Ok(match member_contract {
                 EagerContract::Pure => EagerContract::Pure,
                 EagerContract::Move => panic!(),
-                EagerContract::EvalRef => todo!(),
+                EagerContract::EvalRef => EagerContract::EvalRef,
                 EagerContract::TempRef | EagerContract::TempRefMut => match field_liason {
                     MemberLiason::Immutable => {
                         throw!(

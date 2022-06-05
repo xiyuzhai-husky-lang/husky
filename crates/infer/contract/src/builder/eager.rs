@@ -2,10 +2,8 @@ use std::iter::zip;
 
 use ast::*;
 
-use dev_utils::dev_src;
 use entity_route::EntityRoutePtr;
 use infer_error::*;
-use text::BindTextRangeInto;
 use text::RangedCustomIdentifier;
 use text::TextRange;
 use vm::*;
@@ -321,7 +319,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.raw_expr_deref_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = EagerContract::field_access_contract(
+        let this_contract = EagerContract::field_access_eager_contract(
             field_decl.liason,
             contract,
             self.db.is_copyable(field_decl.ty)?,
@@ -374,49 +372,31 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_expr = &arena[total_opds.start];
         let output_ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         let is_output_ty_copyable = self.db.is_copyable(output_ty)?;
-        match call_expr.variant {
+        let call_decl = match call_expr.variant {
             RawExprVariant::Entity { route, .. } => {
-                let call_decl = derived_unwrap!(self.db.call_decl(route));
-                for (argument, parameter) in zip(
-                    ((total_opds.start + 1)..total_opds.end).into_iter(),
-                    call_decl.primary_parameters.iter(),
-                ) {
-                    let argument_contract = EagerContract::argument_contract(
-                        parameter.ty,
-                        parameter.liason,
-                        call_decl.output.liason,
-                        contract,
-                        is_output_ty_copyable,
-                        arena[argument].range,
-                    )?;
-                    self.infer_eager_expr(argument, argument_contract, arena)
-                }
-                Ok(())
+                derived_unwrap!(self.db.call_decl(route))
             }
-            RawExprVariant::Opn {
-                opn_variant: ref opr,
-                ref opds,
-            } => todo!(),
-            RawExprVariant::Variable {
-                varname,
-                init_range: init_row,
-            } => todo!(),
-            RawExprVariant::ThisValue {
-                opt_this_ty: opt_ty,
-                ..
-            } => todo!(),
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
-            RawExprVariant::CopyableLiteral(_) => {
-                throw_derived!("a primitive literal can't be a caller")
-            }
-            RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::FrameVariable {
-                varname,
-                init_range: init_row,
-            } => todo!(),
-            RawExprVariant::ThisField { .. } => todo!(),
+            _ => {
+                todo!()
+            }
+        };
+        for (argument, parameter) in zip(
+            ((total_opds.start + 1)..total_opds.end).into_iter(),
+            call_decl.primary_parameters.iter(),
+        ) {
+            let argument_contract = EagerContract::argument_contract(
+                parameter.ty,
+                parameter.liason,
+                call_decl.output.liason,
+                contract,
+                is_output_ty_copyable,
+                arena[argument].range,
+            )?;
+            self.infer_eager_expr(argument, argument_contract, arena)
         }
+        Ok(())
     }
 
     fn eager_method_call(
@@ -435,7 +415,6 @@ impl<'a> ContractSheetBuilder<'a> {
             method_decl.this_liason,
             method_decl.output.liason,
             contract,
-            is_output_ty_copyable,
             arena[this].range,
         )?;
         self.infer_eager_expr(this, this_contract, arena);
