@@ -14,7 +14,7 @@ impl LazyVariable {
         LazyVariable {
             ident: parameter.ranged_ident.ident,
             ty: parameter.ranged_ty.route,
-            is_reference: match parameter.liason {
+            is_reference: match parameter.ranged_liason.liason {
                 ParameterLiason::Pure => false,
                 ParameterLiason::EvalRef => todo!(),
                 ParameterLiason::Move => todo!(),

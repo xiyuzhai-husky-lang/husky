@@ -182,12 +182,12 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_func_input_liasoned_type(&mut self, ty: &Parameter) {
-        match ty.liason {
+        match ty.ranged_liason.liason {
             ParameterLiason::Pure => (),
             ParameterLiason::EvalRef => self.write("&"),
-            ParameterLiason::Move => self.write("!"),
-            ParameterLiason::TempRefMut => self.write("mut &"),
-            ParameterLiason::MoveMut => self.write("mut !"),
+            ParameterLiason::Move => self.write("!!"),
+            ParameterLiason::TempRefMut => self.write("mut"),
+            ParameterLiason::MoveMut => self.write("mut !!"),
             ParameterLiason::MemberAccess => todo!(),
             ParameterLiason::TempRef => todo!(),
         }

@@ -23,7 +23,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
             name: "other",
-            contract: ParameterLiason::Pure,
+            liason: ParameterLiason::Pure,
             ty: "i32",
         }],
         output_ty: "i32",
@@ -43,7 +43,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
             name: "other",
-            contract: ParameterLiason::Pure,
+            liason: ParameterLiason::Pure,
             ty: "i32",
         }],
         output_ty: "i32",

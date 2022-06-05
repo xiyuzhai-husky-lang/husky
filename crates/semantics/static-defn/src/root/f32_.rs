@@ -26,7 +26,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
             name: "other",
-            contract: ParameterLiason::Pure,
+            liason: ParameterLiason::Pure,
             ty: "f32",
         }],
         output_ty: "f32",
@@ -46,7 +46,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
             name: "other",
-            contract: ParameterLiason::Pure,
+            liason: ParameterLiason::Pure,
             ty: "f32",
         }],
         output_ty: "f32",

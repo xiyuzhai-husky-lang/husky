@@ -3,5 +3,5 @@
 133:40..133:56	Infer Error: unrecognized caller
 137:22..137:38	Infer Error: unrecognized caller
 159:33..159:49	Infer Error: unrecognized caller
-125:41..125:43	Infer Error: can't move from an eval ref
-125:41..125:43	Infer Error: can't move from an eval ref
+125:41..125:43	Infer Error: can't move from ref
+125:41..125:43	Infer Error: can't move from ref

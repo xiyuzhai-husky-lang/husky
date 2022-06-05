@@ -74,7 +74,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
             name: "k",
-            contract: ParameterLiason::Pure,
+            liason: ParameterLiason::Pure,
             ty: "i32",
         }],
         output_ty: "b32",

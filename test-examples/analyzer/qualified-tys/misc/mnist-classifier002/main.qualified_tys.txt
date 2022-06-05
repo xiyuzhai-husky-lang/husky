@@ -60,9 +60,8 @@
     10:11..10:12   z                      Copyable     b32
     10:16..10:17   y                      Copyable     b32
     10:11..10:17   z != y                 Copyable     bool
-    11:9..11:10    y                      RefMut       b32
-    11:13..11:14   z                      Copyable     b32
-    11:9..11:14    y = z                  Copyable     void
+    11:9..11:10    y                      InferError: can't bind this to a temp mut ref
+    11:9..11:14    y = z                  InferError: expect not none
     12:23..12:24   y                      Copyable     b32
     12:28..12:29   1                      Copyable     i32
     12:23..12:29   y << 1                 Copyable     b32

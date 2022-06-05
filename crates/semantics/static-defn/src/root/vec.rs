@@ -217,7 +217,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::TempRefMut,
         parameters: &[StaticParameter {
-            contract: ParameterLiason::Move,
+            liason: ParameterLiason::Move,
             ty: "E",
             name: "element",
         }],

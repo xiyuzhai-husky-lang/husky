@@ -10,12 +10,12 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
         parameters: &[
             StaticParameter {
                 name: "start",
-                contract: ParameterLiason::Pure,
+                liason: ParameterLiason::Pure,
                 ty: "i32",
             },
             StaticParameter {
                 name: "end",
-                contract: ParameterLiason::Pure,
+                liason: ParameterLiason::Pure,
                 ty: "i32",
             },
         ],

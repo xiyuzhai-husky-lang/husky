@@ -1,0 +1,2 @@
+9:9..9:10	Infer Error: can't bind this to a temp mut ref
+9:9..9:10	Infer Error: can't bind this to a temp mut ref

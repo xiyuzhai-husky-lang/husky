@@ -37,7 +37,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         parameter.ranged_ident.ident.into(),
                         parameter.ranged_ident.range,
                     ),
-                    EagerQualifiedTy::from_parameter(self.db, ty, parameter.liason),
+                    EagerQualifiedTy::from_parameter(self.db, ty, parameter.ranged_liason.liason),
                 ));
         }
     }
@@ -234,7 +234,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     Ok(EagerQualifiedTy {
                         qual: variable_qt
                             .qual
-                            .variable_use(variable_contract, raw_expr.range)?,
+                            .variable_use_qualifier(variable_contract, raw_expr.range)?,
                         ty: variable_qt.ty,
                     })
                 }

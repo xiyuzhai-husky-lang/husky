@@ -34,7 +34,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     (input.ranged_ident.ident.into(), input.ranged_ident.range),
                     self.db.is_copyable(ty).map(|is_copyable| {
                         LazyQualifiedTy::new(
-                            LazyQualifier::parameter(input.liason, is_copyable),
+                            LazyQualifier::parameter(input.ranged_liason.liason, is_copyable),
                             ty,
                         )
                     }),

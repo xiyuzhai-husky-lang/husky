@@ -13,7 +13,7 @@ pub enum EagerContract {
     Pass,
     EvalRef,
     TempRef,
-    TempMutRef,
+    TempRefMut,
 }
 
 impl EagerContract {
@@ -28,7 +28,7 @@ impl EagerContract {
             OutputLiason::Transfer => {
                 match output_contract {
                     EagerContract::Pure | EagerContract::Move | EagerContract::Pass => (),
-                    EagerContract::TempMutRef => match output_liason {
+                    EagerContract::TempRefMut => match output_liason {
                         OutputLiason::Transfer => {
                             throw!(format!("can't mutate transferred output"), range)
                         }
@@ -40,7 +40,7 @@ impl EagerContract {
                 Ok(match parameter_liason {
                     ParameterLiason::Pure => EagerContract::Pure,
                     ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                    ParameterLiason::TempRefMut => EagerContract::TempMutRef,
+                    ParameterLiason::TempRefMut => EagerContract::TempRefMut,
                     ParameterLiason::MemberAccess => panic!(),
                     ParameterLiason::EvalRef => EagerContract::EvalRef,
                     ParameterLiason::TempRef => todo!(),
@@ -69,7 +69,7 @@ impl EagerContract {
                         | EagerContract::Move
                         | EagerContract::Pure
                         | EagerContract::Pass => (),
-                        EagerContract::TempMutRef => match output_liason {
+                        EagerContract::TempRefMut => match output_liason {
                             OutputLiason::Transfer => {
                                 throw!(format!("can't mutate transferred output"), range)
                             }
@@ -81,7 +81,7 @@ impl EagerContract {
                     Ok(match parameter_liason {
                         ParameterLiason::Pure => EagerContract::Pure,
                         ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                        ParameterLiason::TempRefMut => EagerContract::TempMutRef,
+                        ParameterLiason::TempRefMut => EagerContract::TempRefMut,
                         ParameterLiason::MemberAccess => panic!(),
                         ParameterLiason::EvalRef => EagerContract::EvalRef,
                         ParameterLiason::TempRef => todo!(),
@@ -103,14 +103,14 @@ impl EagerContract {
             Ok(match member_contract {
                 EagerContract::Pure => EagerContract::Pure,
                 EagerContract::Move => todo!(),
-                EagerContract::TempMutRef => match field_liason {
+                EagerContract::TempRefMut => match field_liason {
                     MemberLiason::Immutable => {
                         throw!(
                             format!("can't turn an immutable member into ref mut"),
                             range
                         )
                     }
-                    MemberLiason::Mutable => EagerContract::TempMutRef,
+                    MemberLiason::Mutable => EagerContract::TempRefMut,
                     MemberLiason::Derived => todo!(),
                 },
                 EagerContract::EvalRef => todo!(),
@@ -120,7 +120,7 @@ impl EagerContract {
         } else {
             match field_liason {
                 MemberLiason::Immutable => match member_contract {
-                    EagerContract::TempMutRef => throw!(
+                    EagerContract::TempRefMut => throw!(
                         format!("can't bind mutable reference to an immutable field"),
                         range
                     ),
@@ -129,7 +129,7 @@ impl EagerContract {
                 MemberLiason::Mutable => match member_contract {
                     EagerContract::Pure => Ok(EagerContract::Pure),
                     EagerContract::Move => Ok(EagerContract::Move),
-                    EagerContract::TempMutRef => Ok(EagerContract::TempMutRef),
+                    EagerContract::TempRefMut => Ok(EagerContract::TempRefMut),
                     EagerContract::EvalRef => Ok(EagerContract::EvalRef),
                     EagerContract::TempRef => todo!(),
                     EagerContract::Pass => todo!(),

@@ -22,7 +22,7 @@ impl ParameterDecl {
         // opt_this_ty,
         Self {
             ty: symbol_context.parse_entity_route(input.ty).unwrap(),
-            liason: input.contract,
+            liason: input.liason,
             ident: symbol_context.entity_syntax_db().custom_ident(input.name),
         }
     }
@@ -57,7 +57,7 @@ impl ParameterDecl {
 impl Into<ParameterDecl> for &Parameter {
     fn into(self) -> ParameterDecl {
         ParameterDecl {
-            liason: self.liason,
+            liason: self.ranged_liason.liason,
             ty: self.ranged_ty.route,
             ident: self.ranged_ident.ident,
         }

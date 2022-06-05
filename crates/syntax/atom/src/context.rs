@@ -201,23 +201,18 @@ pub trait AtomContext {
         }
     }
 
-    fn input_placeholder_from_static(
-        &mut self,
-        static_input_placeholder: &StaticParameter,
-    ) -> Parameter {
+    fn input_placeholder_from_static(&mut self, static_parameter: &StaticParameter) -> Parameter {
         Parameter {
             ranged_ident: RangedCustomIdentifier {
                 ident: self
                     .entity_syntax_db()
-                    .intern_word(static_input_placeholder.name)
+                    .intern_word(static_parameter.name)
                     .custom(),
                 range: Default::default(),
             },
-            liason: static_input_placeholder.contract,
+            ranged_liason: static_parameter.liason.into(),
             ranged_ty: RangedEntityRoute {
-                route: self
-                    .parse_entity_route(static_input_placeholder.ty)
-                    .unwrap(),
+                route: self.parse_entity_route(static_parameter.ty).unwrap(),
                 range: Default::default(),
             },
         }
