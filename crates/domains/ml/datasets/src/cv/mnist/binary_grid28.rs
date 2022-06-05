@@ -112,7 +112,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
             },
             0
         ),
-        routine_kind: RoutineKind::TypeCall,
+        paradigm: RoutineKind::TypeCall,
     },
     dev_src: static_dev_src!(),
 };

@@ -37,6 +37,15 @@ proc i4(a: &A) -> i32:
 proc i5(a: A) -> i32:
     1
 
+proc produce_b() -> B:
+    return B(1)
+
+proc eval_ref_to_b(b: &B) -> bool:
+    return false
+
+proc eval_ref_to_transient_is_bad() -> bool:
+    return eval_ref_to_b(produce_b())
+
 struct A:
     b: B
 

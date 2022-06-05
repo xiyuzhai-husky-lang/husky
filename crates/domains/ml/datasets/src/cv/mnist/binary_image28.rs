@@ -111,7 +111,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
             },
             0
         ),
-        routine_kind: RoutineKind::TypeCall,
+        paradigm: RoutineKind::TypeCall,
     },
     dev_src: static_dev_src!(),
 };

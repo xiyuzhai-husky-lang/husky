@@ -44,7 +44,7 @@ static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
             |_| Ok(TempValue::OwnedEval(OwnedValue::new(new_binary_dataset()))),
             0
         ),
-        routine_kind: RoutineKind::Normal,
+        paradigm: RoutineKind::Normal,
     },
     dev_src: dev_utils::static_dev_src!(),
 };

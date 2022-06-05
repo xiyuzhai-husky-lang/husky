@@ -140,21 +140,11 @@ impl TyDecl {
                     match ty_member {
                         TyMemberDecl::Field(ref field_decl) => match field_decl.field_kind {
                             FieldKind::StructOriginal | FieldKind::RecordOriginal => {
-                                primary_parameters.insert(ParameterDecl {
-                                    liason: field_decl
-                                        .liason
-                                        .constructor_input_liason(db.is_copyable(field_decl.ty)?),
-                                    ty: field_decl.ty,
-                                    ident: field_decl.ident,
-                                })
+                                primary_parameters
+                                    .insert(ParameterDecl::from_field(db, field_decl)?)
                             }
-                            FieldKind::StructDefault => keyword_parameters.insert(ParameterDecl {
-                                liason: field_decl
-                                    .liason
-                                    .constructor_input_liason(db.is_copyable(field_decl.ty)?),
-                                ty: field_decl.ty,
-                                ident: field_decl.ident,
-                            }),
+                            FieldKind::StructDefault => keyword_parameters
+                                .insert(ParameterDecl::from_field(db, field_decl)?),
                             FieldKind::StructDerivedEager => break,
                             FieldKind::StructDerivedLazy => break,
                             FieldKind::RecordDerived => break,
@@ -695,7 +685,7 @@ pub(crate) fn method_decl_from_static(
     match static_defn.variant {
         EntityStaticDefnVariant::Method {
             this_liason,
-            parameters: inputs,
+            parameters,
             output_ty,
             output_liason,
             generic_parameters: generic_parameters,
@@ -711,16 +701,16 @@ pub(crate) fn method_decl_from_static(
                 symbols: symbols.into(),
                 kind: AtomContextKind::Normal,
             };
-            let inputs = inputs.map(|input| ParameterDecl {
-                ty: symbol_context.parse_entity_route(input.ty).unwrap(),
-                liason: input.contract,
-                ident: db.custom_ident(input.name),
+            let parameters = parameters.map(|parameter| ParameterDecl {
+                ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),
+                liason: parameter.contract,
+                ident: db.custom_ident(parameter.name),
             });
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
             Arc::new(MethodDecl {
                 generic_parameters,
-                parameters: inputs,
+                parameters,
                 output: OutputDecl {
                     liason: output_liason,
                     ty: output_ty,

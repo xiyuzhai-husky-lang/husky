@@ -1,14 +1,71 @@
-use entity_route::EntityRoutePtr;
-use word::LiasonKeyword;
+use entity_route::{EntityRouteKind, EntityRoutePtr, TemporalArgument};
+use word::{LiasonKeyword, RootIdentifier};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ParameterLiason {
     Pure,
     Move,
-    TempMut,
     MoveMut,
     MemberAccess,
     EvalRef,
+    TempRef,
+    TempRefMut,
+}
+
+impl ParameterLiason {
+    pub fn new(ty: EntityRoutePtr) -> Self {
+        match ty.kind {
+            EntityRouteKind::Root {
+                ident: RootIdentifier::Ref,
+            } => {
+                if ty.temporal_arguments.len() == 0
+                    || ty.temporal_arguments[0] == TemporalArgument::Eval
+                {
+                    ParameterLiason::EvalRef
+                } else {
+                    ParameterLiason::TempRef
+                }
+            }
+            _ => ParameterLiason::Pure,
+        }
+    }
+
+    pub fn from_member(
+        member_liason: MemberLiason,
+        member_ty: EntityRoutePtr,
+        is_copyable: bool,
+    ) -> ParameterLiason {
+        match member_ty.kind {
+            EntityRouteKind::Root {
+                ident: RootIdentifier::Ref,
+            } => {
+                if member_ty.temporal_arguments.len() == 0
+                    || member_ty.temporal_arguments[0] == TemporalArgument::Eval
+                {
+                    ParameterLiason::EvalRef
+                } else {
+                    ParameterLiason::TempRef
+                }
+            }
+            _ => match member_liason {
+                MemberLiason::Immutable => {
+                    if is_copyable {
+                        ParameterLiason::Pure
+                    } else {
+                        ParameterLiason::Move
+                    }
+                }
+                MemberLiason::Mutable => {
+                    if is_copyable {
+                        ParameterLiason::Pure
+                    } else {
+                        ParameterLiason::MoveMut
+                    }
+                }
+                MemberLiason::Derived => panic!(),
+            },
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -38,26 +95,6 @@ impl MemberLiason {
         match self {
             MemberLiason::Immutable | MemberLiason::Derived => false,
             MemberLiason::Mutable => true,
-        }
-    }
-
-    pub fn constructor_input_liason(self, is_copyable: bool) -> ParameterLiason {
-        match self {
-            MemberLiason::Immutable => {
-                if is_copyable {
-                    ParameterLiason::Pure
-                } else {
-                    ParameterLiason::Move
-                }
-            }
-            MemberLiason::Mutable => {
-                if is_copyable {
-                    ParameterLiason::Pure
-                } else {
-                    ParameterLiason::MoveMut
-                }
-            }
-            MemberLiason::Derived => panic!(),
         }
     }
 }

@@ -28,7 +28,7 @@ pub enum EntityStaticDefnVariant {
         output_ty: &'static str,
         output_liason: OutputLiason,
         linkage: Linkage,
-        routine_kind: RoutineKind,
+        paradigm: RoutineKind,
     },
     Ty {
         base_route: &'static str,

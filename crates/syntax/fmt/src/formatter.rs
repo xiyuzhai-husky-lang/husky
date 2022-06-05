@@ -174,9 +174,10 @@ impl<'a> Formatter<'a> {
             ParameterLiason::Pure => (),
             ParameterLiason::EvalRef => self.write("&"),
             ParameterLiason::Move => self.write("!"),
-            ParameterLiason::TempMut => self.write("mut &"),
+            ParameterLiason::TempRefMut => self.write("mut &"),
             ParameterLiason::MoveMut => self.write("mut !"),
             ParameterLiason::MemberAccess => todo!(),
+            ParameterLiason::TempRef => todo!(),
         }
         self.fmt_ty(ty.ranged_ty.route);
     }
