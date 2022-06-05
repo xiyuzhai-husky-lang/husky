@@ -138,7 +138,7 @@ impl MethodDecl {
                 liason: method_defn_head.output_liason,
                 ty: method_defn_head.output_ty.route,
             },
-            this_liason: method_defn_head.opt_this_contract.unwrap(),
+            this_liason: method_defn_head.opt_this_liason.unwrap(),
             generic_parameters: method_defn_head.generic_parameters.clone(),
             kind,
         })

@@ -1,7 +1,7 @@
-mod generic;
+mod spatial;
 
-pub use generic::*;
 use liason::{MemberLiason, OutputLiason, ParameterLiason};
+pub use spatial::*;
 use std::sync::Arc;
 
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
@@ -17,7 +17,7 @@ pub struct CallableDefnHead {
     pub parameters: Arc<Vec<Parameter>>,
     pub output_ty: RangedEntityRoute,
     pub output_liason: OutputLiason,
-    pub opt_this_contract: Option<ParameterLiason>,
+    pub opt_this_liason: Option<ParameterLiason>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

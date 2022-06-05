@@ -381,7 +381,7 @@ pub(crate) fn entity_defn(
                         )?,
                     )
                 }
-                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_contract {
+                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_liason {
                     Some(_) => return Ok(db.member_defn(entity_route)),
                     None => (
                         head.ident,

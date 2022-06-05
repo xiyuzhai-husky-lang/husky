@@ -239,7 +239,7 @@ impl TyDecl {
         while let Some(child) = children.peek() {
             let ast = &child.value.as_ref()?;
             match ast.variant {
-                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_contract {
+                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_liason {
                     Some(_) => match head.paradigm {
                         Paradigm::EagerProcedural => todo!(),
                         Paradigm::EagerFunctional => members

@@ -22,7 +22,7 @@ impl<'a> AstTransformer<'a> {
         expect_block_head!(token_group);
         const funcname_idx: usize = 2;
         let head = self.parse_atoms(&token_group[funcname_idx..], |parser| {
-            parser.routine_defn_head(routine_keyword)
+            parser.call_defn_head(None, routine_keyword)
         })?;
         self.opt_this_liason.set(None);
         self.opt_this_ty.set(None);
