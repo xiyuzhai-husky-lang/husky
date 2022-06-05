@@ -109,7 +109,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 _ => todo!(),
             },
             EntityKind::Type(_) => RootIdentifier::TypeType.into(),
-            EntityKind::Trait => todo!(),
+            EntityKind::Trait => RootIdentifier::TraitType.into(),
             EntityKind::Function { is_lazy } => {
                 if is_lazy {
                     todo!()

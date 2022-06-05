@@ -194,7 +194,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawExprVariant::Entity { route, kind } => match kind {
                 EntityKind::Module => todo!(),
                 EntityKind::Type(_) => Ok(LazyQualifiedTy::ty_ty()),
-                EntityKind::Trait => todo!(),
+                EntityKind::Trait => Ok(LazyQualifiedTy::trait_ty()),
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Function { .. } => todo!(),
                 EntityKind::Feature => Ok(LazyQualifiedTy::new(

@@ -248,7 +248,8 @@ impl<'a> RustGenerator<'a> {
                 | RootIdentifier::FnOnce
                 | RootIdentifier::Array
                 | RootIdentifier::DatasetType
-                | RootIdentifier::TypeType => panic!(),
+                | RootIdentifier::TypeType
+                | RootIdentifier::TraitType => panic!(),
                 RootIdentifier::Datasets => todo!(),
                 RootIdentifier::CloneTrait => todo!(),
                 RootIdentifier::CopyTrait => todo!(),

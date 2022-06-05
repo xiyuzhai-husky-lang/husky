@@ -93,6 +93,7 @@ pub fn new_word_interner() -> WordAllocator {
         RootIdentifier::PartialEqTrait.into(),
         RootIdentifier::EqTrait.into(),
         RootIdentifier::TypeType.into(),
+        RootIdentifier::TraitType.into(),
         RootIdentifier::ModuleType.into(),
         RootIdentifier::Ref.into(),
         ContextualIdentifier::Crate.into(),
