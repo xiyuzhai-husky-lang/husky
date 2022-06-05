@@ -1,8 +1,8 @@
 mod impl_abs_semantic_token;
+mod impl_call;
 mod impl_enum_item;
 mod impl_expr;
 mod impl_feature;
-mod impl_function;
 mod impl_module_item;
 mod impl_parse_atoms;
 mod impl_record_item;

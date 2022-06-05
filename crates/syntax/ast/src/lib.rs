@@ -30,7 +30,7 @@ use liason::*;
 use print_utils::*;
 use text::*;
 use vm::InitKind;
-use word::{CustomIdentifier, IdentDict, Identifier, StmtKeyword};
+use word::{CustomIdentifier, IdentDict, Identifier, Paradigm, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {
@@ -43,10 +43,18 @@ pub enum AstVariant {
     TypeDefnHead {
         ident: RangedCustomIdentifier,
         kind: TyKind,
-        generic_parameters: IdentDict<SpatialParameter>,
+        spatial_parameters: IdentDict<SpatialParameter>,
     },
     MainDefn,
-    CallFormDefnHead(CallableDefnHead),
+    CallFormDefnHead {
+        ident: RangedCustomIdentifier,
+        paradigm: Paradigm,
+        spatial_parameters: IdentDict<SpatialParameter>,
+        parameters: Arc<Vec<Parameter>>,
+        output_ty: RangedEntityRoute,
+        output_liason: OutputLiason,
+        opt_this_liason: Option<ParameterLiason>,
+    },
     FeatureDecl {
         ident: RangedCustomIdentifier,
         ty: RangedEntityRoute,

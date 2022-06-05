@@ -37,7 +37,7 @@ impl EntityDefnVariant {
             AstVariant::TypeDefnHead {
                 ident,
                 kind,
-                ref generic_parameters,
+                spatial_parameters: ref generic_parameters,
             } => (ident, kind, generic_parameters.clone()),
             _ => panic!(),
         };

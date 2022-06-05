@@ -48,22 +48,31 @@ impl CallDecl {
         })
     }
 
-    pub(crate) fn from_ast(route: EntityRoutePtr, head: &CallableDefnHead) -> Arc<Self> {
-        msg_once!("todo: keyword parameters");
-        Arc::new(CallDecl {
-            route,
-            spatial_parameters: head.generic_parameters.clone(),
-            primary_parameters: head
-                .parameters
-                .iter()
-                .map(|parameter| parameter.into())
-                .collect(),
-            output: OutputDecl {
-                ty: head.output_ty.route,
-                liason: head.output_liason,
-            },
-            keyword_parameters: Default::default(),
-        })
+    pub(crate) fn from_ast(route: EntityRoutePtr, ast: &Ast) -> Arc<Self> {
+        match ast.variant {
+            AstVariant::CallFormDefnHead {
+                ident,
+                paradigm,
+                spatial_parameters: ref generic_parameters,
+                ref parameters,
+                output_ty,
+                output_liason,
+                opt_this_liason,
+            } => Arc::new(CallDecl {
+                route,
+                spatial_parameters: generic_parameters.clone(),
+                primary_parameters: parameters
+                    .iter()
+                    .map(|parameter| parameter.into())
+                    .collect(),
+                output: OutputDecl {
+                    ty: output_ty.route,
+                    liason: output_liason,
+                },
+                keyword_parameters: Default::default(),
+            }),
+            _ => todo!(),
+        }
     }
 
     pub fn nargs(&self) -> u8 {
@@ -100,8 +109,7 @@ pub(crate) fn call_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.variant {
-                AstVariant::CallFormDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
-                AstVariant::CallFormDefnHead(ref head) => Ok(CallDecl::from_ast(route, head)),
+                AstVariant::CallFormDefnHead { .. } => Ok(CallDecl::from_ast(route, ast)),
                 // type constructor
                 AstVariant::TypeDefnHead { .. } => {
                     let ty_decl = db.ty_decl(route)?;

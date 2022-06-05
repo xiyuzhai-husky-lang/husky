@@ -21,7 +21,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    pub(crate) fn usize_literal(&mut self) -> Option<usize> {
+    pub fn usize_literal(&mut self) -> Option<usize> {
         if let Some(Token {
             kind: TokenKind::PrimitiveLiteral(CopyableValue::I32(i)),
             ..
@@ -37,7 +37,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    pub(crate) fn custom_ident(&mut self) -> Option<RangedCustomIdentifier> {
+    pub fn custom_ident(&mut self) -> Option<RangedCustomIdentifier> {
         if let Some(Token {
             kind: TokenKind::Identifier(Identifier::Custom(ident)),
             range,

@@ -48,12 +48,20 @@ impl EntityDefnVariant {
                 AstVariant::TypeDefnHead {
                     ident,
                     kind,
-                    ref generic_parameters,
+                    ref spatial_parameters,
                 } => todo!(),
                 AstVariant::MainDefn => todo!(),
-                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_liason {
+                AstVariant::CallFormDefnHead {
+                    opt_this_liason,
+                    paradigm,
+                    ident,
+                    ref spatial_parameters,
+                    ref parameters,
+                    output_ty,
+                    ..
+                } => match opt_this_liason {
                     Some(this_contract) => {
-                        let method_source = match head.paradigm {
+                        let method_source = match paradigm {
                             Paradigm::EagerProcedural => todo!(),
                             Paradigm::EagerFunctional => {
                                 let stmts = semantics_eager::parse_func_stmts(
@@ -71,22 +79,22 @@ impl EntityDefnVariant {
                             method_source,
                         };
                         (
-                            head.ident.ident,
+                            ident.ident,
                             EntityDefnVariant::Method {
-                                parameters: head.parameters.clone(),
-                                output_ty: head.output_ty,
+                                parameters: parameters.clone(),
+                                output_ty,
                                 this_contract,
                                 method_variant,
                                 output_liason: OutputLiason::Transfer,
-                                generic_parameters: head.generic_parameters.clone(),
+                                generic_parameters: spatial_parameters.clone(),
                             },
                         )
                     }
                     None => (
-                        head.ident.ident,
+                        ident.ident,
                         EntityDefnVariant::function(
                             db,
-                            head,
+                            ast,
                             child.opt_children.clone().unwrap(),
                             arena,
                             file,

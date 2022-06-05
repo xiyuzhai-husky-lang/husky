@@ -148,7 +148,7 @@ pub enum EntityDefnVariant {
         defn_repr: DefinitionRepr,
     },
     Func {
-        generic_parameters: IdentDict<SpatialParameter>,
+        spatial_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
         output: RangedEntityRoute,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
@@ -360,13 +360,13 @@ pub(crate) fn entity_defn(
                 .iter_from(token_group_index)
                 .next()
                 .unwrap();
-            let ast_head = value.as_ref()?;
+            let ast = value.as_ref()?;
 
-            let (ident, entity_kind) = match ast_head.variant {
+            let (ident, entity_kind) = match ast.variant {
                 AstVariant::TypeDefnHead {
                     ident,
                     kind,
-                    generic_parameters: ref generics,
+                    spatial_parameters: ref generics,
                 } => {
                     let signature = derived_unwrap!(db.ty_decl(entity_route));
                     (
@@ -374,20 +374,24 @@ pub(crate) fn entity_defn(
                         EntityDefnVariant::ty_from_ast(
                             db.upcast(),
                             entity_route,
-                            ast_head,
+                            ast,
                             not_none!(opt_children),
                             arena,
                             file,
                         )?,
                     )
                 }
-                AstVariant::CallFormDefnHead(ref head) => match head.opt_this_liason {
+                AstVariant::CallFormDefnHead {
+                    opt_this_liason,
+                    ident,
+                    ..
+                } => match opt_this_liason {
                     Some(_) => return Ok(db.member_defn(entity_route)),
                     None => (
-                        head.ident,
+                        ident,
                         EntityDefnVariant::function(
                             db.upcast(),
-                            head,
+                            ast,
                             not_none!(opt_children),
                             arena,
                             file,
@@ -418,7 +422,7 @@ pub(crate) fn entity_defn(
                 entity_kind,
                 entity_route,
                 file,
-                ast_head.range,
+                ast.range,
             ))
         }
         EntityLocus::Module { file } => module_defn(db, entity_route, file),
