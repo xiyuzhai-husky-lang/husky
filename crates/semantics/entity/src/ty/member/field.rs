@@ -114,7 +114,7 @@ impl EntityDefnVariant {
         members: &mut IdentDict<Arc<EntityDefn>>,
     ) -> SemanticResult<()> {
         while let Some(child) = children.peek() {
-            let ast = child.value.as_ref()?;
+            let ast = child.value.as_ref().unwrap();
             match ast.variant {
                 AstVariant::FieldDefnHead {
                     field_ast_kind: field_kind,

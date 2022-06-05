@@ -26,7 +26,7 @@ impl<'a> EagerParser<'a> {
         let mut iter = iter.peekable();
         while let Some(item) = iter.next() {
             let instruction_id = InstructionId::default();
-            stmts.push(Arc::new(match item.value.as_ref()?.variant {
+            stmts.push(Arc::new(match item.value.as_ref().unwrap().variant {
                 AstVariant::TypeDefnHead { .. } => todo!(),
                 AstVariant::MainDefn => todo!(),
                 AstVariant::DatasetConfigDefnHead => todo!(),
@@ -133,7 +133,7 @@ impl<'a> EagerParser<'a> {
             RawConditionBranchKind::Else => todo!(),
         }
         while let Some(item) = iter.peek() {
-            let item = match item.value.as_ref()?.variant {
+            let item = match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {
@@ -148,7 +148,7 @@ impl<'a> EagerParser<'a> {
                 },
                 _ => break,
             };
-            match item.value.as_ref()?.variant {
+            match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::ConditionBranch {

@@ -9,6 +9,7 @@ from termcolor import colored
 pattern = sys.argv[1]
 search_path = sys.argv[2]
 depth = int(sys.argv[3])
+threshold = int(sys.argv[4])
 
 
 def subpaths(path: str) -> "list[str]":
@@ -18,7 +19,7 @@ def subpaths(path: str) -> "list[str]":
 def search(pattern: str, search_path: str, depth: int):
     if depth <= 0 or os.path.isfile(search_path):
         number_of_patterns = count_patterns(pattern, search_path)
-        if number_of_patterns > 0:
+        if number_of_patterns >= threshold:
             print(
                 "    {:30s}".format(colored(search_path, "green")),
                 colored("{}".format(number_of_patterns), "yellow"),
@@ -43,5 +44,5 @@ def count_patterns(pattern: str, search_path: str) -> int:
     return total
 
 
-print(colored("\nCount todos:", "cyan"))
+print(colored("\nCount todos >= {}:".format(threshold), "cyan"))
 search(pattern, search_path, depth)

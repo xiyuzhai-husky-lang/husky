@@ -43,7 +43,7 @@ impl EntityDefnVariant {
         members: &mut IdentDict<Arc<EntityDefn>>,
     ) -> SemanticResult<()> {
         while let Some(child) = children.peek() {
-            let ast = child.value.as_ref()?;
+            let ast = child.value.as_ref().unwrap();
             let (ident, variant): (CustomIdentifier, _) = match ast.variant {
                 AstVariant::TypeDefnHead {
                     ident,

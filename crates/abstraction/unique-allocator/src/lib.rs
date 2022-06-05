@@ -3,17 +3,17 @@ mod internal;
 mod pool;
 mod ptr;
 
-pub use ptr::{BasicUniqueAllocatorPtr, UniqueAllocatorPtr};
+pub use ptr::{Intern, InternedPtr};
 
 use std::{borrow::Borrow, fmt::Debug, hash::Hash, marker::PhantomData};
 use sync_utils::ARwLock;
 
 use internal::UniqueAllocatorInternal;
 
-pub struct UniqueAllocator<T, Owned = T, Ptr = BasicUniqueAllocatorPtr<T>>
+pub struct UniqueAllocator<T, Owned = T, Ptr = InternedPtr<T>>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Ptr: UniqueAllocatorPtr<Thing = T>,
+    Ptr: Intern<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
     internal: ARwLock<UniqueAllocatorInternal<T, Owned, Ptr>>,
@@ -23,7 +23,7 @@ where
 impl<T, Owned, Id> Clone for UniqueAllocator<T, Owned, Id>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Id: UniqueAllocatorPtr<Thing = T>,
+    Id: Intern<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
     fn clone(&self) -> Self {
@@ -37,7 +37,7 @@ where
 impl<T, Owned, Ptr> UniqueAllocator<T, Owned, Ptr>
 where
     T: Hash + Eq + 'static + ?Sized,
-    Ptr: UniqueAllocatorPtr<Thing = T>,
+    Ptr: Intern<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
     pub fn empty() -> Self {

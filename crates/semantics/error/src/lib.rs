@@ -44,43 +44,6 @@ pub type SemanticResultArc<T> = Result<Arc<T>, SemanticError>;
 
 pub type SemanticResultOptionArc<T> = Result<Option<Arc<T>>, SemanticError>;
 
-impl From<EntitySyntaxError> for SemanticError {
-    fn from(error: EntitySyntaxError) -> Self {
-        Self {
-            variant: SemanticErrorVariant::Derived {
-                message: format!("Scope error: {:?}", &error),
-            },
-            dev_src: dev_src!(),
-        }
-    }
-}
-
-// impl From<SyntaxError> for SemanticError {
-//     fn from(error: SyntaxError) -> Self {
-//         Self {
-//             message: error.message,
-//             src: error.src,
-//         }
-//     }
-// }
-
-impl From<&ast::AstError> for SemanticError {
-    fn from(error: &ast::AstError) -> Self {
-        Self {
-            variant: SemanticErrorVariant::Derived {
-                message: format!("{:?}", error),
-            },
-            dev_src: error.dev_src.clone(),
-        }
-    }
-}
-
-impl From<VMCompileError> for SemanticError {
-    fn from(_: VMCompileError) -> Self {
-        todo!()
-    }
-}
-
 #[macro_export]
 macro_rules! err {
     ($msg:expr) => {{

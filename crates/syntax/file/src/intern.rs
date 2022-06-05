@@ -4,13 +4,13 @@ use unique_allocator::UniqueAllocator;
 use word::CustomIdentifier;
 
 pub type FileInterner = UniqueAllocator<Path, PathBuf>;
-pub type FilePtr = unique_allocator::BasicUniqueAllocatorPtr<Path>;
+pub type FilePtr = unique_allocator::InternedPtr<Path>;
 
 pub trait AllocateUniqueFile {
-    fn file_unique_allocator(&self) -> &FileInterner;
+    fn file_interner(&self) -> &FileInterner;
 
     fn intern_file(&self, path: PathBuf) -> FilePtr {
-        self.file_unique_allocator()
+        self.file_interner()
             .alloc(match std::fs::canonicalize(path.clone()) {
                 Ok(path) => path,
                 Err(_) => path,

@@ -17,7 +17,15 @@ impl std::fmt::Debug for StaticVisualizer {
 
 impl PartialEq for StaticVisualizer {
     fn eq(&self, other: &Self) -> bool {
-        todo!()
+        match (self, other) {
+            (StaticVisualizer::Compiled(f0), StaticVisualizer::Compiled(f1)) => {
+                let f0 = *f0 as usize;
+                let f1 = *f1 as usize;
+                f0 == f1
+            }
+            (StaticVisualizer::Vec, StaticVisualizer::Vec) => true,
+            _ => false,
+        }
     }
 }
 
