@@ -459,8 +459,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.eager_call(arena, raw_expr_idx, opds),
-            ListOpr::Index => self.eager_element_access(arena, raw_expr_idx, opds),
-            ListOpr::ModuloIndex => todo!(),
+            ListOpr::Index | ListOpr::ModuloIndex => {
+                self.eager_element_access(arena, raw_expr_idx, opds)
+            }
             ListOpr::StructInit => todo!(),
             ListOpr::MethodCall { ranged_ident, .. } => self.eager_method_call(
                 arena,

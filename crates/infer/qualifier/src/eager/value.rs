@@ -122,10 +122,7 @@ impl EagerExprQualifier {
                 EagerExprQualifier::Copyable => todo!(),
                 EagerExprQualifier::PureRef => match member_contract {
                     EagerContract::Pure | EagerContract::Pass => Binding::TempRef,
-                    EagerContract::Move => todo!(),
-                    EagerContract::TempRef => todo!(),
-                    EagerContract::TempRefMut => todo!(),
-                    EagerContract::EvalRef => todo!(),
+                    _ => panic!(),
                 },
                 EagerExprQualifier::EvalRef => match member_contract {
                     EagerContract::Pure => todo!(),
