@@ -18,21 +18,16 @@ impl<'a> AstTransformer<'a> {
                     Paradigm::EagerFunctional => todo!(),
                     Paradigm::EagerProcedural => todo!(),
                 },
-                Keyword::Type(_) => todo!(),
-                Keyword::Stmt(_) => todo!(),
                 Keyword::Use => todo!(),
-                Keyword::Mod => todo!(),
-                Keyword::Main => todo!(),
-                Keyword::Visual => todo!(),
-                Keyword::Liason(_) => todo!(),
+                _ => {
+                    err!(
+                        format!("bad keyword for record item: `{:?}`", keyword),
+                        token_group[0].range
+                    )
+                }
             },
             TokenKind::Identifier(_) => self.parse_record_original_field(token_group),
-            TokenKind::Special(_) => todo!(),
-            TokenKind::PrimitiveLiteral(_) => todo!(),
-            TokenKind::Unrecognized(_) => todo!(),
-            TokenKind::IllFormedLiteral(_) => todo!(),
-            TokenKind::WordOpr(_) => todo!(),
-            TokenKind::Decorator(_) => todo!(),
+            _ => err!(format!("expect record item"), token_group[0].range),
         }
     }
 

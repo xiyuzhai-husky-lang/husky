@@ -66,7 +66,7 @@ pub enum FeatureExprVariant {
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
     },
-    StructDerivedFieldAccess {
+    StructDerivedLazyFieldAccess {
         this: Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,

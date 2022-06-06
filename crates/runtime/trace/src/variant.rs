@@ -110,15 +110,15 @@ impl<'eval> TraceVariant<'eval> {
                 | FeatureExprVariant::PrimitiveBinaryOpr { .. }
                 | FeatureExprVariant::Variable { .. } => false,
                 FeatureExprVariant::StructOriginalFieldAccess { .. } => todo!(),
-                FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
-                FeatureExprVariant::EntityFeature { .. } => todo!(),
+                FeatureExprVariant::EnumKindLiteral { .. } => false,
+                FeatureExprVariant::EntityFeature { .. } => true,
                 FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
                 FeatureExprVariant::RecordOriginalFieldAccess {
                     ref this,
                     field_ident,
                     ..
-                } => todo!(),
-                FeatureExprVariant::ThisValue { ref repr } => todo!(),
+                } => false,
+                FeatureExprVariant::ThisValue { .. } => false,
                 FeatureExprVariant::GlobalInput => false,
                 FeatureExprVariant::RoutineCall {
                     ref routine_defn, ..
@@ -126,11 +126,11 @@ impl<'eval> TraceVariant<'eval> {
                 FeatureExprVariant::PatternCall {} => true,
                 FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
                 FeatureExprVariant::ElementAccess { ref opds, .. } => false,
-                FeatureExprVariant::StructDerivedFieldAccess {
+                FeatureExprVariant::StructDerivedLazyFieldAccess {
                     ref this,
                     field_ident,
                     ref repr,
-                } => todo!(),
+                } => true,
             },
             TraceVariant::EagerExpr {
                 ref expr,
@@ -147,7 +147,6 @@ impl<'eval> TraceVariant<'eval> {
                 } => match opn_variant {
                     EagerOpnVariant::RoutineCall(ranged_route) => !ranged_route.route.is_builtin(),
                     EagerOpnVariant::TypeCall { ranged_ty, .. } => !ranged_ty.route.is_builtin(),
-                    EagerOpnVariant::PatternCall => todo!(),
                     EagerOpnVariant::FieldAccess { .. } => false,
                     EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }
@@ -155,10 +154,10 @@ impl<'eval> TraceVariant<'eval> {
                     | EagerOpnVariant::MethodCall { .. } => !opds[0].ty().is_builtin(),
                     EagerOpnVariant::ElementAccess { .. } => false,
                 },
-                EagerExprVariant::Lambda(_, _) => todo!(),
-                EagerExprVariant::ThisValue { .. } => todo!(),
-                EagerExprVariant::ThisField { .. } => todo!(),
-                EagerExprVariant::EnumKindLiteral(_) => todo!(),
+                EagerExprVariant::Lambda(_, _)
+                | EagerExprVariant::ThisValue { .. }
+                | EagerExprVariant::ThisField { .. }
+                | EagerExprVariant::EnumKindLiteral(_) => false,
             },
             TraceVariant::CallHead { .. } => false,
             TraceVariant::ProcBranch {
@@ -201,11 +200,11 @@ impl<'eval> TraceVariant<'eval> {
                 } => history.contains(initial_value),
                 FuncStmtVariant::Assert { ref condition } => history.contains(condition),
                 FuncStmtVariant::Return { ref result } => history.contains(result),
-                FuncStmtVariant::ConditionFlow { .. } => todo!(),
+                FuncStmtVariant::ConditionFlow { .. } => panic!("FuncBranch"),
                 FuncStmtVariant::Match {
                     ref match_expr,
                     ref branches,
-                } => todo!(),
+                } => history.contains(match_expr),
                 FuncStmtVariant::ReturnXml { ref xml_expr } => todo!(),
             },
             TraceVariant::ProcStmt { stmt, history } => match stmt.variant {
@@ -214,7 +213,7 @@ impl<'eval> TraceVariant<'eval> {
                 } => history.contains(initial_value),
                 ProcStmtVariant::Assert { ref condition } => history.contains(condition),
                 ProcStmtVariant::Execute { ref expr } => history.contains(expr),
-                ProcStmtVariant::ConditionFlow { .. } => panic!(),
+                ProcStmtVariant::ConditionFlow { .. } => panic!("ProcBranch"),
                 ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
                 ProcStmtVariant::Return { ref result } => history.contains(result),
                 ProcStmtVariant::Match {
@@ -248,7 +247,7 @@ impl<'eval> TraceVariant<'eval> {
                                     true
                                 }
                             } else {
-                                false
+                                *branch_idx == 0
                             }
                         }
                         _ => panic!(),

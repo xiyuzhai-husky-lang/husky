@@ -97,22 +97,6 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    // fn parse_struct_derived_eager_field(
-    //     &mut self,
-    //     token_group: &[Token],
-    //     struct_item_context: StructItemContext,
-    //     paradigm: Paradigm,
-    // ) -> AstResult<AstKind> {
-    //     let context_update_result = self.update_struct_item_context(
-    //         struct_item_context,
-    //         StructItemContext::DerivedEagerField,
-    //         token_group,
-    //     );
-    //     self.context.set(AstContext::Stmt(paradigm));
-    //     context_update_result?;
-    //     todo!()
-    // }
-
     pub(super) fn parse_struct_derived_lazy_field(
         &mut self,
         token_group: &[Token],

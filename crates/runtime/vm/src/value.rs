@@ -542,8 +542,6 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
 
     pub fn field(self, field_idx: usize, field_binding: Binding) -> TempValue<'temp, 'eval> {
         match self {
-            TempValue::Moved => todo!(),
-            TempValue::Copyable(_) => todo!(),
             TempValue::OwnedEval(boxed_value) => {
                 let mut value: VirtualTy = boxed_value.take().unwrap();
                 value.take_field(field_idx)
@@ -565,6 +563,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
             TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            _ => panic!(),
         }
     }
 }

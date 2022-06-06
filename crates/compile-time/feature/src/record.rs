@@ -85,7 +85,7 @@ pub(crate) fn expr_record_field(
         FeatureExprVariant::PatternCall {} => todo!(),
         FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
         FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
-        FeatureExprVariant::StructDerivedFieldAccess {
+        FeatureExprVariant::StructDerivedLazyFieldAccess {
             ref this,
             field_ident,
             ref repr,

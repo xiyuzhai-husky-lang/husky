@@ -120,8 +120,9 @@ impl<'a> AstTransformer<'a> {
         token_group: &[Token],
     ) -> AstResult<RawStmt> {
         Ok(match self.context() {
-            AstContext::Package(_) => todo!(),
-            AstContext::Module(_) => todo!(),
+            AstContext::Record | AstContext::Package(_) | AstContext::Module(_) => {
+                return derived_err!()
+            }
             AstContext::Stmt(Paradigm::LazyFunctional)
             | AstContext::Stmt(Paradigm::EagerFunctional)
             | AstContext::Visual => {
@@ -171,11 +172,8 @@ impl<'a> AstTransformer<'a> {
                 }
             }
             AstContext::Struct { .. } | AstContext::Enum(_) => panic!(),
-            AstContext::Record => todo!(),
-            AstContext::Props => todo!(),
             AstContext::Match(_) => err!(format!("expect case stmt"), token_group.text_range())?,
         })
-        // Ok(Stmt::Exec(expr.unwrap()).into())
     }
     fn parse_init_stmt(
         &mut self,
@@ -261,18 +259,23 @@ impl<'a> AstTransformer<'a> {
                             let final_comparison = pure_binary;
                             match lopd.variant {
                                 RawExprVariant::Opn {
-                                    opn_variant: ref opr,
+                                    ref opn_variant,
                                     ref opds,
                                 } => {
                                     let llopd_idx = opds.start;
                                     let lropd_idx = opds.end - 1;
                                     let lropd = &self.arena[lropd_idx];
-                                    let initial_comparison = match opr {
+                                    let initial_comparison = match opn_variant {
                                         RawOpnVariant::Binary(binary) => match binary {
                                             BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr,
-                                            BinaryOpr::Assign(_) => todo!(),
+                                            BinaryOpr::Assign(_) => {
+                                                return err!(
+                                                    format!("expect comparison"),
+                                                    lopd.range
+                                                )
+                                            }
                                         },
-                                        _ => todo!(),
+                                        _ => return err!(format!("expect comparison"), lopd.range),
                                     };
                                     let frame_var = if let RawExprVariant::Unrecognized(frame_var) =
                                         lropd.variant
@@ -342,7 +345,8 @@ impl<'a> AstTransformer<'a> {
                     },
                     range: lopd.range,
                 };
-                RawLoopKind::forext_loop(frame_var, comparison, ropd_idx)?.into()
+                RawLoopKind::forext_loop(frame_var, comparison, ropd_idx, token_group.text_range())?
+                    .into()
             }
             _ => todo!(),
         })
