@@ -22,7 +22,10 @@ use word::{CustomIdentifier, Identifier};
 pub trait InferQualifiedTy {
     fn qualified_ty_sheet(&self) -> &QualifiedTySheet;
 
-    fn lazy_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<LazyQualifiedTy> {
+    fn lazy_expr_qualified_ty(
+        &self,
+        raw_expr_idx: RawExprIdx,
+    ) -> InferResult<LazyValueQualifiedTy> {
         self.qualified_ty_sheet()
             .lazy_expr_qualified_ty(raw_expr_idx)
     }
@@ -48,7 +51,7 @@ pub trait InferQualifiedTy {
         &self,
         varname: CustomIdentifier,
         init_range: TextRange,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         self.qualified_ty_sheet()
             .lazy_variable_qualified_ty(varname, init_range)
     }

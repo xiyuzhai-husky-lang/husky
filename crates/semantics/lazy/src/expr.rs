@@ -4,7 +4,7 @@ mod parser;
 use std::sync::Arc;
 
 use file::FilePtr;
-use infer_qualifier::LazyQualifiedTy;
+use infer_qualifier::LazyValueQualifiedTy;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
@@ -17,7 +17,7 @@ use word::{CustomIdentifier, Identifier};
 pub struct LazyExpr {
     pub file: FilePtr,
     pub range: TextRange,
-    pub qualified_ty: LazyQualifiedTy,
+    pub qualified_ty: LazyValueQualifiedTy,
     pub variant: LazyExprVariant,
     pub instruction_id: InstructionId,
 }
