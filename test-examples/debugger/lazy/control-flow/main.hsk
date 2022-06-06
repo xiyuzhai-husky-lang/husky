@@ -2,7 +2,7 @@ dataset:
     synthetic::trivial::real1d::dataset1()
 
 main:
-    if input > 0:
+    if input > 0.0:
         1
     else:
         2

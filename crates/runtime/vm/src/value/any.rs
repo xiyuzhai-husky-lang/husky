@@ -82,6 +82,9 @@ pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + Ref
 pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe {
     fn static_type_id_dyn(&self) -> StaticTypeId;
     fn static_type_name_dyn(&self) -> Cow<'static, str>;
+    // fn clone_into_copyable_dyn<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+    // where
+    //     Self: 'temp;
     fn clone_into_box_dyn<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp;

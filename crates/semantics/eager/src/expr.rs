@@ -4,7 +4,7 @@ mod parser;
 use crate::*;
 use ast::{AstIter, RawExprArena, RawExprIdx};
 use file::FilePtr;
-use infer_qualifier::{EagerQualifiedTy, EagerQualifier};
+use infer_qualifier::{EagerValueQualifiedTy, EagerVariableQualifier};
 use infer_total::InferQueryGroup;
 pub use opn::*;
 pub(crate) use parser::EagerExprParser;
@@ -20,7 +20,7 @@ use word::CustomIdentifier;
 pub struct EagerExpr {
     pub file: FilePtr,
     pub range: TextRange,
-    pub qualified_ty: EagerQualifiedTy,
+    pub qualified_ty: EagerValueQualifiedTy,
     pub variant: EagerExprVariant,
     pub instruction_id: InstructionId,
 }

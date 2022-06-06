@@ -42,7 +42,7 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(value) => *value,
             EvalValue::Owned(_) => todo!(),
-            EvalValue::GlobalPure(_) => todo!(),
+            EvalValue::GlobalPure(value) => todo!(),
             EvalValue::EvalRef(_) => todo!(),
             EvalValue::Undefined => todo!(),
         }

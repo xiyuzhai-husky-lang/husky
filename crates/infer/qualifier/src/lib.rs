@@ -27,7 +27,10 @@ pub trait InferQualifiedTy {
             .lazy_expr_qualified_ty(raw_expr_idx)
     }
 
-    fn eager_expr_qualified_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerQualifiedTy> {
+    fn eager_expr_qualified_ty(
+        &self,
+        raw_expr_idx: RawExprIdx,
+    ) -> InferResult<EagerValueQualifiedTy> {
         self.qualified_ty_sheet()
             .eager_expr_qualified_ty(raw_expr_idx)
     }
@@ -36,7 +39,7 @@ pub trait InferQualifiedTy {
         &self,
         varname: CustomIdentifier,
         init_range: TextRange,
-    ) -> InferResult<EagerQualifiedTy> {
+    ) -> InferResult<EagerVariableQualifiedTy> {
         self.qualified_ty_sheet()
             .eager_variable_qualified_ty(varname, init_range)
     }
