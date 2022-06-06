@@ -24,12 +24,12 @@ impl<'a> DependeeMapBuilder<'a> {
     fn push(&mut self, entity_route: EntityRoutePtr) {
         match entity_route.kind {
             EntityRouteKind::Root { .. } => return,
+            EntityRouteKind::Input { main } => return,
             EntityRouteKind::Package { main, ident } => todo!(),
             EntityRouteKind::Child { parent, ident } => {
                 emsg_once!("dependences on entity from external packs should be merged");
                 ()
             }
-            EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic {
                 ident,
                 entity_kind: entity_kind,
@@ -341,10 +341,10 @@ impl EntityDefn {
             }
         }
 
-        fn extract_lazy_expr_dependees(expr: &LazyExpr, v: &mut DependeeMapBuilder) {
+        fn extract_lazy_expr_dependees(expr: &LazyExpr, builder: &mut DependeeMapBuilder) {
             match expr.variant {
                 LazyExprVariant::Variable { .. } | LazyExprVariant::PrimitiveLiteral(_) => (),
-                LazyExprVariant::EntityRoute { route: scope, .. } => v.push(scope),
+                LazyExprVariant::EntityRoute { route: scope, .. } => builder.push(scope),
                 LazyExprVariant::EnumLiteral { .. } => todo!(),
                 LazyExprVariant::Bracketed(_) => todo!(),
                 LazyExprVariant::Opn { opn_kind, ref opds } => {
@@ -353,19 +353,21 @@ impl EntityDefn {
                         | LazyOpnKind::Prefix(_)
                         | LazyOpnKind::FieldAccess { .. }
                         | LazyOpnKind::MethodCall { .. } => (),
-                        LazyOpnKind::NormalRoutineCall(routine) => v.push(routine.route),
-                        LazyOpnKind::StructCall(ty) => v.push(ty.route),
-                        LazyOpnKind::RecordCall(ty) => v.push(ty.route),
+                        LazyOpnKind::FunctionRoutineCall(routine) => builder.push(routine.route),
+                        LazyOpnKind::StructCall(ty) => builder.push(ty.route),
+                        LazyOpnKind::RecordCall(ty) => builder.push(ty.route),
                         LazyOpnKind::PatternCall => todo!(),
                         LazyOpnKind::ElementAccess { .. } => todo!(),
                     }
                     for opd in opds {
-                        extract_lazy_expr_dependees(opd, v)
+                        extract_lazy_expr_dependees(opd, builder)
                     }
                 }
                 LazyExprVariant::Lambda(_, _) => todo!(),
                 LazyExprVariant::ThisValue { .. } => (),
-                LazyExprVariant::EntityFeature { route: scope } => todo!(),
+                LazyExprVariant::EntityFeature {
+                    entity_route: route,
+                } => builder.push(route),
                 LazyExprVariant::ThisField {
                     field_ident,
                     field_idx,

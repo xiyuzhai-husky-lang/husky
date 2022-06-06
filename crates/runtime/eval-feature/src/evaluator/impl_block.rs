@@ -1,7 +1,7 @@
-use vm::eval_fast;
-
 use super::*;
 use crate::*;
+use print_utils::msg_once;
+use vm::eval_fast;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(super) fn eval_feature_lazy_block(

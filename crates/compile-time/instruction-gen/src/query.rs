@@ -15,7 +15,7 @@ pub trait InstructionGenQueryGroup:
         &self,
         member_route: EntityRoutePtr,
     ) -> Option<Arc<InstructionSheet>>;
-    fn dataset_config_instruction_sheet(&self, pack_main: FilePtr) -> Arc<InstructionSheet>;
+    fn dataset_config_instruction_sheet(&self, package_main: FilePtr) -> Arc<InstructionSheet>;
     fn enum_literal_as_u8(&self, route: EntityRoutePtr) -> u8;
 }
 
@@ -143,10 +143,10 @@ fn method_opt_instruction_sheet(
 
 fn dataset_config_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    pack_main: FilePtr,
+    package_main: FilePtr,
 ) -> Arc<InstructionSheet> {
-    let pack = db.package(pack_main).unwrap();
-    new_func_instruction_sheet(db, vec![].into_iter(), &pack.config.dataset.stmts, false)
+    let package = db.package(package_main).unwrap();
+    new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
 fn enum_literal_as_u8(db: &dyn InstructionGenQueryGroup, route: EntityRoutePtr) -> u8 {

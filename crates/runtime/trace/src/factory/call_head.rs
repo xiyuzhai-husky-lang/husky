@@ -33,7 +33,7 @@ impl<'eval> TraceFactory<'eval> {
                 let input_placeholder = &parameters[i];
                 tokens.push(ident!(input_placeholder.ranged_ident.ident.as_str()));
                 tokens.push(special!(": "));
-                tokens.push(scope!(text.ranged(input_placeholder.ranged_ty.range)));
+                tokens.push(route!(text.ranged(input_placeholder.ranged_ty.range)));
                 if i < parameters.len() - 1 {
                     tokens.push(special!(", "));
                 }

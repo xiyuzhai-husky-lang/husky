@@ -8,5 +8,5 @@ use semantics_entity::EntityDefnVariant;
 use text::TextQueryGroup;
 use trace::*;
 use upcast::Upcast;
-use visual_runtime::VisualQueryGroup;
+use visual_runtime::RuntimeVisualizerQueryGroup;
 use vm::{exec_debug, EvalResult, HistoryEntry, InstructionSheet, InterpreterQueryGroup};

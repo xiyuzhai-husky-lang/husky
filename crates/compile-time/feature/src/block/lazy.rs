@@ -26,7 +26,7 @@ impl Eq for FeatureLazyBlock {}
 
 impl FeatureLazyBlock {
     pub(crate) fn new(
-        db: &dyn FeatureQueryGroup,
+        db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
         lazy_stmts: &[Arc<LazyStmt>],
         externals: &[FeatureSymbol],

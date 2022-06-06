@@ -1,6 +1,6 @@
 mod block;
 mod branch;
-mod eval;
+mod eval_id;
 mod expr;
 mod object;
 mod query;
@@ -11,9 +11,9 @@ mod unique_allocate;
 
 pub use block::*;
 pub use branch::{FeatureBranch, FeatureBranchVariant};
-pub use eval::*;
+pub use eval_id::*;
 pub use expr::{FeatureExpr, FeatureExprVariant};
-pub use query::{FeatureQueryGroup, FeatureQueryGroupStorage};
+pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
 pub use repr::*;
 pub use stmt::{FeatureStmt, FeatureStmtVariant};
 pub use unique_allocate::{
@@ -22,7 +22,6 @@ pub use unique_allocate::{
 
 use defn_head::*;
 use entity_route::EntityRoutePtr;
-use eval::*;
 use object::Object;
 use print_utils::*;
 use std::sync::Arc;

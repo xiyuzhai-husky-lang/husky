@@ -9,7 +9,7 @@ pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use diagnostic::DiagnosticQuery;
 pub use entity_route::{AllocateUniqueScope, EntityRoute};
 pub use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
-pub use feature::{AllocateUniqueFeature, FeatureQueryGroup, FeatureQueryGroupStorage};
+pub use feature::{AllocateUniqueFeature, FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
 use indexmap::IndexMap;
@@ -52,7 +52,7 @@ use sync_utils::ARwLock;
     infer_qualifier::InferQualifiedTyQueryGroupStorage,
     semantics_entity::EntityQueryGroupStorage,
     pack_semantics::PackQueryGroupStorage,
-    feature::FeatureQueryGroupStorage,
+    feature::FeatureGenQueryGroupStorage,
     diagnostic::DiagnosticQueryGroupStorage,
     instruction_gen::InstructionGenQueryGroupStorage,
     rust_gen::RustGenQueryStorage

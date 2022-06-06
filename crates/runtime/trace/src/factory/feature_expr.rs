@@ -1,5 +1,7 @@
 use entity_route::RangedEntityRoute;
 use semantics_lazy::{LazyExprVariant, LazyOpnKind};
+use text::RangedCustomIdentifier;
+use word::CustomIdentifier;
 
 use super::expr::ExprTokenConfig;
 use crate::*;
@@ -52,7 +54,7 @@ impl<'eval> TraceFactory<'eval> {
                 LazyExprVariant::Opn { opn_kind, ref opds } => match opn_kind {
                     LazyOpnKind::Binary { opr, this } => todo!(),
                     LazyOpnKind::Prefix(_) => todo!(),
-                    LazyOpnKind::NormalRoutineCall(ranged_route) => self
+                    LazyOpnKind::FunctionRoutineCall(ranged_route) => self
                         .feature_routine_call_tokens(
                             ranged_route,
                             feature_opds,
@@ -99,19 +101,14 @@ impl<'eval> TraceFactory<'eval> {
                 },
                 _ => panic!(""),
             },
-            FeatureExprVariant::StructOriginalFieldAccess { .. } => todo!(),
             FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
-            FeatureExprVariant::EntityFeature { .. } => todo!(),
+            FeatureExprVariant::EntityFeature { .. } => {
+                vec![route!(text.ranged(expr.expr.range), associated_trace)]
+            }
             FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureExprVariant::RecordOriginalFieldAccess {
-                ref this,
-                field_ident,
-                ..
-            } => todo!(),
             FeatureExprVariant::ThisValue { ref repr } => todo!(),
             FeatureExprVariant::EvalInput => vec![keyword!("input")],
             FeatureExprVariant::PatternCall {} => todo!(),
-            FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => {
                 let mut tokens = vec![];
                 tokens.extend(self.feature_expr_tokens(&opds[0], text, config.subexpr()));
@@ -123,12 +120,39 @@ impl<'eval> TraceFactory<'eval> {
                 tokens.push(special!("]", associated_trace));
                 tokens
             }
+            FeatureExprVariant::RecordDerivedFieldAccess {
+                ref this,
+                field_ident,
+                ..
+            } => self.field_access_tokens(text, config, this, field_ident),
+            FeatureExprVariant::StructOriginalFieldAccess {
+                ref this,
+                field_ident,
+                ..
+            } => self.field_access_tokens(text, config, this, field_ident),
+            FeatureExprVariant::RecordOriginalFieldAccess {
+                ref this,
+                field_ident,
+                ..
+            } => self.field_access_tokens(text, config, this, field_ident),
             FeatureExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
-            } => todo!(),
+            } => self.field_access_tokens(text, config, this, field_ident),
         };
+    }
+
+    fn field_access_tokens(
+        &self,
+        text: &Text,
+        config: ExprTokenConfig,
+        this: &Arc<FeatureExpr>,
+        field_ident: RangedCustomIdentifier,
+    ) -> Vec<TokenProps<'eval>> {
+        let mut tokens = self.feature_expr_tokens(this, text, config);
+        tokens.extend([special!("."), ident!(field_ident.ident.as_str())]);
+        tokens
     }
 
     fn feature_routine_call_tokens(
@@ -140,7 +164,7 @@ impl<'eval> TraceFactory<'eval> {
         config: ExprTokenConfig,
     ) -> Vec<TokenProps<'eval>> {
         let mut tokens = vec![
-            scope!(text.ranged(ranged_scope.range), associated_trace),
+            route!(text.ranged(ranged_scope.range), associated_trace),
             special!("("),
         ];
         for (i, input) in inputs.iter().enumerate() {

@@ -19,7 +19,11 @@ struct LineSegment:
         <LineSegment start={this.start} end={this.end} />
 
 struct LineSegmentSketch:
+    ct: &RawContour
     line_segments: []LineSegment
+
+    static func new(ct: &RawContour, r: f32) -> LineSegmentSketch:
+        LineSegmentSketch(ct, find_line_segments(ct, r))
 
     visual:
         this.line_segments

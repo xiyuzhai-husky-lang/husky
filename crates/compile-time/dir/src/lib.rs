@@ -1,8 +1,8 @@
-use pack_semantics::Pack;
+use pack_semantics::Package;
 use std::path::{Path, PathBuf};
 use word::snake_to_dash;
 
-pub fn get_rust_dir(pack: &Pack) -> PathBuf {
+pub fn get_rust_dir(pack: &Package) -> PathBuf {
     const RUST_ROOT: &str = "/home/xiyuzhai/Documents/husky/rust-gen";
     let rust_dir: PathBuf = [RUST_ROOT, &snake_to_dash(&pack.ident)].iter().collect();
     mkdir(&rust_dir);
@@ -25,7 +25,7 @@ pub fn mkdir(dir: &Path) {
     }
 }
 
-pub fn get_code_snapshot_dir(pack: &Pack) -> String {
+pub fn get_code_snapshot_dir(pack: &Package) -> String {
     let rust_dir = get_rust_dir(pack);
     assert!(rust_dir.exists());
     let snapshot_dir = rust_dir.join("snapshot");

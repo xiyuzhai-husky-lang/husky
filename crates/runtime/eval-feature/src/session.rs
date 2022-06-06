@@ -2,10 +2,10 @@ mod division;
 mod tests;
 
 use compile_time_db::{HuskyCompileTime, InstructionGenQueryGroup};
-use pack_semantics::{Config, Pack};
+use pack_semantics::{Config, Package};
 use semantics_eager::FuncStmt;
 use trivial_iter::TrivialIter;
-use vm::{eval_fast, EvalResult, Mode, VMRuntimeResult};
+use vm::{eval_fast, EvalResult, InterpreterQueryGroup, Mode, VMRuntimeResult};
 
 use crate::*;
 
@@ -18,7 +18,7 @@ use std::{
 use datasets::{Dataset, DatasetDyn};
 
 use division::Division;
-use feature::{EvalSheet, Feature, FeaturePtr};
+use feature::{Feature, FeaturePtr};
 
 #[derive(Debug)]
 pub struct Session<'eval> {
@@ -45,7 +45,7 @@ impl<'sess> Default for ValidationReport<'sess> {
 
 impl<'sess> Session<'sess> {
     pub fn new(
-        package: &Pack,
+        package: &Package,
         compile_time: &HuskyCompileTime,
         verbose: bool,
     ) -> VMRuntimeResult<Self> {

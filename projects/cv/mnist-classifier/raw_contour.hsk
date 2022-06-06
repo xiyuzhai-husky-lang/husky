@@ -1,9 +1,15 @@
 use crate::geom2d::*
+use crate::connected_component::*
+use crate::line_segment_sketch::*
 use datasets::cv::mnist::BinaryImage28
 use datasets::cv::mnist::BinaryGrid28
 
 struct RawContour:
+    cc: &ConnectedComponent
     points: []Point2d
+
+    func line_segment_sketch -> LineSegmentSketch:
+        LineSegmentSketch::new(this, 1.2)
 
     func displacement(start: i32, end: i32) -> Vector2d:
         N = this.points.len()
@@ -19,11 +25,6 @@ enum Direction:
     LEFT
     DOWN
     RIGHT
-
-
-// pub func int int => Point2d point
-// pub fn Point2dFromIJ28(i: int, j: int) -> Point2d
-//   return Point2d(float(29 - j), float(29 - i))
 
 func get_pixel_pair(row: b32, j: i32) -> b32:
     (row >> (j - 1)) & 3b32
@@ -129,12 +130,12 @@ func get_concave_middle_point(points: []Point2d) -> Point2d:
         (p0.y + p2.y) / 2.0,
     )
 
-proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
+proc find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
     var result = []RawContour()
     var boundary_unsearched = BinaryGrid28()
     for 1 <= i <= 29:
-        let r_ur = cc[i-1]
-        let r_dr = cc[i]
+        let r_ur = cc.mask[i-1]
+        let r_dr = cc.mask[i]
         let r_ul = r_ur << 1
         let r_dl = r_dr << 1
         boundary_unsearched[i] = (r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))
@@ -144,8 +145,8 @@ proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
             var i = k
             var j = boundary_unsearched[k].trailing_zeros()
             // prepare rows
-            var row_above = cc[i-1]
-            var row_below = cc[i]
+            var row_above = cc.mask[i-1]
+            var row_below = cc.mask[i]
             // prepare pixel_pairs and initial inward direction
             var inward_direction = get_inward_direction(row_above, row_below, j)
             // store initial position and direction
@@ -196,11 +197,11 @@ proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
                     case Direction::UP:
                         i = i - 1 
                         row_below = row_above
-                        row_above = cc[i-1]
+                        row_above = cc.mask[i-1]
                     case Direction::DOWN:
                         i = i + 1 
                         row_above = row_below
-                        row_below = cc[i]
+                        row_below = cc.mask[i]
                     case Direction::LEFT:
                         j = j + 1
                     case Direction::RIGHT:
@@ -212,5 +213,5 @@ proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
                     current_streak++
             if prev_angle_change1 == -1 and current_streak == 1 and prev_streak1 > 0:
                 contour.pop();
-            result.push(RawContour(contour))
+            result.push(RawContour(cc, contour))
     return result

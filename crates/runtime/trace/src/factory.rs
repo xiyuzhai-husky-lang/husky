@@ -19,6 +19,7 @@ use semantics_eager::*;
 use serde::Deserialize;
 use sync_utils::ARwLock;
 use text::{Text, TextQueryGroup};
+use upcast::Upcast;
 use vm::{
     exec_debug, History, HistoryEntry, InstructionSheet, LoopFrameData, StackSnapshot, VMLoopKind,
     VariableStack,
@@ -160,24 +161,9 @@ impl<'eval> TraceFactory<'eval> {
         });
         trace
     }
-
-    // fn new_trace2(
-    //     &self,
-    //     parent: TraceId,
-    //     indent: Indent,
-    //     gen_kind: impl FnOnce(TraceId) -> TraceKind,
-    //     text: &Text,
-    // ) -> Arc<Trace> {
-    //     let trace = Arc::new(Trace::new2(Some(parent), indent, gen_kind, self, text));
-    //     self.traces.write(|traces| {
-    //         assert!(traces[trace.id.0].is_none());
-    //         traces[trace.id.0] = Some(trace.clone())
-    //     });
-    //     trace
-    // }
 }
 
-pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
+pub trait ProduceTrace<'eval>: EvalFeature<'eval> + Upcast<dyn EvalFeature<'eval>> {
     fn trace_factory(&self) -> &TraceFactory<'eval>;
 
     fn feature_repr_subtraces(
@@ -263,7 +249,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
                         }
                     }
                     let history = exec_debug(
-                        self.compile_time(),
+                        self.upcast(),
                         instruction_sheet,
                         func_input_values.into_iter(),
                         self.verbose(),
@@ -337,7 +323,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
         verbose: bool,
     ) -> Arc<Vec<Arc<Trace<'eval>>>> {
         self.trace_factory().loop_subtraces(
-            self.compile_time(),
+            self.upcast(),
             parent,
             loop_kind,
             loop_stmt,
@@ -359,7 +345,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
     ) -> Avec<Trace<'eval>> {
         let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory().loop_frame_subtraces(
-            self.compile_time(),
+            self.upcast(),
             text,
             loop_stmt,
             stmts,
@@ -380,7 +366,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
     ) -> Avec<Trace<'eval>> {
         let text = &self.compile_time().text(parent.file).unwrap();
         self.trace_factory().proc_branch_subtraces(
-            self.compile_time(),
+            self.upcast(),
             text,
             stmts,
             instruction_sheet,

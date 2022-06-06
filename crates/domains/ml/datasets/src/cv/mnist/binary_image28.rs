@@ -1,7 +1,6 @@
 use super::*;
 use std::{any::TypeId, sync::Arc};
-use visual_syntax::VisualProps;
-use vm::{AnyValue, AnyValueDyn, StaticTypeId};
+use vm::*;
 
 pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "BinaryImage28",
@@ -144,7 +143,7 @@ impl BinaryImage28 {
         Self { padded_rows }
     }
 
-    pub fn visualize<'eval>(value: &(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps {
+    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps {
         let value: &BinaryImage28 = value.downcast_ref();
         VisualProps::BinaryImage28 {
             padded_rows: value.padded_rows.clone(),

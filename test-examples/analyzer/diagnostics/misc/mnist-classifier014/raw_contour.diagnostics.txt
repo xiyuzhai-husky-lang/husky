@@ -5,27 +5,13 @@
 95:23..95:24	Lex Error: expect indentated lines after `:`
 108:23..108:24	Lex Error: expect indentated lines after `:`
 21:62..21:65	Ast Error: expect ranged_ty
-22:5..22:54	Ast Error: no stmt in module level
-23:5..23:54	Ast Error: no stmt in module level
-24:5..24:28	Ast Error: no stmt in module level
-25:9..25:16	Ast Error: no stmt in module level
-26:13..26:36	Ast Error: no stmt in module level
-27:17..27:28	Ast Error: no stmt in module level
-28:21..28:43	Ast Error: no stmt in module level
-29:17..29:24	Ast Error: no stmt in module level
-30:21..30:41	Ast Error: no stmt in module level
-31:9..31:16	Ast Error: no stmt in module level
-32:13..32:35	Ast Error: no stmt in module level
-33:9..33:16	Ast Error: no stmt in module level
-34:13..34:35	Ast Error: no stmt in module level
-35:13..35:20	Ast Error: no stmt in module level
-36:17..36:40	Ast Error: no stmt in module level
-37:13..37:24	Ast Error: no stmt in module level
-38:17..38:39	Ast Error: no stmt in module level
-39:13..39:20	Ast Error: no stmt in module level
-40:17..40:37	Ast Error: no stmt in module level
-41:9..43:28	Ast Error: no stmt in module level
-44:21..44:44	Ast Error: no stmt in module level
+22:5..22:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
+23:5..23:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
+34:19..34:35	Ast Error: expect `:`
+35:13..35:20	Ast Error: can't put case outside a match context
+37:13..37:24	Ast Error: can't put case outside a match context
+39:13..39:20	Ast Error: can't put case outside a match context
+42:13..42:18	Ast Error: keyword should be put at start
 51:9..51:16	Ast Error: can't put case outside a match context
 52:9..52:16	Ast Error: can't put case outside a match context
 53:9..53:16	Ast Error: can't put case outside a match context

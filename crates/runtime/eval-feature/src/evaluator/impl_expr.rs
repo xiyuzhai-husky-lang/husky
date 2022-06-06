@@ -1,5 +1,6 @@
 use crate::*;
-use print_utils::{epin, p};
+use feature::*;
+use print_utils::{epin, msg_once, p};
 use semantics_lazy::LazyStmt;
 use std::sync::Arc;
 use vm::*;
@@ -53,20 +54,17 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 );
                 result
             }
-            FeatureExprVariant::EntityFeature {
-                repr: ref block, ..
-            } => todo!(),
-            // self.eval_feature_block(block, EvalKey::Feature(block.feature)),
+            FeatureExprVariant::EntityFeature { ref repr, .. } => self.eval_feature_repr(repr),
             FeatureExprVariant::NewRecord {
                 ty,
                 ref entity,
                 ref opds,
             } => {
+                todo!()
                 // Ok(self
                 // .sheet
                 // .resolve_class_call(self.db, expr.eval_id, entity, opds)
                 // .into()),
-                todo!()
             }
             FeatureExprVariant::Variable { ref value, .. } => self
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &mut Self| {

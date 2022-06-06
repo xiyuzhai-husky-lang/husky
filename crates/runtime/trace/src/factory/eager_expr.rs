@@ -163,7 +163,7 @@ impl<'eval> TraceFactory<'eval> {
                     tokens.push(special!("]", associated_trace));
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
-                    tokens.push(scope!(text.ranged(ranged_ty.range)));
+                    tokens.push(route!(text.ranged(ranged_ty.range)));
                     tokens.push(special!("("));
                     for i in 0..opds.len() {
                         if i > 0 {
@@ -201,7 +201,7 @@ impl<'eval> TraceFactory<'eval> {
         config: &ExprTokenConfig,
     ) -> Vec<TokenProps<'eval>> {
         let mut tokens = vec![
-            scope!(text.ranged(ranged_scope.range), associated_trace),
+            route!(text.ranged(ranged_scope.range), associated_trace),
             special!("("),
         ];
         for (i, input) in inputs.iter().enumerate() {

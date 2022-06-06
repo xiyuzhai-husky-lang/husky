@@ -8,11 +8,11 @@ use word::IdentPairDict;
 impl<'a> AstTransformer<'a> {
     pub(crate) fn parse_xml_expr(&mut self, token_group: &[Token]) -> AstResultArc<RawXmlExpr> {
         msg_once!("todo: parse children");
-        if token_group.len() < 2 {
-            return err!(format!("expect xml"), token_group.text_range());
-        }
         let variant = match token_group[0].kind {
             TokenKind::Special(SpecialToken::LAngle) => {
+                if token_group.len() < 2 {
+                    return err!(format!("expect xml"), token_group.text_range());
+                }
                 match token_group.last().unwrap().kind {
                     TokenKind::Special(SpecialToken::XmlKet) => (),
                     _ => return err!(format!("expect `/>`"), token_group[0].range),

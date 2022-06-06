@@ -7,7 +7,7 @@ mod impl_write;
 
 use crate::*;
 use entity_kind::TyKind;
-use pack_semantics::Pack;
+use pack_semantics::Package;
 use semantics_entity::{EntityDefn, EntityDefnVariant};
 use std::sync::Arc;
 
@@ -26,7 +26,7 @@ impl<'a> RustGenerator<'a> {
         }
     }
 
-    pub(crate) fn gen_pack_lib_rs(&mut self, pack: &Pack) {
+    pub(crate) fn gen_pack_lib_rs(&mut self, pack: &Package) {
         for entity in pack.subentity_defns.iter() {
             match entity.variant {
                 EntityDefnVariant::Main(_) => panic!(),

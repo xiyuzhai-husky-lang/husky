@@ -171,7 +171,7 @@ macro_rules! special {
 }
 
 #[macro_export]
-macro_rules! scope {
+macro_rules! route {
     ($value:expr) => {{
         TokenProps {
             kind: TraceTokenKind::Scope,

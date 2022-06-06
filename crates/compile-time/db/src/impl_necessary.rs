@@ -2,7 +2,7 @@ use infer_total::InferQueryGroup;
 use linkage_table::{LinkageSourceTable, ResolveLinkage};
 use semantics_entity::{EntityRouteStore, StoreEntityRoute};
 use upcast::Upcast;
-use vm::InterpreterQueryGroup;
+use vm::{AnyValueDyn, InterpreterQueryGroup};
 
 use crate::*;
 
@@ -139,16 +139,24 @@ impl InterpreterQueryGroup for HuskyCompileTime {
         let entity_route = self.entity_route_by_uid(uid);
         self.entity_instruction_sheet(entity_route)
     }
-}
 
-impl Upcast<dyn InstructionGenQueryGroup> for HuskyCompileTime {
-    fn upcast(&self) -> &(dyn InstructionGenQueryGroup + 'static) {
-        self
+    fn visualize<'temp, 'eval>(
+        &self,
+        ty: EntityRoutePtr,
+        value: &(dyn AnyValueDyn<'eval> + 'temp),
+    ) -> vm::VisualProps {
+        panic!("can only visualize in HuskyRuntime")
     }
 }
 
 impl Upcast<dyn InterpreterQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn InterpreterQueryGroup + 'static) {
+        self
+    }
+}
+
+impl Upcast<dyn InstructionGenQueryGroup> for HuskyCompileTime {
+    fn upcast(&self) -> &(dyn InstructionGenQueryGroup + 'static) {
         self
     }
 }

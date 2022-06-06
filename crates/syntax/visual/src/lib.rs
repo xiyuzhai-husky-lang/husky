@@ -1,11 +1,8 @@
-mod props;
-
-pub use props::*;
-use vm::AnyValueDyn;
+use vm::*;
 
 #[derive(Clone, Copy)]
 pub enum StaticVisualizer {
-    Compiled(for<'eval> fn(&(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps),
+    Compiled(for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps),
     Vec,
 }
 
@@ -33,6 +30,6 @@ impl Eq for StaticVisualizer {}
 
 pub const TRIVIAL_VISUALIZER: StaticVisualizer = StaticVisualizer::Compiled(visualize_trivial);
 
-fn visualize_trivial<'eval>(_data: &(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps {
+fn visualize_trivial<'temp, 'eval>(_data: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps {
     VisualProps::Primitive { value: ().into() }
 }

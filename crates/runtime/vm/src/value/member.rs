@@ -38,7 +38,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
 
     pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
         match self {
-            MemberValue::Copyable(_) => todo!(),
+            MemberValue::Copyable(value) => value.any_ref(),
             MemberValue::Boxed(ref value) => value.any_ref(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::EvalRef(_) => todo!(),
