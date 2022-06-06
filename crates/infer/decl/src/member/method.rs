@@ -17,6 +17,7 @@ pub struct MethodDecl {
     pub parameters: Vec<ParameterDecl>,
     pub output: OutputDecl,
     pub generic_parameters: IdentDict<SpatialParameter>,
+    pub is_lazy: bool,
     pub kind: MethodKind,
 }
 
@@ -78,6 +79,7 @@ impl MethodDecl {
             output: self.output.instantiate(instantiator),
             generic_parameters: Default::default(),
             kind: self.kind.instantiate(instantiator),
+            is_lazy: self.is_lazy,
         })
     }
 
@@ -89,6 +91,7 @@ impl MethodDecl {
             output: self.output.implement(implementor),
             generic_parameters: self.generic_parameters.clone(),
             kind: self.kind,
+            is_lazy: self.is_lazy,
         })
     }
 
@@ -122,6 +125,7 @@ impl MethodDecl {
                         )
                     }),
                     kind: MethodKind::from_static(symbol_context, kind),
+                    is_lazy: false,
                 })
             }
             _ => panic!(""),
@@ -148,6 +152,7 @@ impl MethodDecl {
                 this_liason: opt_this_liason.unwrap(),
                 generic_parameters: generic_parameters.clone(),
                 kind,
+                is_lazy: paradigm.is_lazy(),
             }),
             _ => panic!(),
         }

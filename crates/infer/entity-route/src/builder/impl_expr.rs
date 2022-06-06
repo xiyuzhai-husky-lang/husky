@@ -85,12 +85,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_entity(
         &mut self,
-        scope: EntityRoutePtr,
+        entity_route: EntityRoutePtr,
         entity_kind: EntityKind,
     ) -> InferResult<EntityRoutePtr> {
         Ok(match entity_kind {
             EntityKind::Module => EntityRoutePtr::Root(RootIdentifier::ModuleType),
-            EntityKind::EnumLiteral => match scope {
+            EntityKind::EnumLiteral => match entity_route {
                 EntityRoutePtr::Root(RootIdentifier::True)
                 | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
                 EntityRoutePtr::Custom(scope) => match scope.kind {
@@ -111,14 +111,22 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             EntityKind::Type(_) => RootIdentifier::TypeType.into(),
             EntityKind::Trait => RootIdentifier::TraitType.into(),
             EntityKind::Function { is_lazy } => {
-                if is_lazy {
-                    todo!()
+                let base_route: EntityRoutePtr = if is_lazy {
+                    RootIdentifier::Mor
                 } else {
-                    emsg_once!("todo: generics in fp");
-                    RootIdentifier::Fp.into()
+                    RootIdentifier::Fp
                 }
+                .into();
+                let decl = self.db.call_decl(entity_route)?;
+                msg_once!("handle temporal/spatial parameters");
+                let spatial_arguments = decl
+                    .primary_parameters
+                    .iter()
+                    .map(|parameter| parameter.ty.into())
+                    .collect();
+                self.db.make_route(base_route, spatial_arguments)
             }
-            EntityKind::Feature => self.db.feature_decl(scope)?.ty,
+            EntityKind::Feature => self.db.feature_decl(entity_route)?.ty,
             EntityKind::Member(_) => todo!(),
             EntityKind::Main => panic!(),
         })

@@ -302,7 +302,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Module => Ok(EagerValueQualifiedTy::module_eager_qualified_ty()),
                 EntityKind::Type(_) => Ok(EagerValueQualifiedTy::ty_eager_qualified_ty()),
                 EntityKind::Trait => Ok(EagerValueQualifiedTy::trait_eager_qualified_ty()),
-                EntityKind::Member(_) | EntityKind::Function { .. } => todo!(),
+                EntityKind::Member(_) | EntityKind::Function { .. } => Ok(
+                    EagerValueQualifiedTy::entity_ty(self.raw_expr_ty(raw_expr_idx)?),
+                ),
                 EntityKind::Feature => todo!(),
                 EntityKind::EnumLiteral => Ok(EagerValueQualifiedTy {
                     qual: EagerExprQualifier::Copyable,

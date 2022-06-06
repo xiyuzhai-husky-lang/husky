@@ -236,7 +236,9 @@ impl EntityDefnVariant {
                     (
                         symbol_context.db.intern_word(member.name).custom(),
                         match member.variant {
-                            EntityStaticDefnVariant::Method { .. } => MemberKind::Method,
+                            EntityStaticDefnVariant::Method { .. } => {
+                                MemberKind::Method { is_lazy: false }
+                            }
                             EntityStaticDefnVariant::TraitAssociatedType { .. } => {
                                 MemberKind::TraitAssociatedType
                             }

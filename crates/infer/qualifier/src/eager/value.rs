@@ -167,6 +167,13 @@ impl EagerValueQualifiedTy {
         }
     }
 
+    pub(crate) fn entity_ty(ty: EntityRoutePtr) -> Self {
+        Self {
+            qual: EagerExprQualifier::EvalRef,
+            ty,
+        }
+    }
+
     pub(crate) fn from_parameter_use(
         db: &dyn InferQualifiedTyQueryGroup,
         parameter_liason: ParameterLiason,

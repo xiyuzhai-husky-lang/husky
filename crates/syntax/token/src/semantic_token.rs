@@ -81,7 +81,7 @@ impl SemanticTokenKind {
                 EntityKind::Type(_) => SemanticTokenType::TYPE,
                 EntityKind::Trait => SemanticTokenType::TYPE,
                 EntityKind::Member(member_kind) => match member_kind {
-                    MemberKind::Method => todo!(),
+                    MemberKind::Method { .. } => todo!(),
                     MemberKind::Call => todo!(),
                     MemberKind::TraitAssociatedType => todo!(),
                     MemberKind::TraitAssociatedConstSize => todo!(),

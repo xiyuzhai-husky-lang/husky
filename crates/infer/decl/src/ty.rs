@@ -624,6 +624,7 @@ pub(crate) fn method_decl_from_static(
                 this_liason,
                 ident: db.intern_word(static_defn.name).custom(),
                 kind: MethodKind::Type,
+                is_lazy: false,
             })
         }
         _ => panic!(""),

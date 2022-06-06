@@ -78,6 +78,7 @@ pub trait AtomContext {
                 RootIdentifier::Debug => todo!(),
                 RootIdentifier::Std => todo!(),
                 RootIdentifier::Core => todo!(),
+                RootIdentifier::Mor => TyKind::Other,
                 RootIdentifier::Fp => TyKind::Other,
                 RootIdentifier::Fn => TyKind::Other,
                 RootIdentifier::FnMut => TyKind::Other,
@@ -160,7 +161,7 @@ pub trait AtomContext {
                             .unwrap()
                             .1
                         {
-                            MemberKind::Method => todo!(),
+                            MemberKind::Method { .. } => todo!(),
                             MemberKind::Call => todo!(),
                             MemberKind::TraitAssociatedType => Ok(EntityKind::Type(TyKind::Other)),
                             MemberKind::TraitAssociatedConstSize => todo!(),

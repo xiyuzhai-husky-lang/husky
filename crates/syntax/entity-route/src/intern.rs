@@ -111,7 +111,7 @@ impl Deref for EntityRoutePtr {
 
         match self {
             EntityRoutePtr::Root(ident) => match_root!(
-                ident => Void, I32, F32, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Fp, Fn,
+                ident => Void, I32, F32, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Mor, Fp, Fn,
                 FnMut, FnOnce, Array, Datasets, DatasetType, VisualType, TypeType, TraitType, ModuleType,
                 CloneTrait,
                 CopyTrait,

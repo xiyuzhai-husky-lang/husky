@@ -5,7 +5,7 @@ use entity_kind::{MemberKind, TyKind};
 use entity_route::*;
 use file::{FileError, FileErrorKind, FilePtr};
 use path_utils::*;
-use print_utils::{msg_once, p};
+use print_utils::{epin, msg_once, p};
 use static_defn::*;
 use text::TextRange;
 use upcast::Upcast;
@@ -99,6 +99,7 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::Bool => EntityKind::Type(TyKind::Primitive),
             RootIdentifier::Vec => EntityKind::Type(TyKind::Vec),
             RootIdentifier::Tuple
+            | RootIdentifier::Mor
             | RootIdentifier::Fp
             | RootIdentifier::Array
             | RootIdentifier::DatasetType
@@ -198,6 +199,7 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::Debug => todo!(),
         RootIdentifier::Std => &STD_DEFN,
         RootIdentifier::Core => todo!(),
+        RootIdentifier::Mor => todo!(),
         RootIdentifier::Fp => todo!(),
         RootIdentifier::Fn => todo!(),
         RootIdentifier::FnMut => todo!(),
@@ -322,14 +324,7 @@ pub trait EntitySyntaxQueryGroup:
         } else if path_has_file_name(&path, "mod.hsk") {
             todo!()
         } else if path_has_extension(&path, "hsk") {
-            let parent = {
-                let maybe_main_path = path.with_file_name("main.hsk");
-                if maybe_main_path.exists() {
-                    self.module(self.intern_file(maybe_main_path))?
-                } else {
-                    todo!()
-                }
-            };
+            let parent = self.module(self.intern_file(parent_module_path(&path)))?;
             let word = self.intern_word(path.file_stem().unwrap().to_str().unwrap());
             match word {
                 WordPtr::Keyword(kw) => Err(derived_error!(format!(
