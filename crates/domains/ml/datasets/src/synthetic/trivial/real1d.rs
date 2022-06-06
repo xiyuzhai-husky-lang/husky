@@ -2,7 +2,7 @@ use crate::{synthetic::SimpleSyntheticDataset, *};
 use entity_kind::RoutineKind;
 use liason::OutputLiason;
 use std::sync::Arc;
-use vm::{linkage, Linkage, OwnedValue, TempValue};
+use vm::{linkage, EvalValue, Linkage, OwnedValue, TempValue};
 use xrng::XRng;
 
 pub const REAL_1D_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
@@ -47,12 +47,12 @@ pub fn gen_sample1<'eval>(seed: u64, idx: usize) -> LabeledData<'eval> {
     let mut xrng = XRng::new(((seed + (idx as u64)) >> 32) & ((idx as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
-            input: Arc::new(1.0f32),
+            input: EvalValue::Copyable(1.0f32.into()),
             label: 1,
         }
     } else {
         LabeledData {
-            input: Arc::new(-1.0f32),
+            input: EvalValue::Copyable((-1.0f32).into()),
             label: 1,
         }
     }
@@ -62,12 +62,12 @@ pub fn gen_sample2<'eval>(seed: u64, idx: usize) -> LabeledData<'eval> {
     let mut xrng = XRng::new(((seed + (idx as u64)) >> 32) & ((idx as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
-            input: Arc::new(1.0f32),
+            input: EvalValue::Copyable(1.0f32.into()),
             label: 1,
         }
     } else {
         LabeledData {
-            input: Arc::new(-1.0f32),
+            input: EvalValue::Copyable((-1.0f32).into()),
             label: 1,
         }
     }
