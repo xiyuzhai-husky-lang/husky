@@ -199,15 +199,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             }
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::Entity { route, kind } => match kind {
-                EntityKind::Module => todo!(),
-                EntityKind::Type(_) => Ok(LazyValueQualifiedTy::ty_ty()),
-                EntityKind::Trait => Ok(LazyValueQualifiedTy::trait_ty()),
-                EntityKind::Member(_) => todo!(),
-                EntityKind::Function { .. } => todo!(),
+                EntityKind::Module => Ok(LazyValueQualifiedTy::module_lazy_qualified_ty()),
+                EntityKind::Type(_) => Ok(LazyValueQualifiedTy::ty_lazy_qualified_ty()),
+                EntityKind::Trait => Ok(LazyValueQualifiedTy::trait_lazy_qualified_ty()),
                 EntityKind::Feature => Ok(LazyValueQualifiedTy::new(
                     LazyValueQualifier::feature(self.db.is_copyable(ty)?),
                     ty,
                 )),
+                EntityKind::Member(_) => todo!(),
+                EntityKind::Function { .. } => todo!(),
                 EntityKind::EnumLiteral => {
                     Ok(LazyValueQualifiedTy::new(LazyValueQualifier::Copyable, ty))
                 }
