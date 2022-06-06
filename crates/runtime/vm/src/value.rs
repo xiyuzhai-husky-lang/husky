@@ -140,7 +140,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
         Ok(match eval_value {
             EvalValue::Copyable(value) => Self::Copyable(value),
             EvalValue::Owned(_) => todo!(),
-            EvalValue::GlobalPure(value) => TempValue::EvalPure(value),
+            EvalValue::EvalPure(value) => TempValue::EvalPure(value),
             EvalValue::EvalRef(value) => Self::EvalRef(value),
             EvalValue::Undefined => todo!(),
         })

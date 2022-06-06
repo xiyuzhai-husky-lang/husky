@@ -12,7 +12,7 @@ pub type EvalResult<'eval> = VMRuntimeResult<EvalValue<'eval>>;
 pub enum EvalValue<'eval> {
     Copyable(CopyableValue),
     Owned(OwnedValue<'eval, 'eval>),
-    GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
     Undefined,
 }
@@ -22,7 +22,7 @@ impl<'eval> PartialEq for EvalValue<'eval> {
         match (self, other) {
             (Self::Copyable(l0), Self::Copyable(r0)) => l0 == r0,
             (Self::Owned(l0), Self::Owned(r0)) => l0 == r0,
-            (Self::GlobalPure(l0), Self::GlobalPure(r0)) => todo!(),
+            (Self::EvalPure(l0), Self::EvalPure(r0)) => todo!(),
             (Self::EvalRef(l0), Self::EvalRef(r0)) => todo!(),
             _ => core::mem::discriminant(self) == core::mem::discriminant(other),
         }
@@ -42,7 +42,7 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(value) => *value,
             EvalValue::Owned(_) => todo!(),
-            EvalValue::GlobalPure(value) => todo!(),
+            EvalValue::EvalPure(value) => todo!(),
             EvalValue::EvalRef(_) => todo!(),
             EvalValue::Undefined => todo!(),
         }
@@ -59,7 +59,7 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(value) => Ok(TempValue::Copyable(value)),
             EvalValue::Owned(value) => Ok(TempValue::OwnedEval(value)),
-            EvalValue::GlobalPure(value) => Ok(TempValue::EvalPure(value)),
+            EvalValue::EvalPure(value) => Ok(TempValue::EvalPure(value)),
             EvalValue::EvalRef(value) => Ok(TempValue::EvalRef(value)),
             EvalValue::Undefined => todo!(),
         }
@@ -69,7 +69,7 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(value) => StackValueSnapshot::Copyable(*value),
             EvalValue::Owned(_) => todo!(),
-            EvalValue::GlobalPure(_) => todo!(),
+            EvalValue::EvalPure(_) => todo!(),
             EvalValue::EvalRef(_) => todo!(),
             EvalValue::Undefined => todo!(),
         }
@@ -83,7 +83,7 @@ impl<'eval> EvalValue<'eval> {
                 let mut value: VirtualTy = value.take().unwrap();
                 value.take_field(field_idx).into_eval()
             }
-            EvalValue::GlobalPure(_) => panic!("expect global ref"),
+            EvalValue::EvalPure(_) => panic!("expect global ref"),
             EvalValue::EvalRef(value) => unsafe {
                 value
                     .downcast_ref::<VirtualTy<'eval>>()
@@ -108,7 +108,7 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(_) => todo!(),
             EvalValue::Owned(_) => todo!(),
-            EvalValue::GlobalPure(_) => self.clone(),
+            EvalValue::EvalPure(_) => self.clone(),
             EvalValue::EvalRef(_) => todo!(),
             EvalValue::Undefined => todo!(),
         }
@@ -118,7 +118,7 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(value) => value.any_ref(),
             EvalValue::Owned(value) => value.any_ref(),
-            EvalValue::GlobalPure(value) => &**value,
+            EvalValue::EvalPure(value) => &**value,
             EvalValue::EvalRef(value) => *value,
             EvalValue::Undefined => todo!(),
         }
@@ -128,7 +128,7 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(value) => panic!(),
             EvalValue::Owned(value) => panic!(),
-            EvalValue::GlobalPure(value) => panic!(),
+            EvalValue::EvalPure(value) => panic!(),
             EvalValue::EvalRef(value) => *value,
             EvalValue::Undefined => todo!(),
         }
