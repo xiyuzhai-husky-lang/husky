@@ -246,7 +246,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 Err(ref e) => Err(e.derived()),
             },
             RawExprVariant::FrameVariable { .. } => Ok(EagerValueQualifiedTy {
-                qual: EagerValueQualifier::Copyable,
+                qual: EagerExprQualifier::Copyable,
                 ty: EntityRoutePtr::Root(RootIdentifier::I32),
             }),
             RawExprVariant::ThisValue {
@@ -282,7 +282,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     is_field_copyable,
                     arena[raw_expr_idx].range,
                 )?;
-                let this_qual = EagerValueQualifier::parameter_use_eager_qualifier(
+                let this_qual = EagerExprQualifier::parameter_use_eager_qualifier(
                     self.db.upcast(),
                     this_ty,
                     this_liason,
@@ -307,13 +307,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Function { .. } => todo!(),
                 EntityKind::Feature => todo!(),
                 EntityKind::EnumLiteral => Ok(EagerValueQualifiedTy {
-                    qual: EagerValueQualifier::Copyable,
+                    qual: EagerExprQualifier::Copyable,
                     ty: self.raw_expr_deref_ty(raw_expr_idx)?,
                 }),
                 EntityKind::Main => panic!(),
             },
             RawExprVariant::CopyableLiteral(_) => Ok(EagerValueQualifiedTy {
-                qual: EagerValueQualifier::Copyable,
+                qual: EagerExprQualifier::Copyable,
                 ty: self.raw_expr_deref_ty(raw_expr_idx)?,
             }),
             RawExprVariant::Bracketed(expr) => {
@@ -368,21 +368,21 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match opr {
             BinaryOpr::Pure(_) => (),
             BinaryOpr::Assign(_) => match this_qt.qual {
-                EagerValueQualifier::Copyable
-                | EagerValueQualifier::PureRef
-                | EagerValueQualifier::EvalRef
-                | EagerValueQualifier::TempRef
-                | EagerValueQualifier::Transient => throw!("lopd is not mutable", range),
-                EagerValueQualifier::TempRefMut => (),
+                EagerExprQualifier::Copyable
+                | EagerExprQualifier::PureRef
+                | EagerExprQualifier::EvalRef
+                | EagerExprQualifier::TempRef
+                | EagerExprQualifier::Transient => throw!("lopd is not mutable", range),
+                EagerExprQualifier::TempRefMut => (),
             },
         }
         self.infer_eager_expr(arena, opds.start + 1);
         let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         Ok(EagerValueQualifiedTy::new(
             if self.db.is_copyable(ty)? {
-                EagerValueQualifier::Copyable
+                EagerExprQualifier::Copyable
             } else {
-                EagerValueQualifier::Transient
+                EagerExprQualifier::Transient
             },
             ty,
         ))
@@ -397,7 +397,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         self.infer_eager_expr(arena, opds.start);
         let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         Ok(EagerValueQualifiedTy::new(
-            EagerValueQualifier::transitive(self.db.is_copyable(ty)?),
+            EagerExprQualifier::transitive(self.db.is_copyable(ty)?),
             self.raw_expr_deref_ty(raw_expr_idx)?,
         ))
     }
@@ -413,7 +413,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         match opr {
             SuffixOpr::Incr | SuffixOpr::Decr => Ok(EagerValueQualifiedTy {
-                qual: EagerValueQualifier::Copyable,
+                qual: EagerExprQualifier::Copyable,
                 ty: EntityRoutePtr::Root(RootIdentifier::Void),
             }),
             SuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
@@ -499,7 +499,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             let opd_contract = self.eager_expr_contract(raw_expr_idx)?;
             if let Some(qt) = self.infer_eager_expr(arena, opd_idx) {
                 match (qt.qual, opd_contract) {
-                    (EagerValueQualifier::Copyable, EagerContract::EvalRef) => panic!(),
+                    (EagerExprQualifier::Copyable, EagerContract::EvalRef) => panic!(),
                     _ => (),
                 }
             }
@@ -509,9 +509,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 emsg_once!("handle ref");
                 Ok(EagerValueQualifiedTy::new(
                     if self.db.is_copyable(call_decl.output.ty)? {
-                        EagerValueQualifier::Copyable
+                        EagerExprQualifier::Copyable
                     } else {
-                        EagerValueQualifier::Transient
+                        EagerExprQualifier::Transient
                     },
                     call_decl.output.ty,
                 ))
@@ -563,12 +563,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let qual = match method_decl.output.liason {
             OutputLiason::Transfer => {
                 if is_element_copyable {
-                    EagerValueQualifier::Copyable
+                    EagerExprQualifier::Copyable
                 } else {
-                    EagerValueQualifier::Transient
+                    EagerExprQualifier::Transient
                 }
             }
-            OutputLiason::MemberAccess { member_liason } => EagerValueQualifier::member(
+            OutputLiason::MemberAccess { member_liason } => EagerExprQualifier::member(
                 this_qt.qual,
                 member_liason,
                 output_contract,

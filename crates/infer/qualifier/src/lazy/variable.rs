@@ -59,24 +59,24 @@ impl LazyVariableQualifier {
         }
     }
 
-    pub fn variable_use(self, contract: LazyContract) -> InferResult<LazyValueQualifier> {
+    pub fn variable_use(self, contract: LazyContract) -> InferResult<LazyExprQualifier> {
         Ok(match self {
             LazyVariableQualifier::Copyable => match contract {
-                LazyContract::Pass => LazyValueQualifier::Copyable,
-                LazyContract::EvalRef => LazyValueQualifier::EvalRef,
-                LazyContract::Pure => LazyValueQualifier::Copyable,
+                LazyContract::Pass => LazyExprQualifier::Copyable,
+                LazyContract::EvalRef => LazyExprQualifier::EvalRef,
+                LazyContract::Pure => LazyExprQualifier::Copyable,
                 LazyContract::Move => todo!(),
             },
             LazyVariableQualifier::PureRef => match contract {
                 LazyContract::Pass => todo!(),
                 LazyContract::EvalRef => todo!(),
-                LazyContract::Pure => LazyValueQualifier::PureRef,
+                LazyContract::Pure => LazyExprQualifier::PureRef,
                 LazyContract::Move => todo!(),
             },
             LazyVariableQualifier::EvalRef => match contract {
-                LazyContract::Pass => LazyValueQualifier::EvalRef,
-                LazyContract::EvalRef => LazyValueQualifier::EvalRef,
-                LazyContract::Pure => LazyValueQualifier::PureRef,
+                LazyContract::Pass => LazyExprQualifier::EvalRef,
+                LazyContract::EvalRef => LazyExprQualifier::EvalRef,
+                LazyContract::Pure => LazyExprQualifier::PureRef,
                 LazyContract::Move => todo!(),
             },
         })
