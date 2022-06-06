@@ -1,11 +1,11 @@
-use infer_qualifier::{EagerQualifiedTy, QualifiedTySheet};
+use infer_qualifier::{EagerValueQualifiedTy, EagerVariableQualifiedTy, QualifiedTySheet};
 
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerVariable {
     pub ident: CustomIdentifier,
-    pub qualified_ty: EagerQualifiedTy,
+    pub qualified_ty: EagerVariableQualifiedTy,
 }
 
 impl EagerVariable {

@@ -6,4 +6,4 @@
 53:12..53:22	Infer Error: expect use of "!=" on same types
 55:20..55:39	Infer Error: expect use of "<, <=, >, >=" on same types
 6:9..6:17	Infer Error: expect return type to be `mnist_classifier023::geom2d::Vector2d`,
-  but got `EagerQualifiedTy { qual: EvalRef, ty: Type }` instead
+  but got `EagerValueQualifiedTy { qual: EvalRef, ty: Type }` instead
