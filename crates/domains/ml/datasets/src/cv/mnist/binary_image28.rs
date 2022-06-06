@@ -69,7 +69,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             values[0].downcast_mut_full();
                                         this_value
                                             .get_mut(index_value)
-                                            .map(|value| TempValue::CopyableOrTempRefMutEval {
+                                            .map(|value| TempValue::TempRefMutEval {
                                                 value,
                                                 owner,
                                                 gen: (),
