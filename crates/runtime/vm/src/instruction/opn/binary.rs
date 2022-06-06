@@ -174,10 +174,6 @@ impl PureBinaryOpr {
                 ))
                 .into(),
                 CopyableValue::F32(_) => todo!(),
-                CopyableValue::B32(_) => todo!(),
-                CopyableValue::B64(_) => todo!(),
-                CopyableValue::Bool(_) => todo!(),
-                CopyableValue::Void(_) => todo!(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::RemEuclid => match lopd {

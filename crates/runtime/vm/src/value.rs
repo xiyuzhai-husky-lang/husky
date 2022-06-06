@@ -520,7 +520,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
         match self {
             TempValue::Copyable(value) => StackValueSnapshot::Copyable(*value),
             TempValue::OwnedEval(value) => StackValueSnapshot::Owned(value.clone()),
-            TempValue::EvalPure(value) => StackValueSnapshot::GlobalPure(value.clone()),
+            TempValue::EvalPure(value) => StackValueSnapshot::EvalPure(value.clone()),
             TempValue::EvalRef(value) => StackValueSnapshot::EvalRef(*value),
             TempValue::TempRefEval(value) => {
                 StackValueSnapshot::FullyOwnedRef(value.clone_into_arc_dyn())

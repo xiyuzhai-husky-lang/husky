@@ -34,11 +34,9 @@ impl<'a, T> CyclicSlice<'a, T> {
             Some(&self.total[(self.end - 1).rem_euclid(self.total.len() as i32) as usize])
         }
     }
-    pub fn first_mut(&mut self) -> Option<&mut T> {
-        todo!()
-    }
-    pub fn last_mut(&mut self) -> Option<&mut T> {
-        todo!()
+
+    pub fn iter(&self) -> impl Iterator<Item = &T> {
+        (self.start..self.end).map(|i| &self.total[i as usize])
     }
 }
 
@@ -52,7 +50,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValue<'eval> for CyclicSlice<'eval, T> {
     }
 
     fn to_json_value(&self) -> serde_json::value::Value {
-        todo!()
+        serde_json::value::Value::Array(self.iter().map(|elem| elem.to_json_value()).collect())
     }
 }
 
@@ -133,15 +131,7 @@ fn generic_cyclic_slice_first_temp_ref<'temp, 'eval>(
 fn generic_cyclic_slice_first_mut<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
-    let (generic_cyclic_slice, stack_idx, gen): (
-        &mut CyclicSlice<'eval, MemberValue<'eval>>,
-        _,
-        _,
-    ) = values[0].downcast_mut_full();
-    match generic_cyclic_slice.first_mut() {
-        Some(value) => Ok(value.bind_mut(stack_idx)),
-        None => Err(vm_runtime_error!("empty vec")),
-    }
+    todo!("deprecated")
 }
 
 fn generic_cyclic_slice_first_move<'temp, 'eval>(
@@ -203,15 +193,7 @@ fn generic_cyclic_slice_last_temp_ref<'temp, 'eval>(
 fn generic_cyclic_slice_last_mut<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
-    let (generic_cyclic_slice, stack_idx, gen): (
-        &mut CyclicSlice<'eval, MemberValue<'eval>>,
-        _,
-        _,
-    ) = values[0].downcast_mut_full();
-    match generic_cyclic_slice.last_mut() {
-        Some(value) => Ok(value.bind_mut(stack_idx)),
-        None => Err(vm_runtime_error!("empty vec")),
-    }
+    todo!("deprecated")
 }
 
 fn generic_cyclic_slice_last_move<'temp, 'eval>(

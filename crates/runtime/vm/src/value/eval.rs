@@ -66,11 +66,12 @@ impl<'eval> EvalValue<'eval> {
     }
 
     pub fn snapshot(&self) -> StackValueSnapshot<'eval> {
+        msg_once!("deprecated");
         match self {
             EvalValue::Copyable(value) => StackValueSnapshot::Copyable(*value),
-            EvalValue::Owned(_) => todo!(),
-            EvalValue::EvalPure(_) => todo!(),
-            EvalValue::EvalRef(_) => todo!(),
+            EvalValue::Owned(value) => StackValueSnapshot::Owned(value.clone()),
+            EvalValue::EvalPure(value) => StackValueSnapshot::EvalPure(value.clone()),
+            EvalValue::EvalRef(value) => StackValueSnapshot::EvalRef(*value),
             EvalValue::Undefined => todo!(),
         }
     }
