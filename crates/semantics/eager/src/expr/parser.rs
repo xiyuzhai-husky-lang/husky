@@ -3,7 +3,7 @@ use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
 use infer_contract::{EagerContract, InferContract};
 use infer_entity_route::InferEntityRoute;
-use infer_qualifier::{EagerValueQualifier, EagerVariableQualifier, InferQualifiedTy};
+use infer_qualifier::{EagerExprQualifier, EagerVariableQualifier, InferQualifiedTy};
 use text::{BindTextRangeInto, RangedCustomIdentifier};
 use vm::*;
 use word::{ContextualIdentifier, Identifier, RootIdentifier};
@@ -89,7 +89,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             } => EagerExprVariant::ThisValue {
                 binding: {
                     let this_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
-                    let this_qual = EagerValueQualifier::parameter_use_eager_qualifier(
+                    let this_qual = EagerExprQualifier::parameter_use_eager_qualifier(
                         self.decl_db(),
                         opt_this_ty.unwrap(),
                         opt_this_liason.unwrap(),
@@ -118,7 +118,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     is_field_copyable,
                     self.arena()[raw_expr_idx].range,
                 )?;
-                let this_qual = EagerValueQualifier::parameter_use_eager_qualifier(
+                let this_qual = EagerExprQualifier::parameter_use_eager_qualifier(
                     self.decl_db(),
                     opt_this_ty.unwrap(),
                     opt_this_liason.unwrap(),
