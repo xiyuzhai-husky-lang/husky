@@ -101,7 +101,11 @@ impl<'eval> TraceFactory<'eval> {
                 lines[0].tokens.insert(0, ident!(ident.0));
                 lines
             }
-            TraceVariant::FuncStmt { .. } => todo!(),
+            TraceVariant::FuncStmt {
+                ref stmt,
+                ref history,
+                ..
+            } => self.func_stmt_lines(stmt, text, history),
             TraceVariant::ProcStmt {
                 ref stmt,
                 ref history,
