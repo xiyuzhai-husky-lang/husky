@@ -21,12 +21,10 @@ impl<'eval> Trace<'eval> {
                 FeatureExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
                 FeatureExprVariant::EntityFeature { .. } => None,
                 FeatureExprVariant::PatternCall {} => todo!(),
-                FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-                FeatureExprVariant::StructDerivedLazyFieldAccess {
-                    ref this,
-                    field_ident,
-                    ref repr,
-                } => todo!(),
+                FeatureExprVariant::RecordDerivedFieldAccess { .. }
+                | FeatureExprVariant::StructDerivedLazyFieldAccess { .. } => {
+                    Some(SubtracesContainerClass::Call)
+                }
                 _ => None,
             },
             TraceVariant::EagerExpr { ref expr, .. } => {
