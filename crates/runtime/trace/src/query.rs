@@ -1,5 +1,5 @@
 use check_utils::should_eq;
-use vm::HistoryEntry;
+use vm::{ControlSnapshot, HistoryEntry};
 
 use crate::*;
 
@@ -180,10 +180,10 @@ pub fn trace_stalk(
             loop_frame_data: ref vm_loop_frame,
             ..
         } => match vm_loop_frame.control {
-            vm::ControlSnapshot::None => TraceStalk::default(),
-            vm::ControlSnapshot::Return(_) => todo!(),
-            vm::ControlSnapshot::Break => todo!(),
-            vm::ControlSnapshot::Err(_) => todo!(),
+            ControlSnapshot::None => TraceStalk::default(),
+            ControlSnapshot::Return(_) => todo!(),
+            ControlSnapshot::Break => todo!(),
+            ControlSnapshot::Err(_) => todo!(),
         },
         TraceVariant::ProcBranch { .. } => panic!(),
     })

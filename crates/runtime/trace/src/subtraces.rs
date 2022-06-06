@@ -18,22 +18,8 @@ impl<'eval> Trace<'eval> {
             | TraceVariant::CallHead { .. }
             | TraceVariant::ProcBranch { .. } => None,
             TraceVariant::FeatureExpr(ref expr) => match expr.variant {
-                FeatureExprVariant::PrimitiveLiteral(_)
-                | FeatureExprVariant::PrimitiveBinaryOpr { .. }
-                | FeatureExprVariant::Variable { .. }
-                | FeatureExprVariant::ElementAccess { .. }
-                | FeatureExprVariant::GlobalInput => None,
                 FeatureExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
-                FeatureExprVariant::StructOriginalFieldAccess { .. } => todo!(),
-                FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
                 FeatureExprVariant::EntityFeature { .. } => todo!(),
-                FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-                FeatureExprVariant::RecordOriginalFieldAccess {
-                    ref this,
-                    field_ident,
-                    ..
-                } => todo!(),
-                FeatureExprVariant::ThisValue { ref repr } => todo!(),
                 FeatureExprVariant::PatternCall {} => todo!(),
                 FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
                 FeatureExprVariant::StructDerivedLazyFieldAccess {
@@ -41,6 +27,7 @@ impl<'eval> Trace<'eval> {
                     field_ident,
                     ref repr,
                 } => todo!(),
+                _ => None,
             },
             TraceVariant::EagerExpr { ref expr, .. } => {
                 match expr.variant {

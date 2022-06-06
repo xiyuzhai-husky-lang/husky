@@ -32,4 +32,68 @@ impl<'eval> TraceFactory<'eval> {
             self.new_func_stmt_trace(parent_id, indent, stmt.clone(), history.clone(), text)
         })
     }
+
+    pub(super) fn func_stmt_lines(
+        &self,
+        stmt: &FuncStmt,
+        text: &Text,
+        history: &Arc<History<'eval>>,
+    ) -> Vec<LineProps<'eval>> {
+        vec![LineProps {
+            indent: stmt.indent,
+            tokens: self.func_stmt_tokens(stmt, text, history),
+            idx: 0,
+        }]
+    }
+
+    pub(super) fn func_stmt_tokens(
+        &self,
+        stmt: &FuncStmt,
+        text: &Text,
+        history: &Arc<History<'eval>>,
+    ) -> Vec<TokenProps<'eval>> {
+        match stmt.variant {
+            FuncStmtVariant::Init {
+                varname,
+                ref initial_value,
+            } => {
+                let mut tokens = vec![];
+                tokens.push(ident!(varname.ident.0));
+                tokens.push(special!(" = "));
+                tokens.extend(self.eager_expr_tokens(
+                    initial_value,
+                    text,
+                    history,
+                    ExprTokenConfig::stmt(),
+                ));
+                tokens
+            }
+            FuncStmtVariant::Assert { ref condition } => {
+                let mut tokens = vec![keyword!("assert ")];
+                tokens.extend(self.eager_expr_tokens(
+                    condition,
+                    text,
+                    history,
+                    ExprTokenConfig::stmt(),
+                ));
+                tokens
+            }
+            FuncStmtVariant::Return { ref result } => {
+                let mut tokens = vec![];
+                tokens.extend(self.eager_expr_tokens(
+                    result,
+                    text,
+                    history,
+                    ExprTokenConfig::stmt(),
+                ));
+                tokens
+            }
+            FuncStmtVariant::Match {
+                ref match_expr,
+                ref branches,
+            } => todo!(),
+            FuncStmtVariant::ConditionFlow { .. } => panic!(),
+            FuncStmtVariant::ReturnXml { .. } => panic!(),
+        }
+    }
 }
