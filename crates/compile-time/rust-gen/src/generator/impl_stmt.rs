@@ -242,6 +242,7 @@ impl<'a> RustGenerator<'a> {
                 | RootIdentifier::Debug
                 | RootIdentifier::Std
                 | RootIdentifier::Core
+                | RootIdentifier::Mor
                 | RootIdentifier::Fp
                 | RootIdentifier::Fn
                 | RootIdentifier::FnMut

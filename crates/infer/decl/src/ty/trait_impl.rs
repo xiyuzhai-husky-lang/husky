@@ -92,6 +92,7 @@ impl TraitImplDecl {
                     },
                     generic_parameters: Default::default(),
                     kind: MethodKind::Trait { trai: clone_trait },
+                    is_lazy: false,
                 }))],
             }))
         }
@@ -204,7 +205,9 @@ impl TraitMemberImplDecl {
 
     pub fn kind(&self) -> MemberKind {
         match self {
-            TraitMemberImplDecl::Method(_) => MemberKind::Method,
+            TraitMemberImplDecl::Method(method_decl) => MemberKind::Method {
+                is_lazy: method_decl.is_lazy,
+            },
             TraitMemberImplDecl::AssociatedType { .. } => MemberKind::TraitAssociatedType,
             TraitMemberImplDecl::Call {} => todo!(),
             TraitMemberImplDecl::AssociatedConstSize {} => MemberKind::TraitAssociatedConstSize,

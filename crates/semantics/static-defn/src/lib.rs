@@ -77,7 +77,9 @@ impl EntityStaticDefnVariant {
             EntityStaticDefnVariant::Ty { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,
             EntityStaticDefnVariant::Trait { .. } => EntityKind::Trait,
-            EntityStaticDefnVariant::Method { .. } => EntityKind::Member(MemberKind::Method),
+            EntityStaticDefnVariant::Method { .. } => {
+                EntityKind::Member(MemberKind::Method { is_lazy: false })
+            }
             EntityStaticDefnVariant::TraitAssociatedType { .. } => EntityKind::Type(TyKind::Other),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),

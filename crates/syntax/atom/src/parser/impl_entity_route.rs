@@ -241,7 +241,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::CopyTrait
                 | RootIdentifier::PartialEqTrait
                 | RootIdentifier::EqTrait => Ok(Vec::new()),
-                RootIdentifier::Fp
+                RootIdentifier::Mor
+                | RootIdentifier::Fp
                 | RootIdentifier::Fn
                 | RootIdentifier::FnMut
                 | RootIdentifier::FnOnce => Ok(self.func_args()?),

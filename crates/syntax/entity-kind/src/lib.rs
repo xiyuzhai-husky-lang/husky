@@ -58,7 +58,7 @@ pub enum RawMembRoutineKind {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum MemberKind {
     Field,
-    Method,
+    Method { is_lazy: bool },
     Call,
     TraitAssociatedType,
     TraitAssociatedConstSize,
