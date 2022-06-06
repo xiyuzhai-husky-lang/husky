@@ -137,45 +137,33 @@ impl QualifiedTySheet {
 }
 
 macro_rules! write_field_name {
-    ($result: expr, $name: expr) => {
-        write!(
-            $result,
-            "\n{}{}\n{}",
-            print_utils::MAGENTA,
-            $name,
-            print_utils::RESET
-        )
-        .unwrap()
+    ($result: expr, $name: expr, $config: expr) => {
+        if $config.colored {
+            write!(
+                $result,
+                "\n{}{}:\n{}",
+                print_utils::MAGENTA,
+                $name,
+                print_utils::RESET
+            )
+            .unwrap()
+        } else {
+            write!($result, "\n{}:\n", $name).unwrap()
+        }
     };
 }
 
 impl TestDisplay for QualifiedTySheet {
     fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
         let ast_text = &self.contract_sheet.entity_route_sheet.ast_text;
-        write_field_name!(result, "eager variable qualified types");
+        write_field_name!(result, "eager variable", config);
         self.eager_variable_qualified_tys
             .write_inherent(config.indented(), result);
-        write_field_name!(result, "lazy expr qualified types");
+        write_field_name!(result, "lazy expr", config);
         ast_text.write_map_inherently(&self.lazy_expr_qualified_tys, config.indented(), result);
-        write_field_name!(result, "eager expr qualified types");
+        write_field_name!(result, "eager expr", config);
         ast_text.write_map_inherently(&self.eager_expr_qualified_tys, config.indented(), result);
-        write_field_name!(result, "lazy expr qualified types");
+        write_field_name!(result, "lazy expr", config);
         ast_text.write_map_inherently(&self.lazy_expr_qualified_tys, config.indented(), result);
     }
-    // fn print_inherent(&self) -> String {
-    //     let mut result = String::new();
-    //     result.push_str("eager variable qualified types:\n\n");
-    //     for ((ident, row), qt_result) in self.eager_variable_qualified_tys.iter() {
-    //         write!(
-    //             result,
-    //             "    {: <4} {: <20}{:?}\n",
-    //             row.0,
-    //             ident.as_str(),
-    //             qt_result
-    //         )
-    //         .unwrap()
-    //     }
-    //     println!("{}", &result);
-    //     todo!()
-    // }
 }

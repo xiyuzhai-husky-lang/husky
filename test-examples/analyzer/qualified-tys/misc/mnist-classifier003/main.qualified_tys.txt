@@ -1,8 +1,8 @@
 
-[35meager variable qualified types
-[0m
-[35mlazy expr qualified types
-[0m    12:9..12:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
+eager variable:
+
+lazy expr:
+    12:9..12:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
     13:9..13:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     13:11..13:12   1                      Copyable i32
     13:9..13:13    a[1]                   Copyable b32
@@ -14,11 +14,11 @@
     16:5..16:6     d                      PureRef Vec<datasets::cv::mnist::BinaryImage28>
     16:5..16:12    d.len()                Copyable i32
 
-[35meager expr qualified types
-[0m    9:5..9:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
+eager expr:
+    9:5..9:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
 
-[35mlazy expr qualified types
-[0m    12:9..12:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
+lazy expr:
+    12:9..12:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
     13:9..13:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     13:11..13:12   1                      Copyable i32
     13:9..13:13    a[1]                   Copyable b32

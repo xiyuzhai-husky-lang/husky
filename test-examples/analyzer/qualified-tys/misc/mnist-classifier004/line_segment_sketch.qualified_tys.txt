@@ -1,6 +1,6 @@
 
-[35meager variable qualified types
-[0m    u           21:15..21:16  PureRef      mnist_classifier004::geom2d::Vector2d
+eager variable:
+    u           21:15..21:16  PureRef      mnist_classifier004::geom2d::Vector2d
     r           21:28..21:29  Copyable     f32
     L           22:5..22:6  Copyable     f32
     dr          24:5..24:7  Copyable     f32
@@ -65,10 +65,10 @@
     pt_start    158:5..158:13  Owned        mnist_classifier004::geom2d::Point2d
     pt_end      159:5..159:11  Owned        mnist_classifier004::geom2d::Point2d
 
-[35mlazy expr qualified types
-[0m
-[35meager expr qualified types
-[0m    6:23..6:29     points                 PureRef      std::slice::CyclicSlice<mnist_classifier004::geom2d::Point2d>
+lazy expr:
+
+eager expr:
+    6:23..6:29     points                 PureRef      std::slice::CyclicSlice<mnist_classifier004::geom2d::Point2d>
     6:23..6:37     points.first()         PureRef      mnist_classifier004::geom2d::Point2d
     6:23..6:45     points.first().clone()   Transient    mnist_classifier004::geom2d::Point2d
     7:21..7:27     points                 PureRef      std::slice::CyclicSlice<mnist_classifier004::geom2d::Point2d>
@@ -611,5 +611,4 @@
     160:17..160:51 ct.points.cyclic_slice(start, end)   Transient    std::slice::CyclicSlice<mnist_classifier004::geom2d::Point2d>
     160:5..160:52  LineSegment(ct.points.cyclic_slice(start, end))   Transient    mnist_classifier004::line_segment_sketch::LineSegment
 
-[35mlazy expr qualified types
-[0m
+lazy expr:

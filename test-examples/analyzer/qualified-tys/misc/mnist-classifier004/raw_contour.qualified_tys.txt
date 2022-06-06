@@ -1,6 +1,6 @@
 
-[35meager variable qualified types
-[0m    start       8:23..8:28  Copyable     i32
+eager variable:
+    start       8:23..8:28  Copyable     i32
     end         8:35..8:38  Copyable     i32
     N           9:9..9:10  Copyable     i32
     ct_start    10:9..10:17  PureRef      mnist_classifier004::geom2d::Point2d
@@ -56,10 +56,10 @@
     outward_direction  165:21..165:38  Copyable     mnist_classifier004::raw_contour::Direction
     angle_change  166:21..166:33  Copyable     i32
 
-[35mlazy expr qualified types
-[0m
-[35meager expr qualified types
-[0m    9:13..9:17     this                   PureRef      mnist_classifier004::raw_contour::RawContour
+lazy expr:
+
+eager expr:
+    9:13..9:17     this                   PureRef      mnist_classifier004::raw_contour::RawContour
     9:13..9:18     this.                  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
     9:13..9:30     this.points.len()      Copyable     i32
     10:20..10:24   this                   PureRef      mnist_classifier004::raw_contour::RawContour
@@ -471,5 +471,4 @@
     215:13..215:45 result.push(RawContour(contour))   Copyable     void
     216:12..216:18 result                 Transient    Vec<mnist_classifier004::raw_contour::RawContour>
 
-[35mlazy expr qualified types
-[0m
+lazy expr:

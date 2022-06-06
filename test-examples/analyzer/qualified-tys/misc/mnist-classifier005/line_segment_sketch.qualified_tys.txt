@@ -1,6 +1,6 @@
 
-[35meager variable qualified types
-[0m    ct          9:21..9:23  EvalRef      mnist_classifier005::raw_contour::RawContour
+eager variable:
+    ct          9:21..9:23  EvalRef      mnist_classifier005::raw_contour::RawContour
     from        9:38..9:42  Copyable     i32
     to          9:49..9:51  Copyable     i32
     L           10:9..10:10  Copyable     i32
@@ -65,10 +65,10 @@
     first_line_segment_points_end  155:9..155:38  Copyable     i32
     last_line_segment  156:9..156:26  TempRef      mnist_classifier005::line_segment_sketch::LineSegment
 
-[35mlazy expr qualified types
-[0m
-[35meager expr qualified types
-[0m    6:23..6:29     points                 PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
+lazy expr:
+
+eager expr:
+    6:23..6:29     points                 PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
     6:23..6:37     points.first()         PureRef      mnist_classifier005::geom2d::Point2d
     6:23..6:45     points.first().clone()   Transient    mnist_classifier005::geom2d::Point2d
     7:21..7:27     points                 PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
@@ -613,5 +613,4 @@
     159:9..159:123 line_segments.first() = LineSegment::new(ct, last_line_segment.points.start - N, line_segments.first().points.end)   Copyable     void
     160:12..160:25 line_segments          Transient    Vec<mnist_classifier005::line_segment_sketch::LineSegment>
 
-[35mlazy expr qualified types
-[0m
+lazy expr:

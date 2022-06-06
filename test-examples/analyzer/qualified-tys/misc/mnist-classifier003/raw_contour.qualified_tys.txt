@@ -1,6 +1,6 @@
 
-[35meager variable qualified types
-[0m    row         18:21..18:24  Copyable     b32
+eager variable:
+    row         18:21..18:24  Copyable     b32
     j           18:31..18:32  Copyable     i32
     row         21:28..21:31  Copyable     b32
     j           21:38..21:39  Copyable     i32
@@ -47,10 +47,10 @@
     outward_direction  155:21..155:38  Copyable     mnist_classifier003::raw_contour::Direction
     angle_change  156:21..156:33  Copyable     i32
 
-[35mlazy expr qualified types
-[0m
-[35meager expr qualified types
-[0m    19:14..19:15   j                      Copyable     i32
+lazy expr:
+
+eager expr:
+    19:14..19:15   j                      Copyable     i32
     19:18..19:19   1                      Copyable     i32
     19:14..19:19   j - 1                  Copyable     i32
     19:6..19:9     row                    Copyable     b32
@@ -375,5 +375,4 @@
     205:13..205:33 result.push(contour)   Copyable     void
     206:12..206:18 result                 Transient    Vec<mnist_classifier003::raw_contour::RawContour>
 
-[35mlazy expr qualified types
-[0m
+lazy expr:

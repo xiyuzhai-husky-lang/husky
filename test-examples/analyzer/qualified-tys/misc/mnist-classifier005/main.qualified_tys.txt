@@ -1,8 +1,8 @@
 
-[35meager variable qualified types
-[0m
-[35mlazy expr qualified types
-[0m    15:9..15:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
+eager variable:
+
+lazy expr:
+    15:9..15:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
     16:9..16:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     16:11..16:12   1                      Copyable i32
     16:9..16:13    a[1]                   Copyable b32
@@ -25,11 +25,11 @@
     23:5..23:18    line_segments          PureRef Vec<mnist_classifier005::line_segment_sketch::LineSegment>
     23:5..23:24    line_segments.len()    Copyable i32
 
-[35meager expr qualified types
-[0m    12:5..12:36    cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
+eager expr:
+    12:5..12:36    cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
 
-[35mlazy expr qualified types
-[0m    15:9..15:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
+lazy expr:
+    15:9..15:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
     16:9..16:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     16:11..16:12   1                      Copyable i32
     16:9..16:13    a[1]                   Copyable b32
