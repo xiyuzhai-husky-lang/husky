@@ -186,16 +186,27 @@ impl EagerValueQualifier {
         }
     }
 
-    pub fn member(this_qual: Self, field_liason: MemberLiason, is_member_copyable: bool) -> Self {
+    pub fn member(
+        this_qual: Self,
+        member_liason: MemberLiason,
+        member_contract: EagerContract,
+        is_member_copyable: bool,
+    ) -> Self {
         if is_member_copyable {
-            match this_qual {
-                EagerValueQualifier::Copyable
-                | EagerValueQualifier::PureRef
-                | EagerValueQualifier::EvalRef
-                | EagerValueQualifier::TempRef
-                | EagerValueQualifier::Transient => EagerValueQualifier::Copyable,
-                EagerValueQualifier::TempRefMut => EagerValueQualifier::TempRefMut,
+            match member_contract {
+                EagerContract::Pure => EagerValueQualifier::Copyable,
+                EagerContract::EvalRef => EagerValueQualifier::EvalRef,
+                EagerContract::TempRefMut => EagerValueQualifier::TempRefMut,
+                EagerContract::Pass | EagerContract::TempRef | EagerContract::Move => panic!(),
             }
+            // match this_qual {
+            //     EagerValueQualifier::Copyable
+            //     | EagerValueQualifier::PureRef
+            //     | EagerValueQualifier::EvalRef
+            //     | EagerValueQualifier::TempRef
+            //     | EagerValueQualifier::Transient => EagerValueQualifier::Copyable,
+            //     EagerValueQualifier::TempRefMut => EagerValueQualifier::TempRefMut,
+            // }
         } else {
             match this_qual {
                 EagerValueQualifier::Copyable => panic!(),
@@ -263,12 +274,18 @@ impl EagerValueQualifiedTy {
         db: &dyn InferQualifiedTyQueryGroup,
         this_qual: EagerValueQualifier,
         field_ty: EntityRoutePtr,
-        field_liason: MemberLiason,
-        is_field_copyable: bool,
+        member_liason: MemberLiason,
+        member_contract: EagerContract,
+        is_member_copyable: bool,
     ) -> InferResult<Self> {
         msg_once!("ad hoc; consider ref");
         Ok(Self::new(
-            EagerValueQualifier::member(this_qual, field_liason, is_field_copyable),
+            EagerValueQualifier::member(
+                this_qual,
+                member_liason,
+                member_contract,
+                is_member_copyable,
+            ),
             field_ty,
         ))
     }

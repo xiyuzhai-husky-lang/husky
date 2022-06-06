@@ -294,6 +294,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     this_qual,
                     field_ty.route,
                     field_liason,
+                    field_contract,
                     is_field_copyable,
                 )?)
             }
@@ -435,11 +436,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         };
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
+        let field_contract = self.eager_expr_contract(raw_expr_idx)?;
         Ok(EagerValueQualifiedTy::member_eager_qualified_ty(
             self.db,
             this_qt.qual,
             field_decl.ty,
             field_decl.liason,
+            field_contract,
             self.db.is_copyable(field_decl.ty)?,
         )?)
     }
@@ -475,69 +478,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<EagerValueQualifiedTy> {
-        match arena[total_opds.start].variant {
+        let call_decl = match arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
-                let call_decl = derived_unwrap!(self.db.call_decl(route));
-                let opt_opd_qualified_tys = zip(
-                    ((total_opds.start + 1)..total_opds.end).into_iter(),
-                    call_decl.primary_parameters.iter(),
-                )
-                .map(
-                    |(opd_idx, parameter)| -> InferResult<Option<EagerValueQualifiedTy>> {
-                        if let Some(qt) = self.infer_eager_expr(arena, opd_idx) {
-                            match parameter.liason {
-                                ParameterLiason::Pure => Ok(Some(qt)),
-                                ParameterLiason::EvalRef => match qt.qual {
-                                    EagerValueQualifier::EvalRef => Ok(Some(qt)),
-                                    _ => {
-                                        throw!(format!("expect eval ref"), arena[opd_idx].range)
-                                    }
-                                },
-                                ParameterLiason::TempRefMut => todo!(),
-                                ParameterLiason::Move | ParameterLiason::MoveMut => match qt.qual {
-                                    EagerValueQualifier::Copyable => {
-                                        panic!()
-                                    }
-                                    EagerValueQualifier::PureRef => {
-                                        throw!(
-                                            format!("can't move a pure ref to owned"),
-                                            arena[opd_idx].range
-                                        )
-                                    }
-                                    EagerValueQualifier::Transient => Ok(Some(qt)),
-                                    EagerValueQualifier::EvalRef => todo!(),
-                                    EagerValueQualifier::TempRef => todo!(),
-                                    EagerValueQualifier::TempRefMut => todo!(),
-                                },
-                                ParameterLiason::MemberAccess => todo!(),
-                                ParameterLiason::TempRef => todo!(),
-                            }
-                        } else {
-                            Ok(None)
-                        }
-                    },
-                )
-                .collect::<InferResult<Vec<_>>>()?;
-                match call_decl.output.liason {
-                    OutputLiason::Transfer => {
-                        emsg_once!("handle ref");
-                        Ok(EagerValueQualifiedTy::new(
-                            if self.db.is_copyable(call_decl.output.ty)? {
-                                EagerValueQualifier::Copyable
-                            } else {
-                                EagerValueQualifier::Transient
-                            },
-                            call_decl.output.ty,
-                        ))
-                    }
-                    OutputLiason::MemberAccess { .. } => todo!(),
-                }
+                derived_unwrap!(self.db.call_decl(route))
             }
             RawExprVariant::Opn {
                 opn_variant: ref opr,
                 ref opds,
             } => todo!(),
-            RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized caller")),
+            RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
             RawExprVariant::CopyableLiteral(_) => {
                 throw_derived!("a primitive literal can't be a caller")
             }
@@ -545,6 +494,29 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 p!(arena[total_opds.start].variant);
                 todo!()
             }
+        };
+        for opd_idx in (total_opds.start + 1)..total_opds.end {
+            let opd_contract = self.eager_expr_contract(raw_expr_idx)?;
+            if let Some(qt) = self.infer_eager_expr(arena, opd_idx) {
+                match (qt.qual, opd_contract) {
+                    (EagerValueQualifier::Copyable, EagerContract::EvalRef) => panic!(),
+                    _ => (),
+                }
+            }
+        }
+        match call_decl.output.liason {
+            OutputLiason::Transfer => {
+                emsg_once!("handle ref");
+                Ok(EagerValueQualifiedTy::new(
+                    if self.db.is_copyable(call_decl.output.ty)? {
+                        EagerValueQualifier::Copyable
+                    } else {
+                        EagerValueQualifier::Transient
+                    },
+                    call_decl.output.ty,
+                ))
+            }
+            OutputLiason::MemberAccess { .. } => todo!(),
         }
     }
 
@@ -560,12 +532,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             self.infer_eager_expr(arena, opd);
         }
         let element_ty = self.raw_expr_deref_ty(raw_expr_idx)?;
+        let element_contract = self.eager_expr_contract(raw_expr_idx)?;
         msg_once!("todo: other member liason");
         EagerValueQualifiedTy::member_eager_qualified_ty(
             self.db,
             this_qt.qual,
             element_ty,
             MemberLiason::Mutable,
+            element_contract,
             self.db.is_copyable(element_ty)?,
         )
     }
@@ -585,6 +559,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             self.infer_eager_expr(arena, input);
         }
         let is_element_copyable = self.db.is_copyable(method_decl.output.ty)?;
+        let output_contract = self.eager_expr_contract(raw_expr_idx)?;
         let qual = match method_decl.output.liason {
             OutputLiason::Transfer => {
                 if is_element_copyable {
@@ -593,9 +568,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     EagerValueQualifier::Transient
                 }
             }
-            OutputLiason::MemberAccess { member_liason } => {
-                EagerValueQualifier::member(this_qt.qual, member_liason, is_element_copyable)
-            }
+            OutputLiason::MemberAccess { member_liason } => EagerValueQualifier::member(
+                this_qt.qual,
+                member_liason,
+                output_contract,
+                is_element_copyable,
+            ),
         };
         Ok(EagerValueQualifiedTy::new(qual, method_decl.output.ty))
     }
