@@ -18,7 +18,7 @@ use vm::EvalResult;
 pub fn eval_feature_lazy_block<'eval>(
     db: &dyn FeatureQueryGroup,
     block: &FeatureLazyBlock,
-    eval_input: Arc<dyn AnyValueDyn<'eval>>,
+    eval_input: EvalValue<'eval>,
     sheet: &mut EvalSheet<'eval>,
     verbose: bool,
 ) -> EvalResult<'eval> {
@@ -34,7 +34,7 @@ pub fn eval_feature_lazy_block<'eval>(
 pub fn eval_feature_stmt<'eval>(
     db: &dyn FeatureQueryGroup,
     stmt: &FeatureStmt,
-    eval_input: Arc<dyn AnyValueDyn<'eval>>,
+    eval_input: EvalValue<'eval>,
     sheet: &mut EvalSheet<'eval>,
     verbose: bool,
 ) -> EvalResult<'eval> {
@@ -54,7 +54,7 @@ pub fn eval_feature_stmt<'eval>(
 pub fn eval_feature_expr<'eval>(
     db: &dyn FeatureQueryGroup,
     expr: &FeatureExpr,
-    eval_input: Arc<dyn AnyValueDyn<'eval>>,
+    eval_input: EvalValue<'eval>,
     sheet: &mut EvalSheet<'eval>,
     verbose: bool,
 ) -> EvalResult<'eval> {
@@ -74,7 +74,7 @@ pub fn eval_feature_expr<'eval>(
 pub fn eval_feature_repr<'eval>(
     db: &dyn FeatureQueryGroup,
     repr: &FeatureRepr,
-    eval_input: Arc<dyn AnyValueDyn<'eval>>,
+    eval_input: EvalValue<'eval>,
     sheet: &mut EvalSheet<'eval>,
     verbose: bool,
 ) -> EvalResult<'eval> {
@@ -88,7 +88,7 @@ pub fn eval_feature_repr<'eval>(
 }
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
-    eval_input: Arc<dyn AnyValueDyn<'eval>>,
+    eval_input: EvalValue<'eval>,
     sheet: &'a mut EvalSheet<'eval>,
     db: &'a dyn FeatureQueryGroup,
     verbose: bool,

@@ -1,7 +1,7 @@
 use std::sync::Arc;
-use vm::AnyValueDyn;
+use vm::{AnyValueDyn, EvalValue};
 
 pub struct LabeledData<'eval> {
-    pub input: Arc<dyn AnyValueDyn<'eval>>,
+    pub input: EvalValue<'eval>,
     pub label: u8,
 }
