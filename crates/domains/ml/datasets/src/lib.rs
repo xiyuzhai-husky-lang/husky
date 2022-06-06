@@ -114,8 +114,4 @@ impl<'eval> AnyValue<'eval> for Dataset<'eval> {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
-
-    // fn snapshot(&self) -> std::sync::Arc<dyn vm::AnyValueDyn<'eval>> {
-    //     todo!()
-    // }
 }

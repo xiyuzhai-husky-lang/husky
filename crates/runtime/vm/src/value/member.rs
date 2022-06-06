@@ -70,34 +70,6 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
                 MemberValue::Moved => todo!(),
             },
         }
-        // EagerContract::Move => todo!(),
-        // EagerContract::UseForVarInit => todo!(),
-        // EagerContract::Return => match self {
-        //     VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
-        //         MemberValue::Copyable(value) => VMValue::Copyable(value),
-        //         MemberValue::Boxed(_) => todo!(),
-        //         MemberValue::GlobalPure(_) => todo!(),
-        //         MemberValue::EvalRef(_) => todo!(),
-        //         MemberValue::Moved => todo!(),
-        //     },
-        // },
-        // EagerContract::RefMut => todo!(),
-        // EagerContract::MoveMut => todo!(),
-        // EagerContract::Exec => todo!(),
-        // EagerContract::UseMemberForLetInit => match self {
-        //     VirtualTy::Struct { fields } => match fields.data()[field_idx].1 {
-        //         MemberValue::Copyable(_) => todo!(),
-        //         MemberValue::Boxed(ref value) => {
-        //             let ptr = value.any_ptr();
-        //             VMValue::FullyOwnedRef(unsafe { &*ptr })
-        //         }
-        //         MemberValue::GlobalPure(_) => todo!(),
-        //         MemberValue::EvalRef(_) => todo!(),
-        //         MemberValue::Moved => todo!(),
-        //     },
-        // },
-        // EagerContract::UseMemberForVarInit => todo!(),
-        // EagerContract::UseForAssignRvalue => todo!(),
     }
 
     pub fn bind_eval_ref(&self) -> TempValue<'temp, 'eval> {
@@ -114,13 +86,10 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
 
     pub fn bind_temp_ref(&self) -> TempValue<'temp, 'eval> {
         match self {
-            MemberValue::Copyable(_) => panic!(),
             MemberValue::Boxed(boxed_value) => {
                 TempValue::TempRefEval(unsafe { &*boxed_value.any_ptr() })
             }
-            MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::EvalRef(_) => todo!(),
-            MemberValue::Moved => todo!(),
+            _ => panic!(),
         }
     }
 
@@ -128,9 +97,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         let value_mut: *mut dyn AnyValueDyn<'eval> = match self {
             MemberValue::Copyable(value) => value.any_mut(),
             MemberValue::Boxed(value) => value.any_mut_ptr(),
-            MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::EvalRef(_) => todo!(),
-            MemberValue::Moved => todo!(),
+            _ => todo!(),
         };
         TempValue::CopyableOrTempMutEval {
             value: unsafe { &mut *value_mut },

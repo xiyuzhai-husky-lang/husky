@@ -40,13 +40,8 @@ impl VMCasePattern {
             VMCasePattern::EnumKindLiteral(route) => match value {
                 TempValue::Moved => todo!(),
                 TempValue::Copyable(copyable_value) => match copyable_value {
-                    CopyableValue::I32(_) => todo!(),
-                    CopyableValue::F32(_) => todo!(),
-                    CopyableValue::B32(_) => todo!(),
-                    CopyableValue::B64(_) => todo!(),
-                    CopyableValue::Bool(_) => todo!(),
-                    CopyableValue::Void(_) => todo!(),
                     CopyableValue::EnumKind(enum_kind) => enum_kind.route == *route,
+                    _ => todo!(),
                 },
                 TempValue::OwnedEval(_) => todo!(),
                 TempValue::EvalPure(_) => todo!(),

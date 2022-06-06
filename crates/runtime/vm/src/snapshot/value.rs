@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Clone)]
 pub enum StackValueSnapshot<'eval> {
     Copyable(CopyableValue),
-    GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
     Owned(OwnedValue<'eval, 'eval>),
     FullyOwnedRef(Arc<dyn AnyValueDyn<'eval> + 'eval>),
@@ -18,7 +18,7 @@ impl<'eval> StackValueSnapshot<'eval> {
     pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             StackValueSnapshot::Copyable(value) => value.any_ref(),
-            StackValueSnapshot::GlobalPure(value) => &**value,
+            StackValueSnapshot::EvalPure(value) => &**value,
             StackValueSnapshot::Owned(boxed_value) => boxed_value.any_ref(),
             StackValueSnapshot::Owned(snapshared_value) => snapshared_value.any_ref(),
             StackValueSnapshot::RefMut { value, .. } => value.any_ref(),
@@ -30,7 +30,7 @@ impl<'eval> StackValueSnapshot<'eval> {
     pub fn eval(&self) -> EvalValue<'eval> {
         match self {
             StackValueSnapshot::Copyable(copyable_value) => EvalValue::Copyable(*copyable_value),
-            StackValueSnapshot::GlobalPure(value) => EvalValue::EvalPure(value.clone()),
+            StackValueSnapshot::EvalPure(value) => EvalValue::EvalPure(value.clone()),
             StackValueSnapshot::EvalRef(value) => EvalValue::EvalRef(*value),
             StackValueSnapshot::Owned(value) => EvalValue::Owned(value.clone()),
             StackValueSnapshot::RefMut { value, owner, gen } => value.clone(),
@@ -50,7 +50,7 @@ impl<'eval> std::fmt::Debug for StackValueSnapshot<'eval> {
                 .debug_struct("StackValueSnapshot::RefMut")
                 .field("value", value)
                 .finish(),
-            StackValueSnapshot::GlobalPure(value) => f
+            StackValueSnapshot::EvalPure(value) => f
                 .debug_struct("StackValueSnapshot::GlobalPure")
                 .field("value", value)
                 .finish(),
@@ -78,7 +78,7 @@ impl<'temp, 'eval: 'temp> Into<TempValue<'temp, 'eval>> for &StackValueSnapshot<
         match self {
             StackValueSnapshot::Copyable(value) => TempValue::Copyable(*value),
             StackValueSnapshot::RefMut { owner, gen, .. } => todo!(),
-            StackValueSnapshot::GlobalPure(value) => TempValue::EvalPure(value.clone()),
+            StackValueSnapshot::EvalPure(value) => TempValue::EvalPure(value.clone()),
             StackValueSnapshot::Owned(value) => TempValue::OwnedEval(value.clone()),
             StackValueSnapshot::EvalRef(value) => TempValue::EvalRef(*value),
             StackValueSnapshot::FullyOwnedRef(_) => todo!(),

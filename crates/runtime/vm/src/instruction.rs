@@ -243,16 +243,13 @@ fn cast_as_i32<'temp, 'eval>(opd: TempValue<'temp, 'eval>) -> i32 {
 
 fn cast_as_b32<'temp, 'eval>(opd: TempValue<'temp, 'eval>) -> u32 {
     match opd {
-        TempValue::Moved => todo!(),
         TempValue::Copyable(value) => match value {
             CopyableValue::I32(i) => i as u32,
-            CopyableValue::F32(_) => todo!(),
-            CopyableValue::B32(_) => todo!(),
-            CopyableValue::B64(_) => todo!(),
-            CopyableValue::Bool(_) => todo!(),
-            CopyableValue::Void(_) => todo!(),
+            CopyableValue::B32(b) => b,
             CopyableValue::EnumKind(enum_kind) => enum_kind.kind_idx as u32,
+            _ => panic!(),
         },
+        TempValue::Moved => todo!(),
         TempValue::OwnedEval(_) => todo!(),
         TempValue::EvalPure(_) => todo!(),
         TempValue::EvalRef(_) => todo!(),
