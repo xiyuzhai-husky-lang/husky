@@ -119,7 +119,7 @@ impl<'eval> TraceVariant<'eval> {
                     ..
                 } => false,
                 FeatureExprVariant::ThisValue { .. } => false,
-                FeatureExprVariant::GlobalInput => false,
+                FeatureExprVariant::EvalInput => false,
                 FeatureExprVariant::RoutineCall {
                     ref routine_defn, ..
                 } => !routine_defn.is_builtin(),
