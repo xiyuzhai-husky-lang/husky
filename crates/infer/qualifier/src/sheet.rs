@@ -18,7 +18,7 @@ pub struct QualifiedTySheet {
     pub(crate) eager_variable_qualified_tys:
         VecPairMap<(CustomIdentifier, TextRange), InferResult<EagerVariableQualifiedTy>>,
     pub(crate) lazy_variable_qualified_tys:
-        VecPairMap<(CustomIdentifier, TextRange), InferResult<LazyValueQualifiedTy>>,
+        VecPairMap<(CustomIdentifier, TextRange), InferResult<LazyVariableQualifiedTy>>,
     pub(crate) eager_expr_qualified_tys: RawExprMap<InferResult<EagerValueQualifiedTy>>,
     pub(crate) lazy_expr_qualified_tys: RawExprMap<InferResult<LazyValueQualifiedTy>>,
     pub(crate) contract_sheet: Arc<ContractSheet>,
@@ -77,7 +77,7 @@ impl QualifiedTySheet {
         &self,
         varname: CustomIdentifier,
         init_range: TextRange,
-    ) -> InferResult<LazyValueQualifiedTy> {
+    ) -> InferResult<LazyVariableQualifiedTy> {
         match derived_not_none!(self
             .lazy_variable_qualified_tys
             .get_entry((varname, init_range)))?

@@ -133,7 +133,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         ),
                         _ => todo!(),
                     },
-                    AstVariant::Stmt(_) => todo!(),
+                    AstVariant::Stmt(_) => (),
                     AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_call_form(
                         &arena,
                         &[],

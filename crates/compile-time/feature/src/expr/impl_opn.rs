@@ -62,8 +62,8 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::MethodCall {
                 method_ident,
                 method_route,
-                opt_output_binding,
-            } => self.compile_method_call(method_ident, method_route, opds, opt_output_binding),
+                output_binding,
+            } => self.compile_method_call(method_ident, method_route, opds, output_binding),
             LazyOpnKind::ElementAccess { element_binding } => {
                 self.compile_element_access(opds, expr, element_binding)
             }
@@ -91,7 +91,7 @@ impl<'a> FeatureExprBuilder<'a> {
         method_ident: RangedCustomIdentifier,
         method_route: EntityRoutePtr,
         opds: &[Arc<LazyExpr>],
-        opt_output_binding: Option<Binding>,
+        output_binding: Binding,
     ) -> (FeatureExprVariant, FeaturePtr) {
         let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
         let feature = self.features.alloc(Feature::MethodCall {
@@ -116,7 +116,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 FeatureExprVariant::RoutineCall {
                     opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
-                    opt_linkage: self.db.method_linkage(method_route, opt_output_binding),
+                    opt_linkage: self.db.method_linkage(method_route, output_binding),
                     opds,
                     has_this: true,
                     routine_defn: method_defn.clone(),

@@ -49,10 +49,8 @@ impl LazyVariableQualifier {
     pub fn binding(self, contract: LazyContract) -> Binding {
         match self {
             LazyVariableQualifier::PureRef => match contract {
-                LazyContract::Pure => Binding::TempRef,
-                LazyContract::EvalRef => todo!(),
-                LazyContract::Move => todo!(),
-                LazyContract::Pass => Binding::TempRef,
+                LazyContract::Pure | LazyContract::Pass => Binding::TempRef,
+                _ => panic!(),
             },
             LazyVariableQualifier::Copyable => Binding::Copy,
             LazyVariableQualifier::EvalRef => Binding::EvalRef,
@@ -65,19 +63,17 @@ impl LazyVariableQualifier {
                 LazyContract::Pass => LazyExprQualifier::Copyable,
                 LazyContract::EvalRef => LazyExprQualifier::EvalRef,
                 LazyContract::Pure => LazyExprQualifier::Copyable,
-                LazyContract::Move => todo!(),
+                LazyContract::Move => panic!(),
             },
             LazyVariableQualifier::PureRef => match contract {
-                LazyContract::Pass => todo!(),
-                LazyContract::EvalRef => todo!(),
-                LazyContract::Pure => LazyExprQualifier::PureRef,
-                LazyContract::Move => todo!(),
+                LazyContract::Pass | LazyContract::Pure => LazyExprQualifier::PureRef,
+                LazyContract::EvalRef | LazyContract::Move => panic!(),
             },
             LazyVariableQualifier::EvalRef => match contract {
                 LazyContract::Pass => LazyExprQualifier::EvalRef,
                 LazyContract::EvalRef => LazyExprQualifier::EvalRef,
                 LazyContract::Pure => LazyExprQualifier::PureRef,
-                LazyContract::Move => todo!(),
+                LazyContract::Move => panic!(),
             },
         })
     }
@@ -92,11 +88,13 @@ impl LazyVariableQualifier {
                 }
             }
             ParameterLiason::EvalRef => LazyVariableQualifier::EvalRef,
-            ParameterLiason::Move => todo!(),
-            ParameterLiason::TempRefMut => todo!(),
-            ParameterLiason::MoveMut => todo!(),
-            ParameterLiason::MemberAccess => todo!(),
-            ParameterLiason::TempRef => todo!(),
+            ParameterLiason::Move
+            | ParameterLiason::MemberAccess
+            | ParameterLiason::TempRef
+            | ParameterLiason::TempRefMut
+            | ParameterLiason::MoveMut => {
+                panic!()
+            }
         }
     }
 }

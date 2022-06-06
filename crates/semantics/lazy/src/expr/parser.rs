@@ -103,14 +103,13 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 opt_field_ty,
             } => {
                 let field_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
-                let is_field_copyable = self
-                    .decl_db()
-                    .is_copyable(opt_field_ty.unwrap().route)
-                    .unwrap();
+                let field_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
                 let this_contract = LazyContract::field_access_lazy_contract(
                     field_liason,
                     field_contract,
-                    is_field_copyable,
+                    self.decl_db()
+                        .is_copyable(opt_field_ty.unwrap().route)
+                        .unwrap(),
                     self.arena()[raw_expr_idx].range,
                 )?;
                 let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
@@ -126,9 +125,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     field_idx: ty_decl.field_idx(field_ident.ident),
                     this_ty: opt_this_ty.unwrap(),
                     this_binding: this_qual.binding(this_contract),
-                    field_binding: {
-                        this_qual.member_binding(field_liason, field_contract, is_field_copyable)
-                    },
+                    field_binding: { field_qt.qual.binding(field_contract) },
                 }
             }
             RawExprVariant::FrameVariable {
@@ -310,15 +307,12 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
         let field_liason = field_decl.liason;
         let field_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
+        let field_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::FieldAccess {
                 field_ident,
                 field_kind: ty_decl.field_kind(field_ident.ident),
-                field_binding: this.qualified_ty.qual.member_binding(
-                    field_liason,
-                    field_contract,
-                    self.decl_db().is_copyable(field_decl.ty).unwrap(),
-                ),
+                field_binding: field_qt.qual.binding(field_contract),
             },
             opds: vec![this],
         })
@@ -397,16 +391,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         let this = self.parse_lazy_expr(this)?;
-        let opt_output_binding = {
-            let method_route = self.call_route_result(raw_expr_idx).unwrap();
-            let method_decl = self.decl_db().method_decl(method_route).unwrap();
+        let output_binding = {
             let output_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
             let output_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
-            this.qualified_ty.qual.method_opt_output_binding(
-                method_decl.output.liason,
-                output_contract,
-                self.decl_db().is_copyable(output_qt.ty).unwrap(),
-            )
+            output_qt.qual.binding(output_contract)
         };
         let inputs = inputs
             .map(|idx| self.parse_lazy_expr(idx))
@@ -417,7 +405,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             opn_kind: LazyOpnKind::MethodCall {
                 method_ident,
                 method_route: self.entity_route_sheet().call_route(raw_expr_idx).unwrap(),
-                opt_output_binding,
+                output_binding,
             },
             opds,
         })
@@ -432,13 +420,9 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::ElementAccess {
                 element_binding: {
-                    let this_qt = self.lazy_expr_qualified_ty(opds.start).unwrap();
-                    let contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
-                    this_qt.qual.member_binding(
-                        MemberLiason::Mutable,
-                        contract,
-                        self.decl_db().is_copyable(element_ty).unwrap(),
-                    )
+                    let element_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
+                    let element_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
+                    element_qt.qual.binding(element_contract)
                 },
             },
             opds: opds

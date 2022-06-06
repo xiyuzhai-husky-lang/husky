@@ -79,7 +79,7 @@ impl EagerVariableQualifier {
                 if parameter_ty.temporal_arguments.len() == 0 {
                     EagerVariableQualifier::EvalRef
                 } else {
-                    todo!()
+                    EagerVariableQualifier::TempRef
                 }
             }
             _ => {
@@ -96,14 +96,14 @@ impl EagerVariableQualifier {
                     ParameterLiason::Move => EagerVariableQualifier::Owned,
                     ParameterLiason::MoveMut => EagerVariableQualifier::OwnedMut,
                     ParameterLiason::TempRefMut => EagerVariableQualifier::TempRefMut,
+                    ParameterLiason::TempRef => EagerVariableQualifier::TempRef,
                     ParameterLiason::MemberAccess => todo!(),
-                    ParameterLiason::TempRef => todo!(),
                 }
             }
         })
     }
 
-    pub fn variable_use_eager_value_qualifier(
+    pub fn variable_use_eager_expr_qualifier(
         self,
         contract: EagerContract,
         range: TextRange,
@@ -146,46 +146,34 @@ impl EagerVariableQualifier {
 
     pub fn binding(self, contract: EagerContract) -> Binding {
         match self {
-            EagerVariableQualifier::PureRef | EagerVariableQualifier::TempRef => match contract {
-                EagerContract::Pure | EagerContract::Pass => Binding::TempRef,
-                EagerContract::Move => panic!(),
-                EagerContract::TempRefMut => todo!(),
-                EagerContract::EvalRef => panic!(),
-                EagerContract::TempRef => todo!(),
-            },
+            EagerVariableQualifier::PureRef | EagerVariableQualifier::TempRef => Binding::TempRef,
             EagerVariableQualifier::Copyable => Binding::Copy,
             EagerVariableQualifier::EvalRef => match contract {
-                EagerContract::Pure => Binding::TempRef,
-                EagerContract::EvalRef => Binding::EvalRef,
-                EagerContract::Move => todo!(),
-                EagerContract::TempRefMut => todo!(),
-                EagerContract::TempRef => todo!(),
-                EagerContract::Pass => todo!(),
+                EagerContract::Pure | EagerContract::TempRef => Binding::TempRef,
+                EagerContract::EvalRef | EagerContract::Pass => Binding::EvalRef,
+                _ => panic!(),
             },
             EagerVariableQualifier::TempRefMut => todo!(),
             EagerVariableQualifier::CopyableMut => match contract {
-                EagerContract::Pure => Binding::Copy,
-                EagerContract::Move => todo!(),
+                EagerContract::Pure | EagerContract::Pass => Binding::Copy,
                 EagerContract::TempRefMut => Binding::TempRefMut,
-                EagerContract::EvalRef => todo!(),
-                EagerContract::TempRef => todo!(),
-                EagerContract::Pass => todo!(),
+                _ => panic!(),
             },
             EagerVariableQualifier::Owned => match contract {
-                EagerContract::Pure => Binding::TempRef,
+                EagerContract::Pure | EagerContract::TempRef | EagerContract::Pass => {
+                    Binding::TempRef
+                }
                 EagerContract::Move => Binding::Move,
                 EagerContract::TempRefMut => Binding::TempRefMut,
-                EagerContract::EvalRef => todo!(),
-                EagerContract::TempRef => todo!(),
-                EagerContract::Pass => todo!(),
+                _ => panic!(),
             },
             EagerVariableQualifier::OwnedMut => match contract {
-                EagerContract::Pure => Binding::TempRef,
                 EagerContract::Move => Binding::Move,
                 EagerContract::TempRefMut => Binding::TempRefMut,
-                EagerContract::EvalRef => todo!(),
-                EagerContract::TempRef => todo!(),
-                EagerContract::Pass => Binding::TempRef,
+                EagerContract::Pure | EagerContract::TempRef | EagerContract::Pass => {
+                    Binding::TempRef
+                }
+                _ => panic!(),
             },
         }
     }

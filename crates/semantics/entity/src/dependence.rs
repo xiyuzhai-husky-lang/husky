@@ -132,7 +132,6 @@ impl EntityDefn {
                 variants.iter().for_each(|enum_variant| {
                     extract_enum_variant_dependees(enum_variant, &mut builder)
                 });
-                // trait_impls.iter().for_each(|trait_impl| todo!())
             }
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Builtin => (),
@@ -190,14 +189,6 @@ impl EntityDefn {
                         MethodSource::Static(_) => todo!(),
                     }
                 }
-                // match method_variant {
-                //     MethodSource::Func { stmts } => {
-                //         extract_func_stmts_dependees(stmts, &mut builder)
-                //     }
-                //     MethodSource::Proc { stmts } => todo!(),
-                //     MethodSource::Pattern { stmts } => todo!(),
-                //     MethodSource::StaticMemberAccess { .. } => (),
-                // }
             }
             EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
