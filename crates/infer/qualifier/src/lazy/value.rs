@@ -13,14 +13,21 @@ impl TestDisplay for LazyValueQualifiedTy {
 }
 
 impl LazyValueQualifiedTy {
-    pub(crate) fn ty_ty() -> Self {
+    pub(crate) fn ty_lazy_qualified_ty() -> Self {
         Self {
             qual: LazyValueQualifier::EvalRef,
             ty: EntityRoutePtr::Root(RootIdentifier::TypeType),
         }
     }
 
-    pub(crate) fn trait_ty() -> Self {
+    pub(crate) fn module_lazy_qualified_ty() -> Self {
+        Self {
+            qual: LazyValueQualifier::EvalRef,
+            ty: EntityRoutePtr::Root(RootIdentifier::ModuleType),
+        }
+    }
+
+    pub(crate) fn trait_lazy_qualified_ty() -> Self {
         Self {
             qual: LazyValueQualifier::EvalRef,
             ty: EntityRoutePtr::Root(RootIdentifier::TraitType),

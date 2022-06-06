@@ -210,12 +210,27 @@ impl EagerValueQualifier {
 }
 
 impl EagerValueQualifiedTy {
-    pub(crate) fn ty_qualified_ty() -> Self {
+    pub(crate) fn ty_eager_qualified_ty() -> Self {
         Self {
             qual: EagerValueQualifier::EvalRef,
             ty: EntityRoutePtr::Root(RootIdentifier::TypeType),
         }
     }
+
+    pub(crate) fn module_eager_qualified_ty() -> Self {
+        Self {
+            qual: EagerValueQualifier::EvalRef,
+            ty: EntityRoutePtr::Root(RootIdentifier::ModuleType),
+        }
+    }
+
+    pub(crate) fn trait_eager_qualified_ty() -> Self {
+        Self {
+            qual: EagerValueQualifier::EvalRef,
+            ty: EntityRoutePtr::Root(RootIdentifier::TraitType),
+        }
+    }
+
     pub(crate) fn from_parameter_use(
         db: &dyn InferQualifiedTyQueryGroup,
         parameter_liason: ParameterLiason,
