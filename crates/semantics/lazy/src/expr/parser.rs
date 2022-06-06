@@ -5,7 +5,7 @@ use ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use entity_kind::TyKind;
 use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
-use infer_contract::InferContract;
+use infer_contract::{InferContract, LazyContract};
 use infer_entity_route::InferEntityRoute;
 use infer_qualifier::{InferQualifiedTy, LazyExprQualifier};
 use text::RangedCustomIdentifier;
@@ -83,7 +83,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             RawExprVariant::ThisValue {
                 opt_this_ty,
                 opt_this_liason,
-            } => LazyExprVariant::This {
+            } => LazyExprVariant::ThisValue {
                 binding: {
                     let this_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
                     let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
@@ -95,7 +95,42 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     this_qual.binding(this_contract)
                 },
             },
-            RawExprVariant::ThisField { .. } => todo!(),
+            RawExprVariant::ThisField {
+                field_ident,
+                opt_this_ty,
+                opt_this_liason,
+                field_liason,
+                opt_field_ty,
+            } => {
+                let field_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
+                let is_field_copyable = self
+                    .decl_db()
+                    .is_copyable(opt_field_ty.unwrap().route)
+                    .unwrap();
+                let this_contract = LazyContract::field_access_lazy_contract(
+                    field_liason,
+                    field_contract,
+                    is_field_copyable,
+                    self.arena()[raw_expr_idx].range,
+                )?;
+                let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
+                    opt_this_liason.unwrap(),
+                    self.decl_db().is_copyable(opt_this_ty.unwrap())?,
+                    this_contract,
+                    // raw_expr.range,
+                )
+                .unwrap();
+                let ty_decl = self.decl_db().ty_decl(opt_this_ty.unwrap()).unwrap();
+                LazyExprVariant::ThisField {
+                    field_ident,
+                    field_idx: ty_decl.field_idx(field_ident.ident),
+                    this_ty: opt_this_ty.unwrap(),
+                    this_binding: this_qual.binding(this_contract),
+                    field_binding: {
+                        this_qual.member_binding(field_liason, field_contract, is_field_copyable)
+                    },
+                }
+            }
             RawExprVariant::FrameVariable {
                 varname,
                 init_range: init_row,

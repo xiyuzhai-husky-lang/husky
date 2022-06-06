@@ -297,7 +297,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
                 field_ident,
                 ..
             } => todo!(),
-            FeatureExprVariant::This { ref repr } => todo!(),
+            FeatureExprVariant::ThisValue { ref repr } => todo!(),
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
             FeatureExprVariant::StructOriginalFieldAccess { .. } => panic!(),

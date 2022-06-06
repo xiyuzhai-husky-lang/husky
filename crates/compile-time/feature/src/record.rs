@@ -77,7 +77,9 @@ pub(crate) fn expr_record_field(
             p!(this.variant);
             panic!()
         }
-        FeatureExprVariant::This { ref repr } => db.record_field_repr(repr.clone(), field_ident),
+        FeatureExprVariant::ThisValue { ref repr } => {
+            db.record_field_repr(repr.clone(), field_ident)
+        }
         FeatureExprVariant::GlobalInput => todo!(),
         FeatureExprVariant::RoutineCall { .. } => todo!(),
         FeatureExprVariant::PatternCall {} => todo!(),
