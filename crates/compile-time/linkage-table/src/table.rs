@@ -63,7 +63,7 @@ impl LinkageSourceTable {
         self.linkage_sources.read(|entries| {
             entries
                 .get(&key)
-                .map(|linkage_source| linkage_source.bind(opt_binding))
+                .map(|linkage_source| linkage_source.opt_bind(opt_binding))
         })
     }
 }

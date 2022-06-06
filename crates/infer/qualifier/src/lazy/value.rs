@@ -1,3 +1,5 @@
+use print_utils::msg_once;
+
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -37,16 +39,17 @@ impl LazyValueQualifiedTy {
     pub(crate) fn member_lazy_qualified_ty(
         db: &dyn InferQualifiedTyQueryGroup,
         this_qual: LazyExprQualifier,
-        field_ty: EntityRoutePtr,
-        field_liason: MemberLiason,
+        member_ty: EntityRoutePtr,
+        member_contract: LazyContract,
     ) -> InferResult<Self> {
+        msg_once!("handle ref");
         Ok(Self::new(
             LazyExprQualifier::member_lazy_qualifier(
                 this_qual,
-                field_liason,
-                db.is_copyable(field_ty)?,
+                db.is_copyable(member_ty)?,
+                member_contract,
             )?,
-            field_ty,
+            member_ty,
         ))
     }
 
@@ -57,7 +60,7 @@ impl LazyValueQualifiedTy {
         contract: LazyContract,
     ) -> InferResult<Self> {
         Ok(LazyValueQualifiedTy::new(
-            LazyExprQualifier::parameter(parameter_liason, db.is_copyable(ty)?)
+            LazyVariableQualifier::parameter(parameter_liason, db.is_copyable(ty)?)
                 .variable_use(contract)?,
             ty,
         ))
@@ -68,20 +71,20 @@ impl LazyValueQualifiedTy {
         Self { qual, ty }
     }
 
-    pub(crate) fn use_for_init(self, init_kind: InitKind) -> InferResult<Self> {
+    pub(crate) fn use_for_init(self, init_kind: InitKind) -> InferResult<LazyVariableQualifiedTy> {
         let qual = match init_kind {
             InitKind::Let | InitKind::Var => Err(derived!(
                 "let or var is not allowed in lazy context".to_string()
             ))?,
             InitKind::Decl => match self.qual {
-                LazyExprQualifier::Copyable => LazyExprQualifier::Copyable,
-                LazyExprQualifier::PureRef => LazyExprQualifier::PureRef,
+                LazyExprQualifier::Copyable => LazyVariableQualifier::Copyable,
+                LazyExprQualifier::PureRef => LazyVariableQualifier::PureRef,
                 LazyExprQualifier::EvalRef | LazyExprQualifier::Transient => {
-                    LazyExprQualifier::EvalRef
+                    LazyVariableQualifier::EvalRef
                 }
             },
         };
-        Ok(Self { qual, ty: self.ty })
+        Ok(LazyVariableQualifiedTy { qual, ty: self.ty })
     }
 
     pub(crate) fn is_implicitly_convertible_to_output(
@@ -96,7 +99,7 @@ impl LazyValueQualifiedTy {
         match output_liason {
             OutputLiason::Transfer => match self.qual {
                 LazyExprQualifier::Copyable => true,
-                LazyExprQualifier::PureRef => todo!(),
+                LazyExprQualifier::PureRef => false,
                 LazyExprQualifier::EvalRef => todo!(),
                 LazyExprQualifier::Transient => true,
             },
@@ -125,51 +128,37 @@ impl LazyExprQualifier {
     pub fn binding(self, contract: LazyContract) -> Binding {
         match self {
             LazyExprQualifier::PureRef => match contract {
-                LazyContract::Pure => Binding::TempRef,
-                LazyContract::EvalRef => todo!(),
-                LazyContract::Move => todo!(),
-                LazyContract::Pass => Binding::TempRef,
+                LazyContract::Pure | LazyContract::Pass => Binding::TempRef,
+                _ => panic!(),
             },
-            LazyExprQualifier::Transient => todo!(),
+            LazyExprQualifier::Transient => match contract {
+                LazyContract::Pure => Binding::TempRef,
+                LazyContract::Pass | LazyContract::Move => Binding::Move,
+                LazyContract::EvalRef => panic!(),
+            },
             LazyExprQualifier::Copyable => Binding::Copy,
             LazyExprQualifier::EvalRef => Binding::EvalRef,
         }
     }
 
-    pub fn variable_use(self, contract: LazyContract) -> InferResult<Self> {
-        Ok(match self {
-            LazyExprQualifier::Copyable => match contract {
-                LazyContract::Pass => LazyExprQualifier::Copyable,
-                LazyContract::EvalRef => LazyExprQualifier::EvalRef,
-                LazyContract::Pure => LazyExprQualifier::Copyable,
-                LazyContract::Move => todo!(),
-            },
-            LazyExprQualifier::PureRef => match contract {
-                LazyContract::Pass => todo!(),
-                LazyContract::EvalRef => todo!(),
-                LazyContract::Pure => LazyExprQualifier::PureRef,
-                LazyContract::Move => todo!(),
-            },
-            LazyExprQualifier::EvalRef => match contract {
-                LazyContract::Pass => LazyExprQualifier::EvalRef,
-                LazyContract::EvalRef => LazyExprQualifier::EvalRef,
-                LazyContract::Pure => LazyExprQualifier::PureRef,
-                LazyContract::Move => todo!(),
-            },
-            LazyExprQualifier::Transient => todo!(),
-        })
-    }
-
     pub fn member_lazy_qualifier(
         this_qual: LazyExprQualifier,
-        field_liason: MemberLiason,
         is_field_copyable: bool,
+        member_contract: LazyContract,
     ) -> InferResult<Self> {
         Ok(if is_field_copyable {
-            LazyExprQualifier::Copyable
+            match member_contract {
+                LazyContract::Pure => LazyExprQualifier::Copyable,
+                LazyContract::EvalRef => LazyExprQualifier::EvalRef,
+                _ => panic!(),
+            }
         } else {
             // non-copyable
-            this_qual
+            match member_contract {
+                LazyContract::Pure => LazyExprQualifier::PureRef,
+                LazyContract::EvalRef => LazyExprQualifier::EvalRef,
+                LazyContract::Pass | LazyContract::Move => this_qual,
+            }
         })
     }
 
@@ -178,67 +167,6 @@ impl LazyExprQualifier {
         is_copyable: bool,
         contract: LazyContract,
     ) -> InferResult<Self> {
-        Self::parameter(parameter_liason, is_copyable).variable_use(contract)
-    }
-
-    pub fn parameter(parameter_liason: ParameterLiason, is_copyable: bool) -> Self {
-        match parameter_liason {
-            ParameterLiason::Pure => {
-                if is_copyable {
-                    LazyExprQualifier::Copyable
-                } else {
-                    LazyExprQualifier::PureRef
-                }
-            }
-            ParameterLiason::EvalRef => LazyExprQualifier::EvalRef,
-            ParameterLiason::Move => todo!(),
-            ParameterLiason::TempRefMut => todo!(),
-            ParameterLiason::MoveMut => todo!(),
-            ParameterLiason::MemberAccess => todo!(),
-            ParameterLiason::TempRef => todo!(),
-        }
-    }
-
-    pub fn method_opt_output_binding(
-        self,
-        output_liason: OutputLiason,
-        output_contract: LazyContract,
-        is_output_ty_copyable: bool,
-    ) -> Option<Binding> {
-        match output_liason {
-            OutputLiason::Transfer => None,
-            OutputLiason::MemberAccess { member_liason } => {
-                Some(self.member_binding(member_liason, output_contract, is_output_ty_copyable))
-            }
-        }
-    }
-
-    pub fn member_binding(
-        self,
-        member_liason: MemberLiason,
-        member_contract: LazyContract,
-        is_member_ty_copyable: bool,
-    ) -> Binding {
-        if is_member_ty_copyable {
-            match member_contract {
-                LazyContract::Pass => Binding::Copy,
-                LazyContract::EvalRef => todo!(),
-                LazyContract::Pure => Binding::Copy,
-                LazyContract::Move => todo!(),
-            }
-        } else {
-            // non-copyable
-            match member_contract {
-                LazyContract::Pass => match self {
-                    LazyExprQualifier::Copyable => todo!(),
-                    LazyExprQualifier::PureRef => Binding::TempRef,
-                    LazyExprQualifier::EvalRef => Binding::EvalRef,
-                    LazyExprQualifier::Transient => Binding::Move,
-                },
-                LazyContract::EvalRef => todo!(),
-                LazyContract::Pure => todo!(),
-                LazyContract::Move => todo!(),
-            }
-        }
+        LazyVariableQualifier::parameter(parameter_liason, is_copyable).variable_use(contract)
     }
 }

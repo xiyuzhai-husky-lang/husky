@@ -29,7 +29,7 @@ lazy expr:
     62:14..62:18   A(1)                   Transient major::A
     62:9..62:19    B(3, A(1))             Transient major::B
     63:37..63:38   b                      EvalRef major::B
-    63:37..63:39   b.                     Copyable i32
+    63:37..63:39   b.                     EvalRef i32
     63:9..63:41    use_eval_ref_copyable_is_ok(b.x)   Copyable i32
     64:5..64:6     1                      Copyable i32
 
@@ -89,6 +89,6 @@ lazy expr:
     62:14..62:18   A(1)                   Transient major::A
     62:9..62:19    B(3, A(1))             Transient major::B
     63:37..63:38   b                      EvalRef major::B
-    63:37..63:39   b.                     Copyable i32
+    63:37..63:39   b.                     EvalRef i32
     63:9..63:41    use_eval_ref_copyable_is_ok(b.x)   Copyable i32
     64:5..64:6     1                      Copyable i32

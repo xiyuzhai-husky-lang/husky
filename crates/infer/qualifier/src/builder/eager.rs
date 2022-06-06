@@ -236,10 +236,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 Ok(variable_qt) => {
                     let variable_contract = self.eager_expr_contract(raw_expr_idx)?;
                     Ok(EagerValueQualifiedTy {
-                        qual: variable_qt.qual.variable_use_eager_value_qualifier(
-                            variable_contract,
-                            raw_expr.range,
-                        )?,
+                        qual: variable_qt
+                            .qual
+                            .variable_use_eager_expr_qualifier(variable_contract, raw_expr.range)?,
                         ty: variable_qt.ty,
                     })
                 }
@@ -276,7 +275,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let field_contract = self.eager_expr_contract(raw_expr_idx)?;
                 let field_ty = derived_not_none!(opt_field_ty)?;
                 let is_field_copyable = self.db.is_copyable(field_ty.route)?;
-                let this_contract = EagerContract::field_access_eager_contract(
+                let this_contract = EagerContract::field_access_this_eager_contract(
                     field_liason,
                     field_contract,
                     is_field_copyable,
@@ -303,8 +302,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Module => Ok(EagerValueQualifiedTy::module_eager_qualified_ty()),
                 EntityKind::Type(_) => Ok(EagerValueQualifiedTy::ty_eager_qualified_ty()),
                 EntityKind::Trait => Ok(EagerValueQualifiedTy::trait_eager_qualified_ty()),
-                EntityKind::Member(_) => todo!(),
-                EntityKind::Function { .. } => todo!(),
+                EntityKind::Member(_) | EntityKind::Function { .. } => todo!(),
                 EntityKind::Feature => todo!(),
                 EntityKind::EnumLiteral => Ok(EagerValueQualifiedTy {
                     qual: EagerExprQualifier::Copyable,

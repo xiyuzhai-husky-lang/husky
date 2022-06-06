@@ -319,7 +319,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.raw_expr_deref_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = EagerContract::field_access_eager_contract(
+        let this_contract = EagerContract::field_access_this_eager_contract(
             field_decl.liason,
             contract,
             self.db.is_copyable(field_decl.ty)?,
@@ -386,7 +386,7 @@ impl<'a> ContractSheetBuilder<'a> {
             ((total_opds.start + 1)..total_opds.end).into_iter(),
             call_decl.primary_parameters.iter(),
         ) {
-            let argument_contract = EagerContract::argument_contract(
+            let argument_contract = EagerContract::argument_eager_contract(
                 parameter.ty,
                 parameter.liason,
                 call_decl.output.liason,
@@ -411,7 +411,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let method_decl = self.method_decl(raw_expr_idx)?;
         let is_output_ty_copyable = self.db.is_copyable(method_decl.output.ty)?;
-        let this_contract = EagerContract::this_contract(
+        let this_contract = EagerContract::method_call_this_eager_contract(
             method_decl.this_liason,
             method_decl.output.liason,
             contract,
@@ -419,7 +419,7 @@ impl<'a> ContractSheetBuilder<'a> {
         )?;
         self.infer_eager_expr(this, this_contract, arena);
         for (argument, parameter) in zip(parameters.into_iter(), method_decl.parameters.iter()) {
-            let argument_contract = EagerContract::argument_contract(
+            let argument_contract = EagerContract::argument_eager_contract(
                 parameter.ty,
                 parameter.liason,
                 method_decl.output.liason,

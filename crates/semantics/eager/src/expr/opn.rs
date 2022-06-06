@@ -35,7 +35,7 @@ pub enum EagerOpnVariant {
         method_ident: RangedCustomIdentifier,
         this_ty_decl: Arc<TyDecl>,
         method_route: EntityRoutePtr,
-        opt_output_binding: Option<Binding>,
+        output_binding: Binding,
     },
     ElementAccess {
         element_binding: Binding,

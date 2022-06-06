@@ -62,94 +62,22 @@ impl EagerExprQualifier {
 
     pub fn binding(self, contract: EagerContract) -> Binding {
         match self {
-            EagerExprQualifier::PureRef | EagerExprQualifier::TempRef => match contract {
-                EagerContract::Pure | EagerContract::Pass => Binding::TempRef,
-                EagerContract::Move => panic!(),
-                EagerContract::TempRefMut => todo!(),
-                EagerContract::EvalRef => panic!(),
-                EagerContract::TempRef => todo!(),
-            },
-            EagerExprQualifier::Transient => todo!(),
+            EagerExprQualifier::PureRef | EagerExprQualifier::TempRef => Binding::TempRef,
+            EagerExprQualifier::Transient => Binding::Move,
             EagerExprQualifier::Copyable => Binding::Copy,
             EagerExprQualifier::EvalRef => match contract {
-                EagerContract::Pure => Binding::TempRef,
+                EagerContract::Pure | EagerContract::TempRef => Binding::TempRef,
                 EagerContract::EvalRef => Binding::EvalRef,
-                EagerContract::Move => todo!(),
-                EagerContract::TempRefMut => todo!(),
-                EagerContract::TempRef => todo!(),
-                EagerContract::Pass => todo!(),
+                EagerContract::Pass => Binding::EvalRef,
+                _ => panic!(),
             },
-            EagerExprQualifier::TempRefMut => todo!(),
-        }
-    }
-
-    pub fn method_opt_output_binding(
-        self,
-        output_liason: OutputLiason,
-        output_contract: EagerContract,
-        is_output_ty_copyable: bool,
-    ) -> Option<Binding> {
-        match output_liason {
-            OutputLiason::Transfer => None,
-            OutputLiason::MemberAccess { member_liason } => {
-                Some(self.member_binding(member_liason, output_contract, is_output_ty_copyable))
-            }
-        }
-    }
-
-    pub fn member_binding(
-        self,
-        member_liason: MemberLiason,
-        member_contract: EagerContract,
-        is_member_ty_copyable: bool,
-    ) -> Binding {
-        if is_member_ty_copyable {
-            match member_contract {
-                EagerContract::Pure => Binding::Copy,
-                EagerContract::Move => todo!(),
-                EagerContract::TempRefMut => match member_liason {
-                    MemberLiason::Immutable => todo!(),
-                    MemberLiason::Mutable => Binding::TempRefMut,
-                    MemberLiason::Derived => todo!(),
-                },
-                EagerContract::EvalRef => todo!(),
-                EagerContract::TempRef => todo!(),
-                EagerContract::Pass => todo!(),
-            }
-        } else {
-            // non-copyable
-            match self {
-                EagerExprQualifier::Copyable => todo!(),
-                EagerExprQualifier::PureRef => match member_contract {
-                    EagerContract::Pure | EagerContract::Pass => Binding::TempRef,
-                    _ => panic!(),
-                },
-                EagerExprQualifier::EvalRef => match member_contract {
-                    EagerContract::Pure => todo!(),
-                    EagerContract::EvalRef => Binding::EvalRef,
-                    EagerContract::Move => todo!(),
-                    EagerContract::TempRef => todo!(),
-                    EagerContract::TempRefMut => todo!(),
-                    EagerContract::Pass => todo!(),
-                },
-                EagerExprQualifier::TempRef => match member_contract {
-                    EagerContract::Pure => todo!(),
-                    EagerContract::Move => todo!(),
-                    EagerContract::TempRefMut => todo!(),
-                    EagerContract::EvalRef => todo!(),
-                    EagerContract::TempRef => todo!(),
-                    EagerContract::Pass => Binding::TempRef,
-                },
-                EagerExprQualifier::TempRefMut => match member_contract {
-                    EagerContract::Pure => todo!(),
-                    EagerContract::Move => todo!(),
-                    EagerContract::TempRefMut => Binding::TempRefMut,
-                    EagerContract::EvalRef => todo!(),
-                    EagerContract::TempRef => todo!(),
-                    EagerContract::Pass => todo!(),
-                },
-                EagerExprQualifier::Transient => todo!(),
-            }
+            EagerExprQualifier::TempRefMut => match contract {
+                EagerContract::Pure | EagerContract::TempRef | EagerContract::Pass => {
+                    Binding::TempRef
+                }
+                EagerContract::TempRefMut => Binding::TempRefMut,
+                _ => panic!(),
+            },
         }
     }
 
@@ -165,7 +93,7 @@ impl EagerExprQualifier {
             parameter_ty,
             parameter_liason,
         )?
-        .variable_use_eager_value_qualifier(contract, range)
+        .variable_use_eager_expr_qualifier(contract, range)
     }
 
     pub fn from_output(output_liason: OutputLiason, is_copyable: bool) -> Self {
@@ -297,24 +225,24 @@ impl EagerValueQualifiedTy {
                 EagerExprQualifier::PureRef => EagerVariableQualifier::PureRef,
                 EagerExprQualifier::TempRef => EagerVariableQualifier::TempRef,
                 EagerExprQualifier::Transient => EagerVariableQualifier::Owned,
-                EagerExprQualifier::EvalRef => todo!(),
-                EagerExprQualifier::TempRefMut => todo!(),
+                EagerExprQualifier::EvalRef => EagerVariableQualifier::EvalRef,
+                EagerExprQualifier::TempRefMut => EagerVariableQualifier::TempRef,
             },
             InitKind::Var => match self.qual {
-                EagerExprQualifier::Copyable => EagerVariableQualifier::CopyableMut,
-                EagerExprQualifier::PureRef => todo!(),
-                EagerExprQualifier::TempRef => todo!(),
+                EagerExprQualifier::Copyable
+                | EagerExprQualifier::EvalRef
+                | EagerExprQualifier::TempRefMut => EagerVariableQualifier::CopyableMut,
+                EagerExprQualifier::PureRef => EagerVariableQualifier::PureRef,
+                EagerExprQualifier::TempRef => EagerVariableQualifier::TempRef,
                 EagerExprQualifier::Transient => EagerVariableQualifier::OwnedMut,
-                EagerExprQualifier::EvalRef => EagerVariableQualifier::CopyableMut,
-                EagerExprQualifier::TempRefMut => todo!(),
             },
             InitKind::Decl => match self.qual {
                 EagerExprQualifier::Copyable => EagerVariableQualifier::Copyable,
                 EagerExprQualifier::PureRef => EagerVariableQualifier::PureRef,
                 EagerExprQualifier::EvalRef => EagerVariableQualifier::EvalRef,
-                EagerExprQualifier::TempRef => todo!(),
+                EagerExprQualifier::TempRef => EagerVariableQualifier::TempRef,
                 EagerExprQualifier::Transient => EagerVariableQualifier::Owned,
-                EagerExprQualifier::TempRefMut => todo!(),
+                EagerExprQualifier::TempRefMut => panic!(),
             },
         };
         Ok(EagerVariableQualifiedTy { qual, ty: self.ty })

@@ -227,7 +227,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 method_ident,
                 this_ty_decl,
                 method_route,
-                opt_output_binding,
+                output_binding: opt_output_binding,
             } => {
                 let this = &opds[0];
                 self.push_instruction(Instruction::new(
@@ -328,9 +328,9 @@ impl<'a> InstructionSheetBuilder<'a> {
         this_ty_decl: &TyDecl,
         method_route: EntityRoutePtr,
         method_ident: CustomIdentifier,
-        opt_output_binding: Option<Binding>,
+        output_binding: Binding,
     ) -> InstructionVariant {
-        if let Some(linkage) = self.db.method_linkage(method_route, opt_output_binding) {
+        if let Some(linkage) = self.db.method_linkage(method_route, output_binding) {
             InstructionVariant::CallLinkage { linkage }
         } else {
             let method_uid = self.db.entity_uid(method_route);

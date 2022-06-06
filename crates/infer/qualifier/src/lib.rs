@@ -51,7 +51,7 @@ pub trait InferQualifiedTy {
         &self,
         varname: CustomIdentifier,
         init_range: TextRange,
-    ) -> InferResult<LazyValueQualifiedTy> {
+    ) -> InferResult<LazyVariableQualifiedTy> {
         self.qualified_ty_sheet()
             .lazy_variable_qualified_ty(varname, init_range)
     }

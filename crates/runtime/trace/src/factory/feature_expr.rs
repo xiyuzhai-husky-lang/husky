@@ -71,7 +71,7 @@ impl<'eval> TraceFactory<'eval> {
                     LazyOpnKind::MethodCall {
                         method_ident,
                         method_route,
-                        opt_output_binding,
+                        output_binding,
                     } => {
                         let mut tokens = vec![];
                         tokens.extend(self.feature_expr_tokens(

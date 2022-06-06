@@ -108,11 +108,12 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 opt_field_ty,
             } => {
                 let field_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
+                let field_qt = self.eager_expr_qualified_ty(raw_expr_idx).unwrap();
                 let is_field_copyable = self
                     .decl_db()
                     .is_copyable(opt_field_ty.unwrap().route)
                     .unwrap();
-                let this_contract = EagerContract::field_access_eager_contract(
+                let this_contract = EagerContract::field_access_this_eager_contract(
                     field_liason,
                     field_contract,
                     is_field_copyable,
@@ -132,9 +133,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     field_idx: ty_decl.field_idx(field_ident.ident),
                     this_ty: opt_this_ty.unwrap(),
                     this_binding: this_qual.binding(this_contract),
-                    field_binding: {
-                        this_qual.member_binding(field_liason, field_contract, is_field_copyable)
-                    },
+                    field_binding: { field_qt.qual.binding(field_contract) },
                 }
             }
         };
@@ -244,16 +243,13 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
         let field_liason = field_decl.liason;
         let field_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
+        let field_qt = self.eager_expr_qualified_ty(raw_expr_idx).unwrap();
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::FieldAccess {
                 field_ident,
                 this_ty: this.ty(),
                 field_liason,
-                field_binding: this.qualified_ty.qual.member_binding(
-                    field_liason,
-                    field_contract,
-                    self.decl_db().is_copyable(field_decl.ty).unwrap(),
-                ),
+                field_binding: field_qt.qual.binding(field_contract),
             },
             opds: vec![this],
         })
@@ -321,16 +317,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
     ) -> SemanticResult<EagerExprVariant> {
         let this = self.parse_eager_expr(this)?;
         let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
-        let opt_output_binding = {
-            let method_route = self.call_route_result(raw_expr_idx).unwrap();
-            let method_decl = self.decl_db().method_decl(method_route).unwrap();
+        let output_binding = {
             let output_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
             let output_qt = self.eager_expr_qualified_ty(raw_expr_idx).unwrap();
-            this.qualified_ty.qual.method_opt_output_binding(
-                method_decl.output.liason,
-                output_contract,
-                self.decl_db().is_copyable(output_qt.ty).unwrap(),
-            )
+            output_qt.qual.binding(output_contract)
         };
         let opds = {
             let mut opds = vec![this];
@@ -345,7 +335,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 method_ident,
                 this_ty_decl,
                 method_route: self.entity_route_sheet().call_route(raw_expr_idx).unwrap(),
-                opt_output_binding,
+                output_binding,
             },
             opds,
         })
@@ -360,13 +350,9 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::ElementAccess {
                 element_binding: {
-                    let this_qt = self.eager_expr_qualified_ty(opds.start).unwrap();
+                    let element_qt = self.eager_expr_qualified_ty(raw_expr_idx).unwrap();
                     let contract = self.eager_expr_contract(raw_expr_idx).unwrap();
-                    this_qt.qual.member_binding(
-                        MemberLiason::Mutable,
-                        contract,
-                        self.decl_db().is_copyable(element_ty).unwrap(),
-                    )
+                    element_qt.qual.binding(contract)
                 },
             },
             opds: opds

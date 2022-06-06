@@ -17,26 +17,7 @@ pub enum EagerContract {
 }
 
 impl EagerContract {
-    pub(crate) fn this_contract(
-        parameter_liason: ParameterLiason,
-        output_liason: OutputLiason,
-        output_contract: EagerContract,
-        range: TextRange,
-    ) -> InferResult<EagerContract> {
-        match output_liason {
-            OutputLiason::Transfer => Ok(match parameter_liason {
-                ParameterLiason::Pure => EagerContract::Pure,
-                ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                ParameterLiason::TempRefMut => EagerContract::TempRefMut,
-                ParameterLiason::MemberAccess => panic!(),
-                ParameterLiason::EvalRef => EagerContract::EvalRef,
-                ParameterLiason::TempRef => todo!(),
-            }),
-            OutputLiason::MemberAccess { .. } => Ok(output_contract),
-        }
-    }
-
-    pub(crate) fn argument_contract(
+    pub(crate) fn argument_eager_contract(
         parameter_ty: EntityRoutePtr,
         parameter_liason: ParameterLiason,
         output_liason: OutputLiason,
@@ -62,7 +43,26 @@ impl EagerContract {
         }
     }
 
-    pub fn field_access_eager_contract(
+    pub(crate) fn method_call_this_eager_contract(
+        parameter_liason: ParameterLiason,
+        output_liason: OutputLiason,
+        output_contract: EagerContract,
+        range: TextRange,
+    ) -> InferResult<EagerContract> {
+        match output_liason {
+            OutputLiason::Transfer => Ok(match parameter_liason {
+                ParameterLiason::Pure => EagerContract::Pure,
+                ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
+                ParameterLiason::TempRefMut => EagerContract::TempRefMut,
+                ParameterLiason::MemberAccess => panic!(),
+                ParameterLiason::EvalRef => EagerContract::EvalRef,
+                ParameterLiason::TempRef => todo!(),
+            }),
+            OutputLiason::MemberAccess { .. } => Ok(output_contract),
+        }
+    }
+
+    pub fn field_access_this_eager_contract(
         field_liason: MemberLiason,
         member_contract: EagerContract,
         is_member_copyable: bool,

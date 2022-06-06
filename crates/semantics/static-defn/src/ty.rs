@@ -91,7 +91,7 @@ pub enum LinkageSource {
 }
 
 impl LinkageSource {
-    pub fn bind(&self, opt_binding: Option<Binding>) -> Linkage {
+    pub fn bind(&self, binding: Binding) -> Linkage {
         match self {
             LinkageSource::MemberAccess {
                 copy_access,
@@ -99,17 +99,24 @@ impl LinkageSource {
                 temp_ref_access,
                 temp_mut_access,
                 move_access,
-            } => match opt_binding.unwrap() {
+            } => match binding {
                 Binding::EvalRef => *eval_ref_access,
                 Binding::TempRef => *temp_ref_access,
                 Binding::TempRefMut => *temp_mut_access,
                 Binding::Move => *move_access,
                 Binding::Copy => *copy_access,
             },
-            LinkageSource::Transfer(linkage) => {
-                should!(opt_binding.is_none());
-                *linkage
-            }
+            LinkageSource::Transfer(linkage) => *linkage,
+        }
+    }
+
+    pub fn opt_bind(&self, opt_binding: Option<Binding>) -> Linkage {
+        match opt_binding {
+            Some(binding) => self.bind(binding),
+            None => match self {
+                LinkageSource::MemberAccess { .. } => panic!(),
+                LinkageSource::Transfer(linkage) => *linkage,
+            },
         }
     }
 }
