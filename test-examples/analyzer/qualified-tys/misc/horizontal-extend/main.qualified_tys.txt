@@ -1,12 +1,12 @@
 
-[35meager variable qualified types
-[0m    a           5:24..5:25  Copyable     b32
+eager variable:
+    a           5:24..5:25  Copyable     b32
     x           5:32..5:33  Copyable     b32
     y           6:9..6:10  Copyable     b32
     z           7:9..7:10  CopyableMut  b32
 
-[35mlazy expr qualified types
-[0m    14:30..14:34   0b32                   Copyable b32
+lazy expr:
+    14:30..14:34   0b32                   Copyable b32
     14:36..14:40   0b32                   Copyable b32
     14:12..14:41   horizontal_extend(0b32, 0b32)   Copyable b32
     14:45..14:49   0b32                   Copyable b32
@@ -22,8 +22,8 @@
     16:47..16:53   255b32                 Copyable b32
     16:12..16:53   horizontal_extend(255b32, 1b32) == 255b32   Transient bool
 
-[35meager expr qualified types
-[0m    2:5..2:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
+eager expr:
+    2:5..2:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
     6:23..6:24     x                      Copyable     b32
     6:28..6:29     1                      Copyable     i32
     6:23..6:29     x << 1                 Copyable     b32
@@ -75,8 +75,8 @@
     10:9..10:42    z = a & (y | (y << 1) | (y >> 1))   Copyable     void
     11:12..11:13   y                      Copyable     b32
 
-[35mlazy expr qualified types
-[0m    14:30..14:34   0b32                   Copyable b32
+lazy expr:
+    14:30..14:34   0b32                   Copyable b32
     14:36..14:40   0b32                   Copyable b32
     14:12..14:41   horizontal_extend(0b32, 0b32)   Copyable b32
     14:45..14:49   0b32                   Copyable b32

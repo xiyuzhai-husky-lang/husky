@@ -1,10 +1,10 @@
 
-[35meager variable qualified types
-[0m
-[35mlazy expr qualified types
-[0m    12:10..12:11   0                      Copyable i32
+eager variable:
 
-[35meager expr qualified types
-[0m
-[35mlazy expr qualified types
-[0m    12:10..12:11   0                      Copyable i32
+lazy expr:
+    12:10..12:11   0                      Copyable i32
+
+eager expr:
+
+lazy expr:
+    12:10..12:11   0                      Copyable i32

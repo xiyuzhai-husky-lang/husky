@@ -1,6 +1,6 @@
 
-[35meager variable qualified types
-[0m    a           7:24..7:25  Copyable     b32
+eager variable:
+    a           7:24..7:25  Copyable     b32
     x           7:32..7:33  Copyable     b32
     y           8:9..8:10  Copyable     b32
     z           9:9..9:10  CopyableMut  b32
@@ -14,8 +14,8 @@
     flag        24:17..24:21  CopyableMut  bool
     k           25:22..25:23  Copyable     i32
 
-[35mlazy expr qualified types
-[0m    32:9..32:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
+lazy expr:
+    32:9..32:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
     33:9..33:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     33:11..33:12   1                      Copyable i32
     33:9..33:13    a[1]                   Copyable b32
@@ -27,8 +27,8 @@
     36:5..36:6     d                      PureRef Vec<datasets::cv::mnist::BinaryImage28>
     36:5..36:12    d.len()                Copyable i32
 
-[35meager expr qualified types
-[0m    4:5..4:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
+eager expr:
+    4:5..4:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
     8:23..8:24     x                      Copyable     b32
     8:28..8:29     1                      Copyable     i32
     8:23..8:29     x << 1                 Copyable     b32
@@ -118,8 +118,8 @@
     27:13..27:30   result.push(mask)      Copyable     void
     28:12..28:18   result                 Transient    Vec<datasets::cv::mnist::BinaryImage28>
 
-[35mlazy expr qualified types
-[0m    32:9..32:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
+lazy expr:
+    32:9..32:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
     33:9..33:10    a                      PureRef datasets::cv::mnist::BinaryImage28
     33:11..33:12   1                      Copyable i32
     33:9..33:13    a[1]                   Copyable b32

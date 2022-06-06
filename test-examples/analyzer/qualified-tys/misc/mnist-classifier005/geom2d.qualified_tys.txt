@@ -1,6 +1,6 @@
 
-[35meager variable qualified types
-[0m    i           5:32..5:33  Copyable     i32
+eager variable:
+    i           5:32..5:33  Copyable     i32
     shift       5:40..5:45  Copyable     i32
     other       11:13..11:18  PureRef      mnist_classifier005::geom2d::Point2d
     other       17:15..17:20  PureRef      mnist_classifier005::geom2d::Point2d
@@ -18,10 +18,10 @@
     cos_value   68:9..68:18  Copyable     f32
     arc_angle   75:13..75:22  Copyable     f32
 
-[35mlazy expr qualified types
-[0m
-[35meager expr qualified types
-[0m    6:18..6:20     29                     Copyable     i32
+lazy expr:
+
+eager expr:
+    6:18..6:20     29                     Copyable     i32
     6:23..6:28     shift                  Copyable     i32
     6:18..6:28     29 - shift             Copyable     i32
     6:18..6:29     29 - shift)            Copyable     i32
@@ -201,5 +201,4 @@
     76:33..76:42   3.1415926              Copyable     f32
     76:13..76:42   arc_angle * 180.0 / 3.1415926   Copyable     f32
 
-[35mlazy expr qualified types
-[0m
+lazy expr:
