@@ -170,11 +170,7 @@ pub fn incr<'temp, 'eval>(opd: &mut TempValue<'temp, 'eval>) {
             value.assign(TempValue::Copyable(match opd_primitive {
                 CopyableValue::I32(i) => (i + 1).into(),
                 CopyableValue::F32(_) => todo!(),
-                CopyableValue::B32(_) => todo!(),
-                CopyableValue::B64(_) => todo!(),
-                CopyableValue::Bool(_) => todo!(),
-                CopyableValue::Void(_) => todo!(),
-                CopyableValue::EnumKind(_) => todo!(),
+                _ => panic!(),
             }))
         }
 
@@ -189,11 +185,7 @@ pub fn decr<'temp, 'eval>(opd: &mut TempValue<'temp, 'eval>) {
             value.assign(TempValue::Copyable(match opd_primitive {
                 CopyableValue::I32(i) => (i - 1).into(),
                 CopyableValue::F32(_) => todo!(),
-                CopyableValue::B32(_) => todo!(),
-                CopyableValue::B64(_) => todo!(),
-                CopyableValue::Bool(_) => todo!(),
-                CopyableValue::Void(_) => todo!(),
-                CopyableValue::EnumKind(_) => todo!(),
+                _ => panic!(),
             }))
         }
 
@@ -223,21 +215,14 @@ fn cast_as_i32<'temp, 'eval>(opd: TempValue<'temp, 'eval>) -> i32 {
         TempValue::Moved => todo!(),
         TempValue::Copyable(value) => match value {
             CopyableValue::I32(i) => i,
-            CopyableValue::F32(_) => todo!(),
             CopyableValue::B32(b) => b as i32,
-            CopyableValue::B64(_) => todo!(),
-            CopyableValue::Bool(_) => todo!(),
-            CopyableValue::Void(_) => todo!(),
+            CopyableValue::Bool(b) => b as i32,
             CopyableValue::EnumKind(enum_kind) => enum_kind.kind_idx as i32,
+            _ => panic!(),
         },
-        TempValue::OwnedEval(_) => todo!(),
-        TempValue::EvalPure(_) => todo!(),
         TempValue::EvalRef(_) => todo!(),
-        TempValue::TempRefEval(value) => todo!(),
         TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
-        TempValue::OwnedTemp(_) => todo!(),
-        TempValue::TempRefTemp(_) => todo!(),
-        TempValue::TempMutTemp { value, owner, gen } => todo!(),
+        _ => panic!(),
     }
 }
 
@@ -251,13 +236,10 @@ fn cast_as_b32<'temp, 'eval>(opd: TempValue<'temp, 'eval>) -> u32 {
         },
         TempValue::Moved => todo!(),
         TempValue::OwnedEval(_) => todo!(),
-        TempValue::EvalPure(_) => todo!(),
         TempValue::EvalRef(_) => todo!(),
         TempValue::TempRefEval(value) => todo!(),
         TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
-        TempValue::OwnedTemp(_) => todo!(),
-        TempValue::TempRefTemp(_) => todo!(),
-        TempValue::TempMutTemp { value, owner, gen } => todo!(),
+        _ => panic!(),
     }
 }
 
@@ -266,20 +248,12 @@ fn cast_as_f32<'temp, 'eval>(opd: TempValue<'temp, 'eval>) -> f32 {
         TempValue::Moved => todo!(),
         TempValue::Copyable(value) => match value {
             CopyableValue::I32(i) => i as f32,
-            CopyableValue::F32(_) => todo!(),
-            CopyableValue::B32(b) => todo!(),
-            CopyableValue::B64(_) => todo!(),
-            CopyableValue::Bool(_) => todo!(),
-            CopyableValue::Void(_) => todo!(),
-            CopyableValue::EnumKind(enum_kind) => todo!(),
+            CopyableValue::F32(f) => f,
+            _ => panic!(),
         },
-        TempValue::OwnedEval(_) => todo!(),
-        TempValue::EvalPure(_) => todo!(),
         TempValue::EvalRef(_) => todo!(),
         TempValue::TempRefEval(value) => todo!(),
         TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
-        TempValue::OwnedTemp(_) => todo!(),
-        TempValue::TempRefTemp(_) => todo!(),
-        TempValue::TempMutTemp { value, owner, gen } => todo!(),
+        _ => panic!(),
     }
 }

@@ -109,7 +109,7 @@ impl<'eval> TraceFactory<'eval> {
                 ..
             } => todo!(),
             FeatureExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureExprVariant::GlobalInput => vec![keyword!("input")],
+            FeatureExprVariant::EvalInput => vec![keyword!("input")],
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => {

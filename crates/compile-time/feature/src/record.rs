@@ -80,7 +80,7 @@ pub(crate) fn expr_record_field(
         FeatureExprVariant::ThisValue { ref repr } => {
             db.record_field_repr(repr.clone(), field_ident)
         }
-        FeatureExprVariant::GlobalInput => todo!(),
+        FeatureExprVariant::EvalInput => todo!(),
         FeatureExprVariant::RoutineCall { .. } => todo!(),
         FeatureExprVariant::PatternCall {} => todo!(),
         FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),

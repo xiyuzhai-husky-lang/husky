@@ -92,7 +92,7 @@ pub enum FeatureExprVariant {
         route: EntityRoutePtr,
         repr: FeatureRepr,
     },
-    GlobalInput,
+    EvalInput,
     NewRecord {
         ty: RangedEntityRoute,
         entity: Arc<EntityDefn>,
@@ -192,7 +192,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 }
                 EntityRouteKind::Input { main } => {
                     let feature = self.features.alloc(Feature::Input);
-                    let kind = FeatureExprVariant::GlobalInput;
+                    let kind = FeatureExprVariant::EvalInput;
                     (kind, feature)
                 }
                 EntityRouteKind::Generic { ident, .. } => todo!(),

@@ -320,7 +320,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 panic!()
             }
             FeatureExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureExprVariant::GlobalInput => todo!(),
+            FeatureExprVariant::EvalInput => todo!(),
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),

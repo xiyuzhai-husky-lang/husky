@@ -92,15 +92,18 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                 result.push_str(&value.print_short());
             }
             TempValue::TempRefEval(value) => {
-                result.push_str("FullyOwnedRef ");
+                result.push_str("TempRefEval ");
                 result.push_str(&value.print_short());
             }
             TempValue::CopyableOrTempMutEval { value, owner, gen } => {
-                result.push_str("TempRefMut ");
+                result.push_str("CopyableOrTempMutEval ");
                 result.push_str(&value.print_short());
                 write!(result, " Owner({:?}) ", owner);
             }
-            TempValue::OwnedTemp(_) => todo!(),
+            TempValue::OwnedTemp(value) => {
+                result.push_str("OwnedTemp ");
+                result.push_str(&value.any_ref().print_short());
+            }
             TempValue::TempRefTemp(_) => todo!(),
             TempValue::TempMutTemp { value, owner, gen } => todo!(),
         }
@@ -109,8 +112,8 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
 
     pub fn to_json_value(self) -> serde_json::value::Value {
         match self {
-            TempValue::Moved => todo!(),
-            TempValue::Copyable(_) => todo!(),
+            TempValue::Moved => panic!(),
+            TempValue::Copyable(value) => todo!(),
             TempValue::OwnedEval(_) => todo!(),
             TempValue::EvalPure(_) => todo!(),
             TempValue::EvalRef(_) => todo!(),
@@ -191,9 +194,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::EvalRef(_) => todo!(),
             TempValue::TempRefEval(value) => todo!(),
             TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
-            TempValue::OwnedTemp(_) => todo!(),
-            TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            _ => panic!(),
         }
     }
 
