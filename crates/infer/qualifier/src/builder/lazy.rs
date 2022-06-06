@@ -33,8 +33,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 .insert_new((
                     (input.ranged_ident.ident.into(), input.ranged_ident.range),
                     self.db.is_copyable(ty).map(|is_copyable| {
-                        LazyQualifiedTy::new(
-                            LazyQualifier::parameter(input.ranged_liason.liason, is_copyable),
+                        LazyValueQualifiedTy::new(
+                            LazyValueQualifier::parameter(input.ranged_liason.liason, is_copyable),
                             ty,
                         )
                     }),
@@ -144,7 +144,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
-    ) -> Option<LazyQualifiedTy> {
+    ) -> Option<LazyValueQualifiedTy> {
         let qualified_qualified_ty_result = self.lazy_expr(arena, raw_expr_idx);
         let opt_qualified_ty = qualified_qualified_ty_result
             .as_ref()
@@ -160,7 +160,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         let raw_expr = &arena[raw_expr_idx];
         let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         match raw_expr.variant {
@@ -175,41 +175,46 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             {
                 Ok(variable_qt) => {
                     let variable_contract = self.lazy_expr_contract(raw_expr_idx)?;
-                    Ok(LazyQualifiedTy {
+                    Ok(LazyValueQualifiedTy {
                         qual: variable_qt.qual.variable_use(variable_contract)?,
                         ty: variable_qt.ty,
                     })
                 }
                 Err(ref e) => Err(e.derived()),
             },
-            RawExprVariant::FrameVariable {
-                varname,
-                init_range: init_row,
-            } => todo!(),
+            RawExprVariant::FrameVariable { .. } => throw_derived!("no frame variable in lazy"),
             RawExprVariant::ThisValue {
                 opt_this_ty: opt_ty,
-                opt_this_liason: opt_contract,
+                opt_this_liason,
             } => {
                 let ty = derived_not_none!(opt_ty)?;
-                let contract = derived_not_none!(opt_contract)?;
-                LazyQualifiedTy::parameter_lazy_qualified_ty(self.db, contract, ty)
+                let this_liason = derived_not_none!(opt_this_liason)?;
+                let this_contract = self.lazy_expr_contract(raw_expr_idx)?;
+                LazyValueQualifiedTy::parameter_use_lazy_qualified_ty(
+                    self.db,
+                    this_liason,
+                    ty,
+                    this_contract,
+                )
             }
             RawExprVariant::Unrecognized(_) => todo!(),
             RawExprVariant::Entity { route, kind } => match kind {
                 EntityKind::Module => todo!(),
-                EntityKind::Type(_) => Ok(LazyQualifiedTy::ty_ty()),
-                EntityKind::Trait => Ok(LazyQualifiedTy::trait_ty()),
+                EntityKind::Type(_) => Ok(LazyValueQualifiedTy::ty_ty()),
+                EntityKind::Trait => Ok(LazyValueQualifiedTy::trait_ty()),
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Function { .. } => todo!(),
-                EntityKind::Feature => Ok(LazyQualifiedTy::new(
-                    LazyQualifier::feature(self.db.is_copyable(ty)?),
+                EntityKind::Feature => Ok(LazyValueQualifiedTy::new(
+                    LazyValueQualifier::feature(self.db.is_copyable(ty)?),
                     ty,
                 )),
-                EntityKind::EnumLiteral => Ok(LazyQualifiedTy::new(LazyQualifier::Copyable, ty)),
+                EntityKind::EnumLiteral => {
+                    Ok(LazyValueQualifiedTy::new(LazyValueQualifier::Copyable, ty))
+                }
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::CopyableLiteral(_) => Ok(LazyQualifiedTy::new(
-                LazyQualifier::Copyable,
+            RawExprVariant::CopyableLiteral(_) => Ok(LazyValueQualifiedTy::new(
+                LazyValueQualifier::Copyable,
                 self.raw_expr_deref_ty(raw_expr_idx).unwrap(),
             )),
             RawExprVariant::Bracketed(bracketed_expr) => {
@@ -238,12 +243,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     is_field_copyable,
                     arena[raw_expr_idx].range,
                 )?;
-                let this_qual = LazyQualifier::parameter_use_lazy_qualifier(
+                let this_qual = LazyValueQualifier::parameter_use_lazy_qualifier(
                     this_liason,
                     self.db.is_copyable(this_ty)?,
                     this_contract,
                 )?;
-                Ok(LazyQualifiedTy::member_lazy_qualified_ty(
+                Ok(LazyValueQualifiedTy::member_lazy_qualified_ty(
                     self.db,
                     this_qual,
                     field_ty.route,
@@ -259,7 +264,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
         opr: &RawOpnVariant,
         opds: RawExprRange,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         match opr {
             RawOpnVariant::Binary(binary_opr) => self.lazy_binary(arena, raw_expr_idx, opds),
             RawOpnVariant::Prefix(prefix_opr) => self.lazy_prefix(arena, raw_expr_idx, opds),
@@ -278,11 +283,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         opds: RawExprRange,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         self.infer_lazy_expr(arena, opds.start);
         self.infer_lazy_expr(arena, opds.start + 1);
-        Ok(LazyQualifiedTy::new(
-            LazyQualifier::Transient,
+        Ok(LazyValueQualifiedTy::new(
+            LazyValueQualifier::Transient,
             self.raw_expr_deref_ty(raw_expr_idx)?,
         ))
     }
@@ -292,10 +297,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         opds: RawExprRange,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         self.infer_lazy_expr(arena, opds.start);
-        Ok(LazyQualifiedTy::new(
-            LazyQualifier::Transient,
+        Ok(LazyValueQualifiedTy::new(
+            LazyValueQualifier::Transient,
             self.raw_expr_deref_ty(raw_expr_idx)?,
         ))
     }
@@ -306,7 +311,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
         opr: SuffixOpr,
         opds: RawExprRange,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         match opr {
@@ -323,16 +328,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
         field_ident: RangedCustomIdentifier,
         opds: RawExprRange,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let qual = LazyQualifier::member_lazy_qualifier(
+        let qual = LazyValueQualifier::member_lazy_qualifier(
             this_qt.qual,
             field_decl.liason,
             self.db.is_copyable(field_decl.ty)?,
         )?;
-        Ok(LazyQualifiedTy::new(qual, field_decl.ty))
+        Ok(LazyValueQualifiedTy::new(qual, field_decl.ty))
     }
 
     fn lazy_list(
@@ -341,7 +346,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
         list_opr: &ListOpr,
         opds: RawExprRange,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         match list_opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
@@ -365,7 +370,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         total_opds: RawExprRange,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         match arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
                 let call_decl = derived_unwrap!(self.db.call_decl(route));
@@ -376,11 +381,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 match call_decl.output.liason {
                     OutputLiason::Transfer => {
                         emsg_once!("handle ref");
-                        Ok(LazyQualifiedTy::new(
+                        Ok(LazyValueQualifiedTy::new(
                             if self.db.is_copyable(call_decl.output.ty)? {
-                                LazyQualifier::Copyable
+                                LazyValueQualifier::Copyable
                             } else {
-                                LazyQualifier::Transient
+                                LazyValueQualifier::Transient
                             },
                             call_decl.output.ty,
                         ))
@@ -407,7 +412,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         total_opds: RawExprRange,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(arena, total_opds.start))?;
         let this_contract = self.lazy_expr_contract(total_opds.start)?;
         for opd in (total_opds.start + 1)..total_opds.end {
@@ -415,16 +420,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
         let element_ty = self.raw_expr_deref_ty(raw_expr_idx)?;
         let qual = if self.db.is_copyable(element_ty)? {
-            LazyQualifier::Copyable
+            LazyValueQualifier::Copyable
         } else {
             match this_qt.qual {
-                LazyQualifier::Copyable => todo!(),
-                LazyQualifier::PureRef => todo!(),
-                LazyQualifier::EvalRef => LazyQualifier::EvalRef,
-                LazyQualifier::Transient => todo!(),
+                LazyValueQualifier::Copyable => todo!(),
+                LazyValueQualifier::PureRef => todo!(),
+                LazyValueQualifier::EvalRef => LazyValueQualifier::EvalRef,
+                LazyValueQualifier::Transient => todo!(),
             }
         };
-        Ok(LazyQualifiedTy::new(qual, element_ty))
+        Ok(LazyValueQualifiedTy::new(qual, element_ty))
     }
 
     fn lazy_method_call(
@@ -434,7 +439,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         method_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
         raw_expr_idx: RawExprIdx,
-    ) -> InferResult<LazyQualifiedTy> {
+    ) -> InferResult<LazyValueQualifiedTy> {
         let method_decl = self.method_decl(raw_expr_idx)?;
         self.infer_lazy_expr(arena, this);
         for input in inputs {
@@ -443,13 +448,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let qual = match method_decl.output.liason {
             OutputLiason::Transfer => {
                 if self.db.is_copyable(method_decl.output.ty)? {
-                    LazyQualifier::Copyable
+                    LazyValueQualifier::Copyable
                 } else {
-                    LazyQualifier::Transient
+                    LazyValueQualifier::Transient
                 }
             }
             OutputLiason::MemberAccess { .. } => todo!(),
         };
-        Ok(LazyQualifiedTy::new(qual, method_decl.output.ty))
+        Ok(LazyValueQualifiedTy::new(qual, method_decl.output.ty))
     }
 }
