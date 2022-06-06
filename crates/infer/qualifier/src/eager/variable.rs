@@ -107,37 +107,37 @@ impl EagerVariableQualifier {
         self,
         contract: EagerContract,
         range: TextRange,
-    ) -> InferResult<EagerValueQualifier> {
+    ) -> InferResult<EagerExprQualifier> {
         Ok(match contract {
             EagerContract::Pure => match self {
                 EagerVariableQualifier::Copyable | EagerVariableQualifier::CopyableMut => {
-                    EagerValueQualifier::Copyable
+                    EagerExprQualifier::Copyable
                 }
-                _ => EagerValueQualifier::PureRef,
+                _ => EagerExprQualifier::PureRef,
             },
             EagerContract::Move => match self {
                 EagerVariableQualifier::Copyable | EagerVariableQualifier::CopyableMut => panic!(),
                 EagerVariableQualifier::Owned | EagerVariableQualifier::OwnedMut => {
-                    EagerValueQualifier::Transient
+                    EagerExprQualifier::Transient
                 }
                 _ => throw!(format!("can't move from ref"), range),
             },
             EagerContract::Pass => match self {
                 EagerVariableQualifier::Copyable | EagerVariableQualifier::CopyableMut => {
-                    EagerValueQualifier::Copyable
+                    EagerExprQualifier::Copyable
                 }
-                EagerVariableQualifier::EvalRef => EagerValueQualifier::EvalRef,
-                EagerVariableQualifier::PureRef => EagerValueQualifier::PureRef,
-                _ => EagerValueQualifier::TempRef,
+                EagerVariableQualifier::EvalRef => EagerExprQualifier::EvalRef,
+                EagerVariableQualifier::PureRef => EagerExprQualifier::PureRef,
+                _ => EagerExprQualifier::TempRef,
             },
             EagerContract::EvalRef => match self {
-                EagerVariableQualifier::EvalRef => EagerValueQualifier::EvalRef,
+                EagerVariableQualifier::EvalRef => EagerExprQualifier::EvalRef,
                 _ => throw!(format!("expect eval ref"), range),
             },
             EagerContract::TempRef => todo!(),
             EagerContract::TempRefMut => match self {
                 EagerVariableQualifier::CopyableMut | EagerVariableQualifier::OwnedMut => {
-                    EagerValueQualifier::TempRefMut
+                    EagerExprQualifier::TempRefMut
                 }
                 _ => throw!(format!("can't bind this to a temp mut ref"), range),
             },
