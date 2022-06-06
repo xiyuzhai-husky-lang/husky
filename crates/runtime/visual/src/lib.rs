@@ -8,14 +8,12 @@ use compile_time_db::*;
 use entity_route::EntityRoutePtr;
 use semantics_eager::FuncStmt;
 use std::sync::Arc;
-use visual_syntax::{StaticVisualizer, VisualProps};
-use vm::{
-    eval_fast, AnyValueDyn, InstructionSheet, MemberValue, TempValue, VMRuntimeResult, XmlValue,
-};
+use visual_syntax::StaticVisualizer;
+use vm::*;
 
 #[derive(Clone)]
 pub enum RuntimeVisualizer {
-    Compiled(for<'eval> fn(&(dyn AnyValueDyn<'eval> + 'eval)) -> VisualProps),
+    Compiled(for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps),
     Vec {
         ty: EntityRoutePtr,
     },
@@ -26,10 +24,10 @@ pub enum RuntimeVisualizer {
 }
 
 impl RuntimeVisualizer {
-    pub fn visualize<'a, 'eval>(
+    pub fn visualize<'a, 'temp, 'eval>(
         &self,
-        db: &dyn VisualQueryGroup,
-        value: &(dyn AnyValueDyn<'eval> + 'eval),
+        db: &dyn RuntimeVisualizerQueryGroup,
+        value: &(dyn AnyValueDyn<'eval> + 'temp),
         verbose: bool,
     ) -> VisualProps {
         match self {
@@ -37,17 +35,14 @@ impl RuntimeVisualizer {
             RuntimeVisualizer::Interpreted {
                 instruction_sheet, ..
             } => match eval_fast(
-                db.compile_time(),
+                db.upcast(),
                 Some(instruction_sheet),
                 None,
-                vec![Ok(TempValue::TempRefEval(value))].into_iter(),
+                vec![Ok(TempValue::TempRefTemp(value))].into_iter(),
                 [].into_iter(),
                 verbose,
             ) {
-                Ok(value) => {
-                    let xml_value: XmlValue = value.owned().unwrap().take().unwrap();
-                    VisualProps::from_xml_value(xml_value)
-                }
+                Ok(value) => value.owned().unwrap().take::<VisualProps>().unwrap(),
                 Err(_) => todo!(),
             },
             RuntimeVisualizer::Vec { ty, .. } => {

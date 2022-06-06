@@ -13,4 +13,4 @@ use semantics_lazy::*;
 use std::sync::Arc;
 use text::{TextRange, TextRanged};
 
-use crate::{eval::FeatureEvalId, unique_allocate::FeatureUniqueAllocator, *};
+use crate::{eval_id::FeatureEvalId, unique_allocate::FeatureUniqueAllocator, *};

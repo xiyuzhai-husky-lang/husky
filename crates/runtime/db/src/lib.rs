@@ -1,4 +1,5 @@
 mod impl_figure;
+mod impl_necessary;
 mod query;
 mod tests;
 
@@ -13,6 +14,7 @@ pub use query::*;
 
 use check_utils::*;
 use compile_time_db::*;
+use eval_feature::*;
 use file::{FilePtr, FileQueryGroup};
 use print_utils::*;
 use std::{
@@ -25,7 +27,7 @@ use trace::*;
 use visual_runtime::*;
 use vm::{AnyValueDyn, Instruction};
 
-#[salsa::database(VisualQueryGroupStorage, TraceQueryGroupStorage)]
+#[salsa::database(RuntimeVisualizerQueryGroupStorage, TraceQueryGroupStorage)]
 pub struct HuskyRuntime {
     storage: salsa::Storage<HuskyRuntime>,
     compile_time: HuskyCompileTime,
@@ -42,32 +44,6 @@ pub struct HuskyRuntime {
 
 pub struct HuskyRuntimeConfig {
     verbose: bool,
-}
-
-impl AskCompileTime for HuskyRuntime {
-    fn compile_time(&self) -> &HuskyCompileTime {
-        &self.compile_time
-    }
-}
-
-impl ProduceTrace<'static> for HuskyRuntime {
-    fn trace_factory(&self) -> &trace::TraceFactory<'static> {
-        &self.traces
-    }
-}
-
-impl EvalFeature<'static> for HuskyRuntime {
-    fn session(&self) -> &Arc<Mutex<Session<'static>>> {
-        &self.session
-    }
-
-    fn feature_query_group(&self) -> &dyn FeatureQueryGroup {
-        &self.compile_time
-    }
-
-    fn verbose(&self) -> bool {
-        self.config.verbose
-    }
 }
 
 impl HuskyRuntime {

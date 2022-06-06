@@ -9,23 +9,23 @@ use vm::InterpreterQueryGroup;
 
 use crate::{record::*, unique_allocate::AllocateUniqueFeature, *};
 
-#[salsa::query_group(FeatureQueryGroupStorage)]
-pub trait FeatureQueryGroup:
+#[salsa::query_group(FeatureGenQueryGroupStorage)]
+pub trait FeatureGenQueryGroup:
     AllocateUniqueFeature
     + PackageQueryGroup
     + Upcast<dyn EntityDefnQueryGroup>
     + Upcast<dyn InstructionGenQueryGroup>
     + InstructionGenQueryGroup
-    + Upcast<dyn InterpreterQueryGroup>
     + ResolveLinkage
 {
     fn main_feature_repr(&self, main_file: file::FilePtr) -> SemanticResult<FeatureRepr>;
     fn entity_feature_repr(&self, entity_route: EntityRoutePtr) -> SemanticResult<FeatureRepr>;
     fn record_field_repr(&self, this: FeatureRepr, field_ident: CustomIdentifier) -> FeatureRepr;
 }
+// + Upcast<dyn InterpreterQueryGroup>
 
 fn main_feature_repr(
-    db: &dyn FeatureQueryGroup,
+    db: &dyn FeatureGenQueryGroup,
     main_file: file::FilePtr,
 ) -> SemanticResult<FeatureRepr> {
     let pack = db.package(main_file)?;
@@ -39,7 +39,7 @@ fn main_feature_repr(
 }
 
 fn entity_feature_repr(
-    db: &dyn FeatureQueryGroup,
+    db: &dyn FeatureGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> SemanticResult<FeatureRepr> {
     let entity = db.entity_defn(entity_route)?;

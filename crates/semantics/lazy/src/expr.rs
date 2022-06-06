@@ -76,6 +76,6 @@ pub enum LazyExprVariant {
         field_binding: Binding,
     },
     EntityFeature {
-        route: EntityRoutePtr,
+        entity_route: EntityRoutePtr,
     },
 }

@@ -2,13 +2,13 @@ use file::FilePtr;
 use semantics_lazy::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
 use text::TextRange;
 
-use crate::{eval::FeatureEvalId, *};
+use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, Clone)]
 pub struct FeatureStmt {
     pub indent: fold::Indent,
     pub variant: FeatureStmtVariant,
-    pub(crate) opt_feature: Option<FeaturePtr>,
+    pub opt_feature: Option<FeaturePtr>,
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
@@ -53,7 +53,7 @@ pub enum FeatureStmtVariant {
 
 impl FeatureStmt {
     pub fn new_from_lazy(
-        db: &dyn FeatureQueryGroup,
+        db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
         lazy_stmt: &Arc<LazyStmt>,
         symbols: &mut Vec<FeatureSymbol>,

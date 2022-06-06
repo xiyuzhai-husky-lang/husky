@@ -43,7 +43,7 @@ impl FeatureRepr {
     }
 
     pub fn from_defn(
-        db: &dyn FeatureQueryGroup,
+        db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
         defn_repr: &DefinitionRepr,
         features: &FeatureUniqueAllocator,

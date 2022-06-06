@@ -14,7 +14,7 @@ use dev_utils::{dev_src, static_dev_src};
 
 use crate::*;
 use entity_kind::{RoutineKind, TyKind};
-use visual_syntax::{StaticVisualizer, VisualProps, TRIVIAL_VISUALIZER};
+use visual_syntax::{StaticVisualizer, TRIVIAL_VISUALIZER};
 use vm::*;
 
 pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {

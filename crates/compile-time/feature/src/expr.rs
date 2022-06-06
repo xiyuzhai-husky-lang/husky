@@ -11,13 +11,13 @@ use text::TextRange;
 use vm::{Binding, InstructionSheet, Linkage};
 use word::{ContextualIdentifier, RootIdentifier};
 
-use crate::{eval::FeatureEvalId, *};
+use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, Clone)]
 pub struct FeatureExpr {
     pub variant: FeatureExprVariant,
-    pub(crate) feature: FeaturePtr,
-    pub(crate) eval_id: FeatureEvalId,
+    pub feature: FeaturePtr,
+    pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
 }
 
@@ -89,7 +89,7 @@ pub enum FeatureExprVariant {
     },
     PatternCall {},
     EntityFeature {
-        route: EntityRoutePtr,
+        entity_route: EntityRoutePtr,
         repr: FeatureRepr,
     },
     EvalInput,
@@ -102,7 +102,7 @@ pub enum FeatureExprVariant {
 
 impl FeatureExpr {
     pub fn new(
-        db: &dyn FeatureQueryGroup,
+        db: &dyn FeatureGenQueryGroup,
         this: Option<FeatureRepr>,
         expr: Arc<LazyExpr>,
         symbols: &[FeatureSymbol],
@@ -119,7 +119,7 @@ impl FeatureExpr {
 }
 
 struct FeatureExprBuilder<'a> {
-    db: &'a dyn FeatureQueryGroup,
+    db: &'a dyn FeatureGenQueryGroup,
     symbols: &'a [FeatureSymbol],
     features: &'a FeatureUniqueAllocator,
     this: Option<FeatureRepr>,
@@ -179,14 +179,17 @@ impl<'a> FeatureExprBuilder<'a> {
                 this_binding,
                 field_binding,
             } => todo!(),
-            LazyExprVariant::EntityFeature { route } => match route.kind {
+            LazyExprVariant::EntityFeature { entity_route } => match entity_route.kind {
                 EntityRouteKind::Root { .. } | EntityRouteKind::Package { .. } => panic!(),
                 EntityRouteKind::Child { .. } => {
-                    let uid = self.db.entity_uid(route);
-                    let feature = self.features.alloc(Feature::EntityFeature { route, uid });
+                    let uid = self.db.entity_uid(entity_route);
+                    let feature = self.features.alloc(Feature::EntityFeature {
+                        route: entity_route,
+                        uid,
+                    });
                     let kind = FeatureExprVariant::EntityFeature {
-                        route,
-                        repr: self.db.entity_feature_repr(route).unwrap(),
+                        entity_route,
+                        repr: self.db.entity_feature_repr(entity_route).unwrap(),
                     };
                     (kind, feature)
                 }

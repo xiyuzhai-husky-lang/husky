@@ -1,9 +1,9 @@
+use crate::*;
 use check_utils::should_eq;
 use print_utils::{msg_once, p, ps};
 use serde::{Deserialize, Serialize};
-use vm::{CopyableValue, XmlValue};
 
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, PartialEq)]
 #[serde(tag = "kind")]
 pub enum VisualProps {
     BinaryImage28 {
@@ -53,7 +53,21 @@ impl VisualProps {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+impl<'eval> AnyValue<'eval> for VisualProps {
+    fn static_type_id() -> StaticTypeId {
+        std::any::TypeId::of::<Self>().into()
+    }
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        "XmlValue".into()
+    }
+
+    fn to_json_value(&self) -> serde_json::value::Value {
+        todo!()
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct Point2dProps {
     pub x: f32,
     pub y: f32,

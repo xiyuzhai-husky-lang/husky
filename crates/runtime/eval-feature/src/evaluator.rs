@@ -1,4 +1,3 @@
-mod id;
 mod impl_block;
 mod impl_expr;
 mod impl_repr;
@@ -6,17 +5,16 @@ mod impl_stmt;
 mod indicator;
 mod sheet;
 
-pub(crate) use id::FeatureEvalId;
 pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 
+use crate::*;
+use feature::FeatureEvalId;
+use vm::EvalResult;
 use vm::{AnyValueDyn, EvalValue};
 
-use crate::*;
-use vm::EvalResult;
-
 pub fn eval_feature_lazy_block<'eval>(
-    db: &dyn FeatureQueryGroup,
+    db: &dyn FeatureEvalQueryGroup,
     block: &FeatureLazyBlock,
     eval_input: EvalValue<'eval>,
     sheet: &mut EvalSheet<'eval>,
@@ -32,7 +30,7 @@ pub fn eval_feature_lazy_block<'eval>(
 }
 
 pub fn eval_feature_stmt<'eval>(
-    db: &dyn FeatureQueryGroup,
+    db: &dyn FeatureEvalQueryGroup,
     stmt: &FeatureStmt,
     eval_input: EvalValue<'eval>,
     sheet: &mut EvalSheet<'eval>,
@@ -52,7 +50,7 @@ pub fn eval_feature_stmt<'eval>(
 }
 
 pub fn eval_feature_expr<'eval>(
-    db: &dyn FeatureQueryGroup,
+    db: &dyn FeatureEvalQueryGroup,
     expr: &FeatureExpr,
     eval_input: EvalValue<'eval>,
     sheet: &mut EvalSheet<'eval>,
@@ -72,7 +70,7 @@ pub fn eval_feature_expr<'eval>(
 }
 
 pub fn eval_feature_repr<'eval>(
-    db: &dyn FeatureQueryGroup,
+    db: &dyn FeatureEvalQueryGroup,
     repr: &FeatureRepr,
     eval_input: EvalValue<'eval>,
     sheet: &mut EvalSheet<'eval>,
@@ -90,7 +88,7 @@ pub fn eval_feature_repr<'eval>(
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     eval_input: EvalValue<'eval>,
     sheet: &'a mut EvalSheet<'eval>,
-    db: &'a dyn FeatureQueryGroup,
+    db: &'a dyn FeatureEvalQueryGroup,
     verbose: bool,
 }
 

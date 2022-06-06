@@ -9,17 +9,17 @@ use semantics_error::*;
 
 #[salsa::query_group(PackQueryGroupStorage)]
 pub trait PackageQueryGroup: EntityDefnQueryGroup {
-    fn package(&self, main_file: file::FilePtr) -> SemanticResultArc<Pack>;
+    fn package(&self, main_file: file::FilePtr) -> SemanticResultArc<Package>;
     fn config(&self, main_file: file::FilePtr) -> SemanticResultArc<Config>;
 }
 
-fn package(db: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Pack> {
+fn package(db: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Package> {
     let module = db.module(main_file).unwrap();
     let ident = match module.kind {
         EntityRouteKind::Package { ident, .. } => ident,
         _ => panic!(),
     };
-    Ok(Arc::new(Pack {
+    Ok(Arc::new(Package {
         ident,
         subentity_defns: db.subentity_defns(module)?,
         main_defn: db.main_defn(main_file)?,

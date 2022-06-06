@@ -14,6 +14,9 @@ impl<'a> AstTransformer<'a> {
         let mut token_stream: TokenStream = token_group.into();
         let mut parser = AtomParser::new(self, &mut token_stream);
         let paradigm = get!(parser, paradigm);
+        enter_block(self);
+        self.context.set(AstContext::Stmt(paradigm));
+        let mut parser = AtomParser::new(self, &mut token_stream);
         let ranged_ident = get!(parser, custom_ident);
         parser
             .atom_context
@@ -47,14 +50,12 @@ impl<'a> AstTransformer<'a> {
                 _ => (),
             }
         };
-        enter_block(self);
         self.opt_this_liason.set(opt_this_liason);
         self.symbols.extend(
             parameters
                 .iter()
                 .map(|parameter| Symbol::variable(parameter.ranged_ident)),
         );
-        self.context.set(AstContext::Stmt(paradigm));
         match paradigm {
             Paradigm::EagerProcedural => (),
             Paradigm::EagerFunctional | Paradigm::LazyFunctional => {

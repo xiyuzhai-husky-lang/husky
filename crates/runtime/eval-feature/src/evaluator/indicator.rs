@@ -1,6 +1,5 @@
+use crate::*;
 use std::collections::HashSet;
-
-use super::id::FeatureEvalId;
 
 #[derive(Debug, Default)]
 pub struct FeatureEvalIndicator {

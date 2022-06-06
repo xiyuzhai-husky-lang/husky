@@ -212,7 +212,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::PatternMatch { ref branches } => {
                     self.exec_pattern_matching(sheet, ins, branches, mode)
                 }
-                InstructionVariant::NewXmlFromValue { ty } => todo!(),
+                InstructionVariant::NewXmlFromValue { ty } => {
+                    let visual_props = self.db.visualize(ty, self.stack.pop().any_temp_ref());
+                    self.stack
+                        .push(TempValue::OwnedEval(OwnedValue::new(visual_props)));
+                    VMControl::None
+                }
                 InstructionVariant::NewXmlFromTag {
                     tag_kind,
                     ref props,
@@ -232,8 +237,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         )
                         .collect(),
                     };
-                    self.stack
-                        .push(TempValue::OwnedEval(OwnedValue::new(xml_value)));
+                    self.stack.push(TempValue::OwnedEval(OwnedValue::new(
+                        VisualProps::from_xml_value(xml_value),
+                    )));
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => todo!(),

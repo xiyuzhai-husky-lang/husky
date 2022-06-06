@@ -7,9 +7,8 @@ pub use graphics2d::*;
 
 use crate::*;
 use map_collect::MapCollect;
-use visual_runtime::{RuntimeVisualizer, VisualQueryGroup};
-use visual_syntax::{Point2dProps, VisualProps};
-use vm::{CopyableValue, MutationData, VMRuntimeResult};
+use visual_runtime::{RuntimeVisualizer, RuntimeVisualizerQueryGroup};
+use vm::*;
 use word::Identifier;
 
 #[derive(Debug, Serialize, Clone)]
@@ -45,7 +44,7 @@ pub struct MutationFigureProps {
 
 impl<'eval> MutationFigureProps {
     pub fn new(
-        db: &dyn VisualQueryGroup,
+        db: &dyn RuntimeVisualizerQueryGroup,
         text: &Text,
         visualizer: &RuntimeVisualizer,
         mutation_data: &MutationData<'eval>,

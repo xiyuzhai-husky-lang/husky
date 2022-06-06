@@ -5,7 +5,7 @@ use crate::*;
 use std::sync::Arc;
 
 pub(crate) fn record_field_repr(
-    db: &dyn FeatureQueryGroup,
+    db: &dyn FeatureGenQueryGroup,
     this: FeatureRepr,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
@@ -18,7 +18,7 @@ pub(crate) fn record_field_repr(
 }
 
 pub(crate) fn expr_record_field(
-    db: &dyn FeatureQueryGroup,
+    db: &dyn FeatureGenQueryGroup,
     this: &Arc<FeatureExpr>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
@@ -94,7 +94,7 @@ pub(crate) fn expr_record_field(
 }
 
 pub(crate) fn block_record_field(
-    db: &dyn FeatureQueryGroup,
+    db: &dyn FeatureGenQueryGroup,
     this: &Arc<FeatureLazyBlock>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {

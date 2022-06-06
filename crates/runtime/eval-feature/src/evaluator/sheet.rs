@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 
 use vm::{EvalResult, EvalValue};
+use word::CustomIdentifier;
 
 use super::*;
 

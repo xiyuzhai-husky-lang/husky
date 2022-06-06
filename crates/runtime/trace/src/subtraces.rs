@@ -19,7 +19,7 @@ impl<'eval> Trace<'eval> {
             | TraceVariant::ProcBranch { .. } => None,
             TraceVariant::FeatureExpr(ref expr) => match expr.variant {
                 FeatureExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
-                FeatureExprVariant::EntityFeature { .. } => todo!(),
+                FeatureExprVariant::EntityFeature { .. } => None,
                 FeatureExprVariant::PatternCall {} => todo!(),
                 FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
                 FeatureExprVariant::StructDerivedLazyFieldAccess {

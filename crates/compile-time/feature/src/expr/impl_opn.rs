@@ -35,7 +35,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 _ => todo!(),
             },
             LazyOpnKind::Prefix(_) => todo!(),
-            LazyOpnKind::NormalRoutineCall(routine) => {
+            LazyOpnKind::FunctionRoutineCall(routine) => {
                 let uid = self.db.entity_uid(routine.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
                 let feature = self.features.alloc(Feature::FuncCall {

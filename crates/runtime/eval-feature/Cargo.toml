@@ -33,6 +33,7 @@ datasets = { path = "../../domains/ml/datasets", version = "0.0.0" }
 compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
 trivial-iter = { path = "../../abstraction/trivial-iter", version = "0.0.0" }
+semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 pack-semantics = { path = "../../semantics/pack", version = "0.0.0" }
 feature = { path = "../../compile-time/feature", version = "0.0.0" }

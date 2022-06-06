@@ -4,15 +4,16 @@ use instruction_gen::new_visual_instruction_sheet;
 use print_utils::p;
 use semantics_entity::EntityDefnVariant;
 use static_defn::EntityStaticDefnVariant;
+use upcast::Upcast;
 use visual_semantics::VisualizerSource;
 use visual_syntax::TRIVIAL_VISUALIZER;
 
-#[salsa::query_group(VisualQueryGroupStorage)]
-pub trait VisualQueryGroup: AskCompileTime {
+#[salsa::query_group(RuntimeVisualizerQueryGroupStorage)]
+pub trait RuntimeVisualizerQueryGroup: AskCompileTime + Upcast<dyn InterpreterQueryGroup> {
     fn visualizer(&self, ty: EntityRoutePtr) -> Arc<RuntimeVisualizer>;
 }
 
-fn visualizer(db: &dyn VisualQueryGroup, ty: EntityRoutePtr) -> Arc<RuntimeVisualizer> {
+fn visualizer(db: &dyn RuntimeVisualizerQueryGroup, ty: EntityRoutePtr) -> Arc<RuntimeVisualizer> {
     let ty_defn = db.compile_time().entity_defn(ty).unwrap();
     Arc::new(match ty_defn.variant {
         EntityDefnVariant::Ty {
