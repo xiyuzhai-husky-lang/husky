@@ -17,7 +17,6 @@ use semantics_error::*;
 
 pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedTy {
     fn arena(&self) -> &'a RawExprArena;
-    fn vartype(&self, varname: CustomIdentifier) -> EntityRoutePtr;
     fn file(&self) -> FilePtr;
     fn db(&self) -> &dyn InferQueryGroup;
 
