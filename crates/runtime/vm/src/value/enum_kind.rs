@@ -33,7 +33,7 @@ impl<'eval> AnyValue<'eval> for EnumKindValue {
         panic!()
     }
 
-    fn as_copyable(&self) -> CopyableValue {
+    fn take_copyable(&self) -> CopyableValue {
         CopyableValue::EnumKind(*self)
     }
 

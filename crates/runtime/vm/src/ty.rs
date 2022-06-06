@@ -67,7 +67,7 @@ impl<'temp, 'eval: 'temp> VirtualTy<'eval> {
                         MemberValue::EvalRef(_) => todo!(),
                         MemberValue::Moved => todo!(),
                     };
-                    TempValue::CopyableOrTempMutEval {
+                    TempValue::TempRefMutEval {
                         value: unsafe { &mut *ptr },
                         owner,
                         gen: (),

@@ -230,32 +230,23 @@ impl<'a> FeatureExprBuilder<'a> {
                                 ref field_variant, ..
                             } => match field_variant {
                                 FieldDefnVariant::RecordDerived { defn_repr } => {
-                                    match **defn_repr {
-                                        DefinitionRepr::EagerExpr {} => todo!(),
-                                        DefinitionRepr::LazyBlock { ref stmts } => {
-                                            let block = FeatureLazyBlock::new(
-                                                self.db,
-                                                Some(this.clone().into()),
-                                                stmts,
-                                                &[],
-                                                self.db.features(),
-                                            );
-                                            let feature =
-                                                self.db.features().alloc(Feature::FieldAccess {
-                                                    this: this.feature,
-                                                    field_ident: field_ident.ident,
-                                                });
-                                            let feature_expr_kind =
-                                                FeatureExprVariant::RecordDerivedFieldAccess {
-                                                    this,
-                                                    field_ident,
-                                                    repr: FeatureRepr::LazyBlock(block),
-                                                };
-                                            (feature_expr_kind, feature)
-                                        }
-                                        DefinitionRepr::FuncBlock { .. } => todo!(),
-                                        DefinitionRepr::ProcBlock { .. } => todo!(),
-                                    }
+                                    let repr = FeatureRepr::from_defn(
+                                        self.db,
+                                        Some(this.clone().into()),
+                                        defn_repr,
+                                        self.db.features(),
+                                    );
+                                    let feature = self.db.features().alloc(Feature::FieldAccess {
+                                        this: this.feature,
+                                        field_ident: field_ident.ident,
+                                    });
+                                    let feature_expr_kind =
+                                        FeatureExprVariant::RecordDerivedFieldAccess {
+                                            this,
+                                            field_ident,
+                                            repr,
+                                        };
+                                    (feature_expr_kind, feature)
                                 }
                                 _ => {
                                     panic!()

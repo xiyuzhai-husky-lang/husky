@@ -228,7 +228,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             props.iter().map(|ident| *ident),
                             arguments
                                 .into_iter()
-                                .map(|argument| argument.to_json_value()),
+                                .map(|argument| argument.any_ref().to_json_value_dyn()),
                         )
                         .collect(),
                     };

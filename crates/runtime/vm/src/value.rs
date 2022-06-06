@@ -34,12 +34,12 @@ pub enum TempValue<'temp, 'eval: 'temp> {
     EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
     TempRefEval(&'temp (dyn AnyValueDyn<'eval> + 'eval)),
     TempRefTemp(&'temp (dyn AnyValueDyn<'eval> + 'temp)),
-    CopyableOrTempMutEval {
+    TempRefMutEval {
         value: &'temp mut (dyn AnyValueDyn<'eval> + 'eval),
         owner: VMStackIdx,
         gen: MutRefGenerator,
     },
-    TempMutTemp {
+    TempRefMutTemp {
         value: &'temp mut (dyn AnyValueDyn<'eval> + 'temp),
         owner: VMStackIdx,
         gen: MutRefGenerator,
@@ -55,17 +55,20 @@ impl<'temp, 'eval: 'temp> std::fmt::Debug for TempValue<'temp, 'eval> {
                 f.write_str("Primitive ")?;
                 arg0.fmt(f)
             }
-            TempValue::OwnedEval(arg0) => f.debug_tuple("Boxed").field(arg0).finish(),
-            TempValue::EvalPure(arg0) => f.debug_tuple("GlobalPure").field(arg0).finish(),
+            TempValue::OwnedEval(arg0) => f.debug_tuple("OwnedEval").field(arg0).finish(),
+            TempValue::OwnedTemp(arg0) => f.debug_tuple("OwnedTemp").field(arg0).finish(),
+            TempValue::EvalPure(arg0) => f.debug_tuple("EvalPure").field(arg0).finish(),
             TempValue::EvalRef(arg0) => f.debug_tuple("EvalRef").field(arg0).finish(),
-            TempValue::TempRefEval(value) => f.debug_tuple("Ref").field(value).finish(),
-            TempValue::CopyableOrTempMutEval { value, .. } => {
-                f.debug_tuple("MutRef").field(value).finish()
+            TempValue::TempRefEval(value) => f.debug_tuple("TempRefEval").field(value).finish(),
+            TempValue::TempRefTemp(value) => f.debug_tuple("TempRefTemp").field(value).finish(),
+            TempValue::TempRefMutEval { value, .. } => f
+                .debug_tuple("CopyableMutOrTempRefMutEval")
+                .field(value)
+                .finish(),
+            TempValue::TempRefMutTemp { value, owner, gen } => {
+                f.debug_tuple("TempRefMutTemp").field(value).finish()
             }
-            TempValue::Moved => f.write_str("Taken"),
-            TempValue::OwnedTemp(_) => todo!(),
-            TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::Moved => f.write_str("Moved"),
         }
     }
 }
@@ -83,6 +86,10 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                 result.push_str("Boxed ");
                 result.push_str(&value.any_ref().print_short())
             }
+            TempValue::OwnedTemp(value) => {
+                result.push_str("OwnedTemp ");
+                result.push_str(&value.any_ref().print_short());
+            }
             TempValue::EvalPure(value) => {
                 result.push_str("EvalPure ");
                 result.push_str(&value.print_short())
@@ -95,34 +102,19 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                 result.push_str("TempRefEval ");
                 result.push_str(&value.print_short());
             }
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => {
+            TempValue::TempRefTemp(_) => todo!(),
+            TempValue::TempRefMutEval { value, owner, gen } => {
                 result.push_str("CopyableOrTempMutEval ");
                 result.push_str(&value.print_short());
                 write!(result, " Owner({:?}) ", owner);
             }
-            TempValue::OwnedTemp(value) => {
-                result.push_str("OwnedTemp ");
-                result.push_str(&value.any_ref().print_short());
+            TempValue::TempRefMutTemp { value, owner, gen } => {
+                result.push_str("TempRefMutTemp ");
+                result.push_str(&value.print_short());
+                write!(result, " Owner({:?}) ", owner);
             }
-            TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
         }
         result
-    }
-
-    pub fn to_json_value(self) -> serde_json::value::Value {
-        match self {
-            TempValue::Moved => panic!(),
-            TempValue::Copyable(value) => todo!(),
-            TempValue::OwnedEval(_) => todo!(),
-            TempValue::EvalPure(_) => todo!(),
-            TempValue::EvalRef(_) => todo!(),
-            TempValue::TempRefEval(value) => value.get_json_value_dyn(),
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
-            TempValue::OwnedTemp(_) => todo!(),
-            TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
-        }
     }
 }
 
@@ -155,14 +147,12 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::OwnedEval(boxed_value) => EvalValue::Owned(boxed_value),
             TempValue::EvalPure(_) => todo!(),
             TempValue::EvalRef(value) => EvalValue::EvalRef(value),
-            TempValue::TempRefEval { .. }
-            | TempValue::CopyableOrTempMutEval { .. }
-            | TempValue::Moved => {
+            TempValue::TempRefEval { .. } | TempValue::TempRefMutEval { .. } | TempValue::Moved => {
                 panic!()
             }
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -173,27 +163,18 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::EvalPure(_) => todo!(),
             TempValue::EvalRef(value) => EvalValue::EvalRef(*value),
             TempValue::TempRefEval(value) => EvalValue::Owned(value.clone_into_box_dyn().into()),
-            TempValue::CopyableOrTempMutEval { value, .. } => {
-                EvalValue::Owned(value.clone_into_box_dyn().into())
-            }
-            TempValue::Moved => {
-                panic!()
-            }
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutEval { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
+            _ => panic!(),
         }
     }
 
     pub fn to_bool(&self) -> bool {
         match self {
-            TempValue::Moved => todo!(),
             TempValue::Copyable(v) => v.to_bool(),
-            TempValue::OwnedEval(_) => todo!(),
-            TempValue::EvalPure(_) => todo!(),
-            TempValue::EvalRef(_) => todo!(),
-            TempValue::TempRefEval(value) => todo!(),
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
+            TempValue::TempRefMutEval { value, owner, gen } => value.take_copyable_dyn().to_bool(),
             _ => panic!(),
         }
     }
@@ -207,14 +188,12 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             },
             TempValue::EvalPure(_) => todo!(),
             TempValue::EvalRef(_) => todo!(),
-            TempValue::TempRefEval { .. }
-            | TempValue::CopyableOrTempMutEval { .. }
-            | TempValue::Moved => {
+            TempValue::TempRefEval { .. } | TempValue::TempRefMutEval { .. } | TempValue::Moved => {
                 panic!()
             }
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -243,34 +222,34 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                 let ptr: *const dyn AnyValueDyn = value.any_ptr();
                 TempValue::TempRefEval(&*ptr)
             }
+            TempValue::OwnedTemp(value) => {
+                let ptr: *const dyn AnyValueDyn = value.any_ptr();
+                TempValue::TempRefTemp(&*ptr)
+            }
             TempValue::EvalPure(value) => {
                 let ptr: *const dyn AnyValueDyn = &**value;
                 TempValue::TempRefEval(&*ptr)
             }
             TempValue::EvalRef(value) => TempValue::TempRefEval(*value),
             TempValue::TempRefEval(value) => TempValue::TempRefEval(*value),
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
-            TempValue::OwnedTemp(_) => todo!(),
-            TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefTemp(value) => TempValue::TempRefTemp(*value),
+            TempValue::TempRefMutEval { value, owner, gen } => {
+                let ptr: *const (dyn AnyValueDyn<'eval> + 'eval) = *value;
+                TempValue::TempRefEval(&*ptr)
+            }
+            TempValue::TempRefMutTemp { value, owner, gen } => {
+                let ptr: *const (dyn AnyValueDyn<'eval> + 'temp) = *value;
+                TempValue::TempRefTemp(&*ptr)
+            }
         }
     }
 
     fn bind_copy(&self) -> Self {
         match self {
-            TempValue::Moved => todo!(),
             TempValue::Copyable(value) => TempValue::Copyable(*value),
-            TempValue::OwnedEval(_) => todo!(),
-            TempValue::EvalPure(_) => todo!(),
-            TempValue::EvalRef(_) => todo!(),
-            TempValue::TempRefEval(value) => {
-                p!(value);
-                todo!()
-            }
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
-            TempValue::OwnedTemp(_) => todo!(),
-            TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::EvalRef(value) => value.take_copyable_dyn().into(),
+            TempValue::TempRefMutEval { value, owner, gen } => value.take_copyable_dyn().into(),
+            _ => panic!(),
         }
     }
 
@@ -278,7 +257,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
         match self {
             TempValue::Copyable(value) => {
                 let ptr: *mut dyn AnyValueDyn<'eval> = value.any_mut();
-                TempValue::CopyableOrTempMutEval {
+                TempValue::TempRefMutEval {
                     value: &mut *ptr,
                     owner: stack_idx,
                     gen: (),
@@ -286,20 +265,26 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             }
             TempValue::OwnedEval(value) => {
                 let ptr: *mut dyn AnyValueDyn = &mut *value.any_mut_ptr();
-                TempValue::CopyableOrTempMutEval {
+                TempValue::TempRefMutEval {
                     value: &mut *ptr,
                     owner: stack_idx,
                     gen: (),
                 }
             }
-            TempValue::Moved
-            | TempValue::EvalPure(_)
-            | TempValue::EvalRef(_)
-            | TempValue::TempRefEval { .. }
-            | TempValue::CopyableOrTempMutEval { .. } => panic!(),
-            TempValue::OwnedTemp(_) => todo!(),
-            TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::OwnedTemp(value) => TempValue::TempRefMutTemp {
+                value: &mut *value.any_mut_ptr(),
+                owner: stack_idx,
+                gen: (),
+            },
+            TempValue::TempRefMutTemp { value, owner, gen } => {
+                let ptr: *mut dyn AnyValueDyn = *value;
+                TempValue::TempRefMutTemp {
+                    value: &mut *ptr,
+                    owner: *owner,
+                    gen: *gen,
+                }
+            }
+            _ => panic!(),
         }
     }
 
@@ -309,12 +294,12 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::OwnedEval(value) => TempValue::TempRefEval(&*value.any_ptr()),
             TempValue::EvalPure(value) => TempValue::EvalPure(value.clone()),
             TempValue::EvalRef(value) => TempValue::EvalRef(*value),
-            TempValue::TempRefEval { .. } => todo!(),
-            TempValue::CopyableOrTempMutEval { .. } => todo!(),
+            TempValue::TempRefEval(value) => TempValue::TempRefEval(*value),
+            TempValue::TempRefMutEval { .. } => todo!(),
             TempValue::Moved => todo!(),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -326,10 +311,10 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::EvalPure(_) => todo!(),
             TempValue::EvalRef(_) => todo!(),
             TempValue::TempRefEval { .. } => todo!(),
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
+            TempValue::TempRefMutEval { value, owner, gen } => todo!(),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -341,15 +326,15 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::EvalPure(_) => todo!(),
             TempValue::EvalRef(_) => todo!(),
             TempValue::TempRefEval { .. } => todo!(),
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
+            TempValue::TempRefMutEval { value, owner, gen } => todo!(),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
     unsafe fn borrow_mut(&mut self, self_stack_idx: VMStackIdx) -> Self {
-        Self::CopyableOrTempMutEval {
+        Self::TempRefMutEval {
             value: &mut *self.any_mut_ptr(),
             owner: self.owner(self_stack_idx).unwrap(),
             gen: (),
@@ -361,11 +346,11 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::Copyable(_) | TempValue::OwnedEval(_) => Some(self_stack_idx),
             TempValue::EvalRef(_) | TempValue::EvalPure(_) => None,
             TempValue::TempRefEval { .. } => todo!(),
-            TempValue::CopyableOrTempMutEval { owner, .. } => Some(*owner),
+            TempValue::TempRefMutEval { owner, .. } => Some(*owner),
             TempValue::Moved => todo!(),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -385,11 +370,11 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                 TempValue::EvalPure(value) => (&**value),
                 TempValue::EvalRef(_) => todo!(),
                 TempValue::TempRefEval(value) => *value,
-                TempValue::CopyableOrTempMutEval { value, .. } => *value,
+                TempValue::TempRefMutEval { value, .. } => *value,
                 TempValue::Moved => todo!(),
                 TempValue::OwnedTemp(_) => todo!(),
                 TempValue::TempRefTemp(_) => todo!(),
-                TempValue::TempMutTemp { value, owner, gen } => todo!(),
+                TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
             }
         }
     }
@@ -407,7 +392,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                     CopyableValue::EnumKind(value) => value,
                 },
                 TempValue::OwnedEval(value) => value.any_mut_ptr(),
-                TempValue::CopyableOrTempMutEval { value, .. } => *value,
+                TempValue::TempRefMutEval { value, .. } => *value,
                 TempValue::TempRefEval { .. } => {
                     panic!("TempRef cannot be mutated, this is a bug.")
                 }
@@ -416,7 +401,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                 TempValue::Moved => panic!("Move cannot be mutated, this is a bug."),
                 TempValue::OwnedTemp(_) => todo!(),
                 TempValue::TempRefTemp(_) => todo!(),
-                TempValue::TempMutTemp { value, owner, gen } => todo!(),
+                TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
             }
         }
     }
@@ -429,10 +414,10 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::EvalPure(value) => value.downcast_ref(),
             TempValue::EvalRef(value) => value.downcast_ref(),
             TempValue::TempRefEval(value) => value.downcast_ref(),
-            TempValue::CopyableOrTempMutEval { value, .. } => value.downcast_ref(),
+            TempValue::TempRefMutEval { value, .. } => value.downcast_ref(),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -445,10 +430,10 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::EvalPure(value) => panic!(),
             TempValue::EvalRef(value) => value.downcast_ref(),
             TempValue::TempRefEval(value) => panic!(),
-            TempValue::CopyableOrTempMutEval { value, .. } => panic!(),
+            TempValue::TempRefMutEval { value, .. } => panic!(),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -462,10 +447,10 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             | TempValue::TempRefEval { .. } => {
                 panic!()
             }
-            TempValue::CopyableOrTempMutEval { ref mut value, .. } => value.downcast_mut(),
+            TempValue::TempRefMutEval { ref mut value, .. } => value.downcast_mut(),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -479,20 +464,20 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             | TempValue::TempRefEval { .. } => {
                 panic!()
             }
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => {
+            TempValue::TempRefMutEval { value, owner, gen } => {
                 let ptr: *mut T = value.downcast_mut();
                 (unsafe { &mut *ptr }, *owner, *gen)
             }
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
     pub fn take_copyable(&self) -> CopyableValue {
         match self {
             TempValue::Copyable(value) => *value,
-            TempValue::CopyableOrTempMutEval { value, .. } => value.take_copyable(),
+            TempValue::TempRefMutEval { value, .. } => value.take_copyable_dyn(),
             _ => {
                 p!(self);
                 panic!("")
@@ -510,10 +495,10 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::TempRefEval(value) => {
                 TempValue::OwnedEval(value.clone_into_box_dyn().into())
             }
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
+            TempValue::TempRefMutEval { value, owner, gen } => todo!(),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -526,14 +511,14 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::TempRefEval(value) => {
                 StackValueSnapshot::FullyOwnedRef(value.clone_into_arc_dyn())
             }
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => {
+            TempValue::TempRefMutEval { value, owner, gen } => {
                 p!(value);
                 todo!()
             }
             TempValue::Moved => todo!(),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
         }
     }
 
@@ -556,14 +541,14 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                 let value: &VirtualTy = value.downcast_ref();
                 value.access_field(field_idx, field_binding)
             }
-            TempValue::CopyableOrTempMutEval { value, owner, gen } => {
+            TempValue::TempRefMutEval { value, owner, gen } => {
                 let virtual_value: &mut VirtualTy = value.downcast_mut();
                 msg_once!("need cleaning");
                 virtual_value.field_mut(field_idx, field_binding, owner)
             }
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempMutTemp { value, owner, gen } => todo!(),
+            TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
             _ => panic!(),
         }
     }

@@ -67,7 +67,7 @@ pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + Ref
         }
     }
 
-    fn as_copyable(&self) -> CopyableValue {
+    fn take_copyable(&self) -> CopyableValue {
         p!(self);
         panic!()
     }
@@ -93,14 +93,14 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe {
         Self: 'eval;
     fn equal_any(&self, other: &dyn AnyValueDyn<'eval>) -> bool;
     fn assign<'temp>(&mut self, other: TempValue<'temp, 'eval>);
-    fn take_copyable(&self) -> CopyableValue;
+    fn take_copyable_dyn(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval>);
     fn print_short(&self) -> String;
     // consume the memory pointed at to create an Arc
     unsafe fn take_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval> + 'eval>
     where
         Self: 'eval;
-    fn get_json_value_dyn(&self) -> serde_json::value::Value;
+    fn to_json_value_dyn(&self) -> serde_json::value::Value;
 }
 
 impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
@@ -158,8 +158,8 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         *self = T::from_stack(other)
     }
 
-    fn take_copyable(&self) -> CopyableValue {
-        T::as_copyable(self)
+    fn take_copyable_dyn(&self) -> CopyableValue {
+        T::take_copyable(self)
     }
 
     fn upcast_any(&self) -> &dyn AnyValueDyn<'eval> {
@@ -179,7 +179,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         Arc::new(this)
     }
 
-    fn get_json_value_dyn(&self) -> serde_json::value::Value {
+    fn to_json_value_dyn(&self) -> serde_json::value::Value {
         self.to_json_value()
     }
 }

@@ -215,7 +215,7 @@ impl EntityDefn {
             builder: &mut DependeeMapBuilder,
         ) {
             match defn_repr {
-                DefinitionRepr::EagerExpr {} => todo!(),
+                DefinitionRepr::LazyExpr { ref expr } => extract_lazy_expr_dependees(expr, builder),
                 DefinitionRepr::LazyBlock { stmts } => extract_lazy_stmts_dependees(stmts, builder),
                 DefinitionRepr::FuncBlock {
                     stmts,

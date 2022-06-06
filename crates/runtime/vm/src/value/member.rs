@@ -99,7 +99,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
             MemberValue::Boxed(value) => value.any_mut_ptr(),
             _ => todo!(),
         };
-        TempValue::CopyableOrTempMutEval {
+        TempValue::TempRefMutEval {
             value: unsafe { &mut *value_mut },
             owner,
             gen: (),
@@ -137,12 +137,6 @@ impl<'eval> AnyValue<'eval> for MemberValue<'eval> {
     }
 
     fn to_json_value(&self) -> serde_json::value::Value {
-        match self {
-            MemberValue::Copyable(value) => value.get_primitive_json_value(),
-            MemberValue::Boxed(value) => value.get_json_value(),
-            MemberValue::GlobalPure(value) => value.get_json_value_dyn(),
-            MemberValue::EvalRef(value) => value.get_json_value_dyn(),
-            MemberValue::Moved => todo!(),
-        }
+        self.any_ref().to_json_value_dyn()
     }
 }

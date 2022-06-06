@@ -16,7 +16,7 @@ impl<'eval> AnyValue<'eval> for () {
         Box::new(*self)
     }
 
-    fn as_copyable(&self) -> CopyableValue {
+    fn take_copyable(&self) -> CopyableValue {
         (*self).into()
     }
 
@@ -52,7 +52,7 @@ impl<'eval> AnyValue<'eval> for i32 {
         Box::new(*self)
     }
 
-    fn as_copyable(&self) -> CopyableValue {
+    fn take_copyable(&self) -> CopyableValue {
         (*self).into()
     }
 
@@ -88,7 +88,7 @@ impl<'eval> AnyValue<'eval> for f32 {
         Box::new(*self)
     }
 
-    fn as_copyable(&self) -> CopyableValue {
+    fn take_copyable(&self) -> CopyableValue {
         self.into()
     }
 
@@ -124,7 +124,7 @@ impl<'eval> AnyValue<'eval> for u32 {
         Box::new(*self)
     }
 
-    fn as_copyable(&self) -> CopyableValue {
+    fn take_copyable(&self) -> CopyableValue {
         self.into()
     }
 
@@ -164,7 +164,7 @@ impl<'eval> AnyValue<'eval> for u64 {
         Box::new(*self)
     }
 
-    fn as_copyable(&self) -> CopyableValue {
+    fn take_copyable(&self) -> CopyableValue {
         self.into()
     }
 
@@ -204,7 +204,7 @@ impl<'eval> AnyValue<'eval> for bool {
         Box::new(*self)
     }
 
-    fn as_copyable(&self) -> CopyableValue {
+    fn take_copyable(&self) -> CopyableValue {
         self.into()
     }
 
