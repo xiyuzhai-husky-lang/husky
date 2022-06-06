@@ -107,7 +107,7 @@ impl RawLoopKind {
             PureBinaryOpr::Leq => err!("invalid form", range)?,
             // ill-formed: $initial_bound < $frame_var
             PureBinaryOpr::Less => err!("invalid form", range)?,
-            _ => todo!(),
+            _ => return err!(format!("expect comparison"), range),
         };
         Ok(Self::For {
             frame_var,
@@ -124,6 +124,7 @@ impl RawLoopKind {
         frame_var: RangedCustomIdentifier,
         comparison: PureBinaryOpr,
         bound: RawExprIdx,
+        range: TextRange,
     ) -> AstResult<Self> {
         let (boundary_kind, step) = match comparison {
             // ... $frame_var >= $final_bound
@@ -134,7 +135,7 @@ impl RawLoopKind {
             PureBinaryOpr::Leq => (BoundaryKind::UpperClosed, LoopStep(1)),
             // ... $frame_var < $final_bound
             PureBinaryOpr::Less => (BoundaryKind::UpperOpen, LoopStep(1)),
-            _ => todo!(),
+            _ => return err!(format!("expect comparison"), range),
         };
         Ok(Self::ForExt {
             frame_var,

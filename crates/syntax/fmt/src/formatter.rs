@@ -236,14 +236,7 @@ impl<'a> Formatter<'a> {
                     | AstContext::Stmt(Paradigm::LazyFunctional)
                     | AstContext::Stmt(Paradigm::LazyFunctional) => (),
                     AstContext::Stmt(Paradigm::EagerProcedural) => self.write("return "),
-                    AstContext::Package(_) => todo!(),
-                    AstContext::Module(_) => todo!(),
-                    AstContext::Struct { .. } => todo!(),
-                    AstContext::Record => todo!(),
-                    AstContext::Props => todo!(),
-                    AstContext::Enum(_) => todo!(),
-                    AstContext::Match(_) => todo!(),
-                    AstContext::Visual => todo!(),
+                    _ => panic!(),
                 }
                 self.fmt_expr(&self.arena[expr]);
             }

@@ -24,7 +24,6 @@ pub enum EagerOpnVariant {
         ranged_ty: RangedEntityRoute,
         ty_decl: Arc<TyDecl>,
     },
-    PatternCall,
     FieldAccess {
         this_ty: EntityRoutePtr,
         field_ident: RangedCustomIdentifier,

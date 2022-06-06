@@ -132,17 +132,11 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 AstContext::Stmt(_) | AstContext::Match(_) | AstContext::Visual => {
                     match token_group[0].kind {
                         TokenKind::Keyword(keyword) => match keyword {
-                            Keyword::Config(_) => todo!(),
-                            Keyword::Paradigm(_) => todo!(),
-                            Keyword::Type(_) => todo!(),
                             Keyword::Stmt(keyword) => self
                                 .parse_stmt_with_keyword(keyword, token_group, enter_block)?
                                 .into(),
                             Keyword::Use => todo!(),
-                            Keyword::Mod => todo!(),
-                            Keyword::Main => todo!(),
-                            Keyword::Visual => todo!(),
-                            Keyword::Liason(_) => todo!(),
+                            _ => todo!(),
                         },
                         _ => self.parse_stmt_without_keyword(token_group)?.into(),
                     }
@@ -150,7 +144,6 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 AstContext::Struct { .. } => self.parse_struct_item(token_group, enter_block)?,
                 AstContext::Enum(_) => self.parse_enum_variant(token_group)?,
                 AstContext::Record => self.parse_record_item(token_group, enter_block)?,
-                AstContext::Props => todo!(),
             },
         })
     }

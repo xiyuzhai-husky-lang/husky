@@ -64,32 +64,10 @@ impl<'a> MatchPatternParser<'a> {
                     EntityKind::EnumLiteral => CasePattern::enum_literal(route, atom.range),
                     _ => err!(format!("expect enum literal"), atom.range)?,
                 },
-                AtomVariant::Variable {
-                    varname,
-                    init_range: init_row,
-                } => todo!(),
-                AtomVariant::FrameVariable {
-                    varname,
-                    init_range,
-                } => todo!(),
-                AtomVariant::ThisValue {
-                    opt_this_ty: opt_ty,
-                    opt_this_liason: opt_contract,
-                } => todo!(),
-                AtomVariant::ThisField { .. } => todo!(),
-                AtomVariant::Unrecognized(_) => todo!(),
                 AtomVariant::PrimitiveLiteral(value) => {
                     CasePattern::primitive_literal(value, atom.range)
                 }
-                AtomVariant::Binary(_) => todo!(),
-                AtomVariant::Prefix(_) => todo!(),
-                AtomVariant::Suffix(_) => todo!(),
-                AtomVariant::FieldAccess(_) => todo!(),
-                AtomVariant::ListStart(_, _) => todo!(),
-                AtomVariant::ListEnd(_, _) => todo!(),
-                AtomVariant::ListItem => todo!(),
-                AtomVariant::LambdaHead(_) => todo!(),
-                AtomVariant::SilentEnd => todo!(),
+                _ => err!(format!("expect pattern"), atom.range)?,
             })
         } else {
             None

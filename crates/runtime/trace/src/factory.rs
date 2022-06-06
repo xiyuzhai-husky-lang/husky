@@ -304,7 +304,7 @@ pub trait ProduceTrace<'eval>: AskCompileTime + EvalFeature<'eval> {
             FeatureExprVariant::EnumKindLiteral { .. } => panic!(),
             FeatureExprVariant::GlobalInput => panic!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
-            FeatureExprVariant::StructDerivedFieldAccess {
+            FeatureExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,

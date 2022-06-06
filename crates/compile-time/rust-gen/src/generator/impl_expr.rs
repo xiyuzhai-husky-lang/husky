@@ -7,8 +7,11 @@ impl<'a> RustGenerator<'a> {
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => self.write(&varname),
             EagerExprVariant::ThisValue { .. } => self.write("self"),
-            EagerExprVariant::ThisField { .. } => todo!(),
-            EagerExprVariant::EntityRoute { route: scope } => todo!(),
+            EagerExprVariant::ThisField { field_ident, .. } => {
+                self.write("self.");
+                self.write(&field_ident.ident);
+            }
+            EagerExprVariant::EntityRoute { route } => self.write(&format!("{:?}", route)),
             EagerExprVariant::PrimitiveLiteral(value) => self.gen_copyable_literal(value),
             EagerExprVariant::Bracketed(_) => todo!(),
             EagerExprVariant::Opn {
@@ -21,28 +24,32 @@ impl<'a> RustGenerator<'a> {
                     self.gen_expr(&opds[1]);
                 }
                 EagerOpnVariant::Prefix { opr, this_ty: this } => todo!(),
-                EagerOpnVariant::Suffix { opr, this_ty: this } => match opr {
-                    SuffixOpr::Incr => todo!(),
-                    SuffixOpr::Decr => todo!(),
-                    SuffixOpr::AsTy(_) => todo!(),
-                },
-                EagerOpnVariant::RoutineCall(_) => todo!(),
-                EagerOpnVariant::TypeCall { ranged_ty, ty_decl } => {
+                EagerOpnVariant::Suffix { opr, this_ty: this } => {
+                    self.gen_expr(&opds[0]);
+                    self.write(&opr.code());
+                }
+                EagerOpnVariant::RoutineCall(_) => {
+                    self.gen_expr(&opds[0]);
+                    self.write("(");
+                    self.gen_arguments(&opds[1..]);
+                    self.write(")");
+                }
+                EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                     self.gen_entity_route(ranged_ty.route);
                     self.write("::");
                     self.write("__call__(");
                     self.gen_arguments(opds);
                     self.write(")");
                 }
-                EagerOpnVariant::PatternCall => todo!(),
-                EagerOpnVariant::FieldAccess { field_liason, .. } => todo!(),
-                EagerOpnVariant::MethodCall {
-                    method_ident: field_ident,
-                    ..
-                } => {
+                EagerOpnVariant::FieldAccess { field_ident, .. } => {
                     self.gen_expr(&opds[0]);
                     self.write(".");
-                    self.write(&field_ident.ident);
+                    self.write(&field_ident.ident)
+                }
+                EagerOpnVariant::MethodCall { method_ident, .. } => {
+                    self.gen_expr(&opds[0]);
+                    self.write(".");
+                    self.write(&method_ident.ident);
                     self.write("(");
                     self.gen_arguments(&opds[1..]);
                     self.write(")");

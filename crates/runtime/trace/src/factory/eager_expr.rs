@@ -108,7 +108,6 @@ impl<'eval> TraceFactory<'eval> {
                         &config,
                     )
                 }
-                EagerOpnVariant::PatternCall => todo!(),
                 EagerOpnVariant::FieldAccess { field_ident, .. } => {
                     tokens.extend(self.eager_expr_tokens(
                         &opds[0],

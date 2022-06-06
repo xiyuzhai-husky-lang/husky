@@ -1,3 +1,5 @@
+use std::borrow::Cow;
+
 use entity_route::RangedEntityRoute;
 use word::RootIdentifier;
 
@@ -17,11 +19,11 @@ pub enum SuffixOpr {
 }
 
 impl SuffixOpr {
-    pub fn code(self) -> String {
+    pub fn code(self) -> Cow<'static, str> {
         match self {
             SuffixOpr::Incr => "++".into(),
             SuffixOpr::Decr => "--".into(),
-            SuffixOpr::AsTy(ty) => format!(" as {}", ty.route),
+            SuffixOpr::AsTy(ty) => format!(" as {}", ty.route).into(),
         }
     }
 }

@@ -22,21 +22,7 @@ impl<'a> AstTransformer<'a> {
                 | AtomVariant::PrimitiveLiteral(_)
                 | AtomVariant::EntityRoute { .. }
                 | AtomVariant::FrameVariable { .. } => stack.accept_atom_expr(atom.into()),
-                AtomVariant::Unrecognized(ident) => stack.accept_atom_expr(
-                    match self.symbols.find(|symbol| symbol.init_ident.ident == ident) {
-                        Some(symbol) => match symbol.kind {
-                            SymbolKind::EntityRoute(_) => todo!(),
-                            SymbolKind::Variable { .. } => todo!(),
-                            SymbolKind::FrameVariable { .. } => todo!(),
-                            SymbolKind::Unrecognized(_) => todo!(),
-                            SymbolKind::ThisValue { .. } => todo!(),
-                            SymbolKind::ThisField { .. } => todo!(),
-                            SymbolKind::ThisMethod => todo!(),
-                        },
-                        None => atom,
-                    }
-                    .into(),
-                ),
+                AtomVariant::Unrecognized(ident) => stack.accept_atom_expr(atom.into()),
                 AtomVariant::Binary(opr) => stack.accept_binary(opr)?,
                 AtomVariant::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_start()),
                 AtomVariant::Suffix(suffix) => stack.accept_suffix(suffix, atom.text_end()),

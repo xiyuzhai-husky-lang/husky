@@ -194,7 +194,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                     ))
                 }
             }
-            EagerOpnVariant::PatternCall => todo!(),
             EagerOpnVariant::FieldAccess {
                 this_ty,
                 field_ident,

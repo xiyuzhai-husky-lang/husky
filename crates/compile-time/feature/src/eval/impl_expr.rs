@@ -98,7 +98,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ];
                 (linkage.call)(&mut values).map(|mut value| value.into_eval())
             }
-            FeatureExprVariant::StructDerivedFieldAccess {
+            FeatureExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,

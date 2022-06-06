@@ -183,7 +183,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                     );
                                     let feature = repr.feature();
                                     let feature_expr_kind =
-                                        FeatureExprVariant::StructDerivedFieldAccess {
+                                        FeatureExprVariant::StructDerivedLazyFieldAccess {
                                             this,
                                             field_ident,
                                             repr,
@@ -324,7 +324,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
-            FeatureExprVariant::StructDerivedFieldAccess {
+            FeatureExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,

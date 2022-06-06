@@ -400,7 +400,6 @@ impl EntityDefn {
                         EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                             builder.push(ranged_ty.route)
                         }
-                        EagerOpnVariant::PatternCall => todo!(),
                     }
                     for opd in opds {
                         extract_eager_expr_dependees(opd, builder)

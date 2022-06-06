@@ -20,7 +20,6 @@ pub enum AstContext {
         item_context: StructItemContext,
     },
     Record,
-    Props,
     Enum(EntityRoutePtr),
 }
 
@@ -33,13 +32,10 @@ impl AstContext {
         Some(match self {
             AstContext::Package(main) => db.make_subroute(db.module(main).unwrap(), ident, vec![]),
             AstContext::Module(route) => db.make_subroute(route, ident, Vec::new()),
-            AstContext::Stmt(_) => todo!(),
-            AstContext::Match(_) => todo!(),
             AstContext::Struct { opt_base_ty, .. } => db.make_subroute(opt_base_ty?, ident, vec![]),
             AstContext::Enum(_) => todo!(),
             AstContext::Record => todo!(),
-            AstContext::Props => todo!(),
-            AstContext::Visual => todo!(),
+            _ => return None,
         })
     }
 }
@@ -49,7 +45,7 @@ impl From<Paradigm> for AstContext {
         match paradigm {
             Paradigm::EagerProcedural => AstContext::Stmt(Paradigm::EagerProcedural),
             Paradigm::EagerFunctional => AstContext::Stmt(Paradigm::EagerFunctional),
-            Paradigm::LazyFunctional => todo!(),
+            Paradigm::LazyFunctional => AstContext::Stmt(Paradigm::LazyFunctional),
         }
     }
 }
@@ -66,7 +62,6 @@ impl std::fmt::Display for AstContext {
             AstContext::Struct { .. } => "struct",
             AstContext::Enum(_) => "enum",
             AstContext::Record => "record",
-            AstContext::Props => "props",
             AstContext::Match(_) => todo!(),
         })
     }

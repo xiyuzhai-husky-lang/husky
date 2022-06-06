@@ -36,7 +36,7 @@ impl<'eval> Trace<'eval> {
                 FeatureExprVariant::ThisValue { ref repr } => todo!(),
                 FeatureExprVariant::PatternCall {} => todo!(),
                 FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-                FeatureExprVariant::StructDerivedFieldAccess {
+                FeatureExprVariant::StructDerivedLazyFieldAccess {
                     ref this,
                     field_ident,
                     ref repr,
@@ -65,7 +65,6 @@ impl<'eval> Trace<'eval> {
                         }
                         EagerOpnVariant::RoutineCall { .. }
                         | EagerOpnVariant::MethodCall { .. } => Some(SubtracesContainerClass::Call),
-                        EagerOpnVariant::PatternCall => panic!(),
                         EagerOpnVariant::TypeCall { .. } => todo!(),
                     },
                     EagerExprVariant::Lambda(_, _) => todo!(),

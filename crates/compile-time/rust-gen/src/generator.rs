@@ -29,8 +29,12 @@ impl<'a> RustGenerator<'a> {
     pub(crate) fn gen_pack_lib_rs(&mut self, pack: &Pack) {
         for entity in pack.subentity_defns.iter() {
             match entity.variant {
-                EntityDefnVariant::Main(_) => todo!(),
-                EntityDefnVariant::Module { .. } => todo!(),
+                EntityDefnVariant::Main(_) => panic!(),
+                EntityDefnVariant::Module { .. } => {
+                    self.write("mod ");
+                    self.write(&entity.ident);
+                    self.write(";\n");
+                }
                 EntityDefnVariant::Feature { .. } => (),
                 EntityDefnVariant::Func {
                     ref parameters,
@@ -57,23 +61,17 @@ impl<'a> RustGenerator<'a> {
                         self.gen_struct_defn(entity.ident.custom(), ty_members, trait_impls)
                     }
                     TyKind::Record { .. } => (),
-                    TyKind::Primitive => todo!(),
-                    TyKind::Vec => todo!(),
-                    TyKind::Array => todo!(),
-                    TyKind::Other => todo!(),
+                    _ => panic!(),
                 },
-                EntityDefnVariant::Builtin => todo!(),
-                EntityDefnVariant::EnumVariant { .. } => todo!(),
-                EntityDefnVariant::TyField {
-                    ty,
-                    ref field_variant,
-                    liason: contract,
-                    ..
-                } => todo!(),
-                EntityDefnVariant::Method { .. } => todo!(),
-                EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
-                EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
                 EntityDefnVariant::Trait { .. } => todo!(),
+                EntityDefnVariant::TraitAssociatedTypeImpl { .. }
+                | EntityDefnVariant::TraitAssociatedConstSizeImpl { .. }
+                | EntityDefnVariant::Method { .. }
+                | EntityDefnVariant::Builtin
+                | EntityDefnVariant::EnumVariant { .. }
+                | EntityDefnVariant::TyField { .. } => {
+                    panic!()
+                }
             }
         }
         self.gen_init(&pack.subentity_defns);
