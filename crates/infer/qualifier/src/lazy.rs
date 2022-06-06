@@ -133,7 +133,7 @@ impl LazyQualifier {
         Ok(match self {
             LazyQualifier::Copyable => match contract {
                 LazyContract::Pass => LazyQualifier::Copyable,
-                LazyContract::EvalRef => todo!(),
+                LazyContract::EvalRef => LazyQualifier::EvalRef,
                 LazyContract::Pure => LazyQualifier::Copyable,
                 LazyContract::Move => todo!(),
             },
