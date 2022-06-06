@@ -224,7 +224,7 @@ impl SubrouteTable {
                         kind: EntityKind::Member(match type_member.variant {
                             EntityStaticDefnVariant::TyField { .. } => MemberKind::Field,
                             EntityStaticDefnVariant::Method { .. } => {
-                                MemberKind::Method { is_lazy: todo!() }
+                                MemberKind::Method { is_lazy: false }
                             }
                             _ => panic!(),
                         }),
