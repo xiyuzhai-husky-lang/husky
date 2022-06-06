@@ -49,7 +49,13 @@ impl EntityDefnVariant {
                         FieldDefnVariant::StructDerivedLazy {
                             defn_repr: Arc::new(match paradigm {
                                 Paradigm::LazyFunctional => {
-                                    DefinitionRepr::LazyBlock { stmts: todo!() }
+                                    let stmts = semantics_lazy::parse_lazy_stmts(
+                                        db,
+                                        arena,
+                                        children.unwrap(),
+                                        file,
+                                    )?;
+                                    DefinitionRepr::LazyBlock { stmts }
                                 }
                                 Paradigm::EagerFunctional => {
                                     let stmts = semantics_eager::parse_func_stmts(

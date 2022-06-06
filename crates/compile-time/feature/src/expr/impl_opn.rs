@@ -319,7 +319,7 @@ impl<'a> FeatureExprBuilder<'a> {
             | FeatureExprVariant::PrimitiveLiteral(_) => {
                 panic!()
             }
-            FeatureExprVariant::This { ref repr } => todo!(),
+            FeatureExprVariant::ThisValue { ref repr } => todo!(),
             FeatureExprVariant::GlobalInput => todo!(),
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),

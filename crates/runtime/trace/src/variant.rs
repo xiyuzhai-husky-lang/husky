@@ -118,7 +118,7 @@ impl<'eval> TraceVariant<'eval> {
                     field_ident,
                     ..
                 } => todo!(),
-                FeatureExprVariant::This { ref repr } => todo!(),
+                FeatureExprVariant::ThisValue { ref repr } => todo!(),
                 FeatureExprVariant::GlobalInput => false,
                 FeatureExprVariant::RoutineCall {
                     ref routine_defn, ..

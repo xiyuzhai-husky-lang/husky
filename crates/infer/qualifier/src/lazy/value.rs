@@ -174,11 +174,11 @@ impl LazyExprQualifier {
     }
 
     pub fn parameter_use_lazy_qualifier(
-        input_liason: ParameterLiason,
+        parameter_liason: ParameterLiason,
         is_copyable: bool,
         contract: LazyContract,
     ) -> InferResult<Self> {
-        Self::parameter(input_liason, is_copyable).variable_use(contract)
+        Self::parameter(parameter_liason, is_copyable).variable_use(contract)
     }
 
     pub fn parameter(parameter_liason: ParameterLiason, is_copyable: bool) -> Self {

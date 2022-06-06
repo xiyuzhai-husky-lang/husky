@@ -77,7 +77,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 field_ident,
                 ref repr,
             } => self.eval_feature_repr(repr),
-            FeatureExprVariant::This { ref repr } => todo!(),
+            FeatureExprVariant::ThisValue { ref repr } => todo!(),
             FeatureExprVariant::GlobalInput => Ok(self.eval_input.clone()),
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::RecordDerivedFieldAccess {

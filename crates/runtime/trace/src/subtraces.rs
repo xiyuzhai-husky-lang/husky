@@ -33,7 +33,7 @@ impl<'eval> Trace<'eval> {
                     field_ident,
                     ..
                 } => todo!(),
-                FeatureExprVariant::This { ref repr } => todo!(),
+                FeatureExprVariant::ThisValue { ref repr } => todo!(),
                 FeatureExprVariant::PatternCall {} => todo!(),
                 FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
                 FeatureExprVariant::StructDerivedFieldAccess {

@@ -51,7 +51,7 @@ pub enum FeatureExprVariant {
         varname: CustomIdentifier,
         value: Arc<FeatureExpr>,
     },
-    This {
+    ThisValue {
         repr: FeatureRepr,
     },
     StructOriginalFieldAccess {
@@ -166,12 +166,19 @@ impl<'a> FeatureExprBuilder<'a> {
                 },
                 self.features.alloc(Feature::EnumLiteral(entity_route)),
             ),
-            LazyExprVariant::This { .. } => (
-                FeatureExprVariant::This {
+            LazyExprVariant::ThisValue { .. } => (
+                FeatureExprVariant::ThisValue {
                     repr: self.this.as_ref().unwrap().clone(),
                 },
                 self.this.as_ref().unwrap().feature(),
             ),
+            LazyExprVariant::ThisField {
+                field_ident,
+                field_idx,
+                this_ty,
+                this_binding,
+                field_binding,
+            } => todo!(),
             LazyExprVariant::EntityFeature { route } => match route.kind {
                 EntityRouteKind::Root { .. } | EntityRouteKind::Package { .. } => panic!(),
                 EntityRouteKind::Child { .. } => {

@@ -9,7 +9,7 @@ pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
 use entity_route::{EntityRoute, EntityRoutePtr, RangedEntityRoute};
-use text::TextRange;
+use text::{RangedCustomIdentifier, TextRange};
 use vm::*;
 use word::{CustomIdentifier, Identifier};
 
@@ -65,8 +65,15 @@ pub enum LazyExprVariant {
         Vec<(CustomIdentifier, Option<EntityRoutePtr>)>,
         Box<LazyExpr>,
     ),
-    This {
+    ThisValue {
         binding: Binding,
+    },
+    ThisField {
+        field_ident: RangedCustomIdentifier,
+        field_idx: usize,
+        this_ty: EntityRoutePtr,
+        this_binding: Binding,
+        field_binding: Binding,
     },
     EntityFeature {
         route: EntityRoutePtr,

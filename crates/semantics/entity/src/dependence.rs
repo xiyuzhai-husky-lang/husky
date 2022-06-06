@@ -373,8 +373,15 @@ impl EntityDefn {
                     }
                 }
                 LazyExprVariant::Lambda(_, _) => todo!(),
-                LazyExprVariant::This { .. } => (),
+                LazyExprVariant::ThisValue { .. } => (),
                 LazyExprVariant::EntityFeature { route: scope } => todo!(),
+                LazyExprVariant::ThisField {
+                    field_ident,
+                    field_idx,
+                    this_ty,
+                    this_binding,
+                    field_binding,
+                } => todo!(),
             }
         }
 
