@@ -13,7 +13,6 @@ use word::CustomIdentifier;
 pub(super) struct LazyStmtParser<'a> {
     pub(super) db: &'a dyn InferQueryGroup,
     pub(super) arena: &'a RawExprArena,
-    pub(super) variables: Vec<LazyVariable>,
     pub(super) file: FilePtr,
     entity_route_sheet: Arc<EntityRouteSheet>,
     contract_sheet: Arc<ContractSheet>,
@@ -21,53 +20,15 @@ pub(super) struct LazyStmtParser<'a> {
 }
 
 impl<'a> LazyStmtParser<'a> {
-    pub(super) fn new(
-        parameters: &[Parameter],
-        db: &'a dyn InferQueryGroup,
-        arena: &'a RawExprArena,
-        file: FilePtr,
-    ) -> Self {
+    pub(super) fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FilePtr) -> Self {
         Self {
             db,
             arena,
-            variables: parameters
-                .iter()
-                .map(|input_placeholder| LazyVariable::from_parameter(input_placeholder))
-                .collect(),
             file,
             entity_route_sheet: db.entity_route_sheet(file).unwrap(),
             contract_sheet: db.contract_sheet(file).unwrap(),
             qualified_ty_sheet: db.qualified_ty_sheet(file).unwrap(),
         }
-    }
-
-    pub(super) fn def_variable(
-        &mut self,
-        varname: CustomIdentifier,
-        ty: EntityRoutePtr,
-    ) -> VMCompileResult<VMStackIdx> {
-        let varidx = VMStackIdx::new(self.variables.len())?;
-        emsg_once!("todo: is reference variable");
-        self.variables.push(LazyVariable {
-            ident: varname,
-            ty,
-            is_reference: false,
-        });
-        Ok(varidx)
-    }
-
-    pub(super) fn varidx(&self, varname: CustomIdentifier) -> VMStackIdx {
-        VMStackIdx::new(
-            self.variables.len()
-                - 1
-                - self
-                    .variables
-                    .iter()
-                    .rev()
-                    .position(|v| v.ident == varname)
-                    .unwrap(),
-        )
-        .unwrap()
     }
 
     pub(super) fn parse_lazy_stmts(
@@ -101,8 +62,6 @@ impl<'a> LazyStmtParser<'a> {
                             if kind != InitKind::Decl {
                                 todo!()
                             }
-                            self.def_variable(varname.ident, initial_value.qualified_ty.ty)
-                                .unwrap();
                             LazyStmtVariant::Init {
                                 varname,
                                 value: initial_value,
@@ -215,19 +174,6 @@ impl<'a> InferQualifiedTy for LazyStmtParser<'a> {
 impl<'a> LazyExprParser<'a> for LazyStmtParser<'a> {
     fn arena(&self) -> &'a RawExprArena {
         self.arena
-    }
-
-    fn vartype(&self, varname: CustomIdentifier) -> EntityRoutePtr {
-        self.variables
-            .iter()
-            .find_map(|variable| {
-                if variable.ident == varname {
-                    Some(variable.ty)
-                } else {
-                    None
-                }
-            })
-            .unwrap()
     }
 
     fn db(&self) -> &'a dyn InferQueryGroup {

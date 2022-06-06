@@ -310,7 +310,6 @@ pub(crate) fn main_defn(
                 return Ok(Arc::new(MainDefn {
                     defn_repr: DefinitionRepr::LazyBlock {
                         stmts: parse_lazy_stmts(
-                            &[],
                             this.upcast(),
                             &ast_text.arena,
                             not_none!(item.opt_children),

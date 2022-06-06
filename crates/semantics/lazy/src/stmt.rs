@@ -62,11 +62,10 @@ pub enum LazyStmtVariant {
 }
 
 pub fn parse_lazy_stmts(
-    parameters: &[Parameter],
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: fold::FoldableIter<AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
-    LazyStmtParser::new(parameters, db, arena, file).parse_lazy_stmts(iter)
+    LazyStmtParser::new(db, arena, file).parse_lazy_stmts(iter)
 }

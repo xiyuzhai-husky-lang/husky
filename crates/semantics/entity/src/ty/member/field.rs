@@ -77,7 +77,6 @@ impl EntityDefnVariant {
                     FieldAstKind::RecordDerived => FieldDefnVariant::RecordDerived {
                         defn_repr: Arc::new(DefinitionRepr::LazyBlock {
                             stmts: semantics_lazy::parse_lazy_stmts(
-                                &[],
                                 db,
                                 arena,
                                 children.unwrap(),
