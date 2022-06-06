@@ -82,7 +82,7 @@ unsafe fn share_cached<'eval>(cached: &EvalResult<'eval>) -> EvalResult<'eval> {
             EvalValue::Copyable(value) => EvalValue::Copyable(*value),
             EvalValue::Owned(value) => EvalValue::EvalRef(&*value.any_ptr()),
             EvalValue::EvalRef(value) => EvalValue::EvalRef(*value),
-            EvalValue::GlobalPure(value) => EvalValue::GlobalPure(value.clone()),
+            EvalValue::EvalPure(value) => EvalValue::EvalPure(value.clone()),
             EvalValue::Undefined => EvalValue::Undefined,
         },
         Err(error) => Err(error.clone())?,

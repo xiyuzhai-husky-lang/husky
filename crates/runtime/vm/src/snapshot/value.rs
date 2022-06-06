@@ -30,7 +30,7 @@ impl<'eval> StackValueSnapshot<'eval> {
     pub fn eval(&self) -> EvalValue<'eval> {
         match self {
             StackValueSnapshot::Copyable(copyable_value) => EvalValue::Copyable(*copyable_value),
-            StackValueSnapshot::GlobalPure(value) => EvalValue::GlobalPure(value.clone()),
+            StackValueSnapshot::GlobalPure(value) => EvalValue::EvalPure(value.clone()),
             StackValueSnapshot::EvalRef(value) => EvalValue::EvalRef(*value),
             StackValueSnapshot::Owned(value) => EvalValue::Owned(value.clone()),
             StackValueSnapshot::RefMut { value, owner, gen } => value.clone(),
