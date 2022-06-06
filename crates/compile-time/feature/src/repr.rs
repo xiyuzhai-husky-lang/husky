@@ -8,7 +8,7 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum FeatureRepr {
-    Expr(Arc<FeatureExpr>),
+    LazyExpr(Arc<FeatureExpr>),
     LazyBlock(Arc<FeatureLazyBlock>),
     FuncBlock(Arc<FeatureFuncBlock>),
     ProcBlock(Arc<FeatureProcBlock>),
@@ -17,16 +17,16 @@ pub enum FeatureRepr {
 impl FeatureRepr {
     pub fn feature(&self) -> FeaturePtr {
         match self {
-            FeatureRepr::Expr(expr) => expr.feature,
+            FeatureRepr::LazyExpr(expr) => expr.feature,
             FeatureRepr::LazyBlock(block) => block.feature,
             FeatureRepr::FuncBlock(block) => block.feature,
-            FeatureRepr::ProcBlock(_) => todo!(),
+            FeatureRepr::ProcBlock(block) => block.feature,
         }
     }
 
     pub fn file(&self) -> FilePtr {
         match self {
-            FeatureRepr::Expr(_) => todo!(),
+            FeatureRepr::LazyExpr(expr) => expr.expr.file,
             FeatureRepr::LazyBlock(block) => block.file,
             FeatureRepr::FuncBlock(block) => block.file,
             FeatureRepr::ProcBlock(block) => block.file,
@@ -35,7 +35,7 @@ impl FeatureRepr {
 
     pub fn text_range(&self) -> TextRange {
         match self {
-            FeatureRepr::Expr(_) => todo!(),
+            FeatureRepr::LazyExpr(expr) => expr.expr.range,
             FeatureRepr::LazyBlock(block) => block.range,
             FeatureRepr::FuncBlock(block) => block.range,
             FeatureRepr::ProcBlock(block) => block.range,
@@ -49,7 +49,9 @@ impl FeatureRepr {
         features: &FeatureUniqueAllocator,
     ) -> Self {
         match defn_repr {
-            DefinitionRepr::EagerExpr {} => todo!(),
+            DefinitionRepr::LazyExpr { expr } => {
+                FeatureRepr::LazyExpr(FeatureExpr::new(db, opt_this, expr.clone(), &[], features))
+            }
             DefinitionRepr::LazyBlock { stmts } => {
                 FeatureRepr::LazyBlock(FeatureLazyBlock::new(db, opt_this, stmts, &[], features))
             }
@@ -88,7 +90,7 @@ impl FeatureRepr {
 
 impl From<Arc<FeatureExpr>> for FeatureRepr {
     fn from(expr: Arc<FeatureExpr>) -> Self {
-        Self::Expr(expr)
+        Self::LazyExpr(expr)
     }
 }
 

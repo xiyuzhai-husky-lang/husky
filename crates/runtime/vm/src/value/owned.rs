@@ -77,7 +77,7 @@ impl<'temp, 'eval: 'temp> OwnedValue<'temp, 'eval> {
     }
 
     pub fn get_json_value(&self) -> serde_json::value::Value {
-        self.0.get_json_value_dyn()
+        self.0.to_json_value_dyn()
     }
 }
 

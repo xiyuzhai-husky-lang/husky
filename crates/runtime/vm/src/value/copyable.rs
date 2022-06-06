@@ -102,7 +102,7 @@ impl CopyableValue {
         }
     }
 
-    pub(crate) fn to_bool(&self) -> bool {
+    pub fn to_bool(&self) -> bool {
         match self {
             CopyableValue::I32(value) => *value != 0i32,
             CopyableValue::F32(value) => *value != 0.0f32,
@@ -144,17 +144,17 @@ impl CopyableValue {
             CopyableValue::Void(_) => todo!(),
         }
     }
-    pub fn get_primitive_json_value(self) -> serde_json::Value {
-        match self {
-            CopyableValue::I32(value) => serde_json::to_value(value).unwrap(),
-            CopyableValue::F32(value) => serde_json::to_value(value).unwrap(),
-            CopyableValue::B32(value) => serde_json::to_value(value).unwrap(),
-            CopyableValue::B64(value) => serde_json::to_value(value).unwrap(),
-            CopyableValue::Bool(value) => serde_json::to_value(value).unwrap(),
-            CopyableValue::Void(value) => serde_json::to_value(value).unwrap(),
-            CopyableValue::EnumKind(value) => todo!(),
-        }
-    }
+    // pub fn to_json_value(self) -> serde_json::Value {
+    //     match self {
+    //         CopyableValue::I32(value) => serde_json::to_value(value).unwrap(),
+    //         CopyableValue::F32(value) => serde_json::to_value(value).unwrap(),
+    //         CopyableValue::B32(value) => serde_json::to_value(value).unwrap(),
+    //         CopyableValue::B64(value) => serde_json::to_value(value).unwrap(),
+    //         CopyableValue::Bool(value) => serde_json::to_value(value).unwrap(),
+    //         CopyableValue::Void(value) => serde_json::to_value(value).unwrap(),
+    //         CopyableValue::EnumKind(value) => todo!(),
+    //     }
+    // }
 }
 
 impl Hash for CopyableValue {

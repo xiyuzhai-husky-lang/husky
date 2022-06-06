@@ -70,7 +70,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                                             values[0].downcast_mut_full();
                                         this_value
                                             .get_mut(index_value)
-                                            .map(|value| TempValue::CopyableOrTempMutEval {
+                                            .map(|value| TempValue::CopyableOrTempRefMutEval {
                                                 value,
                                                 owner,
                                                 gen: (),

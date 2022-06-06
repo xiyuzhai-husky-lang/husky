@@ -10,7 +10,7 @@ impl<'eval> TraceFactory<'eval> {
         text: &Text,
     ) -> Vec<Arc<Trace<'eval>>> {
         match feature_repr {
-            FeatureRepr::Expr(_) => todo!(),
+            FeatureRepr::LazyExpr(_) => todo!(),
             FeatureRepr::LazyBlock(feature_block) => {
                 self.feature_lazy_block_subtraces(parent, feature_block, text)
             }

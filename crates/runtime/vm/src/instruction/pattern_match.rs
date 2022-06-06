@@ -24,10 +24,10 @@ impl VMCasePattern {
                 TempValue::EvalPure(_) => todo!(),
                 TempValue::EvalRef(_) => todo!(),
                 TempValue::TempRefEval(value) => todo!(),
-                TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
+                TempValue::TempRefMutEval { value, owner, gen } => todo!(),
                 TempValue::OwnedTemp(_) => todo!(),
                 TempValue::TempRefTemp(_) => todo!(),
-                TempValue::TempMutTemp { value, owner, gen } => todo!(),
+                TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
             },
             VMCasePattern::OneOf(subpatterns) => {
                 for subpattern in subpatterns {
@@ -47,10 +47,10 @@ impl VMCasePattern {
                 TempValue::EvalPure(_) => todo!(),
                 TempValue::EvalRef(_) => todo!(),
                 TempValue::TempRefEval(value) => todo!(),
-                TempValue::CopyableOrTempMutEval { value, owner, gen } => todo!(),
+                TempValue::TempRefMutEval { value, owner, gen } => todo!(),
                 TempValue::OwnedTemp(_) => todo!(),
                 TempValue::TempRefTemp(_) => todo!(),
-                TempValue::TempMutTemp { value, owner, gen } => todo!(),
+                TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
             },
         }
     }

@@ -173,7 +173,9 @@ pub enum FieldDefnVariant {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum DefinitionRepr {
-    EagerExpr {},
+    LazyExpr {
+        expr: Arc<LazyExpr>,
+    },
     LazyBlock {
         stmts: Arc<Vec<Arc<LazyStmt>>>,
     },
