@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 // use token::{Special, Token, TokenKind};
-use word::{Keyword, Paradigm, TyKeyword};
+use word::TyKeyword;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum TyKind {

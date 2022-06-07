@@ -142,8 +142,8 @@ impl InterpreterQueryGroup for HuskyCompileTime {
 
     fn visualize<'temp, 'eval>(
         &self,
-        ty: EntityRoutePtr,
-        value: &(dyn AnyValueDyn<'eval> + 'temp),
+        _ty: EntityRoutePtr,
+        _value: &(dyn AnyValueDyn<'eval> + 'temp),
     ) -> vm::VisualProps {
         panic!("can only visualize in HuskyRuntime")
     }

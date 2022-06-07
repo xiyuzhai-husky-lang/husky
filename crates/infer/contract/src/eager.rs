@@ -2,7 +2,7 @@ use crate::*;
 use ast::MatchLiason;
 use entity_route::{EntityRouteKind, EntityRoutePtr};
 use infer_decl::DeclQueryGroup;
-use infer_error::{throw, throw_derived};
+use infer_error::throw;
 use text::TextRange;
 use word::RootIdentifier;
 
@@ -21,24 +21,22 @@ impl EagerContract {
         parameter_ty: EntityRoutePtr,
         parameter_liason: ParameterLiason,
         output_liason: OutputLiason,
-        output_contract: EagerContract,
-        is_output_ty_copyable: bool,
         range: TextRange,
-    ) -> InferResult<EagerContract> {
+    ) -> EagerContract {
         match parameter_ty.kind {
             EntityRouteKind::Root {
                 ident: RootIdentifier::Ref,
-            } => Ok(EagerContract::EvalRef),
+            } => EagerContract::EvalRef,
             _ => match output_liason {
-                OutputLiason::Transfer => Ok(match parameter_liason {
+                OutputLiason::Transfer => match parameter_liason {
                     ParameterLiason::Pure => EagerContract::Pure,
                     ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
                     ParameterLiason::TempRefMut => EagerContract::TempRefMut,
                     ParameterLiason::MemberAccess => panic!(),
                     ParameterLiason::EvalRef => EagerContract::EvalRef,
                     ParameterLiason::TempRef => todo!(),
-                }),
-                OutputLiason::MemberAccess { .. } => Ok(EagerContract::Pure),
+                },
+                OutputLiason::MemberAccess { .. } => EagerContract::Pure,
             },
         }
     }
@@ -47,18 +45,17 @@ impl EagerContract {
         parameter_liason: ParameterLiason,
         output_liason: OutputLiason,
         output_contract: EagerContract,
-        range: TextRange,
-    ) -> InferResult<EagerContract> {
+    ) -> EagerContract {
         match output_liason {
-            OutputLiason::Transfer => Ok(match parameter_liason {
+            OutputLiason::Transfer => match parameter_liason {
                 ParameterLiason::Pure => EagerContract::Pure,
                 ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
                 ParameterLiason::TempRefMut => EagerContract::TempRefMut,
                 ParameterLiason::MemberAccess => panic!(),
                 ParameterLiason::EvalRef => EagerContract::EvalRef,
                 ParameterLiason::TempRef => todo!(),
-            }),
-            OutputLiason::MemberAccess { .. } => Ok(output_contract),
+            },
+            OutputLiason::MemberAccess { .. } => output_contract,
         }
     }
 

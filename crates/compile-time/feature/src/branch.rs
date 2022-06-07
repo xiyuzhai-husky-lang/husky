@@ -1,5 +1,3 @@
-use bitvec::prelude::BitVec;
-
 use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]

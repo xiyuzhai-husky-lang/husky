@@ -5,7 +5,6 @@ use dev_utils::dev_src;
 use infer_decl::{MethodKind, TraitMemberImplDecl};
 use text::*;
 use vm::*;
-use word::CustomIdentifier;
 
 use super::*;
 

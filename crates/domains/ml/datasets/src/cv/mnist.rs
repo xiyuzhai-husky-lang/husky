@@ -76,7 +76,7 @@ impl Serialize for MnistDataset {
     where
         S: serde::Serializer,
     {
-        todo!()
+        serializer.serialize_str("MnistDataset")
     }
 }
 

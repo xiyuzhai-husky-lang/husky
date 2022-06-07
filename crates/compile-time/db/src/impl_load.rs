@@ -1,8 +1,5 @@
 use crate::*;
-use std::{
-    fs,
-    path::{Path, PathBuf},
-};
+use std::{fs, path::Path};
 
 impl HuskyCompileTime {
     pub fn load_package(&mut self, package_dir: &Path) {

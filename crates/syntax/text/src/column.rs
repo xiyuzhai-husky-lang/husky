@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use std::fmt::Write;
 use test_utils::{TestDisplay, TestDisplayConfig};
 
 #[derive(
@@ -8,7 +9,18 @@ pub struct Column(pub(crate) u32);
 
 impl TestDisplay for Column {
     fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
-        todo!()
+        if config.colored {
+            write!(
+                result,
+                "{}col {: <4}{}",
+                print_utils::YELLOW,
+                self.0 + 1,
+                print_utils::RESET
+            )
+            .unwrap();
+        } else {
+            write!(result, "col {: <4}", self.0 + 1,).unwrap();
+        }
     }
 }
 

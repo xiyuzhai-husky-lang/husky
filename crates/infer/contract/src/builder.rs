@@ -1,12 +1,9 @@
 mod eager;
 mod lazy;
 
-use std::sync::Arc;
-
 use ast::{AstIter, AstVariant, FieldAstKind};
-use entity_route::{EntityRouteKind, EntityRoutePtr};
+use entity_route::EntityRoutePtr;
 use entity_syntax::EntitySyntaxResult;
-use fold::LocalStack;
 use infer_decl::DeclQueryGroup;
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use word::{Paradigm, RootIdentifier};
@@ -15,8 +12,6 @@ use crate::*;
 
 pub struct ContractSheetBuilder<'a> {
     db: &'a dyn InferContractSalsaQueryGroup,
-    file: FilePtr,
-    main_file: FilePtr,
     contract_sheet: ContractSheet,
 }
 
@@ -37,8 +32,6 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> EntitySyntaxResult<Self> {
         Ok(Self {
             db,
-            file,
-            main_file: db.main_file(file).unwrap(),
             contract_sheet: ContractSheet::new(db.entity_route_sheet(file)?),
         })
     }
@@ -58,10 +51,10 @@ impl<'a> ContractSheetBuilder<'a> {
             match ast.variant {
                 AstVariant::FieldDefnHead {
                     liason,
-                    ranged_ident,
                     ty,
-                    field_ast_kind: field_kind,
-                } => match field_kind {
+                    field_ast_kind,
+                    ..
+                } => match field_ast_kind {
                     FieldAstKind::StructDefault { default } => {
                         msg_once!("todo: handle ref");
                         if let Ok(is_field_copyable) = self.db.is_copyable(ty.route) {
@@ -110,11 +103,8 @@ impl<'a> ContractSheetBuilder<'a> {
                     ),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
-                        field_ast_kind: field_kind,
-                        liason,
-                        ranged_ident,
-                        ty,
-                    } => match field_kind {
+                        field_ast_kind, ty, ..
+                    } => match field_ast_kind {
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
                         } => self.infer_eager_stmts(children, &arena, ty.route),
@@ -124,8 +114,8 @@ impl<'a> ContractSheetBuilder<'a> {
                         | FieldAstKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
                         _ => (),
                     },
-                    AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_stmts(children, &arena),
-                    AstVariant::Submodule { ident, source_file } => (),
+                    AstVariant::FeatureDecl { .. } => self.infer_lazy_stmts(children, &arena),
+                    AstVariant::Submodule { .. } => (),
                     AstVariant::Stmt(_) => panic!(),
                 }
             }

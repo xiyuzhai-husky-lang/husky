@@ -1,5 +1,5 @@
 use check_utils::should;
-use std::{fmt::Write, marker::PhantomData};
+use std::marker::PhantomData;
 use test_utils::{TestDisplay, TestDisplayConfig};
 
 use crate::*;
