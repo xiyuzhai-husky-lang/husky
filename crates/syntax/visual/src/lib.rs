@@ -4,6 +4,7 @@ use vm::*;
 pub enum StaticVisualizer {
     Compiled(for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps),
     Vec,
+    CyclicSlice,
 }
 
 impl std::fmt::Debug for StaticVisualizer {

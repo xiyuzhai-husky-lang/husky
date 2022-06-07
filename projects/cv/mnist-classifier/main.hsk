@@ -20,4 +20,4 @@ main:
     raw_contour0 = raw_contours[0]
     line_segment_sketch = raw_contour0.line_segment_sketch
     concave_components = line_segment_sketch.concave_components
-    1
+    concave_components.len()

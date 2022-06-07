@@ -36,7 +36,7 @@ impl<'a, T> CyclicSlice<'a, T> {
     }
 
     pub fn iter(&self) -> impl Iterator<Item = &T> {
-        (self.start..self.end).map(|i| &self.total[i as usize])
+        (self.start..self.end).map(|i| &self.total[i.rem_euclid(self.total.len() as i32) as usize])
     }
 }
 
@@ -72,7 +72,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         static_trait_impls: &[],
         variants: &[],
         kind: TyKind::Struct,
-        visualizer: StaticVisualizer::Vec,
+        visualizer: StaticVisualizer::CyclicSlice,
         opt_type_call: None,
     },
     dev_src: dev_utils::static_dev_src!(),
