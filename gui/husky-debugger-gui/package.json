@@ -1,0 +1,22 @@
+{
+    "name": "yewchat",
+    "version": "1.0.0",
+    "description": "",
+    "main": "bootstrap.js",
+    "scripts": {
+        "build": "rimraf dist pkg && webpack",
+        "start": "rimraf dist pkg && webpack-dev-server --open -d eval",
+        "test": "cargo test && wasm-pack test --headless"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@wasm-tool/wasm-pack-plugin": "^1.6.0",
+        "copy-webpack-plugin": "^10.2.0",
+        "rimraf": "^3.0.2",
+        "webpack": "^5.65.0",
+        "webpack-cli": "^4.9.1",
+        "webpack-dev-server": "^4.7.2"
+    }
+}
