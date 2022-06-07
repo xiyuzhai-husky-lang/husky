@@ -2,8 +2,8 @@ use super::utils;
 use crate::*;
 use atom::*;
 use entity_kind::TyKind;
-use entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
-use word::{Identifier, RootIdentifier};
+use entity_route::EntityKind;
+use word::RootIdentifier;
 
 #[test]
 fn std_scope() {

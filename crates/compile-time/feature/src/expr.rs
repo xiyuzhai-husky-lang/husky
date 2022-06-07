@@ -2,14 +2,11 @@ mod impl_opn;
 
 use entity_route::EntityRouteKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
-use file::FilePtr;
-use semantics_eager::*;
 use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
-use text::TextRange;
 use vm::{Binding, InstructionSheet, Linkage};
-use word::{ContextualIdentifier, RootIdentifier};
+use word::RootIdentifier;
 
 use crate::{eval_id::FeatureEvalId, *};
 
@@ -146,10 +143,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     }
                 })
                 .unwrap(),
-            LazyExprVariant::EntityRoute {
-                route: scope,
-                compiled,
-            } => todo!(),
+            LazyExprVariant::EntityRoute { .. } => todo!(),
             LazyExprVariant::PrimitiveLiteral(value) => (
                 FeatureExprVariant::PrimitiveLiteral(value),
                 self.features.alloc(Feature::PrimitiveLiteral(value)),
@@ -172,13 +166,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 },
                 self.this.as_ref().unwrap().feature(),
             ),
-            LazyExprVariant::ThisField {
-                field_ident,
-                field_idx,
-                this_ty,
-                this_binding,
-                field_binding,
-            } => todo!(),
+            LazyExprVariant::ThisField { .. } => todo!(),
             LazyExprVariant::EntityFeature { entity_route } => match entity_route.kind {
                 EntityRouteKind::Root { .. } | EntityRouteKind::Package { .. } => panic!(),
                 EntityRouteKind::Child { .. } => {
@@ -200,11 +188,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 }
                 EntityRouteKind::Generic { ident, .. } => todo!(),
                 EntityRouteKind::ThisType => todo!(),
-                EntityRouteKind::TypeAsTraitMember {
-                    ty: parent,
-                    trai,
-                    ident,
-                } => todo!(),
+                EntityRouteKind::TypeAsTraitMember { .. } => todo!(),
             },
         };
         Arc::new(FeatureExpr {

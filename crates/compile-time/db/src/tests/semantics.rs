@@ -22,5 +22,5 @@ main:
     );
 
     let main_file_id = db.intern_file("haha/main.hsk".into());
-    let pack = db.package(main_file_id).unwrap();
+    let _pack = db.package(main_file_id).unwrap();
 }

@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use std::fmt::Write;
 use test_utils::{TestDisplay, TestDisplayConfig};
 
 use crate::*;
@@ -11,7 +12,18 @@ pub struct TextPosition {
 
 impl TestDisplay for TextPosition {
     fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
-        todo!()
+        if config.colored {
+            write!(
+                result,
+                "{}pos {: <4?}{}",
+                print_utils::YELLOW,
+                self,
+                print_utils::RESET
+            )
+            .unwrap();
+        } else {
+            write!(result, "pos {: <4?}", self,).unwrap();
+        }
     }
 }
 

@@ -1,7 +1,5 @@
-use avec::Avec;
 use file::FilePtr;
 use instruction_gen::new_func_instruction_sheet;
-use semantics_eager::ProcStmt;
 use semantics_entity::DefinitionRepr;
 
 use crate::*;

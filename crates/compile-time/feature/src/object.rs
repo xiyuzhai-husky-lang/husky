@@ -1,6 +1,5 @@
 use super::*;
 use vm::EvalValue;
-use word::IdentDict;
 
 #[derive(Debug, Clone)]
 pub struct Object {

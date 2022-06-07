@@ -184,12 +184,12 @@ where
 impl<K, Entry> FromIterator<Entry> for VecMap<K, Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    Entry: VecMapEntry<K>,
+    Entry: VecMapEntry<K> + std::fmt::Debug,
 {
     fn from_iter<T: IntoIterator<Item = Entry>>(iter: T) -> Self {
         let mut map = Self::default();
         for v in iter {
-            map.insert_new(v);
+            map.insert_new(v).unwrap();
         }
         map
     }

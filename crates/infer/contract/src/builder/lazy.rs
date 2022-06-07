@@ -3,7 +3,6 @@ use std::iter::zip;
 use ast::*;
 
 use infer_error::*;
-use text::BindTextRangeInto;
 use text::RangedCustomIdentifier;
 use text::TextRange;
 use vm::*;
@@ -46,23 +45,18 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawPatternBranchVariant::Case { pattern } => self.infer_lazy_pattern(pattern),
                 RawPatternBranchVariant::Default => (),
             },
-            RawStmtVariant::Exec {
-                expr,
-                discard: silent,
-            } => panic!(),
-            RawStmtVariant::Init {
-                varname,
-                initial_value,
-                ..
-            } => {
+            RawStmtVariant::Exec { .. } => panic!(),
+            RawStmtVariant::Init { initial_value, .. } => {
                 if let Ok(ty) = self.raw_expr_ty(initial_value) {
                     LazyContract::pure_or_pass(self.db, ty)
+                        .ok()
                         .map(|contract| self.infer_lazy_expr(initial_value, contract, arena));
                 }
             }
             RawStmtVariant::Return(result) => {
                 if let Ok(ty) = self.raw_expr_ty(result) {
                     LazyContract::pure_or_pass(self.db, ty)
+                        .ok()
                         .map(|contract| self.infer_lazy_expr(result, contract, arena));
                 }
             }
@@ -117,10 +111,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 raw_expr_idx,
             ),
             RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::FrameVariable {
-                varname,
-                init_range: init_row,
-            } => todo!(),
+            RawExprVariant::FrameVariable { .. } => panic!(),
         };
         self.contract_sheet
             .lazy_expr_contract_results

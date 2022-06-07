@@ -1,6 +1,6 @@
 use super::*;
 use liason::{MemberLiason, ParameterLiason};
-use std::{any::TypeId, sync::Arc};
+use std::any::TypeId;
 use vm::*;
 
 pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {

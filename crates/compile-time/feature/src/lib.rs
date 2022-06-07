@@ -20,9 +20,7 @@ pub use unique_allocate::{
     new_feature_unique_allocator, AllocateUniqueFeature, FeaturePtr, FeatureUniqueAllocator,
 };
 
-use defn_head::*;
 use entity_route::EntityRoutePtr;
-use object::Object;
 use print_utils::*;
 use std::sync::Arc;
 use text::*;

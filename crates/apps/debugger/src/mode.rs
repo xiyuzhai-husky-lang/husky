@@ -1,6 +1,5 @@
 use crate::*;
 use compile_time_db::HuskyCompileTime;
-use diagnostic::Diagnostic;
 use path_utils::collect_all_package_dirs;
 use std::path::PathBuf;
 

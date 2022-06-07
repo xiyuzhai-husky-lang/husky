@@ -31,12 +31,8 @@ use entity_route::EntityRoutePtr;
 use file::FilePtr;
 use linkage_table::LinkageSourceTable;
 use print_utils::*;
-use semantics_entity::{EntityDefnVariant, EntityRouteStore};
-use std::{
-    collections::HashMap,
-    fmt,
-    sync::{Arc, RwLock},
-};
+use semantics_entity::EntityRouteStore;
+use std::{fmt, sync::Arc};
 use sync_utils::ARwLock;
 
 #[salsa::database(

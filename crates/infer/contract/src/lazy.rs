@@ -1,6 +1,5 @@
 use ast::MatchLiason;
 use entity_route::EntityRoutePtr;
-use infer_error::throw;
 use text::TextRange;
 
 use crate::*;

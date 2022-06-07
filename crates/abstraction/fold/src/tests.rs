@@ -71,7 +71,6 @@ impl<'a> Transformer<(), FoldableList<()>, ()> for TrivialTransformer {
 #[test]
 fn transform() {
     use check_utils::*;
-    use print_utils::*;
     let items: Vec<Indent> = vec![0, 4, 0, 4, 4].into();
     let fold_inputs: Arc<FoldableList<()>> = Arc::new(items.into());
     let mut transformer = TrivialTransformer {

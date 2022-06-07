@@ -3,9 +3,8 @@ use instruction_gen::InstructionGenQueryGroup;
 use linkage_table::ResolveLinkage;
 use pack_semantics::*;
 use semantics_entity::{EntityDefnQueryGroup, EntityDefnVariant};
-use semantics_error::{SemanticResult, SemanticResultArc};
+use semantics_error::SemanticResult;
 use upcast::Upcast;
-use vm::InterpreterQueryGroup;
 
 use crate::{record::*, unique_allocate::AllocateUniqueFeature, *};
 

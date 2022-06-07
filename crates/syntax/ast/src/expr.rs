@@ -10,7 +10,6 @@ use crate::*;
 use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
 use atom::Atom;
 use atom::AtomVariant;
-use entity_route::SpatialArgument;
 pub(crate) use stack::ExprStack;
 use text::TextRange;
 use text::TextRanged;
