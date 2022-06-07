@@ -16,10 +16,6 @@ pub trait AllocateUniqueFile {
                 Err(_) => path,
             })
     }
-
-    fn submodule_file(&self, module_file: FilePtr, ident: CustomIdentifier) {
-        todo!()
-    }
 }
 
 pub fn new_file_unique_allocator() -> FileInterner {

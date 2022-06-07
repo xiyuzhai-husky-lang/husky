@@ -13,17 +13,14 @@ proc find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []Conca
     let L = line_segment_sketch.line_segments.len()
     var start = 0
     var end = 1
-    while start > -L and !is_convex(line_segment_sketch, start):
+    while start > -L and !is_convex(line_segment_sketch.contour, line_segments, start):
         start--
     let ccv_start = start
     while start < ccv_start + L:
-        while end <= start+L and !is_convex(line_segment_sketch, end):
+        while end <= start+L and !is_convex(ct, line_segments, end):
             end++
         if end > start + 1:
-            concave_components.push(ConcaveComponent(
-                line_segment_sketch,
-                line_segment_sketch.line_segments.cyclic_slice(start, end + 1))
-            )
+            concave_components.append LineSegmentInterval(start, end)
         start = end
         end = start + 1
     return concave_components

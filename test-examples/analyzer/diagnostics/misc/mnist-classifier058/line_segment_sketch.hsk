@@ -28,9 +28,6 @@ struct LineSegmentSketch:
     contour: &RawContour
     line_segments: []LineSegment
 
-    func concave_components -> []ConcaveComponent:
-        find_concave_components(this)
-
     static func new(ct: &RawContour, r: f32) -> LineSegmentSketch:
         LineSegmentSketch(ct, find_line_segments(ct, r))
 

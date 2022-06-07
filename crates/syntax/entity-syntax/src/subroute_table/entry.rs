@@ -122,7 +122,7 @@ impl SubrouteEntry {
             TokenKind::Identifier(Identifier::Custom(ident)) => ident,
             _ => todo!(),
         };
-        if let Some(submodule_file) = db.get_submodule_file(&file, ident) {
+        if let Some(submodule_file) = db.submodule_file(file, ident) {
             Ok(Some(SubrouteEntry {
                 ident: Some(RangedCustomIdentifier {
                     ident,

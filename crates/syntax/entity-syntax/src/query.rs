@@ -284,7 +284,7 @@ pub trait EntitySyntaxQueryGroup:
                         .submodule_idents()
                         .into_iter()
                         .filter_map(|ident| {
-                            self.submodule_file_id(file, ident.ident)
+                            self.submodule_file(file, ident.ident)
                                 .map_or(None, |id| Some(self.collect_modules(id)))
                         })
                         .flatten(),
@@ -321,10 +321,11 @@ pub trait EntitySyntaxQueryGroup:
             } else {
                 Err(derived_error!(format!("pack root should have filename")))?
             }
-        } else if path_has_file_name(&path, "mod.hsk") {
-            todo!()
         } else if path_has_extension(&path, "hsk") {
-            let parent = self.module(self.intern_file(parent_module_path(&path)))?;
+            let parent = self.module(query_not_none!(
+                self.parent_module_file(file),
+                format!("cannot find parent")
+            )?)?;
             let word = self.intern_word(path.file_stem().unwrap().to_str().unwrap());
             match word {
                 WordPtr::Keyword(kw) => Err(derived_error!(format!(
@@ -364,33 +365,6 @@ pub trait EntitySyntaxQueryGroup:
             EntityLocus::StaticTypeMember => todo!(),
             EntityLocus::StaticTypeAsTraitMember => todo!(),
         })
-    }
-
-    fn submodule_file_id(
-        &self,
-        parent_id: FilePtr,
-        ident: CustomIdentifier,
-    ) -> EntitySyntaxResult<FilePtr> {
-        let path = &*parent_id;
-
-        should!(path_has_file_name(&path, "mod.hsk") || path_has_file_name(path, "main.hsk"));
-
-        let module_path1 = path.with_file_name(format!("{}.hsk", ident.deref()));
-        let module_path2 = path.with_file_name(format!("{}/mod.hsk", ident.deref()));
-
-        let module_path = if module_path1.is_file() && !module_path2.is_file() {
-            Ok(module_path1)
-        } else if module_path2.is_file() && !module_path1.is_file() {
-            Ok(module_path1)
-        } else {
-            Err(FileError {
-                kind: FileErrorKind::FileNotFound,
-                dev_src: dev_src!(),
-            }
-            .into())
-        };
-
-        module_path.map(|pth| self.intern_file(pth))
     }
 
     fn entity_kind_from_scope_kind(
