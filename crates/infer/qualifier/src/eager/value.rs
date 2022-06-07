@@ -197,7 +197,24 @@ impl EagerValueQualifiedTy {
         match ty.kind {
             EntityRouteKind::Root {
                 ident: RootIdentifier::Ref,
-            } => todo!(),
+            } => {
+                let qual = if ty.temporal_arguments.len() == 0 {
+                    match qual {
+                        EagerExprQualifier::Copyable => EagerExprQualifier::EvalRef,
+                        EagerExprQualifier::PureRef => todo!(),
+                        EagerExprQualifier::EvalRef => todo!(),
+                        EagerExprQualifier::TempRef => todo!(),
+                        EagerExprQualifier::TempRefMut => todo!(),
+                        EagerExprQualifier::Transient => todo!(),
+                    }
+                } else {
+                    todo!()
+                };
+                Self {
+                    qual,
+                    ty: ty.deref_route(),
+                }
+            }
             _ => Self { qual, ty },
         }
     }

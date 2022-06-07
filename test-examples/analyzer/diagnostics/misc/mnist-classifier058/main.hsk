@@ -19,5 +19,4 @@ main:
     raw_contours = connected_component.raw_contours
     raw_contour0 = raw_contours[0]
     line_segment_sketch = raw_contour0.line_segment_sketch
-    concave_components = line_segment_sketch.concave_components
     1

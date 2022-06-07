@@ -1,8 +1,8 @@
+mod module_tree;
 mod rel;
-mod tree;
 
+pub use module_tree::*;
 pub use rel::*;
-pub use tree::*;
 
 use std::path::{Path, PathBuf};
 

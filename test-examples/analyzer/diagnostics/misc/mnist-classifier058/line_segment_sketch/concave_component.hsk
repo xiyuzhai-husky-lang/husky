@@ -20,10 +20,7 @@ proc find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []Conca
         while end <= start+L and !is_convex(line_segment_sketch, end):
             end++
         if end > start + 1:
-            concave_components.push(ConcaveComponent(
-                line_segment_sketch,
-                line_segment_sketch.line_segments.cyclic_slice(start, end + 1))
-            )
+            concave_components.push(line_segment_sketch(start, end))
         start = end
         end = start + 1
     return concave_components

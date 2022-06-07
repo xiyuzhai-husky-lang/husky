@@ -83,7 +83,7 @@ impl<'a> AstTransformer<'a> {
         );
         Ok(AstVariant::Submodule {
             ident,
-            source_file: derived_not_none!(self.db.get_submodule_file(&self.file, ident.ident))?,
+            source_file: derived_not_none!(self.db.submodule_file(self.file, ident.ident))?,
         })
     }
 }

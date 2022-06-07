@@ -7,6 +7,7 @@ use crate::*;
 use check_utils::should_eq;
 use indexmap::IndexMap;
 use itertools::Itertools;
+use path_utils::{parent_module_path, submodule_path};
 use print_utils::p;
 use sync_utils::ARwLock;
 use word::CustomIdentifier;
@@ -42,13 +43,17 @@ pub trait LiveFiles: AllocateUniqueFile {
 pub trait FileSalsaQuery: LiveFiles {
     fn file_content(&self, id: FilePtr) -> FileContent;
 
-    fn main_file(&self, module_file_id: FilePtr) -> Option<FilePtr>;
+    fn main_file(&self, module_file: FilePtr) -> Option<FilePtr>;
+
+    fn parent_module_file(&self, module_file: FilePtr) -> Option<FilePtr>;
+
+    fn submodule_file(&self, module_file: FilePtr, ident: CustomIdentifier) -> Option<FilePtr>;
 }
 
-fn file_content(this: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
-    this.salsa_runtime()
+fn file_content(db: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
+    db.salsa_runtime()
         .report_synthetic_read(salsa::Durability::LOW);
-    this.get_live_files()
+    db.get_live_files()
         .read(|live_docs| match live_docs.get(&id) {
             Some(text) => FileContent::Live(text.clone_to_arc()),
             None => {
@@ -62,11 +67,11 @@ fn file_content(this: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
         })
 }
 
-fn main_file(this: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
+fn main_file(db: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
     let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
-        let id = this.intern_file(ancestor.with_file_name("main.hsk"));
-        match this.file_content(id) {
+        let id = db.intern_file(ancestor.with_file_name("main.hsk"));
+        match db.file_content(id) {
             FileContent::OnDisk(_) | FileContent::Live(_) => return Some(id),
             FileContent::Deleted | FileContent::NonExistent => (),
         }
@@ -74,9 +79,35 @@ fn main_file(this: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FileP
     None
 }
 
+fn parent_module_file(db: &dyn FileSalsaQuery, module_file: FilePtr) -> Option<FilePtr> {
+    Some(db.intern_file(parent_module_path(&module_file, |file| {
+        file_exists(db, file)
+    })?))
+}
+
+fn submodule_file(
+    db: &dyn FileSalsaQuery,
+    module_file: FilePtr,
+    ident: CustomIdentifier,
+) -> Option<FilePtr> {
+    Some(db.intern_file(submodule_path(&module_file, &ident, |file| {
+        file_exists(db, file)
+    })?))
+}
+
+fn file_exists(db: &dyn FileSalsaQuery, file: &Path) -> bool {
+    let file = db.intern_file(file.to_owned());
+    match db.file_content(file) {
+        FileContent::OnDisk(_) => true,
+        FileContent::Live(_) => true,
+        FileContent::Deleted => false,
+        FileContent::NonExistent => false,
+    }
+}
+
 pub trait FileQueryGroup: FileSalsaQuery {
-    fn file_exists(&self, id: FilePtr) -> bool {
-        match self.file_content(id) {
+    fn file_exists(&self, file: FilePtr) -> bool {
+        match self.file_content(file) {
             FileContent::OnDisk(_) => true,
             FileContent::Live(_) => true,
             FileContent::Deleted => false,
@@ -140,30 +171,6 @@ pub trait FileQueryGroup: FileSalsaQuery {
             let mut url: String = url.into();
             url[driver_letter_range].make_ascii_lowercase();
             lsp_types::Url::parse(&url).unwrap()
-        }
-    }
-
-    fn get_submodule_file(&self, module_file: &Path, ident: CustomIdentifier) -> Option<FilePtr> {
-        should_eq!(module_file.extension().unwrap(), "hsk");
-        if module_file.file_name().unwrap() == "mod.hsk"
-            || module_file.file_name().unwrap() == "main.hsk"
-        {
-            let maybe_submodule_file =
-                self.intern_file(module_file.with_file_name(format!("{}.hsk", ident)));
-            if self.file_exists(maybe_submodule_file) {
-                Some(maybe_submodule_file)
-            } else {
-                let maybe_submodule_file =
-                    self.intern_file(module_file.with_file_name(format!("{}.hsk", ident)));
-                if self.file_exists(maybe_submodule_file) {
-                    Some(maybe_submodule_file)
-                } else {
-                    None
-                }
-            }
-        } else {
-            p!(module_file);
-            todo!()
         }
     }
 }
