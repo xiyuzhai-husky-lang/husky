@@ -11,7 +11,7 @@ impl<'eval> TraceFactory<'eval> {
         text: &Text,
     ) -> Arc<Trace<'eval>> {
         self.new_trace(
-            Some(parent.id),
+            Some(parent.id()),
             indent,
             TraceVariant::FeatureBranch(branch),
             text,
@@ -23,7 +23,7 @@ impl<'eval> TraceFactory<'eval> {
         indent: Indent,
         branch: &FeatureBranch,
         text: &Text,
-    ) -> Vec<LineProps<'eval>> {
+    ) -> Vec<LineProps> {
         vec![LineProps {
             idx: 0,
             indent,
@@ -35,7 +35,7 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         branch: &FeatureBranch,
         text: &Text,
-    ) -> Vec<TokenProps<'eval>> {
+    ) -> Vec<TraceTokenProps> {
         match branch.variant {
             FeatureBranchVariant::If { ref condition } => {
                 let mut tokens = vec![keyword!("if ")];

@@ -50,7 +50,7 @@ impl Debugger {
 }
 
 impl DebuggerInternal {
-    fn handle_request<'a>(&'a mut self, request: Request) -> Option<ResponseVariant<'a>> {
+    fn handle_request(&mut self, request: Request) -> Option<ResponseVariant> {
         match request.variant {
             RequestVariant::Init => Some(self.init_state()),
             RequestVariant::Activate {
@@ -86,7 +86,7 @@ impl DebuggerInternal {
                         .for_each(|trace| trace.collect_associated_traces(&mut associated_traces));
                     Some(ResponseVariant::ToggleExpansion {
                         effective_opt_input_id,
-                        subtraces,
+                        subtraces: subtraces.iter().map(|trace| trace.props.clone()).collect(),
                         associated_traces,
                     })
                 } else {
@@ -99,10 +99,12 @@ impl DebuggerInternal {
             }
             RequestVariant::Trace { id } => {
                 let trace = self.trace(id);
-                Some(ResponseVariant::Trace { id, trace })
+                Some(ResponseVariant::Trace {
+                    trace_props: trace.props.clone(),
+                })
             }
             RequestVariant::TraceStalk { trace_id, input_id } => {
-                let stalk = self.trace_stalk(trace_id, input_id);
+                let stalk = (*self.trace_stalk(trace_id, input_id)).clone();
                 Some(ResponseVariant::TraceStalk { stalk })
             }
             RequestVariant::DecodeFocus { ref command } => {
@@ -144,8 +146,8 @@ impl DebuggerInternal {
 
     fn init_state(&mut self) -> ResponseVariant {
         let root_traces = self.runtime.root_traces();
-        let expansions = self.expansions();
-        let showns = self.showns();
+        let expansions = self.expansions().clone();
+        let showns = self.showns().clone();
         let state = &self.state;
         let focus = self.runtime.focus();
         let mut figures = HashMap::default();
@@ -155,11 +157,11 @@ impl DebuggerInternal {
             let active_trace = self.runtime.trace(active_trace_id);
             figures.insert(
                 focus.figure_key(active_trace_id),
-                self.runtime.figure(active_trace_id, focus),
+                self.runtime.figure(active_trace_id, &focus),
             );
             figure_controls.insert(
-                focus.figure_control_key(&active_trace),
-                unsafe { ref_to_mut_ref(&self.runtime) }.figure_control(&active_trace, focus),
+                focus.figure_control_key(&active_trace.props),
+                unsafe { ref_to_mut_ref(&self.runtime) }.figure_control(&active_trace, &focus),
             );
         }
         let traces = self.runtime.traces();
@@ -168,8 +170,8 @@ impl DebuggerInternal {
                 active_trace_id,
                 focus,
                 traces,
-                subtraces_list: &state.subtraces_map,
-                root_traces,
+                subtraces_list: state.subtraces_map.clone(),
+                root_traces: (*root_traces).clone(),
                 expansions,
                 showns,
                 figures,

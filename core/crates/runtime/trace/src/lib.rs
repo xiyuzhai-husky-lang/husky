@@ -1,24 +1,20 @@
 mod associated_traces;
 mod factory;
-mod figure;
 mod query;
 mod stalk;
 mod subtraces;
 #[cfg(test)]
 mod tests;
-mod token;
 mod variant;
 
-pub use factory::{ProduceTrace, TraceFactory, TraceId};
-pub use figure::*;
+pub use factory::{ProduceTrace, TraceFactory};
 pub use query::*;
-pub use stalk::TraceStalk;
-pub use token::{TokenProps, TraceTokenKind};
 pub use variant::TraceVariant;
 
 use feature::*;
 use file::FilePtr;
 use fold::Indent;
+use husky_debugger_gui::{protocol::*, *};
 use print_utils::p;
 use semantics_eager::*;
 use semantics_entity::*;
@@ -29,45 +25,19 @@ use text::{Text, TextRange};
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug, Clone)]
 pub struct Trace<'eval> {
-    pub parent: Option<TraceId>,
-    pub(crate) id: TraceId,
     pub variant: TraceVariant<'eval>,
-    pub indent: Indent,
-    pub lines: Vec<LineProps<'eval>>,
+    pub props: TraceProps,
     pub range: TextRange,
     pub file: FilePtr,
-    pub compile_time_version: usize,
-    pub has_subtraces: bool,
-    pub reachable: bool,
 }
 
 impl<'eval> PartialEq for Trace<'eval> {
     fn eq(&self, other: &Self) -> bool {
-        self.id == other.id
+        self.id() == other.id()
     }
 }
 
 impl<'eval> Eq for Trace<'eval> {}
-
-impl<'eval> Serialize for Trace<'eval> {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        let mut state = serializer.serialize_struct("Trace", 3)?;
-        state.serialize_field("id", &self.id)?;
-        state.serialize_field("parent", &self.parent)?;
-        state.serialize_field("lines", &self.lines)?;
-        state.serialize_field("kind", &self.variant)?;
-        state.serialize_field("has_subtraces", &self.has_subtraces)?;
-        state.serialize_field("reachable", &self.reachable)?;
-        state.serialize_field(
-            "subtraces_container_class",
-            &self.subtraces_container_class(),
-        )?;
-        state.end()
-    }
-}
 
 impl<'eval> Trace<'eval> {
     pub(crate) fn new(
@@ -84,27 +54,23 @@ impl<'eval> Trace<'eval> {
         let has_subtraces = variant.has_subtraces(reachable);
         let lines = trace_allocator.lines(id, indent, &variant, text, parent.is_some());
         Self {
-            id,
-            parent,
-            indent,
-            lines,
+            props: TraceProps {
+                id,
+                parent,
+                indent,
+                compile_time_version,
+                has_subtraces,
+                reachable,
+                lines,
+                kind: variant.kind(),
+            },
             variant,
             file,
             range,
-            compile_time_version,
-            has_subtraces,
-            reachable,
         }
     }
 
     pub fn id(&self) -> TraceId {
-        self.id
+        self.props.id
     }
-}
-
-#[derive(Debug, Clone, Serialize)]
-pub struct LineProps<'eval> {
-    pub indent: Indent,
-    pub tokens: Vec<TokenProps<'eval>>,
-    pub idx: usize,
 }

@@ -4,6 +4,17 @@ use std::borrow::Cow;
 pub struct VMRuntimeError {
     pub message: String,
 }
+
+impl Into<TraceTokenProps> for VMRuntimeError {
+    fn into(self) -> TraceTokenProps {
+        TraceTokenProps {
+            kind: TraceTokenKind::Error,
+            value: self.message,
+            opt_associated_trace_id: None,
+        }
+    }
+}
+
 pub type VMRuntimeResult<T> = Result<T, VMRuntimeError>;
 #[macro_export]
 macro_rules! vm_runtime_error {
@@ -29,4 +40,5 @@ macro_rules! vm_compile_error {
         }
     };
 }
+use husky_debugger_gui::protocol::{TraceTokenKind, TraceTokenProps};
 pub(crate) use vm_compile_error;

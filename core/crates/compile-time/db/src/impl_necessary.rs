@@ -1,10 +1,10 @@
+use crate::*;
+use husky_debugger_gui::protocol::VisualProps;
 use infer_total::InferQueryGroup;
 use linkage_table::{LinkageSourceTable, ResolveLinkage};
 use semantics_entity::{EntityRouteStore, StoreEntityRoute};
 use upcast::Upcast;
 use vm::{AnyValueDyn, InterpreterQueryGroup};
-
-use crate::*;
 
 impl fmt::Debug for HuskyCompileTime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
@@ -144,7 +144,7 @@ impl InterpreterQueryGroup for HuskyCompileTime {
         &self,
         _ty: EntityRoutePtr,
         _value: &(dyn AnyValueDyn<'eval> + 'temp),
-    ) -> vm::VisualProps {
+    ) -> VisualProps {
         panic!("can only visualize in HuskyRuntime")
     }
 }

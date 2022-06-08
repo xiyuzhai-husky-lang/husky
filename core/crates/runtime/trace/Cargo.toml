@@ -30,3 +30,4 @@ compile-time-db = { path = "../../compile-time/db", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
 eval-feature = { path = "../eval-feature", version = "0.0.0" }
+husky-debugger-gui = { path = "../../../../gui/husky-debugger-gui", version = "0.0.0" }

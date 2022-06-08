@@ -1,20 +1,12 @@
 mod handle;
-mod init;
-mod request;
-mod response;
 mod tests;
 
 use crate::*;
 use futures::{task::SpawnExt, FutureExt, StreamExt};
 use handle::handle_message;
-use init::InitState;
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc::{self, UnboundedSender};
-use trace::{FigureProps, Trace, TraceId, TraceStalk};
 use warp::ws::{Message, WebSocket};
-
-use request::{Request, RequestVariant};
-use response::{Response, ResponseVariant};
 
 pub(crate) async fn handle_query(
     socket: warp::ws::Ws,

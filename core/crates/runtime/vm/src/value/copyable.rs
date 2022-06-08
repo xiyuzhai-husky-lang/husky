@@ -43,12 +43,6 @@ impl Serialize for CopyableValue {
     }
 }
 
-impl From<()> for CopyableValue {
-    fn from(_: ()) -> Self {
-        Self::Void(())
-    }
-}
-
 impl CopyableValue {
     pub fn ty(&self) -> EntityRoutePtr {
         match self {
@@ -169,6 +163,12 @@ impl Hash for CopyableValue {
             CopyableValue::Void(_) => ().hash(state),
             CopyableValue::EnumKind(enum_kind) => enum_kind.hash(state),
         }
+    }
+}
+
+impl From<()> for CopyableValue {
+    fn from(_: ()) -> Self {
+        Self::Void(())
     }
 }
 

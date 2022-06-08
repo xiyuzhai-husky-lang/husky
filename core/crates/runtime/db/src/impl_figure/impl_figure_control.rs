@@ -1,42 +1,13 @@
 use feature::FeatureStmtVariant;
 use serde::{Deserialize, Serialize};
-use trace::TraceVariant;
+use trace::*;
 use vm::{HistoryEntry, LoopFrameData, MutationData};
 
 use super::*;
 
-#[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq)]
-#[serde(tag = "kind")]
-pub struct FigureControlProps {
-    opt_mutation_selection: Option<u8>,
-}
-
-impl FigureControlProps {
-    pub fn loop_default(loop_trace: &Trace) -> Self {
-        let control_props = match loop_trace.variant {
-            TraceVariant::ProcStmt {
-                ref stmt,
-                ref history,
-            } => match history.get(stmt).unwrap() {
-                HistoryEntry::Loop { mutations, .. } => Self::mutations_default(mutations),
-                _ => panic!(),
-            },
-            _ => panic!(),
-        };
-        control_props
-    }
-
-    pub fn mutations_default(mutations: &[MutationData]) -> Self {
-        let opt_mutation_selection = if mutations.len() > 0 { Some(0) } else { None };
-        FigureControlProps {
-            opt_mutation_selection,
-        }
-    }
-}
-
 impl HuskyRuntime {
     pub fn figure_control(&mut self, trace: &Trace, focus: &Focus) -> FigureControlProps {
-        let key = focus.figure_control_key(trace);
+        let key = focus.figure_control_key(&trace.props);
         if let Some(control) = self.figure_controls.get(&key) {
             control.clone()
         } else {
@@ -56,11 +27,11 @@ impl HuskyRuntime {
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. } => FigureControlProps::default(),
             TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
-                ProcStmtVariant::Loop { .. } => FigureControlProps::loop_default(trace),
+                ProcStmtVariant::Loop { .. } => FigureControlProps::loop_default(&trace.props),
                 _ => FigureControlProps::default(),
             },
             TraceVariant::LoopFrame { .. } => {
-                FigureControlProps::loop_default(&self.trace(trace.parent.unwrap()))
+                FigureControlProps::loop_default(&self.trace(trace.props.parent.unwrap()).props)
             }
             TraceVariant::ProcBranch {
                 ref stmt,
@@ -74,7 +45,8 @@ impl HuskyRuntime {
                     ..
                 } => {
                     if Some(branch_idx) == *branch_entered {
-                        FigureControlProps::mutations_default(mutations)
+                        todo!()
+                        // FigureControlProps::mutations_default(mutations)
                     } else {
                         FigureControlProps::default()
                     }
@@ -90,7 +62,9 @@ impl HuskyRuntime {
         focus: &Focus,
         new_control: FigureControlProps,
     ) {
-        self.figure_controls
-            .insert(focus.figure_control_key(&self.trace(trace_id)), new_control);
+        self.figure_controls.insert(
+            focus.figure_control_key(&self.trace(trace_id).props),
+            new_control,
+        );
     }
 }

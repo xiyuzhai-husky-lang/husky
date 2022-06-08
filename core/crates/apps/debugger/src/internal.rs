@@ -51,7 +51,7 @@ impl DebuggerInternal {
         self.runtime.lock_input(input_str)
     }
 
-    pub fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk<'static>> {
+    pub fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk> {
         self.runtime.trace_stalk(trace_id, input_id)
     }
 }

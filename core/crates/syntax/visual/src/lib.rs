@@ -1,3 +1,4 @@
+use husky_debugger_gui::protocol::VisualProps;
 use vm::*;
 
 #[derive(Clone, Copy)]

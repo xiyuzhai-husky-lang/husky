@@ -1,6 +1,7 @@
 mod impl_primitive;
 mod impl_slice;
 mod impl_vec;
+mod impl_visual_props;
 
 use print_utils::p;
 use serde::Serialize;

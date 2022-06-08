@@ -12,7 +12,7 @@ impl AskCompileTime for HuskyRuntime {
 
 impl ProduceTrace<'static> for HuskyRuntime {
     fn trace_factory(&self) -> &trace::TraceFactory<'static> {
-        &self.traces
+        &self.trace_factory
     }
 }
 
@@ -30,7 +30,7 @@ impl InterpreterQueryGroup for HuskyRuntime {
         &self,
         ty: entity_route::EntityRoutePtr,
         value: &(dyn AnyValueDyn<'eval> + 'temp),
-    ) -> vm::VisualProps {
+    ) -> VisualProps {
         let visualizer = self.visualizer(ty);
         visualizer.visualize(self, value, self.verbose())
     }

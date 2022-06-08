@@ -1,4 +1,7 @@
 use crate::*;
+use check_utils::should_eq;
+use husky_debugger_gui::protocol::{Point2dProps, VisualProps};
+use print_utils::msg_once;
 use serde::Serialize;
 use serde_json::value::Value;
 use word::{CustomIdentifier, IdentPairDict};
@@ -42,6 +45,34 @@ impl XmlTagKind {
             "Contour" => XmlTagKind::Contour,
             "Arrow2d" => XmlTagKind::Arrow2d,
             "LineSegment" => XmlTagKind::LineSegment,
+            _ => todo!(),
+        }
+    }
+}
+
+impl Into<VisualProps> for XmlValue {
+    fn into(self) -> VisualProps {
+        let mut data = self.props.take_data();
+        msg_once!("ad hoc");
+        match self.tag_kind.as_str() {
+            "Contour" => {
+                should_eq!(data.len(), 1);
+                let (ident, value) = data.pop().unwrap();
+                let points: Vec<Point2dProps> = serde_json::from_value(value).unwrap();
+                VisualProps::Contour { points }
+            }
+            "LineSegment" => {
+                should_eq!(data.len(), 2);
+                // end
+                let (ident, value) = data.pop().unwrap();
+                should_eq!(ident.as_str(), "end");
+                let end: Point2dProps = serde_json::from_value(value).unwrap();
+                // start
+                let (ident, value) = data.pop().unwrap();
+                should_eq!(ident.as_str(), "start");
+                let start: Point2dProps = serde_json::from_value(value).unwrap();
+                VisualProps::LineSegment { start, end }
+            }
             _ => todo!(),
         }
     }

@@ -38,7 +38,7 @@ impl<'eval> TraceFactory<'eval> {
         stmt: &FuncStmt,
         text: &Text,
         history: &Arc<History<'eval>>,
-    ) -> Vec<LineProps<'eval>> {
+    ) -> Vec<LineProps> {
         vec![LineProps {
             indent: stmt.indent,
             tokens: self.func_stmt_tokens(stmt, text, history),
@@ -51,7 +51,7 @@ impl<'eval> TraceFactory<'eval> {
         stmt: &FuncStmt,
         text: &Text,
         history: &Arc<History<'eval>>,
-    ) -> Vec<TokenProps<'eval>> {
+    ) -> Vec<TraceTokenProps> {
         match stmt.variant {
             FuncStmtVariant::Init {
                 varname,
