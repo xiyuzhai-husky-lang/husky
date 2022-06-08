@@ -10,5 +10,5 @@ log = "0.4.6"
 reqwasm = "0.5.0"
 futures = "0.3.17"
 wasm-bindgen-futures = "0.4.28"
-sycamore = { git = "https://github.com/sycamore-rs/sycamore", rev = "215a0152d04146de718fa91170bd4770684a0e3c" }
+sycamore = { path = "../sycamore/packages/sycamore", version = "0.8.0-beta.6" }
 husky-debugger-protocol = { path = "../husky-debugger-protocol", version = "0.0.0" }
