@@ -1,0 +1,14 @@
+[package]
+name = "husky-debugger-gui-sycamore"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+serde_json = "1.0.73"
+serde = { version = "1.0", features = ["derive"] }
+log = "0.4.6"
+reqwasm = "0.5.0"
+futures = "0.3.17"
+wasm-bindgen-futures = "0.4.28"
+sycamore = { git = "https://github.com/sycamore-rs/sycamore", rev = "215a0152d04146de718fa91170bd4770684a0e3c" }
+husky-debugger-protocol = { path = "../husky-debugger-protocol", version = "0.0.0" }
