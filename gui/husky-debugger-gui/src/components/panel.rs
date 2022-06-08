@@ -1,4 +1,4 @@
-use crate::{services::websocket::WebsocketService, User};
+use main::{services::websocket::WebsocketService, User};
 use serde::{Deserialize, Serialize};
 use yew::prelude::*;
 use yew_agent::{Bridge, Bridged};
@@ -36,14 +36,14 @@ struct UserProfile {
     avatar: String,
 }
 
-pub struct Chat {
+pub struct Panel {
     users: Vec<UserProfile>,
     chat_input: NodeRef,
     wss: WebsocketService,
     messages: Vec<MessageData>,
 }
 
-impl Component for Chat {
+impl Component for Panel {
     type Message = Msg;
     type Properties = ();
 

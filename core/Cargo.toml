@@ -10,8 +10,6 @@ members = [
     "crates/ide/*",
     "crates/apps/*",
     "crates/try",
-    "gui/husky-debugger-gui"
-    # "rust-gen/*",
 ]
 default-members = [
     "crates/utils/*",
@@ -24,7 +22,6 @@ default-members = [
     "crates/ide/*",
     "crates/apps/*",
     "crates/try",
-    "gui/husky-debugger-gui"
 ]
 
 [profile.dev]
@@ -35,5 +32,3 @@ opt-level = 3
 # This makes the compiled code faster and smaller, but it makes compiling slower,
 # so it's only enabled in release mode.
 lto = true
-
-[build]
