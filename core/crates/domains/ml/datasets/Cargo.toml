@@ -19,4 +19,4 @@ visual-syntax = { path = "../../../syntax/visual", version = "0.0.0" }
 entity-kind = { path = "../../../syntax/entity-kind", version = "0.0.0" }
 static-defn = { path = "../../../semantics/static-defn", version = "0.0.0" }
 liason = { path = "../../../semantics/liason", version = "0.0.0" }
-husky-debugger-gui = { path = "../../../../../gui/husky-debugger-gui", version = "0.0.0" }
+husky-debugger-protocol = { path = "../../../../../gui/husky-debugger-protocol", version = "0.0.0" }

@@ -1,6 +1,5 @@
 use crate::*;
 use check_utils::should_eq;
-use husky_debugger_gui::protocol::{Point2dProps, VisualProps};
 use print_utils::msg_once;
 use serde::Serialize;
 use serde_json::value::Value;

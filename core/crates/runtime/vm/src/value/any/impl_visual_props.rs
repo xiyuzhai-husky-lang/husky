@@ -1,5 +1,4 @@
 use crate::*;
-use husky_debugger_gui::protocol::VisualProps;
 
 impl<'eval> AnyValue<'eval> for VisualProps {
     fn static_type_id() -> StaticTypeId {

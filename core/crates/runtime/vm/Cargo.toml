@@ -20,4 +20,4 @@ word = { path = "../../syntax/word", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
-husky-debugger-gui = { path = "../../../../gui/husky-debugger-gui", version = "0.0.0" }
+husky-debugger-protocol = { path = "../../../../gui/husky-debugger-protocol", version = "0.0.0" }

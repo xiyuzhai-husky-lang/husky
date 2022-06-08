@@ -47,4 +47,4 @@ semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 feature = { path = "../../compile-time/feature", version = "0.0.0" }
 visual-runtime = { path = "../../runtime/visual", version = "0.0.0" }
-husky-debugger-gui = { path = "../../../../gui/husky-debugger-gui", version = "0.0.0" }
+husky-debugger-protocol = { path = "../../../../gui/husky-debugger-protocol", version = "0.0.0" }

@@ -5,7 +5,7 @@ mod tests;
 
 use datasets::LabeledData;
 use eval_feature::{EvalFeature, Session};
-use husky_debugger_gui::*;
+use husky_debugger_protocol::*;
 pub use impl_figure::*;
 use indexmap::IndexMap;
 use json_map::JsonListMap;
