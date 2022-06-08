@@ -17,7 +17,7 @@ pub trait TraceQueryGroup: ProduceTrace<'static> {
         trace_id: TraceId,
         effective_opt_input_id: Option<usize>,
     ) -> Arc<Vec<Arc<Trace<'static>>>>;
-    fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk<'static>>;
+    fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk>;
 }
 
 pub fn root_traces(this: &dyn TraceQueryGroup) -> Arc<Vec<TraceId>> {
@@ -141,7 +141,7 @@ pub fn trace_stalk(
     this: &dyn TraceQueryGroup,
     trace_id: TraceId,
     input_id: usize,
-) -> Arc<TraceStalk<'static>> {
+) -> Arc<TraceStalk> {
     let trace: &Trace = &this.trace(trace_id);
     Arc::new(match trace.variant {
         TraceVariant::Main(ref repr) => TraceStalk {

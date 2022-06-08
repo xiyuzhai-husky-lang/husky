@@ -1,0 +1,10 @@
+use datasets::cv::mnist::BinaryImage28
+
+dataset:
+    cv::mnist::new_binary_dataset()
+
+def a_feature -> i32:
+    1
+
+main:
+    a_feature

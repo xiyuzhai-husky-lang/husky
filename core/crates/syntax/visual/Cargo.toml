@@ -11,3 +11,4 @@ arrayvec = "0.7.2"
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 vm = { path = "../../runtime/vm", version = "0.0.0" }
+husky-debugger-gui = { path = "../../../../gui/husky-debugger-gui", version = "0.0.0" }

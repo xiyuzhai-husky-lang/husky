@@ -12,7 +12,7 @@ impl<'eval> TraceFactory<'eval> {
         expr: &Arc<FeatureExpr>,
         text: &Text,
         config: ExprTokenConfig,
-    ) -> Vec<LineProps<'eval>> {
+    ) -> Vec<LineProps> {
         vec![LineProps {
             indent: 0,
             idx: 0,
@@ -25,9 +25,12 @@ impl<'eval> TraceFactory<'eval> {
         expr: &Arc<FeatureExpr>,
         text: &Text,
         config: ExprTokenConfig,
-    ) -> Vec<TokenProps<'eval>> {
-        let associated_trace = if config.associated {
-            Some(self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone()), text))
+    ) -> Vec<TraceTokenProps> {
+        let opt_associated_trace_id = if config.associated {
+            Some(
+                self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone()), text)
+                    .id(),
+            )
         } else {
             None
         };
@@ -40,12 +43,12 @@ impl<'eval> TraceFactory<'eval> {
             } => {
                 let mut tokens = vec![];
                 tokens.extend(self.feature_expr_tokens(lopd, text, config.subexpr()));
-                tokens.push(special!(opr.spaced_code(), associated_trace));
+                tokens.push(special!(opr.spaced_code(), opt_associated_trace_id));
                 tokens.extend(self.feature_expr_tokens(ropd, text, config.subexpr()));
                 tokens
             }
             FeatureExprVariant::Variable { varname, .. } => {
-                vec![ident!(varname.0, associated_trace)]
+                vec![ident!(varname.0, opt_associated_trace_id)]
             }
             FeatureExprVariant::RoutineCall {
                 opds: ref feature_opds,
@@ -58,7 +61,7 @@ impl<'eval> TraceFactory<'eval> {
                         .feature_routine_call_tokens(
                             ranged_route,
                             feature_opds,
-                            associated_trace,
+                            opt_associated_trace_id,
                             text,
                             config,
                         ),
@@ -103,7 +106,10 @@ impl<'eval> TraceFactory<'eval> {
             },
             FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
             FeatureExprVariant::EntityFeature { .. } => {
-                vec![route!(text.ranged(expr.expr.range), associated_trace)]
+                vec![route!(
+                    text.ranged(expr.expr.range),
+                    opt_associated_trace_id
+                )]
             }
             FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
             FeatureExprVariant::ThisValue { ref repr } => todo!(),
@@ -112,12 +118,12 @@ impl<'eval> TraceFactory<'eval> {
             FeatureExprVariant::ElementAccess { ref opds, .. } => {
                 let mut tokens = vec![];
                 tokens.extend(self.feature_expr_tokens(&opds[0], text, config.subexpr()));
-                tokens.push(special!("[", associated_trace.clone()));
+                tokens.push(special!("[", opt_associated_trace_id.clone()));
                 for i in 1..opds.len() {
                     let index_opd = &opds[i];
                     tokens.extend(self.feature_expr_tokens(index_opd, text, config.subexpr()));
                 }
-                tokens.push(special!("]", associated_trace));
+                tokens.push(special!("]", opt_associated_trace_id));
                 tokens
             }
             FeatureExprVariant::RecordDerivedFieldAccess {
@@ -149,7 +155,7 @@ impl<'eval> TraceFactory<'eval> {
         config: ExprTokenConfig,
         this: &Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
-    ) -> Vec<TokenProps<'eval>> {
+    ) -> Vec<TraceTokenProps> {
         let mut tokens = self.feature_expr_tokens(this, text, config);
         tokens.extend([special!("."), ident!(field_ident.ident.as_str())]);
         tokens
@@ -159,12 +165,12 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         ranged_scope: RangedEntityRoute,
         inputs: &[Arc<FeatureExpr>],
-        associated_trace: Option<Arc<Trace<'eval>>>,
+        opt_associated_trace_id: Option<TraceId>,
         text: &Text,
         config: ExprTokenConfig,
-    ) -> Vec<TokenProps<'eval>> {
+    ) -> Vec<TraceTokenProps> {
         let mut tokens = vec![
-            route!(text.ranged(ranged_scope.range), associated_trace),
+            route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),
         ];
         for (i, input) in inputs.iter().enumerate() {

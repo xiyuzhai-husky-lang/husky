@@ -8,17 +8,17 @@ mod mode;
 mod notif;
 mod state;
 
-use avec::Avec;
 pub use error::{DebuggerError, DebuggerResult};
-use focus::Focus;
-use internal::DebuggerInternal;
-use json_result::JsonResult;
 pub use mode::Mode;
 
+use avec::Avec;
 use compile_time_db::HuskyCompileTime;
 use config::DebuggerConfig;
 use futures::executor::ThreadPool;
 use gui::handle_query;
+use husky_debugger_gui::*;
+use internal::DebuggerInternal;
+use json_result::JsonResult;
 use notif::handle_notif;
 use print_utils::*;
 use runtime_db::*;

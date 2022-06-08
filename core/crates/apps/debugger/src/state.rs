@@ -5,7 +5,7 @@ use crate::*;
 #[derive(Default)]
 pub struct DebuggerState {
     pub(crate) active_trace_id: Option<TraceId>,
-    pub(crate) subtraces_map: JsonListMap<(TraceId, Option<usize>), Vec<TraceId>>,
+    pub(crate) subtraces_map: HashMap<(TraceId, Option<usize>), Vec<TraceId>>,
 }
 
 impl DebuggerState {

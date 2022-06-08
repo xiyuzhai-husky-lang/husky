@@ -62,7 +62,7 @@ impl<'eval> TraceFactory<'eval> {
         stmt: &ProcStmt,
         text: &Text,
         history: &Arc<History<'eval>>,
-    ) -> Vec<LineProps<'eval>> {
+    ) -> Vec<LineProps> {
         vec![LineProps {
             indent: stmt.indent,
             tokens: self.proc_stmt_tokens(stmt, text, history),
@@ -75,7 +75,7 @@ impl<'eval> TraceFactory<'eval> {
         stmt: &ProcStmt,
         text: &Text,
         history: &Arc<History<'eval>>,
-    ) -> Vec<TokenProps<'eval>> {
+    ) -> Vec<TraceTokenProps> {
         match stmt.variant {
             ProcStmtVariant::Init {
                 varname,
@@ -202,7 +202,7 @@ impl<'eval> TraceFactory<'eval> {
         boundary: &Boundary,
         text: &Text,
         history: &Arc<History<'eval>>,
-    ) -> Vec<TokenProps<'eval>> {
+    ) -> Vec<TraceTokenProps> {
         match boundary.opt_bound {
             Some(ref bound) => {
                 let mut tokens =
@@ -224,7 +224,7 @@ impl<'eval> TraceFactory<'eval> {
         boundary: &Boundary,
         text: &Text,
         history: &Arc<History<'eval>>,
-    ) -> Vec<TokenProps<'eval>> {
+    ) -> Vec<TraceTokenProps> {
         match boundary.opt_bound {
             Some(ref bound) => {
                 let mut tokens = vec![special!(match boundary.kind {
@@ -305,8 +305,8 @@ impl<'eval> TraceFactory<'eval> {
                 .into_iter()
                 .map(|loop_frame_data| {
                     self.new_trace(
-                        Some(parent.id),
-                        parent.indent + 2,
+                        Some(parent.id()),
+                        parent.props.indent + 2,
                         TraceVariant::LoopFrame {
                             loop_stmt: loop_stmt.clone(),
                             body_stmts: body_stmts.clone(),
@@ -338,7 +338,7 @@ impl<'eval> TraceFactory<'eval> {
             verbose,
         );
         let mut subtraces: Vec<_> =
-            self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history);
+            self.proc_stmts_traces(parent.id(), parent.props.indent + 2, stmts, text, &history);
         match loop_stmt.variant {
             ProcStmtVariant::Loop {
                 ref loop_variant, ..
@@ -351,7 +351,7 @@ impl<'eval> TraceFactory<'eval> {
                         condition.clone(),
                         history.clone(),
                         Some(parent),
-                        parent.indent + 2,
+                        parent.props.indent + 2,
                     ),
                 ),
                 LoopVariant::DoWhile { condition } => subtraces.push(self.new_eager_expr_trace(
@@ -359,7 +359,7 @@ impl<'eval> TraceFactory<'eval> {
                     condition.clone(),
                     history.clone(),
                     Some(parent),
-                    parent.indent + 2,
+                    parent.props.indent + 2,
                 )),
             },
             _ => panic!(),
@@ -371,7 +371,7 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         indent: Indent,
         loop_frame_data: &LoopFrameData,
-    ) -> Vec<LineProps<'eval>> {
+    ) -> Vec<LineProps> {
         vec![LineProps {
             indent,
             tokens: self.loop_frame_tokens(loop_frame_data),
@@ -379,10 +379,7 @@ impl<'eval> TraceFactory<'eval> {
         }]
     }
 
-    pub(super) fn loop_frame_tokens(
-        &self,
-        vm_loop_frame: &LoopFrameData,
-    ) -> Vec<TokenProps<'eval>> {
+    pub(super) fn loop_frame_tokens(&self, vm_loop_frame: &LoopFrameData) -> Vec<TraceTokenProps> {
         match vm_loop_frame.frame_kind {
             vm::FrameKind::For(frame_var) => {
                 vec![
@@ -412,7 +409,13 @@ impl<'eval> TraceFactory<'eval> {
         verbose: bool,
     ) -> Avec<Trace<'eval>> {
         let history = exec_debug(db.upcast(), instruction_sheet, stack_snapshot, verbose);
-        Arc::new(self.proc_stmts_traces(parent.id, parent.indent + 2, stmts, text, &history))
+        Arc::new(self.proc_stmts_traces(
+            parent.id(),
+            parent.props.indent + 2,
+            stmts,
+            text,
+            &history,
+        ))
     }
 
     pub(super) fn proc_branch_lines(
@@ -421,7 +424,7 @@ impl<'eval> TraceFactory<'eval> {
         indent: Indent,
         branch: &ProcConditionBranch,
         history: &Arc<History<'eval>>,
-    ) -> Vec<LineProps<'eval>> {
+    ) -> Vec<LineProps> {
         vec![LineProps {
             indent,
             tokens: self.proc_branch_tokens(text, indent, branch, history),
@@ -435,7 +438,7 @@ impl<'eval> TraceFactory<'eval> {
         indent: Indent,
         branch: &ProcConditionBranch,
         history: &Arc<History<'eval>>,
-    ) -> Vec<TokenProps<'eval>> {
+    ) -> Vec<TraceTokenProps> {
         let mut tokens = Vec::new();
         match branch.variant {
             ProcConditionBranchVariant::If { ref condition } => {

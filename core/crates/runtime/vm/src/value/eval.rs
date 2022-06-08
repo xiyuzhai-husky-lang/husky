@@ -1,5 +1,6 @@
 use std::sync::Arc;
 
+use husky_debugger_gui::{protocol::*, *};
 use print_utils::msg_once;
 use word::CustomIdentifier;
 
@@ -34,6 +35,18 @@ impl<'eval> Eq for EvalValue<'eval> {}
 impl<'eval> From<CopyableValue> for EvalValue<'eval> {
     fn from(value: CopyableValue) -> Self {
         Self::Copyable(value)
+    }
+}
+
+impl<'eval> Into<TraceTokenProps> for EvalValue<'eval> {
+    fn into(self) -> TraceTokenProps {
+        match self {
+            EvalValue::Copyable(value) => fade!(value),
+            EvalValue::Owned(value) => fade!(value.any_ref().print_short()),
+            EvalValue::EvalPure(value) => fade!(value.print_short()),
+            EvalValue::EvalRef(value) => fade!(value.print_short()),
+            EvalValue::Undefined => fade!("undefined"),
+        }
     }
 }
 

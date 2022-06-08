@@ -5,7 +5,7 @@ mod tests;
 
 use datasets::LabeledData;
 use eval_feature::{EvalFeature, Session};
-use focus::Focus;
+use husky_debugger_gui::*;
 pub use impl_figure::*;
 use indexmap::IndexMap;
 use json_map::JsonListMap;
@@ -32,7 +32,7 @@ pub struct HuskyRuntime {
     storage: salsa::Storage<HuskyRuntime>,
     compile_time: HuskyCompileTime,
     compile_time_version: usize,
-    traces: TraceFactory<'static>,
+    trace_factory: TraceFactory<'static>,
     session: Arc<Mutex<Session<'static>>>,
     focus: Focus,
     expansions: HashMap<TraceId, bool>,
@@ -75,7 +75,7 @@ impl HuskyRuntime {
             )),
             compile_time,
             compile_time_version: 0,
-            traces: Default::default(),
+            trace_factory: Default::default(),
             focus: Default::default(),
             expansions: Default::default(),
             showns: Default::default(),
@@ -88,8 +88,8 @@ impl HuskyRuntime {
         runtime
     }
 
-    pub fn traces(&self) -> &TraceFactory<'static> {
-        &self.traces
+    pub fn traces(&self) -> Vec<TraceProps> {
+        self.trace_factory.traces()
     }
 
     pub async fn change_text(&mut self) {
@@ -118,8 +118,8 @@ impl HuskyRuntime {
         &self.showns
     }
 
-    pub fn focus(&self) -> &Focus {
-        &self.focus
+    pub fn focus(&self) -> Focus {
+        self.focus.clone()
     }
 
     pub fn decode_focus(&self, command: &str) -> JsonResult<Focus> {

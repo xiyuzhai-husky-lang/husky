@@ -52,3 +52,4 @@ diagnostic = { path = "../../ide/diagnostic", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 atom = { path = "../../syntax/atom", version = "0.0.0" }
+husky-debugger-gui = { path = "../../../../gui/husky-debugger-gui", version = "0.0.0" }

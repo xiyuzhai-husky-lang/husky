@@ -15,7 +15,7 @@ impl<'eval> TraceFactory<'eval> {
         indent: Indent,
     ) -> Arc<Trace<'eval>> {
         self.new_trace(
-            opt_parent.map(|parent| parent.id),
+            opt_parent.map(|parent| parent.id()),
             indent,
             TraceVariant::EagerExpr { expr, history },
             text,
@@ -29,7 +29,7 @@ impl<'eval> TraceFactory<'eval> {
         history: &Arc<History<'eval>>,
         indent: u8,
         config: ExprTokenConfig,
-    ) -> Vec<LineProps<'eval>> {
+    ) -> Vec<LineProps> {
         vec![LineProps {
             indent,
             idx: 0,
@@ -43,16 +43,19 @@ impl<'eval> TraceFactory<'eval> {
         text: &Text,
         history: &Arc<History<'eval>>,
         config: ExprTokenConfig,
-    ) -> Vec<TokenProps<'eval>> {
-        let associated_trace = if config.associated {
-            Some(self.new_eager_expr_trace(text, expr.clone(), history.clone(), None, 0))
+    ) -> Vec<TraceTokenProps> {
+        let associated_trace_id = if config.associated {
+            Some(
+                self.new_eager_expr_trace(text, expr.clone(), history.clone(), None, 0)
+                    .id(),
+            )
         } else {
             None
         };
         let mut tokens = vec![];
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => {
-                tokens.push(ident!(varname.0, associated_trace))
+                tokens.push(ident!(varname.0, associated_trace_id))
             }
             EagerExprVariant::EntityRoute { route: scope } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => return vec![literal!(value)],
@@ -72,7 +75,7 @@ impl<'eval> TraceFactory<'eval> {
                         history,
                         config.subexpr(),
                     ));
-                    tokens.push(special!(opr.spaced_code(), associated_trace));
+                    tokens.push(special!(opr.spaced_code(), associated_trace_id));
                     tokens.extend(self.eager_expr_tokens(
                         &opds[1],
                         text,
@@ -81,7 +84,7 @@ impl<'eval> TraceFactory<'eval> {
                     ));
                 }
                 EagerOpnVariant::Prefix { opr, .. } => {
-                    tokens.push(special!(opr.code(), associated_trace));
+                    tokens.push(special!(opr.code(), associated_trace_id));
                     tokens.extend(self.eager_expr_tokens(
                         &opds[0],
                         text,
@@ -96,13 +99,13 @@ impl<'eval> TraceFactory<'eval> {
                         history,
                         config.subexpr(),
                     ));
-                    tokens.push(special!(opr.code(), associated_trace));
+                    tokens.push(special!(opr.code(), associated_trace_id));
                 }
                 EagerOpnVariant::RoutineCall(ranged_scope) => {
                     tokens = self.eager_routine_call_tokens(
                         *ranged_scope,
                         opds,
-                        associated_trace,
+                        associated_trace_id,
                         text,
                         history,
                         &config,
@@ -148,7 +151,7 @@ impl<'eval> TraceFactory<'eval> {
                         history,
                         config.subexpr(),
                     ));
-                    tokens.push(special!("[", associated_trace.clone()));
+                    tokens.push(special!("[", associated_trace_id.clone()));
                     for i in 1..opds.len() {
                         if i > 1 {
                             tokens.push(special!(", "))
@@ -160,7 +163,7 @@ impl<'eval> TraceFactory<'eval> {
                             config.subexpr(),
                         ));
                     }
-                    tokens.push(special!("]", associated_trace));
+                    tokens.push(special!("]", associated_trace_id));
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                     tokens.push(route!(text.ranged(ranged_ty.range)));
@@ -195,13 +198,13 @@ impl<'eval> TraceFactory<'eval> {
         &self,
         ranged_scope: RangedEntityRoute,
         inputs: &[Arc<EagerExpr>],
-        associated_trace: Option<Arc<Trace<'eval>>>,
+        opt_associated_trace_id: Option<TraceId>,
         text: &Text,
         history: &Arc<History<'eval>>,
         config: &ExprTokenConfig,
-    ) -> Vec<TokenProps<'eval>> {
+    ) -> Vec<TraceTokenProps> {
         let mut tokens = vec![
-            route!(text.ranged(ranged_scope.range), associated_trace),
+            route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),
         ];
         for (i, input) in inputs.iter().enumerate() {

@@ -1,3 +1,5 @@
+use husky_debugger_gui::protocol::VisualProps;
+
 use super::*;
 
 pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {

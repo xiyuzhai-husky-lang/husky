@@ -14,7 +14,7 @@ impl<'eval> TraceFactory<'eval> {
             | FeatureStmtVariant::Assert { .. }
             | FeatureStmtVariant::Return { .. } => {
                 vec![self.new_trace(
-                    Some(parent.id),
+                    Some(parent.id()),
                     stmt.indent,
                     TraceVariant::FeatureStmt(stmt),
                     text,
@@ -27,7 +27,7 @@ impl<'eval> TraceFactory<'eval> {
         }
     }
 
-    pub fn feature_stmt_lines(&self, stmt: &FeatureStmt, text: &Text) -> Vec<LineProps<'eval>> {
+    pub fn feature_stmt_lines(&self, stmt: &FeatureStmt, text: &Text) -> Vec<LineProps> {
         vec![LineProps {
             indent: stmt.indent,
             idx: 0,
@@ -35,7 +35,7 @@ impl<'eval> TraceFactory<'eval> {
         }]
     }
 
-    pub fn feature_stmt_tokens(&self, stmt: &FeatureStmt, text: &Text) -> Vec<TokenProps<'eval>> {
+    pub fn feature_stmt_tokens(&self, stmt: &FeatureStmt, text: &Text) -> Vec<TraceTokenProps> {
         match stmt.variant {
             FeatureStmtVariant::Init { varname, ref value } => {
                 let mut tokens = vec![];

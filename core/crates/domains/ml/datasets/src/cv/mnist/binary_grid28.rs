@@ -1,4 +1,5 @@
 use super::*;
+use husky_debugger_gui::protocol::VisualProps;
 use liason::{MemberLiason, ParameterLiason};
 use std::any::TypeId;
 use vm::*;

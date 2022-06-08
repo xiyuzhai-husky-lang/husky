@@ -44,24 +44,24 @@ pub enum TraceVariant<'eval> {
     },
     CallHead {
         entity: Arc<EntityDefn>,
-        tokens: Vec<TokenProps<'eval>>,
+        tokens: Vec<TraceTokenProps>,
     },
 }
 
 impl<'eval> TraceVariant<'eval> {
-    pub fn tag(&self) -> &'static str {
+    pub fn kind(&self) -> TraceKind {
         match self {
-            TraceVariant::Main(_) => "TraceVariant::Main",
-            TraceVariant::FeatureStmt(_) => "TraceVariant::FeatureStmt",
-            TraceVariant::FeatureBranch(_) => "TraceVariant::FeatureBranch",
-            TraceVariant::FeatureExpr(_) => "TraceVariant::FeatureExpr",
-            TraceVariant::FeatureCallInput { .. } => "TraceVariant::FeatureCallInput",
-            TraceVariant::FuncStmt { .. } => "TraceVariant::FuncStmt",
-            TraceVariant::ProcStmt { .. } => "TraceVariant::ProcStmt",
-            TraceVariant::ProcBranch { .. } => "TraceVariant::ProcBranch",
-            TraceVariant::LoopFrame { .. } => "TraceVariant::ProcBranch",
-            TraceVariant::EagerExpr { .. } => "TraceVariant::EagerExpr",
-            TraceVariant::CallHead { .. } => "TraceVariant::CallHead",
+            TraceVariant::Main(_) => TraceKind::Main,
+            TraceVariant::FeatureStmt(_) => TraceKind::FeatureStmt,
+            TraceVariant::FeatureBranch(_) => TraceKind::FeatureBranch,
+            TraceVariant::FeatureExpr(_) => TraceKind::FeatureExpr,
+            TraceVariant::FeatureCallInput { .. } => TraceKind::FeatureCallInput,
+            TraceVariant::FuncStmt { .. } => TraceKind::FuncStmt,
+            TraceVariant::ProcStmt { .. } => TraceKind::ProcStmt,
+            TraceVariant::ProcBranch { .. } => TraceKind::ProcBranch,
+            TraceVariant::LoopFrame { .. } => TraceKind::ProcBranch,
+            TraceVariant::EagerExpr { .. } => TraceKind::EagerExpr,
+            TraceVariant::CallHead { .. } => TraceKind::CallHead,
         }
     }
 

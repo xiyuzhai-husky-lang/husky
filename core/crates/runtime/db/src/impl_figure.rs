@@ -12,7 +12,6 @@ use semantics_eager::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
 };
 use text::TextQueryGroup;
-use trace::MutationFigureProps;
 use vm::{History, HistoryEntry, MutationData, MutationDataKind, StackSnapshot};
 
 impl HuskyRuntime {
@@ -46,7 +45,7 @@ impl HuskyRuntime {
                 ref loop_frame_data,
                 ..
             } => self.loop_frame_mutations_figure(
-                trace.parent.unwrap(),
+                trace.props.parent.unwrap(),
                 &loop_frame_data.mutations,
                 &loop_frame_data.stack_snapshot,
             ),
@@ -194,14 +193,15 @@ impl HuskyRuntime {
                 .iter()
                 .enumerate()
                 .map(|(i, mutation)| {
-                    MutationFigureProps::new(
-                        self,
-                        &self.compile_time().text(mutation.file).unwrap(),
-                        &self.visualizer(mutation.ty),
-                        mutation,
-                        i,
-                        self.verbose(),
-                    )
+                    todo!()
+                    // MutationFigureProps::new(
+                    //     self,
+                    //     &self.compile_time().text(mutation.file).unwrap(),
+                    //     &self.visualizer(mutation.ty),
+                    //     mutation,
+                    //     i,
+                    //     self.verbose(),
+                    // )
                 })
                 .collect(),
         }
@@ -233,14 +233,15 @@ impl HuskyRuntime {
                             .iter()
                             .find(|frame_mutation| frame_mutation.varidx() == mutation.varidx())
                         {
-                            MutationFigureProps::new(
-                                self,
-                                &self.compile_time().text(frame_mutation.file).unwrap(),
-                                &self.visualizer(frame_mutation.ty),
-                                frame_mutation,
-                                idx,
-                                self.verbose(),
-                            )
+                            todo!()
+                            // MutationFigureProps::new(
+                            //     self,
+                            //     &self.compile_time().text(frame_mutation.file).unwrap(),
+                            //     &self.visualizer(frame_mutation.ty),
+                            //     frame_mutation,
+                            //     idx,
+                            //     self.verbose(),
+                            // )
                         } else {
                             MutationFigureProps {
                                 name: match mutation.kind {

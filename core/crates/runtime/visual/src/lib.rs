@@ -6,6 +6,7 @@ pub use query::*;
 
 use compile_time_db::*;
 use entity_route::EntityRoutePtr;
+use husky_debugger_gui::protocol::VisualProps;
 use semantics_eager::FuncStmt;
 use static_defn::CyclicSlice;
 use std::sync::Arc;

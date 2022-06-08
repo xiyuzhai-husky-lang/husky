@@ -8,6 +8,7 @@ mod exec_pattern_match;
 use crate::{history::HistoryEntry, *};
 use check_utils::{should, should_eq};
 use colored::Colorize;
+use husky_debugger_gui::protocol::VisualProps;
 use path_utils::get_relative_path;
 use print_utils::{p, ps};
 use std::iter::zip;
@@ -237,9 +238,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         )
                         .collect(),
                     };
-                    self.stack.push(TempValue::OwnedEval(OwnedValue::new(
-                        VisualProps::from_xml_value(xml_value),
-                    )));
+                    self.stack
+                        .push(TempValue::OwnedEval(OwnedValue::new(VisualProps::from(
+                            xml_value.into(),
+                        ))));
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => todo!(),

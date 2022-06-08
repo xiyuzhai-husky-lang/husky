@@ -5,7 +5,6 @@ mod eval;
 mod member;
 mod owned;
 mod ref_;
-mod visual;
 mod xml;
 
 pub use any::*;
@@ -15,7 +14,6 @@ pub use eval::{EvalResult, EvalValue};
 pub use member::*;
 pub use owned::*;
 pub use ref_::*;
-pub use visual::*;
 pub use xml::*;
 
 use crate::*;

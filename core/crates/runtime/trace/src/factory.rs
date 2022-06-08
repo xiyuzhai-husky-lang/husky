@@ -27,45 +27,17 @@ use vm::{
 
 use crate::*;
 
-#[derive(Debug, Clone, Deserialize, Copy, PartialEq, Eq, Hash)]
-pub struct TraceId(pub usize);
-
-impl Serialize for TraceId {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        serializer.serialize_i64(self.0 as i64)
-    }
-}
-
-#[test]
-fn test_trace_id_deserialize() {
-    let id0 = TraceId(0);
-    let id1: TraceId = serde_json::from_str("0").unwrap();
-    assert_eq!(id0, id1);
-}
-
 #[derive(Debug, Default)]
 pub struct TraceFactory<'eval> {
     traces: ARwLock<Vec<Option<Arc<Trace<'eval>>>>>,
     compile_time_version: usize,
 }
 
-impl<'eval> Serialize for TraceFactory<'eval> {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        self.traces.read(|traces| {
-            serializer.collect_seq(traces.iter().map(|opt_trace| -> Option<&Trace<'eval>> {
-                opt_trace.as_ref().map(|trace| -> &Trace<'eval> { trace })
-            }))
-        })
-    }
-}
-
 impl<'eval> TraceFactory<'eval> {
+    pub fn traces(&self) -> Vec<TraceProps> {
+        self.traces.read(|v| todo!())
+    }
+
     pub(crate) fn next_id(&self) -> TraceId {
         TraceId(self.traces.write(|traces| {
             traces.push(None);
@@ -80,15 +52,15 @@ impl<'eval> TraceFactory<'eval> {
         variant: &TraceVariant<'eval>,
         text: &Text,
         has_parent: bool,
-    ) -> Vec<LineProps<'eval>> {
+    ) -> Vec<LineProps> {
         match variant {
             TraceVariant::Main(feature_block) => vec![LineProps {
                 indent,
                 idx: 0,
-                tokens: vec![TokenProps {
+                tokens: vec![TraceTokenProps {
                     kind: TraceTokenKind::Keyword,
-                    value: Cow::Borrowed("main"),
-                    associated_trace: None,
+                    value: "main".into(),
+                    opt_associated_trace_id: None,
                 }],
             }],
             TraceVariant::FeatureStmt(stmt) => self.feature_stmt_lines(stmt, text),
@@ -156,8 +128,8 @@ impl<'eval> TraceFactory<'eval> {
             self.compile_time_version,
         ));
         self.traces.write(|traces| {
-            assert!(traces[trace.id.0].is_none());
-            traces[trace.id.0] = Some(trace.clone())
+            assert!(traces[trace.id().0].is_none());
+            traces[trace.id().0] = Some(trace.clone())
         });
         trace
     }

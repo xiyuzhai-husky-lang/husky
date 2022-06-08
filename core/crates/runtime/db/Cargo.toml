@@ -37,3 +37,4 @@ focus = { path = "../focus", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
 eval-feature = { path = "../eval-feature", version = "0.0.0" }
+husky-debugger-gui = { path = "../../../../gui/husky-debugger-gui", version = "0.0.0" }

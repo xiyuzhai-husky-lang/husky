@@ -23,7 +23,7 @@ impl<'eval> TraceFactory<'eval> {
             ident: Identifier,
             parameters: &[Parameter],
             text: &Text,
-        ) -> Vec<TokenProps<'eval>> {
+        ) -> Vec<TraceTokenProps> {
             let mut tokens = vec![
                 keyword!(routine_keyword),
                 ident!(ident.as_str()),
