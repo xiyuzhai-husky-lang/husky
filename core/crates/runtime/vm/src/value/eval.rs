@@ -1,10 +1,7 @@
-use std::sync::Arc;
-
-use husky_debugger_gui::{protocol::*, *};
-use print_utils::msg_once;
-use word::CustomIdentifier;
-
 use crate::*;
+use print_utils::msg_once;
+use std::sync::Arc;
+use word::CustomIdentifier;
 
 pub type EvalResult<'eval> = VMRuntimeResult<EvalValue<'eval>>;
 

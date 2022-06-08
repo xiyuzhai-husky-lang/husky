@@ -16,7 +16,7 @@ use compile_time_db::HuskyCompileTime;
 use config::DebuggerConfig;
 use futures::executor::ThreadPool;
 use gui::handle_query;
-use husky_debugger_gui::*;
+use husky_debugger_protocol::*;
 use internal::DebuggerInternal;
 use json_result::JsonResult;
 use notif::handle_notif;

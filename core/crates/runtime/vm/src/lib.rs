@@ -35,6 +35,7 @@ pub use ty::*;
 pub use value::*;
 
 use error::*;
+use husky_debugger_protocol::*;
 use std::sync::Arc;
 use word::CustomIdentifier;
 

@@ -1,3 +1,4 @@
+use crate::*;
 use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -40,5 +41,4 @@ macro_rules! vm_compile_error {
         }
     };
 }
-use husky_debugger_gui::protocol::{TraceTokenKind, TraceTokenProps};
 pub(crate) use vm_compile_error;

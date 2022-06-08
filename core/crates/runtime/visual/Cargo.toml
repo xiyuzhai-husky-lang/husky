@@ -22,4 +22,4 @@ semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 visual-semantics = { path = "../../semantics/visual", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 instruction-gen = { path = "../../compile-time/instruction-gen", version = "0.0.0" }
-husky-debugger-gui = { path = "../../../../gui/husky-debugger-gui", version = "0.0.0" }
+husky-debugger-protocol = { path = "../../../../gui/husky-debugger-protocol", version = "0.0.0" }

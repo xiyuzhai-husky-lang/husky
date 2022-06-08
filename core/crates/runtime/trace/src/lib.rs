@@ -14,7 +14,7 @@ pub use variant::TraceVariant;
 use feature::*;
 use file::FilePtr;
 use fold::Indent;
-use husky_debugger_gui::{protocol::*, *};
+use husky_debugger_protocol::*;
 use print_utils::p;
 use semantics_eager::*;
 use semantics_entity::*;

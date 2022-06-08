@@ -1,5 +1,5 @@
 use super::*;
-use husky_debugger_gui::protocol::VisualProps;
+use husky_debugger_protocol::*;
 use std::{any::TypeId, sync::Arc};
 use vm::*;
 
