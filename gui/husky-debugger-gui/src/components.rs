@@ -1,5 +1,3 @@
-pub mod chat;
-pub mod login;
+pub mod panel;
 
-pub use chat::*;
-pub use login::*;
+pub use panel::*;
