@@ -1,1 +1,1 @@
-cloc core/crates/ --exclude-dir=node_modules,out,target,try
+cloc ./ --exclude-dir=node_modules,out,target,dist
