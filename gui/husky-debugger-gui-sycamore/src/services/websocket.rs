@@ -7,6 +7,14 @@ pub struct WebsocketService {
     pub tx: Sender<String>,
 }
 
+impl std::fmt::Debug for WebsocketService {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("WebsocketService")
+            .field("tx", &self.tx)
+            .finish()
+    }
+}
+
 impl WebsocketService {
     pub fn new() -> Self {
         let ws = WebSocket::open("ws://127.0.0.1:51617/query").unwrap();
