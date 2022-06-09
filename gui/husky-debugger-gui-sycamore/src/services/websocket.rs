@@ -1,6 +1,6 @@
 use futures::{channel::mpsc::Sender, SinkExt, StreamExt};
 use reqwasm::websocket::{futures::WebSocket, Message};
-
+use crate::*;
 use wasm_bindgen_futures::spawn_local;
 
 pub struct WebsocketService {
@@ -16,7 +16,7 @@ impl std::fmt::Debug for WebsocketService {
 }
 
 impl WebsocketService {
-    pub fn new() -> Self {
+    pub fn new(context: Rc<RefCell<DebuggerContext>>) -> Self {
         let ws = WebSocket::open("ws://127.0.0.1:51617/query").unwrap();
 
         let (mut write, mut read) = ws.split();
@@ -35,11 +35,13 @@ impl WebsocketService {
                 match msg {
                     Ok(Message::Text(data)) => {
                         log::debug!("from websocket: {}", data);
+                        context.borrow_mut().process_response(&data)
                     }
                     Ok(Message::Bytes(b)) => {
                         let decoded = std::str::from_utf8(&b);
                         if let Ok(val) = decoded {
                             log::debug!("from websocket: {}", val);
+                            context.borrow_mut().process_response(val)
                         }
                     }
                     Err(e) => {

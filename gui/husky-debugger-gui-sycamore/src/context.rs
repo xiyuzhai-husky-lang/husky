@@ -1,28 +1,33 @@
 mod internal;
 
-use crate::*;
+use crate::{*, services::websocket::WebsocketService};
 use internal::*;
-use std::{cell::RefCell, rc::Rc, sync::Mutex};
+use wasm_bindgen_futures::spawn_local;
+use std::{cell::RefCell, rc::Rc, sync::{Mutex, Arc}};
 
 #[derive(Debug)]
 pub struct DebuggerContext {
-    internal: Rc<Mutex<DebuggerContextInternal>>,
-}
-
-impl PartialEq for DebuggerContext {
-    fn eq(&self, _other: &Self) -> bool {
-        true
-    }
+    pub signal: Signal<i32>,
 }
 
 impl DebuggerContext {
-    pub fn new() -> Rc<DebuggerContext> {
-        Rc::new(DebuggerContext {
-            internal: Rc::new(Mutex::new(DebuggerContextInternal::new())),
-        })
+    pub fn new_raw() -> DebuggerContext {
+        DebuggerContext { signal: Signal::new(0) }
     }
 
-    pub fn get_store(&self) -> Store<i32> {
-        self.internal.lock().unwrap().get_store()
+    pub fn new() -> Rc<RefCell<DebuggerContext>>  {
+        let context = Rc::new(RefCell::new(DebuggerContext::new_raw()));
+        let ws = WebsocketService::new(context.clone());
+        {
+            let internal = context.clone();
+            let a = Rc::new(RefCell::new(0));
+            let b = a.clone();
+            spawn_local(async move { a; });
+        }
+        context
+    }
+
+    pub(crate) fn process_response(&mut self, response: &str) {
+        log::warn!("todo: process_response")
     }
 }

@@ -1,5 +1,9 @@
 //! Signals - The building blocks of reactivity.
 
+mod read_signal;
+
+pub use read_signal::*;
+
 use std::fmt::{Debug, Display, Formatter};
 use std::hash::Hash;
 use std::ops::{AddAssign, Deref, DerefMut, DivAssign, MulAssign, SubAssign};
@@ -78,94 +82,12 @@ impl SignalEmitter {
     }
 }
 
-/// A read-only [`Signal`].
-pub struct ReadSignal<T> {
-    value: RefCell<Rc<T>>,
-    emitter: SignalEmitter,
-}
-
-impl<T> ReadSignal<T> {
-    /// Get the current value of the state. When called inside a reactive scope, calling this will
-    /// add itself to the scope's dependencies.
-    ///
-    /// # Example
-    /// ```rust
-    /// # use sycamore_reactive::*;
-    /// # create_scope_immediate(|cx| {
-    /// let state = create_signal(cx, 0);
-    /// assert_eq!(*state.get(), 0);
-    ///
-    /// state.set(1);
-    /// assert_eq!(*state.get(), 1);
-    /// # });
-    /// ```
-    #[must_use = "to only subscribe the signal without using the value, use .track() instead"]
-    pub fn get(&self) -> Rc<T> {
-        self.emitter.track();
-        self.value.borrow().clone()
-    }
-
-    /// Get the current value of the state, without tracking this as a dependency if inside a
-    /// reactive context.
-    ///
-    /// # Example
-    ///
-    /// ```
-    /// # use sycamore_reactive::*;
-    /// # create_scope_immediate(|cx| {
-    /// let state = create_signal(cx, 1);
-    /// let double = create_memo(cx, || *state.get_untracked() * 2);
-    /// assert_eq!(*double.get(), 2);
-    ///
-    /// state.set(2);
-    /// // double value should still be old value because state was untracked
-    /// assert_eq!(*double.get(), 2);
-    /// # });
-    /// ```
-    #[must_use = "discarding the returned value does nothing"]
-    pub fn get_untracked(&self) -> Rc<T> {
-        self.value.borrow().clone()
-    }
-
-    /// Creates a mapped [`ReadSignal`]. This is equivalent to using
-    /// [`create_memo`].
-    ///
-    /// # Example
-    /// ```rust
-    /// # use sycamore_reactive::*;
-    /// # create_scope_immediate(|cx| {
-    /// let state = create_signal(cx, 1);
-    /// let double = state.map(cx, |&x| x * 2);
-    /// assert_eq!(*double.get(), 2);
-    ///
-    /// state.set(2);
-    /// assert_eq!(*double.get(), 4);
-    /// # });
-    /// ```
-    #[must_use]
-    pub fn map<'a, U>(
-        &'a self,
-        cx: Scope<'a>,
-        mut f: impl FnMut(&T) -> U + 'a,
-    ) -> &'a ReadSignal<U> {
-        create_memo(cx, move || f(&self.get()))
-    }
-
-    /// When called inside a reactive scope, calling this will add itself to the scope's
-    /// dependencies.
-    ///
-    /// To both track and get the value of the signal, use [`ReadSignal::get`] instead.
-    pub fn track(&self) {
-        self.emitter.track();
-    }
-}
-
 /// Reactive state that can be updated and subscribed to.
 pub struct Signal<T>(ReadSignal<T>);
 
 impl<T> Signal<T> {
     /// Create a new [`Signal`] with the specified value.
-    pub(crate) fn new(value: T) -> Self {
+    pub fn new(value: T) -> Self {
         Self(ReadSignal {
             value: RefCell::new(Rc::new(value)),
             emitter: Default::default(),
@@ -387,20 +309,20 @@ impl<'a, T> AnyReadSignal<'a> for ReadSignal<T> {
 ///     outer = Some(signal);
 /// });
 /// ```
-pub fn create_signal<T>(cx: Scope, value: T) -> &Signal<T> {
+pub fn create_signal<T>(scope: Scope, value: T) -> &Signal<T> {
     let signal = Signal::new(value);
-    create_ref(cx, signal)
+    create_ref(scope, signal)
 }
 
 /// Create a new [`Signal`] under the current [`Scope`] but with an initial value wrapped in a
 /// [`Rc`]. This is useful to avoid having to clone a value that is already wrapped in a [`Rc`] when
 /// creating a new signal. Otherwise, this is identical to [`create_signal`].
-pub fn create_signal_from_rc<T>(cx: Scope, value: Rc<T>) -> &Signal<T> {
+pub fn create_signal_from_rc<T>(scope: Scope, value: Rc<T>) -> &Signal<T> {
     let signal = Signal(ReadSignal {
         value: RefCell::new(value),
         emitter: Default::default(),
     });
-    create_ref(cx, signal)
+    create_ref(scope, signal)
 }
 
 /// A signal that is not bound to a [`Scope`].
