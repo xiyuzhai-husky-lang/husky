@@ -338,8 +338,8 @@ pub fn create_scope_immediate(f: impl for<'a> FnOnce(Scope<'a>)) {
 /// let _ = outer.unwrap();
 /// # });
 /// ```
-pub fn create_ref<T>(cx: Scope, value: T) -> &T {
-    cx.raw.arena.alloc(value)
+pub fn create_ref<T>(scope: Scope, value: T) -> &T {
+    scope.raw.arena.alloc(value)
 }
 
 /// Adds a callback that is called when the scope is destroyed.
