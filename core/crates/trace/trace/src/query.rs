@@ -24,14 +24,7 @@ pub trait TraceQueryGroup: ProduceTrace {
 pub fn root_traces(this: &dyn TraceQueryGroup) -> Arc<Vec<TraceId>> {
     let compile_time = this.compile_time();
     let pack_main = this.pack_main();
-    Arc::new(vec![this
-        .new_trace(
-            None,
-            pack_main,
-            0,
-            TraceVariant::Main(compile_time.main_feature_repr(pack_main).unwrap()),
-        )
-        .id()])
+    Arc::new()
 }
 
 pub fn subtraces(

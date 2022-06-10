@@ -38,8 +38,9 @@ async fn run(path: PathBuf) {
         .expect("")
 }
 
-fn init_compile_time_from_dir(compile_time: &mut HuskyCompileTime, path: PathBuf) {
-    compile_time.load_package(&path)
+fn init_compile_time_from_dir(compile_time: &mut HuskyCompileTime, dir: PathBuf) {
+    compile_time.set_main_package(&dir);
+    compile_time.load_package(&dir)
 }
 
 async fn test_all_packages_in_dir(dir: PathBuf) {

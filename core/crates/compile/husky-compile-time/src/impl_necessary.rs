@@ -25,6 +25,7 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
             features: self.features.clone(),
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
+            opt_main: self.opt_main,
         })
     }
 }
@@ -45,6 +46,7 @@ impl Default for HuskyCompileTime {
             features,
             linkage_table,
             entity_route_store,
+            opt_main: None,
         }
     }
 }

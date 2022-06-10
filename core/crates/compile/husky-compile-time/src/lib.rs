@@ -48,7 +48,7 @@ use sync_utils::ARwLock;
     infer_contract::InferContractQueryGroupStorage,
     infer_qualifier::InferQualifiedTyQueryGroupStorage,
     semantics_entity::EntityQueryGroupStorage,
-    pack_semantics::PackQueryGroupStorage,
+    pack_semantics::PackageQueryGroupStorage,
     feature_gen::FeatureGenQueryGroupStorage,
     diagnostic::DiagnosticQueryGroupStorage,
     instruction_gen::InstructionGenQueryGroupStorage,
@@ -64,6 +64,13 @@ pub struct HuskyCompileTime {
     features: feature_gen::FeatureUniqueAllocator,
     linkage_table: LinkageSourceTable,
     entity_route_store: EntityRouteStore,
+    opt_main: Option<FilePtr>,
+}
+
+impl HuskyCompileTime {
+    pub fn main_file(&self) -> FilePtr {
+        self.opt_main.unwrap()
+    }
 }
 
 pub trait AskCompileTime {
