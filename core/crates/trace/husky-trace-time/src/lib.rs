@@ -17,6 +17,7 @@ use avec::Avec;
 use defn_head::Parameter;
 use eval_feature::EvalFeature;
 use feature_gen::*;
+use file::FilePtr;
 use husky_compile_time::{AskCompileTime, HuskyCompileTime};
 use husky_debugger_protocol::{SubtracesKey, *};
 use husky_runtime::HuskyRuntime;
@@ -35,8 +36,10 @@ use wild_utils::ref_to_mut_ref;
 
 pub struct HuskyTraceTime {
     runtime: HuskyRuntime,
+    focus: Focus,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
+    root_traces: Vec<TraceId>,
     subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
     figures: HashMap<FigureKey, FigureProps>,
     figure_controls: HashMap<FigureControlKey, FigureControlProps>,
@@ -51,13 +54,15 @@ impl HuskyTraceTime {
             subtraces_map: Default::default(),
             figures: Default::default(),
             figure_controls: Default::default(),
+            root_traces: Default::default(),
+            focus: Default::default(),
         };
         trace_time.update();
         trace_time
     }
 
-    pub fn root_traces(&self) -> Vec<TraceId> {
-        todo!()
+    pub fn root_traces(&self) -> &[TraceId] {
+        &self.root_traces
     }
 
     pub fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> &TraceStalk {
@@ -65,9 +70,19 @@ impl HuskyTraceTime {
         // self.runtime.trace_stalk(trace_id, input_id)
     }
 
-    pub fn lock_input(&mut self, input_str: &str) -> (Option<Option<usize>>, Option<String>) {
-        todo!()
-        // self.runtime.lock_input(input_str)
+    pub fn lock_input(&mut self, command: &str) -> (Option<Option<usize>>, Option<String>) {
+        if command.len() == 0 {
+            return (Some(None), None);
+        }
+        match command.parse::<usize>() {
+            Ok(id) => {
+                self.focus = Focus {
+                    opt_input_id: Some(id),
+                };
+                (Some(Some(id)), None)
+            }
+            Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),
+        }
     }
 
     pub fn all_traces(&self) -> Vec<TraceProps> {
@@ -233,7 +248,7 @@ impl HuskyTraceTime {
     }
 
     pub fn init_state(&mut self) -> DebuggerServerMessageVariant {
-        let root_traces = self.root_traces();
+        let root_traces = self.root_traces.clone();
         let expansions = self.expansions().clone();
         let showns = self.showns().clone();
         let focus = self.focus();

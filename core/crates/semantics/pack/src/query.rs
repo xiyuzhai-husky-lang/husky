@@ -7,7 +7,7 @@ use semantics_eager::parse_func_stmts;
 use semantics_entity::EntityDefnQueryGroup;
 use semantics_error::*;
 
-#[salsa::query_group(PackQueryGroupStorage)]
+#[salsa::query_group(PackageQueryGroupStorage)]
 pub trait PackageQueryGroup: EntityDefnQueryGroup {
     fn package(&self, main_file: file::FilePtr) -> SemanticResultArc<Package>;
     fn config(&self, main_file: file::FilePtr) -> SemanticResultArc<Config>;
