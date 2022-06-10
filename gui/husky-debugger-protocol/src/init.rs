@@ -1,6 +1,6 @@
-use std::{collections::HashMap, rc::Rc};
-
 use super::*;
+use crate::*;
+use std::{collections::HashMap, rc::Rc};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct InitData {
@@ -14,7 +14,7 @@ pub struct InitData {
 pub struct TraceInitState {
     pub active_trace_id: Option<TraceId>,
     pub traces: Vec<TraceProps>,
-    pub subtraces_list: HashMap<(TraceId, Option<usize>), Vec<TraceId>>,
+    pub subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
     pub root_traces: Vec<TraceId>,
     pub expansions: HashMap<TraceId, bool>,
     pub showns: HashMap<TraceId, bool>,

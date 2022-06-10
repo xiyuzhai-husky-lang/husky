@@ -17,7 +17,6 @@ pub enum DebuggerGuiMessageVariant {
     },
     ToggleExpansion {
         trace_id: TraceId,
-        effective_opt_input_id: Option<usize>,
         request_subtraces: bool,
     },
     ToggleShow {

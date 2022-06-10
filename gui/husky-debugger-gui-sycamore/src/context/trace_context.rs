@@ -17,7 +17,7 @@ impl TraceContext {
         self.storage.init(
             init_data.traces,
             init_data.root_traces,
-            init_data.subtraces_list,
+            init_data.subtraces_map,
         );
         let active_trace = init_data
             .active_trace_id

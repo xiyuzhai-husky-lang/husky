@@ -5,11 +5,11 @@ temp_dir=/home/xiyuzhai/Documents/husky/examples/good/input
 
 
 test-examples:
-	cargo run --bin husky-lang-compiler $(examples_dir)/good
-	cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test
+	cargo run --bin husky-compiler $(examples_dir)/good
+	cargo run --bin husky-tracer $(examples_dir) --input-id 1 --mode test
 
 test-examples-with-backtrace:
-	RUST_BACKTRACE=1 cargo run --bin husky-lang-debugger $(examples_dir) --input-id 1 --mode test 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run --bin husky-tracer $(examples_dir) --input-id 1 --mode test 2>&1 | python scripts/filter_rust_backtrace.py
 
 cargo-test:
 	cargo test
@@ -35,16 +35,16 @@ test-analyzer-with-backtrace-filtered:
 	RUST_BACKTRACE=1 cargo run -q --bin husky-analyzer-tester test-qualified-tys $(test_examples_dir)/analyzer/qualified-tys 2>&1 | python scripts/filter_rust_backtrace.py
 
 test-debugger:
-	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger --input-id 23 --mode test
+	cargo run -q --bin husky-tracer $(test_examples_dir)/debugger --input-id 23 --mode test
 
 test-debugger-v:
-	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger -v --input-id 23 --mode test
+	cargo run -q --bin husky-tracer $(test_examples_dir)/debugger -v --input-id 23 --mode test
 
 test-temp:
-	cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger/proc/loop2 --input-id 23 --mode run
+	cargo run -q --bin husky-tracer $(test_examples_dir)/debugger/proc/loop2 --input-id 23 --mode run
 
 test-debugger-with-backtrace:
-	RUST_BACKTRACE=1 cargo run -q --bin husky-lang-debugger $(test_examples_dir)/debugger --input-id 23 --mode test
+	RUST_BACKTRACE=1 cargo run -q --bin husky-tracer $(test_examples_dir)/debugger --input-id 23 --mode test
 	
 #	| python scripts/filter_rust_backtrace.py
 
@@ -54,16 +54,16 @@ vscode: cargo-test test-analyzer
 	cargo install --path crates/apps/analyzer --bin husky-analyzer-server
 
 mnist:
-	cargo run -q --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 23 --mode run
+	cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --input-id 23 --mode run
 
 print-mnist:
 	cargo run -q --bin husky-analyzer-printer print-qualified-tys $(projects_dir)/cv/mnist-classifier
 
 mnist-with-backtrace:
-	RUST_BACKTRACE=1 cargo run -q --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 23 --mode run
+	RUST_BACKTRACE=1 cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --input-id 23 --mode run
 
 mnist-with-backtrace-filtered:
-	RUST_BACKTRACE=1 cargo run -q --bin husky-lang-debugger $(projects_dir)/cv/mnist-classifier --input-id 23 --mode run 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --input-id 23 --mode run 2>&1 | python scripts/filter_rust_backtrace.py
 
 count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 1 10
