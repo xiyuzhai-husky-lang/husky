@@ -167,9 +167,7 @@ impl TraceFactory {
         *self.expansions.entry(trace.id()).or_insert(false)
     }
 
-    pub fn expansions(&self) -> &HashMap<TraceId, bool> {
-        &self.expansions
-    }
+    pub fn expansions(&self) -> HashMap<TraceId, bool> {}
 
     pub fn toggle_show(&mut self, id: TraceId) {
         let shown = self.showns.entry(id).or_insert(false);
