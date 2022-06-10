@@ -28,7 +28,7 @@ use web_sys::Event;
 
 /// Trait that is implemented by all [`GenericNode`] backends that render to HTML.
 pub trait Html: GenericNode<EventType = Event, PropertyType = JsValue> {
-    /// A boolean indicating whether this node is rendered in a browser context.
+    /// A bool  indicating whether this node is rendered in a browser context.
     ///
     /// A value of `false` does not necessarily mean that it is not being rendered in WASM or even
     /// in the browser. It only means that it does not create DOM nodes.

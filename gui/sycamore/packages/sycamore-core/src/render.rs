@@ -18,7 +18,7 @@ use crate::view::{View, ViewType};
 /// * `marker` - An optional marker node. If `marker` is `Some(_)`, `accessor` will be inserted
 ///   directly before `marker`. If `marker` is `None`, `accessor` will be appended at the end of
 ///   `parent`.
-/// * `multi` - A boolean flag indicating whether the node to be inserted is the only child of
+/// * `multi` - A bool  flag indicating whether the node to be inserted is the only child of
 ///   `parent`. Setting this to `true` will enable certain optimizations when clearing the node.
 ///   Even if the node to be inserted is the only child of `parent`, `multi` can still be set to
 ///   `false` but forgoes the optimizations.

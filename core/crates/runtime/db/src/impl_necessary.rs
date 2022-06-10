@@ -10,11 +10,11 @@ impl AskCompileTime for HuskyRuntime {
     }
 }
 
-impl ProduceTrace<'static> for HuskyRuntime {
-    fn trace_factory(&self) -> &trace::TraceFactory<'static> {
-        &self.trace_factory
-    }
-}
+// impl ProduceTrace  for HuskyRuntime {
+//     fn trace_factory(&self) -> &trace::TraceFactory<'static> {
+//         &self.trace_factory
+//     }
+// }
 
 impl FeatureEvalQueryGroup for HuskyRuntime {}
 

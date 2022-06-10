@@ -9,11 +9,11 @@ pub fn handle_message(
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
 ) {
     match serde_json::from_str(text) {
-        Ok::<Request, _>(request) => {
+        Ok::<DebuggerGuiMessage, _>(request) => {
             let debugger_ = debugger.clone();
             let client_sender_ = client_sender.clone();
             let future = async move {
-                if let Some(text) = debugger_.handle_request(request).await {
+                if let Some(text) = debugger_.handle_gui_message(request).await {
                     match client_sender_.send(Ok(Message::text(text))) {
                         Ok(_) => (),
                         Err(_) => todo!(),
@@ -30,15 +30,18 @@ pub fn handle_message(
 }
 
 impl Debugger {
-    async fn handle_request(self: Arc<Self>, request: Request) -> Option<String> {
-        let opt_request_id = request.opt_request_id;
+    async fn handle_gui_message(
+        self: Arc<Self>,
+        gui_message: DebuggerGuiMessage,
+    ) -> Option<String> {
+        let opt_request_id = gui_message.opt_request_id;
         let internal: &mut DebuggerInternal = &mut self.internal.lock().unwrap();
-        let opt_response_variant = internal.handle_request(request);
+        let opt_response_variant = internal.handle_gui_message(gui_message);
         should_eq!(opt_request_id.is_some(), opt_response_variant.is_some());
         if let Some(variant) = opt_response_variant {
             Some(
-                serde_json::to_string(&Response {
-                    request_id: opt_request_id.unwrap(),
+                serde_json::to_string(&DebuggerServerMessage {
+                    opt_request_id,
                     variant,
                 })
                 .unwrap(),
@@ -50,10 +53,13 @@ impl Debugger {
 }
 
 impl DebuggerInternal {
-    fn handle_request(&mut self, request: Request) -> Option<ResponseVariant> {
+    fn handle_gui_message(
+        &mut self,
+        request: DebuggerGuiMessage,
+    ) -> Option<DebuggerServerMessageVariant> {
         match request.variant {
-            RequestVariant::Init => Some(self.init_state()),
-            RequestVariant::Activate {
+            DebuggerGuiMessageVariant::InitRequest => Some(self.init_state()),
+            DebuggerGuiMessageVariant::Activate {
                 trace_id: id,
                 opt_focus_for_figure,
             } => {
@@ -64,7 +70,7 @@ impl DebuggerInternal {
                 );
                 if let Some(ref focus) = opt_focus_for_figure {
                     let trace = self.runtime.trace(id);
-                    Some(ResponseVariant::Activate {
+                    Some(DebuggerServerMessageVariant::Activate {
                         figure_props: self.runtime.figure(id, focus),
                         figure_control_props: self.runtime.figure_control(&trace, focus),
                     })
@@ -72,7 +78,7 @@ impl DebuggerInternal {
                     None
                 }
             }
-            RequestVariant::ToggleExpansion {
+            DebuggerGuiMessageVariant::ToggleExpansion {
                 trace_id: id,
                 effective_opt_input_id,
                 request_subtraces,
@@ -84,7 +90,7 @@ impl DebuggerInternal {
                     subtraces
                         .iter()
                         .for_each(|trace| trace.collect_associated_traces(&mut associated_traces));
-                    Some(ResponseVariant::ToggleExpansion {
+                    Some(DebuggerServerMessageVariant::ToggleExpansion {
                         effective_opt_input_id,
                         subtraces: subtraces.iter().map(|trace| trace.props.clone()).collect(),
                         associated_traces,
@@ -93,25 +99,25 @@ impl DebuggerInternal {
                     None
                 }
             }
-            RequestVariant::ToggleShow { trace_id } => {
+            DebuggerGuiMessageVariant::ToggleShow { trace_id } => {
                 self.toggle_show(trace_id);
                 None
             }
-            RequestVariant::Trace { id } => {
+            DebuggerGuiMessageVariant::Trace { id } => {
                 let trace = self.trace(id);
-                Some(ResponseVariant::Trace {
+                Some(DebuggerServerMessageVariant::Trace {
                     trace_props: trace.props.clone(),
                 })
             }
-            RequestVariant::TraceStalk { trace_id, input_id } => {
+            DebuggerGuiMessageVariant::TraceStalk { trace_id, input_id } => {
                 let stalk = (*self.trace_stalk(trace_id, input_id)).clone();
-                Some(ResponseVariant::TraceStalk { stalk })
+                Some(DebuggerServerMessageVariant::TraceStalk { stalk })
             }
-            RequestVariant::DecodeFocus { ref command } => {
+            DebuggerGuiMessageVariant::DecodeFocus { ref command } => {
                 let focus_result = self.decode_focus(command);
-                Some(ResponseVariant::DecodeFocus { focus_result })
+                Some(DebuggerServerMessageVariant::DecodeFocus { focus_result })
             }
-            RequestVariant::LockFocus {
+            DebuggerGuiMessageVariant::LockFocus {
                 focus,
                 opt_active_trace_id_for_figure,
             } => {
@@ -125,14 +131,14 @@ impl DebuggerInternal {
                     } else {
                         (None, None)
                     };
-                Some(ResponseVariant::LockFocus {
+                Some(DebuggerServerMessageVariant::LockFocus {
                     focus,
                     opt_active_trace_id_for_figure,
                     opt_figure,
                     opt_figure_control,
                 })
             }
-            RequestVariant::UpdateFigureControlProps {
+            DebuggerGuiMessageVariant::UpdateFigureControlProps {
                 trace_id,
                 ref focus,
                 figure_control_props,
@@ -144,11 +150,11 @@ impl DebuggerInternal {
         }
     }
 
-    fn init_state(&mut self) -> ResponseVariant {
+    fn init_state(&mut self) -> DebuggerServerMessageVariant {
         let root_traces = self.runtime.root_traces();
         let expansions = self.expansions().clone();
         let showns = self.showns().clone();
-        let state = &self.state;
+        let state = &self.debug_time;
         let focus = self.runtime.focus();
         let mut figures = HashMap::default();
         let mut figure_controls = HashMap::default();
@@ -156,24 +162,26 @@ impl DebuggerInternal {
         if let Some(active_trace_id) = active_trace_id {
             let active_trace = self.runtime.trace(active_trace_id);
             figures.insert(
-                focus.figure_key(active_trace_id),
+                FigureKey::new(&active_trace.props),
                 self.runtime.figure(active_trace_id, &focus),
             );
             figure_controls.insert(
-                focus.figure_control_key(&active_trace.props),
+                FigureControlKey::new(&active_trace.props),
                 unsafe { ref_to_mut_ref(&self.runtime) }.figure_control(&active_trace, &focus),
             );
         }
         let traces = self.runtime.traces();
-        ResponseVariant::Init {
-            init_state: InitState {
-                active_trace_id,
+        DebuggerServerMessageVariant::Init {
+            init_data: InitData {
+                trace_init_data: TraceInitState {
+                    active_trace_id,
+                    traces,
+                    subtraces_list: state.subtraces_map.clone(),
+                    root_traces: (*root_traces).clone(),
+                    expansions,
+                    showns,
+                },
                 focus,
-                traces,
-                subtraces_list: state.subtraces_map.clone(),
-                root_traces: (*root_traces).clone(),
-                expansions,
-                showns,
                 figures,
                 figure_controls,
             },

@@ -28,19 +28,19 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<De
         print_utils::CYAN,
         print_utils::RESET
     );
-    while let Some(result) = rx.next().await {
-        let msg = result.expect("error receiving ws message: {}");
-        match msg.to_str() {
+    while let Some(message_result) = rx.next().await {
+        let message = message_result.expect("error receiving ws message: {}");
+        match message.to_str() {
             Ok(text) => handle_message(debugger.clone(), text, client_sender.clone()),
             Err(_) => {
-                if msg.is_close() {
+                if message.is_close() {
                     println!(
                         "{}husky:{} query connection closed.",
                         print_utils::CYAN,
                         print_utils::RESET
                     );
                 } else {
-                    eprintln!("nontext message received: {:?}", msg);
+                    eprintln!("nontext message received: {:?}", message);
                 }
             }
         };
