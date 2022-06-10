@@ -21,55 +21,6 @@ where
     }
 }
 
-// impl<'eval> From<EvalResult<'eval>> for TraceTokenProps {
-//     fn from(result: EvalResult) -> Self {
-//         match result {
-//             Ok(value) => value.into(),
-//             Err(e) => Self {
-//                 value: e.message.into(),
-//                 opt_associated_trace_id: None,
-//                 kind: TraceTokenKind::Error,
-//             },
-//         }
-//     }
-// }
-
-// impl<'eval> From<VMRuntimeResult<StackValueSnapshot<'eval>>> for TraceTokenProps {
-//     fn from(_: VMRuntimeResult<StackValueSnapshot>) -> Self {
-//         todo!()
-//     }
-// }
-
-// impl From<VMRuntimeResult<CopyableValue>> for TraceTokenProps {
-//     fn from(result: VMRuntimeResult<CopyableValue>) -> Self {
-//         match result {
-//             Ok(value) => value.into(),
-//             Err(e) => Self {
-//                 value: e.message.into(),
-//                 opt_associated_trace_id: None,
-//                 kind: TraceTokenKind::Error,
-//             },
-//         }
-//     }
-// }
-
-// impl From<CopyableValue> for TraceTokenProps {
-//     fn from(value: CopyableValue) -> Self {
-//         fade!(value)
-//     }
-// }
-
-// impl From<InitKind> for TraceTokenProps {
-//     fn from(init_kind: InitKind) -> Self {
-//         match init_kind {
-//             InitKind::Let => keyword!("let "),
-//             InitKind::Var => keyword!("var "),
-//             InitKind::Decl => panic!(),
-//         }
-//     }
-// }
-
-// ts: string
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
 pub enum TraceTokenKind {
