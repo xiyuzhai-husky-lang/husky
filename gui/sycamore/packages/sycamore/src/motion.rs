@@ -11,7 +11,7 @@ type RafState<'a> = (RcSignal<bool>, &'a dyn Fn(), &'a dyn Fn());
 /// Schedule a callback to be called on each animation frame.
 /// Does nothing if not on `wasm32` target.
 ///
-/// Returns a tuple of `(running, start, stop)`. The first item is a boolean signal representing
+/// Returns a tuple of `(running, start, stop)`. The first item is a bool  signal representing
 /// whether the raf is currently running. The second item is a function to start the raf. The
 /// third item is a function to stop the raf.
 ///

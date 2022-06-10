@@ -3,10 +3,8 @@ mod error;
 pub mod flags;
 mod gui;
 mod internal;
-pub mod mock;
 mod mode;
 mod notif;
-mod state;
 
 pub use error::{DebuggerError, DebuggerResult};
 pub use mode::Mode;
@@ -16,17 +14,17 @@ use compile_time_db::HuskyCompileTime;
 use config::DebuggerConfig;
 use futures::executor::ThreadPool;
 use gui::handle_query;
+use husky_debug_db::HuskyDebugTime;
 use husky_debugger_protocol::*;
 use internal::DebuggerInternal;
 use json_result::JsonResult;
 use notif::handle_notif;
 use print_utils::*;
 use runtime_db::*;
-use state::DebuggerState;
 use std::sync::Mutex;
 use std::{collections::HashMap, convert::Infallible, net::ToSocketAddrs, sync::Arc};
 use test_utils::TestResult;
-use trace::*;
+use trace::TraceQueryGroup;
 use warp::Filter;
 
 pub struct Debugger {
@@ -37,24 +35,20 @@ pub struct Debugger {
 impl Debugger {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime)) -> Self {
         let config = DebuggerConfig::from_env();
-        let mut runtime = HuskyRuntime::new(init_compile_time, config.verbose);
+        let mut debug_time = HuskyDebugTime::new(init_compile_time, config.verbose);
         if let Some(ref input_id_str) = config.opt_input_id {
-            match runtime.lock_input(input_id_str) {
+            match debug_time.lock_input(input_id_str) {
                 (_, Some(msg)) => panic!("{}", msg),
                 (Some(Some(input_id)), None) => {
-                    for trace in runtime.root_traces().iter() {
-                        let stalk = runtime.trace_stalk(*trace, input_id);
+                    for trace in debug_time.root_traces().iter() {
+                        let stalk = debug_time.trace_stalk(*trace, input_id);
                     }
                 }
                 _ => (),
             }
         }
         Self {
-            internal: Mutex::new(DebuggerInternal {
-                runtime,
-                state: Default::default(),
-                config,
-            }),
+            internal: Mutex::new(DebuggerInternal { debug_time, config }),
             threadpool: ThreadPool::new().unwrap(),
         }
     }
@@ -71,8 +65,8 @@ impl Debugger {
     async fn has_root_error(&self, input_id: usize) -> bool {
         let mut error_flag = false;
         let internal = self.internal.lock().unwrap();
-        for trace in internal.runtime.root_traces().iter() {
-            let stalk = internal.trace_stalk(*trace, input_id);
+        for trace in internal.debug_time.root_traces().iter() {
+            let stalk = internal.debug_time.trace_stalk(*trace, input_id);
             for token in &stalk.extra_tokens {
                 match token.kind {
                     TraceTokenKind::Error => {

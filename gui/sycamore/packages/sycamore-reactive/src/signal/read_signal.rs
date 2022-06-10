@@ -1,7 +1,7 @@
 use super::*;
 
-
 /// A read-only [`Signal`].
+#[derive(Default)]
 pub struct ReadSignal<T> {
     pub(super) value: RefCell<Rc<T>>,
     pub(super) emitter: SignalEmitter,
@@ -26,6 +26,14 @@ impl<T> ReadSignal<T> {
     pub fn get(&self) -> Rc<T> {
         self.emitter.track();
         self.value.borrow().clone()
+    }
+
+    /// Get the current value of the state without Rc.
+    pub fn get_cloned(&self) -> T
+    where
+        T: Clone,
+    {
+        (**self.value.borrow()).clone()
     }
 
     /// Get the current value of the state, without tracking this as a dependency if inside a

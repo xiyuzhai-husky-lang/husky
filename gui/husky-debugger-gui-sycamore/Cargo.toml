@@ -11,5 +11,6 @@ log = "0.4.6"
 reqwasm = "0.5.0"
 futures = "0.3.17"
 wasm-bindgen-futures = "0.4.28"
+console_error_panic_hook = "0.1.7"
 sycamore = { path = "../sycamore/packages/sycamore", version = "0.8.0-beta.6" }
 husky-debugger-protocol = { path = "../husky-debugger-protocol", version = "0.0.0" }

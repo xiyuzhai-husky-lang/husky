@@ -12,7 +12,7 @@ pub type Indent = u8;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TraceProps {
-    pub parent: Option<TraceId>,
+    pub opt_parent: Option<TraceId>,
     pub id: TraceId,
     pub kind: TraceKind,
     pub indent: Indent,

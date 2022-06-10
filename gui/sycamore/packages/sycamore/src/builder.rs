@@ -647,10 +647,12 @@ impl<'a, G: Html, F: FnOnce(Scope<'a>) -> G + 'a> ElementBuilder<'a, G, F> {
                 cx,
                 "input",
                 Box::new(move |e: web_sys::Event| {
-                    let val = js_sys::Reflect::get(
-                        &e.target().expect("missing target on input event"),
-                        &"value".into(),
-                    )
+                    let val = unsafe {
+                        js_sys::Reflect::get(
+                            &e.target().expect("missing target on input event"),
+                            &"value".into(),
+                        )
+                    }
                     .expect("missing property `value`")
                     .as_string()
                     .expect("value should be a string");
@@ -689,8 +691,8 @@ impl<'a, G: Html, F: FnOnce(Scope<'a>) -> G + 'a> ElementBuilder<'a, G, F> {
                 "change",
                 Box::new(move |e: web_sys::Event| {
                     let val = js_sys::Reflect::get(
-                        &e.target().expect("missing target on change event"),
-                        &"checked".into(),
+                            &e.target().expect("missing target on change event"),
+                            &"checked".into(),
                     )
                     .expect("missing property `checked`")
                     .as_bool()

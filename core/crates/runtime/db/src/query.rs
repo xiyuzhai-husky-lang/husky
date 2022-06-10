@@ -1,12 +1,11 @@
-use crate::*;
-use datasets::LabeledData;
-use defn_head::Parameter;
+use crate::HuskyRuntime;
+use compile_time_db::{AskCompileTime, HuskyCompileTime};
 use eval_feature::EvalFeature;
-use feature::*;
-use semantics_eager::ProcStmtVariant;
-use semantics_entity::EntityDefnVariant;
-use text::TextQueryGroup;
-use trace::*;
-use upcast::Upcast;
-use visual_runtime::RuntimeVisualizerQueryGroup;
-use vm::{exec_debug, EvalResult, HistoryEntry, InstructionSheet, InterpreterQueryGroup};
+
+pub trait AskRuntime {
+    fn runtime(&self) -> &HuskyRuntime;
+
+    fn compile_time(&self) -> &HuskyCompileTime {
+        self.runtime().compile_time()
+    }
+}

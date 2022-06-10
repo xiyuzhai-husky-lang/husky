@@ -2,11 +2,11 @@
 
 mod read_signal;
 
-pub use read_signal::*;
-
 use std::fmt::{Debug, Display, Formatter};
 use std::hash::Hash;
 use std::ops::{AddAssign, Deref, DerefMut, DivAssign, MulAssign, SubAssign};
+
+pub use read_signal::*;
 
 use crate::effect::EFFECTS;
 use crate::*;
@@ -82,6 +82,7 @@ impl SignalEmitter {
     }
 }
 
+#[derive(Default)]
 /// Reactive state that can be updated and subscribed to.
 pub struct Signal<T>(ReadSignal<T>);
 
