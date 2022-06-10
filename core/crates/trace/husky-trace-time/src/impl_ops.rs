@@ -1,12 +1,21 @@
+use crate::*;
 use text::Text;
 use vm::{History, VMControl};
 
-use super::*;
-use crate::*;
-
 impl HuskyTraceTime {
     pub(crate) fn update(&mut self) {
+        self.clear();
         self.update_root_traces();
+    }
+
+    fn clear(&mut self) {
+        // replace this with diff, try to make the trace tree look the same across code change
+        self.trace_nodes.clear();
+        self.opt_active_trace_id = None;
+        self.root_traces.clear();
+        self.subtraces_map.clear();
+        self.figures.clear();
+        self.figure_controls.clear();
     }
 
     fn update_root_traces(&mut self) {

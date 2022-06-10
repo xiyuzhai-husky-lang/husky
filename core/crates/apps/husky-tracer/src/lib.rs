@@ -63,9 +63,9 @@ impl HuskyTracer {
 
     async fn has_root_error(&self, input_id: usize) -> bool {
         let mut error_flag = false;
-        let internal = self.internal.lock().unwrap();
-        for trace in internal.trace_time.root_traces().iter() {
-            let stalk = internal.trace_time.trace_stalk(*trace, input_id);
+        let internal = &mut self.internal.lock().unwrap();
+        for trace_id in internal.trace_time.root_traces().into_iter() {
+            let stalk = internal.trace_time.trace_stalk(trace_id, input_id);
             for token in &stalk.extra_tokens {
                 match token.kind {
                     TraceTokenKind::Error => {

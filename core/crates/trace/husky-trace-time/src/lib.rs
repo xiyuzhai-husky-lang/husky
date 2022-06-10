@@ -9,8 +9,9 @@ mod impl_feature_stmt;
 mod impl_figure;
 mod impl_figure_control;
 mod impl_func_stmt;
+mod impl_ops;
 mod impl_proc_stmt;
-mod impl_update;
+mod impl_trace_stalk;
 mod node;
 
 use avec::Avec;
@@ -19,7 +20,7 @@ use eval_feature::EvalFeature;
 use feature_gen::*;
 use file::FilePtr;
 use husky_compile_time::{AskCompileTime, HuskyCompileTime};
-use husky_debugger_protocol::{SubtracesKey, *};
+use husky_debugger_protocol::*;
 use husky_runtime::HuskyRuntime;
 use impl_expr::ExprTokenConfig;
 use node::*;
@@ -39,6 +40,7 @@ pub struct HuskyTraceTime {
     focus: Focus,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
+    trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
     root_traces: Vec<TraceId>,
     subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
     figures: HashMap<FigureKey, FigureProps>,
@@ -50,6 +52,7 @@ impl HuskyTraceTime {
         let mut trace_time = Self {
             runtime: HuskyRuntime::new(init_compile_time, verbose),
             trace_nodes: Default::default(),
+            trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),
             subtraces_map: Default::default(),
             figures: Default::default(),
@@ -61,13 +64,8 @@ impl HuskyTraceTime {
         trace_time
     }
 
-    pub fn root_traces(&self) -> &[TraceId] {
-        &self.root_traces
-    }
-
-    pub fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> &TraceStalk {
-        todo!()
-        // self.runtime.trace_stalk(trace_id, input_id)
+    pub fn root_traces(&self) -> Vec<TraceId> {
+        self.root_traces.clone()
     }
 
     pub fn lock_input(&mut self, command: &str) -> (Option<Option<usize>>, Option<String>) {
