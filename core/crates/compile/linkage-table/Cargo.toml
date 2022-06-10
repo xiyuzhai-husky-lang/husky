@@ -1,0 +1,20 @@
+[package]
+name = "linkage-table"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[dependencies]
+smallvec = "1.8.0"
+vm = { path = "../../eval/vm", version = "0.0.0" }
+map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
+entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
+entity-syntax = { path = "../../syntax/entity-syntax", version = "0.0.0" }
+sync-utils = { path = "../../utils/sync", version = "0.0.0" }
+semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+word = { path = "../../syntax/word", version = "0.0.0" }
+static-defn = { path = "../../semantics/static-defn", version = "0.0.0" }

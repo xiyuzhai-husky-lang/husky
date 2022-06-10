@@ -19,7 +19,6 @@ pub enum DebuggerServerMessageVariant {
         figure_control_props: FigureControlProps,
     },
     ToggleExpansion {
-        effective_opt_input_id: Option<usize>,
         subtraces: Vec<TraceProps>,
         associated_traces: Vec<TraceId>,
     },

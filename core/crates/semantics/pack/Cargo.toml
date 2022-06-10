@@ -14,7 +14,7 @@ print-utils = { path = "../../utils/print", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 unique-vector = { path = "../../abstraction/unique-vector", version = "0.0.0" }
-vm = { path = "../../runtime/vm", version = "0.0.0" }
+vm = { path = "../../eval/vm", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity-syntax", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }

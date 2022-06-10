@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, Default)]
 pub struct TraceStorage {
     pub(super) traces: HashMap<TraceId, Rc<TraceProps>>,
-    pub(super) subtraces_dict: HashMap<(TraceId, Option<usize>), Vec<Rc<TraceProps>>>,
+    pub(super) subtraces_map: HashMap<SubtracesKey, Vec<Rc<TraceProps>>>,
     pub(super) trace_stalks: HashMap<(TraceId, Option<usize>), TraceStalk>,
     pub(super) root_traces: Vec<Rc<TraceProps>>,
 }
@@ -13,11 +13,11 @@ impl TraceStorage {
         &mut self,
         traces: Vec<TraceProps>,
         root_traces: Vec<TraceId>,
-        subtraces_list: HashMap<(TraceId, Option<usize>), Vec<TraceId>>,
+        subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
     ) {
         self.init_traces(traces);
         self.init_root_traces_stores(root_traces);
-        self.init_subtraces_map(subtraces_list);
+        self.init_subtraces_map(subtraces_map);
     }
 
     fn init_traces(&mut self, traces: Vec<TraceProps>) {
@@ -34,11 +34,8 @@ impl TraceStorage {
             .collect();
     }
 
-    fn init_subtraces_map(
-        &mut self,
-        subtraces_list: HashMap<(TraceId, Option<usize>), Vec<TraceId>>,
-    ) {
-        self.subtraces_dict = subtraces_list
+    fn init_subtraces_map(&mut self, subtraces_list: HashMap<SubtracesKey, Vec<TraceId>>) {
+        self.subtraces_map = subtraces_list
             .into_iter()
             .map(|(k, v)| {
                 let traces: Vec<Rc<TraceProps>> = v

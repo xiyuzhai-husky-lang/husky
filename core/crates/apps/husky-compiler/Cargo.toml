@@ -1,0 +1,25 @@
+[package]
+name = "husky-compiler"
+version = "0.0.0"
+edition = "2021"
+
+[[bin]]
+name = "husky-compiler"
+path = "src/bin/main.rs"
+
+[dependencies]
+xflags = "0.2.4"
+salsa = "0.17.0-pre.2"
+lsp-types = { version = "0.93", features = ["proposed"] }
+path-utils = { path = "../../utils/path", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+io-utils = { path = "../../utils/io", version = "0.0.0" }
+reserve = { path = "../../abstraction/reserve", version = "0.0.0" }
+file = { path = "../../syntax/file", version = "0.0.0" }
+entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
+ast = { path = "../../syntax/ast", version = "0.0.0" }
+husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
+compile-time-dir = { path = "../../compile/dir", version = "0.0.0" }
+rust-gen = { path = "../../compile/rust-gen", version = "0.0.0" }
+semantics-error = { path = "../../semantics/error", version = "0.0.0" }
+pack-semantics = { path = "../../semantics/pack", version = "0.0.0" }

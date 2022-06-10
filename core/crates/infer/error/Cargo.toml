@@ -12,5 +12,5 @@ print-utils = { path = "../../utils/print", version = "0.0.0" }
 test-utils = { path = "../../utils/test", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 entity-syntax = { path = "../../syntax/entity-syntax", version = "0.0.0" }
-vm = { path = "../../runtime/vm", version = "0.0.0" }
+vm = { path = "../../eval/vm", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
