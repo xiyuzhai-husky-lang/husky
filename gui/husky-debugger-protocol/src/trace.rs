@@ -1,8 +1,10 @@
 mod id;
+mod node;
 mod stalk;
 mod token;
 
 pub use id::*;
+pub use node::*;
 pub use stalk::*;
 pub use token::*;
 

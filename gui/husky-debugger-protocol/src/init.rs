@@ -12,10 +12,8 @@ pub struct InitData {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct TraceInitState {
-    pub active_trace_id: Option<TraceId>,
-    pub traces: Vec<TraceProps>,
-    pub subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
-    pub root_traces: Vec<TraceId>,
-    pub expansions: HashMap<TraceId, bool>,
-    pub showns: HashMap<TraceId, bool>,
+    pub trace_nodes: Vec<TraceNodeData>,
+    pub opt_active_trace_id: Option<TraceId>,
+    pub subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
+    pub root_trace_ids: Vec<TraceId>,
 }

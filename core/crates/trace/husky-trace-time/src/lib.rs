@@ -12,7 +12,7 @@ mod impl_func_stmt;
 mod impl_ops;
 mod impl_proc_stmt;
 mod impl_trace_stalk;
-mod node;
+mod trace_node;
 
 use avec::Avec;
 use defn_head::Parameter;
@@ -23,7 +23,6 @@ use husky_compile_time::{AskCompileTime, HuskyCompileTime};
 use husky_debugger_protocol::*;
 use husky_runtime::HuskyRuntime;
 use impl_expr::ExprTokenConfig;
-use node::*;
 use semantics_eager::*;
 use serde::Deserialize;
 use std::collections::HashMap;
@@ -31,6 +30,7 @@ use std::sync::Arc;
 use sync_utils::ARwLock;
 use text::{Text, TextQueryGroup};
 use trace::*;
+use trace_node::*;
 use upcast::Upcast;
 use vm::*;
 use wild_utils::ref_to_mut_ref;
@@ -41,8 +41,8 @@ pub struct HuskyTraceTime {
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
     trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
-    root_traces: Vec<TraceId>,
-    subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
+    root_trace_ids: Vec<TraceId>,
+    subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
     figures: HashMap<FigureKey, FigureProps>,
     figure_controls: HashMap<FigureControlKey, FigureControlProps>,
 }
@@ -54,10 +54,10 @@ impl HuskyTraceTime {
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),
-            subtraces_map: Default::default(),
+            subtrace_ids_map: Default::default(),
             figures: Default::default(),
             figure_controls: Default::default(),
-            root_traces: Default::default(),
+            root_trace_ids: Default::default(),
             focus: Default::default(),
         };
         trace_time.update();
@@ -65,7 +65,7 @@ impl HuskyTraceTime {
     }
 
     pub fn root_traces(&self) -> Vec<TraceId> {
-        self.root_traces.clone()
+        self.root_trace_ids.clone()
     }
 
     pub fn lock_input(&mut self, command: &str) -> (Option<Option<usize>>, Option<String>) {
@@ -83,10 +83,10 @@ impl HuskyTraceTime {
         }
     }
 
-    pub fn all_traces(&self) -> Vec<TraceProps> {
+    pub fn all_trace_nodes(&self) -> Vec<TraceNodeData> {
         self.trace_nodes
             .iter()
-            .filter_map(|opt_trace| opt_trace.as_ref().map(|node| node.trace.props.clone()))
+            .filter_map(|opt_trace| opt_trace.as_ref().map(|node| node.to_data()))
             .collect()
     }
 
@@ -95,10 +95,6 @@ impl HuskyTraceTime {
     }
 
     pub fn subtraces(&mut self, trace_id: TraceId) -> Vec<TraceProps> {
-        todo!()
-    }
-
-    pub fn focus(&self) -> Focus {
         todo!()
     }
 
@@ -226,9 +222,9 @@ impl HuskyTraceTime {
         // * self.expansions.entry(trace.id()).or_insert(false)
     }
 
-    pub fn expansions(&self) -> HashMap<TraceId, bool> {
-        todo!()
-    }
+    // pub fn expansions(&self) -> HashMap<TraceId, bool> {
+    //     todo!()
+    // }
 
     pub fn toggle_show(&mut self, id: TraceId) {
         todo!()
@@ -236,20 +232,13 @@ impl HuskyTraceTime {
         // *shown = !*shown;
     }
 
-    pub fn showns(&self) -> &HashMap<TraceId, bool> {
-        todo!()
-        // &self.showns
-    }
-
     pub fn trace(&self, trace_id: TraceId) -> &Trace {
         &self.trace_nodes[trace_id.0].as_ref().unwrap().trace
     }
 
     pub fn init_state(&mut self) -> DebuggerServerMessageVariant {
-        let root_traces = self.root_traces.clone();
-        let expansions = self.expansions().clone();
-        let showns = self.showns().clone();
-        let focus = self.focus();
+        let root_trace_ids = self.root_trace_ids.clone();
+        let focus = self.focus.clone();
         let mut figures = HashMap::default();
         let mut figure_controls = HashMap::default();
         let opt_active_trace_id = self.opt_active_trace_id;
@@ -264,16 +253,14 @@ impl HuskyTraceTime {
                 unsafe { ref_to_mut_ref(self) }.figure_control(&active_trace, &focus),
             );
         }
-        let traces = self.all_traces();
+        let traces = self.all_trace_nodes();
         DebuggerServerMessageVariant::Init {
             init_data: InitData {
                 trace_init_data: TraceInitState {
-                    active_trace_id: opt_active_trace_id,
-                    traces,
-                    subtraces_map: self.subtraces_map.clone(),
-                    root_traces,
-                    expansions,
-                    showns,
+                    opt_active_trace_id,
+                    trace_nodes: traces,
+                    subtrace_ids_map: self.subtrace_ids_map.clone(),
+                    root_trace_ids,
                 },
                 focus,
                 figures,

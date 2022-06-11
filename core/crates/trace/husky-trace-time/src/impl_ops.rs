@@ -12,15 +12,15 @@ impl HuskyTraceTime {
         // replace this with diff, try to make the trace tree look the same across code change
         self.trace_nodes.clear();
         self.opt_active_trace_id = None;
-        self.root_traces.clear();
-        self.subtraces_map.clear();
+        self.root_trace_ids.clear();
+        self.subtrace_ids_map.clear();
         self.figures.clear();
         self.figure_controls.clear();
     }
 
     fn update_root_traces(&mut self) {
         let main_file = self.runtime.compile_time().main_file();
-        self.root_traces = vec![self
+        self.root_trace_ids = vec![self
             .new_trace(
                 None,
                 0,
