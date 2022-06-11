@@ -15,6 +15,7 @@ use print_utils::p;
 use static_defn::{StaticGenericPlaceholder, StaticParameter};
 use std::borrow::Cow;
 use text::*;
+use thin_vec::{thin_vec, ThinVec};
 use token::AbsSemanticToken;
 use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 
@@ -58,7 +59,7 @@ pub trait AtomContext {
     fn builtin_type_atom(
         &self,
         ident: RootIdentifier,
-        generics: Vec<SpatialArgument>,
+        generics: ThinVec<SpatialArgument>,
         tail: TextRange,
     ) -> Atom {
         let scope = EntityRoute::new_root(ident.into(), generics);
@@ -111,8 +112,8 @@ pub trait AtomContext {
                                 .opt_package_main()
                                 .ok_or(error!("can't use implicit without main", range))?,
                         },
-                        temporal_arguments: vec![],
-                        spatial_arguments: vec![],
+                        temporal_arguments: thin_vec![],
+                        spatial_arguments: thin_vec![],
                     }),
                 )),
                 ContextualIdentifier::ThisValue => Ok(SymbolKind::ThisValue {
@@ -248,15 +249,15 @@ pub trait AtomContext {
     fn generic_arguments_from_generic_parameters(
         &self,
         generic_parameters: &[SpatialParameter],
-    ) -> Vec<SpatialArgument> {
+    ) -> ThinVec<SpatialArgument> {
         generic_parameters.map(|generic_placeholder| {
             SpatialArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
                     ident: generic_placeholder.ident.ident,
                     entity_kind: generic_placeholder.entity_kind(),
                 },
-                temporal_arguments: vec![],
-                spatial_arguments: vec![],
+                temporal_arguments: thin_vec![],
+                spatial_arguments: thin_vec![],
             }))
         })
     }
@@ -275,8 +276,8 @@ pub trait AtomContext {
                             ident: generic_parameter.ident.ident,
                             entity_kind: generic_parameter.entity_kind(),
                         },
-                        temporal_arguments: vec![],
-                        spatial_arguments: vec![],
+                        temporal_arguments: thin_vec![],
+                        spatial_arguments: thin_vec![],
                     },
                 )),
             })

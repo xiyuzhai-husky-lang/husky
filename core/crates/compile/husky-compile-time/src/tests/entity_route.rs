@@ -1,7 +1,7 @@
-use entity_syntax::EntityLocus;
-use word::RootIdentifier;
-
 use crate::*;
+use entity_syntax::EntityLocus;
+use thin_vec::{thin_vec, ThinVec};
+use word::RootIdentifier;
 
 #[test]
 fn no_error_single_file() {
@@ -57,7 +57,7 @@ struct B {}
     ));
     let subroute_table = db.subroute_table(package).ok().unwrap();
     let husky_lord_route =
-        db.make_subroute(package, db.intern_word("husky_lord").custom(), Vec::new());
+        db.make_subroute(package, db.intern_word("husky_lord").custom(), thin_vec![]);
     should_eq!(
         db.entity_locus(husky_lord_route).unwrap(),
         EntityLocus::Module {
@@ -71,26 +71,26 @@ struct B {}
 #[test]
 fn datasets() {
     let db = HuskyCompileTime::default();
-    let dataset_scope = db.make_route(EntityRoutePtr::Root(RootIdentifier::Datasets), vec![]);
+    let dataset_scope = db.make_route(EntityRoutePtr::Root(RootIdentifier::Datasets), thin_vec![]);
     let synthetic_scope = db
         .subroute_result(
             dataset_scope,
             db.intern_word("synthetic").opt_custom().unwrap(),
-            vec![],
+            thin_vec![],
         )
         .unwrap();
     let synthetic_trivial_scope = db
         .subroute_result(
             synthetic_scope,
             db.intern_word("trivial").opt_custom().unwrap(),
-            vec![],
+            thin_vec![],
         )
         .unwrap();
     let _synthetic_trivial_real1d_scope = db
         .subroute_result(
             synthetic_trivial_scope,
             db.intern_word("real1d").opt_custom().unwrap(),
-            vec![],
+            thin_vec![],
         )
         .unwrap();
 }

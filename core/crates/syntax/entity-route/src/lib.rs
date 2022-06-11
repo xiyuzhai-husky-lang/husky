@@ -6,13 +6,14 @@ pub use intern::{
     new_entity_route_interner, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,
 };
 use text::{TextRange, TextRanged};
+use thin_vec::{thin_vec, ThinVec};
 use word::{CustomIdentifier, Identifier, RootIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct EntityRoute {
     pub kind: EntityRouteKind,
-    pub temporal_arguments: Vec<TemporalArgument>,
-    pub spatial_arguments: Vec<SpatialArgument>,
+    pub temporal_arguments: ThinVec<TemporalArgument>,
+    pub spatial_arguments: ThinVec<SpatialArgument>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -144,8 +145,8 @@ impl EntityRoute {
     pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
             kind: EntityRouteKind::Package { main, ident },
-            temporal_arguments: vec![],
-            spatial_arguments: Vec::new(),
+            temporal_arguments: Default::default(),
+            spatial_arguments: Default::default(),
         }
     }
 
@@ -164,20 +165,23 @@ impl EntityRoute {
     pub fn subroute(
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
-        generics: Vec<SpatialArgument>,
+        spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoute {
         EntityRoute {
             kind: EntityRouteKind::Child { parent, ident },
-            temporal_arguments: vec![],
-            spatial_arguments: generics,
+            temporal_arguments: Default::default(),
+            spatial_arguments,
         }
     }
 
-    pub fn new_root(ident: RootIdentifier, generic_arguments: Vec<SpatialArgument>) -> EntityRoute {
+    pub fn new_root(
+        ident: RootIdentifier,
+        spatial_arguments: ThinVec<SpatialArgument>,
+    ) -> EntityRoute {
         EntityRoute {
             kind: EntityRouteKind::Root { ident },
-            temporal_arguments: vec![],
-            spatial_arguments: generic_arguments,
+            temporal_arguments: Default::default(),
+            spatial_arguments,
         }
     }
 
@@ -189,20 +193,20 @@ impl EntityRoute {
         spatial_arguments.extend(new_spatial_arguments);
         EntityRoute {
             kind: self.kind,
-            temporal_arguments: vec![],
+            temporal_arguments: thin_vec![],
             spatial_arguments,
         }
     }
 
     pub fn vec(element: SpatialArgument) -> Self {
-        Self::new_root(RootIdentifier::Vec, vec![element])
+        Self::new_root(RootIdentifier::Vec, [element].into_iter().collect())
     }
 
     pub fn array(element: SpatialArgument, size: usize) -> Self {
-        Self::new_root(RootIdentifier::Array, vec![element, size.into()])
+        Self::new_root(RootIdentifier::Array, thin_vec![element, size.into()])
     }
 
-    pub fn tuple_or_void(args: Vec<SpatialArgument>) -> Self {
+    pub fn tuple_or_void(args: ThinVec<SpatialArgument>) -> Self {
         EntityRoute::new_root(
             if args.len() > 0 {
                 RootIdentifier::Tuple
@@ -213,7 +217,7 @@ impl EntityRoute {
         )
     }
 
-    pub fn default_func_type(args: Vec<SpatialArgument>) -> Self {
+    pub fn default_func_type(args: ThinVec<SpatialArgument>) -> Self {
         EntityRoute::new_root(word::default_func_type(), args)
     }
 
@@ -244,6 +248,6 @@ impl EntityRoute {
 
 impl From<RootIdentifier> for EntityRoute {
     fn from(ident: RootIdentifier) -> Self {
-        Self::new_root(ident, Vec::new())
+        Self::new_root(ident, ThinVec::new())
     }
 }

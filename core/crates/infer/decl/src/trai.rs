@@ -7,6 +7,7 @@ use check_utils::should_eq;
 use entity_kind::MemberKind;
 use implement::Implementor;
 use map_collect::MapCollect;
+use thin_vec::{thin_vec, ThinVec};
 use vec_map::VecMapEntry;
 use word::IdentDict;
 
@@ -138,7 +139,7 @@ impl TraitDecl {
                 should_eq!(base_route.spatial_arguments.len(), 0);
                 let trai = db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
-                    temporal_arguments: vec![],
+                    temporal_arguments: thin_vec![],
                     spatial_arguments: generic_arguments,
                 });
                 symbol_context.kind = AtomContextKind::Trait {

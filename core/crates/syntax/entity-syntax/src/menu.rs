@@ -1,6 +1,7 @@
 use crate::*;
 use entity_route::*;
 use std::sync::Arc;
+use thin_vec::thin_vec;
 use word::RootIdentifier;
 
 pub(crate) fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMenu> {
@@ -10,29 +11,29 @@ pub(crate) fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<Ent
             parent: std_mod,
             ident: db.intern_word("ops").custom(),
         },
-        temporal_arguments: vec![],
-        spatial_arguments: vec![],
+        temporal_arguments: thin_vec![],
+        spatial_arguments: thin_vec![],
     });
     let std_ops_index_trai = db.intern_entity_route(EntityRoute {
         kind: EntityRouteKind::Child {
             parent: std_ops_mod,
             ident: db.intern_word("Index").custom(),
         },
-        temporal_arguments: vec![],
-        spatial_arguments: vec![],
+        temporal_arguments: thin_vec![],
+        spatial_arguments: thin_vec![],
     });
     let std_slice_mod = db.intern_entity_route(EntityRoute {
         kind: EntityRouteKind::Child {
             parent: std_mod,
             ident: db.intern_word("slice").custom(),
         },
-        temporal_arguments: vec![],
-        spatial_arguments: vec![],
+        temporal_arguments: thin_vec![],
+        spatial_arguments: thin_vec![],
     });
     let std_slice_cyclic_slice = db.make_subroute(
         std_slice_mod,
         db.intern_word("CyclicSlice").custom(),
-        vec![],
+        thin_vec![],
     );
     Arc::new(EntityRouteMenu {
         clone_trait: EntityRoutePtr::Root(RootIdentifier::CloneTrait),

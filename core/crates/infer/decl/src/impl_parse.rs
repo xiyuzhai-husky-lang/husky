@@ -7,6 +7,7 @@ use entity_route::*;
 use fold::LocalStack;
 use map_collect::MapCollect;
 use text::RangedCustomIdentifier;
+use thin_vec::{thin_vec, ThinVec};
 use word::IdentDict;
 
 impl<'a> dyn DeclQueryGroup + 'a {
@@ -34,15 +35,15 @@ impl<'a> dyn DeclQueryGroup + 'a {
     pub fn generic_arguments_from_generic_parameters(
         &self,
         generic_parameters: &[SpatialParameter],
-    ) -> Vec<SpatialArgument> {
+    ) -> ThinVec<SpatialArgument> {
         generic_parameters.map(|generic_placeholder| {
             SpatialArgument::EntityRoute(self.intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
                     ident: generic_placeholder.ident.ident,
                     entity_kind: generic_placeholder.entity_kind(),
                 },
-                temporal_arguments: vec![],
-                spatial_arguments: vec![],
+                temporal_arguments: thin_vec![],
+                spatial_arguments: thin_vec![],
             }))
         })
     }
@@ -60,8 +61,8 @@ impl<'a> dyn DeclQueryGroup + 'a {
                         ident: generic_placeholder.ident.ident,
                         entity_kind: generic_placeholder.entity_kind(),
                     },
-                    temporal_arguments: vec![],
-                    spatial_arguments: vec![],
+                    temporal_arguments: thin_vec![],
+                    spatial_arguments: thin_vec![],
                 })),
             })
         }

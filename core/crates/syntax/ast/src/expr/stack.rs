@@ -3,6 +3,7 @@ use check_utils::should;
 use entity_route::{RangedEntityRoute, SpatialArgument};
 use text::RangedCustomIdentifier;
 use text::{TextPosition, TextRange};
+use thin_vec::ThinVec;
 use vm::*;
 
 use crate::{expr::precedence::Precedence, *};
@@ -46,7 +47,7 @@ impl ExprStackOpr {
         bra: Bracket,
         attr: ListStartAttr,
         start: TextPosition,
-        generic_arguments: Vec<SpatialArgument>,
+        generic_arguments: ThinVec<SpatialArgument>,
     ) -> Self {
         Self {
             precedence: Precedence::None,
@@ -113,7 +114,7 @@ impl<'a> ExprStack<'a> {
         bra: Bracket,
         attr: ListStartAttr,
         start: TextPosition,
-        generic_arguments: Vec<SpatialArgument>,
+        generic_arguments: ThinVec<SpatialArgument>,
     ) {
         let attached = attr.attached();
         self.oprs.push(ExprStackOpr::list_start(
@@ -302,7 +303,7 @@ impl<'a> ExprStack<'a> {
     fn synthesize_binary(&mut self, binary: BinaryOpr) {
         let len = self.exprs.len();
         let range = (self.exprs[len - 2].range.start..self.exprs[len - 1].range.end).into();
-        self.synthesize_opr(binary.into(), Vec::new(), 2, range)
+        self.synthesize_opr(binary.into(), Default::default(), 2, range)
     }
 
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
@@ -328,19 +329,19 @@ impl<'a> ExprStack<'a> {
                 return;
             }
         }
-        self.synthesize_opr(prefix.into(), Vec::new(), 1, range)
+        self.synthesize_opr(prefix.into(), Default::default(), 1, range)
     }
 
     fn synthesize_suffix(&mut self, suffix: SuffixOpr, end: TextPosition) {
         let range = (self.exprs.last().unwrap().range.start..end).into();
-        self.synthesize_opr(suffix.into(), Vec::new(), 1, range)
+        self.synthesize_opr(suffix.into(), Default::default(), 1, range)
     }
 
     fn synthesize_field_access(&mut self, field_ident: RangedCustomIdentifier, end: TextPosition) {
         let range = (self.exprs.last().unwrap().range.start..end).into();
         self.synthesize_opr(
             RawOpnVariant::FieldAccess(field_ident),
-            Vec::new(),
+            Default::default(),
             1,
             range,
         )
@@ -349,7 +350,7 @@ impl<'a> ExprStack<'a> {
     fn synthesize_opr(
         &mut self,
         opr: RawOpnVariant,
-        generic_arguments: Vec<SpatialArgument>,
+        generic_arguments: ThinVec<SpatialArgument>,
         n_opds: usize,
         range: TextRange,
     ) {

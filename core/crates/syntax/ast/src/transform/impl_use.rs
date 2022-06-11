@@ -84,8 +84,8 @@ impl<'a> AstTransformer<'a> {
                                 parent,
                                 ident: ident.ident,
                             },
-                            temporal_arguments: vec![],
-                            spatial_arguments: vec![],
+                            temporal_arguments: Default::default(),
+                            spatial_arguments: Default::default(),
                         })),
                     })
                 }),

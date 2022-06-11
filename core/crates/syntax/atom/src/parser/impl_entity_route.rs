@@ -1,11 +1,10 @@
+use super::context::SymbolKind;
+use super::*;
 use entity_kind::TyKind;
 use entity_route::RangedEntityRoute;
 use text::RangedCustomIdentifier;
+use thin_vec::{thin_vec, ThinVec};
 use token::SemanticTokenKind;
-
-use super::context::SymbolKind;
-
-use super::*;
 
 /// parse atoms from left to right
 /// it's hard to parse a standalone tuple from left to right,
@@ -26,10 +25,10 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             } else if token.kind == SpecialToken::Ambersand.into() {
                 let ty = get!(self, ty?);
                 Some(AtomVariant::EntityRoute {
-                    route: self
-                        .atom_context
-                        .entity_syntax_db()
-                        .make_route(EntityRoutePtr::Root(RootIdentifier::Ref), vec![ty.into()]),
+                    route: self.atom_context.entity_syntax_db().make_route(
+                        EntityRoutePtr::Root(RootIdentifier::Ref),
+                        thin_vec![ty.into()],
+                    ),
                     kind: EntityKind::Type(TyKind::Other),
                 })
             } else if let TokenKind::Identifier(ident) = token.kind {
@@ -219,7 +218,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         )
     }
 
-    fn generics(&mut self, route: EntityRoutePtr) -> AtomResult<Vec<SpatialArgument>> {
+    fn generics(&mut self, route: EntityRoutePtr) -> AtomResult<ThinVec<SpatialArgument>> {
         if route.spatial_arguments.len() > 0 {
             todo!()
         }
@@ -240,7 +239,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::CloneTrait
                 | RootIdentifier::CopyTrait
                 | RootIdentifier::PartialEqTrait
-                | RootIdentifier::EqTrait => Ok(Vec::new()),
+                | RootIdentifier::EqTrait => Ok(thin_vec![]),
                 RootIdentifier::Mor
                 | RootIdentifier::Fp
                 | RootIdentifier::Fn
@@ -264,7 +263,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 EntityKind::Module
                 | EntityKind::EnumLiteral
                 | EntityKind::Feature
-                | EntityKind::Member(_) => Ok(Vec::new()),
+                | EntityKind::Member(_) => Ok(thin_vec![]),
                 EntityKind::Type(_) | EntityKind::Trait | EntityKind::Function { .. } => {
                     self.angled_generics()
                 }
@@ -273,9 +272,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    fn func_args(&mut self) -> AtomResult<Vec<SpatialArgument>> {
+    fn func_args(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
         eat!(self, "(");
-        let mut args = comma_list![self, generic!, RPar];
+        let mut args = thin_comma_list![self, generic!, RPar];
         args.push(if try_eat!(self, "->") {
             self.generic()?
         } else {
@@ -284,17 +283,17 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         Ok(args)
     }
 
-    pub(crate) fn angled_generics(&mut self) -> AtomResult<Vec<SpatialArgument>> {
+    pub(crate) fn angled_generics(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
         Ok(if try_eat!(self, SpecialToken::LAngle) {
-            comma_list![self, generic!+, ">"]
+            thin_comma_list![self, generic!+, ">"]
         } else {
-            Vec::new()
+            thin_vec![]
         })
     }
 
     fn generic(&mut self) -> AtomResult<SpatialArgument> {
         Ok(if try_eat!(self, "(") {
-            let mut args = comma_list!(self, generic!, ")");
+            let mut args = thin_comma_list!(self, generic!, ")");
             let scope = if try_eat!(self, "->") {
                 args.push(self.generic()?);
                 EntityRoute::default_func_type(args)
