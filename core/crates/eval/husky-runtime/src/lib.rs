@@ -10,7 +10,7 @@ use eval_feature::*;
 use eval_feature::{EvalFeature, Session};
 use file::{FilePtr, FileQueryGroup};
 use husky_compile_time::*;
-use husky_debugger_protocol::*;
+use husky_tracer_protocol::*;
 use indexmap::IndexMap;
 use json_map::JsonListMap;
 use json_result::JsonResult;

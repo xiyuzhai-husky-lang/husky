@@ -52,5 +52,5 @@ diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 atom = { path = "../../syntax/atom", version = "0.0.0" }
-husky-debugger-protocol = { path = "../../../../gui/husky-debugger-protocol", version = "0.0.0" }
+husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
 visualizer-gen = { path = "../visualizer-gen", version = "0.0.0" }

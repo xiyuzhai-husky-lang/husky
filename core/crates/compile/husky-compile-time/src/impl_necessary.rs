@@ -1,5 +1,5 @@
 use crate::*;
-use husky_debugger_protocol::*;
+use husky_tracer_protocol::*;
 use infer_total::InferQueryGroup;
 use linkage_table::{LinkageSourceTable, ResolveLinkage};
 use semantics_entity::{EntityRouteStore, StoreEntityRoute};

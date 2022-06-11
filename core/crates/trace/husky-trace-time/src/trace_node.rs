@@ -8,7 +8,7 @@ pub struct TraceNode {
 }
 
 impl TraceNode {
-    pub fn to_data(&self) -> husky_debugger_protocol::TraceNodeData {
+    pub fn to_data(&self) -> husky_tracer_protocol::TraceNodeData {
         TraceNodeData {
             trace: self.trace.props.clone(),
             expansion: self.expansion,
