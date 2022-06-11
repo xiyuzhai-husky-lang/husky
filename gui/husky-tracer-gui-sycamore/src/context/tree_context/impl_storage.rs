@@ -2,7 +2,7 @@ use super::*;
 
 impl TreeContext {
     pub(super) fn trace(&self, trace_id: TraceId) -> Rc<TraceProps> {
-        let trace = self.trace_nodes[trace_id.0].trace.clone();
+        let trace = self.trace_nodes.borrow()[trace_id.0].trace.clone();
         assert!(trace.id == trace_id);
         trace
     }
@@ -32,12 +32,13 @@ impl TreeContext {
                 // );
     }
 
-    fn cache_traces(&mut self, trace_nodes: Vec<TraceNodeData>) {
-        self.trace_nodes
-            .reserve(self.trace_nodes.len() + trace_nodes.len());
-        for trace_node in trace_nodes {
-            assert_eq!(trace_node.trace.id.0, self.trace_nodes.len());
-            self.trace_nodes.push(trace_node.into())
+    fn cache_traces(&mut self, new_trace_nodes: Vec<TraceNodeData>) {
+        let trace_nodes = &mut self.trace_nodes.borrow_mut();
+        let new_len = trace_nodes.len() + new_trace_nodes.len();
+        trace_nodes.reserve(new_len);
+        for trace_node in new_trace_nodes {
+            assert_eq!(trace_node.trace.id.0, trace_nodes.len());
+            trace_nodes.push(trace_node.into())
         }
     }
 

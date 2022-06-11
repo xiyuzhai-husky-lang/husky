@@ -1,3 +1,5 @@
+use std::cell::Cell;
+
 use crate::*;
 use futures::{channel::mpsc::Sender, stream::SplitStream, SinkExt, StreamExt};
 use reqwasm::websocket::{futures::WebSocket, Message};
@@ -6,7 +8,7 @@ use wasm_bindgen_futures::spawn_local;
 #[derive(Clone)]
 pub struct WebsocketService {
     pub gui_message_sender: Sender<String>,
-    next_request_id: usize,
+    next_request_id: Cell<usize>,
 }
 
 impl std::fmt::Debug for WebsocketService {
@@ -36,15 +38,15 @@ impl WebsocketService {
         (
             Self {
                 gui_message_sender,
-                next_request_id: 0,
+                next_request_id: Cell::new(0),
             },
             read,
         )
     }
 
-    pub fn issue_request_id(&mut self) -> usize {
-        let request_id = self.next_request_id;
-        self.next_request_id += 1;
+    pub fn issue_request_id(&self) -> usize {
+        let request_id = self.next_request_id.get();
+        self.next_request_id.set(request_id + 1);
         request_id
     }
 }

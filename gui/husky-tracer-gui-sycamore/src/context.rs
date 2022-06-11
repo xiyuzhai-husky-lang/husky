@@ -21,20 +21,20 @@ use std::{
 use tree_context::*;
 use wasm_bindgen_futures::spawn_local;
 
-pub struct TracerContext(Rc<RefCell<TracerContextInternal>>);
+pub struct TracerContext(Rc<TracerContextInternal>);
 
 impl TracerContext {
     pub fn new() -> TracerContext {
         let (mut ws, mut read) = WebsocketService::new();
-        let context_internal = Rc::new(RefCell::new(TracerContextInternal::new(ws.clone())));
+        let context_internal = Rc::new(TracerContextInternal::new(ws.clone()));
         TracerContextInternal::spawn_listening(context_internal.clone(), read);
-        context_internal.borrow_mut().request_init();
+        context_internal.request_init();
         TracerContext(context_internal)
     }
 }
 
 impl std::ops::Deref for TracerContext {
-    type Target = RefCell<TracerContextInternal>;
+    type Target = TracerContextInternal;
 
     fn deref(&self) -> &Self::Target {
         &self.0

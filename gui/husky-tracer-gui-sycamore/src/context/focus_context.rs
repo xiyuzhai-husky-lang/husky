@@ -6,7 +6,7 @@ pub struct FocusContext {
     focus_locked_store: Signal<bool>,
 }
 impl FocusContext {
-    pub(super) fn init(&mut self, focus: Focus) {
+    pub(super) fn init(&self, focus: Focus) {
         self.focus_locked_store.set(true);
         self.focus_store.set(focus);
     }
