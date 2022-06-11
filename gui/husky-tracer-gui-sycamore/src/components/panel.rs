@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[derive(Prop)]
 pub struct MyProps<'a> {
@@ -17,5 +17,6 @@ pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: MyProps<'a>) -> View<G>
         div(class="my-component") {
             "Value: " (props.value.get())
         }
+        TraceView {}
     }
 }
