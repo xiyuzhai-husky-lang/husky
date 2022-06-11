@@ -1,34 +1,47 @@
-mod trace_cache;
-mod trace_control;
+mod impl_control;
+mod impl_storage;
 
 use super::*;
-use trace_cache::*;
-use trace_control::*;
+use impl_control::*;
+use impl_storage::*;
 
 #[derive(Debug, Default)]
 pub struct TraceContext {
-    storage: TraceStorage,
-    control: TraceControl,
-    trace_listing: Signal<Vec<TraceId>>,
+    pub trace_nodes: Vec<TraceNodeProps>,
+    pub subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
+    pub trace_stalks: HashMap<(TraceId, Option<usize>), TraceStalk>,
+    pub root_trace_ids: Vec<TraceId>,
+    pub opt_active_trace_id: Signal<Option<TraceId>>,
+    pub trace_listing: Signal<Vec<TraceId>>,
+}
+
+#[derive(Debug)]
+pub struct TraceNodeProps {
+    trace: Rc<TraceProps>,
+    expanded: Signal<bool>,
+    shown: Signal<bool>,
+}
+
+impl From<TraceNodeData> for TraceNodeProps {
+    fn from(data: TraceNodeData) -> Self {
+        TraceNodeProps {
+            trace: Rc::new(data.trace),
+            expanded: Signal::new(data.expansion),
+            shown: Signal::new(data.shown),
+        }
+    }
 }
 
 impl TraceContext {
     pub(super) fn init(&mut self, focus: &Focus, init_data: TraceInitState) {
-        self.storage.init(
-            init_data.traces,
-            init_data.root_traces,
-            init_data.subtraces_map,
-        );
-        let active_trace = init_data
-            .active_trace_id
-            .map(|trace_id| self.storage.get_trace(trace_id).unwrap());
-        self.control
-            .init(active_trace, init_data.expansions, init_data.showns);
+        self.trace_nodes = init_data
+            .trace_nodes
+            .into_iter()
+            .map(|trace_node_data| trace_node_data.into())
+            .collect();
+        self.root_trace_ids = init_data.root_trace_ids;
+        self.opt_active_trace_id = Signal::new(init_data.opt_active_trace_id);
         self.update_trace_listing(focus);
-    }
-
-    fn active_trace(&self) -> Option<Rc<TraceProps>> {
-        return (*self.control.active_trace_store.get()).clone();
     }
 
     fn get_id_before(&self, trace_id: TraceId) -> Option<TraceId> {
@@ -59,8 +72,8 @@ impl TraceContext {
 
     fn update_trace_listing(&mut self, focus: &Focus) {
         let mut trace_listing: Vec<TraceId> = vec![];
-        for trace in &self.storage.root_traces {
-            self.update_trace_listing_dfs(focus, trace, &mut trace_listing);
+        for trace_id in &self.root_trace_ids {
+            self.update_trace_listing_dfs(focus, *trace_id, &mut trace_listing);
         }
         self.trace_listing.set(trace_listing);
     }
@@ -68,14 +81,14 @@ impl TraceContext {
     fn update_trace_listing_dfs(
         &self,
         focus: &Focus,
-        trace: &TraceProps,
+        trace_id: TraceId,
         trace_listing: &mut Vec<TraceId>,
     ) {
-        trace_listing.push(trace.id);
-        self.add_associated_traces(focus, trace.id, trace_listing);
-        if (self.control.is_expanded(trace.id)) {
-            for trace in self.storage.get_subtraces(focus, trace) {
-                self.update_trace_listing_dfs(focus, trace, trace_listing);
+        trace_listing.push(trace_id);
+        self.add_associated_traces(focus, trace_id, trace_listing);
+        if (self.expanded(trace_id)) {
+            for subtrace_id in self.get_subtraces(focus, trace_id) {
+                self.update_trace_listing_dfs(focus, *subtrace_id, trace_listing);
             }
         }
     }
@@ -86,27 +99,16 @@ impl TraceContext {
         trace_id: TraceId,
         trace_listing: &mut Vec<TraceId>,
     ) {
-        let trace = self.storage.get_trace(trace_id).unwrap();
+        let trace = self.trace(trace_id);
         for line in &trace.lines {
             for token in &line.tokens {
                 if let Some(associated_trace_id) = token.opt_associated_trace_id {
-                    if (self.control.is_shown(associated_trace_id)) {
-                        let associated_trace = self.storage.get_trace(associated_trace_id).unwrap();
-                        self.update_trace_listing_dfs(focus, &associated_trace, trace_listing);
+                    if (self.shown(associated_trace_id)) {
+                        self.update_trace_listing_dfs(focus, associated_trace_id, trace_listing);
                     }
                 }
             }
         }
-    }
-
-    fn did_toggle_expansion(&mut self, focus: &Focus, trace_id: TraceId) {
-        self.control.did_toggle_expansion(trace_id);
-        self.update_trace_listing(focus);
-    }
-
-    fn did_toggle_show(&mut self, focus: &Focus, trace_id: TraceId) {
-        self.control.did_toggle_show(trace_id);
-        self.update_trace_listing(focus);
     }
 
     // fn  print_state() {
