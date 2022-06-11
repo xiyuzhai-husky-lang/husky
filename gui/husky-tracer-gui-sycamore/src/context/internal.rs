@@ -1,7 +1,7 @@
 use super::*;
 pub struct TracerContextInternal {
     pub(super) ws: WebsocketService,
-    pub(super) call_backs: HashMap<usize, Box<dyn FnOnce(&mut Self, DebuggerServerMessage)>>,
+    pub(super) call_backs: RefCell<HashMap<usize, Box<dyn FnOnce(&Self, DebuggerServerMessage)>>>,
     pub tree_context: TreeContext,
     pub figure_context: FigureContext,
     pub focus_context: FocusContext,

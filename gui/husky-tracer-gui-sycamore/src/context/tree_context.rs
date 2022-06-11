@@ -7,7 +7,7 @@ use impl_storage::*;
 
 #[derive(Debug, Default)]
 pub struct TreeContext {
-    pub trace_nodes: Vec<TraceNodeProps>,
+    pub trace_nodes: RefCell<Vec<TraceNodeProps>>,
     pub subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
     pub trace_stalks: HashMap<(TraceId, Option<usize>), TraceStalk>,
     pub root_trace_ids: Signal<Vec<TraceId>>,
@@ -18,23 +18,23 @@ pub struct TreeContext {
 #[derive(Debug)]
 pub struct TraceNodeProps {
     trace: Rc<TraceProps>,
-    expanded: Signal<bool>,
-    shown: Signal<bool>,
+    expanded: Rc<Signal<bool>>,
+    shown: Rc<Signal<bool>>,
 }
 
 impl From<TraceNodeData> for TraceNodeProps {
     fn from(data: TraceNodeData) -> Self {
         TraceNodeProps {
             trace: Rc::new(data.trace),
-            expanded: Signal::new(data.expansion),
-            shown: Signal::new(data.shown),
+            expanded: Rc::new(Signal::new(data.expansion)),
+            shown: Rc::new(Signal::new(data.shown)),
         }
     }
 }
 
 impl TreeContext {
-    pub(super) fn init(&mut self, focus: &Focus, init_data: TraceInitState) {
-        self.trace_nodes = init_data
+    pub(super) fn init(&self, focus: &Focus, init_data: TraceInitState) {
+        *self.trace_nodes.borrow_mut() = init_data
             .trace_nodes
             .into_iter()
             .map(|trace_node_data| trace_node_data.into())
@@ -70,7 +70,7 @@ impl TreeContext {
             .map(|id| *id)
     }
 
-    fn update_trace_listing(&mut self, focus: &Focus) {
+    fn update_trace_listing(&self, focus: &Focus) {
         let mut trace_listing: Vec<TraceId> = vec![];
         for trace_id in &*self.root_trace_ids.get() {
             self.update_trace_listing_dfs(focus, *trace_id, &mut trace_listing);

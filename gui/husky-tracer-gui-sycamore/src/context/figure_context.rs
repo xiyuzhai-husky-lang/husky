@@ -2,18 +2,18 @@ use super::*;
 
 #[derive(Debug, Default)]
 pub struct FigureContext {
-    figures: HashMap<FigureKey, Rc<FigureProps>>,
-    figure_control_stores: HashMap<FigureControlKey, Signal<FigureControlProps>>,
+    figures: RefCell<HashMap<FigureKey, Rc<FigureProps>>>,
+    figure_control_stores: RefCell<HashMap<FigureControlKey, Signal<FigureControlProps>>>,
 }
 
 impl FigureContext {
     pub(super) fn init(
-        &mut self,
+        &self,
         figures: HashMap<FigureKey, FigureProps>,
         figure_controls: HashMap<FigureControlKey, FigureControlProps>,
     ) {
-        self.figures = figures.into_iter().map(|(k, v)| (k, Rc::new(v))).collect();
-        self.figure_control_stores = figure_controls
+        *self.figures.borrow_mut() = figures.into_iter().map(|(k, v)| (k, Rc::new(v))).collect();
+        *self.figure_control_stores.borrow_mut() = figure_controls
             .into_iter()
             .map(|(k, v)| (k, Signal::new(v)))
             .collect();

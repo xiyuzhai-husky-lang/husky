@@ -1,13 +1,13 @@
 use super::*;
 
 impl TracerContextInternal {
-    pub(super) fn handle_server_message_str(&mut self, server_message_str: &str) {
+    pub(super) fn handle_server_message_str(&self, server_message_str: &str) {
         self.handle_server_message(serde_json::from_str(server_message_str).unwrap())
     }
 
-    fn handle_server_message(&mut self, server_message: DebuggerServerMessage) {
+    fn handle_server_message(&self, server_message: DebuggerServerMessage) {
         if let Some(request_id) = server_message.opt_request_id {
-            self.call_backs.remove(&request_id).unwrap()(self, server_message)
+            self.call_backs.borrow_mut().remove(&request_id).unwrap()(self, server_message)
         } else {
             match server_message.variant {
                 DebuggerServerMessageVariant::Init { init_data } => self.init(init_data),
