@@ -10,7 +10,7 @@ pub struct TreeContext {
     pub trace_nodes: Vec<TraceNodeProps>,
     pub subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
     pub trace_stalks: HashMap<(TraceId, Option<usize>), TraceStalk>,
-    pub root_trace_ids: Vec<TraceId>,
+    pub root_trace_ids: Signal<Vec<TraceId>>,
     pub opt_active_trace_id: Signal<Option<TraceId>>,
     pub trace_listing: Signal<Vec<TraceId>>,
 }
@@ -39,8 +39,8 @@ impl TreeContext {
             .into_iter()
             .map(|trace_node_data| trace_node_data.into())
             .collect();
-        self.root_trace_ids = init_data.root_trace_ids;
-        self.opt_active_trace_id = Signal::new(init_data.opt_active_trace_id);
+        self.root_trace_ids.set(init_data.root_trace_ids);
+        self.opt_active_trace_id.set(init_data.opt_active_trace_id);
         self.update_trace_listing(focus);
     }
 
@@ -72,7 +72,7 @@ impl TreeContext {
 
     fn update_trace_listing(&mut self, focus: &Focus) {
         let mut trace_listing: Vec<TraceId> = vec![];
-        for trace_id in &self.root_trace_ids {
+        for trace_id in &*self.root_trace_ids.get() {
             self.update_trace_listing_dfs(focus, *trace_id, &mut trace_listing);
         }
         self.trace_listing.set(trace_listing);
