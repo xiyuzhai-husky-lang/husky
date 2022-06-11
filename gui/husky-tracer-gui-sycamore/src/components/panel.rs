@@ -14,9 +14,11 @@ pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: MyProps<'a>) -> View<G>
     });
     view! {
         scope,
-        div(class="my-component") {
+        div(class="HSplitPanelLeft") {
+            TraceView {}
+        }
+        div(class="HSplitPanelRight") {
             "Value: " (props.value.get())
         }
-        TraceView {}
     }
 }
