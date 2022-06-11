@@ -1,6 +1,6 @@
 use super::*;
 
-impl DebuggerContext {
+impl TracerContextInternal {
     pub(super) fn handle_server_message_str(&mut self, server_message_str: &str) {
         self.handle_server_message(serde_json::from_str(server_message_str).unwrap())
     }

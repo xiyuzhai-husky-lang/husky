@@ -1,6 +1,6 @@
 use super::*;
 
-impl TraceContext {
+impl TreeContext {
     pub(super) fn expanded(&self, trace_id: TraceId) -> bool {
         self.trace_nodes[trace_id.0].expanded.get_cloned()
     }

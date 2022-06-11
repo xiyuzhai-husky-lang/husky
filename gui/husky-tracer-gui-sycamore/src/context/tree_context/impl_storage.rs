@@ -1,6 +1,6 @@
 use super::*;
 
-impl TraceContext {
+impl TreeContext {
     pub(super) fn trace(&self, trace_id: TraceId) -> Rc<TraceProps> {
         let trace = self.trace_nodes[trace_id.0].trace.clone();
         assert!(trace.id == trace_id);

@@ -6,7 +6,7 @@ use impl_control::*;
 use impl_storage::*;
 
 #[derive(Debug, Default)]
-pub struct TraceContext {
+pub struct TreeContext {
     pub trace_nodes: Vec<TraceNodeProps>,
     pub subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
     pub trace_stalks: HashMap<(TraceId, Option<usize>), TraceStalk>,
@@ -32,7 +32,7 @@ impl From<TraceNodeData> for TraceNodeProps {
     }
 }
 
-impl TraceContext {
+impl TreeContext {
     pub(super) fn init(&mut self, focus: &Focus, init_data: TraceInitState) {
         self.trace_nodes = init_data
             .trace_nodes
