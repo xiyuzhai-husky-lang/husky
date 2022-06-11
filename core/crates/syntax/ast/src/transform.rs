@@ -78,7 +78,7 @@ impl<'a> AstTransformer<'a> {
                         kind: SymbolKind::EntityRoute(db.make_subroute(
                             module,
                             entry_ident.ident,
-                            vec![],
+                            Default::default(),
                         )),
                     })
                 }

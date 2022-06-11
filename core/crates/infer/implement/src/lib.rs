@@ -1,6 +1,7 @@
 use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
 use entity_syntax::EntitySyntaxSalsaQueryGroup;
 use print_utils::p;
+use thin_vec::thin_vec;
 use word::CustomIdentifier;
 
 pub struct Implementor<'a> {
@@ -81,7 +82,7 @@ impl Implementable for EntityRoutePtr {
         }
         implementor.db.intern_entity_route(EntityRoute {
             kind,
-            temporal_arguments: vec![],
+            temporal_arguments: thin_vec![],
             spatial_arguments: generic_arguments,
         })
     }

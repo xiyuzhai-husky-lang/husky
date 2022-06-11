@@ -18,3 +18,4 @@ file = { path = "../file", version = "0.0.0" }
 text = { path = "../text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }
+thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }

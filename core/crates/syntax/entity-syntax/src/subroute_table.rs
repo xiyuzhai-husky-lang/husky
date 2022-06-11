@@ -2,19 +2,19 @@ mod entry;
 
 pub use entry::*;
 
+use crate::EntitySyntaxSalsaQueryGroup;
+use crate::{error::*, *};
 use dev_utils::dev_src;
 use entity_kind::MemberKind;
 use entity_route::*;
 use file::FilePtr;
 use print_utils::p;
 use static_defn::*;
-use word::{CustomIdentifier, Decorator, Keyword};
-
-use crate::EntitySyntaxSalsaQueryGroup;
-use crate::{error::*, *};
 use text::{RangedCustomIdentifier, TextRange, TextRanged};
+use thin_vec::thin_vec;
 use token::{SpecialToken, Token, TokenGroupIter, TokenKind};
 use word::Identifier;
+use word::{CustomIdentifier, Decorator, Keyword};
 
 pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityKind> {
     match keyword {
@@ -171,7 +171,7 @@ impl SubrouteTable {
         self.entries.iter().filter_map(move |entry| {
             entry
                 .ident
-                .map(|ident| db.make_subroute(parent_route, ident.ident, Vec::new()))
+                .map(|ident| db.make_subroute(parent_route, ident.ident, thin_vec![]))
         })
     }
 
@@ -186,7 +186,7 @@ impl SubrouteTable {
                 EntityKind::Module => None,
                 _ => entry
                     .ident
-                    .map(|ident| db.make_subroute(parent_route, ident.ident, Vec::new())),
+                    .map(|ident| db.make_subroute(parent_route, ident.ident, thin_vec![])),
             })
     }
 

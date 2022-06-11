@@ -38,6 +38,7 @@ use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, LinkageSource};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::*;
+use thin_vec::{thin_vec, ThinVec};
 use vec_map::VecMapEntry;
 use visual_semantics::VisualizerSource;
 use vm::Linkage;
@@ -229,7 +230,7 @@ impl EntityDefnVariant {
                     symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
                 let this_trai = symbol_context.db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
-                    temporal_arguments: vec![],
+                    temporal_arguments: thin_vec![],
                     spatial_arguments: generic_arguments,
                 });
                 let member_kinds: Vec<_> = members.map(|member| {
@@ -259,7 +260,7 @@ impl EntityDefnVariant {
                         let route = symbol_context.db.intern_entity_route(EntityRoute::subroute(
                             this_trai,
                             symbol_context.db.intern_word(member.name).custom(),
-                            vec![],
+                            thin_vec![],
                         ));
                         EntityDefn::from_static(&mut symbol_context, route, member)
                     }),

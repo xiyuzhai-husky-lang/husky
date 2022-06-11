@@ -8,6 +8,7 @@ use path_utils::*;
 use print_utils::{epin, msg_once, p};
 use static_defn::*;
 use text::TextRange;
+use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
 use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
 
@@ -238,7 +239,7 @@ pub trait EntitySyntaxQueryGroup:
         &self,
         parent_scope: EntityRoutePtr,
         ident: CustomIdentifier,
-        generics: Vec<SpatialArgument>,
+        generics: ThinVec<SpatialArgument>,
     ) -> EntitySyntaxResult<EntityRoutePtr> {
         let parent_subscope_table = self.subroute_table(parent_scope)?;
         if parent_subscope_table.has_subscope(ident, &generics) {
@@ -340,8 +341,8 @@ pub trait EntitySyntaxQueryGroup:
                     Identifier::Builtin(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
                         kind: EntityRouteKind::Child { parent, ident },
-                        temporal_arguments: vec![],
-                        spatial_arguments: vec![],
+                        temporal_arguments: thin_vec![],
+                        spatial_arguments: thin_vec![],
                     })),
                     Identifier::Contextual(_) => todo!(),
                 },

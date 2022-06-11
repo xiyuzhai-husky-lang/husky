@@ -4,6 +4,7 @@ use entity_route::*;
 use entity_syntax::*;
 use map_collect::MapCollect;
 use print_utils::p;
+use thin_vec::{thin_vec, ThinVec};
 use word::CustomIdentifier;
 
 pub struct Instantiator<'a> {
@@ -26,13 +27,13 @@ impl<'a> Instantiator<'a> {
             _ => {
                 let (kind, mut generics) = match src_scope.kind {
                     EntityRouteKind::Package { .. } => panic!(),
-                    EntityRouteKind::Root { ident } => (src_scope.kind, vec![]),
+                    EntityRouteKind::Root { ident } => (src_scope.kind, thin_vec![]),
                     EntityRouteKind::Child { parent, ident } => (
                         EntityRouteKind::Child {
                             parent: self.instantiate_entity_route(parent).take_entity_route(),
                             ident,
                         },
-                        vec![],
+                        thin_vec![],
                     ),
                     EntityRouteKind::Input { main } => todo!(),
                     EntityRouteKind::Generic { ident, .. } => {
@@ -51,7 +52,7 @@ impl<'a> Instantiator<'a> {
                             todo!()
                         }
                     }
-                    EntityRouteKind::ThisType => (EntityRouteKind::ThisType, vec![]),
+                    EntityRouteKind::ThisType => (EntityRouteKind::ThisType, thin_vec![]),
                     EntityRouteKind::TypeAsTraitMember {
                         ty: parent,
                         trai,
@@ -62,7 +63,7 @@ impl<'a> Instantiator<'a> {
                 generics.extend(self.instantiate_generic_arguments(&src_scope.spatial_arguments));
                 SpatialArgument::EntityRoute(self.db.intern_entity_route(EntityRoute {
                     kind,
-                    temporal_arguments: vec![],
+                    temporal_arguments: thin_vec![],
                     spatial_arguments: generics,
                 }))
             }
@@ -72,7 +73,7 @@ impl<'a> Instantiator<'a> {
     fn instantiate_generic_arguments(
         &self,
         src_generic_arguments: &[SpatialArgument],
-    ) -> Vec<SpatialArgument> {
+    ) -> ThinVec<SpatialArgument> {
         src_generic_arguments
             .iter()
             .map(|src_generic| match src_generic {

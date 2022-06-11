@@ -3,10 +3,10 @@ mod struct_item_context;
 use entity_syntax::EntitySyntaxQueryGroup;
 pub use struct_item_context::*;
 
-use file::FilePtr;
-use word::Paradigm;
-
 use crate::*;
+use file::FilePtr;
+use thin_vec::thin_vec;
+use word::Paradigm;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AstContext {
@@ -30,9 +30,13 @@ impl AstContext {
         ident: CustomIdentifier,
     ) -> Option<EntityRoutePtr> {
         Some(match self {
-            AstContext::Package(main) => db.make_subroute(db.module(main).unwrap(), ident, vec![]),
-            AstContext::Module(route) => db.make_subroute(route, ident, Vec::new()),
-            AstContext::Struct { opt_base_ty, .. } => db.make_subroute(opt_base_ty?, ident, vec![]),
+            AstContext::Package(main) => {
+                db.make_subroute(db.module(main).unwrap(), ident, thin_vec![])
+            }
+            AstContext::Module(route) => db.make_subroute(route, ident, thin_vec![]),
+            AstContext::Struct { opt_base_ty, .. } => {
+                db.make_subroute(opt_base_ty?, ident, thin_vec![])
+            }
             AstContext::Enum(_) => todo!(),
             AstContext::Record => todo!(),
             _ => return None,

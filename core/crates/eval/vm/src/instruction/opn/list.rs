@@ -1,4 +1,5 @@
 use entity_route::SpatialArgument;
+use thin_vec::ThinVec;
 
 use super::*;
 
@@ -13,7 +14,7 @@ pub enum ListOpr {
     StructInit,
     MethodCall {
         ranged_ident: RangedCustomIdentifier,
-        generic_arguments: Vec<SpatialArgument>,
+        generic_arguments: ThinVec<SpatialArgument>,
     },
 }
 
@@ -29,7 +30,7 @@ pub enum ListStartAttr {
     Attach,
     MethodAttach {
         ranged_ident: RangedCustomIdentifier,
-        generic_arguments: Vec<SpatialArgument>,
+        generic_arguments: ThinVec<SpatialArgument>,
     },
 }
 

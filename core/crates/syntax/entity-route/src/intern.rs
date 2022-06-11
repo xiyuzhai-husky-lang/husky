@@ -89,8 +89,8 @@ impl Deref for EntityRoutePtr {
                             kind: EntityRouteKind::Root {
                                 ident: RootIdentifier::$reserved,
                             },
-                            temporal_arguments: vec![],
-                            spatial_arguments: vec![],
+                            temporal_arguments: thin_vec![],
+                            spatial_arguments: thin_vec![],
                         };
                     )*
 
@@ -105,8 +105,8 @@ impl Deref for EntityRoutePtr {
 
         const THIS_TYPE_ROUTE: &EntityRoute = &EntityRoute {
             kind: EntityRouteKind::ThisType,
-            temporal_arguments: vec![],
-            spatial_arguments: vec![],
+            temporal_arguments: thin_vec![],
+            spatial_arguments: thin_vec![],
         };
 
         match self {
@@ -167,13 +167,13 @@ pub trait AllocateUniqueScope {
     fn make_route(
         &self,
         route: EntityRoutePtr,
-        generic_arguments: Vec<SpatialArgument>,
+        generic_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoutePtr {
         let mut generics = route.spatial_arguments.clone();
         generics.extend(generic_arguments);
         self.intern_entity_route(EntityRoute {
             kind: route.kind,
-            temporal_arguments: vec![],
+            temporal_arguments: Default::default(),
             spatial_arguments: generics,
         })
     }
@@ -182,12 +182,12 @@ pub trait AllocateUniqueScope {
         &self,
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
-        generics: Vec<SpatialArgument>,
+        spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoutePtr {
         self.intern_entity_route(EntityRoute {
             kind: EntityRouteKind::Child { parent, ident },
-            temporal_arguments: vec![],
-            spatial_arguments: generics,
+            temporal_arguments: Default::default(),
+            spatial_arguments,
         })
     }
 }

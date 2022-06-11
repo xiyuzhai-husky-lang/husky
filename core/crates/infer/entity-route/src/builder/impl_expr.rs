@@ -1,12 +1,12 @@
 use std::iter::zip;
 
+use super::*;
 use ast::RawExprRange;
 use dev_utils::dev_src;
 use infer_decl::{MethodKind, TraitMemberImplDecl};
 use text::*;
+use thin_vec::{thin_vec, ThinVec};
 use vm::*;
-
-use super::*;
 
 impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn infer_expr(
@@ -479,10 +479,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         for (argument, parameter) in zip(parameters.into_iter(), method_decl.parameters.iter()) {
             self.infer_expr(argument, Some(parameter.ty), arena);
         }
-        let generic_arguments = if method_decl.generic_parameters.len() > 0 {
+        let spatial_arguments = if method_decl.generic_parameters.len() > 0 {
             todo!()
         } else {
-            vec![]
+            thin_vec![]
         };
         self.entity_route_sheet.call_routes.insert_new(
             raw_expr_idx,
@@ -498,8 +498,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         trai,
                     },
                 },
-                temporal_arguments: vec![],
-                spatial_arguments: generic_arguments,
+                temporal_arguments: thin_vec![],
+                spatial_arguments,
             })),
         );
         Ok(method_decl.output.ty)
@@ -521,8 +521,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
         let index_trai = self.db.intern_entity_route(EntityRoute {
             kind: self.db.entity_route_menu().std_ops_index_trai.kind,
-            temporal_arguments: vec![],
-            spatial_arguments: vec![SpatialArgument::EntityRoute(index_ty)],
+            temporal_arguments: thin_vec![],
+            spatial_arguments: thin_vec![SpatialArgument::EntityRoute(index_ty)],
         });
         let trai_impl = ok_or!(
             this_ty_decl.trait_impl(index_trai),

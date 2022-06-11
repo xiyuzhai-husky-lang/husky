@@ -4,6 +4,7 @@ use entity_kind::{FieldKind, TyKind};
 use entity_route::EntityRoute;
 use map_collect::MapCollect;
 use static_defn::LinkageSource;
+use thin_vec::{thin_vec, ThinVec};
 use vm::Binding;
 
 impl<'a> FeatureExprBuilder<'a> {
@@ -166,7 +167,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
                             this.expr.ty(),
                             field_ident.ident,
-                            vec![],
+                            thin_vec![],
                         )));
                 match this_ty_defn.variant {
                     EntityDefnVariant::Ty { ref ty_members, .. } => {
@@ -221,7 +222,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
                             this.expr.ty(),
                             field_ident.ident,
-                            vec![],
+                            thin_vec![],
                         )));
                 match this_ty_defn.variant {
                     EntityDefnVariant::Ty { ref ty_members, .. } => {

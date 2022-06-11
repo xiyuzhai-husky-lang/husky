@@ -24,6 +24,7 @@ pub use enum_variant::*;
 use fold::LocalStack;
 use map_collect::MapCollect;
 use text::*;
+use thin_vec::{thin_vec, ThinVec};
 use vec_map::VecMap;
 use vm::TySignature;
 use word::{IdentArcDict, IdentDict, Paradigm};
@@ -68,7 +69,7 @@ impl TyDecl {
                 let base_ty = symbol_context.parse_entity_route(base_route).unwrap();
                 let this_ty = db.intern_entity_route(EntityRoute {
                     kind: base_ty.kind,
-                    temporal_arguments: vec![],
+                    temporal_arguments: thin_vec![],
                     spatial_arguments: generic_arguments,
                 });
                 symbol_context.opt_this_ty = Some(this_ty);
@@ -114,7 +115,7 @@ impl TyDecl {
         let generic_arguments = db.generic_arguments_from_generic_parameters(&generic_parameters);
         let this_ty = db.intern_entity_route(EntityRoute {
             kind: ty.kind,
-            temporal_arguments: vec![],
+            temporal_arguments: thin_vec![],
             spatial_arguments: generic_arguments,
         });
         let mut children = children.peekable();
@@ -253,7 +254,10 @@ impl TyDecl {
                         Paradigm::LazyFunctional => todo!(),
                     },
                     None => throw_query_derived!(members.insert_new(TyMemberDecl::Call(
-                        CallDecl::from_ast(db.make_subroute(this_ty, ident.ident, vec![]), ast,)
+                        CallDecl::from_ast(
+                            db.make_subroute(this_ty, ident.ident, thin_vec![]),
+                            ast,
+                        )
                     ))),
                 },
                 AstVariant::Use { .. } => todo!(),

@@ -37,3 +37,4 @@ static-defn = { path = "../../semantics/static-defn", version = "0.0.0" }
 atom = { path = "../../syntax/atom", version = "0.0.0" }
 visual-semantics = { path = "../visual-semantics", version = "0.0.0" }
 liason = { path = "../../semantics/liason", version = "0.0.0" }
+thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }

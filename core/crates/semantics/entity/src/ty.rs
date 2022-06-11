@@ -171,7 +171,7 @@ impl EntityDefnVariant {
                     symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
                 let this_ty = symbol_context.db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,
-                    temporal_arguments: vec![],
+                    temporal_arguments: thin_vec![],
                     spatial_arguments: generic_arguments,
                 });
                 let symbols = symbol_context.symbols_from_generic_parameters(&generic_parameters);
@@ -181,7 +181,7 @@ impl EntityDefnVariant {
                     let route = symbol_context.db.intern_entity_route(EntityRoute::subroute(
                         this_ty,
                         symbol_context.db.intern_word(type_member.name).custom(),
-                        vec![],
+                        thin_vec![],
                     ));
                     EntityDefn::from_static(&mut symbol_context, route, type_member)
                 });
@@ -227,7 +227,7 @@ impl EntityDefnVariant {
                                 EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
                             },
                         },
-                        db.make_subroute(ty_route, ident.ident, vec![]),
+                        db.make_subroute(ty_route, ident.ident, thin_vec![]),
                         file,
                         ast.range,
                     ));

@@ -14,6 +14,7 @@ use semantics_entity::{
 };
 use std::collections::HashMap;
 use sync_utils::ARwLock;
+use thin_vec::{thin_vec, ThinVec};
 use vec::*;
 use vm::{Binding, EntityUid};
 use vm::{EvalValue, Linkage, OwnedValue, TempValue, VMRuntimeResult};
@@ -36,7 +37,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
         let std_ops_index_trai = self.make_route(
             self.entity_route_menu().std_ops_index_trai,
-            vec![SpatialArgument::EntityRoute(opd_tys[1])],
+            thin_vec![SpatialArgument::EntityRoute(opd_tys[1])],
         );
         let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();
         match index_trai_impl.member_impls[1].variant {

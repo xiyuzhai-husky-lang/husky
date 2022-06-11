@@ -1,4 +1,5 @@
 use entity_route::{EntityKind, SpatialArgument};
+use thin_vec::{thin_vec, ThinVec};
 use vm::*;
 use word::RootIdentifier;
 
@@ -145,10 +146,10 @@ impl AtomStack {
     fn pop_par_list_of_types(
         &mut self,
         tail: &mut TextRange,
-    ) -> AtomResult<(ListStartAttr, Vec<SpatialArgument>)> {
-        let mut types = Vec::new();
+    ) -> AtomResult<(ListStartAttr, ThinVec<SpatialArgument>)> {
+        let mut types = thin_vec![];
         match self.pop(tail)?.kind {
-            AtomVariant::ListStart(Bracket::Par, attr) => return Ok((attr, Vec::new())),
+            AtomVariant::ListStart(Bracket::Par, attr) => return Ok((attr, thin_vec![])),
             AtomVariant::EntityRoute {
                 route: scope,
                 kind: EntityKind::Type(_),

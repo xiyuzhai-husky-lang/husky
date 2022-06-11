@@ -26,3 +26,4 @@ entity-kind = { path = "../entity-kind", version = "0.0.0" }
 visual-syntax = { path = "../visual-syntax", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 static-defn = { path = "../../semantics/static-defn", version = "0.0.0" }
+thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }

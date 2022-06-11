@@ -30,7 +30,7 @@ impl<'a> AstTransformer<'a> {
                     stack.accept_field_access(field_ident, atom.text_end())
                 }
                 AtomVariant::ListStart(bra, attr) => {
-                    stack.accept_list_start(bra, attr, atom_text_start, Vec::new())
+                    stack.accept_list_start(bra, attr, atom_text_start, Default::default())
                 }
                 AtomVariant::ListEnd(ket, attr) => {
                     stack.accept_list_end(ket, attr, atom.text_end())?
