@@ -6,9 +6,11 @@ pub struct MyProps<'a> {
 }
 
 #[component]
-pub fn HSplitPanel<'a, G: Html>(cx: Scope<'a>, props: MyProps<'a>) -> View<G> {
+pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: MyProps<'a>) -> View<G> {
+    let context = use_context::<TracerContext>(scope);
+    log::info!("{:?}", context.borrow().tree_context.root_trace_ids);
     view! {
-        cx,
+        scope,
         div(class="my-component") {
             "Value: " (props.value.get())
         }

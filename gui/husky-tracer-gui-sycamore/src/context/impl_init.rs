@@ -1,6 +1,6 @@
 use super::*;
 
-impl DebuggerContext {
+impl TracerContextInternal {
     pub(super) fn request_init(&mut self) {
         let mut gui_message_sender = self.ws.gui_message_sender.clone();
         let request_id = self.ws.issue_request_id();
@@ -28,7 +28,7 @@ impl DebuggerContext {
     }
 
     pub(super) fn init(&mut self, init_data: InitData) {
-        self.trace_context
+        self.tree_context
             .init(&init_data.focus, init_data.trace_init_data);
         self.figure_context
             .init(init_data.figures, init_data.figure_controls);

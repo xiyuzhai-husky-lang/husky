@@ -1,6 +1,6 @@
 use super::*;
 
-impl DebuggerContext {
+impl TracerContextInternal {
     pub(super) fn spawn_listening(this: Rc<RefCell<Self>>, mut read: SplitStream<WebSocket>) {
         spawn_local({
             let context = this.clone();

@@ -3,12 +3,14 @@ mod focus_context;
 mod impl_handle_server_message;
 mod impl_init;
 mod impl_listening;
-mod trace_context;
+mod internal;
+mod tree_context;
 
 use crate::{services::websocket::WebsocketService, *};
 use figure_context::*;
 use focus_context::*;
 use futures::{channel::mpsc::Sender, stream::SplitStream, SinkExt, StreamExt};
+use internal::*;
 use reqwasm::websocket::{futures::WebSocket, Message};
 use std::{
     cell::RefCell,
@@ -16,35 +18,25 @@ use std::{
     rc::Rc,
     sync::{Arc, Mutex},
 };
-use trace_context::*;
+use tree_context::*;
 use wasm_bindgen_futures::spawn_local;
 
-pub struct DebuggerContext {
-    ws: WebsocketService,
-    call_backs: HashMap<usize, Box<dyn FnOnce(&mut Self, DebuggerServerMessage)>>,
-    trace_context: TraceContext,
-    figure_context: FigureContext,
-    focus_context: FocusContext,
-    pub signal: Signal<i32>,
+pub struct TracerContext(Rc<RefCell<TracerContextInternal>>);
+
+impl TracerContext {
+    pub fn new() -> TracerContext {
+        let (mut ws, mut read) = WebsocketService::new();
+        let context_internal = Rc::new(RefCell::new(TracerContextInternal::new(ws.clone())));
+        TracerContextInternal::spawn_listening(context_internal.clone(), read);
+        context_internal.borrow_mut().request_init();
+        TracerContext(context_internal)
+    }
 }
 
-impl DebuggerContext {
-    pub fn new_raw(ws: WebsocketService) -> DebuggerContext {
-        DebuggerContext {
-            signal: Signal::new(0),
-            ws,
-            call_backs: Default::default(),
-            trace_context: Default::default(),
-            figure_context: Default::default(),
-            focus_context: Default::default(),
-        }
-    }
+impl std::ops::Deref for TracerContext {
+    type Target = RefCell<TracerContextInternal>;
 
-    pub fn new() -> Rc<RefCell<DebuggerContext>> {
-        let (mut ws, mut read) = WebsocketService::new();
-        let context = Rc::new(RefCell::new(DebuggerContext::new_raw(ws.clone())));
-        DebuggerContext::spawn_listening(context.clone(), read);
-        context.borrow_mut().request_init();
-        context
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }

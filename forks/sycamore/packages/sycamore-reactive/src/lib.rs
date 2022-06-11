@@ -98,6 +98,20 @@ impl<'a, 'b: 'a> BoundedScope<'a, 'b> {
     fn alloc<T>(&self, value: T) -> &'a mut T {
         self.raw.arena.alloc(value)
     }
+
+    /// has context
+    pub fn has_context(&self) -> bool {
+        self.raw.inner.borrow_mut().contexts.is_some()
+    }
+
+    /// context type ids
+    pub fn context_type_ids(&self) -> Vec<TypeId> {
+        if let Some(ref context) = self.raw.inner.borrow_mut().contexts {
+            context.keys().map(|k| *k).collect()
+        } else {
+            vec![]
+        }
+    }
 }
 
 /// A type-alias for [`BoundedScope`] where both lifetimes are the same.
