@@ -10,7 +10,7 @@ mod store;
 use abstraction::*;
 use components::*;
 use context::*;
-use husky_debugger_protocol::*;
+use husky_tracer_protocol::*;
 use init::init_debugging_env;
 use services::*;
 use std::{cell::RefCell, rc::Rc};

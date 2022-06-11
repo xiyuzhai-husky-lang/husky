@@ -1,4 +1,4 @@
-use husky_debugger_protocol::*;
+use husky_tracer_protocol::*;
 
 use super::*;
 

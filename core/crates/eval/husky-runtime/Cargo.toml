@@ -34,4 +34,4 @@ feature-gen = { path = "../../compile/feature-gen", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
 eval-feature = { path = "../eval-feature", version = "0.0.0" }
-husky-debugger-protocol = { path = "../../../../gui/husky-debugger-protocol", version = "0.0.0" }
+husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }

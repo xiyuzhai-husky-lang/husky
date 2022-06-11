@@ -4,7 +4,7 @@ pub use query::*;
 
 use avec::Avec;
 use entity_route::EntityRoutePtr;
-use husky_debugger_protocol::*;
+use husky_tracer_protocol::*;
 use print_utils::p;
 use semantics_eager::FuncStmt;
 use static_defn::CyclicSlice;

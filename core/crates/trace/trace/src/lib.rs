@@ -9,7 +9,7 @@ pub use variant::TraceVariant;
 use feature_gen::*;
 use file::FilePtr;
 use fold::Indent;
-use husky_debugger_protocol::*;
+use husky_tracer_protocol::*;
 use print_utils::p;
 use semantics_eager::*;
 use semantics_entity::*;

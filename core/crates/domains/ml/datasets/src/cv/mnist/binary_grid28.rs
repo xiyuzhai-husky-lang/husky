@@ -1,5 +1,5 @@
 use super::*;
-use husky_debugger_protocol::*;
+use husky_tracer_protocol::*;
 use liason::{MemberLiason, ParameterLiason};
 use std::any::TypeId;
 use vm::*;

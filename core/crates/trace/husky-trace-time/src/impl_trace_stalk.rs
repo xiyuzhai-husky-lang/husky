@@ -17,26 +17,26 @@ impl HuskyTraceTime {
         match trace.variant {
             TraceVariant::Main(ref block) => TraceStalk {
                 extra_tokens: vec![
-                    husky_debugger_protocol::fade!(" = "),
+                    husky_tracer_protocol::fade!(" = "),
                     self.runtime.eval_feature_repr(block, input_id).into(),
                 ],
             },
             TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
                 FeatureStmtVariant::Init { varname, ref value } => TraceStalk {
                     extra_tokens: vec![
-                        husky_debugger_protocol::fade!(" = "),
+                        husky_tracer_protocol::fade!(" = "),
                         self.runtime.eval_feature_expr(value, input_id).into(),
                     ],
                 },
                 FeatureStmtVariant::Assert { ref condition } => TraceStalk {
                     extra_tokens: vec![
-                        husky_debugger_protocol::fade!(" = "),
+                        husky_tracer_protocol::fade!(" = "),
                         self.runtime.eval_feature_expr(condition, input_id).into(),
                     ],
                 },
                 FeatureStmtVariant::Return { ref result } => TraceStalk {
                     extra_tokens: vec![
-                        husky_debugger_protocol::fade!(" = "),
+                        husky_tracer_protocol::fade!(" = "),
                         self.runtime.eval_feature_expr(result, input_id).into(),
                     ],
                 },
@@ -47,7 +47,7 @@ impl HuskyTraceTime {
             },
             TraceVariant::FeatureExpr(ref expr) => TraceStalk {
                 extra_tokens: vec![
-                    husky_debugger_protocol::fade!(" = "),
+                    husky_tracer_protocol::fade!(" = "),
                     self.runtime.eval_feature_expr(expr, input_id).into(),
                 ],
             },

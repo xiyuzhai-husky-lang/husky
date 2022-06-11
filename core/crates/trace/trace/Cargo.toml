@@ -29,5 +29,5 @@ husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
 eval-feature = { path = "../../eval/eval-feature", version = "0.0.0" }
-husky-debugger-protocol = { path = "../../../../gui/husky-debugger-protocol", version = "0.0.0" }
+husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
 husky-runtime = { path = "../../eval/husky-runtime", version = "0.0.0" }
