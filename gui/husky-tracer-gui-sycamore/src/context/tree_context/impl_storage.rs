@@ -1,25 +1,25 @@
 use super::*;
 
 impl TreeContext {
-    pub(super) fn trace(&self, trace_id: TraceId) -> Rc<TraceProps> {
+    pub(crate) fn trace(&self, trace_id: TraceId) -> Rc<TraceProps> {
         let trace = self.trace_nodes.borrow()[trace_id.0].trace.clone();
         assert!(trace.id == trace_id);
         trace
     }
 
-    pub(super) fn get_subtraces(&self, focus: &Focus, trace_id: TraceId) -> &[TraceId] {
+    pub(crate) fn get_subtraces(&self, focus: &Focus, trace_id: TraceId) -> &[TraceId] {
         todo!() // return self.subtraces_dict.get(
                 //     focus.gen_subtraces_key(trace),
                 //     () => `failed to get subtraces for trace ${JSON.stringify(trace)}`
                 // );
     }
 
-    pub(super) fn is_subtraces_cached(focus: Focus, trace: &TraceProps) -> bool {
+    pub(crate) fn is_subtraces_cached(focus: Focus, trace: &TraceProps) -> bool {
         todo!()
         // return self.subtraces_dict.has(focus.gen_subtraces_key(trace));
     }
 
-    pub(super) fn receive_subtraces(
+    pub(crate) fn receive_subtraces(
         &mut self,
         trace_id: TraceId,
         effective_opt_input_id: Option<TraceId>,
