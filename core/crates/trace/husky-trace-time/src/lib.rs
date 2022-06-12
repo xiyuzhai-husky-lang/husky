@@ -90,12 +90,16 @@ impl HuskyTraceTime {
             .collect()
     }
 
-    pub fn subtrace_ids(&mut self, trace_id: TraceId) -> &[TraceId] {
+    pub fn subtrace_ids(&mut self, key: SubtracesKey) -> &[TraceId] {
         todo!()
     }
 
-    pub fn subtraces(&mut self, trace_id: TraceId) -> Vec<TraceData> {
-        todo!()
+    pub fn subtraces(&mut self, key: SubtracesKey) -> Vec<TraceNodeData> {
+        self.subtrace_ids(key)
+            .to_vec()
+            .into_iter()
+            .map(|trace_id| self.trace_nodes[trace_id.0].as_ref().unwrap().to_data())
+            .collect()
     }
 
     pub(crate) fn next_id(&mut self) -> TraceId {
@@ -211,25 +215,18 @@ impl HuskyTraceTime {
         trace
     }
 
-    pub fn toggle_expansion(&mut self, id: TraceId) {
-        todo!()
-        // let expanded = self.expansions.entry(id).or_insert(false);
-        // *expanded = !*expanded;
+    pub fn toggle_expansion(&mut self, trace_id: TraceId) {
+        let expansion = &mut self.trace_nodes[trace_id.0].as_mut().unwrap().expansion;
+        *expansion = !*expansion
     }
 
-    pub fn is_expanded(&mut self, trace: &Trace) -> bool {
-        todo!()
-        // * self.expansions.entry(trace.id()).or_insert(false)
+    pub fn is_expanded(&mut self, trace_id: TraceId) -> bool {
+        self.trace_nodes[trace_id.0].as_ref().unwrap().expansion
     }
 
-    // pub fn expansions(&self) -> HashMap<TraceId, bool> {
-    //     todo!()
-    // }
-
-    pub fn toggle_show(&mut self, id: TraceId) {
-        todo!()
-        // let shown = self.showns.entry(id).or_insert(false);
-        // *shown = !*shown;
+    pub fn toggle_show(&mut self, trace_id: TraceId) {
+        let shown = &mut self.trace_nodes[trace_id.0].as_mut().unwrap().shown;
+        *shown = !*shown
     }
 
     pub fn trace(&self, trace_id: TraceId) -> &Trace {
