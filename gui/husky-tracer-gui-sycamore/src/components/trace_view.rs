@@ -15,14 +15,14 @@ pub fn TraceView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let root_trace_ids = &context.tree_context.root_trace_ids;
     view! {
         scope,
-        ul {
+        div(class="TraceView") {
             Indexed {
                 iterable: root_trace_ids,
                 view: |scope, trace_id| view! {
                     scope,
-                    li { TraceTree {
-                            trace_id
-                        } }
+                    TraceTree {
+                        trace_id
+                    }
                 },
             }
         }

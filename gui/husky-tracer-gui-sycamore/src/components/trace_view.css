@@ -1,0 +1,9 @@
+.TraceView {
+    height: 100%;
+    background: rgb(36, 36, 36);
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.TraceView::-webkit-scrollbar {
+    display: none;
+}

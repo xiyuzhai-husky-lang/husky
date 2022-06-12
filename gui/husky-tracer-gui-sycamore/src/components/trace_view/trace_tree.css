@@ -1,0 +1,8 @@
+.TraceTree {
+    display: flex;
+    flex-direction: column;
+}
+.Call {
+    border: white 2px solid;
+    margin: 2px;
+}
