@@ -7,7 +7,7 @@ impl TreeContext {
         trace
     }
 
-    fn trace_kind(&self, trace_id: TraceId) -> TraceKind {
+    pub(crate) fn trace_kind(&self, trace_id: TraceId) -> TraceKind {
         self.trace_nodes.borrow()[trace_id.0].trace.kind
     }
 

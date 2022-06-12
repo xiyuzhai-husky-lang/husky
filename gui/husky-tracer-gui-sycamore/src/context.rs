@@ -22,6 +22,7 @@ use std::{
 };
 use wasm_bindgen_futures::spawn_local;
 
+#[derive(Clone)]
 pub struct TracerContext(Rc<TracerContextInternal>);
 
 impl TracerContext {
@@ -31,6 +32,11 @@ impl TracerContext {
         TracerContextInternal::spawn_listening(context_internal.clone(), read);
         context_internal.request_init();
         TracerContext(context_internal)
+    }
+
+    pub fn toggle_expansion_handler(&self, trace_id: TraceId) -> Rc<dyn Fn()> {
+        let this = self.clone();
+        Rc::new(move || this.toggle_expansion(trace_id))
     }
 }
 
