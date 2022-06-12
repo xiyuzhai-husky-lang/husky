@@ -87,7 +87,7 @@ impl WebsocketService {
         request_id
     }
 
-    pub fn send_request(
+    pub fn send_message(
         &self,
         variant: HuskyTracerGuiMessageVariant,
         opt_call_back: Option<Box<dyn FnOnce(HuskyTracerServerMessage)>>,

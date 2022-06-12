@@ -56,9 +56,28 @@ impl TracerContextInternal {
             let trace_kind = self.tree_context.trace_kind(trace_id);
             let key = SubtracesKey::new(&focus, trace_kind, trace_id);
             if self.tree_context.subtraces_map.contains_key(&key) {
+                self.ws.send_message(
+                    HuskyTracerGuiMessageVariant::ToggleExpansion {
+                        trace_id,
+                        request_subtraces: false,
+                    },
+                    None,
+                );
                 expansion.set(true)
             } else {
-                todo!()
+                self.ws.send_message(
+                    HuskyTracerGuiMessageVariant::ToggleExpansion {
+                        trace_id,
+                        request_subtraces: true,
+                    },
+                    Some(Box::new(|message| match message.variant {
+                        HuskyTracerServerMessageVariant::ToggleExpansion {
+                            subtraces,
+                            associated_traces,
+                        } => todo!(),
+                        _ => panic!(),
+                    })),
+                )
             }
         }
     }
