@@ -13,6 +13,7 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
     let expansion = tree_context.expanded_signal(props.trace_id);
     let expansion = create_memo(scope, move || expansion.get_cloned());
     let focus = tracer_context.focus_context.focus_signal.clone();
+    let focus = create_memo(scope, move || focus.get_cloned());
     let associated_trace_trees = View::new_fragment(
         tree_context
             .trace(props.trace_id)
@@ -36,15 +37,14 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
             }
         }
     });
-    let has_subtraces = create_memo(scope, { move || subtrace_ids.get().len() > 0 });
     if shown.get_cloned() {
         view! {
             scope,
             div(class="TraceTree") {
                 TraceNode {
                     trace_id: props.trace_id,
-                    has_subtraces,
                     expansion,
+                    focus,
                 }
                 (associated_trace_trees)
                 div {
@@ -53,7 +53,7 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
                         view: |scope, trace_id| view! {
                             scope,
                             TraceTree {
-                                trace_id
+                                trace_id,
                             }
                         },
                     }

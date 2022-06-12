@@ -20,7 +20,7 @@ pub struct TraceData {
     pub indent: Indent,
     pub lines: Vec<TraceLineData>,
     pub compile_time_version: usize,
-    pub has_subtraces: bool,
+    pub can_have_subtraces: bool,
     pub reachable: bool,
 }
 
