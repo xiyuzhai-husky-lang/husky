@@ -181,7 +181,7 @@ impl HuskyTraceTime {
             let id = self.next_id();
             let (file, range) = variant.file_and_range();
             let reachable = variant.reachable();
-            let has_subtraces = variant.has_subtraces(reachable);
+            let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.lines(id, indent, &variant, text, opt_parent_id.is_some());
             Trace {
                 props: TraceData {
@@ -189,7 +189,7 @@ impl HuskyTraceTime {
                     opt_parent_id,
                     indent,
                     compile_time_version: 0, //compile time version
-                    has_subtraces,
+                    can_have_subtraces,
                     reachable,
                     lines,
                     kind: variant.kind(),

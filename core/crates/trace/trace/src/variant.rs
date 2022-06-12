@@ -81,7 +81,7 @@ impl<'eval> TraceVariant<'eval> {
         }
     }
 
-    pub fn has_subtraces(&self, reachable: bool) -> bool {
+    pub fn can_have_subtraces(&self, reachable: bool) -> bool {
         if !reachable {
             return false;
         }
