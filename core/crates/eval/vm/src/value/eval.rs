@@ -35,8 +35,8 @@ impl<'eval> From<CopyableValue> for EvalValue<'eval> {
     }
 }
 
-impl<'eval> Into<TraceTokenProps> for EvalValue<'eval> {
-    fn into(self) -> TraceTokenProps {
+impl<'eval> Into<TraceTokenData> for EvalValue<'eval> {
+    fn into(self) -> TraceTokenData {
         match self {
             EvalValue::Copyable(value) => fade!(value),
             EvalValue::Owned(value) => fade!(value.any_ref().print_short()),

@@ -94,7 +94,7 @@ impl HuskyTraceTime {
         todo!()
     }
 
-    pub fn subtraces(&mut self, trace_id: TraceId) -> Vec<TraceProps> {
+    pub fn subtraces(&mut self, trace_id: TraceId) -> Vec<TraceData> {
         todo!()
     }
 
@@ -110,12 +110,12 @@ impl HuskyTraceTime {
         variant: &TraceVariant,
         text: &Text,
         has_parent: bool,
-    ) -> Vec<LineProps> {
+    ) -> Vec<TraceLineData> {
         match variant {
-            TraceVariant::Main(feature_block) => vec![LineProps {
+            TraceVariant::Main(feature_block) => vec![TraceLineData {
                 indent,
                 idx: 0,
-                tokens: vec![TraceTokenProps {
+                tokens: vec![TraceTokenData {
                     kind: TraceTokenKind::Keyword,
                     value: "main".into(),
                     opt_associated_trace_id: None,
@@ -151,7 +151,7 @@ impl HuskyTraceTime {
                 indent,
                 ExprTokenConfig::expr(has_parent),
             ),
-            TraceVariant::CallHead { ref tokens, .. } => vec![LineProps {
+            TraceVariant::CallHead { ref tokens, .. } => vec![TraceLineData {
                 indent: 0,
                 idx: 0,
                 tokens: tokens.clone(),
@@ -184,7 +184,7 @@ impl HuskyTraceTime {
             let has_subtraces = variant.has_subtraces(reachable);
             let lines = self.lines(id, indent, &variant, text, opt_parent_id.is_some());
             Trace {
-                props: TraceProps {
+                props: TraceData {
                     id,
                     opt_parent_id,
                     indent,

@@ -59,8 +59,8 @@ impl HuskyTraceTime {
         stmt: &ProcStmt,
         text: &Text,
         history: &Arc<History<'static>>,
-    ) -> Vec<LineProps> {
-        vec![LineProps {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent: stmt.indent,
             tokens: self.proc_stmt_tokens(stmt, text, history),
             idx: 0,
@@ -72,7 +72,7 @@ impl HuskyTraceTime {
         stmt: &ProcStmt,
         text: &Text,
         history: &Arc<History<'static>>,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         match stmt.variant {
             ProcStmtVariant::Init {
                 varname,
@@ -199,7 +199,7 @@ impl HuskyTraceTime {
         boundary: &Boundary,
         text: &Text,
         history: &Arc<History<'static>>,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         match boundary.opt_bound {
             Some(ref bound) => {
                 let mut tokens =
@@ -221,7 +221,7 @@ impl HuskyTraceTime {
         boundary: &Boundary,
         text: &Text,
         history: &Arc<History<'static>>,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         match boundary.opt_bound {
             Some(ref bound) => {
                 let mut tokens = vec![special!(match boundary.kind {
@@ -368,15 +368,15 @@ impl HuskyTraceTime {
         &self,
         indent: Indent,
         loop_frame_data: &LoopFrameData,
-    ) -> Vec<LineProps> {
-        vec![LineProps {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent,
             tokens: self.loop_frame_tokens(loop_frame_data),
             idx: 0,
         }]
     }
 
-    pub(crate) fn loop_frame_tokens(&self, vm_loop_frame: &LoopFrameData) -> Vec<TraceTokenProps> {
+    pub(crate) fn loop_frame_tokens(&self, vm_loop_frame: &LoopFrameData) -> Vec<TraceTokenData> {
         match vm_loop_frame.frame_kind {
             vm::FrameKind::For(frame_var) => {
                 vec![
@@ -421,8 +421,8 @@ impl HuskyTraceTime {
         indent: Indent,
         branch: &ProcConditionBranch,
         history: &Arc<History<'static>>,
-    ) -> Vec<LineProps> {
-        vec![LineProps {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent,
             tokens: self.proc_branch_tokens(text, indent, branch, history),
             idx: 0,
@@ -435,7 +435,7 @@ impl HuskyTraceTime {
         indent: Indent,
         branch: &ProcConditionBranch,
         history: &Arc<History<'static>>,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         let mut tokens = Vec::new();
         match branch.variant {
             ProcConditionBranchVariant::If { ref condition } => {

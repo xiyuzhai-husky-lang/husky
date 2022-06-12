@@ -13,18 +13,18 @@ use super::*;
 pub type Indent = u8;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct TraceProps {
+pub struct TraceData {
     pub opt_parent_id: Option<TraceId>,
     pub id: TraceId,
     pub kind: TraceKind,
     pub indent: Indent,
-    pub lines: Vec<LineProps>,
+    pub lines: Vec<TraceLineData>,
     pub compile_time_version: usize,
     pub has_subtraces: bool,
     pub reachable: bool,
 }
 
-impl TraceProps {
+impl TraceData {
     #[inline(always)]
     pub fn collect_associated_traces(&self, associated_traces: &mut Vec<TraceId>) {
         for line in &self.lines {
@@ -39,14 +39,14 @@ impl TraceProps {
         }
     }
 
-    pub fn associated_traces(&self) -> Vec<TraceId> {
+    pub fn associated_trace_ids(&self) -> Vec<TraceId> {
         let mut associated_traces = vec![];
         self.collect_associated_traces(&mut associated_traces);
         associated_traces
     }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum TraceKind {
     Main,
     FeatureStmt,
@@ -62,8 +62,8 @@ pub enum TraceKind {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct LineProps {
+pub struct TraceLineData {
     pub indent: Indent,
-    pub tokens: Vec<TraceTokenProps>,
+    pub tokens: Vec<TraceTokenData>,
     pub idx: usize,
 }

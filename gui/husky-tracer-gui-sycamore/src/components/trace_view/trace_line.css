@@ -1,0 +1,15 @@
+.TraceLine {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    display: flex;
+    justify-content: flex-start;
+}
+.TraceLine span {
+    display: flex;
+    align-items: center;
+}
+.TraceLine.unreachable {
+    opacity: 0.35;
+}

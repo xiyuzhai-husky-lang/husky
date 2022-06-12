@@ -1,0 +1,37 @@
+code {
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+code.associated_trace_shown {
+    text-decoration: underline cyan;
+    text-underline-position: under;
+}
+code.associated:hover {
+    background: rgb(78, 78, 78);
+}
+.keyword {
+    color: rgb(28, 142, 195);
+}
+.label {
+    color: rgb(28, 142, 195);
+}
+.special {
+    color: white;
+}
+.scope {
+    color: rgb(189, 189, 105);
+}
+.literal {
+    color: rgb(18, 155, 75);
+}
+.fade {
+    color: rgb(97, 97, 97);
+}
+.error {
+    color: red;
+}
+.ident {
+    color: rgb(135, 164, 167);
+}

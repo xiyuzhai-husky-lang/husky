@@ -81,25 +81,6 @@
         display: flex;
         align-items: center;
     }
-    .GroupStart {
-        display: flex;
-        transition: transform 50ms;
-        font-size: 0px;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        width: 20px;
-    }
-    .GroupStart:not(:hover) {
-        color: transparent;
-    }
-    .GroupStart.has_subtraces {
-        font-size: 10px;
-        text-align: center;
-    }
-    .GroupStart.has_subtraces.expanded {
-        transform: rotate(90deg);
-    }
     .unreachable {
         opacity: 0.35;
     }

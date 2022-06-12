@@ -13,8 +13,8 @@ impl HuskyTraceTime {
         expr: &Arc<FeatureExpr>,
         text: &Text,
         config: ExprTokenConfig,
-    ) -> Vec<LineProps> {
-        vec![LineProps {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent: 0,
             idx: 0,
             tokens: self.feature_expr_tokens(expr, text, config),
@@ -26,7 +26,7 @@ impl HuskyTraceTime {
         expr: &Arc<FeatureExpr>,
         text: &Text,
         config: ExprTokenConfig,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         let opt_associated_trace_id = if config.associated {
             Some(
                 self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone()), text)
@@ -156,7 +156,7 @@ impl HuskyTraceTime {
         config: ExprTokenConfig,
         this: &Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         let mut tokens = self.feature_expr_tokens(this, text, config);
         tokens.extend([special!("."), ident!(field_ident.ident.as_str())]);
         tokens
@@ -169,7 +169,7 @@ impl HuskyTraceTime {
         opt_associated_trace_id: Option<TraceId>,
         text: &Text,
         config: ExprTokenConfig,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         let mut tokens = vec![
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),

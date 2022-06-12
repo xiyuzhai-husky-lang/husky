@@ -6,9 +6,9 @@ pub struct VMRuntimeError {
     pub message: String,
 }
 
-impl Into<TraceTokenProps> for VMRuntimeError {
-    fn into(self) -> TraceTokenProps {
-        TraceTokenProps {
+impl Into<TraceTokenData> for VMRuntimeError {
+    fn into(self) -> TraceTokenData {
+        TraceTokenData {
             kind: TraceTokenKind::Error,
             value: self.message,
             opt_associated_trace_id: None,

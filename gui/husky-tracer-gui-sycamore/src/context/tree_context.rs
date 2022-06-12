@@ -17,7 +17,7 @@ pub struct TreeContext {
 
 #[derive(Debug)]
 pub struct TraceNodeState {
-    trace: Rc<TraceProps>,
+    trace: Rc<TraceData>,
     expanded: Rc<Signal<bool>>,
     shown: Rc<Signal<bool>>,
 }
@@ -87,7 +87,7 @@ impl TreeContext {
         trace_listing.push(trace_id);
         self.add_associated_traces(focus, trace_id, trace_listing);
         if (self.expanded(trace_id)) {
-            for subtrace_id in self.get_subtraces(focus, trace_id) {
+            for subtrace_id in self.subtrace_ids(focus, trace_id) {
                 self.update_trace_listing_dfs(focus, *subtrace_id, trace_listing);
             }
         }

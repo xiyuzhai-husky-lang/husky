@@ -6,7 +6,7 @@ pub enum FigureKey {
 }
 
 impl FigureKey {
-    pub fn new(trace_props: &TraceProps) -> FigureKey {
+    pub fn new(trace_props: &TraceData) -> FigureKey {
         todo!()
     }
 }

@@ -38,8 +38,8 @@ impl HuskyTraceTime {
         stmt: &FuncStmt,
         text: &Text,
         history: &Arc<History<'static>>,
-    ) -> Vec<LineProps> {
-        vec![LineProps {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent: stmt.indent,
             tokens: self.func_stmt_tokens(stmt, text, history),
             idx: 0,
@@ -51,7 +51,7 @@ impl HuskyTraceTime {
         stmt: &FuncStmt,
         text: &Text,
         history: &Arc<History<'static>>,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         match stmt.variant {
             FuncStmtVariant::Init {
                 varname,

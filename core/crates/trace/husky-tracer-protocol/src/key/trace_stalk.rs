@@ -8,7 +8,7 @@ pub enum TraceStalkKey {
 }
 
 impl TraceStalkKey {
-    pub fn new(trace: &TraceProps, input_id: usize) -> Self {
+    pub fn new(trace: &TraceData, input_id: usize) -> Self {
         match trace.kind {
             TraceKind::Main
             | TraceKind::FeatureStmt

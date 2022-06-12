@@ -21,7 +21,7 @@ impl FigureContext {
 
     pub(super) fn set_figure(
         &mut self,
-        trace: &TraceProps,
+        trace: &TraceData,
         focus: Focus,
         figure: Rc<FigureProps>,
         figure_control_props: FigureControlProps,
@@ -38,7 +38,7 @@ impl FigureContext {
 
     fn set_figure_control_props(
         &mut self,
-        trace: &TraceProps,
+        trace: &TraceData,
         figure_control_props: Rc<FigureControlProps>,
     ) {
         todo!()

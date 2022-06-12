@@ -23,8 +23,8 @@ impl HuskyTraceTime {
         indent: Indent,
         branch: &FeatureBranch,
         text: &Text,
-    ) -> Vec<LineProps> {
-        vec![LineProps {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             idx: 0,
             indent,
             tokens: self.feature_branch_tokens(branch, text),
@@ -35,7 +35,7 @@ impl HuskyTraceTime {
         &mut self,
         branch: &FeatureBranch,
         text: &Text,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         match branch.variant {
             FeatureBranchVariant::If { ref condition } => {
                 let mut tokens = vec![keyword!("if ")];
