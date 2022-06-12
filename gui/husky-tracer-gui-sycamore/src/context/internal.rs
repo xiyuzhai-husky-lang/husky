@@ -46,39 +46,4 @@ impl TracerContextInternal {
             focus_context: Default::default(),
         }
     }
-
-    pub fn toggle_expansion(&self, trace_id: TraceId) {
-        let expansion = self.tree_context.expanded_signal(trace_id);
-        if expansion.get_cloned() {
-            expansion.set(false)
-        } else {
-            let focus = self.focus_context.focus_signal.get();
-            let trace_kind = self.tree_context.trace_kind(trace_id);
-            let key = SubtracesKey::new(&focus, trace_kind, trace_id);
-            if self.tree_context.subtraces_map.contains_key(&key) {
-                self.ws.send_message(
-                    HuskyTracerGuiMessageVariant::ToggleExpansion {
-                        trace_id,
-                        request_subtraces: false,
-                    },
-                    None,
-                );
-                expansion.set(true)
-            } else {
-                self.ws.send_message(
-                    HuskyTracerGuiMessageVariant::ToggleExpansion {
-                        trace_id,
-                        request_subtraces: true,
-                    },
-                    Some(Box::new(|message| match message.variant {
-                        HuskyTracerServerMessageVariant::ToggleExpansion {
-                            subtraces,
-                            associated_traces,
-                        } => todo!(),
-                        _ => panic!(),
-                    })),
-                )
-            }
-        }
-    }
 }

@@ -10,7 +10,7 @@ pub struct HuskyTracerGuiMessage {
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(tag = "kind")]
 pub enum HuskyTracerGuiMessageVariant {
-    InitRequest,
+    InitDataRequest,
     Activate {
         trace_id: TraceId,
         opt_focus_for_figure: Option<Focus>,

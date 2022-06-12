@@ -1,5 +1,6 @@
 mod figure_context;
 mod focus_context;
+mod impl_control;
 mod impl_init;
 mod internal;
 mod tree_context;
@@ -29,11 +30,6 @@ impl TracerContext {
         let context = TracerContext(Rc::new(TracerContextInternal::new(ws.clone())));
         context.init(server_notification_receiver);
         context
-    }
-
-    pub fn toggle_expansion_handler(&self, trace_id: TraceId) -> Rc<dyn Fn()> {
-        let this = self.clone();
-        Rc::new(move || this.toggle_expansion(trace_id))
     }
 }
 

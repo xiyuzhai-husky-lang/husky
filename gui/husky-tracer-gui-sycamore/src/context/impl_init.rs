@@ -13,7 +13,7 @@ impl TracerContext {
         let request_id = self.ws.issue_request_id();
         let this = self.clone();
         self.ws.send_message(
-            HuskyTracerGuiMessageVariant::InitRequest,
+            HuskyTracerGuiMessageVariant::InitDataRequest,
             Some(Box::new(move |response| match response.variant {
                 HuskyTracerServerMessageVariant::Init { init_data } => {
                     this.receive_init_data(init_data)

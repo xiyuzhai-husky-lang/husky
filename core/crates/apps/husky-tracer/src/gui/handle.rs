@@ -58,7 +58,7 @@ impl HuskyTracerInternal {
         request: HuskyTracerGuiMessage,
     ) -> Option<HuskyTracerServerMessageVariant> {
         match request.variant {
-            HuskyTracerGuiMessageVariant::InitRequest => Some(self.trace_time.init_state()),
+            HuskyTracerGuiMessageVariant::InitDataRequest => Some(self.trace_time.init_state()),
             HuskyTracerGuiMessageVariant::Activate {
                 trace_id: id,
                 opt_focus_for_figure,
