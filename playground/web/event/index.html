@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>blah</title>
+    </head>
+    <body>
+        <p>I'm the content</p>
+    </body>
+    <script>
+        document.defaultView.addEventListener("resize", (ev) =>
+            console.log("defaultView: ", ev)
+        );
+        document
+            .getElementsByTagName("p")[0]
+            .addEventListener("resize", (ev) =>
+                console.log("defaultView: ", ev)
+            );
+    </script>
+</html>

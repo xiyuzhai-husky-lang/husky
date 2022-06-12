@@ -1,0 +1,10 @@
+{
+    "folders": [
+        {
+            "path": "sycamore"
+        }
+    ],
+    "settings": {
+        "rust-analyzer.diagnostics.disabled": ["missing-unsafe"]
+    }
+}

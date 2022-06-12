@@ -12,13 +12,18 @@ pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: MyProps<'a>) -> View<G>
     create_effect(scope, move || {
         log::info!("root traces {:?}", root_trace_ids)
     });
+    let left_style = "width: 800px";
+    let right_style = "width: 800px";
+    let inner_width = create_signal(scope, 0);
     view! {
         scope,
-        div(class="HSplitPanelLeft") {
-            TraceView {}
-        }
-        div(class="HSplitPanelRight") {
-            "Value: " (props.value.get())
+        div(class="HuskyTracerHSplitPanel") {
+            div(class="HuskyTracerHSplitPanelLeft", style=left_style) {
+                TraceView {}
+            }
+            div(class="HuskyTracerHSplitPanelRight", style=right_style) {
+                "Value: " (props.value.get())
+            }
         }
     }
 }

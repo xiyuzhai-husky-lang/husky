@@ -1,0 +1,8 @@
+.HuskyTracerHSplitPanel {
+    display: flex;
+    flex-direction: row;
+}
+
+.HuskyTracerHSplitPanelLeft {
+    background: black;
+}

@@ -371,7 +371,7 @@ impl Codegen {
                     Bool,
                     String,
                 }
-
+                // TODO: add more bind
                 let (event_name, property_ty) = match prop.as_str() {
                     "value" => ("input", JsPropertyType::String),
                     "checked" => ("change", JsPropertyType::Bool),

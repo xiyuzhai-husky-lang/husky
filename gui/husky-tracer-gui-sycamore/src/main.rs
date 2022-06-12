@@ -24,10 +24,11 @@ fn main() {
         let context = provide_context(scope, TracerContext::new());
         view! {
             scope,
-           "Hello, World!"
-           HSplitPanel {
-               value: state
-           }
+            div(on:resize=|e|log::info!("resize {:?}", e)) {
+                HSplitPanel {
+                    value: state
+                }
+            }
         }
     });
 }

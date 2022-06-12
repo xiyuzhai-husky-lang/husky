@@ -1,5 +1,5 @@
 mod figure_view;
-mod focus;
+mod focus_view;
 mod panel;
 mod trace_view;
 
