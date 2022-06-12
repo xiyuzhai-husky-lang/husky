@@ -1,28 +1,36 @@
 use wasm_bindgen::prelude::Closure;
 use wasm_bindgen::JsCast;
+use web_sys::Element;
 
 use super::*;
 pub struct TracerContextInternal {
     pub(super) ws: WebsocketService,
     pub(super) call_backs: RefCell<HashMap<usize, Box<dyn FnOnce(&Self, DebuggerServerMessage)>>>,
+    pub window_inner_height: Rc<Signal<f64>>,
+    pub window_inner_width: Rc<Signal<f64>>,
     pub tree_context: TreeContext,
     pub figure_context: FigureContext,
     pub focus_context: FocusContext,
-    pub signal: Signal<i32>,
 }
 
 impl TracerContextInternal {
     pub fn new(ws: WebsocketService) -> TracerContextInternal {
         let window = web_sys::window().unwrap();
+        let window_inner_height = Rc::new(Signal::new(
+            window.inner_height().unwrap().as_f64().unwrap(),
+        ));
+        let window_inner_width =
+            Rc::new(Signal::new(window.inner_width().unwrap().as_f64().unwrap()));
         {
+            let window = window.clone();
+            let window_inner_height = window_inner_height.clone();
+            let window_inner_width = window_inner_width.clone();
             let closure = {
                 let window = window.clone();
                 Closure::wrap(Box::new(move |_event: web_sys::UiEvent| {
-                    log::info!(
-                        "window size changed to {} {}",
-                        window.inner_height().unwrap().as_f64().unwrap(),
-                        window.inner_width().unwrap().as_f64().unwrap()
-                    );
+                    log::info!("resized");
+                    window_inner_height.set(window.inner_height().unwrap().as_f64().unwrap());
+                    window_inner_width.set(window.inner_width().unwrap().as_f64().unwrap());
                 }) as Box<dyn FnMut(_)>)
             };
             window
@@ -31,7 +39,8 @@ impl TracerContextInternal {
             closure.forget();
         }
         TracerContextInternal {
-            signal: Signal::new(0),
+            window_inner_height,
+            window_inner_width,
             ws,
             call_backs: Default::default(),
             tree_context: Default::default(),

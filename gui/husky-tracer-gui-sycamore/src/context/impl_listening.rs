@@ -8,13 +8,13 @@ impl TracerContextInternal {
                 while let Some(msg) = read.next().await {
                     match msg {
                         Ok(Message::Text(data)) => {
-                            log::debug!("from websocket: {}", data);
+                            // log::debug!("from websocket: {}", data);
                             context.handle_server_message_str(&data)
                         }
                         Ok(Message::Bytes(b)) => {
                             let decoded = std::str::from_utf8(&b);
                             if let Ok(val) = decoded {
-                                log::debug!("from websocket: {}", val);
+                                // log::debug!("from websocket: {}", val);
                                 context.handle_server_message_str(val)
                             }
                         }

@@ -13,7 +13,7 @@ impl TracerContextInternal {
         );
         spawn_local({
             async move {
-                log::info!("send init request");
+                // log::info!("send init request");
                 gui_message_sender
                     .send(
                         serde_json::to_string(&DebuggerGuiMessage {
