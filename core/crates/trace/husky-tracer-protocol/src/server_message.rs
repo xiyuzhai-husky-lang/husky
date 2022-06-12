@@ -3,14 +3,14 @@ use super::{trace::TraceData, *};
 pub type JsonResult<T> = Result<T, String>;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct DebuggerServerMessage {
+pub struct HuskyTracerServerMessage {
     pub opt_request_id: Option<usize>,
-    pub variant: DebuggerServerMessageVariant,
+    pub variant: HuskyTracerServerMessageVariant,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(tag = "kind")]
-pub enum DebuggerServerMessageVariant {
+pub enum HuskyTracerServerMessageVariant {
     Init {
         init_data: InitData,
     },

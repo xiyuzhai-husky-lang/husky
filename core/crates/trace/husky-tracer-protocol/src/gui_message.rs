@@ -2,14 +2,14 @@ use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(tag = "kind")]
-pub struct DebuggerGuiMessage {
+pub struct HuskyTracerGuiMessage {
     pub opt_request_id: Option<usize>,
-    pub variant: DebuggerGuiMessageVariant,
+    pub variant: HuskyTracerGuiMessageVariant,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(tag = "kind")]
-pub enum DebuggerGuiMessageVariant {
+pub enum HuskyTracerGuiMessageVariant {
     InitRequest,
     Activate {
         trace_id: TraceId,

@@ -1,8 +1,6 @@
 mod figure_context;
 mod focus_context;
-mod impl_handle_server_message;
 mod impl_init;
-mod impl_listening;
 mod internal;
 mod tree_context;
 
@@ -27,11 +25,10 @@ pub struct TracerContext(Rc<TracerContextInternal>);
 
 impl TracerContext {
     pub fn new() -> TracerContext {
-        let (mut ws, mut read) = WebsocketService::new();
-        let context_internal = Rc::new(TracerContextInternal::new(ws.clone()));
-        TracerContextInternal::spawn_listening(context_internal.clone(), read);
-        context_internal.request_init();
-        TracerContext(context_internal)
+        let (mut ws, mut server_notification_receiver) = WebsocketService::new();
+        let context = TracerContext(Rc::new(TracerContextInternal::new(ws.clone())));
+        context.init(server_notification_receiver);
+        context
     }
 
     pub fn toggle_expansion_handler(&self, trace_id: TraceId) -> Rc<dyn Fn()> {
