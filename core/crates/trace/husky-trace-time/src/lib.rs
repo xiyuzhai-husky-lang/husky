@@ -236,7 +236,7 @@ impl HuskyTraceTime {
         &self.trace_nodes[trace_id.0].as_ref().unwrap().trace
     }
 
-    pub fn init_state(&mut self) -> DebuggerServerMessageVariant {
+    pub fn init_state(&mut self) -> HuskyTracerServerMessageVariant {
         let root_trace_ids = self.root_trace_ids.clone();
         let focus = self.focus.clone();
         let mut figures = HashMap::default();
@@ -254,7 +254,7 @@ impl HuskyTraceTime {
             );
         }
         let traces = self.all_trace_nodes();
-        DebuggerServerMessageVariant::Init {
+        HuskyTracerServerMessageVariant::Init {
             init_data: InitData {
                 trace_init_data: TraceInitState {
                     opt_active_trace_id,

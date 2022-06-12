@@ -5,7 +5,6 @@ use web_sys::Element;
 use super::*;
 pub struct TracerContextInternal {
     pub ws: WebsocketService,
-    pub(super) call_backs: RefCell<HashMap<usize, Box<dyn FnOnce(&Self, DebuggerServerMessage)>>>,
     pub window_inner_height: Rc<Signal<f64>>,
     pub window_inner_width: Rc<Signal<f64>>,
     pub tree_context: TreeContext,
@@ -42,7 +41,6 @@ impl TracerContextInternal {
             window_inner_height,
             window_inner_width,
             ws,
-            call_backs: Default::default(),
             tree_context: Default::default(),
             figure_context: Default::default(),
             focus_context: Default::default(),

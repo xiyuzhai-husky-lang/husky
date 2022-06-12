@@ -9,7 +9,7 @@ pub fn handle_message(
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
 ) {
     match serde_json::from_str(text) {
-        Ok::<DebuggerGuiMessage, _>(request) => {
+        Ok::<HuskyTracerGuiMessage, _>(request) => {
             let debugger_ = debugger.clone();
             let client_sender_ = client_sender.clone();
             let future = async move {
@@ -32,7 +32,7 @@ pub fn handle_message(
 impl HuskyTracer {
     async fn handle_gui_message(
         self: Arc<Self>,
-        gui_message: DebuggerGuiMessage,
+        gui_message: HuskyTracerGuiMessage,
     ) -> Option<String> {
         let opt_request_id = gui_message.opt_request_id;
         let internal: &mut HuskyTracerInternal = &mut self.internal.lock().unwrap();
@@ -40,7 +40,7 @@ impl HuskyTracer {
         should_eq!(opt_request_id.is_some(), opt_response_variant.is_some());
         if let Some(variant) = opt_response_variant {
             Some(
-                serde_json::to_string(&DebuggerServerMessage {
+                serde_json::to_string(&HuskyTracerServerMessage {
                     opt_request_id,
                     variant,
                 })
@@ -55,11 +55,11 @@ impl HuskyTracer {
 impl HuskyTracerInternal {
     fn handle_gui_message(
         &mut self,
-        request: DebuggerGuiMessage,
-    ) -> Option<DebuggerServerMessageVariant> {
+        request: HuskyTracerGuiMessage,
+    ) -> Option<HuskyTracerServerMessageVariant> {
         match request.variant {
-            DebuggerGuiMessageVariant::InitRequest => Some(self.trace_time.init_state()),
-            DebuggerGuiMessageVariant::Activate {
+            HuskyTracerGuiMessageVariant::InitRequest => Some(self.trace_time.init_state()),
+            HuskyTracerGuiMessageVariant::Activate {
                 trace_id: id,
                 opt_focus_for_figure,
             } => {
@@ -71,7 +71,7 @@ impl HuskyTracerInternal {
                 // );
                 // if let Some(ref focus) = opt_focus_for_figure {
                 //     let trace = self.trace_time.trace(id);
-                //     Some(DebuggerServerMessageVariant::Activate {
+                //     Some(HuskyTracerServerMessageVariant::Activate {
                 //         figure_props: self.trace_time.figure(id, focus),
                 //         figure_control_props: self.trace_time.figure_control(&trace, focus),
                 //     })
@@ -79,7 +79,7 @@ impl HuskyTracerInternal {
                 //     None
                 // }
             }
-            DebuggerGuiMessageVariant::ToggleExpansion {
+            HuskyTracerGuiMessageVariant::ToggleExpansion {
                 trace_id,
                 request_subtraces,
             } => {
@@ -90,7 +90,7 @@ impl HuskyTracerInternal {
                     subtraces
                         .iter()
                         .for_each(|trace| trace.collect_associated_traces(&mut associated_traces));
-                    Some(DebuggerServerMessageVariant::ToggleExpansion {
+                    Some(HuskyTracerServerMessageVariant::ToggleExpansion {
                         subtraces,
                         associated_traces,
                     })
@@ -98,26 +98,26 @@ impl HuskyTracerInternal {
                     None
                 }
             }
-            DebuggerGuiMessageVariant::ToggleShow { trace_id } => {
+            HuskyTracerGuiMessageVariant::ToggleShow { trace_id } => {
                 self.trace_time.toggle_show(trace_id);
                 None
             }
-            DebuggerGuiMessageVariant::Trace { id } => {
+            HuskyTracerGuiMessageVariant::Trace { id } => {
                 let trace = self.trace_time.trace(id);
-                Some(DebuggerServerMessageVariant::Trace {
+                Some(HuskyTracerServerMessageVariant::Trace {
                     trace_props: trace.props.clone(),
                 })
             }
-            DebuggerGuiMessageVariant::TraceStalk { trace_id, input_id } => {
+            HuskyTracerGuiMessageVariant::TraceStalk { trace_id, input_id } => {
                 let stalk = (*self.trace_time.trace_stalk(trace_id, input_id)).clone();
-                Some(DebuggerServerMessageVariant::TraceStalk { stalk })
+                Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
-            DebuggerGuiMessageVariant::DecodeFocus { ref command } => {
+            HuskyTracerGuiMessageVariant::DecodeFocus { ref command } => {
                 todo!()
                 // let focus_result = self.trace_time.decode_focus(command);
-                // Some(DebuggerServerMessageVariant::DecodeFocus { focus_result })
+                // Some(HuskyTracerServerMessageVariant::DecodeFocus { focus_result })
             }
-            DebuggerGuiMessageVariant::LockFocus {
+            HuskyTracerGuiMessageVariant::LockFocus {
                 focus,
                 opt_active_trace_id_for_figure,
             } => {
@@ -132,14 +132,14 @@ impl HuskyTracerInternal {
                 //     } else {
                 //         (None, None)
                 //     };
-                // Some(DebuggerServerMessageVariant::LockFocus {
+                // Some(HuskyTracerServerMessageVariant::LockFocus {
                 //     focus,
                 //     opt_active_trace_id_for_figure,
                 //     opt_figure,
                 //     opt_figure_control,
                 // })
             }
-            DebuggerGuiMessageVariant::UpdateFigureControlProps {
+            HuskyTracerGuiMessageVariant::UpdateFigureControlProps {
                 trace_id,
                 ref focus,
                 figure_control_props,
