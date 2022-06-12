@@ -16,8 +16,9 @@ pub(super) fn TraceLineStart<'a, G: Html>(
     if props.idx == 0 && props.has_subtraces.get_cloned() {
         view! {scope, span(class="TraceLineStart"){
             svg (
-                height = "1.7em",
-                width = "2em",
+                stroke-width="0",
+                height = "15px",
+                width = "15px",
                 view_box="0 0 16 16",
                 xmlns="http://www.w3.org/2000/svg"
             ) {

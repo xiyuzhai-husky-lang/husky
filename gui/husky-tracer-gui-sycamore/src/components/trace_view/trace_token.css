@@ -1,35 +1,35 @@
-code {
+code.TraceToken {
     font-size: 14px;
     height: 100%;
     display: flex;
     align-items: center;
 }
-code.associated_trace_shown {
+code.TraceToken.associated_trace_shown {
     text-decoration: underline cyan;
     text-underline-position: under;
 }
-code.associated:hover {
+code.TraceToken.associated:hover {
     background: rgb(78, 78, 78);
 }
-.keyword {
+.TraceToken.keyword {
     color: rgb(28, 142, 195);
 }
-.label {
+.TraceToken.label {
     color: rgb(28, 142, 195);
 }
-.special {
+.TraceToken.special {
     color: white;
 }
-.scope {
+.TraceToken.scope {
     color: rgb(189, 189, 105);
 }
-.literal {
+.TraceToken.literal {
     color: rgb(18, 155, 75);
 }
-.fade {
+.TraceToken.fade {
     color: rgb(97, 97, 97);
 }
-.error {
+.TraceToken.error {
     color: red;
 }
 .ident {

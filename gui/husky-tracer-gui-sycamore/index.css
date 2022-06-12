@@ -2,11 +2,10 @@ body {
     background-color: powderblue;
     margin: 0;
 }
-h1 {
-    color: blue;
-}
-p {
-    color: red;
-}
-.HuskyTracerGui {
+.disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }

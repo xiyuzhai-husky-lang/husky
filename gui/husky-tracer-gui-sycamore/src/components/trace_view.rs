@@ -15,7 +15,7 @@ pub fn TraceView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let root_trace_ids = &context.tree_context.root_trace_ids;
     view! {
         scope,
-        div(class="TraceView") {
+        div(class="TraceView disable-select") {
             Indexed {
                 iterable: root_trace_ids,
                 view: |scope, trace_id| view! {
