@@ -29,8 +29,8 @@ impl HuskyTraceTime {
         history: &Arc<History<'static>>,
         indent: u8,
         config: ExprTokenConfig,
-    ) -> Vec<LineProps> {
-        vec![LineProps {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent,
             idx: 0,
             tokens: self.eager_expr_tokens(expr, text, history, config),
@@ -43,7 +43,7 @@ impl HuskyTraceTime {
         text: &Text,
         history: &Arc<History<'static>>,
         config: ExprTokenConfig,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         let associated_trace_id = if config.associated {
             Some(
                 self.new_eager_expr_trace(text, expr.clone(), history.clone(), None, 0)
@@ -202,7 +202,7 @@ impl HuskyTraceTime {
         text: &Text,
         history: &Arc<History<'static>>,
         config: &ExprTokenConfig,
-    ) -> Vec<TraceTokenProps> {
+    ) -> Vec<TraceTokenData> {
         let mut tokens = vec![
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),

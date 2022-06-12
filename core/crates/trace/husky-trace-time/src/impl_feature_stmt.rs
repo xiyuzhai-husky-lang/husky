@@ -27,15 +27,15 @@ impl HuskyTraceTime {
         }
     }
 
-    pub fn feature_stmt_lines(&mut self, stmt: &FeatureStmt, text: &Text) -> Vec<LineProps> {
-        vec![LineProps {
+    pub fn feature_stmt_lines(&mut self, stmt: &FeatureStmt, text: &Text) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent: stmt.indent,
             idx: 0,
             tokens: self.feature_stmt_tokens(stmt, text),
         }]
     }
 
-    pub fn feature_stmt_tokens(&mut self, stmt: &FeatureStmt, text: &Text) -> Vec<TraceTokenProps> {
+    pub fn feature_stmt_tokens(&mut self, stmt: &FeatureStmt, text: &Text) -> Vec<TraceTokenData> {
         match stmt.variant {
             FeatureStmtVariant::Init { varname, ref value } => {
                 let mut tokens = vec![];

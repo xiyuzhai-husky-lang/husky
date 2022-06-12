@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Prop)]
+#[derive(Prop, Clone)]
 pub struct HSplitPanelProps<'a> {
     width: &'a ReadSignal<f64>,
     height: &'a ReadSignal<f64>,
@@ -29,17 +29,21 @@ pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: HSplitPanelProps<'a>) -
     // create_effect(scope, move || {
     //     log::info!("root traces {:?}", root_trace_ids)
     // });
+    let left_panel_style = create_memo(scope, {
+        let props = props.clone();
+        move || props.left_panel_style()
+    });
     props.width.track();
     let right_style = "width: 800px";
     view! {
         scope,
         div(class="HuskyTracerHSplitPanel") {
-            div(class="HuskyTracerHSplitPanelLeft", style=props.left_panel_style()) {
+            div(class="HuskyTracerHSplitPanelLeft", style=left_panel_style) {
                 TraceView {}
             }
-            // div(class="HuskyTracerHSplitPanelRight", style=right_style) {
-            //     "Value: " (props.width.get())
-            // }
+            div(class="HuskyTracerHSplitPanelRight", style=right_style) {
+                "Value: " (props.width.get())
+            }
         }
     }
 }

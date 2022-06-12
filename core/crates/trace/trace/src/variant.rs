@@ -44,7 +44,7 @@ pub enum TraceVariant<'eval> {
     },
     CallHead {
         entity: Arc<EntityDefn>,
-        tokens: Vec<TraceTokenProps>,
+        tokens: Vec<TraceTokenData>,
     },
 }
 

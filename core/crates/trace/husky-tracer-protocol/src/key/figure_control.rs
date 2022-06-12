@@ -7,7 +7,7 @@ pub enum FigureControlKey {
 }
 
 impl FigureControlKey {
-    pub fn new(trace_props: &TraceProps) -> FigureControlKey {
+    pub fn new(trace_props: &TraceData) -> FigureControlKey {
         match trace_props.kind {
             TraceKind::LoopFrame => FigureControlKey::LoopFrame {
                 parent: trace_props.opt_parent_id.unwrap(),

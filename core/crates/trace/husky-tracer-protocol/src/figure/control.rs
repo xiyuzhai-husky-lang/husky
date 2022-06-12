@@ -6,7 +6,7 @@ pub struct FigureControlProps {
 }
 
 impl FigureControlProps {
-    pub fn loop_default(loop_trace_props: &TraceProps) -> Self {
+    pub fn loop_default(loop_trace_props: &TraceData) -> Self {
         todo!()
         // let control_props = match loop_trace_props.kind {
         //     TraceKind::ProcStmt {

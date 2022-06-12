@@ -23,7 +23,7 @@ impl HuskyTraceTime {
             ident: Identifier,
             parameters: &[Parameter],
             text: &Text,
-        ) -> Vec<TraceTokenProps> {
+        ) -> Vec<TraceTokenData> {
             let mut tokens = vec![
                 keyword!(routine_keyword),
                 ident!(ident.as_str()),

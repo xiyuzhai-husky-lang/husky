@@ -1,4 +1,4 @@
-use super::{trace::TraceProps, *};
+use super::{trace::TraceData, *};
 
 pub type JsonResult<T> = Result<T, String>;
 
@@ -19,14 +19,14 @@ pub enum DebuggerServerMessageVariant {
         figure_control_props: FigureControlProps,
     },
     ToggleExpansion {
-        subtraces: Vec<TraceProps>,
+        subtraces: Vec<TraceData>,
         associated_traces: Vec<TraceId>,
     },
     ToggleShow {
         trace_id: TraceId,
     },
     Trace {
-        trace_props: TraceProps,
+        trace_props: TraceData,
     },
     DecodeFocus {
         focus_result: JsonResult<Focus>,
