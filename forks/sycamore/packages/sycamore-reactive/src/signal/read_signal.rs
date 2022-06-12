@@ -33,6 +33,7 @@ impl<T> ReadSignal<T> {
     where
         T: Clone,
     {
+        self.emitter.track();
         (**self.value.borrow()).clone()
     }
 

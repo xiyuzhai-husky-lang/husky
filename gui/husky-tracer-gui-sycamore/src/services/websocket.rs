@@ -30,7 +30,7 @@ impl WebsocketService {
 
         spawn_local(async move {
             while let Some(s) = gui_message_receiver.next().await {
-                log::debug!("got event from channel! {}", s);
+                // log::debug!("got event from channel! {}", s);
                 write.send(Message::Text(s)).await.unwrap();
             }
         });
