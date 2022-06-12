@@ -1,19 +1,17 @@
 .TraceLineStart {
     display: flex;
     transition: transform 50ms;
-    font-size: 0px;
     text-align: center;
     justify-content: center;
     align-items: center;
     width: 20px;
 }
-.TraceLineStart:not(:hover) {
-    color: transparent;
-}
-.TraceLineStart.has_subtraces {
-    font-size: 10px;
-    text-align: center;
+.TraceLineStart svg {
+    fill: rgb(132, 132, 132);
 }
 .TraceLineStart.has_subtraces.expanded {
     transform: rotate(90deg);
+}
+.TraceLineStart:hover svg {
+    fill: white;
 }

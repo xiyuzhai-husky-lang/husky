@@ -9,7 +9,7 @@ pub struct TraceTokenProps {
 pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps) -> View<G> {
     view! {
         scope,
-        code(class=props.data.kind) {
+        code(class=format!("TraceToken {}", props.data.kind)) {
             (props.data.value)
         }
     }
