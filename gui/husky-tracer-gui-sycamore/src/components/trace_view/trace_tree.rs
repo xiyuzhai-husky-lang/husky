@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[derive(Prop)]
 pub struct TraceTreeProps {
