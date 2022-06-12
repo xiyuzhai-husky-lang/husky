@@ -4,7 +4,7 @@ use web_sys::Element;
 
 use super::*;
 pub struct TracerContextInternal {
-    pub(super) ws: WebsocketService,
+    pub ws: WebsocketService,
     pub(super) call_backs: RefCell<HashMap<usize, Box<dyn FnOnce(&Self, DebuggerServerMessage)>>>,
     pub window_inner_height: Rc<Signal<f64>>,
     pub window_inner_width: Rc<Signal<f64>>,
@@ -46,6 +46,22 @@ impl TracerContextInternal {
             tree_context: Default::default(),
             figure_context: Default::default(),
             focus_context: Default::default(),
+        }
+    }
+
+    pub fn toggle_expansion(&self, trace_id: TraceId) {
+        let expansion = self.tree_context.expanded_signal(trace_id);
+        if expansion.get_cloned() {
+            expansion.set(false)
+        } else {
+            let focus = self.focus_context.focus_signal.get();
+            let trace_kind = self.tree_context.trace_kind(trace_id);
+            let key = SubtracesKey::new(&focus, trace_kind, trace_id);
+            if self.tree_context.subtraces_map.contains_key(&key) {
+                expansion.set(true)
+            } else {
+                todo!()
+            }
         }
     }
 }
