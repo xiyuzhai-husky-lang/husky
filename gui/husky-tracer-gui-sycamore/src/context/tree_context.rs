@@ -7,7 +7,7 @@ use impl_storage::*;
 
 #[derive(Debug, Default)]
 pub struct TreeContext {
-    pub trace_nodes: RefCell<Vec<TraceNodeProps>>,
+    pub trace_nodes: RefCell<Vec<TraceNodeState>>,
     pub subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
     pub trace_stalks: HashMap<(TraceId, Option<usize>), TraceStalk>,
     pub root_trace_ids: Signal<Vec<TraceId>>,
@@ -16,15 +16,15 @@ pub struct TreeContext {
 }
 
 #[derive(Debug)]
-pub struct TraceNodeProps {
+pub struct TraceNodeState {
     trace: Rc<TraceProps>,
     expanded: Rc<Signal<bool>>,
     shown: Rc<Signal<bool>>,
 }
 
-impl From<TraceNodeData> for TraceNodeProps {
+impl From<TraceNodeData> for TraceNodeState {
     fn from(data: TraceNodeData) -> Self {
-        TraceNodeProps {
+        TraceNodeState {
             trace: Rc::new(data.trace),
             expanded: Rc::new(Signal::new(data.expansion)),
             shown: Rc::new(Signal::new(data.shown)),

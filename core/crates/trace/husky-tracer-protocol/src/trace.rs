@@ -25,6 +25,7 @@ pub struct TraceProps {
 }
 
 impl TraceProps {
+    #[inline(always)]
     pub fn collect_associated_traces(&self, associated_traces: &mut Vec<TraceId>) {
         for line in &self.lines {
             for token in &line.tokens {
@@ -36,6 +37,12 @@ impl TraceProps {
                 }
             }
         }
+    }
+
+    pub fn associated_traces(&self) -> Vec<TraceId> {
+        let mut associated_traces = vec![];
+        self.collect_associated_traces(&mut associated_traces);
+        associated_traces
     }
 }
 

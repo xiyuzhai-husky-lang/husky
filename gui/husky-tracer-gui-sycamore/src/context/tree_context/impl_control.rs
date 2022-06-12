@@ -1,30 +1,30 @@
 use super::*;
 
 impl TreeContext {
-    pub(super) fn expanded(&self, trace_id: TraceId) -> bool {
+    pub(crate) fn expanded(&self, trace_id: TraceId) -> bool {
         self.trace_nodes.borrow()[trace_id.0].expanded.get_cloned()
     }
 
-    pub(super) fn expanded_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {
+    pub(crate) fn expanded_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {
         self.trace_nodes.borrow()[trace_id.0].expanded.clone()
     }
 
-    pub(super) fn did_toggle_expansion(&mut self, trace_id: TraceId) {
+    pub(crate) fn did_toggle_expansion(&mut self, trace_id: TraceId) {
         todo!()
         // let is_expanded: &mut bool = &mut self.expansion_stores[&trace_id].modify();
         // *is_expanded = !*is_expanded
         // self.update_trace_listing(focus);
     }
 
-    pub(super) fn shown(&self, trace_id: TraceId) -> bool {
+    pub(crate) fn shown(&self, trace_id: TraceId) -> bool {
         self.trace_nodes.borrow()[trace_id.0].shown.get_cloned()
     }
 
-    pub(super) fn shown_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {
+    pub(crate) fn shown_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {
         self.trace_nodes.borrow()[trace_id.0].shown.clone()
     }
 
-    pub(super) fn did_toggle_show(&mut self, trace_id: TraceId) {
+    pub(crate) fn did_toggle_show(&mut self, trace_id: TraceId) {
         todo!()
         // self.shown_stores.update(id, (shown) => !shown);
         // self.update_trace_listing(focus);

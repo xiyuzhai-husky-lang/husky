@@ -6,6 +6,8 @@ mod impl_listening;
 mod internal;
 mod tree_context;
 
+pub(crate) use tree_context::*;
+
 use crate::{services::websocket::WebsocketService, *};
 use figure_context::*;
 use focus_context::*;
@@ -18,7 +20,6 @@ use std::{
     rc::Rc,
     sync::{Arc, Mutex},
 };
-use tree_context::*;
 use wasm_bindgen_futures::spawn_local;
 
 pub struct TracerContext(Rc<TracerContextInternal>);
