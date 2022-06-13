@@ -3,8 +3,8 @@ use super::*;
 
 #[derive(Prop, Clone)]
 pub struct VSplitPanelProps<'a> {
-    width: &'a ReadSignal<f64>,
-    height: &'a ReadSignal<f64>,
+    width: &'a ReadSignal<i32>,
+    height: &'a ReadSignal<i32>,
 }
 
 impl<'a> VSplitPanelProps<'a> {
@@ -19,16 +19,16 @@ impl<'a> VSplitPanelProps<'a> {
         format!("width: {lower_panel_width}px; height: {lower_panel_height}px")
     }
 
-    fn panel_width(&self) -> f64 {
+    fn panel_width(&self) -> i32 {
         self.width.get_cloned()
     }
 
-    fn upper_panel_height(&self) -> f64 {
+    fn upper_panel_height(&self) -> i32 {
         self.height.get_cloned() - self.lower_panel_height()
     }
 
-    fn lower_panel_height(&self) -> f64 {
-        35.
+    fn lower_panel_height(&self) -> i32 {
+        23
     }
 }
 
@@ -51,7 +51,9 @@ pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -
                 }
             }
             div(class="HuskyTracerVSplitPanelLower", style=lower_panel_style) {
-                "Value: " (props.width.get())
+                "width: " (props.width.get())
+                ", "
+                "height: " (props.height.get())
             }
         }
     }

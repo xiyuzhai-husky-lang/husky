@@ -2,11 +2,10 @@
     display: flex;
     flex-direction: row;
 }
-
 .HuskyTracerHSplitPanelLeft {
     background: black;
 }
 
 .HuskyTracerHSplitPanelRight {
-    background: black;
+    background: rgb(104, 105, 105);
 }

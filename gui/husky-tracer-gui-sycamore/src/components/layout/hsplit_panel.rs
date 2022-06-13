@@ -2,8 +2,8 @@ use super::*;
 
 #[derive(Prop, Clone)]
 pub struct HSplitPanelProps<'a> {
-    width: &'a ReadSignal<f64>,
-    height: &'a ReadSignal<f64>,
+    width: &'a ReadSignal<i32>,
+    height: &'a ReadSignal<i32>,
 }
 
 impl<'a> HSplitPanelProps<'a> {
@@ -13,8 +13,8 @@ impl<'a> HSplitPanelProps<'a> {
         format!("width: {left_panel_width}px; height: {left_panel_height}px")
     }
 
-    fn left_panel_width(&self) -> f64 {
-        self.width.get_cloned() / 2.
+    fn left_panel_width(&self) -> i32 {
+        self.width.get_cloned() / 2
     }
 
     fn right_panel_style(&self) -> String {
@@ -23,11 +23,11 @@ impl<'a> HSplitPanelProps<'a> {
         format!("width: {right_panel_width}px; height: {right_panel_height}px")
     }
 
-    fn right_panel_width(&self) -> f64 {
-        self.width.get_cloned() / 2.
+    fn right_panel_width(&self) -> i32 {
+        self.width.get_cloned() - self.left_panel_width()
     }
 
-    fn panel_height(&self) -> f64 {
+    fn panel_height(&self) -> i32 {
         self.height.get_cloned()
     }
 }

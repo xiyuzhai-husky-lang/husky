@@ -30,11 +30,19 @@ fn main() {
             let context = provide_context(scope, TracerContext::new());
             context.window_inner_width.track();
             context.window_inner_height.track();
+            let layout_width = memo!(
+                scope,
+                math::round::floor(context.window_inner_width.get_cloned(), 0) as i32
+            );
+            let layout_height = memo!(
+                scope,
+                math::round::floor(context.window_inner_height.get_cloned(), 0) as i32
+            );
             view! {
                 scope,
                 Layout {
-                    width: &context.window_inner_width,
-                    height: &context.window_inner_height,
+                    width: layout_width,
+                    height: layout_height,
                 }
             }
         },
