@@ -34,7 +34,7 @@ use trace::*;
 use trace_node::*;
 use upcast::Upcast;
 use vm::*;
-use wild_utils::ref_to_mut_ref;
+use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
     runtime: HuskyRuntime,
@@ -91,16 +91,26 @@ impl HuskyTraceTime {
             .collect()
     }
 
-    pub fn subtrace_ids(&mut self, key: SubtracesKey) -> &[TraceId] {
-        todo!()
+    pub fn subtraces(&mut self, trace_id: TraceId) -> Vec<TraceNodeData> {
+        let key = SubtracesKey::new(&self.focus, self.trace(trace_id).props.kind, trace_id);
+        if let Some(subtrace_ids) = self.subtrace_ids_map.get(&key) {
+            subtrace_ids
+                .iter()
+                .map(|trace_id| self.trace_node_data(*trace_id))
+                .collect()
+        } else {
+            let subtrace_ids = self.gen_subtraces(trace_id);
+            let subtraces = subtrace_ids
+                .iter()
+                .map(|trace_id| self.trace_node_data(*trace_id))
+                .collect();
+            self.subtrace_ids_map.insert(key.clone(), subtrace_ids);
+            subtraces
+        }
     }
 
-    pub fn subtraces(&mut self, key: SubtracesKey) -> Vec<TraceNodeData> {
-        self.subtrace_ids(key)
-            .to_vec()
-            .into_iter()
-            .map(|trace_id| self.trace_nodes[trace_id.0].as_ref().unwrap().to_data())
-            .collect()
+    fn trace_node_data(&self, trace_id: TraceId) -> TraceNodeData {
+        self.trace_nodes[trace_id.0].as_ref().unwrap().to_data()
     }
 
     pub(crate) fn next_id(&mut self) -> TraceId {

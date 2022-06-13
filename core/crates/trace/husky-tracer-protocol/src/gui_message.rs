@@ -17,7 +17,7 @@ pub enum HuskyTracerGuiMessageVariant {
     },
     ToggleExpansion {
         trace_id: TraceId,
-        opt_subtraces_key: Option<SubtracesKey>,
+        request_subtraces: bool,
     },
     ToggleShow {
         trace_id: TraceId,

@@ -81,11 +81,11 @@ impl HuskyTracerInternal {
             }
             HuskyTracerGuiMessageVariant::ToggleExpansion {
                 trace_id,
-                opt_subtraces_key,
+                request_subtraces,
             } => {
                 self.trace_time.toggle_expansion(trace_id);
-                if let Some(key) = opt_subtraces_key {
-                    let subtraces = self.trace_time.subtraces(key);
+                if request_subtraces {
+                    let subtraces = self.trace_time.subtraces(trace_id);
                     let mut associated_traces = vec![];
                     subtraces.iter().for_each(|trace_node_data| {
                         trace_node_data
