@@ -14,29 +14,24 @@ impl TracerContext {
             let focus = self.focus_context.focus_signal.get();
             let trace_kind = self.tree_context.trace_kind(trace_id);
             let key = SubtracesKey::new(&focus, trace_kind, trace_id);
-            if self.tree_context.subtraces_map.contains_key(&key) {
+            if self.tree_context.subtraces_map.borrow().contains_key(&key) {
                 self.ws.send_message(
-                    HuskyTracerGuiMessageVariant::ToggleExpansion {
-                        trace_id,
-                        request_subtraces: false,
-                    },
+                    HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id },
                     None,
                 );
                 expansion.set(true)
             } else {
                 let this = self.clone();
                 self.ws.send_message(
-                    HuskyTracerGuiMessageVariant::ToggleExpansion {
-                        trace_id,
-                        request_subtraces: true,
-                    },
+                    HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id },
                     Some(Box::new(move |message| match message.variant {
                         HuskyTracerServerMessageVariant::ToggleExpansion {
-                            subtraces,
-                            associated_traces,
+                            new_traces,
+                            subtrace_ids,
                         } => {
-                            this.tree_context.receive_subtraces(key, subtraces);
-                            todo!()
+                            this.tree_context.receive_subtraces(key, subtrace_ids);
+                            this.tree_context.receive_new_traces(new_traces);
+                            expansion.set(true)
                         }
                         _ => panic!(),
                     })),
