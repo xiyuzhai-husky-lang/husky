@@ -12,20 +12,23 @@ impl TreeContext {
     }
 
     pub(crate) fn subtrace_ids(&self, focus: &Focus, trace_id: TraceId) -> Vec<TraceId> {
-        self.subtraces_map.borrow()[&SubtracesKey::new(focus, self.trace_kind(trace_id), trace_id)]
+        self.subtrace_ids_map.borrow()
+            [&SubtracesKey::new(focus, self.trace_kind(trace_id), trace_id)]
             .to_vec()
     }
 
     pub(crate) fn is_subtraces_cached(&self, focus: &Focus, trace_id: TraceId) -> bool {
-        self.subtraces_map.borrow().contains_key(&SubtracesKey::new(
-            focus,
-            self.trace_kind(trace_id),
-            trace_id,
-        ))
+        self.subtrace_ids_map
+            .borrow()
+            .contains_key(&SubtracesKey::new(
+                focus,
+                self.trace_kind(trace_id),
+                trace_id,
+            ))
     }
 
     pub(crate) fn receive_subtraces(&self, key: SubtracesKey, subtrace_ids: Vec<TraceId>) {
-        self.subtraces_map.borrow_mut().insert(key, subtrace_ids);
+        self.subtrace_ids_map.borrow_mut().insert(key, subtrace_ids);
     }
 
     pub(crate) fn receive_new_traces(&self, new_trace_nodes: Vec<TraceNodeData>) {

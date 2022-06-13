@@ -14,7 +14,12 @@ impl TracerContext {
             let focus = self.focus_context.focus_signal.get();
             let trace_kind = self.tree_context.trace_kind(trace_id);
             let key = SubtracesKey::new(&focus, trace_kind, trace_id);
-            if self.tree_context.subtraces_map.borrow().contains_key(&key) {
+            if self
+                .tree_context
+                .subtrace_ids_map
+                .borrow()
+                .contains_key(&key)
+            {
                 self.ws.send_message(
                     HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id },
                     None,

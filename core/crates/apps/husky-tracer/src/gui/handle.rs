@@ -39,13 +39,18 @@ impl HuskyTracer {
         let opt_response_variant = internal.handle_gui_message(gui_message);
         should_eq!(opt_request_id.is_some(), opt_response_variant.is_some());
         if let Some(variant) = opt_response_variant {
-            Some(
-                serde_json::to_string(&HuskyTracerServerMessage {
-                    opt_request_id,
-                    variant,
-                })
-                .unwrap(),
-            )
+            let msg = HuskyTracerServerMessage {
+                opt_request_id,
+                variant,
+            };
+            match serde_json::to_string(&msg) {
+                Ok(text) => Some(text),
+                Err(e) => {
+                    p!(msg);
+                    p!(e);
+                    todo!()
+                }
+            }
         } else {
             None
         }

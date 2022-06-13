@@ -26,3 +26,5 @@ fn try_serialize_a() {
     p!(serde_json::to_string(&Ok::<i32, String>(1i32)).unwrap());
     p!(serde_json::to_string(&Err::<i32, String>("what".into())).unwrap());
 }
+
+fn try_serialize_hashmap() {}
