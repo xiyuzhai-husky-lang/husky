@@ -279,6 +279,11 @@ impl HuskyTraceTime {
                         .iter()
                         .map(|(k, v)| (k.clone(), v.clone()))
                         .collect(),
+                    trace_stalks: self
+                        .trace_stalks
+                        .iter()
+                        .map(|(k, v)| (k.clone(), v.clone()))
+                        .collect(),
                     root_trace_ids,
                 },
                 focus,

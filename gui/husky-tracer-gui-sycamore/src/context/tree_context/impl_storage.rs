@@ -45,9 +45,9 @@ impl TreeContext {
         assert!(self
             .trace_stalks
             .borrow_mut()
-            .insert((trace_id, Some(input_id)), stalk)
+            .insert(todo!(), stalk)
             .is_none());
-        // self.trace_stalk_stores_table[trace_id][input_id].set(stalk);
+        // (trace_id, Some(input_id))
     }
 
     //  fn   get_trace_stalk_store(
