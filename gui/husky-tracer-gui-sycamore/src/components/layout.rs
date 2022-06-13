@@ -5,13 +5,15 @@ use super::*;
 use vsplit_panel::*;
 
 #[derive(Prop, Clone)]
-pub struct Layout<'a> {
-    width: &'a ReadSignal<f64>,
-    height: &'a ReadSignal<f64>,
+pub struct LayoutProps<'a> {
+    width: &'a ReadSignal<i32>,
+    height: &'a ReadSignal<i32>,
 }
 
 #[component]
-pub fn Layout<'a, G: Html>(scope: Scope<'a>, props: Layout<'a>) -> View<G> {
+pub fn Layout<'a, G: Html>(scope: Scope<'a>, props: LayoutProps<'a>) -> View<G> {
+    let context = use_context::<TracerContext>(scope);
+    let root_trace_ids = &context.tree_context.root_trace_ids;
     view! {
         scope,
         VSplitPanel {

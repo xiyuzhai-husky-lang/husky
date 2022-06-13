@@ -8,5 +8,6 @@
 }
 
 .HuskyTracerVSplitPanelLower {
-    background: brown;
+    display: block;
+    background: rgb(2, 110, 87);
 }
