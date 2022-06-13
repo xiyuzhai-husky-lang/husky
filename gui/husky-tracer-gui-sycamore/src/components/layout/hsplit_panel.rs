@@ -17,6 +17,16 @@ impl<'a> HSplitPanelProps<'a> {
         self.width.get_cloned() / 2.
     }
 
+    fn right_panel_style(&self) -> String {
+        let right_panel_width = self.right_panel_width();
+        let right_panel_height = self.panel_height();
+        format!("width: {right_panel_width}px; height: {right_panel_height}px")
+    }
+
+    fn right_panel_width(&self) -> f64 {
+        self.width.get_cloned() / 2.
+    }
+
     fn panel_height(&self) -> f64 {
         self.height.get_cloned()
     }
@@ -26,22 +36,15 @@ impl<'a> HSplitPanelProps<'a> {
 pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: HSplitPanelProps<'a>) -> View<G> {
     let context = use_context::<TracerContext>(scope);
     let root_trace_ids = &context.tree_context.root_trace_ids;
-    // create_effect(scope, move || {
-    //     log::info!("root traces {:?}", root_trace_ids)
-    // });
-    let left_panel_style = create_memo(scope, {
-        let props = props.clone();
-        move || props.left_panel_style()
-    });
-    props.width.track();
-    let right_style = "width: 800px";
+    let left_panel_style = memo!(scope, props.left_panel_style(), props);
+    let right_panel_style = memo!(scope, props.right_panel_style(), props);
     view! {
         scope,
         div(class="HuskyTracerHSplitPanel") {
             div(class="HuskyTracerHSplitPanelLeft", style=left_panel_style) {
                 TraceView {}
             }
-            div(class="HuskyTracerHSplitPanelRight", style=right_style) {
+            div(class="HuskyTracerHSplitPanelRight", style=right_panel_style) {
                 "Value: " (props.width.get())
             }
         }
