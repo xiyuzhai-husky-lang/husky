@@ -136,7 +136,7 @@ impl HuskyTracerInternal {
                 //     opt_figure_control,
                 // })
             }
-            HuskyTracerGuiMessageVariant::UpdateFigureControlProps {
+            HuskyTracerGuiMessageVariant::UpdateFigureControlData {
                 trace_id,
                 ref focus,
                 figure_control_props,

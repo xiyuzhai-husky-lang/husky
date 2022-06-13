@@ -10,12 +10,12 @@ use text::TextQueryGroup;
 use vm::{History, HistoryEntry, MutationData, MutationDataKind, StackSnapshot};
 
 impl HuskyTraceTime {
-    pub fn figure(&self, trace_id: TraceId, focus: &Focus) -> FigureProps {
+    pub fn figure(&self, trace_id: TraceId, focus: &Focus) -> FigureContentData {
         let trace = self.trace(trace_id);
         match trace.variant {
-            TraceVariant::Main(_) => FigureProps::void(),
+            TraceVariant::Main(_) => FigureContentData::void(),
             TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, focus),
-            TraceVariant::FeatureBranch(_) => FigureProps::void(),
+            TraceVariant::FeatureBranch(_) => FigureContentData::void(),
             TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr, focus),
             TraceVariant::FeatureCallInput { ref input, .. } => {
                 self.feature_expr_figure(input, focus)
@@ -35,7 +35,7 @@ impl HuskyTraceTime {
             TraceVariant::CallHead {
                 ref entity,
                 ref tokens,
-            } => FigureProps::void(),
+            } => FigureContentData::void(),
             TraceVariant::LoopFrame {
                 ref loop_frame_data,
                 ..
@@ -58,10 +58,10 @@ impl HuskyTraceTime {
                     if *branch_entered == Some(branch_idx) {
                         self.mutations_figure(mutations)
                     } else {
-                        FigureProps::void()
+                        FigureContentData::void()
                     }
                 }
-                None => FigureProps::void(),
+                None => FigureContentData::void(),
                 _ => panic!(),
             },
         }

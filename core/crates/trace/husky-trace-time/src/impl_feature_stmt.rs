@@ -52,14 +52,18 @@ impl HuskyTraceTime {
             FeatureStmtVariant::ConditionFlow { .. } => panic!(),
         }
     }
-    pub(crate) fn feature_stmt_figure(&self, stmt: &FeatureStmt, focus: &Focus) -> FigureProps {
+    pub(crate) fn feature_stmt_figure(
+        &self,
+        stmt: &FeatureStmt,
+        focus: &Focus,
+    ) -> FigureContentData {
         match stmt.variant {
             FeatureStmtVariant::Init { varname, ref value } => {
                 self.feature_expr_figure(value, focus)
             }
-            FeatureStmtVariant::Assert { .. } => FigureProps::void(),
+            FeatureStmtVariant::Assert { .. } => FigureContentData::void(),
             FeatureStmtVariant::Return { ref result } => self.feature_expr_figure(result, focus),
-            FeatureStmtVariant::ConditionFlow { ref branches } => FigureProps::void(),
+            FeatureStmtVariant::ConditionFlow { ref branches } => FigureContentData::void(),
         }
     }
 }

@@ -1,15 +1,15 @@
 import type { Trace } from "src/trace";
 import type { Readable, Updater, Writable } from "svelte/store";
-import type { FigureControlProps } from "src/figure/control";
+import type { FigureControlData } from "src/figure/control";
 import StoreStringMap from "src/abstraction/StoreStringMap";
 import type { InitState } from "./init_state";
-import type FigureProps from "src/figure";
+import type FigureContentProps from "src/figure";
 import type { Focus } from "src/focus";
 import Dict from "src/abstraction/Dict";
 
 export class FigureState {
-    figures: Dict<FigureProps> = new Dict<FigureProps>();
-    figure_control_stores: StoreStringMap<FigureControlProps> =
+    figures: Dict<FigureContentProps> = new Dict<FigureContentProps>();
+    figure_control_stores: StoreStringMap<FigureControlData> =
         new StoreStringMap();
 
     init(init_state: InitState) {
@@ -20,8 +20,8 @@ export class FigureState {
     set_figure(
         trace: Trace,
         focus: Focus,
-        figure: FigureProps,
-        figure_control_props: FigureControlProps
+        figure: FigureContentProps,
+        figure_control_props: FigureControlData
     ) {
         let key = focus.gen_figure_key(trace.id);
         console.assert(!(key in this.figures));
@@ -29,7 +29,7 @@ export class FigureState {
         this.set_figure_control_props(trace, figure_control_props);
     }
 
-    get_figure(trace_id: number, focus: Focus): FigureProps {
+    get_figure(trace_id: number, focus: Focus): FigureContentProps {
         let key = focus.gen_figure_key(trace_id);
         // if (!(key in this.figures)) {
         //     throw new Error(
@@ -72,7 +72,7 @@ export class FigureState {
 
     set_figure_control_props(
         trace: Trace,
-        figure_control_props: FigureControlProps
+        figure_control_props: FigureControlData
     ) {
         let key = this.figure_control_key(trace);
         this.figure_control_stores.set(key, figure_control_props);
@@ -80,13 +80,13 @@ export class FigureState {
 
     update_figure_control_props(
         trace: Trace,
-        updater: Updater<FigureControlProps>
+        updater: Updater<FigureControlData>
     ) {
         let key = this.figure_control_key(trace);
         this.figure_control_stores.update(key, updater);
     }
 
-    get_figure_control_store(trace: Trace): Readable<FigureControlProps> {
+    get_figure_control_store(trace: Trace): Readable<FigureControlData> {
         let key = this.figure_control_key(trace);
         return this.figure_control_stores.get_store(key);
     }

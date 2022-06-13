@@ -7,7 +7,7 @@ use vm::{HistoryEntry, LoopFrameData, MutationData};
 use super::*;
 
 impl HuskyTraceTime {
-    pub fn figure_control(&mut self, trace: &Trace, focus: &Focus) -> FigureControlProps {
+    pub fn figure_control(&mut self, trace: &Trace, focus: &Focus) -> FigureControlData {
         let key = FigureControlKey::new(&trace.props);
         if let Some(control) = self.figure_controls.get(&key) {
             control.clone()
@@ -17,7 +17,7 @@ impl HuskyTraceTime {
             control
         }
     }
-    pub fn gen_figure_control(&mut self, trace: &Trace) -> FigureControlProps {
+    pub fn gen_figure_control(&mut self, trace: &Trace) -> FigureControlData {
         match trace.variant {
             TraceVariant::Main(_)
             | TraceVariant::FeatureStmt(_)
@@ -26,12 +26,12 @@ impl HuskyTraceTime {
             | TraceVariant::FeatureCallInput { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::EagerExpr { .. }
-            | TraceVariant::CallHead { .. } => FigureControlProps::default(),
+            | TraceVariant::CallHead { .. } => FigureControlData::default(),
             TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
-                ProcStmtVariant::Loop { .. } => FigureControlProps::loop_default(&trace.props),
-                _ => FigureControlProps::default(),
+                ProcStmtVariant::Loop { .. } => FigureControlData::loop_default(&trace.props),
+                _ => FigureControlData::default(),
             },
-            TraceVariant::LoopFrame { .. } => FigureControlProps::loop_default(
+            TraceVariant::LoopFrame { .. } => FigureControlData::loop_default(
                 &self.trace(trace.props.opt_parent_id.unwrap()).props,
             ),
             TraceVariant::ProcBranch {
@@ -47,9 +47,9 @@ impl HuskyTraceTime {
                 } => {
                     if Some(branch_idx) == *branch_entered {
                         todo!()
-                        // FigureControlProps::mutations_default(mutations)
+                        // FigureControlData::mutations_default(mutations)
                     } else {
-                        FigureControlProps::default()
+                        FigureControlData::default()
                     }
                 }
                 _ => panic!(),
@@ -61,7 +61,7 @@ impl HuskyTraceTime {
         &mut self,
         trace_id: TraceId,
         focus: &Focus,
-        new_control: FigureControlProps,
+        new_control: FigureControlData,
     ) {
         self.figure_controls.insert(
             FigureControlKey::new(&self.trace(trace_id).props),

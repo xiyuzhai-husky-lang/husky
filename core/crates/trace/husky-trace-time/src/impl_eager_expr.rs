@@ -162,15 +162,19 @@ impl HuskyTraceTime {
         tokens
     }
 
-    pub(crate) fn eager_expr_figure(&self, expr: &EagerExpr, history: &History) -> FigureProps {
+    pub(crate) fn eager_expr_figure(
+        &self,
+        expr: &EagerExpr,
+        history: &History,
+    ) -> FigureContentData {
         if let Some(entry) = history.get(expr) {
             match entry {
                 HistoryEntry::PureExpr { output } => match output {
                     Ok(output) => {
                         let visual_props = self.runtime.visualize(expr.ty(), output.any_ref());
-                        FigureProps::new_specific(visual_props)
+                        FigureContentData::new_specific(visual_props)
                     }
-                    Err(e) => FigureProps::void(),
+                    Err(e) => FigureContentData::void(),
                 },
                 HistoryEntry::Exec { .. } => todo!(),
                 HistoryEntry::Loop { .. } => panic!(),
@@ -182,7 +186,7 @@ impl HuskyTraceTime {
                 HistoryEntry::PatternMatching { .. } => todo!(),
             }
         } else {
-            FigureProps::void()
+            FigureContentData::void()
         }
     }
 }

@@ -1,12 +1,12 @@
 <script lang="ts">
     import FlexDirection from "src/abstraction/FlexDiretion";
-    import type { FigureControlProps } from "src/figure/control";
-    import type FigureProps from "src/figure";
-    import FigureCanvas from "./Figure/Canvas.svelte";
+    import type { FigureControlData } from "src/figure/control";
+    import type FigureContentProps from "src/figure";
+    import FigureContent from "./Figure/Canvas.svelte";
     import FigureControl from "./Figure/Control.svelte";
 
-    export let figure: FigureProps | null;
-    export let figure_control_props: FigureControlProps | null;
+    export let figure: FigureContentProps | null;
+    export let figure_control_props: FigureControlData | null;
     let window_height: number;
     let figure_height: number;
     let figure_width: number;
@@ -77,7 +77,7 @@
         class="FigureContent"
         style="flex-direction: {figure_flex_direction.code()}"
     >
-        <FigureCanvas
+        <FigureContent
             {figure}
             {figure_control_props}
             {figure_canvas_height}
