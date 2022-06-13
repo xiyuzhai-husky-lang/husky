@@ -31,6 +31,7 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
     view! {
         scope,
         p (class="TraceLine") {
+            span (class="indent", style=format!("padding-left: {}px", props.data.indent as f64 * 9.5))
             TraceLineStart {
                 idx: props.data.idx,
                 has_subtraces: props.has_subtraces,
