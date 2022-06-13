@@ -13,6 +13,11 @@ impl<'a> VSplitPanelProps<'a> {
         let upper_panel_height = self.upper_panel_height();
         format!("width: {upper_panel_width}px; height: {upper_panel_height}px")
     }
+    fn lower_panel_style(&self) -> String {
+        let lower_panel_width = self.panel_width();
+        let lower_panel_height = self.lower_panel_height();
+        format!("width: {lower_panel_width}px; height: {lower_panel_height}px")
+    }
 
     fn panel_width(&self) -> f64 {
         self.width.get_cloned()
@@ -31,23 +36,11 @@ impl<'a> VSplitPanelProps<'a> {
 pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -> View<G> {
     let context = use_context::<TracerContext>(scope);
     let root_trace_ids = &context.tree_context.root_trace_ids;
-    // create_effect(scope, move || {
-    //     log::info!("root traces {:?}", root_trace_ids)
-    // });
-    let upper_panel_style = create_memo(scope, {
-        let props = props.clone();
-        move || props.upper_panel_style()
-    });
-    let upper_panel_height = create_memo(scope, {
-        let props = props.clone();
-        move || props.upper_panel_height()
-    });
-    let panel_width = create_memo(scope, {
-        let props = props.clone();
-        move || props.panel_width()
-    });
-    props.width.track();
-    let right_style = "width: 800px";
+    let upper_panel_style = memo!(scope, props.upper_panel_style(), props);
+    let upper_panel_height = memo!(scope, props.upper_panel_height(), props);
+    let lower_panel_style = memo!(scope, props.lower_panel_style(), props);
+    let lower_panel_height = memo!(scope, props.lower_panel_height(), props);
+    let panel_width = memo!(scope, props.panel_width(), props);
     view! {
         scope,
         div(class="HuskyTracerVSplitPanel") {
@@ -57,7 +50,7 @@ pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -
                     width:  panel_width,
                 }
             }
-            div(class="HuskyTracerVSplitPanelLower", style=right_style) {
+            div(class="HuskyTracerVSplitPanelLower", style=lower_panel_style) {
                 "Value: " (props.width.get())
             }
         }
