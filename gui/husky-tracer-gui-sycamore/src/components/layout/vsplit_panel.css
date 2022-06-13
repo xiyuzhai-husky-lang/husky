@@ -1,0 +1,12 @@
+.HuskyTracerVSplitPanel {
+    display: flex;
+    flex-direction: column;
+}
+
+.HuskyTracerVSplitPanelUpper {
+    background: black;
+}
+
+.HuskyTracerVSplitPanelLower {
+    background: black;
+}

@@ -1,9 +1,9 @@
 mod figure_view;
 mod focus_view;
-mod panel;
+mod layout;
 mod trace_view;
 
-pub use panel::*;
+pub use layout::*;
 
 use crate::*;
 use trace_view::*;

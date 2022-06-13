@@ -30,7 +30,7 @@ fn main() {
             context.window_inner_height.track();
             view! {
                 scope,
-                HSplitPanel {
+                Layout {
                     width: &context.window_inner_width,
                     height: &context.window_inner_height,
                 }
