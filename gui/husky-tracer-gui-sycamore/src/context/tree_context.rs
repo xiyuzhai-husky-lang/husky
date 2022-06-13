@@ -8,8 +8,8 @@ use impl_storage::*;
 #[derive(Debug, Default)]
 pub struct TreeContext {
     pub trace_nodes: RefCell<Vec<TraceNodeState>>,
-    pub subtraces_map: HashMap<SubtracesKey, Vec<TraceId>>,
-    pub trace_stalks: HashMap<(TraceId, Option<usize>), TraceStalk>,
+    pub subtraces_map: RefCell<HashMap<SubtracesKey, Vec<TraceId>>>,
+    pub trace_stalks: RefCell<HashMap<(TraceId, Option<usize>), TraceStalk>>,
     pub root_trace_ids: Signal<Vec<TraceId>>,
     pub opt_active_trace_id: Signal<Option<TraceId>>,
     pub trace_listing: Signal<Vec<TraceId>>,
@@ -37,7 +37,7 @@ impl TreeContext {
         *self.trace_nodes.borrow_mut() = init_data
             .trace_nodes
             .into_iter()
-            .map(|trace_node_data| trace_node_data.into())
+            .map(|node| node.into())
             .collect();
         self.root_trace_ids.set(init_data.root_trace_ids);
         self.opt_active_trace_id.set(init_data.opt_active_trace_id);
@@ -88,7 +88,7 @@ impl TreeContext {
         self.add_associated_traces(focus, trace_id, trace_listing);
         if (self.expanded(trace_id)) {
             for subtrace_id in self.subtrace_ids(focus, trace_id) {
-                self.update_trace_listing_dfs(focus, *subtrace_id, trace_listing);
+                self.update_trace_listing_dfs(focus, subtrace_id, trace_listing);
             }
         }
     }

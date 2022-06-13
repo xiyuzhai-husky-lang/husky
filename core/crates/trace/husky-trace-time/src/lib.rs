@@ -91,21 +91,15 @@ impl HuskyTraceTime {
             .collect()
     }
 
-    pub fn subtraces(&mut self, trace_id: TraceId) -> Vec<TraceNodeData> {
+    pub fn subtrace_ids(&mut self, trace_id: TraceId) -> Vec<TraceId> {
         let key = SubtracesKey::new(&self.focus, self.trace(trace_id).props.kind, trace_id);
         if let Some(subtrace_ids) = self.subtrace_ids_map.get(&key) {
-            subtrace_ids
-                .iter()
-                .map(|trace_id| self.trace_node_data(*trace_id))
-                .collect()
+            subtrace_ids.clone()
         } else {
             let subtrace_ids = self.gen_subtraces(trace_id);
-            let subtraces = subtrace_ids
-                .iter()
-                .map(|trace_id| self.trace_node_data(*trace_id))
-                .collect();
-            self.subtrace_ids_map.insert(key.clone(), subtrace_ids);
-            subtraces
+            self.subtrace_ids_map
+                .insert(key.clone(), subtrace_ids.clone());
+            subtrace_ids
         }
     }
 
@@ -219,9 +213,23 @@ impl HuskyTraceTime {
         trace_id
     }
 
-    pub fn toggle_expansion(&mut self, trace_id: TraceId) {
+    pub fn toggle_expansion(
+        &mut self,
+        trace_id: TraceId,
+    ) -> Option<(Vec<TraceNodeData>, Vec<TraceId>)> {
+        let old_len = self.trace_nodes.len();
         let expansion = &mut self.trace_nodes[trace_id.0].as_mut().unwrap().expansion;
-        *expansion = !*expansion
+        *expansion = !*expansion;
+        let subtrace_ids = self.subtrace_ids(trace_id);
+        if self.trace_nodes.len() > old_len {
+            let new_traces = self.trace_nodes[old_len..]
+                .iter()
+                .map(|opt_node| opt_node.as_ref().unwrap().to_data())
+                .collect();
+            Some((new_traces, subtrace_ids))
+        } else {
+            None
+        }
     }
 
     pub fn is_expanded(&mut self, trace_id: TraceId) -> bool {

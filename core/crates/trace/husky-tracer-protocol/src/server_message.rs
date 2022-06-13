@@ -19,8 +19,8 @@ pub enum HuskyTracerServerMessageVariant {
         figure_control_props: FigureControlProps,
     },
     ToggleExpansion {
-        subtraces: Vec<TraceNodeData>,
-        associated_traces: Vec<TraceId>,
+        subtrace_ids: Vec<TraceId>,
+        new_traces: Vec<TraceNodeData>,
     },
     ToggleShow {
         trace_id: TraceId,

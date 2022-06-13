@@ -79,22 +79,12 @@ impl HuskyTracerInternal {
                 //     None
                 // }
             }
-            HuskyTracerGuiMessageVariant::ToggleExpansion {
-                trace_id,
-                request_subtraces,
-            } => {
-                self.trace_time.toggle_expansion(trace_id);
-                if request_subtraces {
-                    let subtraces = self.trace_time.subtraces(trace_id);
-                    let mut associated_traces = vec![];
-                    subtraces.iter().for_each(|trace_node_data| {
-                        trace_node_data
-                            .trace
-                            .collect_associated_traces(&mut associated_traces)
-                    });
+            HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
+                if let Some((new_traces, subtrace_ids)) = self.trace_time.toggle_expansion(trace_id)
+                {
                     Some(HuskyTracerServerMessageVariant::ToggleExpansion {
-                        subtraces,
-                        associated_traces,
+                        new_traces,
+                        subtrace_ids,
                     })
                 } else {
                     None
