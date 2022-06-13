@@ -1,15 +1,12 @@
 .HuskyTracerHSplitPanel {
     display: flex;
     flex-direction: row;
-    height: 100%;
 }
 
 .HuskyTracerHSplitPanelLeft {
     background: black;
-    height: 100%;
 }
 
 .HuskyTracerHSplitPanelRight {
     background: black;
-    height: 100%;
 }
