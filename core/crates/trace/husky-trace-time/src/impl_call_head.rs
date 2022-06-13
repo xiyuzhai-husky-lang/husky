@@ -5,24 +5,32 @@ use semantics_entity::*;
 use word::{CustomIdentifier, Identifier};
 
 impl HuskyTraceTime {
-    pub fn new_call_head(&mut self, entity: Arc<EntityDefn>, text: &Text) -> Arc<Trace> {
+    pub fn new_call_head(&mut self, entity: Arc<EntityDefn>) -> TraceId {
         let tokens = match entity.variant {
-            EntityDefnVariant::Func { ref parameters, .. } => {
-                routine_call_head_tokens("func ", entity.ident, parameters, text)
-            }
+            EntityDefnVariant::Func { ref parameters, .. } => routine_call_head_tokens(
+                &self.runtime.compile_time().text(entity.file).unwrap(),
+                "func ",
+                entity.ident,
+                parameters,
+            ),
             EntityDefnVariant::Proc {
                 parameters: ref parameters,
                 ..
-            } => routine_call_head_tokens("proc ", entity.ident, parameters, text),
+            } => routine_call_head_tokens(
+                &self.runtime.compile_time().text(entity.file).unwrap(),
+                "proc ",
+                entity.ident,
+                parameters,
+            ),
             _ => todo!(),
         };
-        return self.new_trace(None, 0, TraceVariant::CallHead { entity, tokens }, text);
+        return self.new_trace(None, 0, TraceVariant::CallHead { entity, tokens });
 
         fn routine_call_head_tokens<'eval>(
+            text: &Text,
             routine_keyword: &'static str,
             ident: Identifier,
             parameters: &[Parameter],
-            text: &Text,
         ) -> Vec<TraceTokenData> {
             let mut tokens = vec![
                 keyword!(routine_keyword),

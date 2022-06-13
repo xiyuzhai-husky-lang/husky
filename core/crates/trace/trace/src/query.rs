@@ -12,16 +12,12 @@ pub trait TraceQueryGroup: ProduceTrace {
     #[salsa::input]
     fn version(&self) -> usize;
 
-    fn root_traces(&self) -> Arc<Vec<TraceId>>;
-    fn subtraces(
-        &self,
-        trace_id: TraceId,
-        effective_opt_input_id: Option<usize>,
-    ) -> Arc<Vec<Arc<Trace>>>;
+    fn root_traces(&self) -> Vec<TraceId>;
+    fn subtraces(&self, trace_id: TraceId, effective_opt_input_id: Option<usize>) -> Vec<TraceId>;
     fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk>;
 }
 
-pub fn root_traces(this: &dyn TraceQueryGroup) -> Arc<Vec<TraceId>> {
+pub fn root_traces(this: &dyn TraceQueryGroup) -> Vec<TraceId> {
     let compile_time = this.compile_time();
     let pack_main = this.pack_main();
     Arc::new()
@@ -31,7 +27,7 @@ pub fn subtraces(
     db: &dyn TraceQueryGroup,
     trace_id: TraceId,
     effective_opt_input_id: Option<usize>,
-) -> Arc<Vec<Arc<Trace>>> {
+) -> Vec<TraceId> {
     let trace: &Trace = &db.trace(trace_id);
     match trace.variant {
         TraceVariant::Main(ref repr) => db.feature_repr_subtraces(&trace, repr),

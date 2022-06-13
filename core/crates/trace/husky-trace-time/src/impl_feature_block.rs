@@ -7,12 +7,11 @@ impl HuskyTraceTime {
         &mut self,
         parent: &Trace,
         feature_block: &FeatureLazyBlock,
-        text: &Text,
-    ) -> Vec<Arc<Trace>> {
+    ) -> Vec<TraceId> {
         feature_block
             .stmts
             .iter()
-            .map(|stmt| self.feature_stmt_traces(parent, stmt.clone(), text))
+            .map(|stmt| self.feature_stmt_traces(parent, stmt.clone()))
             .flatten()
             .collect()
     }

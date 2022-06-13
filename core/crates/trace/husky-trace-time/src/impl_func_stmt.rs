@@ -11,13 +11,11 @@ impl HuskyTraceTime {
         indent: Indent,
         stmt: Arc<FuncStmt>,
         history: Arc<History<'static>>,
-        text: &Text,
-    ) -> Arc<Trace> {
+    ) -> TraceId {
         self.new_trace(
             Some(parent_id),
             indent,
             TraceVariant::FuncStmt { stmt, history },
-            text,
         )
     }
     pub fn func_stmts_traces<'a>(
@@ -25,23 +23,21 @@ impl HuskyTraceTime {
         parent_id: TraceId,
         indent: Indent,
         stmts: &'a [Arc<FuncStmt>],
-        text: &'a Text,
         history: &'a Arc<History<'static>>,
-    ) -> impl Iterator<Item = Arc<Trace>> + 'a {
+    ) -> impl Iterator<Item = TraceId> + 'a {
         stmts.iter().map(move |stmt| {
-            self.new_func_stmt_trace(parent_id, indent, stmt.clone(), history.clone(), text)
+            self.new_func_stmt_trace(parent_id, indent, stmt.clone(), history.clone())
         })
     }
 
     pub(crate) fn func_stmt_lines(
         &mut self,
         stmt: &FuncStmt,
-        text: &Text,
         history: &Arc<History<'static>>,
     ) -> Vec<TraceLineData> {
         vec![TraceLineData {
             indent: stmt.indent,
-            tokens: self.func_stmt_tokens(stmt, text, history),
+            tokens: self.func_stmt_tokens(stmt, history),
             idx: 0,
         }]
     }
@@ -49,7 +45,6 @@ impl HuskyTraceTime {
     pub(crate) fn func_stmt_tokens(
         &mut self,
         stmt: &FuncStmt,
-        text: &Text,
         history: &Arc<History<'static>>,
     ) -> Vec<TraceTokenData> {
         match stmt.variant {
@@ -62,7 +57,6 @@ impl HuskyTraceTime {
                 tokens.push(special!(" = "));
                 tokens.extend(self.eager_expr_tokens(
                     initial_value,
-                    text,
                     history,
                     ExprTokenConfig::stmt(),
                 ));
@@ -70,22 +64,12 @@ impl HuskyTraceTime {
             }
             FuncStmtVariant::Assert { ref condition } => {
                 let mut tokens = vec![keyword!("assert ")];
-                tokens.extend(self.eager_expr_tokens(
-                    condition,
-                    text,
-                    history,
-                    ExprTokenConfig::stmt(),
-                ));
+                tokens.extend(self.eager_expr_tokens(condition, history, ExprTokenConfig::stmt()));
                 tokens
             }
             FuncStmtVariant::Return { ref result } => {
                 let mut tokens = vec![];
-                tokens.extend(self.eager_expr_tokens(
-                    result,
-                    text,
-                    history,
-                    ExprTokenConfig::stmt(),
-                ));
+                tokens.extend(self.eager_expr_tokens(result, history, ExprTokenConfig::stmt()));
                 tokens
             }
             FuncStmtVariant::Match {

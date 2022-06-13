@@ -42,7 +42,7 @@ pub struct MutationFigureProps {
 // impl<'eval> MutationFigureProps {
 //     pub fn new(
 //         db: &dyn RuntimeVisualizerQueryGroup,
-//         text: &Text,
+//          ,
 //         visualizer: &RuntimeVisualizer,
 //         mutation_data: &MutationData<'eval>,
 //         idx: usize,
