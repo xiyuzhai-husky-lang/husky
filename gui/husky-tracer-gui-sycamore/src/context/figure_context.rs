@@ -9,8 +9,8 @@ pub struct FigureContext {
 impl FigureContext {
     pub(super) fn init(
         &self,
-        figures: HashMap<FigureKey, FigureProps>,
-        figure_controls: HashMap<FigureControlKey, FigureControlProps>,
+        figures: Vec<(FigureKey, FigureProps)>,
+        figure_controls: Vec<(FigureControlKey, FigureControlProps)>,
     ) {
         *self.figures.borrow_mut() = figures.into_iter().map(|(k, v)| (k, Rc::new(v))).collect();
         *self.figure_control_stores.borrow_mut() = figure_controls

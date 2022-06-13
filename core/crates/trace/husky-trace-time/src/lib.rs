@@ -24,6 +24,7 @@ use husky_compile_time::{AskCompileTime, HuskyCompileTime};
 use husky_runtime::HuskyRuntime;
 use husky_tracer_protocol::*;
 use impl_expr::ExprTokenConfig;
+use print_utils::p;
 use semantics_eager::*;
 use serde::Deserialize;
 use std::collections::HashMap;
@@ -253,19 +254,19 @@ impl HuskyTraceTime {
     pub fn init_state(&mut self) -> HuskyTracerServerMessageVariant {
         let root_trace_ids = self.root_trace_ids.clone();
         let focus = self.focus.clone();
-        let mut figures = HashMap::default();
-        let mut figure_controls = HashMap::default();
+        let mut figures = Vec::default();
+        let mut figure_controls = Vec::default();
         let opt_active_trace_id = self.opt_active_trace_id;
         if let Some(active_trace_id) = opt_active_trace_id {
             let active_trace = self.trace(active_trace_id);
-            figures.insert(
+            figures.push((
                 FigureKey::new(&active_trace.props),
                 self.figure(active_trace_id, &focus),
-            );
-            figure_controls.insert(
+            ));
+            figure_controls.push((
                 FigureControlKey::new(&active_trace.props),
                 unsafe { ref_to_mut_ref(self) }.figure_control(&active_trace, &focus),
-            );
+            ));
         }
         let traces = self.all_trace_nodes();
         HuskyTracerServerMessageVariant::Init {
@@ -273,7 +274,11 @@ impl HuskyTraceTime {
                 trace_init_data: TraceInitState {
                     opt_active_trace_id,
                     trace_nodes: traces,
-                    subtrace_ids_map: self.subtrace_ids_map.clone(),
+                    subtrace_ids_map: self
+                        .subtrace_ids_map
+                        .iter()
+                        .map(|(k, v)| (k.clone(), v.clone()))
+                        .collect(),
                     root_trace_ids,
                 },
                 focus,

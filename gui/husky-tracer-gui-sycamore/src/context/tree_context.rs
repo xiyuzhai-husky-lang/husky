@@ -8,7 +8,7 @@ use impl_storage::*;
 #[derive(Debug, Default)]
 pub struct TreeContext {
     pub trace_nodes: RefCell<Vec<TraceNodeState>>,
-    pub subtraces_map: RefCell<HashMap<SubtracesKey, Vec<TraceId>>>,
+    pub subtrace_ids_map: RefCell<HashMap<SubtracesKey, Vec<TraceId>>>,
     pub trace_stalks: RefCell<HashMap<(TraceId, Option<usize>), TraceStalk>>,
     pub root_trace_ids: Signal<Vec<TraceId>>,
     pub opt_active_trace_id: Signal<Option<TraceId>>,
@@ -39,6 +39,7 @@ impl TreeContext {
             .into_iter()
             .map(|node| node.into())
             .collect();
+        *self.subtrace_ids_map.borrow_mut() = init_data.subtrace_ids_map.into_iter().collect();
         self.root_trace_ids.set(init_data.root_trace_ids);
         self.opt_active_trace_id.set(init_data.opt_active_trace_id);
         self.update_trace_listing(focus);
