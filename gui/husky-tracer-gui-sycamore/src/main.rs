@@ -6,6 +6,7 @@ mod context;
 mod init;
 mod services;
 mod store;
+mod utils;
 
 use abstraction::*;
 use components::*;
@@ -16,6 +17,7 @@ use services::*;
 use std::{any::TypeId, cell::RefCell, rc::Rc};
 use store::*;
 use sycamore::prelude::*;
+use utils::*;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use web_sys::Element;
