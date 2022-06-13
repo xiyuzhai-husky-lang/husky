@@ -23,7 +23,7 @@ impl TreeContext {
         ))
     }
 
-    pub(crate) fn receive_subtraces(&self, key: SubtracesKey, subtraces: Vec<TraceData>) {
+    pub(crate) fn receive_subtraces(&self, key: SubtracesKey, subtraces: Vec<TraceNodeData>) {
         todo!() // self.cache_traces(subtraces);
                 // self.subtraces_dict.insert_new(
                 //     gen_subtraces_key(effective_opt_input_id, trace_id),

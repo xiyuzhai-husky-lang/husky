@@ -18,7 +18,7 @@ impl TracerContext {
                 self.ws.send_message(
                     HuskyTracerGuiMessageVariant::ToggleExpansion {
                         trace_id,
-                        opt_subtraces_key: None,
+                        request_subtraces: false,
                     },
                     None,
                 );
@@ -28,7 +28,7 @@ impl TracerContext {
                 self.ws.send_message(
                     HuskyTracerGuiMessageVariant::ToggleExpansion {
                         trace_id,
-                        opt_subtraces_key: Some(key.clone()),
+                        request_subtraces: true,
                     },
                     Some(Box::new(move |message| match message.variant {
                         HuskyTracerServerMessageVariant::ToggleExpansion {
