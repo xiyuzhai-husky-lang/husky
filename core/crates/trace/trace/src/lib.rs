@@ -18,7 +18,7 @@ use std::{borrow::Cow, sync::Arc};
 use text::{Text, TextRange};
 
 // ts: { idx: number; parent: number | null; tokens: Token[] }
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct Trace {
     pub variant: TraceVariant<'static>,
     pub props: TraceData,

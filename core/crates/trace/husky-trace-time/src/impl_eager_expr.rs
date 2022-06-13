@@ -8,23 +8,20 @@ use crate::*;
 impl HuskyTraceTime {
     pub fn new_eager_expr_trace(
         &mut self,
-        text: &Text,
         expr: Arc<EagerExpr>,
         history: Arc<History<'static>>,
         opt_parent: Option<&Trace>,
         indent: Indent,
-    ) -> Arc<Trace> {
+    ) -> TraceId {
         self.new_trace(
             opt_parent.map(|parent| parent.id()),
             indent,
             TraceVariant::EagerExpr { expr, history },
-            text,
         )
     }
 
     pub(crate) fn eager_expr_lines(
         &mut self,
-        text: &Text,
         expr: &Arc<EagerExpr>,
         history: &Arc<History<'static>>,
         indent: u8,
@@ -33,22 +30,18 @@ impl HuskyTraceTime {
         vec![TraceLineData {
             indent,
             idx: 0,
-            tokens: self.eager_expr_tokens(expr, text, history, config),
+            tokens: self.eager_expr_tokens(expr, history, config),
         }]
     }
 
     pub(crate) fn eager_expr_tokens(
         &mut self,
         expr: &Arc<EagerExpr>,
-        text: &Text,
         history: &Arc<History<'static>>,
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
         let associated_trace_id = if config.associated {
-            Some(
-                self.new_eager_expr_trace(text, expr.clone(), history.clone(), None, 0)
-                    .id(),
-            )
+            Some(self.new_eager_expr_trace(expr.clone(), history.clone(), None, 0))
         } else {
             None
         };
@@ -61,7 +54,7 @@ impl HuskyTraceTime {
             EagerExprVariant::PrimitiveLiteral(value) => return vec![literal!(value)],
             EagerExprVariant::Bracketed(ref expr) => {
                 tokens.push(special!("("));
-                tokens.extend(self.eager_expr_tokens(expr, text, history, config.subexpr()));
+                tokens.extend(self.eager_expr_tokens(expr, history, config.subexpr()));
                 tokens.push(special!(")"));
             }
             EagerExprVariant::Opn {
@@ -69,65 +62,35 @@ impl HuskyTraceTime {
                 ref opds,
             } => match opn_variant {
                 EagerOpnVariant::Binary { opr, this_ty: this } => {
-                    tokens.extend(self.eager_expr_tokens(
-                        &opds[0],
-                        text,
-                        history,
-                        config.subexpr(),
-                    ));
+                    tokens.extend(self.eager_expr_tokens(&opds[0], history, config.subexpr()));
                     tokens.push(special!(opr.spaced_code(), associated_trace_id));
-                    tokens.extend(self.eager_expr_tokens(
-                        &opds[1],
-                        text,
-                        history,
-                        config.subexpr(),
-                    ));
+                    tokens.extend(self.eager_expr_tokens(&opds[1], history, config.subexpr()));
                 }
                 EagerOpnVariant::Prefix { opr, .. } => {
                     tokens.push(special!(opr.code(), associated_trace_id));
-                    tokens.extend(self.eager_expr_tokens(
-                        &opds[0],
-                        text,
-                        history,
-                        config.subexpr(),
-                    ));
+                    tokens.extend(self.eager_expr_tokens(&opds[0], history, config.subexpr()));
                 }
                 EagerOpnVariant::Suffix { opr, .. } => {
-                    tokens.extend(self.eager_expr_tokens(
-                        &opds[0],
-                        text,
-                        history,
-                        config.subexpr(),
-                    ));
+                    tokens.extend(self.eager_expr_tokens(&opds[0], history, config.subexpr()));
                     tokens.push(special!(opr.code(), associated_trace_id));
                 }
                 EagerOpnVariant::RoutineCall(ranged_scope) => {
                     tokens = self.eager_routine_call_tokens(
+                        expr.file,
                         *ranged_scope,
                         opds,
                         associated_trace_id,
-                        text,
                         history,
                         &config,
                     )
                 }
                 EagerOpnVariant::FieldAccess { field_ident, .. } => {
-                    tokens.extend(self.eager_expr_tokens(
-                        &opds[0],
-                        text,
-                        history,
-                        config.subexpr(),
-                    ));
+                    tokens.extend(self.eager_expr_tokens(&opds[0], history, config.subexpr()));
                     tokens.push(special!("."));
                     tokens.push(ident!(field_ident.ident.0));
                 }
                 EagerOpnVariant::MethodCall { method_ident, .. } => {
-                    tokens.extend(self.eager_expr_tokens(
-                        &opds[0],
-                        text,
-                        history,
-                        config.subexpr(),
-                    ));
+                    tokens.extend(self.eager_expr_tokens(&opds[0], history, config.subexpr()));
                     tokens.push(special!("."));
                     tokens.push(ident!(method_ident.ident.0));
                     tokens.push(special!("("));
@@ -135,49 +98,30 @@ impl HuskyTraceTime {
                         if i > 1 {
                             tokens.push(special!(", "))
                         }
-                        tokens.extend(self.eager_expr_tokens(
-                            &opds[i],
-                            text,
-                            history,
-                            config.subexpr(),
-                        ));
+                        tokens.extend(self.eager_expr_tokens(&opds[i], history, config.subexpr()));
                     }
                     tokens.push(special!(")"));
                 }
                 EagerOpnVariant::ElementAccess { element_binding } => {
-                    tokens.extend(self.eager_expr_tokens(
-                        &opds[0],
-                        text,
-                        history,
-                        config.subexpr(),
-                    ));
+                    tokens.extend(self.eager_expr_tokens(&opds[0], history, config.subexpr()));
                     tokens.push(special!("[", associated_trace_id.clone()));
                     for i in 1..opds.len() {
                         if i > 1 {
                             tokens.push(special!(", "))
                         }
-                        tokens.extend(self.eager_expr_tokens(
-                            &opds[i],
-                            text,
-                            history,
-                            config.subexpr(),
-                        ));
+                        tokens.extend(self.eager_expr_tokens(&opds[i], history, config.subexpr()));
                     }
                     tokens.push(special!("]", associated_trace_id));
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
+                    let text = self.runtime.compile_time().text(expr.file).unwrap();
                     tokens.push(route!(text.ranged(ranged_ty.range)));
                     tokens.push(special!("("));
                     for i in 0..opds.len() {
                         if i > 0 {
                             tokens.push(special!(", "))
                         }
-                        tokens.extend(self.eager_expr_tokens(
-                            &opds[i],
-                            text,
-                            history,
-                            config.subexpr(),
-                        ));
+                        tokens.extend(self.eager_expr_tokens(&opds[i], history, config.subexpr()));
                     }
                     tokens.push(special!(")"));
                 }
@@ -196,13 +140,14 @@ impl HuskyTraceTime {
 
     fn eager_routine_call_tokens(
         &mut self,
+        file: FilePtr,
         ranged_scope: RangedEntityRoute,
         inputs: &[Arc<EagerExpr>],
         opt_associated_trace_id: Option<TraceId>,
-        text: &Text,
         history: &Arc<History<'static>>,
         config: &ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
+        let text = self.runtime.compile_time().text(file).unwrap();
         let mut tokens = vec![
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),
@@ -211,7 +156,7 @@ impl HuskyTraceTime {
             if i > 0 {
                 tokens.push(special!(", "));
             }
-            tokens.extend(self.eager_expr_tokens(input, text, history, config.subexpr()));
+            tokens.extend(self.eager_expr_tokens(input, history, config.subexpr()));
         }
         tokens.push(special!(")"));
         tokens

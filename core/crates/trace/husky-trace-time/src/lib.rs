@@ -11,6 +11,7 @@ mod impl_figure_control;
 mod impl_func_stmt;
 mod impl_ops;
 mod impl_proc_stmt;
+mod impl_subtraces;
 mod impl_trace_stalk;
 mod trace_node;
 
@@ -112,7 +113,6 @@ impl HuskyTraceTime {
         id: TraceId,
         indent: Indent,
         variant: &TraceVariant,
-        text: &Text,
         has_parent: bool,
     ) -> Vec<TraceLineData> {
         match variant {
@@ -125,13 +125,13 @@ impl HuskyTraceTime {
                     opt_associated_trace_id: None,
                 }],
             }],
-            TraceVariant::FeatureStmt(stmt) => self.feature_stmt_lines(stmt, text),
+            TraceVariant::FeatureStmt(stmt) => self.feature_stmt_lines(stmt),
             TraceVariant::FeatureExpr(expr) => {
-                self.feature_expr_lines(expr, text, ExprTokenConfig::expr(false))
+                self.feature_expr_lines(expr, ExprTokenConfig::expr(false))
             }
-            TraceVariant::FeatureBranch(branch) => self.feature_branch_lines(indent, branch, text),
+            TraceVariant::FeatureBranch(branch) => self.feature_branch_lines(indent, branch),
             TraceVariant::FeatureCallInput { ident, input } => {
-                let mut lines = self.feature_expr_lines(input, text, ExprTokenConfig::expr(true));
+                let mut lines = self.feature_expr_lines(input, ExprTokenConfig::expr(true));
                 lines[0].tokens.insert(0, special!(" = "));
                 lines[0].tokens.insert(0, ident!(ident.0));
                 lines
@@ -140,21 +140,15 @@ impl HuskyTraceTime {
                 ref stmt,
                 ref history,
                 ..
-            } => self.func_stmt_lines(stmt, text, history),
+            } => self.func_stmt_lines(stmt, history),
             TraceVariant::ProcStmt {
                 ref stmt,
                 ref history,
-            } => self.proc_stmt_lines(stmt, text, history),
+            } => self.proc_stmt_lines(stmt, history),
             TraceVariant::EagerExpr {
                 ref expr,
                 ref history,
-            } => self.eager_expr_lines(
-                text,
-                expr,
-                history,
-                indent,
-                ExprTokenConfig::expr(has_parent),
-            ),
+            } => self.eager_expr_lines(expr, history, indent, ExprTokenConfig::expr(has_parent)),
             TraceVariant::CallHead { ref tokens, .. } => vec![TraceLineData {
                 indent: 0,
                 idx: 0,
@@ -170,7 +164,7 @@ impl HuskyTraceTime {
                 branch_idx,
                 history,
                 ..
-            } => self.proc_branch_lines(text, indent, branch, history),
+            } => self.proc_branch_lines(indent, branch, history),
         }
     }
 
@@ -179,17 +173,17 @@ impl HuskyTraceTime {
         opt_parent_id: Option<TraceId>,
         indent: Indent,
         variant: TraceVariant<'static>,
-        text: &Text,
-    ) -> Arc<Trace> {
-        let trace = Arc::new({
-            let id = self.next_id();
+    ) -> TraceId {
+        let trace_id = self.next_id();
+        let trace = {
             let (file, range) = variant.file_and_range();
+            let text = self.runtime.compile_time().text(file).unwrap();
             let reachable = variant.reachable();
             let can_have_subtraces = variant.can_have_subtraces(reachable);
-            let lines = self.lines(id, indent, &variant, text, opt_parent_id.is_some());
+            let lines = self.lines(trace_id, indent, &variant, opt_parent_id.is_some());
             Trace {
                 props: TraceData {
-                    id,
+                    id: trace_id,
                     opt_parent_id,
                     indent,
                     compile_time_version: 0, //compile time version
@@ -202,17 +196,17 @@ impl HuskyTraceTime {
                 file,
                 range,
             }
-        });
+        };
         assert!(self.trace_nodes[trace.id().0].is_none());
-        self.trace_nodes[trace.id().0] = Some(TraceNode {
+        self.trace_nodes[trace_id.0] = Some(TraceNode {
             expansion: false,
             shown: match trace.props.kind {
                 TraceKind::FeatureExpr | TraceKind::EagerExpr => false,
                 _ => true,
             },
-            trace: trace.clone(),
+            trace,
         });
-        trace
+        trace_id
     }
 
     pub fn toggle_expansion(&mut self, trace_id: TraceId) {
@@ -231,6 +225,11 @@ impl HuskyTraceTime {
 
     pub fn trace(&self, trace_id: TraceId) -> &Trace {
         &self.trace_nodes[trace_id.0].as_ref().unwrap().trace
+    }
+
+    pub(crate) unsafe fn trace_ref<'a>(&self, trace_id: TraceId) -> &'a Trace {
+        let ptr: *const Trace = &self.trace_nodes[trace_id.0].as_ref().unwrap().trace;
+        &*ptr
     }
 
     pub fn init_state(&mut self) -> HuskyTracerServerMessageVariant {
@@ -274,7 +273,7 @@ impl HuskyTraceTime {
 //         &self,
 //         parent: &Trace,
 //         feature_repr: &FeatureRepr,
-//     ) -> Arc<Vec<Arc<Trace>>> {
+//     ) ->  Vec<TraceId>  {
 //         let text = &self.compile_time().text(parent.file).unwrap();
 //         Arc::new(
 //             self.trace_factory()
@@ -286,7 +285,7 @@ impl HuskyTraceTime {
 //         &self,
 //         parent: &Trace,
 //         feature_block: &FeatureLazyBlock,
-//     ) -> Arc<Vec<Arc<Trace>>> {
+//     ) ->  Vec<TraceId>  {
 //         let text = &self.compile_time().text(parent.file).unwrap();
 //         Arc::new(
 //             self.trace_factory()
@@ -298,7 +297,7 @@ impl HuskyTraceTime {
 //         &self,
 //         parent: &Trace,
 //         branch: &FeatureBranch,
-//     ) -> Arc<Vec<Arc<Trace>>> {
+//     ) ->  Vec<TraceId>  {
 //         let text = &self.compile_time().text(parent.file).unwrap();
 //         self.trace_factory()
 //             .feature_branch_subtraces(parent, branch, self.trace_factory(), text)
@@ -309,7 +308,7 @@ impl HuskyTraceTime {
 //         parent: &Trace,
 //         expr: &FeatureExpr,
 //         opt_input_id: Option<usize>,
-//     ) -> Arc<Vec<Arc<Trace>>> {
+//     ) ->  Vec<TraceId>  {
 //         Arc::new(match expr.variant {
 //             FeatureExprVariant::PrimitiveLiteral(_)
 //             | FeatureExprVariant::PrimitiveBinaryOpr { .. }
@@ -411,7 +410,7 @@ impl HuskyTraceTime {
 //         parent: &Trace,
 //         expr: &Arc<EagerExpr>,
 //         history: &Arc<History>,
-//     ) -> Avec<Trace> {
+//     ) ->  Vec<TraceId>  {
 //         todo!()
 //         // self.trace_factory()
 //     }
@@ -425,7 +424,7 @@ impl HuskyTraceTime {
 //         stack_snapshot: &StackSnapshot<'static>,
 //         body_instruction_sheet: &Arc<InstructionSheet>,
 //         verbose: bool,
-//     ) -> Arc<Vec<Arc<Trace>>> {
+//     ) ->  Vec<TraceId>  {
 //         self.trace_factory().loop_subtraces(
 //             self.runtime.upcast(),
 //             parent,
@@ -446,7 +445,7 @@ impl HuskyTraceTime {
 //         loop_frame_data: &LoopFrameData<'static>,
 //         parent: &Trace,
 //         verbose: bool,
-//     ) -> Avec<Trace> {
+//     ) ->  Vec<TraceId>  {
 //         let text = &self.compile_time().text(parent.file).unwrap();
 //         self.trace_factory().loop_frame_subtraces(
 //             self.runtime.upcast(),
@@ -467,7 +466,7 @@ impl HuskyTraceTime {
 //         stack_snapshot: &StackSnapshot<'static>,
 //         parent: &Trace,
 //         verbose: bool,
-//     ) -> Avec<Trace> {
+//     ) ->  Vec<TraceId>  {
 //         let text = &self.compile_time().text(parent.file).unwrap();
 //         self.trace_factory().proc_branch_subtraces(
 //             self.runtime.upcast(),
@@ -486,7 +485,7 @@ impl HuskyTraceTime {
 //         file: FilePtr,
 //         indent: Indent,
 //         kind: TraceVariant<'static>,
-//     ) -> Arc<Trace> {
+//     ) -> TraceId {
 //         self.trace_factory().new_trace(
 //             parent_id,
 //             indent,

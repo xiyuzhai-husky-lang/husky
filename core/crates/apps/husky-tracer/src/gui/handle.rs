@@ -87,9 +87,11 @@ impl HuskyTracerInternal {
                 if let Some(key) = opt_subtraces_key {
                     let subtraces = self.trace_time.subtraces(key);
                     let mut associated_traces = vec![];
-                    subtraces
-                        .iter()
-                        .for_each(|trace| trace.collect_associated_traces(&mut associated_traces));
+                    subtraces.iter().for_each(|trace_node_data| {
+                        trace_node_data
+                            .trace
+                            .collect_associated_traces(&mut associated_traces)
+                    });
                     Some(HuskyTracerServerMessageVariant::ToggleExpansion {
                         subtraces,
                         associated_traces,

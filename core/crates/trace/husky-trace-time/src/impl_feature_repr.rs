@@ -7,12 +7,11 @@ impl HuskyTraceTime {
         &mut self,
         parent: &Trace,
         feature_repr: &FeatureRepr,
-        text: &Text,
-    ) -> Vec<Arc<Trace>> {
+    ) -> Vec<TraceId> {
         match feature_repr {
             FeatureRepr::LazyExpr(_) => todo!(),
             FeatureRepr::LazyBlock(feature_block) => {
-                self.feature_lazy_block_subtraces(parent, feature_block, text)
+                self.feature_lazy_block_subtraces(parent, feature_block)
             }
             FeatureRepr::FuncBlock(_) => todo!(),
             FeatureRepr::ProcBlock(_) => todo!(),

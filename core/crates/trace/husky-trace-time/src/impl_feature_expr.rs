@@ -11,27 +11,22 @@ impl HuskyTraceTime {
     pub(crate) fn feature_expr_lines(
         &mut self,
         expr: &Arc<FeatureExpr>,
-        text: &Text,
         config: ExprTokenConfig,
     ) -> Vec<TraceLineData> {
         vec![TraceLineData {
             indent: 0,
             idx: 0,
-            tokens: self.feature_expr_tokens(expr, text, config),
+            tokens: self.feature_expr_tokens(expr, config),
         }]
     }
 
     pub(crate) fn feature_expr_tokens(
         &mut self,
         expr: &Arc<FeatureExpr>,
-        text: &Text,
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
         let opt_associated_trace_id = if config.associated {
-            Some(
-                self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone()), text)
-                    .id(),
-            )
+            Some(self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone())))
         } else {
             None
         };
@@ -43,9 +38,9 @@ impl HuskyTraceTime {
                 ref ropd,
             } => {
                 let mut tokens = vec![];
-                tokens.extend(self.feature_expr_tokens(lopd, text, config.subexpr()));
+                tokens.extend(self.feature_expr_tokens(lopd, config.subexpr()));
                 tokens.push(special!(opr.spaced_code(), opt_associated_trace_id));
-                tokens.extend(self.feature_expr_tokens(ropd, text, config.subexpr()));
+                tokens.extend(self.feature_expr_tokens(ropd, config.subexpr()));
                 tokens
             }
             FeatureExprVariant::Variable { varname, .. } => {
@@ -60,10 +55,10 @@ impl HuskyTraceTime {
                     LazyOpnKind::Prefix(_) => todo!(),
                     LazyOpnKind::FunctionRoutineCall(ranged_route) => self
                         .feature_routine_call_tokens(
+                            expr.expr.file,
                             ranged_route,
                             feature_opds,
                             opt_associated_trace_id,
-                            text,
                             config,
                         ),
                     LazyOpnKind::StructCall(_) => todo!(),
@@ -80,11 +75,7 @@ impl HuskyTraceTime {
                         output_binding,
                     } => {
                         let mut tokens = vec![];
-                        tokens.extend(self.feature_expr_tokens(
-                            &feature_opds[0],
-                            text,
-                            config.subexpr(),
-                        ));
+                        tokens.extend(self.feature_expr_tokens(&feature_opds[0], config.subexpr()));
                         tokens.push(special!("."));
                         tokens.push(ident!(method_ident.ident.0));
                         tokens.push(special!("("));
@@ -92,11 +83,9 @@ impl HuskyTraceTime {
                             if i > 1 {
                                 tokens.push(special!(", "))
                             }
-                            tokens.extend(self.feature_expr_tokens(
-                                &feature_opds[i],
-                                text,
-                                config.subexpr(),
-                            ));
+                            tokens.extend(
+                                self.feature_expr_tokens(&feature_opds[i], config.subexpr()),
+                            );
                         }
                         tokens.push(special!(")"));
                         tokens
@@ -107,6 +96,7 @@ impl HuskyTraceTime {
             },
             FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
             FeatureExprVariant::EntityFeature { .. } => {
+                let text = self.runtime.compile_time().text(expr.expr.file).unwrap();
                 vec![route!(
                     text.ranged(expr.expr.range),
                     opt_associated_trace_id
@@ -118,11 +108,11 @@ impl HuskyTraceTime {
             FeatureExprVariant::PatternCall {} => todo!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => {
                 let mut tokens = vec![];
-                tokens.extend(self.feature_expr_tokens(&opds[0], text, config.subexpr()));
+                tokens.extend(self.feature_expr_tokens(&opds[0], config.subexpr()));
                 tokens.push(special!("[", opt_associated_trace_id.clone()));
                 for i in 1..opds.len() {
                     let index_opd = &opds[i];
-                    tokens.extend(self.feature_expr_tokens(index_opd, text, config.subexpr()));
+                    tokens.extend(self.feature_expr_tokens(index_opd, config.subexpr()));
                 }
                 tokens.push(special!("]", opt_associated_trace_id));
                 tokens
@@ -131,45 +121,45 @@ impl HuskyTraceTime {
                 ref this,
                 field_ident,
                 ..
-            } => self.field_access_tokens(text, config, this, field_ident),
+            } => self.field_access_tokens(config, this, field_ident),
             FeatureExprVariant::StructOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
-            } => self.field_access_tokens(text, config, this, field_ident),
+            } => self.field_access_tokens(config, this, field_ident),
             FeatureExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
-            } => self.field_access_tokens(text, config, this, field_ident),
+            } => self.field_access_tokens(config, this, field_ident),
             FeatureExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
-            } => self.field_access_tokens(text, config, this, field_ident),
+            } => self.field_access_tokens(config, this, field_ident),
         };
     }
 
     fn field_access_tokens(
         &mut self,
-        text: &Text,
         config: ExprTokenConfig,
         this: &Arc<FeatureExpr>,
         field_ident: RangedCustomIdentifier,
     ) -> Vec<TraceTokenData> {
-        let mut tokens = self.feature_expr_tokens(this, text, config);
+        let mut tokens = self.feature_expr_tokens(this, config);
         tokens.extend([special!("."), ident!(field_ident.ident.as_str())]);
         tokens
     }
 
     fn feature_routine_call_tokens(
         &mut self,
+        file: FilePtr,
         ranged_scope: RangedEntityRoute,
         inputs: &[Arc<FeatureExpr>],
         opt_associated_trace_id: Option<TraceId>,
-        text: &Text,
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
+        let text = self.runtime.compile_time().text(file).unwrap();
         let mut tokens = vec![
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),
@@ -178,7 +168,7 @@ impl HuskyTraceTime {
             if i > 0 {
                 tokens.push(special!(", "));
             }
-            tokens.extend(self.feature_expr_tokens(input, text, config.subexpr()));
+            tokens.extend(self.feature_expr_tokens(input, config.subexpr()));
         }
         tokens.push(special!(")"));
         tokens

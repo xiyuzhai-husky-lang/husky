@@ -13,27 +13,24 @@ impl HuskyTraceTime {
         parent_id: TraceId,
         indent: Indent,
         stmt: Arc<ProcStmt>,
-        text: &Text,
         history: Arc<History<'static>>,
-    ) -> Arc<Trace> {
+    ) -> TraceId {
         self.new_trace(
             Some(parent_id),
             indent,
             TraceVariant::ProcStmt { stmt, history },
-            text,
         )
     }
 
     fn new_proc_branch_trace(
         &mut self,
-        text: &Text,
         parent_id: TraceId,
         indent: Indent,
         stmt: Arc<ProcStmt>,
         branch: Arc<ProcConditionBranch>,
         branch_idx: u8,
         history: Arc<History<'static>>,
-    ) -> Arc<Trace> {
+    ) -> TraceId {
         let opt_vm_branch = history.get(&stmt).map(|entry| match entry {
             HistoryEntry::ControlFlow { vm_branches, .. } => {
                 vm_branches[branch_idx as usize].clone()
@@ -50,19 +47,17 @@ impl HuskyTraceTime {
                 opt_vm_branch,
                 history,
             },
-            text,
         )
     }
 
     pub(crate) fn proc_stmt_lines(
         &mut self,
         stmt: &ProcStmt,
-        text: &Text,
         history: &Arc<History<'static>>,
     ) -> Vec<TraceLineData> {
         vec![TraceLineData {
             indent: stmt.indent,
-            tokens: self.proc_stmt_tokens(stmt, text, history),
+            tokens: self.proc_stmt_tokens(stmt, history),
             idx: 0,
         }]
     }
@@ -70,7 +65,6 @@ impl HuskyTraceTime {
     pub(crate) fn proc_stmt_tokens(
         &mut self,
         stmt: &ProcStmt,
-        text: &Text,
         history: &Arc<History<'static>>,
     ) -> Vec<TraceTokenData> {
         match stmt.variant {
@@ -88,7 +82,6 @@ impl HuskyTraceTime {
                 tokens.push(special!(" = "));
                 tokens.extend(self.eager_expr_tokens(
                     initial_value,
-                    text,
                     history,
                     ExprTokenConfig::stmt(),
                 ));
@@ -96,17 +89,11 @@ impl HuskyTraceTime {
             }
             ProcStmtVariant::Assert { ref condition } => {
                 let mut tokens = vec![keyword!("assert ")];
-                tokens.extend(self.eager_expr_tokens(
-                    condition,
-                    text,
-                    history,
-                    ExprTokenConfig::stmt(),
-                ));
+                tokens.extend(self.eager_expr_tokens(condition, history, ExprTokenConfig::stmt()));
                 tokens
             }
             ProcStmtVariant::Execute { ref expr } => {
-                let mut tokens =
-                    self.eager_expr_tokens(expr, text, history, ExprTokenConfig::exec());
+                let mut tokens = self.eager_expr_tokens(expr, history, ExprTokenConfig::exec());
                 match expr.variant {
                     EagerExprVariant::Opn {
                         ref opn_variant, ..
@@ -126,12 +113,7 @@ impl HuskyTraceTime {
             }
             ProcStmtVariant::Return { ref result } => {
                 let mut tokens = vec![keyword!("return ")];
-                tokens.extend(self.eager_expr_tokens(
-                    result,
-                    text,
-                    history,
-                    ExprTokenConfig::stmt(),
-                ));
+                tokens.extend(self.eager_expr_tokens(result, history, ExprTokenConfig::stmt()));
                 tokens
             }
             ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
@@ -146,9 +128,9 @@ impl HuskyTraceTime {
                     ..
                 } => {
                     let mut tokens = vec![keyword!("for ")];
-                    tokens.extend(self.initial_boundary_tokens(initial_boundary, text, history));
+                    tokens.extend(self.initial_boundary_tokens(initial_boundary, history));
                     tokens.push(ident!(frame_var.ident.0));
-                    tokens.extend(self.final_boundary_tokens(final_boundary, text, history));
+                    tokens.extend(self.final_boundary_tokens(final_boundary, history));
                     tokens.push(special!(":"));
                     tokens
                 }
@@ -159,7 +141,7 @@ impl HuskyTraceTime {
                 } => {
                     let mut tokens = vec![keyword!("forext ")];
                     tokens.push(ident!(frame_var.ident.0));
-                    tokens.extend(self.final_boundary_tokens(final_boundary, text, history));
+                    tokens.extend(self.final_boundary_tokens(final_boundary, history));
                     tokens.push(special!(":"));
                     tokens
                 }
@@ -167,7 +149,6 @@ impl HuskyTraceTime {
                     let mut tokens = vec![keyword!("while ")];
                     tokens.extend(self.eager_expr_tokens(
                         condition,
-                        text,
                         history,
                         ExprTokenConfig::loop_head(),
                     ));
@@ -178,7 +159,6 @@ impl HuskyTraceTime {
                     let mut tokens = vec![keyword!("do while ")];
                     tokens.extend(self.eager_expr_tokens(
                         condition,
-                        text,
                         history,
                         ExprTokenConfig::loop_head(),
                     ));
@@ -197,13 +177,11 @@ impl HuskyTraceTime {
     fn initial_boundary_tokens(
         &mut self,
         boundary: &Boundary,
-        text: &Text,
         history: &Arc<History<'static>>,
     ) -> Vec<TraceTokenData> {
         match boundary.opt_bound {
             Some(ref bound) => {
-                let mut tokens =
-                    self.eager_expr_tokens(bound, text, history, ExprTokenConfig::stmt());
+                let mut tokens = self.eager_expr_tokens(bound, history, ExprTokenConfig::stmt());
                 match boundary.kind {
                     BoundaryKind::UpperOpen => tokens.push(special!(" > ")),
                     BoundaryKind::UpperClosed => tokens.push(special!(" >= ")),
@@ -219,7 +197,6 @@ impl HuskyTraceTime {
     fn final_boundary_tokens(
         &mut self,
         boundary: &Boundary,
-        text: &Text,
         history: &Arc<History<'static>>,
     ) -> Vec<TraceTokenData> {
         match boundary.opt_bound {
@@ -230,12 +207,7 @@ impl HuskyTraceTime {
                     BoundaryKind::LowerOpen => " > ",
                     BoundaryKind::LowerClosed => " >= ",
                 })];
-                tokens.extend(self.eager_expr_tokens(
-                    bound,
-                    text,
-                    history,
-                    ExprTokenConfig::stmt(),
-                ));
+                tokens.extend(self.eager_expr_tokens(bound, history, ExprTokenConfig::stmt()));
                 tokens
             }
             None => vec![],
@@ -247,16 +219,14 @@ impl HuskyTraceTime {
         parent_id: TraceId,
         indent: Indent,
         stmts: &[Arc<ProcStmt>],
-        text: &Text,
         history: &Arc<History<'static>>,
-    ) -> Vec<Arc<Trace>> {
+    ) -> Vec<TraceId> {
         let mut traces = Vec::new();
         for stmt in stmts {
             match stmt.variant {
                 ProcStmtVariant::ConditionFlow { ref branches } => {
                     for (branch_idx, branch) in branches.iter().enumerate() {
                         traces.push(self.new_proc_branch_trace(
-                            text,
                             parent_id,
                             indent,
                             stmt.clone(),
@@ -270,7 +240,6 @@ impl HuskyTraceTime {
                     parent_id,
                     indent,
                     stmt.clone(),
-                    text,
                     history.clone(),
                 )),
             }
@@ -280,7 +249,6 @@ impl HuskyTraceTime {
 
     pub(crate) fn loop_subtraces(
         &mut self,
-        db: &dyn EvalFeature<'static>,
         parent: &Trace,
         loop_kind: VMLoopKind,
         loop_stmt: &Arc<ProcStmt>,
@@ -288,54 +256,48 @@ impl HuskyTraceTime {
         stack_snapshot: &StackSnapshot<'static>,
         body_instruction_sheet: &Arc<InstructionSheet>,
         verbose: bool,
-    ) -> Arc<Vec<Arc<Trace>>> {
-        let text = db.compile_time().text(parent.file).unwrap();
+    ) -> Vec<TraceId> {
+        let text = self.runtime.compile_time().text(parent.file).unwrap();
         let frames = exec_loop_debug(
-            db.upcast(),
+            &self.runtime,
             loop_kind,
             &body_instruction_sheet,
             stack_snapshot,
             verbose,
         );
-        Arc::new(
-            frames
-                .into_iter()
-                .map(|loop_frame_data| {
-                    self.new_trace(
-                        Some(parent.id()),
-                        parent.props.indent + 2,
-                        TraceVariant::LoopFrame {
-                            loop_stmt: loop_stmt.clone(),
-                            body_stmts: body_stmts.clone(),
-                            body_instruction_sheet: body_instruction_sheet.clone(),
-                            loop_frame_data,
-                        },
-                        &text,
-                    )
-                })
-                .collect(),
-        )
+        frames
+            .into_iter()
+            .map(|loop_frame_data| {
+                self.new_trace(
+                    Some(parent.id()),
+                    parent.props.indent + 2,
+                    TraceVariant::LoopFrame {
+                        loop_stmt: loop_stmt.clone(),
+                        body_stmts: body_stmts.clone(),
+                        body_instruction_sheet: body_instruction_sheet.clone(),
+                        loop_frame_data,
+                    },
+                )
+            })
+            .collect()
     }
 
     pub(crate) fn loop_frame_subtraces(
         &mut self,
-        db: &dyn EvalFeature<'static>,
-        text: &Text,
         loop_stmt: &Arc<ProcStmt>,
         stmts: &[Arc<ProcStmt>],
         instruction_sheet: &InstructionSheet,
         loop_frame_data: &LoopFrameData<'static>,
         parent: &Trace,
-        verbose: bool,
-    ) -> Avec<Trace> {
+    ) -> Vec<TraceId> {
         let history = exec_debug(
-            db.upcast(),
+            &self.runtime,
             instruction_sheet,
             &loop_frame_data.stack_snapshot,
-            verbose,
+            self.runtime.verbose(),
         );
         let mut subtraces: Vec<_> =
-            self.proc_stmts_traces(parent.id(), parent.props.indent + 2, stmts, text, &history);
+            self.proc_stmts_traces(parent.id(), parent.props.indent + 2, stmts, &history);
         match loop_stmt.variant {
             ProcStmtVariant::Loop {
                 ref loop_variant, ..
@@ -344,7 +306,6 @@ impl HuskyTraceTime {
                 LoopVariant::While { condition } => subtraces.insert(
                     0,
                     self.new_eager_expr_trace(
-                        text,
                         condition.clone(),
                         history.clone(),
                         Some(parent),
@@ -352,7 +313,6 @@ impl HuskyTraceTime {
                     ),
                 ),
                 LoopVariant::DoWhile { condition } => subtraces.push(self.new_eager_expr_trace(
-                    text,
                     condition.clone(),
                     history.clone(),
                     Some(parent),
@@ -361,7 +321,7 @@ impl HuskyTraceTime {
             },
             _ => panic!(),
         }
-        Arc::new(subtraces)
+        subtraces
     }
 
     pub(crate) fn loop_frame_lines(
@@ -398,40 +358,31 @@ impl HuskyTraceTime {
     pub(crate) fn proc_branch_subtraces(
         &mut self,
         db: &dyn EvalFeature<'static>,
-        text: &Text,
         stmts: &[Arc<ProcStmt>],
         instruction_sheet: &InstructionSheet,
         stack_snapshot: &StackSnapshot<'static>,
         parent: &Trace,
         verbose: bool,
-    ) -> Avec<Trace> {
+    ) -> Vec<TraceId> {
         let history = exec_debug(db.upcast(), instruction_sheet, stack_snapshot, verbose);
-        Arc::new(self.proc_stmts_traces(
-            parent.id(),
-            parent.props.indent + 2,
-            stmts,
-            text,
-            &history,
-        ))
+        self.proc_stmts_traces(parent.id(), parent.props.indent + 2, stmts, &history)
     }
 
     pub(crate) fn proc_branch_lines(
         &mut self,
-        text: &Text,
         indent: Indent,
         branch: &ProcConditionBranch,
         history: &Arc<History<'static>>,
     ) -> Vec<TraceLineData> {
         vec![TraceLineData {
             indent,
-            tokens: self.proc_branch_tokens(text, indent, branch, history),
+            tokens: self.proc_branch_tokens(indent, branch, history),
             idx: 0,
         }]
     }
 
     pub(crate) fn proc_branch_tokens(
         &mut self,
-        text: &Text,
         indent: Indent,
         branch: &ProcConditionBranch,
         history: &Arc<History<'static>>,
@@ -442,7 +393,6 @@ impl HuskyTraceTime {
                 tokens.push(keyword!("if "));
                 tokens.extend(self.eager_expr_tokens(
                     condition,
-                    text,
                     history,
                     ExprTokenConfig::branch(),
                 ));
@@ -452,7 +402,6 @@ impl HuskyTraceTime {
                 tokens.push(keyword!("elif "));
                 tokens.extend(self.eager_expr_tokens(
                     condition,
-                    text,
                     history,
                     ExprTokenConfig::branch(),
                 ));
