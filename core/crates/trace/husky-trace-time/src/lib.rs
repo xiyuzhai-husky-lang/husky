@@ -45,8 +45,8 @@ pub struct HuskyTraceTime {
     trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
     root_trace_ids: Vec<TraceId>,
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
-    figures: HashMap<FigureKey, FigureProps>,
-    figure_controls: HashMap<FigureControlKey, FigureControlProps>,
+    figures: HashMap<FigureKey, FigureContentData>,
+    figure_controls: HashMap<FigureControlKey, FigureControlData>,
 }
 
 impl HuskyTraceTime {

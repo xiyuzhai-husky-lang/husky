@@ -6,8 +6,8 @@ use std::rc::Rc;
 pub struct InitData {
     pub focus: Focus,
     pub trace_init_data: TraceInitState,
-    pub figures: Vec<(FigureKey, FigureProps)>,
-    pub figure_controls: Vec<(FigureControlKey, FigureControlProps)>,
+    pub figures: Vec<(FigureKey, FigureContentData)>,
+    pub figure_controls: Vec<(FigureControlKey, FigureControlData)>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

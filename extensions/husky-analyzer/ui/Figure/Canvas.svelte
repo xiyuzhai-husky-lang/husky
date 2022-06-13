@@ -1,21 +1,21 @@
 <script lang="ts">
-    import type FigureProps from "src/figure";
+    import type FigureContentProps from "src/figure";
     import Plot2dCanvas from "./Canvas/Plot2dCanvas.svelte";
     import Graphics2dCanvas from "./Canvas/Graphics2dCanvas.svelte";
     import PrimitiveValueCanvas from "./Canvas/PrimitiveValueCanvas.svelte";
-    import type { FigureControlProps } from "src/figure/control";
+    import type { FigureControlData } from "src/figure/control";
 
-    export let figure: FigureProps | null;
-    export let figure_control_props: FigureControlProps | null;
+    export let figure: FigureContentProps | null;
+    export let figure_control_props: FigureControlData | null;
     export let figure_canvas_height: number;
     export let figure_canvas_width: number;
 
     $: figure_selected = get_figure_selected(figure, figure_control_props);
 
     function get_figure_selected(
-        figure: FigureProps | null,
-        figure_control_props: FigureControlProps | null
-    ): FigureProps | null {
+        figure: FigureContentProps | null,
+        figure_control_props: FigureControlData | null
+    ): FigureContentProps | null {
         if (figure === null || figure_control_props === null) {
             return null;
         }
@@ -35,7 +35,7 @@
 </script>
 
 <div
-    class="FigureCanvas"
+    class="FigureContent"
     style="width: {figure_canvas_width}px; height: {figure_canvas_height}px"
 >
     {#if figure_selected !== null}
@@ -60,7 +60,7 @@
 </div>
 
 <style>
-    .FigureCanvas {
+    .FigureContent {
         display: flex;
         border: rgb(41, 41, 41) solid;
         background: black;

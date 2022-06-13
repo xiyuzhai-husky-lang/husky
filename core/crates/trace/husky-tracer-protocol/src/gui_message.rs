@@ -35,9 +35,9 @@ pub enum HuskyTracerGuiMessageVariant {
         trace_id: TraceId,
         input_id: usize,
     },
-    UpdateFigureControlProps {
+    UpdateFigureControlData {
         trace_id: TraceId,
         focus: Focus,
-        figure_control_props: FigureControlProps,
+        figure_control_props: FigureControlData,
     },
 }

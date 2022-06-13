@@ -10,7 +10,7 @@ use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(tag = "kind")]
-pub enum FigureProps {
+pub enum FigureContentData {
     Primitive {
         value: PrimitiveValueProps,
     },
@@ -34,8 +34,8 @@ pub enum FigureProps {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct MutationFigureProps {
     pub name: String,
-    pub before: Option<FigureProps>,
-    pub after: FigureProps,
+    pub before: Option<FigureContentData>,
+    pub after: FigureContentData,
     pub idx: usize,
 }
 
@@ -54,7 +54,7 @@ pub struct MutationFigureProps {
 //                 vm::MutationDataKind::Block { varname, .. } => varname.as_str().to_string(),
 //             },
 //             before: if let Some(before) = mutation_data.before.as_ref() {
-//                 Some(FigureProps::new_specific(visualizer.visualize(
+//                 Some(FigureContentData::new_specific(visualizer.visualize(
 //                     db,
 //                     before.any_ref(),
 //                     verbose,
@@ -62,7 +62,7 @@ pub struct MutationFigureProps {
 //             } else {
 //                 None
 //             },
-//             after: FigureProps::new_specific(visualizer.visualize(
+//             after: FigureContentData::new_specific(visualizer.visualize(
 //                 db,
 //                 mutation_data.after.any_ref(),
 //                 verbose,
@@ -72,23 +72,23 @@ pub struct MutationFigureProps {
 //     }
 // }
 
-impl FigureProps {
+impl FigureContentData {
     pub fn new_specific(visual_props: VisualProps) -> Self {
         match visual_props {
-            VisualProps::BinaryImage28 { padded_rows } => FigureProps::Graphics2d {
+            VisualProps::BinaryImage28 { padded_rows } => FigureContentData::Graphics2d {
                 image_layers: vec![ImageLayerProps::binary_image28(&padded_rows)],
                 shapes: Vec::new(),
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
-            VisualProps::Primitive { value } => FigureProps::Primitive { value },
-            VisualProps::BinaryGrid28 { ref padded_rows } => FigureProps::Graphics2d {
+            VisualProps::Primitive { value } => FigureContentData::Primitive { value },
+            VisualProps::BinaryGrid28 { ref padded_rows } => FigureContentData::Graphics2d {
                 image_layers: vec![],
                 shapes: vec![Shape2dProps::laser_grid28(padded_rows)],
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
-            VisualProps::Contour { points } => FigureProps::Graphics2d {
+            VisualProps::Contour { points } => FigureContentData::Graphics2d {
                 image_layers: vec![],
                 shapes: vec![Shape2dProps::Contour { points }],
                 xrange: (0.0, 28.0),
@@ -96,7 +96,7 @@ impl FigureProps {
             },
             VisualProps::Group(mut visuals) => {
                 if visuals.len() == 0 {
-                    return FigureProps::void();
+                    return FigureContentData::void();
                 }
                 if visuals.len() == 1 {
                     return Self::new_specific(visuals.pop().unwrap());
@@ -112,7 +112,7 @@ impl FigureProps {
                     VisualProps::Group(_) => todo!(),
                 }
             }
-            VisualProps::LineSegment { start, end } => FigureProps::Graphics2d {
+            VisualProps::LineSegment { start, end } => FigureContentData::Graphics2d {
                 image_layers: vec![],
                 shapes: vec![Shape2dProps::LineSegment { start, end }],
                 xrange: (0.0, 28.0),
@@ -140,7 +140,7 @@ impl FigureProps {
                 }
             }
         }
-        FigureProps::Graphics2d {
+        FigureContentData::Graphics2d {
             image_layers,
             shapes,
             xrange: (0.0, 28.0),

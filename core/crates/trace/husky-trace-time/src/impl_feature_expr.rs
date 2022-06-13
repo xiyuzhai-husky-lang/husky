@@ -174,15 +174,19 @@ impl HuskyTraceTime {
         tokens
     }
 
-    pub(crate) fn feature_expr_figure(&self, expr: &FeatureExpr, focus: &Focus) -> FigureProps {
+    pub(crate) fn feature_expr_figure(
+        &self,
+        expr: &FeatureExpr,
+        focus: &Focus,
+    ) -> FigureContentData {
         match focus.opt_input_id {
             Some(input_id) => {
                 if let Ok(value) = self.runtime.eval_feature_expr(expr, input_id) {
-                    FigureProps::new_specific(
+                    FigureContentData::new_specific(
                         self.runtime.visualize(expr.expr.ty(), value.any_ref()),
                     )
                 } else {
-                    FigureProps::void()
+                    FigureContentData::void()
                 }
             }
             None => todo!(),

@@ -4,7 +4,7 @@ import { FigureState } from "./state/figure_state";
 import { InitState } from "./state/init_state";
 import { FocusState } from "./state/focus_state";
 import type { Focus } from "./focus";
-import type FigureProps from "./figure";
+import type FigureContentProps from "./figure";
 import {
     derived,
     get,
@@ -14,7 +14,7 @@ import {
     type Writable,
 } from "svelte/store";
 import type { Trace } from "./trace";
-import type { FigureControlProps } from "./figure/control";
+import type { FigureControlData } from "./figure/control";
 import { decode_trace_stalk } from "./trace/stalk";
 import {
     decode_array,
@@ -86,8 +86,8 @@ class DebuggerState {
     did_activate(
         trace: Trace,
         opt_focus_for_figure: Focus | null = null,
-        opt_figure_props: FigureProps | null = null,
-        opt_figure_control: FigureControlProps | null = null
+        opt_figure_props: FigureContentProps | null = null,
+        opt_figure_control: FigureControlData | null = null
     ) {
         if (opt_figure_props !== null) {
             if (opt_focus_for_figure === null) {
@@ -278,7 +278,7 @@ class DebuggerState {
         }
     }
 
-    figure_props(active_trace_id: number, focus: Focus): FigureProps {
+    figure_props(active_trace_id: number, focus: Focus): FigureContentProps {
         try {
             let figure_props = this.figure_state.get_figure(
                 active_trace_id,
@@ -291,7 +291,7 @@ class DebuggerState {
         }
     }
 
-    figure_control_store(trace: Trace): Readable<FigureControlProps> {
+    figure_control_store(trace: Trace): Readable<FigureControlData> {
         try {
             return this.figure_state.get_figure_control_store(trace);
         } catch (error) {
@@ -300,14 +300,14 @@ class DebuggerState {
         }
     }
 
-    update_figure_control_props(updater: Updater<FigureControlProps>) {
+    update_figure_control_props(updater: Updater<FigureControlData>) {
         const active_trace = get(active_trace_store);
         if (active_trace === null) {
             throw new Error("todo");
         }
         this.figure_state.update_figure_control_props(
             active_trace,
-            (figure_control_props: FigureControlProps) => {
+            (figure_control_props: FigureControlData) => {
                 const new_value = updater(figure_control_props);
                 this.server.send_request({
                     kind: "UpdateFigureControlProps",
