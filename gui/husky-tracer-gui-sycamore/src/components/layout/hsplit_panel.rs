@@ -37,7 +37,10 @@ pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: HSplitPanelProps<'a>) -
     let context = use_context::<TracerContext>(scope);
     let root_trace_ids = &context.tree_context.root_trace_ids;
     let left_panel_style = memo!(scope, props.left_panel_style(), props);
+    let left_panel_width = memo!(scope, props.left_panel_width(), props);
     let right_panel_style = memo!(scope, props.right_panel_style(), props);
+    let right_panel_width = memo!(scope, props.right_panel_width(), props);
+    let panel_height = memo!(scope, props.panel_height(), props);
     view! {
         scope,
         div(class="HuskyTracerHSplitPanel") {
@@ -45,7 +48,10 @@ pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: HSplitPanelProps<'a>) -
                 TraceView {}
             }
             div(class="HuskyTracerHSplitPanelRight", style=right_panel_style) {
-                FigureView {}
+                FigureView {
+                    width: right_panel_width,
+                    height: panel_height,
+                }
             }
         }
     }
