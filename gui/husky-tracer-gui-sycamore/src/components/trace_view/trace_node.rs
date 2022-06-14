@@ -24,22 +24,21 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let has_subtraces = create_memo(scope, move || {
         tell_has_subtraces(trace_kind, can_have_subtraces, &focus.get())
     });
-    let toggle_expansion = tracer_context.toggle_expansion_handler(props.trace_id);
-
-    // Rc::new(move || expansion.set(!expansion.get_cloned()));
+    let toggle_expansion_handler = tracer_context.toggle_expansion_handler(props.trace_id);
+    let activate_handler = tracer_context.activate_handler(props.trace_id);
     let trace_lines = View::new_fragment(
         trace
             .lines
             .iter()
             .map(|line_data| {
-                let toggle_expansion = toggle_expansion.clone();
+                let toggle_expansion_handler = toggle_expansion_handler.clone();
                 view! { scope,
                     TraceLine {
                         data: line_data.clone(),
                         trace_kind,
                         has_subtraces,
                         expanded,
-                        toggle_expansion
+                        toggle_expansion_handler
                     }
                 }
             })
@@ -47,7 +46,10 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     );
     view! {
         scope,
-        div(class="TraceNode") {
+        div(
+            class="TraceNode",
+            on:mousedown=activate_handler
+        ) {
             (trace_lines)
         }
     }

@@ -45,7 +45,7 @@ pub struct HuskyTraceTime {
     trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
     root_trace_ids: Vec<TraceId>,
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
-    figures: HashMap<FigureKey, FigureCanvasData>,
+    figures: HashMap<FigureCanvasKey, FigureCanvasData>,
     figure_controls: HashMap<FigureControlKey, FigureControlData>,
 }
 
@@ -260,11 +260,11 @@ impl HuskyTraceTime {
         if let Some(active_trace_id) = opt_active_trace_id {
             let active_trace = self.trace(active_trace_id);
             figures.push((
-                FigureKey::new(&active_trace.props),
+                FigureCanvasKey::new(&active_trace.props, &focus),
                 self.figure(active_trace_id, &focus),
             ));
             figure_controls.push((
-                FigureControlKey::new(&active_trace.props),
+                FigureControlKey::new(&active_trace.props, &focus),
                 unsafe { ref_to_mut_ref(self) }.figure_control(&active_trace, &focus),
             ));
         }
