@@ -28,7 +28,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     .figure_canvas_data(&active_trace, &focus.get())
             );
             match *data.get_cloned() {
-                FigureCanvasData::Primitive { value } =>{
+                FigureCanvasData::Primitive { value } => {
                     view!{
                         scope,
                         PrimitiveValueCanvas {
@@ -36,8 +36,40 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                         }
                     }
                 },
-                FigureCanvasData::Plot2d { .. } => todo!(),
-                FigureCanvasData::Graphics2d { .. } => todo!(),
+                FigureCanvasData::Plot2d {
+                    plot_kind,
+                    ref point_groups,
+                    xrange,
+                    yrange
+                } => {
+                    view!{
+                        scope,
+                        Plot2dCanvas {
+                            dimension: props.dimension,
+                            plot_kind,
+                            point_groups: point_groups.clone(),
+                            xrange,
+                            yrange,
+                        }
+                    }
+                },
+                FigureCanvasData::Graphics2d {
+                    ref image_layers,
+                    ref shapes,
+                    xrange,
+                    yrange
+                } => {
+                    view!{
+                        scope,
+                        Graphics2dCanvas {
+                            dimension: props.dimension,
+                            image_layers: Rc::new(image_layers.clone()),
+                            shapes: Rc::new(shapes.clone()),
+                            xrange,
+                            yrange,
+                        }
+                    }
+                },
                 FigureCanvasData::Mutations { .. } => todo!(),
             }
         } else {

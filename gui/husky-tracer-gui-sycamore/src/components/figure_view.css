@@ -27,3 +27,16 @@
     width: 20%;
     height: 98%;
 }
+
+.FigureView svg .red {
+    fill: red;
+}
+.FigureView svg .yellow {
+    fill: yellow;
+}
+.FigureView svg .green {
+    fill: green;
+}
+.FigureView svg .blue {
+    fill: blue;
+}

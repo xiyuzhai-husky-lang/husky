@@ -1,14 +1,63 @@
 mod image;
-mod shape;
+mod shape2d;
 
 use super::*;
 use image::*;
-use shape::*;
+use shape2d::*;
 
 #[derive(Prop)]
-pub struct Graphics2dCanvasProps {
-    image_layers: Vec<ImageLayerData>,
-    shapes: Vec<Shape2dData>,
+pub struct Graphics2dCanvasProps<'a> {
+    dimension: &'a ReadSignal<PixelDimension>,
+    image_layers: Rc<Vec<ImageLayerData>>,
+    shapes: Rc<Vec<Shape2dData>>,
     xrange: (f32, f32),
     yrange: (f32, f32),
+}
+
+impl<'a> Graphics2dCanvasProps<'a> {
+    fn svg_view_box(&self) -> String {
+        let xmin = self.xrange.0;
+        let width = self.xrange.1 - self.xrange.0;
+        let ymin = 0;
+        let height = self.yrange.1 - self.yrange.0;
+        format!("{xmin} {ymin} {width} {height}")
+    }
+
+    fn svg_transform(&self) -> String {
+        format!("matrix(1 0 0 -1 0 {})", self.yrange.1)
+    }
+}
+#[component]
+pub fn Graphics2dCanvas<'a, G: Html>(
+    scope: Scope<'a>,
+    props: Graphics2dCanvasProps<'a>,
+) -> View<G> {
+    let transform = props.svg_transform();
+    let view_box = props.svg_view_box();
+    view! {
+        scope,
+        div (class="Graphics2dWrapper") {
+            Image {
+                dimension: props.dimension,
+                image_layers: props.image_layers,
+            }
+            svg (
+                style=props.dimension.get().to_style(),
+                view_box=view_box
+            ) {
+                g (
+                    transform=transform
+                ) {
+                    (View::new_fragment(props.shapes.iter().map(|data| {
+                        view! {
+                            scope,
+                            Shape2d {
+                                data: data.clone()
+                            }
+                        }
+                    }).collect()))
+                }
+            }
+        }
+    }
 }
