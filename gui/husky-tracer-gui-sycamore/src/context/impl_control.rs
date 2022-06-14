@@ -1,5 +1,5 @@
 use super::*;
-use web_sys::Event;
+use web_sys::{Event, KeyboardEvent};
 
 impl TracerContext {
     pub fn toggle_expansion_handler(&self, trace_id: TraceId) -> Rc<dyn Fn()> {
@@ -10,6 +10,42 @@ impl TracerContext {
     pub fn activate_handler(&self, trace_id: TraceId) -> impl Fn(Event) {
         let this = self.clone();
         move |_| this.activate(trace_id)
+    }
+
+    pub fn keydown_handler(&self) -> impl Fn(Event) {
+        let this = self.clone();
+        move |ev| {
+            let ev: KeyboardEvent = ev.unchecked_into();
+            let c = char::from_u32(ev.key_code()).unwrap();
+            match c {
+                'T' => {
+                    // 't'
+                    todo!("t")
+                }
+                'C' => {
+                    // 't'
+                    // log::info!("figure context is \n:{:?}", this.figure_context);
+                    // log::info!("fcous context is \n:{:?}", this.focus_context);
+                    log::info!(
+                        "opt active trace id is \n:{:?}",
+                        this.tree_context.opt_active_trace_id
+                    );
+                }
+                'J' => {
+                    todo!()
+                }
+                'K' => {
+                    todo!()
+                }
+                'L' => {
+                    todo!()
+                }
+                'H' => {
+                    todo!()
+                }
+                _ => log::info!("keydown with char: {}", c),
+            }
+        }
     }
 
     fn activate(&self, trace_id: TraceId) {
@@ -43,8 +79,7 @@ impl TracerContext {
                             figure_canvas_data,
                             figure_control_data,
                         );
-                        // , focus, figure_props, figure_control_props);
-                        this.tree_context.did_activate(trace_id)
+                        this.tree_context.did_activate(trace_id);
                     }
                     _ => panic!(),
                 })),

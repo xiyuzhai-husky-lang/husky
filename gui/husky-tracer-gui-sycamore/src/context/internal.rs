@@ -3,6 +3,8 @@ use wasm_bindgen::JsCast;
 use web_sys::Element;
 
 use super::*;
+
+#[derive(Debug)]
 pub struct TracerContextInternal {
     pub ws: WebsocketService,
     pub window_inner_height: Rc<Signal<f64>>,

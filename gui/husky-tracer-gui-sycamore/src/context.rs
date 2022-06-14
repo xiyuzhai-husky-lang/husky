@@ -21,7 +21,7 @@ use std::{
 };
 use wasm_bindgen_futures::spawn_local;
 
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct TracerContext(Rc<TracerContextInternal>);
 
 impl TracerContext {
