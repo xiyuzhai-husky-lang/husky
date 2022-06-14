@@ -30,4 +30,5 @@ features = [
     'MouseEvent',
     'Node',
     'Window',
+    'KeyboardEvent'
 ]
