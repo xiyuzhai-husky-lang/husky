@@ -1,0 +1,7 @@
+.FigureCanvas {
+    width: 95%;
+    height: 97%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

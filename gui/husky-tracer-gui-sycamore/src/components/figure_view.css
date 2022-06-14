@@ -7,10 +7,18 @@
     height: 100%;
     background: rgb(101, 163, 165);
 }
-.FigureCanvas {
+.FigureContent {
     width: 95%;
     height: 97%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.FigureCanvasContainer {
+    border: black solid 1px;
+}
+
+.FigureControlContainer {
+    border: black solid 1px;
 }
