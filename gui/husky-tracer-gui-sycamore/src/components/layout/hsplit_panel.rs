@@ -45,7 +45,7 @@ pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: HSplitPanelProps<'a>) -
                 TraceView {}
             }
             div(class="HuskyTracerHSplitPanelRight", style=right_panel_style) {
-                "Value: " (props.width.get())
+                FigureView {}
             }
         }
     }
