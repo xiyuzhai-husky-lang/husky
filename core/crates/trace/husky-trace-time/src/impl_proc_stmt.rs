@@ -415,7 +415,7 @@ impl HuskyTraceTime {
         tokens
     }
 
-    pub(crate) fn proc_stmt_figure(&self, stmt: &ProcStmt, history: &History) -> FigureContentData {
+    pub(crate) fn proc_stmt_figure(&self, stmt: &ProcStmt, history: &History) -> FigureCanvasData {
         match stmt.variant {
             ProcStmtVariant::Init {
                 varname,
@@ -433,7 +433,7 @@ impl HuskyTraceTime {
                         }
                     }
                 } else {
-                    FigureContentData::void()
+                    FigureCanvasData::void()
                 }
             }
             ProcStmtVariant::Return { ref result } => self.eager_expr_figure(result, history),
@@ -450,10 +450,10 @@ impl HuskyTraceTime {
                         _ => panic!(),
                     }
                 } else {
-                    FigureContentData::void()
+                    FigureCanvasData::void()
                 }
             }
-            ProcStmtVariant::Break => FigureContentData::void(),
+            ProcStmtVariant::Break => FigureCanvasData::void(),
             ProcStmtVariant::Match {
                 ref match_expr,
                 ref branches,
@@ -466,7 +466,7 @@ impl HuskyTraceTime {
         loop_trace_id: TraceId,
         frame_mutations: &[MutationData],
         frame_stack_snapshot: &StackSnapshot,
-    ) -> FigureContentData {
+    ) -> FigureCanvasData {
         let loop_trace = self.trace(loop_trace_id);
         let mutations = match loop_trace.variant {
             TraceVariant::ProcStmt {
@@ -497,7 +497,7 @@ impl HuskyTraceTime {
                             //     self.verbose(),
                             // )
                         } else {
-                            MutationFigureProps {
+                            MutationFigureData {
                                 name: match mutation.kind {
                                     MutationDataKind::Exec { range } => panic!(),
                                     MutationDataKind::Block { stack_idx, varname } => {
@@ -505,7 +505,7 @@ impl HuskyTraceTime {
                                     }
                                 },
                                 before: None,
-                                after: FigureContentData::new_specific(self.runtime.visualize(
+                                after: FigureCanvasData::new_specific(self.runtime.visualize(
                                     mutation.ty,
                                     frame_stack_snapshot[mutation.varidx()].any_ref(),
                                 )),
@@ -518,11 +518,11 @@ impl HuskyTraceTime {
             },
             _ => panic!(),
         };
-        FigureContentData::Mutations { mutations }
+        FigureCanvasData::Mutations { mutations }
     }
 
-    pub fn mutations_figure(&self, mutations: &[MutationData]) -> FigureContentData {
-        FigureContentData::Mutations {
+    pub fn mutations_figure(&self, mutations: &[MutationData]) -> FigureCanvasData {
+        FigureCanvasData::Mutations {
             mutations: mutations
                 .iter()
                 .enumerate()

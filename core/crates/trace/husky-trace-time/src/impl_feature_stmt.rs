@@ -56,14 +56,14 @@ impl HuskyTraceTime {
         &self,
         stmt: &FeatureStmt,
         focus: &Focus,
-    ) -> FigureContentData {
+    ) -> FigureCanvasData {
         match stmt.variant {
             FeatureStmtVariant::Init { varname, ref value } => {
                 self.feature_expr_figure(value, focus)
             }
-            FeatureStmtVariant::Assert { .. } => FigureContentData::void(),
+            FeatureStmtVariant::Assert { .. } => FigureCanvasData::void(),
             FeatureStmtVariant::Return { ref result } => self.feature_expr_figure(result, focus),
-            FeatureStmtVariant::ConditionFlow { ref branches } => FigureContentData::void(),
+            FeatureStmtVariant::ConditionFlow { ref branches } => FigureCanvasData::void(),
         }
     }
 }

@@ -3,12 +3,12 @@ import type { Readable, Updater, Writable } from "svelte/store";
 import type { FigureControlData } from "src/figure/control";
 import StoreStringMap from "src/abstraction/StoreStringMap";
 import type { InitState } from "./init_state";
-import type FigureContentProps from "src/figure";
+import type FigureCanvasProps from "src/figure";
 import type { Focus } from "src/focus";
 import Dict from "src/abstraction/Dict";
 
 export class FigureState {
-    figures: Dict<FigureContentProps> = new Dict<FigureContentProps>();
+    figures: Dict<FigureCanvasProps> = new Dict<FigureCanvasProps>();
     figure_control_stores: StoreStringMap<FigureControlData> =
         new StoreStringMap();
 
@@ -20,7 +20,7 @@ export class FigureState {
     set_figure(
         trace: Trace,
         focus: Focus,
-        figure: FigureContentProps,
+        figure: FigureCanvasProps,
         figure_control_props: FigureControlData
     ) {
         let key = focus.gen_figure_key(trace.id);
@@ -29,7 +29,7 @@ export class FigureState {
         this.set_figure_control_props(trace, figure_control_props);
     }
 
-    get_figure(trace_id: number, focus: Focus): FigureContentProps {
+    get_figure(trace_id: number, focus: Focus): FigureCanvasProps {
         let key = focus.gen_figure_key(trace_id);
         // if (!(key in this.figures)) {
         //     throw new Error(

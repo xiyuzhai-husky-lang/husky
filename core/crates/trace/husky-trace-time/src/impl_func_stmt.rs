@@ -81,7 +81,7 @@ impl HuskyTraceTime {
         }
     }
 
-    pub(crate) fn func_stmt_figure(&self, stmt: &FuncStmt, history: &History) -> FigureContentData {
+    pub(crate) fn func_stmt_figure(&self, stmt: &FuncStmt, history: &History) -> FigureCanvasData {
         match stmt.variant {
             FuncStmtVariant::Init {
                 varname,

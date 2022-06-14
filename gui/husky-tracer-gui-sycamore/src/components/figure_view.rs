@@ -1,13 +1,13 @@
-mod figure_content;
+mod figure_canvas;
 mod figure_control;
 
 use super::*;
-use figure_content::*;
+use figure_canvas::*;
 use figure_control::*;
 
 #[derive(Prop, Clone)]
 pub struct FigureViewProps {
-    figure_content_data: FigureContentData,
+    figure_canvas_data: FigureCanvasData,
     figure_control_data: FigureControlData,
 }
 
@@ -20,8 +20,8 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps) -> View
                 "title"
             }
         }
-        FigureContent {
-            data: props.figure_content_data
+        FigureCanvas {
+            data: props.figure_canvas_data
         }
         FigureControl {
             data: props.figure_control_data

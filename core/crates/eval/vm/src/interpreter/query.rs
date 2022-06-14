@@ -7,7 +7,7 @@ pub trait InterpreterQueryGroup {
         &self,
         ty: EntityRoutePtr,
         value: &(dyn AnyValueDyn<'eval> + 'temp),
-    ) -> VisualProps;
+    ) -> VisualData;
 }
 
 // impl InterpreterQueryGroup for HuskyCompileTime {

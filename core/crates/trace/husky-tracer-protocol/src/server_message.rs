@@ -15,7 +15,7 @@ pub enum HuskyTracerServerMessageVariant {
         init_data: InitData,
     },
     Activate {
-        figure_props: FigureContentData,
+        figure_props: FigureCanvasData,
         figure_control_props: FigureControlData,
     },
     ToggleExpansion {
@@ -34,7 +34,7 @@ pub enum HuskyTracerServerMessageVariant {
     LockFocus {
         focus: Focus,
         opt_active_trace_id_for_figure: Option<TraceId>,
-        opt_figure: Option<FigureContentData>,
+        opt_figure: Option<FigureCanvasData>,
         opt_figure_control: Option<FigureControlData>,
     },
     TraceStalk {

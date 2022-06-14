@@ -20,8 +20,8 @@ export type MutationsFigureProps = {
 
 export type MutationFigureProps = {
     name: string;
-    before: FigureContentProps | null;
-    after: FigureContentProps;
+    before: FigureCanvasProps | null;
+    after: FigureCanvasProps;
     idx: number;
 };
 
@@ -46,15 +46,15 @@ export type Plot2dProps = {
     yrange: [number, number];
 };
 
-type FigureContentProps =
+type FigureCanvasProps =
     | GalleryProps
     | Graphics2dProps
     | Plot2dProps
     | PrimitiveValueVisualProps
     | MutationsFigureProps;
-export default FigureContentProps;
+export default FigureCanvasProps;
 
-export function decode_figure_props(data: unknown): FigureContentProps {
+export function decode_figure_props(data: unknown): FigureCanvasProps {
     console.log("decode figure props input = ", data);
     let kind = d_memb_old(data, "kind", decode_string);
     switch (kind) {

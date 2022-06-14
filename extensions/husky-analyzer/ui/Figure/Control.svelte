@@ -1,9 +1,9 @@
 <script lang="ts">
     import type FlexDirection from "src/abstraction/FlexDiretion";
     import type { FigureControlData } from "src/figure/control";
-    import type FigureContentProps from "src/figure";
+    import type FigureCanvasProps from "src/figure";
     import MutationsControl from "./Control/MutationGroupControl.svelte";
-    export let figure: FigureContentProps | null;
+    export let figure: FigureCanvasProps | null;
     export let figure_control_props: FigureControlData | null;
     export let figure_control_height: number;
     export let figure_control_width: number;

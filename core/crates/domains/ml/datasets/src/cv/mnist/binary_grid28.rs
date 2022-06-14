@@ -132,9 +132,9 @@ impl std::fmt::Debug for BinaryGrid28 {
 }
 
 impl BinaryGrid28 {
-    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps {
+    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
         let value: &BinaryGrid28 = value.downcast_ref();
-        VisualProps::BinaryGrid28 {
+        VisualData::BinaryGrid28 {
             padded_rows: value.padded_rows.clone(),
         }
     }

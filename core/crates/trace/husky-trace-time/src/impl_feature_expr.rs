@@ -178,15 +178,15 @@ impl HuskyTraceTime {
         &self,
         expr: &FeatureExpr,
         focus: &Focus,
-    ) -> FigureContentData {
+    ) -> FigureCanvasData {
         match focus.opt_input_id {
             Some(input_id) => {
                 if let Ok(value) = self.runtime.eval_feature_expr(expr, input_id) {
-                    FigureContentData::new_specific(
+                    FigureCanvasData::new_specific(
                         self.runtime.visualize(expr.expr.ty(), value.any_ref()),
                     )
                 } else {
-                    FigureContentData::void()
+                    FigureCanvasData::void()
                 }
             }
             None => todo!(),

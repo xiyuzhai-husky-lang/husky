@@ -144,9 +144,9 @@ impl BinaryImage28 {
         Self { padded_rows }
     }
 
-    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps {
+    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
         let value: &BinaryImage28 = value.downcast_ref();
-        VisualProps::BinaryImage28 {
+        VisualData::BinaryImage28 {
             padded_rows: value.padded_rows.clone(),
         }
     }

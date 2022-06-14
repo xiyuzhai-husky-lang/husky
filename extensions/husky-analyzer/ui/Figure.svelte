@@ -1,11 +1,11 @@
 <script lang="ts">
     import FlexDirection from "src/abstraction/FlexDiretion";
     import type { FigureControlData } from "src/figure/control";
-    import type FigureContentProps from "src/figure";
-    import FigureContent from "./Figure/Canvas.svelte";
+    import type FigureCanvasProps from "src/figure";
+    import FigureCanvas from "./Figure/Canvas.svelte";
     import FigureControl from "./Figure/Control.svelte";
 
-    export let figure: FigureContentProps | null;
+    export let figure: FigureCanvasProps | null;
     export let figure_control_props: FigureControlData | null;
     let window_height: number;
     let figure_height: number;
@@ -74,10 +74,10 @@
 >
     <p>title</p>
     <div
-        class="FigureContent"
+        class="FigureCanvas"
         style="flex-direction: {figure_flex_direction.code()}"
     >
-        <FigureContent
+        <FigureCanvas
             {figure}
             {figure_control_props}
             {figure_canvas_height}
@@ -103,7 +103,7 @@
         height: 100%;
         background: rgb(101, 163, 165);
     }
-    .FigureContent {
+    .FigureCanvas {
         width: 95%;
         height: 97%;
         display: flex;

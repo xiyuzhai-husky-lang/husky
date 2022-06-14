@@ -1,6 +1,6 @@
 use crate::*;
 
-impl<'eval> AnyValue<'eval> for VisualProps {
+impl<'eval> AnyValue<'eval> for VisualData {
     fn static_type_id() -> StaticTypeId {
         std::any::TypeId::of::<Self>().into()
     }

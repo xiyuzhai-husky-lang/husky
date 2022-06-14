@@ -7,7 +7,7 @@
     height: 100%;
     background: rgb(101, 163, 165);
 }
-.FigureContent {
+.FigureCanvas {
     width: 95%;
     height: 97%;
     display: flex;
