@@ -24,11 +24,16 @@ impl TracerContext {
     }
 
     fn receive_init_data(&self, init_data: InitData) {
+        log::info!("receive_init_data");
+        if init_data.trace_init_data.opt_active_trace_id.is_some() {
+            assert!(init_data.figure_canvases.len() > 0);
+        }
+        // order matters
+        self.focus_context.init(init_data.focus.clone());
+        self.figure_context
+            .init(init_data.figure_canvases, init_data.figure_controls);
         self.tree_context
             .init(&init_data.focus, init_data.trace_init_data);
-        self.figure_context
-            .init(init_data.figures, init_data.figure_controls);
-        self.focus_context.init(init_data.focus)
     }
 
     fn spawn_listening(&self, mut read: Receiver<HuskyTracerServerMessage>) {

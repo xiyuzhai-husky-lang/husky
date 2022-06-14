@@ -6,7 +6,7 @@ use std::rc::Rc;
 pub struct InitData {
     pub focus: Focus,
     pub trace_init_data: TraceInitState,
-    pub figures: Vec<(FigureCanvasKey, FigureCanvasData)>,
+    pub figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)>,
     pub figure_controls: Vec<(FigureControlKey, FigureControlData)>,
 }
 

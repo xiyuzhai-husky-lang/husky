@@ -13,7 +13,26 @@ pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a
     view! {
         scope,
         (if let Some(active_trace_id) = opt_active_trace_id.get_cloned() {
-            todo!()
+            let active_trace = context.tree_context.trace(active_trace_id);
+            let canvas_data = memo!(
+                scope,
+                context
+                    .figure_context
+                    .figure_canvas_data(&active_trace, &focus.get()),
+                active_trace
+            );
+            let control_data = memo!(
+                scope,
+                context
+                    .figure_context
+                    .figure_control_data(&active_trace, &focus.get())
+            );
+            match *canvas_data.get_cloned() {
+                FigureCanvasData::Primitive { value } => todo!(),
+                FigureCanvasData::Plot2d { plot_kind,ref point_groups, xrange, yrange } => todo!(),
+                FigureCanvasData::Graphics2d { ref image_layers,ref shapes, xrange, yrange } => todo!(),
+                FigureCanvasData::Mutations { ref mutations } => todo!(),
+            }
         } else {
             "no active trace"
         })

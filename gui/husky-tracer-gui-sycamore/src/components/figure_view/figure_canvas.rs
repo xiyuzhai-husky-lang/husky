@@ -1,9 +1,11 @@
 mod graphics2d;
 mod plot2d;
+mod primitive_value;
 
 use super::*;
 use graphics2d::*;
 use plot2d::*;
+use primitive_value::*;
 
 #[derive(Prop)]
 pub struct FigureCanvasProps<'a> {
@@ -26,13 +28,23 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     .figure_canvas_data(&active_trace, &focus.get())
             );
             match *data.get_cloned() {
-                FigureCanvasData::Primitive { value } => todo!(),
+                FigureCanvasData::Primitive { value } =>{
+                    view!{
+                        scope,
+                        PrimitiveValueCanvas {
+                            value
+                        }
+                    }
+                },
                 FigureCanvasData::Plot2d { .. } => todo!(),
                 FigureCanvasData::Graphics2d { .. } => todo!(),
                 FigureCanvasData::Mutations { .. } => todo!(),
             }
         } else {
-            "no active trace"
+            view!{
+                scope,
+                "no active trace"
+            }
         })
     }
 }
