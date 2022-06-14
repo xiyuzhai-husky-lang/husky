@@ -30,6 +30,10 @@ impl TreeContext {
         // self.update_trace_listing(focus);
     }
 
+    pub(crate) fn did_activate(&self, trace_id: TraceId) {
+        self.opt_active_trace_id.set(Some(trace_id))
+    }
+
     // print_state() {
     //     console.log("trace control:");
     //     console.log("    shown_stores:");

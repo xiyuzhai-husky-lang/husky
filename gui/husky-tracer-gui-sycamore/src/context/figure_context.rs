@@ -2,14 +2,14 @@ use super::*;
 
 #[derive(Debug, Default)]
 pub struct FigureContext {
-    figures: RefCell<HashMap<FigureKey, Rc<FigureCanvasData>>>,
+    figures: RefCell<HashMap<FigureCanvasKey, Rc<FigureCanvasData>>>,
     figure_control_stores: RefCell<HashMap<FigureControlKey, Signal<FigureControlData>>>,
 }
 
 impl FigureContext {
     pub(super) fn init(
         &self,
-        figures: Vec<(FigureKey, FigureCanvasData)>,
+        figures: Vec<(FigureCanvasKey, FigureCanvasData)>,
         figure_controls: Vec<(FigureControlKey, FigureControlData)>,
     ) {
         *self.figures.borrow_mut() = figures.into_iter().map(|(k, v)| (k, Rc::new(v))).collect();
@@ -20,29 +20,46 @@ impl FigureContext {
     }
 
     pub(super) fn set_figure(
-        &mut self,
+        &self,
         trace: &TraceData,
-        focus: Focus,
-        figure: Rc<FigureCanvasData>,
+        focus: &Focus,
+        figure: FigureCanvasData,
         figure_control_props: FigureControlData,
     ) {
-        todo!()
-        // assert!(self.figures.insert((trace.id, focus), figure).is_none());
-        // self.set_figure_control_props(trace, figure_control_props);
+        assert!(self
+            .figures
+            .borrow_mut()
+            .insert(FigureCanvasKey::new(trace, focus), Rc::new(figure))
+            .is_none());
+        self.set_figure_control_data(trace, focus, figure_control_props);
     }
 
-    pub(super) fn get_figure(&mut self, trace_id: TraceId, focus: Focus) -> Rc<FigureCanvasData> {
-        todo!()
-        //    self.figures[(trace_id, focus)]
-    }
-
-    fn set_figure_control_props(
+    pub(super) fn figure_canvas_data(
         &mut self,
         trace: &TraceData,
-        figure_control_props: Rc<FigureControlData>,
+        focus: &Focus,
+    ) -> Rc<FigureCanvasData> {
+        self.figures.borrow()[&FigureCanvasKey::new(trace, focus)].clone()
+    }
+
+    pub(super) fn is_figure_cached(&self, trace: &TraceData, focus: &Focus) -> bool {
+        let key = FigureCanvasKey::new(trace, focus);
+        self.figures.borrow().contains_key(&key)
+    }
+
+    fn set_figure_control_data(
+        &self,
+        trace: &TraceData,
+        focus: &Focus,
+        figure_control_data: FigureControlData,
     ) {
-        todo!()
-        // self.figure_control_stores[key]=figure_control_props);
+        let figure_control_stores = &mut self.figure_control_stores.borrow_mut();
+        let key = FigureControlKey::new(trace, focus);
+        if let Some(figure_control_signal) = figure_control_stores.get(&key) {
+            figure_control_signal.set(figure_control_data)
+        } else {
+            figure_control_stores.insert(key, Signal::new(figure_control_data));
+        }
     }
 
     // fn update_figure_control_props(

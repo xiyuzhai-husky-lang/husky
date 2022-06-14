@@ -9,7 +9,7 @@ pub struct TraceLineProps<'a> {
     trace_kind: TraceKind,
     has_subtraces: &'a ReadSignal<bool>,
     expanded: &'a ReadSignal<bool>,
-    toggle_expansion: Rc<dyn Fn()>,
+    toggle_expansion_handler: Rc<dyn Fn()>,
 }
 
 #[component]
@@ -39,7 +39,7 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
                 trace_kind: props.trace_kind,
                 opt_on_click_start:{
                     if  props.data.idx == 0
-                {Some(props.toggle_expansion.clone())} else {None}
+                {Some(props.toggle_expansion_handler.clone())} else {None}
 
                 },
             }

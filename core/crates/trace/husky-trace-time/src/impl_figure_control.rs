@@ -8,7 +8,7 @@ use super::*;
 
 impl HuskyTraceTime {
     pub fn figure_control(&mut self, trace: &Trace, focus: &Focus) -> FigureControlData {
-        let key = FigureControlKey::new(&trace.props);
+        let key = FigureControlKey::new(&trace.props, focus);
         if let Some(control) = self.figure_controls.get(&key) {
             control.clone()
         } else {
@@ -64,7 +64,7 @@ impl HuskyTraceTime {
         new_control: FigureControlData,
     ) {
         self.figure_controls.insert(
-            FigureControlKey::new(&self.trace(trace_id).props),
+            FigureControlKey::new(&self.trace(trace_id).props, focus),
             new_control,
         );
     }

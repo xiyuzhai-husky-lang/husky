@@ -15,8 +15,8 @@ pub enum HuskyTracerServerMessageVariant {
         init_data: InitData,
     },
     Activate {
-        figure_props: FigureCanvasData,
-        figure_control_props: FigureControlData,
+        figure_canvas_data: FigureCanvasData,
+        figure_control_data: FigureControlData,
     },
     ToggleExpansion {
         subtrace_ids: Vec<TraceId>,
