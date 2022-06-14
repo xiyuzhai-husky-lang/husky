@@ -9,7 +9,7 @@
 .TraceLineStart svg {
     fill: rgb(132, 132, 132);
 }
-.TraceLineStart.has_subtraces.expanded {
+.TraceLineStart.expanded {
     transform: rotate(90deg);
 }
 .TraceLineStart:hover svg {

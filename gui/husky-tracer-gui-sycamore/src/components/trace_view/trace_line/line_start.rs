@@ -18,7 +18,13 @@ pub(super) fn TraceLineStart<'a, G: Html>(
         view! {
             scope,
             span(
-                class="TraceLineStart",
+                class={
+                    if props.expanded.get_cloned() {
+                        "TraceLineStart expanded"
+                    } else {
+                        "TraceLineStart"
+                    }
+                },
                 on:click=move |_|props.opt_on_click_start.clone().unwrap()()
             ) {
                 svg (
