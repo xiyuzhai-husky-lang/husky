@@ -66,6 +66,10 @@ impl HuskyTraceTime {
         trace_time
     }
 
+    pub fn activate(&mut self, trace_id: TraceId) {
+        self.opt_active_trace_id = Some(trace_id);
+    }
+
     pub fn root_traces(&self) -> Vec<TraceId> {
         self.root_trace_ids.clone()
     }
@@ -261,11 +265,11 @@ impl HuskyTraceTime {
             let active_trace = self.trace(active_trace_id);
             figures.push((
                 FigureCanvasKey::new(&active_trace.props, &focus),
-                self.figure(active_trace_id, &focus),
+                self.figure_canvas_data(active_trace_id, &focus),
             ));
             figure_controls.push((
                 FigureControlKey::new(&active_trace.props, &focus),
-                unsafe { ref_to_mut_ref(self) }.figure_control(&active_trace, &focus),
+                unsafe { ref_to_mut_ref(self) }.figure_control(active_trace_id, &focus),
             ));
         }
         let traces = self.all_trace_nodes();

@@ -65,24 +65,22 @@ impl HuskyTracerInternal {
         match request.variant {
             HuskyTracerGuiMessageVariant::InitDataRequest => Some(self.trace_time.init_state()),
             HuskyTracerGuiMessageVariant::Activate {
-                trace_id: id,
+                trace_id,
                 opt_focus_for_figure,
             } => {
-                todo!()
-                // self.trace_time.activate(id);
-                // should_eq!(
-                //     request.opt_request_id.is_some(),
-                //     opt_focus_for_figure.is_some()
-                // );
-                // if let Some(ref focus) = opt_focus_for_figure {
-                //     let trace = self.trace_time.trace(id);
-                //     Some(HuskyTracerServerMessageVariant::Activate {
-                //         figure_props: self.trace_time.figure(id, focus),
-                //         figure_control_props: self.trace_time.figure_control(&trace, focus),
-                //     })
-                // } else {
-                //     None
-                // }
+                self.trace_time.activate(trace_id);
+                should_eq!(
+                    request.opt_request_id.is_some(),
+                    opt_focus_for_figure.is_some()
+                );
+                if let Some(ref focus) = opt_focus_for_figure {
+                    Some(HuskyTracerServerMessageVariant::Activate {
+                        figure_canvas_data: self.trace_time.figure_canvas_data(trace_id, focus),
+                        figure_control_data: self.trace_time.figure_control(trace_id, focus),
+                    })
+                } else {
+                    None
+                }
             }
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
                 if let Some((new_traces, subtrace_ids)) = self.trace_time.toggle_expansion(trace_id)
