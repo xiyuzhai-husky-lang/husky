@@ -144,10 +144,11 @@ impl InterpreterQueryGroup for HuskyCompileTime {
 
     fn visualize<'temp, 'eval>(
         &self,
-        _ty: EntityRoutePtr,
-        _value: &(dyn AnyValueDyn<'eval> + 'temp),
+        ty: EntityRoutePtr,
+        value: &(dyn AnyValueDyn<'eval> + 'temp),
     ) -> VisualData {
-        panic!("can only visualize in HuskyRuntime")
+        let visualizer = self.visualizer(ty);
+        visualizer.visualize(self, value, false)
     }
 }
 
