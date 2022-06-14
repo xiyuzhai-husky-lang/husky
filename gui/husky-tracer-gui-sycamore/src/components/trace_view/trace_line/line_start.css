@@ -7,11 +7,8 @@
     width: 20px;
 }
 .TraceLineStart svg {
-    fill: rgb(132, 132, 132);
+    fill: rgb(182, 182, 182);
 }
 .TraceLineStart.expanded {
     transform: rotate(90deg);
-}
-.TraceLineStart:hover svg {
-    fill: white;
 }
