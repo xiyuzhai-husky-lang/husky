@@ -31,7 +31,7 @@ pub(super) fn TraceLineStart<'a, G: Html>(
                     stroke-width="0",
                     height = "15px",
                     width = "15px",
-                    view_box="0 0 16 16",
+                    viewBox="0 0 16 16",
                     xmlns="http://www.w3.org/2000/svg"
                 ) {
                     path (

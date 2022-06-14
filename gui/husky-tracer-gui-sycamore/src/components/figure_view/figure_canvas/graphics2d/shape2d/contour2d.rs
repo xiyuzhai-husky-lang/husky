@@ -40,7 +40,8 @@ pub fn Contour2d<'a, G: Html>(scope: Scope<'a>, props: Contour2dProps) -> View<G
                     scope,
                     LineSegment2d {
                         start: *from,
-                        end: *to
+                        end: *to,
+                        line_width: 0.05
                     }
                 }
             ).collect()

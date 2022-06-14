@@ -43,8 +43,12 @@ impl Point2dData {
         }
     }
 
-    pub fn angle_degrees(self) -> f32 {
+    pub fn angle(self) -> f32 {
         self.y.atan2(self.x)
+    }
+
+    pub fn norm(self) -> f32 {
+        (self.x * self.x + self.y * self.y).sqrt()
     }
 }
 
