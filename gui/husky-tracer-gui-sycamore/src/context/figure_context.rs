@@ -34,8 +34,8 @@ impl FigureContext {
         self.set_figure_control_data(trace, focus, figure_control_props);
     }
 
-    pub(super) fn figure_canvas_data(
-        &mut self,
+    pub(crate) fn figure_canvas_data(
+        &self,
         trace: &TraceData,
         focus: &Focus,
     ) -> Rc<FigureCanvasData> {

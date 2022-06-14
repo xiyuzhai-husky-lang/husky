@@ -6,4 +6,5 @@ mod trace_view;
 pub use layout::*;
 
 use crate::*;
+use figure_view::*;
 use trace_view::*;
