@@ -7,17 +7,22 @@ use vm::{HistoryEntry, LoopFrameData, MutationData};
 use super::*;
 
 impl HuskyTraceTime {
-    pub fn figure_control(&mut self, trace: &Trace, focus: &Focus) -> FigureControlData {
+    #[inline(always)]
+    pub fn figure_control(&mut self, trace_id: TraceId, focus: &Focus) -> FigureControlData {
+        let trace = self.trace(trace_id);
         let key = FigureControlKey::new(&trace.props, focus);
         if let Some(control) = self.figure_controls.get(&key) {
             control.clone()
         } else {
-            let control = self.gen_figure_control(trace);
+            let control = self.gen_figure_control(trace_id);
             self.figure_controls.insert(key, control.clone());
             control
         }
     }
-    pub fn gen_figure_control(&mut self, trace: &Trace) -> FigureControlData {
+
+    #[inline(always)]
+    pub fn gen_figure_control(&mut self, trace_id: TraceId) -> FigureControlData {
+        let trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(_)
             | TraceVariant::FeatureStmt(_)

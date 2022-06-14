@@ -10,7 +10,7 @@ use text::TextQueryGroup;
 use vm::{History, HistoryEntry, MutationData, MutationDataKind, StackSnapshot};
 
 impl HuskyTraceTime {
-    pub fn figure(&self, trace_id: TraceId, focus: &Focus) -> FigureCanvasData {
+    pub fn figure_canvas_data(&self, trace_id: TraceId, focus: &Focus) -> FigureCanvasData {
         let trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(_) => FigureCanvasData::void(),
