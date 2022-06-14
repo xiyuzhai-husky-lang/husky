@@ -24,7 +24,7 @@ impl TracerContext {
                 }
                 'C' => {
                     // 't'
-                    // log::info!("figure context is \n:{:?}", this.figure_context);
+                    log::info!("figure context is \n:{:?}", this.figure_context);
                     // log::info!("fcous context is \n:{:?}", this.focus_context);
                     log::info!(
                         "opt active trace id is \n:{:?}",

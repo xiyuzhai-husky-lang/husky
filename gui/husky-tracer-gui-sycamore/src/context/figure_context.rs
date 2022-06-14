@@ -2,20 +2,23 @@ use super::*;
 
 #[derive(Debug, Default)]
 pub struct FigureContext {
-    figures: RefCell<HashMap<FigureCanvasKey, Rc<FigureCanvasData>>>,
-    figure_control_stores: RefCell<HashMap<FigureControlKey, Signal<FigureControlData>>>,
+    figure_canvases: RefCell<HashMap<FigureCanvasKey, Rc<FigureCanvasData>>>,
+    figure_controls: RefCell<HashMap<FigureControlKey, Rc<Signal<FigureControlData>>>>,
 }
 
 impl FigureContext {
     pub(super) fn init(
         &self,
-        figures: Vec<(FigureCanvasKey, FigureCanvasData)>,
+        figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)>,
         figure_controls: Vec<(FigureControlKey, FigureControlData)>,
     ) {
-        *self.figures.borrow_mut() = figures.into_iter().map(|(k, v)| (k, Rc::new(v))).collect();
-        *self.figure_control_stores.borrow_mut() = figure_controls
+        *self.figure_canvases.borrow_mut() = figure_canvases
             .into_iter()
-            .map(|(k, v)| (k, Signal::new(v)))
+            .map(|(k, v)| (k, Rc::new(v)))
+            .collect();
+        *self.figure_controls.borrow_mut() = figure_controls
+            .into_iter()
+            .map(|(k, v)| (k, Rc::new(Signal::new(v))))
             .collect();
     }
 
@@ -27,7 +30,7 @@ impl FigureContext {
         figure_control_props: FigureControlData,
     ) {
         assert!(self
-            .figures
+            .figure_canvases
             .borrow_mut()
             .insert(FigureCanvasKey::new(trace, focus), Rc::new(figure))
             .is_none());
@@ -39,12 +42,14 @@ impl FigureContext {
         trace: &TraceData,
         focus: &Focus,
     ) -> Rc<FigureCanvasData> {
-        self.figures.borrow()[&FigureCanvasKey::new(trace, focus)].clone()
+        let figure_canvas_key = FigureCanvasKey::new(trace, focus);
+        log::info!("figure canvas key: {:?}", figure_canvas_key);
+        self.figure_canvases.borrow()[&figure_canvas_key].clone()
     }
 
     pub(super) fn is_figure_cached(&self, trace: &TraceData, focus: &Focus) -> bool {
         let key = FigureCanvasKey::new(trace, focus);
-        self.figures.borrow().contains_key(&key)
+        self.figure_canvases.borrow().contains_key(&key)
     }
 
     fn set_figure_control_data(
@@ -53,13 +58,21 @@ impl FigureContext {
         focus: &Focus,
         figure_control_data: FigureControlData,
     ) {
-        let figure_control_stores = &mut self.figure_control_stores.borrow_mut();
+        let figure_controls = &mut self.figure_controls.borrow_mut();
         let key = FigureControlKey::new(trace, focus);
-        if let Some(figure_control_signal) = figure_control_stores.get(&key) {
+        if let Some(figure_control_signal) = figure_controls.get(&key) {
             figure_control_signal.set(figure_control_data)
         } else {
-            figure_control_stores.insert(key, Signal::new(figure_control_data));
+            figure_controls.insert(key, Rc::new(Signal::new(figure_control_data)));
         }
+    }
+
+    pub(crate) fn figure_control_data(
+        &self,
+        trace: &TraceData,
+        focus: &Focus,
+    ) -> Rc<Signal<FigureControlData>> {
+        self.figure_controls.borrow()[&FigureControlKey::new(trace, focus)].clone()
     }
 
     // fn update_figure_control_props(

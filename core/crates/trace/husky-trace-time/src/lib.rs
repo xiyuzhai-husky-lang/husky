@@ -255,16 +255,19 @@ impl HuskyTraceTime {
         &*ptr
     }
 
-    pub fn init_state(&mut self) -> HuskyTracerServerMessageVariant {
+    pub fn init_data(&mut self) -> InitData {
         let root_trace_ids = self.root_trace_ids.clone();
         let focus = self.focus.clone();
-        let mut figures = Vec::default();
+        let mut figure_canvases = Vec::default();
         let mut figure_controls = Vec::default();
         let opt_active_trace_id = self.opt_active_trace_id;
+        p!(focus);
         if let Some(active_trace_id) = opt_active_trace_id {
             let active_trace = self.trace(active_trace_id);
-            figures.push((
-                FigureCanvasKey::new(&active_trace.props, &focus),
+            let figure_canvas_key = FigureCanvasKey::new(&active_trace.props, &focus);
+            p!(figure_canvas_key);
+            figure_canvases.push((
+                figure_canvas_key,
                 self.figure_canvas_data(active_trace_id, &focus),
             ));
             figure_controls.push((
@@ -273,27 +276,25 @@ impl HuskyTraceTime {
             ));
         }
         let traces = self.all_trace_nodes();
-        HuskyTracerServerMessageVariant::Init {
-            init_data: InitData {
-                trace_init_data: TraceInitState {
-                    opt_active_trace_id,
-                    trace_nodes: traces,
-                    subtrace_ids_map: self
-                        .subtrace_ids_map
-                        .iter()
-                        .map(|(k, v)| (k.clone(), v.clone()))
-                        .collect(),
-                    trace_stalks: self
-                        .trace_stalks
-                        .iter()
-                        .map(|(k, v)| (k.clone(), v.clone()))
-                        .collect(),
-                    root_trace_ids,
-                },
-                focus,
-                figures,
-                figure_controls,
+        InitData {
+            trace_init_data: TraceInitState {
+                opt_active_trace_id,
+                trace_nodes: traces,
+                subtrace_ids_map: self
+                    .subtrace_ids_map
+                    .iter()
+                    .map(|(k, v)| (k.clone(), v.clone()))
+                    .collect(),
+                trace_stalks: self
+                    .trace_stalks
+                    .iter()
+                    .map(|(k, v)| (k.clone(), v.clone()))
+                    .collect(),
+                root_trace_ids,
             },
+            focus,
+            figure_canvases,
+            figure_controls,
         }
     }
 }
