@@ -15,7 +15,7 @@ impl ImageLayerData {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(tag = "kind")]
 pub enum Shape2dData {
     Arrow2d {

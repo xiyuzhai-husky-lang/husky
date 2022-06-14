@@ -15,15 +15,16 @@ impl<'a> FigureViewProps<'a> {
     fn canvas_dimension(&self) -> PixelDimension {
         log::info!("ad hoc");
         PixelDimension {
-            width: 500,
-            height: 500,
+            width: self.width.get_cloned() * 4 / 5,
+            height: self.height.get_cloned() * 97 * 98 / 10000,
         }
     }
     fn control_dimension(&self) -> PixelDimension {
         log::info!("ad hoc");
+        let total_width = self.width.get_cloned();
         PixelDimension {
-            width: 100,
-            height: 500,
+            width: total_width - total_width * 4 / 5,
+            height: self.height.get_cloned() * 97 * 98 / 10000,
         }
     }
 }

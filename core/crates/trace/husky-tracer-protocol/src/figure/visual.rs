@@ -22,7 +22,7 @@ pub enum VisualData {
     Group(Vec<VisualData>),
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub struct Point2dData {
     pub x: f32,
     pub y: f32,
@@ -34,6 +34,17 @@ impl Point2dData {
             x: j as f32 + 1.0,
             y: 29.0 - i as f32,
         }
+    }
+
+    pub fn to(self, other: Point2dData) -> Point2dData {
+        Point2dData {
+            x: other.x - self.x,
+            y: other.y - self.y,
+        }
+    }
+
+    pub fn angle_degrees(self) -> f32 {
+        self.y.atan2(self.x)
     }
 }
 
