@@ -22,8 +22,8 @@ impl<'a> FigureViewProps<'a> {
     fn control_dimension(&self) -> PixelDimension {
         log::info!("ad hoc");
         PixelDimension {
-            width: 500,
-            height: 100,
+            width: 100,
+            height: 500,
         }
     }
 }
@@ -40,11 +40,10 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
             }
             div (
                 class="FigureContent",
-                style="flex-direction: column"
+                style="flex-direction: row"
             ) {
                 div (
                     class="FigureCanvasContainer",
-                    style=canvas_dimension.get().to_style()
                 ) {
                     FigureCanvas {
                         dimension: canvas_dimension
@@ -52,7 +51,6 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
                 }
                 div (
                     class="FigureControlContainer",
-                    style=control_dimension.get().to_style()
                 ) {
                     FigureControl {
                         dimension: control_dimension

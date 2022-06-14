@@ -16,9 +16,14 @@
 }
 
 .FigureCanvasContainer {
-    border: black solid 1px;
+    border: black solid 2px;
+    width: 80%;
+    height: 98%;
+    border-right: 0px;
 }
 
 .FigureControlContainer {
-    border: black solid 1px;
+    border: black solid 2px;
+    width: 20%;
+    height: 98%;
 }
