@@ -43,7 +43,7 @@ pub fn Graphics2dCanvas<'a, G: Html>(
             }
             svg (
                 style=props.dimension.get().to_style(),
-                view_box=view_box
+                viewBox=view_box
             ) {
                 g (
                     transform=transform
