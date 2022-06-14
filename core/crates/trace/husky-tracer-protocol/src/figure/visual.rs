@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 #[serde(tag = "kind")]
-pub enum VisualProps {
+pub enum VisualData {
     BinaryImage28 {
         padded_rows: [u32; 30],
     },
@@ -10,27 +10,27 @@ pub enum VisualProps {
         padded_rows: [u32; 31],
     },
     Primitive {
-        value: PrimitiveValueProps,
+        value: PrimitiveValueData,
     },
     Contour {
-        points: Vec<Point2dProps>,
+        points: Vec<Point2dData>,
     },
     LineSegment {
-        start: Point2dProps,
-        end: Point2dProps,
+        start: Point2dData,
+        end: Point2dData,
     },
-    Group(Vec<VisualProps>),
+    Group(Vec<VisualData>),
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
-pub struct Point2dProps {
+pub struct Point2dData {
     pub x: f32,
     pub y: f32,
 }
 
-impl Point2dProps {
+impl Point2dData {
     pub fn from_ij28(i: usize, j: usize) -> Self {
-        Point2dProps {
+        Point2dData {
             x: j as f32 + 1.0,
             y: 29.0 - i as f32,
         }

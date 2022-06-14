@@ -6,7 +6,7 @@ import {
     decode_opt,
 } from "src/decode/decode";
 import type { FigureControlData } from "src/figure/control";
-import type FigureContentProps from "src/figure";
+import type FigureCanvasProps from "src/figure";
 import { Trace } from "src/trace";
 import { Focus } from "src/focus";
 import type Dict from "src/abstraction/Dict";
@@ -22,7 +22,7 @@ export class InitState {
     showns: Dict<boolean>;
     root_traces: number[];
     focus: Focus;
-    figures: Dict<FigureContentProps>;
+    figures: Dict<FigureCanvasProps>;
     figure_controls: Dict<FigureControlData>;
     constructor(response_variant: unknown) {
         const raw_init_state = decode_memb(response_variant, "init_state");

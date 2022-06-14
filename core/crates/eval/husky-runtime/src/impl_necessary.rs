@@ -30,7 +30,7 @@ impl InterpreterQueryGroup for HuskyRuntime {
         &self,
         ty: entity_route::EntityRoutePtr,
         value: &(dyn AnyValueDyn<'eval> + 'temp),
-    ) -> VisualProps {
+    ) -> VisualData {
         let visualizer = self.compile_time().visualizer(ty);
         visualizer.visualize(self.compile_time(), value, self.verbose())
     }

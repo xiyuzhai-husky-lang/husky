@@ -49,28 +49,28 @@ impl XmlTagKind {
     }
 }
 
-impl Into<VisualProps> for XmlValue {
-    fn into(self) -> VisualProps {
+impl Into<VisualData> for XmlValue {
+    fn into(self) -> VisualData {
         let mut data = self.props.take_data();
         msg_once!("ad hoc");
         match self.tag_kind.as_str() {
             "Contour" => {
                 should_eq!(data.len(), 1);
                 let (ident, value) = data.pop().unwrap();
-                let points: Vec<Point2dProps> = serde_json::from_value(value).unwrap();
-                VisualProps::Contour { points }
+                let points: Vec<Point2dData> = serde_json::from_value(value).unwrap();
+                VisualData::Contour { points }
             }
             "LineSegment" => {
                 should_eq!(data.len(), 2);
                 // end
                 let (ident, value) = data.pop().unwrap();
                 should_eq!(ident.as_str(), "end");
-                let end: Point2dProps = serde_json::from_value(value).unwrap();
+                let end: Point2dData = serde_json::from_value(value).unwrap();
                 // start
                 let (ident, value) = data.pop().unwrap();
                 should_eq!(ident.as_str(), "start");
-                let start: Point2dProps = serde_json::from_value(value).unwrap();
-                VisualProps::LineSegment { start, end }
+                let start: Point2dData = serde_json::from_value(value).unwrap();
+                VisualData::LineSegment { start, end }
             }
             _ => todo!(),
         }

@@ -14,7 +14,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer::Compiled(|value| {
             let value: &u32 = value.downcast_ref();
-            VisualProps::Primitive {
+            VisualData::Primitive {
                 value: (*value).into(),
             }
         }),

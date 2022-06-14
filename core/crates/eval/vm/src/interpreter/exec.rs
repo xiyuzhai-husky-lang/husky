@@ -238,7 +238,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         .collect(),
                     };
                     self.stack
-                        .push(TempValue::OwnedEval(OwnedValue::new(VisualProps::from(
+                        .push(TempValue::OwnedEval(OwnedValue::new(VisualData::from(
                             xml_value.into(),
                         ))));
                     match mode {

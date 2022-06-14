@@ -3,7 +3,7 @@ use vm::*;
 
 #[derive(Clone, Copy)]
 pub enum StaticVisualizer {
-    Compiled(for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps),
+    Compiled(for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData),
     Vec,
     CyclicSlice,
 }
@@ -32,6 +32,6 @@ impl Eq for StaticVisualizer {}
 
 pub const TRIVIAL_VISUALIZER: StaticVisualizer = StaticVisualizer::Compiled(visualize_trivial);
 
-fn visualize_trivial<'temp, 'eval>(_data: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps {
-    VisualProps::Primitive { value: ().into() }
+fn visualize_trivial<'temp, 'eval>(_data: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
+    VisualData::Primitive { value: ().into() }
 }

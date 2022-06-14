@@ -2,14 +2,14 @@ use super::*;
 
 #[derive(Debug, Default)]
 pub struct FigureContext {
-    figures: RefCell<HashMap<FigureKey, Rc<FigureContentData>>>,
+    figures: RefCell<HashMap<FigureKey, Rc<FigureCanvasData>>>,
     figure_control_stores: RefCell<HashMap<FigureControlKey, Signal<FigureControlData>>>,
 }
 
 impl FigureContext {
     pub(super) fn init(
         &self,
-        figures: Vec<(FigureKey, FigureContentData)>,
+        figures: Vec<(FigureKey, FigureCanvasData)>,
         figure_controls: Vec<(FigureControlKey, FigureControlData)>,
     ) {
         *self.figures.borrow_mut() = figures.into_iter().map(|(k, v)| (k, Rc::new(v))).collect();
@@ -23,7 +23,7 @@ impl FigureContext {
         &mut self,
         trace: &TraceData,
         focus: Focus,
-        figure: Rc<FigureContentData>,
+        figure: Rc<FigureCanvasData>,
         figure_control_props: FigureControlData,
     ) {
         todo!()
@@ -31,7 +31,7 @@ impl FigureContext {
         // self.set_figure_control_props(trace, figure_control_props);
     }
 
-    pub(super) fn get_figure(&mut self, trace_id: TraceId, focus: Focus) -> Rc<FigureContentData> {
+    pub(super) fn get_figure(&mut self, trace_id: TraceId, focus: Focus) -> Rc<FigureCanvasData> {
         todo!()
         //    self.figures[(trace_id, focus)]
     }

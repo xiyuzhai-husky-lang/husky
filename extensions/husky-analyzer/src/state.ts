@@ -4,7 +4,7 @@ import { FigureState } from "./state/figure_state";
 import { InitState } from "./state/init_state";
 import { FocusState } from "./state/focus_state";
 import type { Focus } from "./focus";
-import type FigureContentProps from "./figure";
+import type FigureCanvasProps from "./figure";
 import {
     derived,
     get,
@@ -86,7 +86,7 @@ class DebuggerState {
     did_activate(
         trace: Trace,
         opt_focus_for_figure: Focus | null = null,
-        opt_figure_props: FigureContentProps | null = null,
+        opt_figure_props: FigureCanvasProps | null = null,
         opt_figure_control: FigureControlData | null = null
     ) {
         if (opt_figure_props !== null) {
@@ -278,7 +278,7 @@ class DebuggerState {
         }
     }
 
-    figure_props(active_trace_id: number, focus: Focus): FigureContentProps {
+    figure_props(active_trace_id: number, focus: Focus): FigureCanvasProps {
         try {
             let figure_props = this.figure_state.get_figure(
                 active_trace_id,

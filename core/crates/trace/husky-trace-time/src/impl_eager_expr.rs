@@ -166,15 +166,15 @@ impl HuskyTraceTime {
         &self,
         expr: &EagerExpr,
         history: &History,
-    ) -> FigureContentData {
+    ) -> FigureCanvasData {
         if let Some(entry) = history.get(expr) {
             match entry {
                 HistoryEntry::PureExpr { output } => match output {
                     Ok(output) => {
                         let visual_props = self.runtime.visualize(expr.ty(), output.any_ref());
-                        FigureContentData::new_specific(visual_props)
+                        FigureCanvasData::new_specific(visual_props)
                     }
-                    Err(e) => FigureContentData::void(),
+                    Err(e) => FigureCanvasData::void(),
                 },
                 HistoryEntry::Exec { .. } => todo!(),
                 HistoryEntry::Loop { .. } => panic!(),
@@ -186,7 +186,7 @@ impl HuskyTraceTime {
                 HistoryEntry::PatternMatching { .. } => todo!(),
             }
         } else {
-            FigureContentData::void()
+            FigureCanvasData::void()
         }
     }
 }

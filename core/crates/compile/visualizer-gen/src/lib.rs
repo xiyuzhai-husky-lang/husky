@@ -14,7 +14,7 @@ use vm::*;
 
 #[derive(Clone)]
 pub enum Visualizer {
-    Compiled(for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualProps),
+    Compiled(for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData),
     Vec {
         ty: EntityRoutePtr,
     },
@@ -34,7 +34,7 @@ impl Visualizer {
         db: &dyn VisualizerQueryGroup,
         value: &(dyn AnyValueDyn<'eval> + 'temp),
         verbose: bool,
-    ) -> VisualProps {
+    ) -> VisualData {
         match self {
             Visualizer::Compiled(compiled) => compiled(value),
             Visualizer::Interpreted {
@@ -47,14 +47,14 @@ impl Visualizer {
                 [].into_iter(),
                 verbose,
             ) {
-                Ok(value) => value.owned().unwrap().take::<VisualProps>().unwrap(),
+                Ok(value) => value.owned().unwrap().take::<VisualData>().unwrap(),
                 Err(_) => todo!(),
             },
             Visualizer::Vec { ty, .. } => {
                 let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = db.visualizer(elem_ty);
                 let virtual_vec: &Vec<MemberValue<'eval>> = value.downcast_ref();
-                VisualProps::Group(
+                VisualData::Group(
                     virtual_vec
                         .iter()
                         .map(|elem| elem_visualizer.visualize(db, elem.any_ref(), verbose))
@@ -66,7 +66,7 @@ impl Visualizer {
                 let elem_visualizer = db.visualizer(elem_ty);
                 let virtual_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> =
                     value.downcast_ref();
-                VisualProps::Group(
+                VisualData::Group(
                     virtual_cyclic_slice
                         .iter()
                         .map(|elem| elem_visualizer.visualize(db, elem.any_ref(), verbose))
