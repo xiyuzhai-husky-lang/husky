@@ -47,10 +47,20 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     view! {
         scope,
         div(
-            class=if active.get_cloned() { "TraceNode active" } else { "TraceNode" },
+            class="TraceNode",
             on:mousedown=activate_handler
         ) {
-            (trace_lines)
+            div(
+                class={
+                    if active.get_cloned() {
+                        "TraceNodeInternal active"
+                    } else {
+                        "TraceNodeInternal"
+                    }
+                },
+            ) {
+                (trace_lines)
+            }
         }
     }
 }

@@ -43,7 +43,6 @@
     class="TraceNode disable-select"
     on:mousedown={on_click}
     on:dblclick={on_double_click}
-    lang="ts"
 >
     <div class="inner" class:active>
         {#each trace.lines as line}
