@@ -24,7 +24,6 @@ impl TracerContext {
     }
 
     fn receive_init_data(&self, init_data: InitData) {
-        log::info!("receive_init_data");
         if init_data.trace_init_data.opt_active_trace_id.is_some() {
             assert!(init_data.figure_canvases.len() > 0);
         }

@@ -43,7 +43,6 @@ impl FigureContext {
         focus: &Focus,
     ) -> Rc<FigureCanvasData> {
         let figure_canvas_key = FigureCanvasKey::new(trace, focus);
-        log::info!("figure canvas key: {:?}", figure_canvas_key);
         self.figure_canvases.borrow()[&figure_canvas_key].clone()
     }
 

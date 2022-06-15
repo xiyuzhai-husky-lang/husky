@@ -7,7 +7,6 @@ pub struct FocusContext {
 }
 impl FocusContext {
     pub(super) fn init(&self, focus: Focus) {
-        log::info!("init focus = {:?}", focus);
         self.focus_locked_store.set(true);
         self.focus_signal.set(focus);
     }

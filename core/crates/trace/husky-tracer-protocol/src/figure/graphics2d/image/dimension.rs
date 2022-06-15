@@ -1,6 +1,7 @@
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct PixelDimension {
-    pub width: i32,
-    pub height: i32,
+    pub width: u32,
+    pub height: u32,
 }
 
 impl std::fmt::Display for PixelDimension {
