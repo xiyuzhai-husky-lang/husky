@@ -1,0 +1,19 @@
+.FocusView {
+    color: rgb(254, 254, 254);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+}
+.FocusKind {
+    padding-left: 0.6px;
+    background: rgb(0, 48, 0);
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

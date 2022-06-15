@@ -7,4 +7,5 @@ pub use layout::*;
 
 use crate::*;
 use figure_view::*;
+use focus_view::*;
 use trace_view::*;
