@@ -5,6 +5,7 @@ pub struct LineSegment2dProps {
     start: Point2dData,
     end: Point2dData,
     line_width: f32,
+    fill: String,
 }
 
 impl LineSegment2dProps {
@@ -47,7 +48,10 @@ pub fn LineSegment2d<'a, G: Html>(scope: Scope<'a>, props: LineSegment2dProps) -
     view! {
         scope,
         g (transform=transform) {
-            polygon (points=points)
+            polygon (
+                points=points,
+                fill=props.fill
+            )
         }
     }
 }

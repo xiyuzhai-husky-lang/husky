@@ -14,15 +14,15 @@ pub struct FigureViewProps<'a> {
 impl<'a> FigureViewProps<'a> {
     fn canvas_dimension(&self) -> PixelDimension {
         PixelDimension {
-            width: self.width.get_cloned() * 4 / 5,
-            height: self.height.get_cloned() * 97 * 98 / 10000,
+            width: self.width.get_cloned() * 95 / 100 * 4 / 5,
+            height: self.height.get_cloned() * 97 * 95 / 10000,
         }
     }
     fn control_dimension(&self) -> PixelDimension {
         let total_width = self.width.get_cloned();
         PixelDimension {
-            width: total_width - total_width * 4 / 5,
-            height: self.height.get_cloned() * 97 * 98 / 10000,
+            width: total_width * 95 / 100 - total_width * 95 / 100 * 4 / 5,
+            height: self.height.get_cloned() * 97 * 95 / 10000,
         }
     }
 }
@@ -43,6 +43,7 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
             ) {
                 div (
                     class="FigureCanvasContainer",
+                    style=canvas_dimension.get().to_style(),
                 ) {
                     FigureCanvas {
                         dimension: canvas_dimension
@@ -50,6 +51,7 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
                 }
                 div (
                     class="FigureControlContainer",
+                    style=control_dimension.get().to_style(),
                 ) {
                     FigureControl {
                         dimension: control_dimension
