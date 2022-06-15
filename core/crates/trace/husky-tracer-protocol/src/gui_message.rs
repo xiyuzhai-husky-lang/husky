@@ -24,9 +24,6 @@ pub enum HuskyTracerGuiMessageVariant {
     Trace {
         id: TraceId,
     },
-    DecodeFocus {
-        command: String,
-    },
     LockFocus {
         focus: Focus,
         opt_active_trace_id_for_figure: Option<TraceId>,
