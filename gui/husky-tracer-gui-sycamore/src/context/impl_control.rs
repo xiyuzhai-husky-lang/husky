@@ -49,7 +49,7 @@ impl TracerContext {
     }
 
     fn activate(&self, trace_id: TraceId) {
-        let focus = self.focus_context.focus_signal.get();
+        let focus = self.focus_context.focus.get();
         let trace = self.tree_context.trace(trace_id);
         let is_figure_cached = self.figure_context.is_figure_cached(&trace, &focus);
         if (is_figure_cached) {
@@ -92,7 +92,7 @@ impl TracerContext {
         if expansion.get_cloned() {
             expansion.set(false)
         } else {
-            let focus = self.focus_context.focus_signal.get();
+            let focus = self.focus_context.focus.get();
             let trace_kind = self.tree_context.trace_kind(trace_id);
             let key = SubtracesKey::new(&focus, trace_kind, trace_id);
             if self

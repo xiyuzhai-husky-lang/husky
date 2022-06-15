@@ -19,9 +19,12 @@ impl SubtracesKey {
             | TraceKind::LoopFrame
             | TraceKind::EagerExpr => SubtracesKey::Simple { trace_id },
             TraceKind::FeatureCallInput | TraceKind::CallHead => SubtracesKey::Null,
-            TraceKind::FeatureExpr => match focus.opt_input_id {
-                Some(input_id) => SubtracesKey::FeatureExprStalk { trace_id, input_id },
-                None => SubtracesKey::Null,
+            TraceKind::FeatureExpr => match focus {
+                Focus::Specific { input_id } => SubtracesKey::FeatureExprStalk {
+                    trace_id,
+                    input_id: *input_id,
+                },
+                Focus::Generic {} => SubtracesKey::Null,
             },
         }
     }
