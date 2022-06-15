@@ -51,9 +51,7 @@ pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -
                 }
             }
             div(class="HuskyTracerVSplitPanelLower", style=lower_panel_style) {
-                "width: " (props.width.get())
-                ", "
-                "height: " (props.height.get())
+                FocusView {}
             }
         }
     }
