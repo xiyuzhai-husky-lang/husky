@@ -41,7 +41,8 @@ pub fn Shape2d<'a, G: Html>(scope: Scope<'a>, props: Shape2dProps) -> View<G> {
             LineSegment2d {
                 start,
                 end,
-                line_width: 0.1
+                line_width: 0.1,
+                fill: "orange".into()
             }
         },
         Shape2dData::Group { shapes, line_width } => view! {

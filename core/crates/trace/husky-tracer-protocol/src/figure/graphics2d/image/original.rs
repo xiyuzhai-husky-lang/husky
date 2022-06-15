@@ -19,7 +19,7 @@ impl OriginalImageData {
                 for i in 0..28 {
                     for j in 0..28 {
                         let v: u8 = ((rows[i] >> (28 - j)) & 1) as u8 * 255;
-                        data.extend([v, v, v, v].into_iter())
+                        data.extend([v, v, v, 255].into_iter())
                     }
                 }
                 Self { dimension, data }

@@ -9,7 +9,7 @@
 }
 .FigureContent {
     width: 95%;
-    height: 97%;
+    height: 92%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -18,14 +18,13 @@
 .FigureCanvasContainer {
     border: black solid 2px;
     width: 80%;
-    height: 98%;
     border-right: 0px;
+    background: black;
 }
 
 .FigureControlContainer {
     border: black solid 2px;
     width: 20%;
-    height: 98%;
 }
 
 .FigureView svg .red {

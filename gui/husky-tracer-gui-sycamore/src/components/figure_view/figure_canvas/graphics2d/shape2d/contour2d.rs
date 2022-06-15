@@ -25,23 +25,24 @@ pub fn Contour2d<'a, G: Html>(scope: Scope<'a>, props: Contour2dProps) -> View<G
     view! {
         scope,
         (View::new_fragment(
-            props.points.iter().map(
-                |point| view!{
-                    scope,
-                    Point2d {
-                        point:*point
-                    }
-                }
-            ).collect()
-        ))
-        (View::new_fragment(
             edges.iter().map(
                 |(from, to)| view!{
                     scope,
                     LineSegment2d {
                         start: *from,
                         end: *to,
-                        line_width: 0.05
+                        line_width: 0.05,
+                        fill: "red".into()
+                    }
+                }
+            ).collect()
+        ))
+        (View::new_fragment(
+            props.points.iter().map(
+                |point| view!{
+                    scope,
+                    Point2d {
+                        point:*point
                     }
                 }
             ).collect()

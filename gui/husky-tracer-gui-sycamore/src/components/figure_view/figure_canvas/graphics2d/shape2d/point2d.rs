@@ -11,7 +11,9 @@ pub fn Point2d<'a, G: Html>(scope: Scope<'a>, props: Point2dProps) -> View<G> {
         scope,
         circle (
             cx={props.point.x},
-            cy={props.point.y}
+            cy={props.point.y},
+            r=0.1,
+            fill="red"
         )
     }
 }
