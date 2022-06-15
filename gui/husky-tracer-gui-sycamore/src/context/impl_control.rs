@@ -1,3 +1,5 @@
+mod focus;
+
 use super::*;
 use web_sys::{Event, KeyboardEvent};
 
@@ -10,6 +12,11 @@ impl TracerContext {
     pub fn activate_handler(&self, trace_id: TraceId) -> impl Fn(Event) {
         let this = self.clone();
         move |_| this.activate(trace_id)
+    }
+
+    pub fn toggle_focus_kind_handler(&self) -> impl Fn(Event) {
+        let this = self.clone();
+        move |_| this.toggle_focus_kind()
     }
 
     pub fn keydown_handler(&self) -> impl Fn(Event) {
