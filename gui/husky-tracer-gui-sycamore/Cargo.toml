@@ -30,5 +30,9 @@ features = [
     'MouseEvent',
     'Node',
     'Window',
-    'KeyboardEvent'
+    'KeyboardEvent',
+    'ImageData'
 ]
+
+[profile.dev]
+opt-level = 1

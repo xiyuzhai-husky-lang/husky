@@ -261,11 +261,9 @@ impl HuskyTraceTime {
         let mut figure_canvases = Vec::default();
         let mut figure_controls = Vec::default();
         let opt_active_trace_id = self.opt_active_trace_id;
-        p!(focus);
         if let Some(active_trace_id) = opt_active_trace_id {
             let active_trace = self.trace(active_trace_id);
             let figure_canvas_key = FigureCanvasKey::new(&active_trace.props, &focus);
-            p!(figure_canvas_key);
             figure_canvases.push((
                 figure_canvas_key,
                 self.figure_canvas_data(active_trace_id, &focus),

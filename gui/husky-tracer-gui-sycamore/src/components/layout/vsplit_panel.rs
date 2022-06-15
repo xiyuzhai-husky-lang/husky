@@ -3,8 +3,8 @@ use super::*;
 
 #[derive(Prop, Clone)]
 pub struct VSplitPanelProps<'a> {
-    width: &'a ReadSignal<i32>,
-    height: &'a ReadSignal<i32>,
+    width: &'a ReadSignal<u32>,
+    height: &'a ReadSignal<u32>,
 }
 
 impl<'a> VSplitPanelProps<'a> {
@@ -19,15 +19,15 @@ impl<'a> VSplitPanelProps<'a> {
         format!("width: {lower_panel_width}px; height: {lower_panel_height}px")
     }
 
-    fn panel_width(&self) -> i32 {
+    fn panel_width(&self) -> u32 {
         self.width.get_cloned()
     }
 
-    fn upper_panel_height(&self) -> i32 {
+    fn upper_panel_height(&self) -> u32 {
         self.height.get_cloned() - self.lower_panel_height()
     }
 
-    fn lower_panel_height(&self) -> i32 {
+    fn lower_panel_height(&self) -> u32 {
         23
     }
 }

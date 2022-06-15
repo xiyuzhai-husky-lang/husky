@@ -29,7 +29,6 @@ impl TracerContextInternal {
             let closure = {
                 let window = window.clone();
                 Closure::wrap(Box::new(move |_event: web_sys::UiEvent| {
-                    log::info!("resized");
                     window_inner_height.set(window.inner_height().unwrap().as_f64().unwrap());
                     window_inner_width.set(window.inner_width().unwrap().as_f64().unwrap());
                 }) as Box<dyn FnMut(_)>)

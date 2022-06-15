@@ -1,6 +1,4 @@
 #![allow(dead_code, warnings)]
-
-mod abstraction;
 mod components;
 mod context;
 mod init;
@@ -8,7 +6,6 @@ mod services;
 mod store;
 mod utils;
 
-use abstraction::*;
 use components::*;
 use context::*;
 use husky_tracer_protocol::*;
@@ -30,11 +27,11 @@ fn main() {
             let context = provide_context(scope, TracerContext::new());
             let layout_width = memo!(
                 scope,
-                math::round::floor(context.window_inner_width.get_cloned(), 0) as i32
+                math::round::floor(context.window_inner_width.get_cloned(), 0) as u32
             );
             let layout_height = memo!(
                 scope,
-                math::round::floor(context.window_inner_height.get_cloned(), 0) as i32
+                math::round::floor(context.window_inner_height.get_cloned(), 0) as u32
             );
             let keydown_handler = context.keydown_handler();
             view! {

@@ -25,7 +25,7 @@ use crate::generic_node::GenericNode;
 /// }
 /// ```
 #[derive(Clone, PartialEq, Eq)]
-pub struct NodeRef<G: GenericNode>(Rc<RefCell<Option<G>>>);
+pub struct NodeRef<G: GenericNode>(pub Rc<Signal<Option<G>>>);
 
 impl<G: GenericNode + Any> NodeRef<G> {
     /// Creates an empty [`NodeRef`].
@@ -33,7 +33,7 @@ impl<G: GenericNode + Any> NodeRef<G> {
     /// Generally, it is preferable to use [`create_node_ref`]
     /// instead.
     pub fn new() -> Self {
-        Self(Rc::new(RefCell::new(None)))
+        Self(Rc::new(Signal::new(None)))
     }
 
     /// Gets the T stored inside the [`NodeRef`].
@@ -52,8 +52,8 @@ impl<G: GenericNode + Any> NodeRef<G> {
     ///
     /// For a panicking version, see [`NodeRef::get`].
     pub fn try_get<T: GenericNode>(&self) -> Option<T> {
-        let obj = self.0.borrow();
-        (obj.as_ref()? as &dyn Any).downcast_ref().cloned()
+        let obj = self.0.get();
+        ((*obj).as_ref()? as &dyn Any).downcast_ref().cloned()
     }
 
     /// Gets the raw [`GenericNode`] stored inside the [`NodeRef`].
@@ -72,7 +72,7 @@ impl<G: GenericNode + Any> NodeRef<G> {
     ///
     /// For a panicking version, see [`NodeRef::get`].
     pub fn try_get_raw(&self) -> Option<G> {
-        self.0.borrow().clone()
+        self.0.get_cloned()
     }
 
     /// Sets the [`NodeRef`] with the specified [`GenericNode`].
@@ -80,7 +80,7 @@ impl<G: GenericNode + Any> NodeRef<G> {
     /// This method should be rarely used. Instead, use the `ref=` syntax in the `view!` macro to
     /// set the node.
     pub fn set(&self, node: G) {
-        *self.0.borrow_mut() = Some(node);
+        self.0.set(Some(node))
     }
 }
 
@@ -92,7 +92,7 @@ impl<G: GenericNode> Default for NodeRef<G> {
 
 impl<G: GenericNode> fmt::Debug for NodeRef<G> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.debug_tuple("NodeRef").field(&self.0.borrow()).finish()
+        f.debug_tuple("NodeRef").field(&self.0.get()).finish()
     }
 }
 

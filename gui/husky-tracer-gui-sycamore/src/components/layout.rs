@@ -6,8 +6,8 @@ use vsplit_panel::*;
 
 #[derive(Prop, Clone)]
 pub struct LayoutProps<'a> {
-    width: &'a ReadSignal<i32>,
-    height: &'a ReadSignal<i32>,
+    width: &'a ReadSignal<u32>,
+    height: &'a ReadSignal<u32>,
 }
 
 #[component]

@@ -7,20 +7,18 @@ use figure_control::*;
 
 #[derive(Prop, Clone)]
 pub struct FigureViewProps<'a> {
-    width: &'a ReadSignal<i32>,
-    height: &'a ReadSignal<i32>,
+    width: &'a ReadSignal<u32>,
+    height: &'a ReadSignal<u32>,
 }
 
 impl<'a> FigureViewProps<'a> {
     fn canvas_dimension(&self) -> PixelDimension {
-        log::info!("ad hoc");
         PixelDimension {
             width: self.width.get_cloned() * 4 / 5,
             height: self.height.get_cloned() * 97 * 98 / 10000,
         }
     }
     fn control_dimension(&self) -> PixelDimension {
-        log::info!("ad hoc");
         let total_width = self.width.get_cloned();
         PixelDimension {
             width: total_width - total_width * 4 / 5,
