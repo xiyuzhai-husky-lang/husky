@@ -10,7 +10,7 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
     let tracer_context = use_context::<TracerContext>(scope);
     let tree_context = &tracer_context.tree_context;
     let shown = tree_context.shown_signal(props.trace_id);
-    let focus = tracer_context.focus_context.focus_signal.clone();
+    let focus = tracer_context.focus_context.focus.clone();
     let focus = create_memo(scope, move || focus.get_cloned());
     let associated_trace_trees = View::new_fragment(
         tree_context

@@ -8,6 +8,7 @@ mod impl_feature_repr;
 mod impl_feature_stmt;
 mod impl_figure;
 mod impl_figure_control;
+mod impl_focus;
 mod impl_func_stmt;
 mod impl_ops;
 mod impl_proc_stmt;
@@ -74,20 +75,21 @@ impl HuskyTraceTime {
         self.root_trace_ids.clone()
     }
 
-    pub fn lock_input(&mut self, command: &str) -> (Option<Option<usize>>, Option<String>) {
-        if command.len() == 0 {
-            return (Some(None), None);
-        }
-        match command.parse::<usize>() {
-            Ok(id) => {
-                self.focus = Focus {
-                    opt_input_id: Some(id),
-                };
-                (Some(Some(id)), None)
-            }
-            Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),
-        }
-    }
+    // pub fn lock_input(&mut self, command: &str) -> (Option<Option<usize>>, Option<String>) {
+    // todo!()
+    // if command.len() == 0 {
+    //     return (Some(None), None);
+    // }
+    // match command.parse::<usize>() {
+    //     Ok(id) => {
+    //         self.focus = Focus {
+    //             opt_input_id: Some(id),
+    //         };
+    //         (Some(Some(id)), None)
+    //     }
+    //     Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),
+    // }
+    // }
 
     pub fn all_trace_nodes(&self) -> Vec<TraceNodeData> {
         self.trace_nodes

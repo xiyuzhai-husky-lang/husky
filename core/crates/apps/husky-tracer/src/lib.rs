@@ -36,14 +36,10 @@ impl HuskyTracer {
         let config = DebuggerConfig::from_env();
         let mut trace_time = HuskyTraceTime::new(init_compile_time, config.verbose);
         if let Some(ref input_id_str) = config.opt_input_id {
-            match trace_time.lock_input(input_id_str) {
-                (_, Some(msg)) => panic!("{}", msg),
-                (Some(Some(input_id)), None) => {
-                    for trace in trace_time.root_traces().iter() {
-                        let stalk = trace_time.trace_stalk(*trace, input_id);
-                    }
-                }
-                _ => (),
+            let input_id: usize = input_id_str.parse().unwrap();
+            trace_time.set_focus(Focus::Specific { input_id });
+            for trace in trace_time.root_traces().iter() {
+                let stalk = trace_time.trace_stalk(*trace, input_id);
             }
         }
         Self {

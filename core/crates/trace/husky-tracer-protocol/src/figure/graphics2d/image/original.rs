@@ -42,6 +42,14 @@ impl OriginalImageData {
 
     pub fn to_image_data_scaled(&self, dimension: PixelDimension) -> ImageData {
         let mut data = vec![];
+        assert!(
+            dimension.width % self.dimension.width == 0
+                || dimension.width > 10 * self.dimension.width
+        );
+        assert!(
+            dimension.height % self.dimension.height == 0
+                || dimension.height > 10 * self.dimension.height
+        );
         data.reserve((dimension.width * dimension.height) as usize * 4);
         for i1 in 0..dimension.height {
             for j1 in 0..dimension.width {

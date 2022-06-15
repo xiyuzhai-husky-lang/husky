@@ -2,13 +2,14 @@ use super::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
-pub struct Focus {
-    pub opt_input_id: Option<usize>,
+pub enum Focus {
+    Specific { input_id: usize },
+    Generic {},
 }
 
 impl Default for Focus {
     fn default() -> Self {
-        Self { opt_input_id: None }
+        Focus::Generic {}
     }
 }
 
@@ -18,7 +19,10 @@ impl Focus {
             TraceKind::Main
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
-            | TraceKind::FeatureExpr => self.opt_input_id.is_some(),
+            | TraceKind::FeatureExpr => match self {
+                Focus::Specific { .. } => true,
+                Focus::Generic {} => false,
+            },
             TraceKind::FeatureCallInput
             | TraceKind::FuncStmt
             | TraceKind::ProcStmt
@@ -26,6 +30,13 @@ impl Focus {
             | TraceKind::LoopFrame
             | TraceKind::EagerExpr
             | TraceKind::CallHead => false,
+        }
+    }
+
+    pub fn opt_input_id(&self) -> Option<usize> {
+        match self {
+            Focus::Specific { input_id } => Some(*input_id),
+            Focus::Generic {} => None,
         }
     }
 }
