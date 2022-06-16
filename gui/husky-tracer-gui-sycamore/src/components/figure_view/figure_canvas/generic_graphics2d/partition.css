@@ -7,12 +7,11 @@
     background: grey;
 }
 .PartitionSamples {
-    border: 1px solid cyan;
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 .SampleWrapper {
-    border: 1px solid red;
+    border: 1px solid brown;
 }
