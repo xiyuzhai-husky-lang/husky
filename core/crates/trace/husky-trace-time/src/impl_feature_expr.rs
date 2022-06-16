@@ -187,67 +187,44 @@ impl HuskyTraceTime {
                         self.runtime.visualize(expr.expr.ty(), value.any_ref()),
                     )
                 } else {
-                    FigureCanvasData::void()
+                    FigureCanvasData::error()
                 }
             }
             Focus::Generic { partitions, .. } => {
                 let session = self.runtime.session();
                 let dev_division = session.dev();
-                let mut partitioned_samples: Vec<(Partition, Vec<Graphics2dCanvasData>)> =
-                    partitions
-                        .iter()
-                        .map(|partition| (partition.clone(), vec![]))
-                        .collect();
-                let mut others: Vec<Graphics2dCanvasData> = vec![];
-                const COLUMN_NUMBER: usize = 7;
-                const COLUMN_HEIGHT: usize = 5;
-                let others_size: usize = COLUMN_HEIGHT
+                assert_eq!(
+                    partitions.last().unwrap().variant,
+                    PartitionDefnDataVariant::Other
+                );
+                const COLUMN_NUMBER: u32 = 7;
+                const COLUMN_HEIGHT: u32 = 5;
+                let others_size: u32 = COLUMN_HEIGHT
                     * (COLUMN_NUMBER
                         - partitions
                             .iter()
                             .map(|partition| partition.ncol)
-                            .sum::<usize>());
-                let mut partition_filled = 0;
+                            .sum::<u32>());
+                let mut partitioned_samples_collector =
+                    PartitionedSamplesCollector::<Graphics2dCanvasData>::new(partitions.clone());
                 for labeled_data in dev_division.each_labeled_data() {
-                    let mut partitioned_samples_iter = partitioned_samples.iter_mut();
-                    loop {
-                        match partitioned_samples_iter.next() {
-                            Some((partition, samples)) => {
-                                todo!();
-                                if partition.contains(labeled_data.label) {
-                                    todo!();
-                                    break;
-                                }
-                            }
-                            None => {
-                                if others.len() < others_size {
-                                    if let Ok(value) =
-                                        self.runtime.eval_feature_expr(expr, labeled_data.input_id)
-                                    {
-                                        others.push(
-                                            match FigureCanvasData::new_specific(
-                                                self.runtime
-                                                    .visualize(expr.expr.ty(), value.any_ref()),
-                                            ) {
-                                                FigureCanvasData::Graphics2d {
-                                                    graphics2d_data,
-                                                } => graphics2d_data,
-                                                _ => panic!(),
-                                            },
-                                        )
-                                    } else {
-                                        todo!()
-                                    }
-                                }
-                                break;
-                            }
+                    let label = labeled_data.label;
+                    if partitioned_samples_collector.process(label, || {
+                        let value = self
+                            .runtime
+                            .eval_feature_expr(expr, labeled_data.input_id)
+                            .unwrap();
+                        let visual_data = self.runtime.visualize(expr.expr.ty(), value.any_ref());
+                        match FigureCanvasData::new_specific(visual_data) {
+                            FigureCanvasData::Graphics2d { graphics2d_data } => graphics2d_data,
+                            _ => panic!(),
                         }
+                    }) {
+                        break;
                     }
                 }
-                epin!();
                 FigureCanvasData::GenericGraphics2d {
-                    partitioned_samples,
-                    others,
+                    partitioned_samples: partitioned_samples_collector.finish(),
                 }
             }
         }

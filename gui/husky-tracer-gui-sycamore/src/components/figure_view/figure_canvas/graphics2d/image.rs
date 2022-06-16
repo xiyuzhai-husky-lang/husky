@@ -1,6 +1,7 @@
 use super::*;
+use husky_tracer_protocol::OriginalImageData;
 use wasm_bindgen::Clamped;
-use web_sys::{CanvasRenderingContext2d, ImageData};
+use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement, ImageData};
 
 #[derive(Prop)]
 pub struct ImageProps<'a> {
@@ -8,11 +9,26 @@ pub struct ImageProps<'a> {
     image_layers: Rc<Vec<ImageLayerData>>,
 }
 
-impl<'a> ImageProps<'a> {
-    fn compose_image_layers(&self, image_layers: &[ImageLayerData]) -> ImageData {
-        husky_tracer_protocol::OriginalImageData::new_composed(image_layers)
-            .to_image_data_scaled(self.dimension.get_cloned())
-    }
+fn render(
+    html_canvas: HtmlCanvasElement,
+    composed_image_data: &OriginalImageData,
+    dimension: PixelDimension,
+) {
+    html_canvas.set_width(dimension.width);
+    html_canvas.set_height(dimension.height);
+    let html_canvas_rendering_context = html_canvas
+        .get_context("2d")
+        .unwrap()
+        .unwrap()
+        .dyn_into::<web_sys::CanvasRenderingContext2d>()
+        .unwrap();
+    html_canvas_rendering_context
+        .put_image_data(
+            &composed_image_data.to_image_data_scaled(dimension),
+            0.0,
+            0.0,
+        )
+        .unwrap()
 }
 
 #[component]
@@ -21,29 +37,19 @@ pub fn Image<'a, G: Html>(scope: Scope<'a>, props: ImageProps<'a>) -> View<G> {
     let dimension = props.dimension;
     if props.image_layers.len() > 0 {
         let canvas_drawing_dimension = props.image_layers[0].dimension();
-        let composed_image_data = memo!(scope, props.compose_image_layers(&props.image_layers));
+        let composed_image_data =
+            memo!(scope, OriginalImageData::new_composed(&props.image_layers));
         create_effect(scope, {
             dimension.track();
             move || {
-                let dimension = dimension.get();
+                let dimension = dimension.get_cloned();
                 if let Some(canvas) = canvas_ref.try_get::<DomNode>() {
                     let canvas = canvas.inner_element();
-                    let canvas: web_sys::HtmlCanvasElement = canvas
-                        .dyn_into::<web_sys::HtmlCanvasElement>()
+                    let html_canvas: HtmlCanvasElement = canvas
+                        .dyn_into::<HtmlCanvasElement>()
                         .map_err(|_| ())
                         .unwrap();
-                    canvas.set_width(dimension.width);
-                    canvas.set_height(dimension.height);
-                    let context = canvas
-                        .get_context("2d")
-                        .unwrap()
-                        .unwrap()
-                        .dyn_into::<web_sys::CanvasRenderingContext2d>()
-                        .unwrap();
-                    let composed_image_data = composed_image_data.get();
-                    context
-                        .put_image_data(&composed_image_data, 0.0, 0.0)
-                        .unwrap();
+                    render(html_canvas, &composed_image_data.get(), dimension)
                 }
             }
         });

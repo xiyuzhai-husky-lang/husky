@@ -1,8 +1,10 @@
+mod generic_graphics2d;
 mod graphics2d;
 mod plot2d;
 mod primitive_value;
 
 use super::*;
+use generic_graphics2d::*;
 use graphics2d::*;
 use plot2d::*;
 use primitive_value::*;
@@ -68,7 +70,15 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     }
                 },
                 FigureCanvasData::Mutations { .. } => todo!(),
-                FigureCanvasData::GenericGraphics2d { ref partitioned_samples, ref others} => todo!(),
+                FigureCanvasData::GenericGraphics2d {
+                    ref partitioned_samples,
+                } =>
+                view!{
+                    scope,
+                    GenericGraphics2d {
+                        dimension: props.dimension,
+                        partitioned_samples: partitioned_samples.clone(),
+                }},
             }
         } else {
             view!{
