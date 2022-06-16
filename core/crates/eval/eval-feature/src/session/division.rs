@@ -1,4 +1,4 @@
-use datasets::DataLoader;
+use datasets::{DataLoader, LabeledData};
 use feature_gen::*;
 
 use crate::*;
@@ -7,9 +7,9 @@ use crate::*;
 
 #[derive(Debug)]
 pub struct Division<'eval> {
-    pub loader: DataLoader<'eval>,
-    pub sheets: Vec<EvalSheet<'eval>>,
-    pub indicators: Vec<FeatureEvalIndicator>,
+    loader: DataLoader<'eval>,
+    pub(crate) sheets: Vec<EvalSheet<'eval>>,
+    pub(crate) indicators: Vec<FeatureEvalIndicator>,
 }
 
 impl<'eval> Division<'eval> {
@@ -26,5 +26,15 @@ impl<'eval> Division<'eval> {
             sheets,
             indicators,
         }
+    }
+
+    pub fn load(&self, input_id: usize) -> LabeledData<'eval> {
+        self.loader.load(input_id)
+    }
+
+    pub fn each_labeled_data<'a>(&'a self) -> impl Iterator<Item = LabeledData<'eval>> + 'a {
+        (0..self.loader.len())
+            .into_iter()
+            .map(|idx| self.loader.load(idx))
     }
 }

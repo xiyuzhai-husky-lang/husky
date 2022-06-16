@@ -1,6 +1,7 @@
 mod impl_necessary;
 mod query;
 mod tests;
+mod variant;
 
 pub use query::*;
 
@@ -26,7 +27,7 @@ use vm::{AnyValueDyn, Instruction};
 pub struct HuskyRuntime {
     compile_time: HuskyCompileTime,
     compile_time_version: usize,
-    session: Arc<Mutex<Session<'static>>>,
+    session: Session<'static>,
     package_main: FilePtr,
     config: HuskyRuntimeConfig,
 }
@@ -58,9 +59,7 @@ impl HuskyRuntime {
             }
         };
         let mut runtime = Self {
-            session: Arc::new(Mutex::new(
-                Session::new(&pack, &compile_time, verbose).unwrap(),
-            )),
+            session: Session::new(&pack, &compile_time, verbose).unwrap(),
             compile_time,
             compile_time_version: 0,
             package_main,

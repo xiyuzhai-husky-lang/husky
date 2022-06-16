@@ -56,13 +56,13 @@ pub fn new_binary_dataset<'eval>() -> Dataset<'eval> {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct MnistDataset {
     images: Arc<Vec<Arc<BinaryImage28>>>,
-    labels: Arc<Vec<u8>>,
+    labels: Arc<Vec<Label>>,
     permutation: Arc<Vec<u32>>,
 }
 
 impl MnistDataset {
     pub fn new(seed: u64) -> Self {
-        let (images, labels) = load();
+        let (images, labels) = load_mnist();
         Self {
             images,
             labels,

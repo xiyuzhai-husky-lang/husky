@@ -24,7 +24,7 @@ impl<'eval> LoadSample<'eval> for SyntheticSampleLoader<'eval> {
         self.len
     }
 
-    fn load(&mut self, idx: usize) -> LabeledData<'eval> {
+    fn load(&self, idx: usize) -> LabeledData<'eval> {
         (self.gen)(self.seed, idx)
     }
 }

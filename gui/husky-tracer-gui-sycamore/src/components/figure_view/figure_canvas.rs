@@ -54,23 +54,21 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     }
                 },
                 FigureCanvasData::Graphics2d {
-                    ref image_layers,
-                    ref shapes,
-                    xrange,
-                    yrange
+                    ref graphics2d_data
                 } => {
                     view!{
                         scope,
                         Graphics2dCanvas {
                             dimension: props.dimension,
-                            image_layers: Rc::new(image_layers.clone()),
-                            shapes: Rc::new(shapes.clone()),
-                            xrange,
-                            yrange,
+                            image_layers: Rc::new(graphics2d_data.image_layers.clone()),
+                            shapes: Rc::new(graphics2d_data.shapes.clone()),
+                            xrange: graphics2d_data.xrange,
+                            yrange: graphics2d_data.yrange,
                         }
                     }
                 },
                 FigureCanvasData::Mutations { .. } => todo!(),
+                FigureCanvasData::GenericGraphics2d { ref partitioned_samples, ref others} => todo!(),
             }
         } else {
             view!{

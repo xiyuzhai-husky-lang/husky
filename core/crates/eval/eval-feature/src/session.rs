@@ -35,7 +35,7 @@ pub struct ValidationReport<'sess> {
     predictions: Vec<EvalResult<'sess>>,
 }
 
-impl<'sess> Default for ValidationReport<'sess> {
+impl<'eval> Default for ValidationReport<'eval> {
     fn default() -> Self {
         Self {
             predictions: vec![],
@@ -43,7 +43,7 @@ impl<'sess> Default for ValidationReport<'sess> {
     }
 }
 
-impl<'sess> Session<'sess> {
+impl<'eval> Session<'eval> {
     pub fn new(
         package: &Package,
         compile_time: &HuskyCompileTime,
@@ -68,5 +68,9 @@ impl<'sess> Session<'sess> {
             config,
             dataset,
         })
+    }
+
+    pub fn dev(&self) -> &Division<'eval> {
+        &self.dev
     }
 }

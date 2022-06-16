@@ -34,8 +34,8 @@ impl FocusContext {
             last_last_focus
         } else {
             match *self.last_focus.borrow() {
-                Focus::Specific { .. } => Focus::Generic {},
-                Focus::Generic {} => Focus::Specific {
+                Focus::Specific { .. } => Focus::default(),
+                Focus::Generic { .. } => Focus::Specific {
                     input_id: ask_for_input_id(),
                 },
             }

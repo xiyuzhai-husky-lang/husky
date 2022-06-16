@@ -34,7 +34,7 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
     view! {
         scope,
         div (class="FigureView disable-select") {
-            p {
+            p (class="FigureTitle") {
                 "title"
             }
             div (

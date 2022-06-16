@@ -79,7 +79,7 @@ impl HuskyTracerInternal {
                 );
                 if let Some(ref focus) = opt_focus_for_figure {
                     Some(HuskyTracerServerMessageVariant::Activate {
-                        figure_canvas_data: self.trace_time.figure_canvas_data(trace_id, focus),
+                        figure_canvas_data: self.trace_time.figure_canvas(trace_id, focus),
                         figure_control_data: self.trace_time.figure_control(trace_id, focus),
                     })
                 } else {
@@ -111,32 +111,21 @@ impl HuskyTracerInternal {
                 let stalk = (*self.trace_time.trace_stalk(trace_id, input_id)).clone();
                 Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
-            HuskyTracerGuiMessageVariant::DecodeFocus { ref command } => {
-                todo!()
-                // let focus_result = self.trace_time.decode_focus(command);
-                // Some(HuskyTracerServerMessageVariant::DecodeFocus { focus_result })
-            }
             HuskyTracerGuiMessageVariant::LockFocus {
                 focus,
-                opt_active_trace_id_for_figure,
+                opt_active_trace_id_for_request,
+                request_figure,
+                request_stalk,
             } => {
-                todo!()
-                // let (opt_figure, opt_figure_control) =
-                //     if let Some(trace_id) = opt_active_trace_id_for_figure {
-                //         let trace = self.trace_time.trace(trace_id);
-                //         (
-                //             Some(self.trace_time.figure(trace_id, &focus)),
-                //             Some(self.trace_time.figure_control(&trace, &focus)),
-                //         )
-                //     } else {
-                //         (None, None)
-                //     };
-                // Some(HuskyTracerServerMessageVariant::LockFocus {
-                //     focus,
-                //     opt_active_trace_id_for_figure,
-                //     opt_figure,
-                //     opt_figure_control,
-                // })
+                self.trace_time.set_focus(focus.clone());
+                opt_active_trace_id_for_request.map(|active_trace_id| {
+                    let figure_canvas = self.trace_time.figure_canvas(active_trace_id, &focus);
+                    let figure_control = self.trace_time.figure_control(active_trace_id, &focus);
+                    HuskyTracerServerMessageVariant::LockFocus {
+                        figure_canvas,
+                        figure_control,
+                    }
+                })
             }
             HuskyTracerGuiMessageVariant::UpdateFigureControlData {
                 trace_id,

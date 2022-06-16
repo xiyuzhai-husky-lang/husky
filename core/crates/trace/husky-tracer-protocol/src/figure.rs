@@ -21,13 +21,14 @@ pub enum FigureCanvasData {
         yrange: (f32, f32),
     },
     Graphics2d {
-        image_layers: Vec<ImageLayerData>,
-        shapes: Vec<Shape2dData>,
-        xrange: (f32, f32),
-        yrange: (f32, f32),
+        graphics2d_data: Graphics2dCanvasData,
     },
     Mutations {
         mutations: Vec<MutationFigureData>,
+    },
+    GenericGraphics2d {
+        partitioned_samples: Vec<(Partition, Vec<Graphics2dCanvasData>)>,
+        others: Vec<Graphics2dCanvasData>,
     },
 }
 
@@ -76,23 +77,29 @@ impl FigureCanvasData {
     pub fn new_specific(visual_props: VisualData) -> Self {
         match visual_props {
             VisualData::BinaryImage28 { padded_rows } => FigureCanvasData::Graphics2d {
-                image_layers: vec![ImageLayerData::binary_image28(&padded_rows)],
-                shapes: Vec::new(),
-                xrange: (0.0, 28.0),
-                yrange: (0.0, 28.0),
+                graphics2d_data: Graphics2dCanvasData {
+                    image_layers: vec![ImageLayerData::binary_image28(&padded_rows)],
+                    shapes: Vec::new(),
+                    xrange: (0.0, 28.0),
+                    yrange: (0.0, 28.0),
+                },
             },
             VisualData::Primitive { value } => FigureCanvasData::Primitive { value },
             VisualData::BinaryGrid28 { ref padded_rows } => FigureCanvasData::Graphics2d {
-                image_layers: vec![],
-                shapes: vec![Shape2dData::laser_grid28(padded_rows)],
-                xrange: (0.0, 28.0),
-                yrange: (0.0, 28.0),
+                graphics2d_data: Graphics2dCanvasData {
+                    image_layers: vec![],
+                    shapes: vec![Shape2dData::laser_grid28(padded_rows)],
+                    xrange: (0.0, 28.0),
+                    yrange: (0.0, 28.0),
+                },
             },
             VisualData::Contour { points } => FigureCanvasData::Graphics2d {
-                image_layers: vec![],
-                shapes: vec![Shape2dData::Contour { points }],
-                xrange: (0.0, 28.0),
-                yrange: (0.0, 28.0),
+                graphics2d_data: Graphics2dCanvasData {
+                    image_layers: vec![],
+                    shapes: vec![Shape2dData::Contour { points }],
+                    xrange: (0.0, 28.0),
+                    yrange: (0.0, 28.0),
+                },
             },
             VisualData::Group(mut visuals) => {
                 if visuals.len() == 0 {
@@ -113,10 +120,12 @@ impl FigureCanvasData {
                 }
             }
             VisualData::LineSegment { start, end } => FigureCanvasData::Graphics2d {
-                image_layers: vec![],
-                shapes: vec![Shape2dData::LineSegment { start, end }],
-                xrange: (0.0, 28.0),
-                yrange: (0.0, 28.0),
+                graphics2d_data: Graphics2dCanvasData {
+                    image_layers: vec![],
+                    shapes: vec![Shape2dData::LineSegment { start, end }],
+                    xrange: (0.0, 28.0),
+                    yrange: (0.0, 28.0),
+                },
             },
         }
     }
@@ -141,10 +150,12 @@ impl FigureCanvasData {
             }
         }
         FigureCanvasData::Graphics2d {
-            image_layers,
-            shapes,
-            xrange: (0.0, 28.0),
-            yrange: (0.0, 28.0),
+            graphics2d_data: Graphics2dCanvasData {
+                image_layers,
+                shapes,
+                xrange: (0.0, 28.0),
+                yrange: (0.0, 28.0),
+            },
         }
     }
 

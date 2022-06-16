@@ -7,7 +7,7 @@ use super::*;
 
 #[derive(Default, Debug)]
 pub struct EvalSheet<'eval> {
-    values: HashMap<EvalKey<'eval>, EvalResult<'eval>>,
+    values: Mutex<HashMap<EvalKey<'eval>, EvalResult<'eval>>>,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
@@ -26,17 +26,24 @@ unsafe impl<'eval> Sync for EvalKey<'eval> {}
 impl<'eval> EvalSheet<'eval> {
     pub(crate) fn cached_value(&self, eval_key: EvalKey<'eval>) -> Option<EvalResult<'eval>> {
         self.values
+            .lock()
+            .unwrap()
             .get(&eval_key)
             .map(|v| unsafe { share_cached(v) })
     }
 
     pub(crate) fn cache(
-        &mut self,
+        &self,
         eval_key: EvalKey<'eval>,
         value: EvalResult<'eval>,
     ) -> EvalResult<'eval> {
         let result = unsafe { share_cached(&value) };
-        assert!(self.values.insert(eval_key, value).is_none());
+        assert!(self
+            .values
+            .lock()
+            .unwrap()
+            .insert(eval_key, value)
+            .is_none());
         result
     }
 
