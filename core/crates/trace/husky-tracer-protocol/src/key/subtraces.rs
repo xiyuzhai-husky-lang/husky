@@ -24,7 +24,7 @@ impl SubtracesKey {
                     trace_id,
                     input_id: *input_id,
                 },
-                Focus::Generic {} => SubtracesKey::Null,
+                Focus::Generic { .. } => SubtracesKey::Null,
             },
         }
     }

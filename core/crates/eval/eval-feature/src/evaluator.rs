@@ -17,7 +17,7 @@ pub fn eval_feature_lazy_block<'eval>(
     db: &dyn FeatureEvalQueryGroup,
     block: &FeatureLazyBlock,
     eval_input: EvalValue<'eval>,
-    sheet: &mut EvalSheet<'eval>,
+    sheet: &EvalSheet<'eval>,
     verbose: bool,
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator {
@@ -33,7 +33,7 @@ pub fn eval_feature_stmt<'eval>(
     db: &dyn FeatureEvalQueryGroup,
     stmt: &FeatureStmt,
     eval_input: EvalValue<'eval>,
-    sheet: &mut EvalSheet<'eval>,
+    sheet: &EvalSheet<'eval>,
     verbose: bool,
 ) -> EvalResult<'eval> {
     if let Some(value) = sheet.cached_value(EvalKey::Feature(stmt.opt_feature.unwrap())) {
@@ -53,7 +53,7 @@ pub fn eval_feature_expr<'eval>(
     db: &dyn FeatureEvalQueryGroup,
     expr: &FeatureExpr,
     eval_input: EvalValue<'eval>,
-    sheet: &mut EvalSheet<'eval>,
+    sheet: &EvalSheet<'eval>,
     verbose: bool,
 ) -> EvalResult<'eval> {
     if let Some(value) = sheet.cached_value(EvalKey::Feature(expr.feature)) {
@@ -73,7 +73,7 @@ pub fn eval_feature_repr<'eval>(
     db: &dyn FeatureEvalQueryGroup,
     repr: &FeatureRepr,
     eval_input: EvalValue<'eval>,
-    sheet: &mut EvalSheet<'eval>,
+    sheet: &EvalSheet<'eval>,
     verbose: bool,
 ) -> EvalResult<'eval> {
     let mut evaluator = FeatureEvaluator {
@@ -87,7 +87,7 @@ pub fn eval_feature_repr<'eval>(
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     eval_input: EvalValue<'eval>,
-    sheet: &'a mut EvalSheet<'eval>,
+    sheet: &'a EvalSheet<'eval>,
     db: &'a dyn FeatureEvalQueryGroup,
     verbose: bool,
 }

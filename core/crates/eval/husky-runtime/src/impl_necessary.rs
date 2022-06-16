@@ -55,7 +55,7 @@ impl Upcast<dyn EvalFeature<'static>> for HuskyRuntime {
 }
 
 impl EvalFeature<'static> for HuskyRuntime {
-    fn session(&self) -> &Arc<Mutex<Session<'static>>> {
+    fn session(&self) -> &Session<'static> {
         &self.session
     }
 

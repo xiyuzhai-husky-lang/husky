@@ -1,15 +1,32 @@
+mod label;
+mod partition;
+
+pub use label::*;
+pub use partition::*;
+
 use super::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub enum Focus {
-    Specific { input_id: usize },
-    Generic {},
+    Specific {
+        input_id: usize,
+    },
+    Generic {
+        partitions: Vec<Partition>,
+        constraints: Vec<Constraint>,
+    },
 }
+
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
+pub enum Constraint {}
 
 impl Default for Focus {
     fn default() -> Self {
-        Focus::Generic {}
+        Focus::Generic {
+            partitions: vec![],
+            constraints: vec![],
+        }
     }
 }
 
@@ -21,7 +38,7 @@ impl Focus {
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr => match self {
                 Focus::Specific { .. } => true,
-                Focus::Generic {} => false,
+                Focus::Generic { .. } => false,
             },
             TraceKind::FeatureCallInput
             | TraceKind::FuncStmt
@@ -36,7 +53,7 @@ impl Focus {
     pub fn opt_input_id(&self) -> Option<usize> {
         match self {
             Focus::Specific { input_id } => Some(*input_id),
-            Focus::Generic {} => None,
+            Focus::Generic { .. } => None,
         }
     }
 }

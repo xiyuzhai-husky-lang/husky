@@ -16,7 +16,7 @@ impl<'eval> LoadSample<'eval> for MnistValLoader {
         10000
     }
 
-    fn load<'a>(&'a mut self, idx: usize) -> LabeledData<'eval> {
+    fn load<'a>(&'a self, idx: usize) -> LabeledData<'eval> {
         todo!()
     }
 }

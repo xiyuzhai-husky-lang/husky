@@ -2,6 +2,8 @@ pub mod cv;
 mod iter;
 mod labeled;
 mod loader;
+
+pub use labeled::*;
 pub mod synthetic;
 
 use liason::*;

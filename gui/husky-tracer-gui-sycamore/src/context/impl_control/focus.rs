@@ -11,26 +11,30 @@ impl TracerContext {
             Some(active_trace_id) => {
                 let active_trace = self.tree_context.trace(active_trace_id);
                 let request_figure = !self.figure_context.is_figure_cached(&active_trace, &focus);
+                log::info!("handle stalk");
                 if request_figure {
                     let this = self.clone();
                     self.ws.send_message(
                         HuskyTracerGuiMessageVariant::LockFocus {
                             focus: focus.clone(),
-                            opt_active_trace_id_for_figure: self
-                                .tree_context
-                                .opt_active_trace_id
-                                .get_cloned(),
+                            opt_active_trace_id_for_request: Some(active_trace_id),
+                            request_figure,
+                            request_stalk: false,
                         },
                         Some(Box::new(move |message| match message.variant {
                             HuskyTracerServerMessageVariant::LockFocus {
-                                figure,
+                                figure_canvas,
                                 figure_control,
-                            } => this.figure_context.set_figure(
-                                &active_trace,
-                                &focus,
-                                figure,
-                                figure_control,
-                            ),
+                            } => {
+                                this.figure_context.set_figure(
+                                    &active_trace,
+                                    &focus,
+                                    figure_canvas,
+                                    figure_control,
+                                );
+                                log::info!("here");
+                                this.focus_context.focus.set(focus);
+                            }
                             _ => panic!(),
                         })),
                     )
@@ -47,7 +51,9 @@ impl TracerContext {
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::LockFocus {
                 focus,
-                opt_active_trace_id_for_figure: None,
+                opt_active_trace_id_for_request: None,
+                request_figure: false,
+                request_stalk: false,
             },
             None,
         );

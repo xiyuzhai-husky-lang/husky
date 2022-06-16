@@ -43,32 +43,36 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     dev_src: dev_utils::static_dev_src!(),
 };
 
-pub fn gen_sample1<'eval>(seed: u64, idx: usize) -> LabeledData<'eval> {
-    let mut xrng = XRng::new(((seed + (idx as u64)) >> 32) & ((idx as u64) << 32));
+pub fn gen_sample1<'eval>(seed: u64, input_id: usize) -> LabeledData<'eval> {
+    let mut xrng = XRng::new(((seed + (input_id as u64)) >> 32) & ((input_id as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
             input: EvalValue::Copyable(1.0f32.into()),
-            label: 1,
+            label: 1.into(),
+            input_id,
         }
     } else {
         LabeledData {
             input: EvalValue::Copyable((-1.0f32).into()),
-            label: 1,
+            label: 1.into(),
+            input_id,
         }
     }
 }
 
-pub fn gen_sample2<'eval>(seed: u64, idx: usize) -> LabeledData<'eval> {
-    let mut xrng = XRng::new(((seed + (idx as u64)) >> 32) & ((idx as u64) << 32));
+pub fn gen_sample2<'eval>(seed: u64, input_id: usize) -> LabeledData<'eval> {
+    let mut xrng = XRng::new(((seed + (input_id as u64)) >> 32) & ((input_id as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
             input: EvalValue::Copyable(1.0f32.into()),
-            label: 1,
+            label: 1.into(),
+            input_id,
         }
     } else {
         LabeledData {
             input: EvalValue::Copyable((-1.0f32).into()),
-            label: 1,
+            label: 1.into(),
+            input_id,
         }
     }
 }

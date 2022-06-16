@@ -26,7 +26,9 @@ pub enum HuskyTracerGuiMessageVariant {
     },
     LockFocus {
         focus: Focus,
-        opt_active_trace_id_for_figure: Option<TraceId>,
+        opt_active_trace_id_for_request: Option<TraceId>,
+        request_figure: bool,
+        request_stalk: bool,
     },
     TraceStalk {
         trace_id: TraceId,

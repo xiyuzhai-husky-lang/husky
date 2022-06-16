@@ -268,7 +268,7 @@ impl HuskyTraceTime {
             let figure_canvas_key = FigureCanvasKey::new(&active_trace.props, &focus);
             figure_canvases.push((
                 figure_canvas_key,
-                self.figure_canvas_data(active_trace_id, &focus),
+                self.figure_canvas(active_trace_id, &focus),
             ));
             figure_controls.push((
                 FigureControlKey::new(&active_trace.props, &focus),
