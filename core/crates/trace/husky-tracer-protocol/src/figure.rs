@@ -27,8 +27,7 @@ pub enum FigureCanvasData {
         mutations: Vec<MutationFigureData>,
     },
     GenericGraphics2d {
-        partitioned_samples: Vec<(Partition, Vec<Graphics2dCanvasData>)>,
-        others: Vec<Graphics2dCanvasData>,
+        partitioned_samples: Vec<(PartitionDefnData, Vec<Graphics2dCanvasData>)>,
     },
 }
 
@@ -74,8 +73,8 @@ pub struct MutationFigureData {
 // }
 
 impl FigureCanvasData {
-    pub fn new_specific(visual_props: VisualData) -> Self {
-        match visual_props {
+    pub fn new_specific(visual_data: VisualData) -> Self {
+        match visual_data {
             VisualData::BinaryImage28 { padded_rows } => FigureCanvasData::Graphics2d {
                 graphics2d_data: Graphics2dCanvasData {
                     image_layers: vec![ImageLayerData::binary_image28(&padded_rows)],
@@ -164,6 +163,12 @@ impl FigureCanvasData {
     }
 
     pub fn void() -> Self {
+        Self::Primitive {
+            value: PrimitiveValueData::Void(()),
+        }
+    }
+
+    pub fn error() -> Self {
         Self::Primitive {
             value: PrimitiveValueData::Void(()),
         }

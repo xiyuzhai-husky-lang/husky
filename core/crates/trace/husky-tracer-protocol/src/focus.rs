@@ -13,7 +13,7 @@ pub enum Focus {
         input_id: usize,
     },
     Generic {
-        partitions: Vec<Partition>,
+        partitions: Vec<PartitionDefnData>,
         constraints: Vec<Constraint>,
     },
 }
@@ -24,7 +24,11 @@ pub enum Constraint {}
 impl Default for Focus {
     fn default() -> Self {
         Focus::Generic {
-            partitions: vec![],
+            partitions: vec![PartitionDefnData {
+                name: "other".into(),
+                ncol: 7,
+                variant: PartitionDefnDataVariant::Other,
+            }],
             constraints: vec![],
         }
     }
