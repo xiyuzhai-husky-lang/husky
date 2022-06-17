@@ -22,6 +22,25 @@ pub enum VisualData {
     Group(Vec<VisualData>),
 }
 
+pub enum VisualWorld {
+    Primitive,
+    Graphics2d,
+    Graphics3d,
+}
+
+impl VisualData {
+    pub fn world(&self) -> VisualWorld {
+        match self {
+            VisualData::LineSegment { .. }
+            | VisualData::Contour { .. }
+            | VisualData::BinaryImage28 { .. }
+            | VisualData::BinaryGrid28 { .. } => VisualWorld::Graphics2d,
+            VisualData::Primitive { .. } => VisualWorld::Primitive,
+            VisualData::Group(group) => group[0].world(),
+        }
+    }
+}
+
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub struct Point2dData {
     pub x: f32,
