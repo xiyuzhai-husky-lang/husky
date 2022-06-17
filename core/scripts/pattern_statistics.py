@@ -3,6 +3,7 @@ import re
 import sys
 import os
 from termcolor import colored
+import pathlib
 
 # Usage: path/to/script <pattern> <search-dir> <depth>
 
@@ -35,10 +36,11 @@ def count_patterns(pattern: str, search_path: str) -> int:
         for subpath in subpaths(search_path):
             total += count_patterns(pattern, subpath)
     elif os.path.isfile(search_path):
-        file = open(search_path, "r")
-        for line in file:
-            if re.search(pattern, line):
-                total += 1
+        if pathlib.Path(search_path).suffix == ".rs":
+            file = open(search_path, "r")
+            for line in file:
+                if re.search(pattern, line):
+                    total += 1
     else:
         raise Exception("{} is not a valid search path".format(search_path))
     return total

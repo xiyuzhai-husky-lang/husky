@@ -206,7 +206,7 @@ impl HuskyTraceTime {
                             .map(|partition| partition.ncol)
                             .sum::<u32>());
                 let mut partitioned_samples_collector =
-                    PartitionedSamplesCollector::<Graphics2dCanvasData>::new(partitions.clone());
+                    PartitionedSamplesCollector::<FigureCanvasData>::new(partitions.clone());
                 for labeled_data in dev_division.each_labeled_data() {
                     let label = labeled_data.label;
                     if partitioned_samples_collector.process(label, || {
@@ -215,17 +215,12 @@ impl HuskyTraceTime {
                             .eval_feature_expr(expr, labeled_data.input_id)
                             .unwrap();
                         let visual_data = self.runtime.visualize(expr.expr.ty(), value.any_ref());
-                        match FigureCanvasData::new_specific(visual_data) {
-                            FigureCanvasData::Graphics2d { graphics2d_data } => graphics2d_data,
-                            _ => panic!(),
-                        }
+                        FigureCanvasData::new_specific(visual_data)
                     }) {
                         break;
                     }
                 }
-                FigureCanvasData::GenericGraphics2d {
-                    partitioned_samples: partitioned_samples_collector.finish(),
-                }
+                FigureCanvasData::new_generic(partitioned_samples_collector.finish())
             }
         }
     }

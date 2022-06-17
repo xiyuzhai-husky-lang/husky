@@ -29,6 +29,12 @@ pub enum FigureCanvasData {
     GenericGraphics2d {
         partitioned_samples: Vec<(PartitionDefnData, Vec<Graphics2dCanvasData>)>,
     },
+    GenericF32 {
+        partitioned_samples: Vec<(PartitionDefnData, Vec<f32>)>,
+    },
+    GenericI32 {
+        partitioned_samples: Vec<(PartitionDefnData, Vec<i32>)>,
+    },
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -107,15 +113,10 @@ impl FigureCanvasData {
                 if visuals.len() == 1 {
                     return Self::new_specific(visuals.pop().unwrap());
                 }
-                match visuals[0] {
-                    VisualData::BinaryImage28 { .. }
-                    | VisualData::BinaryGrid28 { .. }
-                    | VisualData::Contour { .. }
-                    | VisualData::LineSegment { .. } => {
-                        Self::new_specific_graphics2d_group(visuals)
-                    }
-                    VisualData::Primitive { .. } => Self::new_specific_primitive_group(visuals),
-                    VisualData::Group(_) => todo!(),
+                match visuals[0].world() {
+                    VisualWorld::Primitive => Self::new_specific_primitive_group(visuals),
+                    VisualWorld::Graphics2d => Self::new_specific_graphics2d_group(visuals),
+                    VisualWorld::Graphics3d => todo!(),
                 }
             }
             VisualData::LineSegment { start, end } => FigureCanvasData::Graphics2d {
@@ -132,20 +133,16 @@ impl FigureCanvasData {
     pub fn new_specific_graphics2d_group(visuals: Vec<VisualData>) -> Self {
         let mut image_layers = Vec::new();
         let mut shapes = Vec::new();
-        for visual in visuals {
-            match visual {
+        for visual_data in visuals {
+            match visual_data {
                 VisualData::BinaryImage28 { ref padded_rows } => {
                     image_layers.push(ImageLayerData::binary_image28(padded_rows))
                 }
-                VisualData::BinaryGrid28 { ref padded_rows } => {
-                    shapes.push(Shape2dData::laser_grid28(padded_rows))
-                }
                 VisualData::Primitive { value } => todo!(),
-                VisualData::Contour { points } => shapes.push(Shape2dData::Contour { points }),
-                VisualData::Group(_) => todo!(),
-                VisualData::LineSegment { start, end } => {
-                    shapes.push(Shape2dData::LineSegment { start, end })
-                }
+                VisualData::BinaryGrid28 { .. }
+                | VisualData::Contour { .. }
+                | VisualData::Group(_)
+                | VisualData::LineSegment { .. } => shapes.push(visual_data.into()),
             }
         }
         FigureCanvasData::Graphics2d {
@@ -171,6 +168,105 @@ impl FigureCanvasData {
     pub fn error() -> Self {
         Self::Primitive {
             value: PrimitiveValueData::Void(()),
+        }
+    }
+
+    pub fn new_generic(
+        partitioned_visuals: Vec<(PartitionDefnData, Vec<FigureCanvasData>)>,
+    ) -> Self {
+        for (partition, visuals) in &partitioned_visuals {
+            if visuals.len() > 0 {
+                match &visuals[0] {
+                    FigureCanvasData::Primitive { value } => match value {
+                        PrimitiveValueData::I32(_) => todo!(),
+                        PrimitiveValueData::F32(_) => todo!(),
+                        PrimitiveValueData::B32(_) => todo!(),
+                        PrimitiveValueData::B64(_) => todo!(),
+                        PrimitiveValueData::Bool(_) => todo!(),
+                        PrimitiveValueData::Void(_) => todo!(),
+                    },
+                    FigureCanvasData::Graphics2d { graphics2d_data } => {
+                        return Self::new_generic_graphics2d(partitioned_visuals)
+                    }
+                    _ => panic!(),
+                }
+            }
+        }
+        panic!()
+    }
+
+    fn new_generic_graphics2d(
+        partitioned_visuals: Vec<(PartitionDefnData, Vec<FigureCanvasData>)>,
+    ) -> Self {
+        FigureCanvasData::GenericGraphics2d {
+            partitioned_samples: partitioned_visuals
+                .into_iter()
+                .map(|(partition, visuals)| {
+                    (
+                        partition,
+                        visuals
+                            .into_iter()
+                            .map(|visual_data| match visual_data {
+                                FigureCanvasData::Graphics2d { graphics2d_data } => graphics2d_data,
+                                _ => {
+                                    println!("{:?}", visual_data);
+                                    panic!()
+                                }
+                            })
+                            .collect(),
+                    )
+                })
+                .collect(),
+        }
+    }
+
+    fn new_generic_f32(
+        partitioned_visuals: Vec<(PartitionDefnData, Vec<FigureCanvasData>)>,
+    ) -> Self {
+        FigureCanvasData::GenericF32 {
+            partitioned_samples: partitioned_visuals
+                .into_iter()
+                .map(|(partition, visuals)| {
+                    (
+                        partition,
+                        visuals
+                            .into_iter()
+                            .map(|visual_data| match visual_data {
+                                FigureCanvasData::Primitive { value } => match value {
+                                    PrimitiveValueData::F32(f) => f,
+                                    _ => panic!(),
+                                },
+                                _ => panic!(),
+                            })
+                            .collect(),
+                    )
+                })
+                .collect(),
+        }
+    }
+
+    fn new_generic_i32(
+        partitioned_visuals: Vec<(PartitionDefnData, Vec<FigureCanvasData>)>,
+    ) -> Self {
+        FigureCanvasData::GenericI32 {
+            partitioned_samples: partitioned_visuals
+                .into_iter()
+                .map(|(partition, visuals)| {
+                    (
+                        partition,
+                        visuals
+                            .into_iter()
+                            .map(|visual_data| match visual_data {
+                                FigureCanvasData::Primitive { value } => match value {
+                                    PrimitiveValueData::I32(i) => i,
+                                    _ => panic!(),
+                                },
+                                _ => panic!(),
+                            })
+                            .collect(),
+                    )
+                })
+                .collect(),
         }
     }
 }

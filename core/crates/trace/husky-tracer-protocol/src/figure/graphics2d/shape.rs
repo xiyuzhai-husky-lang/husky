@@ -19,7 +19,6 @@ pub enum Shape2dData {
     },
     Group {
         shapes: Vec<Shape2dData>,
-        line_width: f32,
     },
 }
 
@@ -36,9 +35,24 @@ impl Shape2dData {
                 }
             }
         }
-        Shape2dData::Group {
-            shapes,
-            line_width: 2.0,
+        Shape2dData::Group { shapes }
+    }
+}
+
+impl From<VisualData> for Shape2dData {
+    fn from(visual_data: VisualData) -> Self {
+        match visual_data {
+            VisualData::BinaryImage28 { .. } => panic!(),
+            VisualData::Primitive { value } => todo!(),
+            VisualData::BinaryGrid28 { ref padded_rows } => Shape2dData::laser_grid28(padded_rows),
+            VisualData::Contour { points } => Shape2dData::Contour { points },
+            VisualData::Group(group) => Shape2dData::Group {
+                shapes: group
+                    .into_iter()
+                    .map(|visual_data| visual_data.into())
+                    .collect(),
+            },
+            VisualData::LineSegment { start, end } => Shape2dData::LineSegment { start, end },
         }
     }
 }
