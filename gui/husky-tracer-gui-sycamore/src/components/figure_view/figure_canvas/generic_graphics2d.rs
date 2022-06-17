@@ -17,18 +17,12 @@ pub fn GenericGraphics2d<'a, G: Html>(
     props: GenericGraphics2dProps<'a>,
 ) -> View<G> {
     let dimension = props.dimension;
-    let column_dimension = memo!(scope, {
-        let dimension = dimension.get_cloned();
-        PixelDimension {
-            height: dimension.height - TITLE_HEIGHT,
-            width: dimension.width / 7,
-        }
-    });
+    let column_dimension = memo!(scope, { dimension.cget() / (7, 1) - (0, TITLE_HEIGHT) });
     view! {
         scope,
         div (
             class="GenericGraphics2dCanvas",
-            style=props.dimension.get_cloned().to_style()
+            style=props.dimension.cget().to_style()
         ) {
             (View::new_fragment(props.partitioned_samples.iter().map(
                 |(partition, samples)| {

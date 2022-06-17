@@ -12,7 +12,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let tree_context = &tracer_context.tree_context;
     let shown = tree_context.shown_signal(props.trace_id);
     let expansion = tree_context.expanded_signal(props.trace_id);
-    let expanded = memo!(scope, expansion.get_cloned(), expansion);
+    let expanded = memo!(scope, expansion.cget(), expansion);
     let trace = tree_context.trace(props.trace_id);
     let trace_kind = trace.kind;
     let focus = props.focus;
@@ -25,7 +25,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let activate_handler = tracer_context.activate_handler(props.trace_id);
     let opt_active_trace_id = &tree_context.opt_active_trace_id;
     let trace_id = trace.id;
-    let active = memo!(scope, opt_active_trace_id.get_cloned() == Some(trace_id));
+    let active = memo!(scope, opt_active_trace_id.cget() == Some(trace_id));
     let trace_lines = View::new_fragment(
         trace
             .lines
@@ -52,7 +52,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
         ) {
             div(
                 class={
-                    if active.get_cloned() {
+                    if active.cget() {
                         "TraceNodeInternal active"
                     } else {
                         "TraceNodeInternal"

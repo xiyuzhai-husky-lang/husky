@@ -27,11 +27,11 @@ fn main() {
             let context = provide_context(scope, TracerContext::new());
             let layout_width = memo!(
                 scope,
-                math::round::floor(context.window_inner_width.get_cloned(), 0) as u32
+                math::round::floor(context.window_inner_width.cget(), 0) as u32
             );
             let layout_height = memo!(
                 scope,
-                math::round::floor(context.window_inner_height.get_cloned(), 0) as u32
+                math::round::floor(context.window_inner_height.cget(), 0) as u32
             );
             let keydown_handler = context.keydown_handler();
             view! {

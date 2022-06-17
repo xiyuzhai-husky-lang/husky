@@ -22,11 +22,11 @@ impl FocusContext {
     }
 
     pub(super) fn focus(&self) -> Focus {
-        return self.focus.get_cloned();
+        return self.focus.cget();
     }
 
     pub(super) fn toggled_focus_kind(&self) -> Focus {
-        let last_last_focus = self.last_focus.replace(self.focus.get_cloned());
+        let last_last_focus = self.last_focus.replace(self.focus.cget());
 
         if std::mem::discriminant(&last_last_focus)
             != std::mem::discriminant(&self.last_focus.borrow())

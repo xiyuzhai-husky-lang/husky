@@ -7,7 +7,7 @@ impl TracerContext {
     }
 
     fn set_focus(&self, focus: Focus) {
-        match self.tree_context.opt_active_trace_id.get_cloned() {
+        match self.tree_context.opt_active_trace_id.cget() {
             Some(active_trace_id) => {
                 let active_trace = self.tree_context.trace(active_trace_id);
                 let request_figure = !self.figure_context.is_figure_cached(&active_trace, &focus);

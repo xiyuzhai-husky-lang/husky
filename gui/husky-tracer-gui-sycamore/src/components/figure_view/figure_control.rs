@@ -14,7 +14,7 @@ pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a
     let focus = &context.focus_context.focus;
     view! {
         scope,
-        (if let Some(active_trace_id) = opt_active_trace_id.get_cloned() {
+        (if let Some(active_trace_id) = opt_active_trace_id.cget() {
             let active_trace = context.tree_context.trace(active_trace_id);
             let canvas_data = memo!(
                 scope,
@@ -29,7 +29,7 @@ pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a
                     .figure_context
                     .figure_control_data(&active_trace, &focus.get())
             );
-            match *canvas_data.get_cloned() {
+            match *canvas_data.cget() {
                 FigureCanvasData::Mutations { ref mutations } => todo!(),
                 _=> view! {scope, }
             }

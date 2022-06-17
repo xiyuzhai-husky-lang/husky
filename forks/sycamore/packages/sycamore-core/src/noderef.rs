@@ -72,7 +72,7 @@ impl<G: GenericNode + Any> NodeRef<G> {
     ///
     /// For a panicking version, see [`NodeRef::get`].
     pub fn try_get_raw(&self) -> Option<G> {
-        self.0.get_cloned()
+        self.0.cget()
     }
 
     /// Sets the [`NodeRef`] with the specified [`GenericNode`].
