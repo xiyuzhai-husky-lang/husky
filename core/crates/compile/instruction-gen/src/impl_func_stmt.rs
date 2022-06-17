@@ -46,10 +46,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                     stmt,
                 ))
             }
-            FuncStmtVariant::ReturnXml { ref xml_expr } => {
-                self.compile_xml_expr(xml_expr.clone());
-                self.push_instruction(Instruction::new(InstructionVariant::Return, stmt));
-            }
         }
     }
 

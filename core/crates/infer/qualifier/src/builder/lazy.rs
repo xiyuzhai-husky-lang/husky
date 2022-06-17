@@ -131,7 +131,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawStmtVariant::Match { match_expr, .. } => {
                 self.infer_lazy_expr(arena, match_expr);
             }
-            RawStmtVariant::ReturnXml(_) => todo!(),
+            RawStmtVariant::ReturnXml(ref xml_expr) => match xml_expr.variant {
+                RawXmlExprVariant::Value(raw_expr_idx) => {
+                    self.infer_lazy_expr(arena, raw_expr_idx);
+                }
+                RawXmlExprVariant::Tag { ident, ref props } => {
+                    props.iter().for_each(|(_, argument)| {
+                        self.infer_lazy_expr(arena, *argument);
+                    })
+                }
+            },
         }
     }
 

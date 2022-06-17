@@ -66,7 +66,16 @@ impl<'a> ContractSheetBuilder<'a> {
                 match_expr,
                 match_liason,
             } => self.infer_lazy_expr(match_expr, LazyContract::from_match(match_liason), arena),
-            RawStmtVariant::ReturnXml(_) => panic!(),
+            RawStmtVariant::ReturnXml(ref xml_expr) => match xml_expr.variant {
+                RawXmlExprVariant::Value(raw_expr_idx) => {
+                    self.infer_lazy_expr(raw_expr_idx, LazyContract::Pure, arena);
+                }
+                RawXmlExprVariant::Tag { ref props, .. } => {
+                    props.iter().for_each(|(_, argument)| {
+                        self.infer_lazy_expr(*argument, LazyContract::Pure, arena);
+                    })
+                }
+            },
         }
     }
 

@@ -35,13 +35,6 @@ impl FuncStmt {
             FuncStmtVariant::Init { .. }
             | FuncStmtVariant::Assert { .. }
             | FuncStmtVariant::Return { .. } => stmt.range.end,
-            FuncStmtVariant::ReturnXml { ref xml_expr } => match xml_expr.variant {
-                XmlExprVariant::Value(_) => todo!(),
-                XmlExprVariant::Tag {
-                    tag_kind,
-                    ref props,
-                } => todo!(),
-            },
             FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
             FuncStmtVariant::Match {
                 ref match_expr,
@@ -76,9 +69,6 @@ pub enum FuncStmtVariant {
     },
     Return {
         result: Arc<EagerExpr>,
-    },
-    ReturnXml {
-        xml_expr: Arc<XmlExpr>,
     },
     ConditionFlow {
         branches: Vec<Arc<FuncConditionBranch>>,

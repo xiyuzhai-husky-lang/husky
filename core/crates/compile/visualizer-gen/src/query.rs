@@ -24,17 +24,16 @@ fn visualizer(db: &dyn VisualizerQueryGroup, ty: EntityRoutePtr) -> Arc<Visualiz
         } => match opt_visualizer_source {
             Some(visualizer_source) => match visualizer_source {
                 VisualizerSource::Static(static_visualizer) => {
-                    Visualizer::from_static(static_visualizer, ty)
+                    Visualizer::from_static(db, static_visualizer, ty)
                 }
                 VisualizerSource::Custom { ref stmts } => Visualizer {
-                    ty: todo!(),
-                    variant: VisualizerVariant::Interpreted {
+                    ty: VisualTy::from_stmts(stmts),
+                    variant: VisualizerVariant::Custom {
                         stmts: stmts.clone(),
-                        instruction_sheet: new_visual_instruction_sheet(db.upcast(), stmts),
                     },
                 },
             },
-            None => Visualizer::from_static(&TRIVIAL_VISUALIZER, ty),
+            None => Visualizer::from_static(db, &TRIVIAL_VISUALIZER, ty),
         },
         _ => todo!(),
     })

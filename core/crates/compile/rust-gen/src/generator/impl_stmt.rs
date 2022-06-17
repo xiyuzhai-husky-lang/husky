@@ -46,7 +46,6 @@ impl<'a> RustGenerator<'a> {
                 ref match_expr,
                 ref branches,
             } => todo!(),
-            FuncStmtVariant::ReturnXml { ref xml_expr } => todo!(),
         }
         self.write_newline();
     }

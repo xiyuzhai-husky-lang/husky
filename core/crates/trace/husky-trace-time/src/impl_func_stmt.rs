@@ -77,7 +77,6 @@ impl HuskyTraceTime {
                 ref branches,
             } => todo!(),
             FuncStmtVariant::ConditionFlow { .. } => panic!(),
-            FuncStmtVariant::ReturnXml { .. } => panic!(),
         }
     }
 
@@ -94,7 +93,6 @@ impl HuskyTraceTime {
                 ref match_expr,
                 ref branches,
             } => todo!(),
-            FuncStmtVariant::ReturnXml { ref xml_expr } => todo!(),
         }
     }
 }

@@ -96,11 +96,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstVariant::CallFormDefnHead { output_ty, .. } => {
                         self.infer_eager_stmts(children, &arena, output_ty.route)
                     }
-                    AstVariant::Visual => self.infer_eager_stmts(
-                        children,
-                        &arena,
-                        EntityRoutePtr::Root(RootIdentifier::VisualType),
-                    ),
+                    AstVariant::Visual => self.infer_lazy_stmts(children, &arena),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
                         field_ast_kind, ty, ..

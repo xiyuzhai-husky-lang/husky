@@ -7,8 +7,8 @@ use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_qualifier::{InferQualifiedTy, QualifiedTySheet};
 use semantics_error::*;
 use std::{iter::Peekable, sync::Arc};
-use vm::{InitKind, VMCompileResult, VMRuntimeResult, VMStackIdx};
-use word::CustomIdentifier;
+use vm::{InitKind, VMCompileResult, VMRuntimeResult, VMStackIdx, XmlTagKind};
+use word::{CustomIdentifier, IdentPairDict};
 
 pub(super) struct LazyStmtParser<'a> {
     pub(super) db: &'a dyn InferQueryGroup,
@@ -75,7 +75,9 @@ impl<'a> LazyStmtParser<'a> {
                         },
                         RawStmtVariant::Break => todo!(),
                         RawStmtVariant::Match { .. } => panic!(),
-                        RawStmtVariant::ReturnXml(_) => todo!(),
+                        RawStmtVariant::ReturnXml(ref raw_xml_expr) => LazyStmtVariant::ReturnXml {
+                            xml_expr: self.parse_xml_expr(raw_xml_expr)?,
+                        },
                     };
                     stmts.push(Arc::new(LazyStmt {
                         file: self.file,
@@ -89,6 +91,31 @@ impl<'a> LazyStmtParser<'a> {
             }
         }
         Ok(Arc::new(stmts))
+    }
+
+    fn parse_xml_expr(&mut self, raw_xml_expr: &RawXmlExpr) -> SemanticResultArc<XmlExpr> {
+        let variant = match raw_xml_expr.variant {
+            RawXmlExprVariant::Value(raw_expr_idx) => {
+                XmlExprVariant::Value(self.parse_lazy_expr(raw_expr_idx)?)
+            }
+            RawXmlExprVariant::Tag { ident, ref props } => {
+                let tag_kind = XmlTagKind::from_ident(ident);
+                XmlExprVariant::Tag { tag_kind, props: props
+                    .iter()
+                    .map(
+                        |(ident, raw_expr_idx)| -> SemanticResult<(CustomIdentifier, Arc<LazyExpr>)> {
+                            Ok((*ident, self.parse_lazy_expr(*raw_expr_idx)?))
+                        },
+                    )
+                    .collect::<SemanticResult<IdentPairDict<Arc<LazyExpr>>>>()? }
+            }
+        };
+        Ok(Arc::new(XmlExpr {
+            variant,
+            range: raw_xml_expr.range,
+            file: self.file,
+            instruction_id: Default::default(),
+        }))
     }
 
     fn parse_condition_flow(

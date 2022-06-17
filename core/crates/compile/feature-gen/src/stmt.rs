@@ -182,6 +182,7 @@ impl FeatureStmt {
                 ref match_expr,
                 ref branches,
             } => todo!(),
+            LazyStmtVariant::ReturnXml { ref xml_expr } => todo!(),
         })
     }
 }
