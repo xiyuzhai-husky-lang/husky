@@ -29,9 +29,9 @@ impl InstructionSource for XmlExpr {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum XmlExprVariant {
-    Value(Arc<EagerExpr>),
+    Value(Arc<LazyExpr>),
     Tag {
         tag_kind: XmlTagKind,
-        props: IdentPairDict<Arc<EagerExpr>>,
+        props: IdentPairDict<Arc<LazyExpr>>,
     },
 }

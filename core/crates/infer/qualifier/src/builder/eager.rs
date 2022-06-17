@@ -180,16 +180,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawStmtVariant::Match { match_expr, .. } => {
                 self.infer_eager_expr(arena, match_expr);
             }
-            RawStmtVariant::ReturnXml(ref xml_expr) => match xml_expr.variant {
-                RawXmlExprVariant::Value(raw_expr_idx) => {
-                    self.infer_eager_expr(arena, raw_expr_idx);
-                }
-                RawXmlExprVariant::Tag { ident, ref props } => {
-                    props.iter().for_each(|(_, argument)| {
-                        self.infer_eager_expr(arena, *argument);
-                    })
-                }
-            },
+            RawStmtVariant::ReturnXml(ref xml_expr) => panic!(),
         }
     }
 

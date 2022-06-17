@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 word = { path = "../../syntax/word", version = "0.0.0" }
 semantics-eager = { path = "../eager", version = "0.0.0" }
+semantics-lazy = { path = "../lazy", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }

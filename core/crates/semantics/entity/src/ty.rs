@@ -295,7 +295,7 @@ impl EntityDefnVariant {
         let ref ast = item.value.as_ref().unwrap();
         match ast.variant {
             AstVariant::Visual => Some(VisualizerSource::Custom {
-                stmts: parse_func_stmts(db, arena, item.opt_children.clone().unwrap(), file)
+                stmts: parse_lazy_stmts(db, arena, item.opt_children.clone().unwrap(), file)
                     .unwrap(),
             }),
             _ => None,

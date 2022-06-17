@@ -52,6 +52,9 @@ pub enum LazyStmtVariant {
     Return {
         result: Arc<LazyExpr>,
     },
+    ReturnXml {
+        xml_expr: Arc<XmlExpr>,
+    },
     ConditionFlow {
         branches: Vec<Arc<LazyConditionBranch>>,
     },

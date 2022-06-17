@@ -6,6 +6,7 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum FeatureRepr {
+    TempExpr {},
     LazyExpr(Arc<FeatureExpr>),
     LazyBlock(Arc<FeatureLazyBlock>),
     FuncBlock(Arc<FeatureFuncBlock>),
@@ -15,6 +16,7 @@ pub enum FeatureRepr {
 impl FeatureRepr {
     pub fn feature(&self) -> FeaturePtr {
         match self {
+            FeatureRepr::TempExpr {} => todo!(),
             FeatureRepr::LazyExpr(expr) => expr.feature,
             FeatureRepr::LazyBlock(block) => block.feature,
             FeatureRepr::FuncBlock(block) => block.feature,
@@ -24,6 +26,7 @@ impl FeatureRepr {
 
     pub fn file(&self) -> FilePtr {
         match self {
+            FeatureRepr::TempExpr {} => todo!(),
             FeatureRepr::LazyExpr(expr) => expr.expr.file,
             FeatureRepr::LazyBlock(block) => block.file,
             FeatureRepr::FuncBlock(block) => block.file,
@@ -33,6 +36,7 @@ impl FeatureRepr {
 
     pub fn text_range(&self) -> TextRange {
         match self {
+            FeatureRepr::TempExpr {} => todo!(),
             FeatureRepr::LazyExpr(expr) => expr.expr.range,
             FeatureRepr::LazyBlock(block) => block.range,
             FeatureRepr::FuncBlock(block) => block.range,

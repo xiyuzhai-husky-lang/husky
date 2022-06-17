@@ -97,16 +97,7 @@ impl<'a> ContractSheetBuilder<'a> {
             } => {
                 self.infer_eager_expr(match_expr, EagerContract::from_match(match_liason), arena);
             }
-            RawStmtVariant::ReturnXml(ref xml_expr) => match xml_expr.variant {
-                RawXmlExprVariant::Value(raw_expr_idx) => {
-                    self.infer_eager_expr(raw_expr_idx, EagerContract::Pure, arena);
-                }
-                RawXmlExprVariant::Tag { ref props, .. } => {
-                    props.iter().for_each(|(_, argument)| {
-                        self.infer_eager_expr(*argument, EagerContract::Pure, arena);
-                    })
-                }
-            },
+            RawStmtVariant::ReturnXml(_) => panic!(),
         }
     }
 

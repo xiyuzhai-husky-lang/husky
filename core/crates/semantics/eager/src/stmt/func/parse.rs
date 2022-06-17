@@ -56,9 +56,7 @@ impl<'a> EagerParser<'a> {
                             match_expr,
                             match_contract,
                         )?,
-                        RawStmtVariant::ReturnXml(ref raw_xml_expr) => FuncStmtVariant::ReturnXml {
-                            xml_expr: self.parse_xml_expr(raw_xml_expr)?,
-                        },
+                        RawStmtVariant::ReturnXml(_) => panic!(),
                     };
                     stmts.push(Arc::new(FuncStmt {
                         file: self.file,
@@ -168,30 +166,5 @@ impl<'a> EagerParser<'a> {
                 })
                 .collect::<SemanticResult<Vec<_>>>()?,
         })
-    }
-
-    fn parse_xml_expr(&mut self, raw_xml_expr: &RawXmlExpr) -> SemanticResultArc<XmlExpr> {
-        let variant = match raw_xml_expr.variant {
-            RawXmlExprVariant::Value(raw_expr_idx) => {
-                XmlExprVariant::Value(self.parse_eager_expr(raw_expr_idx)?)
-            }
-            RawXmlExprVariant::Tag { ident, ref props } => {
-                let tag_kind = XmlTagKind::from_ident(ident);
-                XmlExprVariant::Tag { tag_kind, props: props
-                    .iter()
-                    .map(
-                        |(ident, raw_expr_idx)| -> SemanticResult<(CustomIdentifier, Arc<EagerExpr>)> {
-                            Ok((*ident, self.parse_eager_expr(*raw_expr_idx)?))
-                        },
-                    )
-                    .collect::<SemanticResult<IdentPairDict<Arc<EagerExpr>>>>()? }
-            }
-        };
-        Ok(Arc::new(XmlExpr {
-            variant,
-            range: raw_xml_expr.range,
-            file: self.file,
-            instruction_id: Default::default(),
-        }))
     }
 }

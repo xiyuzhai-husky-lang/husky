@@ -6,7 +6,7 @@ pub struct StaticVisualizer {
     pub variant: StaticVisualizerVariant,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum StaticVisualTy {
     Void,
     B32,

@@ -97,7 +97,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         Some(output_ty.route),
                         output_liason,
                     ),
-                    AstVariant::Visual => self.infer_eager_call_form(
+                    AstVariant::Visual => self.infer_lazy_call_form(
                         &arena,
                         &[],
                         children,

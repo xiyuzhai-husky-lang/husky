@@ -1,5 +1,8 @@
 mod opn;
 mod parser;
+mod xml;
+
+pub use xml::*;
 
 use std::sync::Arc;
 
