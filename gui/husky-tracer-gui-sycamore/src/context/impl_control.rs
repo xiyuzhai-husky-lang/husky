@@ -96,7 +96,7 @@ impl TracerContext {
 
     fn toggle_expansion(&self, trace_id: TraceId) {
         let expansion = self.tree_context.expanded_signal(trace_id);
-        if expansion.get_cloned() {
+        if expansion.cget() {
             expansion.set(false)
         } else {
             let focus = self.focus_context.focus.get();

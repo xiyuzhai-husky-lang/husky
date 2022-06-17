@@ -42,7 +42,7 @@ pub fn Image<'a, G: Html>(scope: Scope<'a>, props: ImageProps<'a>) -> View<G> {
         create_effect(scope, {
             dimension.track();
             move || {
-                let dimension = dimension.get_cloned();
+                let dimension = dimension.cget();
                 if let Some(canvas) = canvas_ref.try_get::<DomNode>() {
                     let canvas = canvas.inner_element();
                     let html_canvas: HtmlCanvasElement = canvas

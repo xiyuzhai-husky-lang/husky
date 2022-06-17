@@ -14,15 +14,15 @@ pub struct FigureViewProps<'a> {
 impl<'a> FigureViewProps<'a> {
     fn canvas_dimension(&self) -> PixelDimension {
         PixelDimension {
-            width: self.width.get_cloned() * 95 / 100 * 4 / 5,
-            height: self.height.get_cloned() * 97 * 95 / 10000,
+            width: self.width.cget() * 95 / 100 * 4 / 5,
+            height: self.height.cget() * 97 * 95 / 10000,
         }
     }
     fn control_dimension(&self) -> PixelDimension {
-        let total_width = self.width.get_cloned();
+        let total_width = self.width.cget();
         PixelDimension {
             width: total_width * 95 / 100 - total_width * 95 / 100 * 4 / 5,
-            height: self.height.get_cloned() * 97 * 95 / 10000,
+            height: self.height.cget() * 97 * 95 / 10000,
         }
     }
 }

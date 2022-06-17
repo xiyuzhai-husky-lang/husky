@@ -20,11 +20,11 @@ impl<'a> VSplitPanelProps<'a> {
     }
 
     fn panel_width(&self) -> u32 {
-        self.width.get_cloned()
+        self.width.cget()
     }
 
     fn upper_panel_height(&self) -> u32 {
-        self.height.get_cloned() - self.lower_panel_height()
+        self.height.cget() - self.lower_panel_height()
     }
 
     fn lower_panel_height(&self) -> u32 {

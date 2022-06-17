@@ -2,7 +2,7 @@ use super::*;
 
 impl TreeContext {
     pub(crate) fn expanded(&self, trace_id: TraceId) -> bool {
-        self.trace_nodes.borrow()[trace_id.0].expanded.get_cloned()
+        self.trace_nodes.borrow()[trace_id.0].expanded.cget()
     }
 
     pub(crate) fn expanded_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {
@@ -17,7 +17,7 @@ impl TreeContext {
     }
 
     pub(crate) fn shown(&self, trace_id: TraceId) -> bool {
-        self.trace_nodes.borrow()[trace_id.0].shown.get_cloned()
+        self.trace_nodes.borrow()[trace_id.0].shown.cget()
     }
 
     pub(crate) fn shown_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {

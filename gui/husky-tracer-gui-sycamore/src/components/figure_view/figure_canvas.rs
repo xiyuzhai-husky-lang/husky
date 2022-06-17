@@ -21,7 +21,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
     let focus = &tracer_context.focus_context.focus;
     view! {
         scope,
-        (if let Some(active_trace_id) = opt_active_trace_id.get_cloned() {
+        (if let Some(active_trace_id) = opt_active_trace_id.cget() {
             let active_trace = tracer_context.tree_context.trace(active_trace_id);
             let data = memo!(
                 scope,
@@ -29,7 +29,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     .figure_context
                     .figure_canvas_data(&active_trace, &focus.get())
             );
-            match *data.get_cloned() {
+            match *data.cget() {
                 FigureCanvasData::Primitive { value } => {
                     view!{
                         scope,

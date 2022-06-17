@@ -29,7 +29,7 @@ impl<T> ReadSignal<T> {
     }
 
     /// Get the current value of the state without Rc.
-    pub fn get_cloned(&self) -> T
+    pub fn cget(&self) -> T
     where
         T: Clone,
     {

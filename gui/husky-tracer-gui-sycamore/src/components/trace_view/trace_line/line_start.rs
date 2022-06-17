@@ -14,12 +14,12 @@ pub(super) fn TraceLineStart<'a, G: Html>(
     scope: Scope<'a>,
     props: TraceLineStartProps<'a>,
 ) -> View<G> {
-    if props.idx == 0 && props.has_subtraces.get_cloned() {
+    if props.idx == 0 && props.has_subtraces.cget() {
         view! {
             scope,
             span(
                 class={
-                    if props.expanded.get_cloned() {
+                    if props.expanded.cget() {
                         "TraceLineStart expanded"
                     } else {
                         "TraceLineStart"

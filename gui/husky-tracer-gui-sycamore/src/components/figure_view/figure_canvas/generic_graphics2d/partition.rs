@@ -11,53 +11,36 @@ pub struct PartitionCanvasProps<'a> {
 pub fn PartitionCanvas<'a, G: Html>(scope: Scope<'a>, props: PartitionCanvasProps<'a>) -> View<G> {
     let column_dimension = props.column_dimension;
     let dimension = memo!(scope, {
-        let column_dimension = column_dimension.get_cloned();
-        PixelDimension {
-            height: column_dimension.height + TITLE_HEIGHT,
-            width: props.partition.ncol * column_dimension.width,
-        }
+        column_dimension.cget() * (props.partition.ncol, 1) + (0, TITLE_HEIGHT)
     });
     let title_dimension = memo!(scope, {
-        let column_dimension = column_dimension.get_cloned();
         PixelDimension {
             height: TITLE_HEIGHT,
-            width: props.partition.ncol * column_dimension.width,
+            width: props.partition.ncol * column_dimension.cget().width,
         }
     });
     let samples_canvas_dimension = memo!(scope, {
-        let column_dimension = column_dimension.get_cloned();
+        let column_dimension = column_dimension.cget();
         PixelDimension {
             height: column_dimension.height,
             width: props.partition.ncol * column_dimension.width,
         }
     });
-    let sample_wrapper_dimension = memo!(scope, {
-        let column_dimension = column_dimension.get_cloned();
-        PixelDimension {
-            height: column_dimension.height / 5 - 2,
-            width: column_dimension.width - 2,
-        }
-    });
-    let sample_graphics2d_dimension = memo!(scope, {
-        let column_dimension = column_dimension.get_cloned();
-        PixelDimension {
-            height: column_dimension.height / 5 - 4,
-            width: column_dimension.width - 2,
-        }
-    });
+    let sample_wrapper_dimension = memo!(scope, { column_dimension.cget() / (1, 5) - (2, 2) });
+    let sample_graphics2d_dimension = memo!(scope, { column_dimension.cget() / (1, 5) - (2, 4) });
     view! {
         scope,
         div (
             class="PartitionCanvas",
-            style=dimension.get_cloned().to_style(),
+            style=dimension.cget().to_style(),
         ) {
             div (
                 class="PartitionTitle",
-                style=title_dimension.get_cloned().to_style(),
+                style=title_dimension.cget().to_style(),
             )
             div (
                 class="PartitionSamples",
-                style=samples_canvas_dimension.get_cloned().to_style(),
+                style=samples_canvas_dimension.cget().to_style(),
             ) {
                 (View::new_fragment(
                     props.samples.iter().map(|sample|
@@ -65,7 +48,7 @@ pub fn PartitionCanvas<'a, G: Html>(scope: Scope<'a>, props: PartitionCanvasProp
                             scope,
                             div (
                                 class="SampleWrapper",
-                                style=sample_wrapper_dimension.get_cloned().to_style(),
+                                style=sample_wrapper_dimension.cget().to_style(),
                             ) {
                                 Graphics2dCanvas {
                                     dimension: sample_graphics2d_dimension,
