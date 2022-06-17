@@ -207,6 +207,9 @@ impl HuskyTraceTime {
                             .sum::<u32>());
                 let mut partitioned_samples_collector =
                     PartitionedSamplesCollector::<FigureCanvasData>::new(partitions.clone());
+                let ty = expr.expr.ty();
+                use visualizer_gen::VisualizerQueryGroup;
+                let visualizer = self.runtime.compile_time().visualizer(ty);
                 for labeled_data in dev_division.each_labeled_data() {
                     let label = labeled_data.label;
                     if partitioned_samples_collector.process(label, || {
@@ -214,7 +217,7 @@ impl HuskyTraceTime {
                             .runtime
                             .eval_feature_expr(expr, labeled_data.input_id)
                             .unwrap();
-                        let visual_data = self.runtime.visualize(expr.expr.ty(), value.any_ref());
+                        let visual_data = self.runtime.visualize(ty, value.any_ref());
                         FigureCanvasData::new_specific(visual_data)
                     }) {
                         break;

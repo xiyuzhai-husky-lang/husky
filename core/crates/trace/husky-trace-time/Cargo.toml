@@ -33,3 +33,4 @@ eval-feature = { path = "../../eval/eval-feature", version = "0.0.0" }
 husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
 husky-runtime = { path = "../../eval/husky-runtime", version = "0.0.0" }
 trace = { path = "../trace", version = "0.0.0" }
+visualizer-gen = { path = "../../compile/visualizer-gen", version = "0.0.0" }

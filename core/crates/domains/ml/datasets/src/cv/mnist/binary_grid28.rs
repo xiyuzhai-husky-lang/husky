@@ -2,6 +2,7 @@ use super::*;
 use husky_tracer_protocol::*;
 use liason::{MemberLiason, ParameterLiason};
 use std::any::TypeId;
+use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use vm::*;
 
 pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
@@ -90,7 +91,12 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Array,
-        visualizer: StaticVisualizer::Compiled(BinaryGrid28::visualize),
+        visualizer: &StaticVisualizer {
+            variant: StaticVisualizerVariant::Compiled {
+                call: BinaryGrid28::visualize,
+            },
+            ty: StaticVisualTy::Shape2d,
+        },
         opt_type_call: Some(&BINARY_GRID28_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::static_dev_src!(),

@@ -1,6 +1,7 @@
 use super::*;
 use husky_tracer_protocol::*;
 use std::{any::TypeId, sync::Arc};
+use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use vm::*;
 
 pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
@@ -89,7 +90,12 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Array,
-        visualizer: StaticVisualizer::Compiled(BinaryImage28::visualize),
+        visualizer: &StaticVisualizer {
+            ty: StaticVisualTy::Image2d,
+            variant: StaticVisualizerVariant::Compiled {
+                call: BinaryImage28::visualize,
+            },
+        },
         opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::static_dev_src!(),

@@ -4,6 +4,7 @@ mod start;
 use end::*;
 use start::*;
 use std::any::TypeId;
+use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use vm::*;
 
 use super::*;
@@ -72,7 +73,10 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         static_trait_impls: &[],
         variants: &[],
         kind: TyKind::Struct,
-        visualizer: StaticVisualizer::CyclicSlice,
+        visualizer: &StaticVisualizer {
+            ty: StaticVisualTy::Group,
+            variant: StaticVisualizerVariant::CyclicSlice,
+        },
         opt_type_call: None,
     },
     dev_src: dev_utils::static_dev_src!(),

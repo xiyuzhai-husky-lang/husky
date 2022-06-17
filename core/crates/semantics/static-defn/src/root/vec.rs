@@ -5,6 +5,7 @@ mod last;
 pub use cyclic_slice::*;
 pub use first::*;
 pub use last::*;
+use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 
 use super::*;
 use check_utils::should_eq;
@@ -58,7 +59,10 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ],
         variants: &[],
         kind: TyKind::Vec,
-        visualizer: StaticVisualizer::Vec,
+        visualizer: &StaticVisualizer {
+            ty: StaticVisualTy::Group,
+            variant: StaticVisualizerVariant::Vec,
+        },
         opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::static_dev_src!(),

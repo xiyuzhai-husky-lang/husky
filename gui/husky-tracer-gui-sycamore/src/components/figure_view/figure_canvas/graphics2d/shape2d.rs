@@ -45,7 +45,7 @@ pub fn Shape2d<'a, G: Html>(scope: Scope<'a>, props: Shape2dProps) -> View<G> {
                 fill: "orange".into()
             }
         },
-        Shape2dData::Group { shapes, line_width } => view! {
+        Shape2dData::Group { shapes } => view! {
             scope,
             g {
                 (View::new_fragment(shapes.iter().map(|data|{

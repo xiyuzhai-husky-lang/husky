@@ -1,4 +1,5 @@
 mod query;
+mod ty;
 
 pub use query::*;
 
@@ -9,12 +10,24 @@ use print_utils::p;
 use semantics_eager::FuncStmt;
 use static_defn::CyclicSlice;
 use std::sync::Arc;
-use visual_syntax::StaticVisualizer;
+use visual_syntax::{StaticVisualizer, StaticVisualizerVariant};
 use vm::*;
+use word::RootIdentifier;
 
 #[derive(Clone)]
-pub enum Visualizer {
-    Compiled(for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData),
+pub struct Visualizer {
+    ty: VisualTy,
+    variant: VisualizerVariant,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum VisualTy {}
+
+#[derive(Clone)]
+pub enum VisualizerVariant {
+    Compiled {
+        call: for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData,
+    },
     Vec {
         ty: EntityRoutePtr,
     },
@@ -35,10 +48,11 @@ impl Visualizer {
         value: &(dyn AnyValueDyn<'eval> + 'temp),
         verbose: bool,
     ) -> VisualData {
-        match self {
-            Visualizer::Compiled(compiled) => compiled(value),
-            Visualizer::Interpreted {
-                instruction_sheet, ..
+        match self.variant {
+            VisualizerVariant::Compiled { call } => call(value),
+            VisualizerVariant::Interpreted {
+                ref instruction_sheet,
+                ..
             } => match eval_fast(
                 db.upcast(),
                 Some(instruction_sheet),
@@ -50,7 +64,7 @@ impl Visualizer {
                 Ok(value) => value.owned().unwrap().take::<VisualData>().unwrap(),
                 Err(_) => todo!(),
             },
-            Visualizer::Vec { ty, .. } => {
+            VisualizerVariant::Vec { ty, .. } => {
                 let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = db.visualizer(elem_ty);
                 let virtual_vec: &Vec<MemberValue<'eval>> = value.downcast_ref();
@@ -61,7 +75,7 @@ impl Visualizer {
                         .collect(),
                 )
             }
-            Visualizer::CyclicSlice { ty } => {
+            VisualizerVariant::CyclicSlice { ty } => {
                 let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = db.visualizer(elem_ty);
                 let virtual_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> =
@@ -73,37 +87,40 @@ impl Visualizer {
                         .collect(),
                 )
             }
-            Visualizer::Todo => todo!(),
+            VisualizerVariant::Todo => todo!(),
         }
     }
 }
 
 impl std::fmt::Debug for Visualizer {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            Visualizer::Compiled(arg0) => f.write_str("Compiled"),
-            Visualizer::Interpreted { .. } => f.write_str("Interpreted"),
-            Visualizer::Vec { .. } => f.write_str("Vec"),
-            Visualizer::CyclicSlice { ty } => f.write_str("CyclicSlice"),
-            Visualizer::Todo => f.write_str("Todo"),
+        match self.variant {
+            VisualizerVariant::Compiled { call } => f.write_str("Compiled"),
+            VisualizerVariant::Interpreted { .. } => f.write_str("Interpreted"),
+            VisualizerVariant::Vec { .. } => f.write_str("Vec"),
+            VisualizerVariant::CyclicSlice { ty } => f.write_str("CyclicSlice"),
+            VisualizerVariant::Todo => f.write_str("Todo"),
         }
     }
 }
 
 impl PartialEq for Visualizer {
     fn eq(&self, other: &Self) -> bool {
-        match (self, other) {
-            (Visualizer::Compiled(l0), Visualizer::Compiled(r0)) => {
-                let l0: *const u8 = *l0 as *const u8;
-                let r0: *const u8 = *r0 as *const u8;
-                l0 == r0
+        match (&self.variant, &other.variant) {
+            (
+                VisualizerVariant::Compiled { call: call0 },
+                VisualizerVariant::Compiled { call: call1 },
+            ) => {
+                let call0: *const u8 = *call0 as *const u8;
+                let call1: *const u8 = *call1 as *const u8;
+                call0 == call1
             }
             (
-                Visualizer::Interpreted {
+                VisualizerVariant::Interpreted {
                     instruction_sheet: instruction_sheet0,
                     ..
                 },
-                Visualizer::Interpreted {
+                VisualizerVariant::Interpreted {
                     instruction_sheet: instruction_sheet1,
                     ..
                 },
@@ -116,11 +133,17 @@ impl PartialEq for Visualizer {
 impl Eq for Visualizer {}
 
 impl Visualizer {
-    pub fn from_static(static_visualizer: StaticVisualizer, ty: EntityRoutePtr) -> Visualizer {
-        match static_visualizer {
-            StaticVisualizer::Compiled(compiled) => Visualizer::Compiled(compiled),
-            StaticVisualizer::Vec => Visualizer::Vec { ty },
-            StaticVisualizer::CyclicSlice => Visualizer::CyclicSlice { ty },
+    pub fn from_static(
+        static_visualizer: &'static StaticVisualizer,
+        ty: EntityRoutePtr,
+    ) -> Visualizer {
+        Visualizer {
+            ty: todo!(),
+            variant: match static_visualizer.variant {
+                StaticVisualizerVariant::Compiled { call } => VisualizerVariant::Compiled { call },
+                StaticVisualizerVariant::Vec => VisualizerVariant::Vec { ty },
+                StaticVisualizerVariant::CyclicSlice => VisualizerVariant::CyclicSlice { ty },
+            },
         }
     }
 }
