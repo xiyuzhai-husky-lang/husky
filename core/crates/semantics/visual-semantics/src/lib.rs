@@ -5,6 +5,6 @@ use visual_syntax::StaticVisualizer;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum VisualizerSource {
-    Static(StaticVisualizer),
+    Static(&'static StaticVisualizer),
     Custom { stmts: Avec<FuncStmt> },
 }

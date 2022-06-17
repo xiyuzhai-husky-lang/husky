@@ -10,7 +10,7 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[&I32_MIN, &I32_MAX, &I32_SGN, &I32_ABS],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: TRIVIAL_VISUALIZER,
+        visualizer: &TRIVIAL_VISUALIZER,
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),

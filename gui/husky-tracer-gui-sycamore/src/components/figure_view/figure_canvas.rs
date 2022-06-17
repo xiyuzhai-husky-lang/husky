@@ -79,6 +79,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                         dimension: props.dimension,
                         partitioned_samples: partitioned_samples.clone(),
                 }},
+                _=> todo!(),
             }
         } else {
             view!{

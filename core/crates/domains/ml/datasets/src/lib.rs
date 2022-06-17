@@ -37,7 +37,7 @@ pub static DATASET_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Other,
-        visualizer: TRIVIAL_VISUALIZER,
+        visualizer: &TRIVIAL_VISUALIZER,
         opt_type_call: None,
     },
     dev_src: dev_utils::static_dev_src!(),

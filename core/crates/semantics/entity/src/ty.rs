@@ -153,7 +153,7 @@ impl EntityDefnVariant {
                 ty_members: ref type_members,
                 ref variants,
                 kind,
-                visualizer,
+                ref visualizer,
                 opt_type_call,
             } => {
                 let mut symbol_context = AtomContextStandalone {

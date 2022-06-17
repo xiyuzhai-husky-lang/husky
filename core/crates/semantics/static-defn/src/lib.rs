@@ -37,7 +37,7 @@ pub enum EntityStaticDefnVariant {
         ty_members: &'static [&'static EntityStaticDefn],
         variants: &'static [EntityStaticDefn],
         kind: TyKind,
-        visualizer: StaticVisualizer,
+        visualizer: &'static StaticVisualizer,
         opt_type_call: Option<&'static EntityStaticDefn>,
     },
     Trait {
