@@ -39,6 +39,15 @@ impl<'a, T> CyclicSlice<'a, T> {
     pub fn iter(&self) -> impl Iterator<Item = &T> {
         (self.start..self.end).map(|i| &self.total[i.rem_euclid(self.total.len() as i32) as usize])
     }
+
+    pub fn enum_iter(&self) -> impl Iterator<Item = (i32, &T)> {
+        (self.start..self.end).map(|i| {
+            (
+                i,
+                &self.total[i.rem_euclid(self.total.len() as i32) as usize],
+            )
+        })
+    }
 }
 
 impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSlice<'b, T> {

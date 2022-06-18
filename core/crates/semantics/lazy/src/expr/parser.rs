@@ -120,7 +120,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 let ty_decl = self.decl_db().ty_decl(opt_this_ty.unwrap()).unwrap();
                 LazyExprVariant::ThisField {
                     field_ident,
-                    field_idx: ty_decl.field_idx(field_ident.ident),
                     this_ty: opt_this_ty.unwrap(),
                     this_binding: this_qual.binding(this_contract),
                     field_binding: { field_qt.qual.binding(field_contract) },
@@ -309,7 +308,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::FieldAccess {
                 field_ident,
-                field_kind: ty_decl.field_kind(field_ident.ident),
                 field_binding: field_qt.qual.binding(field_contract),
             },
             opds: vec![this],

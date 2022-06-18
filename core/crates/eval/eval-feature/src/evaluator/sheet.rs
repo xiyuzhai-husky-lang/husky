@@ -32,6 +32,21 @@ impl<'eval> EvalSheet<'eval> {
             .map(|v| unsafe { share_cached(v) })
     }
 
+    pub(crate) fn try_cache(
+        &self,
+        eval_key: EvalKey<'eval>,
+        value: EvalResult<'eval>,
+    ) -> EvalResult<'eval> {
+        let mut values = self.values.lock().unwrap();
+        if !values.contains_key(&eval_key) {
+            let result = unsafe { share_cached(&value) };
+            assert!(values.insert(eval_key, value).is_none());
+            result
+        } else {
+            value
+        }
+    }
+
     pub(crate) fn cache(
         &self,
         eval_key: EvalKey<'eval>,

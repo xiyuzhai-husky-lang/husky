@@ -53,4 +53,8 @@ impl EvalFeature<'static> for HuskyRuntime {
     fn verbose(&self) -> bool {
         self.config.verbose
     }
+
+    fn opt_static_eval_feature(&self) -> Option<&dyn EvalFeature<'static>> {
+        Some(self)
+    }
 }

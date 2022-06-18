@@ -386,7 +386,7 @@ impl TyDecl {
         }
     }
 
-    pub fn field_kind(&self, field_ident: CustomIdentifier) -> FieldKind {
+    pub fn field_kind(&self, field_ident: CustomIdentifier) -> FieldKind { 
         match self.ty_members.get_entry(field_ident).unwrap() {
             TyMemberDecl::Field(field) => field.field_kind,
             _ => panic!(""),

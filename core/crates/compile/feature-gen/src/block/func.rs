@@ -13,7 +13,7 @@ pub struct FeatureFuncBlock {
     pub instruction_sheet: Arc<InstructionSheet>,
 }
 
-impl std::hash::Hash for FeatureFuncBlock {
+impl<'eval> std::hash::Hash for FeatureFuncBlock {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }

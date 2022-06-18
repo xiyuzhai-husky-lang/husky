@@ -27,13 +27,13 @@ impl std::hash::Hash for FeatureLazyExpr {
     }
 }
 
-impl PartialEq for FeatureLazyExpr {
+impl<'eval> PartialEq for FeatureLazyExpr {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl Eq for FeatureLazyExpr {}
+impl<'eval> Eq for FeatureLazyExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureLazyExprVariant {
@@ -55,24 +55,24 @@ pub enum FeatureLazyExprVariant {
         repr: FeatureRepr,
     },
     StructOriginalFieldAccess {
-        this: Arc<FeatureLazyExpr>,
+        this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
         field_idx: usize,
         field_binding: Binding,
         opt_linkage: Option<Linkage>,
     },
     RecordOriginalFieldAccess {
-        this: Arc<FeatureLazyExpr>,
+        this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
     },
     StructDerivedLazyFieldAccess {
-        this: Arc<FeatureLazyExpr>,
+        this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
     },
     RecordDerivedFieldAccess {
-        this: Arc<FeatureLazyExpr>,
+        this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
     },
@@ -102,7 +102,7 @@ pub enum FeatureLazyExprVariant {
 
 impl FeatureLazyExpr {
     pub fn new(
-        db: &dyn FeatureGenQueryGroup,
+        db: &(dyn FeatureGenQueryGroup),
         this: Option<FeatureRepr>,
         expr: Arc<LazyExpr>,
         symbols: &[FeatureSymbol],
@@ -112,7 +112,7 @@ impl FeatureLazyExpr {
             db,
             symbols,
             features,
-            this,
+            opt_this: this,
         }
         .new_expr(expr)
     }
@@ -122,7 +122,7 @@ struct FeatureExprBuilder<'a> {
     db: &'a dyn FeatureGenQueryGroup,
     symbols: &'a [FeatureSymbol],
     features: &'a FeatureInterner,
-    this: Option<FeatureRepr>,
+    opt_this: Option<FeatureRepr>,
 }
 
 impl<'a> FeatureExprBuilder<'a> {
@@ -165,11 +165,19 @@ impl<'a> FeatureExprBuilder<'a> {
             ),
             LazyExprVariant::ThisValue { .. } => (
                 FeatureLazyExprVariant::ThisValue {
-                    repr: self.this.as_ref().unwrap().clone(),
+                    repr: self.opt_this.as_ref().unwrap().clone(),
                 },
-                self.this.as_ref().unwrap().feature(),
+                self.opt_this.as_ref().unwrap().feature(),
             ),
-            LazyExprVariant::ThisField { .. } => todo!(),
+            LazyExprVariant::ThisField {
+                field_ident,
+                this_ty,
+                this_binding,
+                field_binding,
+            } => {
+                let this_repr = self.opt_this.clone().unwrap();
+                self.compile_field_access(field_ident, this_repr, field_binding)
+            }
             LazyExprVariant::EntityFeature { entity_route } => match entity_route.kind {
                 EntityRouteKind::Root { .. } | EntityRouteKind::Package { .. } => panic!(),
                 EntityRouteKind::Child { .. } => {

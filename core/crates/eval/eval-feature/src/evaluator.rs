@@ -15,10 +15,12 @@ use vm::EvalResult;
 use vm::{AnyValueDyn, EvalValue};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
+    pub(crate) sample_id: usize,
     pub(crate) eval_input: EvalValue<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
     pub(crate) db: &'a dyn FeatureEvalQueryGroup,
     pub(crate) verbose: bool,
+    pub(crate) opt_static_eval_feature: Option<&'a dyn EvalFeature<'static>>,
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
@@ -33,5 +35,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             let value = compute_value(self);
             self.sheet.cache(eval_key, value)
         }
+    }
+
+    fn as_static(&self) -> FeatureEvaluator<'a, 'static> {
+        self.opt_static_eval_feature
+            .unwrap()
+            .evaluator(self.sample_id)
     }
 }
