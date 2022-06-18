@@ -51,7 +51,7 @@ pub fn eval_feature_stmt<'eval>(
 
 pub fn eval_feature_expr<'eval>(
     db: &dyn FeatureEvalQueryGroup,
-    expr: &FeatureExpr,
+    expr: &FeatureLazyExpr,
     eval_input: EvalValue<'eval>,
     sheet: &EvalSheet<'eval>,
     verbose: bool,

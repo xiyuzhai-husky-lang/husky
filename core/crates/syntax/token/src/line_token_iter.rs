@@ -150,7 +150,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     fn take_buffer_word(&mut self) -> word::WordPtr {
         let word = self
             .word_unique_allocator
-            .alloc(std::mem::take(&mut self.buffer));
+            .intern(std::mem::take(&mut self.buffer));
         self.buffer.clear();
         word
     }

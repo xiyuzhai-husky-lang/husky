@@ -1,4 +1,5 @@
 mod impl_necessary;
+mod impl_visualize;
 mod query;
 mod tests;
 mod variant;

@@ -11,7 +11,7 @@ use word::CustomIdentifier;
 impl HuskyTraceTime {
     pub(crate) fn feature_expr_lines(
         &mut self,
-        expr: &Arc<FeatureExpr>,
+        expr: &Arc<FeatureLazyExpr>,
         config: ExprTokenConfig,
     ) -> Vec<TraceLineData> {
         vec![TraceLineData {
@@ -23,7 +23,7 @@ impl HuskyTraceTime {
 
     pub(crate) fn feature_expr_tokens(
         &mut self,
-        expr: &Arc<FeatureExpr>,
+        expr: &Arc<FeatureLazyExpr>,
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
         let opt_associated_trace_id = if config.associated {
@@ -144,7 +144,7 @@ impl HuskyTraceTime {
     fn field_access_tokens(
         &mut self,
         config: ExprTokenConfig,
-        this: &Arc<FeatureExpr>,
+        this: &Arc<FeatureLazyExpr>,
         field_ident: RangedCustomIdentifier,
     ) -> Vec<TraceTokenData> {
         let mut tokens = self.feature_expr_tokens(this, config);
@@ -156,7 +156,7 @@ impl HuskyTraceTime {
         &mut self,
         file: FilePtr,
         ranged_scope: RangedEntityRoute,
-        inputs: &[Arc<FeatureExpr>],
+        inputs: &[Arc<FeatureLazyExpr>],
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
@@ -177,14 +177,15 @@ impl HuskyTraceTime {
 
     pub(crate) fn feature_expr_figure(
         &self,
-        expr: &FeatureExpr,
+        expr: &Arc<FeatureLazyExpr>,
         focus: &Focus,
     ) -> FigureCanvasData {
         match focus {
             Focus::Specific { input_id } => {
                 if let Ok(value) = self.runtime.eval_feature_expr(expr, *input_id) {
                     FigureCanvasData::new_specific(
-                        self.runtime.visualize(expr.expr.ty(), value.any_ref()),
+                        self.runtime
+                            .visualize(FeatureRepr::Expr(expr.clone()), *input_id),
                     )
                 } else {
                     FigureCanvasData::error()
@@ -213,11 +214,9 @@ impl HuskyTraceTime {
                 for labeled_data in dev_division.each_labeled_data() {
                     let label = labeled_data.label;
                     if partitioned_samples_collector.process(label, || {
-                        let value = self
+                        let visual_data = self
                             .runtime
-                            .eval_feature_expr(expr, labeled_data.input_id)
-                            .unwrap();
-                        let visual_data = self.runtime.visualize(ty, value.any_ref());
+                            .visualize(expr.clone().into(), labeled_data.input_id);
                         FigureCanvasData::new_specific(visual_data)
                     }) {
                         break;

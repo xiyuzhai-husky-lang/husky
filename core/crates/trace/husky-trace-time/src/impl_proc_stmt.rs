@@ -506,8 +506,8 @@ impl HuskyTraceTime {
                                 },
                                 before: None,
                                 after: FigureCanvasData::new_specific(self.runtime.visualize(
-                                    mutation.ty,
-                                    frame_stack_snapshot[mutation.varidx()].any_ref(),
+                                    todo!(), // mutation.ty,
+                                    todo!(), // frame_stack_snapshot[mutation.varidx()].any_ref(),
                                 )),
                                 idx,
                             }

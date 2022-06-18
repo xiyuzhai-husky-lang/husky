@@ -23,7 +23,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 | EntityRoutePtr::Root(RootIdentifier::B64) => {
                     let lopd = self.new_expr(opds[0].clone());
                     let ropd = self.new_expr(opds[1].clone());
-                    let feature = self.features.alloc(Feature::PrimitiveBinaryOpr {
+                    let feature = self.features.intern(Feature::PrimitiveBinaryOpr {
                         opr,
                         lopd: lopd.feature,
                         ropd: ropd.feature,
@@ -39,7 +39,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::FunctionRoutineCall(routine) => {
                 let uid = self.db.entity_uid(routine.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
-                let feature = self.features.alloc(Feature::FuncCall {
+                let feature = self.features.intern(Feature::FuncCall {
                     func: routine.route,
                     uid,
                     inputs: opds.iter().map(|expr| expr.feature).collect(),
@@ -72,7 +72,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::RecordCall(ty) => {
                 let uid = self.db.entity_uid(ty.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
-                let feature = self.features.alloc(Feature::RecordTypeCall {
+                let feature = self.features.intern(Feature::RecordTypeCall {
                     ty: ty.route,
                     uid,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
@@ -95,7 +95,7 @@ impl<'a> FeatureExprBuilder<'a> {
         output_binding: Binding,
     ) -> (FeatureExprVariant, FeaturePtr) {
         let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
-        let feature = self.features.alloc(Feature::MethodCall {
+        let feature = self.features.intern(Feature::MethodCall {
             method_ident: method_ident.ident,
             opds: opds.iter().map(|opd| opd.feature).collect(),
         });
@@ -141,7 +141,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FieldKind::StructOriginal
             | FieldKind::StructDefault
             | FieldKind::StructDerivedEager => {
-                let feature = self.features.alloc(Feature::FieldAccess {
+                let feature = self.features.intern(Feature::FieldAccess {
                     this: this.feature,
                     field_ident: field_ident.ident,
                 });
@@ -237,7 +237,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                         defn_repr,
                                         self.db.features(),
                                     );
-                                    let feature = self.db.features().alloc(Feature::FieldAccess {
+                                    let feature = self.db.features().intern(Feature::FieldAccess {
                                         this: this.feature,
                                         field_ident: field_ident.ident,
                                     });
@@ -269,7 +269,7 @@ impl<'a> FeatureExprBuilder<'a> {
         element_binding: Binding,
     ) -> (FeatureExprVariant, FeaturePtr) {
         let opds: Vec<_> = opds.map(|opd| self.new_expr(opd.clone()));
-        let feature = self.features.alloc(Feature::ElementAccess {
+        let feature = self.features.intern(Feature::ElementAccess {
             opds: opds.map(|opd| opd.feature),
         });
         let feature_expr_kind = FeatureExprVariant::ElementAccess {
@@ -283,9 +283,9 @@ impl<'a> FeatureExprBuilder<'a> {
 
     fn record_field_value(
         &self,
-        this: &FeatureExpr,
+        this: &FeatureLazyExpr,
         field_ident: CustomIdentifier,
-    ) -> Arc<FeatureExpr> {
+    ) -> Arc<FeatureLazyExpr> {
         match this.variant {
             FeatureExprVariant::Variable { .. } => todo!(),
             FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
@@ -332,7 +332,7 @@ impl<'a> FeatureExprBuilder<'a> {
         &self,
         block: &FeatureLazyBlock,
         field_ident: CustomIdentifier,
-    ) -> Arc<FeatureExpr> {
+    ) -> Arc<FeatureLazyExpr> {
         todo!()
         // let stmt_features = block.stmt_features();
         // if stmt_features.len() == 1 {

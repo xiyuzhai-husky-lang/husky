@@ -12,10 +12,10 @@ pub enum TraceVariant<'eval> {
     Main(FeatureRepr),
     FeatureStmt(Arc<FeatureStmt>),
     FeatureBranch(Arc<FeatureBranch>),
-    FeatureExpr(Arc<FeatureExpr>),
+    FeatureExpr(Arc<FeatureLazyExpr>),
     FeatureCallInput {
         ident: CustomIdentifier,
-        input: Arc<FeatureExpr>,
+        input: Arc<FeatureLazyExpr>,
     },
     FuncStmt {
         stmt: Arc<FuncStmt>,

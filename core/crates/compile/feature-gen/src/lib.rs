@@ -8,16 +8,17 @@ mod record;
 mod repr;
 mod stmt;
 mod unique_allocate;
+mod visual;
 
 pub use block::*;
 pub use branch::{FeatureBranch, FeatureBranchVariant};
 pub use eval_id::*;
-pub use expr::{FeatureExpr, FeatureExprVariant};
+pub use expr::{FeatureExprVariant, FeatureLazyExpr};
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
 pub use repr::*;
 pub use stmt::{FeatureStmt, FeatureStmtVariant};
 pub use unique_allocate::{
-    new_feature_unique_allocator, AllocateUniqueFeature, FeaturePtr, FeatureUniqueAllocator,
+    new_feature_unique_allocator, AllocateUniqueFeature, FeatureInterner, FeaturePtr,
 };
 
 use entity_route::EntityRoutePtr;
@@ -31,7 +32,7 @@ use word::CustomIdentifier;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {
     varname: CustomIdentifier,
-    value: Arc<FeatureExpr>,
+    value: Arc<FeatureLazyExpr>,
     feature: FeaturePtr,
 }
 
@@ -80,12 +81,12 @@ pub enum Feature {
 }
 
 impl Feature {
-    pub fn block(features: &FeatureUniqueAllocator, stmts: &[Arc<FeatureStmt>]) -> FeaturePtr {
+    pub fn block(features: &FeatureInterner, stmts: &[Arc<FeatureStmt>]) -> FeaturePtr {
         let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
         if stmt_features.len() == 1 {
             stmt_features[0]
         } else {
-            features.alloc(Feature::Cascade(stmt_features))
+            features.intern(Feature::Cascade(stmt_features))
         }
     }
 }

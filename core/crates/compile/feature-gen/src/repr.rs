@@ -6,18 +6,27 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum FeatureRepr {
-    TempExpr {},
-    LazyExpr(Arc<FeatureExpr>),
+    Temp {},
+    Expr(Arc<FeatureLazyExpr>),
     LazyBlock(Arc<FeatureLazyBlock>),
     FuncBlock(Arc<FeatureFuncBlock>),
     ProcBlock(Arc<FeatureProcBlock>),
 }
 
 impl FeatureRepr {
+    pub fn ty(&self) -> EntityRoutePtr {
+        match self {
+            FeatureRepr::Temp {} => todo!(),
+            FeatureRepr::Expr(expr) => expr.expr.ty(),
+            FeatureRepr::LazyBlock(block) => todo!(),
+            FeatureRepr::FuncBlock(block) => todo!(),
+            FeatureRepr::ProcBlock(block) => todo!(),
+        }
+    }
     pub fn feature(&self) -> FeaturePtr {
         match self {
-            FeatureRepr::TempExpr {} => todo!(),
-            FeatureRepr::LazyExpr(expr) => expr.feature,
+            FeatureRepr::Temp {} => todo!(),
+            FeatureRepr::Expr(expr) => expr.feature,
             FeatureRepr::LazyBlock(block) => block.feature,
             FeatureRepr::FuncBlock(block) => block.feature,
             FeatureRepr::ProcBlock(block) => block.feature,
@@ -26,8 +35,8 @@ impl FeatureRepr {
 
     pub fn file(&self) -> FilePtr {
         match self {
-            FeatureRepr::TempExpr {} => todo!(),
-            FeatureRepr::LazyExpr(expr) => expr.expr.file,
+            FeatureRepr::Temp {} => todo!(),
+            FeatureRepr::Expr(expr) => expr.expr.file,
             FeatureRepr::LazyBlock(block) => block.file,
             FeatureRepr::FuncBlock(block) => block.file,
             FeatureRepr::ProcBlock(block) => block.file,
@@ -36,8 +45,8 @@ impl FeatureRepr {
 
     pub fn text_range(&self) -> TextRange {
         match self {
-            FeatureRepr::TempExpr {} => todo!(),
-            FeatureRepr::LazyExpr(expr) => expr.expr.range,
+            FeatureRepr::Temp {} => todo!(),
+            FeatureRepr::Expr(expr) => expr.expr.range,
             FeatureRepr::LazyBlock(block) => block.range,
             FeatureRepr::FuncBlock(block) => block.range,
             FeatureRepr::ProcBlock(block) => block.range,
@@ -48,12 +57,16 @@ impl FeatureRepr {
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
         defn_repr: &DefinitionRepr,
-        features: &FeatureUniqueAllocator,
+        features: &FeatureInterner,
     ) -> Self {
         match defn_repr {
-            DefinitionRepr::LazyExpr { expr } => {
-                FeatureRepr::LazyExpr(FeatureExpr::new(db, opt_this, expr.clone(), &[], features))
-            }
+            DefinitionRepr::LazyExpr { expr } => FeatureRepr::Expr(FeatureLazyExpr::new(
+                db,
+                opt_this,
+                expr.clone(),
+                &[],
+                features,
+            )),
             DefinitionRepr::LazyBlock { stmts } => {
                 FeatureRepr::LazyBlock(FeatureLazyBlock::new(db, opt_this, stmts, &[], features))
             }
@@ -73,7 +86,7 @@ impl FeatureRepr {
                     stmts,
                     opt_this.is_some(),
                 ),
-                feature: features.alloc(match opt_this {
+                feature: features.intern(match opt_this {
                     Some(ref this) => Feature::FieldAccess {
                         this: this.feature(),
                         field_ident: route.ident().custom(),
@@ -90,9 +103,9 @@ impl FeatureRepr {
     }
 }
 
-impl From<Arc<FeatureExpr>> for FeatureRepr {
-    fn from(expr: Arc<FeatureExpr>) -> Self {
-        Self::LazyExpr(expr)
+impl From<Arc<FeatureLazyExpr>> for FeatureRepr {
+    fn from(expr: Arc<FeatureLazyExpr>) -> Self {
+        Self::Expr(expr)
     }
 }
 

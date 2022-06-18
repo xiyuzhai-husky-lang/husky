@@ -1,6 +1,6 @@
 use crate::*;
 use eval_feature::EvalFeature;
-use feature_gen::{FeatureExpr, FeatureExprVariant, FeatureStmt, FeatureStmtVariant};
+use feature_gen::{FeatureExprVariant, FeatureLazyExpr, FeatureStmt, FeatureStmtVariant};
 use husky_compile_time::*;
 use map_collect::MapCollect;
 use semantics_eager::{

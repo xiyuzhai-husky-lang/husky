@@ -211,43 +211,42 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 }
                 InstructionVariant::PatternMatch { ref branches } => {
                     self.exec_pattern_matching(sheet, ins, branches, mode)
-                }
-                InstructionVariant::NewXmlFromValue { ty } => {
-                    let visual_props = self.db.visualize(ty, self.stack.pop().any_temp_ref());
-                    self.stack
-                        .push(TempValue::OwnedEval(OwnedValue::new(visual_props)));
-                    VMControl::None
-                }
-                InstructionVariant::NewXmlFromTag {
-                    tag_kind,
-                    ref props,
-                    n_child_expr,
-                } => {
-                    if n_child_expr > 0 {
-                        todo!()
-                    }
-                    let arguments = self.stack.drain(props.len().try_into().unwrap());
-                    let xml_value = XmlValue {
-                        tag_kind,
-                        props: zip(
-                            props.iter().map(|ident| *ident),
-                            arguments
-                                .into_iter()
-                                .map(|argument| argument.any_ref().to_json_value_dyn()),
-                        )
-                        .collect(),
-                    };
-                    self.stack
-                        .push(TempValue::OwnedEval(OwnedValue::new(VisualData::from(
-                            xml_value.into(),
-                        ))));
-                    match mode {
-                        Mode::Fast => (),
-                        Mode::TrackMutation => todo!(),
-                        Mode::TrackHistory => todo!(),
-                    }
-                    VMControl::None
-                }
+                } // InstructionVariant::NewXmlFromValue { ty } => {
+                  //     let visual_props = self.db.visualize(ty, self.stack.pop().any_temp_ref());
+                  //     self.stack
+                  //         .push(TempValue::OwnedEval(OwnedValue::new(visual_props)));
+                  //     VMControl::None
+                  // }
+                  // InstructionVariant::NewXmlFromTag {
+                  //     tag_kind,
+                  //     ref props,
+                  //     n_child_expr,
+                  // } => {
+                  //     if n_child_expr > 0 {
+                  //         todo!()
+                  //     }
+                  //     let arguments = self.stack.drain(props.len().try_into().unwrap());
+                  //     let xml_value = XmlValue {
+                  //         tag_kind,
+                  //         props: zip(
+                  //             props.iter().map(|ident| *ident),
+                  //             arguments
+                  //                 .into_iter()
+                  //                 .map(|argument| argument.any_ref().to_json_value_dyn()),
+                  //         )
+                  //         .collect(),
+                  //     };
+                  //     self.stack
+                  //         .push(TempValue::OwnedEval(OwnedValue::new(VisualData::from(
+                  //             xml_value.into(),
+                  //         ))));
+                  //     match mode {
+                  //         Mode::Fast => (),
+                  //         Mode::TrackMutation => todo!(),
+                  //         Mode::TrackHistory => todo!(),
+                  //     }
+                  //     VMControl::None
+                  // }
             };
             match control {
                 VMControl::None => (),

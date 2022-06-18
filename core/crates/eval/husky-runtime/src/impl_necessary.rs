@@ -25,15 +25,6 @@ impl InterpreterQueryGroup for HuskyRuntime {
     ) -> Option<Arc<vm::InstructionSheet>> {
         self.compile_time.entity_opt_instruction_sheet_by_uid(uid)
     }
-
-    fn visualize<'temp, 'eval>(
-        &self,
-        ty: entity_route::EntityRoutePtr,
-        value: &(dyn AnyValueDyn<'eval> + 'temp),
-    ) -> VisualData {
-        let visualizer = self.compile_time().visualizer(ty);
-        visualizer.visualize(self.compile_time(), value, self.verbose())
-    }
 }
 
 impl Upcast<dyn InterpreterQueryGroup> for HuskyRuntime {

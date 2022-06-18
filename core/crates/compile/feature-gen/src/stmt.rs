@@ -1,3 +1,7 @@
+mod variant;
+
+pub use variant::*;
+
 use file::FilePtr;
 use semantics_lazy::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
 use text::TextRange;
@@ -34,78 +38,52 @@ impl text::TextRanged for FeatureStmt {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureStmtVariant {
-    Init {
-        varname: CustomIdentifier,
-        value: Arc<FeatureExpr>,
-    },
-    Assert {
-        condition: Arc<FeatureExpr>,
-    },
-    Return {
-        result: Arc<FeatureExpr>,
-    },
-    ConditionFlow {
-        branches: Vec<Arc<FeatureBranch>>,
-    },
-}
-
 impl FeatureStmt {
     pub fn new_from_lazy(
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
         lazy_stmt: &Arc<LazyStmt>,
         symbols: &mut Vec<FeatureSymbol>,
-        features: &FeatureUniqueAllocator,
+        feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
-        Arc::new(match lazy_stmt.variant {
+        let variant = match lazy_stmt.variant {
             LazyStmtVariant::Init { varname, ref value } => {
-                let value =
-                    FeatureExpr::new(db, opt_this.clone(), value.clone(), &symbols, features);
+                let value = FeatureLazyExpr::new(
+                    db,
+                    opt_this.clone(),
+                    value.clone(),
+                    &symbols,
+                    feature_interner,
+                );
                 symbols.push(FeatureSymbol {
                     varname: varname.ident,
                     value: value.clone(),
                     feature: value.feature,
                 });
-                FeatureStmt {
-                    file: lazy_stmt.file,
-                    range: lazy_stmt.range,
-                    indent: lazy_stmt.indent,
-                    opt_feature: None,
-                    variant: FeatureStmtVariant::Init {
-                        varname: varname.ident,
-                        value,
-                    },
-                    eval_id: Default::default(),
+                FeatureStmtVariant::Init {
+                    varname: varname.ident,
+                    value,
                 }
             }
             LazyStmtVariant::Assert { ref condition } => {
-                let condition =
-                    FeatureExpr::new(db, opt_this.clone(), condition.clone(), &symbols, features);
-                let feature = Some(features.alloc(Feature::Assert {
-                    condition: condition.feature,
-                }));
-                FeatureStmt {
-                    file: lazy_stmt.file,
-                    range: lazy_stmt.range,
-                    indent: lazy_stmt.indent,
-                    opt_feature: feature,
-                    variant: FeatureStmtVariant::Assert { condition },
-                    eval_id: Default::default(),
-                }
+                let condition = FeatureLazyExpr::new(
+                    db,
+                    opt_this.clone(),
+                    condition.clone(),
+                    &symbols,
+                    feature_interner,
+                );
+                FeatureStmtVariant::Assert { condition }
             }
             LazyStmtVariant::Return { ref result } => {
-                let result =
-                    FeatureExpr::new(db, opt_this.clone(), result.clone(), &symbols, features);
-                FeatureStmt {
-                    file: lazy_stmt.file,
-                    range: lazy_stmt.range,
-                    indent: lazy_stmt.indent,
-                    opt_feature: Some(result.feature),
-                    variant: FeatureStmtVariant::Return { result },
-                    eval_id: Default::default(),
-                }
+                let result = FeatureLazyExpr::new(
+                    db,
+                    opt_this.clone(),
+                    result.clone(),
+                    &symbols,
+                    feature_interner,
+                );
+                FeatureStmtVariant::Return { result }
             }
             LazyStmtVariant::ConditionFlow { ref branches } => {
                 let branches: Vec<Arc<FeatureBranch>> = branches
@@ -117,28 +95,28 @@ impl FeatureStmt {
                                 opt_this.clone(),
                                 &branch.stmts,
                                 &symbols,
-                                features,
+                                feature_interner,
                             ),
                             variant: match branch.variant {
                                 LazyConditionBranchVariant::If { ref condition } => {
                                     FeatureBranchVariant::If {
-                                        condition: FeatureExpr::new(
+                                        condition: FeatureLazyExpr::new(
                                             db,
                                             opt_this.clone(),
                                             condition.clone(),
                                             &symbols,
-                                            features,
+                                            feature_interner,
                                         ),
                                     }
                                 }
                                 LazyConditionBranchVariant::Elif { ref condition } => {
                                     FeatureBranchVariant::Elif {
-                                        condition: FeatureExpr::new(
+                                        condition: FeatureLazyExpr::new(
                                             db,
                                             opt_this.clone(),
                                             condition.clone(),
                                             &symbols,
-                                            features,
+                                            feature_interner,
                                         ),
                                     }
                                 }
@@ -148,41 +126,24 @@ impl FeatureStmt {
                         })
                     })
                     .collect();
-                let feature = Some(
-                    features.alloc(Feature::Branches {
-                        branches: branches
-                            .iter()
-                            .map(|branch| match branch.variant {
-                                FeatureBranchVariant::If { ref condition } => BranchedFeature {
-                                    condition: Some(condition.feature),
-                                    block: branch.block.feature,
-                                },
-                                FeatureBranchVariant::Elif { ref condition } => BranchedFeature {
-                                    condition: Some(condition.feature),
-                                    block: branch.block.feature,
-                                },
-                                FeatureBranchVariant::Else => BranchedFeature {
-                                    condition: None,
-                                    block: branch.block.feature,
-                                },
-                            })
-                            .collect(),
-                    }),
-                );
-                FeatureStmt {
-                    file: lazy_stmt.file,
-                    range: lazy_stmt.range,
-                    indent: lazy_stmt.indent,
-                    opt_feature: feature,
-                    variant: FeatureStmtVariant::ConditionFlow { branches },
-                    eval_id: Default::default(),
-                }
+                FeatureStmtVariant::ConditionFlow { branches }
             }
             LazyStmtVariant::Match {
                 ref match_expr,
                 ref branches,
             } => todo!(),
-            LazyStmtVariant::ReturnXml { ref xml_expr } => todo!(),
+            LazyStmtVariant::ReturnXml { ref xml_expr } => {
+                todo!()
+            }
+        };
+
+        Arc::new(FeatureStmt {
+            file: lazy_stmt.file,
+            range: lazy_stmt.range,
+            indent: lazy_stmt.indent,
+            opt_feature: variant.opt_feature(feature_interner),
+            variant,
+            eval_id: Default::default(),
         })
     }
 }

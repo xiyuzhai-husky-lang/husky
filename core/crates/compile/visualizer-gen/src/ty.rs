@@ -1,9 +1,9 @@
 use semantics_eager::FuncStmtVariant;
-use semantics_lazy::LazyStmtVariant;
+use semantics_lazy::{LazyStmtVariant, XmlExprVariant};
 
 use crate::*;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VisualTy {
     Void,
     B32,
@@ -48,12 +48,12 @@ impl VisualTy {
         }
     }
 
-    pub(crate) fn from_stmts(stmts: &[Arc<LazyStmt>]) -> VisualTy {
+    pub(crate) fn from_stmts(db: &dyn VisualizerQueryGroup, stmts: &[Arc<LazyStmt>]) -> VisualTy {
         match stmts.last().unwrap().variant {
             LazyStmtVariant::Return { ref result } => todo!(),
             LazyStmtVariant::ReturnXml { ref xml_expr } => match xml_expr.variant {
-                semantics_lazy::XmlExprVariant::Value(_) => todo!(),
-                semantics_lazy::XmlExprVariant::Tag { tag_kind, .. } => match tag_kind {
+                XmlExprVariant::Value(ref expr) => db.visual_ty(expr.ty()),
+                XmlExprVariant::Tag { tag_kind, .. } => match tag_kind {
                     XmlTagKind::Point2d => VisualTy::Point2d,
                     XmlTagKind::Contour | XmlTagKind::Arrow2d | XmlTagKind::LineSegment => {
                         VisualTy::Shape2d

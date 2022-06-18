@@ -18,8 +18,8 @@ use word::RootIdentifier;
 
 #[derive(Clone)]
 pub struct Visualizer {
-    ty: VisualTy,
-    variant: VisualizerVariant,
+    pub ty: VisualTy,
+    pub variant: VisualizerVariant,
 }
 
 #[derive(Clone)]
@@ -55,7 +55,8 @@ impl Visualizer {
         }
     }
 
-    pub fn visualize<'a, 'temp, 'eval>(
+    // deprecated
+    fn visualize<'a, 'temp, 'eval>(
         &self,
         db: &dyn VisualizerQueryGroup,
         value: &(dyn AnyValueDyn<'eval> + 'temp),
