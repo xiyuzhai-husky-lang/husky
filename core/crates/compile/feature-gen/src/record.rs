@@ -4,13 +4,13 @@ use semantics_entity::{EntityDefnVariant, FieldDefnVariant};
 use crate::*;
 use std::sync::Arc;
 
-pub(crate) fn record_field_repr(
+pub(crate) fn record_field_repr<'eval>(
     db: &dyn FeatureGenQueryGroup,
     this: FeatureRepr,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this {
-        FeatureRepr::Value {} => todo!(),
+        FeatureRepr::Value { .. } => todo!(),
         FeatureRepr::Expr(ref expr) => expr_record_field(db, expr, field_ident),
         FeatureRepr::LazyBlock(ref block) => block_record_field(db, block, field_ident),
         FeatureRepr::FuncBlock(_) => todo!(),
@@ -18,18 +18,20 @@ pub(crate) fn record_field_repr(
     }
 }
 
-pub(crate) fn expr_record_field(
+pub(crate) fn expr_record_field<'eval>(
     db: &dyn FeatureGenQueryGroup,
     this: &Arc<FeatureLazyExpr>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this.variant {
-        FeatureExprVariant::Variable { ref value, .. } => expr_record_field(db, value, field_ident),
-        FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
-        FeatureExprVariant::EntityFeature { ref repr, .. } => {
+        FeatureLazyExprVariant::Variable { ref value, .. } => {
+            expr_record_field(db, value, field_ident)
+        }
+        FeatureLazyExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
+        FeatureLazyExprVariant::EntityFeature { ref repr, .. } => {
             record_field_repr(db, repr.clone(), field_ident)
         }
-        FeatureExprVariant::NewRecord {
+        FeatureLazyExprVariant::NewRecord {
             ref entity,
             ref opds,
             ..
@@ -71,22 +73,22 @@ pub(crate) fn expr_record_field(
             }
             _ => panic!(),
         },
-        FeatureExprVariant::EnumKindLiteral { .. }
-        | FeatureExprVariant::PrimitiveBinaryOpr { .. }
-        | FeatureExprVariant::StructOriginalFieldAccess { .. }
-        | FeatureExprVariant::PrimitiveLiteral(_) => {
+        FeatureLazyExprVariant::EnumKindLiteral { .. }
+        | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
+        | FeatureLazyExprVariant::StructOriginalFieldAccess { .. }
+        | FeatureLazyExprVariant::PrimitiveLiteral(_) => {
             p!(this.variant);
             panic!()
         }
-        FeatureExprVariant::ThisValue { ref repr } => {
+        FeatureLazyExprVariant::ThisValue { ref repr } => {
             db.record_field_repr(repr.clone(), field_ident)
         }
-        FeatureExprVariant::EvalInput => todo!(),
-        FeatureExprVariant::RoutineCall { .. } => todo!(),
-        FeatureExprVariant::PatternCall {} => todo!(),
-        FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-        FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
-        FeatureExprVariant::StructDerivedLazyFieldAccess {
+        FeatureLazyExprVariant::EvalInput => todo!(),
+        FeatureLazyExprVariant::RoutineCall { .. } => todo!(),
+        FeatureLazyExprVariant::PatternCall {} => todo!(),
+        FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+        FeatureLazyExprVariant::ElementAccess { ref opds, .. } => todo!(),
+        FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
             ref this,
             field_ident,
             ref repr,

@@ -226,20 +226,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                   //         todo!()
                   //     }
                   //     let arguments = self.stack.drain(props.len().try_into().unwrap());
-                  //     let xml_value = XmlValue {
-                  //         tag_kind,
-                  //         props: zip(
-                  //             props.iter().map(|ident| *ident),
-                  //             arguments
-                  //                 .into_iter()
-                  //                 .map(|argument| argument.any_ref().to_json_value_dyn()),
-                  //         )
-                  //         .collect(),
-                  //     };
-                  //     self.stack
-                  //         .push(TempValue::OwnedEval(OwnedValue::new(VisualData::from(
-                  //             xml_value.into(),
-                  //         ))));
+
                   //     match mode {
                   //         Mode::Fast => (),
                   //         Mode::TrackMutation => todo!(),

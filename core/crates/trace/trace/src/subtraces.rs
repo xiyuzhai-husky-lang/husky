@@ -18,11 +18,11 @@ impl<'eval> Trace {
             | TraceVariant::CallHead { .. }
             | TraceVariant::ProcBranch { .. } => None,
             TraceVariant::FeatureExpr(ref expr) => match expr.variant {
-                FeatureExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
-                FeatureExprVariant::EntityFeature { .. } => None,
-                FeatureExprVariant::PatternCall {} => todo!(),
-                FeatureExprVariant::RecordDerivedFieldAccess { .. }
-                | FeatureExprVariant::StructDerivedLazyFieldAccess { .. } => {
+                FeatureLazyExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
+                FeatureLazyExprVariant::EntityFeature { .. } => None,
+                FeatureLazyExprVariant::PatternCall {} => todo!(),
+                FeatureLazyExprVariant::RecordDerivedFieldAccess { .. }
+                | FeatureLazyExprVariant::StructDerivedLazyFieldAccess { .. } => {
                     Some(SubtracesContainerClass::Call)
                 }
                 _ => None,

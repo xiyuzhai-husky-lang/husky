@@ -13,7 +13,7 @@ mod visual;
 pub use block::*;
 pub use branch::{FeatureBranch, FeatureBranchVariant};
 pub use eval_id::*;
-pub use expr::{FeatureExprVariant, FeatureLazyExpr};
+pub use expr::*;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
 pub use repr::*;
 pub use stmt::{FeatureStmt, FeatureStmtVariant};
@@ -25,9 +25,9 @@ use entity_route::EntityRoutePtr;
 use print_utils::*;
 use std::sync::Arc;
 use text::*;
-use vm::EntityUid;
 use vm::{CopyableValue, PureBinaryOpr};
-use word::CustomIdentifier;
+use vm::{EntityUid, XmlTagKind};
+use word::{CustomIdentifier, IdentPairDict};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {
@@ -65,6 +65,10 @@ pub enum Feature {
     ElementAccess {
         opds: Vec<FeaturePtr>,
     },
+    ElementAccessConstIndex {
+        this: FeaturePtr,
+        index: usize,
+    },
     MethodCall {
         method_ident: CustomIdentifier,
         opds: Vec<FeaturePtr>,
@@ -77,6 +81,13 @@ pub enum Feature {
         ty: EntityRoutePtr,
         uid: EntityUid,
         opds: Vec<FeaturePtr>,
+    },
+    XmlFromValue {
+        value: FeaturePtr,
+    },
+    XmlFromTag {
+        tag_kind: XmlTagKind,
+        props: IdentPairDict<FeaturePtr>,
     },
 }
 

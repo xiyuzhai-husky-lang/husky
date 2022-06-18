@@ -32,8 +32,8 @@ impl HuskyTraceTime {
             None
         };
         return match expr.variant {
-            FeatureExprVariant::PrimitiveLiteral(value) => vec![literal!(value)],
-            FeatureExprVariant::PrimitiveBinaryOpr {
+            FeatureLazyExprVariant::PrimitiveLiteral(value) => vec![literal!(value)],
+            FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,
                 ref ropd,
@@ -44,10 +44,10 @@ impl HuskyTraceTime {
                 tokens.extend(self.feature_expr_tokens(ropd, config.subexpr()));
                 tokens
             }
-            FeatureExprVariant::Variable { varname, .. } => {
+            FeatureLazyExprVariant::Variable { varname, .. } => {
                 vec![ident!(varname.0, opt_associated_trace_id)]
             }
-            FeatureExprVariant::RoutineCall {
+            FeatureLazyExprVariant::RoutineCall {
                 opds: ref feature_opds,
                 ..
             } => match expr.expr.variant {
@@ -95,19 +95,19 @@ impl HuskyTraceTime {
                 },
                 _ => panic!(""),
             },
-            FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
-            FeatureExprVariant::EntityFeature { .. } => {
+            FeatureLazyExprVariant::EnumKindLiteral { .. } => todo!(),
+            FeatureLazyExprVariant::EntityFeature { .. } => {
                 let text = self.runtime.compile_time().text(expr.expr.file).unwrap();
                 vec![route!(
                     text.ranged(expr.expr.range),
                     opt_associated_trace_id
                 )]
             }
-            FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureExprVariant::EvalInput => vec![keyword!("input")],
-            FeatureExprVariant::PatternCall {} => todo!(),
-            FeatureExprVariant::ElementAccess { ref opds, .. } => {
+            FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+            FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
+            FeatureLazyExprVariant::EvalInput => vec![keyword!("input")],
+            FeatureLazyExprVariant::PatternCall {} => todo!(),
+            FeatureLazyExprVariant::ElementAccess { ref opds, .. } => {
                 let mut tokens = vec![];
                 tokens.extend(self.feature_expr_tokens(&opds[0], config.subexpr()));
                 tokens.push(special!("[", opt_associated_trace_id.clone()));
@@ -118,22 +118,22 @@ impl HuskyTraceTime {
                 tokens.push(special!("]", opt_associated_trace_id));
                 tokens
             }
-            FeatureExprVariant::RecordDerivedFieldAccess {
+            FeatureLazyExprVariant::RecordDerivedFieldAccess {
                 ref this,
                 field_ident,
                 ..
             } => self.field_access_tokens(config, this, field_ident),
-            FeatureExprVariant::StructOriginalFieldAccess {
+            FeatureLazyExprVariant::StructOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
             } => self.field_access_tokens(config, this, field_ident),
-            FeatureExprVariant::RecordOriginalFieldAccess {
+            FeatureLazyExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
             } => self.field_access_tokens(config, this, field_ident),
-            FeatureExprVariant::StructDerivedLazyFieldAccess {
+            FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,

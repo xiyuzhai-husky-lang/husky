@@ -5,7 +5,7 @@ use crate::*;
 use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(super) fn eval_feature_stmt(&mut self, stmt: &FeatureStmt) -> EvalResult<'eval> {
+    pub(crate) fn eval_feature_stmt(&mut self, stmt: &FeatureStmt) -> EvalResult<'eval> {
         match stmt.variant {
             FeatureStmtVariant::Init { .. } => Ok(EvalValue::Undefined),
             FeatureStmtVariant::Assert { ref condition } => {
@@ -17,7 +17,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     })
                 }
             }
-            FeatureStmtVariant::Return { ref result } => self.eval_feature_expr(result),
+            FeatureStmtVariant::Return { ref result } => self.eval_feature_lazy_expr(result),
+            FeatureStmtVariant::ReturnXml { ref result } => self.eval_feature_xml_expr(result),
             FeatureStmtVariant::ConditionFlow { ref branches, .. } => {
                 for branch in branches {
                     let execute_branch: bool = match branch.variant {
@@ -37,6 +38,9 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     }
 
     fn satisfies(&mut self, condition: &FeatureLazyExpr) -> VMRuntimeResult<bool> {
-        Ok(self.eval_feature_expr(condition)?.primitive().to_bool())
+        Ok(self
+            .eval_feature_lazy_expr(condition)?
+            .primitive()
+            .to_bool())
     }
 }

@@ -92,6 +92,13 @@ impl<'eval> AnyValue<'eval> for MnistDataset {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        todo!()
+    }
 }
 
 impl<'eval> DatasetDyn<'eval> for MnistDataset {

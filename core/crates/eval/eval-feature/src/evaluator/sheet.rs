@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use vm::{EvalResult, EvalValue};
+use vm::{EvalRef, EvalResult, EvalValue};
 use word::CustomIdentifier;
 
 use super::*;
@@ -14,7 +14,7 @@ pub struct EvalSheet<'eval> {
 pub enum EvalKey<'eval> {
     Feature(FeaturePtr),
     StructDerivedField {
-        parent: *const (dyn AnyValueDyn<'eval> + 'eval),
+        parent: EvalRef<'eval>,
         field_ident: CustomIdentifier,
     },
 }
@@ -88,7 +88,7 @@ unsafe fn share_cached<'eval>(cached: &EvalResult<'eval>) -> EvalResult<'eval> {
     Ok(match cached {
         Ok(value) => match value {
             EvalValue::Copyable(value) => EvalValue::Copyable(*value),
-            EvalValue::Owned(value) => EvalValue::EvalRef(&*value.any_ptr()),
+            EvalValue::Owned(value) => EvalValue::EvalRef(EvalRef(&*value.any_ptr())),
             EvalValue::EvalRef(value) => EvalValue::EvalRef(*value),
             EvalValue::EvalPure(value) => EvalValue::EvalPure(value.clone()),
             EvalValue::Undefined => EvalValue::Undefined,

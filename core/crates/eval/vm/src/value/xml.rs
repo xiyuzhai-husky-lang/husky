@@ -20,7 +20,7 @@ impl Serialize for XmlValue {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum XmlTagKind {
     Point2d,
     Contour,

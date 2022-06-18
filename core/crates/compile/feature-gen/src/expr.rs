@@ -1,4 +1,7 @@
 mod impl_opn;
+mod xml;
+
+pub use xml::*;
 
 use entity_route::EntityRouteKind;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
@@ -12,7 +15,7 @@ use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, Clone)]
 pub struct FeatureLazyExpr {
-    pub variant: FeatureExprVariant,
+    pub variant: FeatureLazyExprVariant,
     pub feature: FeaturePtr,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
@@ -33,7 +36,7 @@ impl PartialEq for FeatureLazyExpr {
 impl Eq for FeatureLazyExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureExprVariant {
+pub enum FeatureLazyExprVariant {
     PrimitiveLiteral(CopyableValue),
     EnumKindLiteral {
         entity_route: EntityRoutePtr,
@@ -132,7 +135,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 .find_map(|symbol| {
                     if symbol.varname == varname {
                         Some((
-                            FeatureExprVariant::Variable {
+                            FeatureLazyExprVariant::Variable {
                                 varname,
                                 value: symbol.value.clone(),
                             },
@@ -145,7 +148,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 .unwrap(),
             LazyExprVariant::EntityRoute { .. } => todo!(),
             LazyExprVariant::PrimitiveLiteral(value) => (
-                FeatureExprVariant::PrimitiveLiteral(value),
+                FeatureLazyExprVariant::PrimitiveLiteral(value),
                 self.features.intern(Feature::PrimitiveLiteral(value)),
             ),
             LazyExprVariant::Bracketed(ref bracketed_expr) => {
@@ -154,14 +157,14 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
             LazyExprVariant::Lambda(_, _) => todo!(),
             LazyExprVariant::EnumLiteral { entity_route } => (
-                FeatureExprVariant::EnumKindLiteral {
+                FeatureLazyExprVariant::EnumKindLiteral {
                     entity_route,
                     uid: self.db.entity_uid(entity_route),
                 },
                 self.features.intern(Feature::EnumLiteral(entity_route)),
             ),
             LazyExprVariant::ThisValue { .. } => (
-                FeatureExprVariant::ThisValue {
+                FeatureLazyExprVariant::ThisValue {
                     repr: self.this.as_ref().unwrap().clone(),
                 },
                 self.this.as_ref().unwrap().feature(),
@@ -175,7 +178,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         route: entity_route,
                         uid,
                     });
-                    let kind = FeatureExprVariant::EntityFeature {
+                    let kind = FeatureLazyExprVariant::EntityFeature {
                         entity_route,
                         repr: self.db.entity_feature_repr(entity_route).unwrap(),
                     };
@@ -183,7 +186,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 }
                 EntityRouteKind::Input { main } => {
                     let feature = self.features.intern(Feature::Input);
-                    let kind = FeatureExprVariant::EvalInput;
+                    let kind = FeatureLazyExprVariant::EvalInput;
                     (kind, feature)
                 }
                 EntityRouteKind::Generic { ident, .. } => todo!(),

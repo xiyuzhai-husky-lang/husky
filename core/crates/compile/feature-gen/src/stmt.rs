@@ -75,16 +75,24 @@ impl FeatureStmt {
                 );
                 FeatureStmtVariant::Assert { condition }
             }
-            LazyStmtVariant::Return { ref result } => {
-                let result = FeatureLazyExpr::new(
+            LazyStmtVariant::Return { ref result } => FeatureStmtVariant::Return {
+                result: FeatureLazyExpr::new(
                     db,
                     opt_this.clone(),
                     result.clone(),
                     &symbols,
                     feature_interner,
-                );
-                FeatureStmtVariant::Return { result }
-            }
+                ),
+            },
+            LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureStmtVariant::ReturnXml {
+                result: FeatureXmlExpr::new(
+                    db,
+                    opt_this.clone(),
+                    xml_expr.clone(),
+                    &symbols,
+                    feature_interner,
+                ),
+            },
             LazyStmtVariant::ConditionFlow { ref branches } => {
                 let branches: Vec<Arc<FeatureBranch>> = branches
                     .iter()
@@ -132,9 +140,6 @@ impl FeatureStmt {
                 ref match_expr,
                 ref branches,
             } => todo!(),
-            LazyStmtVariant::ReturnXml { ref xml_expr } => {
-                todo!()
-            }
         };
 
         Arc::new(FeatureStmt {

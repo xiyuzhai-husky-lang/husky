@@ -2,6 +2,7 @@ mod impl_block;
 mod impl_expr;
 mod impl_repr;
 mod impl_stmt;
+mod impl_visualize;
 mod indicator;
 mod sheet;
 
@@ -13,83 +14,11 @@ use feature_gen::FeatureEvalId;
 use vm::EvalResult;
 use vm::{AnyValueDyn, EvalValue};
 
-pub fn eval_feature_lazy_block<'eval>(
-    db: &dyn FeatureEvalQueryGroup,
-    block: &FeatureLazyBlock,
-    eval_input: EvalValue<'eval>,
-    sheet: &EvalSheet<'eval>,
-    verbose: bool,
-) -> EvalResult<'eval> {
-    let mut evaluator = FeatureEvaluator {
-        db,
-        eval_input,
-        sheet,
-        verbose,
-    };
-    evaluator.eval_feature_lazy_block(block)
-}
-
-pub fn eval_feature_stmt<'eval>(
-    db: &dyn FeatureEvalQueryGroup,
-    stmt: &FeatureStmt,
-    eval_input: EvalValue<'eval>,
-    sheet: &EvalSheet<'eval>,
-    verbose: bool,
-) -> EvalResult<'eval> {
-    if let Some(value) = sheet.cached_value(EvalKey::Feature(stmt.opt_feature.unwrap())) {
-        value
-    } else {
-        let mut evaluator = FeatureEvaluator {
-            db,
-            eval_input,
-            sheet,
-            verbose,
-        };
-        evaluator.eval_feature_stmt(stmt)
-    }
-}
-
-pub fn eval_feature_expr<'eval>(
-    db: &dyn FeatureEvalQueryGroup,
-    expr: &FeatureLazyExpr,
-    eval_input: EvalValue<'eval>,
-    sheet: &EvalSheet<'eval>,
-    verbose: bool,
-) -> EvalResult<'eval> {
-    if let Some(value) = sheet.cached_value(EvalKey::Feature(expr.feature)) {
-        value
-    } else {
-        let mut evaluator = FeatureEvaluator {
-            db,
-            eval_input,
-            sheet,
-            verbose,
-        };
-        evaluator.eval_feature_expr(expr)
-    }
-}
-
-pub fn eval_feature_repr<'eval>(
-    db: &dyn FeatureEvalQueryGroup,
-    repr: &FeatureRepr,
-    eval_input: EvalValue<'eval>,
-    sheet: &EvalSheet<'eval>,
-    verbose: bool,
-) -> EvalResult<'eval> {
-    let mut evaluator = FeatureEvaluator {
-        db,
-        eval_input,
-        sheet,
-        verbose,
-    };
-    evaluator.eval_feature_repr(repr)
-}
-
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
-    eval_input: EvalValue<'eval>,
-    sheet: &'a EvalSheet<'eval>,
-    db: &'a dyn FeatureEvalQueryGroup,
-    verbose: bool,
+    pub(crate) eval_input: EvalValue<'eval>,
+    pub(crate) sheet: &'a EvalSheet<'eval>,
+    pub(crate) db: &'a dyn FeatureEvalQueryGroup,
+    pub(crate) verbose: bool,
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {

@@ -89,7 +89,10 @@ impl<'eval> Serialize for VirtualTy<'eval> {
     }
 }
 
-impl<'eval> AnyValue<'eval> for VirtualTy<'eval> {
+impl<'eval, 'a> AnyValue<'eval> for VirtualTy<'a>
+where
+    'a: 'eval,
+{
     fn static_type_id() -> StaticTypeId {
         HuskyBuiltinStaticTypeId::VirtualTy.into()
     }
@@ -111,6 +114,13 @@ impl<'eval> AnyValue<'eval> for VirtualTy<'eval> {
                     .collect(),
             ),
         }
+    }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
     }
 }
 
