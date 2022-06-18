@@ -4,7 +4,7 @@ use crate::*;
 pub enum StackValueSnapshot<'eval> {
     Copyable(CopyableValue),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
+    EvalRef(EvalRef<'eval>),
     Owned(OwnedValue<'eval, 'eval>),
     FullyOwnedRef(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     RefMut {
@@ -22,7 +22,7 @@ impl<'eval> StackValueSnapshot<'eval> {
             StackValueSnapshot::Owned(boxed_value) => boxed_value.any_ref(),
             StackValueSnapshot::Owned(snapshared_value) => snapshared_value.any_ref(),
             StackValueSnapshot::RefMut { value, .. } => value.any_ref(),
-            StackValueSnapshot::EvalRef(value) => *value,
+            StackValueSnapshot::EvalRef(value) => value.0,
             StackValueSnapshot::FullyOwnedRef(_) => todo!(),
         }
     }

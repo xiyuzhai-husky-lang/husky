@@ -109,7 +109,7 @@ impl<'eval> Serialize for SimpleSyntheticDataset<'eval> {
     }
 }
 
-impl<'eval> AnyValue<'eval> for SimpleSyntheticDataset<'eval> {
+impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
     fn static_type_id() -> StaticTypeId {
         todo!()
     }
@@ -127,6 +127,13 @@ impl<'eval> AnyValue<'eval> for SimpleSyntheticDataset<'eval> {
 
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
+    }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
     }
 }
 

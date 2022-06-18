@@ -34,6 +34,13 @@ impl<'eval> AnyValue<'eval> for () {
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
+    }
 }
 
 impl<'eval> AnyValue<'eval> for i32 {
@@ -70,6 +77,13 @@ impl<'eval> AnyValue<'eval> for i32 {
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
+    }
 }
 
 impl<'eval> AnyValue<'eval> for f32 {
@@ -105,6 +119,13 @@ impl<'eval> AnyValue<'eval> for f32 {
     }
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
+    }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
     }
 }
 
@@ -146,6 +167,13 @@ impl<'eval> AnyValue<'eval> for u32 {
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
+    }
 }
 
 impl<'eval> AnyValue<'eval> for u64 {
@@ -186,6 +214,13 @@ impl<'eval> AnyValue<'eval> for u64 {
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
+    }
 }
 
 impl<'eval> AnyValue<'eval> for bool {
@@ -221,5 +256,12 @@ impl<'eval> AnyValue<'eval> for bool {
     }
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
+    }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
     }
 }

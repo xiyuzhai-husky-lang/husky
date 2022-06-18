@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'temp, 'eval: 'temp, T: AnyValue<'eval> + 'temp> AnyValue<'eval> for &'temp [T] {
+impl<'temp, 'eval: 'temp, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'temp [T] {
     fn static_type_id() -> StaticTypeId {
         StaticTypeId::Vec(Box::new(T::static_type_id()))
     }
@@ -15,6 +15,13 @@ impl<'temp, 'eval: 'temp, T: AnyValue<'eval> + 'temp> AnyValue<'eval> for &'temp
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
         // serde_json::value::to_value(self).unwrap()
+    }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
     }
 }
 

@@ -10,7 +10,7 @@ mod xml;
 pub use any::*;
 pub use copyable::*;
 pub use enum_kind::*;
-pub use eval::{EvalResult, EvalValue};
+pub use eval::{EvalRef, EvalResult, EvalValue};
 pub use member::*;
 pub use owned::*;
 pub use ref_::*;
@@ -31,7 +31,7 @@ pub enum TempValue<'temp, 'eval: 'temp> {
     OwnedEval(OwnedValue<'eval, 'eval>),
     OwnedTemp(OwnedValue<'temp, 'eval>),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
+    EvalRef(EvalRef<'eval>),
     TempRefEval(&'temp (dyn AnyValueDyn<'eval> + 'eval)),
     TempRefTemp(&'temp (dyn AnyValueDyn<'eval> + 'temp)),
     TempRefMutEval {
@@ -233,7 +233,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                 let ptr: *const dyn AnyValueDyn = &**value;
                 TempValue::TempRefEval(&*ptr)
             }
-            TempValue::EvalRef(value) => TempValue::TempRefEval(*value),
+            TempValue::EvalRef(value) => TempValue::TempRefEval(value.0),
             TempValue::TempRefEval(value) => TempValue::TempRefEval(*value),
             TempValue::TempRefTemp(value) => TempValue::TempRefTemp(*value),
             TempValue::TempRefMutEval { value, owner, gen } => {
@@ -450,13 +450,12 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
     }
 
     pub fn downcast_eval_ref<T: AnyValue<'eval>>(&self) -> &'eval T {
-        self.print_short();
         match self {
             TempValue::Moved => todo!(),
             TempValue::Copyable(_) => todo!(),
             TempValue::OwnedEval(_) => todo!(),
             TempValue::EvalPure(value) => panic!(),
-            TempValue::EvalRef(value) => value.downcast_ref(),
+            TempValue::EvalRef(value) => value.0.downcast_ref(),
             TempValue::TempRefEval(value) => panic!(),
             TempValue::TempRefMutEval { value, .. } => panic!(),
             TempValue::OwnedTemp(_) => todo!(),

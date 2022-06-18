@@ -1,13 +1,19 @@
 use file::FilePtr;
 use instruction_gen::new_func_instruction_sheet;
 use semantics_entity::DefinitionRepr;
-use vm::AnyValueDyn;
+use vm::{AnyValueDyn, EvalRef};
 
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum FeatureRepr {
-    ElementOf
+    Value {
+        value: EvalRef<'static>,
+        ty: EntityRoutePtr,
+        file: FilePtr,
+        range: TextRange,
+        feature: FeaturePtr,
+    },
     Expr(Arc<FeatureLazyExpr>),
     LazyBlock(Arc<FeatureLazyBlock>),
     FuncBlock(Arc<FeatureFuncBlock>),
@@ -17,7 +23,7 @@ pub enum FeatureRepr {
 impl FeatureRepr {
     pub fn ty(&self) -> EntityRoutePtr {
         match self {
-            FeatureRepr::Value { .. } => todo!(),
+            FeatureRepr::Value { ty, .. } => *ty,
             FeatureRepr::Expr(expr) => expr.expr.ty(),
             FeatureRepr::LazyBlock(block) => todo!(),
             FeatureRepr::FuncBlock(block) => todo!(),
@@ -26,7 +32,7 @@ impl FeatureRepr {
     }
     pub fn feature(&self) -> FeaturePtr {
         match self {
-            FeatureRepr::Value { .. } => todo!(),
+            FeatureRepr::Value { feature, .. } => *feature,
             FeatureRepr::Expr(expr) => expr.feature,
             FeatureRepr::LazyBlock(block) => block.feature,
             FeatureRepr::FuncBlock(block) => block.feature,

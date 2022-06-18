@@ -11,8 +11,40 @@ pub enum EvalValue<'eval> {
     Copyable(CopyableValue),
     Owned(OwnedValue<'eval, 'eval>),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
+    EvalRef(EvalRef<'eval>),
     Undefined,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct EvalRef<'eval>(pub &'eval (dyn AnyValueDyn<'eval> + 'eval));
+
+impl<'eval1, 'eval2: 'eval1> EvalRef<'eval2> {
+    pub fn short(&self) -> EvalRef<'eval1> {
+        EvalRef(self.0.short_dyn())
+    }
+}
+
+impl<'eval> PartialEq for EvalRef<'eval> {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 as *const (dyn AnyValueDyn<'eval> + 'eval)
+            == other.0 as *const (dyn AnyValueDyn<'eval> + 'eval)
+    }
+}
+
+impl<'eval> Eq for EvalRef<'eval> {}
+
+impl<'eval> std::ops::Deref for EvalRef<'eval> {
+    type Target = dyn AnyValueDyn<'eval> + 'eval;
+
+    fn deref(&self) -> &Self::Target {
+        self.0
+    }
+}
+
+impl<'eval> std::hash::Hash for EvalRef<'eval> {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        (self.0 as *const (dyn AnyValueDyn<'eval> + 'eval) as *const u8).hash(state);
+    }
 }
 
 impl<'eval> PartialEq for EvalValue<'eval> {
@@ -86,7 +118,7 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn lazy_field(mut self, field_idx: usize, field_binding: Binding) -> EvalValue<'eval> {
+    pub fn field_access(mut self, field_idx: usize, binding: Binding) -> EvalValue<'eval> {
         msg_once!("use field binding");
         match self {
             EvalValue::Copyable(_) => panic!("primitive doesn't have member variables"),
@@ -97,6 +129,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::EvalPure(_) => panic!("expect global ref"),
             EvalValue::EvalRef(value) => unsafe {
                 value
+                    .0
                     .downcast_ref::<VirtualTy<'eval>>()
                     .eval_field(field_idx)
                     .share_globally()
@@ -130,12 +163,12 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::Copyable(value) => value.any_ref(),
             EvalValue::Owned(value) => value.any_ref(),
             EvalValue::EvalPure(value) => &**value,
-            EvalValue::EvalRef(value) => *value,
+            EvalValue::EvalRef(value) => value.0,
             EvalValue::Undefined => todo!(),
         }
     }
 
-    pub fn any_eval_ref(&self) -> &'eval (dyn AnyValueDyn<'eval> + 'eval) {
+    pub fn eval_ref(&self) -> EvalRef<'eval> {
         match self {
             EvalValue::Copyable(value) => panic!(),
             EvalValue::Owned(value) => panic!(),

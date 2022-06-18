@@ -28,7 +28,7 @@ where
     }
 }
 
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub struct VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,

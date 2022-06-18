@@ -12,6 +12,9 @@ pub enum FeatureStmtVariant {
     Return {
         result: Arc<FeatureLazyExpr>,
     },
+    ReturnXml {
+        result: Arc<FeatureXmlExpr>,
+    },
     ConditionFlow {
         branches: Vec<Arc<FeatureBranch>>,
     },
@@ -27,6 +30,7 @@ impl FeatureStmtVariant {
                 }))
             }
             FeatureStmtVariant::Return { result } => Some(result.feature),
+            FeatureStmtVariant::ReturnXml { result } => Some(result.feature),
             FeatureStmtVariant::ConditionFlow { branches } => Some(
                 feature_interner.intern(Feature::Branches {
                     branches: branches

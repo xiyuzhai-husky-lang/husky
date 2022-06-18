@@ -7,7 +7,7 @@ pub enum MemberValue<'eval> {
     Copyable(CopyableValue),
     Boxed(OwnedValue<'eval, 'eval>),
     GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    EvalRef(&'eval (dyn AnyValueDyn<'eval> + 'eval)),
+    EvalRef(EvalRef<'eval>),
     Moved,
 }
 
@@ -36,7 +36,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
+    pub fn any_ref<'a>(&'a self) -> &'a (dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             MemberValue::Copyable(value) => value.any_ref(),
             MemberValue::Boxed(ref value) => value.any_ref(),
@@ -77,7 +77,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
             MemberValue::EvalRef(value) => TempValue::EvalRef(*value),
             MemberValue::Copyable(_) => panic!("can't bind eval ref to a copyable value"),
             MemberValue::Boxed(ref boxed_value) => {
-                TempValue::EvalRef(unsafe { &*boxed_value.any_ptr() })
+                TempValue::EvalRef(EvalRef(unsafe { &*boxed_value.any_ptr() }))
             }
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::Moved => todo!(),
@@ -106,10 +106,10 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn share_globally(&self) -> EvalValue<'eval> {
+    pub fn share_globally(&'eval self) -> EvalValue<'eval> {
         match self {
             MemberValue::Copyable(value) => EvalValue::Copyable(*value),
-            MemberValue::Boxed(_) => todo!(),
+            MemberValue::Boxed(value) => EvalValue::EvalRef(EvalRef(value.any_ref())),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::EvalRef(_) => todo!(),
             MemberValue::Moved => todo!(),
@@ -127,7 +127,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
     }
 }
 
-impl<'eval> AnyValue<'eval> for MemberValue<'eval> {
+impl<'eval, 'a: 'eval> AnyValue<'eval> for MemberValue<'a> {
     fn static_type_id() -> StaticTypeId {
         StaticTypeId::AnyMemberValue
     }
@@ -138,5 +138,12 @@ impl<'eval> AnyValue<'eval> for MemberValue<'eval> {
 
     fn to_json_value(&self) -> serde_json::value::Value {
         self.any_ref().to_json_value_dyn()
+    }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
     }
 }

@@ -18,6 +18,7 @@ impl HuskyTraceTime {
                 .iter()
                 .map(|branch| self.feature_branch_trace(parent, stmt.indent, branch.clone()))
                 .collect(),
+            FeatureStmtVariant::ReturnXml { ref result } => todo!(),
         }
     }
 
@@ -50,6 +51,7 @@ impl HuskyTraceTime {
                 tokens
             }
             FeatureStmtVariant::ConditionFlow { .. } => panic!(),
+            FeatureStmtVariant::ReturnXml { ref result } => todo!(),
         }
     }
     pub(crate) fn feature_stmt_figure(
@@ -64,6 +66,7 @@ impl HuskyTraceTime {
             FeatureStmtVariant::Assert { .. } => FigureCanvasData::void(),
             FeatureStmtVariant::Return { ref result } => self.feature_expr_figure(result, focus),
             FeatureStmtVariant::ConditionFlow { ref branches } => FigureCanvasData::void(),
+            FeatureStmtVariant::ReturnXml { ref result } => todo!(),
         }
     }
 }

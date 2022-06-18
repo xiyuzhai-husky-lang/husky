@@ -1,7 +1,7 @@
 use crate::*;
 
 pub trait AllocateUniqueFeature {
-    fn features(&self) -> &FeatureInterner;
+    fn feature_interner(&self) -> &FeatureInterner;
 }
 
 pub type FeatureInterner = unique_allocator::UniqueAllocator<Feature>;

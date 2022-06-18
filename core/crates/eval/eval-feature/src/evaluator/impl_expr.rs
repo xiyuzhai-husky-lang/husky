@@ -1,31 +1,33 @@
 use crate::*;
 use feature_gen::*;
+use husky_tracer_protocol::VisualData;
 use print_utils::{epin, msg_once, p};
 use semantics_lazy::LazyStmt;
-use std::sync::Arc;
+use std::{iter::zip, sync::Arc};
 use vm::*;
+use word::IdentPairDict;
 
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(super) fn eval_feature_expr(&mut self, expr: &FeatureLazyExpr) -> EvalResult<'eval> {
+    pub(crate) fn eval_feature_lazy_expr(&mut self, expr: &FeatureLazyExpr) -> EvalResult<'eval> {
         match expr.variant {
-            FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
-            FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
+            FeatureLazyExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
+            FeatureLazyExprVariant::EnumKindLiteral { entity_route, uid } => {
                 todo!()
                 // Ok(EvalValue::Boxed(value.clone_any()))
             }
-            FeatureExprVariant::PrimitiveBinaryOpr {
+            FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,
                 ref ropd,
             } => Ok(opr
                 .act_on_primitives(
-                    self.eval_feature_expr(lopd)?.primitive(),
-                    self.eval_feature_expr(ropd)?.primitive(),
+                    self.eval_feature_lazy_expr(lopd)?.primitive(),
+                    self.eval_feature_lazy_expr(ropd)?.primitive(),
                 )?
                 .into()),
-            FeatureExprVariant::StructOriginalFieldAccess {
+            FeatureLazyExprVariant::StructOriginalFieldAccess {
                 ref this,
                 field_idx,
                 field_binding,
@@ -35,11 +37,11 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if let Some(compiled) = opt_compiled {
                     todo!()
                 } else {
-                    let this_value = self.eval_feature_expr(this)?;
-                    Ok(unsafe { this_value.lazy_field(field_idx, field_binding) })
+                    let this_value = self.eval_feature_lazy_expr(this)?;
+                    Ok(unsafe { this_value.field_access(field_idx, field_binding) })
                 }
             }
-            FeatureExprVariant::RoutineCall {
+            FeatureLazyExprVariant::RoutineCall {
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
@@ -54,8 +56,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 );
                 result
             }
-            FeatureExprVariant::EntityFeature { ref repr, .. } => self.eval_feature_repr(repr),
-            FeatureExprVariant::NewRecord {
+            FeatureLazyExprVariant::EntityFeature { ref repr, .. } => self.eval_feature_repr(repr),
+            FeatureLazyExprVariant::NewRecord {
                 ty,
                 ref entity,
                 ref opds,
@@ -66,48 +68,74 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 // .resolve_class_call(self.db, expr.eval_id, entity, opds)
                 // .into()),
             }
-            FeatureExprVariant::Variable { ref value, .. } => self
+            FeatureLazyExprVariant::Variable { ref value, .. } => self
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &mut Self| {
-                    evaluator.eval_feature_expr(&value)
+                    evaluator.eval_feature_lazy_expr(&value)
                 }),
-            FeatureExprVariant::RecordOriginalFieldAccess {
+            FeatureLazyExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
             } => self.eval_feature_repr(repr),
-            FeatureExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureExprVariant::EvalInput => Ok(self.eval_input.clone()),
-            FeatureExprVariant::PatternCall {} => todo!(),
-            FeatureExprVariant::RecordDerivedFieldAccess {
+            FeatureLazyExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
+            FeatureLazyExprVariant::EvalInput => Ok(self.eval_input.clone()),
+            FeatureLazyExprVariant::PatternCall {} => todo!(),
+            FeatureLazyExprVariant::RecordDerivedFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
                 ..
             } => self.eval_feature_repr(repr),
-            FeatureExprVariant::ElementAccess {
+            FeatureLazyExprVariant::ElementAccess {
                 ref opds, linkage, ..
             } => {
                 if opds.len() > 2 {
                     todo!()
                 }
                 let mut values = vec![
-                    self.eval_feature_expr(&opds[0])?.into_stack().unwrap(),
-                    self.eval_feature_expr(&opds[1])?.into_stack().unwrap(),
+                    self.eval_feature_lazy_expr(&opds[0])?.into_stack().unwrap(),
+                    self.eval_feature_lazy_expr(&opds[1])?.into_stack().unwrap(),
                 ];
                 (linkage.call)(&mut values).map(|mut value| value.into_eval())
             }
-            FeatureExprVariant::StructDerivedLazyFieldAccess {
+            FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
             } => {
-                let parent: *const dyn AnyValueDyn<'eval> =
-                    self.eval_feature_expr(this)?.any_eval_ref();
+                let parent = self.eval_feature_lazy_expr(this)?.eval_ref();
                 let eval_key = EvalKey::StructDerivedField::<'eval> {
                     parent,
                     field_ident: field_ident.ident,
                 };
                 self.cache(eval_key, |this| this.eval_feature_repr(repr))
+            }
+        }
+    }
+
+    pub(crate) fn eval_feature_xml_expr(&mut self, expr: &FeatureXmlExpr) -> EvalResult<'eval> {
+        match expr.variant {
+            FeatureXmlExprVariant::Value(ref value_expr) => todo!(),
+            FeatureXmlExprVariant::Tag {
+                tag_kind,
+                ref props,
+            } => {
+                let xml_value = XmlValue {
+                    tag_kind,
+                    props: props
+                        .iter()
+                        .map(
+                            |(ident, argument)| {
+                                self.eval_feature_lazy_expr(argument)
+                                    .map(|v| (*ident, v.any_ref().to_json_value_dyn()))
+                            },
+                            // argument.any_ref().to_json_value_dyn()
+                        )
+                        .collect::<VMRuntimeResult<IdentPairDict<_>>>()?,
+                };
+                Ok(EvalValue::Owned(OwnedValue::new(VisualData::from(
+                    xml_value.into(),
+                ))))
             }
         }
     }
@@ -123,7 +151,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         let verbose = self.verbose;
         let values = arguments
             .iter()
-            .map(|expr| TempValue::from_eval(self.eval_feature_expr(expr)?));
+            .map(|expr| TempValue::from_eval(self.eval_feature_lazy_expr(expr)?));
         msg_once!("kwargs");
         eval_fast(
             db.upcast(),

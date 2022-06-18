@@ -100,7 +100,7 @@ impl Upcast<dyn semantics_entity::EntityDefnQueryGroup> for HuskyCompileTime {
 }
 
 impl AllocateUniqueFeature for HuskyCompileTime {
-    fn features(&self) -> &feature_gen::FeatureInterner {
+    fn feature_interner(&self) -> &feature_gen::FeatureInterner {
         &self.features
     }
 }

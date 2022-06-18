@@ -41,6 +41,7 @@ impl HuskyTraceTime {
                     ],
                 },
                 FeatureStmtVariant::ConditionFlow { ref branches } => panic!(),
+                FeatureStmtVariant::ReturnXml { ref result } => todo!(),
             },
             TraceVariant::FeatureBranch(_) => TraceStalk {
                 extra_tokens: vec![],

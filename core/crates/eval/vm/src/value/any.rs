@@ -77,6 +77,9 @@ pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + Ref
         format!("{:?}", self)
     }
     fn to_json_value(&self) -> serde_json::value::Value;
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short;
 }
 
 // object safe trait
@@ -97,6 +100,9 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe {
     fn take_copyable_dyn(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval>);
     fn print_short(&self) -> String;
+    fn short_dyn<'shorter_eval>(&'eval self) -> &'shorter_eval dyn AnyValueDyn<'shorter_eval>
+    where
+        'eval: 'shorter_eval;
     // consume the memory pointed at to create an Arc
     unsafe fn take_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval> + 'eval>
     where
@@ -106,7 +112,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe {
 
 impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
     #[inline]
-    pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
+    pub fn downcast_ref<'a, T: AnyValue<'eval>>(&'a self) -> &'a T {
         if T::static_type_id() != self.static_type_id_dyn() {
             p!(self.static_type_name_dyn(), T::static_type_name());
             panic!()
@@ -182,5 +188,12 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
 
     fn to_json_value_dyn(&self) -> serde_json::value::Value {
         self.to_json_value()
+    }
+
+    fn short_dyn<'short>(&'eval self) -> &'short dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self.short()
     }
 }

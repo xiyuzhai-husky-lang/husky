@@ -23,7 +23,6 @@ pub trait FeatureGenQueryGroup:
     fn record_field_repr(&self, this: FeatureRepr, field_ident: CustomIdentifier) -> FeatureRepr;
     fn visual_feature_repr(&self, this: FeatureRepr) -> FeatureRepr;
 }
-// + Upcast<dyn InterpreterQueryGroup>
 
 fn main_feature_repr(
     db: &dyn FeatureGenQueryGroup,
@@ -35,7 +34,7 @@ fn main_feature_repr(
         db,
         None,
         &main.defn_repr,
-        db.features(),
+        db.feature_interner(),
     ))
 }
 
@@ -45,9 +44,12 @@ fn entity_feature_repr(
 ) -> SemanticResult<FeatureRepr> {
     let entity = db.entity_defn(entity_route)?;
     match entity.variant {
-        EntityDefnVariant::Feature { ref defn_repr, .. } => {
-            Ok(FeatureRepr::from_defn(db, None, defn_repr, db.features()))
-        }
+        EntityDefnVariant::Feature { ref defn_repr, .. } => Ok(FeatureRepr::from_defn(
+            db,
+            None,
+            defn_repr,
+            db.feature_interner(),
+        )),
         _ => todo!(),
     }
 }

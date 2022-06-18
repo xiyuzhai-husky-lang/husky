@@ -104,7 +104,7 @@ impl<'eval> Serialize for Dataset<'eval> {
     }
 }
 
-impl<'eval> AnyValue<'eval> for Dataset<'eval> {
+impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
     fn static_type_id() -> StaticTypeId {
         HuskyBuiltinStaticTypeId::Dataset.into()
     }
@@ -115,5 +115,12 @@ impl<'eval> AnyValue<'eval> for Dataset<'eval> {
 
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
+    }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
     }
 }

@@ -12,4 +12,11 @@ impl<'eval> AnyValue<'eval> for VisualData {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
+
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    where
+        'eval: 'short,
+    {
+        self
+    }
 }

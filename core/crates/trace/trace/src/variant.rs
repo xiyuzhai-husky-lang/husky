@@ -106,27 +106,27 @@ impl<'eval> TraceVariant<'eval> {
             | TraceVariant::Main(_)
             | TraceVariant::FeatureBranch(_) => true,
             TraceVariant::FeatureExpr(ref expr) => match expr.variant {
-                FeatureExprVariant::PrimitiveLiteral(_)
-                | FeatureExprVariant::PrimitiveBinaryOpr { .. }
-                | FeatureExprVariant::Variable { .. } => false,
-                FeatureExprVariant::StructOriginalFieldAccess { .. } => todo!(),
-                FeatureExprVariant::EnumKindLiteral { .. } => false,
-                FeatureExprVariant::EntityFeature { .. } => true,
-                FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-                FeatureExprVariant::RecordOriginalFieldAccess {
+                FeatureLazyExprVariant::PrimitiveLiteral(_)
+                | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
+                | FeatureLazyExprVariant::Variable { .. } => false,
+                FeatureLazyExprVariant::StructOriginalFieldAccess { .. } => todo!(),
+                FeatureLazyExprVariant::EnumKindLiteral { .. } => false,
+                FeatureLazyExprVariant::EntityFeature { .. } => true,
+                FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+                FeatureLazyExprVariant::RecordOriginalFieldAccess {
                     ref this,
                     field_ident,
                     ..
                 } => false,
-                FeatureExprVariant::ThisValue { .. } => false,
-                FeatureExprVariant::EvalInput => false,
-                FeatureExprVariant::RoutineCall {
+                FeatureLazyExprVariant::ThisValue { .. } => false,
+                FeatureLazyExprVariant::EvalInput => false,
+                FeatureLazyExprVariant::RoutineCall {
                     ref routine_defn, ..
                 } => !routine_defn.is_builtin(),
-                FeatureExprVariant::PatternCall {} => true,
-                FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-                FeatureExprVariant::ElementAccess { ref opds, .. } => false,
-                FeatureExprVariant::StructDerivedLazyFieldAccess {
+                FeatureLazyExprVariant::PatternCall {} => true,
+                FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+                FeatureLazyExprVariant::ElementAccess { ref opds, .. } => false,
+                FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
                     ref this,
                     field_ident,
                     ref repr,
