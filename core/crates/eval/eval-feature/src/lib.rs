@@ -15,25 +15,31 @@ use std::{
     sync::{Arc, Mutex},
 };
 use upcast::Upcast;
-use vm::EvalResult;
+use vm::{EvalResult, VMRuntimeResult};
 
 pub trait EvalFeature<'eval>: FeatureEvalQueryGroup + Upcast<dyn FeatureEvalQueryGroup> {
     fn session(&self) -> &Session<'eval>;
     fn verbose(&self) -> bool;
 
-    fn evaluator<'a>(&'a self, input_id: usize) -> FeatureEvaluator<'a, 'eval> {
+    fn evaluator<'a>(&'a self, sample_id: usize) -> FeatureEvaluator<'a, 'eval> {
         let dev = self.session().dev();
-        let sheet = &dev.sheets[input_id];
-        let eval_input = dev.load(input_id).input;
+        let sheet = &dev.sheets[sample_id];
+        let eval_input = dev.load(sample_id).input;
         FeatureEvaluator {
+            sample_id,
             db: self.upcast(),
             eval_input,
             sheet,
             verbose: self.verbose(),
+            opt_static_eval_feature: self.opt_static_eval_feature(),
         }
     }
 
-    fn visualize(&self, this: FeatureRepr, input_id: usize) -> VisualData
+    // None for 'eval is shorter than 'static
+    // Some(self) otherwise
+    fn opt_static_eval_feature(&self) -> Option<&dyn EvalFeature<'static>>;
+
+    fn visualize(&self, this: FeatureRepr, input_id: usize) -> VMRuntimeResult<VisualData>
     where
         'eval: 'static,
     {

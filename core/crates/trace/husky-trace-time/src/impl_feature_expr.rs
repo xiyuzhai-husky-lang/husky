@@ -65,11 +65,7 @@ impl HuskyTraceTime {
                     LazyOpnKind::StructCall(_) => todo!(),
                     LazyOpnKind::RecordCall(_) => todo!(),
                     LazyOpnKind::PatternCall => todo!(),
-                    LazyOpnKind::FieldAccess {
-                        field_ident,
-                        field_kind,
-                        ..
-                    } => todo!(),
+                    LazyOpnKind::FieldAccess { field_ident, .. } => todo!(),
                     LazyOpnKind::MethodCall {
                         method_ident,
                         method_route,
@@ -144,12 +140,17 @@ impl HuskyTraceTime {
     fn field_access_tokens(
         &mut self,
         config: ExprTokenConfig,
-        this: &Arc<FeatureLazyExpr>,
+        this: &FeatureRepr,
         field_ident: RangedCustomIdentifier,
     ) -> Vec<TraceTokenData> {
-        let mut tokens = self.feature_expr_tokens(this, config);
-        tokens.extend([special!("."), ident!(field_ident.ident.as_str())]);
-        tokens
+        match this {
+            FeatureRepr::Expr(this) => {
+                let mut tokens = self.feature_expr_tokens(this, config);
+                tokens.extend([special!("."), ident!(field_ident.ident.as_str())]);
+                tokens
+            }
+            _ => vec![ident!(field_ident.ident.as_str())],
+        }
     }
 
     fn feature_routine_call_tokens(
@@ -185,7 +186,8 @@ impl HuskyTraceTime {
                 if let Ok(value) = self.runtime.eval_feature_expr(expr, *input_id) {
                     FigureCanvasData::new_specific(
                         self.runtime
-                            .visualize(FeatureRepr::Expr(expr.clone()), *input_id),
+                            .visualize(FeatureRepr::Expr(expr.clone()), *input_id)
+                            .unwrap(),
                     )
                 } else {
                     FigureCanvasData::error()
@@ -216,7 +218,8 @@ impl HuskyTraceTime {
                     if partitioned_samples_collector.process(label, || {
                         let visual_data = self
                             .runtime
-                            .visualize(expr.clone().into(), labeled_data.input_id);
+                            .visualize(expr.clone().into(), labeled_data.input_id)
+                            .unwrap();
                         FigureCanvasData::new_specific(visual_data)
                     }) {
                         break;

@@ -110,13 +110,13 @@ impl FeatureRepr {
     }
 }
 
-impl From<Arc<FeatureLazyExpr>> for FeatureRepr {
+impl<'eval> From<Arc<FeatureLazyExpr>> for FeatureRepr {
     fn from(expr: Arc<FeatureLazyExpr>) -> Self {
         Self::Expr(expr)
     }
 }
 
-impl From<Arc<FeatureLazyBlock>> for FeatureRepr {
+impl<'eval> From<Arc<FeatureLazyBlock>> for FeatureRepr {
     fn from(block: Arc<FeatureLazyBlock>) -> Self {
         Self::LazyBlock(block)
     }

@@ -505,10 +505,14 @@ impl HuskyTraceTime {
                                     }
                                 },
                                 before: None,
-                                after: FigureCanvasData::new_specific(self.runtime.visualize(
-                                    todo!(), // mutation.ty,
-                                    todo!(), // frame_stack_snapshot[mutation.varidx()].any_ref(),
-                                )),
+                                after: FigureCanvasData::new_specific(
+                                    self.runtime
+                                        .visualize(
+                                            todo!(), // mutation.ty,
+                                            todo!(), // frame_stack_snapshot[mutation.varidx()].any_ref(),
+                                        )
+                                        .unwrap(),
+                                ),
                                 idx,
                             }
                         }

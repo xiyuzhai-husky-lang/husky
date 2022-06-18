@@ -69,6 +69,10 @@ pub enum Feature {
         this: FeaturePtr,
         index: usize,
     },
+    CyclicElementAccessConstIndex {
+        this: FeaturePtr,
+        index: i32,
+    },
     MethodCall {
         method_ident: CustomIdentifier,
         opds: Vec<FeaturePtr>,

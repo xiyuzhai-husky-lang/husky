@@ -56,54 +56,54 @@ impl Visualizer {
     }
 
     // deprecated
-    fn visualize<'a, 'temp, 'eval>(
-        &self,
-        db: &dyn VisualizerQueryGroup,
-        value: &(dyn AnyValueDyn<'eval> + 'temp),
-        verbose: bool,
-    ) -> VisualData {
-        match self.variant {
-            VisualizerVariant::Compiled { call } => call(value),
-            VisualizerVariant::Custom { .. } => {
-                todo!()
-                //     match eval_fast(
-                //     db.upcast(),
-                //     Some(instruction_sheet),
-                //     None,
-                //     vec![Ok(TempValue::TempRefTemp(value))].into_iter(),
-                //     [].into_iter(),
-                //     verbose,
-                // ) {
-                //     Ok(value) => value.owned().unwrap().take::<VisualData>().unwrap(),
-                //     Err(_) => todo!(),
-                // }
-            }
-            VisualizerVariant::Vec { ty, .. } => {
-                let elem_ty = ty.spatial_arguments[0].take_entity_route();
-                let elem_visualizer = db.visualizer(elem_ty);
-                let virtual_vec: &Vec<MemberValue<'eval>> = value.downcast_ref();
-                VisualData::Group(
-                    virtual_vec
-                        .iter()
-                        .map(|elem| elem_visualizer.visualize(db, elem.any_ref(), verbose))
-                        .collect(),
-                )
-            }
-            VisualizerVariant::CyclicSlice { ty } => {
-                let elem_ty = ty.spatial_arguments[0].take_entity_route();
-                let elem_visualizer = db.visualizer(elem_ty);
-                let virtual_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> =
-                    value.downcast_ref();
-                VisualData::Group(
-                    virtual_cyclic_slice
-                        .iter()
-                        .map(|elem| elem_visualizer.visualize(db, elem.any_ref(), verbose))
-                        .collect(),
-                )
-            }
-            VisualizerVariant::Todo => todo!(),
-        }
-    }
+    // fn visualize<'a, 'temp, 'eval>(
+    //     &self,
+    //     db: &dyn VisualizerQueryGroup,
+    //     value: &(dyn AnyValueDyn<'eval> + 'temp),
+    //     verbose: bool,
+    // ) -> VisualData {
+    //     match self.variant {
+    //         VisualizerVariant::Compiled { call } => call(value),
+    //         VisualizerVariant::Custom { .. } => {
+    //             todo!()
+    //             //     match eval_fast(
+    //             //     db.upcast(),
+    //             //     Some(instruction_sheet),
+    //             //     None,
+    //             //     vec![Ok(TempValue::TempRefTemp(value))].into_iter(),
+    //             //     [].into_iter(),
+    //             //     verbose,
+    //             // ) {
+    //             //     Ok(value) => value.owned().unwrap().take::<VisualData>().unwrap(),
+    //             //     Err(_) => todo!(),
+    //             // }
+    //         }
+    //         VisualizerVariant::Vec { ty, .. } => {
+    //             let elem_ty = ty.spatial_arguments[0].take_entity_route();
+    //             let elem_visualizer = db.visualizer(elem_ty);
+    //             let virtual_vec: &Vec<MemberValue<'eval>> = value.downcast_ref();
+    //             VisualData::Group(
+    //                 virtual_vec
+    //                     .iter()
+    //                     .map(|elem| elem_visualizer.visualize(db, elem.any_ref(), verbose))
+    //                     .collect(),
+    //             )
+    //         }
+    //         VisualizerVariant::CyclicSlice { ty } => {
+    //             let elem_ty = ty.spatial_arguments[0].take_entity_route();
+    //             let elem_visualizer = db.visualizer(elem_ty);
+    //             let virtual_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> =
+    //                 value.downcast_ref();
+    //             VisualData::Group(
+    //                 virtual_cyclic_slice
+    //                     .iter()
+    //                     .map(|elem| elem_visualizer.visualize(db, elem.any_ref(), verbose))
+    //                     .collect(),
+    //             )
+    //         }
+    //         VisualizerVariant::Todo => todo!(),
+    //     }
+    // }
 }
 
 impl std::fmt::Debug for Visualizer {

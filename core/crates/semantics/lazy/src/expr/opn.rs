@@ -17,7 +17,6 @@ pub enum LazyOpnKind {
     PatternCall,
     FieldAccess {
         field_ident: RangedCustomIdentifier,
-        field_kind: FieldKind,
         field_binding: Binding,
     },
     MethodCall {

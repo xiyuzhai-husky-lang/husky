@@ -12,7 +12,7 @@ pub struct FeatureProcBlock {
     stmts: Avec<ProcStmt>,
 }
 
-impl std::hash::Hash for FeatureProcBlock {
+impl<'eval> std::hash::Hash for FeatureProcBlock {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }

@@ -171,7 +171,7 @@ impl HuskyTraceTime {
             match entry {
                 HistoryEntry::PureExpr { output } => match output {
                     Ok(output) => {
-                        let visual_props = self.runtime.visualize(todo!(), todo!());
+                        let visual_props = self.runtime.visualize(todo!(), todo!()).unwrap();
                         FigureCanvasData::new_specific(visual_props)
                     }
                     Err(e) => FigureCanvasData::void(),

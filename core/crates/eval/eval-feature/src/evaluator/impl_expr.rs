@@ -37,7 +37,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if let Some(compiled) = opt_compiled {
                     todo!()
                 } else {
-                    let this_value = self.eval_feature_lazy_expr(this)?;
+                    let this_value = self.eval_feature_repr(this)?;
                     Ok(unsafe { this_value.field_access(field_idx, field_binding) })
                 }
             }
@@ -103,7 +103,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 field_ident,
                 ref repr,
             } => {
-                let parent = self.eval_feature_lazy_expr(this)?.eval_ref();
+                let parent = self.eval_feature_repr_cached(this)?.eval_ref();
                 let eval_key = EvalKey::StructDerivedField::<'eval> {
                     parent,
                     field_ident: field_ident.ident,
@@ -115,7 +115,11 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
 
     pub(crate) fn eval_feature_xml_expr(&mut self, expr: &FeatureXmlExpr) -> EvalResult<'eval> {
         match expr.variant {
-            FeatureXmlExprVariant::Value(ref value_expr) => todo!(),
+            FeatureXmlExprVariant::Value(ref value_expr) => {
+                let this: FeatureRepr = value_expr.clone().into();
+                let visual_data = self.visualize(this);
+                Ok(EvalValue::Owned(OwnedValue::new(visual_data?)))
+            }
             FeatureXmlExprVariant::Tag {
                 tag_kind,
                 ref props,

@@ -370,7 +370,6 @@ impl EntityDefn {
                 } => builder.push(route),
                 LazyExprVariant::ThisField {
                     field_ident,
-                    field_idx,
                     this_ty,
                     this_binding,
                     field_binding,

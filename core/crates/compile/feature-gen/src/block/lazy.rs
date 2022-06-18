@@ -10,21 +10,21 @@ pub struct FeatureLazyBlock {
     pub stmts: Vec<Arc<FeatureStmt>>,
 }
 
-impl std::hash::Hash for FeatureLazyBlock {
+impl<'eval> std::hash::Hash for FeatureLazyBlock {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }
 }
 
-impl PartialEq for FeatureLazyBlock {
+impl<'eval> PartialEq for FeatureLazyBlock {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl Eq for FeatureLazyBlock {}
+impl<'eval> Eq for FeatureLazyBlock {}
 
-impl FeatureLazyBlock {
+impl<'eval> FeatureLazyBlock {
     pub(crate) fn new(
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,

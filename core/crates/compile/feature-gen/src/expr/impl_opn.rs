@@ -57,9 +57,19 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::PatternCall => todo!(),
             LazyOpnKind::FieldAccess {
                 field_ident,
-                field_kind,
                 field_binding,
-            } => self.compile_field_access(field_ident, field_kind, opds, field_binding),
+            } => self.compile_field_access(
+                field_ident,
+                FeatureLazyExpr::new(
+                    self.db,
+                    self.opt_this.clone(),
+                    opds[0].clone(),
+                    self.symbols,
+                    self.features,
+                )
+                .into(),
+                field_binding,
+            ),
             LazyOpnKind::MethodCall {
                 method_ident,
                 method_route,
@@ -128,21 +138,21 @@ impl<'a> FeatureExprBuilder<'a> {
         (kind, feature)
     }
 
-    fn compile_field_access(
+    pub(super) fn compile_field_access(
         &self,
         field_ident: RangedCustomIdentifier,
-        field_kind: FieldKind,
-        opds: &[Arc<LazyExpr>],
+        this: FeatureRepr,
         field_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
-        let this = self.new_expr(opds[0].clone());
-        let this_ty_decl = self.db.ty_decl(this.expr.ty()).unwrap();
+        let this_ty = this.ty();
+        let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
+        let field_kind = this_ty_decl.field_kind(field_ident.ident);
         match field_kind {
             FieldKind::StructOriginal
             | FieldKind::StructDefault
             | FieldKind::StructDerivedEager => {
                 let feature = self.features.intern(Feature::FieldAccess {
-                    this: this.feature,
+                    this: this.feature(),
                     field_ident: field_ident.ident,
                 });
                 (
@@ -151,7 +161,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         field_idx: this_ty_decl.field_idx(field_ident.ident),
                         field_binding,
                         opt_linkage: self.db.struct_field_access_linkage(
-                            this.expr.ty(),
+                            this_ty,
                             field_ident.ident,
                             field_binding,
                         ),
@@ -161,11 +171,12 @@ impl<'a> FeatureExprBuilder<'a> {
                 )
             }
             FieldKind::StructDerivedLazy { .. } => {
-                let this_ty_defn = self.db.entity_defn(this.expr.ty()).unwrap();
+                let this_ty = this.ty();
+                let this_ty_defn = self.db.entity_defn(this_ty).unwrap();
                 let field_uid =
                     self.db
                         .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
-                            this.expr.ty(),
+                            this_ty,
                             field_ident.ident,
                             thin_vec![],
                         )));
@@ -216,11 +227,11 @@ impl<'a> FeatureExprBuilder<'a> {
                 )
             }
             FieldKind::RecordDerived => {
-                let this_ty_defn = self.db.entity_defn(this.expr.ty()).unwrap();
+                let this_ty_defn = self.db.entity_defn(this.ty()).unwrap();
                 let field_uid =
                     self.db
                         .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
-                            this.expr.ty(),
+                            this.ty(),
                             field_ident.ident,
                             thin_vec![],
                         )));
@@ -239,7 +250,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                     );
                                     let feature =
                                         self.db.feature_interner().intern(Feature::FieldAccess {
-                                            this: this.feature,
+                                            this: this.feature(),
                                             field_ident: field_ident.ident,
                                         });
                                     let feature_expr_kind =
