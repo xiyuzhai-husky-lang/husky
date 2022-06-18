@@ -18,6 +18,10 @@ pub enum HuskyTracerServerMessageVariant {
         figure_canvas_data: FigureCanvasData,
         figure_control_data: FigureControlData,
     },
+    ActivateWithError {
+        sample_id: usize,
+        error: String,
+    },
     ToggleExpansion {
         subtrace_ids: Vec<TraceId>,
         new_traces: Vec<TraceNodeData>,
@@ -33,7 +37,10 @@ pub enum HuskyTracerServerMessageVariant {
     },
     LockFocus {
         figure_canvas: FigureCanvasData,
-        figure_control: FigureControlData,
+    },
+    LockFocusWithError {
+        sample_id: usize,
+        error: String,
     },
     TraceStalk {
         stalk: TraceStalk,

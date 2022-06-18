@@ -46,7 +46,6 @@ pub struct HuskyTraceTime {
     trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
     root_trace_ids: Vec<TraceId>,
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
-    figures: HashMap<FigureCanvasKey, FigureCanvasData>,
     figure_controls: HashMap<FigureControlKey, FigureControlData>,
 }
 
@@ -58,7 +57,6 @@ impl HuskyTraceTime {
             trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),
             subtrace_ids_map: Default::default(),
-            figures: Default::default(),
             figure_controls: Default::default(),
             root_trace_ids: Default::default(),
             focus: Default::default(),
@@ -268,7 +266,7 @@ impl HuskyTraceTime {
             let figure_canvas_key = FigureCanvasKey::new(&active_trace.props, &focus);
             figure_canvases.push((
                 figure_canvas_key,
-                self.figure_canvas(active_trace_id, &focus),
+                self.figure_canvas(active_trace_id, &focus).unwrap(),
             ));
             figure_controls.push((
                 FigureControlKey::new(&active_trace.props, &focus),

@@ -14,7 +14,6 @@ impl HuskyTraceTime {
         self.opt_active_trace_id = None;
         self.root_trace_ids.clear();
         self.subtrace_ids_map.clear();
-        self.figures.clear();
         self.figure_controls.clear();
     }
 

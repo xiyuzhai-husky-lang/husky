@@ -10,15 +10,19 @@ use text::TextQueryGroup;
 use vm::{History, HistoryEntry, MutationData, MutationDataKind, StackSnapshot};
 
 impl HuskyTraceTime {
-    pub fn figure_canvas(&self, trace_id: TraceId, focus: &Focus) -> FigureCanvasData {
+    pub fn figure_canvas(
+        &self,
+        trace_id: TraceId,
+        focus: &Focus,
+    ) -> Result<FigureCanvasData, (usize, VMRuntimeError)> {
         let trace = self.trace(trace_id);
-        match trace.variant {
+        Ok(match trace.variant {
             TraceVariant::Main(_) => FigureCanvasData::void(),
-            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, focus),
+            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, focus)?,
             TraceVariant::FeatureBranch(_) => FigureCanvasData::void(),
-            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr, focus),
+            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr, focus)?,
             TraceVariant::FeatureCallInput { ref input, .. } => {
-                self.feature_expr_figure(input, focus)
+                self.feature_expr_figure(input, focus)?
             }
             TraceVariant::FuncStmt {
                 ref stmt,
@@ -64,6 +68,6 @@ impl HuskyTraceTime {
                 None => FigureCanvasData::void(),
                 _ => panic!(),
             },
-        }
+        })
     }
 }

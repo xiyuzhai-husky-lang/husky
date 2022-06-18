@@ -33,7 +33,7 @@ impl<'eval> LoadSample<'eval> for MnistDevLoader {
         LabeledData {
             input,
             label,
-            input_id,
+            sample_id: input_id,
         }
     }
 }
