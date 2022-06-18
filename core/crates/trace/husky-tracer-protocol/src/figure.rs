@@ -165,11 +165,11 @@ impl FigureCanvasData {
         }
     }
 
-    pub fn error() -> Self {
-        Self::Primitive {
-            value: PrimitiveValueData::Void(()),
-        }
-    }
+    // pub fn error() -> Self {
+    //     Self::Primitive {
+    //         value: PrimitiveValueData::Void(()),
+    //     }
+    // }
 
     pub fn new_generic(
         partitioned_visuals: Vec<(PartitionDefnData, Vec<FigureCanvasData>)>,

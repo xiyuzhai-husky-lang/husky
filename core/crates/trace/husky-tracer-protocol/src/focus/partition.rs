@@ -49,12 +49,16 @@ impl<T> PartitionedSamplesCollector<T> {
     }
 
     // returns a flag indicating whether the partitions are all full
-    pub fn process(&mut self, label: Label, f: impl FnOnce() -> T) -> bool {
+    pub fn process<E>(
+        &mut self,
+        label: Label,
+        f: impl FnOnce() -> Result<T, E>,
+    ) -> Result<bool, E> {
         for (i, (partition, samples)) in self.partitioned_samples.iter_mut().enumerate() {
             let max_samples_len = (partition.ncol * self.col_len) as usize;
             if samples.len() < max_samples_len {
                 if partition.contains(label) {
-                    samples.push(f());
+                    samples.push(f()?);
                     if samples.len() == max_samples_len {
                         self.flags &= !(1 << i);
                     }
@@ -64,7 +68,7 @@ impl<T> PartitionedSamplesCollector<T> {
                 assert!((self.flags & (1 << i)) == 0)
             }
         }
-        self.flags == 0
+        Ok(self.flags == 0)
     }
 
     pub fn finish(self) -> Vec<(PartitionDefnData, Vec<T>)> {

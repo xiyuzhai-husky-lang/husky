@@ -180,18 +180,18 @@ impl HuskyTraceTime {
         &self,
         expr: &Arc<FeatureLazyExpr>,
         focus: &Focus,
-    ) -> FigureCanvasData {
+    ) -> Result<FigureCanvasData, (usize, VMRuntimeError)> {
         match focus {
             Focus::Specific { input_id } => {
-                if let Ok(value) = self.runtime.eval_feature_expr(expr, *input_id) {
-                    FigureCanvasData::new_specific(
-                        self.runtime
-                            .visualize(FeatureRepr::Expr(expr.clone()), *input_id)
-                            .unwrap(),
-                    )
-                } else {
-                    FigureCanvasData::error()
-                }
+                let value = self
+                    .runtime
+                    .eval_feature_expr(expr, *input_id)
+                    .map_err(|e| (*input_id, e))?;
+                Ok(FigureCanvasData::new_specific(
+                    self.runtime
+                        .visualize(FeatureRepr::Expr(expr.clone()), *input_id)
+                        .unwrap(),
+                ))
             }
             Focus::Generic { partitions, .. } => {
                 let session = self.runtime.session();
@@ -215,17 +215,21 @@ impl HuskyTraceTime {
                 let visualizer = self.runtime.compile_time().visualizer(ty);
                 for labeled_data in dev_division.each_labeled_data() {
                     let label = labeled_data.label;
-                    if partitioned_samples_collector.process(label, || {
-                        let visual_data = self
-                            .runtime
-                            .visualize(expr.clone().into(), labeled_data.input_id)
-                            .unwrap();
-                        FigureCanvasData::new_specific(visual_data)
-                    }) {
+                    if partitioned_samples_collector
+                        .process(label, || -> VMRuntimeResult<FigureCanvasData> {
+                            let visual_data = self
+                                .runtime
+                                .visualize(expr.clone().into(), labeled_data.sample_id)?;
+                            Ok(FigureCanvasData::new_specific(visual_data))
+                        })
+                        .map_err(|e| (labeled_data.sample_id, e))?
+                    {
                         break;
                     }
                 }
-                FigureCanvasData::new_generic(partitioned_samples_collector.finish())
+                Ok(FigureCanvasData::new_generic(
+                    partitioned_samples_collector.finish(),
+                ))
             }
         }
     }

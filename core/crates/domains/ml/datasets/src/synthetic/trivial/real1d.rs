@@ -49,13 +49,13 @@ pub fn gen_sample1<'eval>(seed: u64, input_id: usize) -> LabeledData<'eval> {
         LabeledData {
             input: EvalValue::Copyable(1.0f32.into()),
             label: 1.into(),
-            input_id,
+            sample_id: input_id,
         }
     } else {
         LabeledData {
             input: EvalValue::Copyable((-1.0f32).into()),
             label: 1.into(),
-            input_id,
+            sample_id: input_id,
         }
     }
 }
@@ -66,13 +66,13 @@ pub fn gen_sample2<'eval>(seed: u64, input_id: usize) -> LabeledData<'eval> {
         LabeledData {
             input: EvalValue::Copyable(1.0f32.into()),
             label: 1.into(),
-            input_id,
+            sample_id: input_id,
         }
     } else {
         LabeledData {
             input: EvalValue::Copyable((-1.0f32).into()),
             label: 1.into(),
-            input_id,
+            sample_id: input_id,
         }
     }
 }

@@ -78,8 +78,17 @@ impl HuskyTracerInternal {
                     opt_focus_for_figure.is_some()
                 );
                 if let Some(ref focus) = opt_focus_for_figure {
+                    let figure_canvas_data = match self.trace_time.figure_canvas(trace_id, focus) {
+                        Ok(figure_canvas_data) => figure_canvas_data,
+                        Err((sample_id, error)) => {
+                            return Some(HuskyTracerServerMessageVariant::ActivateWithError {
+                                sample_id,
+                                error: format!("{:?}", error),
+                            })
+                        }
+                    };
                     Some(HuskyTracerServerMessageVariant::Activate {
-                        figure_canvas_data: self.trace_time.figure_canvas(trace_id, focus),
+                        figure_canvas_data,
                         figure_control_data: self.trace_time.figure_control(trace_id, focus),
                     })
                 } else {
@@ -119,12 +128,18 @@ impl HuskyTracerInternal {
             } => {
                 self.trace_time.set_focus(focus.clone());
                 opt_active_trace_id_for_request.map(|active_trace_id| {
-                    let figure_canvas = self.trace_time.figure_canvas(active_trace_id, &focus);
+                    let figure_canvas = match self.trace_time.figure_canvas(active_trace_id, &focus)
+                    {
+                        Ok(figure_canvas) => figure_canvas,
+                        Err((sample_id, error)) => {
+                            return HuskyTracerServerMessageVariant::LockFocusWithError {
+                                sample_id,
+                                error: format!("{:?}", error),
+                            }
+                        }
+                    };
                     let figure_control = self.trace_time.figure_control(active_trace_id, &focus);
-                    HuskyTracerServerMessageVariant::LockFocus {
-                        figure_canvas,
-                        figure_control,
-                    }
+                    HuskyTracerServerMessageVariant::LockFocus { figure_canvas }
                 })
             }
             HuskyTracerGuiMessageVariant::UpdateFigureControlData {
