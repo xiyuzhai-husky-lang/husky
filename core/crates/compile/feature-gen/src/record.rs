@@ -10,7 +10,7 @@ pub(crate) fn record_field_repr(
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this {
-        FeatureRepr::Temp {} => todo!(),
+        FeatureRepr::Value {} => todo!(),
         FeatureRepr::Expr(ref expr) => expr_record_field(db, expr, field_ident),
         FeatureRepr::LazyBlock(ref block) => block_record_field(db, block, field_ident),
         FeatureRepr::FuncBlock(_) => todo!(),

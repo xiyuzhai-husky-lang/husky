@@ -135,7 +135,7 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn any_global_ref(&self) -> &'eval (dyn AnyValueDyn<'eval> + 'eval) {
+    pub fn any_eval_ref(&self) -> &'eval (dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             EvalValue::Copyable(value) => panic!(),
             EvalValue::Owned(value) => panic!(),
