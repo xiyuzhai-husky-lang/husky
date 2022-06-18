@@ -9,14 +9,18 @@ impl HuskyRuntime {
         match visualizer.variant {
             VisualizerVariant::Compiled { call } => todo!(),
             VisualizerVariant::Vec { ty } => {
-                let value = 
+                let value = self.eval_feature_repr_cached(&this, input_id).unwrap();
                 let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = self.compile_time.visualizer(elem_ty);
-                let virtual_vec: &Vec<MemberValue<'eval>> = value.downcast_ref();
+                let virtual_vec: &'eval Vec<MemberValue<'eval>> =
+                    value.any_eval_ref().downcast_ref();
                 VisualData::Group(
                     virtual_vec
                         .iter()
-                        .map(|elem| elem_visualizer.visualize(db, elem.any_ref(), verbose))
+                        .map(|elem: &'eval MemberValue<'eval>| {
+                            self.visualize(FeatureRepr::Value {}, input_id),
+                            elem_visualizer.visualize(db, elem.any_ref(), self.verbose())
+                        })
                         .collect(),
                 )
             }

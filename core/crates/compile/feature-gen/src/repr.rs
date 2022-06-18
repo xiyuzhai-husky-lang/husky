@@ -1,12 +1,13 @@
 use file::FilePtr;
 use instruction_gen::new_func_instruction_sheet;
 use semantics_entity::DefinitionRepr;
+use vm::AnyValueDyn;
 
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum FeatureRepr {
-    Temp {},
+    ElementOf
     Expr(Arc<FeatureLazyExpr>),
     LazyBlock(Arc<FeatureLazyBlock>),
     FuncBlock(Arc<FeatureFuncBlock>),
@@ -16,7 +17,7 @@ pub enum FeatureRepr {
 impl FeatureRepr {
     pub fn ty(&self) -> EntityRoutePtr {
         match self {
-            FeatureRepr::Temp {} => todo!(),
+            FeatureRepr::Value { .. } => todo!(),
             FeatureRepr::Expr(expr) => expr.expr.ty(),
             FeatureRepr::LazyBlock(block) => todo!(),
             FeatureRepr::FuncBlock(block) => todo!(),
@@ -25,7 +26,7 @@ impl FeatureRepr {
     }
     pub fn feature(&self) -> FeaturePtr {
         match self {
-            FeatureRepr::Temp {} => todo!(),
+            FeatureRepr::Value { .. } => todo!(),
             FeatureRepr::Expr(expr) => expr.feature,
             FeatureRepr::LazyBlock(block) => block.feature,
             FeatureRepr::FuncBlock(block) => block.feature,
@@ -35,7 +36,7 @@ impl FeatureRepr {
 
     pub fn file(&self) -> FilePtr {
         match self {
-            FeatureRepr::Temp {} => todo!(),
+            FeatureRepr::Value { .. } => todo!(),
             FeatureRepr::Expr(expr) => expr.expr.file,
             FeatureRepr::LazyBlock(block) => block.file,
             FeatureRepr::FuncBlock(block) => block.file,
@@ -45,7 +46,7 @@ impl FeatureRepr {
 
     pub fn text_range(&self) -> TextRange {
         match self {
-            FeatureRepr::Temp {} => todo!(),
+            FeatureRepr::Value { .. } => todo!(),
             FeatureRepr::Expr(expr) => expr.expr.range,
             FeatureRepr::LazyBlock(block) => block.range,
             FeatureRepr::FuncBlock(block) => block.range,

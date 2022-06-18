@@ -27,6 +27,19 @@ pub trait EvalFeature<'eval>: FeatureEvalQueryGroup + Upcast<dyn FeatureEvalQuer
         eval_feature_repr(self.upcast(), repr, input, sheet, self.verbose())
     }
 
+    fn eval_feature_repr_cached(&self, repr: &FeatureRepr, input_id: usize) -> EvalResult<'eval> {
+        let dev = self.session().dev();
+        let sheet = &dev.sheets[input_id];
+        let input = dev.load(input_id).input;
+        let eval_key = EvalKey::Feature(repr.feature());
+        if let Some(result) = sheet.cached_value(eval_key) {
+            result
+        } else {
+            let result = eval_feature_repr(self.upcast(), repr, input, sheet, self.verbose());
+            sheet.cache(eval_key, result)
+        }
+    }
+
     fn eval_feature_lazy_block(
         &self,
         block: &FeatureLazyBlock,
