@@ -61,7 +61,7 @@ pub struct HuskyCompileTime {
     word_unique_allocator: word::WordAllocator,
     scope_unique_allocator: entity_route::EntityRouteInterner,
     live_docs: ARwLock<IndexMap<FilePtr, ARwLock<String>>>,
-    features: feature_gen::FeatureUniqueAllocator,
+    features: feature_gen::FeatureInterner,
     linkage_table: LinkageSourceTable,
     entity_route_store: EntityRouteStore,
     opt_main: Option<FilePtr>,

@@ -161,7 +161,7 @@ impl From<&EntityRoute> for EntityRoute {
 pub trait AllocateUniqueScope {
     fn scope_unique_allocator(&self) -> &EntityRouteInterner;
     fn intern_entity_route(&self, scope: EntityRoute) -> EntityRoutePtr {
-        self.scope_unique_allocator().alloc(scope)
+        self.scope_unique_allocator().intern(scope)
     }
 
     fn make_route(

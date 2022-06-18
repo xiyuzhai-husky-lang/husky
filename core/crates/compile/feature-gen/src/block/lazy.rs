@@ -30,7 +30,7 @@ impl FeatureLazyBlock {
         opt_this: Option<FeatureRepr>,
         lazy_stmts: &[Arc<LazyStmt>],
         externals: &[FeatureSymbol],
-        features: &FeatureUniqueAllocator,
+        features: &FeatureInterner,
     ) -> Arc<FeatureLazyBlock> {
         emsg_once!("generics for feature block");
         let mut symbols: Vec<FeatureSymbol> = externals.into();

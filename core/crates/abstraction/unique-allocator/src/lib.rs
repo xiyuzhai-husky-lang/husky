@@ -64,7 +64,7 @@ where
         }
     }
 
-    pub fn alloc(&self, owned: Owned) -> Ptr
+    pub fn intern(&self, owned: Owned) -> Ptr
     where
         T: Debug,
     {

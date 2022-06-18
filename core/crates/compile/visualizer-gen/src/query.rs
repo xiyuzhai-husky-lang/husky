@@ -13,6 +13,7 @@ pub trait VisualizerQueryGroup:
     EntityDefnQueryGroup + Upcast<dyn InterpreterQueryGroup> + Upcast<dyn InstructionGenQueryGroup>
 {
     fn visualizer(&self, ty: EntityRoutePtr) -> Arc<Visualizer>;
+    fn visual_ty(&self, ty: EntityRoutePtr) -> VisualTy;
 }
 
 fn visualizer(db: &dyn VisualizerQueryGroup, ty: EntityRoutePtr) -> Arc<Visualizer> {
@@ -27,7 +28,7 @@ fn visualizer(db: &dyn VisualizerQueryGroup, ty: EntityRoutePtr) -> Arc<Visualiz
                     Visualizer::from_static(db, static_visualizer, ty)
                 }
                 VisualizerSource::Custom { ref stmts } => Visualizer {
-                    ty: VisualTy::from_stmts(stmts),
+                    ty: VisualTy::from_stmts(db, stmts),
                     variant: VisualizerVariant::Custom {
                         stmts: stmts.clone(),
                     },
@@ -37,4 +38,8 @@ fn visualizer(db: &dyn VisualizerQueryGroup, ty: EntityRoutePtr) -> Arc<Visualiz
         },
         _ => todo!(),
     })
+}
+
+fn visual_ty(db: &dyn VisualizerQueryGroup, ty: EntityRoutePtr) -> VisualTy {
+    db.visualizer(ty).ty
 }

@@ -8,7 +8,7 @@ use vm::*;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(super) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalResult<'eval> {
+    pub(super) fn eval_feature_expr(&mut self, expr: &FeatureLazyExpr) -> EvalResult<'eval> {
         match expr.variant {
             FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
             FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
@@ -116,7 +116,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         &mut self,
         opt_instrns: Option<&InstructionSheet>,
         opt_linkage: Option<Linkage>,
-        arguments: &[Arc<FeatureExpr>],
+        arguments: &[Arc<FeatureLazyExpr>],
         has_this: bool,
     ) -> EvalResult<'eval> {
         let db = self.db;

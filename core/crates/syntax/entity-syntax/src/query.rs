@@ -313,7 +313,7 @@ pub trait EntitySyntaxQueryGroup:
             if let Some(pack_name) = path_parent_file_name_str(&path) {
                 let snake_name = dash_to_snake(&pack_name);
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
-                    self.word_allocator().alloc(snake_name)
+                    self.word_allocator().intern(snake_name)
                 {
                     Ok(self.intern_entity_route(EntityRoute::package(file, ident)))
                 } else {

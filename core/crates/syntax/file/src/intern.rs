@@ -11,7 +11,7 @@ pub trait AllocateUniqueFile {
 
     fn intern_file(&self, path: PathBuf) -> FilePtr {
         self.file_interner()
-            .alloc(match std::fs::canonicalize(path.clone()) {
+            .intern(match std::fs::canonicalize(path.clone()) {
                 Ok(path) => path,
                 Err(_) => path,
             })
@@ -26,7 +26,7 @@ pub fn new_file_unique_allocator() -> FileInterner {
 fn test_intern_file() {
     use check_utils::*;
     let unique_allocator = new_file_unique_allocator();
-    let path = &*unique_allocator.alloc("haha".into());
+    let path = &*unique_allocator.intern("haha".into());
     let path1: PathBuf = "haha".into();
     should_eq!(path, &path1);
 }

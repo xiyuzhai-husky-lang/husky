@@ -105,15 +105,16 @@ pub enum InstructionVariant {
     PatternMatch {
         branches: Avec<VMPatternBranch>,
     },
-    NewXmlFromTag {
-        tag_kind: XmlTagKind,
-        props: Vec<CustomIdentifier>,
-        n_child_expr: u8,
-    },
-    NewXmlFromValue {
-        ty: EntityRoutePtr,
-    },
 }
+//     NewXmlFromTag {
+//         tag_kind: XmlTagKind,
+//         props: Vec<CustomIdentifier>,
+//         n_child_expr: u8,
+//     },
+//     NewXmlFromValue {
+//         ty: EntityRoutePtr,
+//     },
+// }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InitKind {

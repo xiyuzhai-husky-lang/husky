@@ -45,7 +45,7 @@ pub trait EvalFeature<'eval>: FeatureEvalQueryGroup + Upcast<dyn FeatureEvalQuer
         eval_feature_stmt(self.upcast(), stmt, input, sheet, self.verbose())
     }
 
-    fn eval_feature_expr(&self, expr: &FeatureExpr, input_id: usize) -> EvalResult<'eval> {
+    fn eval_feature_expr(&self, expr: &FeatureLazyExpr, input_id: usize) -> EvalResult<'eval> {
         let dev = self.session().dev();
         let sheet = &dev.sheets[input_id];
         let input = dev.load(input_id).input;

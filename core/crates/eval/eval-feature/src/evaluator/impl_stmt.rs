@@ -36,7 +36,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn satisfies(&mut self, condition: &FeatureExpr) -> VMRuntimeResult<bool> {
+    fn satisfies(&mut self, condition: &FeatureLazyExpr) -> VMRuntimeResult<bool> {
         Ok(self.eval_feature_expr(condition)?.primitive().to_bool())
     }
 }

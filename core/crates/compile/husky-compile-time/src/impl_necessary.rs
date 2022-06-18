@@ -100,7 +100,7 @@ impl Upcast<dyn semantics_entity::EntityDefnQueryGroup> for HuskyCompileTime {
 }
 
 impl AllocateUniqueFeature for HuskyCompileTime {
-    fn features(&self) -> &feature_gen::FeatureUniqueAllocator {
+    fn features(&self) -> &feature_gen::FeatureInterner {
         &self.features
     }
 }
@@ -140,15 +140,6 @@ impl InterpreterQueryGroup for HuskyCompileTime {
     ) -> Option<Arc<vm::InstructionSheet>> {
         let entity_route = self.entity_route_by_uid(uid);
         self.entity_instruction_sheet(entity_route)
-    }
-
-    fn visualize<'temp, 'eval>(
-        &self,
-        ty: EntityRoutePtr,
-        value: &(dyn AnyValueDyn<'eval> + 'temp),
-    ) -> VisualData {
-        let visualizer = self.visualizer(ty);
-        visualizer.visualize(self, value, false)
     }
 }
 
