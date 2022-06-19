@@ -10,6 +10,8 @@ enum Tab {
     Three,
 }
 
+impl Signalable for Tab {}
+
 impl Tab {
     fn content(self) -> &'static str {
         match self {

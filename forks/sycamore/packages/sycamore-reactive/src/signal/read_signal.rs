@@ -75,12 +75,15 @@ impl<T> ReadSignal<T> {
     /// # });
     /// ```
     #[must_use]
-    pub fn map<'a, U>(
-        &'a self,
-        cx: Scope<'a>,
-        mut f: impl FnMut(&T) -> U + 'a,
-    ) -> &'a ReadSignal<U> {
-        create_memo(cx, move || f(&self.get()))
+    pub fn map<'a, U>(&'a self, cx: Scope<'a>, mut f: impl FnMut(&T) -> U + 'a) -> &'a ReadSignal<U>
+    where
+        U: Signalable,
+    {
+        create_memo(
+            cx,
+            move || f(&self.get()),
+            format!("src at {}:{}", file!(), line!()),
+        )
     }
 
     /// When called inside a reactive scope, calling this will add itself to the scope's

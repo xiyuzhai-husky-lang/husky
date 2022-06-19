@@ -11,12 +11,16 @@ pub struct Todo {
     id: Uuid,
 }
 
+impl Signalable for Todo {}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Filter {
     All,
     Active,
     Completed,
 }
+
+impl Signalable for Filter {}
 
 impl Default for Filter {
     fn default() -> Self {
@@ -132,7 +136,7 @@ fn App<G: Html>(cx: Scope) -> View<G> {
     };
     provide_context(cx, app_state);
     // Set up an effect that runs a function anytime app_state.todos changes
-    create_effect(cx, move || {
+    effect!(cx, move || {
         let app_state = use_context::<AppState>(cx);
         for todo in app_state.todos.get().iter() {
             todo.track();
@@ -218,7 +222,11 @@ pub fn Item<G: Html>(cx: Scope, todo: RcSignal<Todo>) -> View<G> {
     let todo = create_ref(cx, todo);
 
     let title = || todo.get().title.clone();
-    let completed = create_selector(cx, || todo.get().completed);
+    let completed = create_selector(
+        cx,
+        || todo.get().completed,
+        format!("src at {}:{}", file!(), line!()),
+    );
     let id = todo.get().id;
 
     let editing = create_signal(cx, false);
@@ -285,7 +293,7 @@ pub fn Item<G: Html>(cx: Scope, todo: RcSignal<Todo>) -> View<G> {
     // We need a separate signal for checked because clicking the checkbox will detach the binding
     // between the attribute and the view.
     let checked = create_signal(cx, false);
-    create_effect(cx, || {
+    effect!(cx, || {
         // Calling checked.set will also update the `checked` property on the input element.
         checked.set(*completed.get())
     });
@@ -333,9 +341,13 @@ pub fn Item<G: Html>(cx: Scope, todo: RcSignal<Todo>) -> View<G> {
 #[component]
 pub fn List<G: Html>(cx: Scope) -> View<G> {
     let app_state = use_context::<AppState>(cx);
-    let todos_left = create_selector(cx, || app_state.todos_left());
+    let todos_left = create_selector(
+        cx,
+        || app_state.todos_left(),
+        format!("src at {}:{}", file!(), line!()),
+    );
 
-    let filtered_todos = create_memo(cx, || {
+    let filtered_todos = memo!(cx, || {
         app_state
             .todos
             .get()
@@ -352,7 +364,7 @@ pub fn List<G: Html>(cx: Scope) -> View<G> {
     // We need a separate signal for checked because clicking the checkbox will detach the binding
     // between the attribute and the view.
     let checked = create_signal(cx, false);
-    create_effect(cx, || {
+    effect!(cx, || {
         // Calling checked.set will also update the `checked` property on the input element.
         checked.set(*todos_left.get() == 0)
     });
@@ -411,7 +423,7 @@ pub fn Footer<G: Html>(cx: Scope) -> View<G> {
     };
 
     let has_completed_todos =
-        create_selector(cx, || app_state.todos_left() < app_state.todos.get().len());
+        selector!(cx, || app_state.todos_left() < app_state.todos.get().len());
 
     let handle_clear_completed = |_| app_state.clear_completed();
 

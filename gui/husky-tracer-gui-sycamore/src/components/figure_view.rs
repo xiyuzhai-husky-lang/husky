@@ -29,8 +29,8 @@ impl<'a> FigureViewProps<'a> {
 
 #[component]
 pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> View<G> {
-    let canvas_dimension = memo!(scope, props.canvas_dimension(), props);
-    let control_dimension = memo!(scope, props.control_dimension(), props);
+    let canvas_dimension = memo!(scope, move || props.canvas_dimension(), props);
+    let control_dimension = memo!(scope, move || props.control_dimension(), props);
     view! {
         scope,
         div (class="FigureView disable-select") {

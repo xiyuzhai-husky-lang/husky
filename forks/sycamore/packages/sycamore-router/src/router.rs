@@ -177,7 +177,7 @@ where
 #[component]
 pub fn Router<'a, G: Html, R, F, I>(cx: Scope<'a>, props: RouterProps<'a, R, F, I, G>) -> View<G>
 where
-    R: Route + 'a,
+    R: Route + 'a + Signalable,
     F: FnOnce(Scope<'a>, &'a ReadSignal<R>) -> View<G> + 'a,
     I: Integration + 'static,
 {
@@ -216,7 +216,11 @@ where
             pathname.set(path.to_string());
         }
     }));
-    let route_signal = create_memo(cx, move || R::match_path(&pathname.get()));
+    let route_signal = create_memo(
+        cx,
+        move || R::match_path(&pathname.get()),
+        format!("src at {}:{}", file!(), line!()),
+    );
     // Delegate click events from child <a> tags.
     let view = view(cx, route_signal);
     if let Some(node) = view.as_node() {
@@ -268,7 +272,7 @@ pub fn StaticRouter<'a, G: Html, R, F>(
     props: StaticRouterProps<'a, R, F, G>,
 ) -> View<G>
 where
-    R: Route + 'static,
+    R: Route + 'static + Signalable,
     F: Fn(Scope<'a>, &'a ReadSignal<R>) -> View<G> + 'a,
 {
     let StaticRouterProps {
@@ -349,7 +353,7 @@ mod tests {
 
     #[test]
     fn static_router() {
-        #[derive(Route)]
+        #[derive(Debug, Route)]
         enum Routes {
             #[to("/")]
             Home,
@@ -358,6 +362,8 @@ mod tests {
             #[not_found]
             NotFound,
         }
+
+        impl Signalable for Routes {}
 
         #[component]
         fn Comp<G: Html>(cx: Scope, path: String) -> View<G> {

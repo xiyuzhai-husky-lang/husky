@@ -48,6 +48,8 @@ struct SsrNodeInner {
 #[derive(Debug, Clone)]
 pub struct SsrNode(Rc<SsrNodeInner>);
 
+impl Signalable for SsrNode {}
+
 impl PartialEq for SsrNode {
     fn eq(&self, other: &Self) -> bool {
         Rc::ptr_eq(&self.0.ty, &other.0.ty)

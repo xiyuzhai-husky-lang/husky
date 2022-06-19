@@ -18,13 +18,14 @@ pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a
             let active_trace = context.tree_context.trace(active_trace_id);
             let canvas_data = memo!(
                 scope,
+                move ||
                 context
                     .figure_context
                     .figure_canvas_data(&active_trace, &focus.get()),
                 active_trace
             );
             let control_data = memo!(
-                scope,
+                scope,move ||
                 context
                     .figure_context
                     .figure_control_data(&active_trace, &focus.get())

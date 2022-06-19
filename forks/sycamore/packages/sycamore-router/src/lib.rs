@@ -10,6 +10,7 @@ mod router;
 use std::str::FromStr;
 
 pub use router::*;
+use sycamore::prelude::Signalable;
 pub use sycamore_router_macro::Route;
 
 /// Trait that is implemented for `enum`s that can match routes.

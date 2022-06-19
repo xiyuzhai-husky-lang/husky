@@ -31,10 +31,14 @@ pub fn test_cleanup_in_root() {
 pub fn test_cleanup_in_effect() {
     create_scope_immediate(|cx| {
         let trigger = create_signal(cx, ());
-        create_effect_scoped(cx, |cx| {
-            trigger.track();
-            on_cleanup(cx, on_cleanup_callback);
-        });
+        create_effect_scoped(
+            cx,
+            |cx| {
+                trigger.track();
+                on_cleanup(cx, on_cleanup_callback);
+            },
+            format!("src at {}:{}", file!(), line!()),
+        );
 
         assert_cleanup_called(|| {
             trigger.set(());

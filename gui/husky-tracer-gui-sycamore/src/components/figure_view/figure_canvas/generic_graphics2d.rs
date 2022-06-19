@@ -17,7 +17,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
     props: GenericGraphics2dProps<'a>,
 ) -> View<G> {
     let dimension = props.dimension;
-    let column_dimension = memo!(scope, { dimension.cget() / (7, 1) - (0, TITLE_HEIGHT) });
+    let column_dimension = memo!(scope, || { dimension.cget() / (7, 1) - (0, TITLE_HEIGHT) });
     view! {
         scope,
         div (

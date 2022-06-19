@@ -28,6 +28,8 @@ pub struct View<G: GenericNode> {
     pub(crate) inner: ViewType<G>,
 }
 
+impl<G> Signalable for View<G> where G: GenericNode {}
+
 impl<G: GenericNode> View<G> {
     /// Create a new [`View`] from a [`GenericNode`].
     pub fn new_node(node: G) -> Self {
@@ -39,7 +41,7 @@ impl<G: GenericNode> View<G> {
     /// Create a new [`View`] from a [`FnMut`].
     pub fn new_dyn<'a>(cx: Scope<'a>, mut f: impl FnMut() -> View<G> + 'a) -> Self {
         let signal = create_ref(cx, RefCell::new(None::<RcSignal<View<G>>>));
-        create_effect(cx, move || {
+        effect!(cx, move || {
             let view = f();
             if signal.borrow().is_some() {
                 signal.borrow().as_ref().unwrap().set(view);
@@ -58,16 +60,20 @@ impl<G: GenericNode> View<G> {
         mut f: impl FnMut(BoundedScope<'_, 'a>) -> View<G> + 'a,
     ) -> Self {
         let signal = create_ref(cx, RefCell::new(None::<RcSignal<View<G>>>));
-        create_effect_scoped(cx, move |cx| {
-            // SAFETY: `f` takes the same parameter as the child cx provided by
-            // `create_effect_scoped`.
-            let view = f(unsafe { std::mem::transmute(cx) });
-            if signal.borrow().is_some() {
-                signal.borrow().as_ref().unwrap().set(view);
-            } else {
-                *signal.borrow_mut() = Some(create_rc_signal(view));
-            }
-        });
+        create_effect_scoped(
+            cx,
+            move |cx| {
+                // SAFETY: `f` takes the same parameter as the child cx provided by
+                // `create_effect_scoped`.
+                let view = f(unsafe { std::mem::transmute(cx) });
+                if signal.borrow().is_some() {
+                    signal.borrow().as_ref().unwrap().set(view);
+                } else {
+                    *signal.borrow_mut() = Some(create_rc_signal(view));
+                }
+            },
+            format!("src at {}:{}", file!(), line!()),
+        );
         Self {
             inner: ViewType::Dyn(signal.borrow().as_ref().unwrap().clone()),
         }

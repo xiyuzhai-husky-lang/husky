@@ -69,22 +69,26 @@ fn insert_expression<G: GenericNode>(
             let parent = parent.clone();
             let marker = marker.cloned();
             let f = f.clone();
-            create_effect_scoped(cx, move |cx| {
-                let mut value = f.get();
-                while let ViewType::Dyn(f) = &value.inner {
-                    value = f.get();
-                }
-                insert_expression(
-                    cx,
-                    &parent,
-                    &value,
-                    current.clone(),
-                    marker.as_ref(),
-                    false,
-                    multi,
-                );
-                current = Some(value.as_ref().clone());
-            });
+            create_effect_scoped(
+                cx,
+                move |cx| {
+                    let mut value = f.get();
+                    while let ViewType::Dyn(f) = &value.inner {
+                        value = f.get();
+                    }
+                    insert_expression(
+                        cx,
+                        &parent,
+                        &value,
+                        current.clone(),
+                        marker.as_ref(),
+                        false,
+                        multi,
+                    );
+                    current = Some(value.as_ref().clone());
+                },
+                format!("src at {}:{}", file!(), line!()),
+            );
         }
         ViewType::Fragment(fragment) => {
             let mut v = Vec::new();
@@ -94,23 +98,27 @@ fn insert_expression<G: GenericNode>(
             if dynamic {
                 let parent = parent.clone();
                 let marker = marker.cloned();
-                create_effect_scoped(cx, move |cx| {
-                    let value = View::new_fragment(v.clone());
-                    // This will call normalize_incoming_fragment again, but this time with the
-                    // unwrap_fragment arg set to true.
-                    insert_expression(
-                        cx,
-                        &parent,
-                        &value,
-                        current.clone(),
-                        marker.as_ref(),
-                        true,
-                        false,
-                    );
-                    current = Some(View::new_fragment(
-                        value.flatten().into_iter().map(View::new_node).collect(),
-                    )); // TODO: do not perform unnecessary flattening of template
-                });
+                create_effect_scoped(
+                    cx,
+                    move |cx| {
+                        let value = View::new_fragment(v.clone());
+                        // This will call normalize_incoming_fragment again, but this time with the
+                        // unwrap_fragment arg set to true.
+                        insert_expression(
+                            cx,
+                            &parent,
+                            &value,
+                            current.clone(),
+                            marker.as_ref(),
+                            true,
+                            false,
+                        );
+                        current = Some(View::new_fragment(
+                            value.flatten().into_iter().map(View::new_node).collect(),
+                        )); // TODO: do not perform unnecessary flattening of template
+                    },
+                    format!("src at {}:{}", file!(), line!()),
+                );
             } else {
                 let v = v
                     .into_iter()

@@ -32,11 +32,9 @@ pub enum HuskyTracerServerMessageVariant {
     Trace {
         trace_props: TraceData,
     },
-    DecodeFocus {
-        focus_result: JsonResult<Focus>,
-    },
     LockFocus {
-        figure_canvas: FigureCanvasData,
+        figure_canvas_data: FigureCanvasData,
+        figure_control_data: FigureControlData,
     },
     LockFocusWithError {
         sample_id: usize,

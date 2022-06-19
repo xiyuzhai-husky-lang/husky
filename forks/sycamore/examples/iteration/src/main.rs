@@ -6,6 +6,8 @@ struct Cat {
     name: &'static str,
 }
 
+impl Signalable for Cat {}
+
 #[component]
 fn App<G: Html>(cx: Scope) -> View<G> {
     let items = create_signal(

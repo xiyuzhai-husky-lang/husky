@@ -18,7 +18,7 @@ pub fn bench(c: &mut Criterion) {
         b.iter(|| {
             create_scope_immediate(|cx| {
                 let state = create_signal(cx, 0);
-                create_effect(cx, || {
+                effect!(cx, || {
                     let double = *state.get() * 2;
                     black_box(double);
                 });

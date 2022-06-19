@@ -36,11 +36,11 @@ impl<'a> VSplitPanelProps<'a> {
 pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -> View<G> {
     let context = use_context::<TracerContext>(scope);
     let root_trace_ids = &context.tree_context.root_trace_ids;
-    let upper_panel_style = memo!(scope, props.upper_panel_style(), props);
-    let upper_panel_height = memo!(scope, props.upper_panel_height(), props);
-    let lower_panel_style = memo!(scope, props.lower_panel_style(), props);
-    let lower_panel_height = memo!(scope, props.lower_panel_height(), props);
-    let panel_width = memo!(scope, props.panel_width(), props);
+    let upper_panel_style = memo!(scope, move || props.upper_panel_style(), props);
+    let upper_panel_height = memo!(scope, move || props.upper_panel_height(), props);
+    let lower_panel_style = memo!(scope, move || props.lower_panel_style(), props);
+    let lower_panel_height = memo!(scope, move || props.lower_panel_height(), props);
+    let panel_width = memo!(scope, move || props.panel_width(), props);
     view! {
         scope,
         div(class="HuskyTracerVSplitPanel") {

@@ -5,7 +5,7 @@ fn main() {
         let outer = create_signal(cx, 0);
         let disposer = create_child_scope(cx, |cx| {
             dbg!(outer.get());
-            create_effect(cx, || {
+            effect!(cx, || {
                 dbg!(outer.get());
             });
         });

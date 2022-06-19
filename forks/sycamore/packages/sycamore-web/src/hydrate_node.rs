@@ -249,6 +249,8 @@ impl Html for HydrateNode {
     const IS_BROWSER: bool = true;
 }
 
+impl Signalable for HydrateNode {}
+
 /// Render a [`View`] under a `parent` node by reusing existing nodes (client side
 /// hydration). Alias for [`hydrate_to`] with `parent` being the `<body>` tag.
 ///

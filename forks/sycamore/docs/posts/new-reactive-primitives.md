@@ -112,7 +112,7 @@ let data = create_signal(cx, ...);
 let callback = || data.get();
 //             ^^ -> Look ma, no clones!
 let another_callback = || data.get();
-create_effect(cx, || {
+effect!(cx, || {
     log::info!("{data}");
 });
 ```

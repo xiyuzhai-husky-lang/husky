@@ -4,105 +4,76 @@ use std::cell::Cell;
 
 use crate::*;
 
-/// Creates a memoized computation from some signals.
-/// The output is derived from all the signals that are used within the memo closure.
-/// If any of the tracked signals are updated, the memo is also updated.
-///
-/// # Difference from derived signals
-///
-/// Derived signals (functions referencing signals) are lazy and do not keep track of the result
-/// of the computation. This means that the computation will not be executed until needed.
-/// This also means that calling the derived signal twice will result in the same computation
-/// twice.
-///
-/// ```
-/// # use sycamore_reactive::*;
-/// # create_scope_immediate(|cx| {
-/// let state = create_signal(cx, 0);
-/// let double = || *state.get() * 2;
-///
-/// let _ = double();
-/// // Here, the closure named double is called again.
-/// // If the computation is expensive enough, this would be wasted work!
-/// let _ = double();
-/// # });
-/// ```
-///
-/// Memos, on the other hand, are eagerly evaluated and will only run the computation when one
-/// of its dependencies change.
-///
-/// Memos also incur a slightly higher performance penalty than simple derived signals.
-///
-/// # Example
-/// ```
-/// # use sycamore_reactive::*;
-/// # create_scope_immediate(|cx| {
-/// let state = create_signal(cx, 0);
-/// let double = create_memo(cx, || *state.get() * 2);
-///
-/// assert_eq!(*double.get(), 0);
-/// state.set(1);
-/// assert_eq!(*double.get(), 2);
-/// # });
-/// ```
-pub fn create_memo<'a, U: 'a>(cx: Scope<'a>, f: impl FnMut() -> U + 'a) -> &'a ReadSignal<U> {
-    create_selector_with(cx, f, |_, _| false)
+pub fn create_memo<'a, U: 'a>(
+    cx: Scope<'a>,
+    f: impl FnMut() -> U + 'a,
+    info: String,
+) -> &'a ReadSignal<U>
+where
+    U: Signalable,
+{
+    create_selector_with(cx, f, |_, _| false, info)
 }
 
-/// Creates a memoized value from some signals.
-/// Unlike [`create_memo`], this function will not notify dependents of a
-/// change if the output is the same. That is why the output of the function must implement
-/// [`PartialEq`].
-///
-/// To specify a custom comparison function, use
-/// [`create_selector_with`].
-///
-/// # Example
-/// ```
-/// # use sycamore_reactive::*;
-/// # create_scope_immediate(|cx| {
-/// let state = create_signal(cx, 0);
-/// let double = create_selector(cx, || *state.get() * 2);
-///
-/// assert_eq!(*double.get(), 0);
-/// state.set(1);
-/// assert_eq!(*double.get(), 2);
-/// # });
-/// ```
+#[macro_export]
+macro_rules! memo {
+    ($scope: ident, $lambda: expr) => {{
+        create_memo($scope, $lambda, format!("memo at {}:{}", file!(), line!()))
+    }};
+    ($scope: ident, $lambda: expr, $first_dependency: ident) => {{
+        let $first_dependency = $first_dependency.clone();
+        memo!($scope, $lambda)
+    }};
+    ($scope: ident, $lambda: expr, $first_dependency: ident, $($other_dependencies: ident),*) => {{
+        let $first_dependency = $first_dependency.clone();
+        memo!($scope, $lambda, $($other_dependencies),*)
+    }};
+}
+
+#[macro_export]
+macro_rules! selector {
+    ($scope: ident, $lambda: expr) => {{
+        create_selector($scope, $lambda, format!("memo at {}:{}", file!(), line!()))
+    }};
+}
+
 pub fn create_selector<'a, U: PartialEq + 'a>(
     cx: Scope<'a>,
     f: impl FnMut() -> U + 'a,
-) -> &'a ReadSignal<U> {
-    create_selector_with(cx, f, PartialEq::eq)
+    info: String,
+) -> &'a ReadSignal<U>
+where
+    U: Signalable,
+{
+    create_selector_with(cx, f, PartialEq::eq, info)
 }
 
-/// Creates a memoized value from some signals.
-/// Unlike [`create_memo`], this function will not notify dependents of a
-/// change if the output is the same.
-///
-/// It takes a comparison function to compare the old and new value, which returns `true` if
-/// they are the same and `false` otherwise.
-///
-/// To use the type's [`PartialEq`] implementation instead of a custom function, use
-/// [`create_selector`].
 pub fn create_selector_with<'a, U: 'a>(
     cx: Scope<'a>,
     mut f: impl FnMut() -> U + 'a,
     eq_f: impl Fn(&U, &U) -> bool + 'a,
-) -> &'a ReadSignal<U> {
+    info: String,
+) -> &'a ReadSignal<U>
+where
+    U: Signalable,
+{
     let signal: &Cell<Option<&Signal<U>>> = create_ref(cx, Cell::new(None));
 
-    create_effect(cx, move || {
-        let new = f();
-        if let Some(signal) = signal.get() {
-            // Check if new value is different from old value.
-            if !eq_f(&new, &*signal.get_untracked()) {
-                signal.set(new)
+    create_effect(
+        cx,
+        move || {
+            let new = f();
+            if let Some(signal) = signal.get() {
+                // Check if new value is different from old value.
+                if !eq_f(&new, &*signal.get_untracked()) {
+                    signal.set(new)
+                }
+            } else {
+                signal.set(Some(create_signal(cx, new)))
             }
-        } else {
-            signal.set(Some(create_signal(cx, new)))
-        }
-    });
+        },
+        info,
+    );
 
     signal.get().unwrap()
 }
@@ -144,7 +115,10 @@ pub fn create_reducer<'a, U, Msg>(
     cx: Scope<'a>,
     initial: U,
     reduce: impl Fn(&U, Msg) -> U + 'a,
-) -> (&'a ReadSignal<U>, impl Fn(Msg) + 'a) {
+) -> (&'a ReadSignal<U>, impl Fn(Msg) + 'a)
+where
+    U: Signalable,
+{
     let memo = create_signal(cx, initial);
 
     let dispatcher = move |msg| {
@@ -162,7 +136,11 @@ mod tests {
     fn memo() {
         create_scope_immediate(|cx| {
             let state = create_signal(cx, 0);
-            let double = create_memo(cx, || *state.get() * 2);
+            let double = create_memo(
+                cx,
+                || *state.get() * 2,
+                format!("src at {}:{}", file!(), line!()),
+            );
 
             assert_eq!(*double.get(), 0);
             state.set(1);
@@ -179,10 +157,14 @@ mod tests {
             let state = create_signal(cx, 0);
 
             let counter = create_signal(cx, 0);
-            let double = create_memo(cx, || {
-                counter.set(*counter.get_untracked() + 1);
-                *state.get() * 2
-            });
+            let double = create_memo(
+                cx,
+                || {
+                    counter.set(*counter.get_untracked() + 1);
+                    *state.get() * 2
+                },
+                format!("src at {}:{}", file!(), line!()),
+            );
 
             assert_eq!(*counter.get(), 1); // once for calculating initial derived state
             state.set(2);
@@ -196,8 +178,16 @@ mod tests {
     fn dependency_on_memo() {
         create_scope_immediate(|cx| {
             let state = create_signal(cx, 0);
-            let double = create_memo(cx, || *state.get() * 2);
-            let quadruple = create_memo(cx, || *double.get() * 2);
+            let double = create_memo(
+                cx,
+                || *state.get() * 2,
+                format!("src at {}:{}", file!(), line!()),
+            );
+            let quadruple = create_memo(
+                cx,
+                || *double.get() * 2,
+                format!("src at {}:{}", file!(), line!()),
+            );
 
             assert_eq!(*quadruple.get(), 0);
             state.set(1);
@@ -209,7 +199,11 @@ mod tests {
     fn untracked_memo() {
         create_scope_immediate(|cx| {
             let state = create_signal(cx, 1);
-            let double = create_memo(cx, || *state.get_untracked() * 2);
+            let double = create_memo(
+                cx,
+                || *state.get_untracked() * 2,
+                format!("src at {}:{}", file!(), line!()),
+            );
 
             assert_eq!(*double.get(), 2);
             state.set(2);
@@ -223,10 +217,14 @@ mod tests {
     fn selector() {
         create_scope_immediate(|cx| {
             let state = create_signal(cx, 0);
-            let double = create_selector(cx, || *state.get() * 2);
+            let double = create_selector(
+                cx,
+                || *state.get() * 2,
+                format!("src at {}:{}", file!(), line!()),
+            );
 
             let counter = create_signal(cx, 0);
-            create_effect(cx, || {
+            effect!(cx, || {
                 counter.set(*counter.get_untracked() + 1);
 
                 double.track();
@@ -280,7 +278,11 @@ mod tests {
                 Msg::Increment => *state + 1,
                 Msg::Decrement => *state - 1,
             });
-            let doubled = create_memo(cx, || *state.get() * 2);
+            let doubled = create_memo(
+                cx,
+                || *state.get() * 2,
+                format!("src at {}:{}", file!(), line!()),
+            );
 
             assert_eq!(*doubled.get(), 0);
             dispatch(Msg::Increment);

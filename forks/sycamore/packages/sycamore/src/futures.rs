@@ -28,6 +28,7 @@ use crate::prelude::*;
 pub fn create_resource<'a, U: 'a, F>(cx: Scope<'a>, f: F) -> RcSignal<Option<U>>
 where
     F: Future<Output = U> + 'a,
+    U: Signalable,
 {
     let signal = create_rc_signal(None);
 

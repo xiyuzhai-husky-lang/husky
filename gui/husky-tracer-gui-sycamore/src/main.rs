@@ -4,7 +4,6 @@ mod context;
 mod init;
 mod services;
 mod store;
-mod utils;
 
 use components::*;
 use context::*;
@@ -14,7 +13,6 @@ use services::*;
 use std::{any::TypeId, cell::RefCell, rc::Rc};
 use store::*;
 use sycamore::prelude::*;
-use utils::*;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use web_sys::Element;
@@ -25,14 +23,14 @@ fn main() {
     sycamore::render_get_scope(
         |scope| {
             let context = provide_context(scope, TracerContext::new());
-            let layout_width = memo!(
-                scope,
-                math::round::floor(context.window_inner_width.cget(), 0) as u32
-            );
-            let layout_height = memo!(
-                scope,
-                math::round::floor(context.window_inner_height.cget(), 0) as u32
-            );
+            let layout_width = memo!(scope, || math::round::floor(
+                context.window_inner_width.cget(),
+                0
+            ) as u32);
+            let layout_height = memo!(scope, || math::round::floor(
+                context.window_inner_height.cget(),
+                0
+            ) as u32);
             let keydown_handler = context.keydown_handler();
             view! {
                 scope,

@@ -25,7 +25,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             let active_trace = tracer_context.tree_context.trace(active_trace_id);
             let data = memo!(
                 scope,
-                tracer_context
+              move  || tracer_context
                     .figure_context
                     .figure_canvas_data(&active_trace, &focus.get())
             );

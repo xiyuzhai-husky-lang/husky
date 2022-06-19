@@ -24,7 +24,7 @@ fn Hello<G: Html>(cx: Scope) -> View<G> {
         div {
             p {
                 "Hello "
-                (if *create_selector(cx, || !name.get().is_empty()).get() {
+                (if *selector!(cx, || !name.get().is_empty()).get() {
                     view! { cx,
                         span { (name.get()) }
                     }

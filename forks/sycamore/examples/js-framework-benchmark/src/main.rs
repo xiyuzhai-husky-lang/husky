@@ -67,6 +67,8 @@ struct RowData {
     label: RcSignal<String>,
 }
 
+impl Signalable for RowData {}
+
 static ID_COUNTER: AtomicUsize = AtomicUsize::new(1);
 
 fn build_data(count: usize) -> Vec<RowData> {
@@ -170,7 +172,10 @@ fn App<G: Html>(cx: Scope) -> View<G> {
                     Keyed {
                         iterable: data,
                         view: move |cx, row| {
-                            let is_selected = create_selector(cx, move || *selected.get() == Some(row.id));
+                            let is_selected = create_selector(
+                                cx, move || *selected.get() == Some(row.id),
+                                format!("src at {}:{}", file!(), line!()),
+                            );
                             let handle_click = move |_| selected.set(Some(row.id));
                             view! { cx,
                                 tr(class=is_selected.get().then(|| "danger").unwrap_or("")) {

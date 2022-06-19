@@ -23,17 +23,18 @@ impl TracerContext {
                         },
                         Some(Box::new(move |message| match message.variant {
                             HuskyTracerServerMessageVariant::LockFocus {
-                                figure_canvas,
-                                figure_control,
+                                figure_canvas_data,
+                                figure_control_data,
                             } => {
                                 this.figure_context.set_figure(
                                     &active_trace,
                                     &focus,
-                                    figure_canvas,
-                                    figure_control,
+                                    figure_canvas_data,
+                                    figure_control_data,
                                 );
-                                log::info!("here");
+                                log::info!("here1");
                                 this.focus_context.focus.set(focus);
+                                log::info!("here2");
                             }
                             _ => panic!(),
                         })),
