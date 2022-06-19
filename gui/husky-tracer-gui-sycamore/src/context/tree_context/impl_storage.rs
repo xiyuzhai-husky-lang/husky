@@ -2,24 +2,28 @@ use super::*;
 
 impl TreeContext {
     pub(crate) fn trace(&self, trace_id: TraceId) -> Rc<TraceData> {
-        let trace = self.trace_nodes.borrow()[trace_id.0].trace.clone();
+        let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+            .trace
+            .clone();
         assert!(trace.id == trace_id);
         trace
     }
 
     pub(crate) fn trace_kind(&self, trace_id: TraceId) -> TraceKind {
-        self.trace_nodes.borrow()[trace_id.0].trace.kind
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+            .trace
+            .kind
     }
 
     pub(crate) fn subtrace_ids(&self, focus: &Focus, trace_id: TraceId) -> Vec<TraceId> {
-        self.subtrace_ids_map.borrow()
+        self.subtrace_ids_map.borrow(file!(), line!())
             [&SubtracesKey::new(focus, self.trace_kind(trace_id), trace_id)]
             .to_vec()
     }
 
     pub(crate) fn is_subtraces_cached(&self, focus: &Focus, trace_id: TraceId) -> bool {
         self.subtrace_ids_map
-            .borrow()
+            .borrow(file!(), line!())
             .contains_key(&SubtracesKey::new(
                 focus,
                 self.trace_kind(trace_id),
@@ -28,11 +32,13 @@ impl TreeContext {
     }
 
     pub(crate) fn receive_subtraces(&self, key: SubtracesKey, subtrace_ids: Vec<TraceId>) {
-        self.subtrace_ids_map.borrow_mut().insert(key, subtrace_ids);
+        self.subtrace_ids_map
+            .borrow_mut(file!(), line!())
+            .insert(key, subtrace_ids);
     }
 
     pub(crate) fn receive_new_traces(&self, new_trace_nodes: Vec<TraceNodeData>) {
-        let trace_nodes = &mut self.trace_nodes.borrow_mut();
+        let trace_nodes = &mut self.trace_nodes.borrow_mut(file!(), line!());
         let new_len = trace_nodes.len() + new_trace_nodes.len();
         trace_nodes.reserve(new_len);
         for trace_node in new_trace_nodes {
@@ -44,7 +50,7 @@ impl TreeContext {
     fn set_trace_stalk(&self, trace_id: TraceId, input_id: usize, stalk: TraceStalk) {
         assert!(self
             .trace_stalks
-            .borrow_mut()
+            .borrow_mut(file!(), line!())
             .insert(todo!(), stalk)
             .is_none());
         // (trace_id, Some(input_id))

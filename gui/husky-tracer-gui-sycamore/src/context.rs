@@ -14,7 +14,6 @@ use futures::{channel::mpsc::Sender, stream::SplitStream, SinkExt, StreamExt};
 use internal::*;
 use reqwasm::websocket::{futures::WebSocket, Message};
 use std::{
-    cell::RefCell,
     collections::HashMap,
     rc::Rc,
     sync::{Arc, Mutex},

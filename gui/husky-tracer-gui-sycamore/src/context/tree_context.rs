@@ -34,13 +34,15 @@ impl From<TraceNodeData> for TraceNodeState {
 
 impl TreeContext {
     pub(super) fn init(&self, focus: &Focus, init_data: TraceInitState) {
-        *self.trace_nodes.borrow_mut() = init_data
+        *self.trace_nodes.borrow_mut(file!(), line!()) = init_data
             .trace_nodes
             .into_iter()
             .map(|node| node.into())
             .collect();
-        *self.subtrace_ids_map.borrow_mut() = init_data.subtrace_ids_map.into_iter().collect();
-        *self.trace_stalks.borrow_mut() = init_data.trace_stalks.into_iter().collect();
+        *self.subtrace_ids_map.borrow_mut(file!(), line!()) =
+            init_data.subtrace_ids_map.into_iter().collect();
+        *self.trace_stalks.borrow_mut(file!(), line!()) =
+            init_data.trace_stalks.into_iter().collect();
         self.root_trace_ids.set(init_data.root_trace_ids);
         self.opt_active_trace_id.set(init_data.opt_active_trace_id);
         self.update_trace_listing(focus);

@@ -120,7 +120,13 @@ fn _create_effect<'a>(cx: Scope<'a>, f: &'a mut (dyn FnMut() + 'a), info: String
                 }
 
                 // Get the effect state back into the Rc
-                *effect.borrow_mut() = Some(tmp_effect);
+                match effect.try_borrow_mut() {
+                    Ok(mut effect) => *effect = Some(tmp_effect),
+                    Err(_) => {
+                        log::info!("tmp_effect info = {}", tmp_effect.info);
+                        todo!()
+                    }
+                }
 
                 debug_assert_eq!(effects.borrow().len(), initial_effect_stack_len);
             });

@@ -68,7 +68,10 @@ impl WebsocketService {
                     };
                     if let Some(request_id) = server_message.opt_request_id {
                         log::info!("here3");
-                        this.call_backs.borrow_mut().remove(&request_id).unwrap()(server_message);
+                        this.call_backs
+                            .borrow_mut(file!(), line!())
+                            .remove(&request_id)
+                            .unwrap()(server_message);
                         log::info!("here4");
                     } else {
                         server_notification_sender
@@ -97,7 +100,9 @@ impl WebsocketService {
         let request = HuskyTracerGuiMessage {
             opt_request_id: opt_call_back.map(|call_back| {
                 let request_id = self.issue_request_id();
-                self.call_backs.borrow_mut().insert(request_id, call_back);
+                self.call_backs
+                    .borrow_mut(file!(), line!())
+                    .insert(request_id, call_back);
                 request_id
             }),
             variant,

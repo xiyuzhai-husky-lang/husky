@@ -19,17 +19,18 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
     let tracer_context = use_context::<TracerContext>(scope);
     let opt_active_trace_id = &tracer_context.tree_context.opt_active_trace_id;
     let focus = &tracer_context.focus_context.focus;
+    let opt_data = memo!(scope, move || opt_active_trace_id.cget().map(
+        |active_trace_id| {
+            let active_trace = tracer_context.tree_context.trace(active_trace_id);
+            tracer_context
+                .figure_context
+                .figure_canvas_data(&active_trace, &focus.get())
+        }
+    ));
     view! {
         scope,
-        (if let Some(active_trace_id) = opt_active_trace_id.cget() {
-            let active_trace = tracer_context.tree_context.trace(active_trace_id);
-            let data = memo!(
-                scope,
-                move || tracer_context
-                    .figure_context
-                    .figure_canvas_data(&active_trace, &focus.get())
-            );
-            match *data.cget() {
+        (if let Some(data) = opt_data.cget() {
+            match *data {
                 FigureCanvasData::Primitive { value } => {
                     view!{
                         scope,
