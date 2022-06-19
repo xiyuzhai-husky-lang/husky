@@ -9,7 +9,9 @@ pub struct StaticVisualizer {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum StaticVisualTy {
     Void,
+    Bool,
     B32,
+    B64,
     I32,
     F32,
     Group,
@@ -18,6 +20,7 @@ pub enum StaticVisualTy {
     Region2d,
     Image2d,
     Graphics2d,
+    Dataset,
 }
 
 #[derive(Clone)]
@@ -57,12 +60,14 @@ impl PartialEq for StaticVisualizer {
 
 impl Eq for StaticVisualizer {}
 
-pub const TRIVIAL_VISUALIZER: StaticVisualizer = StaticVisualizer {
-    ty: StaticVisualTy::Void,
-    variant: StaticVisualizerVariant::Compiled {
-        call: visualize_trivial,
-    },
-};
+pub const fn trivial_visualizer(ty: StaticVisualTy) -> StaticVisualizer {
+    StaticVisualizer {
+        ty,
+        variant: StaticVisualizerVariant::Compiled {
+            call: visualize_trivial,
+        },
+    }
+}
 
 fn visualize_trivial<'temp, 'eval>(_data: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
     VisualData::Primitive { value: ().into() }

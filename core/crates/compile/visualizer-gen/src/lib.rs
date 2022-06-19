@@ -42,7 +42,7 @@ pub enum VisualizerVariant {
 impl Visualizer {
     pub fn from_static(
         db: &dyn VisualizerQueryGroup,
-        static_visualizer: &'static StaticVisualizer,
+        static_visualizer: &StaticVisualizer,
         ty: EntityRoutePtr,
     ) -> Visualizer {
         Visualizer {

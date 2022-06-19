@@ -213,8 +213,13 @@ impl HuskyTraceTime {
                 use visualizer_gen::VisualizerQueryGroup;
                 let visualizer = self.runtime.compile_time().visualizer(ty);
                 match visualizer.ty {
-                    VisualTy::Void => todo!(),
+                    VisualTy::Void => {
+                        p!(ty);
+                        todo!()
+                    }
+                    VisualTy::Bool => todo!(),
                     VisualTy::B32 => todo!(),
+                    VisualTy::B64 => todo!(),
                     VisualTy::I32 => todo!(),
                     VisualTy::F32 => todo!(),
                     VisualTy::Point2d => todo!(),

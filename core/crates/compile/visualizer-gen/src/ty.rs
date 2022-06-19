@@ -6,7 +6,9 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VisualTy {
     Void,
+    Bool,
     B32,
+    B64,
     I32,
     F32,
     Point2d,
@@ -24,7 +26,9 @@ impl VisualTy {
     ) -> Self {
         match static_visual_ty {
             StaticVisualTy::Void => VisualTy::Void,
+            StaticVisualTy::Bool => VisualTy::Bool,
             StaticVisualTy::B32 => VisualTy::B32,
+            StaticVisualTy::B64 => VisualTy::B64,
             StaticVisualTy::I32 => VisualTy::I32,
             StaticVisualTy::F32 => VisualTy::F32,
             StaticVisualTy::Point2d => VisualTy::Point2d,
@@ -37,7 +41,9 @@ impl VisualTy {
                 .ty
             {
                 VisualTy::Void => todo!(),
+                VisualTy::Bool => todo!(),
                 VisualTy::B32 => todo!(),
+                VisualTy::B64 => todo!(),
                 VisualTy::I32 => todo!(),
                 VisualTy::F32 => todo!(),
                 VisualTy::Point2d | VisualTy::Shape2d => VisualTy::Shape2d,
@@ -45,6 +51,7 @@ impl VisualTy {
                 VisualTy::Image2d => todo!(),
                 VisualTy::Graphics2d => todo!(),
             },
+            StaticVisualTy::Dataset => todo!(),
         }
     }
 

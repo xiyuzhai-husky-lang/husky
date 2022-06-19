@@ -14,7 +14,7 @@ use dev_utils::{dev_src, static_dev_src};
 
 use crate::*;
 use entity_kind::{RoutineKind, TyKind};
-use visual_syntax::{StaticVisualizer, TRIVIAL_VISUALIZER};
+use visual_syntax::{trivial_visualizer, StaticVisualTy, StaticVisualizer};
 use vm::*;
 
 pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -55,7 +55,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: &TRIVIAL_VISUALIZER,
+        visualizer: &trivial_visualizer(StaticVisualTy::Void),
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),
@@ -71,7 +71,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: &TRIVIAL_VISUALIZER,
+        visualizer: &trivial_visualizer(StaticVisualTy::B64),
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),
@@ -87,7 +87,7 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: &TRIVIAL_VISUALIZER,
+        visualizer: &trivial_visualizer(StaticVisualTy::Bool),
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),
