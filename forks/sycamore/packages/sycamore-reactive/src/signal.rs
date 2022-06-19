@@ -77,7 +77,7 @@ impl SignalEmitter {
             // subscriber might have already been destroyed in the case of nested effects.
             if let Some(callback) = subscriber.upgrade() {
                 // Call the callback.
-                callback.borrow_mut()();
+                callback.borrow_mut()()
             }
         }
     }

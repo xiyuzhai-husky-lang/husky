@@ -8,7 +8,7 @@ thread_local! {
     /// While the [`EffectState`] is inside the Vec, it is owned by [`EFFECTS`].
     /// Because this is a global variable, the lifetime is necessarily `'static`. However, that does not mean
     /// that it can last forever. The `EffectState` should only be used the time it is inside [`EFFECTS`].
-    pub(crate) static EFFECTS: RefCell<Vec<*mut EffectState<'static>>> = Default::default();
+    pub(crate) static EFFECTS: RefCell<Vec<*mut EffectState< 'static>>>  = Default::default();
 }
 
 /// The internal state of an effect. The effect callback and the effect dependencies are stored in

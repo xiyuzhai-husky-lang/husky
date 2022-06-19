@@ -55,18 +55,6 @@ impl TracerContext {
     fn handle_server_notification(&self, server_message: HuskyTracerServerMessage) {
         assert!(server_message.opt_request_id.is_none());
         match server_message.variant {
-            // HuskyTracerServerMessageVariant::Init { init_data } => {
-            //     self.receive_init_data(init_data)
-            // }
-            // HuskyTracerServerMessageVariant::Trace { trace_props } => todo!(),
-            // HuskyTracerServerMessageVariant::DecodeFocus { focus_result } => todo!(),
-            // HuskyTracerServerMessageVariant::LockFocus {
-            //     focus,
-            //     opt_active_trace_id_for_figure,
-            //     opt_figure,
-            //     opt_figure_control,
-            // } => todo!(),
-            // HuskyTracerServerMessageVariant::TraceStalk { stalk } => todo!(),
             _ => panic!(),
         }
     }
