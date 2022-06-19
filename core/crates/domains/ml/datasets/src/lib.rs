@@ -7,6 +7,7 @@ pub use labeled::*;
 pub mod synthetic;
 
 use liason::*;
+use visual_syntax::{trivial_visualizer, StaticVisualTy};
 
 pub static DATASETS_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "datasets",
@@ -37,7 +38,7 @@ pub static DATASET_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Other,
-        visualizer: &TRIVIAL_VISUALIZER,
+        visualizer: &trivial_visualizer(StaticVisualTy::Dataset),
         opt_type_call: None,
     },
     dev_src: dev_utils::static_dev_src!(),
@@ -54,7 +55,6 @@ use entity_route::EntityRouteKind;
 use serde::Serialize;
 use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
-use visual_syntax::TRIVIAL_VISUALIZER;
 use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
 
 pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {
