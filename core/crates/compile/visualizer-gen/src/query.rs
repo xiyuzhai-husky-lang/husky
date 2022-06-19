@@ -6,7 +6,7 @@ use semantics_entity::{EntityDefnQueryGroup, EntityDefnVariant};
 use static_defn::EntityStaticDefnVariant;
 use upcast::Upcast;
 use visual_semantics::VisualizerSource;
-use visual_syntax::trivial_visualizer;
+use visual_syntax::primitive_visualizer;
 
 #[salsa::query_group(VisualizerQueryGroupStorage)]
 pub trait VisualizerQueryGroup:
@@ -34,7 +34,7 @@ fn visualizer(db: &dyn VisualizerQueryGroup, ty: EntityRoutePtr) -> Arc<Visualiz
                     },
                 },
             },
-            None => Visualizer::from_static(db, &trivial_visualizer(StaticVisualTy::Void), ty),
+            None => Visualizer::from_static(db, &primitive_visualizer(StaticVisualTy::Void), ty),
         },
         _ => todo!(),
     })

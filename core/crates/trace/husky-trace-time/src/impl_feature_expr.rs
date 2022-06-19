@@ -220,8 +220,61 @@ impl HuskyTraceTime {
                     VisualTy::Bool => todo!(),
                     VisualTy::B32 => todo!(),
                     VisualTy::B64 => todo!(),
-                    VisualTy::I32 => todo!(),
-                    VisualTy::F32 => todo!(),
+                    VisualTy::I32 => {
+                        let mut partitioned_samples_collector =
+                            PartitionedSamplesCollector::<i32>::new(partitions.clone());
+                        for labeled_data in dev_division.each_labeled_data() {
+                            let label = labeled_data.label;
+                            if partitioned_samples_collector
+                                .process(label, || -> VMRuntimeResult<i32> {
+                                    let visual_data = self
+                                        .runtime
+                                        .visualize(expr.clone().into(), labeled_data.sample_id)?;
+                                    Ok(match visual_data {
+                                        VisualData::Primitive {
+                                            value: PrimitiveValueData::I32(i),
+                                        } => i,
+                                        _ => {
+                                            p!(visual_data);
+                                            panic!()
+                                        }
+                                    })
+                                })
+                                .map_err(|e| (labeled_data.sample_id, e))?
+                            {
+                                break;
+                            }
+                        }
+                        Ok(FigureCanvasData::GenericI32 {
+                            partitioned_samples: partitioned_samples_collector.finish(),
+                        })
+                    }
+                    VisualTy::F32 => {
+                        let mut partitioned_samples_collector =
+                            PartitionedSamplesCollector::<f32>::new(partitions.clone());
+                        for labeled_data in dev_division.each_labeled_data() {
+                            let label = labeled_data.label;
+                            if partitioned_samples_collector
+                                .process(label, || -> VMRuntimeResult<f32> {
+                                    let visual_data = self
+                                        .runtime
+                                        .visualize(expr.clone().into(), labeled_data.sample_id)?;
+                                    Ok(match visual_data {
+                                        VisualData::Primitive {
+                                            value: PrimitiveValueData::F32(f),
+                                        } => f,
+                                        _ => panic!(),
+                                    })
+                                })
+                                .map_err(|e| (labeled_data.sample_id, e))?
+                            {
+                                break;
+                            }
+                        }
+                        Ok(FigureCanvasData::GenericF32 {
+                            partitioned_samples: partitioned_samples_collector.finish(),
+                        })
+                    }
                     VisualTy::Point2d => todo!(),
                     VisualTy::Shape2d
                     | VisualTy::Region2d

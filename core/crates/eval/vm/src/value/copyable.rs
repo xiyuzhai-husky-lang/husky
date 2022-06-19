@@ -20,6 +20,20 @@ pub enum CopyableValue {
     EnumKind(EnumKindValue),
 }
 
+impl Into<PrimitiveValueData> for CopyableValue {
+    fn into(self) -> PrimitiveValueData {
+        match self {
+            CopyableValue::I32(i) => PrimitiveValueData::I32(i),
+            CopyableValue::F32(f) => PrimitiveValueData::F32(f),
+            CopyableValue::B32(b) => PrimitiveValueData::B32(b),
+            CopyableValue::B64(b) => PrimitiveValueData::B64(b),
+            CopyableValue::Bool(b) => PrimitiveValueData::Bool(b),
+            CopyableValue::Void(_) => PrimitiveValueData::Void(()),
+            CopyableValue::EnumKind(_) => panic!(),
+        }
+    }
+}
+
 impl Serialize for CopyableValue {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
