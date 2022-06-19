@@ -29,11 +29,11 @@ impl FocusContext {
         let last_last_focus = self.last_focus.replace(self.focus.cget());
 
         if std::mem::discriminant(&last_last_focus)
-            != std::mem::discriminant(&self.last_focus.borrow())
+            != std::mem::discriminant(&self.last_focus.borrow(file!(), line!()))
         {
             last_last_focus
         } else {
-            match *self.last_focus.borrow() {
+            match *self.last_focus.borrow(file!(), line!()) {
                 Focus::Specific { .. } => Focus::default(),
                 Focus::Generic { .. } => Focus::Specific {
                     input_id: ask_for_input_id(),

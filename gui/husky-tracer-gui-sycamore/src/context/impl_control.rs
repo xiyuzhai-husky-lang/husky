@@ -105,7 +105,7 @@ impl TracerContext {
             if self
                 .tree_context
                 .subtrace_ids_map
-                .borrow()
+                .borrow(file!(), line!())
                 .contains_key(&key)
             {
                 self.ws.send_message(

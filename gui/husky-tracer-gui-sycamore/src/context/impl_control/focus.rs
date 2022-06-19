@@ -26,17 +26,15 @@ impl TracerContext {
                                 figure_canvas_data,
                                 figure_control_data,
                             } => {
+                                log::info!("here123");
                                 this.figure_context.set_figure(
                                     &active_trace,
                                     &focus,
                                     figure_canvas_data,
                                     figure_control_data,
                                 );
-                                log::info!("before");
-                                log::info!("not working");
-                                sleep(10000000);
-                                log::info!("after");
-                                this.focus_context.focus.set(focus);
+                                log::info!("here321");
+                                this.focus_context.focus.set(focus.clone());
                             }
                             _ => panic!(),
                         })),

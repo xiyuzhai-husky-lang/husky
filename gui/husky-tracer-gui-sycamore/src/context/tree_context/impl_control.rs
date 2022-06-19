@@ -2,11 +2,15 @@ use super::*;
 
 impl TreeContext {
     pub(crate) fn expanded(&self, trace_id: TraceId) -> bool {
-        self.trace_nodes.borrow()[trace_id.0].expanded.cget()
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+            .expanded
+            .cget()
     }
 
     pub(crate) fn expanded_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {
-        self.trace_nodes.borrow()[trace_id.0].expanded.clone()
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+            .expanded
+            .clone()
     }
 
     pub(crate) fn did_toggle_expansion(&mut self, trace_id: TraceId) {
@@ -17,11 +21,15 @@ impl TreeContext {
     }
 
     pub(crate) fn shown(&self, trace_id: TraceId) -> bool {
-        self.trace_nodes.borrow()[trace_id.0].shown.cget()
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+            .shown
+            .cget()
     }
 
     pub(crate) fn shown_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {
-        self.trace_nodes.borrow()[trace_id.0].shown.clone()
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+            .shown
+            .clone()
     }
 
     pub(crate) fn did_toggle_show(&mut self, trace_id: TraceId) {

@@ -1,16 +1,18 @@
 #![allow(dead_code, warnings)]
+mod cell;
 mod components;
 mod context;
 mod init;
 mod services;
 mod store;
 
+use cell::RefCell;
 use components::*;
 use context::*;
 use husky_tracer_protocol::*;
 use init::init_debugging_env;
 use services::*;
-use std::{any::TypeId, cell::RefCell, rc::Rc};
+use std::{any::TypeId, rc::Rc};
 use store::*;
 use sycamore::prelude::*;
 use wasm_bindgen::prelude::*;

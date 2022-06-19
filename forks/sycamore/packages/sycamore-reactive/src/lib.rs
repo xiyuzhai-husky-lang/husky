@@ -6,6 +6,8 @@ mod memo;
 mod signal;
 
 use std::any::{Any, TypeId};
+// buggy if use std::cell::RefCell, but not buggy if use a debug version
+// use debug_cell::RefCell;
 use std::cell::RefCell;
 use std::marker::PhantomData;
 use std::mem;
