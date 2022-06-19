@@ -1,7 +1,3 @@
-//! Reactive primitives for Sycamore.
-
-#![warn(missing_docs)]
-
 mod arena;
 mod context;
 mod effect;
@@ -142,6 +138,13 @@ impl<'a> ScopeRaw<'a> {
 /// A handle that allows cleaning up a [`Scope`].
 pub struct ScopeDisposer<'a> {
     f: Box<dyn FnOnce() + 'a>,
+}
+
+impl<'a> std::fmt::Debug for ScopeDisposer<'a> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+        // f.debug_struct("ScopeDisposer").field("f", &self.f).finish()
+    }
 }
 
 impl<'a> ScopeDisposer<'a> {
@@ -418,7 +421,7 @@ impl Drop for ScopeRaw<'_> {
 /// # create_scope_immediate(|cx| {
 /// let state = create_signal(cx, 0);
 ///
-/// create_effect(cx, on([state], || {
+/// effect!(cx, on([state], || {
 ///     println!("State changed. New state value = {}", state.get());
 /// })); // Prints "State changed. New state value = 0"
 ///
@@ -481,13 +484,17 @@ mod tests {
 
             let counter = create_signal(cx, 0);
 
-            create_effect_scoped(cx, |cx| {
-                trigger.track();
+            create_effect_scoped(
+                cx,
+                |cx| {
+                    trigger.track();
 
-                on_cleanup(cx, || {
-                    counter.set(*counter.get() + 1);
-                });
-            });
+                    on_cleanup(cx, || {
+                        counter.set(*counter.get() + 1);
+                    });
+                },
+                format!("src at {}:{}", file!(), line!()),
+            );
 
             assert_eq!(*counter.get(), 0);
 
@@ -506,13 +513,17 @@ mod tests {
 
             let counter = create_signal(cx, 0);
 
-            create_effect_scoped(cx, |cx| {
-                counter.set(*counter.get_untracked() + 1);
+            create_effect_scoped(
+                cx,
+                |cx| {
+                    counter.set(*counter.get_untracked() + 1);
 
-                on_cleanup(cx, || {
-                    trigger.track(); // trigger should not be tracked
-                });
-            });
+                    on_cleanup(cx, || {
+                        trigger.track(); // trigger should not be tracked
+                    });
+                },
+                format!("src at {}:{}", file!(), line!()),
+            );
 
             assert_eq!(*counter.get(), 1);
 

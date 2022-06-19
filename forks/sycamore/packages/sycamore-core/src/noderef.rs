@@ -25,9 +25,14 @@ use crate::generic_node::GenericNode;
 /// }
 /// ```
 #[derive(Clone, PartialEq, Eq)]
-pub struct NodeRef<G: GenericNode>(pub Rc<Signal<Option<G>>>);
+pub struct NodeRef<G: GenericNode>(pub Rc<Signal<Option<G>>>)
+where
+    G: Signalable;
 
-impl<G: GenericNode + Any> NodeRef<G> {
+impl<G: GenericNode + Any> NodeRef<G>
+where
+    G: Signalable,
+{
     /// Creates an empty [`NodeRef`].
     ///
     /// Generally, it is preferable to use [`create_node_ref`]
@@ -84,13 +89,19 @@ impl<G: GenericNode + Any> NodeRef<G> {
     }
 }
 
-impl<G: GenericNode> Default for NodeRef<G> {
+impl<G: GenericNode> Default for NodeRef<G>
+where
+    G: Signalable,
+{
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<G: GenericNode> fmt::Debug for NodeRef<G> {
+impl<G: GenericNode> fmt::Debug for NodeRef<G>
+where
+    G: Signalable,
+{
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_tuple("NodeRef").field(&self.0.get()).finish()
     }
@@ -99,6 +110,9 @@ impl<G: GenericNode> fmt::Debug for NodeRef<G> {
 /* Hook implementation */
 
 /// Create a new [`NodeRef`] on the current [`Scope`].
-pub fn create_node_ref<G: GenericNode>(cx: Scope<'_>) -> &NodeRef<G> {
+pub fn create_node_ref<G: GenericNode>(cx: Scope<'_>) -> &NodeRef<G>
+where
+    G: Signalable,
+{
     create_ref(cx, NodeRef::new())
 }

@@ -18,6 +18,7 @@ pub(crate) struct EffectState<'a> {
     cb: Rc<RefCell<dyn FnMut() + 'a>>,
     /// A list of dependencies that can trigger this effect.
     dependencies: AHashSet<EffectDependency>,
+    pub(crate) info: String,
 }
 
 /// Implements reference equality for [`WeakSignalEmitter`]s.
@@ -61,20 +62,27 @@ impl<'a> EffectState<'a> {
 /// # create_scope_immediate(|cx| {
 /// let state = create_signal(cx, 0);
 ///
-/// create_effect(cx, || {
+/// effect!(cx, || {
 ///     println!("State changed. New state value = {}", state.get());
 /// }); // Prints "State changed. New state value = 0"
 ///
 /// state.set(1); // Prints "State changed. New state value = 1"
 /// # });
 /// ```
-pub fn create_effect<'a>(cx: Scope<'a>, f: impl FnMut() + 'a) {
+pub fn create_effect<'a>(cx: Scope<'a>, f: impl FnMut() + 'a, info: String) {
     let f = cx.alloc(f);
-    _create_effect(cx, f)
+    _create_effect(cx, f, info)
+}
+
+#[macro_export]
+macro_rules! effect {
+    ($scope: ident, $f: expr) => {{
+        create_effect($scope, $f, format!("effect at {}:{}", file!(), line!()))
+    }};
 }
 
 /// Internal implementation for `create_effect`. Use dynamic dispatch to reduce code-bloat.
-fn _create_effect<'a>(cx: Scope<'a>, f: &'a mut (dyn FnMut() + 'a)) {
+fn _create_effect<'a>(cx: Scope<'a>, f: &'a mut (dyn FnMut() + 'a), info: String) {
     let effect = &*cx.alloc(RefCell::new(None::<EffectState<'a>>));
     let cb = Rc::new(RefCell::new({
         move || {
@@ -112,7 +120,16 @@ fn _create_effect<'a>(cx: Scope<'a>, f: &'a mut (dyn FnMut() + 'a)) {
                 }
 
                 // Get the effect state back into the Rc
-                *effect.borrow_mut() = Some(tmp_effect);
+                // log::info!("tmp_effect info {}", tmp_effect.info);
+                match effect.try_borrow_mut() {
+                    Ok(mut effect) => {
+                        *effect = Some(tmp_effect);
+                    }
+                    Err(_) => {
+                        log::info!("tmp_effect info {}", tmp_effect.info);
+                        todo!()
+                    }
+                }
 
                 debug_assert_eq!(effects.borrow().len(), initial_effect_stack_len);
             });
@@ -123,6 +140,7 @@ fn _create_effect<'a>(cx: Scope<'a>, f: &'a mut (dyn FnMut() + 'a)) {
     *effect.borrow_mut() = Some(EffectState {
         cb: cb.clone(),
         dependencies: AHashSet::new(),
+        info,
     });
 
     // Initial callback call to get everything started.
@@ -149,27 +167,31 @@ fn _create_effect<'a>(cx: Scope<'a>, f: &'a mut (dyn FnMut() + 'a)) {
 /// });
 /// # });
 /// ```
-pub fn create_effect_scoped<'a, F>(cx: Scope<'a>, mut f: F)
+pub fn create_effect_scoped<'a, F>(cx: Scope<'a>, mut f: F, info: String)
 where
     F: for<'child_lifetime> FnMut(BoundedScope<'child_lifetime, 'a>) + 'a,
 {
     let mut disposer: Option<ScopeDisposer<'a>> = None;
-    create_effect(cx, move || {
-        // We run the disposer inside the effect, after effect dependencies have been cleared.
-        // This is to make sure that if the effect subscribes to its own signal, there is no
-        // use-after-free during the clear dependencies phase.
-        if let Some(disposer) = disposer.take() {
-            // SAFETY: we are not accessing the scope after the effect has been dropped.
-            unsafe { disposer.dispose() };
-        }
-        // Create a new nested scope and save the disposer.
-        let new_disposer: Option<ScopeDisposer<'a>> = Some(create_child_scope(cx, |cx| {
-            // SAFETY: f takes the same parameter as the argument to
-            // self.create_child_scope(_).
-            f(unsafe { std::mem::transmute(cx) });
-        }));
-        disposer = new_disposer;
-    });
+    create_effect(
+        cx,
+        move || {
+            // We run the disposer inside the effect, after effect dependencies have been cleared.
+            // This is to make sure that if the effect subscribes to its own signal, there is no
+            // use-after-free during the clear dependencies phase.
+            if let Some(disposer) = disposer.take() {
+                // SAFETY: we are not accessing the scope after the effect has been dropped.
+                unsafe { disposer.dispose() };
+            }
+            // Create a new nested scope and save the disposer.
+            let new_disposer: Option<ScopeDisposer<'a>> = Some(create_child_scope(cx, |cx| {
+                // SAFETY: f takes the same parameter as the argument to
+                // self.create_child_scope(_).
+                f(unsafe { std::mem::transmute(cx) });
+            }));
+            disposer = new_disposer;
+        },
+        info,
+    );
 }
 
 /// Run the passed closure inside an untracked dependency scope.
@@ -211,7 +233,7 @@ mod tests {
 
             let double = create_signal(cx, -1);
 
-            create_effect(cx, || {
+            effect!(cx, || {
                 double.set(*state.get() * 2);
             });
             assert_eq!(*double.get(), 0); // calling create_effect should call the effect at least once
@@ -230,11 +252,11 @@ mod tests {
 
             let double = create_signal(cx, -1);
 
-            create_effect(
+            effect!(
                 cx,
                 on([state], || {
                     double.set(*state.get() * 2);
-                }),
+                })
             );
             assert_eq!(*double.get(), 0); // calling create_effect should call the effect at least once
 
@@ -249,7 +271,7 @@ mod tests {
     fn effect_cannot_create_infinite_loop() {
         create_scope_immediate(|cx| {
             let state = create_signal(cx, 0);
-            create_effect(cx, || {
+            effect!(cx, || {
                 state.track();
                 state.set(0);
             });
@@ -263,7 +285,7 @@ mod tests {
             let state = create_signal(cx, 0);
 
             let counter = create_signal(cx, 0);
-            create_effect(cx, || {
+            effect!(cx, || {
                 counter.set(*counter.get_untracked() + 1);
 
                 // call state.track() twice but should subscribe once
@@ -287,7 +309,7 @@ mod tests {
             let state2 = create_signal(cx, 1);
 
             let counter = create_signal(cx, 0);
-            create_effect(cx, || {
+            effect!(cx, || {
                 counter.set(*counter.get_untracked() + 1);
 
                 if *condition.get() {
@@ -324,15 +346,19 @@ mod tests {
             let outer_counter = create_signal(cx, 0);
             let inner_counter = create_signal(cx, 0);
 
-            create_effect_scoped(cx, |cx| {
-                trigger.track();
-                outer_counter.set(*outer_counter.get_untracked() + 1);
-
-                create_effect(cx, || {
+            create_effect_scoped(
+                cx,
+                |cx| {
                     trigger.track();
-                    inner_counter.set(*inner_counter.get_untracked() + 1);
-                });
-            });
+                    outer_counter.set(*outer_counter.get_untracked() + 1);
+
+                    effect!(cx, || {
+                        trigger.track();
+                        inner_counter.set(*inner_counter.get_untracked() + 1);
+                    });
+                },
+                "haha".into(),
+            );
 
             assert_eq!(*outer_counter.get(), 1);
             assert_eq!(*inner_counter.get(), 1);
@@ -352,7 +378,7 @@ mod tests {
             let trigger = create_signal(cx, ());
 
             let disposer = create_child_scope(cx, |cx| {
-                create_effect(cx, || {
+                effect!(cx, || {
                     trigger.track();
                     counter.set(*counter.get_untracked() + 1);
                 });
@@ -376,11 +402,15 @@ mod tests {
         create_scope_immediate(|cx| {
             let trigger = create_signal(cx, ());
             let parent: &Signal<Option<*const ()>> = create_signal(cx, None);
-            create_effect_scoped(cx, |cx| {
-                trigger.track();
-                let p = cx.raw.parent.unwrap();
-                parent.set(Some(p as *const ()));
-            });
+            create_effect_scoped(
+                cx,
+                |cx| {
+                    trigger.track();
+                    let p = cx.raw.parent.unwrap();
+                    parent.set(Some(p as *const ()));
+                },
+                "haha".into(),
+            );
             assert_eq!(
                 parent.get().unwrap(),
                 cx.raw as *const _ as *const (),
@@ -399,12 +429,16 @@ mod tests {
     fn effect_scoped_subscribing_to_own_signal() {
         create_scope_immediate(|cx| {
             let trigger = create_signal(cx, ());
-            create_effect_scoped(cx, |cx| {
-                trigger.track();
-                let signal = create_signal(cx, ());
-                // Track own signal:
-                signal.track();
-            });
+            create_effect_scoped(
+                cx,
+                |cx| {
+                    trigger.track();
+                    let signal = create_signal(cx, ());
+                    // Track own signal:
+                    signal.track();
+                },
+                format!("src at {}:{}", file!(), line!()),
+            );
             trigger.set(());
         });
     }
@@ -414,7 +448,7 @@ mod tests {
         create_scope_immediate(|cx| {
             let trigger = create_signal(cx, ());
             let mut signal = Some(create_rc_signal(()));
-            create_effect(cx, move || {
+            effect!(cx, move || {
                 trigger.track();
                 if let Some(signal) = signal.take() {
                     signal.track();

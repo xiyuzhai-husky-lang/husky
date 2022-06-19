@@ -67,7 +67,9 @@ impl WebsocketService {
                         }
                     };
                     if let Some(request_id) = server_message.opt_request_id {
-                        this.call_backs.borrow_mut().remove(&request_id).unwrap()(server_message)
+                        log::info!("here3");
+                        this.call_backs.borrow_mut().remove(&request_id).unwrap()(server_message);
+                        log::info!("here4");
                     } else {
                         server_notification_sender
                             .send(server_message)

@@ -10,12 +10,16 @@ pub struct MarkdownPage {
     outline: Vec<Outline>,
 }
 
+impl Signalable for MarkdownPage {}
+
 // Sync definition with docs/build.rs
 #[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Outline {
     name: String,
     children: Vec<Outline>,
 }
+
+impl Signalable for Outline {}
 
 #[component]
 pub fn OutlineView<G: Html>(cx: Scope, outline: Vec<Outline>) -> View<G> {

@@ -277,7 +277,7 @@ use sycamore::futures::spawn_local_in_scope;
 view! {
     Router(RouterProps::new(HistoryIntegration::new(), |route: ReadSignal<AppRoutes>| {
         let view = Signal::new(View::empty());
-        create_effect(cloned!((view) => move || {
+        effect!(cloned!((view) => move || {
             let route = route.get();
             spawn_local_in_scope(cloned!((view) => async move {
                 let t = match route.as_ref() {

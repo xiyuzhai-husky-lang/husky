@@ -3,6 +3,7 @@ mod partition;
 
 pub use label::*;
 pub use partition::*;
+use sycamore::prelude::Signalable;
 
 use super::*;
 use serde::{Deserialize, Serialize};
@@ -17,6 +18,8 @@ pub enum Focus {
         constraints: Vec<Constraint>,
     },
 }
+
+impl Signalable for Focus {}
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub enum Constraint {}

@@ -77,7 +77,10 @@ pub struct NoHydrateProps<'a, G: GenericNode> {
 /// elements.
 #[cfg(feature = "hydrate")]
 #[component]
-pub fn NoHydrate<'a, G: Html>(cx: Scope<'a>, props: NoHydrateProps<'a, G>) -> View<G> {
+pub fn NoHydrate<'a, G: Html>(cx: Scope<'a>, props: NoHydrateProps<'a, G>) -> View<G>
+where
+    G: Signalable,
+{
     use crate::utils::{hydrate, render};
 
     let node_ref = create_node_ref(cx);

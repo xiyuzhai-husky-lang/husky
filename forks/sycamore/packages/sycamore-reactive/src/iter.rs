@@ -30,7 +30,7 @@ pub fn map_keyed<'a, T, K, U>(
 where
     T: Eq + Clone + 'a,
     K: Eq + Hash,
-    U: Clone + 'a,
+    U: Clone + 'a + Signalable,
 {
     // Previous state used for diffing.
     let mut items = Rc::new(Vec::new());
@@ -40,7 +40,7 @@ where
     let signal = create_signal(cx, Vec::new());
 
     // Diff and update signal each time list is updated.
-    create_effect(cx, move || {
+    effect!(cx, move || {
         let new_items = list.get();
         if new_items.is_empty() {
             // Fast path for removing all items.
@@ -211,7 +211,7 @@ pub fn map_indexed<'a, T, U>(
 ) -> &'a ReadSignal<Vec<U>>
 where
     T: PartialEq + Clone,
-    U: Clone + 'a,
+    U: Clone + 'a + Signalable,
 {
     // Previous state used for diffing.
     let mut items = Rc::new(Vec::new());
@@ -221,7 +221,7 @@ where
     let signal = create_signal(cx, Vec::new());
 
     // Diff and update signal each time list is updated.
-    create_effect(cx, move || {
+    effect!(cx, move || {
         let new_items = list.get();
 
         if new_items.is_empty() {
@@ -463,7 +463,7 @@ mod tests {
             let mapped = map_indexed(cx, a, |_, x| x * 2);
 
             let counter = create_signal(cx, 0);
-            create_effect(cx, || {
+            effect!(cx, || {
                 counter.set(*counter.get_untracked() + 1);
                 mapped.track();
             });

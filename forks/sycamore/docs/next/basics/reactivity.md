@@ -51,7 +51,7 @@ accomplished like so:
 
 ```rust
 let state = create_signal(cx, 0);
-create_effect(cx, || println!("The state changed. New value: {}", state.get()));
+effect!(cx, || println!("The state changed. New value: {}", state.get()));
 // Prints "The state changed. New value: 0"
 // (note that the effect is always executed at least 1 regardless of state changes)
 
@@ -60,7 +60,7 @@ state.set(2); // Prints "The state changed. New value: 2"
 state.set(3); // Prints "The state changed. New value: 3"
 ```
 
-How does the `create_effect(...)` function know to execute the closure every time the state changes?
+How does the `effect!(...)` function know to execute the closure every time the state changes?
 Calling `create_effect` creates a new _"listener scope"_ (not to be confused with reactive scope)
 and calling `state.get()` inside this listener scope adds itself as a _dependency_. Now, when
 `state.set(...)` is called, it automatically calls all its _dependents_. In this case, whenever
@@ -107,7 +107,7 @@ let state = create_signal(cx, 0);
 {
     let element = GenericNode::element(p);
     let text = GenericNode::text(String::new() /* placeholder */);
-    create_effect(cx, move || {
+    effect!(cx, move || {
         // Update text when `state` changes.
         text.update_text(Some(&state.get()));
     });
@@ -128,7 +128,7 @@ in a `create_effect`) returns.
 For example, code inside the `spawn_local` won't be tracked:
 
 ```rust
-create_effect(cx, move || {
+effect!(cx, move || {
     wasm_bindgen_futures::spawn_local(async move {
         // This scope is not tracked because spawn_local runs on the
         // next microtask tick once the effect closure has returned already.
@@ -144,7 +144,7 @@ around by accessing reactive dependencies as needed before going into a future, 
 fix:
 
 ```rust
-create_effect(cx, move || {
+effect!(cx, move || {
     signal.track(); // Same as calling `.get()` but without returning a value.
     wasm_bindgen_futures::spawn_local(async move {
         // This scope is not tracked because spawn_local runs on the next microtask tick (in other words, some time later).

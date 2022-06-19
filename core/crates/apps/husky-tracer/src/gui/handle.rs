@@ -128,18 +128,23 @@ impl HuskyTracerInternal {
             } => {
                 self.trace_time.set_focus(focus.clone());
                 opt_active_trace_id_for_request.map(|active_trace_id| {
-                    let figure_canvas = match self.trace_time.figure_canvas(active_trace_id, &focus)
-                    {
-                        Ok(figure_canvas) => figure_canvas,
-                        Err((sample_id, error)) => {
-                            return HuskyTracerServerMessageVariant::LockFocusWithError {
-                                sample_id,
-                                error: format!("{:?}", error),
+                    let figure_canvas_data =
+                        match self.trace_time.figure_canvas(active_trace_id, &focus) {
+                            Ok(figure_canvas) => figure_canvas,
+                            Err((sample_id, error)) => {
+                                return HuskyTracerServerMessageVariant::LockFocusWithError {
+                                    sample_id,
+                                    error: format!("{:?}", error),
+                                }
                             }
-                        }
-                    };
+                        };
                     let figure_control = self.trace_time.figure_control(active_trace_id, &focus);
-                    HuskyTracerServerMessageVariant::LockFocus { figure_canvas }
+                    HuskyTracerServerMessageVariant::LockFocus {
+                        figure_canvas_data,
+                        figure_control_data: self
+                            .trace_time
+                            .figure_control(active_trace_id, &focus),
+                    }
                 })
             }
             HuskyTracerGuiMessageVariant::UpdateFigureControlData {

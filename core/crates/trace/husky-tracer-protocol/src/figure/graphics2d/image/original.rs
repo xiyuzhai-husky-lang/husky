@@ -1,5 +1,6 @@
 use super::*;
 use std::iter::zip;
+use sycamore::prelude::Signalable;
 use wasm_bindgen::Clamped;
 
 #[derive(Debug, Clone)]
@@ -7,6 +8,8 @@ pub struct OriginalImageData {
     pub dimension: PixelDimension,
     data: Vec<u8>,
 }
+
+impl Signalable for OriginalImageData {}
 
 impl OriginalImageData {
     pub fn new(image_layer: &ImageLayerData) -> Self {

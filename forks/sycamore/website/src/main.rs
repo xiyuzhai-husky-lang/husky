@@ -35,6 +35,8 @@ enum Routes {
     NotFound,
 }
 
+impl Signalable for Routes {}
+
 #[derive(Clone)]
 struct DarkMode(RcSignal<bool>);
 
@@ -81,7 +83,7 @@ fn switch<'a, G: Html>(cx: Scope<'a>, route: &'a ReadSignal<Routes>) -> View<G> 
         }
         data
     };
-    let view = create_memo(
+    let view = memo!(
         cx,
         on([route], move || match route.get().as_ref() {
             Routes::Index => view! { cx,
@@ -159,7 +161,7 @@ fn switch<'a, G: Html>(cx: Scope<'a>, route: &'a ReadSignal<Routes>) -> View<G> 
             Routes::NotFound => view! { cx,
                 "404 Not Found"
             },
-        }),
+        })
     );
 
     view! { cx,
@@ -192,7 +194,7 @@ fn App<G: Html>(cx: Scope) -> View<G> {
     provide_context(cx, dark_mode);
     let DarkMode(dark_mode) = use_context::<DarkMode>(cx);
 
-    create_effect(cx, move || {
+    effect!(cx, move || {
         if let Some(local_storage) = &local_storage {
             local_storage
                 .set_item("dark_mode", &dark_mode.get().to_string())

@@ -100,7 +100,10 @@ pub fn create_tweened_signal<'a, T: Lerp + Clone + 'a>(
     initial: T,
     transition_duration: std::time::Duration,
     easing_fn: impl Fn(f32) -> f32 + 'static,
-) -> &'a Tweened<'a, T> {
+) -> &'a Tweened<'a, T>
+where
+    T: Signalable,
+{
     create_ref(
         cx,
         Tweened::new(cx, initial, transition_duration, easing_fn),
@@ -156,9 +159,11 @@ impl<T: Lerp + Clone, const N: usize> Lerp for [T; N] {
 }
 
 /// A state that is interpolated when it is set.
-pub struct Tweened<'a, T: Lerp + Clone>(Rc<RefCell<TweenedInner<'a, T>>>);
+pub struct Tweened<'a, T: Lerp + Clone>(Rc<RefCell<TweenedInner<'a, T>>>)
+where
+    T: Signalable;
 
-struct TweenedInner<'a, T: Lerp + Clone + 'a> {
+struct TweenedInner<'a, T: Lerp + Clone + 'a + Signalable> {
     /// The [`Scope`] under which the tweened signal was created. We need to hold on to the
     /// context to be able to spawn the raf callback.
     cx: Scope<'a>,
@@ -169,7 +174,10 @@ struct TweenedInner<'a, T: Lerp + Clone + 'a> {
     easing_fn: Rc<dyn Fn(f32) -> f32>,
 }
 
-impl<'a, T: Lerp + Clone + 'a> Tweened<'a, T> {
+impl<'a, T: Lerp + Clone + 'a> Tweened<'a, T>
+where
+    T: Signalable,
+{
     /// Create a new tweened state with the given value.
     ///
     /// End users should use [`Scope::create_tweened_signal`] instead.
@@ -263,13 +271,19 @@ impl<'a, T: Lerp + Clone + 'a> Tweened<'a, T> {
     }
 }
 
-impl<'a, T: Lerp + Clone + 'static> Clone for Tweened<'a, T> {
+impl<'a, T: Lerp + Clone + 'static> Clone for Tweened<'a, T>
+where
+    T: Signalable,
+{
     fn clone(&self) -> Self {
         Self(Rc::clone(&self.0))
     }
 }
 
-impl<'a, T: Lerp + Clone + 'static> Clone for TweenedInner<'a, T> {
+impl<'a, T: Lerp + Clone + 'static> Clone for TweenedInner<'a, T>
+where
+    T: Signalable,
+{
     fn clone(&self) -> Self {
         Self {
             cx: self.cx,

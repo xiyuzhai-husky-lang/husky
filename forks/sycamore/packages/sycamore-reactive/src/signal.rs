@@ -1,6 +1,7 @@
 //! Signals - The building blocks of reactivity.
 
 mod read_signal;
+mod signalable;
 
 use std::fmt::{Debug, Display, Formatter};
 use std::hash::Hash;
@@ -84,9 +85,16 @@ impl SignalEmitter {
 
 #[derive(Default)]
 /// Reactive state that can be updated and subscribed to.
-pub struct Signal<T>(ReadSignal<T>);
+pub struct Signal<T>(ReadSignal<T>)
+where
+    T: Signalable;
 
-impl<T> Signal<T> {
+pub trait Signalable: std::fmt::Debug {}
+
+impl<T> Signal<T>
+where
+    T: Signalable,
+{
     /// Create a new [`Signal`] with the specified value.
     pub fn new(value: T) -> Self {
         Self(ReadSignal {
@@ -94,79 +102,38 @@ impl<T> Signal<T> {
             emitter: Default::default(),
         })
     }
-
-    /// Set the current value of the state.
-    ///
-    /// This will notify and update any effects and memos that depend on this value.
-    ///
-    /// # Example
-    /// ```
-    /// # use sycamore_reactive::*;
-    /// # create_scope_immediate(|cx| {
-    /// let state = create_signal(cx, 0);
-    /// assert_eq!(*state.get(), 0);
-    ///
-    /// state.set(1);
-    /// assert_eq!(*state.get(), 1);
-    /// # });
-    /// ```
     pub fn set(&self, value: T) {
+        let old_value = format!("{:?}", self.get());
+        let new_value = format!("{:?}", value);
+        // log::info!(
+        //     "here5 with old value {}, new value {}",
+        //     old_value,
+        //     new_value
+        // );
         self.set_silent(value);
+        // log::info!(
+        //     "here6 with old value {}, new value {}",
+        //     old_value,
+        //     new_value
+        // );
         self.0.emitter.trigger_subscribers();
+        // log::info!(
+        //     "here7 with old value {}, new value {}",
+        //     old_value,
+        //     new_value
+        // );
     }
 
-    /// Set the current value of the state wrapped in a [`Rc`]. Unlike [`Signal::set()`], this
-    /// method accepts the value wrapped in a [`Rc`] because the underlying storage is already using
-    /// [`Rc`], thus preventing an unnecessary clone.
-    ///
-    /// This will notify and update any effects and memos that depend on this value.
-    ///
-    /// # Example
-    /// ```
-    /// # use std::rc::Rc;
-    /// # use sycamore_reactive::*;
-    /// # create_scope_immediate(|cx| {
-    /// let state = create_signal(cx, 0);
-    /// assert_eq!(*state.get(), 0);
-    ///
-    /// state.set_rc(Rc::new(1));
-    /// assert_eq!(*state.get(), 1);
-    /// # });
-    /// ```
     pub fn set_rc(&self, value: Rc<T>) {
         self.set_rc_silent(value);
         self.0.emitter.trigger_subscribers();
     }
-
-    /// Set the current value of the state _without_ triggering subscribers.
-    ///
-    /// Make sure you know what you are doing because this can make state inconsistent.
     pub fn set_silent(&self, value: T) {
         self.set_rc_silent(Rc::new(value));
     }
-
-    /// Set the current value of the state wrapped in a [`Rc`] _without_ triggering subscribers.
-    ///
-    /// See the documentation for [`Signal::set_rc()`] for more information.
-    ///
-    /// Make sure you know what you are doing because this can make state inconsistent.
     pub fn set_rc_silent(&self, value: Rc<T>) {
         *self.0.value.borrow_mut() = value;
     }
-
-    /// Split a signal into getter and setter handles.
-    ///
-    /// # Example
-    /// ```rust
-    /// # use sycamore_reactive::*;
-    /// # create_scope_immediate(|cx| {
-    /// let (state, set_state) = create_signal(cx, 0).split();
-    /// assert_eq!(*state(), 0);
-    ///
-    /// set_state(1);
-    /// assert_eq!(*state(), 1);
-    /// # });
-    /// ```
     pub fn split(&self) -> (impl Fn() -> Rc<T> + Copy + '_, impl Fn(T) + Copy + '_) {
         let getter = move || self.get();
         let setter = move |x| self.set(x);
@@ -177,66 +144,67 @@ impl<T> Signal<T> {
 /// A mutable reference for modifying a [`Signal`].
 ///
 /// Construct this using the [`Signal::modify()`] method.
-pub struct Modify<'a, T>(Option<T>, &'a Signal<T>);
+pub struct Modify<'a, T>(Option<T>, &'a Signal<T>)
+where
+    T: Signalable;
 
-impl<'a, T> Deref for Modify<'a, T> {
+impl<'a, T> Deref for Modify<'a, T>
+where
+    T: Signalable,
+{
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
         self.0.as_ref().unwrap()
     }
 }
-impl<'a, T> DerefMut for Modify<'a, T> {
+impl<'a, T> DerefMut for Modify<'a, T>
+where
+    T: Signalable,
+{
     fn deref_mut(&mut self) -> &mut Self::Target {
         self.0.as_mut().unwrap()
     }
 }
 
 /// When the mutable handle is dropped, update the [`Signal`].
-impl<T> Drop for Modify<'_, T> {
+impl<T> Drop for Modify<'_, T>
+where
+    T: Signalable,
+{
     fn drop(&mut self) {
         self.1.set(self.0.take().unwrap())
     }
 }
 
-impl<T: Clone> Signal<T> {
-    /// Return a mutable handle to make it easier to mutate the inner value.
-    /// This requires the inner type to implement [`Clone`].
-    ///
-    /// # Example
-    /// ```
-    /// # use sycamore_reactive::*;
-    /// # create_scope_immediate(|cx| {
-    /// let state = create_signal(cx, "Hello ".to_string());
-    /// state.modify().push_str("World!");
-    /// assert_eq!(*state.get(), "Hello World!");
-    /// # });
-    /// ```
+impl<T: Clone> Signal<T>
+where
+    T: Signalable,
+{
     pub fn modify(&self) -> Modify<T> {
         Modify(Some(self.value.borrow().as_ref().clone()), self)
     }
 }
 
-impl<T: Default> Signal<T> {
-    /// Take the current value out and replace it with the default value.
-    ///
-    /// This will notify and update any effects and memos that depend on this value.
+impl<T: Default> Signal<T>
+where
+    T: Signalable,
+{
     pub fn take(&self) -> Rc<T> {
         let ret = self.0.value.take();
         self.0.emitter.trigger_subscribers();
         ret
     }
 
-    /// Take the current value out and replace it with the default value _without_ triggering
-    /// subscribers.
-    ///
-    /// Make sure you know what you are doing because this can make state inconsistent.
     pub fn take_silent(&self) -> Rc<T> {
         self.0.value.take()
     }
 }
 
-impl<T> Deref for Signal<T> {
+impl<T> Deref for Signal<T>
+where
+    T: Signalable,
+{
     type Target = ReadSignal<T>;
 
     fn deref(&self) -> &Self::Target {
@@ -244,28 +212,40 @@ impl<T> Deref for Signal<T> {
     }
 }
 
-impl<T: AddAssign + Copy> AddAssign<T> for &Signal<T> {
+impl<T: AddAssign + Copy> AddAssign<T> for &Signal<T>
+where
+    T: Signalable,
+{
     fn add_assign(&mut self, other: T) {
         let mut value = **self.0.value.borrow();
         value += other;
         self.set(value);
     }
 }
-impl<T: SubAssign + Copy> SubAssign<T> for &Signal<T> {
+impl<T: SubAssign + Copy> SubAssign<T> for &Signal<T>
+where
+    T: Signalable,
+{
     fn sub_assign(&mut self, other: T) {
         let mut value = **self.0.value.borrow();
         value -= other;
         self.set(value);
     }
 }
-impl<T: MulAssign + Copy> MulAssign<T> for &Signal<T> {
+impl<T: MulAssign + Copy> MulAssign<T> for &Signal<T>
+where
+    T: Signalable,
+{
     fn mul_assign(&mut self, other: T) {
         let mut value = **self.0.value.borrow();
         value *= other;
         self.set(value);
     }
 }
-impl<T: DivAssign + Copy> DivAssign<T> for &Signal<T> {
+impl<T: DivAssign + Copy> DivAssign<T> for &Signal<T>
+where
+    T: Signalable,
+{
     fn div_assign(&mut self, other: T) {
         let mut value = **self.0.value.borrow();
         value /= other;
@@ -278,12 +258,18 @@ pub trait AnyReadSignal<'a> {
     /// Call the [`ReadSignal::track`] method.
     fn track(&self);
 }
-impl<'a, T> AnyReadSignal<'a> for RcSignal<T> {
+impl<'a, T> AnyReadSignal<'a> for RcSignal<T>
+where
+    T: Signalable,
+{
     fn track(&self) {
         self.deref().deref().track();
     }
 }
-impl<'a, T> AnyReadSignal<'a> for Signal<T> {
+impl<'a, T> AnyReadSignal<'a> for Signal<T>
+where
+    T: Signalable,
+{
     fn track(&self) {
         self.deref().track();
     }
@@ -293,32 +279,18 @@ impl<'a, T> AnyReadSignal<'a> for ReadSignal<T> {
         self.track();
     }
 }
-
-/// Create a new [`Signal`] under the current [`Scope`].
-/// The created signal lasts as long as the scope and cannot be used outside of the scope.
-///
-/// # Signal lifetime
-///
-/// The lifetime of the returned signal is the same as the [`Scope`].
-/// As such, the signal cannot escape the [`Scope`].
-///
-/// ```compile_fail
-/// # use sycamore_reactive::*;
-/// let mut outer = None;
-/// create_scope_immediate(|cx| {
-///     let signal = create_signal(cx, 0);
-///     outer = Some(signal);
-/// });
-/// ```
-pub fn create_signal<T>(scope: Scope, value: T) -> &Signal<T> {
+pub fn create_signal<T>(scope: Scope, value: T) -> &Signal<T>
+where
+    T: Signalable,
+{
     let signal = Signal::new(value);
     create_ref(scope, signal)
 }
 
-/// Create a new [`Signal`] under the current [`Scope`] but with an initial value wrapped in a
-/// [`Rc`]. This is useful to avoid having to clone a value that is already wrapped in a [`Rc`] when
-/// creating a new signal. Otherwise, this is identical to [`create_signal`].
-pub fn create_signal_from_rc<T>(scope: Scope, value: Rc<T>) -> &Signal<T> {
+pub fn create_signal_from_rc<T>(scope: Scope, value: Rc<T>) -> &Signal<T>
+where
+    T: Signalable,
+{
     let signal = Signal(ReadSignal {
         value: RefCell::new(value),
         emitter: Default::default(),
@@ -363,9 +335,14 @@ pub fn create_signal_from_rc<T>(scope: Scope, value: Rc<T>) -> &Signal<T> {
 /// outer = Some(rc_state);
 /// });
 /// ```
-pub struct RcSignal<T>(Rc<Signal<T>>);
+pub struct RcSignal<T>(Rc<Signal<T>>)
+where
+    T: Signalable;
 
-impl<T> Deref for RcSignal<T> {
+impl<T> Deref for RcSignal<T>
+where
+    T: Signalable,
+{
     type Target = Signal<T>;
 
     fn deref(&self) -> &Self::Target {
@@ -373,39 +350,46 @@ impl<T> Deref for RcSignal<T> {
     }
 }
 
-impl<T> Clone for RcSignal<T> {
+impl<T> Clone for RcSignal<T>
+where
+    T: Signalable,
+{
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
 
-/// Create a new [`RcSignal`] with the specified initial value.
-///
-/// For more details, check the documentation for [`RcSignal`].
-pub fn create_rc_signal<T>(value: T) -> RcSignal<T> {
+pub fn create_rc_signal<T>(value: T) -> RcSignal<T>
+where
+    T: Signalable,
+{
     RcSignal(Rc::new(Signal::new(value)))
 }
 
-/// Create a new [`RcSignal`] with the specified initial value wrapped in a [`Rc`].
-///
-/// For more details, check the documentation for [`RcSignal`].
-pub fn create_rc_signal_from_rc<T>(value: Rc<T>) -> RcSignal<T> {
+pub fn create_rc_signal_from_rc<T>(value: Rc<T>) -> RcSignal<T>
+where
+    T: Signalable,
+{
     RcSignal(Rc::new(Signal(ReadSignal {
         value: RefCell::new(value),
         emitter: Default::default(),
     })))
 }
 
-/* Display implementations */
-
-impl<T: Display> Display for RcSignal<T> {
+impl<T: Display> Display for RcSignal<T>
+where
+    T: Signalable,
+{
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        self.get().fmt(f)
+        std::fmt::Display::fmt(&self.get(), f)
     }
 }
-impl<T: Display> Display for Signal<T> {
+impl<T: Display> Display for Signal<T>
+where
+    T: Signalable,
+{
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        self.get().fmt(f)
+        std::fmt::Display::fmt(&self.get(), f)
     }
 }
 impl<T: Display> Display for ReadSignal<T> {
@@ -414,14 +398,18 @@ impl<T: Display> Display for ReadSignal<T> {
     }
 }
 
-/* Debug implementations */
-
-impl<T: Debug> Debug for RcSignal<T> {
+impl<T: Debug> Debug for RcSignal<T>
+where
+    T: Signalable,
+{
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         f.debug_tuple("RcSignal").field(&self.get()).finish()
     }
 }
-impl<T: Debug> Debug for Signal<T> {
+impl<T: Debug> Debug for Signal<T>
+where
+    T: Signalable,
+{
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         f.debug_tuple("Signal").field(&self.get()).finish()
     }
@@ -434,7 +422,10 @@ impl<T: Debug> Debug for ReadSignal<T> {
 
 /* Default implementations */
 
-impl<T: Default> Default for RcSignal<T> {
+impl<T: Default> Default for RcSignal<T>
+where
+    T: Signalable,
+{
     fn default() -> Self {
         create_rc_signal(T::default())
     }
@@ -442,12 +433,18 @@ impl<T: Default> Default for RcSignal<T> {
 
 /* PartialEq, Eq, Hash implementations */
 
-impl<T: PartialEq> PartialEq for RcSignal<T> {
+impl<T: PartialEq> PartialEq for RcSignal<T>
+where
+    T: Signalable,
+{
     fn eq(&self, other: &Self) -> bool {
         self.get_untracked().eq(&other.get_untracked())
     }
 }
-impl<T: PartialEq> PartialEq for Signal<T> {
+impl<T: PartialEq> PartialEq for Signal<T>
+where
+    T: Signalable,
+{
     fn eq(&self, other: &Self) -> bool {
         self.get_untracked().eq(&other.get_untracked())
     }
@@ -458,16 +455,22 @@ impl<T: PartialEq> PartialEq for ReadSignal<T> {
     }
 }
 
-impl<T: Eq> Eq for RcSignal<T> {}
-impl<T: Eq> Eq for Signal<T> {}
-impl<T: Eq> Eq for ReadSignal<T> {}
+impl<T: Eq> Eq for RcSignal<T> where T: Signalable {}
+impl<T: Eq> Eq for Signal<T> where T: Signalable {}
+impl<T: Eq> Eq for ReadSignal<T> where T: Signalable {}
 
-impl<T: Hash> Hash for RcSignal<T> {
+impl<T: Hash> Hash for RcSignal<T>
+where
+    T: Signalable,
+{
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.get_untracked().hash(state)
     }
 }
-impl<T: Hash> Hash for Signal<T> {
+impl<T: Hash> Hash for Signal<T>
+where
+    T: Signalable,
+{
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.get_untracked().hash(state)
     }
@@ -481,7 +484,10 @@ impl<T: Hash> Hash for ReadSignal<T> {
 /* Serde implementations */
 
 #[cfg(feature = "serde")]
-impl<T: serde::Serialize> serde::Serialize for RcSignal<T> {
+impl<T: serde::Serialize> serde::Serialize for RcSignal<T>
+where
+    T: Signalable,
+{
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -490,7 +496,10 @@ impl<T: serde::Serialize> serde::Serialize for RcSignal<T> {
     }
 }
 #[cfg(feature = "serde")]
-impl<'de, T: serde::Deserialize<'de>> serde::Deserialize<'de> for RcSignal<T> {
+impl<'de, T: serde::Deserialize<'de>> serde::Deserialize<'de> for RcSignal<T>
+where
+    T: Signalable,
+{
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: serde::Deserializer<'de>,
@@ -603,7 +612,11 @@ mod tests {
         create_scope_immediate(|cx| {
             let rc_state = create_rc_signal(0);
             let rc_state_cloned = rc_state.clone();
-            let double = create_memo(cx, move || *rc_state_cloned.get() * 2);
+            let double = create_memo(
+                cx,
+                move || *rc_state_cloned.get() * 2,
+                format!("src at {}:{}", file!(), line!()),
+            );
             assert_eq!(*double.get(), 0);
 
             rc_state.set(1);
@@ -643,7 +656,7 @@ mod tests {
         create_scope_immediate(|cx| {
             let mut signal = create_signal(cx, 0);
             let counter = create_signal(cx, 0);
-            create_effect(cx, || {
+            effect!(cx, || {
                 signal.track();
                 counter.set(*counter.get_untracked() + 1);
             });
@@ -660,7 +673,7 @@ mod tests {
         create_scope_immediate(|cx| {
             let signal = create_signal(cx, "Hello ".to_string());
             let counter = create_signal(cx, 0);
-            create_effect(cx, || {
+            effect!(cx, || {
                 signal.track();
                 counter.set(*counter.get_untracked() + 1);
             });

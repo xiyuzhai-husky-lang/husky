@@ -3,7 +3,7 @@
 use std::fmt;
 use std::hash::Hash;
 
-use sycamore_reactive::Scope;
+use sycamore_reactive::{Scope, Signalable};
 
 /// Represents an element.
 pub trait SycamoreElement {
@@ -35,7 +35,7 @@ pub trait SycamoreElement {
 ///
 /// [`GenericNode`]s should be cheaply cloneable (usually backed by a [`Rc`](std::rc::Rc) or other
 /// reference counted container) and preserve reference equality.
-pub trait GenericNode: fmt::Debug + Clone + PartialEq + Eq + Hash + 'static {
+pub trait GenericNode: fmt::Debug + Clone + PartialEq + Eq + Hash + 'static + Signalable {
     /// The type of the event that is passed to the event handler.
     type EventType;
     /// The type for [`set_property`](Self::set_property).

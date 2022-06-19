@@ -299,7 +299,7 @@ impl Codegen {
 
                 if is_dynamic {
                     tokens.extend(quote! {
-                        ::sycamore::reactive::create_effect(#cx, {
+                        ::sycamore::reactive::effect!(#cx, {
                             let __el = ::std::clone::Clone::clone(&__el);
                             move || { #quoted_set_attribute }
                         });
@@ -320,7 +320,7 @@ impl Codegen {
 
                 if is_dynamic {
                     tokens.extend(quote! {
-                        ::sycamore::reactive::create_effect(#cx, {
+                        ::sycamore::reactive::effect!(#cx, {
                             let __el = ::std::clone::Clone::clone(&__el);
                             move || {
                                 #quoted_set_attribute
@@ -336,7 +336,7 @@ impl Codegen {
             AttributeType::DangerouslySetInnerHtml => {
                 if is_dynamic {
                     tokens.extend(quote! {
-                        ::sycamore::reactive::create_effect(#cx, {
+                        ::sycamore::reactive::effect!(#cx, {
                             let __el = ::std::clone::Clone::clone(&__el);
                             move || {
                                 ::sycamore::generic_node::GenericNode::dangerously_set_inner_html(
@@ -418,7 +418,7 @@ impl Codegen {
 
                 tokens.extend(quote! {
                     #[cfg(target_arch = "wasm32")]
-                    ::sycamore::reactive::create_effect(#cx, {
+                    ::sycamore::reactive::effect!(#cx, {
                         let __el = ::std::clone::Clone::clone(&__el);
                         move ||::sycamore::generic_node::GenericNode::set_property(
                             &__el,

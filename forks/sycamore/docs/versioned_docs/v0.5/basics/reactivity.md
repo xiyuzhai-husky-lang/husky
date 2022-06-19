@@ -35,7 +35,7 @@ like so:
 ```rust
 let state = Signal::new(0);
 
-create_effect(cloned!((state) => move || {
+effect!(cloned!((state) => move || {
     println!("The state changed. New value: {}", state.get());
 }));
 // prints "The state changed. New value: 0"
@@ -46,7 +46,7 @@ state.set(2); // prints "The state changed. New value: 2"
 state.set(3); // prints "The state changed. New value: 3"
 ```
 
-How does the `create_effect(...)` function know to execute the closure every time the state changes?
+How does the `effect!(...)` function know to execute the closure every time the state changes?
 Calling `create_effect` creates a new _"reactivity scope"_ and calling `state.get()` inside this
 scope adds itself as a _dependency_. Now, when `state.set(...)` is called, it automatically calls
 all its _dependents_, in this case, `state` as it was called inside the closure.
@@ -57,7 +57,7 @@ all its _dependents_, in this case, `state` as it was called inside the closure.
 > The previous `create_effect` function call could very well have been written as:
 >
 > ```rust
-> create_effect({
+> effect!({
 >     let state = state.clone();
 >     move || {
 >         println!("The state changed. New value: {}", state.get());
@@ -114,7 +114,7 @@ let state = Signal::new(0);
 let root = {
     let element = GenericNode::element(p);
     let text = GenericNode::text(String::new() /* placeholder */);
-    create_effect(move || {
+    effect!(move || {
         // update text when state changes
         text.update_text(Some(&state.get()));
     });

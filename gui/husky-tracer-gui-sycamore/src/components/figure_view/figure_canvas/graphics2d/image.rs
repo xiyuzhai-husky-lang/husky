@@ -37,9 +37,10 @@ pub fn Image<'a, G: Html>(scope: Scope<'a>, props: ImageProps<'a>) -> View<G> {
     let dimension = props.dimension;
     if props.image_layers.len() > 0 {
         let canvas_drawing_dimension = props.image_layers[0].dimension();
-        let composed_image_data =
-            memo!(scope, OriginalImageData::new_composed(&props.image_layers));
-        create_effect(scope, {
+        let composed_image_data = memo!(scope, move || OriginalImageData::new_composed(
+            &props.image_layers
+        ));
+        effect!(scope, {
             dimension.track();
             move || {
                 let dimension = dimension.cget();

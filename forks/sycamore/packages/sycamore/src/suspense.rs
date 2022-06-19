@@ -98,10 +98,14 @@ pub async fn await_suspense<U>(cx: Scope<'_>, f: impl Future<Output = U>) -> U {
     // Push a new suspense state.
     let count = create_rc_signal(0);
     state.async_counts.borrow_mut().push(count.clone());
-    let ready = create_selector(cx, {
-        let count = count.clone();
-        move || *count.get() == 0
-    });
+    let ready = create_selector(
+        cx,
+        {
+            let count = count.clone();
+            move || *count.get() == 0
+        },
+        format!("src at {}:{}", file!(), line!()),
+    );
 
     if let Some(outer_count) = &outer_count {
         outer_count.set(*outer_count.get() + 1);
@@ -113,7 +117,7 @@ pub async fn await_suspense<U>(cx: Scope<'_>, f: impl Future<Output = U>) -> U {
     let (sender, receiver) = oneshot::channel();
     let mut sender = Some(sender);
 
-    create_effect(cx, move || {
+    effect!(cx, move || {
         if *ready.get() {
             if let Some(sender) = sender.take() {
                 let _ = sender.send(());
@@ -201,7 +205,7 @@ mod tests {
                 let _: View<SsrNode> = view! { cx,
                     Suspense {
                         children: Children::new(cx, move |cx| {
-                            create_effect(cx, move || {
+                            effect!(cx, move || {
                                 trigger.track();
                                 assert!(try_use_context::<SuspenseState>(cx).is_some());
                             });
@@ -211,7 +215,7 @@ mod tests {
                 };
                 let done = create_signal(cx, false);
                 transition.start(|| trigger.set(()), || done.set(true));
-                create_effect(cx, move || {
+                effect!(cx, move || {
                     if *done.get() {
                         sender.take().unwrap().send(()).unwrap();
                     }

@@ -248,7 +248,7 @@ use wasm_bindgen_futures::spawn_local;
 template! {
     Router(RouterProps::new(HistoryIntegration::new(), |route: StateHandle<AppRoutes>| {
         let template = Signal::new(Template::empty());
-        create_effect(cloned!((template) => move || {
+        effect!(cloned!((template) => move || {
             let route = route.get();
             spawn_local(cloned!((template) => async move {
                 let t = match route.as_ref() {

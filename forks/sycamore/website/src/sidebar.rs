@@ -18,6 +18,8 @@ pub struct SidebarData {
     sections: Vec<SidebarSection>,
 }
 
+impl Signalable for SidebarData {}
+
 #[component]
 pub fn Sidebar<G: Html>(cx: Scope, (version, data): (String, SidebarData)) -> View<G> {
     let sections = data

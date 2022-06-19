@@ -5,6 +5,7 @@ use eval_feature::EvalFeature;
 use print_utils::epin;
 use semantics_lazy::{LazyExprVariant, LazyOpnKind};
 use text::RangedCustomIdentifier;
+use visualizer_gen::VisualTy;
 use vm::InterpreterQueryGroup;
 use word::CustomIdentifier;
 
@@ -208,28 +209,42 @@ impl HuskyTraceTime {
                             .iter()
                             .map(|partition| partition.ncol)
                             .sum::<u32>());
-                let mut partitioned_samples_collector =
-                    PartitionedSamplesCollector::<FigureCanvasData>::new(partitions.clone());
                 let ty = expr.expr.ty();
                 use visualizer_gen::VisualizerQueryGroup;
                 let visualizer = self.runtime.compile_time().visualizer(ty);
-                for labeled_data in dev_division.each_labeled_data() {
-                    let label = labeled_data.label;
-                    if partitioned_samples_collector
-                        .process(label, || -> VMRuntimeResult<FigureCanvasData> {
-                            let visual_data = self
-                                .runtime
-                                .visualize(expr.clone().into(), labeled_data.sample_id)?;
-                            Ok(FigureCanvasData::new_specific(visual_data))
+                match visualizer.ty {
+                    VisualTy::Void => todo!(),
+                    VisualTy::B32 => todo!(),
+                    VisualTy::I32 => todo!(),
+                    VisualTy::F32 => todo!(),
+                    VisualTy::Point2d => todo!(),
+                    VisualTy::Shape2d
+                    | VisualTy::Region2d
+                    | VisualTy::Image2d
+                    | VisualTy::Graphics2d => {
+                        let mut partitioned_samples_collector =
+                            PartitionedSamplesCollector::<Graphics2dCanvasData>::new(
+                                partitions.clone(),
+                            );
+                        for labeled_data in dev_division.each_labeled_data() {
+                            let label = labeled_data.label;
+                            if partitioned_samples_collector
+                                .process(label, || -> VMRuntimeResult<Graphics2dCanvasData> {
+                                    let visual_data = self
+                                        .runtime
+                                        .visualize(expr.clone().into(), labeled_data.sample_id)?;
+                                    Ok(Graphics2dCanvasData::from_visual_data(visual_data))
+                                })
+                                .map_err(|e| (labeled_data.sample_id, e))?
+                            {
+                                break;
+                            }
+                        }
+                        Ok(FigureCanvasData::GenericGraphics2d {
+                            partitioned_samples: partitioned_samples_collector.finish(),
                         })
-                        .map_err(|e| (labeled_data.sample_id, e))?
-                    {
-                        break;
                     }
                 }
-                Ok(FigureCanvasData::new_generic(
-                    partitioned_samples_collector.finish(),
-                ))
             }
         }
     }
