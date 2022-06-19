@@ -13,7 +13,7 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: &trivial_visualizer(StaticVisualTy::F32),
+        visualizer: &primitive_visualizer(StaticVisualTy::F32),
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),

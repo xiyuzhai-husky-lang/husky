@@ -60,15 +60,17 @@ impl PartialEq for StaticVisualizer {
 
 impl Eq for StaticVisualizer {}
 
-pub const fn trivial_visualizer(ty: StaticVisualTy) -> StaticVisualizer {
+pub const fn primitive_visualizer(ty: StaticVisualTy) -> StaticVisualizer {
     StaticVisualizer {
         ty,
         variant: StaticVisualizerVariant::Compiled {
-            call: visualize_trivial,
+            call: visualize_primitive,
         },
     }
 }
 
-fn visualize_trivial<'temp, 'eval>(_data: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
-    VisualData::Primitive { value: ().into() }
+fn visualize_primitive<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
+    VisualData::Primitive {
+        value: value.take_copyable_dyn().into(),
+    }
 }

@@ -7,7 +7,7 @@ pub use labeled::*;
 pub mod synthetic;
 
 use liason::*;
-use visual_syntax::{trivial_visualizer, StaticVisualTy};
+use visual_syntax::{primitive_visualizer, StaticVisualTy};
 
 pub static DATASETS_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "datasets",
@@ -38,7 +38,7 @@ pub static DATASET_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Other,
-        visualizer: &trivial_visualizer(StaticVisualTy::Dataset),
+        visualizer: &primitive_visualizer(StaticVisualTy::Dataset),
         opt_type_call: None,
     },
     dev_src: dev_utils::static_dev_src!(),
