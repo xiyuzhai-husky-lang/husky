@@ -32,9 +32,11 @@ impl TracerContext {
                                     figure_canvas_data,
                                     figure_control_data,
                                 );
-                                log::info!("here1");
+                                log::info!("before");
+                                log::info!("not working");
+                                sleep(10000000);
+                                log::info!("after");
                                 this.focus_context.focus.set(focus);
-                                log::info!("here2");
                             }
                             _ => panic!(),
                         })),
@@ -59,4 +61,15 @@ impl TracerContext {
             None,
         );
     }
+}
+
+#[wasm_bindgen]
+pub fn sleep(ms: i32) -> js_sys::Promise {
+    log::info!("not working");
+    js_sys::Promise::new(&mut |resolve, _| {
+        web_sys::window()
+            .unwrap()
+            .set_timeout_with_callback_and_timeout_and_arguments_0(&resolve, ms)
+            .unwrap();
+    })
 }

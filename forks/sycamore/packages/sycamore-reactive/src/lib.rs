@@ -6,7 +6,7 @@ mod memo;
 mod signal;
 
 use std::any::{Any, TypeId};
-use debug_cell::RefCell;
+use std::cell::RefCell;
 use std::marker::PhantomData;
 use std::mem;
 use std::rc::{Rc, Weak};
