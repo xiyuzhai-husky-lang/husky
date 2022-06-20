@@ -38,7 +38,7 @@ fn main() {
                 scope,
                 div (
                     class="Main",
-                    tabindex=0,
+                    tabindex=1,
                     on:keydown=keydown_handler
                 ) {
                     Layout {
@@ -59,4 +59,10 @@ fn get_gui() -> Element {
         .get_elements_by_class_name("HuskyTracerGui")
         .item(0)
         .unwrap()
+}
+
+fn get_element_by_id(id: &'static str) -> Element {
+    let window = web_sys::window().unwrap_throw();
+    let document = window.document().unwrap_throw();
+    document.get_element_by_id(id).unwrap()
 }

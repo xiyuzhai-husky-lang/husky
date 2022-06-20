@@ -33,7 +33,7 @@ fn render(
 
 #[component]
 pub fn Image<'a, G: Html>(scope: Scope<'a>, props: ImageProps<'a>) -> View<G> {
-    let canvas_ref = create_node_ref(scope);
+    let canvas_ref = create_node_ref_signal(scope);
     let dimension = props.dimension;
     if props.image_layers.len() > 0 {
         let canvas_drawing_dimension = props.image_layers[0].dimension();

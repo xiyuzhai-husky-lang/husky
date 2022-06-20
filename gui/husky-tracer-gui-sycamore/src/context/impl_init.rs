@@ -28,7 +28,7 @@ impl DebuggerContext {
             assert!(init_data.figure_canvases.len() > 0);
         }
         // order matters
-        self.focus_context.init(init_data.focus.clone());
+        self.attention_context.init(init_data.focus.clone());
         self.figure_context
             .init(init_data.figure_canvases, init_data.figure_controls);
         self.trace_context

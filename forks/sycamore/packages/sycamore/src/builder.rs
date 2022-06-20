@@ -9,7 +9,7 @@ use std::rc::Rc;
 
 use crate::component::component_scope;
 use crate::generic_node::GenericNode;
-use crate::noderef::NodeRef;
+use crate::noderef_signal::NodeRefSignal;
 use crate::reactive::*;
 use crate::utils::render;
 use crate::view::View;
@@ -581,20 +581,20 @@ impl<'a, G: GenericNode, F: FnOnce(Scope<'a>) -> G + 'a> ElementBuilder<'a, G, F
         self.map(move |cx, el| el.event(cx, name, Box::new(handler)))
     }
 
-    /// Get a hold of the raw element by using a [`NodeRef`].
+    /// Get a hold of the raw element by using a [`NodeRefSignal`].
     ///
     /// # Example
     /// ```
     /// # use sycamore::builder::prelude::*;
     /// # use sycamore::prelude::*;
     /// # fn _test<G: GenericNode>(cx: Scope) -> View<G> {
-    /// let node_ref = create_node_ref(cx);
+    /// let node_ref = create_node_ref_signal(cx);
     /// input().bind_ref(node_ref.clone())
     /// # .view(cx) }
     /// ```
     pub fn bind_ref(
         self,
-        node_ref: NodeRef<G>,
+        node_ref: NodeRefSignal<G>,
     ) -> ElementBuilder<'a, G, impl FnOnce(Scope<'a>) -> G + 'a>
     where
         G: Signalable,

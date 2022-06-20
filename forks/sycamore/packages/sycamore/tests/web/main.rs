@@ -88,7 +88,7 @@ fn hello_world() {
 
 #[wasm_bindgen_test]
 fn hello_world_noderef() {
-    let p_ref = NodeRef::new();
+    let p_ref = NodeRefSignal::new();
 
     sycamore::render_to(
         |cx| {
@@ -360,7 +360,7 @@ fn two_way_bind_to_props() {
 #[wasm_bindgen_test]
 fn noderefs() {
     create_scope_immediate(|cx| {
-        let noderef = create_node_ref(cx);
+        let noderef = create_node_ref_signal(cx);
         let node = view! { cx,
             div {
                 input(ref=noderef)

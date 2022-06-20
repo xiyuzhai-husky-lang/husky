@@ -3,14 +3,14 @@ use sycamore::web::html;
 
 #[test]
 fn empty_noderef() {
-    let noderef = NodeRef::<SsrNode>::new();
+    let noderef = NodeRefSignal::<SsrNode>::new();
     assert!(noderef.try_get_raw().is_none());
     assert!(noderef.try_get::<SsrNode>().is_none());
 }
 
 #[test]
 fn set_noderef() {
-    let noderef = NodeRef::<SsrNode>::new();
+    let noderef = NodeRefSignal::<SsrNode>::new();
     let node = SsrNode::element::<html::div>();
     noderef.set(node.clone());
     assert_eq!(noderef.try_get_raw(), Some(node.clone()));
@@ -19,7 +19,7 @@ fn set_noderef() {
 
 #[test]
 fn cast_noderef() {
-    let noderef = NodeRef::<SsrNode>::new();
+    let noderef = NodeRefSignal::<SsrNode>::new();
     let node = SsrNode::element::<html::div>();
     noderef.set(node.clone());
     assert_eq!(noderef.try_get::<SsrNode>(), Some(node));
@@ -29,7 +29,7 @@ fn cast_noderef() {
 #[test]
 fn noderef_with_ssrnode() {
     create_scope_immediate(|cx| {
-        let noderef = create_node_ref(cx);
+        let noderef = create_node_ref_signal(cx);
         let _: View<SsrNode> = view! { cx, div(ref=noderef) };
         assert!(noderef.try_get::<SsrNode>().is_some());
     });

@@ -3,7 +3,7 @@ use web_sys::{Event, KeyboardEvent};
 
 impl DebuggerContext {
     pub(super) fn toggle_focus_kind(&self) {
-        self.set_focus(self.focus_context.toggled_focus_kind())
+        self.set_focus(self.attention_context.toggled_focus_kind())
     }
 
     fn set_focus(&self, focus: Focus) {
@@ -34,7 +34,7 @@ impl DebuggerContext {
                                     figure_control_data,
                                 );
                                 log::info!("here321");
-                                this.focus_context.focus.set(focus.clone());
+                                this.attention_context.focus.set(focus.clone());
                             }
                             _ => panic!(),
                         })),
@@ -48,7 +48,7 @@ impl DebuggerContext {
     }
 
     fn set_focus_without_request(&self, focus: Focus) {
-        self.focus_context.focus.set(focus.clone());
+        self.attention_context.focus.set(focus.clone());
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::LockFocus {
                 focus,
