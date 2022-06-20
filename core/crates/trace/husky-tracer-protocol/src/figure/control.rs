@@ -8,7 +8,7 @@ pub struct FigureControlData {
 impl Signalable for FigureControlData {}
 
 impl FigureControlData {
-    pub fn loop_default(loop_trace_props: &TraceData) -> Self {
+    pub fn loop_default(loop_trace_props: &TraceRawData) -> Self {
         todo!()
         // let control_props = match loop_trace_props.kind {
         //     TraceKind::ProcStmt {

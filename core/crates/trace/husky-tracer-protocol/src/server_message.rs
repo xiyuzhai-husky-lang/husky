@@ -1,4 +1,4 @@
-use super::{trace::TraceData, *};
+use super::{trace::TraceRawData, *};
 
 pub type JsonResult<T> = Result<T, String>;
 
@@ -30,7 +30,7 @@ pub enum HuskyTracerServerMessageVariant {
         trace_id: TraceId,
     },
     Trace {
-        trace_props: TraceData,
+        trace_props: TraceRawData,
     },
     LockFocus {
         figure_canvas_data: FigureCanvasData,

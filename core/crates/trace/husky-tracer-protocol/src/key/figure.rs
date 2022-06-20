@@ -8,7 +8,7 @@ pub enum FigureCanvasKey {
 }
 
 impl FigureCanvasKey {
-    pub fn new(trace_data: &TraceData, focus: &Focus) -> FigureCanvasKey {
+    pub fn new(trace_data: &TraceRawData, focus: &Focus) -> FigureCanvasKey {
         match trace_data.kind {
             TraceKind::Main
             | TraceKind::FeatureStmt

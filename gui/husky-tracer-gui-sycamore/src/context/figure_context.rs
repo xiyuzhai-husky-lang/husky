@@ -24,7 +24,7 @@ impl FigureContext {
 
     pub(super) fn set_figure(
         &self,
-        trace: &TraceData,
+        trace: &TraceRawData,
         focus: &Focus,
         figure: FigureCanvasData,
         figure_control_props: FigureControlData,
@@ -39,14 +39,14 @@ impl FigureContext {
 
     pub(crate) fn figure_canvas_data(
         &self,
-        trace: &TraceData,
+        trace: &TraceRawData,
         focus: &Focus,
     ) -> Rc<FigureCanvasData> {
         let figure_canvas_key = FigureCanvasKey::new(trace, focus);
         self.figure_canvases.borrow(file!(), line!())[&figure_canvas_key].clone()
     }
 
-    pub(super) fn is_figure_cached(&self, trace: &TraceData, focus: &Focus) -> bool {
+    pub(super) fn is_figure_cached(&self, trace: &TraceRawData, focus: &Focus) -> bool {
         let key = FigureCanvasKey::new(trace, focus);
         self.figure_canvases
             .borrow(file!(), line!())
@@ -55,7 +55,7 @@ impl FigureContext {
 
     fn set_figure_control_data(
         &self,
-        trace: &TraceData,
+        trace: &TraceRawData,
         focus: &Focus,
         figure_control_data: FigureControlData,
     ) {
@@ -84,7 +84,7 @@ impl FigureContext {
 
     pub(crate) fn figure_control_data(
         &self,
-        trace: &TraceData,
+        trace: &TraceRawData,
         focus: &Focus,
     ) -> Rc<Signal<FigureControlData>> {
         self.figure_controls.borrow(file!(), line!())[&FigureControlKey::new(trace, focus)].clone()

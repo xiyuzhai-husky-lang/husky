@@ -123,9 +123,9 @@ impl HuskyTraceTime {
         indent: Indent,
         variant: &TraceVariant,
         has_parent: bool,
-    ) -> Vec<TraceLineData> {
+    ) -> Vec<TraceLineRawData> {
         match variant {
-            TraceVariant::Main(feature_block) => vec![TraceLineData {
+            TraceVariant::Main(feature_block) => vec![TraceLineRawData {
                 indent,
                 idx: 0,
                 tokens: vec![TraceTokenData {
@@ -158,7 +158,7 @@ impl HuskyTraceTime {
                 ref expr,
                 ref history,
             } => self.eager_expr_lines(expr, history, indent, ExprTokenConfig::expr(has_parent)),
-            TraceVariant::CallHead { ref tokens, .. } => vec![TraceLineData {
+            TraceVariant::CallHead { ref tokens, .. } => vec![TraceLineRawData {
                 indent: 0,
                 idx: 0,
                 tokens: tokens.clone(),
@@ -191,7 +191,7 @@ impl HuskyTraceTime {
             let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.lines(trace_id, indent, &variant, opt_parent_id.is_some());
             Trace {
-                props: TraceData {
+                props: TraceRawData {
                     id: trace_id,
                     opt_parent_id,
                     indent,

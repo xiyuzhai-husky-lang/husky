@@ -26,8 +26,8 @@ impl HuskyTraceTime {
         history: &Arc<History<'static>>,
         indent: u8,
         config: ExprTokenConfig,
-    ) -> Vec<TraceLineData> {
-        vec![TraceLineData {
+    ) -> Vec<TraceLineRawData> {
+        vec![TraceLineRawData {
             indent,
             idx: 0,
             tokens: self.eager_expr_tokens(expr, history, config),

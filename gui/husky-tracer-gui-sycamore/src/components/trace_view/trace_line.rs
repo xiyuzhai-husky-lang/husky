@@ -5,11 +5,12 @@ use line_start::*;
 
 #[derive(Prop)]
 pub struct TraceLineProps<'a> {
-    data: TraceLineData,
+    data: TraceLineRawData,
     trace_kind: TraceKind,
     has_subtraces: &'a ReadSignal<bool>,
     expanded: &'a ReadSignal<bool>,
     toggle_expansion_handler: Rc<dyn Fn()>,
+    extra_tokens: &'a ReadSignal<Rc<Vec<TraceTokenData>>>,
 }
 
 #[component]
