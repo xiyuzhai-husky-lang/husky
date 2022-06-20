@@ -44,7 +44,7 @@ impl HuskyTraceTime {
                 ref loop_frame_data,
                 ..
             } => self.loop_frame_mutations_figure(
-                trace.props.opt_parent_id.unwrap(),
+                trace.raw_data.opt_parent_id.unwrap(),
                 &loop_frame_data.mutations,
                 &loop_frame_data.stack_snapshot,
             ),

@@ -24,7 +24,7 @@ fn main() {
     let gui: Element = get_gui();
     sycamore::render_get_scope(
         |scope| {
-            let context = provide_context(scope, TracerContext::new());
+            let context = provide_context(scope, DebuggerContext::new());
             let layout_width = memo!(scope, || math::round::floor(
                 context.window_inner_width.cget(),
                 0

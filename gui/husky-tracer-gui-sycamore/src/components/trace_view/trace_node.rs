@@ -8,12 +8,12 @@ pub struct TraceNodeProps<'a> {
 
 #[component]
 pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> View<G> {
-    let tracer_context = use_context::<TracerContext>(scope);
-    let tree_context = &tracer_context.tree_context;
-    let shown = tree_context.shown_signal(props.trace_id);
-    let expansion = tree_context.expanded_signal(props.trace_id);
+    let debuggerer_context = use_context::<DebuggerContext>(scope);
+    let trace_context = &debuggerer_context.trace_context;
+    let shown = trace_context.shown_signal(props.trace_id);
+    let expansion = trace_context.expanded_signal(props.trace_id);
     let expanded = memo!(scope, move || expansion.cget(), expansion);
-    let trace = tree_context.trace(props.trace_id);
+    let trace = trace_context.trace(props.trace_id);
     let trace_kind = trace.kind;
     let focus = props.focus;
     let has_stalk = memo!(scope, move || focus.get().has_stalk(trace_kind));
@@ -21,18 +21,31 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let has_subtraces = memo!(scope, move || {
         tell_has_subtraces(trace_kind, can_have_subtraces, &focus.get())
     });
-    let toggle_expansion_handler = tracer_context.toggle_expansion_handler(props.trace_id);
-    let activate_handler = tracer_context.activate_handler(props.trace_id);
-    let opt_active_trace_id = &tree_context.opt_active_trace_id;
+    let toggle_expansion_handler = debuggerer_context.toggle_expansion_handler(props.trace_id);
+    let activate_handler = debuggerer_context.activate_handler(props.trace_id);
+    let opt_active_trace_id = &trace_context.opt_active_trace_id;
     let trace_id = trace.id;
     let active = memo!(scope, move || opt_active_trace_id.cget() == Some(trace_id));
+    let trace_lines_len = trace.lines.len();
     let trace_lines = View::new_fragment(
         trace
             .lines
             .iter()
             .map(|line_data| {
                 let toggle_expansion_handler = toggle_expansion_handler.clone();
-                let extra_tokens = memo!(scope, move || todo!());
+                let line_idx = line_data.idx;
+                let opt_extra_tokens = memo!(scope, move || {
+                    if let Some(sample_id) = focus.get().opt_sample_id() {
+                        if line_idx == trace_lines_len - 1 {
+                            let trace_stalk = trace_context.trace_stalk(sample_id, trace_id);
+                            trace_stalk.opt_extra_tokens.clone()
+                        } else {
+                            None
+                        }
+                    } else {
+                        None
+                    }
+                });
                 view! { scope,
                     TraceLine {
                         data: line_data.clone(),
@@ -40,7 +53,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                         has_subtraces,
                         expanded,
                         toggle_expansion_handler,
-                        extra_tokens,
+                        opt_extra_tokens,
                     }
                 }
             })

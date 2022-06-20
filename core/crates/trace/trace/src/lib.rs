@@ -21,7 +21,7 @@ use text::{Text, TextRange};
 #[derive(Debug)]
 pub struct Trace {
     pub variant: TraceVariant<'static>,
-    pub props: TraceRawData,
+    pub raw_data: TraceRawData,
     pub range: TextRange,
     pub file: FilePtr,
 }
@@ -36,6 +36,6 @@ impl Eq for Trace {}
 
 impl Trace {
     pub fn id(&self) -> TraceId {
-        self.props.id
+        self.raw_data.id
     }
 }

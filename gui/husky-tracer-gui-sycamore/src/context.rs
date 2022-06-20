@@ -3,9 +3,9 @@ mod focus_context;
 mod impl_control;
 mod impl_init;
 mod internal;
-mod tree_context;
+mod trace_context;
 
-pub(crate) use tree_context::*;
+pub(crate) use trace_context::*;
 
 use crate::{services::websocket::WebsocketService, *};
 use figure_context::*;
@@ -21,19 +21,19 @@ use std::{
 use wasm_bindgen_futures::spawn_local;
 
 #[derive(Debug, Clone)]
-pub struct TracerContext(Rc<TracerContextInternal>);
+pub struct DebuggerContext(Rc<DebuggerContextInternal>);
 
-impl TracerContext {
-    pub fn new() -> TracerContext {
+impl DebuggerContext {
+    pub fn new() -> DebuggerContext {
         let (mut ws, mut server_notification_receiver) = WebsocketService::new();
-        let context = TracerContext(Rc::new(TracerContextInternal::new(ws.clone())));
+        let context = DebuggerContext(Rc::new(DebuggerContextInternal::new(ws.clone())));
         context.init(server_notification_receiver);
         context
     }
 }
 
-impl std::ops::Deref for TracerContext {
-    type Target = TracerContextInternal;
+impl std::ops::Deref for DebuggerContext {
+    type Target = DebuggerContextInternal;
 
     fn deref(&self) -> &Self::Target {
         &self.0

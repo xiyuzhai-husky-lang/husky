@@ -270,7 +270,7 @@ impl HuskyTraceTime {
             .map(|loop_frame_data| {
                 self.new_trace(
                     Some(parent.id()),
-                    parent.props.indent + 2,
+                    parent.raw_data.indent + 2,
                     TraceVariant::LoopFrame {
                         loop_stmt: loop_stmt.clone(),
                         body_stmts: body_stmts.clone(),
@@ -297,7 +297,7 @@ impl HuskyTraceTime {
             self.runtime.verbose(),
         );
         let mut subtraces: Vec<_> =
-            self.proc_stmts_traces(parent.id(), parent.props.indent + 2, stmts, &history);
+            self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 2, stmts, &history);
         match loop_stmt.variant {
             ProcStmtVariant::Loop {
                 ref loop_variant, ..
@@ -309,14 +309,14 @@ impl HuskyTraceTime {
                         condition.clone(),
                         history.clone(),
                         Some(parent),
-                        parent.props.indent + 2,
+                        parent.raw_data.indent + 2,
                     ),
                 ),
                 LoopVariant::DoWhile { condition } => subtraces.push(self.new_eager_expr_trace(
                     condition.clone(),
                     history.clone(),
                     Some(parent),
-                    parent.props.indent + 2,
+                    parent.raw_data.indent + 2,
                 )),
             },
             _ => panic!(),
@@ -365,7 +365,7 @@ impl HuskyTraceTime {
         verbose: bool,
     ) -> Vec<TraceId> {
         let history = exec_debug(db.upcast(), instruction_sheet, stack_snapshot, verbose);
-        self.proc_stmts_traces(parent.id(), parent.props.indent + 2, stmts, &history)
+        self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 2, stmts, &history)
     }
 
     pub(crate) fn proc_branch_lines(

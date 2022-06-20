@@ -4,7 +4,7 @@ use crate::*;
 
 impl<'eval> Trace {
     pub fn subtraces_container_class(&self) -> Option<SubtracesContainerClass> {
-        if !self.props.can_have_subtraces {
+        if !self.raw_data.can_have_subtraces {
             return None;
         }
         match self.variant {

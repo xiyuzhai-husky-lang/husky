@@ -5,17 +5,17 @@ use web_sys::Element;
 use super::*;
 
 #[derive(Debug)]
-pub struct TracerContextInternal {
+pub struct DebuggerContextInternal {
     pub ws: WebsocketService,
     pub window_inner_height: Rc<Signal<f64>>,
     pub window_inner_width: Rc<Signal<f64>>,
-    pub tree_context: TreeContext,
+    pub trace_context: TraceContext,
     pub figure_context: FigureContext,
     pub focus_context: FocusContext,
 }
 
-impl TracerContextInternal {
-    pub fn new(ws: WebsocketService) -> TracerContextInternal {
+impl DebuggerContextInternal {
+    pub fn new(ws: WebsocketService) -> DebuggerContextInternal {
         let window = web_sys::window().unwrap();
         let window_inner_height = Rc::new(Signal::new(
             window.inner_height().unwrap().as_f64().unwrap(),
@@ -38,11 +38,11 @@ impl TracerContextInternal {
                 .unwrap();
             closure.forget();
         }
-        TracerContextInternal {
+        DebuggerContextInternal {
             window_inner_height,
             window_inner_width,
             ws,
-            tree_context: Default::default(),
+            trace_context: Default::default(),
             figure_context: Default::default(),
             focus_context: Default::default(),
         }

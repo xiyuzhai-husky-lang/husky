@@ -6,10 +6,10 @@ use impl_control::*;
 use impl_storage::*;
 
 #[derive(Debug, Default)]
-pub struct TreeContext {
+pub struct TraceContext {
     pub trace_nodes: RefCell<Vec<TraceNodeState>>,
     pub subtrace_ids_map: RefCell<HashMap<SubtracesKey, Vec<TraceId>>>,
-    pub trace_stalks: RefCell<HashMap<TraceStalkKey, TraceStalk>>,
+    pub trace_stalks: RefCell<HashMap<TraceStalkKey, Rc<TraceStalkData>>>,
     pub root_trace_ids: Signal<Vec<TraceId>>,
     pub opt_active_trace_id: Signal<Option<TraceId>>,
     pub trace_listing: Signal<Vec<TraceId>>,
@@ -17,22 +17,22 @@ pub struct TreeContext {
 
 #[derive(Debug)]
 pub struct TraceNodeState {
-    trace: Rc<TraceRawData>,
+    data: Rc<TraceData>,
     expanded: Rc<Signal<bool>>,
     shown: Rc<Signal<bool>>,
 }
 
 impl From<TraceNodeData> for TraceNodeState {
-    fn from(data: TraceNodeData) -> Self {
+    fn from(node_data: TraceNodeData) -> Self {
         TraceNodeState {
-            trace: Rc::new(data.trace),
-            expanded: Rc::new(Signal::new(data.expansion)),
-            shown: Rc::new(Signal::new(data.shown)),
+            data: Rc::new(node_data.raw_data.into()),
+            expanded: Rc::new(Signal::new(node_data.expansion)),
+            shown: Rc::new(Signal::new(node_data.shown)),
         }
     }
 }
 
-impl TreeContext {
+impl TraceContext {
     pub(super) fn init(&self, focus: &Focus, init_data: TraceInitState) {
         *self.trace_nodes.borrow_mut(file!(), line!()) = init_data
             .trace_nodes
@@ -41,8 +41,15 @@ impl TreeContext {
             .collect();
         *self.subtrace_ids_map.borrow_mut(file!(), line!()) =
             init_data.subtrace_ids_map.into_iter().collect();
-        *self.trace_stalks.borrow_mut(file!(), line!()) =
-            init_data.trace_stalks.into_iter().collect();
+        log::info!(
+            "init_data.trace_stalks.len()={}",
+            init_data.trace_stalks.len()
+        );
+        *self.trace_stalks.borrow_mut(file!(), line!()) = init_data
+            .trace_stalks
+            .into_iter()
+            .map(|(key, raw_data)| -> (_, Rc<TraceStalkData>) { (key, Rc::new(raw_data.into())) })
+            .collect();
         self.root_trace_ids.set(init_data.root_trace_ids);
         self.opt_active_trace_id.set(init_data.opt_active_trace_id);
         self.update_trace_listing(focus);
@@ -114,10 +121,4 @@ impl TreeContext {
             }
         }
     }
-
-    // fn  print_state() {
-    //     throw new Error("todo");
-    //     // self.user_state.print_state();
-    //     // self.trace_cache.print_state();
-    // }
 }

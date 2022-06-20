@@ -96,11 +96,13 @@ impl HuskyTracerInternal {
                 }
             }
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
-                if let Some((new_traces, subtrace_ids)) = self.trace_time.toggle_expansion(trace_id)
+                if let Some((new_traces, subtrace_ids, trace_stalks)) =
+                    self.trace_time.toggle_expansion(trace_id)
                 {
                     Some(HuskyTracerServerMessageVariant::ToggleExpansion {
                         new_traces,
                         subtrace_ids,
+                        trace_stalks,
                     })
                 } else {
                     None
@@ -113,11 +115,11 @@ impl HuskyTracerInternal {
             HuskyTracerGuiMessageVariant::Trace { id } => {
                 let trace = self.trace_time.trace(id);
                 Some(HuskyTracerServerMessageVariant::Trace {
-                    trace_props: trace.props.clone(),
+                    trace_props: trace.raw_data.clone(),
                 })
             }
             HuskyTracerGuiMessageVariant::TraceStalk { trace_id, input_id } => {
-                let stalk = (*self.trace_time.trace_stalk(trace_id, input_id)).clone();
+                let (_, stalk) = self.trace_time.trace_stalk_with_key(trace_id, input_id);
                 Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
             HuskyTracerGuiMessageVariant::LockFocus {

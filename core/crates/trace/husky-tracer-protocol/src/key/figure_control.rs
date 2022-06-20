@@ -7,14 +7,26 @@ pub enum FigureControlKey {
 }
 
 impl FigureControlKey {
-    pub fn new(trace_props: &TraceRawData, focus: &Focus) -> FigureControlKey {
-        match trace_props.kind {
+    pub fn from_trace_raw_data(trace_raw_data: &TraceRawData, focus: &Focus) -> FigureControlKey {
+        Self::new(
+            trace_raw_data.opt_parent_id,
+            trace_raw_data.kind,
+            trace_raw_data.id,
+            focus,
+        )
+    }
+
+    pub fn new(
+        opt_parent_id: Option<TraceId>,
+        trace_kind: TraceKind,
+        trace_id: TraceId,
+        focus: &Focus,
+    ) -> FigureControlKey {
+        match trace_kind {
             TraceKind::LoopFrame => FigureControlKey::LoopFrame {
-                parent: trace_props.opt_parent_id.unwrap(),
+                parent: opt_parent_id.unwrap(),
             },
-            _ => FigureControlKey::Other {
-                this: trace_props.id,
-            },
+            _ => FigureControlKey::Other { this: trace_id },
         }
     }
 }

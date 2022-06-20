@@ -1,15 +1,15 @@
 use super::*;
 use web_sys::{Event, KeyboardEvent};
 
-impl TracerContext {
+impl DebuggerContext {
     pub(super) fn toggle_focus_kind(&self) {
         self.set_focus(self.focus_context.toggled_focus_kind())
     }
 
     fn set_focus(&self, focus: Focus) {
-        match self.tree_context.opt_active_trace_id.cget() {
+        match self.trace_context.opt_active_trace_id.cget() {
             Some(active_trace_id) => {
-                let active_trace = self.tree_context.trace(active_trace_id);
+                let active_trace = self.trace_context.trace(active_trace_id);
                 let request_figure = !self.figure_context.is_figure_cached(&active_trace, &focus);
                 log::info!("handle stalk");
                 if request_figure {

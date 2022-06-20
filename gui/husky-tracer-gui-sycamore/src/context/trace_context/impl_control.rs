@@ -1,6 +1,6 @@
 use super::*;
 
-impl TreeContext {
+impl TraceContext {
     pub(crate) fn expanded(&self, trace_id: TraceId) -> bool {
         self.trace_nodes.borrow(file!(), line!())[trace_id.0]
             .expanded
