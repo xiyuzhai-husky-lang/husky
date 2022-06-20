@@ -3,19 +3,23 @@ use super::*;
 #[derive(Debug, Serialize, Deserialize, Clone, Hash, PartialEq, Eq)]
 pub enum FigureCanvasKey {
     Null,
-    Feature { this: TraceId, focus: Focus },
+    Feature { trace_id: TraceId, focus: Focus },
     Eager { this: TraceId },
 }
 
 impl FigureCanvasKey {
-    pub fn new(trace_data: &TraceRawData, focus: &Focus) -> FigureCanvasKey {
-        match trace_data.kind {
+    pub fn from_trace_raw_data(trace_raw_data: &TraceRawData, focus: &Focus) -> FigureCanvasKey {
+        Self::new(trace_raw_data.kind, trace_raw_data.id, focus)
+    }
+
+    pub fn new(trace_kind: TraceKind, trace_id: TraceId, focus: &Focus) -> FigureCanvasKey {
+        match trace_kind {
             TraceKind::Main
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr
             | TraceKind::FeatureCallInput => FigureCanvasKey::Feature {
-                this: trace_data.id,
+                trace_id,
                 focus: focus.clone(),
             },
             TraceKind::FuncStmt => todo!(),

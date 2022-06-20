@@ -11,8 +11,8 @@ use trace_tree::*;
 
 #[component]
 pub fn TraceView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
-    let context = use_context::<TracerContext>(scope);
-    let root_trace_ids = &context.tree_context.root_trace_ids;
+    let context = use_context::<DebuggerContext>(scope);
+    let root_trace_ids = &context.trace_context.root_trace_ids;
     view! {
         scope,
         div(class="TraceView disable-select") {

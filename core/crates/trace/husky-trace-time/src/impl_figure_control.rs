@@ -10,7 +10,12 @@ impl HuskyTraceTime {
     #[inline(always)]
     pub fn figure_control(&mut self, trace_id: TraceId, focus: &Focus) -> FigureControlData {
         let trace = self.trace(trace_id);
-        let key = FigureControlKey::new(&trace.props, focus);
+        let key = FigureControlKey::new(
+            trace.raw_data.opt_parent_id,
+            trace.raw_data.kind,
+            trace.raw_data.id,
+            focus,
+        );
         if let Some(control) = self.figure_controls.get(&key) {
             control.clone()
         } else {
@@ -33,11 +38,11 @@ impl HuskyTraceTime {
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. } => FigureControlData::default(),
             TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
-                ProcStmtVariant::Loop { .. } => FigureControlData::loop_default(&trace.props),
+                ProcStmtVariant::Loop { .. } => FigureControlData::loop_default(&trace.raw_data),
                 _ => FigureControlData::default(),
             },
             TraceVariant::LoopFrame { .. } => FigureControlData::loop_default(
-                &self.trace(trace.props.opt_parent_id.unwrap()).props,
+                &self.trace(trace.raw_data.opt_parent_id.unwrap()).raw_data,
             ),
             TraceVariant::ProcBranch {
                 ref stmt,
@@ -68,8 +73,14 @@ impl HuskyTraceTime {
         focus: &Focus,
         new_control: FigureControlData,
     ) {
+        let trace_raw_data = &self.trace(trace_id).raw_data;
         self.figure_controls.insert(
-            FigureControlKey::new(&self.trace(trace_id).props, focus),
+            FigureControlKey::new(
+                trace_raw_data.opt_parent_id,
+                trace_raw_data.kind,
+                trace_raw_data.id,
+                focus,
+            ),
             new_control,
         );
     }

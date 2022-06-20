@@ -2,7 +2,7 @@ use futures::channel::mpsc::Receiver;
 
 use super::*;
 
-impl TracerContext {
+impl DebuggerContext {
     pub(super) fn init(&self, read: Receiver<HuskyTracerServerMessage>) {
         self.send_init_request();
         self.spawn_listening(read)
@@ -31,7 +31,7 @@ impl TracerContext {
         self.focus_context.init(init_data.focus.clone());
         self.figure_context
             .init(init_data.figure_canvases, init_data.figure_controls);
-        self.tree_context
+        self.trace_context
             .init(&init_data.focus, init_data.trace_init_data);
     }
 

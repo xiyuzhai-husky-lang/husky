@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Prop)]
 pub struct TraceTokenProps {
-    data: TraceTokenData,
+    data: Rc<TraceTokenData>,
 }
 
 #[component]
@@ -10,10 +10,11 @@ pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps) -> View
     let text = &props.data.value;
     let spaces_before_style = spaces_style(count_spaces_before(text));
     let spaces_after_style = spaces_style(count_spaces_after(text));
+    let token_kind = props.data.kind;
     view! {
         scope,
         span (style=spaces_before_style)
-        code(class=format!("TraceToken {}", props.data.kind)) {
+        code(class=format!("TraceToken {}", token_kind)) {
             (props.data.value)
         }
         span (style=spaces_after_style)

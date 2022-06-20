@@ -57,7 +57,7 @@ impl Focus {
         }
     }
 
-    pub fn opt_input_id(&self) -> Option<usize> {
+    pub fn opt_sample_id(&self) -> Option<usize> {
         match self {
             Focus::Specific { input_id } => Some(*input_id),
             Focus::Generic { .. } => None,

@@ -13,7 +13,7 @@ impl FocusContext {
     }
 
     pub(super) fn opt_input_id(&self) -> Option<usize> {
-        return self.focus.get().opt_input_id();
+        return self.focus.get().opt_sample_id();
     }
 
     pub(super) fn did_lock_focus(&mut self, focus: Focus) {

@@ -34,8 +34,8 @@ impl<'a> VSplitPanelProps<'a> {
 
 #[component]
 pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -> View<G> {
-    let context = use_context::<TracerContext>(scope);
-    let root_trace_ids = &context.tree_context.root_trace_ids;
+    let context = use_context::<DebuggerContext>(scope);
+    let root_trace_ids = &context.trace_context.root_trace_ids;
     let upper_panel_style = memo!(scope, move || props.upper_panel_style(), props);
     let upper_panel_height = memo!(scope, move || props.upper_panel_height(), props);
     let lower_panel_style = memo!(scope, move || props.lower_panel_style(), props);

@@ -43,7 +43,7 @@ pub struct HuskyTraceTime {
     focus: Focus,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
-    trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
+    trace_stalks: HashMap<TraceStalkKey, TraceStalkRawData>,
     root_trace_ids: Vec<TraceId>,
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
     figure_controls: HashMap<FigureControlKey, FigureControlData>,
@@ -97,7 +97,7 @@ impl HuskyTraceTime {
     }
 
     pub fn subtrace_ids(&mut self, trace_id: TraceId) -> Vec<TraceId> {
-        let key = SubtracesKey::new(&self.focus, self.trace(trace_id).props.kind, trace_id);
+        let key = SubtracesKey::new(&self.focus, self.trace(trace_id).raw_data.kind, trace_id);
         if let Some(subtrace_ids) = self.subtrace_ids_map.get(&key) {
             subtrace_ids.clone()
         } else {
@@ -191,7 +191,7 @@ impl HuskyTraceTime {
             let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.lines(trace_id, indent, &variant, opt_parent_id.is_some());
             Trace {
-                props: TraceRawData {
+                raw_data: TraceRawData {
                     id: trace_id,
                     opt_parent_id,
                     indent,
@@ -209,7 +209,7 @@ impl HuskyTraceTime {
         assert!(self.trace_nodes[trace.id().0].is_none());
         self.trace_nodes[trace_id.0] = Some(TraceNode {
             expansion: false,
-            shown: match trace.props.kind {
+            shown: match trace.raw_data.kind {
                 TraceKind::FeatureExpr | TraceKind::EagerExpr => false,
                 _ => true,
             },
@@ -221,17 +221,31 @@ impl HuskyTraceTime {
     pub fn toggle_expansion(
         &mut self,
         trace_id: TraceId,
-    ) -> Option<(Vec<TraceNodeData>, Vec<TraceId>)> {
+    ) -> Option<(
+        Vec<TraceNodeData>,
+        Vec<TraceId>,
+        Vec<(TraceStalkKey, TraceStalkRawData)>,
+    )> {
         let old_len = self.trace_nodes.len();
         let expansion = &mut self.trace_nodes[trace_id.0].as_mut().unwrap().expansion;
         *expansion = !*expansion;
         let subtrace_ids = self.subtrace_ids(trace_id);
         if self.trace_nodes.len() > old_len {
-            let new_traces = self.trace_nodes[old_len..]
+            let new_traces: Vec<TraceNodeData> = self.trace_nodes[old_len..]
                 .iter()
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
-            Some((new_traces, subtrace_ids))
+            let trace_stalks: Vec<(TraceStalkKey, TraceStalkRawData)> = if let Some(sample_id) =
+                self.focus.opt_sample_id()
+            {
+                new_traces
+                    .iter()
+                    .map(|new_trace| self.trace_stalk_with_key(new_trace.raw_data.id, sample_id))
+                    .collect()
+            } else {
+                vec![]
+            };
+            Some((new_traces, subtrace_ids, trace_stalks))
         } else {
             None
         }
@@ -263,13 +277,14 @@ impl HuskyTraceTime {
         let opt_active_trace_id = self.opt_active_trace_id;
         if let Some(active_trace_id) = opt_active_trace_id {
             let active_trace = self.trace(active_trace_id);
-            let figure_canvas_key = FigureCanvasKey::new(&active_trace.props, &focus);
+            let figure_canvas_key =
+                FigureCanvasKey::from_trace_raw_data(&active_trace.raw_data, &focus);
             figure_canvases.push((
                 figure_canvas_key,
                 self.figure_canvas(active_trace_id, &focus).unwrap(),
             ));
             figure_controls.push((
-                FigureControlKey::new(&active_trace.props, &focus),
+                FigureControlKey::from_trace_raw_data(&active_trace.raw_data, &focus),
                 unsafe { ref_to_mut_ref(self) }.figure_control(active_trace_id, &focus),
             ));
         }

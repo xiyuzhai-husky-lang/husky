@@ -14,7 +14,7 @@ pub trait TraceQueryGroup: ProduceTrace {
 
     fn root_traces(&self) -> Vec<TraceId>;
     fn subtraces(&self, trace_id: TraceId, effective_opt_input_id: Option<usize>) -> Vec<TraceId>;
-    fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalk>;
+    fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalkRawData>;
 }
 
 pub fn root_traces(this: &dyn TraceQueryGroup) -> Vec<TraceId> {
@@ -131,29 +131,29 @@ pub fn trace_stalk(
     this: &dyn TraceQueryGroup,
     trace_id: TraceId,
     input_id: usize,
-) -> Arc<TraceStalk> {
+) -> Arc<TraceStalkRawData> {
     let trace: &Trace = &this.trace(trace_id);
     Arc::new(match trace.variant {
-        TraceVariant::Main(ref repr) => TraceStalk {
+        TraceVariant::Main(ref repr) => TraceStalkRawData {
             extra_tokens: vec![
                 fade!(" = "),
                 this.runtime().eval_feature_repr(repr, input_id).into(),
             ],
         },
         TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
-            FeatureStmtVariant::Init { varname, ref value } => TraceStalk {
+            FeatureStmtVariant::Init { varname, ref value } => TraceStalkRawData {
                 extra_tokens: vec![
                     fade!(" = "),
                     this.runtime().eval_feature_expr(value, input_id).into(),
                 ],
             },
-            FeatureStmtVariant::Assert { ref condition } => TraceStalk {
+            FeatureStmtVariant::Assert { ref condition } => TraceStalkRawData {
                 extra_tokens: vec![
                     fade!(" = "),
                     this.runtime().eval_feature_expr(condition, input_id).into(),
                 ],
             },
-            FeatureStmtVariant::Return { ref result } => TraceStalk {
+            FeatureStmtVariant::Return { ref result } => TraceStalkRawData {
                 extra_tokens: vec![
                     fade!(" = "),
                     this.runtime().eval_feature_expr(result, input_id).into(),
@@ -161,10 +161,10 @@ pub fn trace_stalk(
             },
             FeatureStmtVariant::ConditionFlow { ref branches } => panic!(),
         },
-        TraceVariant::FeatureBranch(_) => TraceStalk {
+        TraceVariant::FeatureBranch(_) => TraceStalkRawData {
             extra_tokens: vec![],
         },
-        TraceVariant::FeatureExpr(ref expr) => TraceStalk {
+        TraceVariant::FeatureExpr(ref expr) => TraceStalkRawData {
             extra_tokens: vec![
                 fade!(" = "),
                 this.runtime().eval_feature_expr(expr, input_id).into(),
@@ -179,7 +179,7 @@ pub fn trace_stalk(
             loop_frame_data: ref vm_loop_frame,
             ..
         } => match vm_loop_frame.control {
-            ControlSnapshot::None => TraceStalk::default(),
+            ControlSnapshot::None => TraceStalkRawData::default(),
             ControlSnapshot::Return(_) => todo!(),
             ControlSnapshot::Break => todo!(),
             ControlSnapshot::Err(_) => todo!(),

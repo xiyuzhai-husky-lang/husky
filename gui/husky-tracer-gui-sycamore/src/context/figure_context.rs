@@ -24,7 +24,7 @@ impl FigureContext {
 
     pub(super) fn set_figure(
         &self,
-        trace: &TraceRawData,
+        trace: &TraceData,
         focus: &Focus,
         figure: FigureCanvasData,
         figure_control_props: FigureControlData,
@@ -32,22 +32,25 @@ impl FigureContext {
         assert!(self
             .figure_canvases
             .borrow_mut(file!(), line!())
-            .insert(FigureCanvasKey::new(trace, focus), Rc::new(figure))
+            .insert(
+                FigureCanvasKey::new(trace.kind, trace.id, focus),
+                Rc::new(figure)
+            )
             .is_none());
         self.set_figure_control_data(trace, focus, figure_control_props);
     }
 
     pub(crate) fn figure_canvas_data(
         &self,
-        trace: &TraceRawData,
+        trace: &TraceData,
         focus: &Focus,
     ) -> Rc<FigureCanvasData> {
-        let figure_canvas_key = FigureCanvasKey::new(trace, focus);
+        let figure_canvas_key = FigureCanvasKey::new(trace.kind, trace.id, focus);
         self.figure_canvases.borrow(file!(), line!())[&figure_canvas_key].clone()
     }
 
-    pub(super) fn is_figure_cached(&self, trace: &TraceRawData, focus: &Focus) -> bool {
-        let key = FigureCanvasKey::new(trace, focus);
+    pub(super) fn is_figure_cached(&self, trace: &TraceData, focus: &Focus) -> bool {
+        let key = FigureCanvasKey::new(trace.kind, trace.id, focus);
         self.figure_canvases
             .borrow(file!(), line!())
             .contains_key(&key)
@@ -55,7 +58,7 @@ impl FigureContext {
 
     fn set_figure_control_data(
         &self,
-        trace: &TraceRawData,
+        trace: &TraceData,
         focus: &Focus,
         figure_control_data: FigureControlData,
     ) {
@@ -71,7 +74,7 @@ impl FigureContext {
         // }
         let opt_figure_control_signal = {
             let figure_controls = &mut self.figure_controls.borrow_mut(file!(), line!());
-            let key = FigureControlKey::new(trace, focus);
+            let key = FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, focus);
             if let Some(figure_control_signal) = figure_controls.get(&key) {
                 Some(figure_control_signal.clone())
             } else {
@@ -84,10 +87,12 @@ impl FigureContext {
 
     pub(crate) fn figure_control_data(
         &self,
-        trace: &TraceRawData,
+        trace: &TraceData,
         focus: &Focus,
     ) -> Rc<Signal<FigureControlData>> {
-        self.figure_controls.borrow(file!(), line!())[&FigureControlKey::new(trace, focus)].clone()
+        self.figure_controls.borrow(file!(), line!())
+            [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, focus)]
+            .clone()
     }
 
     // fn update_figure_control_props(

@@ -32,7 +32,7 @@ pub struct TraceData {
     pub id: TraceId,
     pub kind: TraceKind,
     pub indent: Indent,
-    pub lines: Rc<Vec<TraceLineData>>,
+    pub lines: Vec<Rc<TraceLineData>>,
     pub compile_time_version: usize,
     pub can_have_subtraces: bool,
     pub reachable: bool,
@@ -45,7 +45,11 @@ impl From<TraceRawData> for TraceData {
             id: raw_data.id,
             kind: raw_data.kind,
             indent: raw_data.indent,
-            lines: Rc::new(raw_data.lines.into_iter().map(|line| line.into()).collect()),
+            lines: raw_data
+                .lines
+                .into_iter()
+                .map(|line| Rc::new(line.into()))
+                .collect(),
             compile_time_version: raw_data.compile_time_version,
             can_have_subtraces: raw_data.can_have_subtraces,
             reachable: raw_data.reachable,
@@ -53,7 +57,7 @@ impl From<TraceRawData> for TraceData {
     }
 }
 
-impl TraceRawData {
+impl TraceData {
     pub fn associated_trace_ids(&self) -> Vec<TraceId> {
         let mut associated_trace_ids = vec![];
         for line in &self.lines {

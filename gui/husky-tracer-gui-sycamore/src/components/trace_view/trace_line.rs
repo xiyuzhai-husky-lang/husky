@@ -5,12 +5,12 @@ use line_start::*;
 
 #[derive(Prop)]
 pub struct TraceLineProps<'a> {
-    data: TraceLineRawData,
+    data: Rc<TraceLineData>,
     trace_kind: TraceKind,
     has_subtraces: &'a ReadSignal<bool>,
     expanded: &'a ReadSignal<bool>,
     toggle_expansion_handler: Rc<dyn Fn()>,
-    extra_tokens: &'a ReadSignal<Rc<Vec<TraceTokenData>>>,
+    opt_extra_tokens: &'a ReadSignal<Option<Rc<Vec<Rc<TraceTokenData>>>>>,
 }
 
 #[component]
@@ -29,22 +29,42 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
             })
             .collect(),
     );
+    let extra_tokens = memo!(scope, move || View::new_fragment(
+        if let Some(extra_tokens) = props.opt_extra_tokens.cget() {
+            extra_tokens
+                .iter()
+                .map(|token_data| {
+                    view! { scope,
+                        TraceToken {
+                            data: token_data.clone(),
+                        }
+                    }
+                })
+                .collect()
+        } else {
+            vec![]
+        },
+    ));
+    let indent = props.data.indent;
     view! {
         scope,
         p (class="TraceLine") {
-            span (class="indent", style=format!("padding-left: {}px", props.data.indent as f64 * 9.5))
+            span (class="indent", style=format!("padding-left: {}px", indent as f64 * 9.5))
             TraceLineStart {
                 idx: props.data.idx,
                 has_subtraces: props.has_subtraces,
                 expanded: props.expanded,
                 trace_kind: props.trace_kind,
                 opt_on_click_start:{
-                    if  props.data.idx == 0
-                {Some(props.toggle_expansion_handler.clone())} else {None}
-
+                    if  props.data.idx == 0 {
+                        Some(props.toggle_expansion_handler.clone())
+                    } else {
+                        None
+                    }
                 },
             }
             (trace_tokens)
+            (extra_tokens.cget())
         }
     }
 }
