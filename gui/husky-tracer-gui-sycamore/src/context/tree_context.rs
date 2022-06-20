@@ -17,7 +17,7 @@ pub struct TreeContext {
 
 #[derive(Debug)]
 pub struct TraceNodeState {
-    trace: Rc<TraceData>,
+    trace: Rc<TraceRawData>,
     expanded: Rc<Signal<bool>>,
     shown: Rc<Signal<bool>>,
 }

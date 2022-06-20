@@ -32,13 +32,15 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
             .iter()
             .map(|line_data| {
                 let toggle_expansion_handler = toggle_expansion_handler.clone();
+                let extra_tokens = memo!(scope, move || todo!());
                 view! { scope,
                     TraceLine {
                         data: line_data.clone(),
                         trace_kind,
                         has_subtraces,
                         expanded,
-                        toggle_expansion_handler
+                        toggle_expansion_handler,
+                        extra_tokens,
                     }
                 }
             })

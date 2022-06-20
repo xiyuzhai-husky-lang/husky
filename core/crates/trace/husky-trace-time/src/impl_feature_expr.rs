@@ -14,8 +14,8 @@ impl HuskyTraceTime {
         &mut self,
         expr: &Arc<FeatureLazyExpr>,
         config: ExprTokenConfig,
-    ) -> Vec<TraceLineData> {
-        vec![TraceLineData {
+    ) -> Vec<TraceLineRawData> {
+        vec![TraceLineRawData {
             indent: 0,
             idx: 0,
             tokens: self.feature_expr_tokens(expr, config),

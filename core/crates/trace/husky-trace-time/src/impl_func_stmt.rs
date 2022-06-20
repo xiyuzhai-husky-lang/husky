@@ -34,8 +34,8 @@ impl HuskyTraceTime {
         &mut self,
         stmt: &FuncStmt,
         history: &Arc<History<'static>>,
-    ) -> Vec<TraceLineData> {
-        vec![TraceLineData {
+    ) -> Vec<TraceLineRawData> {
+        vec![TraceLineRawData {
             indent: stmt.indent,
             tokens: self.func_stmt_tokens(stmt, history),
             idx: 0,

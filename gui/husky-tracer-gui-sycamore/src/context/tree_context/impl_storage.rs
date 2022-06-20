@@ -1,7 +1,7 @@
 use super::*;
 
 impl TreeContext {
-    pub(crate) fn trace(&self, trace_id: TraceId) -> Rc<TraceData> {
+    pub(crate) fn trace(&self, trace_id: TraceId) -> Rc<TraceRawData> {
         let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0]
             .trace
             .clone();

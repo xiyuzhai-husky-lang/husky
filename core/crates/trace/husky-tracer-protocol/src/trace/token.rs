@@ -1,3 +1,5 @@
+use sycamore::prelude::Signalable;
+
 use super::*;
 
 // ts: { type: string; value: string; spaces_before?: number }
@@ -7,6 +9,8 @@ pub struct TraceTokenData {
     pub value: String,
     pub opt_associated_trace_id: Option<TraceId>,
 }
+
+impl Signalable for TraceTokenData {}
 
 impl<T, E> From<Result<T, E>> for TraceTokenData
 where

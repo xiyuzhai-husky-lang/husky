@@ -21,7 +21,7 @@ use text::{Text, TextRange};
 #[derive(Debug)]
 pub struct Trace {
     pub variant: TraceVariant<'static>,
-    pub props: TraceData,
+    pub props: TraceRawData,
     pub range: TextRange,
     pub file: FilePtr,
 }

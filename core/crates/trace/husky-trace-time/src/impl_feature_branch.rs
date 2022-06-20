@@ -20,8 +20,8 @@ impl HuskyTraceTime {
         &mut self,
         indent: Indent,
         branch: &FeatureBranch,
-    ) -> Vec<TraceLineData> {
-        vec![TraceLineData {
+    ) -> Vec<TraceLineRawData> {
+        vec![TraceLineRawData {
             idx: 0,
             indent,
             tokens: self.feature_branch_tokens(branch),
