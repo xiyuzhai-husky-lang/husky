@@ -182,7 +182,7 @@ pub fn Copyright<G: Html>(cx: Scope) -> View<G> {
 pub fn Header<G: Html>(cx: Scope) -> View<G> {
     let app_state = use_context::<AppState>(cx);
     let value = create_signal(cx, String::new());
-    let input_ref = create_node_ref(cx);
+    let input_ref = create_node_ref_signal(cx);
 
     let handle_submit = |event: Event| {
         let event: KeyboardEvent = event.unchecked_into();
@@ -230,7 +230,7 @@ pub fn Item<G: Html>(cx: Scope, todo: RcSignal<Todo>) -> View<G> {
     let id = todo.get().id;
 
     let editing = create_signal(cx, false);
-    let input_ref = create_node_ref(cx);
+    let input_ref = create_node_ref_signal(cx);
     let value = create_signal(cx, "".to_string());
 
     let handle_input = |event: Event| {

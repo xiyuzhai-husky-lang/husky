@@ -32,7 +32,8 @@ features = [
     'Node',
     'Window',
     'KeyboardEvent',
-    'ImageData'
+    'ImageData',
+    'HtmlDialogElement'
 ]
 
 [profile.dev]

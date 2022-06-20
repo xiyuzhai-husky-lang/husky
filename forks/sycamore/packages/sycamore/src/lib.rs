@@ -50,7 +50,7 @@ pub mod utils;
 pub mod web;
 
 /* Re-export modules from sycamore-core */
-pub use sycamore_core::{component, generic_node, noderef, view};
+pub use sycamore_core::{component, generic_node, noderef_signal, view};
 /* Re-export of the sycamore-macro crate */
 pub use sycamore_macro::*;
 
@@ -84,7 +84,7 @@ pub mod prelude {
     pub use crate::component::Children;
     pub use crate::flow::*;
     pub use crate::generic_node::GenericNode;
-    pub use crate::noderef::{create_node_ref, NodeRef};
+    pub use crate::noderef_signal::{create_node_ref_signal, NodeRefSignal};
     pub use crate::reactive::*;
     pub use crate::view::View;
     #[cfg(feature = "web")]

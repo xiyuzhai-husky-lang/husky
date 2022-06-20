@@ -11,6 +11,6 @@ pub mod component;
 pub mod generic_node;
 #[cfg(feature = "hydrate")]
 pub mod hydrate;
-pub mod noderef;
+pub mod noderef_signal;
 pub mod render;
 pub mod view;

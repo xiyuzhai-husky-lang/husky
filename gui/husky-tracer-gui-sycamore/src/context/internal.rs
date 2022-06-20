@@ -11,7 +11,8 @@ pub struct DebuggerContextInternal {
     pub window_inner_width: Rc<Signal<f64>>,
     pub trace_context: TraceContext,
     pub figure_context: FigureContext,
-    pub focus_context: FocusContext,
+    pub attention_context: FocusContext,
+    pub dialog_opened: Rc<Signal<bool>>,
 }
 
 impl DebuggerContextInternal {
@@ -44,7 +45,8 @@ impl DebuggerContextInternal {
             ws,
             trace_context: Default::default(),
             figure_context: Default::default(),
-            focus_context: Default::default(),
+            attention_context: Default::default(),
+            dialog_opened: Rc::new(Signal::new(false)),
         }
     }
 }

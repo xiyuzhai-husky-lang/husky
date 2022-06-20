@@ -83,7 +83,7 @@ where
 {
     use crate::utils::{hydrate, render};
 
-    let node_ref = create_node_ref(cx);
+    let node_ref = create_node_ref_signal(cx);
     let v = view! { cx,
         // TODO: remove wrapper `div`. We currently cannot do that because otherwise
         // the node won't get inserted into the DOM.

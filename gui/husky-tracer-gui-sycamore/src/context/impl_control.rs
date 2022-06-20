@@ -22,41 +22,43 @@ impl DebuggerContext {
     pub fn keydown_handler(&self) -> impl Fn(Event) {
         let this = self.clone();
         move |ev| {
-            let ev: KeyboardEvent = ev.unchecked_into();
-            let c = char::from_u32(ev.key_code()).unwrap();
-            match c {
-                'T' => {
-                    // 't'
-                    todo!("t")
+            if !this.dialog_opened.cget() {
+                let ev: KeyboardEvent = ev.unchecked_into();
+                let c = char::from_u32(ev.key_code()).unwrap();
+                match c {
+                    'T' => {
+                        // 't'
+                        todo!("t")
+                    }
+                    'C' => {
+                        // 't'
+                        log::info!("figure context is \n:{:?}", this.figure_context);
+                        // log::info!("fcous context is \n:{:?}", this.focus_context);
+                        log::info!(
+                            "opt active trace id is \n:{:?}",
+                            this.trace_context.opt_active_trace_id
+                        );
+                    }
+                    'J' => {
+                        todo!()
+                    }
+                    'K' => {
+                        todo!()
+                    }
+                    'L' => {
+                        todo!()
+                    }
+                    'H' => {
+                        todo!()
+                    }
+                    _ => log::info!("keydown with char: {}", c),
                 }
-                'C' => {
-                    // 't'
-                    log::info!("figure context is \n:{:?}", this.figure_context);
-                    // log::info!("fcous context is \n:{:?}", this.focus_context);
-                    log::info!(
-                        "opt active trace id is \n:{:?}",
-                        this.trace_context.opt_active_trace_id
-                    );
-                }
-                'J' => {
-                    todo!()
-                }
-                'K' => {
-                    todo!()
-                }
-                'L' => {
-                    todo!()
-                }
-                'H' => {
-                    todo!()
-                }
-                _ => log::info!("keydown with char: {}", c),
             }
         }
     }
 
     fn activate(&self, trace_id: TraceId) {
-        let focus = self.focus_context.focus.get();
+        let focus = self.attention_context.focus.get();
         let trace = self.trace_context.trace(trace_id);
         let is_figure_cached = self.figure_context.is_figure_cached(&trace, &focus);
         if (is_figure_cached) {
@@ -99,7 +101,7 @@ impl DebuggerContext {
         if expansion.cget() {
             expansion.set(false)
         } else {
-            let focus = self.focus_context.focus.get();
+            let focus = self.attention_context.focus.get();
             let trace_kind = self.trace_context.trace_kind(trace_id);
             let key = SubtracesKey::new(&focus, trace_kind, trace_id);
             if self

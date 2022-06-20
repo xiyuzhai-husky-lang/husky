@@ -435,7 +435,7 @@ impl Codegen {
             }
             AttributeType::Ref => {
                 tokens.extend(quote! {{
-                    ::sycamore::noderef::NodeRef::set(&#expr, ::std::clone::Clone::clone(&__el));
+                    ::sycamore::noderef_signal::NodeRefSignal::set(&#expr, ::std::clone::Clone::clone(&__el));
                 }});
             }
         }
