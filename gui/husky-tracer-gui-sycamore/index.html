@@ -95,9 +95,22 @@
         />
         <link data-trunk rel="css" href="./src/components/attention_view.css" />
     </head>
+    <script>
+        function haha(e) {
+            e.preventDefault();
+            console.log("haha");
+            return false;
+        }
+    </script>
     <body>
         <div class="HuskyTracerGui">
-            <dialog id="attention-dialog" tabindex="0"></dialog>
+            <dialog id="attention-dialog" tabindex="0">
+                <form id="attention-dialog-form" onsubmit="return false;">
+                    sample id =<input
+                        id="attention-dialog-form-sample-id-input"
+                    /><br />
+                </form>
+            </dialog>
         </div>
     </body>
 </html>

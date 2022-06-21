@@ -50,7 +50,7 @@ pub mod utils;
 pub mod web;
 
 /* Re-export modules from sycamore-core */
-pub use sycamore_core::{component, generic_node, noderef_signal, view};
+pub use sycamore_core::{component, generic_node, noderef_signal, render, view};
 /* Re-export of the sycamore-macro crate */
 pub use sycamore_macro::*;
 
