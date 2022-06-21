@@ -1,4 +1,5 @@
 use super::*;
+use web_sys::Event;
 
 #[derive(Prop)]
 pub struct TraceExpansionProps<'a> {
@@ -25,7 +26,10 @@ pub(super) fn TraceExpansion<'a, G: Html>(
                         "TraceExpansion"
                     }
                 },
-                on:click=move |_|props.opt_on_click_start.clone().unwrap()()
+                on:click=move |ev:Event|{
+                    // ev.stop_propagation();
+                    props.opt_on_click_start.clone().unwrap()()
+                }
             ) {
                 svg (
                     stroke-width="0",

@@ -1,3 +1,5 @@
+use web_sys::Event;
+
 use super::*;
 
 #[derive(Prop)]
