@@ -1,4 +1,5 @@
 mod generic_graphics2d;
+mod generic_i32;
 mod graphics2d;
 mod plot2d;
 mod primitive_value;
