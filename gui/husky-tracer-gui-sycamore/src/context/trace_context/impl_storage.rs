@@ -23,17 +23,17 @@ impl TraceContext {
             .clone()
     }
 
-    pub(crate) fn subtrace_ids(&self, focus: &Focus, trace_id: TraceId) -> Vec<TraceId> {
+    pub(crate) fn subtrace_ids(&self, attention: &Attention, trace_id: TraceId) -> Vec<TraceId> {
         self.subtrace_ids_map.borrow(file!(), line!())
-            [&SubtracesKey::new(focus, self.trace_kind(trace_id), trace_id)]
+            [&SubtracesKey::new(attention, self.trace_kind(trace_id), trace_id)]
             .to_vec()
     }
 
-    pub(crate) fn is_subtraces_cached(&self, focus: &Focus, trace_id: TraceId) -> bool {
+    pub(crate) fn is_subtraces_cached(&self, attention: &Attention, trace_id: TraceId) -> bool {
         self.subtrace_ids_map
             .borrow(file!(), line!())
             .contains_key(&SubtracesKey::new(
-                focus,
+                attention,
                 self.trace_kind(trace_id),
                 trace_id,
             ))

@@ -25,7 +25,7 @@ impl FigureContext {
     pub(super) fn set_figure(
         &self,
         trace: &TraceData,
-        focus: &Focus,
+        attention: &Attention,
         figure: FigureCanvasData,
         figure_control_props: FigureControlData,
     ) {
@@ -33,24 +33,24 @@ impl FigureContext {
             .figure_canvases
             .borrow_mut(file!(), line!())
             .insert(
-                FigureCanvasKey::new(trace.kind, trace.id, focus),
+                FigureCanvasKey::new(trace.kind, trace.id, attention),
                 Rc::new(figure)
             )
             .is_none());
-        self.set_figure_control_data(trace, focus, figure_control_props);
+        self.set_figure_control_data(trace, attention, figure_control_props);
     }
 
     pub(crate) fn figure_canvas_data(
         &self,
         trace: &TraceData,
-        focus: &Focus,
+        attention: &Attention,
     ) -> Rc<FigureCanvasData> {
-        let figure_canvas_key = FigureCanvasKey::new(trace.kind, trace.id, focus);
+        let figure_canvas_key = FigureCanvasKey::new(trace.kind, trace.id, attention);
         self.figure_canvases.borrow(file!(), line!())[&figure_canvas_key].clone()
     }
 
-    pub(super) fn is_figure_cached(&self, trace: &TraceData, focus: &Focus) -> bool {
-        let key = FigureCanvasKey::new(trace.kind, trace.id, focus);
+    pub(super) fn is_figure_cached(&self, trace: &TraceData, attention: &Attention) -> bool {
+        let key = FigureCanvasKey::new(trace.kind, trace.id, attention);
         self.figure_canvases
             .borrow(file!(), line!())
             .contains_key(&key)
@@ -59,12 +59,12 @@ impl FigureContext {
     fn set_figure_control_data(
         &self,
         trace: &TraceData,
-        focus: &Focus,
+        attention: &Attention,
         figure_control_data: FigureControlData,
     ) {
         // this code is buggy because figure_controls borrow mut is not dropped when setting figure control
         // let figure_controls = &mut self.figure_controls.borrow_mut(file!(), line!());
-        // let key = FigureControlKey::new(trace, focus);
+        // let key = FigureControlKey::new(trace, attention);
         // if let Some(figure_control_signal) = figure_controls.get(&key) {
         //     log::info!("here1243");
         //     figure_control_signal.set(figure_control_data);
@@ -74,7 +74,7 @@ impl FigureContext {
         // }
         let opt_figure_control_signal = {
             let figure_controls = &mut self.figure_controls.borrow_mut(file!(), line!());
-            let key = FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, focus);
+            let key = FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, attention);
             if let Some(figure_control_signal) = figure_controls.get(&key) {
                 Some(figure_control_signal.clone())
             } else {
@@ -88,10 +88,10 @@ impl FigureContext {
     pub(crate) fn figure_control_data(
         &self,
         trace: &TraceData,
-        focus: &Focus,
+        attention: &Attention,
     ) -> Rc<Signal<FigureControlData>> {
         self.figure_controls.borrow(file!(), line!())
-            [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, focus)]
+            [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, attention)]
             .clone()
     }
 

@@ -28,11 +28,11 @@ impl DebuggerContext {
             assert!(init_data.figure_canvases.len() > 0);
         }
         // order matters
-        self.attention_context.init(init_data.focus.clone());
+        self.attention_context.init(init_data.attention.clone());
         self.figure_context
             .init(init_data.figure_canvases, init_data.figure_controls);
         self.trace_context
-            .init(&init_data.focus, init_data.trace_init_data);
+            .init(&init_data.attention, init_data.trace_init_data);
     }
 
     fn spawn_listening(&self, mut read: Receiver<HuskyTracerServerMessage>) {

@@ -1,5 +1,5 @@
+mod attention_context;
 mod figure_context;
-mod focus_context;
 mod impl_control;
 mod impl_init;
 mod internal;
@@ -8,8 +8,8 @@ mod trace_context;
 pub(crate) use trace_context::*;
 
 use crate::{services::websocket::WebsocketService, *};
+use attention_context::*;
 use figure_context::*;
-use focus_context::*;
 use futures::{channel::mpsc::Sender, stream::SplitStream, SinkExt, StreamExt};
 use internal::*;
 use reqwasm::websocket::{futures::WebSocket, Message};

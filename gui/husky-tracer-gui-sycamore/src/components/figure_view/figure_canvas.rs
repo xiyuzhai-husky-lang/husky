@@ -18,13 +18,13 @@ pub struct FigureCanvasProps<'a> {
 pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>) -> View<G> {
     let tracer_context = use_context::<DebuggerContext>(scope);
     let opt_active_trace_id = &tracer_context.trace_context.opt_active_trace_id;
-    let focus = &tracer_context.attention_context.focus;
+    let attention = &tracer_context.attention_context.attention;
     let opt_data = memo!(scope, move || opt_active_trace_id.cget().map(
         |active_trace_id| {
             let active_trace = tracer_context.trace_context.trace(active_trace_id);
             tracer_context
                 .figure_context
-                .figure_canvas_data(&active_trace, &focus.get())
+                .figure_canvas_data(&active_trace, &attention.get())
         }
     ));
     view! {

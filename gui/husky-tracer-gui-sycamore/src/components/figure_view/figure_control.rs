@@ -11,7 +11,7 @@ pub struct FigureControlProps<'a> {
 pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a>) -> View<G> {
     let tracer_context = use_context::<DebuggerContext>(scope);
     let opt_active_trace_id = &tracer_context.trace_context.opt_active_trace_id;
-    let focus = &tracer_context.attention_context.focus;
+    let attention = &tracer_context.attention_context.attention;
     // let opt_data_and_control = memo!(
     //     scope,
     //     move || -> Option<(Rc<FigureCanvasData>, FigureControlData)> { None }
@@ -21,10 +21,10 @@ pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a
             let active_trace = tracer_context.trace_context.trace(active_trace_id);
             let canvas_data = tracer_context
                 .figure_context
-                .figure_canvas_data(&active_trace, &focus.get());
+                .figure_canvas_data(&active_trace, &attention.get());
             let control_data = tracer_context
                 .figure_context
-                .figure_control_data(&active_trace, &focus.get());
+                .figure_control_data(&active_trace, &attention.get());
             (canvas_data, control_data)
         }
     ));

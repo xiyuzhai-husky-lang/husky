@@ -8,7 +8,7 @@ pub enum SubtracesKey {
 }
 
 impl SubtracesKey {
-    pub fn new(focus: &Focus, trace_kind: TraceKind, trace_id: TraceId) -> SubtracesKey {
+    pub fn new(attention: &Attention, trace_kind: TraceKind, trace_id: TraceId) -> SubtracesKey {
         match trace_kind {
             TraceKind::Main
             | TraceKind::FeatureStmt
@@ -19,12 +19,12 @@ impl SubtracesKey {
             | TraceKind::LoopFrame
             | TraceKind::EagerExpr => SubtracesKey::Simple { trace_id },
             TraceKind::FeatureCallInput | TraceKind::CallHead => SubtracesKey::Null,
-            TraceKind::FeatureExpr => match focus {
-                Focus::Specific { input_id } => SubtracesKey::FeatureExprStalk {
+            TraceKind::FeatureExpr => match attention {
+                Attention::Specific { input_id } => SubtracesKey::FeatureExprStalk {
                     trace_id,
                     input_id: *input_id,
                 },
-                Focus::Generic { .. } => SubtracesKey::Null,
+                Attention::Generic { .. } => SubtracesKey::Null,
             },
         }
     }

@@ -13,16 +13,16 @@ impl HuskyTraceTime {
     pub fn figure_canvas(
         &self,
         trace_id: TraceId,
-        focus: &Focus,
+        attention: &Attention,
     ) -> Result<FigureCanvasData, (usize, VMRuntimeError)> {
         let trace = self.trace(trace_id);
         Ok(match trace.variant {
             TraceVariant::Main(_) => FigureCanvasData::void(),
-            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, focus)?,
+            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, attention)?,
             TraceVariant::FeatureBranch(_) => FigureCanvasData::void(),
-            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr, focus)?,
+            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr, attention)?,
             TraceVariant::FeatureCallInput { ref input, .. } => {
-                self.feature_expr_figure(input, focus)?
+                self.feature_expr_figure(input, attention)?
             }
             TraceVariant::FuncStmt {
                 ref stmt,

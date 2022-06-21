@@ -1,3 +1,4 @@
+mod impl_attention;
 mod impl_call_head;
 mod impl_eager_expr;
 mod impl_expr;
@@ -8,7 +9,6 @@ mod impl_feature_repr;
 mod impl_feature_stmt;
 mod impl_figure;
 mod impl_figure_control;
-mod impl_focus;
 mod impl_func_stmt;
 mod impl_ops;
 mod impl_proc_stmt;
@@ -40,7 +40,7 @@ use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
     runtime: HuskyRuntime,
-    focus: Focus,
+    attention: Attention,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
     trace_stalks: HashMap<TraceStalkKey, TraceStalkRawData>,
@@ -59,7 +59,7 @@ impl HuskyTraceTime {
             subtrace_ids_map: Default::default(),
             figure_controls: Default::default(),
             root_trace_ids: Default::default(),
-            focus: Default::default(),
+            attention: Default::default(),
         };
         trace_time.update();
         trace_time
@@ -80,7 +80,7 @@ impl HuskyTraceTime {
     // }
     // match command.parse::<usize>() {
     //     Ok(id) => {
-    //         self.focus = Focus {
+    //         self.attention = Attention {
     //             opt_input_id: Some(id),
     //         };
     //         (Some(Some(id)), None)
@@ -97,7 +97,11 @@ impl HuskyTraceTime {
     }
 
     pub fn subtrace_ids(&mut self, trace_id: TraceId) -> Vec<TraceId> {
-        let key = SubtracesKey::new(&self.focus, self.trace(trace_id).raw_data.kind, trace_id);
+        let key = SubtracesKey::new(
+            &self.attention,
+            self.trace(trace_id).raw_data.kind,
+            trace_id,
+        );
         if let Some(subtrace_ids) = self.subtrace_ids_map.get(&key) {
             subtrace_ids.clone()
         } else {
@@ -236,7 +240,7 @@ impl HuskyTraceTime {
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
             let trace_stalks: Vec<(TraceStalkKey, TraceStalkRawData)> = if let Some(sample_id) =
-                self.focus.opt_sample_id()
+                self.attention.opt_sample_id()
             {
                 new_traces
                     .iter()
@@ -271,21 +275,21 @@ impl HuskyTraceTime {
 
     pub fn init_data(&mut self) -> InitData {
         let root_trace_ids = self.root_trace_ids.clone();
-        let focus = self.focus.clone();
+        let attention = self.attention.clone();
         let mut figure_canvases = Vec::default();
         let mut figure_controls = Vec::default();
         let opt_active_trace_id = self.opt_active_trace_id;
         if let Some(active_trace_id) = opt_active_trace_id {
             let active_trace = self.trace(active_trace_id);
             let figure_canvas_key =
-                FigureCanvasKey::from_trace_raw_data(&active_trace.raw_data, &focus);
+                FigureCanvasKey::from_trace_raw_data(&active_trace.raw_data, &attention);
             figure_canvases.push((
                 figure_canvas_key,
-                self.figure_canvas(active_trace_id, &focus).unwrap(),
+                self.figure_canvas(active_trace_id, &attention).unwrap(),
             ));
             figure_controls.push((
-                FigureControlKey::from_trace_raw_data(&active_trace.raw_data, &focus),
-                unsafe { ref_to_mut_ref(self) }.figure_control(active_trace_id, &focus),
+                FigureControlKey::from_trace_raw_data(&active_trace.raw_data, &attention),
+                unsafe { ref_to_mut_ref(self) }.figure_control(active_trace_id, &attention),
             ));
         }
         let traces = self.all_trace_nodes();
@@ -305,7 +309,7 @@ impl HuskyTraceTime {
                     .collect(),
                 root_trace_ids,
             },
-            focus,
+            attention,
             figure_canvases,
             figure_controls,
         }

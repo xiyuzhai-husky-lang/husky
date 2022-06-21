@@ -17,7 +17,7 @@ impl TraceContext {
         todo!()
         // let is_expanded: &mut bool = &mut self.expansion_stores[&trace_id].modify();
         // *is_expanded = !*is_expanded
-        // self.update_trace_listing(focus);
+        // self.update_trace_listing(attention);
     }
 
     pub(crate) fn shown(&self, trace_id: TraceId) -> bool {
@@ -35,7 +35,7 @@ impl TraceContext {
     pub(crate) fn did_toggle_show(&mut self, trace_id: TraceId) {
         todo!()
         // self.shown_stores.update(id, (shown) => !shown);
-        // self.update_trace_listing(focus);
+        // self.update_trace_listing(attention);
     }
 
     pub(crate) fn did_activate(&self, trace_id: TraceId) {
