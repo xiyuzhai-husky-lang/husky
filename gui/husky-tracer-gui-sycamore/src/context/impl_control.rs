@@ -1,4 +1,4 @@
-mod focus;
+mod attention;
 
 use super::*;
 use web_sys::{Event, KeyboardEvent};
@@ -14,9 +14,14 @@ impl DebuggerContext {
         move |_| this.activate(trace_id)
     }
 
-    pub fn toggle_focus_kind_handler(&self) -> impl Fn(Event) {
+    pub fn toggle_attention_kind_handler(&self) -> impl Fn(Event) {
         let this = self.clone();
-        move |_| this.toggle_focus_kind()
+        move |_| this.toggle_attention_kind()
+    }
+
+    pub fn set_attention_from_dialog_handler(&self) -> impl Fn() {
+        let this = self.clone();
+        move || this.set_attention_from_dialog()
     }
 
     pub fn keydown_handler(&self) -> impl Fn(Event) {

@@ -5,6 +5,7 @@ mod context;
 mod init;
 mod services;
 mod store;
+mod utils;
 
 use cell::RefCell;
 use components::*;
@@ -15,6 +16,7 @@ use services::*;
 use std::{any::TypeId, rc::Rc};
 use store::*;
 use sycamore::prelude::*;
+use utils::*;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use web_sys::Element;
@@ -50,19 +52,4 @@ fn main() {
         },
         &gui,
     );
-}
-
-fn get_gui() -> Element {
-    let window = web_sys::window().unwrap_throw();
-    let document = window.document().unwrap_throw();
-    document
-        .get_elements_by_class_name("HuskyTracerGui")
-        .item(0)
-        .unwrap()
-}
-
-fn get_element_by_id(id: &'static str) -> Element {
-    let window = web_sys::window().unwrap_throw();
-    let document = window.document().unwrap_throw();
-    document.get_element_by_id(id).unwrap()
 }
