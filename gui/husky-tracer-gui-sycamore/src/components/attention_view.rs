@@ -1,5 +1,6 @@
 use super::*;
-use web_sys::{Event, HtmlDialogElement, KeyboardEvent};
+use sycamore::render;
+use web_sys::{Event, HtmlDialogElement, HtmlFormElement, HtmlInputElement, KeyboardEvent};
 
 #[component]
 pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
@@ -9,11 +10,37 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let focus = attention_context.focus.clone();
     let last_input_id = create_signal(scope, focus.get_untracked().opt_sample_id());
     let toggle_focus_kind_handler = debugger_context.toggle_focus_kind_handler();
-    let attention_dialog = Rc::new(
-        get_element_by_id("attention-dialog")
-            .dyn_into::<HtmlDialogElement>()
-            .unwrap(),
-    );
+    let attention_dialog = get_element_by_id("attention-dialog")
+        .dyn_into::<HtmlDialogElement>()
+        .unwrap();
+    let closure = {
+        Closure::wrap(Box::new({
+            move |event: web_sys::UiEvent| {
+                let event: KeyboardEvent = event.unchecked_into();
+                match event.key().as_str() {
+                    "Enter" => {
+                        let attention_dialog_form_sample_id_input =
+                            get_element_by_id("attention-dialog-form-sample-id-input")
+                                .dyn_into::<HtmlInputElement>()
+                                .unwrap();
+                        let sample_id_value = attention_dialog_form_sample_id_input.value();
+                        match sample_id_value.parse::<i32>() {
+                            Ok(_) => {
+                                let attention_dialog = get_element_by_id("attention-dialog")
+                                    .dyn_into::<HtmlDialogElement>()
+                                    .unwrap();
+                                attention_dialog.close()
+                            }
+                            Err(_) => todo!(),
+                        }
+                    }
+                    _ => log::info!("event.key().as_str() = {}", event.key().as_str()),
+                }
+            }
+        }) as Box<dyn FnMut(_)>)
+    };
+    attention_dialog.add_event_listener_with_callback("keydown", closure.as_ref().unchecked_ref());
+    closure.forget();
     view! {
         scope,
         div (class="FocusView disable-select") {
@@ -27,19 +54,12 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
                 })
             }
             button (
-                on:click=move |_| {
-                    attention_dialog.show_modal();
-                    let closure = {
-                        let attention_dialog = attention_dialog.clone();
-                        Closure::wrap(
-                            Box::new(move |_event: web_sys::UiEvent| {
-                                log::info!("keydown");
-                                attention_dialog.close()
-                            }) as Box<dyn FnMut(_)>,
-                        )
-                    };
-                    attention_dialog.add_event_listener_with_callback("keydown", closure.as_ref().unchecked_ref());
-                    closure.forget();
+                on:click={
+                    move |_| {
+                        get_element_by_id("attention-dialog")
+                        .dyn_into::<HtmlDialogElement>()
+                        .unwrap() .show_modal();
+                    }
                 }
             ) {
                 "open attention dialog"
