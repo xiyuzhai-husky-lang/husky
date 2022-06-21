@@ -1,4 +1,5 @@
 use super::*;
+use web_sys::{Event, MouseEvent};
 
 #[derive(Prop)]
 pub struct TracePinProps {
@@ -20,7 +21,10 @@ pub(super) fn TracePin<'a, G: Html>(scope: Scope<'a>, props: TracePinProps) -> V
                         "TracePin ignored"
                     }
                 },
-                on:mousedown=move |_|pinned.set(!pinned.cget())
+                on:mousedown=move |ev:Event|{
+                    ev.stop_propagation() ;
+                    pinned.set(!pinned.cget())
+                }
             ) {
                 svg (
                     stroke="currentColor",
