@@ -243,15 +243,7 @@ impl HuskyTraceTime {
                 .iter()
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
-            let trace_stalks: Vec<(TraceStalkKey, TraceStalkRawData)> =
-                if let Some(sample_id) = self.attention.opt_sample_id() {
-                    new_traces
-                        .iter()
-                        .map(|new_trace| self.keyed_trace_stalk(new_trace.raw_data.id))
-                        .collect()
-                } else {
-                    vec![]
-                };
+            let trace_stalks = self.collect_new_trace_stalks();
             Some((new_traces, subtrace_ids, trace_stalks))
         } else {
             None
