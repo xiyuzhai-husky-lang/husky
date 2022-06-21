@@ -55,6 +55,7 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
                             on:click={
                                 move |_| {
                                     get_element_by_id::<HtmlDialogElement>("attention-dialog").show_modal();
+                                    get_element_by_id::<HtmlInputElement>("sample-id-input").set_value("") ;
                                 }
                             }
                         ) {
