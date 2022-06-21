@@ -1,4 +1,5 @@
 use super::*;
+use web_sys::Event;
 
 #[derive(Prop)]
 pub struct TraceArrivalProps {
@@ -21,7 +22,10 @@ pub(super) fn TraceArrival<'a, G: Html>(scope: Scope<'a>, props: TraceArrivalPro
                         "TraceArrival ignored"
                     }
                 },
-                on:click=move |_|arrived.set(!arrived.cget())
+                on:mousedown=move |ev:Event|{
+                    ev.stop_propagation() ;
+                    arrived.set(!arrived.cget())
+                }
             ) {
                 svg (
                     stroke="currentColor",
