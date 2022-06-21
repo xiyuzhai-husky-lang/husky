@@ -73,19 +73,27 @@ impl HuskyTraceTime {
     }
 
     pub fn collect_new_trace_stalks(&mut self) -> Vec<(TraceStalkKey, TraceStalkRawData)> {
-        let mut trace_stalks = Vec::new();
-        for root_trace_id in self.root_trace_ids.clone() {
-            self.collect_new_trace_stalks_within_trace(root_trace_id, &mut trace_stalks);
+        if let Some(sample_id) = self.attention.opt_sample_id() {
+            let mut trace_stalks = Vec::new();
+            for root_trace_id in self.root_trace_ids.clone() {
+                self.collect_new_trace_stalks_within_trace(
+                    sample_id,
+                    root_trace_id,
+                    &mut trace_stalks,
+                );
+            }
+            trace_stalks
+        } else {
+            vec![]
         }
-        trace_stalks
     }
 
     fn collect_new_trace_stalks_within_trace(
         &mut self,
+        sample_id: usize,
         trace_id: TraceId,
         trace_stalks: &mut Vec<(TraceStalkKey, TraceStalkRawData)>,
     ) {
-        let sample_id = self.attention.opt_sample_id().unwrap();
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.raw_data;
@@ -95,11 +103,11 @@ impl HuskyTraceTime {
             trace_stalks.push(self.keyed_trace_stalk(trace_id))
         }
         for associated_trace_id in associated_trace_ids {
-            self.collect_new_trace_stalks_within_trace(associated_trace_id, trace_stalks)
+            self.collect_new_trace_stalks_within_trace(sample_id, associated_trace_id, trace_stalks)
         }
         if expanded {
             for subtrace_id in self.subtrace_ids(trace_id) {
-                self.collect_new_trace_stalks_within_trace(subtrace_id, trace_stalks)
+                self.collect_new_trace_stalks_within_trace(sample_id, subtrace_id, trace_stalks)
             }
         }
     }
