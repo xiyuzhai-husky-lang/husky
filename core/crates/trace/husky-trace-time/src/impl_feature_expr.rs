@@ -183,7 +183,9 @@ impl HuskyTraceTime {
         attention: &Attention,
     ) -> Result<FigureCanvasData, (usize, VMRuntimeError)> {
         match attention {
-            Attention::Specific { input_id } => {
+            Attention::Specific {
+                sample_id: input_id,
+            } => {
                 let value = self
                     .runtime
                     .eval_feature_expr(expr, *input_id)

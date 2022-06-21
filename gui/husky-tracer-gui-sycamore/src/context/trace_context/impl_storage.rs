@@ -45,7 +45,7 @@ impl TraceContext {
             .insert(key, subtrace_ids);
     }
 
-    pub(crate) fn receive_new_traces(&self, new_trace_nodes: Vec<TraceNodeData>) {
+    pub(crate) fn receive_traces(&self, new_trace_nodes: Vec<TraceNodeData>) {
         let trace_nodes = &mut self.trace_nodes.borrow_mut(file!(), line!());
         let new_len = trace_nodes.len() + new_trace_nodes.len();
         trace_nodes.reserve(new_len);
@@ -58,6 +58,7 @@ impl TraceContext {
         &self,
         new_trace_stalks: Vec<(TraceStalkKey, TraceStalkRawData)>,
     ) {
+        log::info!("receive trace stalks");
         let mut trace_stalks = self.trace_stalks.borrow_mut(file!(), line!());
         for (key, raw_data) in new_trace_stalks.into_iter() {
             assert!(trace_stalks.insert(key, Rc::new(raw_data.into())).is_none());

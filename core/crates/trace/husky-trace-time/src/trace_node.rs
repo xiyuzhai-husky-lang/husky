@@ -11,7 +11,7 @@ impl TraceNode {
     pub fn to_data(&self) -> husky_tracer_protocol::TraceNodeData {
         TraceNodeData {
             raw_data: self.trace.raw_data.clone(),
-            expansion: self.expansion,
+            expanded: self.expansion,
             shown: self.shown,
         }
     }

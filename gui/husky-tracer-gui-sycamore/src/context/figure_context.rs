@@ -66,9 +66,7 @@ impl FigureContext {
         // let figure_controls = &mut self.figure_controls.borrow_mut(file!(), line!());
         // let key = FigureControlKey::new(trace, attention);
         // if let Some(figure_control_signal) = figure_controls.get(&key) {
-        //     log::info!("here1243");
         //     figure_control_signal.set(figure_control_data);
-        //     log::info!("here1243s");
         // } else {
         //     figure_controls.insert(key, Rc::new(Signal::new(figure_control_data)));
         // }

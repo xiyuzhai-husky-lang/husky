@@ -37,9 +37,11 @@ impl HuskyTracer {
         let mut trace_time = HuskyTraceTime::new(init_compile_time, config.verbose);
         if let Some(ref input_id_str) = config.opt_input_id {
             let input_id: usize = input_id_str.parse().unwrap();
-            trace_time.set_attention(Attention::Specific { input_id });
+            trace_time.set_attention(Attention::Specific {
+                sample_id: input_id,
+            });
             for trace in trace_time.root_traces().iter() {
-                let stalk = trace_time.trace_stalk_with_key(*trace, input_id);
+                let stalk = trace_time.keyed_trace_stalk(*trace);
             }
         }
         Self {
@@ -57,11 +59,14 @@ impl HuskyTracer {
         }
     }
 
-    async fn has_root_error(&self, input_id: usize) -> bool {
+    async fn has_root_error(&self, sample_id: usize) -> bool {
         let mut error_flag = false;
         let internal = &mut self.internal.lock().unwrap();
+        internal
+            .trace_time
+            .set_attention(Attention::Specific { sample_id });
         for trace_id in internal.trace_time.root_traces().into_iter() {
-            let (_, stalk) = internal.trace_time.trace_stalk_with_key(trace_id, input_id);
+            let (_, stalk) = internal.trace_time.keyed_trace_stalk(trace_id);
             for token in &stalk.extra_tokens {
                 match token.kind {
                     TraceTokenKind::Error => {

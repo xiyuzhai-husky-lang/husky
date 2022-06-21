@@ -34,8 +34,8 @@ pub enum HuskyTracerServerMessageVariant {
         trace_props: TraceRawData,
     },
     LockAttention {
-        figure_canvas_data: FigureCanvasData,
-        figure_control_data: FigureControlData,
+        opt_figure_data: Option<(FigureCanvasData, FigureControlData)>,
+        new_trace_stalks: Vec<(TraceStalkKey, TraceStalkRawData)>,
     },
     LockAttentionWithError {
         sample_id: usize,

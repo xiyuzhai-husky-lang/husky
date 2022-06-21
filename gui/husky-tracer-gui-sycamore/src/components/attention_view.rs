@@ -42,7 +42,7 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
                 (attention_kind.get())
             }
             (match *attention.get() {
-                Attention::Specific { input_id } => {
+                Attention::Specific { sample_id } => {
                     view! {
                         scope,
                         label (
@@ -58,7 +58,7 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
                                 }
                             }
                         ) {
-                            (input_id)
+                            (sample_id)
                         }
                     }
                 },
