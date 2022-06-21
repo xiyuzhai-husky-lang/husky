@@ -49,6 +49,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 view! { scope,
                     TraceLine {
                         data: line_data.clone(),
+                        trace_id,
                         trace_kind,
                         has_subtraces,
                         expanded,

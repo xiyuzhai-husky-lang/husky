@@ -1,11 +1,16 @@
-mod line_start;
+mod trace_arrival;
+mod trace_expansion;
+mod trace_pin;
 
 use super::*;
-use line_start::*;
+use trace_arrival::*;
+use trace_expansion::*;
+use trace_pin::*;
 
 #[derive(Prop)]
 pub struct TraceLineProps<'a> {
     data: Rc<TraceLineData>,
+    trace_id: TraceId,
     trace_kind: TraceKind,
     has_subtraces: &'a ReadSignal<bool>,
     expanded: &'a ReadSignal<bool>,
@@ -46,25 +51,39 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
         },
     ));
     let indent = props.data.indent;
+    let line_idx = props.data.idx;
+    let trace_id = props.trace_id;
     view! {
         scope,
-        p (class="TraceLine") {
-            span (class="indent", style=format!("padding-left: {}px", indent as f64 * 9.5))
-            TraceLineStart {
-                idx: props.data.idx,
-                has_subtraces: props.has_subtraces,
-                expanded: props.expanded,
-                trace_kind: props.trace_kind,
-                opt_on_click_start:{
-                    if  props.data.idx == 0 {
-                        Some(props.toggle_expansion_handler.clone())
-                    } else {
-                        None
-                    }
-                },
+        div(class="TraceLine"){
+            p (class="TraceLineLeft") {
+                span (class="indent", style=format!("padding-left: {}px", indent as f64 * 9.5))
+                TraceExpansion {
+                    idx: props.data.idx,
+                    has_subtraces: props.has_subtraces,
+                    expanded: props.expanded,
+                    trace_kind: props.trace_kind,
+                    opt_on_click_start:{
+                        if  props.data.idx == 0 {
+                            Some(props.toggle_expansion_handler.clone())
+                        } else {
+                            None
+                        }
+                    },
+                }
+                (trace_tokens)
+                (extra_tokens.cget())
             }
-            (trace_tokens)
-            (extra_tokens.cget())
+            div(class="TraceLineRight") {
+                TraceArrival {
+                    line_idx,
+                    trace_id,
+                }
+                TracePin {
+                    line_idx,
+                    trace_id,
+                }
+            }
         }
     }
 }
