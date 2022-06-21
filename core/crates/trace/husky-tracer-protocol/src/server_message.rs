@@ -33,11 +33,11 @@ pub enum HuskyTracerServerMessageVariant {
     Trace {
         trace_props: TraceRawData,
     },
-    LockFocus {
+    LockAttention {
         figure_canvas_data: FigureCanvasData,
         figure_control_data: FigureControlData,
     },
-    LockFocusWithError {
+    LockAttentionWithError {
         sample_id: usize,
         error: String,
     },

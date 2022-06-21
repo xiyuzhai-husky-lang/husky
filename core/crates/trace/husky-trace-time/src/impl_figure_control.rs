@@ -8,13 +8,17 @@ use super::*;
 
 impl HuskyTraceTime {
     #[inline(always)]
-    pub fn figure_control(&mut self, trace_id: TraceId, focus: &Focus) -> FigureControlData {
+    pub fn figure_control(
+        &mut self,
+        trace_id: TraceId,
+        attention: &Attention,
+    ) -> FigureControlData {
         let trace = self.trace(trace_id);
         let key = FigureControlKey::new(
             trace.raw_data.opt_parent_id,
             trace.raw_data.kind,
             trace.raw_data.id,
-            focus,
+            attention,
         );
         if let Some(control) = self.figure_controls.get(&key) {
             control.clone()
@@ -70,7 +74,7 @@ impl HuskyTraceTime {
     pub fn update_figure_control(
         &mut self,
         trace_id: TraceId,
-        focus: &Focus,
+        attention: &Attention,
         new_control: FigureControlData,
     ) {
         let trace_raw_data = &self.trace(trace_id).raw_data;
@@ -79,7 +83,7 @@ impl HuskyTraceTime {
                 trace_raw_data.opt_parent_id,
                 trace_raw_data.kind,
                 trace_raw_data.id,
-                focus,
+                attention,
             ),
             new_control,
         );

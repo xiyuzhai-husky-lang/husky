@@ -13,7 +13,7 @@ pub enum HuskyTracerGuiMessageVariant {
     InitDataRequest,
     Activate {
         trace_id: TraceId,
-        opt_focus_for_figure: Option<Focus>,
+        opt_attention_for_figure: Option<Attention>,
     },
     ToggleExpansion {
         trace_id: TraceId,
@@ -24,8 +24,8 @@ pub enum HuskyTracerGuiMessageVariant {
     Trace {
         id: TraceId,
     },
-    LockFocus {
-        focus: Focus,
+    LockAttention {
+        attention: Attention,
         opt_active_trace_id_for_request: Option<TraceId>,
         request_figure: bool,
         request_stalk: bool,
@@ -36,7 +36,7 @@ pub enum HuskyTracerGuiMessageVariant {
     },
     UpdateFigureControlData {
         trace_id: TraceId,
-        focus: Focus,
+        attention: Attention,
         figure_control_props: FigureControlData,
     },
 }

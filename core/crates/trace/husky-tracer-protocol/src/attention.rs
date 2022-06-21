@@ -9,7 +9,7 @@ use super::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
-pub enum Focus {
+pub enum Attention {
     Specific {
         input_id: usize,
     },
@@ -19,14 +19,14 @@ pub enum Focus {
     },
 }
 
-impl Signalable for Focus {}
+impl Signalable for Attention {}
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub enum Constraint {}
 
-impl Default for Focus {
+impl Default for Attention {
     fn default() -> Self {
-        Focus::Generic {
+        Attention::Generic {
             partitions: vec![PartitionDefnData {
                 name: "other".into(),
                 ncol: 7,
@@ -37,15 +37,15 @@ impl Default for Focus {
     }
 }
 
-impl Focus {
+impl Attention {
     pub fn has_stalk(&self, trace_kind: TraceKind) -> bool {
         match trace_kind {
             TraceKind::Main
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr => match self {
-                Focus::Specific { .. } => true,
-                Focus::Generic { .. } => false,
+                Attention::Specific { .. } => true,
+                Attention::Generic { .. } => false,
             },
             TraceKind::FeatureCallInput
             | TraceKind::FuncStmt
@@ -59,8 +59,8 @@ impl Focus {
 
     pub fn opt_sample_id(&self) -> Option<usize> {
         match self {
-            Focus::Specific { input_id } => Some(*input_id),
-            Focus::Generic { .. } => None,
+            Attention::Specific { input_id } => Some(*input_id),
+            Attention::Generic { .. } => None,
         }
     }
 }

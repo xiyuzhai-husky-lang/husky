@@ -11,7 +11,7 @@ pub struct DebuggerContextInternal {
     pub window_inner_width: Rc<Signal<f64>>,
     pub trace_context: TraceContext,
     pub figure_context: FigureContext,
-    pub attention_context: FocusContext,
+    pub attention_context: AttentionContext,
     pub dialog_opened: Rc<Signal<bool>>,
 }
 

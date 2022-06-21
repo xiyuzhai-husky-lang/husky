@@ -250,7 +250,7 @@ pub fn Item<G: Html>(cx: Scope, todo: RcSignal<Todo>) -> View<G> {
         input_ref
             .get::<DomNode>()
             .unchecked_into::<HtmlInputElement>()
-            .focus()
+            .attention()
             .unwrap();
         value.set(title());
     };

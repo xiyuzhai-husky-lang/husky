@@ -3,7 +3,7 @@ use super::*;
 #[derive(Prop)]
 pub struct TraceNodeProps<'a> {
     trace_id: TraceId,
-    focus: &'a ReadSignal<Focus>,
+    attention: &'a ReadSignal<Attention>,
 }
 
 #[component]
@@ -15,11 +15,11 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let expanded = memo!(scope, move || expansion.cget(), expansion);
     let trace = trace_context.trace(props.trace_id);
     let trace_kind = trace.kind;
-    let focus = props.focus;
-    let has_stalk = memo!(scope, move || focus.get().has_stalk(trace_kind));
+    let attention = props.attention;
+    let has_stalk = memo!(scope, move || attention.get().has_stalk(trace_kind));
     let can_have_subtraces = trace.can_have_subtraces;
     let has_subtraces = memo!(scope, move || {
-        tell_has_subtraces(trace_kind, can_have_subtraces, &focus.get())
+        tell_has_subtraces(trace_kind, can_have_subtraces, &attention.get())
     });
     let toggle_expansion_handler = debuggerer_context.toggle_expansion_handler(props.trace_id);
     let activate_handler = debuggerer_context.activate_handler(props.trace_id);
@@ -35,7 +35,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 let toggle_expansion_handler = toggle_expansion_handler.clone();
                 let line_idx = line_data.idx;
                 let opt_extra_tokens = memo!(scope, move || {
-                    if let Some(sample_id) = focus.get().opt_sample_id() {
+                    if let Some(sample_id) = attention.get().opt_sample_id() {
                         if line_idx == trace_lines_len - 1 {
                             let trace_stalk = trace_context.trace_stalk(sample_id, trace_id);
                             trace_stalk.opt_extra_tokens.clone()
@@ -80,7 +80,11 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     }
 }
 
-fn tell_has_subtraces(trace_kind: TraceKind, can_have_subtraces: bool, focus: &Focus) -> bool {
+fn tell_has_subtraces(
+    trace_kind: TraceKind,
+    can_have_subtraces: bool,
+    attention: &Attention,
+) -> bool {
     match trace_kind {
         TraceKind::Main | TraceKind::FeatureBranch | TraceKind::LoopFrame => true,
         TraceKind::CallHead | TraceKind::FeatureCallInput | TraceKind::FeatureStmt => false,

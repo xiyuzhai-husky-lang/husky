@@ -180,10 +180,10 @@ impl HuskyTraceTime {
     pub(crate) fn feature_expr_figure(
         &self,
         expr: &Arc<FeatureLazyExpr>,
-        focus: &Focus,
+        attention: &Attention,
     ) -> Result<FigureCanvasData, (usize, VMRuntimeError)> {
-        match focus {
-            Focus::Specific { input_id } => {
+        match attention {
+            Attention::Specific { input_id } => {
                 let value = self
                     .runtime
                     .eval_feature_expr(expr, *input_id)
@@ -194,7 +194,7 @@ impl HuskyTraceTime {
                         .unwrap(),
                 ))
             }
-            Focus::Generic { partitions, .. } => {
+            Attention::Generic { partitions, .. } => {
                 let session = self.runtime.session();
                 let dev_division = session.dev();
                 assert_eq!(

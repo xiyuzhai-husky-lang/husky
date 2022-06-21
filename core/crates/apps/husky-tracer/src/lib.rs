@@ -37,7 +37,7 @@ impl HuskyTracer {
         let mut trace_time = HuskyTraceTime::new(init_compile_time, config.verbose);
         if let Some(ref input_id_str) = config.opt_input_id {
             let input_id: usize = input_id_str.parse().unwrap();
-            trace_time.set_focus(Focus::Specific { input_id });
+            trace_time.set_attention(Attention::Specific { input_id });
             for trace in trace_time.root_traces().iter() {
                 let stalk = trace_time.trace_stalk_with_key(*trace, input_id);
             }

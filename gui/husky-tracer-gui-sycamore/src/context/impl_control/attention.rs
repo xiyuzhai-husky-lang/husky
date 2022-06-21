@@ -3,10 +3,10 @@ use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
 impl DebuggerContext {
     pub(super) fn toggle_attention_kind(&self) {
-        self.set_attention(self.attention_context.toggled_focus_kind())
+        self.set_attention(self.attention_context.toggled_attention_kind())
     }
 
-    fn set_attention(&self, attention: Focus) {
+    fn set_attention(&self, attention: Attention) {
         match self.trace_context.opt_active_trace_id.cget() {
             Some(active_trace_id) => {
                 let active_trace = self.trace_context.trace(active_trace_id);
@@ -16,14 +16,14 @@ impl DebuggerContext {
                 if request_figure {
                     let this = self.clone();
                     self.ws.send_message(
-                        HuskyTracerGuiMessageVariant::LockFocus {
-                            focus: attention.clone(),
+                        HuskyTracerGuiMessageVariant::LockAttention {
+                            attention: attention.clone(),
                             opt_active_trace_id_for_request: Some(active_trace_id),
                             request_figure,
                             request_stalk: false,
                         },
                         Some(Box::new(move |message| match message.variant {
-                            HuskyTracerServerMessageVariant::LockFocus {
+                            HuskyTracerServerMessageVariant::LockAttention {
                                 figure_canvas_data,
                                 figure_control_data,
                             } => {
@@ -33,7 +33,7 @@ impl DebuggerContext {
                                     figure_canvas_data,
                                     figure_control_data,
                                 );
-                                this.attention_context.focus.set(attention.clone());
+                                this.attention_context.attention.set(attention.clone());
                             }
                             _ => panic!(),
                         })),
@@ -46,11 +46,11 @@ impl DebuggerContext {
         };
     }
 
-    fn set_attention_without_request(&self, focus: Focus) {
-        self.attention_context.focus.set(focus.clone());
+    fn set_attention_without_request(&self, attention: Attention) {
+        self.attention_context.attention.set(attention.clone());
         self.ws.send_message(
-            HuskyTracerGuiMessageVariant::LockFocus {
-                focus,
+            HuskyTracerGuiMessageVariant::LockAttention {
+                attention,
                 opt_active_trace_id_for_request: None,
                 request_figure: false,
                 request_stalk: false,
@@ -63,7 +63,7 @@ impl DebuggerContext {
         let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
         match sample_id_value.parse::<usize>() {
             Ok(sample_id) => {
-                self.set_attention(Focus::Specific {
+                self.set_attention(Attention::Specific {
                     input_id: sample_id,
                 });
                 let attention_dialog = get_element_by_id::<HtmlDialogElement>("attention-dialog");

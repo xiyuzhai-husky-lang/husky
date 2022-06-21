@@ -4,7 +4,7 @@ use std::rc::Rc;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct InitData {
-    pub focus: Focus,
+    pub attention: Attention,
     pub trace_init_data: TraceInitState,
     pub figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)>,
     pub figure_controls: Vec<(FigureControlKey, FigureControlData)>,

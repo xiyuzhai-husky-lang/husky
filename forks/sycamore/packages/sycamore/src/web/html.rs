@@ -48,7 +48,7 @@ define_elements! {
     None,
     /// The `<a>` HTML element (or anchor element), with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
     ///
-    /// Content within each `<a>` should indicate the link's destination. If the `href` attribute is present, pressing the enter key while focused on the `<a>` element will activate it.
+    /// Content within each `<a>` should indicate the link's destination. If the `href` attribute is present, pressing the enter key while attentioned on the `<a>` element will activate it.
     a {},
     abbr {},
     address {},
@@ -118,8 +118,8 @@ define_elements! {
     /// The `<label>` HTML element represents a caption for an item in a user interface.
     ///
     /// Associating a `<label>` with an `<input>` element offers some major advantages:
-    /// * The label text is not only visually associated with its corresponding text input; it is programmatically associated with it too. This means that, for example, a screen reader will read out the label when the user is focused on the form input, making it easier for an assistive technology user to understand what data should be entered.
-    /// * When a user clicks or touches/taps a label, the browser passes the focus to its associated input (the resulting event is also raised for the input). That increased hit area for focusing the input provides an advantage to anyone trying to activate it — including those using a touch-screen device.
+    /// * The label text is not only visually associated with its corresponding text input; it is programmatically associated with it too. This means that, for example, a screen reader will read out the label when the user is attentioned on the form input, making it easier for an assistive technology user to understand what data should be entered.
+    /// * When a user clicks or touches/taps a label, the browser passes the attention to its associated input (the resulting event is also raised for the input). That increased hit area for attentioning the input provides an advantage to anyone trying to activate it — including those using a touch-screen device.
     ///
     /// To associate the `<label>` with an `<input>` element, you need to give the `<input>` an `id` attribute. The `<label>` then needs a for attribute whose value is the same as the input's `id`.
     ///

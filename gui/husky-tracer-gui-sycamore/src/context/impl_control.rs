@@ -38,7 +38,7 @@ impl DebuggerContext {
                     'C' => {
                         // 't'
                         log::info!("figure context is \n:{:?}", this.figure_context);
-                        // log::info!("fcous context is \n:{:?}", this.focus_context);
+                        // log::info!("fcous context is \n:{:?}", this.attention_context);
                         log::info!(
                             "opt active trace id is \n:{:?}",
                             this.trace_context.opt_active_trace_id
@@ -63,15 +63,15 @@ impl DebuggerContext {
     }
 
     fn activate(&self, trace_id: TraceId) {
-        let focus = self.attention_context.focus.get();
+        let attention = self.attention_context.attention.get();
         let trace = self.trace_context.trace(trace_id);
-        let is_figure_cached = self.figure_context.is_figure_cached(&trace, &focus);
+        let is_figure_cached = self.figure_context.is_figure_cached(&trace, &attention);
         if (is_figure_cached) {
             self.trace_context.did_activate(trace_id);
             self.ws.send_message(
                 HuskyTracerGuiMessageVariant::Activate {
                     trace_id,
-                    opt_focus_for_figure: None,
+                    opt_attention_for_figure: None,
                 },
                 None,
             );
@@ -80,7 +80,7 @@ impl DebuggerContext {
             self.ws.send_message(
                 HuskyTracerGuiMessageVariant::Activate {
                     trace_id,
-                    opt_focus_for_figure: Some((*focus).clone()),
+                    opt_attention_for_figure: Some((*attention).clone()),
                 },
                 Some(Box::new(move |message| match message.variant {
                     HuskyTracerServerMessageVariant::Activate {
@@ -89,7 +89,7 @@ impl DebuggerContext {
                     } => {
                         this.figure_context.set_figure(
                             &trace,
-                            &focus,
+                            &attention,
                             figure_canvas_data,
                             figure_control_data,
                         );
@@ -106,9 +106,9 @@ impl DebuggerContext {
         if expansion.cget() {
             expansion.set(false)
         } else {
-            let focus = self.attention_context.focus.get();
+            let attention = self.attention_context.attention.get();
             let trace_kind = self.trace_context.trace_kind(trace_id);
-            let key = SubtracesKey::new(&focus, trace_kind, trace_id);
+            let key = SubtracesKey::new(&attention, trace_kind, trace_id);
             if self
                 .trace_context
                 .subtrace_ids_map
