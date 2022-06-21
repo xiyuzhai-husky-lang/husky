@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Prop)]
-pub struct TraceLineStartProps<'a> {
+pub struct TraceExpansionProps<'a> {
     idx: usize,
     trace_kind: TraceKind,
     has_subtraces: &'a ReadSignal<bool>,
@@ -10,9 +10,9 @@ pub struct TraceLineStartProps<'a> {
 }
 
 #[component]
-pub(super) fn TraceLineStart<'a, G: Html>(
+pub(super) fn TraceExpansion<'a, G: Html>(
     scope: Scope<'a>,
-    props: TraceLineStartProps<'a>,
+    props: TraceExpansionProps<'a>,
 ) -> View<G> {
     if props.idx == 0 && props.has_subtraces.cget() {
         view! {
@@ -20,9 +20,9 @@ pub(super) fn TraceLineStart<'a, G: Html>(
             span(
                 class={
                     if props.expanded.cget() {
-                        "TraceLineStart expanded"
+                        "TraceExpansion expanded"
                     } else {
-                        "TraceLineStart"
+                        "TraceExpansion"
                     }
                 },
                 on:click=move |_|props.opt_on_click_start.clone().unwrap()()
@@ -44,6 +44,6 @@ pub(super) fn TraceLineStart<'a, G: Html>(
             }
         }
     } else {
-        view! {scope, span(class="TraceLineStart"){}}
+        view! {scope, span(class="TraceExpansion"){}}
     }
 }

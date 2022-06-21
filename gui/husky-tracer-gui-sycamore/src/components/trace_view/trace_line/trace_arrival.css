@@ -1,0 +1,9 @@
+span.TraceArrival {
+    color: rgb(210, 57, 27);
+}
+.TraceArrival.ignored:not(:hover) {
+    color: transparent;
+}
+.TraceArrival.ignored:hover {
+    color: grey;
+}

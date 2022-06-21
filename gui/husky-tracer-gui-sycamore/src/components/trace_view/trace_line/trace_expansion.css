@@ -1,4 +1,4 @@
-.TraceLineStart {
+.TraceExpansion {
     display: flex;
     transition: transform 50ms;
     text-align: center;
@@ -6,9 +6,9 @@
     align-items: center;
     width: 20px;
 }
-.TraceLineStart svg {
+.TraceExpansion svg {
     fill: rgb(182, 182, 182);
 }
-.TraceLineStart.expanded {
+.TraceExpansion.expanded {
     transform: rotate(90deg);
 }
