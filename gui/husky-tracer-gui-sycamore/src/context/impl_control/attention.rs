@@ -7,43 +7,49 @@ impl DebuggerContext {
     }
 
     fn set_attention(&self, attention: Attention) {
-        match self.trace_context.opt_active_trace_id.cget() {
+        let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
+        let request_figure = match opt_active_trace_id {
             Some(active_trace_id) => {
                 let active_trace = self.trace_context.trace(active_trace_id);
-                let request_figure = !self
+                !self
                     .figure_context
-                    .is_figure_cached(&active_trace, &attention);
-                if request_figure {
-                    let this = self.clone();
-                    self.ws.send_message(
-                        HuskyTracerGuiMessageVariant::LockAttention {
-                            attention: attention.clone(),
-                            opt_active_trace_id_for_request: Some(active_trace_id),
-                            request_figure,
-                            request_stalk: false,
-                        },
-                        Some(Box::new(move |message| match message.variant {
-                            HuskyTracerServerMessageVariant::LockAttention {
+                    .is_figure_cached(&active_trace, &attention)
+            }
+            None => false,
+        };
+        let request_stalk = attention.opt_sample_id().is_some();
+        if request_figure || request_stalk {
+            let this = self.clone();
+            self.ws.send_message(
+                HuskyTracerGuiMessageVariant::LockAttention {
+                    attention: attention.clone(),
+                    request_figure,
+                    request_stalk,
+                },
+                Some(Box::new(move |message| match message.variant {
+                    HuskyTracerServerMessageVariant::LockAttention {
+                        opt_figure_data,
+                        new_trace_stalks,
+                    } => {
+                        opt_figure_data.map(|(figure_canvas_data, figure_control_data)| {
+                            let active_trace =
+                                this.trace_context.trace(opt_active_trace_id.unwrap());
+                            this.figure_context.set_figure(
+                                &active_trace,
+                                &attention,
                                 figure_canvas_data,
                                 figure_control_data,
-                            } => {
-                                this.figure_context.set_figure(
-                                    &active_trace,
-                                    &attention,
-                                    figure_canvas_data,
-                                    figure_control_data,
-                                );
-                                this.attention_context.attention.set(attention.clone());
-                            }
-                            _ => panic!(),
-                        })),
-                    )
-                } else {
-                    self.set_attention_without_request(attention)
-                }
-            }
-            None => self.set_attention_without_request(attention),
-        };
+                            )
+                        });
+                        this.trace_context.receive_trace_stalks(new_trace_stalks);
+                        this.attention_context.attention.set(attention.clone());
+                    }
+                    _ => panic!(),
+                })),
+            )
+        } else {
+            self.set_attention_without_request(attention)
+        }
     }
 
     fn set_attention_without_request(&self, attention: Attention) {
@@ -51,7 +57,6 @@ impl DebuggerContext {
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::LockAttention {
                 attention,
-                opt_active_trace_id_for_request: None,
                 request_figure: false,
                 request_stalk: false,
             },
@@ -63,9 +68,7 @@ impl DebuggerContext {
         let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
         match sample_id_value.parse::<usize>() {
             Ok(sample_id) => {
-                self.set_attention(Attention::Specific {
-                    input_id: sample_id,
-                });
+                self.set_attention(Attention::Specific { sample_id });
                 let attention_dialog = get_element_by_id::<HtmlDialogElement>("attention-dialog");
                 attention_dialog.close()
             }

@@ -57,6 +57,23 @@ impl From<TraceRawData> for TraceData {
     }
 }
 
+impl TraceRawData {
+    pub fn associated_trace_ids(&self) -> Vec<TraceId> {
+        let mut associated_trace_ids = vec![];
+        for line in &self.lines {
+            for token in &line.tokens {
+                if token.value == "]" || token.value == ")" || token.value == "}" {
+                    continue;
+                }
+                if let Some(associated_trace_id) = token.opt_associated_trace_id {
+                    associated_trace_ids.push(associated_trace_id)
+                }
+            }
+        }
+        associated_trace_ids
+    }
+}
+
 impl TraceData {
     pub fn associated_trace_ids(&self) -> Vec<TraceId> {
         let mut associated_trace_ids = vec![];

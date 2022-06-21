@@ -119,37 +119,43 @@ impl HuskyTracerInternal {
                     trace_props: trace.raw_data.clone(),
                 })
             }
-            HuskyTracerGuiMessageVariant::TraceStalk { trace_id, input_id } => {
-                let (_, stalk) = self.trace_time.trace_stalk_with_key(trace_id, input_id);
+            HuskyTracerGuiMessageVariant::TraceStalk { trace_id } => {
+                let (_, stalk) = self.trace_time.keyed_trace_stalk(trace_id);
                 Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
             HuskyTracerGuiMessageVariant::LockAttention {
                 attention,
-                opt_active_trace_id_for_request,
                 request_figure,
                 request_stalk,
             } => {
                 self.trace_time.set_attention(attention.clone());
-                opt_active_trace_id_for_request.map(|active_trace_id| {
-                    let figure_canvas_data =
-                        match self.trace_time.figure_canvas(active_trace_id, &attention) {
-                            Ok(figure_canvas) => figure_canvas,
-                            Err((sample_id, error)) => {
-                                return HuskyTracerServerMessageVariant::LockAttentionWithError {
-                                    sample_id,
-                                    error: format!("{:?}", error),
-                                }
-                            }
+                if request_figure || request_stalk {
+                    let opt_figure_data =
+                        if let Some(active_trace_id) = self.trace_time.opt_active_trace_id() {
+                            let figure_canvas_data =
+                                match self.trace_time.figure_canvas(active_trace_id, &attention) {
+                                    Ok(figure_canvas) => figure_canvas,
+                                    Err((sample_id, error)) => return Some(
+                                        HuskyTracerServerMessageVariant::LockAttentionWithError {
+                                            sample_id,
+                                            error: format!("{:?}", error),
+                                        },
+                                    ),
+                                };
+                            let figure_control_data =
+                                self.trace_time.figure_control(active_trace_id, &attention);
+                            Some((figure_canvas_data, figure_control_data))
+                        } else {
+                            None
                         };
-                    let figure_control =
-                        self.trace_time.figure_control(active_trace_id, &attention);
-                    HuskyTracerServerMessageVariant::LockAttention {
-                        figure_canvas_data,
-                        figure_control_data: self
-                            .trace_time
-                            .figure_control(active_trace_id, &attention),
-                    }
-                })
+                    let new_trace_stalks = self.trace_time.collect_new_trace_stalks();
+                    Some(HuskyTracerServerMessageVariant::LockAttention {
+                        opt_figure_data,
+                        new_trace_stalks,
+                    })
+                } else {
+                    None
+                }
             }
             HuskyTracerGuiMessageVariant::UpdateFigureControlData {
                 trace_id,

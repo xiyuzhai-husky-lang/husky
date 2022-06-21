@@ -26,7 +26,7 @@ impl From<TraceNodeData> for TraceNodeState {
     fn from(node_data: TraceNodeData) -> Self {
         TraceNodeState {
             data: Rc::new(node_data.raw_data.into()),
-            expanded: Rc::new(Signal::new(node_data.expansion)),
+            expanded: Rc::new(Signal::new(node_data.expanded)),
             shown: Rc::new(Signal::new(node_data.shown)),
         }
     }

@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub enum Attention {
     Specific {
-        input_id: usize,
+        sample_id: usize,
     },
     Generic {
         partitions: Vec<PartitionDefnData>,
@@ -59,7 +59,9 @@ impl Attention {
 
     pub fn opt_sample_id(&self) -> Option<usize> {
         match self {
-            Attention::Specific { input_id } => Some(*input_id),
+            Attention::Specific {
+                sample_id: input_id,
+            } => Some(*input_id),
             Attention::Generic { .. } => None,
         }
     }

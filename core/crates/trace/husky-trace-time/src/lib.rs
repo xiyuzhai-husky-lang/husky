@@ -65,6 +65,10 @@ impl HuskyTraceTime {
         trace_time
     }
 
+    pub fn opt_active_trace_id(&mut self) -> Option<TraceId> {
+        self.opt_active_trace_id
+    }
+
     pub fn activate(&mut self, trace_id: TraceId) {
         self.opt_active_trace_id = Some(trace_id);
     }
@@ -239,16 +243,15 @@ impl HuskyTraceTime {
                 .iter()
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
-            let trace_stalks: Vec<(TraceStalkKey, TraceStalkRawData)> = if let Some(sample_id) =
-                self.attention.opt_sample_id()
-            {
-                new_traces
-                    .iter()
-                    .map(|new_trace| self.trace_stalk_with_key(new_trace.raw_data.id, sample_id))
-                    .collect()
-            } else {
-                vec![]
-            };
+            let trace_stalks: Vec<(TraceStalkKey, TraceStalkRawData)> =
+                if let Some(sample_id) = self.attention.opt_sample_id() {
+                    new_traces
+                        .iter()
+                        .map(|new_trace| self.keyed_trace_stalk(new_trace.raw_data.id))
+                        .collect()
+                } else {
+                    vec![]
+                };
             Some((new_traces, subtrace_ids, trace_stalks))
         } else {
             None

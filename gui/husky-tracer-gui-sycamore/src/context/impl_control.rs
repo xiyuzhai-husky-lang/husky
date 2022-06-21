@@ -131,7 +131,7 @@ impl DebuggerContext {
                             trace_stalks,
                         } => {
                             this.trace_context.receive_subtraces(key, subtrace_ids);
-                            this.trace_context.receive_new_traces(new_traces);
+                            this.trace_context.receive_traces(new_traces);
                             this.trace_context.receive_trace_stalks(trace_stalks);
                             expansion.set(true)
                         }

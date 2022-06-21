@@ -36,7 +36,7 @@ impl AttentionContext {
             match *self.last_attention.borrow(file!(), line!()) {
                 Attention::Specific { .. } => Attention::default(),
                 Attention::Generic { .. } => Attention::Specific {
-                    input_id: ask_for_input_id(),
+                    sample_id: ask_for_input_id(),
                 },
             }
         }
