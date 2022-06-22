@@ -81,9 +81,9 @@ impl HuskyTracerInternal {
                     let figure_canvas_data =
                         match self.trace_time.figure_canvas(trace_id, attention) {
                             Ok(figure_canvas_data) => figure_canvas_data,
-                            Err((sample_idx, error)) => {
+                            Err((sample_id, error)) => {
                                 return Some(HuskyTracerServerMessageVariant::ActivateWithError {
-                                    sample_idx,
+                                    sample_id,
                                     error: format!("{:?}", error),
                                 })
                             }
@@ -135,9 +135,9 @@ impl HuskyTracerInternal {
                             let figure_canvas_data =
                                 match self.trace_time.figure_canvas(active_trace_id, &attention) {
                                     Ok(figure_canvas) => figure_canvas,
-                                    Err((sample_idx, error)) => return Some(
+                                    Err((sample_id, error)) => return Some(
                                         HuskyTracerServerMessageVariant::LockAttentionWithError {
-                                            sample_idx,
+                                            sample_id,
                                             error: format!("{:?}", error),
                                         },
                                     ),

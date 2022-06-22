@@ -1,9 +1,9 @@
 use crate::*;
-use husky_tracer_protocol::SampleIdx;
+use husky_tracer_protocol::SampleId;
 
 pub trait LoadSample<'eval>: std::fmt::Debug + Send + Sync + 'eval {
     fn len(&self) -> usize;
-    fn load<'a>(&'a self, idx: SampleIdx) -> LabeledData<'eval>;
+    fn load<'a>(&'a self, idx: SampleId) -> LabeledData<'eval>;
 }
 
 pub type DataLoader<'eval> = Box<dyn LoadSample<'eval>>;

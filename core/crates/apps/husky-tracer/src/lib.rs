@@ -35,10 +35,10 @@ impl HuskyTracer {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime)) -> Self {
         let config = DebuggerConfig::from_env();
         let mut trace_time = HuskyTraceTime::new(init_compile_time, config.verbose);
-        if let Some(ref sample_idx_str) = config.opt_sample_idx {
-            let sample_idx: SampleIdx = SampleIdx(sample_idx_str.parse().unwrap());
+        if let Some(ref sample_id_str) = config.opt_sample_id {
+            let sample_id: SampleId = SampleId(sample_id_str.parse().unwrap());
             trace_time.set_attention(Attention::Specific {
-                sample_idx: sample_idx,
+                sample_id: sample_id,
             });
             for trace in trace_time.root_traces().iter() {
                 let stalk = trace_time.keyed_trace_stalk(*trace);
@@ -50,12 +50,8 @@ impl HuskyTracer {
         }
     }
 
-    pub async fn serve_on_error(
-        self,
-        addr: impl ToSocketAddrs,
-        sample_idx: SampleIdx,
-    ) -> TestResult {
-        if self.has_root_error(sample_idx).await {
+    pub async fn serve_on_error(self, addr: impl ToSocketAddrs, sample_id: SampleId) -> TestResult {
+        if self.has_root_error(sample_id).await {
             self.serve(addr).await.unwrap();
             TestResult::Failed
         } else {
@@ -63,12 +59,12 @@ impl HuskyTracer {
         }
     }
 
-    async fn has_root_error(&self, sample_idx: SampleIdx) -> bool {
+    async fn has_root_error(&self, sample_id: SampleId) -> bool {
         let mut error_flag = false;
         let internal = &mut self.internal.lock().unwrap();
         internal
             .trace_time
-            .set_attention(Attention::Specific { sample_idx });
+            .set_attention(Attention::Specific { sample_id });
         for trace_id in internal.trace_time.root_traces().into_iter() {
             let (_, stalk) = internal.trace_time.keyed_trace_stalk(trace_id);
             for token in &stalk.extra_tokens {

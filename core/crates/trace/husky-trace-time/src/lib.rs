@@ -85,7 +85,7 @@ impl HuskyTraceTime {
     // match command.parse::<usize>() {
     //     Ok(id) => {
     //         self.attention = Attention {
-    //             opt_sample_idx: Some(id),
+    //             opt_sample_id: Some(id),
     //         };
     //         (Some(Some(id)), None)
     //     }
@@ -352,7 +352,7 @@ impl HuskyTraceTime {
 //         &self,
 //         parent: &Trace,
 //         expr: &FeatureExpr,
-//         opt_sample_idx: Option<usize>,
+//         opt_sample_id: Option<usize>,
 //     ) ->  Vec<TraceId>  {
 //         Arc::new(match expr.variant {
 //             FeatureExprVariant::PrimitiveLiteral(_)
@@ -366,7 +366,7 @@ impl HuskyTraceTime {
 //                 ..
 //             } => {
 //                 let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
-//                 if let Some(sample_idx) = opt_sample_idx {
+//                 if let Some(sample_id) = opt_sample_id {
 //                     let mut subtraces = vec![];
 //                     let mut func_input_values = vec![];
 //                     subtraces.push(self.trace_factory().new_call_head(
@@ -391,7 +391,7 @@ impl HuskyTraceTime {
 //                                 ident: parameters[i].ranged_ident.ident,
 //                             },
 //                         ));
-//                         match self.runtime.eval_feature_expr(func_input, sample_idx) {
+//                         match self.runtime.eval_feature_expr(func_input, sample_id) {
 //                             Ok(value) => func_input_values.push(value.into_stack().unwrap()),
 //                             Err(_) => return Arc::new(subtraces),
 //                         }

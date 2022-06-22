@@ -1,6 +1,6 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
 use entity_kind::RoutineKind;
-use husky_tracer_protocol::SampleIdx;
+use husky_tracer_protocol::SampleId;
 use liason::OutputLiason;
 use std::sync::Arc;
 use vm::{linkage, EvalValue, Linkage, OwnedValue, TempValue};
@@ -44,38 +44,36 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     dev_src: dev_utils::static_dev_src!(),
 };
 
-pub fn gen_sample1<'eval>(seed: u64, sample_idx: SampleIdx) -> LabeledData<'eval> {
-    let mut xrng =
-        XRng::new(((seed + (sample_idx.0 as u64)) >> 32) & ((sample_idx.0 as u64) << 32));
+pub fn gen_sample1<'eval>(seed: u64, sample_id: SampleId) -> LabeledData<'eval> {
+    let mut xrng = XRng::new(((seed + (sample_id.0 as u64)) >> 32) & ((sample_id.0 as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
             input: EvalValue::Copyable(1.0f32.into()),
             label: 1.into(),
-            sample_idx: sample_idx,
+            sample_id: sample_id,
         }
     } else {
         LabeledData {
             input: EvalValue::Copyable((-1.0f32).into()),
             label: 1.into(),
-            sample_idx: sample_idx,
+            sample_id: sample_id,
         }
     }
 }
 
-pub fn gen_sample2<'eval>(seed: u64, sample_idx: SampleIdx) -> LabeledData<'eval> {
-    let mut xrng =
-        XRng::new(((seed + (sample_idx.0 as u64)) >> 32) & ((sample_idx.0 as u64) << 32));
+pub fn gen_sample2<'eval>(seed: u64, sample_id: SampleId) -> LabeledData<'eval> {
+    let mut xrng = XRng::new(((seed + (sample_id.0 as u64)) >> 32) & ((sample_id.0 as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
             input: EvalValue::Copyable(1.0f32.into()),
             label: 1.into(),
-            sample_idx: sample_idx,
+            sample_id: sample_id,
         }
     } else {
         LabeledData {
             input: EvalValue::Copyable((-1.0f32).into()),
             label: 1.into(),
-            sample_idx: sample_idx,
+            sample_id: sample_id,
         }
     }
 }

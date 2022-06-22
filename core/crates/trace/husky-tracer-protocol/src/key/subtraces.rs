@@ -7,7 +7,7 @@ pub enum SubtracesKey {
     },
     FeatureExprStalk {
         trace_id: TraceId,
-        sample_idx: SampleIdx,
+        sample_id: SampleId,
     },
     Null,
 }
@@ -26,10 +26,10 @@ impl SubtracesKey {
             TraceKind::FeatureCallInput | TraceKind::CallHead => SubtracesKey::Null,
             TraceKind::FeatureExpr => match attention {
                 Attention::Specific {
-                    sample_idx: sample_idx,
+                    sample_id: sample_id,
                 } => SubtracesKey::FeatureExprStalk {
                     trace_id,
-                    sample_idx: *sample_idx,
+                    sample_id: *sample_id,
                 },
                 Attention::Generic { .. } => SubtracesKey::Null,
             },

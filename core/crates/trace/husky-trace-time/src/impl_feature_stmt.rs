@@ -58,7 +58,7 @@ impl HuskyTraceTime {
         &self,
         stmt: &FeatureStmt,
         attention: &Attention,
-    ) -> Result<FigureCanvasData, (SampleIdx, VMRuntimeError)> {
+    ) -> Result<FigureCanvasData, (SampleId, VMRuntimeError)> {
         match stmt.variant {
             FeatureStmtVariant::Init { varname, ref value } => {
                 self.feature_expr_figure(value, attention)

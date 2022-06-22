@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub enum Attention {
     Specific {
-        sample_idx: SampleIdx,
+        sample_id: SampleId,
     },
     Generic {
         partitions: Vec<PartitionDefnData>,
@@ -57,20 +57,20 @@ impl Attention {
         }
     }
 
-    pub fn opt_sample_idx(&self) -> Option<SampleIdx> {
+    pub fn opt_sample_id(&self) -> Option<SampleId> {
         match self {
-            Attention::Specific { sample_idx } => Some(*sample_idx),
+            Attention::Specific { sample_id } => Some(*sample_id),
             Attention::Generic { .. } => None,
         }
     }
 }
-// function tell_has_extra(trace: Trace, sample_idx: number | null): boolean {
+// function tell_has_extra(trace: Trace, sample_id: number | null): boolean {
 //     switch (trace.kind) {
 //         case "Main":
 //         case "FeatureStmt":
 //         case "FeatureBranch":
 //         case "FeatureExpr":
-//             return sample_idx !== null;
+//             return sample_id !== null;
 //         case "FuncStmt":
 //         case "LoopFrame":
 //         case "ProcStmt":
