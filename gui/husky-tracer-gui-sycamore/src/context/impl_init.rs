@@ -28,8 +28,12 @@ impl DebuggerContext {
         }
         // order matters
         self.attention_context.init(init_data.attention.clone());
-        self.figure_context
-            .init(init_data.figure_canvases, init_data.figure_controls);
+        self.figure_context.init(
+            self.alloc_key_value_pairs(init_data.figure_canvases)
+                .collect(),
+            self.alloc_key_signal_pairs(init_data.figure_controls)
+                .collect(),
+        );
         self.trace_context.init(
             &init_data.attention,
             init_data
@@ -42,13 +46,13 @@ impl DebuggerContext {
                 .trace_init_data
                 .trace_stalks
                 .into_iter()
-                .map(|(k, v)| (k, self.create_static_ref(v)))
+                .map(|(k, v)| (k, self.alloc_value(v)))
                 .collect(),
             init_data
                 .trace_init_data
                 .subtrace_ids_map
                 .into_iter()
-                .map(|(k, v)| (k, self.create_static_ref(v) as &'static [TraceId]))
+                .map(|(k, v)| (k, self.alloc_value(v) as &'static [TraceId]))
                 .collect(),
             init_data.trace_init_data.root_trace_ids,
             init_data.trace_init_data.opt_active_trace_id,

@@ -34,16 +34,17 @@ impl DebuggerContext {
                             let active_trace =
                                 self.trace_context.trace(opt_active_trace_id.unwrap());
                             self.figure_context.set_figure(
+                                self.scope,
                                 &active_trace,
                                 &attention,
-                                figure_canvas_data,
+                                self.alloc_value(figure_canvas_data),
                                 figure_control_data,
                             )
                         });
                         self.trace_context.receive_trace_stalks(
                             new_trace_stalks
                                 .into_iter()
-                                .map(|(k, v)| (k, self.create_static_ref(v))),
+                                .map(|(k, v)| (k, self.alloc_value(v))),
                         );
                         self.attention_context.attention.set(attention.clone());
                     }
