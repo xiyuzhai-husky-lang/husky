@@ -1,4 +1,4 @@
-use husky_tracer_protocol::SampleIdx;
+use husky_tracer_protocol::SampleId;
 
 use super::*;
 
@@ -28,14 +28,14 @@ impl<'eval> LoadSample<'eval> for MnistDevLoader {
         10000
     }
 
-    fn load<'a>(&'a self, sample_idx: SampleIdx) -> LabeledData<'eval> {
-        let permuted_idx = self.permutation[sample_idx.0] as usize;
+    fn load<'a>(&'a self, sample_id: SampleId) -> LabeledData<'eval> {
+        let permuted_idx = self.permutation[sample_id.0] as usize;
         let input = EvalValue::EvalPure(self.images[permuted_idx].clone());
         let label = self.labels[permuted_idx];
         LabeledData {
             input,
             label,
-            sample_idx: sample_idx,
+            sample_id: sample_id,
         }
     }
 }

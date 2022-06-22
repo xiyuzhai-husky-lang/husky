@@ -181,18 +181,18 @@ impl HuskyTraceTime {
         &self,
         expr: &Arc<FeatureLazyExpr>,
         attention: &Attention,
-    ) -> Result<FigureCanvasData, (SampleIdx, VMRuntimeError)> {
+    ) -> Result<FigureCanvasData, (SampleId, VMRuntimeError)> {
         match attention {
             Attention::Specific {
-                sample_idx: sample_idx,
+                sample_id: sample_id,
             } => {
                 let value = self
                     .runtime
-                    .eval_feature_expr(expr, *sample_idx)
-                    .map_err(|e| (*sample_idx, e))?;
+                    .eval_feature_expr(expr, *sample_id)
+                    .map_err(|e| (*sample_id, e))?;
                 Ok(FigureCanvasData::new_specific(
                     self.runtime
-                        .visualize(FeatureRepr::Expr(expr.clone()), *sample_idx)
+                        .visualize(FeatureRepr::Expr(expr.clone()), *sample_id)
                         .unwrap(),
                 ))
             }
@@ -231,7 +231,7 @@ impl HuskyTraceTime {
                                 .process(label, || -> VMRuntimeResult<i32> {
                                     let visual_data = self
                                         .runtime
-                                        .visualize(expr.clone().into(), labeled_data.sample_idx)?;
+                                        .visualize(expr.clone().into(), labeled_data.sample_id)?;
                                     Ok(match visual_data {
                                         VisualData::Primitive {
                                             value: PrimitiveValueData::I32(i),
@@ -242,7 +242,7 @@ impl HuskyTraceTime {
                                         }
                                     })
                                 })
-                                .map_err(|e| (labeled_data.sample_idx, e))?
+                                .map_err(|e| (labeled_data.sample_id, e))?
                             {
                                 break;
                             }
@@ -260,7 +260,7 @@ impl HuskyTraceTime {
                                 .process(label, || -> VMRuntimeResult<f32> {
                                     let visual_data = self
                                         .runtime
-                                        .visualize(expr.clone().into(), labeled_data.sample_idx)?;
+                                        .visualize(expr.clone().into(), labeled_data.sample_id)?;
                                     Ok(match visual_data {
                                         VisualData::Primitive {
                                             value: PrimitiveValueData::F32(f),
@@ -268,7 +268,7 @@ impl HuskyTraceTime {
                                         _ => panic!(),
                                     })
                                 })
-                                .map_err(|e| (labeled_data.sample_idx, e))?
+                                .map_err(|e| (labeled_data.sample_id, e))?
                             {
                                 break;
                             }
@@ -292,10 +292,10 @@ impl HuskyTraceTime {
                                 .process(label, || -> VMRuntimeResult<Graphics2dCanvasData> {
                                     let visual_data = self
                                         .runtime
-                                        .visualize(expr.clone().into(), labeled_data.sample_idx)?;
+                                        .visualize(expr.clone().into(), labeled_data.sample_id)?;
                                     Ok(Graphics2dCanvasData::from_visual_data(visual_data))
                                 })
-                                .map_err(|e| (labeled_data.sample_idx, e))?
+                                .map_err(|e| (labeled_data.sample_id, e))?
                             {
                                 break;
                             }

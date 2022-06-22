@@ -7,8 +7,8 @@ pub(super) fn load_mnist() -> (Arc<Vec<Arc<BinaryImage28>>>, Arc<Vec<Label>>) {
     let file_content: Vec<u8> =
         std::fs::read("/home/xiyuzhai/Documents/data/mnist_bool_images").unwrap();
     assert_eq!(file_content.len(), 60000 * (1 + 28 * 4));
-    for sample_idxx in 0..60000 {
-        let base = sample_idxx * (1 + 28 * 4);
+    for sample_idx in 0..60000 {
+        let base = sample_idx * (1 + 28 * 4);
         labels.push(file_content[base].into());
         images.push(Arc::new(BinaryImage28::read(
             &file_content[(base + 1)..(base + 1 + 28 * 4)],

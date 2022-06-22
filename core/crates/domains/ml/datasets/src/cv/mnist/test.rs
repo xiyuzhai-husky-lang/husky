@@ -1,4 +1,4 @@
-use husky_tracer_protocol::SampleIdx;
+use husky_tracer_protocol::SampleId;
 
 use super::*;
 
@@ -18,7 +18,7 @@ impl<'eval> LoadSample<'eval> for MnistTestLoader {
         10000
     }
 
-    fn load<'a>(&'a self, sample_idx: SampleIdx) -> LabeledData<'eval> {
+    fn load<'a>(&'a self, sample_id: SampleId) -> LabeledData<'eval> {
         todo!()
     }
 }

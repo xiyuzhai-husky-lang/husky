@@ -63,7 +63,7 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
             package_dir.as_os_str().to_str().unwrap(),
         );
         match HuskyTracer::new(|compile_time| init_compile_time_from_dir(compile_time, package_dir))
-            .serve_on_error("localhost:51617", SampleIdx(0))
+            .serve_on_error("localhost:51617", SampleId(0))
             .await
         {
             TestResult::Success => finalize_success(),

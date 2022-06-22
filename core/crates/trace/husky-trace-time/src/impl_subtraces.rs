@@ -59,7 +59,7 @@ impl HuskyTraceTime {
             },
             TraceVariant::FeatureExpr(ref expr) => {
                 todo!()
-                // self.feature_expr_subtraces(trace, expr, effective_opt_sample_idx)
+                // self.feature_expr_subtraces(trace, expr, effective_opt_sample_id)
             }
             TraceVariant::FeatureBranch(ref branch) => {
                 self.feature_lazy_block_subtraces(trace, &branch.block)

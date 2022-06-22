@@ -5,7 +5,7 @@ xflags::xflags! {
         required dir: PathBuf
     {
         optional -v, --verbose
-        optional --sample-idx sample_idx: String
+        optional --sample-id sample_id: String
         optional --mode mode: String
         optional -c, --compile
     }

@@ -17,7 +17,7 @@ impl DebuggerContext {
             }
             None => false,
         };
-        let request_stalk = attention.opt_sample_idx().is_some();
+        let request_stalk = attention.opt_sample_id().is_some();
         if request_figure || request_stalk {
             let this = self.clone();
             self.ws.send_message(
@@ -65,16 +65,16 @@ impl DebuggerContext {
     }
 
     pub(super) fn set_attention_from_dialog(&self) {
-        let sample_idx_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
-        match sample_idx_value.parse::<usize>() {
+        let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
+        match sample_id_value.parse::<usize>() {
             Ok(raw) => {
                 self.set_attention(Attention::Specific {
-                    sample_idx: SampleIdx(raw),
+                    sample_id: SampleId(raw),
                 });
                 let attention_dialog = get_element_by_id::<HtmlDialogElement>("attention-dialog");
                 attention_dialog.close()
             }
-            Err(_) => alert!("`{}` is not a valid sample id", sample_idx_value),
+            Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),
         }
     }
 }

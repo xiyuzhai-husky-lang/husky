@@ -2,6 +2,6 @@ use super::*;
 use sycamore::prelude::Signalable;
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct SampleIdx(pub usize);
+pub struct SampleId(pub usize);
 
-impl Signalable for SampleIdx {}
+impl Signalable for SampleId {}

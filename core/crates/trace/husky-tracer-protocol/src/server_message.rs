@@ -19,7 +19,7 @@ pub enum HuskyTracerServerMessageVariant {
         figure_control_data: FigureControlData,
     },
     ActivateWithError {
-        sample_idx: SampleIdx,
+        sample_id: SampleId,
         error: String,
     },
     ToggleExpansion {
@@ -38,7 +38,7 @@ pub enum HuskyTracerServerMessageVariant {
         new_trace_stalks: Vec<(TraceStalkKey, TraceStalkRawData)>,
     },
     LockAttentionWithError {
-        sample_idx: SampleIdx,
+        sample_id: SampleId,
         error: String,
     },
     TraceStalk {
