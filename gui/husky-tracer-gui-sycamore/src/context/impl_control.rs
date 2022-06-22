@@ -82,9 +82,10 @@ impl DebuggerContext {
                         figure_control_data,
                     } => {
                         self.figure_context.set_figure(
+                            self.scope,
                             &trace,
                             &attention,
-                            figure_canvas_data,
+                            self.alloc_value(figure_canvas_data),
                             figure_control_data,
                         );
                         self.trace_context.did_activate(trace_id);
@@ -124,7 +125,7 @@ impl DebuggerContext {
                             trace_stalks,
                         } => {
                             self.trace_context
-                                .receive_subtraces(key, self.create_static_ref(subtrace_ids));
+                                .receive_subtraces(key, self.alloc_value(subtrace_ids));
                             self.trace_context.receive_traces(
                                 new_traces
                                     .into_iter()
@@ -133,7 +134,7 @@ impl DebuggerContext {
                             self.trace_context.receive_trace_stalks(
                                 trace_stalks
                                     .into_iter()
-                                    .map(|(k, v)| (k, self.create_static_ref(v))),
+                                    .map(|(k, v)| (k, self.alloc_value(v))),
                             );
                             expansion.set(true)
                         }

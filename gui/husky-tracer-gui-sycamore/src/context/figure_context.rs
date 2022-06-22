@@ -2,31 +2,26 @@ use super::*;
 
 #[derive(Debug, Default)]
 pub struct FigureContext {
-    figure_canvases: RefCell<HashMap<FigureCanvasKey, Rc<FigureCanvasData>>>,
-    figure_controls: RefCell<HashMap<FigureControlKey, Rc<Signal<FigureControlData>>>>,
+    figure_canvases: RefCell<HashMap<FigureCanvasKey, &'static FigureCanvasData>>,
+    figure_controls: RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
 }
 
 impl FigureContext {
     pub(super) fn init(
         &self,
-        figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)>,
-        figure_controls: Vec<(FigureControlKey, FigureControlData)>,
+        figure_canvases: HashMap<FigureCanvasKey, &'static FigureCanvasData>,
+        figure_controls: HashMap<FigureControlKey, &'static Signal<FigureControlData>>,
     ) {
-        *self.figure_canvases.borrow_mut(file!(), line!()) = figure_canvases
-            .into_iter()
-            .map(|(k, v)| (k, Rc::new(v)))
-            .collect();
-        *self.figure_controls.borrow_mut(file!(), line!()) = figure_controls
-            .into_iter()
-            .map(|(k, v)| (k, Rc::new(Signal::new(v))))
-            .collect();
+        *self.figure_canvases.borrow_mut(file!(), line!()) = figure_canvases;
+        *self.figure_controls.borrow_mut(file!(), line!()) = figure_controls;
     }
 
     pub(super) fn set_figure(
         &self,
+        scope: Scope<'static>,
         trace: &TraceData,
         attention: &Attention,
-        figure: FigureCanvasData,
+        figure: &'static FigureCanvasData,
         figure_control_props: FigureControlData,
     ) {
         assert!(self
@@ -34,19 +29,19 @@ impl FigureContext {
             .borrow_mut(file!(), line!())
             .insert(
                 FigureCanvasKey::new(trace.kind, trace.id, attention),
-                Rc::new(figure)
+                figure
             )
             .is_none());
-        self.set_figure_control_data(trace, attention, figure_control_props);
+        self.set_figure_control_data(scope, trace, attention, figure_control_props);
     }
 
     pub(crate) fn figure_canvas_data(
         &self,
         trace: &TraceData,
         attention: &Attention,
-    ) -> Rc<FigureCanvasData> {
+    ) -> &'static FigureCanvasData {
         let figure_canvas_key = FigureCanvasKey::new(trace.kind, trace.id, attention);
-        self.figure_canvases.borrow(file!(), line!())[&figure_canvas_key].clone()
+        self.figure_canvases.borrow(file!(), line!())[&figure_canvas_key]
     }
 
     pub(super) fn is_figure_cached(&self, trace: &TraceData, attention: &Attention) -> bool {
@@ -58,6 +53,7 @@ impl FigureContext {
 
     fn set_figure_control_data(
         &self,
+        scope: Scope<'static>,
         trace: &TraceData,
         attention: &Attention,
         figure_control_data: FigureControlData,
@@ -76,7 +72,10 @@ impl FigureContext {
             if let Some(figure_control_signal) = figure_controls.get(&key) {
                 Some(figure_control_signal.clone())
             } else {
-                figure_controls.insert(key, Rc::new(Signal::new(figure_control_data.clone())));
+                figure_controls.insert(
+                    key,
+                    create_static_signal(scope, figure_control_data.clone()),
+                );
                 None
             }
         };
@@ -87,10 +86,9 @@ impl FigureContext {
         &self,
         trace: &TraceData,
         attention: &Attention,
-    ) -> Rc<Signal<FigureControlData>> {
+    ) -> &'static Signal<FigureControlData> {
         self.figure_controls.borrow(file!(), line!())
             [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, attention)]
-            .clone()
     }
 
     // fn update_figure_control_props(
