@@ -64,8 +64,8 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                         scope,
                         Graphics2dCanvas {
                             dimension: props.dimension,
-                            image_layers: Rc::new(graphics2d_data.image_layers.clone()),
-                            shapes: Rc::new(graphics2d_data.shapes.clone()),
+                            image_layers: &graphics2d_data.image_layers,
+                            shapes:&graphics2d_data.shapes,
                             xrange: graphics2d_data.xrange,
                             yrange: graphics2d_data.yrange,
                         }
@@ -79,7 +79,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     scope,
                     GenericGraphics2d {
                         dimension: props.dimension,
-                        partitioned_samples: partitioned_samples.clone(),
+                        partitioned_samples: partitioned_samples ,
                 }},
                 _=> todo!(),
             }

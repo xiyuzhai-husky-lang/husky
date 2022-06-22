@@ -3,8 +3,8 @@ use super::*;
 #[derive(Prop)]
 pub struct PartitionCanvasProps<'a> {
     column_dimension: &'a ReadSignal<PixelDimension>,
-    partition: PartitionDefnData,
-    samples: Vec<(SampleId, Graphics2dCanvasData)>,
+    partition: &'a PartitionDefnData,
+    samples: &'a [(SampleId, Graphics2dCanvasData)],
 }
 
 #[component]
@@ -54,8 +54,8 @@ pub fn PartitionCanvas<'a, G: Html>(scope: Scope<'a>, props: PartitionCanvasProp
                             ) {
                                 Graphics2dCanvas {
                                     dimension: sample_graphics2d_dimension,
-                                    image_layers: Rc::new(sample_visual.image_layers.clone()),
-                                    shapes: Rc::new(sample_visual.shapes.clone()),
+                                    image_layers: &sample_visual.image_layers ,
+                                    shapes: &sample_visual.shapes ,
                                     xrange: sample_visual.xrange,
                                     yrange: sample_visual.yrange,
                                 }

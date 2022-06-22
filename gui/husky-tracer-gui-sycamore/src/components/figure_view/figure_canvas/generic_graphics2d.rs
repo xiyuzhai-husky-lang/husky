@@ -8,7 +8,7 @@ const TITLE_HEIGHT: u32 = 25;
 #[derive(Prop)]
 pub struct GenericGraphics2dProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, Graphics2dCanvasData)>)>,
+    partitioned_samples: &'a [(PartitionDefnData, Vec<(SampleId, Graphics2dCanvasData)>)],
 }
 
 #[component]
@@ -30,8 +30,8 @@ pub fn GenericGraphics2d<'a, G: Html>(
                         scope,
                         PartitionCanvas {
                             column_dimension,
-                            partition:  partition.clone() ,
-                            samples: samples.clone(),
+                            partition,
+                            samples,
                         }
                     }
                 }
