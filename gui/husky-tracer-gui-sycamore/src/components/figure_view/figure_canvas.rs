@@ -1,3 +1,4 @@
+mod generic_f32;
 mod generic_graphics2d;
 mod generic_i32;
 mod graphics2d;
@@ -5,7 +6,9 @@ mod plot2d;
 mod primitive_value;
 
 use super::*;
+use generic_f32::*;
 use generic_graphics2d::*;
+use generic_i32::*;
 use graphics2d::*;
 use plot2d::*;
 use primitive_value::*;
@@ -80,6 +83,15 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     GenericGraphics2d {
                         dimension: props.dimension,
                         partitioned_samples: partitioned_samples ,
+                }},
+                FigureCanvasData::GenericI32 {
+                    ref partitioned_samples,
+                } =>
+                view!{
+                    scope,
+                    GenericI32 {
+                        dimension: props.dimension,
+                        partitioned_samples: partitioned_samples,
                 }},
                 _=> todo!(),
             }
