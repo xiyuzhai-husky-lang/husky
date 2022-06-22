@@ -8,14 +8,14 @@ pub const SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
-
 use crate::{labeled::LabeledData, *};
 
+use husky_tracer_protocol::SampleIdx;
 use loader::SyntheticSampleLoader;
 use vm::OwnedValue;
 
 pub trait SyntheticDataset<'eval>: AnyValueDyn<'eval> + 'eval {
-    fn data_generator(&self) -> fn(seed: u64, idx: usize) -> LabeledData<'eval>;
+    fn data_generator(&self) -> fn(seed: u64, sample_idx: SampleIdx) -> LabeledData<'eval>;
     fn seed(&self) -> u64;
     fn dev_len(&self) -> usize {
         100
@@ -71,7 +71,7 @@ impl<'eval, D: SyntheticDataset<'eval>> DatasetDyn<'eval> for D {
 #[derive(PartialEq, Eq)]
 pub struct SimpleSyntheticDataset<'eval> {
     seed: u64,
-    data_generator: fn(seed: u64, idx: usize) -> LabeledData<'eval>,
+    data_generator: fn(seed: u64, sample_idx: SampleIdx) -> LabeledData<'eval>,
 }
 
 impl<'eval> std::fmt::Debug for SimpleSyntheticDataset<'eval> {
@@ -92,7 +92,10 @@ impl<'eval> Clone for SimpleSyntheticDataset<'eval> {
 }
 
 impl<'eval> SimpleSyntheticDataset<'eval> {
-    pub fn new(seed: u64, gen_sample: fn(seed: u64, idx: usize) -> LabeledData<'eval>) -> Self {
+    pub fn new(
+        seed: u64,
+        gen_sample: fn(seed: u64, sample_idx: SampleIdx) -> LabeledData<'eval>,
+    ) -> Self {
         SimpleSyntheticDataset {
             seed,
             data_generator: gen_sample,
@@ -138,7 +141,7 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
 }
 
 impl<'eval> SyntheticDataset<'eval> for SimpleSyntheticDataset<'eval> {
-    fn data_generator(&self) -> fn(u64, usize) -> LabeledData<'eval> {
+    fn data_generator(&self) -> fn(u64, SampleIdx) -> LabeledData<'eval> {
         self.data_generator
     }
     fn seed(&self) -> u64 {

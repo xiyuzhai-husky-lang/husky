@@ -28,13 +28,13 @@ impl<'eval> Division<'eval> {
         }
     }
 
-    pub fn load(&self, input_id: usize) -> LabeledData<'eval> {
-        self.loader.load(input_id)
+    pub fn load(&self, sample_idx: SampleIdx) -> LabeledData<'eval> {
+        self.loader.load(sample_idx)
     }
 
     pub fn each_labeled_data<'a>(&'a self) -> impl Iterator<Item = LabeledData<'eval>> + 'a {
         (0..self.loader.len())
             .into_iter()
-            .map(|idx| self.loader.load(idx))
+            .map(|idx| self.loader.load(SampleIdx(idx)))
     }
 }

@@ -15,9 +15,13 @@ impl TraceContext {
             .kind
     }
 
-    pub(crate) fn trace_stalk(&self, sample_id: usize, trace_id: TraceId) -> Rc<TraceStalkData> {
+    pub(crate) fn trace_stalk(
+        &self,
+        sample_idx: SampleIdx,
+        trace_id: TraceId,
+    ) -> Rc<TraceStalkData> {
         self.trace_stalks.borrow(file!(), line!())[&TraceStalkKey::from_trace_data(
-            sample_id,
+            sample_idx,
             &self.trace_nodes.borrow(file!(), line!())[trace_id.0].data,
         )]
             .clone()

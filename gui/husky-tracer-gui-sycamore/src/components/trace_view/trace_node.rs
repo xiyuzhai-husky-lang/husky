@@ -37,9 +37,9 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 let toggle_expansion_handler = toggle_expansion_handler.clone();
                 let line_idx = line_data.idx;
                 let opt_extra_tokens = memo!(scope, move || {
-                    if let Some(sample_id) = attention.get().opt_sample_id() {
+                    if let Some(sample_idx) = attention.get().opt_sample_idx() {
                         if line_idx == trace_lines_len - 1 {
-                            let trace_stalk = trace_context.trace_stalk(sample_id, trace_id);
+                            let trace_stalk = trace_context.trace_stalk(sample_idx, trace_id);
                             trace_stalk.opt_extra_tokens.clone()
                         } else {
                             None

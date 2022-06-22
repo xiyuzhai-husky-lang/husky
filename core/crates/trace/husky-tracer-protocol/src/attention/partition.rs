@@ -37,7 +37,7 @@ pub struct PartitionedSamplesCollector<T> {
 impl<T> PartitionedSamplesCollector<T> {
     pub fn new(partition_defns: Vec<PartitionDefnData>) -> Self {
         let flags: u32 = (!0u32 << partition_defns.len()) ^ (!0u32);
-        let mut partitioned_samples: Vec<(PartitionDefnData, Vec<T>)> = partition_defns
+        let partitioned_samples: Vec<(PartitionDefnData, Vec<T>)> = partition_defns
             .iter()
             .map(|partition| (partition.clone(), vec![]))
             .collect();

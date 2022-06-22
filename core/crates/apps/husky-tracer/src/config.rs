@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug)]
 pub(crate) struct DebuggerConfig {
     pub(crate) verbose: bool,
-    pub(crate) opt_input_id: Option<String>,
+    pub(crate) opt_sample_idx: Option<String>,
 }
 
 impl DebuggerConfig {
@@ -11,11 +11,11 @@ impl DebuggerConfig {
         match flags::HuskyTracerCommand::from_env() {
             Ok(flags) => Self {
                 verbose: flags.verbose,
-                opt_input_id: flags.input_id,
+                opt_sample_idx: flags.sample_idx,
             },
             Err(_) => Self {
                 verbose: false,
-                opt_input_id: None,
+                opt_sample_idx: None,
             },
         }
     }
