@@ -28,13 +28,13 @@ pub enum FigureCanvasData {
         mutations: Vec<MutationFigureData>,
     },
     GenericGraphics2d {
-        partitioned_samples: Vec<(PartitionDefnData, Vec<Graphics2dCanvasData>)>,
+        partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, Graphics2dCanvasData)>)>,
     },
     GenericF32 {
-        partitioned_samples: Vec<(PartitionDefnData, Vec<f32>)>,
+        partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, f32)>)>,
     },
     GenericI32 {
-        partitioned_samples: Vec<(PartitionDefnData, Vec<i32>)>,
+        partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, i32)>)>,
     },
 }
 
@@ -224,55 +224,55 @@ impl FigureCanvasData {
     //     }
     // }
 
-    fn new_generic_f32(
-        partitioned_visuals: Vec<(PartitionDefnData, Vec<FigureCanvasData>)>,
-    ) -> Self {
-        FigureCanvasData::GenericF32 {
-            partitioned_samples: partitioned_visuals
-                .into_iter()
-                .map(|(partition, visuals)| {
-                    (
-                        partition,
-                        visuals
-                            .into_iter()
-                            .map(|visual_data| match visual_data {
-                                FigureCanvasData::Primitive { value } => match value {
-                                    PrimitiveValueData::F32(f) => f,
-                                    _ => panic!(),
-                                },
-                                _ => panic!(),
-                            })
-                            .collect(),
-                    )
-                })
-                .collect(),
-        }
-    }
+    // fn new_generic_f32(
+    //     partitioned_visuals: Vec<(PartitionDefnData, Vec<FigureCanvasData>)>,
+    // ) -> Self {
+    //     FigureCanvasData::GenericF32 {
+    //         partitioned_samples: partitioned_visuals
+    //             .into_iter()
+    //             .map(|(partition, visuals)| {
+    //                 (
+    //                     partition,
+    //                     visuals
+    //                         .into_iter()
+    //                         .map(|visual_data| match visual_data {
+    //                             FigureCanvasData::Primitive { value } => match value {
+    //                                 PrimitiveValueData::F32(f) => f,
+    //                                 _ => panic!(),
+    //                             },
+    //                             _ => panic!(),
+    //                         })
+    //                         .collect(),
+    //                 )
+    //             })
+    //             .collect(),
+    //     }
+    // }
 
-    fn new_generic_i32(
-        partitioned_visuals: Vec<(PartitionDefnData, Vec<FigureCanvasData>)>,
-    ) -> Self {
-        FigureCanvasData::GenericI32 {
-            partitioned_samples: partitioned_visuals
-                .into_iter()
-                .map(|(partition, visuals)| {
-                    (
-                        partition,
-                        visuals
-                            .into_iter()
-                            .map(|visual_data| match visual_data {
-                                FigureCanvasData::Primitive { value } => match value {
-                                    PrimitiveValueData::I32(i) => i,
-                                    _ => panic!(),
-                                },
-                                _ => panic!(),
-                            })
-                            .collect(),
-                    )
-                })
-                .collect(),
-        }
-    }
+    // fn new_generic_i32(
+    //     partitioned_visuals: Vec<(PartitionDefnData, Vec<FigureCanvasData>)>,
+    // ) -> Self {
+    //     FigureCanvasData::GenericI32 {
+    //         partitioned_samples: partitioned_visuals
+    //             .into_iter()
+    //             .map(|(partition, visuals)| {
+    //                 (
+    //                     partition,
+    //                     visuals
+    //                         .into_iter()
+    //                         .map(|visual_data| match visual_data {
+    //                             FigureCanvasData::Primitive { value } => match value {
+    //                                 PrimitiveValueData::I32(i) => i,
+    //                                 _ => panic!(),
+    //                             },
+    //                             _ => panic!(),
+    //                         })
+    //                         .collect(),
+    //                 )
+    //             })
+    //             .collect(),
+    //     }
+    // }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy)]
