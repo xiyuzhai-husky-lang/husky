@@ -13,8 +13,9 @@ pub trait TraceQueryGroup: ProduceTrace {
     fn version(&self) -> usize;
 
     fn root_traces(&self) -> Vec<TraceId>;
-    fn subtraces(&self, trace_id: TraceId, effective_opt_input_id: Option<usize>) -> Vec<TraceId>;
-    fn trace_stalk(&self, trace_id: TraceId, input_id: usize) -> Arc<TraceStalkRawData>;
+    fn subtraces(&self, trace_id: TraceId, effective_opt_sample_idx: Option<usize>)
+        -> Vec<TraceId>;
+    fn trace_stalk(&self, trace_id: TraceId, sample_idx: SampleIdx) -> Arc<TraceStalkRawData>;
 }
 
 pub fn root_traces(this: &dyn TraceQueryGroup) -> Vec<TraceId> {
@@ -26,7 +27,7 @@ pub fn root_traces(this: &dyn TraceQueryGroup) -> Vec<TraceId> {
 pub fn subtraces(
     db: &dyn TraceQueryGroup,
     trace_id: TraceId,
-    effective_opt_input_id: Option<usize>,
+    effective_opt_sample_idx: Option<usize>,
 ) -> Vec<TraceId> {
     let trace: &Trace = &db.trace(trace_id);
     match trace.variant {
@@ -80,7 +81,7 @@ pub fn subtraces(
             } => todo!(),
         },
         TraceVariant::FeatureExpr(ref expr) => {
-            db.feature_expr_subtraces(trace, expr, effective_opt_input_id)
+            db.feature_expr_subtraces(trace, expr, effective_opt_sample_idx)
         }
         TraceVariant::FeatureBranch(ref branch) => db.feature_branch_subtraces(trace, branch),
         TraceVariant::EagerExpr {
@@ -130,33 +131,35 @@ pub fn subtraces(
 pub fn trace_stalk(
     this: &dyn TraceQueryGroup,
     trace_id: TraceId,
-    input_id: usize,
+    sample_idx: SampleIdx,
 ) -> Arc<TraceStalkRawData> {
     let trace: &Trace = &this.trace(trace_id);
     Arc::new(match trace.variant {
         TraceVariant::Main(ref repr) => TraceStalkRawData {
             extra_tokens: vec![
                 fade!(" = "),
-                this.runtime().eval_feature_repr(repr, input_id).into(),
+                this.runtime().eval_feature_repr(repr, sample_idx).into(),
             ],
         },
         TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
             FeatureStmtVariant::Init { varname, ref value } => TraceStalkRawData {
                 extra_tokens: vec![
                     fade!(" = "),
-                    this.runtime().eval_feature_expr(value, input_id).into(),
+                    this.runtime().eval_feature_expr(value, sample_idx).into(),
                 ],
             },
             FeatureStmtVariant::Assert { ref condition } => TraceStalkRawData {
                 extra_tokens: vec![
                     fade!(" = "),
-                    this.runtime().eval_feature_expr(condition, input_id).into(),
+                    this.runtime()
+                        .eval_feature_expr(condition, sample_idx)
+                        .into(),
                 ],
             },
             FeatureStmtVariant::Return { ref result } => TraceStalkRawData {
                 extra_tokens: vec![
                     fade!(" = "),
-                    this.runtime().eval_feature_expr(result, input_id).into(),
+                    this.runtime().eval_feature_expr(result, sample_idx).into(),
                 ],
             },
             FeatureStmtVariant::ConditionFlow { ref branches } => panic!(),
@@ -167,7 +170,7 @@ pub fn trace_stalk(
         TraceVariant::FeatureExpr(ref expr) => TraceStalkRawData {
             extra_tokens: vec![
                 fade!(" = "),
-                this.runtime().eval_feature_expr(expr, input_id).into(),
+                this.runtime().eval_feature_expr(expr, sample_idx).into(),
             ],
         },
         TraceVariant::FeatureCallInput { .. } => todo!(),

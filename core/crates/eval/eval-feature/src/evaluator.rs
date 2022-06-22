@@ -6,6 +6,7 @@ mod impl_visualize;
 mod indicator;
 mod sheet;
 
+use husky_tracer_protocol::SampleIdx;
 pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 
@@ -15,7 +16,7 @@ use vm::EvalResult;
 use vm::{AnyValueDyn, EvalValue};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
-    pub(crate) sample_id: usize,
+    pub(crate) sample_idx: SampleIdx,
     pub(crate) eval_input: EvalValue<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
     pub(crate) db: &'a dyn FeatureEvalQueryGroup,
@@ -40,6 +41,6 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn as_static(&self) -> FeatureEvaluator<'a, 'static> {
         self.opt_static_eval_feature
             .unwrap()
-            .evaluator(self.sample_id)
+            .evaluator(self.sample_idx)
     }
 }

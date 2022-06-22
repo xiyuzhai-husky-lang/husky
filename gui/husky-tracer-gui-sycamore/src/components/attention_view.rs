@@ -8,7 +8,7 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let attention_context = &debugger_context.attention_context;
     let generic = create_signal(scope, true);
     let attention = attention_context.attention.clone();
-    let last_input_id = create_signal(scope, attention.get_untracked().opt_sample_id());
+    let last_sample_idx = create_signal(scope, attention.get_untracked().opt_sample_idx());
     let toggle_attention_kind_handler = debugger_context.toggle_attention_kind_handler();
     let attention_dialog = get_element_by_id::<HtmlDialogElement>("attention-dialog");
     let set_attention_from_dialog = debugger_context.set_attention_from_dialog_handler();
@@ -42,7 +42,7 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
                 (attention_kind.get())
             }
             (match *attention.get() {
-                Attention::Specific { sample_id } => {
+                Attention::Specific { sample_idx } => {
                     view! {
                         scope,
                         label (
@@ -59,7 +59,7 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
                                 }
                             }
                         ) {
-                            (sample_id)
+                            (sample_idx.0)
                         }
                     }
                 },

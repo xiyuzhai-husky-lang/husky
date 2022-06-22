@@ -4,42 +4,42 @@ use vm::{History, VMControl};
 
 impl HuskyTraceTime {
     pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalkRawData) {
-        let sample_id = self.attention.opt_sample_id().unwrap();
-        let key = TraceStalkKey::from_trace_raw_data(sample_id, &self.trace(trace_id).raw_data);
+        let sample_idx = self.attention.opt_sample_idx().unwrap();
+        let key = TraceStalkKey::from_trace_raw_data(sample_idx, &self.trace(trace_id).raw_data);
         if !self.trace_stalks.contains_key(&key) {
             self.trace_stalks
-                .insert(key.clone(), self.produce_trace_stalk(trace_id, sample_id));
+                .insert(key.clone(), self.produce_trace_stalk(trace_id, sample_idx));
         }
         let trace_stalk_raw_data = self.trace_stalks[&key].clone();
         (key, trace_stalk_raw_data)
     }
 
-    fn produce_trace_stalk(&self, trace_id: TraceId, input_id: usize) -> TraceStalkRawData {
+    fn produce_trace_stalk(&self, trace_id: TraceId, sample_idx: SampleIdx) -> TraceStalkRawData {
         let trace: &Trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(ref block) => TraceStalkRawData {
                 extra_tokens: vec![
                     husky_tracer_protocol::fade!(" = "),
-                    self.runtime.eval_feature_repr(block, input_id).into(),
+                    self.runtime.eval_feature_repr(block, sample_idx).into(),
                 ],
             },
             TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
                 FeatureStmtVariant::Init { varname, ref value } => TraceStalkRawData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
-                        self.runtime.eval_feature_expr(value, input_id).into(),
+                        self.runtime.eval_feature_expr(value, sample_idx).into(),
                     ],
                 },
                 FeatureStmtVariant::Assert { ref condition } => TraceStalkRawData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
-                        self.runtime.eval_feature_expr(condition, input_id).into(),
+                        self.runtime.eval_feature_expr(condition, sample_idx).into(),
                     ],
                 },
                 FeatureStmtVariant::Return { ref result } => TraceStalkRawData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
-                        self.runtime.eval_feature_expr(result, input_id).into(),
+                        self.runtime.eval_feature_expr(result, sample_idx).into(),
                     ],
                 },
                 FeatureStmtVariant::ConditionFlow { ref branches } => panic!(),
@@ -51,7 +51,7 @@ impl HuskyTraceTime {
             TraceVariant::FeatureExpr(ref expr) => TraceStalkRawData {
                 extra_tokens: vec![
                     husky_tracer_protocol::fade!(" = "),
-                    self.runtime.eval_feature_expr(expr, input_id).into(),
+                    self.runtime.eval_feature_expr(expr, sample_idx).into(),
                 ],
             },
             TraceVariant::FeatureCallInput { .. } => todo!(),
@@ -73,11 +73,11 @@ impl HuskyTraceTime {
     }
 
     pub fn collect_new_trace_stalks(&mut self) -> Vec<(TraceStalkKey, TraceStalkRawData)> {
-        if let Some(sample_id) = self.attention.opt_sample_id() {
+        if let Some(sample_idx) = self.attention.opt_sample_idx() {
             let mut trace_stalks = Vec::new();
             for root_trace_id in self.root_trace_ids.clone() {
                 self.collect_new_trace_stalks_within_trace(
-                    sample_id,
+                    sample_idx,
                     root_trace_id,
                     &mut trace_stalks,
                 );
@@ -90,24 +90,28 @@ impl HuskyTraceTime {
 
     fn collect_new_trace_stalks_within_trace(
         &mut self,
-        sample_id: usize,
+        sample_idx: SampleIdx,
         trace_id: TraceId,
         trace_stalks: &mut Vec<(TraceStalkKey, TraceStalkRawData)>,
     ) {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.raw_data;
-        let trace_stalk_key = TraceStalkKey::from_trace_raw_data(sample_id, trace_raw_data);
+        let trace_stalk_key = TraceStalkKey::from_trace_raw_data(sample_idx, trace_raw_data);
         let associated_trace_ids = trace_raw_data.associated_trace_ids();
         if !self.trace_stalks.contains_key(&trace_stalk_key) {
             trace_stalks.push(self.keyed_trace_stalk(trace_id))
         }
         for associated_trace_id in associated_trace_ids {
-            self.collect_new_trace_stalks_within_trace(sample_id, associated_trace_id, trace_stalks)
+            self.collect_new_trace_stalks_within_trace(
+                sample_idx,
+                associated_trace_id,
+                trace_stalks,
+            )
         }
         if expanded {
             for subtrace_id in self.subtrace_ids(trace_id) {
-                self.collect_new_trace_stalks_within_trace(sample_id, subtrace_id, trace_stalks)
+                self.collect_new_trace_stalks_within_trace(sample_idx, subtrace_id, trace_stalks)
             }
         }
     }

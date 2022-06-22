@@ -12,8 +12,8 @@ impl AttentionContext {
         self.attention.set(attention);
     }
 
-    pub(super) fn opt_input_id(&self) -> Option<usize> {
-        return self.attention.get().opt_sample_id();
+    pub(super) fn opt_sample_idx(&self) -> Option<SampleIdx> {
+        self.attention.get().opt_sample_idx()
     }
 
     pub(super) fn did_lock_attention(&mut self, attention: Attention) {
@@ -36,14 +36,14 @@ impl AttentionContext {
             match *self.last_attention.borrow(file!(), line!()) {
                 Attention::Specific { .. } => Attention::default(),
                 Attention::Generic { .. } => Attention::Specific {
-                    sample_id: ask_for_input_id(),
+                    sample_idx: ask_for_sample_idx(),
                 },
             }
         }
     }
 }
 
-fn ask_for_input_id() -> usize {
+fn ask_for_sample_idx() -> SampleIdx {
     let window = web_sys::window().unwrap();
     let mut last_error: Option<String> = None;
     loop {
@@ -52,8 +52,8 @@ fn ask_for_input_id() -> usize {
             None => window.prompt_with_message("input id = "),
         };
         match answer {
-            Ok(Some(input_id_str)) => match input_id_str.parse::<usize>() {
-                Ok(input_id) => break input_id,
+            Ok(Some(sample_id_str)) => match sample_id_str.parse::<usize>() {
+                Ok(raw) => break SampleIdx(raw),
                 Err(e) => {
                     last_error = Some(format!("expect a valid number, but get {:?} instead", e))
                 }

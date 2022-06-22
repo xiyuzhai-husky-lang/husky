@@ -1,5 +1,6 @@
 use crate::{synthetic::SimpleSyntheticDataset, *};
 use entity_kind::RoutineKind;
+use husky_tracer_protocol::SampleIdx;
 use liason::OutputLiason;
 use std::sync::Arc;
 use vm::{linkage, EvalValue, Linkage, OwnedValue, TempValue};
@@ -43,36 +44,38 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     dev_src: dev_utils::static_dev_src!(),
 };
 
-pub fn gen_sample1<'eval>(seed: u64, input_id: usize) -> LabeledData<'eval> {
-    let mut xrng = XRng::new(((seed + (input_id as u64)) >> 32) & ((input_id as u64) << 32));
+pub fn gen_sample1<'eval>(seed: u64, sample_idx: SampleIdx) -> LabeledData<'eval> {
+    let mut xrng =
+        XRng::new(((seed + (sample_idx.0 as u64)) >> 32) & ((sample_idx.0 as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
             input: EvalValue::Copyable(1.0f32.into()),
             label: 1.into(),
-            sample_id: input_id,
+            sample_idx: sample_idx,
         }
     } else {
         LabeledData {
             input: EvalValue::Copyable((-1.0f32).into()),
             label: 1.into(),
-            sample_id: input_id,
+            sample_idx: sample_idx,
         }
     }
 }
 
-pub fn gen_sample2<'eval>(seed: u64, input_id: usize) -> LabeledData<'eval> {
-    let mut xrng = XRng::new(((seed + (input_id as u64)) >> 32) & ((input_id as u64) << 32));
+pub fn gen_sample2<'eval>(seed: u64, sample_idx: SampleIdx) -> LabeledData<'eval> {
+    let mut xrng =
+        XRng::new(((seed + (sample_idx.0 as u64)) >> 32) & ((sample_idx.0 as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
             input: EvalValue::Copyable(1.0f32.into()),
             label: 1.into(),
-            sample_id: input_id,
+            sample_idx: sample_idx,
         }
     } else {
         LabeledData {
             input: EvalValue::Copyable((-1.0f32).into()),
             label: 1.into(),
-            sample_id: input_id,
+            sample_idx: sample_idx,
         }
     }
 }

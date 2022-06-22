@@ -1,7 +1,6 @@
 //! References to nodes in views.
 
 use std::any::Any;
-use std::cell::RefCell;
 use std::fmt;
 use std::rc::Rc;
 

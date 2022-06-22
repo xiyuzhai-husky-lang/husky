@@ -2,8 +2,13 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum SubtracesKey {
-    Simple { trace_id: TraceId },
-    FeatureExprStalk { trace_id: TraceId, input_id: usize },
+    Simple {
+        trace_id: TraceId,
+    },
+    FeatureExprStalk {
+        trace_id: TraceId,
+        sample_idx: SampleIdx,
+    },
     Null,
 }
 
@@ -21,10 +26,10 @@ impl SubtracesKey {
             TraceKind::FeatureCallInput | TraceKind::CallHead => SubtracesKey::Null,
             TraceKind::FeatureExpr => match attention {
                 Attention::Specific {
-                    sample_id: input_id,
+                    sample_idx: sample_idx,
                 } => SubtracesKey::FeatureExprStalk {
                     trace_id,
-                    input_id: *input_id,
+                    sample_idx: *sample_idx,
                 },
                 Attention::Generic { .. } => SubtracesKey::Null,
             },
