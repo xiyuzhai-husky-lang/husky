@@ -19,11 +19,12 @@ where
     S: Signalable,
 {
 }
+impl<'a, T> Signalable for &'a T where T: Signalable + ?Sized {}
+impl<T> Signalable for [T] where T: Signalable {}
 impl<T, const N: usize> Signalable for [T; N] where T: Signalable {}
 impl<T> Signalable for Vec<T> where T: Signalable {}
 impl<T> Signalable for Signal<T> where T: Signalable {}
 impl<T> Signalable for RcSignal<T> where T: Signalable {}
-impl<T> Signalable for &Signal<T> where T: Signalable {}
 
 impl<'a> Signalable for ScopeDisposer<'a> {}
 

@@ -403,3 +403,35 @@ pub fn render_get_scope<'a>(
         );
     })
 }
+
+pub fn render_to_static(view: impl FnOnce(Scope<'static>) -> View<DomNode>, parent: &'static Node) {
+    // Do not call the destructor function, effectively leaking the scope.
+    let _ = render_get_scope_static(view, parent);
+}
+
+/// Render a [`View`] under a `parent` node, in a way that can be cleaned up.
+/// This function is intended to be used for injecting an ephemeral sycamore view into a
+/// non-sycamore app (for example, a file upload modal where you want to cancel the upload if the
+/// modal is closed).
+///
+/// It is, however, preferable to have a single call to [`render`] or [`render_to`] at the top level
+/// of your app long-term. For rendering a view that will never be unmounted from the dom, use
+/// [`render_to`] instead. For rendering under the `<body>` tag, use [`render`] instead.
+///
+/// _This API requires the following crate features to be activated: `dom`_
+#[must_use = "please hold onto the ScopeDisposer until you want to clean things up, or use render_to() instead"]
+pub fn render_get_scope_static(
+    view: impl FnOnce(Scope<'static>) -> View<DomNode>,
+    parent: &'static Node,
+) -> ScopeDisposer<'static> {
+    create_scope_static(|cx| {
+        insert(
+            cx,
+            &DomNode::from_web_sys(parent.clone()),
+            view(cx),
+            None,
+            None,
+            false,
+        );
+    })
+}

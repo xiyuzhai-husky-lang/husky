@@ -2,11 +2,11 @@ use super::*;
 use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
 impl DebuggerContext {
-    pub(super) fn toggle_attention_kind(&self) {
+    pub(super) fn toggle_attention_kind(&'static self) {
         self.set_attention(self.attention_context.toggled_attention_kind())
     }
 
-    fn set_attention(&self, attention: Attention) {
+    fn set_attention(&'static self, attention: Attention) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
         let request_figure = match opt_active_trace_id {
             Some(active_trace_id) => {
@@ -19,7 +19,6 @@ impl DebuggerContext {
         };
         let request_stalk = attention.opt_sample_id().is_some();
         if request_figure || request_stalk {
-            let this = self.clone();
             self.ws.send_message(
                 HuskyTracerGuiMessageVariant::LockAttention {
                     attention: attention.clone(),
@@ -33,16 +32,20 @@ impl DebuggerContext {
                     } => {
                         opt_figure_data.map(|(figure_canvas_data, figure_control_data)| {
                             let active_trace =
-                                this.trace_context.trace(opt_active_trace_id.unwrap());
-                            this.figure_context.set_figure(
+                                self.trace_context.trace(opt_active_trace_id.unwrap());
+                            self.figure_context.set_figure(
                                 &active_trace,
                                 &attention,
                                 figure_canvas_data,
                                 figure_control_data,
                             )
                         });
-                        this.trace_context.receive_trace_stalks(new_trace_stalks);
-                        this.attention_context.attention.set(attention.clone());
+                        self.trace_context.receive_trace_stalks(
+                            new_trace_stalks
+                                .into_iter()
+                                .map(|(k, v)| (k, self.create_static_ref(v))),
+                        );
+                        self.attention_context.attention.set(attention.clone());
                     }
                     _ => panic!(),
                 })),
@@ -64,7 +67,7 @@ impl DebuggerContext {
         );
     }
 
-    pub(super) fn set_attention_from_dialog(&self) {
+    pub(super) fn set_attention_from_dialog(&'static self) {
         let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
         match sample_id_value.parse::<usize>() {
             Ok(raw) => {

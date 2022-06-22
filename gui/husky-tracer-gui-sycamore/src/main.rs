@@ -24,9 +24,10 @@ use web_sys::Element;
 fn main() {
     init_debugging_env();
     let gui: Element = get_gui();
-    sycamore::render_get_scope(
+    sycamore::render_to_static(
         |scope| {
-            let context = provide_context(scope, DebuggerContext::new());
+            let context =
+                unsafe { as_static_ref(provide_context(scope, DebuggerContext::new_ref(scope))) };
             let layout_width = memo!(scope, || math::round::floor(
                 context.window_inner_width.cget(),
                 0
@@ -50,6 +51,6 @@ fn main() {
                 }
             }
         },
-        &gui,
+        unsafe { as_static_ref(&gui) },
     );
 }

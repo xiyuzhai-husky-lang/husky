@@ -14,7 +14,7 @@ pub enum FigureCanvasKey {
 
 impl FigureCanvasKey {
     pub fn from_trace_raw_data(
-        trace_raw_data: &TraceRawData,
+        trace_raw_data: &TraceData,
         attention: &Attention,
     ) -> FigureCanvasKey {
         Self::new(trace_raw_data.kind, trace_raw_data.id, attention)

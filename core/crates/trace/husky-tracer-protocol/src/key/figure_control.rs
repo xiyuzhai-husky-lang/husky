@@ -8,7 +8,7 @@ pub enum FigureControlKey {
 
 impl FigureControlKey {
     pub fn from_trace_raw_data(
-        trace_raw_data: &TraceRawData,
+        trace_raw_data: &TraceData,
         attention: &Attention,
     ) -> FigureControlKey {
         Self::new(

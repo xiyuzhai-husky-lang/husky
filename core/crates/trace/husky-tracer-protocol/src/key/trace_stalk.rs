@@ -16,7 +16,7 @@ impl TraceStalkKey {
     pub fn from_trace_data(sample_id: SampleId, trace_data: &TraceData) -> Self {
         Self::new(sample_id, trace_data.kind, trace_data.id)
     }
-    pub fn from_trace_raw_data(sample_id: SampleId, trace_raw_data: &TraceRawData) -> Self {
+    pub fn from_trace_raw_data(sample_id: SampleId, trace_raw_data: &TraceData) -> Self {
         Self::new(sample_id, trace_raw_data.kind, trace_raw_data.id)
     }
 

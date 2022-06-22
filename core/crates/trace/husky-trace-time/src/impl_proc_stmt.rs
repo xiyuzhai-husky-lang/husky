@@ -54,8 +54,8 @@ impl HuskyTraceTime {
         &mut self,
         stmt: &ProcStmt,
         history: &Arc<History<'static>>,
-    ) -> Vec<TraceLineRawData> {
-        vec![TraceLineRawData {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent: stmt.indent,
             tokens: self.proc_stmt_tokens(stmt, history),
             idx: 0,
@@ -328,8 +328,8 @@ impl HuskyTraceTime {
         &self,
         indent: Indent,
         loop_frame_data: &LoopFrameData,
-    ) -> Vec<TraceLineRawData> {
-        vec![TraceLineRawData {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent,
             tokens: self.loop_frame_tokens(loop_frame_data),
             idx: 0,
@@ -373,8 +373,8 @@ impl HuskyTraceTime {
         indent: Indent,
         branch: &ProcConditionBranch,
         history: &Arc<History<'static>>,
-    ) -> Vec<TraceLineRawData> {
-        vec![TraceLineRawData {
+    ) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent,
             tokens: self.proc_branch_tokens(indent, branch, history),
             idx: 0,

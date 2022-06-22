@@ -4,25 +4,13 @@ use web_sys::Element;
 
 use super::*;
 
-#[derive(Debug)]
-pub struct DebuggerContextInternal {
-    pub ws: WebsocketService,
-    pub window_inner_height: Rc<Signal<f64>>,
-    pub window_inner_width: Rc<Signal<f64>>,
-    pub trace_context: TraceContext,
-    pub figure_context: FigureContext,
-    pub attention_context: AttentionContext,
-    pub dialog_opened: Rc<Signal<bool>>,
-}
-
-impl DebuggerContextInternal {
-    pub fn new(ws: WebsocketService) -> DebuggerContextInternal {
+impl DebuggerContext {
+    pub fn new(scope: Scope<'static>, ws: WebsocketService) -> DebuggerContext {
         let window = web_sys::window().unwrap();
-        let window_inner_height = Rc::new(Signal::new(
-            window.inner_height().unwrap().as_f64().unwrap(),
-        ));
+        let window_inner_height =
+            create_signal(scope, window.inner_height().unwrap().as_f64().unwrap());
         let window_inner_width =
-            Rc::new(Signal::new(window.inner_width().unwrap().as_f64().unwrap()));
+            create_signal(scope, window.inner_width().unwrap().as_f64().unwrap());
         {
             let window = window.clone();
             let window_inner_height = window_inner_height.clone();
@@ -39,14 +27,15 @@ impl DebuggerContextInternal {
                 .unwrap();
             closure.forget();
         }
-        DebuggerContextInternal {
+        DebuggerContext {
             window_inner_height,
             window_inner_width,
             ws,
-            trace_context: Default::default(),
+            trace_context: TraceContext::new(scope),
             figure_context: Default::default(),
             attention_context: Default::default(),
-            dialog_opened: Rc::new(Signal::new(false)),
+            dialog_opened: create_signal(scope, false),
+            scope,
         }
     }
 }

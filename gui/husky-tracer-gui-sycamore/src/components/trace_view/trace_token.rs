@@ -1,12 +1,12 @@
 use super::*;
 
 #[derive(Prop)]
-pub struct TraceTokenProps {
-    data: Rc<TraceTokenData>,
+pub struct TraceTokenProps<'a> {
+    data: &'a TraceTokenData,
 }
 
 #[component]
-pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps) -> View<G> {
+pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps<'a>) -> View<G> {
     let text = &props.data.value;
     let spaces_before_style = spaces_style(count_spaces_before(text));
     let spaces_after_style = spaces_style(count_spaces_after(text));

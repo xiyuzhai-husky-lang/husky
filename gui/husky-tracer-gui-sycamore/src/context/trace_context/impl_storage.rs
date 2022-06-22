@@ -1,10 +1,8 @@
 use super::*;
 
 impl TraceContext {
-    pub(crate) fn trace(&self, trace_id: TraceId) -> Rc<TraceData> {
-        let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0]
-            .data
-            .clone();
+    pub(crate) fn trace(&self, trace_id: TraceId) -> &'static TraceData {
+        let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
         assert!(trace.id == trace_id);
         trace
     }
@@ -15,12 +13,15 @@ impl TraceContext {
             .kind
     }
 
-    pub(crate) fn trace_stalk(&self, sample_id: SampleId, trace_id: TraceId) -> Rc<TraceStalkData> {
+    pub(crate) fn trace_stalk(
+        &self,
+        sample_id: SampleId,
+        trace_id: TraceId,
+    ) -> &'static TraceStalkData {
         self.trace_stalks.borrow(file!(), line!())[&TraceStalkKey::from_trace_data(
             sample_id,
             &self.trace_nodes.borrow(file!(), line!())[trace_id.0].data,
         )]
-            .clone()
     }
 
     pub(crate) fn subtrace_ids(&self, attention: &Attention, trace_id: TraceId) -> Vec<TraceId> {
@@ -39,37 +40,35 @@ impl TraceContext {
             ))
     }
 
-    pub(crate) fn receive_subtraces(&self, key: SubtracesKey, subtrace_ids: Vec<TraceId>) {
+    pub(crate) fn receive_subtraces(&self, key: SubtracesKey, subtrace_ids: &'static [TraceId]) {
         self.subtrace_ids_map
             .borrow_mut(file!(), line!())
             .insert(key, subtrace_ids);
     }
 
-    pub(crate) fn receive_traces(&self, new_trace_nodes: Vec<TraceNodeData>) {
+    pub(crate) fn receive_traces(&self, new_trace_nodes: impl Iterator<Item = TraceNodeState>) {
         let trace_nodes = &mut self.trace_nodes.borrow_mut(file!(), line!());
-        let new_len = trace_nodes.len() + new_trace_nodes.len();
-        trace_nodes.reserve(new_len);
         for trace_node in new_trace_nodes {
-            assert_eq!(trace_node.raw_data.id.0, trace_nodes.len());
-            trace_nodes.push(trace_node.into());
+            assert_eq!(trace_node.data.id.0, trace_nodes.len());
+            trace_nodes.push(trace_node);
         }
     }
     pub(crate) fn receive_trace_stalks(
         &self,
-        new_trace_stalks: Vec<(TraceStalkKey, TraceStalkRawData)>,
+        new_trace_stalks: impl Iterator<Item = (TraceStalkKey, &'static TraceStalkData)>,
     ) {
         log::info!("receive trace stalks");
         let mut trace_stalks = self.trace_stalks.borrow_mut(file!(), line!());
-        for (key, raw_data) in new_trace_stalks.into_iter() {
-            assert!(trace_stalks.insert(key, Rc::new(raw_data.into())).is_none());
+        for (key, raw_data) in new_trace_stalks {
+            assert!(trace_stalks.insert(key, raw_data).is_none());
         }
     }
 
-    fn set_trace_stalk(&self, trace_id: TraceId, input_id: usize, stalk: TraceStalkRawData) {
+    fn set_trace_stalk(&self, trace_id: TraceId, input_id: usize, stalk: &'static TraceStalkData) {
         assert!(self
             .trace_stalks
             .borrow_mut(file!(), line!())
-            .insert(todo!(), Rc::new(stalk.into()))
+            .insert(todo!(), stalk)
             .is_none());
         // (trace_id, Some(input_id))
     }

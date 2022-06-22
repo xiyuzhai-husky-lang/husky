@@ -4,7 +4,7 @@ use web_sys::{Event, HtmlDialogElement, HtmlFormElement, HtmlInputElement, Keybo
 
 #[component]
 pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
-    let debugger_context = use_context::<DebuggerContext>(scope);
+    let debugger_context = use_debugger_context(scope);
     let attention_context = &debugger_context.attention_context;
     let generic = create_signal(scope, true);
     let attention = attention_context.attention.clone();

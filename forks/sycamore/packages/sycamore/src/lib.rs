@@ -68,7 +68,7 @@ pub use web::render_to_string_await_suspense;
 #[cfg(all(feature = "web", feature = "hydrate"))]
 pub use web::{hydrate, hydrate_get_scope, hydrate_to};
 #[cfg(feature = "web")]
-pub use web::{render, render_get_scope, render_to};
+pub use web::{render, render_get_scope, render_to, render_to_static};
 
 /// The sycamore prelude.
 ///
