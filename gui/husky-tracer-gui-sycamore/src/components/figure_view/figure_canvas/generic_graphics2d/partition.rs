@@ -4,7 +4,7 @@ use super::*;
 pub struct PartitionCanvasProps<'a> {
     column_dimension: &'a ReadSignal<PixelDimension>,
     partition: PartitionDefnData,
-    samples: Vec<Graphics2dCanvasData>,
+    samples: Vec<(SampleId, Graphics2dCanvasData)>,
 }
 
 #[component]
@@ -45,7 +45,7 @@ pub fn PartitionCanvas<'a, G: Html>(scope: Scope<'a>, props: PartitionCanvasProp
                 style=samples_canvas_dimension.cget().to_style(),
             ) {
                 (View::new_fragment(
-                    props.samples.iter().map(|sample|
+                    props.samples.iter().map(|(sample_id, sample_visual)|
                         view! {
                             scope,
                             div (
@@ -54,10 +54,10 @@ pub fn PartitionCanvas<'a, G: Html>(scope: Scope<'a>, props: PartitionCanvasProp
                             ) {
                                 Graphics2dCanvas {
                                     dimension: sample_graphics2d_dimension,
-                                    image_layers: Rc::new(sample.image_layers.clone()),
-                                    shapes: Rc::new(sample.shapes.clone()),
-                                    xrange: sample.xrange,
-                                    yrange: sample.yrange,
+                                    image_layers: Rc::new(sample_visual.image_layers.clone()),
+                                    shapes: Rc::new(sample_visual.shapes.clone()),
+                                    xrange: sample_visual.xrange,
+                                    yrange: sample_visual.yrange,
                                 }
                             }
                         }

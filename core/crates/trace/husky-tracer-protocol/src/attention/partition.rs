@@ -30,14 +30,14 @@ pub struct PartitionedSamplesCollector<T> {
     // the first partition is filled iff the last digit of partition_filled is 0
     // the second partition is filled iff the last second digit of partition_filled is 0
     flags: u32,
-    partitioned_samples: Vec<(PartitionDefnData, Vec<T>)>,
+    partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, T)>)>,
     col_len: u32,
 }
 
 impl<T> PartitionedSamplesCollector<T> {
     pub fn new(partition_defns: Vec<PartitionDefnData>) -> Self {
         let flags: u32 = (!0u32 << partition_defns.len()) ^ (!0u32);
-        let partitioned_samples: Vec<(PartitionDefnData, Vec<T>)> = partition_defns
+        let partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, T)>)> = partition_defns
             .iter()
             .map(|partition| (partition.clone(), vec![]))
             .collect();
@@ -52,7 +52,7 @@ impl<T> PartitionedSamplesCollector<T> {
     pub fn process<E>(
         &mut self,
         label: Label,
-        f: impl FnOnce() -> Result<T, E>,
+        f: impl FnOnce() -> Result<(SampleId, T), E>,
     ) -> Result<bool, E> {
         for (i, (partition, samples)) in self.partitioned_samples.iter_mut().enumerate() {
             let max_samples_len = (partition.ncol * self.col_len) as usize;
@@ -71,7 +71,7 @@ impl<T> PartitionedSamplesCollector<T> {
         Ok(self.flags == 0)
     }
 
-    pub fn finish(self) -> Vec<(PartitionDefnData, Vec<T>)> {
+    pub fn finish(self) -> Vec<(PartitionDefnData, Vec<(SampleId, T)>)> {
         self.partitioned_samples
     }
 }

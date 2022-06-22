@@ -228,19 +228,22 @@ impl HuskyTraceTime {
                         for labeled_data in dev_division.each_labeled_data() {
                             let label = labeled_data.label;
                             if partitioned_samples_collector
-                                .process(label, || -> VMRuntimeResult<i32> {
+                                .process(label, || -> VMRuntimeResult<(SampleId, i32)> {
                                     let visual_data = self
                                         .runtime
                                         .visualize(expr.clone().into(), labeled_data.sample_id)?;
-                                    Ok(match visual_data {
-                                        VisualData::Primitive {
-                                            value: PrimitiveValueData::I32(i),
-                                        } => i,
-                                        _ => {
-                                            p!(visual_data);
-                                            panic!()
-                                        }
-                                    })
+                                    Ok((
+                                        labeled_data.sample_id,
+                                        match visual_data {
+                                            VisualData::Primitive {
+                                                value: PrimitiveValueData::I32(i),
+                                            } => i,
+                                            _ => {
+                                                p!(visual_data);
+                                                panic!()
+                                            }
+                                        },
+                                    ))
                                 })
                                 .map_err(|e| (labeled_data.sample_id, e))?
                             {
@@ -257,14 +260,14 @@ impl HuskyTraceTime {
                         for labeled_data in dev_division.each_labeled_data() {
                             let label = labeled_data.label;
                             if partitioned_samples_collector
-                                .process(label, || -> VMRuntimeResult<f32> {
+                                .process(label, || -> VMRuntimeResult<(SampleId, f32)> {
                                     let visual_data = self
                                         .runtime
                                         .visualize(expr.clone().into(), labeled_data.sample_id)?;
                                     Ok(match visual_data {
                                         VisualData::Primitive {
                                             value: PrimitiveValueData::F32(f),
-                                        } => f,
+                                        } => (labeled_data.sample_id, f),
                                         _ => panic!(),
                                     })
                                 })
@@ -289,12 +292,19 @@ impl HuskyTraceTime {
                         for labeled_data in dev_division.each_labeled_data() {
                             let label = labeled_data.label;
                             if partitioned_samples_collector
-                                .process(label, || -> VMRuntimeResult<Graphics2dCanvasData> {
-                                    let visual_data = self
-                                        .runtime
-                                        .visualize(expr.clone().into(), labeled_data.sample_id)?;
-                                    Ok(Graphics2dCanvasData::from_visual_data(visual_data))
-                                })
+                                .process(
+                                    label,
+                                    || -> VMRuntimeResult<(SampleId, Graphics2dCanvasData)> {
+                                        let visual_data = self.runtime.visualize(
+                                            expr.clone().into(),
+                                            labeled_data.sample_id,
+                                        )?;
+                                        Ok((
+                                            labeled_data.sample_id,
+                                            Graphics2dCanvasData::from_visual_data(visual_data),
+                                        ))
+                                    },
+                                )
                                 .map_err(|e| (labeled_data.sample_id, e))?
                             {
                                 break;
