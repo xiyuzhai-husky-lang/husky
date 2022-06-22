@@ -9,13 +9,13 @@ use trace_pin::*;
 
 #[derive(Prop)]
 pub struct TraceLineProps<'a> {
-    data: Rc<TraceLineData>,
+    data: &'a TraceLineData,
     trace_id: TraceId,
     trace_kind: TraceKind,
     has_subtraces: &'a ReadSignal<bool>,
     expanded: &'a ReadSignal<bool>,
     toggle_expansion_handler: Rc<dyn Fn()>,
-    opt_extra_tokens: &'a ReadSignal<Option<Rc<Vec<Rc<TraceTokenData>>>>>,
+    opt_extra_tokens: &'a ReadSignal<Option<&'static [TraceTokenData]>>,
 }
 
 #[component]
@@ -28,7 +28,7 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
             .map(|token_data| {
                 view! { scope,
                     TraceToken {
-                        data: token_data.clone(),
+                        data: token_data,
                     }
                 }
             })
@@ -41,7 +41,7 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
                 .map(|token_data| {
                     view! { scope,
                         TraceToken {
-                            data: token_data.clone(),
+                            data: token_data,
                         }
                     }
                 })

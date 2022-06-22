@@ -3,27 +3,26 @@ use futures::channel::mpsc::Receiver;
 use super::*;
 
 impl DebuggerContext {
-    pub(super) fn init(&self, read: Receiver<HuskyTracerServerMessage>) {
+    pub(super) fn init<'a>(&'static self, read: Receiver<HuskyTracerServerMessage>) {
         self.send_init_request();
         self.spawn_listening(read)
     }
 
-    fn send_init_request(&self) {
+    fn send_init_request(&'static self) {
         let mut gui_message_sender = self.ws.gui_message_sender.clone();
         let request_id = self.ws.issue_request_id();
-        let this = self.clone();
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::InitDataRequest,
             Some(Box::new(move |response| match response.variant {
                 HuskyTracerServerMessageVariant::Init { init_data } => {
-                    this.receive_init_data(init_data)
+                    self.receive_init_data(init_data)
                 }
                 _ => panic!(),
             })),
         );
     }
 
-    fn receive_init_data(&self, init_data: InitData) {
+    fn receive_init_data<'a>(&'static self, init_data: InitData) {
         if init_data.trace_init_data.opt_active_trace_id.is_some() {
             assert!(init_data.figure_canvases.len() > 0);
         }
@@ -31,28 +30,47 @@ impl DebuggerContext {
         self.attention_context.init(init_data.attention.clone());
         self.figure_context
             .init(init_data.figure_canvases, init_data.figure_controls);
-        self.trace_context
-            .init(&init_data.attention, init_data.trace_init_data);
+        self.trace_context.init(
+            &init_data.attention,
+            init_data
+                .trace_init_data
+                .trace_nodes
+                .into_iter()
+                .map(|trace_node| TraceNodeState::from_data(self.scope, trace_node))
+                .collect(),
+            init_data
+                .trace_init_data
+                .trace_stalks
+                .into_iter()
+                .map(|(k, v)| (k, self.create_static_ref(v)))
+                .collect(),
+            init_data
+                .trace_init_data
+                .subtrace_ids_map
+                .into_iter()
+                .map(|(k, v)| (k, self.create_static_ref(v) as &'static [TraceId]))
+                .collect(),
+            init_data.trace_init_data.root_trace_ids,
+            init_data.trace_init_data.opt_active_trace_id,
+        );
     }
 
-    fn spawn_listening(&self, mut read: Receiver<HuskyTracerServerMessage>) {
-        let this = self.clone();
+    fn spawn_listening(&'static self, mut read: Receiver<HuskyTracerServerMessage>) {
         spawn_local({
-            let context = this.clone();
             async move {
                 while let Some(notif) = read.next().await {
-                    context.handle_server_notification(notif)
+                    self.handle_server_notification(notif)
                 }
                 log::debug!("WebSocket Closed");
             }
         });
     }
 
-    pub(super) fn handle_server_message_str(&self, server_message_str: &str) {
+    pub(super) fn handle_server_message_str(&'static self, server_message_str: &str) {
         self.handle_server_notification(serde_json::from_str(server_message_str).unwrap())
     }
 
-    fn handle_server_notification(&self, server_message: HuskyTracerServerMessage) {
+    fn handle_server_notification(&'static self, server_message: HuskyTracerServerMessage) {
         assert!(server_message.opt_request_id.is_none());
         match server_message.variant {
             _ => panic!(),

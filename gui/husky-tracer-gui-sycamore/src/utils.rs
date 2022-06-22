@@ -1,3 +1,7 @@
+use sycamore::prelude::*;
+use wasm_bindgen::{JsCast, UnwrapThrowExt};
+use web_sys::Element;
+
 macro_rules! add_event_listener {
     ($element: expr, $event: expr, $closure: expr) => {{
         let closure = Closure::wrap(Box::new($closure) as Box<dyn FnMut(_)>);
@@ -6,8 +10,6 @@ macro_rules! add_event_listener {
     }};
 }
 pub(crate) use add_event_listener;
-use wasm_bindgen::{JsCast, UnwrapThrowExt};
-use web_sys::Element;
 
 pub(crate) fn get_gui() -> Element {
     let window = web_sys::window().unwrap_throw();
@@ -37,3 +39,25 @@ macro_rules! alert {
     }
 }
 pub(crate) use alert;
+
+use crate::context::DebuggerContext;
+
+pub(crate) fn create_static_ref<'a, T>(scope: Scope<'a>, value: T) -> &'static T {
+    unsafe { as_static_ref(create_ref(scope, value)) }
+}
+
+pub(crate) fn create_static_signal<'a, T>(scope: Scope<'a>, value: T) -> &'static Signal<T>
+where
+    T: Signalable,
+{
+    unsafe { as_static_ref(create_signal(scope, value)) }
+}
+
+pub(crate) unsafe fn as_static_ref<'a, T>(value: &T) -> &'static T {
+    let ptr: *const T = value;
+    &*ptr
+}
+
+pub(crate) fn use_debugger_context<'a>(scope: Scope<'a>) -> &'static DebuggerContext {
+    unsafe { as_static_ref(use_context::<DebuggerContext>(scope)) }
+}

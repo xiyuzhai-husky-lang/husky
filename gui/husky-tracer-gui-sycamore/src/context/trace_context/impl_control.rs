@@ -7,10 +7,8 @@ impl TraceContext {
             .cget()
     }
 
-    pub(crate) fn expanded_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {
-        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
-            .expanded
-            .clone()
+    pub(crate) fn expanded_signal(&self, trace_id: TraceId) -> &'static Signal<bool> {
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0].expanded
     }
 
     pub(crate) fn did_toggle_expansion(&mut self, trace_id: TraceId) {
@@ -26,10 +24,8 @@ impl TraceContext {
             .cget()
     }
 
-    pub(crate) fn shown_signal(&self, trace_id: TraceId) -> Rc<Signal<bool>> {
-        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
-            .shown
-            .clone()
+    pub(crate) fn shown_signal(&self, trace_id: TraceId) -> &'static Signal<bool> {
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0].shown
     }
 
     pub(crate) fn did_toggle_show(&mut self, trace_id: TraceId) {

@@ -22,8 +22,8 @@ impl HuskyTraceTime {
         }
     }
 
-    pub fn feature_stmt_lines(&mut self, stmt: &FeatureStmt) -> Vec<TraceLineRawData> {
-        vec![TraceLineRawData {
+    pub fn feature_stmt_lines(&mut self, stmt: &FeatureStmt) -> Vec<TraceLineData> {
+        vec![TraceLineData {
             indent: stmt.indent,
             idx: 0,
             tokens: self.feature_stmt_tokens(stmt),

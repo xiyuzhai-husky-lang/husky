@@ -43,7 +43,7 @@ pub struct HuskyTraceTime {
     attention: Attention,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
-    trace_stalks: HashMap<TraceStalkKey, TraceStalkRawData>,
+    trace_stalks: HashMap<TraceStalkKey, TraceStalkData>,
     root_trace_ids: Vec<TraceId>,
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
     figure_controls: HashMap<FigureControlKey, FigureControlData>,
@@ -131,9 +131,9 @@ impl HuskyTraceTime {
         indent: Indent,
         variant: &TraceVariant,
         has_parent: bool,
-    ) -> Vec<TraceLineRawData> {
+    ) -> Vec<TraceLineData> {
         match variant {
-            TraceVariant::Main(feature_block) => vec![TraceLineRawData {
+            TraceVariant::Main(feature_block) => vec![TraceLineData {
                 indent,
                 idx: 0,
                 tokens: vec![TraceTokenData {
@@ -166,7 +166,7 @@ impl HuskyTraceTime {
                 ref expr,
                 ref history,
             } => self.eager_expr_lines(expr, history, indent, ExprTokenConfig::expr(has_parent)),
-            TraceVariant::CallHead { ref tokens, .. } => vec![TraceLineRawData {
+            TraceVariant::CallHead { ref tokens, .. } => vec![TraceLineData {
                 indent: 0,
                 idx: 0,
                 tokens: tokens.clone(),
@@ -199,7 +199,7 @@ impl HuskyTraceTime {
             let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.lines(trace_id, indent, &variant, opt_parent_id.is_some());
             Trace {
-                raw_data: TraceRawData {
+                raw_data: TraceData {
                     id: trace_id,
                     opt_parent_id,
                     indent,
@@ -232,7 +232,7 @@ impl HuskyTraceTime {
     ) -> Option<(
         Vec<TraceNodeData>,
         Vec<TraceId>,
-        Vec<(TraceStalkKey, TraceStalkRawData)>,
+        Vec<(TraceStalkKey, TraceStalkData)>,
     )> {
         let old_len = self.trace_nodes.len();
         let expansion = &mut self.trace_nodes[trace_id.0].as_mut().unwrap().expansion;

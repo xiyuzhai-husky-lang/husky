@@ -5,53 +5,58 @@ use super::*;
 use impl_control::*;
 use impl_storage::*;
 
-#[derive(Debug, Default)]
 pub struct TraceContext {
     pub trace_nodes: RefCell<Vec<TraceNodeState>>,
-    pub subtrace_ids_map: RefCell<HashMap<SubtracesKey, Vec<TraceId>>>,
-    pub trace_stalks: RefCell<HashMap<TraceStalkKey, Rc<TraceStalkData>>>,
-    pub root_trace_ids: Signal<Vec<TraceId>>,
-    pub opt_active_trace_id: Signal<Option<TraceId>>,
-    pub trace_listing: Signal<Vec<TraceId>>,
+    pub subtrace_ids_map: RefCell<HashMap<SubtracesKey, &'static [TraceId]>>,
+    pub trace_stalks: RefCell<HashMap<TraceStalkKey, &'static TraceStalkData>>,
+    pub root_trace_ids: &'static Signal<Vec<TraceId>>,
+    pub opt_active_trace_id: &'static Signal<Option<TraceId>>,
+    pub trace_listing: &'static Signal<Vec<TraceId>>,
 }
 
 #[derive(Debug)]
 pub struct TraceNodeState {
-    data: Rc<TraceData>,
-    expanded: Rc<Signal<bool>>,
-    shown: Rc<Signal<bool>>,
+    data: &'static TraceData,
+    expanded: &'static Signal<bool>,
+    shown: &'static Signal<bool>,
 }
 
-impl From<TraceNodeData> for TraceNodeState {
-    fn from(node_data: TraceNodeData) -> Self {
+impl TraceNodeState {
+    pub(super) fn from_data(scope: Scope<'static>, node_data: TraceNodeData) -> Self {
         TraceNodeState {
-            data: Rc::new(node_data.raw_data.into()),
-            expanded: Rc::new(Signal::new(node_data.expanded)),
-            shown: Rc::new(Signal::new(node_data.shown)),
+            data: create_static_ref(scope, node_data.trace_data),
+            expanded: create_static_signal(scope, node_data.expanded),
+            shown: create_static_signal(scope, node_data.shown),
         }
     }
 }
 
 impl TraceContext {
-    pub(super) fn init(&self, attention: &Attention, init_data: TraceInitState) {
-        *self.trace_nodes.borrow_mut(file!(), line!()) = init_data
-            .trace_nodes
-            .into_iter()
-            .map(|node| node.into())
-            .collect();
-        *self.subtrace_ids_map.borrow_mut(file!(), line!()) =
-            init_data.subtrace_ids_map.into_iter().collect();
-        log::info!(
-            "init_data.trace_stalks.len()={}",
-            init_data.trace_stalks.len()
-        );
-        *self.trace_stalks.borrow_mut(file!(), line!()) = init_data
-            .trace_stalks
-            .into_iter()
-            .map(|(key, raw_data)| -> (_, Rc<TraceStalkData>) { (key, Rc::new(raw_data.into())) })
-            .collect();
-        self.root_trace_ids.set(init_data.root_trace_ids);
-        self.opt_active_trace_id.set(init_data.opt_active_trace_id);
+    pub(super) fn new(scope: Scope<'static>) -> Self {
+        Self {
+            trace_nodes: Default::default(),
+            subtrace_ids_map: Default::default(),
+            trace_stalks: Default::default(),
+            root_trace_ids: create_signal(scope, vec![]),
+            opt_active_trace_id: create_signal(scope, None),
+            trace_listing: create_signal(scope, vec![]),
+        }
+    }
+
+    pub(super) fn init<'a>(
+        &'static self,
+        attention: &Attention,
+        trace_nodes: Vec<TraceNodeState>,
+        trace_stalks: HashMap<TraceStalkKey, &'static TraceStalkData>,
+        subtrace_ids_map: HashMap<SubtracesKey, &'static [TraceId]>,
+        root_trace_ids: Vec<TraceId>,
+        opt_active_trace_id: Option<TraceId>,
+    ) {
+        *self.trace_nodes.borrow_mut(file!(), line!()) = trace_nodes;
+        *self.subtrace_ids_map.borrow_mut(file!(), line!()) = subtrace_ids_map;
+        *self.trace_stalks.borrow_mut(file!(), line!()) = trace_stalks;
+        self.root_trace_ids.set(root_trace_ids);
+        self.opt_active_trace_id.set(opt_active_trace_id);
         self.update_trace_listing(attention);
     }
 

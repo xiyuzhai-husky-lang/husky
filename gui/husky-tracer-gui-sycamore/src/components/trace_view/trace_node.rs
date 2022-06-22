@@ -10,7 +10,7 @@ pub struct TraceNodeProps<'a> {
 
 #[component]
 pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> View<G> {
-    let debuggerer_context = use_context::<DebuggerContext>(scope);
+    let debuggerer_context = use_debugger_context(scope);
     let trace_context = &debuggerer_context.trace_context;
     let shown = trace_context.shown_signal(props.trace_id);
     let expansion = trace_context.expanded_signal(props.trace_id);
@@ -36,21 +36,22 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
             .map(|line_data| {
                 let toggle_expansion_handler = toggle_expansion_handler.clone();
                 let line_idx = line_data.idx;
-                let opt_extra_tokens = memo!(scope, move || {
-                    if let Some(sample_id) = attention.get().opt_sample_id() {
-                        if line_idx == trace_lines_len - 1 {
-                            let trace_stalk = trace_context.trace_stalk(sample_id, trace_id);
-                            trace_stalk.opt_extra_tokens.clone()
+                let opt_extra_tokens =
+                    memo!(scope, move || -> Option<&'static [TraceTokenData]> {
+                        if let Some(sample_id) = attention.get().opt_sample_id() {
+                            if line_idx == trace_lines_len - 1 {
+                                let trace_stalk = trace_context.trace_stalk(sample_id, trace_id);
+                                Some(&trace_stalk.extra_tokens)
+                            } else {
+                                None
+                            }
                         } else {
                             None
                         }
-                    } else {
-                        None
-                    }
-                });
+                    });
                 view! { scope,
                     TraceLine {
-                        data: line_data.clone(),
+                        data: line_data,
                         trace_id,
                         trace_kind,
                         has_subtraces,

@@ -235,6 +235,26 @@ pub fn create_scope<'disposer>(f: impl for<'a> FnOnce(Scope<'a>)) -> ScopeDispos
         boxed.dispose();
     })
 }
+#[must_use = "not calling the disposer function will result in a memory leak"]
+pub fn create_scope_static(f: impl FnOnce(Scope<'static>)) -> ScopeDisposer<'static> {
+    let cx = ScopeRaw::new();
+    let boxed = Box::new(cx);
+    let ptr = Box::into_raw(boxed);
+    // SAFETY: Safe because heap allocated value has stable address.
+    // The reference passed to f cannot possible escape the closure. We know however, that ptr
+    // necessary outlives the closure call because it is only dropped in the returned disposer
+    // closure.
+    untrack(|| f(unsafe { Scope::new(&*ptr) }));
+    //                                 ^^^ -> `ptr` is still accessible here after call to f.
+
+    // Ownership of `ptr` is passed into the closure.
+    ScopeDisposer::new(move || unsafe {
+        // SAFETY: Safe because ptr created using Box::into_raw.
+        let boxed = Box::from_raw(ptr);
+        // SAFETY: Outside of call to f.
+        boxed.dispose();
+    })
+}
 
 /// Create a child scope.
 ///

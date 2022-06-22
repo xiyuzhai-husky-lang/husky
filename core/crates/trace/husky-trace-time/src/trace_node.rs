@@ -10,7 +10,7 @@ pub struct TraceNode {
 impl TraceNode {
     pub fn to_data(&self) -> husky_tracer_protocol::TraceNodeData {
         TraceNodeData {
-            raw_data: self.trace.raw_data.clone(),
+            trace_data: self.trace.raw_data.clone(),
             expanded: self.expansion,
             shown: self.shown,
         }
