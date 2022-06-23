@@ -19,7 +19,7 @@ use word::IdentDict;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct CallDecl {
+pub struct FunctionDecl {
     pub route: EntityRoutePtr,
     pub spatial_parameters: IdentDict<SpatialParameter>,
     pub primary_parameters: IdentDict<ParameterDecl>,
@@ -27,7 +27,7 @@ pub struct CallDecl {
     pub output: OutputDecl,
 }
 
-impl CallDecl {
+impl FunctionDecl {
     pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
         Arc::new(Self {
             route: instantiator
@@ -58,7 +58,7 @@ impl CallDecl {
                 output_ty,
                 output_liason,
                 opt_this_liason,
-            } => Arc::new(CallDecl {
+            } => Arc::new(FunctionDecl {
                 route,
                 spatial_parameters: generic_parameters.clone(),
                 primary_parameters: parameters
@@ -80,21 +80,23 @@ impl CallDecl {
     }
 }
 
-pub(crate) fn call_decl(
+pub(crate) fn function_decl(
     db: &dyn DeclQueryGroup,
     route: EntityRoutePtr,
-) -> InferQueryResultArc<CallDecl> {
+) -> InferQueryResultArc<FunctionDecl> {
     let locus = db.entity_locus(route)?;
     return match locus {
         EntityLocus::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => {
                 routine_decl_from_static(db, vec![], route, static_defn)
             }
+            EntityStaticDefnVariant::Morphism { .. } => {
+                morphism_decl_from_static(db, vec![], route, static_defn)
+            }
             EntityStaticDefnVariant::Ty { .. } => match db.ty_decl(route)?.opt_type_call {
                 Some(ref ty_call) => ty_call.clone(),
                 None => return Err(query_error!(format!("no type call for {:?}", route))),
             },
-            EntityStaticDefnVariant::Morphism => todo!(),
             _ => panic!(),
         }),
         EntityLocus::WithinBuiltinModule => todo!(),
@@ -110,7 +112,7 @@ pub(crate) fn call_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.variant {
-                AstVariant::CallFormDefnHead { .. } => Ok(CallDecl::from_ast(route, ast)),
+                AstVariant::CallFormDefnHead { .. } => Ok(FunctionDecl::from_ast(route, ast)),
                 // type constructor
                 AstVariant::TypeDefnHead { .. } => {
                     let ty_decl = db.ty_decl(route)?;
@@ -131,7 +133,7 @@ pub(crate) fn routine_decl_from_static(
     mut symbols: Vec<Symbol>,
     route: EntityRoutePtr,
     static_defn: &EntityStaticDefn,
-) -> Arc<CallDecl> {
+) -> Arc<FunctionDecl> {
     match static_defn.variant {
         EntityStaticDefnVariant::Routine {
             ref generic_parameters,
@@ -139,7 +141,7 @@ pub(crate) fn routine_decl_from_static(
             output_ty,
             output_liason,
             linkage,
-            paradigm,
+            routine_kind: paradigm,
         } => {
             let generic_parameters = db.generic_parameters_from_static(generic_parameters);
             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
@@ -158,7 +160,53 @@ pub(crate) fn routine_decl_from_static(
             });
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             msg_once!("todo: keyword parameters");
-            Arc::new(CallDecl {
+            Arc::new(FunctionDecl {
+                route,
+                spatial_parameters: generic_parameters,
+                primary_parameters: parameters,
+                output: OutputDecl {
+                    liason: output_liason,
+                    ty: output_ty,
+                },
+                keyword_parameters: Default::default(),
+            })
+        }
+        _ => panic!(),
+    }
+}
+
+pub(crate) fn morphism_decl_from_static(
+    db: &dyn DeclQueryGroup,
+    mut symbols: Vec<Symbol>,
+    route: EntityRoutePtr,
+    static_defn: &EntityStaticDefn,
+) -> Arc<FunctionDecl> {
+    match static_defn.variant {
+        EntityStaticDefnVariant::Morphism {
+            ref generic_parameters,
+            ref parameters,
+            output_ty,
+            output_liason,
+            ..
+        } => {
+            let generic_parameters = db.generic_parameters_from_static(generic_parameters);
+            symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
+            let mut symbol_context = AtomContextStandalone {
+                opt_package_main: None,
+                db: db.upcast(),
+                opt_this_ty: None,
+                opt_this_contract: None,
+                symbols: (&symbols as &[Symbol]).into(),
+                kind: AtomContextKind::Normal,
+            };
+            let parameters = parameters.map(|parameter| ParameterDecl {
+                ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),
+                liason: parameter.liason,
+                ident: db.custom_ident(parameter.name),
+            });
+            let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
+            msg_once!("todo: keyword parameters");
+            Arc::new(FunctionDecl {
                 route,
                 spatial_parameters: generic_parameters,
                 primary_parameters: parameters,

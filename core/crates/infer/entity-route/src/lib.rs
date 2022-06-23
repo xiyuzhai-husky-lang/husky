@@ -11,7 +11,7 @@ use defn_head::*;
 use entity_route::*;
 use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use file::FilePtr;
-use infer_decl::{CallDecl, DeclQueryGroup, MethodDecl, TyDecl};
+use infer_decl::{DeclQueryGroup, FunctionDecl, MethodDecl, TyDecl};
 use infer_error::*;
 use print_utils::*;
 use word::RootIdentifier;
@@ -37,10 +37,10 @@ pub trait InferEntityRoute {
         self.entity_route_sheet().call_route(raw_expr_idx)
     }
 
-    fn call_decl(&self, raw_expr_idx: RawExprIdx) -> InferResultArc<CallDecl> {
+    fn call_decl(&self, raw_expr_idx: RawExprIdx) -> InferResultArc<FunctionDecl> {
         Ok(derived_unwrap!(self
             .decl_db()
-            .call_decl(self.call_route_result(raw_expr_idx)?)))
+            .function_decl(self.call_route_result(raw_expr_idx)?)))
     }
 
     fn method_decl(&self, raw_expr_idx: RawExprIdx) -> InferResultArc<MethodDecl> {

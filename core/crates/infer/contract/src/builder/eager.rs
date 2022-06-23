@@ -354,7 +354,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_expr = &arena[total_opds.start];
         let call_decl = match call_expr.variant {
             RawExprVariant::Entity { route, .. } => {
-                derived_unwrap!(self.db.call_decl(route))
+                derived_unwrap!(self.db.function_decl(route))
             }
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
             RawExprVariant::Lambda(_, _) => todo!(),

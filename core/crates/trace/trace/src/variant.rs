@@ -131,6 +131,7 @@ impl<'eval> TraceVariant<'eval> {
                     field_ident,
                     ref repr,
                 } => true,
+                _ => todo!(),
             },
             TraceVariant::EagerExpr {
                 ref expr,

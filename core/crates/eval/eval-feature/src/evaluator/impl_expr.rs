@@ -110,6 +110,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 };
                 self.cache(eval_key, |this| this.eval_feature_repr(repr))
             }
+            _ => todo!(),
         }
     }
 

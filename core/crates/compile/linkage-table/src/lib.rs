@@ -201,7 +201,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             EntityLocus::StaticTypeMember => todo!(),
             EntityLocus::StaticTypeAsTraitMember => todo!(),
         };
-        let call_decl = self.call_decl(routine).unwrap();
+        let call_decl = self.function_decl(routine).unwrap();
         if let Some(linkage) = opt_linkage {
             should_eq!(linkage.nargs, call_decl.nargs());
         }

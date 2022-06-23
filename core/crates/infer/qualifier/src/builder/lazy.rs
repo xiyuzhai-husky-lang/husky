@@ -386,7 +386,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<LazyValueQualifiedTy> {
         match arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
-                let call_decl = derived_unwrap!(self.db.call_decl(route));
+                let call_decl = derived_unwrap!(self.db.function_decl(route));
                 let opt_opd_qualified_tys: Vec<_> = ((total_opds.start + 1)..total_opds.end)
                     .into_iter()
                     .map(|opd_idx| self.infer_lazy_expr(arena, opd_idx))

@@ -472,7 +472,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<EagerValueQualifiedTy> {
         let call_decl = match arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
-                derived_unwrap!(self.db.call_decl(route))
+                derived_unwrap!(self.db.function_decl(route))
             }
             RawExprVariant::Opn {
                 opn_variant: ref opr,

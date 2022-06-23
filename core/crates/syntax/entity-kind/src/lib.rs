@@ -44,7 +44,6 @@ pub enum EnumVariantKind {
 pub enum RoutineKind {
     Normal,
     TypeCall,
-    Method,
     TypeAssociated,
     TraitAssociated,
 }

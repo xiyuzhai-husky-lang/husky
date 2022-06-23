@@ -106,7 +106,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
-        parameters: vec![],
+        parameters: &[],
         output_ty: "domains::ml::datasets::cv::mnist::BinaryImage28",
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(
@@ -117,7 +117,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
             },
             0
         ),
-        paradigm: RoutineKind::TypeCall,
+        routine_kind: RoutineKind::TypeCall,
     },
     dev_src: static_dev_src!(),
 };

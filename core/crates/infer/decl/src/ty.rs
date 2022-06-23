@@ -38,7 +38,7 @@ pub struct TyDecl {
     pub kind: TyKind,
     pub trait_impls: Vec<Arc<TraitImplDecl>>,
     pub members: Vec<MemberDecl>,
-    pub opt_type_call: Option<Arc<CallDecl>>,
+    pub opt_type_call: Option<Arc<FunctionDecl>>,
 }
 
 impl TyDecl {
@@ -153,7 +153,7 @@ impl TyDecl {
                         TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => break,
                     }
                 }
-                Some(Arc::new(CallDecl {
+                Some(Arc::new(FunctionDecl {
                     route: ty,
                     spatial_parameters: generic_parameters.clone(),
                     primary_parameters,
@@ -254,7 +254,7 @@ impl TyDecl {
                         Paradigm::LazyFunctional => todo!(),
                     },
                     None => throw_query_derived!(members.insert_new(TyMemberDecl::Call(
-                        CallDecl::from_ast(
+                        FunctionDecl::from_ast(
                             db.make_subroute(this_ty, ident.ident, thin_vec![]),
                             ast,
                         )
@@ -306,7 +306,7 @@ impl TyDecl {
         variants: IdentDict<EnumVariantDecl>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDecl>>,
-        opt_type_call: Option<Arc<CallDecl>>,
+        opt_type_call: Option<Arc<FunctionDecl>>,
     ) -> Arc<Self> {
         let members = MemberDecl::collect_all(db, &type_members, &trait_impls);
         Arc::new(Self {
@@ -507,7 +507,7 @@ pub(crate) fn ty_decl(
     match source {
         EntityLocus::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Morphism => todo!(),
+            EntityStaticDefnVariant::Morphism { .. } => todo!(),
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Ty { .. } => {
                 let base_decl = TyDecl::from_static(db, static_defn);

@@ -50,7 +50,7 @@ pub enum Feature {
         lopd: FeaturePtr,
         ropd: FeaturePtr,
     },
-    FuncCall {
+    FunctionCall {
         func: EntityRoutePtr,
         uid: EntityUid,
         inputs: Vec<FeaturePtr>,

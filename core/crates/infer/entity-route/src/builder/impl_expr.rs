@@ -116,7 +116,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     RootIdentifier::Fp
                 }
                 .into();
-                let decl = self.db.call_decl(entity_route)?;
+                let decl = self.db.function_decl(entity_route)?;
                 msg_once!("handle temporal/spatial parameters");
                 let spatial_arguments = decl
                     .primary_parameters
@@ -416,7 +416,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let caller = &arena[total_opds.start];
         match caller.variant {
             RawExprVariant::Entity { route, kind, .. } => {
-                let call_decl_result: InferResult<_> = self.db.call_decl(route).bind_into(caller);
+                let call_decl_result: InferResult<_> =
+                    self.db.function_decl(route).bind_into(caller);
                 let call_decl = call_decl_result?;
                 if call_decl.primary_parameters.len() != total_opds.end - total_opds.start - 1 {
                     self.entity_route_sheet.extra_errors.push(InferError {

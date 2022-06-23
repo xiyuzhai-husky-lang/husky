@@ -36,10 +36,26 @@ impl<'a> FeatureExprBuilder<'a> {
                 _ => todo!(),
             },
             LazyOpnKind::Prefix(_) => todo!(),
+            LazyOpnKind::FunctionMorphismCall(routine) => {
+                let uid = self.db.entity_uid(routine.route);
+                let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
+                let feature = self.features.intern(Feature::FunctionCall {
+                    func: routine.route,
+                    uid,
+                    inputs: opds.iter().map(|expr| expr.feature).collect(),
+                });
+                let morphism_defn = self.db.entity_defn(routine.route).unwrap();
+                let kind = FeatureLazyExprVariant::MorphismCall {
+                    opds,
+                    has_this: false,
+                    morphism_defn,
+                };
+                (kind, feature)
+            }
             LazyOpnKind::FunctionRoutineCall(routine) => {
                 let uid = self.db.entity_uid(routine.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
-                let feature = self.features.intern(Feature::FuncCall {
+                let feature = self.features.intern(Feature::FunctionCall {
                     func: routine.route,
                     uid,
                     inputs: opds.iter().map(|expr| expr.feature).collect(),
@@ -333,6 +349,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 field_ident,
                 ref repr,
             } => todo!(),
+            _ => todo!(),
         }
     }
 

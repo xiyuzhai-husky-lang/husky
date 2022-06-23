@@ -19,3 +19,8 @@ pub enum StaticGenericPlaceholderVariant {
     Const,
     Type { traits: &'static [&'static str] },
 }
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum StaticMorphismVariant {
+    Model { train: (), eval: () },
+}

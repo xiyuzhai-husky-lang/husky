@@ -209,7 +209,7 @@ impl EntityDefnVariant {
     ) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Morphism => todo!(),
+            EntityStaticDefnVariant::Morphism { .. } => todo!(),
             EntityStaticDefnVariant::Ty { .. } => Self::ty_from_static(symbol_context, static_defn),
             EntityStaticDefnVariant::Trait {
                 base_route,
