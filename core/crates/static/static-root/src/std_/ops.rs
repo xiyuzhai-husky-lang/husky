@@ -4,14 +4,14 @@ use crate::*;
 
 pub static STD_OPS_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "ops",
-    subscopes: &[&STD_OPS_INDEX_DEFN, &STD_OPS_INDEX_DEFN],
+    items: &[&STD_OPS_INDEX_DEFN, &STD_OPS_INDEX_DEFN],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
 
 pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Index",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Trait {
         base_route: "std::ops::Index",
         generic_parameters: &[StaticGenericPlaceholder {
@@ -21,7 +21,7 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
         members: &[
             EntityStaticDefn {
                 name: "Output",
-                subscopes: &[],
+                items: &[],
                 variant: EntityStaticDefnVariant::TraitAssociatedType {
                     trai: "std::ops::Index",
                     traits: &[],
@@ -30,7 +30,7 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
             },
             EntityStaticDefn {
                 name: "index",
-                subscopes: &[],
+                items: &[],
                 variant: EntityStaticDefnVariant::Method {
                     this_liason: ParameterLiason::MemberAccess,
                     parameters: &[],

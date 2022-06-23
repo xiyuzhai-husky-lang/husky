@@ -1,3 +1,4 @@
+#![feature(const_fn_trait_bound, const_fn_fn_ptr_basics)]
 use husky_tracer_protocol::*;
 use vm::*;
 

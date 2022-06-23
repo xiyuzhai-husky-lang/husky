@@ -2,7 +2,7 @@ use super::*;
 
 pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "f32",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "f32",
         generic_parameters: &[],
@@ -21,7 +21,7 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
     name: "min",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
@@ -41,7 +41,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
     name: "max",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
@@ -61,7 +61,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
     name: "sgn",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -92,7 +92,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
     name: "abs",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -115,7 +115,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
     name: "sqrt",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -138,7 +138,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
     name: "cos",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -161,7 +161,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
     name: "sin",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -184,7 +184,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
     name: "tan",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -207,7 +207,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
     name: "acos",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -230,7 +230,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
     name: "asin",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -253,7 +253,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
 
 pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
     name: "atan",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],

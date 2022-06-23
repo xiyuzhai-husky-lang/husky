@@ -73,7 +73,7 @@ impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSli
 
 pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "CyclicSlice",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "std::slice::CyclicSlice",
         generic_parameters: &[StaticGenericPlaceholder {
@@ -100,7 +100,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
 
 pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "first",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,
         parameters: &[],
@@ -162,7 +162,7 @@ fn generic_cyclic_slice_first_move<'temp, 'eval>(
 
 pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "last",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,
         parameters: &[],

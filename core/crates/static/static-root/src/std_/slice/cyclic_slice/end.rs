@@ -2,7 +2,7 @@ use super::*;
 
 pub static STD_SLICE_CYCLIC_SLICE_END_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "end",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::TyField {
         field_kind: FieldKind::StructOriginal,
         liason: MemberLiason::Mutable,

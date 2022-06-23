@@ -2,7 +2,7 @@ use super::*;
 
 pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     name: "last",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,
         parameters: &[],

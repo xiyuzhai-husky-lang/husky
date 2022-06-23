@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'temp, 'eval: 'temp, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'temp [T] {
+impl<'temp, 'eval, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'temp [T] {
     fn static_type_id() -> StaticTypeId {
         StaticTypeId::Vec(Box::new(T::static_type_id()))
     }

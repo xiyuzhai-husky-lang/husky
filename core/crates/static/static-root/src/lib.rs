@@ -25,7 +25,7 @@ use vm::*;
 
 pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "void",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "void",
         generic_parameters: &[],
@@ -41,7 +41,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 
 pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "b64",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "b64",
         generic_parameters: &[],
@@ -57,7 +57,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 
 pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "bool",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "bool",
         generic_parameters: &[],

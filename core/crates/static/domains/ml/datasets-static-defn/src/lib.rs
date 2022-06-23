@@ -9,16 +9,16 @@ pub mod synthetic;
 use liason::*;
 use visual_syntax::{primitive_visualizer, StaticVisualTy};
 
-pub static DATASETS_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
+pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "datasets",
-    subscopes: &[&synthetic::SCOPE_DATA, &cv::CV_MOD_DEFN],
+    items: &[&synthetic::SYNTHETIC_MODULE_DEFN, &cv::CV_MOD_DEFN],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
 
-pub static DATASET_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
+pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Dataset",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "Dataset",
         generic_parameters: &[

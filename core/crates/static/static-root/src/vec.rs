@@ -12,7 +12,7 @@ use check_utils::should_eq;
 
 pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Vec",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "Vec",
         generic_parameters: &[StaticGenericPlaceholder {
@@ -26,7 +26,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                 EntityStaticDefn {
                     dev_src: static_dev_src!(),
                     name: "index",
-                    subscopes: &[],
+                    items: &[],
                     variant: EntityStaticDefnVariant::Method {
                         this_liason: ParameterLiason::MemberAccess,
                         parameters: &[],
@@ -70,7 +70,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 
 static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Vec",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
         parameters: vec![],
@@ -192,7 +192,7 @@ pub(crate) fn generic_vec_element_borrow_mut_access<'temp, 'eval>(
 
 pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
     name: "len",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -216,7 +216,7 @@ fn generic_vec_len<'temp, 'eval>(
 
 pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     name: "push",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::TempRefMut,
         parameters: &[StaticParameter {
@@ -236,7 +236,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
 
 pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
     name: "pop",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::TempRefMut,
         parameters: &[],

@@ -1,5 +1,6 @@
 mod call;
 mod ty;
+mod utils;
 
 pub use call::*;
 pub use ty::*;
@@ -13,7 +14,7 @@ use vm::Linkage;
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityStaticDefn {
     pub name: &'static str,
-    pub subscopes: &'static [&'static EntityStaticDefn],
+    pub items: &'static [&'static EntityStaticDefn],
     pub variant: EntityStaticDefnVariant,
     pub dev_src: StaticDevSource,
 }

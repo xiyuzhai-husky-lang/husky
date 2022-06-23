@@ -2,7 +2,7 @@ use super::*;
 
 pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "i32",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "i32",
         generic_parameters: &[],
@@ -18,7 +18,7 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 
 pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
     name: "min",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
@@ -38,7 +38,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
 
 pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
     name: "max",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {
@@ -58,7 +58,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
 
 pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
     name: "sgn",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -74,7 +74,7 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
 
 pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
     name: "abs",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],

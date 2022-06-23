@@ -2,12 +2,12 @@ use crate::*;
 
 pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Clone",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Trait {
         base_route: "Clone",
         members: &[EntityStaticDefn {
             name: "clone",
-            subscopes: &[],
+            items: &[],
             variant: EntityStaticDefnVariant::Method {
                 this_liason: ParameterLiason::Pure,
                 parameters: &[],
