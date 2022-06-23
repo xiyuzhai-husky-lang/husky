@@ -94,6 +94,7 @@ pub(crate) fn call_decl(
                 Some(ref ty_call) => ty_call.clone(),
                 None => return Err(query_error!(format!("no type call for {:?}", route))),
             },
+            EntityStaticDefnVariant::Morphism => todo!(),
             _ => panic!(),
         }),
         EntityLocus::WithinBuiltinModule => todo!(),

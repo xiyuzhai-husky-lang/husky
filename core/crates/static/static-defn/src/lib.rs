@@ -74,6 +74,7 @@ impl EntityStaticDefnVariant {
     pub fn entity_kind(&self) -> EntityKind {
         match self {
             EntityStaticDefnVariant::Routine { .. } => EntityKind::Function { is_lazy: false },
+            EntityStaticDefnVariant::Morphism => EntityKind::Function { is_lazy: true },
             EntityStaticDefnVariant::Ty { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,
             EntityStaticDefnVariant::Trait { .. } => EntityKind::Trait,
@@ -84,7 +85,6 @@ impl EntityStaticDefnVariant {
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
-            EntityStaticDefnVariant::Morphism => todo!(),
         }
     }
 }
