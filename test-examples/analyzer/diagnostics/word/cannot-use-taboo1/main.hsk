@@ -10,7 +10,7 @@ enum A:
     Haha
 
 context:
-    synthetic::trivial::real1d::dataset1()
+    ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:
     a = A::Haha

@@ -1,6 +1,6 @@
-FoldingRange { start_line: 0, start_character: Some(0), end_line: 0, end_character: Some(38), kind: None }
-FoldingRange { start_line: 2, start_character: Some(0), end_line: 3, end_character: Some(35), kind: None }
-FoldingRange { start_line: 3, start_character: Some(4), end_line: 3, end_character: Some(35), kind: None }
+FoldingRange { start_line: 0, start_character: Some(0), end_line: 0, end_character: Some(51), kind: None }
+FoldingRange { start_line: 2, start_character: Some(0), end_line: 3, end_character: Some(49), kind: None }
+FoldingRange { start_line: 3, start_character: Some(4), end_line: 3, end_character: Some(49), kind: None }
 FoldingRange { start_line: 6, start_character: Some(0), end_line: 12, end_character: Some(12), kind: None }
 FoldingRange { start_line: 7, start_character: Some(4), end_line: 7, end_character: Some(41), kind: None }
 FoldingRange { start_line: 8, start_character: Some(4), end_line: 8, end_character: Some(41), kind: None }

@@ -483,8 +483,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 throw_derived!("a primitive literal can't be a caller")
             }
             _ => {
-                p!(arena[total_opds.start].variant);
-                todo!()
+                throw_derived!("todo: value as caller")
             }
         };
         for opd_idx in (total_opds.start + 1)..total_opds.end {

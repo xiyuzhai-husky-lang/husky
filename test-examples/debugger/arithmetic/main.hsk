@@ -12,7 +12,7 @@ proc bitand_assign() -> bool:
     return b == 0b32
 
 context:
-    synthetic::trivial::real1d::dataset1()
+    ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:
     assert add(1,2) == 3

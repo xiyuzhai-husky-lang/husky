@@ -104,31 +104,36 @@ pub trait AtomContext {
     fn resolve_symbol_kind(&self, ident: Identifier, range: TextRange) -> AtomResult<SymbolKind> {
         match ident {
             Identifier::Builtin(ident) => Ok(SymbolKind::EntityRoute(ident.into())),
-            Identifier::Contextual(ident) => match ident {
-                ContextualIdentifier::Input => Ok(SymbolKind::EntityRoute(
-                    self.entity_syntax_db().intern_entity_route(EntityRoute {
-                        kind: EntityRouteKind::Input {
-                            main: self
-                                .opt_package_main()
-                                .ok_or(error!("can't use implicit without main", range))?,
-                        },
-                        temporal_arguments: thin_vec![],
-                        spatial_arguments: thin_vec![],
+            Identifier::Contextual(ident) => {
+                match ident {
+                    ContextualIdentifier::Input => Ok(SymbolKind::EntityRoute(
+                        self.entity_syntax_db().intern_entity_route(EntityRoute {
+                            kind:
+                                EntityRouteKind::Input {
+                                    main:
+                                        self.opt_package_main().ok_or(error!(
+                                            "can't use implicit without main",
+                                            range
+                                        ))?,
+                                },
+                            temporal_arguments: thin_vec![],
+                            spatial_arguments: thin_vec![],
+                        }),
+                    )),
+                    ContextualIdentifier::ThisValue => Ok(SymbolKind::ThisValue {
+                        opt_this_ty: self.opt_this_ty(),
+                        opt_this_liason: self.opt_this_liason(),
                     }),
-                )),
-                ContextualIdentifier::ThisValue => Ok(SymbolKind::ThisValue {
-                    opt_this_ty: self.opt_this_ty(),
-                    opt_this_liason: self.opt_this_liason(),
-                }),
-                ContextualIdentifier::ThisType => Ok(SymbolKind::EntityRoute(
-                    self.entity_syntax_db().entity_route_menu().this_ty,
-                )),
-                ContextualIdentifier::Crate => Ok(SymbolKind::EntityRoute(
-                    self.entity_syntax_db()
-                        .module(self.opt_package_main().unwrap())
-                        .unwrap(),
-                )),
-            },
+                    ContextualIdentifier::ThisType => Ok(SymbolKind::EntityRoute(
+                        self.entity_syntax_db().entity_route_menu().this_ty,
+                    )),
+                    ContextualIdentifier::Crate => Ok(SymbolKind::EntityRoute(
+                        self.entity_syntax_db()
+                            .module(self.opt_package_main().unwrap())
+                            .unwrap(),
+                    )),
+                }
+            }
             Identifier::Custom(ident) => Ok(if let Some(symbol) = self.find_symbol(ident) {
                 symbol.kind
             } else {

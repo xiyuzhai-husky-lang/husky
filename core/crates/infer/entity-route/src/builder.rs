@@ -17,6 +17,10 @@ pub struct EntityRouteSheetBuilder<'a> {
 }
 
 impl<'a> EntityRouteSheetBuilder<'a> {
+    fn file(&self) -> FilePtr {
+        self.entity_route_sheet.ast_text.file
+    }
+
     pub(super) fn new(db: &'a dyn InferEntityRouteQueryGroup, ast_text: Arc<AstText>) -> Self {
         let main_file = db.main_file(ast_text.file).unwrap();
         let mut global_errors = Vec::new();

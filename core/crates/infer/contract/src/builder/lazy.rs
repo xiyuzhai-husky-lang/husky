@@ -137,7 +137,9 @@ impl<'a> ContractSheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
-            RawOpnVariant::Binary(opr) => self.infer_lazy_binary_opn(*opr, opds, contract, arena),
+            RawOpnVariant::Binary(opr) => {
+                self.infer_lazy_binary_opn(*opr, opds, contract, arena, raw_expr_idx)
+            }
             RawOpnVariant::Prefix(opr) => {
                 self.infer_lazy_prefix_opn(*opr, opds.start, contract, arena)
             }
@@ -159,6 +161,7 @@ impl<'a> ContractSheetBuilder<'a> {
         opds: &RawExprRange,
         contract: LazyContract,
         arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let lopd = opds.start;
         let ropd = opds.start + 1;
@@ -173,7 +176,12 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_lazy_expr(lopd, LazyContract::Pure, arena);
                 self.infer_lazy_expr(ropd, LazyContract::Pure, arena);
             }
-            BinaryOpr::Assign(_) => panic!(),
+            BinaryOpr::Assign(opr) => {
+                throw!(
+                    format!("mutation not allowed in lazy functional context"),
+                    arena[raw_expr_idx].range
+                )
+            }
         }
         Ok(())
     }

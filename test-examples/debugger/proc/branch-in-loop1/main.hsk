@@ -27,7 +27,7 @@ proc f3() -> i32:
     return a
 
 context:
-    synthetic::trivial::real1d::dataset1()
+    ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:
     assert f1() == 6

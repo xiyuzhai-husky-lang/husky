@@ -1,4 +1,4 @@
-use datasets_static_defn::cv::mnist::BinaryImage28
+use domains::ml::datasets::cv::mnist::BinaryImage28
 
 def connec
 
