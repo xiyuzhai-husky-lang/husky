@@ -1,6 +1,6 @@
 mod call;
 mod ty;
-mod utils;
+pub mod utils;
 
 pub use call::*;
 pub use ty::*;
@@ -29,6 +29,7 @@ pub enum EntityStaticDefnVariant {
         linkage: Linkage,
         paradigm: RoutineKind,
     },
+    Morphism,
     Ty {
         base_route: &'static str,
         generic_parameters: &'static [StaticGenericPlaceholder],
@@ -83,6 +84,7 @@ impl EntityStaticDefnVariant {
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+            EntityStaticDefnVariant::Morphism => todo!(),
         }
     }
 }

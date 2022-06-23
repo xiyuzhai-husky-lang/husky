@@ -386,7 +386,7 @@ impl TyDecl {
         }
     }
 
-    pub fn field_kind(&self, field_ident: CustomIdentifier) -> FieldKind { 
+    pub fn field_kind(&self, field_ident: CustomIdentifier) -> FieldKind {
         match self.ty_members.get_entry(field_ident).unwrap() {
             TyMemberDecl::Field(field) => field.field_kind,
             _ => panic!(""),
@@ -507,6 +507,7 @@ pub(crate) fn ty_decl(
     match source {
         EntityLocus::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
+            EntityStaticDefnVariant::Morphism => todo!(),
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Ty { .. } => {
                 let base_decl = TyDecl::from_static(db, static_defn);
