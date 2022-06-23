@@ -235,7 +235,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::Debug
                 | RootIdentifier::Std
                 | RootIdentifier::Core
-                | RootIdentifier::Datasets
+                | RootIdentifier::Domains
                 | RootIdentifier::CloneTrait
                 | RootIdentifier::CopyTrait
                 | RootIdentifier::PartialEqTrait

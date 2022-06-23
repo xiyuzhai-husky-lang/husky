@@ -6,7 +6,7 @@ proc bitor_assign() -> bool:
     b |= 1b32
     return b == 1b32
 
-dataset:
+context:
     synthetic::trivial::real1d::dataset1()
 
 main:

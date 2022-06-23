@@ -1,4 +1,4 @@
-dataset:
+context:
     cv::mnist::new_binary_dataset()
 
 

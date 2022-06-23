@@ -199,9 +199,9 @@ impl SubrouteTable {
         let mut entries: Vec<SubrouteEntry> = data
             .subscopes
             .iter()
-            .map(|(s, data)| SubrouteEntry {
+            .map(|data| SubrouteEntry {
                 ident: Some(RangedCustomIdentifier {
-                    ident: db.intern_word(s).opt_custom().unwrap(),
+                    ident: db.intern_word(data.name).opt_custom().unwrap(),
                     range: Default::default(),
                 }),
                 kind: data.variant.entity_kind(),

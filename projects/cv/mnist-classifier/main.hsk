@@ -3,7 +3,7 @@ mod raw_contour
 mod geom2d
 mod line_segment_sketch
 
-dataset:
+context:
     cv::mnist::new_binary_dataset()
 
 use domains::ml::datasets_static_defn::cv::mnist::BinaryImage28

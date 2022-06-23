@@ -67,30 +67,3 @@ struct B {}
     should_eq!(subroute_table.entries.len(), 3);
     should_eq!(subroute_table.errors.len(), 0);
 }
-
-#[test]
-fn datasets() {
-    let db = HuskyCompileTime::default();
-    let dataset_scope = db.make_route(EntityRoutePtr::Root(RootIdentifier::Datasets), thin_vec![]);
-    let synthetic_scope = db
-        .subroute_result(
-            dataset_scope,
-            db.intern_word("synthetic").opt_custom().unwrap(),
-            thin_vec![],
-        )
-        .unwrap();
-    let synthetic_trivial_scope = db
-        .subroute_result(
-            synthetic_scope,
-            db.intern_word("trivial").opt_custom().unwrap(),
-            thin_vec![],
-        )
-        .unwrap();
-    let _synthetic_trivial_real1d_scope = db
-        .subroute_result(
-            synthetic_trivial_scope,
-            db.intern_word("real1d").opt_custom().unwrap(),
-            thin_vec![],
-        )
-        .unwrap();
-}

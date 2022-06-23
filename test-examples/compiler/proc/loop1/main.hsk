@@ -95,7 +95,7 @@ proc do_while_loop4() -> i32:
         b -= 1
     return b
 
-dataset:
+context:
     synthetic::trivial::real1d::dataset1()
 
 main:

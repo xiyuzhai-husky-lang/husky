@@ -68,13 +68,13 @@ impl From<StmtKeyword> for Keyword {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ConfigKeyword {
-    Dataset,
+    Context,
 }
 
 impl ConfigKeyword {
     pub fn as_str(&self) -> &'static str {
         match self {
-            ConfigKeyword::Dataset => "dataset",
+            ConfigKeyword::Context => "context",
         }
     }
 }

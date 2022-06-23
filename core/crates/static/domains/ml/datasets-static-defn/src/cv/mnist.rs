@@ -24,15 +24,15 @@ use xrng::permutation_from_seed;
 pub static MNIST_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "mnist",
     subscopes: &[
-        ("new_binary_dataset", NEW_BINARY_DATASET_SCOPE_DATA),
-        ("BinaryImage28", &BINARY_IMAGE_28_TYPE_DEFN),
-        ("BinaryGrid28", &BINARY_GRID_28_TYPE_DEFN),
+        &NEW_BINARY_DATASET_SCOPE_DATA,
+        &BINARY_IMAGE_28_TYPE_DEFN,
+        &BINARY_GRID_28_TYPE_DEFN,
     ],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
 
-static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
+static NEW_BINARY_DATASET_SCOPE_DATA: EntityStaticDefn = EntityStaticDefn {
     name: "new_binary_dataset",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Routine {

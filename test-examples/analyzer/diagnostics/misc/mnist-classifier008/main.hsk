@@ -2,7 +2,7 @@ mod connected_components
 
 use datasets_static_defn::cv::mnist::BinaryImage28
 
-dataset:
+context:
     cv::mnist::new_binary_dataset()
 
 

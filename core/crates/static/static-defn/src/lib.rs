@@ -13,7 +13,7 @@ use vm::Linkage;
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityStaticDefn {
     pub name: &'static str,
-    pub subscopes: &'static [(&'static str, &'static EntityStaticDefn)],
+    pub subscopes: &'static [&'static EntityStaticDefn],
     pub variant: EntityStaticDefnVariant,
     pub dev_src: StaticDevSource,
 }
