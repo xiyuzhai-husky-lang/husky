@@ -5,9 +5,9 @@ use std::any::TypeId;
 use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use vm::*;
 
-pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
+pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryGrid28",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "domains::ml::datasets_static_defn::cv::mnist::BinaryGrid28",
         generic_parameters: &[],
@@ -19,7 +19,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
                 EntityStaticDefn {
                     dev_src: dev_utils::static_dev_src!(),
                     name: "index",
-                    subscopes: &[],
+                    items: &[],
                     variant: EntityStaticDefnVariant::Method {
                         this_liason: ParameterLiason::MemberAccess,
                         parameters: &[StaticParameter {
@@ -104,7 +104,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
 
 pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryGrid28",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
         parameters: vec![],

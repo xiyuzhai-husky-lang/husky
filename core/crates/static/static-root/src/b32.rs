@@ -5,7 +5,7 @@ use super::*;
 
 pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "b32",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "b32",
         generic_parameters: &[],
@@ -31,7 +31,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 
 pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     name: "leading_zeros",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -54,7 +54,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
 
 pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     name: "trailing_zeros",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
@@ -77,7 +77,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
 
 pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
     name: "last_bits",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[StaticParameter {

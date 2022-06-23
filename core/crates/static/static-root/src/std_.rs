@@ -8,7 +8,7 @@ use crate::*;
 
 pub static STD_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "std",
-    subscopes: &[&STD_OPS_DEFN, &STD_SLICE_DEFN],
+    items: &[&STD_OPS_DEFN, &STD_SLICE_DEFN],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };

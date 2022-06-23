@@ -6,16 +6,16 @@ use std::sync::Arc;
 use vm::{linkage, EvalValue, Linkage, OwnedValue, TempValue};
 use xrng::XRng;
 
-pub const REAL_1D_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
+pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "real1d",
-    subscopes: &[DATASET1_SCOPE_DATA, DATASET2_SCOPE_DATA],
+    items: &[DATASET1_MODULE_DEFN, DATASET2_SCOPE_DATA],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };
 
-pub const DATASET1_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
+pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "dataset1",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
         parameters: vec![],
@@ -29,7 +29,7 @@ pub const DATASET1_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
 
 pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "dataset2",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
         parameters: vec![],

@@ -197,7 +197,7 @@ impl SubrouteTable {
         data: &EntityStaticDefn,
     ) -> Self {
         let mut entries: Vec<SubrouteEntry> = data
-            .subscopes
+            .items
             .iter()
             .map(|data| SubrouteEntry {
                 ident: Some(RangedCustomIdentifier {

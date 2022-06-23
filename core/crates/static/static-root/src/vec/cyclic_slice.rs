@@ -2,7 +2,7 @@ use super::*;
 
 pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
     name: "cyclic_slice",
-    subscopes: &[],
+    items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::EvalRef,
         parameters: &[

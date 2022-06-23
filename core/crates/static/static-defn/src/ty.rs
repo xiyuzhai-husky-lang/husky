@@ -59,7 +59,7 @@ macro_rules! associated_type_impl {
         EntityStaticDefn {
             dev_src: dev_utils::static_dev_src!(),
             name: $name,
-            subscopes: &[],
+            items: &[],
             variant: EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: $ty },
         }
     };
