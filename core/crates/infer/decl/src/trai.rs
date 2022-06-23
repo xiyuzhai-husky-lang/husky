@@ -192,6 +192,7 @@ pub(crate) fn trait_decl(
     match entity_source {
         EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
+            EntityStaticDefnVariant::Morphism => todo!(),
             EntityStaticDefnVariant::Ty { .. } => todo!(),
             EntityStaticDefnVariant::Trait { .. } => {
                 let base_decl = TraitDecl::from_static(db, static_defn);
