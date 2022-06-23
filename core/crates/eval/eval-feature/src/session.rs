@@ -25,6 +25,7 @@ pub struct Session<'eval> {
     config: Arc<Config>,
     pub(crate) dataset: Dataset<'eval>,
     pub(crate) dev: Division<'eval>,
+    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, EvalResult<'eval>>>,
     val: Division<'eval>,
     test: Division<'eval>,
     validation_report: ValidationReport<'eval>,
@@ -67,6 +68,7 @@ impl<'eval> Session<'eval> {
             validation_report: Default::default(),
             config,
             dataset,
+            trained_features: Default::default(),
         })
     }
 
