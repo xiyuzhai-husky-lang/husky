@@ -7,13 +7,15 @@ mod vec;
 pub use b32::*;
 pub use f32_::*;
 pub use i32_::*;
+use static_defn::*;
 pub use std_::*;
 pub use vec::*;
 
+use dev_utils::StaticDevSource;
 use dev_utils::{dev_src, static_dev_src};
-
-use crate::*;
-use entity_kind::{RoutineKind, TyKind};
+use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
+use liason::{MemberLiason, OutputLiason, ParameterLiason};
+use static_defn::StaticParameter;
 use visual_syntax::{primitive_visualizer, StaticVisualTy, StaticVisualizer};
 use vm::*;
 

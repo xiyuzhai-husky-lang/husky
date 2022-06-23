@@ -2,30 +2,30 @@
 eager variable:
 
 lazy expr:
-    12:9..12:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
-    13:9..13:10    a                      PureRef datasets::cv::mnist::BinaryImage28
+    12:9..12:14    input                  EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    13:9..13:10    a                      PureRef datasets_static_defn::cv::mnist::BinaryImage28
     13:11..13:12   1                      Copyable i32
     13:9..13:13    a[1]                   Copyable b32
-    14:9..14:10    a                      PureRef datasets::cv::mnist::BinaryImage28
+    14:9..14:10    a                      PureRef datasets_static_defn::cv::mnist::BinaryImage28
     14:11..14:13   12                     Copyable i32
     14:9..14:14    a[12]                  Copyable b32
-    15:35..15:40   input                  EvalRef datasets::cv::mnist::BinaryImage28
-    15:9..15:41    find_connected_components(input)   Transient Vec<datasets::cv::mnist::BinaryImage28>
-    16:5..16:6     d                      PureRef Vec<datasets::cv::mnist::BinaryImage28>
+    15:35..15:40   input                  EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    15:9..15:41    find_connected_components(input)   Transient Vec<datasets_static_defn::cv::mnist::BinaryImage28>
+    16:5..16:6     d                      PureRef Vec<datasets_static_defn::cv::mnist::BinaryImage28>
     16:5..16:12    d.len()                Copyable i32
 
 eager expr:
-    9:5..9:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
+    9:5..9:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets_static_defn::cv::mnist::BinaryImage28, i32>
 
 lazy expr:
-    12:9..12:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
-    13:9..13:10    a                      PureRef datasets::cv::mnist::BinaryImage28
+    12:9..12:14    input                  EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    13:9..13:10    a                      PureRef datasets_static_defn::cv::mnist::BinaryImage28
     13:11..13:12   1                      Copyable i32
     13:9..13:13    a[1]                   Copyable b32
-    14:9..14:10    a                      PureRef datasets::cv::mnist::BinaryImage28
+    14:9..14:10    a                      PureRef datasets_static_defn::cv::mnist::BinaryImage28
     14:11..14:13   12                     Copyable i32
     14:9..14:14    a[12]                  Copyable b32
-    15:35..15:40   input                  EvalRef datasets::cv::mnist::BinaryImage28
-    15:9..15:41    find_connected_components(input)   Transient Vec<datasets::cv::mnist::BinaryImage28>
-    16:5..16:6     d                      PureRef Vec<datasets::cv::mnist::BinaryImage28>
+    15:35..15:40   input                  EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    15:9..15:41    find_connected_components(input)   Transient Vec<datasets_static_defn::cv::mnist::BinaryImage28>
+    16:5..16:6     d                      PureRef Vec<datasets_static_defn::cv::mnist::BinaryImage28>
     16:5..16:12    d.len()                Copyable i32

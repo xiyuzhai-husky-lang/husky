@@ -1,4 +1,4 @@
-use datasets::{DataLoader, LabeledData};
+use datasets_static_defn::{DataLoader, LabeledData};
 use feature_gen::*;
 
 use crate::*;

@@ -6,7 +6,7 @@ mod variant;
 pub use query::*;
 
 use check_utils::*;
-use datasets::LabeledData;
+use datasets_static_defn::LabeledData;
 use eval_feature::*;
 use eval_feature::{EvalFeature, Session};
 use file::{FilePtr, FileQueryGroup};

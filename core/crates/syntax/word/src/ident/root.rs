@@ -70,7 +70,7 @@ impl RootIdentifier {
             RootIdentifier::FnMut => "FnMut",
             RootIdentifier::FnOnce => "FnOnce",
             RootIdentifier::Array => "Array",
-            RootIdentifier::Datasets => "datasets",
+            RootIdentifier::Datasets => "domains::ml::datasets",
             RootIdentifier::DatasetType => "Dataset",
             RootIdentifier::VisualType => "Visual",
             RootIdentifier::TypeType => "Type",

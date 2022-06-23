@@ -4,7 +4,7 @@ use husky_compile_time::VisualizerQueryGroup;
 use husky_tracer_protocol::VisualData;
 use print_utils::{epin, msg_once, p};
 use semantics_lazy::LazyStmt;
-use static_defn::CyclicSlice;
+use static_root::*;
 use std::{iter::zip, sync::Arc};
 use visualizer_gen::VisualizerVariant;
 use vm::*;

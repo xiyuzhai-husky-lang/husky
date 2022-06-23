@@ -1,14 +1,12 @@
 mod call;
-mod root;
 mod ty;
 
 pub use call::*;
-use dev_utils::StaticDevSource;
-use liason::{MemberLiason, OutputLiason, ParameterLiason};
-pub use root::*;
 pub use ty::*;
 
+use dev_utils::StaticDevSource;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
+use liason::{MemberLiason, OutputLiason, ParameterLiason};
 use visual_syntax::StaticVisualizer;
 use vm::Linkage;
 

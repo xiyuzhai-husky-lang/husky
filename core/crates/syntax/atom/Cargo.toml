@@ -24,7 +24,7 @@ entity-route = { path = "../entity-route", version = "0.0.0" }
 entity-syntax = { path = "../entity-syntax", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }
-static-defn = { path = "../../semantics/static-defn", version = "0.0.0" }
+static-defn = { path = "../../static/static-defn", version = "0.0.0" }
 liason = { path = "../../semantics/liason", version = "0.0.0" }
 defn-head = { path = "../defn-head", version = "0.0.0" }
 thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }

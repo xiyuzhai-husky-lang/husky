@@ -109,7 +109,6 @@ fn generic_vec_pop<'temp, 'eval>(
 pub(crate) fn construct_generic_vec<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
-    should_eq!(values.len(), 0);
     Ok(TempValue::OwnedEval(OwnedValue::new(Vec::<
         MemberValue<'eval>,
     >::new())))

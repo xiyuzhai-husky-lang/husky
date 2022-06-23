@@ -1,5 +1,6 @@
-
-pub(crate) fn find_connected_components(binary_image: &datasets::cv::mnist::BinaryImage28) -> i32 {
+pub(crate) fn find_connected_components(
+    binary_image: &datasets_static_defn::cv::mnist::BinaryImage28,
+) -> i32 {
     let mut b = binary_image.clone();
     b[0i32] = 1u32;
     1i32

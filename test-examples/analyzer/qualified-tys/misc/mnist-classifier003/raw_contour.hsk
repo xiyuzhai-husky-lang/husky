@@ -1,5 +1,5 @@
 use crate::geom2d::*
-use datasets::cv::mnist::BinaryImage28
+use datasets_static_defn::cv::mnist::BinaryImage28
 
 struct RawContour:
     points: []Point2d
