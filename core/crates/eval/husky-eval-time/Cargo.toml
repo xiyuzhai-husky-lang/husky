@@ -24,7 +24,7 @@ text = { path = "../../syntax/text", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
-datasets = { path = "../../domains/ml/datasets", version = "0.0.0" }
+datasets-static-defn = { path = "../../static/domains/ml/datasets-static-defn", version = "0.0.0" }
 husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
 trivial-iter = { path = "../../abstraction/trivial-iter", version = "0.0.0" }

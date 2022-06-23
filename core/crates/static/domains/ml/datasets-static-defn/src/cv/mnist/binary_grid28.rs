@@ -9,7 +9,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "BinaryGrid28",
     subscopes: &[],
     variant: EntityStaticDefnVariant::Ty {
-        base_route: "datasets::cv::mnist::BinaryGrid28",
+        base_route: "domains::ml::datasets_static_defn::cv::mnist::BinaryGrid28",
         generic_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
             dev_src: static_dev_src!(),
@@ -108,7 +108,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
         parameters: vec![],
-        output_ty: "datasets::cv::mnist::BinaryGrid28",
+        output_ty: "domains::ml::datasets_static_defn::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(
             |_values| {

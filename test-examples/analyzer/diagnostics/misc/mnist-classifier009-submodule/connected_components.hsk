@@ -1,4 +1,4 @@
-use datasets::cv::mnist::BinaryImage28
+use datasets_static_defn::cv::mnist::BinaryImage28
 use
 
 proc find_connected_components(img: BinaryImage28) -> []BinaryImage28:

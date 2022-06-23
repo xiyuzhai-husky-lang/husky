@@ -1,5 +1,3 @@
-use print_utils::ps;
-
 use super::*;
 
 pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {

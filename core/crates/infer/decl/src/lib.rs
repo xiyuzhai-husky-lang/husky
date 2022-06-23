@@ -27,6 +27,7 @@ use infer_error::*;
 use instantiate::*;
 use liason::*;
 use static_defn::*;
+use static_root::*;
 use std::sync::Arc;
 use word::{CustomIdentifier, RootIdentifier};
 

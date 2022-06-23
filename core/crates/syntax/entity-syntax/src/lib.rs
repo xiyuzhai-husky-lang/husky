@@ -15,3 +15,4 @@ pub use source::*;
 pub use subroute_table::*;
 
 use menu::*;
+use static_root::*;

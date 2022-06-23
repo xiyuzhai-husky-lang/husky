@@ -23,7 +23,7 @@ lazy expr:
     16:12..16:53   horizontal_extend(255b32, 1b32) == 255b32   Transient bool
 
 eager expr:
-    2:5..2:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
+    2:5..2:36      cv::mnist::new_binary_dataset()   Transient    Dataset<datasets_static_defn::cv::mnist::BinaryImage28, i32>
     6:23..6:24     x                      Copyable     b32
     6:28..6:29     1                      Copyable     i32
     6:23..6:29     x << 1                 Copyable     b32

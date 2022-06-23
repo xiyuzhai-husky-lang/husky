@@ -2,19 +2,19 @@
 eager variable:
 
 lazy expr:
-    15:9..15:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
-    16:9..16:10    a                      PureRef datasets::cv::mnist::BinaryImage28
+    15:9..15:14    input                  EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    16:9..16:10    a                      PureRef datasets_static_defn::cv::mnist::BinaryImage28
     16:11..16:12   1                      Copyable i32
     16:9..16:13    a[1]                   Copyable b32
-    17:9..17:10    a                      PureRef datasets::cv::mnist::BinaryImage28
+    17:9..17:10    a                      PureRef datasets_static_defn::cv::mnist::BinaryImage28
     17:11..17:13   12                     Copyable i32
     17:9..17:14    a[12]                  Copyable b32
-    18:54..18:59   input                  EvalRef datasets::cv::mnist::BinaryImage28
-    18:28..18:60   find_connected_components(input)   Transient Vec<datasets::cv::mnist::BinaryImage28>
-    19:27..19:47   connected_components   EvalRef Vec<datasets::cv::mnist::BinaryImage28>
+    18:54..18:59   input                  EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    18:28..18:60   find_connected_components(input)   Transient Vec<datasets_static_defn::cv::mnist::BinaryImage28>
+    19:27..19:47   connected_components   EvalRef Vec<datasets_static_defn::cv::mnist::BinaryImage28>
     19:48..19:49   0                      Copyable i32
-    19:27..19:50   connected_components[0]   EvalRef datasets::cv::mnist::BinaryImage28
-    20:38..20:57   connected_component    PureRef datasets::cv::mnist::BinaryImage28
+    19:27..19:50   connected_components[0]   EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    20:38..20:57   connected_component    PureRef datasets_static_defn::cv::mnist::BinaryImage28
     20:20..20:58   find_raw_contours(connected_component)   Transient Vec<mnist_classifier005::raw_contour::RawContour>
     21:20..21:32   raw_contours           EvalRef Vec<mnist_classifier005::raw_contour::RawContour>
     21:33..21:34   0                      Copyable i32
@@ -26,22 +26,22 @@ lazy expr:
     23:5..23:24    line_segments.len()    Copyable i32
 
 eager expr:
-    12:5..12:36    cv::mnist::new_binary_dataset()   Transient    Dataset<datasets::cv::mnist::BinaryImage28, i32>
+    12:5..12:36    cv::mnist::new_binary_dataset()   Transient    Dataset<datasets_static_defn::cv::mnist::BinaryImage28, i32>
 
 lazy expr:
-    15:9..15:14    input                  EvalRef datasets::cv::mnist::BinaryImage28
-    16:9..16:10    a                      PureRef datasets::cv::mnist::BinaryImage28
+    15:9..15:14    input                  EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    16:9..16:10    a                      PureRef datasets_static_defn::cv::mnist::BinaryImage28
     16:11..16:12   1                      Copyable i32
     16:9..16:13    a[1]                   Copyable b32
-    17:9..17:10    a                      PureRef datasets::cv::mnist::BinaryImage28
+    17:9..17:10    a                      PureRef datasets_static_defn::cv::mnist::BinaryImage28
     17:11..17:13   12                     Copyable i32
     17:9..17:14    a[12]                  Copyable b32
-    18:54..18:59   input                  EvalRef datasets::cv::mnist::BinaryImage28
-    18:28..18:60   find_connected_components(input)   Transient Vec<datasets::cv::mnist::BinaryImage28>
-    19:27..19:47   connected_components   EvalRef Vec<datasets::cv::mnist::BinaryImage28>
+    18:54..18:59   input                  EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    18:28..18:60   find_connected_components(input)   Transient Vec<datasets_static_defn::cv::mnist::BinaryImage28>
+    19:27..19:47   connected_components   EvalRef Vec<datasets_static_defn::cv::mnist::BinaryImage28>
     19:48..19:49   0                      Copyable i32
-    19:27..19:50   connected_components[0]   EvalRef datasets::cv::mnist::BinaryImage28
-    20:38..20:57   connected_component    PureRef datasets::cv::mnist::BinaryImage28
+    19:27..19:50   connected_components[0]   EvalRef datasets_static_defn::cv::mnist::BinaryImage28
+    20:38..20:57   connected_component    PureRef datasets_static_defn::cv::mnist::BinaryImage28
     20:20..20:58   find_raw_contours(connected_component)   Transient Vec<mnist_classifier005::raw_contour::RawContour>
     21:20..21:32   raw_contours           EvalRef Vec<mnist_classifier005::raw_contour::RawContour>
     21:33..21:34   0                      Copyable i32
