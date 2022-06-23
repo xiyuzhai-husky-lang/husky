@@ -1,8 +1,8 @@
-mod call;
+mod function;
 mod ty;
 pub mod utils;
 
-pub use call::*;
+pub use function::*;
 pub use ty::*;
 
 use dev_utils::StaticDevSource;
@@ -23,13 +23,19 @@ pub struct EntityStaticDefn {
 pub enum EntityStaticDefnVariant {
     Routine {
         generic_parameters: &'static [StaticGenericPlaceholder],
-        parameters: Vec<StaticParameter>,
+        parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,
         linkage: Linkage,
-        paradigm: RoutineKind,
+        routine_kind: RoutineKind,
     },
-    Morphism,
+    Morphism {
+        generic_parameters: &'static [StaticGenericPlaceholder],
+        parameters: &'static [StaticParameter],
+        output_ty: &'static str,
+        output_liason: OutputLiason,
+        morphism_variant: StaticMorphismVariant,
+    },
     Ty {
         base_route: &'static str,
         generic_parameters: &'static [StaticGenericPlaceholder],
@@ -74,7 +80,7 @@ impl EntityStaticDefnVariant {
     pub fn entity_kind(&self) -> EntityKind {
         match self {
             EntityStaticDefnVariant::Routine { .. } => EntityKind::Function { is_lazy: false },
-            EntityStaticDefnVariant::Morphism => EntityKind::Function { is_lazy: true },
+            EntityStaticDefnVariant::Morphism { .. } => EntityKind::Function { is_lazy: true },
             EntityStaticDefnVariant::Ty { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,
             EntityStaticDefnVariant::Trait { .. } => EntityKind::Trait,

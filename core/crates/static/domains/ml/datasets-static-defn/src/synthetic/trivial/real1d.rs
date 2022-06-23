@@ -18,11 +18,11 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
-        parameters: vec![],
+        parameters: &[],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset1()))), 0),
-        paradigm: RoutineKind::Normal,
+        routine_kind: RoutineKind::Normal,
     },
     dev_src: dev_utils::static_dev_src!(),
 };
@@ -32,11 +32,11 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
-        parameters: vec![],
+        parameters: &[],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset2()))), 0),
-        paradigm: RoutineKind::Normal,
+        routine_kind: RoutineKind::Normal,
     },
     dev_src: dev_utils::static_dev_src!(),
 };

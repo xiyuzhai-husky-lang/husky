@@ -346,7 +346,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     EntityKind::Trait => todo!(),
                     EntityKind::Function { is_lazy } => {
                         if is_lazy {
-                            todo!()
+                            LazyOpnKind::FunctionMorphismCall(RangedEntityRoute {
+                                route,
+                                range: call.range(),
+                            })
                         } else {
                             LazyOpnKind::FunctionRoutineCall(RangedEntityRoute {
                                 route,

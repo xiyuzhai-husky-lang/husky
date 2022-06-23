@@ -1,5 +1,5 @@
-mod call;
 mod feature;
+mod function;
 mod global;
 mod impl_parse;
 mod input;
@@ -7,7 +7,7 @@ mod member;
 mod trai;
 mod ty;
 
-pub use call::*;
+pub use function::*;
 pub use input::*;
 pub use member::*;
 use print_utils::p;
@@ -33,7 +33,7 @@ use word::{CustomIdentifier, RootIdentifier};
 
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: EntitySyntaxQueryGroup + ast::AstQueryGroup {
-    fn call_decl(&self, call_route: EntityRoutePtr) -> InferQueryResultArc<CallDecl>;
+    fn function_decl(&self, call_route: EntityRoutePtr) -> InferQueryResultArc<FunctionDecl>;
     fn method_decl(&self, method_route: EntityRoutePtr) -> InferResultArc<MethodDecl>;
     fn ty_decl(&self, ty: EntityRoutePtr) -> InferQueryResultArc<TyDecl>;
     fn trait_decl(&self, trai: EntityRoutePtr) -> InferResultArc<TraitDecl>;

@@ -73,11 +73,11 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
-        parameters: vec![],
+        parameters: &[],
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(vec_type_call, 0),
-        paradigm: RoutineKind::TypeCall,
+        routine_kind: RoutineKind::TypeCall,
     },
     dev_src: static_dev_src!(),
 };

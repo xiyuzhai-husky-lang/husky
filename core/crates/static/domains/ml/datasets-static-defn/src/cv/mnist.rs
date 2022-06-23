@@ -37,14 +37,14 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn 
     items: &[],
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
-        parameters: vec![],
+        parameters: &[],
         output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(
             |_| Ok(TempValue::OwnedEval(OwnedValue::new(new_binary_dataset()))),
             0
         ),
-        paradigm: RoutineKind::Normal,
+        routine_kind: RoutineKind::Normal,
     },
     dev_src: dev_utils::static_dev_src!(),
 };

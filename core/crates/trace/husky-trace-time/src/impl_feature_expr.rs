@@ -89,6 +89,7 @@ impl HuskyTraceTime {
                         tokens
                     }
                     LazyOpnKind::ElementAccess { .. } => todo!(),
+                    _ => todo!(),
                 },
                 _ => panic!(""),
             },
@@ -135,6 +136,11 @@ impl HuskyTraceTime {
                 field_ident,
                 ref repr,
             } => self.field_access_tokens(config, this, field_ident),
+            FeatureLazyExprVariant::MorphismCall {
+                ref opds,
+                has_this,
+                ref morphism_defn,
+            } => todo!(),
         };
     }
 

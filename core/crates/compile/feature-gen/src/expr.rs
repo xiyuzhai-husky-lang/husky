@@ -80,6 +80,11 @@ pub enum FeatureLazyExprVariant {
         opds: Vec<Arc<FeatureLazyExpr>>,
         linkage: Linkage,
     },
+    MorphismCall {
+        opds: Vec<Arc<FeatureLazyExpr>>,
+        has_this: bool,
+        morphism_defn: Arc<EntityDefn>,
+    },
     RoutineCall {
         opds: Vec<Arc<FeatureLazyExpr>>,
         has_this: bool,

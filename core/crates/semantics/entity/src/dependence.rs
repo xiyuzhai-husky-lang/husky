@@ -353,6 +353,7 @@ impl EntityDefn {
                         | LazyOpnKind::Prefix(_)
                         | LazyOpnKind::FieldAccess { .. }
                         | LazyOpnKind::MethodCall { .. } => (),
+                        LazyOpnKind::FunctionMorphismCall(routine) => builder.push(routine.route),
                         LazyOpnKind::FunctionRoutineCall(routine) => builder.push(routine.route),
                         LazyOpnKind::StructCall(ty) => builder.push(ty.route),
                         LazyOpnKind::RecordCall(ty) => builder.push(ty.route),

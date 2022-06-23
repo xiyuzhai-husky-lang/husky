@@ -288,7 +288,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 kind: EntityKind::Type(_),
                 ..
             } => {
-                let signature = derived_unwrap!(self.decl_db().call_decl(scope));
+                let signature = derived_unwrap!(self.decl_db().function_decl(scope));
                 let arguments: Vec<_> = input_opd_idx_range
                     .enumerate()
                     .map(|(i, raw)| self.parse_eager_expr(raw))

@@ -18,7 +18,7 @@ pub enum MemberDecl {
     AssociatedCall,
     TypeField(Arc<FieldDecl>),
     TypeMethod(Arc<MethodDecl>),
-    TypeAssociatedCall(Arc<CallDecl>),
+    TypeAssociatedCall(Arc<FunctionDecl>),
     TraitMethodImpl {
         trait_route: EntityRoutePtr,
         method: Arc<MethodDecl>,
@@ -93,7 +93,7 @@ impl From<&TyMemberDecl> for MemberDecl {
 pub enum TyMemberDecl {
     Field(Arc<FieldDecl>),
     Method(Arc<MethodDecl>),
-    Call(Arc<CallDecl>),
+    Call(Arc<FunctionDecl>),
 }
 
 impl TyMemberDecl {

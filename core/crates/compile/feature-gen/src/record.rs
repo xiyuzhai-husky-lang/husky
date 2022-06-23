@@ -93,6 +93,7 @@ pub(crate) fn expr_record_field<'eval>(
             field_ident,
             ref repr,
         } => todo!(),
+        _ => todo!(),
     }
 }
 
