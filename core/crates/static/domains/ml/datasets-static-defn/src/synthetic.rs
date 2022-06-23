@@ -2,9 +2,9 @@ mod iter;
 mod loader;
 pub mod trivial;
 
-pub const SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
+pub const SCOPE_DATA: EntityStaticDefn = EntityStaticDefn {
     name: "synthetic",
-    subscopes: &[("trivial", trivial::TRIVIAL_MODULE_DEFN)],
+    subscopes: &[trivial::TRIVIAL_MODULE_DEFN],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };

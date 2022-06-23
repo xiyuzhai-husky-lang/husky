@@ -51,10 +51,10 @@ impl<'a> AstTransformer<'a> {
             Keyword::Config(cfg) => {
                 enter_block(self);
                 Ok(match cfg {
-                    ConfigKeyword::Dataset => {
+                    ConfigKeyword::Context => {
                         self.context
                             .set(AstContext::Stmt(Paradigm::EagerFunctional));
-                        self.use_all(RootIdentifier::Datasets.into(), token_group[0].text_range())?;
+                        self.use_all(RootIdentifier::Domains.into(), token_group[0].text_range())?;
                         AstVariant::DatasetConfigDefnHead
                     }
                 })

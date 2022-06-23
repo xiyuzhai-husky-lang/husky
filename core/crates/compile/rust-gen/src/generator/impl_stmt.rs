@@ -250,7 +250,7 @@ impl<'a> RustGenerator<'a> {
                 | RootIdentifier::DatasetType
                 | RootIdentifier::TypeType
                 | RootIdentifier::TraitType => panic!(),
-                RootIdentifier::Datasets => todo!(),
+                RootIdentifier::Domains => todo!(),
                 RootIdentifier::CloneTrait => todo!(),
                 RootIdentifier::CopyTrait => todo!(),
                 RootIdentifier::PartialEqTrait => todo!(),

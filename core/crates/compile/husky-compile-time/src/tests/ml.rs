@@ -4,7 +4,7 @@ use crate::*;
 fn haha() {
     let mut db = HuskyCompileTime::default();
     let source: &'static str = r#"
-dataset:
+context:
     synthetic::trivial::real1d::dataset1()
 
 main:

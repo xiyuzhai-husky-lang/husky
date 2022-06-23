@@ -7,7 +7,7 @@ use datasets_static_defn::cv::mnist::BinaryImage28
 use connected_components::find_connected_components
 use raw_contour::find_raw_contours
 
-dataset:
+context:
     cv::mnist::new_binary_dataset()
 
 main:

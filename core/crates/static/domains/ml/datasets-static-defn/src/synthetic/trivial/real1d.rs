@@ -8,10 +8,7 @@ use xrng::XRng;
 
 pub const REAL_1D_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "real1d",
-    subscopes: &[
-        ("dataset1", DATASET1_SCOPE_DATA),
-        ("dataset2", DATASET2_SCOPE_DATA),
-    ],
+    subscopes: &[DATASET1_SCOPE_DATA, DATASET2_SCOPE_DATA],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };

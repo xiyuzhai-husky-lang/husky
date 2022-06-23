@@ -7,7 +7,7 @@ use std::sync::Arc;
 
 pub static CV_MOD_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "cv",
-    subscopes: &[("mnist", MNIST_SCOPE_DATA)],
+    subscopes: &[MNIST_SCOPE_DATA],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };

@@ -114,7 +114,7 @@ fn entity_kind_from_entity_route_kind(
             RootIdentifier::Debug | RootIdentifier::Std | RootIdentifier::Core => {
                 EntityKind::Module
             }
-            RootIdentifier::Datasets => EntityKind::Module,
+            RootIdentifier::Domains => EntityKind::Module,
             RootIdentifier::CloneTrait
             | RootIdentifier::CopyTrait
             | RootIdentifier::PartialEqTrait
@@ -206,7 +206,7 @@ pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::FnMut => todo!(),
         RootIdentifier::FnOnce => todo!(),
         RootIdentifier::Array => todo!(),
-        RootIdentifier::Datasets => datasets_static_defn::DATASETS_MODULE_DEFN,
+        RootIdentifier::Domains => &static_root::DOMAINS_MODULE_DEFN,
         RootIdentifier::DatasetType => &datasets_static_defn::DATASET_TYPE_DEFN,
         RootIdentifier::TypeType => todo!(),
         RootIdentifier::TraitType => todo!(),

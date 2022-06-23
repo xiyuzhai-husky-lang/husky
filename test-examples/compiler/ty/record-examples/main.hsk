@@ -7,7 +7,7 @@ record A:
 def a1 -> A:
     return A(1)
 
-dataset:
+context:
     synthetic::trivial::real1d::dataset1()
 
 main:

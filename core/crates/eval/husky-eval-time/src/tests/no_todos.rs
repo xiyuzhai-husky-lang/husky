@@ -12,7 +12,7 @@ fn walkthrough(main_source: &'static str) {
 fn use_assert() {
     walkthrough(
         r#"
-dataset:
+context:
     synthetic::trivial::real1d::dataset1()
 
 main:
@@ -28,7 +28,7 @@ main:
 fn use_input() {
     walkthrough(
         r#"
-dataset:
+context:
     synthetic::trivial::real1d::dataset1()
 
 main:

@@ -10,11 +10,8 @@ use liason::*;
 use visual_syntax::{primitive_visualizer, StaticVisualTy};
 
 pub static DATASETS_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
-    name: "domains::ml::datasets",
-    subscopes: &[
-        ("synthetic", synthetic::SCOPE_DATA),
-        ("cv", &cv::CV_MOD_DEFN),
-    ],
+    name: "datasets",
+    subscopes: &[&synthetic::SCOPE_DATA, &cv::CV_MOD_DEFN],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };

@@ -4,10 +4,7 @@ use crate::*;
 
 pub static STD_OPS_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "ops",
-    subscopes: &[
-        ("Index", &STD_OPS_INDEX_DEFN),
-        ("IndexMut", &STD_OPS_INDEX_DEFN),
-    ],
+    subscopes: &[&STD_OPS_INDEX_DEFN, &STD_OPS_INDEX_DEFN],
     variant: EntityStaticDefnVariant::Module,
     dev_src: dev_utils::static_dev_src!(),
 };

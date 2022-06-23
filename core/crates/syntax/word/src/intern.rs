@@ -37,7 +37,7 @@ impl Intern for WordPtr {
 
 pub fn new_word_interner() -> WordAllocator {
     WordAllocator::new(&[
-        ConfigKeyword::Dataset.into(),
+        ConfigKeyword::Context.into(),
         Keyword::Use.into(),
         Keyword::Mod.into(),
         Keyword::Main.into(),
@@ -84,7 +84,7 @@ pub fn new_word_interner() -> WordAllocator {
         RootIdentifier::Fn.into(),
         RootIdentifier::FnMut.into(),
         RootIdentifier::FnOnce.into(),
-        RootIdentifier::Datasets.into(),
+        RootIdentifier::Domains.into(),
         RootIdentifier::DatasetType.into(),
         RootIdentifier::VisualType.into(),
         RootIdentifier::CloneTrait.into(),

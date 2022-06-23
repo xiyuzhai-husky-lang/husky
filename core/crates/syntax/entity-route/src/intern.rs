@@ -112,7 +112,7 @@ impl Deref for EntityRoutePtr {
         match self {
             EntityRoutePtr::Root(ident) => match_root!(
                 ident => Void, I32, F32, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Mor, Fp, Fn,
-                FnMut, FnOnce, Array, Datasets, DatasetType, VisualType, TypeType, TraitType, ModuleType,
+                FnMut, FnOnce, Array, Domains, DatasetType, VisualType, TypeType, TraitType, ModuleType,
                 CloneTrait,
                 CopyTrait,
                 PartialEqTrait,
@@ -212,7 +212,7 @@ pub fn new_entity_route_interner() -> EntityRouteInterner {
         RootIdentifier::FnMut,
         RootIdentifier::FnOnce,
         RootIdentifier::Array,
-        RootIdentifier::Datasets,
+        RootIdentifier::Domains,
         RootIdentifier::DatasetType,
         RootIdentifier::TypeType,
         RootIdentifier::ModuleType,
