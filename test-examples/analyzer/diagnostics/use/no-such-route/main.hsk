@@ -1,7 +1,7 @@
 use c
 
 context:
-    cv::mnist::new_binary_dataset()
+    ml::datasets::cv::mnist::new_binary_dataset()
 
 main:
     1

@@ -23,7 +23,7 @@ eager variable:
     N           114:5..114:6  Copyable     i32
     p0          115:5..115:7  PureRef      mnist_classifier003::geom2d::Point2d
     p2          116:5..116:7  PureRef      mnist_classifier003::geom2d::Point2d
-    cc          122:24..122:26  PureRef      datasets_static_defn::cv::mnist::BinaryImage28
+    cc          122:24..122:26  PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     result      123:9..123:15  OwnedMut     Vec<mnist_classifier003::raw_contour::RawContour>
     i           125:14..125:15  Copyable     i32
     r_ur        126:13..126:17  Copyable     b32
@@ -159,10 +159,10 @@ eager expr:
     125:19..125:21 29                     Copyable     i32
     126:23..126:24 i                      Copyable     i32
     126:25..126:26 1                      Copyable     i32
-    126:20..126:22 cc                     PureRef      datasets_static_defn::cv::mnist::BinaryImage28
+    126:20..126:22 cc                     PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     126:23..126:26 i-1                    Copyable     i32
     126:20..126:27 cc[i-1]                Copyable     b32
-    127:20..127:22 cc                     PureRef      datasets_static_defn::cv::mnist::BinaryImage28
+    127:20..127:22 cc                     PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     127:23..127:24 i                      Copyable     i32
     127:20..127:25 cc[i]                  Copyable     b32
     128:20..128:24 r_ur                   Copyable     b32
@@ -183,10 +183,10 @@ eager expr:
     135:21..135:60 boundary_unsearched[k].trailing_zeros()   InferError: expect not none
     137:32..137:33 i                      Copyable     i32
     137:34..137:35 1                      Copyable     i32
-    137:29..137:31 cc                     PureRef      datasets_static_defn::cv::mnist::BinaryImage28
+    137:29..137:31 cc                     PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     137:32..137:35 i-1                    Copyable     i32
     137:29..137:36 cc[i-1]                Copyable     b32
-    138:29..138:31 cc                     PureRef      datasets_static_defn::cv::mnist::BinaryImage28
+    138:29..138:31 cc                     PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     138:32..138:33 i                      Copyable     i32
     138:29..138:34 cc[i]                  Copyable     b32
     140:57..140:66 row_above              Copyable     b32
@@ -328,7 +328,7 @@ eager expr:
     188:25..188:46 row_below = row_above   Copyable     void
     189:40..189:41 i                      Copyable     i32
     189:42..189:43 1                      Copyable     i32
-    189:37..189:39 cc                     PureRef      datasets_static_defn::cv::mnist::BinaryImage28
+    189:37..189:39 cc                     PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     189:40..189:43 i-1                    Copyable     i32
     189:25..189:34 row_above              RefMut       b32
     189:37..189:44 cc[i-1]                Copyable     b32
@@ -341,7 +341,7 @@ eager expr:
     192:25..192:34 row_above              RefMut       b32
     192:37..192:46 row_below              Copyable     b32
     192:25..192:46 row_above = row_below   Copyable     void
-    193:37..193:39 cc                     PureRef      datasets_static_defn::cv::mnist::BinaryImage28
+    193:37..193:39 cc                     PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     193:40..193:41 i                      Copyable     i32
     193:25..193:34 row_below              RefMut       b32
     193:37..193:42 cc[i]                  Copyable     b32

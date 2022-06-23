@@ -3,7 +3,7 @@
         Diagnostic {
             severity: Error,
             range: 53:5..53:6,
-            message: "Infer Error: expect i32 but get Vec<datasets_static_defn::cv::mnist::BinaryImage28> instead",
+            message: "Infer Error: expect i32 but get Vec<domains::ml::datasets::cv::mnist::BinaryImage28> instead",
             dev_src: crates/infer/entity-route/src/builder/impl_expr.rs:60,
         },
     ],

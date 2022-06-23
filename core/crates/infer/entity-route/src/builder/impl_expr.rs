@@ -393,7 +393,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => todo!(),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_call(opds, arena, range, raw_expr_idx),
+            ListOpr::Call => self.infer_call(opds, arena, range),
             ListOpr::Index => self.infer_index(arena, opds, range),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
@@ -412,7 +412,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         total_opds: &RawExprRange,
         arena: &RawExprArena,
         range: TextRange,
-        raw_expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let caller = &arena[total_opds.start];
         match caller.variant {
@@ -449,8 +448,13 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Bracketed(_)
             | RawExprVariant::Opn { .. }
             | RawExprVariant::ThisValue { .. }
-            | RawExprVariant::Variable { .. } => todo!(),
-            RawExprVariant::Lambda(_, _) => todo!(),
+            | RawExprVariant::Variable { .. } => {
+                throw!("todo: value as caller", caller.range)
+            }
+            RawExprVariant::Lambda(_, _) => {
+                p!(range);
+                todo!()
+            }
             RawExprVariant::ThisField { .. } => todo!(),
         }
     }

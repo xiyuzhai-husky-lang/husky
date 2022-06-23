@@ -1,8 +1,8 @@
 
-use datasets_static_defn::cv::mnist::BinaryImage28
+use domains::ml::datasets::cv::mnist::BinaryImage28
 
 context:
-    cv::mnist::new_binary_dataset()
+    ml::datasets::cv::mnist::new_binary_dataset()
 
 
 proc horizontal_extend(a: b32, x: b32) -> b32:

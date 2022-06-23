@@ -34,7 +34,7 @@ lazy expr:
     64:5..64:6     1                      Copyable i32
 
 eager expr:
-    2:5..2:43      synthetic::trivial::real1d::dataset1()   Transient    Dataset<f32, i32>
+    2:5..2:57      ml::datasets::synthetic::trivial::real1d::dataset1()   Transient    Dataset<f32, i32>
     13:15..13:16   x                      Copyable     i32
     13:19..13:20   1                      Copyable     i32
     13:15..13:20   x + 1                  Copyable     i32

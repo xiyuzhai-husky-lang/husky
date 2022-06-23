@@ -1,7 +1,7 @@
-use datasets_static_defn::cv::mnist::BinaryImage28
+use domains::ml::datasets::cv::mnist::BinaryImage28
 
 context:
-    cv::mnist::new_binary_dataset()
+    ml::datasets::cv::mnist::new_binary_dataset()
 
 proc find_connected_components(binary_image: BinaryImage28) -> i32:
     var b = binary_image.clone()

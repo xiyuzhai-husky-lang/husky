@@ -8,7 +8,7 @@ def a1 -> A:
     return A(1)
 
 context:
-    synthetic::trivial::real1d::dataset1()
+    ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:
     assert a1.x == 1

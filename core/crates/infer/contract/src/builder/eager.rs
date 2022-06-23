@@ -359,7 +359,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
             RawExprVariant::Lambda(_, _) => todo!(),
             _ => {
-                todo!()
+                throw_derived!("todo: value as caller")
             }
         };
         for (argument, parameter) in zip(

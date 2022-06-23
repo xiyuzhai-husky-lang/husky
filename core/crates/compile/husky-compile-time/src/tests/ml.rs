@@ -5,7 +5,7 @@ fn haha() {
     let mut db = HuskyCompileTime::default();
     let source: &'static str = r#"
 context:
-    synthetic::trivial::real1d::dataset1()
+    ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:
     if input > 0.0:

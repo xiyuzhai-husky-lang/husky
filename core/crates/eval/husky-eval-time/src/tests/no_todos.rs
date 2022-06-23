@@ -13,7 +13,7 @@ fn use_assert() {
     walkthrough(
         r#"
 context:
-    synthetic::trivial::real1d::dataset1()
+    ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:
     a = 1
@@ -29,7 +29,7 @@ fn use_input() {
     walkthrough(
         r#"
 context:
-    synthetic::trivial::real1d::dataset1()
+    ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:
     a = 1

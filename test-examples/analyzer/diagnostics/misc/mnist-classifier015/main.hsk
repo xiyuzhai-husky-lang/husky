@@ -1,11 +1,11 @@
 mod connected_components
 mod raw_contour
 
-use datasets_static_defn::cv::mnist::BinaryImage28
+use domains::ml::datasets::cv::mnist::BinaryImage28
 use connected_components::find_connected_components
 
 context:
-    cv::mnist::new_binary_dataset()
+    ml::datasets::cv::mnist::new_binary_dataset()
 
 main:
     a = input

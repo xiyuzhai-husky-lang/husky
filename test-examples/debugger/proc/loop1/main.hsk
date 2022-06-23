@@ -96,7 +96,7 @@ proc do_while_loop4() -> i32:
     return b
 
 context:
-    synthetic::trivial::real1d::dataset1()
+    ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:
     assert for_loop1() == 4

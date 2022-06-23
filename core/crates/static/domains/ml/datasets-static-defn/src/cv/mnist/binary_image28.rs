@@ -8,7 +8,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryImage28",
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
-        base_route: "domains::ml::datasets_static_defn::cv::mnist::BinaryImage28",
+        base_route: "domains::ml::datasets::cv::mnist::BinaryImage28",
         generic_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
             dev_src: static_dev_src!(),
@@ -107,7 +107,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Routine {
         generic_parameters: &[],
         parameters: vec![],
-        output_ty: "domains::ml::datasets_static_defn::cv::mnist::BinaryImage28",
+        output_ty: "domains::ml::datasets::cv::mnist::BinaryImage28",
         output_liason: OutputLiason::Transfer,
         linkage: linkage!(
             |_values| {

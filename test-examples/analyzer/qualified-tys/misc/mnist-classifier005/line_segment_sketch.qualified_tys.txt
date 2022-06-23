@@ -66,6 +66,12 @@ eager variable:
     last_line_segment  156:9..156:26  TempRef      mnist_classifier005::line_segment_sketch::LineSegment
 
 lazy expr:
+    19:29..19:33   this                   PureRef mnist_classifier005::line_segment_sketch::LineSegment
+    19:29..19:34   this.                  PureRef mnist_classifier005::geom2d::Point2d
+    19:46..19:50   this                   PureRef mnist_classifier005::line_segment_sketch::LineSegment
+    19:46..19:51   this.                  PureRef mnist_classifier005::geom2d::Point2d
+    25:9..25:13    this                   PureRef mnist_classifier005::line_segment_sketch::LineSegmentSketch
+    25:9..25:14    this.                  PureRef Vec<mnist_classifier005::line_segment_sketch::LineSegment>
 
 eager expr:
     6:23..6:29     points                 PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
@@ -102,12 +108,6 @@ eager expr:
     16:9..16:14    start                  PureRef      mnist_classifier005::geom2d::Point2d
     16:18..16:21   end                    PureRef      mnist_classifier005::geom2d::Point2d
     16:9..16:22    start.to(end)          Transient    mnist_classifier005::geom2d::Vector2d
-    19:29..19:33   this                   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
-    19:29..19:34   this.                  PureRef      mnist_classifier005::geom2d::Point2d
-    19:46..19:50   this                   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
-    19:46..19:51   this.                  PureRef      mnist_classifier005::geom2d::Point2d
-    25:9..25:13    this                   PureRef      mnist_classifier005::line_segment_sketch::LineSegmentSketch
-    25:9..25:14    this.                  PureRef      Vec<mnist_classifier005::line_segment_sketch::LineSegment>
     28:10..28:11   u                      PureRef      mnist_classifier005::geom2d::Vector2d
     28:14..28:15   u                      PureRef      mnist_classifier005::geom2d::Vector2d
     28:10..28:12   u.                     Copyable     f32
@@ -614,3 +614,9 @@ eager expr:
     160:12..160:25 line_segments          Transient    Vec<mnist_classifier005::line_segment_sketch::LineSegment>
 
 lazy expr:
+    19:29..19:33   this                   PureRef mnist_classifier005::line_segment_sketch::LineSegment
+    19:29..19:34   this.                  PureRef mnist_classifier005::geom2d::Point2d
+    19:46..19:50   this                   PureRef mnist_classifier005::line_segment_sketch::LineSegment
+    19:46..19:51   this.                  PureRef mnist_classifier005::geom2d::Point2d
+    25:9..25:13    this                   PureRef mnist_classifier005::line_segment_sketch::LineSegmentSketch
+    25:9..25:14    this.                  PureRef Vec<mnist_classifier005::line_segment_sketch::LineSegment>

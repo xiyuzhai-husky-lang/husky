@@ -10,7 +10,7 @@ struct A:
     a: i32
 
 context:
-    synthetic::trivial::real1d::dataset1()
+    ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:
     a = 1

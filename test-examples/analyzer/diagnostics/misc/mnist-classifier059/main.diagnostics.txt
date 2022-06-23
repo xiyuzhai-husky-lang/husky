@@ -1,0 +1,2 @@
+21:40..21:59	Lex Error: Inappropriate
+21:27..22:21	Infer Error: mutation not allowed in lazy functional context
