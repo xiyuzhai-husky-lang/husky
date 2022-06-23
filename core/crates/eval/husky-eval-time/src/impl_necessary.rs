@@ -4,21 +4,21 @@ use vm::InterpreterQueryGroup;
 
 use crate::*;
 
-impl AskCompileTime for HuskyRuntime {
+impl AskCompileTime for HuskyEvalTime {
     fn compile_time(&self) -> &HuskyCompileTime {
         &self.compile_time
     }
 }
 
-// impl ProduceTrace  for HuskyRuntime {
+// impl ProduceTrace  for HuskyEvalTime {
 //     fn trace_factory(&self) -> &trace::TraceFactory<'static> {
 //         &self.trace_factory
 //     }
 // }
 
-impl FeatureEvalQueryGroup for HuskyRuntime {}
+impl FeatureEvalQueryGroup for HuskyEvalTime {}
 
-impl InterpreterQueryGroup for HuskyRuntime {
+impl InterpreterQueryGroup for HuskyEvalTime {
     fn entity_opt_instruction_sheet_by_uid(
         &self,
         uid: vm::EntityUid,
@@ -27,25 +27,25 @@ impl InterpreterQueryGroup for HuskyRuntime {
     }
 }
 
-impl Upcast<dyn InterpreterQueryGroup> for HuskyRuntime {
+impl Upcast<dyn InterpreterQueryGroup> for HuskyEvalTime {
     fn upcast(&self) -> &(dyn InterpreterQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn FeatureEvalQueryGroup> for HuskyRuntime {
+impl Upcast<dyn FeatureEvalQueryGroup> for HuskyEvalTime {
     fn upcast(&self) -> &(dyn FeatureEvalQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn EvalFeature<'static>> for HuskyRuntime {
+impl Upcast<dyn EvalFeature<'static>> for HuskyEvalTime {
     fn upcast(&self) -> &(dyn EvalFeature<'static> + 'static) {
         self
     }
 }
 
-impl EvalFeature<'static> for HuskyRuntime {
+impl EvalFeature<'static> for HuskyEvalTime {
     fn session(&self) -> &Session<'static> {
         &self.session
     }

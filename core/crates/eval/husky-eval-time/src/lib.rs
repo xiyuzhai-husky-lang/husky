@@ -24,19 +24,19 @@ use std::{
 use text::TextQueryGroupStorage;
 use vm::{AnyValueDyn, Instruction};
 
-pub struct HuskyRuntime {
+pub struct HuskyEvalTime {
     compile_time: HuskyCompileTime,
     compile_time_version: usize,
     session: Session<'static>,
     package_main: FilePtr,
-    config: HuskyRuntimeConfig,
+    config: HuskyEvalTimeConfig,
 }
 
-pub struct HuskyRuntimeConfig {
+pub struct HuskyEvalTimeConfig {
     verbose: bool,
 }
 
-impl HuskyRuntime {
+impl HuskyEvalTime {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime), verbose: bool) -> Self {
         let mut compile_time = HuskyCompileTime::default();
         init_compile_time(&mut compile_time);
@@ -63,7 +63,7 @@ impl HuskyRuntime {
             compile_time,
             compile_time_version: 0,
             package_main,
-            config: HuskyRuntimeConfig { verbose },
+            config: HuskyEvalTimeConfig { verbose },
         };
         runtime
     }

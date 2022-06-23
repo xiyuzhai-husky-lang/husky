@@ -22,7 +22,7 @@ use eval_feature::EvalFeature;
 use feature_gen::*;
 use file::FilePtr;
 use husky_compile_time::{AskCompileTime, HuskyCompileTime};
-use husky_runtime::HuskyRuntime;
+use husky_eval_time::HuskyEvalTime;
 use husky_tracer_protocol::*;
 use impl_expr::ExprTokenConfig;
 use print_utils::p;
@@ -39,7 +39,7 @@ use vm::*;
 use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
-    runtime: HuskyRuntime,
+    runtime: HuskyEvalTime,
     attention: Attention,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
@@ -52,7 +52,7 @@ pub struct HuskyTraceTime {
 impl HuskyTraceTime {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime), verbose: bool) -> Self {
         let mut trace_time = Self {
-            runtime: HuskyRuntime::new(init_compile_time, verbose),
+            runtime: HuskyEvalTime::new(init_compile_time, verbose),
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),
