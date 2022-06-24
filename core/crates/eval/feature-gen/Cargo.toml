@@ -38,10 +38,11 @@ semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 pack-semantics = { path = "../../semantics/pack", version = "0.0.0" }
 infer-decl = { path = "../../infer/decl", version = "0.0.0" }
-instruction-gen = { path = "../instruction-gen", version = "0.0.0" }
-linkage-table = { path = "../linkage-table", version = "0.0.0" }
+linkage-table = { path = "../../compile/linkage-table", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 static-defn = { path = "../../static/static-defn", version = "0.0.0" }
 thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }
+instruction-gen = { path = "../instruction-gen", version = "0.0.0" }
 visualizer-gen = { path = "../visualizer-gen", version = "0.0.0" }
+husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }

@@ -25,8 +25,9 @@ entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 compile-time-dir = { path = "../../compile/dir", version = "0.0.0" }
 infer-decl = { path = "../../infer/decl", version = "0.0.0" }
-linkage-table = { path = "../linkage-table", version = "0.0.0" }
+linkage-table = { path = "../../compile/linkage-table", version = "0.0.0" }
 static-defn = { path = "../../static/static-defn", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 visual-semantics = { path = "../../semantics/visual-semantics", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
+husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }

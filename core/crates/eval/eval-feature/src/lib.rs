@@ -1,14 +1,11 @@
 mod evaluator;
-mod query;
 mod session;
 
 pub use evaluator::*;
 use husky_tracer_protocol::{SampleId, VisualData};
-pub use query::*;
 pub use session::*;
 
 use feature_gen::*;
-use husky_compile_time::FeatureGenQueryGroup;
 use std::{
     borrow::Cow,
     collections::HashMap,
@@ -17,7 +14,7 @@ use std::{
 use upcast::Upcast;
 use vm::{EvalResult, VMRuntimeResult};
 
-pub trait EvalFeature<'eval>: FeatureEvalQueryGroup + Upcast<dyn FeatureEvalQueryGroup> {
+pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;
     fn verbose(&self) -> bool;
 

@@ -22,7 +22,6 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
             word_unique_allocator: self.word_unique_allocator.clone(),
             scope_unique_allocator: self.scope_unique_allocator.clone(),
             live_docs: self.live_docs.clone(),
-            features: self.features.clone(),
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
             opt_main: self.opt_main,
@@ -34,7 +33,6 @@ impl Default for HuskyCompileTime {
     fn default() -> Self {
         let live_docs = Default::default();
         let scope_unique_allocator = entity_route::new_entity_route_interner();
-        let features = feature_gen::new_feature_unique_allocator();
         let entity_route_store = Default::default();
         let linkage_table = Default::default();
         Self {
@@ -43,7 +41,6 @@ impl Default for HuskyCompileTime {
             word_unique_allocator: word::new_word_interner(),
             scope_unique_allocator,
             live_docs,
-            features,
             linkage_table,
             entity_route_store,
             opt_main: None,
@@ -99,12 +96,6 @@ impl Upcast<dyn semantics_entity::EntityDefnQueryGroup> for HuskyCompileTime {
     }
 }
 
-impl AllocateUniqueFeature for HuskyCompileTime {
-    fn feature_interner(&self) -> &feature_gen::FeatureInterner {
-        &self.features
-    }
-}
-
 impl Upcast<dyn entity_syntax::EntitySyntaxSalsaQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn entity_syntax::EntitySyntaxSalsaQueryGroup + 'static) {
         self
@@ -130,28 +121,6 @@ impl infer_total::InferQueryGroup for HuskyCompileTime {}
 impl ResolveLinkage for HuskyCompileTime {
     fn linkage_table(&self) -> &LinkageSourceTable {
         &self.linkage_table
-    }
-}
-
-impl InterpreterQueryGroup for HuskyCompileTime {
-    fn entity_opt_instruction_sheet_by_uid(
-        &self,
-        uid: vm::EntityUid,
-    ) -> Option<Arc<vm::InstructionSheet>> {
-        let entity_route = self.entity_route_by_uid(uid);
-        self.entity_instruction_sheet(entity_route)
-    }
-}
-
-impl Upcast<dyn InterpreterQueryGroup> for HuskyCompileTime {
-    fn upcast(&self) -> &(dyn InterpreterQueryGroup + 'static) {
-        self
-    }
-}
-
-impl Upcast<dyn InstructionGenQueryGroup> for HuskyCompileTime {
-    fn upcast(&self) -> &(dyn InstructionGenQueryGroup + 'static) {
-        self
     }
 }
 

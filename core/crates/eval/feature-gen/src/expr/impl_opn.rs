@@ -1,7 +1,8 @@
 use super::*;
 use ast::FieldAstKind;
 use entity_kind::{FieldKind, TyKind};
-use entity_route::EntityRoute;
+use entity_route::{AllocateUniqueScope, EntityRoute};
+use linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
 use static_defn::LinkageSource;
 use thin_vec::{thin_vec, ThinVec};
@@ -37,14 +38,14 @@ impl<'a> FeatureExprBuilder<'a> {
             },
             LazyOpnKind::Prefix(_) => todo!(),
             LazyOpnKind::FunctionMorphismCall(routine) => {
-                let uid = self.db.entity_uid(routine.route);
+                let uid = self.db.compile_time().entity_uid(routine.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
                 let feature = self.features.intern(Feature::FunctionCall {
                     func: routine.route,
                     uid,
                     inputs: opds.iter().map(|expr| expr.feature).collect(),
                 });
-                let morphism_defn = self.db.entity_defn(routine.route).unwrap();
+                let morphism_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
                 let kind = FeatureLazyExprVariant::MorphismCall {
                     opds,
                     has_this: false,
@@ -53,16 +54,16 @@ impl<'a> FeatureExprBuilder<'a> {
                 (kind, feature)
             }
             LazyOpnKind::FunctionRoutineCall(routine) => {
-                let uid = self.db.entity_uid(routine.route);
+                let uid = self.db.compile_time().entity_uid(routine.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
                 let feature = self.features.intern(Feature::FunctionCall {
                     func: routine.route,
                     uid,
                     inputs: opds.iter().map(|expr| expr.feature).collect(),
                 });
-                let routine_defn = self.db.entity_defn(routine.route).unwrap();
+                let routine_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
                 let kind = FeatureLazyExprVariant::RoutineCall {
-                    opt_linkage: self.db.routine_linkage(routine.route),
+                    opt_linkage: self.db.compile_time().routine_linkage(routine.route),
                     opds,
                     has_this: false,
                     opt_instruction_sheet: self.db.entity_instruction_sheet(routine.route),
@@ -96,7 +97,7 @@ impl<'a> FeatureExprBuilder<'a> {
             }
             LazyOpnKind::StructCall(_) => todo!(),
             LazyOpnKind::RecordCall(ty) => {
-                let uid = self.db.entity_uid(ty.route);
+                let uid = self.db.compile_time().entity_uid(ty.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
                 let feature = self.features.intern(Feature::RecordTypeCall {
                     ty: ty.route,
@@ -105,7 +106,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 });
                 let kind = FeatureLazyExprVariant::NewRecord {
                     ty,
-                    entity: self.db.entity_defn(ty.route).unwrap(),
+                    entity: self.db.compile_time().entity_defn(ty.route).unwrap(),
                     opds,
                 };
                 (kind, feature)
@@ -126,8 +127,8 @@ impl<'a> FeatureExprBuilder<'a> {
             opds: opds.iter().map(|opd| opd.feature).collect(),
         });
         let this_expr = &opds[0].expr;
-        let this_ty_defn = self.db.entity_defn(this_expr.ty()).unwrap();
-        let member_idx = self.db.member_idx(method_route);
+        let this_ty_defn = self.db.compile_time().entity_defn(this_expr.ty()).unwrap();
+        let member_idx = self.db.compile_time().member_idx(method_route);
         let method_defn = this_ty_defn.method(member_idx);
         let kind = match method_defn.variant {
             EntityDefnVariant::Method {
@@ -143,7 +144,10 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 FeatureLazyExprVariant::RoutineCall {
                     opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
-                    opt_linkage: self.db.method_linkage(method_route, output_binding),
+                    opt_linkage: self
+                        .db
+                        .compile_time()
+                        .method_linkage(method_route, output_binding),
                     opds,
                     has_this: true,
                     routine_defn: method_defn.clone(),
@@ -161,7 +165,7 @@ impl<'a> FeatureExprBuilder<'a> {
         field_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
         let this_ty = this.ty();
-        let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
+        let this_ty_decl = self.db.compile_time().ty_decl(this_ty).unwrap();
         let field_kind = this_ty_decl.field_kind(field_ident.ident);
         match field_kind {
             FieldKind::StructOriginal
@@ -176,7 +180,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         field_ident,
                         field_idx: this_ty_decl.field_idx(field_ident.ident),
                         field_binding,
-                        opt_linkage: self.db.struct_field_access_linkage(
+                        opt_linkage: self.db.compile_time().struct_field_access_linkage(
                             this_ty,
                             field_ident.ident,
                             field_binding,
@@ -188,14 +192,13 @@ impl<'a> FeatureExprBuilder<'a> {
             }
             FieldKind::StructDerivedLazy { .. } => {
                 let this_ty = this.ty();
-                let this_ty_defn = self.db.entity_defn(this_ty).unwrap();
+                let this_ty_defn = self.db.compile_time().entity_defn(this_ty).unwrap();
                 let field_uid =
                     self.db
-                        .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
-                            this_ty,
-                            field_ident.ident,
-                            thin_vec![],
-                        )));
+                        .compile_time()
+                        .entity_uid(self.db.compile_time().intern_entity_route(
+                            EntityRoute::subroute(this_ty, field_ident.ident, thin_vec![]),
+                        ));
                 match this_ty_defn.variant {
                     EntityDefnVariant::Ty { ref ty_members, .. } => {
                         match ty_members.get_entry(field_ident.ident).unwrap().variant {
@@ -243,14 +246,13 @@ impl<'a> FeatureExprBuilder<'a> {
                 )
             }
             FieldKind::RecordDerived => {
-                let this_ty_defn = self.db.entity_defn(this.ty()).unwrap();
+                let this_ty_defn = self.db.compile_time().entity_defn(this.ty()).unwrap();
                 let field_uid =
                     self.db
-                        .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
-                            this.ty(),
-                            field_ident.ident,
-                            thin_vec![],
-                        )));
+                        .compile_time()
+                        .entity_uid(self.db.compile_time().intern_entity_route(
+                            EntityRoute::subroute(this.ty(), field_ident.ident, thin_vec![]),
+                        ));
                 match this_ty_defn.variant {
                     EntityDefnVariant::Ty { ref ty_members, .. } => {
                         match ty_members.get_entry(field_ident.ident).unwrap().variant {
@@ -303,6 +305,7 @@ impl<'a> FeatureExprBuilder<'a> {
         let feature_expr_kind = FeatureLazyExprVariant::ElementAccess {
             linkage: self
                 .db
+                .compile_time()
                 .element_access_linkage(opds.map(|opd| opd.expr.ty()), element_binding),
             opds,
         };

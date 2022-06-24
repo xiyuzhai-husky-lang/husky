@@ -100,7 +100,7 @@ impl FeatureRepr {
                     },
                     None => Feature::EntityFeature {
                         route: *route,
-                        uid: db.entity_uid(*route),
+                        uid: db.compile_time().entity_uid(*route),
                     },
                 }),
                 opt_this,

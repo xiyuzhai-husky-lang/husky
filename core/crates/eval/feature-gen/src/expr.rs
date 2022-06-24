@@ -164,7 +164,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::EnumLiteral { entity_route } => (
                 FeatureLazyExprVariant::EnumKindLiteral {
                     entity_route,
-                    uid: self.db.entity_uid(entity_route),
+                    uid: self.db.compile_time().entity_uid(entity_route),
                 },
                 self.features.intern(Feature::EnumLiteral(entity_route)),
             ),
@@ -186,7 +186,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::EntityFeature { entity_route } => match entity_route.kind {
                 EntityRouteKind::Root { .. } | EntityRouteKind::Package { .. } => panic!(),
                 EntityRouteKind::Child { .. } => {
-                    let uid = self.db.entity_uid(entity_route);
+                    let uid = self.db.compile_time().entity_uid(entity_route);
                     let feature = self.features.intern(Feature::EntityFeature {
                         route: entity_route,
                         uid,

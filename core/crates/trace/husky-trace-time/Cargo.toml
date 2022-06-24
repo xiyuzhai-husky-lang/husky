@@ -24,7 +24,6 @@ word = { path = "../../syntax/word", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
-feature-gen = { path = "../../compile/feature-gen", version = "0.0.0" }
 visual-syntax = { path = "../../syntax/visual-syntax", version = "0.0.0" }
 husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
@@ -33,4 +32,5 @@ eval-feature = { path = "../../eval/eval-feature", version = "0.0.0" }
 husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
 husky-eval-time = { path = "../../eval/husky-eval-time", version = "0.0.0" }
 trace = { path = "../trace", version = "0.0.0" }
-visualizer-gen = { path = "../../compile/visualizer-gen", version = "0.0.0" }
+feature-gen = { path = "../../eval/feature-gen", version = "0.0.0" }
+visualizer-gen = { path = "../../eval/visualizer-gen", version = "0.0.0" }

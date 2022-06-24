@@ -1,8 +1,10 @@
-use eval_feature::FeatureEvalQueryGroup;
+use semantics_entity::StoreEntityRoute;
 use upcast::Upcast;
 use vm::InterpreterQueryGroup;
 
 use crate::*;
+
+impl salsa::Database for HuskyEvalTime {}
 
 impl AskCompileTime for HuskyEvalTime {
     fn compile_time(&self) -> &HuskyCompileTime {
@@ -15,15 +17,26 @@ impl AskCompileTime for HuskyEvalTime {
 //         &self.trace_factory
 //     }
 // }
+impl AllocateUniqueFeature for HuskyEvalTime {
+    fn feature_interner(&self) -> &feature_gen::FeatureInterner {
+        &self.features
+    }
+}
 
-impl FeatureEvalQueryGroup for HuskyEvalTime {}
+impl Upcast<dyn InstructionGenQueryGroup> for HuskyEvalTime {
+    fn upcast(&self) -> &(dyn InstructionGenQueryGroup + 'static) {
+        self
+    }
+}
 
 impl InterpreterQueryGroup for HuskyEvalTime {
     fn entity_opt_instruction_sheet_by_uid(
         &self,
         uid: vm::EntityUid,
     ) -> Option<Arc<vm::InstructionSheet>> {
-        self.compile_time.entity_opt_instruction_sheet_by_uid(uid)
+        let entity_route = self.compile_time.entity_route_by_uid(uid);
+        self.entity_instruction_sheet(entity_route)
+        // self.compile_time.entity_opt_instruction_sheet_by_uid(uid)
     }
 }
 
@@ -33,8 +46,8 @@ impl Upcast<dyn InterpreterQueryGroup> for HuskyEvalTime {
     }
 }
 
-impl Upcast<dyn FeatureEvalQueryGroup> for HuskyEvalTime {
-    fn upcast(&self) -> &(dyn FeatureEvalQueryGroup + 'static) {
+impl Upcast<dyn FeatureGenQueryGroup> for HuskyEvalTime {
+    fn upcast(&self) -> &(dyn FeatureGenQueryGroup + 'static) {
         self
     }
 }
@@ -47,7 +60,10 @@ impl Upcast<dyn EvalFeature<'static>> for HuskyEvalTime {
 
 impl EvalFeature<'static> for HuskyEvalTime {
     fn session(&self) -> &Session<'static> {
-        &self.session
+        match self.variant {
+            HuskyEvalTimeVariant::Boot => todo!(),
+            HuskyEvalTimeVariant::Learning { ref session } => session,
+        }
     }
 
     fn verbose(&self) -> bool {
