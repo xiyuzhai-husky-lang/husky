@@ -19,7 +19,7 @@ impl AskCompileTime for HuskyEvalTime {
 // }
 impl AllocateUniqueFeature for HuskyEvalTime {
     fn feature_interner(&self) -> &feature_gen::FeatureInterner {
-        &self.features
+        &self.feature_interner
     }
 }
 
@@ -61,7 +61,7 @@ impl Upcast<dyn EvalFeature<'static>> for HuskyEvalTime {
 impl EvalFeature<'static> for HuskyEvalTime {
     fn session(&self) -> &Session<'static> {
         match self.variant {
-            HuskyEvalTimeVariant::Boot => todo!(),
+            HuskyEvalTimeVariant::None => todo!(),
             HuskyEvalTimeVariant::Learning { ref session } => session,
         }
     }

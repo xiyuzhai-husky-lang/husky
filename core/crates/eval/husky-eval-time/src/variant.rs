@@ -1,6 +1,6 @@
 use eval_feature::Session;
 
 pub enum HuskyEvalTimeVariant {
-    Boot,
+    None,
     Learning { session: Session<'static> },
 }

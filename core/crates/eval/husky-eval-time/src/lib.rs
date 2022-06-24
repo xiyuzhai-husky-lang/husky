@@ -37,7 +37,7 @@ pub struct HuskyEvalTime {
     storage: salsa::Storage<HuskyEvalTime>,
     compile_time: HuskyCompileTime,
     compile_time_version: usize,
-    features: feature_gen::FeatureInterner,
+    feature_interner: feature_gen::FeatureInterner,
     variant: HuskyEvalTimeVariant,
     package_main: FilePtr,
     config: HuskyEvalTimeConfig,
@@ -53,6 +53,23 @@ impl HuskyEvalTime {
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);
+        let package_main = all_main_files[0];
+        let feature_interner = feature_gen::new_feature_interner();
+        let mut eval_time = Self {
+            storage: Default::default(),
+            variant: HuskyEvalTimeVariant::None,
+            compile_time,
+            compile_time_version: 0,
+            package_main,
+            config: HuskyEvalTimeConfig { verbose },
+            feature_interner,
+        };
+        eval_time.init();
+        eval_time
+    }
+
+    fn init(&mut self) {
+        let compile_time = &self.compile_time;
         for module in compile_time.all_modules() {
             let diagnostics_reserve = compile_time.diagnostics_reserve(module);
             if diagnostics_reserve.len() > 0 {
@@ -60,8 +77,7 @@ impl HuskyEvalTime {
                 panic!("diagnostic errors")
             }
         }
-        let package_main = all_main_files[0];
-        let pack = match compile_time.package(package_main) {
+        let pack = match compile_time.package(self.package_main) {
             Ok(pack) => pack,
             Err(error) => {
                 compile_time.print_diagnostics();
@@ -69,17 +85,8 @@ impl HuskyEvalTime {
                 panic!()
             }
         };
-        let features = feature_gen::new_feature_unique_allocator();
-        let mut runtime = Self {
-            storage: todo!(),
-            variant: todo!(),
-            // session: Session::new(&pack, &compile_time, verbose).unwrap(),
-            compile_time,
-            compile_time_version: 0,
-            package_main,
-            config: HuskyEvalTimeConfig { verbose },
-            features: todo!(),
-        };
-        runtime
+        self.variant = HuskyEvalTimeVariant::Learning {
+            session: Session::new(&pack, self, self.verbose()).unwrap(),
+        }
     }
 }
