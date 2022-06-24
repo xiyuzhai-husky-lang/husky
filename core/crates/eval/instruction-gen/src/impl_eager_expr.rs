@@ -1,8 +1,8 @@
 use crate::*;
-
 use ast::FieldAstKind;
 use entity_kind::TyKind;
 use infer_decl::TyDecl;
+use linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
 use static_defn::LinkageSource;
 use vm::*;
@@ -69,14 +69,14 @@ impl<'a> InstructionSheetBuilder<'a> {
                         expr.clone(),
                     ));
                     self.push_instruction(Instruction::new(
-                        if let Some(linkage) = self.db.struct_field_access_linkage(
+                        if let Some(linkage) = self.db.compile_time().struct_field_access_linkage(
                             this_ty,
                             field_ident.ident,
                             field_binding,
                         ) {
                             InstructionVariant::CallLinkage { linkage }
                         } else {
-                            let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
+                            let this_ty_decl = self.db.compile_time().ty_decl(this_ty).unwrap();
                             InstructionVariant::FieldAccessInterpreted {
                                 field_idx: this_ty_decl
                                     .field_idx(field_ident.ident)
@@ -178,7 +178,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(instruction)
             }
             EagerOpnVariant::RoutineCall(routine) => {
-                if let Some(linkage) = self.db.routine_linkage(routine.route) {
+                if let Some(linkage) = self.db.compile_time().routine_linkage(routine.route) {
                     self.push_instruction(Instruction::new(
                         InstructionVariant::CallLinkage { linkage },
                         expr.clone(),
@@ -186,7 +186,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 } else {
                     self.push_instruction(Instruction::new(
                         InstructionVariant::CallInterpreted {
-                            routine_uid: self.db.entity_uid(routine.route),
+                            routine_uid: self.db.compile_time().entity_uid(routine.route),
                             nargs: opds.len() as u8,
                             has_this: false,
                         },
@@ -201,16 +201,16 @@ impl<'a> InstructionSheetBuilder<'a> {
                 field_binding,
             } => {
                 self.push_instruction(Instruction::new(
-                    if let Some(field_access_fp) = self.db.struct_field_access_linkage(
-                        *this_ty,
-                        field_ident.ident,
-                        *field_binding,
-                    ) {
+                    if let Some(field_access_fp) = self
+                        .db
+                        .compile_time()
+                        .struct_field_access_linkage(*this_ty, field_ident.ident, *field_binding)
+                    {
                         InstructionVariant::CallLinkage {
                             linkage: field_access_fp,
                         }
                     } else {
-                        let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
+                        let this_ty_decl = self.db.compile_time().ty_decl(*this_ty).unwrap();
                         InstructionVariant::FieldAccessInterpreted {
                             field_idx: this_ty_decl
                                 .field_idx(field_ident.ident)
@@ -247,7 +247,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ranged_ty,
                 ref ty_decl,
             } => {
-                let ty_defn = self.db.entity_defn(ranged_ty.route).unwrap();
+                let ty_defn = self.db.compile_time().entity_defn(ranged_ty.route).unwrap();
                 let instruction_kind = match ty_defn.variant {
                     EntityDefnVariant::Ty {
                         kind,
@@ -284,7 +284,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                             }
                             self.context.exit();
 
-                            if let Some(linkage) = self.db.ty_call_linkage(ranged_ty.route) {
+                            if let Some(linkage) =
+                                self.db.compile_time().ty_call_linkage(ranged_ty.route)
+                            {
                                 InstructionVariant::CallLinkage { linkage }
                             } else {
                                 InstructionVariant::NewVirtualStruct {
@@ -294,7 +296,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                         }
                         TyKind::Primitive => todo!(),
                         TyKind::Vec | TyKind::Array => InstructionVariant::CallLinkage {
-                            linkage: self.db.ty_call_linkage(ranged_ty.route).unwrap(),
+                            linkage: self
+                                .db
+                                .compile_time()
+                                .ty_call_linkage(ranged_ty.route)
+                                .unwrap(),
                         },
                         TyKind::Other => todo!(),
                     },
@@ -315,6 +321,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             InstructionVariant::CallLinkage {
                 linkage: self
                     .db
+                    .compile_time()
                     .element_access_linkage(opds.map(|opd| opd.ty()), element_binding),
             },
             this,
@@ -329,11 +336,15 @@ impl<'a> InstructionSheetBuilder<'a> {
         method_ident: CustomIdentifier,
         output_binding: Binding,
     ) -> InstructionVariant {
-        if let Some(linkage) = self.db.method_linkage(method_route, output_binding) {
+        if let Some(linkage) = self
+            .db
+            .compile_time()
+            .method_linkage(method_route, output_binding)
+        {
             InstructionVariant::CallLinkage { linkage }
         } else {
-            let method_uid = self.db.entity_uid(method_route);
-            let method_decl = self.db.method_decl(method_route).unwrap();
+            let method_uid = self.db.compile_time().entity_uid(method_route);
+            let method_decl = self.db.compile_time().method_decl(method_route).unwrap();
             InstructionVariant::CallInterpreted {
                 routine_uid: method_uid,
                 nargs: (method_decl.parameters.len() + 1).try_into().unwrap(),

@@ -9,7 +9,6 @@ pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use diagnostic::DiagnosticQuery;
 pub use entity_route::{AllocateUniqueScope, EntityRoute};
 pub use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
-pub use feature_gen::{AllocateUniqueFeature, FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
 use indexmap::IndexMap;
@@ -18,13 +17,11 @@ pub use infer_decl::*;
 pub use infer_entity_route::*;
 pub use infer_qualifier::*;
 pub use infer_total::*;
-pub use instruction_gen::InstructionGenQueryGroup;
 pub use pack_semantics::PackageQueryGroup;
 pub use rust_gen::RustGenQueryGroup;
 pub use semantics_entity::EntityDefnQueryGroup;
 pub use token::TokenQueryGroup;
 pub use token::TokenSalsaQueryGroup;
-pub use visualizer_gen::VisualizerQueryGroup;
 pub use word::InternWord;
 
 use check_utils::*;
@@ -49,11 +46,8 @@ use sync_utils::ARwLock;
     infer_qualifier::InferQualifiedTyQueryGroupStorage,
     semantics_entity::EntityQueryGroupStorage,
     pack_semantics::PackageQueryGroupStorage,
-    feature_gen::FeatureGenQueryGroupStorage,
     diagnostic::DiagnosticQueryGroupStorage,
-    instruction_gen::InstructionGenQueryGroupStorage,
-    rust_gen::RustGenQueryStorage,
-    visualizer_gen::VisualizerQueryGroupStorage
+    rust_gen::RustGenQueryStorage
 )]
 pub struct HuskyCompileTime {
     storage: salsa::Storage<HuskyCompileTime>,
@@ -61,7 +55,6 @@ pub struct HuskyCompileTime {
     word_unique_allocator: word::WordAllocator,
     scope_unique_allocator: entity_route::EntityRouteInterner,
     live_docs: ARwLock<IndexMap<FilePtr, ARwLock<String>>>,
-    features: feature_gen::FeatureInterner,
     linkage_table: LinkageSourceTable,
     entity_route_store: EntityRouteStore,
     opt_main: Option<FilePtr>,

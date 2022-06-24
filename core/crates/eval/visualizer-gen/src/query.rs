@@ -1,5 +1,6 @@
 use crate::*;
 use entity_syntax::EntityLocus;
+use husky_compile_time::AskCompileTime;
 use instruction_gen::{new_visual_instruction_sheet, InstructionGenQueryGroup};
 use print_utils::p;
 use semantics_entity::{EntityDefnQueryGroup, EntityDefnVariant};
@@ -10,14 +11,14 @@ use visual_syntax::primitive_visualizer;
 
 #[salsa::query_group(VisualizerQueryGroupStorage)]
 pub trait VisualizerQueryGroup:
-    EntityDefnQueryGroup + Upcast<dyn InterpreterQueryGroup> + Upcast<dyn InstructionGenQueryGroup>
+    AskCompileTime + Upcast<dyn InterpreterQueryGroup> + Upcast<dyn InstructionGenQueryGroup>
 {
     fn visualizer(&self, ty: EntityRoutePtr) -> Arc<Visualizer>;
     fn visual_ty(&self, ty: EntityRoutePtr) -> VisualTy;
 }
 
 fn visualizer(db: &dyn VisualizerQueryGroup, ty: EntityRoutePtr) -> Arc<Visualizer> {
-    let ty_defn = db.entity_defn(ty).unwrap();
+    let ty_defn = db.compile_time().entity_defn(ty).unwrap();
     Arc::new(match ty_defn.variant {
         EntityDefnVariant::Ty {
             ref opt_visualizer_source,

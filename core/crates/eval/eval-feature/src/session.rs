@@ -1,7 +1,7 @@
 mod division;
 mod tests;
 
-use husky_compile_time::{HuskyCompileTime, InstructionGenQueryGroup};
+use husky_compile_time::HuskyCompileTime;
 use pack_semantics::{Config, Package};
 use semantics_eager::FuncStmt;
 use trivial_iter::TrivialIter;
@@ -46,13 +46,13 @@ impl<'eval> Default for ValidationReport<'eval> {
 impl<'eval> Session<'eval> {
     pub fn new(
         package: &Package,
-        compile_time: &HuskyCompileTime,
+        db: &dyn FeatureGenQueryGroup,
         verbose: bool,
     ) -> VMRuntimeResult<Self> {
         let config = package.config.clone();
         let dataset: Dataset = eval_fast(
-            compile_time,
-            Some(&compile_time.dataset_config_instruction_sheet(package.main_defn.file)),
+            db.upcast(),
+            Some(&db.dataset_config_instruction_sheet(package.main_defn.file)),
             None,
             [].into_iter(),
             [].into_iter(),

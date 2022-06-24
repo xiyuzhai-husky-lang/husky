@@ -19,7 +19,7 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,
     pub(crate) eval_input: EvalValue<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
-    pub(crate) db: &'a dyn FeatureEvalQueryGroup,
+    pub(crate) db: &'a dyn FeatureGenQueryGroup,
     pub(crate) verbose: bool,
     pub(crate) opt_static_eval_feature: Option<&'a dyn EvalFeature<'static>>,
 }

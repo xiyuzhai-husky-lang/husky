@@ -3,7 +3,10 @@ mod query;
 mod tests;
 mod variant;
 
+pub use feature_gen::{AllocateUniqueFeature, FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
+pub use instruction_gen::InstructionGenQueryGroup;
 pub use query::*;
+pub use visualizer_gen::VisualizerQueryGroup;
 
 use check_utils::*;
 use datasets_static_defn::LabeledData;
@@ -22,12 +25,20 @@ use std::{
     sync::{Arc, Mutex},
 };
 use text::TextQueryGroupStorage;
+use variant::*;
 use vm::{AnyValueDyn, Instruction};
 
+#[salsa::database(
+    feature_gen::FeatureGenQueryGroupStorage,
+    instruction_gen::InstructionGenQueryGroupStorage,
+    visualizer_gen::VisualizerQueryGroupStorage
+)]
 pub struct HuskyEvalTime {
+    storage: salsa::Storage<HuskyEvalTime>,
     compile_time: HuskyCompileTime,
     compile_time_version: usize,
-    session: Session<'static>,
+    features: feature_gen::FeatureInterner,
+    variant: HuskyEvalTimeVariant,
     package_main: FilePtr,
     config: HuskyEvalTimeConfig,
 }
@@ -58,12 +69,16 @@ impl HuskyEvalTime {
                 panic!()
             }
         };
+        let features = feature_gen::new_feature_unique_allocator();
         let mut runtime = Self {
-            session: Session::new(&pack, &compile_time, verbose).unwrap(),
+            storage: todo!(),
+            variant: todo!(),
+            // session: Session::new(&pack, &compile_time, verbose).unwrap(),
             compile_time,
             compile_time_version: 0,
             package_main,
             config: HuskyEvalTimeConfig { verbose },
+            features: todo!(),
         };
         runtime
     }

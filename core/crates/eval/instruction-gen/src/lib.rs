@@ -10,6 +10,7 @@ pub use query::*;
 use context::*;
 use entity_route::*;
 use fold::LocalValue;
+use infer_decl::DeclQueryGroup;
 use print_utils::*;
 use semantics_eager::*;
 use semantics_entity::*;

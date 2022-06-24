@@ -2,14 +2,14 @@ use crate::*;
 use check_utils::should_eq;
 use entity_kind::TyKind;
 use file::FilePtr;
+use husky_compile_time::AskCompileTime;
+use infer_decl::DeclQueryGroup;
 use linkage_table::ResolveLinkage;
 use pack_semantics::PackageQueryGroup;
 use vm::{EvalValue, Linkage, MemberValue, OwnedValue, TempValue, VMRuntimeResult};
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
-pub trait InstructionGenQueryGroup:
-    EntityDefnQueryGroup + PackageQueryGroup + ResolveLinkage
-{
+pub trait InstructionGenQueryGroup: AskCompileTime {
     fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Option<Arc<InstructionSheet>>;
     fn method_opt_instruction_sheet(
         &self,
@@ -23,7 +23,7 @@ fn entity_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     route: EntityRoutePtr,
 ) -> Option<Arc<InstructionSheet>> {
-    let entity_defn = db.entity_defn(route).unwrap();
+    let entity_defn = db.compile_time().entity_defn(route).unwrap();
     match entity_defn.variant {
         EntityDefnVariant::Module { .. } => todo!(),
         EntityDefnVariant::Feature { .. } => todo!(),
@@ -97,7 +97,7 @@ fn method_opt_instruction_sheet(
     member_route: EntityRoutePtr,
 ) -> Option<Arc<InstructionSheet>> {
     let ty = member_route.parent();
-    let entity_defn = db.entity_defn(ty).unwrap();
+    let entity_defn = db.compile_time().entity_defn(ty).unwrap();
     match entity_defn.variant {
         EntityDefnVariant::Ty {
             ty_members: ref type_members,
@@ -107,7 +107,7 @@ fn method_opt_instruction_sheet(
             ref members,
             ..
         } => {
-            let method_defn = db.member_defn(member_route);
+            let method_defn = db.compile_time().member_defn(member_route);
             match method_defn.variant {
                 EntityDefnVariant::Method {
                     ref method_variant,
@@ -145,12 +145,12 @@ fn dataset_config_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     package_main: FilePtr,
 ) -> Arc<InstructionSheet> {
-    let package = db.package(package_main).unwrap();
+    let package = db.compile_time().package(package_main).unwrap();
     new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
 fn enum_literal_as_u8(db: &dyn InstructionGenQueryGroup, route: EntityRoutePtr) -> u8 {
-    let ty_decl = db.ty_decl(route.parent()).unwrap();
+    let ty_decl = db.compile_time().ty_decl(route.parent()).unwrap();
     ty_decl
         .variants
         .position(route.ident().custom())

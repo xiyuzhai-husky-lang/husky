@@ -219,7 +219,7 @@ impl HuskyTraceTime {
                             .sum::<u32>());
                 let ty = expr.expr.ty();
                 use visualizer_gen::VisualizerQueryGroup;
-                let visualizer = self.runtime.compile_time().visualizer(ty);
+                let visualizer = self.runtime.visualizer(ty);
                 match visualizer.ty {
                     VisualTy::Void => {
                         p!(ty);

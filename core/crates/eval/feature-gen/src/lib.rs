@@ -22,7 +22,9 @@ pub use unique_allocate::{
 };
 
 use entity_route::EntityRoutePtr;
+use husky_compile_time::DeclQueryGroup;
 use print_utils::*;
+use semantics_entity::EntityDefnQueryGroup;
 use std::sync::Arc;
 use text::*;
 use vm::{CopyableValue, PureBinaryOpr};
