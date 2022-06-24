@@ -90,8 +90,8 @@ pub(crate) fn function_decl(
             EntityStaticDefnVariant::Routine { .. } => {
                 routine_decl_from_static(db, vec![], route, static_defn)
             }
-            EntityStaticDefnVariant::Morphism { .. } => {
-                morphism_decl_from_static(db, vec![], route, static_defn)
+            EntityStaticDefnVariant::Model { .. } => {
+                Model_decl_from_static(db, vec![], route, static_defn)
             }
             EntityStaticDefnVariant::Ty { .. } => match db.ty_decl(route)?.opt_type_call {
                 Some(ref ty_call) => ty_call.clone(),
@@ -175,15 +175,15 @@ pub(crate) fn routine_decl_from_static(
     }
 }
 
-pub(crate) fn morphism_decl_from_static(
+pub(crate) fn Model_decl_from_static(
     db: &dyn DeclQueryGroup,
     mut symbols: Vec<Symbol>,
     route: EntityRoutePtr,
     static_defn: &EntityStaticDefn,
 ) -> Arc<FunctionDecl> {
     match static_defn.variant {
-        EntityStaticDefnVariant::Morphism {
-            ref generic_parameters,
+        EntityStaticDefnVariant::Model {
+            spatial_parameters: ref generic_parameters,
             ref parameters,
             output_ty,
             output_liason,

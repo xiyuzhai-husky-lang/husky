@@ -104,7 +104,6 @@ impl HuskyTraceTime {
             FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
             FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
             FeatureLazyExprVariant::EvalInput => vec![keyword!("input")],
-            FeatureLazyExprVariant::PatternCall {} => todo!(),
             FeatureLazyExprVariant::ElementAccess { ref opds, .. } => {
                 let mut tokens = vec![];
                 tokens.extend(self.feature_expr_tokens(&opds[0], config.subexpr()));
@@ -136,10 +135,11 @@ impl HuskyTraceTime {
                 field_ident,
                 ref repr,
             } => self.field_access_tokens(config, this, field_ident),
-            FeatureLazyExprVariant::MorphismCall {
+            FeatureLazyExprVariant::ModelCall {
                 ref opds,
                 has_this,
-                ref morphism_defn,
+                ref Model_defn,
+                ..
             } => todo!(),
         };
     }

@@ -85,7 +85,6 @@ pub(crate) fn expr_record_field<'eval>(
         }
         FeatureLazyExprVariant::EvalInput => todo!(),
         FeatureLazyExprVariant::RoutineCall { .. } => todo!(),
-        FeatureLazyExprVariant::PatternCall {} => todo!(),
         FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
         FeatureLazyExprVariant::ElementAccess { ref opds, .. } => todo!(),
         FeatureLazyExprVariant::StructDerivedLazyFieldAccess {

@@ -10,7 +10,8 @@ impl EntityDefnVariant {
             | EntityDefnVariant::TyField { .. }
             | EntityDefnVariant::Func { .. }
             | EntityDefnVariant::Proc { .. }
-            | EntityDefnVariant::Method { .. } => Arc::new(Vec::new()),
+            | EntityDefnVariant::Method { .. }
+            | EntityDefnVariant::Function { .. } => Arc::new(Vec::new()),
             EntityDefnVariant::Ty { members, .. } => members.clone(),
             EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
                 EnumVariantDefnVariant::Constant => Default::default(),

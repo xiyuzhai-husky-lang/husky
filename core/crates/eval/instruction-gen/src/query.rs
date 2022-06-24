@@ -6,7 +6,7 @@ use husky_compile_time::AskCompileTime;
 use infer_decl::DeclQueryGroup;
 use linkage_table::ResolveLinkage;
 use pack_semantics::PackageQueryGroup;
-use vm::{EvalValue, Linkage, MemberValue, OwnedValue, TempValue, VMRuntimeResult};
+use vm::{EvalValue, MemberValue, OwnedValue, RoutineLinkage, TempValue, VMRuntimeResult};
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
 pub trait InstructionGenQueryGroup: AskCompileTime {
@@ -69,7 +69,7 @@ fn entity_instruction_sheet(
             msg_once!("handle generics");
             match method_variant {
                 MethodDefnVariant::TypeMethod { ty, method_source } => match method_source {
-                    MethodSource::Func { stmts } => Some(new_func_instruction_sheet(
+                    CallFormSource::Func { stmts } => Some(new_func_instruction_sheet(
                         db,
                         parameters
                             .iter()
@@ -77,9 +77,9 @@ fn entity_instruction_sheet(
                         stmts,
                         true, // has_this
                     )),
-                    MethodSource::Proc { stmts } => todo!(),
-                    MethodSource::Pattern { stmts } => todo!(),
-                    MethodSource::Static(_) => todo!(),
+                    CallFormSource::Proc { stmts } => todo!(),
+                    CallFormSource::Lazy { stmts } => todo!(),
+                    CallFormSource::Static(_) => todo!(),
                 },
                 MethodDefnVariant::TraitMethod {
                     trai,
@@ -89,6 +89,12 @@ fn entity_instruction_sheet(
             }
         }
         EntityDefnVariant::Trait { .. } => todo!(),
+        EntityDefnVariant::Function {
+            ref spatial_parameters,
+            ref parameters,
+            output,
+            ref source,
+        } => todo!(),
     }
 }
 
@@ -126,12 +132,12 @@ fn method_opt_instruction_sheet(
                         MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
                     };
                     match source {
-                        MethodSource::Func { stmts } => {
+                        CallFormSource::Func { stmts } => {
                             Some(new_func_instruction_sheet(db, inputs, stmts, true))
                         }
-                        MethodSource::Proc { stmts } => todo!(),
-                        MethodSource::Pattern { stmts } => todo!(),
-                        MethodSource::Static(_) => None,
+                        CallFormSource::Proc { stmts } => todo!(),
+                        CallFormSource::Lazy { stmts } => todo!(),
+                        CallFormSource::Static(_) => None,
                     }
                 }
                 _ => panic!(),

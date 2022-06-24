@@ -1,3 +1,4 @@
+mod call_form;
 mod dependence;
 mod feature;
 mod function;
@@ -7,41 +8,42 @@ mod subentities;
 mod trai;
 mod ty;
 
-use atom::{
-    context::{AtomContextKind, Symbol},
-    AtomContext, AtomContextStandalone,
-};
-use entity_syntax::EntityLocus;
+pub use call_form::*;
 pub use feature::*;
 pub use function::*;
-use map_collect::MapCollect;
-use module::module_defn;
-use print_utils::{msg_once, p};
 pub use query::*;
 pub use trai::*;
 pub use ty::*;
 
 use ast::AstVariant;
+use atom::{
+    context::{AtomContextKind, Symbol},
+    AtomContext, AtomContextStandalone,
+};
 use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
 use entity_route::{EntityRoute, EntityRouteKind};
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
+use entity_syntax::EntityLocus;
 use file::FilePtr;
 use fold::{FoldIterItem, FoldableStorage};
 use liason::*;
+use map_collect::MapCollect;
+use module::module_defn;
+use print_utils::{msg_once, p};
 use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
 use semantics_lazy::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
-use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, LinkageSource};
+use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, LinkageSource, StaticModelVariant};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::*;
 use thin_vec::{thin_vec, ThinVec};
 use vec_map::VecMapEntry;
 use visual_semantics::VisualizerSource;
-use vm::Linkage;
+use vm::RoutineLinkage;
 use word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -78,7 +80,7 @@ impl EntityDefn {
     pub fn from_static(
         symbol_context: &mut dyn AtomContext,
         route: EntityRoutePtr,
-        static_entity_defn: &EntityStaticDefn,
+        static_entity_defn: &'static EntityStaticDefn,
     ) -> Arc<Self> {
         let variant = EntityDefnVariant::from_static(symbol_context, static_entity_defn);
         Self::new(
@@ -148,6 +150,20 @@ pub enum EntityDefnVariant {
         ty: RangedEntityRoute,
         defn_repr: DefinitionRepr,
     },
+    Function {
+        spatial_parameters: IdentDict<SpatialParameter>,
+        parameters: Arc<Vec<Parameter>>,
+        output: RangedEntityRoute,
+        source: CallFormSource,
+    },
+    Method {
+        generic_parameters: IdentDict<SpatialParameter>,
+        this_contract: ParameterLiason,
+        parameters: Arc<Vec<Parameter>>,
+        output_ty: RangedEntityRoute,
+        output_liason: OutputLiason,
+        method_variant: MethodDefnVariant,
+    },
     Func {
         spatial_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
@@ -185,14 +201,6 @@ pub enum EntityDefnVariant {
         liason: MemberLiason,
         opt_static_linkage_source: Option<&'static LinkageSource>,
     },
-    Method {
-        generic_parameters: IdentDict<SpatialParameter>,
-        this_contract: ParameterLiason,
-        parameters: Arc<Vec<Parameter>>,
-        output_ty: RangedEntityRoute,
-        output_liason: OutputLiason,
-        method_variant: MethodDefnVariant,
-    },
     TraitAssociatedTypeImpl {
         trai: EntityRoutePtr,
         ty: EntityRoutePtr,
@@ -205,11 +213,36 @@ pub enum EntityDefnVariant {
 impl EntityDefnVariant {
     pub fn from_static(
         symbol_context: &mut dyn AtomContext,
-        static_defn: &EntityStaticDefn,
+        static_defn: &'static EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Morphism { .. } => todo!(),
+            EntityStaticDefnVariant::Model {
+                spatial_parameters,
+                parameters,
+                output_ty,
+                output_liason,
+                ref Model_variant,
+            } => EntityDefnVariant::Function {
+                spatial_parameters: spatial_parameters.map(|static_generic_placeholder| {
+                    SpatialParameter::from_static(
+                        symbol_context.entity_syntax_db(),
+                        static_generic_placeholder,
+                    )
+                }),
+                parameters: Arc::new(parameters.map(|input_placeholder| {
+                    symbol_context.input_placeholder_from_static(input_placeholder)
+                })),
+                output: RangedEntityRoute {
+                    route: symbol_context.parse_entity_route(output_ty).unwrap(),
+                    range: Default::default(),
+                },
+                source: match Model_variant {
+                    StaticModelVariant::Model(linkage) => {
+                        CallFormSource::Static(LinkageSource::Model(linkage))
+                    }
+                },
+            },
             EntityStaticDefnVariant::Ty { .. } => Self::ty_from_static(symbol_context, static_defn),
             EntityStaticDefnVariant::Trait {
                 base_route,
@@ -257,7 +290,7 @@ impl EntityDefnVariant {
                 };
                 EntityDefnVariant::Trait {
                     generic_parameters,
-                    members: members.map(|member| {
+                    members: members.map(|member: &'static EntityStaticDefn| {
                         let route = symbol_context.db.intern_entity_route(EntityRoute::subroute(
                             this_trai,
                             symbol_context.db.intern_word(member.name).custom(),

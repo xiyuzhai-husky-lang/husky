@@ -210,7 +210,7 @@ impl SubrouteTable {
             .collect();
         match data.variant {
             EntityStaticDefnVariant::Routine { .. } | EntityStaticDefnVariant::Module => (),
-            EntityStaticDefnVariant::Morphism { .. } => todo!(),
+            EntityStaticDefnVariant::Model { .. } => todo!(),
             EntityStaticDefnVariant::Ty {
                 ty_members: type_members,
                 variants,

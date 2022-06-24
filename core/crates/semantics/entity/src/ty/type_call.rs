@@ -4,7 +4,7 @@ use entity_route::RangedEntityRoute;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::sync::Arc;
-use vm::Linkage;
+use vm::RoutineLinkage;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyCallDefn {
@@ -17,7 +17,7 @@ pub struct TyCallDefn {
 pub enum TyCallSource {
     GenericStruct,
     GenericRecord,
-    Static(Linkage),
+    Static(RoutineLinkage),
 }
 
 impl TyCallDefn {

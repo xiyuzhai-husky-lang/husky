@@ -70,7 +70,7 @@ impl EntityDefnVariant {
                                     child.opt_children.clone().unwrap(),
                                     file,
                                 )?;
-                                MethodSource::Func { stmts }
+                                CallFormSource::Func { stmts }
                             }
                             Paradigm::LazyFunctional => todo!(),
                         };

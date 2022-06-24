@@ -81,17 +81,18 @@ pub enum MethodStaticDefnVariant {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum LinkageSource {
     MemberAccess {
-        copy_access: Linkage,
-        eval_ref_access: Linkage,
-        temp_ref_access: Linkage,
-        temp_mut_access: Linkage,
-        move_access: Linkage,
+        copy_access: RoutineLinkage,
+        eval_ref_access: RoutineLinkage,
+        temp_ref_access: RoutineLinkage,
+        temp_mut_access: RoutineLinkage,
+        move_access: RoutineLinkage,
     },
-    Transfer(Linkage),
+    Transfer(RoutineLinkage),
+    Model(&'static vm::ModelLinkage),
 }
 
 impl LinkageSource {
-    pub fn bind(&self, binding: Binding) -> Linkage {
+    pub fn bind(&self, binding: Binding) -> RoutineLinkage {
         match self {
             LinkageSource::MemberAccess {
                 copy_access,
@@ -107,15 +108,17 @@ impl LinkageSource {
                 Binding::Copy => *copy_access,
             },
             LinkageSource::Transfer(linkage) => *linkage,
+            LinkageSource::Model(_) => todo!(),
         }
     }
 
-    pub fn opt_bind(&self, opt_binding: Option<Binding>) -> Linkage {
+    pub fn opt_bind(&self, opt_binding: Option<Binding>) -> RoutineLinkage {
         match opt_binding {
             Some(binding) => self.bind(binding),
             None => match self {
                 LinkageSource::MemberAccess { .. } => panic!(),
                 LinkageSource::Transfer(linkage) => *linkage,
+                LinkageSource::Model(_) => todo!(),
             },
         }
     }

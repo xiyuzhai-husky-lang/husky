@@ -6,26 +6,18 @@ use static_defn::{LinkageSource, MethodStaticDefnVariant};
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum MethodSource {
-    Func { stmts: Avec<FuncStmt> },
-    Proc { stmts: Avec<ProcStmt> },
-    Pattern { stmts: Avec<LazyStmt> },
-    Static(LinkageSource),
-}
-
-#[derive(Debug, PartialEq, Eq)]
 pub enum MethodDefnVariant {
     TypeMethod {
         ty: EntityRoutePtr,
-        method_source: MethodSource,
+        method_source: CallFormSource,
     },
     TraitMethod {
         trai: EntityRoutePtr,
-        opt_default_source: Option<MethodSource>,
+        opt_default_source: Option<CallFormSource>,
     },
     TraitMethodImpl {
         trai: EntityRoutePtr,
-        opt_source: Option<MethodSource>,
+        opt_source: Option<CallFormSource>,
     },
 }
 
@@ -37,14 +29,14 @@ impl MethodDefnVariant {
         match method_kind {
             MethodStaticDefnVariant::TypeMethod { source } => MethodDefnVariant::TypeMethod {
                 ty: symbol_context.opt_this_ty().unwrap(),
-                method_source: MethodSource::Static(source.clone()),
+                method_source: CallFormSource::Static(source.clone()),
             },
             MethodStaticDefnVariant::TraitMethod { opt_default_source } => {
                 MethodDefnVariant::TraitMethod {
                     trai: symbol_context.trai(),
                     opt_default_source: opt_default_source
                         .as_ref()
-                        .map(|source| MethodSource::Static(source.clone())),
+                        .map(|source| CallFormSource::Static(source.clone())),
                 }
             }
             MethodStaticDefnVariant::TraitMethodImpl { opt_source } => {

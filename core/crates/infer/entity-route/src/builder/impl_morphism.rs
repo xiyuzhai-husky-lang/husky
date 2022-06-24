@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> EntityRouteSheetBuilder<'a> {
-    pub(super) fn infer_morphism(
+    pub(super) fn infer_Model(
         &mut self,
         inputs: &[InputParameter],
         opt_output_ty: Option<EntityRoutePtr>,
