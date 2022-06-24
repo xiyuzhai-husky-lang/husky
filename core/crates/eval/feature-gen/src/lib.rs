@@ -18,7 +18,7 @@ pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
 pub use repr::*;
 pub use stmt::{FeatureStmt, FeatureStmtVariant};
 pub use unique_allocate::{
-    new_feature_unique_allocator, AllocateUniqueFeature, FeatureInterner, FeaturePtr,
+    new_feature_interner, AllocateUniqueFeature, FeatureInterner, FeaturePtr,
 };
 
 use entity_route::EntityRoutePtr;
