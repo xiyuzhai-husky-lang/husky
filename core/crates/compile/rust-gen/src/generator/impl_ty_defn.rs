@@ -1,6 +1,6 @@
 use infer_decl::FieldDecl;
 use semantics_entity::{
-    EnumVariantDefnVariant, FieldDefnVariant, MethodDefnVariant, MethodSource, TraitImplDefn,
+    CallFormSource, EnumVariantDefnVariant, FieldDefnVariant, MethodDefnVariant, TraitImplDefn,
 };
 use word::CustomIdentifier;
 
@@ -117,9 +117,9 @@ impl<'a> RustGenerator<'a> {
                     match method_variant {
                         MethodDefnVariant::TypeMethod { ty, method_source } => {
                             match method_source {
-                                MethodSource::Func { .. } | MethodSource::Proc { .. } => (),
-                                MethodSource::Pattern { .. } => continue,
-                                MethodSource::Static(_) => panic!(),
+                                CallFormSource::Func { .. } | CallFormSource::Proc { .. } => (),
+                                CallFormSource::Lazy { .. } => continue,
+                                CallFormSource::Static(_) => panic!(),
                             }
                         }
                         _ => panic!(),
@@ -170,10 +170,10 @@ impl<'a> RustGenerator<'a> {
                     match method_variant {
                         MethodDefnVariant::TypeMethod { ty, method_source } => {
                             match method_source {
-                                MethodSource::Func { stmts } => self.gen_func_stmts(stmts, 8),
-                                MethodSource::Proc { stmts } => self.gen_proc_stmts(stmts, 8),
-                                MethodSource::Pattern { stmts } => todo!(),
-                                MethodSource::Static(_) => todo!(),
+                                CallFormSource::Func { stmts } => self.gen_func_stmts(stmts, 8),
+                                CallFormSource::Proc { stmts } => self.gen_proc_stmts(stmts, 8),
+                                CallFormSource::Lazy { stmts } => todo!(),
+                                CallFormSource::Static(_) => todo!(),
                             }
                         }
                         _ => panic!(),

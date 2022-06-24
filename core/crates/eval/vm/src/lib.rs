@@ -24,7 +24,7 @@ pub use frame::{FrameKind, LoopFrameData};
 pub use history::{History, HistoryEntry};
 pub use instruction::*;
 pub use interpreter::{Interpreter, InterpreterQueryGroup};
-pub use linkage::Linkage;
+pub use linkage::*;
 pub use loop_kind::{BoundaryKind, LoopStep, VMLoopKind};
 pub use mode::Mode;
 pub use mutation::*;
@@ -42,7 +42,7 @@ use word::CustomIdentifier;
 pub fn eval_fast<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
     opt_instrn_sheet: Option<&InstructionSheet>,
-    opt_linkage: Option<Linkage>,
+    opt_linkage: Option<RoutineLinkage>,
     args: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>, // including this value
     kwargs: impl Iterator<Item = (CustomIdentifier, VMRuntimeResult<TempValue<'temp, 'eval>>)>,
     verbose: bool,

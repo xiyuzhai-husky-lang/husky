@@ -28,11 +28,11 @@ pub enum LinkageKey {
 }
 
 impl LinkageSourceTable {
-    pub(crate) fn type_call_linkage(&self, ty_uid: EntityUid) -> Option<Linkage> {
+    pub(crate) fn type_call_linkage(&self, ty_uid: EntityUid) -> Option<RoutineLinkage> {
         self.get_linkage(LinkageKey::TypeCall { ty_uid }, None)
     }
 
-    pub(crate) fn routine_linkage(&self, routine_uid: EntityUid) -> Option<Linkage> {
+    pub(crate) fn routine_linkage(&self, routine_uid: EntityUid) -> Option<RoutineLinkage> {
         self.get_linkage(LinkageKey::Routine { routine_uid }, None)
     }
 
@@ -41,7 +41,7 @@ impl LinkageSourceTable {
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,
         field_binding: Binding,
-    ) -> Option<Linkage> {
+    ) -> Option<RoutineLinkage> {
         self.get_linkage(
             LinkageKey::StructFieldAccess {
                 this_ty_uid,
@@ -55,11 +55,11 @@ impl LinkageSourceTable {
         &self,
         opd_uids: SmallVec<[EntityUid; 2]>,
         binding: Binding,
-    ) -> Option<Linkage> {
+    ) -> Option<RoutineLinkage> {
         self.get_linkage(LinkageKey::ElementAccess { opd_uids }, Some(binding))
     }
 
-    fn get_linkage(&self, key: LinkageKey, opt_binding: Option<Binding>) -> Option<Linkage> {
+    fn get_linkage(&self, key: LinkageKey, opt_binding: Option<Binding>) -> Option<RoutineLinkage> {
         self.linkage_sources.read(|entries| {
             entries
                 .get(&key)

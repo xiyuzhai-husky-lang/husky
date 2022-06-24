@@ -123,7 +123,6 @@ impl<'eval> TraceVariant<'eval> {
                 FeatureLazyExprVariant::RoutineCall {
                     ref routine_defn, ..
                 } => !routine_defn.is_builtin(),
-                FeatureLazyExprVariant::PatternCall {} => true,
                 FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
                 FeatureLazyExprVariant::ElementAccess { ref opds, .. } => false,
                 FeatureLazyExprVariant::StructDerivedLazyFieldAccess {

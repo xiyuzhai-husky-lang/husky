@@ -10,14 +10,14 @@ use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument
 use map_collect::MapCollect;
 use print_utils::p;
 use semantics_entity::{
-    EntityDefnQueryGroup, EntityDefnVariant, MethodDefnVariant, MethodSource, TyCallSource,
+    CallFormSource, EntityDefnQueryGroup, EntityDefnVariant, MethodDefnVariant, TyCallSource,
 };
 use std::collections::HashMap;
 use sync_utils::ARwLock;
 use thin_vec::{thin_vec, ThinVec};
 use vec::*;
 use vm::{Binding, EntityUid};
-use vm::{EvalValue, Linkage, OwnedValue, TempValue, VMRuntimeResult};
+use vm::{EvalValue, OwnedValue, RoutineLinkage, TempValue, VMRuntimeResult};
 use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup {
@@ -27,7 +27,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         &self,
         opd_tys: Vec<EntityRoutePtr>,
         element_binding: Binding,
-    ) -> Linkage {
+    ) -> RoutineLinkage {
         if let Some(linkage) = self
             .linkage_table()
             .element_access(opd_tys.map(|ty| self.entity_uid(*ty)), element_binding)
@@ -47,10 +47,10 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                 MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
                     if let Some(source) = opt_source {
                         match source {
-                            MethodSource::Func { stmts } => todo!(),
-                            MethodSource::Proc { stmts } => todo!(),
-                            MethodSource::Pattern { stmts } => todo!(),
-                            MethodSource::Static(linkage_source) => {
+                            CallFormSource::Func { stmts } => todo!(),
+                            CallFormSource::Proc { stmts } => todo!(),
+                            CallFormSource::Lazy { stmts } => todo!(),
+                            CallFormSource::Static(linkage_source) => {
                                 linkage_source.bind(element_binding)
                             }
                         }
@@ -72,7 +72,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         this_ty: EntityRoutePtr,
         field_ident: CustomIdentifier,
         field_binding: Binding,
-    ) -> Option<Linkage> {
+    ) -> Option<RoutineLinkage> {
         if let Some(linkage) = self.linkage_table().struct_field_access_linkage_source(
             self.entity_uid(this_ty),
             field_ident,
@@ -97,7 +97,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         &self,
         method_route: EntityRoutePtr,
         output_binding: Binding,
-    ) -> Option<Linkage> {
+    ) -> Option<RoutineLinkage> {
         let opt_linkage = if let Some(linkage) = self
             .linkage_table()
             .routine_linkage(self.entity_uid(method_route))
@@ -111,10 +111,10 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                     ref method_variant, ..
                 } => match method_variant {
                     MethodDefnVariant::TypeMethod { method_source, .. } => match method_source {
-                        MethodSource::Func { .. }
-                        | MethodSource::Proc { .. }
-                        | MethodSource::Pattern { .. } => None,
-                        MethodSource::Static(linkage_source) => {
+                        CallFormSource::Func { .. }
+                        | CallFormSource::Proc { .. }
+                        | CallFormSource::Lazy { .. } => None,
+                        CallFormSource::Static(linkage_source) => {
                             Some(linkage_source.bind(output_binding))
                         }
                     },
@@ -122,18 +122,20 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                         trai,
                         ref opt_default_source,
                     } => opt_default_source.as_ref().map(|source| match source {
-                        MethodSource::Func { stmts } => todo!(),
-                        MethodSource::Proc { stmts } => todo!(),
-                        MethodSource::Pattern { stmts } => todo!(),
-                        MethodSource::Static(linkage_source) => linkage_source.bind(output_binding),
+                        CallFormSource::Func { stmts } => todo!(),
+                        CallFormSource::Proc { stmts } => todo!(),
+                        CallFormSource::Lazy { stmts } => todo!(),
+                        CallFormSource::Static(linkage_source) => {
+                            linkage_source.bind(output_binding)
+                        }
                     }),
                     MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
                         if let Some(source) = opt_source {
                             return match source {
-                                MethodSource::Func { ref stmts } => todo!(),
-                                MethodSource::Proc { ref stmts } => todo!(),
-                                MethodSource::Pattern { ref stmts } => todo!(),
-                                MethodSource::Static(linkage_source) => {
+                                CallFormSource::Func { ref stmts } => todo!(),
+                                CallFormSource::Proc { ref stmts } => todo!(),
+                                CallFormSource::Lazy { ref stmts } => todo!(),
+                                CallFormSource::Static(linkage_source) => {
                                     Some(linkage_source.bind(output_binding))
                                 }
                             };
@@ -157,10 +159,10 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                                             },
                                         ..
                                     } => match opt_default_source.as_ref().unwrap() {
-                                        MethodSource::Func { ref stmts } => todo!(),
-                                        MethodSource::Proc { ref stmts } => todo!(),
-                                        MethodSource::Pattern { ref stmts } => todo!(),
-                                        MethodSource::Static(linkage_source) => {
+                                        CallFormSource::Func { ref stmts } => todo!(),
+                                        CallFormSource::Proc { ref stmts } => todo!(),
+                                        CallFormSource::Lazy { ref stmts } => todo!(),
+                                        CallFormSource::Static(linkage_source) => {
                                             Some(linkage_source.bind(output_binding))
                                         }
                                     },
@@ -186,7 +188,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         opt_linkage
     }
 
-    fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<Linkage> {
+    fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<RoutineLinkage> {
         let opt_linkage = match self.entity_locus(routine).unwrap() {
             EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
                 EntityStaticDefnVariant::Routine { linkage, .. } => Some(linkage),
@@ -208,7 +210,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         opt_linkage
     }
 
-    fn ty_call_linkage(&self, ty: EntityRoutePtr) -> Option<Linkage> {
+    fn ty_call_linkage(&self, ty: EntityRoutePtr) -> Option<RoutineLinkage> {
         if let Some(linkage) = self.linkage_table().type_call_linkage(self.entity_uid(ty)) {
             return Some(linkage);
         }

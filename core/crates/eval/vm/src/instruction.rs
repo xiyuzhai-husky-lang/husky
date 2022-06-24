@@ -76,7 +76,7 @@ pub enum InstructionVariant {
         field_binding: Binding,
     },
     CallLinkage {
-        linkage: Linkage,
+        linkage: RoutineLinkage,
     },
     CallInterpreted {
         routine_uid: EntityUid,

@@ -79,7 +79,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             } => self.eval_feature_repr(repr),
             FeatureLazyExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
             FeatureLazyExprVariant::EvalInput => Ok(self.eval_input.clone()),
-            FeatureLazyExprVariant::PatternCall {} => todo!(),
             FeatureLazyExprVariant::RecordDerivedFieldAccess {
                 ref this,
                 field_ident,
@@ -110,7 +109,12 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 };
                 self.cache(eval_key, |this| this.eval_feature_repr(repr))
             }
-            _ => todo!(),
+            FeatureLazyExprVariant::ModelCall {
+                ref opds,
+                has_this,
+                ref Model_defn,
+                ..
+            } => todo!(),
         }
     }
 
@@ -148,7 +152,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     fn eval_routine_call(
         &mut self,
         opt_instrns: Option<&InstructionSheet>,
-        opt_linkage: Option<Linkage>,
+        opt_linkage: Option<RoutineLinkage>,
         arguments: &[Arc<FeatureLazyExpr>],
         has_this: bool,
     ) -> EvalResult<'eval> {

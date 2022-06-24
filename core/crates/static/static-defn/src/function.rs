@@ -21,6 +21,6 @@ pub enum StaticGenericPlaceholderVariant {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum StaticMorphismVariant {
-    Model { train: (), eval: () },
+pub enum StaticModelVariant {
+    Model(ModelLinkage),
 }

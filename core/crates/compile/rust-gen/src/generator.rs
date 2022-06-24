@@ -72,6 +72,12 @@ impl<'a> RustGenerator<'a> {
                 | EntityDefnVariant::TyField { .. } => {
                     panic!()
                 }
+                EntityDefnVariant::Function {
+                    ref spatial_parameters,
+                    ref parameters,
+                    output,
+                    ref source,
+                } => todo!(),
             }
         }
         self.gen_init(&pack.subentity_defns);

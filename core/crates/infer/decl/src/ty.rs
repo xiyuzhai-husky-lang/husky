@@ -507,7 +507,7 @@ pub(crate) fn ty_decl(
     match source {
         EntityLocus::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Morphism { .. } => todo!(),
+            EntityStaticDefnVariant::Model { .. } => todo!(),
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Ty { .. } => {
                 let base_decl = TyDecl::from_static(db, static_defn);

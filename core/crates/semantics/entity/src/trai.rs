@@ -97,7 +97,7 @@ impl EntityDefnVariant {
                             trai,
                             opt_default_source: opt_default_source
                                 .clone()
-                                .map(|source| MethodSource::Static(source)),
+                                .map(|source| CallFormSource::Static(source)),
                         }
                     }
                     MethodStaticDefnVariant::TraitMethodImpl { opt_source } => {
@@ -105,7 +105,7 @@ impl EntityDefnVariant {
                             trai,
                             opt_source: opt_source
                                 .clone()
-                                .map(|source| MethodSource::Static(source)),
+                                .map(|source| CallFormSource::Static(source)),
                         }
                     }
                 };

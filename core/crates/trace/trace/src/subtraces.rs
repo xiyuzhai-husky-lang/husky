@@ -20,7 +20,6 @@ impl<'eval> Trace {
             TraceVariant::FeatureExpr(ref expr) => match expr.variant {
                 FeatureLazyExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
                 FeatureLazyExprVariant::EntityFeature { .. } => None,
-                FeatureLazyExprVariant::PatternCall {} => todo!(),
                 FeatureLazyExprVariant::RecordDerivedFieldAccess { .. }
                 | FeatureLazyExprVariant::StructDerivedLazyFieldAccess { .. } => {
                     Some(SubtracesContainerClass::Call)

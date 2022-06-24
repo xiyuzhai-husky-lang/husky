@@ -177,16 +177,16 @@ impl EntityDefn {
                 };
                 if let Some(source) = opt_source {
                     match source {
-                        MethodSource::Func { stmts } => {
+                        CallFormSource::Func { stmts } => {
                             extract_func_stmts_dependees(stmts, &mut builder)
                         }
-                        MethodSource::Proc { stmts } => {
+                        CallFormSource::Proc { stmts } => {
                             extract_proc_stmts_dependees(stmts, &mut builder)
                         }
-                        MethodSource::Pattern { stmts } => {
+                        CallFormSource::Lazy { stmts } => {
                             extract_lazy_stmts_dependees(stmts, &mut builder)
                         }
-                        MethodSource::Static(_) => todo!(),
+                        CallFormSource::Static(_) => todo!(),
                     }
                 }
             }
@@ -195,6 +195,12 @@ impl EntityDefn {
             EntityDefnVariant::Trait {
                 ref generic_parameters,
                 ref members,
+            } => todo!(),
+            EntityDefnVariant::Function {
+                ref spatial_parameters,
+                ref parameters,
+                output,
+                ref source,
             } => todo!(),
         };
         return builder.finish();
@@ -353,7 +359,7 @@ impl EntityDefn {
                         | LazyOpnKind::Prefix(_)
                         | LazyOpnKind::FieldAccess { .. }
                         | LazyOpnKind::MethodCall { .. } => (),
-                        LazyOpnKind::FunctionMorphismCall(routine) => builder.push(routine.route),
+                        LazyOpnKind::FunctionModelCall(routine) => builder.push(routine.route),
                         LazyOpnKind::FunctionRoutineCall(routine) => builder.push(routine.route),
                         LazyOpnKind::StructCall(ty) => builder.push(ty.route),
                         LazyOpnKind::RecordCall(ty) => builder.push(ty.route),
@@ -455,6 +461,12 @@ impl EntityDefn {
                 EntityDefnVariant::Trait {
                     ref generic_parameters,
                     ref members,
+                } => todo!(),
+                EntityDefnVariant::Function {
+                    ref spatial_parameters,
+                    ref parameters,
+                    output,
+                    ref source,
                 } => todo!(),
             }
         }

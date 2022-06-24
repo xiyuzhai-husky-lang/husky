@@ -4,9 +4,10 @@ use entity_kind::{FieldKind, TyKind};
 use entity_route::{AllocateUniqueScope, EntityRoute};
 use linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
+use semantics_entity::EntityDefnVariant;
 use static_defn::LinkageSource;
 use thin_vec::{thin_vec, ThinVec};
-use vm::Binding;
+use vm::{Binding, ModelLinkage};
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
@@ -37,7 +38,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 _ => todo!(),
             },
             LazyOpnKind::Prefix(_) => todo!(),
-            LazyOpnKind::FunctionMorphismCall(routine) => {
+            LazyOpnKind::FunctionModelCall(routine) => {
                 let uid = self.db.compile_time().entity_uid(routine.route);
                 let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
                 let feature = self.features.intern(Feature::FunctionCall {
@@ -45,11 +46,20 @@ impl<'a> FeatureExprBuilder<'a> {
                     uid,
                     inputs: opds.iter().map(|expr| expr.feature).collect(),
                 });
-                let morphism_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
-                let kind = FeatureLazyExprVariant::MorphismCall {
+                let model_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
+                let internal = match model_defn.variant {
+                    EntityDefnVariant::Function {
+                        source:
+                            CallFormSource::Static(LinkageSource::Model(ModelLinkage { train, .. })),
+                        ..
+                    } => todo!(),
+                    _ => todo!(),
+                };
+                let kind = FeatureLazyExprVariant::ModelCall {
                     opds,
                     has_this: false,
-                    morphism_defn,
+                    Model_defn: model_defn,
+                    internal: todo!(),
                 };
                 (kind, feature)
             }
@@ -344,7 +354,6 @@ impl<'a> FeatureExprBuilder<'a> {
             }
             FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
             FeatureLazyExprVariant::EvalInput => todo!(),
-            FeatureLazyExprVariant::PatternCall {} => todo!(),
             FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
             FeatureLazyExprVariant::ElementAccess { ref opds, .. } => todo!(),
             FeatureLazyExprVariant::StructDerivedLazyFieldAccess {

@@ -9,7 +9,7 @@ use dev_utils::StaticDevSource;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use liason::{MemberLiason, OutputLiason, ParameterLiason};
 use visual_syntax::StaticVisualizer;
-use vm::Linkage;
+use vm::RoutineLinkage;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityStaticDefn {
@@ -26,15 +26,15 @@ pub enum EntityStaticDefnVariant {
         parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,
-        linkage: Linkage,
+        linkage: RoutineLinkage,
         routine_kind: RoutineKind,
     },
-    Morphism {
-        generic_parameters: &'static [StaticGenericPlaceholder],
+    Model {
+        spatial_parameters: &'static [StaticGenericPlaceholder],
         parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,
-        morphism_variant: StaticMorphismVariant,
+        Model_variant: StaticModelVariant,
     },
     Ty {
         base_route: &'static str,
@@ -80,7 +80,7 @@ impl EntityStaticDefnVariant {
     pub fn entity_kind(&self) -> EntityKind {
         match self {
             EntityStaticDefnVariant::Routine { .. } => EntityKind::Function { is_lazy: false },
-            EntityStaticDefnVariant::Morphism { .. } => EntityKind::Function { is_lazy: true },
+            EntityStaticDefnVariant::Model { .. } => EntityKind::Function { is_lazy: true },
             EntityStaticDefnVariant::Ty { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,
             EntityStaticDefnVariant::Trait { .. } => EntityKind::Trait,
