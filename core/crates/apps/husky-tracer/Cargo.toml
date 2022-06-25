@@ -43,3 +43,4 @@ text = { path = "../../syntax/text", version = "0.0.0" }
 husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
 trace = { path = "../../trace/trace", version = "0.0.0" }
 husky-trace-time = { path = "../../trace/husky-trace-time", version = "0.0.0" }
+static-root = { path = "../../static/static-root", version = "0.0.0" }

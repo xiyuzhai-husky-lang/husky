@@ -10,6 +10,11 @@ use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use liason::{MemberLiason, OutputLiason, ParameterLiason};
 use visual_syntax::StaticVisualizer;
 use vm::RoutineLinkage;
+use word::RootIdentifier;
+
+pub trait ResolveStaticRootDefn {
+    fn static_root_defn_resolver(&self) -> fn(ident: RootIdentifier) -> &'static EntityStaticDefn;
+}
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityStaticDefn {

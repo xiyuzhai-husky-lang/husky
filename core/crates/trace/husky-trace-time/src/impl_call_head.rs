@@ -8,7 +8,11 @@ impl HuskyTraceTime {
     pub fn new_call_head(&mut self, entity: Arc<EntityDefn>) -> TraceId {
         let tokens = match entity.variant {
             EntityDefnVariant::Func { ref parameters, .. } => routine_call_head_tokens(
-                &self.runtime.compile_time().text(entity.file).unwrap(),
+                &self
+                    .runtime_singleton
+                    .compile_time()
+                    .text(entity.file)
+                    .unwrap(),
                 "func ",
                 entity.ident,
                 parameters,
@@ -17,7 +21,11 @@ impl HuskyTraceTime {
                 parameters: ref parameters,
                 ..
             } => routine_call_head_tokens(
-                &self.runtime.compile_time().text(entity.file).unwrap(),
+                &self
+                    .runtime_singleton
+                    .compile_time()
+                    .text(entity.file)
+                    .unwrap(),
                 "proc ",
                 entity.ident,
                 parameters,

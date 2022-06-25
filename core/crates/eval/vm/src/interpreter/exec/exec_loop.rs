@@ -171,7 +171,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             control_result = Ok(VMControl::None);
                             break;
                         }
-                        VMControl::Err(_) => todo!(),
+                        VMControl::Err(e) => {
+                            p!(e);
+                            todo!()
+                        }
                     }
                 }
                 control_result

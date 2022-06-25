@@ -10,11 +10,11 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
             source: LinkageSource::MemberAccess {
-                copy_access: linkage!(generic_vec_first_copy, 1),
-                eval_ref_access: linkage!(generic_vec_first_eval_ref, 1),
-                temp_ref_access: linkage!(generic_vec_first_temp_ref, 1),
-                temp_mut_access: linkage!(generic_vec_first_mut, 1),
-                move_access: linkage!(generic_vec_first_move, 1),
+                copy_access: routine_linkage!(generic_vec_first_copy, 1),
+                eval_ref_access: routine_linkage!(generic_vec_first_eval_ref, 1),
+                temp_ref_access: routine_linkage!(generic_vec_first_temp_ref, 1),
+                temp_mut_access: routine_linkage!(generic_vec_first_mut, 1),
+                move_access: routine_linkage!(generic_vec_first_move, 1),
             },
         },
         output_liason: OutputLiason::MemberAccess {

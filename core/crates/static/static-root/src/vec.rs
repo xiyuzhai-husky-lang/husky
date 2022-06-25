@@ -1,8 +1,8 @@
-mod cyclic_slice;
+mod cyclic_slice_;
 mod first;
 mod last;
 
-pub use cyclic_slice::*;
+pub use cyclic_slice_::*;
 pub use first::*;
 pub use last::*;
 use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
@@ -37,11 +37,20 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         generic_parameters: &[],
                         kind: MethodStaticDefnVariant::TraitMethodImpl {
                             opt_source: Some(LinkageSource::MemberAccess {
-                                copy_access: linkage!(generic_vec_element_copy_access, 2),
-                                eval_ref_access: linkage!(generic_vec_element_eval_ref_access, 2),
-                                temp_ref_access: linkage!(generic_vec_element_temp_ref_access, 2),
-                                move_access: linkage!(generic_vec_element_move_access, 2),
-                                temp_mut_access: linkage!(generic_vec_element_borrow_mut_access, 2),
+                                copy_access: routine_linkage!(generic_vec_element_copy_access, 2),
+                                eval_ref_access: routine_linkage!(
+                                    generic_vec_element_eval_ref_access,
+                                    2
+                                ),
+                                temp_ref_access: routine_linkage!(
+                                    generic_vec_element_temp_ref_access,
+                                    2
+                                ),
+                                move_access: routine_linkage!(generic_vec_element_move_access, 2),
+                                temp_mut_access: routine_linkage!(
+                                    generic_vec_element_borrow_mut_access,
+                                    2
+                                ),
                             }),
                         },
                     },
@@ -76,7 +85,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
-        linkage: linkage!(vec_type_call, 0),
+        linkage: routine_linkage!(vec_type_call, 0),
         routine_kind: RoutineKind::TypeCall,
     },
     dev_src: static_dev_src!(),
@@ -199,7 +208,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "i32",
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(generic_vec_len, 1)),
+            source: LinkageSource::Transfer(routine_linkage!(generic_vec_len, 1)),
         },
         output_liason: OutputLiason::Transfer,
     },
@@ -227,7 +236,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
         output_ty: "void",
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(generic_vec_push, 2)),
+            source: LinkageSource::Transfer(routine_linkage!(generic_vec_push, 2)),
         },
         output_liason: OutputLiason::Transfer,
     },
@@ -243,7 +252,7 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
         output_ty: "E",
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(generic_vec_pop, 1)),
+            source: LinkageSource::Transfer(routine_linkage!(generic_vec_pop, 1)),
         },
         output_liason: OutputLiason::Transfer,
     },

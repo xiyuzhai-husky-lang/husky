@@ -1,3 +1,5 @@
+use cyclic_slice::CyclicSlice;
+
 use super::*;
 
 pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
@@ -20,7 +22,7 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
         output_ty: "[%]E",
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(cyclic_slice, 3)),
+            source: LinkageSource::Transfer(routine_linkage!(cyclic_slice, 3)),
         },
         output_liason: OutputLiason::Transfer,
         // bug if output_liason is OutputLiason::MemberAccess

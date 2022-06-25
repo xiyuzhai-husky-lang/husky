@@ -30,7 +30,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(|values| todo!(), 2)),
+            source: LinkageSource::Transfer(routine_linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -50,7 +50,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(|values| todo!(), 2)),
+            source: LinkageSource::Transfer(routine_linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -66,7 +66,7 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(|values| todo!(), 1)),
+            source: LinkageSource::Transfer(routine_linkage!(|values| todo!(), 1)),
         },
     },
     dev_src: static_dev_src!(),
@@ -82,7 +82,7 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_i32().abs().into(),

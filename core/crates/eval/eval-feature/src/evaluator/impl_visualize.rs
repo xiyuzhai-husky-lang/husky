@@ -1,9 +1,9 @@
 use crate::*;
+use cyclic_slice::CyclicSlice;
 use feature_gen::*;
 use husky_tracer_protocol::VisualData;
 use print_utils::{epin, msg_once, p};
 use semantics_lazy::LazyStmt;
-use static_root::*;
 use std::{iter::zip, sync::Arc};
 use visualizer_gen::VisualizerVariant;
 use vm::*;

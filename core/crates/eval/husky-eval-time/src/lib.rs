@@ -1,11 +1,12 @@
 mod impl_necessary;
 mod query;
-mod tests;
+mod singleton;
 mod variant;
 
 pub use feature_gen::{AllocateUniqueFeature, FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
 pub use instruction_gen::InstructionGenQueryGroup;
 pub use query::*;
+pub use singleton::*;
 pub use visualizer_gen::VisualizerQueryGroup;
 
 use check_utils::*;
@@ -48,8 +49,15 @@ pub struct HuskyEvalTimeConfig {
 }
 
 impl HuskyEvalTime {
-    pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime), verbose: bool) -> Self {
-        let mut compile_time = HuskyCompileTime::default();
+    pub fn new(
+        static_root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
+        init_compile_time: impl FnOnce(&mut HuskyCompileTime),
+        verbose: bool,
+    ) -> HuskyEvalTimeSingleton {
+        unsafe {
+            HUSKY_EVAL_TIME_SINGLETON = None;
+        }
+        let mut compile_time = HuskyCompileTime::new(static_root_defn);
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);
@@ -65,7 +73,7 @@ impl HuskyEvalTime {
             feature_interner,
         };
         eval_time.init();
-        eval_time
+        eval_time.into()
     }
 
     fn init(&mut self) {

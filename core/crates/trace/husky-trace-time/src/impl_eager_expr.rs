@@ -114,7 +114,11 @@ impl HuskyTraceTime {
                     tokens.push(special!("]", associated_trace_id));
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
-                    let text = self.runtime.compile_time().text(expr.file).unwrap();
+                    let text = self
+                        .runtime_singleton
+                        .compile_time()
+                        .text(expr.file)
+                        .unwrap();
                     tokens.push(route!(text.ranged(ranged_ty.range)));
                     tokens.push(special!("("));
                     for i in 0..opds.len() {
@@ -147,7 +151,7 @@ impl HuskyTraceTime {
         history: &Arc<History<'static>>,
         config: &ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
-        let text = self.runtime.compile_time().text(file).unwrap();
+        let text = self.runtime_singleton.compile_time().text(file).unwrap();
         let mut tokens = vec![
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),
@@ -171,7 +175,8 @@ impl HuskyTraceTime {
             match entry {
                 HistoryEntry::PureExpr { output } => match output {
                     Ok(output) => {
-                        let visual_props = self.runtime.visualize(todo!(), todo!()).unwrap();
+                        let visual_props =
+                            self.runtime_singleton.visualize(todo!(), todo!()).unwrap();
                         FigureCanvasData::new_specific(visual_props)
                     }
                     Err(e) => FigureCanvasData::void(),

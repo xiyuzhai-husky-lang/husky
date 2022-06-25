@@ -4,8 +4,9 @@ pub(crate) mod event_loop_comm;
 use crossbeam_channel::Sender;
 
 use client_comm::ClientCommunicator;
-use husky_compile_time::HuskyCompileTime;
 use event_loop_comm::EventLoopCommunicator;
+use husky_compile_time::HuskyCompileTime;
+use static_root::static_root_defn;
 use threadpool::ThreadPool;
 
 pub(crate) struct Server {
@@ -21,7 +22,7 @@ impl Server {
             client_comm: ClientCommunicator::new(sender),
             threadpool: ThreadPool::default(),
             event_loop_comm: EventLoopCommunicator::default(),
-            db: Default::default(),
+            db: HuskyCompileTime::new(static_root_defn),
         }
     }
 }

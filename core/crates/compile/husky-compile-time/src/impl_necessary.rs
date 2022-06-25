@@ -3,6 +3,7 @@ use husky_tracer_protocol::*;
 use infer_total::InferQueryGroup;
 use linkage_table::{LinkageSourceTable, ResolveLinkage};
 use semantics_entity::{EntityRouteStore, StoreEntityRoute};
+use static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
 use vm::{AnyValueDyn, InterpreterQueryGroup};
 
@@ -25,26 +26,8 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
             opt_main: self.opt_main,
+            static_root_defn_resolver: self.static_root_defn_resolver,
         })
-    }
-}
-
-impl Default for HuskyCompileTime {
-    fn default() -> Self {
-        let live_docs = Default::default();
-        let scope_unique_allocator = entity_route::new_entity_route_interner();
-        let entity_route_store = Default::default();
-        let linkage_table = Default::default();
-        Self {
-            storage: Default::default(),
-            file_unique_allocator: file::new_file_unique_allocator(),
-            word_unique_allocator: word::new_word_interner(),
-            scope_unique_allocator,
-            live_docs,
-            linkage_table,
-            entity_route_store,
-            opt_main: None,
-        }
     }
 }
 
@@ -79,6 +62,14 @@ impl AllocateUniqueScope for HuskyCompileTime {
 }
 
 impl TokenQueryGroup for HuskyCompileTime {}
+
+impl ResolveStaticRootDefn for HuskyCompileTime {
+    fn static_root_defn_resolver(
+        &self,
+    ) -> fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn {
+        self.static_root_defn_resolver
+    }
+}
 
 impl EntitySyntaxQueryGroup for HuskyCompileTime {}
 

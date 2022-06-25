@@ -54,6 +54,7 @@ vscode: cargo-test test-analyzer
 	cargo install --path crates/apps/husky-analyzer --bin husky-analyzer-server
 
 mnist:
+	cargo check
 	cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
 
 print-mnist:

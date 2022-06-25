@@ -52,14 +52,14 @@ impl<'a> FeatureExprBuilder<'a> {
                         source:
                             CallFormSource::Static(LinkageSource::Model(ModelLinkage { train, .. })),
                         ..
-                    } => todo!(),
+                    } => train(&opds).expect("todo"),
                     _ => todo!(),
                 };
                 let kind = FeatureLazyExprVariant::ModelCall {
                     opds,
                     has_this: false,
-                    Model_defn: model_defn,
-                    internal: todo!(),
+                    model_defn,
+                    internal,
                 };
                 (kind, feature)
             }

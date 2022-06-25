@@ -34,3 +34,4 @@ husky-eval-time = { path = "../../eval/husky-eval-time", version = "0.0.0" }
 trace = { path = "../trace", version = "0.0.0" }
 feature-gen = { path = "../../eval/feature-gen", version = "0.0.0" }
 visualizer-gen = { path = "../../eval/visualizer-gen", version = "0.0.0" }
+static-root = { path = "../../static/static-root", version = "0.0.0" }

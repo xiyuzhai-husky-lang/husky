@@ -2,7 +2,6 @@ mod entry;
 
 pub use entry::*;
 
-use crate::EntitySyntaxSalsaQueryGroup;
 use crate::{error::*, *};
 use dev_utils::dev_src;
 use entity_kind::MemberKind;
