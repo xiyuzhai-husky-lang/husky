@@ -1,11 +1,12 @@
 mod flags;
 
-use husky_compile_time::*;
 use compile_time_dir::{get_or_create_child_dir, get_rust_dir};
 use file::FilePtr;
+use husky_compile_time::*;
 use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
 use print_utils::*;
+use static_root::static_root_defn;
 use std::path::{Path, PathBuf};
 
 pub fn compile_all(dir: PathBuf) {
@@ -16,7 +17,7 @@ pub fn compile_all(dir: PathBuf) {
 }
 
 pub fn compile_pack(package_dir: PathBuf) {
-    let mut compile_time = HuskyCompileTime::default();
+    let mut compile_time = HuskyCompileTime::new(static_root_defn);
     compile_time.load_package(&package_dir);
     let main_file = compile_time.unique_main_file();
     p!(package_dir);

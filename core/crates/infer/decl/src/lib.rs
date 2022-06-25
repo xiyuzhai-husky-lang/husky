@@ -27,7 +27,6 @@ use infer_error::*;
 use instantiate::*;
 use liason::*;
 use static_defn::*;
-use static_root::*;
 use std::sync::Arc;
 use word::{CustomIdentifier, RootIdentifier};
 
@@ -40,8 +39,8 @@ pub trait DeclQueryGroup: EntitySyntaxQueryGroup + ast::AstQueryGroup {
     fn feature_decl(&self, feature_entity: EntityRoutePtr) -> InferResultArc<FeatureDecl>;
     fn eval_input_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
     fn global_output_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
-    fn vec_decl(&self) -> Arc<TyDecl>;
-    fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
+    // fn vec_decl(&self) -> Arc<TyDecl>;
+    // fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
     fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx;
 
     fn is_copyable(&self, ty: EntityRoutePtr) -> InferResult<bool>;

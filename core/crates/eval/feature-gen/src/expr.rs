@@ -83,7 +83,7 @@ pub enum FeatureLazyExprVariant {
     ModelCall {
         opds: Vec<Arc<FeatureLazyExpr>>,
         has_this: bool,
-        Model_defn: Arc<EntityDefn>,
+        model_defn: Arc<EntityDefn>,
         internal: EvalValue<'static>,
     },
     RoutineCall {

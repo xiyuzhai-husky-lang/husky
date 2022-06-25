@@ -1,4 +1,5 @@
-use husky_compile_time::{utils::test_all_source_files, *};
+use husky_compile_test::test_all_source_files;
+use husky_compile_time::*;
 use std::path::Path;
 use test_utils::TestResult;
 use token::AbsSemanticToken;

@@ -52,6 +52,4 @@ entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 atom = { path = "../../syntax/atom", version = "0.0.0" }
 husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
 thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }
-# visualizer-gen = { path = "../visualizer-gen", version = "0.0.0" }
-# feature-gen = { path = "../feature-gen", version = "0.0.0" }
-# instruction-gen = { path = "../instruction-gen", version = "0.0.0" }
+static-defn = { path = "../../static/static-defn", version = "0.0.0" }

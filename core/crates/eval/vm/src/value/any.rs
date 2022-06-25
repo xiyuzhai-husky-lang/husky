@@ -1,3 +1,5 @@
+mod impl_cyclic_slice;
+mod impl_hashmap;
 mod impl_primitive;
 mod impl_slice;
 mod impl_vec;
@@ -14,6 +16,7 @@ pub enum StaticTypeId {
     RustBuiltin(TypeId),
     HuskyBuiltin(HuskyBuiltinStaticTypeId),
     Vec(Box<StaticTypeId>),
+    HashMap(Box<StaticTypeId>, Box<StaticTypeId>),
     CyclicSlice(Box<StaticTypeId>),
     AnyMemberValue,
 }

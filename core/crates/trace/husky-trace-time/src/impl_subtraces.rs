@@ -41,7 +41,7 @@ impl HuskyTraceTime {
                             stmts,
                             stack_snapshot,
                             body,
-                            self.runtime.verbose(),
+                            self.runtime_singleton.verbose(),
                         ),
                         HistoryEntry::ControlFlow {
                             opt_branch_entered: enter,

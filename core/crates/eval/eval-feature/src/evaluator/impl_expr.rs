@@ -2,7 +2,9 @@ use crate::*;
 use feature_gen::*;
 use husky_tracer_protocol::VisualData;
 use print_utils::{epin, msg_once, p};
+use semantics_entity::{CallFormSource, EntityDefnVariant};
 use semantics_lazy::LazyStmt;
+use static_defn::LinkageSource;
 use std::{iter::zip, sync::Arc};
 use vm::*;
 use word::IdentPairDict;
@@ -112,9 +114,29 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::ModelCall {
                 ref opds,
                 has_this,
-                ref Model_defn,
+                ref model_defn,
+                ref internal,
                 ..
-            } => todo!(),
+            } => {
+                match model_defn.variant {
+                    EntityDefnVariant::Function {
+                        ref spatial_parameters,
+                        ref parameters,
+                        output,
+                        ref source,
+                    } => match source {
+                        CallFormSource::Lazy { stmts } => todo!(),
+                        CallFormSource::Static(LinkageSource::Model(ModelLinkage {
+                            eval, ..
+                        })) => {
+                            todo!()
+                        }
+                        _ => panic!(),
+                    },
+                    _ => panic!(),
+                }
+                todo!()
+            }
         }
     }
 

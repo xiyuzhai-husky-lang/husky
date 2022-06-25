@@ -2,7 +2,7 @@ use check_utils::should;
 use dev_utils::{DevSource, StaticDevSource};
 use entity_kind::{MemberKind, TyKind};
 use visual_syntax::StaticVisualizer;
-use vm::*;
+use vm::{ModelLinkage, *};
 
 use crate::*;
 
@@ -65,7 +65,7 @@ macro_rules! associated_type_impl {
     };
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum MethodStaticDefnVariant {
     TypeMethod {
         source: LinkageSource,
@@ -88,7 +88,7 @@ pub enum LinkageSource {
         move_access: RoutineLinkage,
     },
     Transfer(RoutineLinkage),
-    Model(&'static vm::ModelLinkage),
+    Model(&'static ModelLinkage),
 }
 
 impl LinkageSource {

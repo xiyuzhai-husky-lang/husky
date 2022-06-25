@@ -221,13 +221,13 @@ pub(crate) fn trait_decl(
     }
 }
 
-pub(crate) fn trait_decl_menu(db: &dyn DeclQueryGroup) -> Arc<TraitDeclMenu> {
-    Arc::new(TraitDeclMenu {
-        clone_trait: TraitDecl::from_static(db, &CLONE_TRAIT_DEFN),
-    })
-}
+// pub(crate) fn trait_decl_menu(db: &dyn DeclQueryGroup) -> Arc<TraitDeclMenu> {
+//     Arc::new(TraitDeclMenu {
+//         clone_trait: TraitDecl::from_static(db, &CLONE_TRAIT_DEFN),
+//     })
+// }
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct TraitDeclMenu {
-    pub clone_trait: Arc<TraitDecl>,
-}
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TraitDeclMenu {
+//     pub clone_trait: Arc<TraitDecl>,
+// }

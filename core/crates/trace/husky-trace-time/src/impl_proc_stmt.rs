@@ -1,4 +1,5 @@
-use husky_compile_time::HuskyCompileTime;
+use husky_compile_time::*;
+use husky_eval_time::*;
 use print_utils::{epin, p};
 use text::Text;
 use upcast::Upcast;
@@ -257,9 +258,13 @@ impl HuskyTraceTime {
         body_instruction_sheet: &Arc<InstructionSheet>,
         verbose: bool,
     ) -> Vec<TraceId> {
-        let text = self.runtime.compile_time().text(parent.file).unwrap();
+        let text = self
+            .runtime_singleton
+            .compile_time()
+            .text(parent.file)
+            .unwrap();
         let frames = exec_loop_debug(
-            &self.runtime,
+            &self.runtime_singleton as &HuskyEvalTime,
             loop_kind,
             &body_instruction_sheet,
             stack_snapshot,
@@ -291,10 +296,10 @@ impl HuskyTraceTime {
         parent: &Trace,
     ) -> Vec<TraceId> {
         let history = exec_debug(
-            &self.runtime,
+            husky_eval_time(),
             instruction_sheet,
             &loop_frame_data.stack_snapshot,
-            self.runtime.verbose(),
+            self.runtime_singleton.verbose(),
         );
         let mut subtraces: Vec<_> =
             self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 2, stmts, &history);
@@ -506,7 +511,7 @@ impl HuskyTraceTime {
                                 },
                                 before: None,
                                 after: FigureCanvasData::new_specific(
-                                    self.runtime
+                                    self.runtime_singleton
                                         .visualize(
                                             todo!(), // mutation.ty,
                                             todo!(), // frame_stack_snapshot[mutation.varidx()].any_ref(),

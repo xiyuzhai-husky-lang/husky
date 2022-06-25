@@ -15,4 +15,5 @@ pub use crate::event_loop::event_loop;
 pub use crate::init_connection::init_connection;
 
 use error_utils::Result;
+use husky_compile_test::*;
 use print_utils::*;

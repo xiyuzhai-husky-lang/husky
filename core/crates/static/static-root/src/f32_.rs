@@ -33,7 +33,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(|values| todo!(), 2)),
+            source: LinkageSource::Transfer(routine_linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -53,7 +53,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(|values| todo!(), 2)),
+            source: LinkageSource::Transfer(routine_linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -69,7 +69,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     let f = values[0].take_copyable().take_f32();
                     Ok(TempValue::Copyable(
@@ -100,7 +100,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().abs().into(),
@@ -123,7 +123,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().sqrt().into(),
@@ -146,7 +146,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().cos().into(),
@@ -169,7 +169,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().sin().into(),
@@ -192,7 +192,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().tan().into(),
@@ -215,7 +215,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().acos().into(),
@@ -238,7 +238,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().asin().into(),
@@ -261,7 +261,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         generic_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(linkage!(
+            source: LinkageSource::Transfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_f32().atan().into(),

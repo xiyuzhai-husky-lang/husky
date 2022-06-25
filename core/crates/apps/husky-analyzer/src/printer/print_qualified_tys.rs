@@ -1,6 +1,6 @@
+use crate::*;
+use husky_compile_time::*;
 use std::path::Path;
-
-use husky_compile_time::{utils::print_all_source_files_analysis, *};
 use test_utils::{TestDisplay, TestDisplayConfig};
 
 pub fn print_qualified_tys(package_dir: &Path) {

@@ -10,7 +10,6 @@ use husky_tracer_protocol::*;
 use print_utils::p;
 use semantics_eager::FuncStmt;
 use semantics_lazy::LazyStmt;
-use static_root::*;
 use std::sync::Arc;
 use visual_syntax::{StaticVisualTy, StaticVisualizer, StaticVisualizerVariant};
 use vm::*;

@@ -20,26 +20,34 @@ impl HuskyTraceTime {
             TraceVariant::Main(ref block) => TraceStalkData {
                 extra_tokens: vec![
                     husky_tracer_protocol::fade!(" = "),
-                    self.runtime.eval_feature_repr(block, sample_id).into(),
+                    self.runtime_singleton
+                        .eval_feature_repr(block, sample_id)
+                        .into(),
                 ],
             },
             TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
                 FeatureStmtVariant::Init { varname, ref value } => TraceStalkData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
-                        self.runtime.eval_feature_expr(value, sample_id).into(),
+                        self.runtime_singleton
+                            .eval_feature_lazy_expr(value, sample_id)
+                            .into(),
                     ],
                 },
                 FeatureStmtVariant::Assert { ref condition } => TraceStalkData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
-                        self.runtime.eval_feature_expr(condition, sample_id).into(),
+                        self.runtime_singleton
+                            .eval_feature_lazy_expr(condition, sample_id)
+                            .into(),
                     ],
                 },
                 FeatureStmtVariant::Return { ref result } => TraceStalkData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
-                        self.runtime.eval_feature_expr(result, sample_id).into(),
+                        self.runtime_singleton
+                            .eval_feature_lazy_expr(result, sample_id)
+                            .into(),
                     ],
                 },
                 FeatureStmtVariant::ConditionFlow { ref branches } => panic!(),
@@ -51,7 +59,9 @@ impl HuskyTraceTime {
             TraceVariant::FeatureExpr(ref expr) => TraceStalkData {
                 extra_tokens: vec![
                     husky_tracer_protocol::fade!(" = "),
-                    self.runtime.eval_feature_expr(expr, sample_id).into(),
+                    self.runtime_singleton
+                        .eval_feature_lazy_expr(expr, sample_id)
+                        .into(),
                 ],
             },
             TraceVariant::FeatureCallInput { .. } => todo!(),

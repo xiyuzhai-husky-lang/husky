@@ -34,7 +34,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         generic_parameters: &[],
                         kind: MethodStaticDefnVariant::TraitMethodImpl {
                             opt_source: Some(LinkageSource::MemberAccess {
-                                copy_access: linkage!(
+                                copy_access: routine_linkage!(
                                     |values| -> VMRuntimeResult<TempValue> {
                                         let this_value: &BinaryGrid28 = values[0].downcast_ref();
                                         let index_value: usize = values[1]
@@ -51,16 +51,16 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                     },
                                     2
                                 ),
-                                eval_ref_access: linkage!(
+                                eval_ref_access: routine_linkage!(
                                     |values| -> VMRuntimeResult<TempValue> { todo!() },
                                     2
                                 ),
-                                temp_ref_access: linkage!(
+                                temp_ref_access: routine_linkage!(
                                     |values| -> VMRuntimeResult<TempValue> { todo!() },
                                     2
                                 ),
-                                move_access: linkage!(|_| todo!(), 2),
-                                temp_mut_access: linkage!(
+                                move_access: routine_linkage!(|_| todo!(), 2),
+                                temp_mut_access: routine_linkage!(
                                     |values| {
                                         let index_value: usize = values[1]
                                             .take_copyable()
@@ -110,7 +110,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
-        linkage: linkage!(
+        linkage: routine_linkage!(
             |_values| {
                 Ok(TempValue::OwnedEval(OwnedValue::new(
                     BinaryGrid28::default(),

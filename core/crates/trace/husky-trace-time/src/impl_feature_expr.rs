@@ -95,7 +95,11 @@ impl HuskyTraceTime {
             },
             FeatureLazyExprVariant::EnumKindLiteral { .. } => todo!(),
             FeatureLazyExprVariant::EntityFeature { .. } => {
-                let text = self.runtime.compile_time().text(expr.expr.file).unwrap();
+                let text = self
+                    .runtime_singleton
+                    .compile_time()
+                    .text(expr.expr.file)
+                    .unwrap();
                 vec![route!(
                     text.ranged(expr.expr.range),
                     opt_associated_trace_id
@@ -138,7 +142,7 @@ impl HuskyTraceTime {
             FeatureLazyExprVariant::ModelCall {
                 ref opds,
                 has_this,
-                ref Model_defn,
+                ref model_defn,
                 ..
             } => todo!(),
         };
@@ -168,7 +172,7 @@ impl HuskyTraceTime {
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
-        let text = self.runtime.compile_time().text(file).unwrap();
+        let text = self.runtime_singleton.compile_time().text(file).unwrap();
         let mut tokens = vec![
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),
@@ -193,17 +197,17 @@ impl HuskyTraceTime {
                 sample_id: sample_id,
             } => {
                 let value = self
-                    .runtime
-                    .eval_feature_expr(expr, *sample_id)
+                    .runtime_singleton
+                    .eval_feature_lazy_expr(expr, *sample_id)
                     .map_err(|e| (*sample_id, e))?;
                 Ok(FigureCanvasData::new_specific(
-                    self.runtime
+                    self.runtime_singleton
                         .visualize(FeatureRepr::Expr(expr.clone()), *sample_id)
                         .unwrap(),
                 ))
             }
             Attention::Generic { partitions, .. } => {
-                let session = self.runtime.session();
+                let session = self.runtime_singleton.session();
                 let dev_division = session.dev();
                 assert_eq!(
                     partitions.last().unwrap().variant,
@@ -219,7 +223,7 @@ impl HuskyTraceTime {
                             .sum::<u32>());
                 let ty = expr.expr.ty();
                 use visualizer_gen::VisualizerQueryGroup;
-                let visualizer = self.runtime.visualizer(ty);
+                let visualizer = self.runtime_singleton.visualizer(ty);
                 match visualizer.ty {
                     VisualTy::Void => {
                         p!(ty);
@@ -236,7 +240,7 @@ impl HuskyTraceTime {
                             if partitioned_samples_collector
                                 .process(label, || -> VMRuntimeResult<(SampleId, i32)> {
                                     let visual_data = self
-                                        .runtime
+                                        .runtime_singleton
                                         .visualize(expr.clone().into(), labeled_data.sample_id)?;
                                     Ok((
                                         labeled_data.sample_id,
@@ -268,7 +272,7 @@ impl HuskyTraceTime {
                             if partitioned_samples_collector
                                 .process(label, || -> VMRuntimeResult<(SampleId, f32)> {
                                     let visual_data = self
-                                        .runtime
+                                        .runtime_singleton
                                         .visualize(expr.clone().into(), labeled_data.sample_id)?;
                                     Ok(match visual_data {
                                         VisualData::Primitive {
@@ -301,7 +305,7 @@ impl HuskyTraceTime {
                                 .process(
                                     label,
                                     || -> VMRuntimeResult<(SampleId, Graphics2dCanvasData)> {
-                                        let visual_data = self.runtime.visualize(
+                                        let visual_data = self.runtime_singleton.visualize(
                                             expr.clone().into(),
                                             labeled_data.sample_id,
                                         )?;

@@ -14,7 +14,7 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                 output_ty: "This",
                 generic_parameters: &[],
                 kind: MethodStaticDefnVariant::TraitMethod {
-                    opt_default_source: Some(LinkageSource::Transfer(linkage!(
+                    opt_default_source: Some(LinkageSource::Transfer(routine_linkage!(
                         |values| Ok(values[0].clone_into_stack()),
                         1
                     ))),

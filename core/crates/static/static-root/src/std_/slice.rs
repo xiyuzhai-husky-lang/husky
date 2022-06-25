@@ -1,7 +1,7 @@
-mod cyclic_slice;
+mod cyclic_slice_;
 mod full_slice;
 
-pub use cyclic_slice::*;
+pub use cyclic_slice_::*;
 
 use crate::*;
 use dev_utils::static_dev_src;

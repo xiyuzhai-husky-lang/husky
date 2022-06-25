@@ -36,7 +36,9 @@ path-utils = { path = "../../utils/path", version = "0.0.0" }
 test-utils = { path = "../../utils/test", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
+husky-compile-test = { path = "../../compile/husky-compile-test", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
 token = { path = "../../syntax/token", version = "0.0.0" }
+static-root = { path = "../../static/static-root", version = "0.0.0" }

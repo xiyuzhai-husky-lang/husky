@@ -1,8 +1,6 @@
 mod impl_diagnostics;
 mod impl_load;
 mod impl_necessary;
-#[cfg(test)]
-mod tests;
 pub mod utils;
 
 pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
@@ -58,9 +56,33 @@ pub struct HuskyCompileTime {
     linkage_table: LinkageSourceTable,
     entity_route_store: EntityRouteStore,
     opt_main: Option<FilePtr>,
+    static_root_defn_resolver:
+        fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
 }
 
 impl HuskyCompileTime {
+    pub fn new(
+        static_root_defn_resolver: fn(
+            ident: word::RootIdentifier,
+        ) -> &'static static_defn::EntityStaticDefn,
+    ) -> Self {
+        let live_docs = Default::default();
+        let scope_unique_allocator = entity_route::new_entity_route_interner();
+        let entity_route_store = Default::default();
+        let linkage_table = Default::default();
+        Self {
+            storage: Default::default(),
+            file_unique_allocator: file::new_file_unique_allocator(),
+            word_unique_allocator: word::new_word_interner(),
+            scope_unique_allocator,
+            live_docs,
+            linkage_table,
+            entity_route_store,
+            opt_main: None,
+            static_root_defn_resolver,
+        }
+    }
+
     pub fn main_file(&self) -> FilePtr {
         self.opt_main.unwrap()
     }

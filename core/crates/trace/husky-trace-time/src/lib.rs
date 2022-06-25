@@ -22,12 +22,13 @@ use eval_feature::EvalFeature;
 use feature_gen::*;
 use file::FilePtr;
 use husky_compile_time::{AskCompileTime, HuskyCompileTime};
-use husky_eval_time::HuskyEvalTime;
+use husky_eval_time::{HuskyEvalTime, HuskyEvalTimeSingleton};
 use husky_tracer_protocol::*;
 use impl_expr::ExprTokenConfig;
 use print_utils::p;
 use semantics_eager::*;
 use serde::Deserialize;
+use static_root::static_root_defn;
 use std::collections::HashMap;
 use std::sync::Arc;
 use sync_utils::ARwLock;
@@ -39,7 +40,7 @@ use vm::*;
 use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
-    runtime: HuskyEvalTime,
+    runtime_singleton: HuskyEvalTimeSingleton,
     attention: Attention,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
@@ -52,7 +53,7 @@ pub struct HuskyTraceTime {
 impl HuskyTraceTime {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime), verbose: bool) -> Self {
         let mut trace_time = Self {
-            runtime: HuskyEvalTime::new(init_compile_time, verbose),
+            runtime_singleton: HuskyEvalTime::new(static_root_defn, init_compile_time, verbose),
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),
@@ -194,7 +195,7 @@ impl HuskyTraceTime {
         let trace_id = self.next_id();
         let trace = {
             let (file, range) = variant.file_and_range();
-            let text = self.runtime.compile_time().text(file).unwrap();
+            let text = self.runtime_singleton.compile_time().text(file).unwrap();
             let reachable = variant.reachable();
             let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.lines(trace_id, indent, &variant, opt_parent_id.is_some());
