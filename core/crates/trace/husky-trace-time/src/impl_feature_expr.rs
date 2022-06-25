@@ -53,10 +53,8 @@ impl HuskyTraceTime {
                 ..
             } => match expr.expr.variant {
                 LazyExprVariant::Opn { opn_kind, ref opds } => match opn_kind {
-                    LazyOpnKind::Binary { opr, this } => todo!(),
-                    LazyOpnKind::Prefix(_) => todo!(),
                     LazyOpnKind::FunctionRoutineCall(ranged_route) => self
-                        .feature_routine_call_tokens(
+                        .feature_entity_call_tokens(
                             expr.expr.file,
                             ranged_route,
                             feature_opds,
@@ -65,8 +63,6 @@ impl HuskyTraceTime {
                         ),
                     LazyOpnKind::StructCall(_) => todo!(),
                     LazyOpnKind::RecordCall(_) => todo!(),
-                    LazyOpnKind::PatternCall => todo!(),
-                    LazyOpnKind::FieldAccess { field_ident, .. } => todo!(),
                     LazyOpnKind::MethodCall {
                         method_ident,
                         method_route,
@@ -88,10 +84,39 @@ impl HuskyTraceTime {
                         tokens.push(special!(")"));
                         tokens
                     }
-                    LazyOpnKind::ElementAccess { .. } => todo!(),
-                    _ => todo!(),
+                    _ => panic!(),
                 },
                 _ => panic!(""),
+            },
+            FeatureLazyExprVariant::ModelCall {
+                ref opds,
+                has_this,
+                ref model_defn,
+                ..
+            } => match expr.expr.variant {
+                LazyExprVariant::Opn { opn_kind, .. } => match opn_kind {
+                    LazyOpnKind::FunctionModelCall(route) => self.feature_entity_call_tokens(
+                        expr.expr.file,
+                        route,
+                        opds,
+                        opt_associated_trace_id,
+                        config,
+                    ),
+                    LazyOpnKind::StructCall(_) => todo!(),
+                    LazyOpnKind::RecordCall(_) => todo!(),
+                    LazyOpnKind::FieldAccess {
+                        field_ident,
+                        field_binding,
+                    } => todo!(),
+                    LazyOpnKind::MethodCall {
+                        method_ident,
+                        method_route,
+                        output_binding,
+                    } => todo!(),
+                    LazyOpnKind::ElementAccess { element_binding } => todo!(),
+                    _ => panic!(),
+                },
+                _ => panic!(),
             },
             FeatureLazyExprVariant::EnumKindLiteral { .. } => todo!(),
             FeatureLazyExprVariant::EntityFeature { .. } => {
@@ -139,12 +164,6 @@ impl HuskyTraceTime {
                 field_ident,
                 ref repr,
             } => self.field_access_tokens(config, this, field_ident),
-            FeatureLazyExprVariant::ModelCall {
-                ref opds,
-                has_this,
-                ref model_defn,
-                ..
-            } => todo!(),
         };
     }
 
@@ -164,7 +183,7 @@ impl HuskyTraceTime {
         }
     }
 
-    fn feature_routine_call_tokens(
+    fn feature_entity_call_tokens(
         &mut self,
         file: FilePtr,
         ranged_scope: RangedEntityRoute,

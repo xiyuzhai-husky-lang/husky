@@ -81,7 +81,6 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 (kind, feature)
             }
-            LazyOpnKind::PatternCall => todo!(),
             LazyOpnKind::FieldAccess {
                 field_ident,
                 field_binding,
