@@ -7,7 +7,7 @@ use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_qualifier::{InferQualifiedTy, QualifiedTySheet};
 use semantics_error::*;
 use std::{iter::Peekable, sync::Arc};
-use vm::{InitKind, VMCompileResult, VMRuntimeResult, VMStackIdx, XmlTagKind};
+use vm::{EvalResult, InitKind, VMCompileResult, VMStackIdx, XmlTagKind};
 use word::{CustomIdentifier, IdentPairDict};
 
 pub(super) struct LazyStmtParser<'a> {

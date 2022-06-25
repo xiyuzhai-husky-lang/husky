@@ -92,7 +92,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             ins,
                             HistoryEntry::PureExpr {
                                 output: match control {
-                                    VMControl::Err(ref e) => Err(e.clone()),
+                                    VMControl::Err(ref e) => Err(e.clone().into()),
                                     _ => Ok(self.stack.eval_top()),
                                 },
                             },
@@ -243,7 +243,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn eval_linkage(&mut self, linkage: RoutineLinkage) -> RuntimeEvalResult<'eval> {
+    pub(crate) fn eval_linkage(&mut self, linkage: RoutineLinkage) -> EvalValueResult<'eval> {
         let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
         should_eq!(self.stack.len(), 0);
         Ok((linkage.call)(&mut arguments)?.into_eval())

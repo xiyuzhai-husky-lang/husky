@@ -1,15 +1,16 @@
 use crate::*;
 use visualizer_gen::VisualizerVariant;
+use vm::EvalResult;
 
 pub(crate) fn visual_feature_repr<'eval>(
     db: &dyn FeatureGenQueryGroup,
     this: FeatureRepr,
-) -> FeatureRepr {
+) -> EvalResult<FeatureRepr> {
     let visualizer = db.visualizer(this.ty());
-    match visualizer.variant {
+    Ok(match visualizer.variant {
         VisualizerVariant::Custom { ref stmts } => {
             FeatureLazyBlock::new(db, Some(this), stmts, &[], db.feature_interner()).into()
         }
         _ => panic!(),
-    }
+    })
 }

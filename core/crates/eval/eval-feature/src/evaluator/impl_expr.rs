@@ -15,7 +15,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn eval_feature_lazy_expr(
         &mut self,
         expr: &FeatureLazyExpr,
-    ) -> RuntimeEvalResult<'eval> {
+    ) -> EvalValueResult<'eval> {
         match expr.variant {
             FeatureLazyExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
             FeatureLazyExprVariant::EnumKindLiteral { entity_route, uid } => {
@@ -132,9 +132,9 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         let values: Vec<_> = opds
                             .iter()
                             .map(|opd| self.eval_feature_lazy_expr(opd))
-                            .collect::<VMRuntimeResult<Vec<_>>>()
+                            .collect::<EvalResult<Vec<_>>>()
                             .unwrap();
-                        eval(internal, values)
+                        eval(internal.as_ref().map_err(|e| e.clone())?, values)
                     }
                     _ => panic!(),
                 },
@@ -146,7 +146,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn eval_feature_xml_expr(
         &mut self,
         expr: &FeatureXmlExpr,
-    ) -> RuntimeEvalResult<'eval> {
+    ) -> EvalValueResult<'eval> {
         match expr.variant {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
@@ -168,7 +168,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                             },
                             // argument.any_ref().to_json_value_dyn()
                         )
-                        .collect::<VMRuntimeResult<IdentPairDict<_>>>()?,
+                        .collect::<EvalResult<IdentPairDict<_>>>()?,
                 };
                 Ok(EvalValue::Owned(OwnedValue::new(VisualData::from(
                     xml_value.into(),
@@ -183,7 +183,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         opt_linkage: Option<RoutineLinkage>,
         arguments: &[Arc<FeatureLazyExpr>],
         has_this: bool,
-    ) -> RuntimeEvalResult<'eval> {
+    ) -> EvalValueResult<'eval> {
         let db = self.db;
         let verbose = self.verbose;
         let values = arguments

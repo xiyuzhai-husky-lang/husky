@@ -17,7 +17,7 @@ use sync_utils::ARwLock;
 use thin_vec::{thin_vec, ThinVec};
 use vec::*;
 use vm::{Binding, EntityUid};
-use vm::{EvalValue, OwnedValue, RoutineLinkage, TempValue, VMRuntimeResult};
+use vm::{EvalResult, EvalValue, OwnedValue, RoutineLinkage, TempValue};
 use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup {

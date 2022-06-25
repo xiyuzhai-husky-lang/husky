@@ -1,7 +1,7 @@
 use file::FilePtr;
 use instruction_gen::new_func_instruction_sheet;
 use semantics_entity::DefinitionRepr;
-use vm::{AnyValueDyn, EvalRef};
+use vm::{AnyValueDyn, EvalRef, EvalResult};
 
 use crate::*;
 

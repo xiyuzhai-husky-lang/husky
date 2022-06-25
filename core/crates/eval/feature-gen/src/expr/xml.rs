@@ -1,7 +1,7 @@
 use crate::*;
 use semantics_lazy::{XmlExpr, XmlExprVariant};
-use vm::XmlTagKind;
-use word::IdentPairDict;
+use vm::{EvalResult, XmlTagKind};
+use word::{IdentDict, IdentPairDict};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureXmlExpr {

@@ -3,30 +3,6 @@ use print_utils::msg_once;
 use std::sync::Arc;
 use word::CustomIdentifier;
 
-pub type RuntimeEvalResult<'eval> = VMRuntimeResult<EvalValue<'eval>>;
-pub type EvalResult<'eval, T = EvalValue<'eval>> = Result<T, EvalError>;
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum EvalError {
-    Runtime(VMRuntimeError),
-    WithinBatch {
-        sample_id: SampleId,
-        error: VMRuntimeError,
-    },
-}
-
-impl From<VMRuntimeError> for EvalError {
-    fn from(error: VMRuntimeError) -> Self {
-        EvalError::Runtime(error)
-    }
-}
-
-impl From<(SampleId, VMRuntimeError)> for EvalError {
-    fn from((sample_id, error): (SampleId, VMRuntimeError)) -> Self {
-        EvalError::WithinBatch { sample_id, error }
-    }
-}
-
 // EvalValue lives on its own, i.e. not depending on stack context
 #[derive(Debug, Clone)]
 pub enum EvalValue<'eval> {
@@ -112,14 +88,14 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn owned(self) -> VMRuntimeResult<OwnedValue<'eval, 'eval>> {
+    pub fn owned(self) -> EvalResult<OwnedValue<'eval, 'eval>> {
         match self {
             EvalValue::Owned(value) => Ok(value),
             _ => todo!(),
         }
     }
 
-    pub fn into_stack<'stack>(self) -> VMRuntimeResult<TempValue<'stack, 'eval>> {
+    pub fn into_stack<'stack>(self) -> EvalResult<TempValue<'stack, 'eval>> {
         match self {
             EvalValue::Copyable(value) => Ok(TempValue::Copyable(value)),
             EvalValue::Owned(value) => Ok(TempValue::OwnedEval(value)),

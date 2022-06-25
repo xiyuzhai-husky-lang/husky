@@ -43,10 +43,10 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
     opt_instrn_sheet: Option<&InstructionSheet>,
     opt_linkage: Option<RoutineLinkage>,
-    args: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>, // including this value
-    kwargs: impl Iterator<Item = (CustomIdentifier, VMRuntimeResult<TempValue<'temp, 'eval>>)>,
+    args: impl Iterator<Item = EvalResult<TempValue<'temp, 'eval>>>, // including this value
+    kwargs: impl Iterator<Item = (CustomIdentifier, EvalResult<TempValue<'temp, 'eval>>)>,
     verbose: bool,
-) -> RuntimeEvalResult<'eval> {
+) -> EvalValueResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, args, verbose)?;
     if let Some(linkage) = opt_linkage {
         interpreter.eval_linkage(linkage)

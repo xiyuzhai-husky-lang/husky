@@ -9,7 +9,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         opn: OprOpn,
         debug_flag: Mode,
         ins: &Instruction,
-    ) -> VMRuntimeResult<()> {
+    ) -> EvalResult<()> {
         match opn {
             OprOpn::PureBinary(pure_binary_opr) => {
                 let ropd = self.stack.pop();

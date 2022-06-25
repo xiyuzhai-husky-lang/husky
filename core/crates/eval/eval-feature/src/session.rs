@@ -5,7 +5,7 @@ use husky_compile_time::HuskyCompileTime;
 use pack_semantics::{Config, Package};
 use semantics_eager::FuncStmt;
 use trivial_iter::TrivialIter;
-use vm::{eval_fast, InterpreterQueryGroup, Mode, RuntimeEvalResult, VMRuntimeResult};
+use vm::{eval_fast, EvalResult, InterpreterQueryGroup, Mode};
 
 use crate::*;
 
@@ -24,7 +24,7 @@ pub struct Session<'eval> {
     config: Arc<Config>,
     pub(crate) dataset: Dataset<'eval>,
     pub(crate) dev: Division<'eval>,
-    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, RuntimeEvalResult<'eval>>>,
+    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, EvalValueResult<'eval>>>,
     val: Division<'eval>,
     test: Division<'eval>,
     validation_report: ValidationReport<'eval>,
@@ -32,7 +32,7 @@ pub struct Session<'eval> {
 
 #[derive(Debug)]
 pub struct ValidationReport<'sess> {
-    predictions: Vec<RuntimeEvalResult<'sess>>,
+    predictions: Vec<EvalValueResult<'sess>>,
 }
 
 impl<'eval> Default for ValidationReport<'eval> {
@@ -48,7 +48,7 @@ impl<'eval> Session<'eval> {
         package: &Package,
         db: &dyn FeatureGenQueryGroup,
         verbose: bool,
-    ) -> VMRuntimeResult<Self> {
+    ) -> EvalResult<Self> {
         let config = package.config.clone();
         let dataset: Dataset = eval_fast(
             db.upcast(),

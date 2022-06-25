@@ -35,7 +35,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         kind: MethodStaticDefnVariant::TraitMethodImpl {
                             opt_source: Some(LinkageSource::MemberAccess {
                                 copy_access: routine_linkage!(
-                                    |values| -> VMRuntimeResult<TempValue> {
+                                    |values| -> EvalResult<TempValue> {
                                         let this_value: &BinaryGrid28 = values[0].downcast_ref();
                                         let index_value: usize = values[1]
                                             .take_copyable()
@@ -45,18 +45,19 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                         this_value
                                             .get(index_value)
                                             .map(|v| TempValue::Copyable(v.into()))
-                                            .ok_or(VMRuntimeError {
+                                            .ok_or(EvalError {
                                                 message: "todo".into(),
+                                                opt_sample_id: None,
                                             })
                                     },
                                     2
                                 ),
                                 eval_ref_access: routine_linkage!(
-                                    |values| -> VMRuntimeResult<TempValue> { todo!() },
+                                    |values| -> EvalResult<TempValue> { todo!() },
                                     2
                                 ),
                                 temp_ref_access: routine_linkage!(
-                                    |values| -> VMRuntimeResult<TempValue> { todo!() },
+                                    |values| -> EvalResult<TempValue> { todo!() },
                                     2
                                 ),
                                 move_access: routine_linkage!(|_| todo!(), 2),
@@ -76,7 +77,8 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                                 owner,
                                                 gen: (),
                                             })
-                                            .ok_or(VMRuntimeError {
+                                            .ok_or(EvalError {
+                                                opt_sample_id: None,
                                                 message: "todo".into(),
                                             })
                                     },

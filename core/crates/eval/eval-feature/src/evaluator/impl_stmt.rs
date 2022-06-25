@@ -1,20 +1,22 @@
-use vm::{EvalValue, RuntimeEvalResult, VMRuntimeError, VMRuntimeResult};
+use vm::{EvalError, EvalResult, EvalValue};
 
 use crate::*;
 
 use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_feature_stmt(&mut self, stmt: &FeatureStmt) -> RuntimeEvalResult<'eval> {
+    pub(crate) fn eval_feature_stmt(&mut self, stmt: &FeatureStmt) -> EvalResult<EvalValue<'eval>> {
         match stmt.variant {
             FeatureStmtVariant::Init { .. } => Ok(EvalValue::Undefined),
             FeatureStmtVariant::Assert { ref condition } => {
                 if self.satisfies(condition)? {
                     Ok(EvalValue::Undefined)
                 } else {
-                    Err(VMRuntimeError {
+                    Err(EvalError {
                         message: format!("assertion failed"),
-                    })
+                        opt_sample_id: None,
+                    }
+                    .into())
                 }
             }
             FeatureStmtVariant::Return { ref result } => self.eval_feature_lazy_expr(result),
@@ -37,7 +39,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn satisfies(&mut self, condition: &FeatureLazyExpr) -> VMRuntimeResult<bool> {
+    fn satisfies(&mut self, condition: &FeatureLazyExpr) -> EvalResult<bool> {
         Ok(self
             .eval_feature_lazy_expr(condition)?
             .primitive()

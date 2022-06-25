@@ -147,7 +147,7 @@ pub fn binary_assign<'temp, 'eval>(
     opt_binary_opr: Option<PureBinaryOpr>,
     lopd: &mut TempValue<'temp, 'eval>,
     ropd: TempValue<'temp, 'eval>,
-) -> VMRuntimeResult<()> {
+) -> EvalResult<()> {
     match lopd {
         TempValue::TempRefMutEval { ref mut value, .. } => {
             value.assign(if let Some(binary_opr) = opt_binary_opr {

@@ -210,7 +210,7 @@ impl HuskyTraceTime {
         &self,
         expr: &Arc<FeatureLazyExpr>,
         attention: &Attention,
-    ) -> Result<FigureCanvasData, (SampleId, VMRuntimeError)> {
+    ) -> Result<FigureCanvasData, (SampleId, EvalError)> {
         match attention {
             Attention::Specific {
                 sample_id: sample_id,
@@ -257,7 +257,7 @@ impl HuskyTraceTime {
                         for labeled_data in dev_division.each_labeled_data() {
                             let label = labeled_data.label;
                             if partitioned_samples_collector
-                                .process(label, || -> VMRuntimeResult<(SampleId, i32)> {
+                                .process(label, || -> EvalResult<(SampleId, i32)> {
                                     let visual_data = self
                                         .runtime_singleton
                                         .visualize(expr.clone().into(), labeled_data.sample_id)?;
@@ -289,7 +289,7 @@ impl HuskyTraceTime {
                         for labeled_data in dev_division.each_labeled_data() {
                             let label = labeled_data.label;
                             if partitioned_samples_collector
-                                .process(label, || -> VMRuntimeResult<(SampleId, f32)> {
+                                .process(label, || -> EvalResult<(SampleId, f32)> {
                                     let visual_data = self
                                         .runtime_singleton
                                         .visualize(expr.clone().into(), labeled_data.sample_id)?;
@@ -323,7 +323,7 @@ impl HuskyTraceTime {
                             if partitioned_samples_collector
                                 .process(
                                     label,
-                                    || -> VMRuntimeResult<(SampleId, Graphics2dCanvasData)> {
+                                    || -> EvalResult<(SampleId, Graphics2dCanvasData)> {
                                         let visual_data = self.runtime_singleton.visualize(
                                             expr.clone().into(),
                                             labeled_data.sample_id,

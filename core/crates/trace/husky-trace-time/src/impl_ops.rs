@@ -22,7 +22,7 @@ impl HuskyTraceTime {
         self.root_trace_ids = vec![self.new_trace(
             None,
             0,
-            TraceVariant::Main(self.runtime_singleton.main_feature_repr(main_file).unwrap()),
+            TraceVariant::Main(self.runtime_singleton.main_feature_repr(main_file)),
         )];
     }
 }

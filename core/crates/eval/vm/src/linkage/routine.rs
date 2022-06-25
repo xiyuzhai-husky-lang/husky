@@ -3,9 +3,8 @@ use super::*;
 /// RoutineLinkage
 #[derive(Clone, Copy)]
 pub struct RoutineLinkage {
-    pub call: for<'temp, 'eval> fn(
-        &mut [TempValue<'temp, 'eval>],
-    ) -> VMRuntimeResult<TempValue<'temp, 'eval>>,
+    pub call:
+        for<'temp, 'eval> fn(&mut [TempValue<'temp, 'eval>]) -> EvalResult<TempValue<'temp, 'eval>>,
     pub nargs: u8,
     pub dev_src: &'static StaticDevSource,
 }

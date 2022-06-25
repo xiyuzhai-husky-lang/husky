@@ -32,7 +32,7 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
 
 fn cyclic_slice<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     let this: &'eval Vec<MemberValue<'eval>> = values[0].downcast_eval_ref();
     let start = values[1].take_copyable().take_i32();
     let end = values[2].take_copyable().take_i32();

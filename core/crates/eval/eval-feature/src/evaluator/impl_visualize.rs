@@ -12,10 +12,10 @@ use word::IdentPairDict;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
-    pub fn visualize(&mut self, this: FeatureRepr) -> VMRuntimeResult<VisualData> {
+    pub fn visualize(&mut self, this: FeatureRepr) -> EvalResult<VisualData> {
         self.as_static().visualize_static(this)
     }
-    pub fn visualize_static(&mut self, this: FeatureRepr) -> VMRuntimeResult<VisualData>
+    pub fn visualize_static(&mut self, this: FeatureRepr) -> EvalResult<VisualData>
     where
         'eval: 'static,
     {
@@ -50,7 +50,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                                 ),
                             })
                         })
-                        .collect::<VMRuntimeResult<_>>()?,
+                        .collect::<EvalResult<_>>()?,
                 )
             }
             VisualizerVariant::CyclicSlice { ty } => {
@@ -77,11 +77,11 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                                 ),
                             })
                         })
-                        .collect::<VMRuntimeResult<_>>()?,
+                        .collect::<EvalResult<_>>()?,
                 )
             }
             VisualizerVariant::Custom { ref stmts } => {
-                let visual_feature = self.db.visual_feature_repr(this);
+                let visual_feature = self.db.visual_feature_repr(this)?;
                 self.eval_feature_repr(&visual_feature)?
                     .any_ref()
                     .downcast_ref::<VisualData>()

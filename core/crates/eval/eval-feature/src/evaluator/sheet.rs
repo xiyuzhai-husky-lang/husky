@@ -1,13 +1,13 @@
 use std::collections::HashMap;
 
-use vm::{EvalRef, EvalValue, RuntimeEvalResult};
+use vm::{EvalRef, EvalResult, EvalValue};
 use word::CustomIdentifier;
 
 use super::*;
 
 #[derive(Default, Debug)]
 pub struct EvalSheet<'eval> {
-    values: Mutex<HashMap<EvalKey<'eval>, RuntimeEvalResult<'eval>>>,
+    values: Mutex<HashMap<EvalKey<'eval>, EvalValueResult<'eval>>>,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
@@ -24,10 +24,7 @@ unsafe impl<'eval> Send for EvalKey<'eval> {}
 unsafe impl<'eval> Sync for EvalKey<'eval> {}
 
 impl<'eval> EvalSheet<'eval> {
-    pub(crate) fn cached_value(
-        &self,
-        eval_key: EvalKey<'eval>,
-    ) -> Option<RuntimeEvalResult<'eval>> {
+    pub(crate) fn cached_value(&self, eval_key: EvalKey<'eval>) -> Option<EvalValueResult<'eval>> {
         self.values
             .lock()
             .unwrap()
@@ -38,8 +35,8 @@ impl<'eval> EvalSheet<'eval> {
     pub(crate) fn try_cache(
         &self,
         eval_key: EvalKey<'eval>,
-        value: RuntimeEvalResult<'eval>,
-    ) -> RuntimeEvalResult<'eval> {
+        value: EvalValueResult<'eval>,
+    ) -> EvalValueResult<'eval> {
         let mut values = self.values.lock().unwrap();
         if !values.contains_key(&eval_key) {
             let result = unsafe { share_cached(&value) };
@@ -53,8 +50,8 @@ impl<'eval> EvalSheet<'eval> {
     pub(crate) fn cache(
         &self,
         eval_key: EvalKey<'eval>,
-        value: RuntimeEvalResult<'eval>,
-    ) -> RuntimeEvalResult<'eval> {
+        value: EvalValueResult<'eval>,
+    ) -> EvalValueResult<'eval> {
         let result = unsafe { share_cached(&value) };
         assert!(self
             .values
@@ -102,7 +99,7 @@ impl<'eval> EvalSheet<'eval> {
     // }
 }
 
-unsafe fn share_cached<'eval>(cached: &RuntimeEvalResult<'eval>) -> RuntimeEvalResult<'eval> {
+unsafe fn share_cached<'eval>(cached: &EvalValueResult<'eval>) -> EvalValueResult<'eval> {
     Ok(match cached {
         Ok(value) => match value {
             EvalValue::Copyable(value) => EvalValue::Copyable(*value),
