@@ -73,5 +73,8 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult<'static> {
 
 fn naive_i32_eval<'eval>(internal: &EvalValue, args: Vec<EvalValue<'eval>>) -> EvalResult<'eval> {
     let most_likely_labels: &HashMap<i32, i32> = internal.any_ref().downcast_ref();
-    todo!()
+    match most_likely_labels.get(&args[0].primitive().take_i32()) {
+        Some(l) => Ok(EvalValue::Copyable((*l).into())),
+        None => Ok(EvalValue::Undefined),
+    }
 }
