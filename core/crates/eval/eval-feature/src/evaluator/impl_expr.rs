@@ -117,26 +117,26 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref model_defn,
                 ref internal,
                 ..
-            } => {
-                match model_defn.variant {
-                    EntityDefnVariant::Function {
-                        ref spatial_parameters,
-                        ref parameters,
-                        output,
-                        ref source,
-                    } => match source {
-                        CallFormSource::Lazy { stmts } => todo!(),
-                        CallFormSource::Static(LinkageSource::Model(ModelLinkage {
-                            eval, ..
-                        })) => {
-                            todo!()
-                        }
-                        _ => panic!(),
-                    },
+            } => match model_defn.variant {
+                EntityDefnVariant::Function {
+                    ref spatial_parameters,
+                    ref parameters,
+                    output,
+                    ref source,
+                } => match source {
+                    CallFormSource::Lazy { stmts } => todo!(),
+                    CallFormSource::Static(LinkageSource::Model(ModelLinkage { eval, .. })) => {
+                        let values: Vec<_> = opds
+                            .iter()
+                            .map(|opd| self.eval_feature_lazy_expr(opd))
+                            .collect::<VMRuntimeResult<Vec<_>>>()
+                            .unwrap();
+                        eval(internal, values)
+                    }
                     _ => panic!(),
-                }
-                todo!()
-            }
+                },
+                _ => panic!(),
+            },
         }
     }
 
