@@ -1,13 +1,13 @@
 use std::collections::HashMap;
 
-use vm::{EvalRef, EvalResult, EvalValue};
+use vm::{EvalRef, EvalValue, RuntimeEvalResult};
 use word::CustomIdentifier;
 
 use super::*;
 
 #[derive(Default, Debug)]
 pub struct EvalSheet<'eval> {
-    values: Mutex<HashMap<EvalKey<'eval>, EvalResult<'eval>>>,
+    values: Mutex<HashMap<EvalKey<'eval>, RuntimeEvalResult<'eval>>>,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
@@ -24,7 +24,10 @@ unsafe impl<'eval> Send for EvalKey<'eval> {}
 unsafe impl<'eval> Sync for EvalKey<'eval> {}
 
 impl<'eval> EvalSheet<'eval> {
-    pub(crate) fn cached_value(&self, eval_key: EvalKey<'eval>) -> Option<EvalResult<'eval>> {
+    pub(crate) fn cached_value(
+        &self,
+        eval_key: EvalKey<'eval>,
+    ) -> Option<RuntimeEvalResult<'eval>> {
         self.values
             .lock()
             .unwrap()
@@ -35,8 +38,8 @@ impl<'eval> EvalSheet<'eval> {
     pub(crate) fn try_cache(
         &self,
         eval_key: EvalKey<'eval>,
-        value: EvalResult<'eval>,
-    ) -> EvalResult<'eval> {
+        value: RuntimeEvalResult<'eval>,
+    ) -> RuntimeEvalResult<'eval> {
         let mut values = self.values.lock().unwrap();
         if !values.contains_key(&eval_key) {
             let result = unsafe { share_cached(&value) };
@@ -50,8 +53,8 @@ impl<'eval> EvalSheet<'eval> {
     pub(crate) fn cache(
         &self,
         eval_key: EvalKey<'eval>,
-        value: EvalResult<'eval>,
-    ) -> EvalResult<'eval> {
+        value: RuntimeEvalResult<'eval>,
+    ) -> RuntimeEvalResult<'eval> {
         let result = unsafe { share_cached(&value) };
         assert!(self
             .values
@@ -99,7 +102,7 @@ impl<'eval> EvalSheet<'eval> {
     // }
 }
 
-unsafe fn share_cached<'eval>(cached: &EvalResult<'eval>) -> EvalResult<'eval> {
+unsafe fn share_cached<'eval>(cached: &RuntimeEvalResult<'eval>) -> RuntimeEvalResult<'eval> {
     Ok(match cached {
         Ok(value) => match value {
             EvalValue::Copyable(value) => EvalValue::Copyable(*value),

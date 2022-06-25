@@ -1,11 +1,11 @@
-use vm::{EvalResult, EvalValue, VMRuntimeError, VMRuntimeResult};
+use vm::{EvalValue, RuntimeEvalResult, VMRuntimeError, VMRuntimeResult};
 
 use crate::*;
 
 use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_feature_stmt(&mut self, stmt: &FeatureStmt) -> EvalResult<'eval> {
+    pub(crate) fn eval_feature_stmt(&mut self, stmt: &FeatureStmt) -> RuntimeEvalResult<'eval> {
         match stmt.variant {
             FeatureStmtVariant::Init { .. } => Ok(EvalValue::Undefined),
             FeatureStmtVariant::Assert { ref condition } => {

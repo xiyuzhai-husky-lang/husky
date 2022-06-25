@@ -243,7 +243,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn eval_linkage(&mut self, linkage: RoutineLinkage) -> EvalResult<'eval> {
+    pub(crate) fn eval_linkage(&mut self, linkage: RoutineLinkage) -> RuntimeEvalResult<'eval> {
         let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
         should_eq!(self.stack.len(), 0);
         Ok((linkage.call)(&mut arguments)?.into_eval())

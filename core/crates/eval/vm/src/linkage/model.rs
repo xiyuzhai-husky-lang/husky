@@ -2,7 +2,7 @@ use super::*;
 
 pub struct ModelLinkage {
     pub train: fn(&dyn std::any::Any) -> EvalResult<'static>,
-    pub eval: for<'eval> fn(&EvalValue<'static>, Vec<EvalValue<'eval>>) -> EvalResult<'eval>, //ugly
+    pub eval: for<'eval> fn(&EvalValue<'static>, Vec<EvalValue<'eval>>) -> RuntimeEvalResult<'eval>, //ugly
 }
 
 impl PartialEq for ModelLinkage {

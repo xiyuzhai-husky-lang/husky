@@ -12,7 +12,10 @@ use word::IdentPairDict;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(crate) fn eval_feature_lazy_expr(&mut self, expr: &FeatureLazyExpr) -> EvalResult<'eval> {
+    pub(crate) fn eval_feature_lazy_expr(
+        &mut self,
+        expr: &FeatureLazyExpr,
+    ) -> RuntimeEvalResult<'eval> {
         match expr.variant {
             FeatureLazyExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
             FeatureLazyExprVariant::EnumKindLiteral { entity_route, uid } => {
@@ -140,7 +143,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         }
     }
 
-    pub(crate) fn eval_feature_xml_expr(&mut self, expr: &FeatureXmlExpr) -> EvalResult<'eval> {
+    pub(crate) fn eval_feature_xml_expr(
+        &mut self,
+        expr: &FeatureXmlExpr,
+    ) -> RuntimeEvalResult<'eval> {
         match expr.variant {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
@@ -177,7 +183,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         opt_linkage: Option<RoutineLinkage>,
         arguments: &[Arc<FeatureLazyExpr>],
         has_this: bool,
-    ) -> EvalResult<'eval> {
+    ) -> RuntimeEvalResult<'eval> {
         let db = self.db;
         let verbose = self.verbose;
         let values = arguments
