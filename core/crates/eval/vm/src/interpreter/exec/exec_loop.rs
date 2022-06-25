@@ -172,8 +172,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             break;
                         }
                         VMControl::Err(e) => {
-                            p!(e);
-                            todo!()
+                            control_result = Err(e);
+                            break;
                         }
                     }
                 }

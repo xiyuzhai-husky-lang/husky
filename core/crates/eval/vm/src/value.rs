@@ -10,7 +10,7 @@ mod xml;
 pub use any::*;
 pub use copyable::*;
 pub use enum_kind::*;
-pub use eval::{EvalRef, EvalResult, EvalValue};
+pub use eval::*;
 pub use member::*;
 pub use owned::*;
 pub use ref_::*;

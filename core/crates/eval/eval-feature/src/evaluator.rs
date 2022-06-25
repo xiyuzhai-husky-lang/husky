@@ -12,7 +12,7 @@ pub use sheet::*;
 
 use crate::*;
 use feature_gen::FeatureEvalId;
-use vm::EvalResult;
+use vm::RuntimeEvalResult;
 use vm::{AnyValueDyn, EvalValue};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
@@ -28,8 +28,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn cache(
         &mut self,
         eval_key: EvalKey<'eval>,
-        compute_value: impl FnOnce(&mut Self) -> EvalResult<'eval>,
-    ) -> EvalResult<'eval> {
+        compute_value: impl FnOnce(&mut Self) -> RuntimeEvalResult<'eval>,
+    ) -> RuntimeEvalResult<'eval> {
         if let Some(value) = self.sheet.cached_value(eval_key) {
             value
         } else {

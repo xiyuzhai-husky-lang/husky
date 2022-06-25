@@ -5,7 +5,7 @@ use husky_compile_time::HuskyCompileTime;
 use pack_semantics::{Config, Package};
 use semantics_eager::FuncStmt;
 use trivial_iter::TrivialIter;
-use vm::{eval_fast, EvalResult, InterpreterQueryGroup, Mode, VMRuntimeResult};
+use vm::{eval_fast, InterpreterQueryGroup, Mode, RuntimeEvalResult, VMRuntimeResult};
 
 use crate::*;
 
@@ -24,7 +24,7 @@ pub struct Session<'eval> {
     config: Arc<Config>,
     pub(crate) dataset: Dataset<'eval>,
     pub(crate) dev: Division<'eval>,
-    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, EvalResult<'eval>>>,
+    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, RuntimeEvalResult<'eval>>>,
     val: Division<'eval>,
     test: Division<'eval>,
     validation_report: ValidationReport<'eval>,
@@ -32,7 +32,7 @@ pub struct Session<'eval> {
 
 #[derive(Debug)]
 pub struct ValidationReport<'sess> {
-    predictions: Vec<EvalResult<'sess>>,
+    predictions: Vec<RuntimeEvalResult<'sess>>,
 }
 
 impl<'eval> Default for ValidationReport<'eval> {

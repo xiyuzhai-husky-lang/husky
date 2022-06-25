@@ -46,7 +46,7 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
     args: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>, // including this value
     kwargs: impl Iterator<Item = (CustomIdentifier, VMRuntimeResult<TempValue<'temp, 'eval>>)>,
     verbose: bool,
-) -> EvalResult<'eval> {
+) -> RuntimeEvalResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, args, verbose)?;
     if let Some(linkage) = opt_linkage {
         interpreter.eval_linkage(linkage)

@@ -3,7 +3,29 @@ use print_utils::msg_once;
 use std::sync::Arc;
 use word::CustomIdentifier;
 
-pub type EvalResult<'eval> = VMRuntimeResult<EvalValue<'eval>>;
+pub type RuntimeEvalResult<'eval> = VMRuntimeResult<EvalValue<'eval>>;
+pub type EvalResult<'eval, T = EvalValue<'eval>> = Result<T, EvalError>;
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum EvalError {
+    Runtime(VMRuntimeError),
+    WithinBatch {
+        sample_id: SampleId,
+        error: VMRuntimeError,
+    },
+}
+
+impl From<VMRuntimeError> for EvalError {
+    fn from(error: VMRuntimeError) -> Self {
+        EvalError::Runtime(error)
+    }
+}
+
+impl From<(SampleId, VMRuntimeError)> for EvalError {
+    fn from((sample_id, error): (SampleId, VMRuntimeError)) -> Self {
+        EvalError::WithinBatch { sample_id, error }
+    }
+}
 
 // EvalValue lives on its own, i.e. not depending on stack context
 #[derive(Debug, Clone)]

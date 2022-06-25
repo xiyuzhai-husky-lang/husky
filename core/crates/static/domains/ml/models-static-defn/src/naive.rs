@@ -6,7 +6,7 @@ use eval_feature::EvalFeature;
 use feature_gen::FeatureLazyExpr;
 use husky_tracer_protocol::Label;
 use static_defn::*;
-use vm::{EvalResult, EvalValue, ModelLinkage, OwnedValue};
+use vm::{EvalResult, EvalValue, ModelLinkage, OwnedValue, RuntimeEvalResult};
 
 static_mod! { naive = { naive_i32 } }
 
@@ -40,7 +40,7 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult<'static> {
     let mut label_statics_map: HashMap<i32, HashMap<Label, usize>> = Default::default();
     for labeled_data in dev_division.each_labeled_data() {
         let sample_id = labeled_data.sample_id;
-        if sample_id.0 >= 50 {
+        if sample_id.0 >= 1000 {
             break;
         }
         let value = eval_time
@@ -71,7 +71,10 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult<'static> {
     Ok(EvalValue::Owned(OwnedValue::new(most_likely_labels)))
 }
 
-fn naive_i32_eval<'eval>(internal: &EvalValue, args: Vec<EvalValue<'eval>>) -> EvalResult<'eval> {
+fn naive_i32_eval<'eval>(
+    internal: &EvalValue,
+    args: Vec<EvalValue<'eval>>,
+) -> RuntimeEvalResult<'eval> {
     let most_likely_labels: &HashMap<i32, i32> = internal.any_ref().downcast_ref();
     match most_likely_labels.get(&args[0].primitive().take_i32()) {
         Some(l) => Ok(EvalValue::Copyable((*l).into())),
