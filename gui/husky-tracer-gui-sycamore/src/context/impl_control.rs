@@ -76,7 +76,7 @@ impl DebuggerContext {
                     trace_id,
                     opt_attention_for_figure: Some((*attention).clone()),
                 },
-                Some(Box::new(move |message| match message.variant {
+                Some(Box::new(move |response| match response.variant {
                     HuskyTracerServerMessageVariant::Activate {
                         figure_canvas_data,
                         figure_control_data,
@@ -90,7 +90,8 @@ impl DebuggerContext {
                         );
                         self.trace_context.did_activate(trace_id);
                     }
-                    _ => panic!(),
+                    HuskyTracerServerMessageVariant::ActivateWithError { .. } => todo!(),
+                    _ => panic!("unexpected response {:?}", response),
                 })),
             );
         }

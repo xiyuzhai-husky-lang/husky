@@ -132,8 +132,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         let values: Vec<_> = opds
                             .iter()
                             .map(|opd| self.eval_feature_lazy_expr(opd))
-                            .collect::<EvalResult<Vec<_>>>()
-                            .unwrap();
+                            .collect::<EvalResult<Vec<_>>>()?;
                         eval(internal.as_ref().map_err(|e| e.clone())?, values)
                     }
                     _ => panic!(),

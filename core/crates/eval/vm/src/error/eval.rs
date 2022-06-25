@@ -1,17 +1,21 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct EvalError {
-    pub opt_sample_id: Option<SampleId>,
-    pub message: String,
+pub enum EvalError {
+    Normal {
+        message: String,
+    },
+    FromBatch {
+        sample_id: SampleId,
+        message: String,
+    },
 }
 
 impl From<(SampleId, EvalError)> for EvalError {
     fn from((sample_id, error): (SampleId, EvalError)) -> Self {
-        assert!(error.opt_sample_id.is_none());
-        EvalError {
-            opt_sample_id: Some(sample_id),
-            message: error.message,
+        match error {
+            EvalError::Normal { message } => EvalError::FromBatch { sample_id, message },
+            EvalError::FromBatch { .. } => error,
         }
     }
 }
@@ -20,7 +24,10 @@ impl Into<TraceTokenData> for EvalError {
     fn into(self) -> TraceTokenData {
         TraceTokenData {
             kind: TraceTokenKind::Error,
-            value: self.message,
+            value: match self {
+                EvalError::Normal { message } => message,
+                EvalError::FromBatch { sample_id, message } => panic!(),
+            },
             opt_associated_trace_id: None,
         }
     }
@@ -31,8 +38,7 @@ pub type EvalValueResult<'eval> = Result<EvalValue<'eval>, EvalError>;
 #[macro_export]
 macro_rules! vm_runtime_error {
     ($message: expr) => {
-        EvalError {
-            opt_sample_id: None,
+        EvalError::Normal {
             message: $message.into(),
         }
     };

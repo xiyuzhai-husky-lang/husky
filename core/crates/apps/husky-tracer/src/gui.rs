@@ -10,12 +10,12 @@ use warp::ws::{Message, WebSocket};
 
 pub(crate) async fn handle_query(
     socket: warp::ws::Ws,
-    server: Arc<HuskyTracer>,
+    server: Arc<HuskyDebugger>,
 ) -> Result<impl warp::Reply, warp::Rejection> {
     Ok(socket.on_upgrade(move |ws| handle_query_upgraded(ws, server)))
 }
 
-pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<HuskyTracer>) {
+pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<HuskyDebugger>) {
     let (tx, mut rx) = websocket.split();
     let (client_sender, client_rcv) = mpsc::unbounded_channel::<Result<Message, warp::Error>>();
     tokio::task::spawn(client_rcv.forward(tx).map(|result| {

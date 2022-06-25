@@ -19,10 +19,7 @@ impl HuskyTraceTime {
 
     fn update_root_traces(&mut self) {
         let main_file = self.runtime_singleton.compile_time().main_file();
-        self.root_trace_ids = vec![self.new_trace(
-            None,
-            0,
-            TraceVariant::Main(self.runtime_singleton.main_feature_repr(main_file)),
-        )];
+        let main_feature_repr = self.runtime_singleton.main_feature_repr(main_file);
+        self.root_trace_ids = vec![self.new_trace(None, 0, TraceVariant::Main(main_feature_repr))];
     }
 }

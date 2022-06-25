@@ -4,7 +4,7 @@ use wild_utils::ref_to_mut_ref;
 use super::*;
 
 pub fn handle_message(
-    debugger: Arc<HuskyTracer>,
+    debugger: Arc<HuskyDebugger>,
     text: &str,
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
 ) {
@@ -29,13 +29,13 @@ pub fn handle_message(
     }
 }
 
-impl HuskyTracer {
+impl HuskyDebugger {
     async fn handle_gui_message(
         self: Arc<Self>,
         gui_message: HuskyTracerGuiMessage,
     ) -> Option<String> {
         let opt_request_id = gui_message.opt_request_id;
-        let internal: &mut HuskyTracerInternal = &mut self.internal.lock().unwrap();
+        let internal: &mut HuskyDebuggerInternal = &mut self.internal.lock().unwrap();
         let opt_response_variant = internal.handle_gui_message(gui_message);
         should_eq!(opt_request_id.is_some(), opt_response_variant.is_some());
         if let Some(variant) = opt_response_variant {
@@ -57,7 +57,7 @@ impl HuskyTracer {
     }
 }
 
-impl HuskyTracerInternal {
+impl HuskyDebuggerInternal {
     fn handle_gui_message(
         &mut self,
         request: HuskyTracerGuiMessage,

@@ -17,7 +17,7 @@ use futures::executor::ThreadPool;
 use gui::handle_query;
 use husky_compile_time::HuskyCompileTime;
 use husky_tracer_protocol::*;
-use internal::HuskyTracerInternal;
+use internal::HuskyDebuggerInternal;
 use json_result::JsonResult;
 use notif::handle_notif;
 use print_utils::*;
@@ -26,26 +26,21 @@ use std::{collections::HashMap, convert::Infallible, net::ToSocketAddrs, sync::A
 use test_utils::TestResult;
 use warp::Filter;
 
-pub struct HuskyTracer {
-    internal: Mutex<HuskyTracerInternal>,
+pub struct HuskyDebugger {
+    internal: Mutex<HuskyDebuggerInternal>,
     threadpool: ThreadPool,
 }
 
-impl HuskyTracer {
+impl HuskyDebugger {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime)) -> Self {
         let config = DebuggerConfig::from_env();
         let mut trace_time = HuskyTraceTime::new(init_compile_time, config.verbose);
         if let Some(ref sample_id_str) = config.opt_sample_id {
             let sample_id: SampleId = SampleId(sample_id_str.parse().unwrap());
-            trace_time.set_attention(Attention::Specific {
-                sample_id: sample_id,
-            });
-            for trace in trace_time.root_traces().iter() {
-                let stalk = trace_time.keyed_trace_stalk(*trace);
-            }
+            trace_time.set_attention(Attention::Specific { sample_id });
         }
         Self {
-            internal: Mutex::new(HuskyTracerInternal { trace_time, config }),
+            internal: Mutex::new(HuskyDebuggerInternal { trace_time, config }),
             threadpool: ThreadPool::new().unwrap(),
         }
     }
@@ -108,7 +103,7 @@ impl HuskyTracer {
 }
 
 fn with_debugger(
-    debugger: Arc<HuskyTracer>,
-) -> impl Filter<Extract = (Arc<HuskyTracer>,), Error = Infallible> + Clone {
+    debugger: Arc<HuskyDebugger>,
+) -> impl Filter<Extract = (Arc<HuskyDebugger>,), Error = Infallible> + Clone {
     warp::any().map(move || debugger.clone())
 }

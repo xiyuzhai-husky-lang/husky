@@ -12,9 +12,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 if self.satisfies(condition)? {
                     Ok(EvalValue::Undefined)
                 } else {
-                    Err(EvalError {
+                    Err(EvalError::Normal {
                         message: format!("assertion failed"),
-                        opt_sample_id: None,
                     }
                     .into())
                 }

@@ -33,7 +33,7 @@ impl From<Option<String>> for Mode {
 }
 
 async fn run(path: PathBuf) {
-    HuskyTracer::new(|compile_time| init_compile_time_from_dir(compile_time, path.into()))
+    HuskyDebugger::new(|compile_time| init_compile_time_from_dir(compile_time, path.into()))
         .serve("localhost:51617")
         .await
         .expect("")
@@ -63,9 +63,11 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
             print_utils::RESET,
             package_dir.as_os_str().to_str().unwrap(),
         );
-        match HuskyTracer::new(|compile_time| init_compile_time_from_dir(compile_time, package_dir))
-            .serve_on_error("localhost:51617", SampleId(0))
-            .await
+        match HuskyDebugger::new(|compile_time| {
+            init_compile_time_from_dir(compile_time, package_dir)
+        })
+        .serve_on_error("localhost:51617", SampleId(0))
+        .await
         {
             TestResult::Success => finalize_success(),
             TestResult::Failed => finalize_failure(),
