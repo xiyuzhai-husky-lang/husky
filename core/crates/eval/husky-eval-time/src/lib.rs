@@ -85,8 +85,8 @@ impl HuskyEvalTime {
                 panic!("diagnostic errors")
             }
         }
-        let pack = match compile_time.package(self.package_main) {
-            Ok(pack) => pack,
+        let package = match compile_time.package(self.package_main) {
+            Ok(package) => package,
             Err(error) => {
                 compile_time.print_diagnostics();
                 p!(error);
@@ -94,7 +94,7 @@ impl HuskyEvalTime {
             }
         };
         self.variant = HuskyEvalTimeVariant::Learning {
-            session: Session::new(&pack, self, self.verbose()).unwrap(),
+            session: Session::new(&package, self, self.verbose()).unwrap(),
         }
     }
 }

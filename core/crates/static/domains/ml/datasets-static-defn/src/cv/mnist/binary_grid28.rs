@@ -45,9 +45,8 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                         this_value
                                             .get(index_value)
                                             .map(|v| TempValue::Copyable(v.into()))
-                                            .ok_or(EvalError {
+                                            .ok_or(EvalError::Normal {
                                                 message: "todo".into(),
-                                                opt_sample_id: None,
                                             })
                                     },
                                     2
@@ -77,8 +76,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                                 owner,
                                                 gen: (),
                                             })
-                                            .ok_or(EvalError {
-                                                opt_sample_id: None,
+                                            .ok_or(EvalError::Normal {
                                                 message: "todo".into(),
                                             })
                                     },

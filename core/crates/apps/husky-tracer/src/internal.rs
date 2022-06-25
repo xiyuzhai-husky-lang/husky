@@ -1,7 +1,7 @@
 use crate::*;
 use husky_trace_time::HuskyTraceTime;
 
-pub struct HuskyTracerInternal {
+pub struct HuskyDebuggerInternal {
     pub(crate) trace_time: HuskyTraceTime,
     pub(crate) config: DebuggerConfig,
 }

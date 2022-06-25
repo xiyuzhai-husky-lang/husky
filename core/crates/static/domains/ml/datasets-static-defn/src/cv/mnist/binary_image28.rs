@@ -44,8 +44,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                         this_value
                                             .get(index_value)
                                             .map(|v| TempValue::Copyable(v.into()))
-                                            .ok_or(EvalError {
-                                                opt_sample_id: None,
+                                            .ok_or(EvalError::Normal {
                                                 message: "todo".into(),
                                             })
                                     },
@@ -76,8 +75,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                                 owner,
                                                 gen: (),
                                             })
-                                            .ok_or(EvalError {
-                                                opt_sample_id: None,
+                                            .ok_or(EvalError::Normal {
                                                 message: "todo".into(),
                                             })
                                     },
