@@ -22,7 +22,7 @@ impl<'eval> History<'eval> {
         self.entries.contains_key(&t.instruction_id())
     }
 
-    pub fn value<T: InstructionSource>(&self, t: &T) -> RuntimeEvalResult<'eval> {
+    pub fn value<T: InstructionSource>(&self, t: &T) -> EvalValueResult<'eval> {
         if let Some(entry) = self.entries.get(&t.instruction_id()) {
             entry.value()
         } else {

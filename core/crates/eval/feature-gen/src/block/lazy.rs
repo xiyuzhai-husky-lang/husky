@@ -1,3 +1,5 @@
+use vm::EvalResult;
+
 use super::*;
 
 #[derive(Debug, Clone)]

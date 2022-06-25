@@ -5,6 +5,7 @@ pub use variant::*;
 use file::FilePtr;
 use semantics_lazy::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
 use text::TextRange;
+use vm::EvalResult;
 
 use crate::{eval_id::FeatureEvalId, *};
 
@@ -133,7 +134,7 @@ impl FeatureStmt {
                             eval_id: Default::default(),
                         })
                     })
-                    .collect();
+                    .collect::<Vec<_>>();
                 FeatureStmtVariant::ConditionFlow { branches }
             }
             LazyStmtVariant::Match {
@@ -141,7 +142,6 @@ impl FeatureStmt {
                 ref branches,
             } => todo!(),
         };
-
         Arc::new(FeatureStmt {
             file: lazy_stmt.file,
             range: lazy_stmt.range,

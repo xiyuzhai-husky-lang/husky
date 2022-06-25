@@ -5,11 +5,11 @@ pub enum VMControl<'eval> {
     None,
     Return(EvalValue<'eval>),
     Break,
-    Err(VMRuntimeError),
+    Err(EvalError),
 }
 
-impl<'eval> From<VMRuntimeResult<()>> for VMControl<'eval> {
-    fn from(result: VMRuntimeResult<()>) -> Self {
+impl<'eval> From<EvalResult<()>> for VMControl<'eval> {
+    fn from(result: EvalResult<()>) -> Self {
         match result {
             Ok(_) => Self::None,
             Err(e) => Self::Err(e),
@@ -17,8 +17,8 @@ impl<'eval> From<VMRuntimeResult<()>> for VMControl<'eval> {
     }
 }
 
-impl<'eval> From<VMRuntimeResult<VMControl<'eval>>> for VMControl<'eval> {
-    fn from(result: VMRuntimeResult<VMControl<'eval>>) -> Self {
+impl<'eval> From<EvalResult<VMControl<'eval>>> for VMControl<'eval> {
+    fn from(result: EvalResult<VMControl<'eval>>) -> Self {
         match result {
             Ok(control) => control,
             Err(e) => Self::Err(e),
@@ -42,5 +42,5 @@ pub enum ControlSnapshot<'eval> {
     None,
     Return(StackValueSnapshot<'eval>),
     Break,
-    Err(VMRuntimeError),
+    Err(EvalError),
 }

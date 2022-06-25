@@ -61,7 +61,9 @@ impl<'temp, 'eval> std::fmt::Debug for VMStack<'temp, 'eval> {
     }
 }
 
-impl<'temp, 'eval: 'temp, T: Iterator<Item = TempValue<'temp, 'eval>>> From<T> for VMStack<'temp, 'eval> {
+impl<'temp, 'eval: 'temp, T: Iterator<Item = TempValue<'temp, 'eval>>> From<T>
+    for VMStack<'temp, 'eval>
+{
     fn from(t: T) -> Self {
         Self::new(t)
     }
@@ -69,8 +71,8 @@ impl<'temp, 'eval: 'temp, T: Iterator<Item = TempValue<'temp, 'eval>>> From<T> f
 
 impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
     pub(crate) fn try_new(
-        argument_iter: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>,
-    ) -> VMRuntimeResult<Self> {
+        argument_iter: impl Iterator<Item = EvalResult<TempValue<'temp, 'eval>>>,
+    ) -> EvalResult<Self> {
         let mut values = ArrayVec::new();
         for result in argument_iter {
             values.push(result?)

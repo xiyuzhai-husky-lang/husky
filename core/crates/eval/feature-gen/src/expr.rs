@@ -8,7 +8,7 @@ use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
-use vm::{Binding, EvalValue, InstructionSheet, RoutineLinkage};
+use vm::{Binding, EvalResult, EvalValue, InstructionSheet, RoutineLinkage};
 use word::RootIdentifier;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -84,7 +84,7 @@ pub enum FeatureLazyExprVariant {
         opds: Vec<Arc<FeatureLazyExpr>>,
         has_this: bool,
         model_defn: Arc<EntityDefn>,
-        internal: EvalValue<'static>,
+        internal: EvalResult,
     },
     RoutineCall {
         opds: Vec<Arc<FeatureLazyExpr>>,
@@ -193,7 +193,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     });
                     let kind = FeatureLazyExprVariant::EntityFeature {
                         entity_route,
-                        repr: self.db.entity_feature_repr(entity_route).unwrap(),
+                        repr: self.db.entity_feature_repr(entity_route),
                     };
                     (kind, feature)
                 }

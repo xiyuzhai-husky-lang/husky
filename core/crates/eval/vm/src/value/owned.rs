@@ -36,7 +36,7 @@ impl<'temp, 'eval: 'temp> OwnedValue<'temp, 'eval> {
         Self(value.clone_into_box_dyn())
     }
 
-    pub fn take<T: AnyValue<'eval>>(self) -> VMRuntimeResult<T> {
+    pub fn take<T: AnyValue<'eval>>(self) -> EvalResult<T> {
         // check type
         if (*self.0).static_type_id_dyn() != T::static_type_id() {
             Err(vm_runtime_error!(format!("type_mismatch")))

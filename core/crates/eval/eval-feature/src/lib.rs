@@ -12,7 +12,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use upcast::Upcast;
-use vm::{RuntimeEvalResult, VMRuntimeResult};
+use vm::{EvalResult, EvalValue, EvalValueResult};
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;
@@ -36,18 +36,14 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     // Some(self) otherwise
     fn opt_static_eval_feature(&self) -> Option<&dyn EvalFeature<'static>>;
 
-    fn visualize(&self, this: FeatureRepr, sample_id: SampleId) -> VMRuntimeResult<VisualData>
+    fn visualize(&self, this: FeatureRepr, sample_id: SampleId) -> EvalResult<VisualData>
     where
         'eval: 'static,
     {
         self.evaluator(sample_id).visualize(this)
     }
 
-    fn eval_feature_repr(
-        &self,
-        repr: &FeatureRepr,
-        sample_id: SampleId,
-    ) -> RuntimeEvalResult<'eval> {
+    fn eval_feature_repr(&self, repr: &FeatureRepr, sample_id: SampleId) -> EvalValueResult<'eval> {
         self.evaluator(sample_id).eval_feature_repr(repr)
     }
 
@@ -55,7 +51,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         repr: &FeatureRepr,
         sample_id: SampleId,
-    ) -> RuntimeEvalResult<'eval> {
+    ) -> EvalValueResult<'eval> {
         self.evaluator(sample_id).eval_feature_repr_cached(repr)
     }
 
@@ -63,7 +59,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         block: &FeatureLazyBlock,
         sample_id: SampleId,
-    ) -> RuntimeEvalResult<'eval> {
+    ) -> EvalValueResult<'eval> {
         self.evaluator(sample_id).eval_feature_lazy_block(block)
     }
 
@@ -71,7 +67,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         stmt: &FeatureStmt,
         sample_id: SampleId,
-    ) -> RuntimeEvalResult<'eval> {
+    ) -> EvalResult<EvalValue<'eval>> {
         self.evaluator(sample_id).eval_feature_stmt(stmt)
     }
 
@@ -79,7 +75,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         expr: &FeatureLazyExpr,
         sample_id: SampleId,
-    ) -> RuntimeEvalResult<'eval> {
+    ) -> EvalValueResult<'eval> {
         self.evaluator(sample_id).eval_feature_lazy_expr(expr)
     }
 }

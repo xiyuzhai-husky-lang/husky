@@ -26,9 +26,9 @@ pub struct Interpreter<'temp, 'eval: 'temp> {
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn try_new(
         db: &'temp dyn InterpreterQueryGroup,
-        argument_iter: impl Iterator<Item = VMRuntimeResult<TempValue<'temp, 'eval>>>,
+        argument_iter: impl Iterator<Item = EvalResult<TempValue<'temp, 'eval>>>,
         verbose: bool,
-    ) -> VMRuntimeResult<Interpreter<'temp, 'eval>> {
+    ) -> EvalResult<Interpreter<'temp, 'eval>> {
         Ok(Self {
             db,
             stack: VMStack::try_new(argument_iter)?,
@@ -77,18 +77,18 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         sheet: &InstructionSheet,
         mode: Mode,
-    ) -> RuntimeEvalResult<'eval> {
+    ) -> EvalValueResult<'eval> {
         match self.exec_all(sheet, mode) {
             VMControl::None => {
                 panic!("no return from eval_instructions")
             }
             VMControl::Return(result) => Ok(result),
             VMControl::Break => todo!(),
-            VMControl::Err(e) => Err(e),
+            VMControl::Err(e) => Err(e.into()),
         }
     }
 
-    fn new_virtual_struct(&mut self, fields: &[CustomIdentifier]) -> VMRuntimeResult<()> {
+    fn new_virtual_struct(&mut self, fields: &[CustomIdentifier]) -> EvalResult<()> {
         let parameters = self.stack.drain(fields.len().try_into().unwrap());
         let value = VirtualTy::new_struct(parameters, fields).into();
         self.stack.push(value);

@@ -3,6 +3,7 @@ mod main_feature_repr;
 
 pub use entity_feature_repr::*;
 pub use main_feature_repr::*;
+use vm::EvalResult;
 
 use crate::{record::*, unique_allocate::AllocateUniqueFeature, visual::*, *};
 use entity_route::EntityRoutePtr;
@@ -24,8 +25,8 @@ pub trait FeatureGenQueryGroup:
     + AskCompileTime
     + VisualizerQueryGroup
 {
-    fn main_feature_repr(&'eval self, main_file: file::FilePtr) -> SemanticResult<FeatureRepr>;
-    fn entity_feature_repr(&self, entity_route: EntityRoutePtr) -> SemanticResult<FeatureRepr>;
+    fn main_feature_repr(&'eval self, main_file: file::FilePtr) -> FeatureRepr;
+    fn entity_feature_repr(&self, entity_route: EntityRoutePtr) -> FeatureRepr;
     fn record_field_repr(&self, this: FeatureRepr, field_ident: CustomIdentifier) -> FeatureRepr;
-    fn visual_feature_repr(&self, this: FeatureRepr) -> FeatureRepr;
+    fn visual_feature_repr(&self, this: FeatureRepr) -> EvalResult<FeatureRepr>;
 }

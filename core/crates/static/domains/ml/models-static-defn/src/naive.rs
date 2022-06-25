@@ -6,7 +6,7 @@ use eval_feature::EvalFeature;
 use feature_gen::FeatureLazyExpr;
 use husky_tracer_protocol::Label;
 use static_defn::*;
-use vm::{EvalResult, EvalValue, ModelLinkage, OwnedValue, RuntimeEvalResult};
+use vm::{EvalResult, EvalValue, EvalValueResult, ModelLinkage, OwnedValue};
 
 static_mod! { naive = { naive_i32 } }
 
@@ -30,7 +30,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
     dev_src: static_dev_src!(),
 };
 
-fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult<'static> {
+fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult {
     let opds: &Vec<Arc<FeatureLazyExpr>> = opds.downcast_ref().unwrap();
     assert_eq!(opds.len(), 1);
     let opd = &opds[0];
@@ -45,7 +45,7 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult<'static> {
         }
         let value = eval_time
             .eval_feature_lazy_expr(opd, sample_id)
-            .expect("todos")
+            .map_err(|e| (sample_id, e))?
             .primitive()
             .take_i32();
         *label_statics_map
@@ -74,7 +74,7 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult<'static> {
 fn naive_i32_eval<'eval>(
     internal: &EvalValue,
     args: Vec<EvalValue<'eval>>,
-) -> RuntimeEvalResult<'eval> {
+) -> EvalValueResult<'eval> {
     let most_likely_labels: &HashMap<i32, i32> = internal.any_ref().downcast_ref();
     match most_likely_labels.get(&args[0].primitive().take_i32()) {
         Some(l) => Ok(EvalValue::Copyable((*l).into())),

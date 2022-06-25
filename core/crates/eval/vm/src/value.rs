@@ -134,7 +134,7 @@ impl<'temp, 'eval: 'temp> From<&CopyableValue> for TempValue<'temp, 'eval> {
 }
 
 impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
-    pub fn from_eval(eval_value: EvalValue<'eval>) -> VMRuntimeResult<Self> {
+    pub fn from_eval(eval_value: EvalValue<'eval>) -> EvalResult<Self> {
         Ok(match eval_value {
             EvalValue::Copyable(value) => Self::Copyable(value),
             EvalValue::Owned(_) => todo!(),

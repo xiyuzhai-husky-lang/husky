@@ -62,13 +62,13 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
 
 fn generic_cyclic_slice_first_copy<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     todo!()
 }
 
 fn generic_cyclic_slice_first_eval_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.first() {
         Some(value) => Ok(value.bind_eval_ref()),
@@ -78,7 +78,7 @@ fn generic_cyclic_slice_first_eval_ref<'temp, 'eval>(
 
 fn generic_cyclic_slice_first_temp_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.first() {
         Some(value) => Ok(value.bind_temp_ref()),
@@ -88,13 +88,13 @@ fn generic_cyclic_slice_first_temp_ref<'temp, 'eval>(
 
 fn generic_cyclic_slice_first_mut<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     todo!("deprecated")
 }
 
 fn generic_cyclic_slice_first_move<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     todo!()
 }
 
@@ -124,13 +124,13 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
 
 fn generic_cyclic_slice_last_copy<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     todo!()
 }
 
 fn generic_cyclic_slice_last_eval_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.last() {
         Some(value) => Ok(value.bind_eval_ref()),
@@ -140,7 +140,7 @@ fn generic_cyclic_slice_last_eval_ref<'temp, 'eval>(
 
 fn generic_cyclic_slice_last_temp_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     match generic_cyclic_slice.last() {
         Some(value) => Ok(value.bind_temp_ref()),
@@ -150,12 +150,12 @@ fn generic_cyclic_slice_last_temp_ref<'temp, 'eval>(
 
 fn generic_cyclic_slice_last_mut<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     todo!("deprecated")
 }
 
 fn generic_cyclic_slice_last_move<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     todo!()
 }

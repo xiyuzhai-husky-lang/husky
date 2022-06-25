@@ -20,7 +20,7 @@ pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDef
 
 fn cyclic_slice_start_copy_access<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
-) -> VMRuntimeResult<TempValue<'temp, 'eval>> {
+) -> EvalResult<TempValue<'temp, 'eval>> {
     let cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
     Ok(TempValue::Copyable(cyclic_slice.end.into()))
 }

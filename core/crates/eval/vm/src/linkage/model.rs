@@ -1,8 +1,8 @@
 use super::*;
 
 pub struct ModelLinkage {
-    pub train: fn(&dyn std::any::Any) -> EvalResult<'static>,
-    pub eval: for<'eval> fn(&EvalValue<'static>, Vec<EvalValue<'eval>>) -> RuntimeEvalResult<'eval>, //ugly
+    pub train: fn(&dyn std::any::Any) -> EvalResult,
+    pub eval: for<'eval> fn(&EvalValue<'static>, Vec<EvalValue<'eval>>) -> EvalValueResult<'eval>, //ugly
 }
 
 impl PartialEq for ModelLinkage {

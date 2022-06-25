@@ -7,7 +7,7 @@ use map_collect::MapCollect;
 use semantics_entity::EntityDefnVariant;
 use static_defn::LinkageSource;
 use thin_vec::{thin_vec, ThinVec};
-use vm::{Binding, ModelLinkage};
+use vm::{Binding, EvalResult, ModelLinkage};
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
@@ -40,7 +40,10 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::Prefix(_) => todo!(),
             LazyOpnKind::FunctionModelCall(routine) => {
                 let uid = self.db.compile_time().entity_uid(routine.route);
-                let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
+                let opds = opds
+                    .iter()
+                    .map(|opd| self.new_expr(opd.clone()))
+                    .collect::<Vec<_>>();
                 let feature = self.features.intern(Feature::FunctionCall {
                     func: routine.route,
                     uid,
@@ -52,7 +55,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         source:
                             CallFormSource::Static(LinkageSource::Model(ModelLinkage { train, .. })),
                         ..
-                    } => train(&opds).expect("todo"),
+                    } => train(&opds),
                     _ => todo!(),
                 };
                 let kind = FeatureLazyExprVariant::ModelCall {
@@ -65,7 +68,10 @@ impl<'a> FeatureExprBuilder<'a> {
             }
             LazyOpnKind::FunctionRoutineCall(routine) => {
                 let uid = self.db.compile_time().entity_uid(routine.route);
-                let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
+                let opds = opds
+                    .iter()
+                    .map(|opd| self.new_expr(opd.clone()))
+                    .collect::<Vec<_>>();
                 let feature = self.features.intern(Feature::FunctionCall {
                     func: routine.route,
                     uid,
@@ -107,7 +113,10 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::StructCall(_) => todo!(),
             LazyOpnKind::RecordCall(ty) => {
                 let uid = self.db.compile_time().entity_uid(ty.route);
-                let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
+                let opds = opds
+                    .iter()
+                    .map(|opd| self.new_expr(opd.clone()))
+                    .collect::<Vec<_>>();
                 let feature = self.features.intern(Feature::RecordTypeCall {
                     ty: ty.route,
                     uid,
@@ -130,7 +139,10 @@ impl<'a> FeatureExprBuilder<'a> {
         opds: &[Arc<LazyExpr>],
         output_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
-        let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
+        let opds = opds
+            .iter()
+            .map(|opd| self.new_expr(opd.clone()))
+            .collect::<Vec<_>>();
         let feature = self.features.intern(Feature::MethodCall {
             method_ident: method_ident.ident,
             opds: opds.iter().map(|opd| opd.feature).collect(),
@@ -307,7 +319,7 @@ impl<'a> FeatureExprBuilder<'a> {
         expr: &Arc<LazyExpr>,
         element_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
-        let opds: Vec<_> = opds.map(|opd| self.new_expr(opd.clone()));
+        let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
         let feature = self.features.intern(Feature::ElementAccess {
             opds: opds.map(|opd| opd.feature),
         });
