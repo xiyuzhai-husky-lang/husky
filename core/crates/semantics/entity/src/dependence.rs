@@ -363,7 +363,6 @@ impl EntityDefn {
                         LazyOpnKind::FunctionRoutineCall(routine) => builder.push(routine.route),
                         LazyOpnKind::StructCall(ty) => builder.push(ty.route),
                         LazyOpnKind::RecordCall(ty) => builder.push(ty.route),
-                        LazyOpnKind::PatternCall => todo!(),
                         LazyOpnKind::ElementAccess { .. } => todo!(),
                     }
                     for opd in opds {

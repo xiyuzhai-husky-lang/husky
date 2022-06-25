@@ -130,7 +130,19 @@ impl<'eval> TraceVariant<'eval> {
                     field_ident,
                     ref repr,
                 } => true,
-                _ => todo!(),
+                FeatureLazyExprVariant::ModelCall {
+                    ref opds,
+                    has_this,
+                    ref model_defn,
+                    ref internal,
+                } => match model_defn.variant {
+                    EntityDefnVariant::Function { ref source, .. } => match source {
+                        CallFormSource::Lazy { stmts } => true,
+                        CallFormSource::Static(_) => false,
+                        _ => panic!(),
+                    },
+                    _ => todo!(),
+                },
             },
             TraceVariant::EagerExpr {
                 ref expr,
