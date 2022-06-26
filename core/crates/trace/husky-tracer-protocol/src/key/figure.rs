@@ -8,16 +8,13 @@ pub enum FigureCanvasKey {
         attention: Attention,
     },
     Eager {
-        this: TraceId,
+        trace_id: TraceId,
     },
 }
 
 impl FigureCanvasKey {
-    pub fn from_trace_raw_data(
-        trace_raw_data: &TraceData,
-        attention: &Attention,
-    ) -> FigureCanvasKey {
-        Self::new(trace_raw_data.kind, trace_raw_data.id, attention)
+    pub fn from_trace_data(trace_data: &TraceData, attention: &Attention) -> FigureCanvasKey {
+        Self::new(trace_data.kind, trace_data.id, attention)
     }
 
     pub fn new(trace_kind: TraceKind, trace_id: TraceId, attention: &Attention) -> FigureCanvasKey {
@@ -30,12 +27,12 @@ impl FigureCanvasKey {
                 trace_id,
                 attention: attention.clone(),
             },
-            TraceKind::FuncStmt => todo!(),
-            TraceKind::ProcStmt => todo!(),
-            TraceKind::ProcBranch => todo!(),
-            TraceKind::LoopFrame => todo!(),
-            TraceKind::EagerExpr => todo!(),
-            TraceKind::CallHead => todo!(),
+            TraceKind::FuncStmt
+            | TraceKind::ProcStmt
+            | TraceKind::ProcBranch
+            | TraceKind::EagerExpr
+            | TraceKind::LoopFrame => FigureCanvasKey::Eager { trace_id },
+            TraceKind::CallHead => FigureCanvasKey::Null,
         }
     }
 }
