@@ -81,11 +81,26 @@ impl HuskyDebuggerInternal {
                     let figure_canvas_data =
                         match self.trace_time.figure_canvas(trace_id, attention) {
                             Ok(figure_canvas_data) => figure_canvas_data,
-                            Err((sample_id, error)) => {
-                                return Some(HuskyTracerServerMessageVariant::ActivateWithError {
-                                    sample_id,
-                                    error: format!("{:?}", error),
-                                })
+                            Err((sample_id0, error)) => {
+                                match attention {
+                                    Attention::Specific { sample_id } => {
+                                        if *sample_id != sample_id0 {
+                                            return Some(
+                                            HuskyTracerServerMessageVariant::ActivateWithError {
+                                                sample_id: sample_id0,
+                                                error: format!("{:?}", error),
+                                            },
+                                        );
+                                        }
+                                    }
+                                    Attention::Generic {
+                                        partitions,
+                                        constraints,
+                                    } => (),
+                                }
+                                FigureCanvasData::EvalError {
+                                    message: format!("{:?}", error),
+                                }
                             }
                         };
                     Some(HuskyTracerServerMessageVariant::Activate {

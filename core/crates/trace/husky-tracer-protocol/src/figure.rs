@@ -36,6 +36,9 @@ pub enum FigureCanvasData {
     GenericI32 {
         partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, i32)>)>,
     },
+    EvalError {
+        message: String,
+    },
 }
 
 impl Signalable for FigureCanvasData {}
