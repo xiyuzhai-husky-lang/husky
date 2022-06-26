@@ -31,6 +31,10 @@ impl<'eval> History<'eval> {
     }
 
     pub fn write(&mut self, ins: &Instruction, entry: HistoryEntry<'eval>) {
-        should!(self.entries.insert(ins.id(), entry).is_none());
+        if let Some(old_value) = self.entries.insert(ins.ins_id(), entry) {
+            p!(ins.src.file(), ins.src.text_range());
+            p!(old_value);
+            panic!()
+        }
     }
 }

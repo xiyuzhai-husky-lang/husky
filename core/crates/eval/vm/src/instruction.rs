@@ -27,7 +27,7 @@ pub struct Instruction {
 
 impl PartialEq for Instruction {
     fn eq(&self, other: &Self) -> bool {
-        self.variant == other.variant && self.src.instruction_id() == other.src.instruction_id()
+        self.variant == other.variant && self.ins_id() == other.ins_id()
     }
 }
 
@@ -38,7 +38,7 @@ impl Instruction {
         Self { variant, src }
     }
 
-    pub fn id(&self) -> InstructionId {
+    pub fn ins_id(&self) -> InstructionId {
         self.src.instruction_id()
     }
 }
@@ -69,7 +69,10 @@ pub enum InstructionVariant {
         ty: EntityRoutePtr,
         varname: Identifier,
     },
-    PushPrimitiveLiteral(CopyableValue),
+    PushPrimitiveLiteral {
+        value: CopyableValue,
+        explicit: bool,
+    },
     PushEnumKindLiteral(EnumKindValue),
     FieldAccessInterpreted {
         field_idx: u8,

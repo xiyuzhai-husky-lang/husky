@@ -58,16 +58,20 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::PushPrimitiveLiteral(value) => {
+                InstructionVariant::PushPrimitiveLiteral { value, explicit } => {
                     self.stack.push(value.into());
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                output: Ok(self.stack.eval_top()),
-                            },
-                        ),
+                        Mode::TrackHistory => {
+                            if explicit {
+                                self.history.write(
+                                    ins,
+                                    HistoryEntry::PureExpr {
+                                        output: Ok(self.stack.eval_top()),
+                                    },
+                                )
+                            }
+                        }
                     }
                     VMControl::None
                 }

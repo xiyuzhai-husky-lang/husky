@@ -166,7 +166,10 @@ impl<'a> InstructionSheetBuilder<'a> {
             self.compile_eager_expr(bound, self.sheet.variable_stack.next_stack_idx())
         } else {
             self.push_instruction(Instruction::new(
-                InstructionVariant::PushPrimitiveLiteral(0i32.into()),
+                InstructionVariant::PushPrimitiveLiteral {
+                    value: 0i32.into(),
+                    explicit: false,
+                },
                 loop_stmt.clone(),
             ))
         }
