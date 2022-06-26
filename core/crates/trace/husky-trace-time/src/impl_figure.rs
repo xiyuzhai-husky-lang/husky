@@ -1,3 +1,5 @@
+mod utils;
+
 use crate::*;
 use eval_feature::EvalFeature;
 use feature_gen::{FeatureLazyExpr, FeatureLazyExprVariant, FeatureStmt, FeatureStmtVariant};
@@ -7,7 +9,7 @@ use semantics_eager::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
 };
 use text::TextQueryGroup;
-use vm::{History, HistoryEntry, MutationData, MutationDataKind, StackSnapshot};
+use vm::{History, HistoryEntry, MutationData, MutationDataVariant, StackSnapshot};
 
 impl HuskyTraceTime {
     pub fn figure_canvas(

@@ -49,7 +49,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                 HistoryEntry::Exec {
                                     mutations: vec![MutationData {
                                         file: ins.src.file(),
-                                        kind: MutationDataKind::Exec { range: this_range },
+                                        range: this_range,
+                                        kind: MutationDataVariant::Exec,
                                         ty: this_ty,
                                         before: Some(before),
                                         after,
@@ -110,7 +111,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                 HistoryEntry::Exec {
                                     mutations: vec![MutationData {
                                         file: ins.src.file(),
-                                        kind: MutationDataKind::Exec { range: this_range },
+                                        range: this_range,
+                                        kind: MutationDataVariant::Exec,
                                         ty: this_ty,
                                         before: Some(before),
                                         after,
@@ -143,7 +145,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                 HistoryEntry::Exec {
                                     mutations: vec![MutationData {
                                         file: ins.src.file(),
-                                        kind: MutationDataKind::Exec { range: this_range },
+                                        range: this_range,
+                                        kind: MutationDataVariant::Exec,
                                         ty: this_ty,
                                         before: Some(before),
                                         after,

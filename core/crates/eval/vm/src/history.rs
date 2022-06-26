@@ -8,7 +8,7 @@ use check_utils::should;
 pub use entry::HistoryEntry;
 use print_utils::p;
 
-#[derive(Debug, Default, Clone)]
+#[derive(Debug, Default)]
 pub struct History<'eval> {
     entries: HashMap<InstructionId, HistoryEntry<'eval>>,
 }

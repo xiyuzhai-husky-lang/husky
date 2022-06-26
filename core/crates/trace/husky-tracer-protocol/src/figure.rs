@@ -60,28 +60,7 @@ pub struct MutationFigureData {
 //         idx: usize,
 //         verbose: bool,
 //     ) -> Self {
-//         MutationFigureProps {
-//             name: match mutation_data.kind {
-//                 vm::MutationDataKind::Exec { range } => text.ranged(range),
-//                 vm::MutationDataKind::Block { varname, .. } => varname.as_str().to_string(),
-//             },
-//             before: if let Some(before) = mutation_data.before.as_ref() {
-//                 Some(FigureCanvasData::new_specific(visualizer.visualize(
-//                     db,
-//                     before.any_ref(),
-//                     verbose,
-//                 )))
-//             } else {
-//                 None
-//             },
-//             after: FigureCanvasData::new_specific(visualizer.visualize(
-//                 db,
-//                 mutation_data.after.any_ref(),
-//                 verbose,
-//             )),
-//             idx,
-//         }
-//     }
+
 // }
 
 impl FigureCanvasData {

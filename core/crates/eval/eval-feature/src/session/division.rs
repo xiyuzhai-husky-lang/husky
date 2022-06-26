@@ -1,5 +1,6 @@
 use datasets_static_defn::{DataLoader, LabeledData};
 use feature_gen::*;
+use vm::EvalRef;
 
 use crate::*;
 
@@ -36,5 +37,20 @@ impl<'eval> Division<'eval> {
         (0..self.loader.len())
             .into_iter()
             .map(|idx| self.loader.load(SampleId(idx)))
+    }
+
+    pub fn cache_temp_value(
+        &self,
+        feature: FeaturePtr,
+        sample_id: SampleId,
+        value: &EvalValue<'static>,
+    ) -> EvalRef<'static>
+    where
+        'eval: 'static,
+    {
+        self.sheets[sample_id.0]
+            .cache(EvalKey::Feature(feature), Ok(value.clone()))
+            .unwrap()
+            .eval_ref()
     }
 }

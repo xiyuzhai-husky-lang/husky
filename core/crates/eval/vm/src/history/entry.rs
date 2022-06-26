@@ -2,7 +2,7 @@ use avec::Avec;
 
 use crate::*;
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub enum HistoryEntry<'eval> {
     // Stmt { control: VMControlSnapshot },
     PureExpr {
