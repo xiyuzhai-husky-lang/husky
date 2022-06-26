@@ -23,8 +23,8 @@ impl HuskyTraceTime {
                     self.eval_time().eval_feature_repr(block, sample_id).into(),
                 ],
             },
-            TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
-                FeatureStmtVariant::Init { varname, ref value } => TraceStalkData {
+            TraceVariant::FeatureLazyStmt(ref stmt) => match stmt.variant {
+                FeatureLazyStmtVariant::Init { varname, ref value } => TraceStalkData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
                         self.eval_time()
@@ -32,7 +32,7 @@ impl HuskyTraceTime {
                             .into(),
                     ],
                 },
-                FeatureStmtVariant::Assert { ref condition } => TraceStalkData {
+                FeatureLazyStmtVariant::Assert { ref condition } => TraceStalkData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
                         self.eval_time()
@@ -40,7 +40,7 @@ impl HuskyTraceTime {
                             .into(),
                     ],
                 },
-                FeatureStmtVariant::Return { ref result } => TraceStalkData {
+                FeatureLazyStmtVariant::Return { ref result } => TraceStalkData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
                         self.eval_time()
@@ -48,13 +48,13 @@ impl HuskyTraceTime {
                             .into(),
                     ],
                 },
-                FeatureStmtVariant::ConditionFlow { ref branches } => panic!(),
-                FeatureStmtVariant::ReturnXml { ref result } => todo!(),
+                FeatureLazyStmtVariant::ConditionFlow { ref branches } => panic!(),
+                FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
             },
-            TraceVariant::FeatureBranch(_) => TraceStalkData {
+            TraceVariant::FeatureLazyBranch(_) => TraceStalkData {
                 extra_tokens: vec![],
             },
-            TraceVariant::FeatureExpr(ref expr) => TraceStalkData {
+            TraceVariant::FeatureLazyExpr(ref expr) => TraceStalkData {
                 extra_tokens: vec![
                     husky_tracer_protocol::fade!(" = "),
                     self.eval_time()

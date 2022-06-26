@@ -1,7 +1,10 @@
 use super::*;
 
 impl HuskyTraceTime {
-    pub(crate) fn feature_branch_tokens(&mut self, branch: &FeatureBranch) -> Vec<TraceTokenData> {
+    pub(crate) fn feature_branch_tokens(
+        &mut self,
+        branch: &FeatureLazyBranch,
+    ) -> Vec<TraceTokenData> {
         match branch.variant {
             FeatureBranchVariant::If { ref condition } => {
                 let mut tokens = vec![keyword!("if ")];

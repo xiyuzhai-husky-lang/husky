@@ -3,7 +3,9 @@ mod utils;
 
 use crate::*;
 use eval_feature::EvalFeature;
-use feature_gen::{FeatureLazyExpr, FeatureLazyExprVariant, FeatureStmt, FeatureStmtVariant};
+use feature_gen::{
+    FeatureLazyExpr, FeatureLazyExprVariant, FeatureLazyStmt, FeatureLazyStmtVariant,
+};
 use husky_compile_time::*;
 use map_collect::MapCollect;
 use semantics_eager::{
@@ -21,9 +23,9 @@ impl HuskyTraceTime {
         let trace = self.trace(trace_id);
         Ok(match trace.variant {
             TraceVariant::Main(_) => FigureCanvasData::void(),
-            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, attention)?,
-            TraceVariant::FeatureBranch(_) => FigureCanvasData::void(),
-            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr, attention)?,
+            TraceVariant::FeatureLazyStmt(ref stmt) => self.feature_stmt_figure(stmt, attention)?,
+            TraceVariant::FeatureLazyBranch(_) => FigureCanvasData::void(),
+            TraceVariant::FeatureLazyExpr(ref expr) => self.feature_expr_figure(expr, attention)?,
             TraceVariant::FeatureCallArgument {
                 argument: ref input,
                 ..

@@ -12,12 +12,12 @@ mod unique_allocate;
 mod visual;
 
 pub use block::*;
-pub use branch::{FeatureBranch, FeatureBranchVariant};
+pub use branch::{FeatureBranchVariant, FeatureLazyBranch};
 pub use eval_id::*;
 pub use expr::*;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
 pub use repr::*;
-pub use stmt::{FeatureStmt, FeatureStmtVariant};
+pub use stmt::{FeatureLazyStmt, FeatureLazyStmtVariant};
 pub use unique_allocate::{
     new_feature_interner, AllocateUniqueFeature, FeatureInterner, FeaturePtr,
 };
@@ -103,7 +103,7 @@ pub enum Feature {
 }
 
 impl Feature {
-    pub fn block(features: &FeatureInterner, stmts: &[Arc<FeatureStmt>]) -> FeaturePtr {
+    pub fn block(features: &FeatureInterner, stmts: &[Arc<FeatureLazyStmt>]) -> FeaturePtr {
         let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
         if stmt_features.len() == 1 {
             stmt_features[0]

@@ -1,7 +1,6 @@
 mod impl_attention;
 mod impl_call_head;
 mod impl_eager_expr;
-mod impl_feature_block;
 mod impl_feature_stmt;
 mod impl_figure;
 mod impl_figure_control;
@@ -130,11 +129,11 @@ impl HuskyTraceTime {
                     opt_associated_trace_id: None,
                 }],
             }],
-            TraceVariant::FeatureStmt(stmt) => self.feature_stmt_lines(stmt),
-            TraceVariant::FeatureExpr(expr) => {
+            TraceVariant::FeatureLazyStmt(stmt) => self.feature_stmt_lines(stmt),
+            TraceVariant::FeatureLazyExpr(ref expr) => {
                 self.feature_expr_lines(expr, ExprTokenConfig::expr(false))
             }
-            TraceVariant::FeatureBranch(branch) => self.feature_branch_lines(indent, branch),
+            TraceVariant::FeatureLazyBranch(branch) => self.feature_branch_lines(indent, branch),
             TraceVariant::FeatureCallArgument {
                 ident,
                 argument: input,

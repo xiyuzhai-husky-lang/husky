@@ -5,10 +5,13 @@ use crate::*;
 use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_feature_stmt(&mut self, stmt: &FeatureStmt) -> EvalResult<EvalValue<'eval>> {
+    pub(crate) fn eval_feature_stmt(
+        &mut self,
+        stmt: &FeatureLazyStmt,
+    ) -> EvalResult<EvalValue<'eval>> {
         match stmt.variant {
-            FeatureStmtVariant::Init { .. } => Ok(EvalValue::Undefined),
-            FeatureStmtVariant::Assert { ref condition } => {
+            FeatureLazyStmtVariant::Init { .. } => Ok(EvalValue::Undefined),
+            FeatureLazyStmtVariant::Assert { ref condition } => {
                 if self.satisfies(condition)? {
                     Ok(EvalValue::Undefined)
                 } else {
@@ -18,9 +21,9 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     .into())
                 }
             }
-            FeatureStmtVariant::Return { ref result } => self.eval_feature_lazy_expr(result),
-            FeatureStmtVariant::ReturnXml { ref result } => self.eval_feature_xml_expr(result),
-            FeatureStmtVariant::ConditionFlow { ref branches, .. } => {
+            FeatureLazyStmtVariant::Return { ref result } => self.eval_feature_lazy_expr(result),
+            FeatureLazyStmtVariant::ReturnXml { ref result } => self.eval_feature_xml_expr(result),
+            FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => {
                 for branch in branches {
                     let execute_branch: bool = match branch.variant {
                         FeatureBranchVariant::If { ref condition } => self.satisfies(condition)?,

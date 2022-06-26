@@ -9,15 +9,15 @@ impl<'eval> Trace {
         }
         match self.variant {
             TraceVariant::Main(_)
-            | TraceVariant::FeatureStmt(_)
-            | TraceVariant::FeatureBranch(_)
+            | TraceVariant::FeatureLazyStmt(_)
+            | TraceVariant::FeatureLazyBranch(_)
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::ProcStmt { .. }
             | TraceVariant::LoopFrame { .. }
             | TraceVariant::CallHead { .. }
             | TraceVariant::ProcBranch { .. } => None,
-            TraceVariant::FeatureExpr(ref expr) => match expr.variant {
+            TraceVariant::FeatureLazyExpr(ref expr) => match expr.variant {
                 FeatureLazyExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
                 FeatureLazyExprVariant::EntityFeature { .. } => None,
                 FeatureLazyExprVariant::RecordDerivedFieldAccess { .. }

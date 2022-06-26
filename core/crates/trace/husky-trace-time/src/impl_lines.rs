@@ -15,7 +15,7 @@ impl HuskyTraceTime {
     pub(crate) fn feature_branch_lines(
         &mut self,
         indent: Indent,
-        branch: &FeatureBranch,
+        branch: &FeatureLazyBranch,
     ) -> Vec<TraceLineData> {
         vec![TraceLineData {
             idx: 0,
