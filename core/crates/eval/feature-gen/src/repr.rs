@@ -42,7 +42,7 @@ impl FeatureRepr {
 
     pub fn file(&self) -> FilePtr {
         match self {
-            FeatureRepr::Value { .. } => todo!(),
+            FeatureRepr::Value { file, .. } => *file,
             FeatureRepr::Expr(expr) => expr.expr.file,
             FeatureRepr::LazyBlock(block) => block.file,
             FeatureRepr::FuncBlock(block) => block.file,
@@ -52,7 +52,7 @@ impl FeatureRepr {
 
     pub fn text_range(&self) -> TextRange {
         match self {
-            FeatureRepr::Value { .. } => todo!(),
+            FeatureRepr::Value { range, .. } => *range,
             FeatureRepr::Expr(expr) => expr.expr.range,
             FeatureRepr::LazyBlock(block) => block.range,
             FeatureRepr::FuncBlock(block) => block.range,
