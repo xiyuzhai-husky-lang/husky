@@ -9,7 +9,7 @@ pub struct FeatureLazyBlock {
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    pub stmts: Vec<Arc<FeatureStmt>>,
+    pub stmts: Vec<Arc<FeatureLazyStmt>>,
 }
 
 impl<'eval> std::hash::Hash for FeatureLazyBlock {
@@ -36,10 +36,16 @@ impl<'eval> FeatureLazyBlock {
     ) -> Arc<FeatureLazyBlock> {
         emsg_once!("generics for feature block");
         let mut symbols: Vec<FeatureSymbol> = externals.into();
-        let stmts: Vec<Arc<FeatureStmt>> = lazy_stmts
+        let stmts: Vec<Arc<FeatureLazyStmt>> = lazy_stmts
             .iter()
             .map(|lazy_stmt| {
-                FeatureStmt::new_from_lazy(db, opt_this.clone(), lazy_stmt, &mut symbols, features)
+                FeatureLazyStmt::new_from_lazy(
+                    db,
+                    opt_this.clone(),
+                    lazy_stmt,
+                    &mut symbols,
+                    features,
+                )
             })
             .collect();
         let feature = Feature::block(features, &stmts);

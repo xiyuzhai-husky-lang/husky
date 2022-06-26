@@ -19,17 +19,15 @@ impl HuskyTraceTime {
                 has_this,
                 ..
             } => {
-                let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
                 if let Some(sample_id) = self.attention.opt_sample_id() {
+                    let instruction_sheet: &InstructionSheet =
+                        opt_instruction_sheet.as_ref().unwrap();
                     let mut subtraces = vec![];
                     let mut func_input_values = vec![];
                     subtraces.push(self.new_call_head(parent, routine_defn.clone()));
                     let parameters: &[Parameter] = match routine_defn.variant {
                         EntityDefnVariant::Func { ref parameters, .. } => parameters,
-                        EntityDefnVariant::Proc {
-                            parameters: ref parameters,
-                            ..
-                        } => parameters,
+                        EntityDefnVariant::Proc { ref parameters, .. } => parameters,
                         _ => panic!(),
                     };
                     for (i, func_input) in opds.iter().enumerate() {
@@ -94,11 +92,9 @@ impl HuskyTraceTime {
             FeatureLazyExprVariant::EnumKindLiteral { .. } => panic!(),
             FeatureLazyExprVariant::EvalInput => panic!(),
             FeatureLazyExprVariant::ElementAccess { ref opds, .. } => panic!(),
-            FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
-                ref this,
-                field_ident,
-                ref repr,
-            } => todo!(),
+            FeatureLazyExprVariant::StructDerivedLazyFieldAccess { ref repr, .. } => {
+                self.feature_repr_subtraces(parent, repr)
+            }
             FeatureLazyExprVariant::ModelCall {
                 ref opds,
                 has_this,

@@ -1,4 +1,4 @@
-use feature_gen::FeatureStmtVariant;
+use feature_gen::FeatureLazyStmtVariant;
 use semantics_eager::ProcStmtVariant;
 use serde::{Deserialize, Serialize};
 use trace::*;
@@ -34,9 +34,9 @@ impl HuskyTraceTime {
         let trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(_)
-            | TraceVariant::FeatureStmt(_)
-            | TraceVariant::FeatureBranch(_)
-            | TraceVariant::FeatureExpr(_)
+            | TraceVariant::FeatureLazyStmt(_)
+            | TraceVariant::FeatureLazyBranch(_)
+            | TraceVariant::FeatureLazyExpr(_)
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::EagerExpr { .. }

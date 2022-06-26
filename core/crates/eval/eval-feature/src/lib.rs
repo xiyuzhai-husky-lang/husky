@@ -65,7 +65,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
 
     fn eval_feature_stmt(
         &self,
-        stmt: &FeatureStmt,
+        stmt: &FeatureLazyStmt,
         sample_id: SampleId,
     ) -> EvalResult<EvalValue<'eval>> {
         self.evaluator(sample_id).eval_feature_stmt(stmt)

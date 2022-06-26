@@ -10,7 +10,7 @@ impl HuskyTraceTime {
         let trace = unsafe { self.trace_ref(trace_id) };
         match trace.variant {
             TraceVariant::Main(ref repr) => self.feature_repr_subtraces(&trace, repr),
-            TraceVariant::FeatureStmt(_)
+            TraceVariant::FeatureLazyStmt(_)
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::CallHead { .. } => vec![],
@@ -60,8 +60,8 @@ impl HuskyTraceTime {
                     ref branches,
                 } => todo!(),
             },
-            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_subtraces(trace, expr),
-            TraceVariant::FeatureBranch(ref branch) => {
+            TraceVariant::FeatureLazyExpr(ref expr) => self.feature_expr_subtraces(trace, expr),
+            TraceVariant::FeatureLazyBranch(ref branch) => {
                 self.feature_lazy_block_subtraces(trace, &branch.block)
             }
             TraceVariant::EagerExpr {

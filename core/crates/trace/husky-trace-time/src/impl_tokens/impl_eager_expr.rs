@@ -100,8 +100,10 @@ impl HuskyTraceTime {
                 }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::ThisValue { .. } => todo!(),
-            EagerExprVariant::ThisField { .. } => todo!(),
+            EagerExprVariant::ThisValue { .. } => tokens.push(ident!("this")),
+            EagerExprVariant::ThisField { field_ident, .. } => {
+                tokens.push(ident!(field_ident.ident.0))
+            }
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
         };
         if config.appended {

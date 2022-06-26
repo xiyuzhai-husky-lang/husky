@@ -10,36 +10,36 @@ use vm::EvalResult;
 use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, Clone)]
-pub struct FeatureStmt {
+pub struct FeatureLazyStmt {
     pub indent: fold::Indent,
-    pub variant: FeatureStmtVariant,
+    pub variant: FeatureLazyStmtVariant,
     pub opt_feature: Option<FeaturePtr>,
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
 }
 
-impl std::hash::Hash for FeatureStmt {
+impl std::hash::Hash for FeatureLazyStmt {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }
 }
 
-impl PartialEq for FeatureStmt {
+impl PartialEq for FeatureLazyStmt {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl Eq for FeatureStmt {}
+impl Eq for FeatureLazyStmt {}
 
-impl text::TextRanged for FeatureStmt {
+impl text::TextRanged for FeatureLazyStmt {
     fn text_range(&self) -> text::TextRange {
         self.range
     }
 }
 
-impl FeatureStmt {
+impl FeatureLazyStmt {
     pub fn new_from_lazy(
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
@@ -61,7 +61,7 @@ impl FeatureStmt {
                     value: value.clone(),
                     feature: value.feature,
                 });
-                FeatureStmtVariant::Init {
+                FeatureLazyStmtVariant::Init {
                     varname: varname.ident,
                     value,
                 }
@@ -74,9 +74,9 @@ impl FeatureStmt {
                     &symbols,
                     feature_interner,
                 );
-                FeatureStmtVariant::Assert { condition }
+                FeatureLazyStmtVariant::Assert { condition }
             }
-            LazyStmtVariant::Return { ref result } => FeatureStmtVariant::Return {
+            LazyStmtVariant::Return { ref result } => FeatureLazyStmtVariant::Return {
                 result: FeatureLazyExpr::new(
                     db,
                     opt_this.clone(),
@@ -85,7 +85,7 @@ impl FeatureStmt {
                     feature_interner,
                 ),
             },
-            LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureStmtVariant::ReturnXml {
+            LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureLazyStmtVariant::ReturnXml {
                 result: FeatureXmlExpr::new(
                     db,
                     opt_this.clone(),
@@ -95,10 +95,10 @@ impl FeatureStmt {
                 ),
             },
             LazyStmtVariant::ConditionFlow { ref branches } => {
-                let branches: Vec<Arc<FeatureBranch>> = branches
+                let branches: Vec<Arc<FeatureLazyBranch>> = branches
                     .iter()
                     .map(|branch| {
-                        Arc::new(FeatureBranch {
+                        Arc::new(FeatureLazyBranch {
                             block: FeatureLazyBlock::new(
                                 db,
                                 opt_this.clone(),
@@ -135,14 +135,14 @@ impl FeatureStmt {
                         })
                     })
                     .collect::<Vec<_>>();
-                FeatureStmtVariant::ConditionFlow { branches }
+                FeatureLazyStmtVariant::ConditionFlow { branches }
             }
             LazyStmtVariant::Match {
                 ref match_expr,
                 ref branches,
             } => todo!(),
         };
-        Arc::new(FeatureStmt {
+        Arc::new(FeatureLazyStmt {
             file: lazy_stmt.file,
             range: lazy_stmt.range,
             indent: lazy_stmt.indent,

@@ -17,7 +17,7 @@ impl HuskyTraceTime {
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
         let opt_associated_trace_id = if config.associated {
-            Some(self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone())))
+            Some(self.new_trace(None, 0, TraceVariant::FeatureLazyExpr(expr.clone())))
         } else {
             None
         };
