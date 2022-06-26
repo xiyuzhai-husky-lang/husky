@@ -169,20 +169,17 @@ impl HuskyTraceTime {
     pub(crate) fn eager_expr_figure(
         &self,
         expr: &EagerExpr,
-        history: &History,
+        history: &History<'static>,
     ) -> FigureCanvasData {
         if let Some(entry) = history.get(expr) {
             match entry {
                 HistoryEntry::PureExpr { output } => match output {
-                    Ok(output) => {
-                        let visual_props = self.eval_time().visualize(todo!(), todo!()).unwrap();
-                        FigureCanvasData::new_specific(self.visualize_temp_value(
-                            output,
-                            expr.ty(),
-                            expr.file,
-                            expr.range,
-                        ))
-                    }
+                    Ok(output) => FigureCanvasData::new_specific(self.visualize_temp_value(
+                        output,
+                        expr.ty(),
+                        expr.file,
+                        expr.range,
+                    )),
                     Err(e) => FigureCanvasData::void(),
                 },
                 HistoryEntry::Exec { .. } => todo!(),
