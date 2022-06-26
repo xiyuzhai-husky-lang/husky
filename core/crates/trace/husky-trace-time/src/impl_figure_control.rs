@@ -45,11 +45,14 @@ impl HuskyTraceTime {
                 ref stmt,
                 ref history,
             } => match stmt.variant {
-                ProcStmtVariant::Loop { .. } => match history.get(stmt).unwrap() {
-                    HistoryEntry::Loop { mutations, .. } => {
+                ProcStmtVariant::Loop { .. } => match history.get(stmt) {
+                    Some(HistoryEntry::Loop { mutations, .. }) => {
                         FigureControlData::mutations_default(mutations.len())
                     }
-                    _ => panic!(),
+                    _ => {
+                        p!(stmt.file, stmt.range);
+                        panic!()
+                    }
                 },
                 _ => FigureControlData::default(),
             },
