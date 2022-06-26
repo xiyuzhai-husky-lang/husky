@@ -1,15 +1,18 @@
 mod trace_arrival;
 mod trace_expansion;
 mod trace_pin;
+mod trace_token;
 
 use super::*;
 use trace_arrival::*;
 use trace_expansion::*;
 use trace_pin::*;
+use trace_token::*;
 
 #[derive(Prop)]
 pub struct TraceLineProps<'a> {
     data: &'a TraceLineData,
+    is_trace_active: &'a ReadSignal<bool>,
     trace_id: TraceId,
     trace_kind: TraceKind,
     has_subtraces: &'a ReadSignal<bool>,
@@ -28,6 +31,7 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
             .map(|token_data| {
                 view! { scope,
                     TraceToken {
+                        is_trace_active: props.is_trace_active,
                         data: token_data,
                     }
                 }
@@ -41,6 +45,7 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
                 .map(|token_data| {
                     view! { scope,
                         TraceToken {
+                            is_trace_active: props.is_trace_active,
                             data: token_data,
                         }
                     }

@@ -1,7 +1,10 @@
 use super::*;
+use web_sys::Event;
+use web_sys::MouseEvent;
 
 #[derive(Prop)]
 pub struct TraceTokenProps<'a> {
+    is_trace_active: &'a ReadSignal<bool>,
     data: &'a TraceTokenData,
 }
 
@@ -11,10 +14,38 @@ pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps<'a>) -> 
     let spaces_before_style = spaces_style(count_spaces_before(text));
     let spaces_after_style = spaces_style(count_spaces_after(text));
     let token_kind = props.data.kind;
+    let context = use_debugger_context(scope);
+    let shown = memo!(scope, move || {
+        if let Some(associated_trace_id) = props.data.opt_associated_trace_id {
+            context
+                .trace_context
+                .shown_signal(associated_trace_id)
+                .cget()
+        } else {
+            false
+        }
+    });
     view! {
         scope,
         span (style=spaces_before_style)
-        code(class=format!("TraceToken {}", token_kind)) {
+        code(
+            class=format!("TraceToken {} {}", token_kind,
+                if shown.cget() {
+                    "associated_trace_shown"
+                } else {
+                    ""
+                }
+            ),
+            on:mousedown=move |ev:Event|{
+                if props.is_trace_active.cget() {
+                    let ev: MouseEvent = ev.dyn_into().unwrap();
+                    if let Some(associated_trace_id) = props.data.opt_associated_trace_id {
+                        let context = use_debugger_context(scope);
+                        context.toggle_shown(associated_trace_id)
+                    }
+                }
+            }
+        ) {
             (props.data.value)
         }
         span (style=spaces_after_style)
