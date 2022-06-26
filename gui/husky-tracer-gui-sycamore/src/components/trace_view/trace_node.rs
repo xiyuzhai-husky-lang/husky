@@ -27,7 +27,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let activate_handler = debuggerer_context.activate_handler(props.trace_id);
     let opt_active_trace_id = &trace_context.opt_active_trace_id;
     let trace_id = trace.id;
-    let active = memo!(scope, move || opt_active_trace_id.cget() == Some(trace_id));
+    let is_trace_active = memo!(scope, move || opt_active_trace_id.cget() == Some(trace_id));
     let trace_lines_len = trace.lines.len();
     let trace_lines = View::new_fragment(
         trace
@@ -52,6 +52,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 view! { scope,
                     TraceLine {
                         data: line_data,
+                        is_trace_active,
                         trace_id,
                         trace_kind,
                         has_subtraces,
@@ -71,7 +72,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
         ) {
             div(
                 class={
-                    if active.cget() {
+                    if is_trace_active.cget() {
                         "TraceNodeInternal active"
                     } else {
                         "TraceNodeInternal"

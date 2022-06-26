@@ -1,12 +1,10 @@
 mod trace_line;
 mod trace_node;
-mod trace_token;
 mod trace_tree;
 
 use super::*;
 use trace_line::*;
 use trace_node::*;
-use trace_token::*;
 use trace_tree::*;
 
 #[component]
