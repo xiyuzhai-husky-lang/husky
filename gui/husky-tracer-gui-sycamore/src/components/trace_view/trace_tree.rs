@@ -36,29 +36,32 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
             }
         }
     });
-    if shown.cget() {
-        view! {
-            scope,
-            div(class="TraceTree") {
-                TraceNode {
-                    trace_id: props.trace_id,
-                    attention,
-                }
-                (associated_trace_trees)
-                div {
-                    Indexed {
-                        iterable: subtrace_ids,
-                        view: |scope, trace_id| view! {
-                            scope,
-                            TraceTree {
-                                trace_id,
-                            }
-                        },
+    view! {
+        scope,
+        (if shown.cget() {
+            view! {
+                scope,
+                div(class="TraceTree") {
+                    TraceNode {
+                        trace_id: props.trace_id,
+                        attention,
+                    }
+                    (associated_trace_trees)
+                    div {
+                        Indexed {
+                            iterable: subtrace_ids,
+                            view: |scope, trace_id| view! {
+                                scope,
+                                TraceTree {
+                                    trace_id,
+                                }
+                            },
+                        }
                     }
                 }
             }
-        }
-    } else {
-        view! {scope, }
+        } else {
+            view! {scope, }
+        })
     }
 }
