@@ -198,4 +198,8 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
     {
         self
     }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
+    }
 }

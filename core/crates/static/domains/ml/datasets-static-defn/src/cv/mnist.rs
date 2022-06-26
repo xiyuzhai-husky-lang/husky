@@ -7,6 +7,7 @@ mod val;
 
 pub use binary_grid28::*;
 pub use binary_image28::*;
+use entity_route::EntityRoutePtr;
 use liason::OutputLiason;
 
 use super::*;
@@ -97,6 +98,10 @@ impl<'eval> AnyValue<'eval> for MnistDataset {
     where
         'eval: 'short,
     {
+        todo!()
+    }
+
+    fn ty(&self) -> EntityRoutePtr {
         todo!()
     }
 }

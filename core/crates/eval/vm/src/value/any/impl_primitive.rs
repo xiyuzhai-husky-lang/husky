@@ -41,6 +41,10 @@ impl<'eval> AnyValue<'eval> for () {
     {
         self
     }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
+    }
 }
 
 impl<'eval> AnyValue<'eval> for i32 {
@@ -84,6 +88,10 @@ impl<'eval> AnyValue<'eval> for i32 {
     {
         self
     }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
+    }
 }
 
 impl<'eval> AnyValue<'eval> for f32 {
@@ -126,6 +134,10 @@ impl<'eval> AnyValue<'eval> for f32 {
         'eval: 'short,
     {
         self
+    }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
     }
 }
 
@@ -174,6 +186,10 @@ impl<'eval> AnyValue<'eval> for u32 {
     {
         self
     }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
+    }
 }
 
 impl<'eval> AnyValue<'eval> for u64 {
@@ -221,6 +237,10 @@ impl<'eval> AnyValue<'eval> for u64 {
     {
         self
     }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
+    }
 }
 
 impl<'eval> AnyValue<'eval> for bool {
@@ -263,5 +283,9 @@ impl<'eval> AnyValue<'eval> for bool {
         'eval: 'short,
     {
         self
+    }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
     }
 }

@@ -5,11 +5,18 @@ mod impl_slice;
 mod impl_vec;
 mod impl_visual_props;
 
+use entity_route::EntityRoutePtr;
 use print_utils::p;
 use serde::Serialize;
 
 use crate::*;
-use std::{any::TypeId, borrow::Cow, fmt::Debug, panic::RefUnwindSafe, sync::Arc};
+use std::{
+    any::TypeId,
+    borrow::Cow,
+    fmt::Debug,
+    panic::{RefUnwindSafe, UnwindSafe},
+    sync::Arc,
+};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum StaticTypeId {
@@ -41,7 +48,9 @@ pub enum HuskyBuiltinStaticTypeId {
 }
 
 // type level trait
-pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + RefUnwindSafe {
+pub trait AnyValue<'eval>:
+    Debug + Send + Sync + Sized + PartialEq + Clone + RefUnwindSafe + UnwindSafe
+{
     fn static_type_id() -> StaticTypeId;
     fn static_type_name() -> Cow<'static, str>;
     // fn clone_shared(&self) -> Arc<dyn AnyValueDyn<'eval>>;
@@ -83,10 +92,11 @@ pub trait AnyValue<'eval>: Debug + Send + Sync + Sized + PartialEq + Clone + Ref
     fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short;
+    fn ty(&self) -> EntityRoutePtr;
 }
 
 // object safe trait
-pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe {
+pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
     fn static_type_id_dyn(&self) -> StaticTypeId;
     fn static_type_name_dyn(&self) -> Cow<'static, str>;
     // fn clone_into_copyable_dyn<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
@@ -111,6 +121,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe {
     where
         Self: 'eval;
     fn to_json_value_dyn(&self) -> serde_json::value::Value;
+    fn ty_dyn(&self) -> EntityRoutePtr;
 }
 
 impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
@@ -198,5 +209,9 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         'eval: 'short,
     {
         self.short()
+    }
+
+    fn ty_dyn(&self) -> EntityRoutePtr {
+        self.ty()
     }
 }

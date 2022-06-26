@@ -5,7 +5,7 @@ use print_utils::{epin, msg_once, p};
 use semantics_entity::{CallFormSource, EntityDefnVariant};
 use semantics_lazy::LazyStmt;
 use static_defn::LinkageSource;
-use std::{iter::zip, sync::Arc};
+use std::{iter::zip, panic::catch_unwind, sync::Arc};
 use vm::*;
 use word::IdentPairDict;
 
@@ -36,14 +36,31 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref this,
                 field_idx,
                 field_binding,
-                opt_linkage: opt_compiled,
+                opt_linkage,
+                field_ident,
                 ..
             } => {
-                if let Some(compiled) = opt_compiled {
+                if let Some(compiled) = opt_linkage {
                     todo!()
                 } else {
                     let this_value = self.eval_feature_repr(this)?;
-                    Ok(unsafe { this_value.field_access(field_idx, field_binding) })
+                    match catch_unwind(move || unsafe {
+                        this_value.field_access(field_idx, field_binding)
+                    }) {
+                        Ok(value) => Ok(value),
+                        Err(error) => {
+                            p!(
+                                field_idx,
+                                field_ident,
+                                this.ty(),
+                                expr.expr.ty(),
+                                expr.expr.file,
+                                expr.expr.range
+                            );
+                            p!(error);
+                            todo!()
+                        }
+                    }
                 }
             }
             FeatureLazyExprVariant::RoutineCall {
@@ -149,7 +166,9 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         match expr.variant {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
+                p!(this.ty());
                 let visual_data = self.visualize(this);
+                p!(visual_data);
                 Ok(EvalValue::Owned(OwnedValue::new(visual_data?)))
             }
             FeatureXmlExprVariant::Tag {
