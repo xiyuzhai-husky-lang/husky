@@ -20,7 +20,7 @@ impl HuskyTraceTime {
             TraceVariant::Main(ref block) => TraceStalkData {
                 extra_tokens: vec![
                     husky_tracer_protocol::fade!(" = "),
-                    self.runtime_singleton
+                    self.eval_time_singleton
                         .eval_feature_repr(block, sample_id)
                         .into(),
                 ],
@@ -29,7 +29,7 @@ impl HuskyTraceTime {
                 FeatureStmtVariant::Init { varname, ref value } => TraceStalkData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
-                        self.runtime_singleton
+                        self.eval_time_singleton
                             .eval_feature_lazy_expr(value, sample_id)
                             .into(),
                     ],
@@ -37,7 +37,7 @@ impl HuskyTraceTime {
                 FeatureStmtVariant::Assert { ref condition } => TraceStalkData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
-                        self.runtime_singleton
+                        self.eval_time_singleton
                             .eval_feature_lazy_expr(condition, sample_id)
                             .into(),
                     ],
@@ -45,7 +45,7 @@ impl HuskyTraceTime {
                 FeatureStmtVariant::Return { ref result } => TraceStalkData {
                     extra_tokens: vec![
                         husky_tracer_protocol::fade!(" = "),
-                        self.runtime_singleton
+                        self.eval_time_singleton
                             .eval_feature_lazy_expr(result, sample_id)
                             .into(),
                     ],
@@ -59,7 +59,7 @@ impl HuskyTraceTime {
             TraceVariant::FeatureExpr(ref expr) => TraceStalkData {
                 extra_tokens: vec![
                     husky_tracer_protocol::fade!(" = "),
-                    self.runtime_singleton
+                    self.eval_time_singleton
                         .eval_feature_lazy_expr(expr, sample_id)
                         .into(),
                 ],
