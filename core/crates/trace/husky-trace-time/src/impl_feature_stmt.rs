@@ -1,6 +1,6 @@
 use crate::*;
 
-use super::{impl_token::ExprTokenConfig, *};
+use super::{impl_tokens::ExprTokenConfig, *};
 
 impl HuskyTraceTime {
     pub fn feature_stmt_traces(&mut self, parent: &Trace, stmt: Arc<FeatureStmt>) -> Vec<TraceId> {

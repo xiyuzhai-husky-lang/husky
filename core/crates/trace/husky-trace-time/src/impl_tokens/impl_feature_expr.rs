@@ -1,4 +1,4 @@
-use super::impl_token::ExprTokenConfig;
+use super::impl_tokens::ExprTokenConfig;
 use super::*;
 use crate::*;
 use entity_route::RangedEntityRoute;
@@ -137,26 +137,31 @@ impl HuskyTraceTime {
                 ref this,
                 field_ident,
                 ..
-            } => self.feature_field_access_tokens(config, this, field_ident),
+            } => self.feature_eager_field_access_tokens(config, this, field_ident),
             FeatureLazyExprVariant::StructOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
-            } => self.feature_field_access_tokens(config, this, field_ident),
+            } => self.feature_eager_field_access_tokens(config, this, field_ident),
             FeatureLazyExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
-            } => self.feature_field_access_tokens(config, this, field_ident),
+            } => self.feature_eager_field_access_tokens(config, this, field_ident),
             FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
-                ref repr,
-            } => self.feature_field_access_tokens(config, this, field_ident),
+                ..
+            } => self.feature_lazy_field_access_tokens(
+                config,
+                this,
+                field_ident,
+                opt_associated_trace_id,
+            ),
         };
     }
 
-    fn feature_field_access_tokens(
+    fn feature_eager_field_access_tokens(
         &mut self,
         config: ExprTokenConfig,
         this: &FeatureRepr,
@@ -166,6 +171,26 @@ impl HuskyTraceTime {
             FeatureRepr::Expr(this) => {
                 let mut tokens = self.feature_expr_tokens(this, config);
                 tokens.extend([special!("."), ident!(field_ident.ident.as_str())]);
+                tokens
+            }
+            _ => vec![ident!(field_ident.ident.as_str())],
+        }
+    }
+
+    fn feature_lazy_field_access_tokens(
+        &mut self,
+        config: ExprTokenConfig,
+        this: &FeatureRepr,
+        field_ident: RangedCustomIdentifier,
+        opt_associated_trace_id: Option<TraceId>,
+    ) -> Vec<TraceTokenData> {
+        match this {
+            FeatureRepr::Expr(this) => {
+                let mut tokens = self.feature_expr_tokens(this, config);
+                tokens.extend([
+                    special!("."),
+                    ident!(field_ident.ident.as_str(), opt_associated_trace_id),
+                ]);
                 tokens
             }
             _ => vec![ident!(field_ident.ident.as_str())],

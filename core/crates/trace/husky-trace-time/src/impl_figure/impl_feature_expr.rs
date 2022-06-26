@@ -1,27 +1,8 @@
-use super::impl_token::ExprTokenConfig;
-use crate::*;
-use entity_route::RangedEntityRoute;
-use eval_feature::EvalFeature;
-use print_utils::epin;
-use semantics_lazy::{LazyExprVariant, LazyOpnKind};
-use text::RangedCustomIdentifier;
 use visualizer_gen::VisualTy;
-use vm::InterpreterQueryGroup;
-use word::CustomIdentifier;
+
+use super::*;
 
 impl HuskyTraceTime {
-    pub(crate) fn feature_expr_lines(
-        &mut self,
-        expr: &Arc<FeatureLazyExpr>,
-        config: ExprTokenConfig,
-    ) -> Vec<TraceLineData> {
-        vec![TraceLineData {
-            indent: 0,
-            idx: 0,
-            tokens: self.feature_expr_tokens(expr, config),
-        }]
-    }
-
     pub(crate) fn feature_expr_figure(
         &self,
         expr: &Arc<FeatureLazyExpr>,
