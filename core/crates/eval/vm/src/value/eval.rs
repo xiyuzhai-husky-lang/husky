@@ -81,10 +81,8 @@ impl<'eval> EvalValue<'eval> {
     pub fn primitive(&self) -> CopyableValue {
         match self {
             EvalValue::Copyable(value) => *value,
-            EvalValue::Owned(_) => todo!(),
-            EvalValue::EvalPure(value) => todo!(),
-            EvalValue::EvalRef(_) => todo!(),
-            EvalValue::Undefined => todo!(),
+            EvalValue::EvalRef(value) => value.take_copyable_dyn(),
+            _ => panic!(),
         }
     }
 
@@ -121,14 +119,14 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(_) => panic!("primitive doesn't have member variables"),
             EvalValue::Owned(value) => {
-                let mut value: VirtualTy = value.take().unwrap();
+                let mut value: VirtualStruct = value.take().unwrap();
                 value.take_field(field_idx).into_eval()
             }
             EvalValue::EvalPure(_) => panic!("expect global ref"),
             EvalValue::EvalRef(value) => unsafe {
                 value
                     .0
-                    .downcast_ref::<VirtualTy<'eval>>()
+                    .downcast_ref::<VirtualStruct<'eval>>()
                     .eval_field(field_idx)
                     .share_globally()
             },

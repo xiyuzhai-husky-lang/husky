@@ -1,3 +1,5 @@
+use entity_route::EntityRoutePtr;
+
 use crate::*;
 
 impl<'eval> AnyValue<'eval> for VisualData {
@@ -18,5 +20,9 @@ impl<'eval> AnyValue<'eval> for VisualData {
         'eval: 'short,
     {
         self
+    }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
     }
 }

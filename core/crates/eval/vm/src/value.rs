@@ -559,24 +559,24 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
         msg_once!("ad hoc");
         match self {
             TempValue::OwnedEval(boxed_value) => {
-                let mut value: VirtualTy = boxed_value.take().unwrap();
+                let mut value: VirtualStruct = boxed_value.take().unwrap();
                 value.take_field(field_idx)
             }
             TempValue::EvalPure(_) => todo!(),
             TempValue::EvalRef(value) => {
-                let value: &VirtualTy = value.downcast_ref();
+                let value: &VirtualStruct = value.downcast_ref();
                 value.access_field(field_idx, field_binding)
             }
             TempValue::TempRefEval(value) => {
-                let value: &VirtualTy = value.downcast_ref();
+                let value: &VirtualStruct = value.downcast_ref();
                 value.access_field(field_idx, field_binding)
             }
             TempValue::TempRefTemp(value) => {
-                let value: &VirtualTy = value.downcast_ref();
+                let value: &VirtualStruct = value.downcast_ref();
                 value.access_field(field_idx, field_binding)
             }
             TempValue::TempRefMutEval { value, owner, gen } => {
-                let virtual_value: &mut VirtualTy = value.downcast_mut();
+                let virtual_value: &mut VirtualStruct = value.downcast_mut();
                 msg_once!("need cleaning");
                 virtual_value.field_mut(field_idx, field_binding, owner)
             }

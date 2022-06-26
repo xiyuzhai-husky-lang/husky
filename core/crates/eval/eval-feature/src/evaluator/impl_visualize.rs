@@ -1,4 +1,5 @@
 use crate::*;
+use check_utils::should_eq;
 use cyclic_slice::CyclicSlice;
 use feature_gen::*;
 use husky_tracer_protocol::VisualData;
@@ -20,16 +21,15 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
         'eval: 'static,
     {
         let visualizer = self.db.visualizer(this.ty());
+        let this_value = self.eval_feature_repr_cached(&this).unwrap();
+        should_eq!(this_value.any_ref().ty_dyn(), this.ty());
         Ok(match visualizer.variant {
-            VisualizerVariant::Compiled { call } => {
-                let value = self.eval_feature_repr_cached(&this).unwrap();
-                call(value.any_ref())
-            }
+            VisualizerVariant::Compiled { call } => call(this_value.any_ref()),
             VisualizerVariant::Vec { ty } => {
-                let value = self.eval_feature_repr_cached(&this).unwrap();
+                p!(this_value, this.ty());
                 let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = self.db.visualizer(elem_ty);
-                let any_value_dyn: &'static dyn AnyValueDyn<'static> = value.eval_ref().0;
+                let any_value_dyn: &'static dyn AnyValueDyn<'static> = this_value.eval_ref().0;
                 let virtual_vec: &Vec<MemberValue> =
                     any_value_dyn.downcast_ref::<Vec<MemberValue<'static>>>();
                 VisualData::Group(
@@ -54,10 +54,9 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                 )
             }
             VisualizerVariant::CyclicSlice { ty } => {
-                let value = self.eval_feature_repr_cached(&this).unwrap();
                 let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = self.db.visualizer(elem_ty);
-                let any_value_dyn: &'static dyn AnyValueDyn<'static> = value.eval_ref().0;
+                let any_value_dyn: &'static dyn AnyValueDyn<'static> = this_value.eval_ref().0;
                 let virtual_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> =
                     any_value_dyn.downcast_ref();
                 VisualData::Group(

@@ -2,7 +2,7 @@ use crate::*;
 use visualizer_gen::VisualizerVariant;
 use vm::EvalResult;
 
-pub(crate) fn visual_feature_repr<'eval>(
+pub(crate) fn visual_feature_repr(
     db: &dyn FeatureGenQueryGroup,
     this: FeatureRepr,
 ) -> EvalResult<FeatureRepr> {

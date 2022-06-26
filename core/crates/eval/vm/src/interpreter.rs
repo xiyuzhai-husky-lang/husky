@@ -90,7 +90,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     fn new_virtual_struct(&mut self, fields: &[CustomIdentifier]) -> EvalResult<()> {
         let parameters = self.stack.drain(fields.len().try_into().unwrap());
-        let value = VirtualTy::new_struct(parameters, fields).into();
+        let value = VirtualStruct::new_struct(parameters, fields).into();
         self.stack.push(value);
         Ok(())
     }

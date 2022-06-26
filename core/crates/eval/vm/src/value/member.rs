@@ -146,4 +146,8 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for MemberValue<'a> {
     {
         self
     }
+
+    fn ty(&self) -> entity_route::EntityRoutePtr {
+        self.any_ref().ty_dyn()
+    }
 }

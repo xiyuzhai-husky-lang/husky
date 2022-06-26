@@ -58,4 +58,8 @@ impl<'eval> AnyValue<'eval> for EnumKindValue {
     {
         self
     }
+
+    fn ty(&self) -> EntityRoutePtr {
+        self.route.parent()
+    }
 }

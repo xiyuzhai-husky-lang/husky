@@ -190,4 +190,8 @@ impl<'eval> AnyValue<'eval> for BinaryGrid28 {
     {
         self
     }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
+    }
 }

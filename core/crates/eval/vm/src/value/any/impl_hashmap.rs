@@ -32,4 +32,8 @@ where
     {
         self
     }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
+    }
 }

@@ -48,7 +48,7 @@ pub use iter::DataIter;
 pub use labeled::LabeledData;
 pub use loader::{DataLoader, LoadSample};
 
-use entity_route::EntityRouteKind;
+use entity_route::{EntityRouteKind, EntityRoutePtr};
 use serde::Serialize;
 use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
@@ -119,5 +119,9 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
         'eval: 'short,
     {
         self
+    }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
     }
 }

@@ -27,4 +27,8 @@ impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
     {
         self
     }
+
+    fn ty(&self) -> EntityRoutePtr {
+        todo!()
+    }
 }
