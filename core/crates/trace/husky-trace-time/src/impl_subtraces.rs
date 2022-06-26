@@ -1,3 +1,4 @@
+mod impl_feature_branch;
 mod impl_feature_expr;
 mod impl_feature_repr;
 

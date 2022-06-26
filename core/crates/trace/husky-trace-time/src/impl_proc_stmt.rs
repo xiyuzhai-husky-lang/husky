@@ -5,7 +5,7 @@ use text::Text;
 use upcast::Upcast;
 use vm::{MutationDataVariant, *};
 
-use super::{impl_token::ExprTokenConfig, *};
+use super::{impl_tokens::ExprTokenConfig, *};
 use crate::*;
 
 impl HuskyTraceTime {
