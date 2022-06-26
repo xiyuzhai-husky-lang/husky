@@ -49,6 +49,7 @@ impl HuskyTraceTime {
                     Some(HistoryEntry::Loop { mutations, .. }) => {
                         FigureControlData::mutations_default(mutations.len())
                     }
+                    None => Default::default(),
                     _ => {
                         p!(stmt.file, stmt.range);
                         panic!()
