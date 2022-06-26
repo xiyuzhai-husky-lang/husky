@@ -1,11 +1,9 @@
 mod impl_attention;
 mod impl_call_head;
 mod impl_eager_expr;
-mod impl_expr;
 mod impl_feature_block;
 mod impl_feature_branch;
 mod impl_feature_expr;
-mod impl_feature_repr;
 mod impl_feature_stmt;
 mod impl_figure;
 mod impl_figure_control;
@@ -13,6 +11,7 @@ mod impl_func_stmt;
 mod impl_ops;
 mod impl_proc_stmt;
 mod impl_subtraces;
+mod impl_token;
 mod impl_trace_stalk;
 mod trace_node;
 
@@ -24,7 +23,7 @@ use file::FilePtr;
 use husky_compile_time::{AskCompileTime, HuskyCompileTime};
 use husky_eval_time::{HuskyEvalTime, HuskyEvalTimeSingleton};
 use husky_tracer_protocol::*;
-use impl_expr::ExprTokenConfig;
+use impl_token::ExprTokenConfig;
 use print_utils::p;
 use semantics_eager::*;
 use serde::Deserialize;
@@ -40,7 +39,7 @@ use vm::*;
 use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
-    runtime_singleton: HuskyEvalTimeSingleton,
+    eval_time_singleton: HuskyEvalTimeSingleton,
     attention: Attention,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
@@ -53,7 +52,7 @@ pub struct HuskyTraceTime {
 impl HuskyTraceTime {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime), verbose: bool) -> Self {
         let mut trace_time = Self {
-            runtime_singleton: HuskyEvalTime::new(static_root_defn, init_compile_time, verbose),
+            eval_time_singleton: HuskyEvalTime::new(static_root_defn, init_compile_time, verbose),
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),
@@ -76,6 +75,10 @@ impl HuskyTraceTime {
 
     pub fn root_traces(&self) -> Vec<TraceId> {
         self.root_trace_ids.clone()
+    }
+
+    pub fn eval_time(&self) -> &HuskyEvalTime {
+        &self.eval_time_singleton
     }
 
     // pub fn lock_input(&mut self, command: &str) -> (Option<Option<usize>>, Option<String>) {
@@ -195,7 +198,7 @@ impl HuskyTraceTime {
         let trace_id = self.next_id();
         let trace = {
             let (file, range) = variant.file_and_range();
-            let text = self.runtime_singleton.compile_time().text(file).unwrap();
+            let text = self.eval_time_singleton.compile_time().text(file).unwrap();
             let reachable = variant.reachable();
             let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.lines(trace_id, indent, &variant, opt_parent_id.is_some());
@@ -347,108 +350,6 @@ impl HuskyTraceTime {
 //         let text = &self.compile_time().text(parent.file).unwrap();
 //         self.trace_factory()
 //             .feature_branch_subtraces(parent, branch, self.trace_factory(), text)
-//     }
-
-//     fn feature_expr_subtraces(
-//         &self,
-//         parent: &Trace,
-//         expr: &FeatureExpr,
-//         opt_sample_id: Option<usize>,
-//     ) ->  Vec<TraceId>  {
-//         Arc::new(match expr.variant {
-//             FeatureExprVariant::PrimitiveLiteral(_)
-//             | FeatureExprVariant::PrimitiveBinaryOpr { .. }
-//             | FeatureExprVariant::Variable { .. } => vec![],
-//             FeatureExprVariant::RoutineCall {
-//                 ref opt_instruction_sheet,
-//                 ref routine_defn,
-//                 ref opds,
-//                 has_this,
-//                 ..
-//             } => {
-//                 let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
-//                 if let Some(sample_id) = opt_sample_id {
-//                     let mut subtraces = vec![];
-//                     let mut func_input_values = vec![];
-//                     subtraces.push(self.trace_factory().new_call_head(
-//                         routine_defn.clone(),
-//                         &self.compile_time().text(routine_defn.file).unwrap(),
-//                     ));
-//                     let parameters: &[Parameter] = match routine_defn.variant {
-//                         EntityDefnVariant::Func { ref parameters, .. } => parameters,
-//                         EntityDefnVariant::Proc {
-//                             parameters: ref parameters,
-//                             ..
-//                         } => parameters,
-//                         _ => panic!(),
-//                     };
-//                     for (i, func_input) in opds.iter().enumerate() {
-//                         subtraces.push(self.new_trace(
-//                             Some(parent.id()),
-//                             expr.expr.file,
-//                             4,
-//                             TraceVariant::FeatureCallInput {
-//                                 input: func_input.clone(),
-//                                 ident: parameters[i].ranged_ident.ident,
-//                             },
-//                         ));
-//                         match self.runtime.eval_feature_expr(func_input, sample_id) {
-//                             Ok(value) => func_input_values.push(value.into_stack().unwrap()),
-//                             Err(_) => return Arc::new(subtraces),
-//                         }
-//                     }
-//                     let history = exec_debug(
-//                         self.runtime.upcast(),
-//                         instruction_sheet,
-//                         func_input_values.into_iter(),
-//                         self.runtime.verbose(),
-//                     );
-//                     match routine_defn.variant {
-//                         EntityDefnVariant::Func { ref stmts, .. } => {
-//                             subtraces.extend(self.trace_factory().func_stmts_traces(
-//                                 parent.id(),
-//                                 4,
-//                                 stmts,
-//                                 &self.compile_time().text(routine_defn.file).unwrap(),
-//                                 &history,
-//                             ));
-//                         }
-//                         EntityDefnVariant::Proc { ref stmts, .. } => {
-//                             subtraces.extend(self.trace_factory().proc_stmts_traces(
-//                                 parent.id(),
-//                                 4,
-//                                 stmts,
-//                                 &self.compile_time().text(routine_defn.file).unwrap(),
-//                                 &history,
-//                             ));
-//                         }
-//                         _ => panic!(),
-//                     }
-//                     subtraces
-//                 } else {
-//                     vec![]
-//                 }
-//             }
-//             FeatureExprVariant::EntityFeature { .. } => todo!(),
-//             FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-//             FeatureExprVariant::RecordOriginalFieldAccess {
-//                 ref this,
-//                 field_ident,
-//                 ..
-//             } => todo!(),
-//             FeatureExprVariant::ThisValue { ref repr } => todo!(),
-//             FeatureExprVariant::PatternCall {} => todo!(),
-//             FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-//             FeatureExprVariant::StructOriginalFieldAccess { .. } => panic!(),
-//             FeatureExprVariant::EnumKindLiteral { .. } => panic!(),
-//             FeatureExprVariant::EvalInput => panic!(),
-//             FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
-//             FeatureExprVariant::StructDerivedLazyFieldAccess {
-//                 ref this,
-//                 field_ident,
-//                 ref repr,
-//             } => todo!(),
-//         })
 //     }
 
 //     fn eager_expr_subtraces(

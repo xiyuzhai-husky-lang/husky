@@ -5,7 +5,7 @@ use text::Text;
 use upcast::Upcast;
 use vm::*;
 
-use super::{impl_expr::ExprTokenConfig, *};
+use super::{impl_token::ExprTokenConfig, *};
 use crate::*;
 
 impl HuskyTraceTime {
@@ -259,12 +259,12 @@ impl HuskyTraceTime {
         verbose: bool,
     ) -> Vec<TraceId> {
         let text = self
-            .runtime_singleton
+            .eval_time_singleton
             .compile_time()
             .text(parent.file)
             .unwrap();
         let frames = exec_loop_debug(
-            &self.runtime_singleton as &HuskyEvalTime,
+            &self.eval_time_singleton as &HuskyEvalTime,
             loop_kind,
             &body_instruction_sheet,
             stack_snapshot,
@@ -299,7 +299,7 @@ impl HuskyTraceTime {
             husky_eval_time(),
             instruction_sheet,
             &loop_frame_data.stack_snapshot,
-            self.runtime_singleton.verbose(),
+            self.eval_time_singleton.verbose(),
         );
         let mut subtraces: Vec<_> =
             self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 2, stmts, &history);
@@ -511,7 +511,7 @@ impl HuskyTraceTime {
                                 },
                                 before: None,
                                 after: FigureCanvasData::new_specific(
-                                    self.runtime_singleton
+                                    self.eval_time_singleton
                                         .visualize(
                                             todo!(), // mutation.ty,
                                             todo!(), // frame_stack_snapshot[mutation.varidx()].any_ref(),

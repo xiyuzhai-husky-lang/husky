@@ -1,6 +1,8 @@
-use check_utils::should_eq;
+mod impl_feature_expr;
+mod impl_feature_repr;
 
-use crate::*;
+use super::*;
+use check_utils::should_eq;
 
 impl HuskyTraceTime {
     pub fn gen_subtraces(&mut self, trace_id: TraceId) -> Vec<TraceId> {
@@ -41,7 +43,7 @@ impl HuskyTraceTime {
                             stmts,
                             stack_snapshot,
                             body,
-                            self.runtime_singleton.verbose(),
+                            self.eval_time_singleton.verbose(),
                         ),
                         HistoryEntry::ControlFlow {
                             opt_branch_entered: enter,
@@ -57,10 +59,7 @@ impl HuskyTraceTime {
                     ref branches,
                 } => todo!(),
             },
-            TraceVariant::FeatureExpr(ref expr) => {
-                todo!()
-                // self.feature_expr_subtraces(trace, expr, effective_opt_sample_id)
-            }
+            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_subtraces(trace, expr),
             TraceVariant::FeatureBranch(ref branch) => {
                 self.feature_lazy_block_subtraces(trace, &branch.block)
             }

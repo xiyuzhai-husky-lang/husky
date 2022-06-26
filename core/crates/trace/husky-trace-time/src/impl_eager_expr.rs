@@ -2,7 +2,7 @@ use entity_route::RangedEntityRoute;
 use text::Text;
 use vm::{History, StackValueSnapshot};
 
-use super::{impl_expr::ExprTokenConfig, *};
+use super::{impl_token::ExprTokenConfig, *};
 use crate::*;
 
 impl HuskyTraceTime {
@@ -115,7 +115,7 @@ impl HuskyTraceTime {
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                     let text = self
-                        .runtime_singleton
+                        .eval_time_singleton
                         .compile_time()
                         .text(expr.file)
                         .unwrap();
@@ -151,7 +151,7 @@ impl HuskyTraceTime {
         history: &Arc<History<'static>>,
         config: &ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
-        let text = self.runtime_singleton.compile_time().text(file).unwrap();
+        let text = self.eval_time_singleton.compile_time().text(file).unwrap();
         let mut tokens = vec![
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),
@@ -175,8 +175,10 @@ impl HuskyTraceTime {
             match entry {
                 HistoryEntry::PureExpr { output } => match output {
                     Ok(output) => {
-                        let visual_props =
-                            self.runtime_singleton.visualize(todo!(), todo!()).unwrap();
+                        let visual_props = self
+                            .eval_time_singleton
+                            .visualize(todo!(), todo!())
+                            .unwrap();
                         FigureCanvasData::new_specific(visual_props)
                     }
                     Err(e) => FigureCanvasData::void(),
