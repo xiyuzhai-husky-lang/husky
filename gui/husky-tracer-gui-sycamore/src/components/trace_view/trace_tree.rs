@@ -12,9 +12,10 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
     let shown = tree_context.shown_signal(props.trace_id);
     let attention = tracer_context.attention_context.attention.clone();
     let attention = memo!(scope, move || attention.cget());
+    let trace = tree_context.trace(props.trace_id);
+    let reachable = memo!(scope, move || trace.reachable);
     let associated_trace_trees = View::new_fragment(
-        tree_context
-            .trace(props.trace_id)
+        trace
             .associated_trace_ids()
             .into_iter()
             .map(|trace_id| {
@@ -41,7 +42,7 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
         (if shown.cget() {
             view! {
                 scope,
-                div(class="TraceTree") {
+                div(class=format!("TraceTree {}", class!(*reachable))) {
                     TraceNode {
                         trace_id: props.trace_id,
                         attention,
