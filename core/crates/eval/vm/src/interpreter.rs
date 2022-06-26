@@ -120,12 +120,13 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         let snapshot = std::mem::take(&mut self.opt_snapshot_saved).expect("bug");
         let mutations = std::mem::take(&mut self.variable_mutations)
             .iter()
-            .filter_map(|(stack_idx, (varname, file, _, ty))| {
+            .filter_map(|(stack_idx, (varname, file, range, ty))| {
                 let stack_idx = *stack_idx;
                 if stack_idx.raw() < snapshot.len().min(self.stack.len()) {
                     Some(MutationData {
                         file: *file,
-                        kind: MutationDataKind::Block {
+                        range: *range,
+                        kind: MutationDataVariant::Block {
                             stack_idx,
                             varname: *varname,
                         },

@@ -7,7 +7,7 @@ use word::CustomIdentifier;
 
 use crate::*;
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub enum TraceVariant<'eval> {
     Main(FeatureRepr),
     FeatureStmt(Arc<FeatureStmt>),

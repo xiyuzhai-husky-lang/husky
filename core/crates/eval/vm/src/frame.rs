@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use crate::*;
 use word::CustomIdentifier;
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct LoopFrameData<'eval> {
     pub stack_snapshot: StackSnapshot<'eval>,
     pub mutations: Vec<MutationData<'eval>>,

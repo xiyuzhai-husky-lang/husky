@@ -3,7 +3,7 @@ use husky_eval_time::*;
 use print_utils::{epin, p};
 use text::Text;
 use upcast::Upcast;
-use vm::*;
+use vm::{MutationDataVariant, *};
 
 use super::{impl_token::ExprTokenConfig, *};
 use crate::*;
@@ -420,7 +420,11 @@ impl HuskyTraceTime {
         tokens
     }
 
-    pub(crate) fn proc_stmt_figure(&self, stmt: &ProcStmt, history: &History) -> FigureCanvasData {
+    pub(crate) fn proc_stmt_figure(
+        &self,
+        stmt: &ProcStmt,
+        history: &History<'static>,
+    ) -> FigureCanvasData {
         match stmt.variant {
             ProcStmtVariant::Init {
                 varname,
@@ -504,8 +508,8 @@ impl HuskyTraceTime {
                         } else {
                             MutationFigureData {
                                 name: match mutation.kind {
-                                    MutationDataKind::Exec { range } => panic!(),
-                                    MutationDataKind::Block { stack_idx, varname } => {
+                                    MutationDataVariant::Exec => panic!(),
+                                    MutationDataVariant::Block { stack_idx, varname } => {
                                         varname.as_str().to_string()
                                     }
                                 },
@@ -530,23 +534,52 @@ impl HuskyTraceTime {
         FigureCanvasData::Mutations { mutations }
     }
 
-    pub fn mutations_figure(&self, mutations: &[MutationData]) -> FigureCanvasData {
+    pub fn mutations_figure(&self, mutations: &[MutationData<'static>]) -> FigureCanvasData {
         FigureCanvasData::Mutations {
             mutations: mutations
                 .iter()
                 .enumerate()
-                .map(|(i, mutation)| {
-                    todo!()
-                    // MutationFigureProps::new(
-                    //     self,
-                    //     &self.compile_time().text(mutation.file).unwrap(),
-                    //     &self.visualizer(mutation.ty),
-                    //     mutation,
-                    //     i,
-                    //     self.verbose(),
-                    // )
-                })
+                .map(|(idx, mutation)| self.mutation_figure(idx, mutation))
                 .collect(),
+        }
+    }
+
+    fn mutation_figure(
+        &self,
+        idx: usize,
+        mutation_data: &MutationData<'static>,
+    ) -> MutationFigureData {
+        let sample_id = self.attention.opt_sample_id().unwrap();
+        MutationFigureData {
+            name: match mutation_data.kind {
+                MutationDataVariant::Exec => {
+                    let text = self
+                        .eval_time()
+                        .compile_time()
+                        .text(mutation_data.file)
+                        .unwrap();
+                    text.ranged(mutation_data.range)
+                }
+                MutationDataVariant::Block { varname, .. } => varname.as_str().to_string(),
+            },
+            before: if let Some(before) = mutation_data.before.as_ref() {
+                Some(FigureCanvasData::new_specific(self.visualize_temp_value(
+                    before,
+                    mutation_data.ty,
+                    mutation_data.file,
+                    mutation_data.range,
+                )))
+            } else {
+                None
+            },
+            after: FigureCanvasData::new_specific(self.visualize_temp_value(
+                &mutation_data.after,
+                mutation_data.ty,
+                mutation_data.file,
+                mutation_data.range,
+            ))
+            .into(),
+            idx,
         }
     }
 }
