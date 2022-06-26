@@ -86,14 +86,34 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                 }},
                 FigureCanvasData::GenericI32 {
                     ref partitioned_samples,
-                } =>
-                view!{
-                    scope,
-                    GenericI32 {
-                        dimension: props.dimension,
-                        partitioned_samples: partitioned_samples,
-                }},
-                _=> todo!(),
+                } =>{
+                    view!{
+                        scope,
+                        GenericI32 {
+                            dimension: props.dimension,
+                            partitioned_samples: partitioned_samples,
+                        }
+                    }
+                },
+                FigureCanvasData::GenericF32 {
+                    ref partitioned_samples,
+                } =>{
+                    view!{
+                        scope,
+                        GenericF32 {
+                            dimension: props.dimension,
+                            partitioned_samples: partitioned_samples,
+                        }
+                    }
+                },
+                FigureCanvasData::EvalError {ref message} => {
+                    view!{
+                        scope,
+                        div (class="EvalErrorCanvas") {
+                            (message)
+                        }
+                    }
+                }
             }
         } else {
             view!{

@@ -6,3 +6,6 @@
     align-items: center;
     background: black;
 }
+.EvalErrorCanvas {
+    color: red;
+}
