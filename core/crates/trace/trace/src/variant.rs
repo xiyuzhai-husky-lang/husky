@@ -13,9 +13,9 @@ pub enum TraceVariant<'eval> {
     FeatureStmt(Arc<FeatureStmt>),
     FeatureBranch(Arc<FeatureBranch>),
     FeatureExpr(Arc<FeatureLazyExpr>),
-    FeatureCallInput {
+    FeatureCallArgument {
         ident: CustomIdentifier,
-        input: Arc<FeatureLazyExpr>,
+        argument: Arc<FeatureLazyExpr>,
     },
     FuncStmt {
         stmt: Arc<FuncStmt>,
@@ -55,7 +55,7 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::FeatureStmt(_) => TraceKind::FeatureStmt,
             TraceVariant::FeatureBranch(_) => TraceKind::FeatureBranch,
             TraceVariant::FeatureExpr(_) => TraceKind::FeatureExpr,
-            TraceVariant::FeatureCallInput { .. } => TraceKind::FeatureCallInput,
+            TraceVariant::FeatureCallArgument { .. } => TraceKind::FeatureCallInput,
             TraceVariant::FuncStmt { .. } => TraceKind::FuncStmt,
             TraceVariant::ProcStmt { .. } => TraceKind::ProcStmt,
             TraceVariant::ProcBranch { .. } => TraceKind::ProcBranch,
@@ -71,7 +71,9 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::FeatureStmt(ref stmt) => (stmt.file, stmt.range),
             TraceVariant::FeatureExpr(ref expr) => (expr.expr.file, expr.expr.range),
             TraceVariant::FeatureBranch(ref branch) => (branch.block.file, branch.block.range),
-            TraceVariant::FeatureCallInput { input, .. } => (input.expr.file, input.expr.range),
+            TraceVariant::FeatureCallArgument {
+                argument: input, ..
+            } => (input.expr.file, input.expr.range),
             TraceVariant::FuncStmt { ref stmt, .. } => (stmt.file, stmt.range),
             TraceVariant::EagerExpr { ref expr, .. } => (expr.file, expr.range),
             TraceVariant::CallHead { ref entity, .. } => (entity.file, entity.range),
@@ -87,7 +89,7 @@ impl<'eval> TraceVariant<'eval> {
         }
         match self {
             TraceVariant::FeatureStmt(_)
-            | TraceVariant::FeatureCallInput { .. }
+            | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. } => false,
             TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
                 ProcStmtVariant::Init { .. }
@@ -205,7 +207,10 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::FeatureStmt(_) => true,
             TraceVariant::FeatureBranch(_) => true,
             TraceVariant::FeatureExpr(_) => true,
-            TraceVariant::FeatureCallInput { ident, input } => true,
+            TraceVariant::FeatureCallArgument {
+                ident,
+                argument: input,
+            } => true,
             TraceVariant::FuncStmt { stmt, history } => match stmt.variant {
                 FuncStmtVariant::Init {
                     ref initial_value, ..
@@ -281,7 +286,7 @@ impl<'eval> Serialize for TraceVariant<'eval> {
             TraceVariant::FeatureStmt(_) => "FeatureStmt",
             TraceVariant::FeatureBranch(_) => "FeatureBranch",
             TraceVariant::FeatureExpr(_) => "FeatureExpr",
-            TraceVariant::FeatureCallInput { .. } => "FeatureCallInput",
+            TraceVariant::FeatureCallArgument { .. } => "FeatureCallInput",
             TraceVariant::FuncStmt { .. } => "FuncStmt",
             TraceVariant::ProcStmt { .. } => "ProcStmt",
             TraceVariant::EagerExpr { .. } => "EagerExpr",

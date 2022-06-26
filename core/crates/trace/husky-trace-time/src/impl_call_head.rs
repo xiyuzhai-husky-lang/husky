@@ -5,7 +5,7 @@ use semantics_entity::*;
 use word::{CustomIdentifier, Identifier};
 
 impl HuskyTraceTime {
-    pub fn new_call_head(&mut self, entity: Arc<EntityDefn>) -> TraceId {
+    pub fn new_call_head(&mut self, parent: &Trace, entity: Arc<EntityDefn>) -> TraceId {
         let tokens = match entity.variant {
             EntityDefnVariant::Func { ref parameters, .. } => routine_call_head_tokens(
                 &self
@@ -32,7 +32,11 @@ impl HuskyTraceTime {
             ),
             _ => todo!(),
         };
-        return self.new_trace(None, 0, TraceVariant::CallHead { entity, tokens });
+        return self.new_trace(
+            Some(parent.id()),
+            0,
+            TraceVariant::CallHead { entity, tokens },
+        );
 
         fn routine_call_head_tokens<'eval>(
             text: &Text,

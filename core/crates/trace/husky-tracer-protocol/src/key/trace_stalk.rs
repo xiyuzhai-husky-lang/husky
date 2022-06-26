@@ -16,9 +16,6 @@ impl TraceStalkKey {
     pub fn from_trace_data(sample_id: SampleId, trace_data: &TraceData) -> Self {
         Self::new(sample_id, trace_data.kind, trace_data.id)
     }
-    pub fn from_trace_raw_data(sample_id: SampleId, trace_raw_data: &TraceData) -> Self {
-        Self::new(sample_id, trace_raw_data.kind, trace_raw_data.id)
-    }
 
     pub fn new(sample_id: SampleId, trace_kind: TraceKind, trace_id: TraceId) -> Self {
         match trace_kind {
@@ -30,12 +27,12 @@ impl TraceStalkKey {
                 trace_id,
                 sample_id,
             },
+            TraceKind::LoopFrame => TraceStalkKey::Eager { trace_id },
             TraceKind::FuncStmt
             | TraceKind::ProcStmt
             | TraceKind::ProcBranch
-            | TraceKind::LoopFrame
-            | TraceKind::EagerExpr => TraceStalkKey::Eager { trace_id },
-            TraceKind::CallHead => TraceStalkKey::Null,
+            | TraceKind::CallHead
+            | TraceKind::EagerExpr => TraceStalkKey::Null,
         }
     }
 }

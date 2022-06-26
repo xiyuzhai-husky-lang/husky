@@ -180,7 +180,7 @@ impl HuskyTraceTime {
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
-        let text = self.eval_time_singleton.compile_time().text(file).unwrap();
+        let text = self.eval_time().compile_time().text(file).unwrap();
         let mut tokens = vec![
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),
