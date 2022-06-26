@@ -10,7 +10,7 @@ impl HuskyTraceTime {
         match trace.variant {
             TraceVariant::Main(ref repr) => self.feature_repr_subtraces(&trace, repr),
             TraceVariant::FeatureStmt(_)
-            | TraceVariant::FeatureCallInput { .. }
+            | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::CallHead { .. } => vec![],
             TraceVariant::ProcStmt {
@@ -43,7 +43,7 @@ impl HuskyTraceTime {
                             stmts,
                             stack_snapshot,
                             body,
-                            self.eval_time_singleton.verbose(),
+                            self.eval_time().verbose(),
                         ),
                         HistoryEntry::ControlFlow {
                             opt_branch_entered: enter,

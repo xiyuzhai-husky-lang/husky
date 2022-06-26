@@ -11,7 +11,7 @@ impl<'eval> Trace {
             TraceVariant::Main(_)
             | TraceVariant::FeatureStmt(_)
             | TraceVariant::FeatureBranch(_)
-            | TraceVariant::FeatureCallInput { .. }
+            | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::ProcStmt { .. }
             | TraceVariant::LoopFrame { .. }

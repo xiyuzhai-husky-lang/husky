@@ -37,7 +37,7 @@ impl HuskyTraceTime {
             | TraceVariant::FeatureStmt(_)
             | TraceVariant::FeatureBranch(_)
             | TraceVariant::FeatureExpr(_)
-            | TraceVariant::FeatureCallInput { .. }
+            | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. } => FigureControlData::default(),

@@ -6,8 +6,8 @@ impl HuskyTraceTime {
     pub fn set_attention(&mut self, attention: Attention) {
         self.attention = attention;
         if let Some(sample_id0) = self.attention.opt_sample_id() {
-            let main_file = self.eval_time_singleton.compile_time().main_file();
-            let main_feature_repr = self.eval_time_singleton.main_feature_repr(main_file);
+            let main_file = self.eval_time().compile_time().main_file();
+            let main_feature_repr = self.eval_time().main_feature_repr(main_file);
             match self
                 .eval_time_singleton
                 .eval_feature_repr(&main_feature_repr, sample_id0)

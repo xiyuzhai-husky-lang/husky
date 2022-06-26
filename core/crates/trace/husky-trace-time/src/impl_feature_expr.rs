@@ -36,13 +36,13 @@ impl HuskyTraceTime {
                     .eval_feature_lazy_expr(expr, *sample_id)
                     .map_err(|e| (*sample_id, e))?;
                 Ok(FigureCanvasData::new_specific(
-                    self.eval_time_singleton
+                    self.eval_time()
                         .visualize(FeatureRepr::Expr(expr.clone()), *sample_id)
                         .unwrap(),
                 ))
             }
             Attention::Generic { partitions, .. } => {
-                let session = self.eval_time_singleton.session();
+                let session = self.eval_time().session();
                 let dev_division = session.dev();
                 assert_eq!(
                     partitions.last().unwrap().variant,
@@ -58,7 +58,7 @@ impl HuskyTraceTime {
                             .sum::<u32>());
                 let ty = expr.expr.ty();
                 use visualizer_gen::VisualizerQueryGroup;
-                let visualizer = self.eval_time_singleton.visualizer(ty);
+                let visualizer = self.eval_time().visualizer(ty);
                 match visualizer.ty {
                     VisualTy::Void => {
                         p!(ty);
@@ -140,7 +140,7 @@ impl HuskyTraceTime {
                                 .process(
                                     label,
                                     || -> EvalResult<(SampleId, Graphics2dCanvasData)> {
-                                        let visual_data = self.eval_time_singleton.visualize(
+                                        let visual_data = self.eval_time().visualize(
                                             expr.clone().into(),
                                             labeled_data.sample_id,
                                         )?;

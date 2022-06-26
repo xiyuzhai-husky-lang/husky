@@ -23,7 +23,7 @@ impl HuskyTraceTime {
                 if let Some(sample_id) = self.attention.opt_sample_id() {
                     let mut subtraces = vec![];
                     let mut func_input_values = vec![];
-                    subtraces.push(self.new_call_head(routine_defn.clone()));
+                    subtraces.push(self.new_call_head(parent, routine_defn.clone()));
                     let parameters: &[Parameter] = match routine_defn.variant {
                         EntityDefnVariant::Func { ref parameters, .. } => parameters,
                         EntityDefnVariant::Proc {
@@ -36,8 +36,8 @@ impl HuskyTraceTime {
                         subtraces.push(self.new_trace(
                             Some(parent.id()),
                             4,
-                            TraceVariant::FeatureCallInput {
-                                input: func_input.clone(),
+                            TraceVariant::FeatureCallArgument {
+                                argument: func_input.clone(),
                                 ident: parameters[i].ranged_ident.ident,
                             },
                         ));
@@ -50,7 +50,7 @@ impl HuskyTraceTime {
                         }
                     }
                     let history = exec_debug(
-                        self.eval_time_singleton.upcast(),
+                        self.eval_time().upcast(),
                         instruction_sheet,
                         func_input_values.into_iter(),
                         self.eval_time().verbose(),

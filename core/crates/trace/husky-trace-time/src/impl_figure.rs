@@ -21,9 +21,10 @@ impl HuskyTraceTime {
             TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, attention)?,
             TraceVariant::FeatureBranch(_) => FigureCanvasData::void(),
             TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr, attention)?,
-            TraceVariant::FeatureCallInput { ref input, .. } => {
-                self.feature_expr_figure(input, attention)?
-            }
+            TraceVariant::FeatureCallArgument {
+                argument: ref input,
+                ..
+            } => self.feature_expr_figure(input, attention)?,
             TraceVariant::FuncStmt {
                 ref stmt,
                 ref history,

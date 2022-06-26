@@ -81,22 +81,6 @@ impl HuskyTraceTime {
         &self.eval_time_singleton
     }
 
-    // pub fn lock_input(&mut self, command: &str) -> (Option<Option<usize>>, Option<String>) {
-    // todo!()
-    // if command.len() == 0 {
-    //     return (Some(None), None);
-    // }
-    // match command.parse::<usize>() {
-    //     Ok(id) => {
-    //         self.attention = Attention {
-    //             opt_sample_id: Some(id),
-    //         };
-    //         (Some(Some(id)), None)
-    //     }
-    //     Err(e) => (None, Some(format!("lock input failed due to error: {}", e))),
-    // }
-    // }
-
     pub fn all_trace_nodes(&self) -> Vec<TraceNodeData> {
         self.trace_nodes
             .iter()
@@ -151,7 +135,10 @@ impl HuskyTraceTime {
                 self.feature_expr_lines(expr, ExprTokenConfig::expr(false))
             }
             TraceVariant::FeatureBranch(branch) => self.feature_branch_lines(indent, branch),
-            TraceVariant::FeatureCallInput { ident, input } => {
+            TraceVariant::FeatureCallArgument {
+                ident,
+                argument: input,
+            } => {
                 let mut lines = self.feature_expr_lines(input, ExprTokenConfig::expr(true));
                 lines[0].tokens.insert(0, special!(" = "));
                 lines[0].tokens.insert(0, ident!(ident.0));
@@ -198,7 +185,7 @@ impl HuskyTraceTime {
         let trace_id = self.next_id();
         let trace = {
             let (file, range) = variant.file_and_range();
-            let text = self.eval_time_singleton.compile_time().text(file).unwrap();
+            let text = self.eval_time().compile_time().text(file).unwrap();
             let reachable = variant.reachable();
             let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.lines(trace_id, indent, &variant, opt_parent_id.is_some());

@@ -18,10 +18,19 @@ impl TraceContext {
         sample_id: SampleId,
         trace_id: TraceId,
     ) -> &'static TraceStalkData {
-        self.trace_stalks.borrow(file!(), line!())[&TraceStalkKey::from_trace_data(
+        let key = TraceStalkKey::from_trace_data(
             sample_id,
             &self.trace_nodes.borrow(file!(), line!())[trace_id.0].data,
-        )]
+        );
+        self.trace_stalks.borrow(file!(), line!())[&key]
+        // if let Some(trace_stalk) = self.trace_stalks.borrow(file!(), line!()).get(&key) {
+        //     trace_stalk
+        // } else {
+        //     log::info!("{:?}", key);
+        //     let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
+        //     log::info!("trace: {:?}", trace);
+        //     panic!()
+        // }
     }
 
     pub(crate) fn subtrace_ids(&self, attention: &Attention, trace_id: TraceId) -> Vec<TraceId> {
