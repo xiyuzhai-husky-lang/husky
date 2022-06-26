@@ -4,7 +4,6 @@ mod impl_eager_expr;
 mod impl_feature_stmt;
 mod impl_figure;
 mod impl_figure_control;
-mod impl_func_stmt;
 mod impl_lines;
 mod impl_ops;
 mod impl_proc_stmt;
