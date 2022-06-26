@@ -41,13 +41,21 @@ impl HuskyTraceTime {
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. } => FigureControlData::default(),
-            TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
-                ProcStmtVariant::Loop { .. } => FigureControlData::loop_default(&trace.raw_data),
+            TraceVariant::ProcStmt {
+                ref stmt,
+                ref history,
+            } => match stmt.variant {
+                ProcStmtVariant::Loop { .. } => match history.get(stmt).unwrap() {
+                    HistoryEntry::Loop { mutations, .. } => {
+                        FigureControlData::mutations_default(mutations.len())
+                    }
+                    _ => panic!(),
+                },
                 _ => FigureControlData::default(),
             },
-            TraceVariant::LoopFrame { .. } => FigureControlData::loop_default(
-                &self.trace(trace.raw_data.opt_parent_id.unwrap()).raw_data,
-            ),
+            TraceVariant::LoopFrame { .. } => {
+                self.gen_figure_control(trace.raw_data.opt_parent_id.unwrap())
+            }
             TraceVariant::ProcBranch {
                 ref stmt,
                 branch_idx,

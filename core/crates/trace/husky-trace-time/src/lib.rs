@@ -268,13 +268,13 @@ impl HuskyTraceTime {
         if let Some(active_trace_id) = opt_active_trace_id {
             let active_trace = self.trace(active_trace_id);
             let figure_canvas_key =
-                FigureCanvasKey::from_trace_raw_data(&active_trace.raw_data, &attention);
+                FigureCanvasKey::from_trace_data(&active_trace.raw_data, &attention);
             figure_canvases.push((
                 figure_canvas_key,
                 self.figure_canvas(active_trace_id, &attention).unwrap(),
             ));
             figure_controls.push((
-                FigureControlKey::from_trace_raw_data(&active_trace.raw_data, &attention),
+                FigureControlKey::from_trace_data(&active_trace.raw_data, &attention),
                 unsafe { ref_to_mut_ref(self) }.figure_control(active_trace_id, &attention),
             ));
         }

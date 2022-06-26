@@ -3,18 +3,15 @@ use super::*;
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, Hash, PartialEq, Eq)]
 pub enum FigureControlKey {
     LoopFrame { parent: TraceId },
-    Other { this: TraceId },
+    Other { trace_id: TraceId, specific: bool },
 }
 
 impl FigureControlKey {
-    pub fn from_trace_raw_data(
-        trace_raw_data: &TraceData,
-        attention: &Attention,
-    ) -> FigureControlKey {
+    pub fn from_trace_data(trace_data: &TraceData, attention: &Attention) -> FigureControlKey {
         Self::new(
-            trace_raw_data.opt_parent_id,
-            trace_raw_data.kind,
-            trace_raw_data.id,
+            trace_data.opt_parent_id,
+            trace_data.kind,
+            trace_data.id,
             attention,
         )
     }
@@ -29,7 +26,10 @@ impl FigureControlKey {
             TraceKind::LoopFrame => FigureControlKey::LoopFrame {
                 parent: opt_parent_id.unwrap(),
             },
-            _ => FigureControlKey::Other { this: trace_id },
+            _ => FigureControlKey::Other {
+                trace_id,
+                specific: attention.opt_sample_id().is_some(),
+            },
         }
     }
 }
