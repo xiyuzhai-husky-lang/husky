@@ -68,7 +68,8 @@ impl HuskyTraceTime {
             TraceVariant::FuncStmt { .. }
             | TraceVariant::ProcStmt { .. }
             | TraceVariant::EagerExpr { .. }
-            | TraceVariant::CallHead { .. } => panic!(),
+            | TraceVariant::CallHead { .. }
+            | TraceVariant::ProcBranch { .. } => TraceStalkData::default(),
             TraceVariant::LoopFrame {
                 loop_frame_data: ref vm_loop_frame,
                 ..
@@ -78,7 +79,6 @@ impl HuskyTraceTime {
                 vm::ControlSnapshot::Break => todo!(),
                 vm::ControlSnapshot::Err(_) => todo!(),
             },
-            TraceVariant::ProcBranch { .. } => panic!(),
         }
     }
 
