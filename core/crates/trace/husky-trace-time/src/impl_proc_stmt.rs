@@ -491,37 +491,28 @@ impl HuskyTraceTime {
                 } => mutations
                     .iter()
                     .enumerate()
-                    .map(|(idx, mutation)| {
-                        if let Some(frame_mutation) = frame_mutations
-                            .iter()
-                            .find(|frame_mutation| frame_mutation.varidx() == mutation.varidx())
+                    .map(|(idx, mutation_data)| {
+                        if let Some(frame_mutation) =
+                            frame_mutations.iter().find(|frame_mutation| {
+                                frame_mutation.varidx() == mutation_data.varidx()
+                            })
                         {
-                            todo!()
-                            // MutationFigureProps::new(
-                            //     self,
-                            //     &self.compile_time().text(frame_mutation.file).unwrap(),
-                            //     &self.visualizer(frame_mutation.ty),
-                            //     frame_mutation,
-                            //     idx,
-                            //     self.verbose(),
-                            // )
+                            self.mutation_figure(idx, mutation_data)
                         } else {
                             MutationFigureData {
-                                name: match mutation.kind {
+                                name: match mutation_data.kind {
                                     MutationDataVariant::Exec => panic!(),
                                     MutationDataVariant::Block { stack_idx, varname } => {
                                         varname.as_str().to_string()
                                     }
                                 },
                                 before: None,
-                                after: FigureCanvasData::new_specific(
-                                    self.eval_time()
-                                        .visualize(
-                                            todo!(), // mutation.ty,
-                                            todo!(), // frame_stack_snapshot[mutation.varidx()].any_ref(),
-                                        )
-                                        .unwrap(),
-                                ),
+                                after: FigureCanvasData::new_specific(self.visualize_temp_value(
+                                    &stack_snapshot[mutation_data.varidx()].eval(),
+                                    mutation_data.ty,
+                                    mutation_data.file,
+                                    mutation_data.range,
+                                )),
                                 idx,
                             }
                         }

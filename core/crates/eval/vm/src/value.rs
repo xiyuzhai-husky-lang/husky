@@ -168,7 +168,9 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
             TempValue::TempRefEval(value) => EvalValue::Owned(value.clone_into_box_dyn().into()),
             TempValue::OwnedTemp(_) => todo!(),
             TempValue::TempRefTemp(_) => todo!(),
-            TempValue::TempRefMutEval { value, owner, gen } => todo!(),
+            TempValue::TempRefMutEval { value, owner, gen } => {
+                EvalValue::Owned(value.clone_into_box_dyn().into())
+            }
             TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
             _ => panic!(),
         }
