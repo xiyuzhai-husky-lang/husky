@@ -67,5 +67,5 @@ fn test_it() {
     use print_utils::*;
     let mut m: JsonListMap<i32, bool> = Default::default();
     m.insert(0, true);
-    p!(serde_json::to_string(&m));
+    serde_json::to_string(&m);
 }

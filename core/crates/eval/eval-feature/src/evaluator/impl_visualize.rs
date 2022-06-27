@@ -26,7 +26,6 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
         Ok(match visualizer.variant {
             VisualizerVariant::Compiled { call } => call(this_value.any_ref()),
             VisualizerVariant::Vec { ty } => {
-                p!(this_value, this.ty());
                 let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = self.db.visualizer(elem_ty);
                 let any_value_dyn: &'static dyn AnyValueDyn<'static> = this_value.eval_ref().0;

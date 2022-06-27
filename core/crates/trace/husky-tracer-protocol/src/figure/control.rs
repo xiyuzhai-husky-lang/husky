@@ -1,9 +1,20 @@
+use std::{
+    convert::Infallible,
+    ops::{FromResidual, Try},
+};
+
 use super::*;
 use sycamore::prelude::Signalable;
 
 #[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub struct FigureControlData {
     pub opt_mutation_selection: Option<u8>,
+}
+
+impl FromResidual<std::option::Option<Infallible>> for FigureControlData {
+    fn from_residual(residual: std::option::Option<Infallible>) -> Self {
+        Self::default()
+    }
 }
 impl Signalable for FigureControlData {}
 

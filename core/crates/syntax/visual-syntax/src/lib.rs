@@ -1,4 +1,5 @@
 #![feature(const_fn_trait_bound, const_fn_fn_ptr_basics)]
+use entity_route::EntityRoutePtr;
 use husky_tracer_protocol::*;
 use vm::*;
 
@@ -71,7 +72,11 @@ pub const fn primitive_visualizer(ty: StaticVisualTy) -> StaticVisualizer {
 }
 
 fn visualize_primitive<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
-    VisualData::Primitive {
-        value: value.take_copyable_dyn().into(),
+    match value.ty_dyn() {
+        EntityRoutePtr::Root(_) => VisualData::Primitive {
+            value: value.take_copyable_dyn().into(),
+        },
+        EntityRoutePtr::Custom(_) => VisualData::Primitive { value: ().into() },
+        EntityRoutePtr::ThisType => panic!(),
     }
 }

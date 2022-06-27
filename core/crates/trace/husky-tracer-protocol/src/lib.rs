@@ -1,3 +1,4 @@
+#![feature(try_trait_v2)]
 mod attention;
 mod figure;
 mod gui_message;

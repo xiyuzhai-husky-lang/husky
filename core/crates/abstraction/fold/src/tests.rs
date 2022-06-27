@@ -19,7 +19,6 @@ fn fold_items1() {
     use check_utils::*;
     let items: Vec<Indent> = vec![0, 4, 0].into();
     let fold_items: FoldableList<()> = items.into();
-    p!(fold_items.nodes);
     should_eq!(fold_items.nodes[1].folding_end, FoldingEnd::Elder(2));
 }
 

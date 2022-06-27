@@ -94,14 +94,13 @@ impl HuskyTraceTime {
                     opt_branch_entered: branch_entered,
                     ..
                 } => {
-                    todo!()
-                    // should_eq!(Some(branch_idx), *branch_entered);
-                    // self.proc_branch_subtraces(
-                    //     &branch.stmts,
-                    //     &opt_vm_branch.as_ref().unwrap().body,
-                    //     stack_snapshot,
-                    //     trace,
-                    // )
+                    should_eq!(Some(branch_idx), *branch_entered);
+                    self.proc_branch_subtraces(
+                        &branch.stmts,
+                        &opt_vm_branch.as_ref().unwrap().body,
+                        stack_snapshot,
+                        trace,
+                    )
                 }
                 _ => panic!(),
             },
