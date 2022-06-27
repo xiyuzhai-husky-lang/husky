@@ -59,60 +59,74 @@ impl HuskyTraceTime {
             }
             ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
             ProcStmtVariant::Loop {
-                loop_variant: ref loop_kind,
-                ref stmts,
-            } => match loop_kind {
-                LoopVariant::For {
-                    frame_var,
-                    ref initial_boundary,
-                    ref final_boundary,
-                    ..
-                } => {
-                    let mut tokens = vec![keyword!("for ")];
-                    tokens.extend(self.initial_boundary_tokens(initial_boundary, history));
-                    tokens.push(ident!(frame_var.ident.0));
-                    tokens.extend(self.final_boundary_tokens(final_boundary, history));
-                    tokens.push(special!(":"));
-                    tokens
-                }
-                LoopVariant::ForExt {
-                    frame_var,
-                    ref final_boundary,
-                    ..
-                } => {
-                    let mut tokens = vec![keyword!("forext ")];
-                    tokens.push(ident!(frame_var.ident.0));
-                    tokens.extend(self.final_boundary_tokens(final_boundary, history));
-                    tokens.push(special!(":"));
-                    tokens
-                }
-                LoopVariant::While { ref condition } => {
-                    let mut tokens = vec![keyword!("while ")];
-                    tokens.extend(self.eager_expr_tokens(
-                        condition,
-                        history,
-                        ExprTokenConfig::loop_head(),
-                    ));
-                    tokens.push(special!(":"));
-                    tokens
-                }
-                LoopVariant::DoWhile { condition } => {
-                    let mut tokens = vec![keyword!("do while ")];
-                    tokens.extend(self.eager_expr_tokens(
-                        condition,
-                        history,
-                        ExprTokenConfig::loop_head(),
-                    ));
-                    tokens.push(special!(":"));
-                    tokens
-                }
-            },
+                ref loop_variant, ..
+            } => self.loop_stmt_tokens(stmt, loop_variant, history),
             ProcStmtVariant::Break => vec![keyword!("break")],
             ProcStmtVariant::Match {
                 ref match_expr,
                 ref branches,
             } => todo!(),
         }
+    }
+
+    fn loop_stmt_tokens(
+        &mut self,
+        stmt: &ProcStmt,
+        loop_variant: &LoopVariant,
+        history: &Arc<History<'static>>,
+    ) -> Vec<TraceTokenData> {
+        let mut tokens = vec![];
+        match loop_variant {
+            LoopVariant::For {
+                frame_var,
+                ref initial_boundary,
+                ref final_boundary,
+                ..
+            } => {
+                tokens.push(keyword!("for "));
+                tokens.extend(self.initial_boundary_tokens(initial_boundary, history));
+                tokens.push(ident!(frame_var.ident.0));
+                tokens.extend(self.final_boundary_tokens(final_boundary, history));
+                tokens.push(special!(":"));
+            }
+            LoopVariant::ForExt {
+                frame_var,
+                ref final_boundary,
+                ..
+            } => {
+                tokens.push(keyword!("forext "));
+                tokens.push(ident!(frame_var.ident.0));
+                tokens.extend(self.final_boundary_tokens(final_boundary, history));
+                tokens.push(special!(":"));
+            }
+            LoopVariant::While { ref condition } => {
+                tokens.push(keyword!("while "));
+                tokens.extend(self.eager_expr_tokens(
+                    condition,
+                    history,
+                    ExprTokenConfig::loop_head(),
+                ));
+                tokens.push(special!(":"));
+            }
+            LoopVariant::DoWhile { condition } => {
+                tokens.push(keyword!("do while "));
+                tokens.extend(self.eager_expr_tokens(
+                    condition,
+                    history,
+                    ExprTokenConfig::loop_head(),
+                ));
+                tokens.push(special!(":"));
+            }
+        }
+        if let Some(entry) = history.get(stmt) {
+            match entry {
+                HistoryEntry::Loop {
+                    control, mutations, ..
+                } => add_control_tokens(control, &mut tokens),
+                _ => panic!(),
+            }
+        }
+        tokens
     }
 
     fn initial_boundary_tokens(
@@ -172,22 +186,7 @@ impl HuskyTraceTime {
                 ]
             }
         };
-        match loop_frame_data.control {
-            ControlSnapshot::None => (),
-            ControlSnapshot::Return(ref value) => {
-                tokens.push(fade!(" = "));
-                tokens.push(keyword!("return"));
-                tokens.push(value.eval().into());
-            }
-            ControlSnapshot::Break => {
-                tokens.push(fade!(" = "));
-                tokens.push(keyword!("break"));
-            }
-            ControlSnapshot::Err(ref e) => {
-                tokens.push(fade!(" = "));
-                tokens.push(e.clone().into());
-            }
-        }
+        add_control_tokens(&loop_frame_data.control, &mut tokens);
         tokens
     }
 
@@ -223,5 +222,24 @@ impl HuskyTraceTime {
             }
         }
         tokens
+    }
+}
+
+fn add_control_tokens(control: &ControlSnapshot, tokens: &mut Vec<TraceTokenData>) {
+    match control {
+        ControlSnapshot::None => (),
+        ControlSnapshot::Return(ref value) => {
+            tokens.push(fade!(" = "));
+            tokens.push(keyword!("return"));
+            tokens.push(value.eval().into());
+        }
+        ControlSnapshot::Break => {
+            tokens.push(fade!(" = "));
+            tokens.push(keyword!("break"));
+        }
+        ControlSnapshot::Err(ref e) => {
+            tokens.push(fade!(" = "));
+            tokens.push(e.clone().into());
+        }
     }
 }
