@@ -72,8 +72,7 @@ impl HuskyTraceTime {
                     ..
                 } => {
                     if Some(branch_idx) == *branch_entered {
-                        todo!()
-                        // FigureControlData::mutations_default(mutations)
+                        FigureControlData::mutations_default(mutations.len())
                     } else {
                         FigureControlData::default()
                     }
