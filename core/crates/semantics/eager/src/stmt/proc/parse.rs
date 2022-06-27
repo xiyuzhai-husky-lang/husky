@@ -127,6 +127,7 @@ impl<'a> EagerParser<'a> {
                     stmts: self.parse_proc_stmts(children)?,
                     range: stmt.range,
                     file: self.file,
+                    idx: 0,
                 }))
             }
             RawConditionBranchKind::Elif { condition } => todo!(),
@@ -168,6 +169,7 @@ impl<'a> EagerParser<'a> {
                             stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
                             range: stmt.range,
                             file: self.file,
+                            idx: branches.len().try_into().unwrap(),
                         }));
                     }
                     RawConditionBranchKind::Else => {
@@ -176,6 +178,7 @@ impl<'a> EagerParser<'a> {
                             stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
                             range: stmt.range,
                             file: self.file,
+                            idx: branches.len().try_into().unwrap(),
                         }));
                         break;
                     }

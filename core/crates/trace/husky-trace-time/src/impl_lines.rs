@@ -63,13 +63,14 @@ impl HuskyTraceTime {
 
     pub(crate) fn proc_branch_lines(
         &mut self,
+        stmt: &ProcStmt,
         indent: Indent,
         branch: &ProcConditionBranch,
         history: &Arc<History<'static>>,
     ) -> Vec<TraceLineData> {
         vec![TraceLineData {
             indent,
-            tokens: self.proc_branch_tokens(indent, branch, history),
+            tokens: self.proc_branch_tokens(stmt, indent, branch, history),
             idx: 0,
         }]
     }

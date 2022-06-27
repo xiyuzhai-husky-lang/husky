@@ -232,7 +232,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::Assert => {
                     let is_condition_satisfied = self.stack.pop().take_copyable().to_bool();
                     if !is_condition_satisfied {
-                        todo!()
+                        VMControl::Err(EvalError::Normal {
+                            message: format!("assert failure"),
+                        })
                     } else {
                         VMControl::None
                     }

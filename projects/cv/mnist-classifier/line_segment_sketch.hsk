@@ -112,16 +112,16 @@ proc extend_start(ct: &RawContour, start0: i32, end: i32, r: f32) -> i32:
                 right_bound = dp_right
             if dp_left.rotation_direction_to(left_bound) > 0:
                 left_bound = dp_left
-            if right_bound.rotation_direction_to(left_bound) >= 0:
-                if start <= start0 
-                        and !(
-                            right_bound.rotation_direction_to(dp) >= 0 
-                            and dp.rotation_direction_to(left_bound) >= 0
-                        ):
-                    break
-                start--
-            else:
+        if right_bound.rotation_direction_to(left_bound) >= 0:
+            if start <= start0 
+                    and !(
+                        right_bound.rotation_direction_to(dp) >= 0 
+                        and dp.rotation_direction_to(left_bound) >= 0
+                    ):
                 break
+            start--
+        else:
+            break
     //assert start <= start0
     if start <= start0:
         return start
