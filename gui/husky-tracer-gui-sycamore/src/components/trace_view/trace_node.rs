@@ -92,7 +92,10 @@ fn tell_has_subtraces(
 ) -> bool {
     match trace_kind {
         TraceKind::Main | TraceKind::FeatureBranch | TraceKind::LoopFrame => true,
-        TraceKind::CallHead | TraceKind::FeatureCallInput | TraceKind::FeatureStmt => false,
+        TraceKind::CallHead
+        | TraceKind::FeatureCallArgument
+        | TraceKind::EagerCallArgument
+        | TraceKind::FeatureStmt => false,
         TraceKind::FuncStmt
         | TraceKind::EagerExpr
         | TraceKind::ProcStmt

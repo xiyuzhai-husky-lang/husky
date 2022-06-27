@@ -36,8 +36,13 @@ impl HuskyDebugger {
     ) -> Option<String> {
         let opt_request_id = gui_message.opt_request_id;
         let internal: &mut HuskyDebuggerInternal = &mut self.internal.lock().unwrap();
-        let opt_response_variant = internal.handle_gui_message(gui_message);
-        should_eq!(opt_request_id.is_some(), opt_response_variant.is_some());
+        let opt_response_variant = internal.handle_gui_message(&gui_message);
+        should_eq!(
+            opt_request_id.is_some(),
+            opt_response_variant.is_some(),
+            "{:?}",
+            gui_message
+        );
         if let Some(variant) = opt_response_variant {
             let msg = HuskyTracerServerMessage {
                 opt_request_id,
@@ -60,7 +65,7 @@ impl HuskyDebugger {
 impl HuskyDebuggerInternal {
     fn handle_gui_message(
         &mut self,
-        request: HuskyTracerGuiMessage,
+        request: &HuskyTracerGuiMessage,
     ) -> Option<HuskyTracerServerMessageVariant> {
         match request.variant {
             HuskyTracerGuiMessageVariant::InitDataRequest => {
@@ -70,7 +75,7 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::Activate {
                 trace_id,
-                opt_attention_for_figure,
+                ref opt_attention_for_figure,
             } => {
                 self.trace_time.activate(trace_id);
                 should_eq!(
@@ -139,7 +144,7 @@ impl HuskyDebuggerInternal {
                 Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
             HuskyTracerGuiMessageVariant::LockAttention {
-                attention,
+                ref attention,
                 request_figure,
                 request_stalk,
             } => {
@@ -175,10 +180,13 @@ impl HuskyDebuggerInternal {
             HuskyTracerGuiMessageVariant::UpdateFigureControlData {
                 trace_id,
                 ref attention,
-                figure_control_props,
+                ref figure_control_props,
             } => {
-                self.trace_time
-                    .update_figure_control(trace_id, attention, figure_control_props);
+                self.trace_time.update_figure_control(
+                    trace_id,
+                    attention,
+                    figure_control_props.clone(),
+                );
                 None
             }
         }
