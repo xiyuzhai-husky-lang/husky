@@ -4,9 +4,8 @@ use crate::*;
 
 #[derive(Debug)]
 pub enum HistoryEntry<'eval> {
-    // Stmt { control: VMControlSnapshot },
     PureExpr {
-        output: EvalValueResult<'eval>,
+        result: EvalValueResult<'eval>,
     },
     Exec {
         mutations: Vec<MutationData<'eval>>,
@@ -36,9 +35,9 @@ pub enum HistoryEntry<'eval> {
 }
 
 impl<'eval> HistoryEntry<'eval> {
-    pub fn value(&self) -> EvalValueResult<'eval> {
+    pub fn result(&self) -> EvalValueResult<'eval> {
         match self {
-            HistoryEntry::PureExpr { ref output } => output.clone(),
+            HistoryEntry::PureExpr { ref result } => result.clone(),
             HistoryEntry::Exec { mutations } => {
                 if mutations.len() != 1 {
                     todo!()

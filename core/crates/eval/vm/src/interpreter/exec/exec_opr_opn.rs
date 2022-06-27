@@ -21,7 +21,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     Mode::TrackHistory => self.history.write(
                         ins,
                         HistoryEntry::PureExpr {
-                            output: Ok(output.into()),
+                            result: Ok(output.into()),
                         },
                     ),
                 }
@@ -70,7 +70,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     Mode::TrackHistory => self.history.write(
                         ins,
                         HistoryEntry::PureExpr {
-                            output: Ok(output.eval()),
+                            result: Ok(output.eval()),
                         },
                     ),
                 }
@@ -84,7 +84,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     Mode::TrackHistory => self.history.write(
                         ins,
                         HistoryEntry::PureExpr {
-                            output: Ok(output.into()),
+                            result: Ok(output.into()),
                         },
                     ),
                 }

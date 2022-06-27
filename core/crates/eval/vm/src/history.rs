@@ -24,7 +24,7 @@ impl<'eval> History<'eval> {
 
     pub fn value<T: InstructionSource>(&self, t: &T) -> EvalValueResult<'eval> {
         if let Some(entry) = self.entries.get(&t.instruction_id()) {
-            entry.value()
+            entry.result()
         } else {
             Ok(EvalValue::Undefined)
         }

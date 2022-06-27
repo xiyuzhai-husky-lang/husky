@@ -10,6 +10,7 @@ pub mod synthetic;
 
 use liason::*;
 use visual_syntax::{primitive_visualizer, StaticVisualTy};
+use word::RootIdentifier;
 
 pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "datasets",
@@ -123,6 +124,6 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
     }
 
     fn ty(&self) -> EntityRoutePtr {
-        todo!()
+        RootIdentifier::DatasetType.into()
     }
 }

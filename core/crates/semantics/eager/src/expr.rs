@@ -16,13 +16,24 @@ use text::{RangedCustomIdentifier, TextRange};
 use vm::{Binding, CopyableValue, InstructionId, InstructionSource, SpecificRoutineLinkage};
 use word::CustomIdentifier;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct EagerExpr {
     pub file: FilePtr,
     pub range: TextRange,
     pub qualified_ty: EagerValueQualifiedTy,
     pub variant: EagerExprVariant,
     pub instruction_id: InstructionId,
+}
+
+impl std::fmt::Debug for EagerExpr {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("EagerExpr")
+            .field("file", &self.file)
+            .field("range", &self.range)
+            .field("qualified_ty", &self.qualified_ty)
+            .field("instruction_id", &self.instruction_id)
+            .finish()
+    }
 }
 
 impl EagerExpr {

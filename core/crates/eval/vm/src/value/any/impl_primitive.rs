@@ -1,3 +1,5 @@
+use word::RootIdentifier;
+
 use super::*;
 
 impl HasStaticTypeInfo for () {
@@ -88,7 +90,7 @@ impl<'eval> AnyValue<'eval> for i32 {
     }
 
     fn ty(&self) -> EntityRoutePtr {
-        todo!()
+        RootIdentifier::I32.into()
     }
 }
 
@@ -134,7 +136,7 @@ impl<'eval> AnyValue<'eval> for f32 {
     }
 
     fn ty(&self) -> EntityRoutePtr {
-        todo!()
+        RootIdentifier::F32.into()
     }
 }
 
@@ -184,7 +186,7 @@ impl<'eval> AnyValue<'eval> for u32 {
     }
 
     fn ty(&self) -> EntityRoutePtr {
-        todo!()
+        RootIdentifier::B32.into()
     }
 }
 
@@ -280,6 +282,6 @@ impl<'eval> AnyValue<'eval> for bool {
     }
 
     fn ty(&self) -> EntityRoutePtr {
-        todo!()
+        RootIdentifier::Bool.into()
     }
 }

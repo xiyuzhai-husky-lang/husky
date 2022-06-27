@@ -43,7 +43,11 @@ impl<'eval> HasStaticTypeInfo for VirtualVec<'eval> {
 
 impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualVec<'eval0> {
     fn to_json_value(&self) -> serde_json::value::Value {
-        todo!()
+        serde_json::value::Value::Array(
+            self.iter()
+                .map(|elem| elem.any_ref().to_json_value_dyn())
+                .collect(),
+        )
     }
 
     fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
@@ -55,5 +59,9 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualVec<'eval0> {
 
     fn ty(&self) -> EntityRoutePtr {
         self.ty
+    }
+
+    fn print_short(&self) -> String {
+        format!("{{ len: {}, data: [...] }}", self.len(),)
     }
 }

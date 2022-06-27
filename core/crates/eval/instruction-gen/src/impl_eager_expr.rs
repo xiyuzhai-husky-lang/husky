@@ -198,6 +198,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             routine_uid: self.db.compile_time().entity_uid(routine.route),
                             nargs: opds.len() as u8,
                             has_this: false,
+                            output_ty: expr.ty(),
                         },
                         expr.clone(),
                     ))
@@ -380,6 +381,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 routine_uid: method_uid,
                 nargs: (method_decl.parameters.len() + 1).try_into().unwrap(),
                 has_this: true,
+                output_ty,
             }
         }
     }

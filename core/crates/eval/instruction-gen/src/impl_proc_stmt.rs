@@ -27,7 +27,12 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             ProcStmtVariant::Return { ref result } => {
                 self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx());
-                self.push_instruction(Instruction::new(InstructionVariant::Return, stmt));
+                self.push_instruction(Instruction::new(
+                    InstructionVariant::Return {
+                        output_ty: result.ty(),
+                    },
+                    stmt,
+                ));
             }
             ProcStmtVariant::Execute { ref expr } => {
                 self.compile_eager_expr(expr, self.sheet.variable_stack.next_stack_idx());
