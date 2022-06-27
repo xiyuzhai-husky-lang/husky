@@ -88,15 +88,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         }
     }
 
-    fn new_virtual_struct(
-        &mut self,
-        ty: EntityRoutePtr,
-        fields: &[CustomIdentifier],
-    ) -> EvalResult<()> {
+    fn new_virtual_struct(&mut self, ty: EntityRoutePtr, fields: &[CustomIdentifier]) {
         let parameters = self.stack.drain(fields.len().try_into().unwrap());
         let value = VirtualStruct::new_struct(ty, parameters, fields).into();
-        self.stack.push(value);
-        Ok(())
+        self.stack.push(value)
     }
 
     fn save_snapshot(&mut self, message: String) {
