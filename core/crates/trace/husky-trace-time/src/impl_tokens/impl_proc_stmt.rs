@@ -40,7 +40,7 @@ impl HuskyTraceTime {
                         EagerOpnVariant::Binary { opr, this_ty: this } => match opr {
                             BinaryOpr::Assign(_) => {
                                 tokens.push(fade!(" = "));
-                                tokens.push(history.value(expr).into())
+                                tokens.push(history.value_result(expr).into())
                             }
                             BinaryOpr::Pure(_) => (),
                         },

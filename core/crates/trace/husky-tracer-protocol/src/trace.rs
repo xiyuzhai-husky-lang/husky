@@ -49,12 +49,13 @@ pub enum TraceKind {
     FeatureStmt,
     FeatureBranch,
     FeatureExpr,
-    FeatureCallInput,
+    FeatureCallArgument,
     FuncStmt,
     ProcStmt,
     ProcBranch,
     LoopFrame,
     EagerExpr,
+    EagerCallArgument,
     CallHead,
 }
 

@@ -23,7 +23,7 @@ impl FigureCanvasKey {
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr
-            | TraceKind::FeatureCallInput => FigureCanvasKey::Feature {
+            | TraceKind::FeatureCallArgument => FigureCanvasKey::Feature {
                 trace_id,
                 attention: attention.clone(),
             },
@@ -32,7 +32,7 @@ impl FigureCanvasKey {
             | TraceKind::ProcBranch
             | TraceKind::EagerExpr
             | TraceKind::LoopFrame => FigureCanvasKey::Eager { trace_id },
-            TraceKind::CallHead => FigureCanvasKey::Null,
+            TraceKind::CallHead | TraceKind::EagerCallArgument => FigureCanvasKey::Null,
         }
     }
 }
