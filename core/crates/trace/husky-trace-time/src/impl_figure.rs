@@ -80,7 +80,7 @@ impl HuskyTraceTime {
                 ident,
                 ref argument,
                 ref history,
-            } => todo!(),
+            } => self.eager_expr_figure(argument, history),
         })
     }
 }
