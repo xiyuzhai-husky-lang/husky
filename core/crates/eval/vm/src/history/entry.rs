@@ -56,14 +56,14 @@ impl<'eval> HistoryEntry<'eval> {
 
     pub(crate) fn loop_entry(
         loop_kind: VMLoopKind,
-        result: &VMControl<'eval>,
+        control: &VMControl<'eval>,
         stack_snapshot: StackSnapshot<'eval>,
         body: Arc<InstructionSheet>,
         mutations: Vec<MutationData<'eval>>,
     ) -> HistoryEntry<'eval> {
         HistoryEntry::Loop {
             loop_kind,
-            control: result.snapshot(),
+            control: control.snapshot(),
             stack_snapshot,
             body_instruction_sheet: body,
             mutations,
