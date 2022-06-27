@@ -1,3 +1,5 @@
+use vm::FrameKind;
+
 use super::*;
 
 impl HuskyTraceTime {
@@ -153,23 +155,40 @@ impl HuskyTraceTime {
         }
     }
 
-    pub(crate) fn loop_frame_tokens(&self, vm_loop_frame: &LoopFrameData) -> Vec<TraceTokenData> {
-        match vm_loop_frame.frame_kind {
-            vm::FrameKind::For(frame_var) => {
+    pub(crate) fn loop_frame_tokens(&self, loop_frame_data: &LoopFrameData) -> Vec<TraceTokenData> {
+        let mut tokens = match loop_frame_data.frame_kind {
+            FrameKind::For(frame_var) => {
                 vec![
                     keyword!("frame "),
                     ident!(frame_var.0),
                     special!(" = "),
-                    literal!(format!("{}", vm_loop_frame.frame_var_value)),
+                    literal!(format!("{}", loop_frame_data.frame_var_value)),
                 ]
             }
-            vm::FrameKind::Loop => {
+            FrameKind::Loop => {
                 vec![
                     keyword!("frame "),
-                    literal!(format!("{}", vm_loop_frame.frame_var_value)),
+                    literal!(format!("{}", loop_frame_data.frame_var_value)),
                 ]
             }
+        };
+        match loop_frame_data.control {
+            ControlSnapshot::None => (),
+            ControlSnapshot::Return(ref value) => {
+                tokens.push(fade!(" = "));
+                tokens.push(keyword!("return"));
+                tokens.push(value.eval().into());
+            }
+            ControlSnapshot::Break => {
+                tokens.push(fade!(" = "));
+                tokens.push(keyword!("break"));
+            }
+            ControlSnapshot::Err(ref e) => {
+                tokens.push(fade!(" = "));
+                tokens.push(e.clone().into());
+            }
         }
+        tokens
     }
 
     pub(crate) fn proc_branch_tokens(
