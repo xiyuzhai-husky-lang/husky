@@ -58,6 +58,11 @@ impl<'eval> Trace {
                     EagerExprVariant::EnumKindLiteral(_) => todo!(),
                 }
             }
+            TraceVariant::EagerCallArgument {
+                ident,
+                ref argument,
+                ref history,
+            } => todo!(),
         }
     }
 }

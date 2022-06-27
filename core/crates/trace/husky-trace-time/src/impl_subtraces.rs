@@ -105,6 +105,11 @@ impl HuskyTraceTime {
                 }
                 _ => panic!(),
             },
+            TraceVariant::EagerCallArgument {
+                ident,
+                ref argument,
+                ref history,
+            } => todo!(),
         }
     }
 }

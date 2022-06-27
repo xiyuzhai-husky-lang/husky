@@ -42,6 +42,11 @@ pub enum TraceVariant<'eval> {
         expr: Arc<EagerExpr>,
         history: Arc<History<'static>>,
     },
+    EagerCallArgument {
+        ident: CustomIdentifier,
+        argument: Arc<EagerExpr>,
+        history: Arc<History<'static>>,
+    },
     CallHead {
         entity: Arc<EntityDefn>,
         tokens: Vec<TraceTokenData>,
@@ -55,13 +60,14 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::FeatureLazyStmt(_) => TraceKind::FeatureStmt,
             TraceVariant::FeatureLazyBranch(_) => TraceKind::FeatureBranch,
             TraceVariant::FeatureLazyExpr(_) => TraceKind::FeatureExpr,
-            TraceVariant::FeatureCallArgument { .. } => TraceKind::FeatureCallInput,
+            TraceVariant::FeatureCallArgument { .. } => TraceKind::FeatureCallArgument,
             TraceVariant::FuncStmt { .. } => TraceKind::FuncStmt,
             TraceVariant::ProcStmt { .. } => TraceKind::ProcStmt,
             TraceVariant::ProcBranch { .. } => TraceKind::ProcBranch,
             TraceVariant::LoopFrame { .. } => TraceKind::ProcBranch,
             TraceVariant::EagerExpr { .. } => TraceKind::EagerExpr,
             TraceVariant::CallHead { .. } => TraceKind::CallHead,
+            TraceVariant::EagerCallArgument { .. } => TraceKind::EagerCallArgument,
         }
     }
 
@@ -71,15 +77,16 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::FeatureLazyStmt(ref stmt) => (stmt.file, stmt.range),
             TraceVariant::FeatureLazyExpr(expr) => (expr.expr.file, expr.expr.range),
             TraceVariant::FeatureLazyBranch(ref branch) => (branch.block.file, branch.block.range),
-            TraceVariant::FeatureCallArgument {
-                argument: input, ..
-            } => (input.expr.file, input.expr.range),
+            TraceVariant::FeatureCallArgument { argument, .. } => {
+                (argument.expr.file, argument.expr.range)
+            }
             TraceVariant::FuncStmt { ref stmt, .. } => (stmt.file, stmt.range),
             TraceVariant::EagerExpr { ref expr, .. } => (expr.file, expr.range),
             TraceVariant::CallHead { ref entity, .. } => (entity.file, entity.range),
             TraceVariant::ProcStmt { stmt, .. } => (stmt.file, stmt.range),
             TraceVariant::LoopFrame { loop_stmt, .. } => (loop_stmt.file, loop_stmt.range),
             TraceVariant::ProcBranch { stmt, branch, .. } => (stmt.file, branch.range),
+            TraceVariant::EagerCallArgument { argument, .. } => (argument.file, argument.range),
         }
     }
 
@@ -90,7 +97,8 @@ impl<'eval> TraceVariant<'eval> {
         match self {
             TraceVariant::FeatureLazyStmt(_)
             | TraceVariant::FeatureCallArgument { .. }
-            | TraceVariant::FuncStmt { .. } => false,
+            | TraceVariant::FuncStmt { .. }
+            | TraceVariant::EagerCallArgument { .. } => false,
             TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
                 ProcStmtVariant::Init { .. }
                 | ProcStmtVariant::Assert { .. }
@@ -204,13 +212,12 @@ impl<'eval> TraceVariant<'eval> {
     pub fn reachable(&self) -> bool {
         match self {
             TraceVariant::Main(_) => true,
-            TraceVariant::FeatureLazyStmt(_) => true,
-            TraceVariant::FeatureLazyBranch(_) => true,
-            TraceVariant::FeatureLazyExpr(_) => true,
-            TraceVariant::FeatureCallArgument {
-                ident,
-                argument: input,
-            } => true,
+            TraceVariant::FeatureLazyStmt(_)
+            | TraceVariant::FeatureLazyBranch(_)
+            | TraceVariant::FeatureLazyExpr(_) => true,
+            TraceVariant::FeatureCallArgument { .. } | TraceVariant::EagerCallArgument { .. } => {
+                true
+            }
             TraceVariant::FuncStmt { stmt, history } => match stmt.variant {
                 FuncStmtVariant::Init {
                     ref initial_value, ..
@@ -293,6 +300,7 @@ impl<'eval> Serialize for TraceVariant<'eval> {
             TraceVariant::CallHead { .. } => "CallHead",
             TraceVariant::LoopFrame { .. } => "LoopFrame",
             TraceVariant::ProcBranch { .. } => "ProcBranch",
+            TraceVariant::EagerCallArgument { .. } => "EagerCallArgument",
         })
     }
 }

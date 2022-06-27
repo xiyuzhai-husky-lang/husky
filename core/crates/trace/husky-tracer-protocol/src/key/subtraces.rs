@@ -23,7 +23,9 @@ impl SubtracesKey {
             | TraceKind::ProcBranch
             | TraceKind::LoopFrame
             | TraceKind::EagerExpr => SubtracesKey::Simple { trace_id },
-            TraceKind::FeatureCallInput | TraceKind::CallHead => SubtracesKey::Null,
+            TraceKind::FeatureCallArgument | TraceKind::CallHead | TraceKind::EagerCallArgument => {
+                SubtracesKey::Null
+            }
             TraceKind::FeatureExpr => match attention {
                 Attention::Specific {
                     sample_id: sample_id,

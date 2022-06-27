@@ -130,15 +130,6 @@ impl HuskyTraceTime {
                 self.feature_expr_lines(expr, ExprTokenConfig::expr(false))
             }
             TraceVariant::FeatureLazyBranch(branch) => self.feature_branch_lines(indent, branch),
-            TraceVariant::FeatureCallArgument {
-                ident,
-                argument: input,
-            } => {
-                let mut lines = self.feature_expr_lines(input, ExprTokenConfig::expr(true));
-                lines[0].tokens.insert(0, special!(" = "));
-                lines[0].tokens.insert(0, ident!(ident.0));
-                lines
-            }
             TraceVariant::FuncStmt {
                 ref stmt,
                 ref history,
@@ -168,6 +159,28 @@ impl HuskyTraceTime {
                 history,
                 ..
             } => self.proc_branch_lines(indent, branch, history),
+            TraceVariant::FeatureCallArgument {
+                ident,
+                argument: input,
+            } => {
+                let mut lines = self.feature_expr_lines(input, ExprTokenConfig::expr(true));
+                let first_line = lines.first_mut().unwrap();
+                first_line.tokens.insert(0, special!(" = "));
+                first_line.tokens.insert(0, ident!(ident.0));
+                lines
+            }
+            TraceVariant::EagerCallArgument {
+                ident,
+                ref argument,
+                ref history,
+            } => {
+                let mut lines =
+                    self.eager_expr_lines(argument, history, 0, ExprTokenConfig::expr(true));
+                let first_line = lines.first_mut().unwrap();
+                first_line.tokens.insert(0, special!(" = "));
+                first_line.tokens.insert(0, ident!(ident.0));
+                lines
+            }
         }
     }
 

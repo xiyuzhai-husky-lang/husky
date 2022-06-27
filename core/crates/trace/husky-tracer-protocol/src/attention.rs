@@ -47,7 +47,8 @@ impl Attention {
                 Attention::Specific { .. } => true,
                 Attention::Generic { .. } => false,
             },
-            TraceKind::FeatureCallInput
+            TraceKind::FeatureCallArgument
+            | TraceKind::EagerCallArgument
             | TraceKind::FuncStmt
             | TraceKind::ProcStmt
             | TraceKind::ProcBranch

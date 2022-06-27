@@ -23,7 +23,7 @@ impl TraceStalkKey {
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr
-            | TraceKind::FeatureCallInput => TraceStalkKey::Lazy {
+            | TraceKind::FeatureCallArgument => TraceStalkKey::Lazy {
                 trace_id,
                 sample_id,
             },
@@ -32,7 +32,8 @@ impl TraceStalkKey {
             | TraceKind::ProcStmt
             | TraceKind::ProcBranch
             | TraceKind::CallHead
-            | TraceKind::EagerExpr => TraceStalkKey::Null,
+            | TraceKind::EagerExpr
+            | TraceKind::EagerCallArgument => TraceStalkKey::Null,
         }
     }
 }

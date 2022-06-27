@@ -76,6 +76,11 @@ impl HuskyTraceTime {
                 None => FigureCanvasData::void(),
                 _ => panic!(),
             },
+            TraceVariant::EagerCallArgument {
+                ident,
+                ref argument,
+                ref history,
+            } => todo!(),
         })
     }
 }

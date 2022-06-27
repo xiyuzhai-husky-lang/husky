@@ -108,7 +108,7 @@ impl HuskyTraceTime {
         };
         if config.appended {
             tokens.push(fade!(" = "));
-            tokens.push(history.value(expr).into())
+            tokens.push(history.value_result(expr).into())
         }
         tokens
     }

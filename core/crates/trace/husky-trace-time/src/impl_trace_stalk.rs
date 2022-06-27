@@ -81,6 +81,11 @@ impl HuskyTraceTime {
                 vm::ControlSnapshot::Break => todo!(),
                 vm::ControlSnapshot::Err(_) => todo!(),
             },
+            TraceVariant::EagerCallArgument {
+                ident,
+                ref argument,
+                ref history,
+            } => todo!(),
         }
     }
 
