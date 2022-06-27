@@ -89,6 +89,7 @@ pub enum InstructionVariant {
         routine_uid: EntityUid,
         nargs: u8,
         has_this: bool,
+        output_ty: EntityRoutePtr,
     },
     NewVirtualStruct {
         ty: EntityRoutePtr,
@@ -103,7 +104,9 @@ pub enum InstructionVariant {
         body: Arc<InstructionSheet>,
         loop_kind: VMLoopKind,
     },
-    Return,
+    Return {
+        output_ty: EntityRoutePtr,
+    },
     BreakIfFalse,
     Break,
     Assert,

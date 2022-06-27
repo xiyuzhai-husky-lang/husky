@@ -8,9 +8,11 @@ mod exec_pattern_match;
 use crate::{history::HistoryEntry, *};
 use check_utils::{should, should_eq};
 use colored::Colorize;
+use entity_route::EntityRouteKind;
 use path_utils::get_relative_path;
-use print_utils::{p, ps};
+use print_utils::{msg_once, p, ps};
 use std::iter::zip;
+use word::RootIdentifier;
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
@@ -49,12 +51,15 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             }
                             _ => (),
                         },
-                        Mode::TrackHistory => self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                output: Ok(value.eval()),
-                            },
-                        ),
+                        Mode::TrackHistory => {
+                            should_eq!(ty, value.any_ref().ty_dyn());
+                            self.history.write(
+                                ins,
+                                HistoryEntry::PureExpr {
+                                    result: Ok(value.eval()),
+                                },
+                            )
+                        }
                     }
                     VMControl::None
                 }
@@ -67,7 +72,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                 self.history.write(
                                     ins,
                                     HistoryEntry::PureExpr {
-                                        output: Ok(self.stack.eval_top()),
+                                        result: Ok(self.stack.eval_top()),
                                     },
                                 )
                             }
@@ -82,7 +87,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: Ok(self.stack.eval_top()),
+                                result: Ok(self.stack.eval_top()),
                             },
                         ),
                     }
@@ -95,7 +100,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: match control {
+                                result: match control {
                                     VMControl::Err(ref e) => Err(e.clone().into()),
                                     _ => Ok(self.stack.eval_top()),
                                 },
@@ -111,7 +116,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: match control {
+                                result: match control {
                                     VMControl::Err(ref e) => Err(e.clone().into()),
                                     _ => Ok(self.stack.eval_top()),
                                 },
@@ -128,36 +133,48 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     routine_uid: routine,
                     nargs, // including this
                     has_this,
+                    output_ty,
                 } => {
                     let instruction_sheet = self.db.entity_opt_instruction_sheet_by_uid(routine);
-                    let control = self
-                        .call_interpreted(&instruction_sheet.unwrap(), nargs, has_this)
-                        .into();
+                    let result =
+                        self.call_interpreted(&instruction_sheet.unwrap(), nargs, has_this);
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                output: Ok(self.stack.eval_top()),
-                            },
-                        ),
+                        Mode::TrackHistory => {
+                            let result = match result {
+                                Ok(()) => Ok(self.stack.eval_top()),
+                                Err(ref e) => Err(e.clone()),
+                            };
+                            self.history.write(ins, HistoryEntry::PureExpr { result })
+                        }
                     };
-                    control
+                    result.into()
                 }
                 InstructionVariant::NewVirtualStruct { ty, ref fields } => {
                     let control = self.new_virtual_struct(ty, fields).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                output: Ok(self.stack.eval_top()),
-                            },
-                        ),
+                        Mode::TrackHistory => {
+                            let output = self.stack.eval_top();
+                            should_eq!(output.any_ref().ty_dyn(), ty);
+                            self.history
+                                .write(ins, HistoryEntry::PureExpr { result: Ok(output) })
+                        }
                     };
                     control
                 }
-                InstructionVariant::Return => VMControl::Return(self.stack.pop().into_eval()),
+                InstructionVariant::Return { output_ty } => {
+                    let return_value = self.stack.pop().into_eval();
+                    msg_once!("ugly");
+                    if output_ty.kind
+                        != (EntityRouteKind::Root {
+                            ident: RootIdentifier::DatasetType,
+                        })
+                    {
+                        should_eq!(output_ty, return_value.any_ref().ty_dyn());
+                    }
+                    VMControl::Return(return_value)
+                }
                 InstructionVariant::Loop {
                     ref body,
                     loop_kind,
@@ -206,7 +223,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                output: Ok(self.stack.eval_top()),
+                                result: Ok(self.stack.eval_top()),
                             },
                         ),
                     };

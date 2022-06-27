@@ -373,7 +373,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
                 },
                 TempValue::OwnedEval(value) => value.any_ref(),
                 TempValue::EvalPure(value) => (&**value),
-                TempValue::EvalRef(_) => todo!(),
+                TempValue::EvalRef(value) => value.0,
                 TempValue::TempRefEval(value) => *value,
                 TempValue::TempRefMutEval { value, .. } => *value,
                 TempValue::Moved => todo!(),

@@ -94,7 +94,7 @@ where
     'a: 'eval,
 {
     fn print_short(&self) -> String {
-        "VirtualTy(todo)".to_string()
+        "VirtualStruct { .. }".to_string()
     }
 
     fn to_json_value(&self) -> serde_json::value::Value {

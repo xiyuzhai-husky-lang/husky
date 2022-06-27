@@ -1,3 +1,5 @@
+use check_utils::should_eq;
+
 use super::*;
 
 impl HuskyTraceTime {
@@ -8,13 +10,17 @@ impl HuskyTraceTime {
     ) -> FigureCanvasData {
         if let Some(entry) = history.get(expr) {
             match entry {
-                HistoryEntry::PureExpr { output } => match output {
-                    Ok(output) => FigureCanvasData::new_specific(self.visualize_temp_value(
-                        output,
-                        expr.ty(),
-                        expr.file,
-                        expr.range,
-                    )),
+                HistoryEntry::PureExpr { result } => match result {
+                    Ok(output) => {
+                        p!(expr);
+                        should_eq!(output.any_ref().ty_dyn(), expr.ty());
+                        FigureCanvasData::new_specific(self.visualize_temp_value(
+                            output,
+                            expr.ty(),
+                            expr.file,
+                            expr.range,
+                        ))
+                    }
                     Err(e) => FigureCanvasData::void(),
                 },
                 HistoryEntry::Exec { .. } => todo!(),
