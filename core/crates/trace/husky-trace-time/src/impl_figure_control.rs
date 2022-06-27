@@ -40,7 +40,8 @@ impl HuskyTraceTime {
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::EagerExpr { .. }
-            | TraceVariant::CallHead { .. } => FigureControlData::default(),
+            | TraceVariant::CallHead { .. }
+            | TraceVariant::EagerCallArgument { .. } => FigureControlData::default(),
             TraceVariant::ProcStmt {
                 ref stmt,
                 ref history,
@@ -78,11 +79,6 @@ impl HuskyTraceTime {
                 }
                 _ => panic!(),
             },
-            TraceVariant::EagerCallArgument {
-                ident,
-                ref argument,
-                ref history,
-            } => todo!(),
         }
     }
 

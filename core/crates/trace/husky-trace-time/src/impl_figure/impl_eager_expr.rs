@@ -12,7 +12,6 @@ impl HuskyTraceTime {
             match entry {
                 HistoryEntry::PureExpr { result } => match result {
                     Ok(output) => {
-                        p!(expr);
                         should_eq!(output.any_ref().ty_dyn(), expr.ty());
                         FigureCanvasData::new_specific(self.visualize_temp_value(
                             output,
