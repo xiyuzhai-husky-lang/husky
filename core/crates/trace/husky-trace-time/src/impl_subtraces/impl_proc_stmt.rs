@@ -84,14 +84,17 @@ impl HuskyTraceTime {
 
     pub(crate) fn proc_branch_subtraces(
         &mut self,
-        db: &dyn EvalFeature<'static>,
         stmts: &[Arc<ProcStmt>],
         instruction_sheet: &InstructionSheet,
         stack_snapshot: &StackSnapshot<'static>,
         parent: &Trace,
-        verbose: bool,
     ) -> Vec<TraceId> {
-        let history = exec_debug(db.upcast(), instruction_sheet, stack_snapshot, verbose);
-        self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 2, stmts, &history)
+        let history = exec_debug(
+            self.eval_time().upcast(),
+            instruction_sheet,
+            stack_snapshot,
+            self.eval_time().verbose(),
+        );
+        self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 4, stmts, &history)
     }
 }
