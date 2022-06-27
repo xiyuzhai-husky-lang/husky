@@ -165,9 +165,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         match expr.variant {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
-                p!(this.ty());
                 let visual_data = self.visualize(this);
-                p!(visual_data);
                 Ok(EvalValue::Owned(OwnedValue::new(visual_data?)))
             }
             FeatureXmlExprVariant::Tag {
