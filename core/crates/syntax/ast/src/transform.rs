@@ -17,11 +17,11 @@ use crate::{
     query::{AstSalsaQueryGroup, AstText},
     *,
 };
-use atom::context::{Symbol, SymbolKind};
 use entity_route::EntityRouteKind;
 use entity_syntax::EntitySyntaxResult;
 use file::FilePtr;
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
+use husky_atom::context::{Symbol, SymbolKind};
 use text::TextRanged;
 use token::*;
 

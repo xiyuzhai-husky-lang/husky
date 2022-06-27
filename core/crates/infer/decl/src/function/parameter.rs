@@ -1,4 +1,4 @@
-use atom::AtomContext;
+use husky_atom::AtomContext;
 use text::TextRange;
 use vec_map::VecMapEntry;
 

@@ -61,7 +61,7 @@ pub trait AtomContext {
         ident: RootIdentifier,
         generics: ThinVec<SpatialArgument>,
         tail: TextRange,
-    ) -> Atom {
+    ) -> HuskyAtom {
         let scope = EntityRoute::new_root(ident.into(), generics);
         let kind = AtomVariant::EntityRoute {
             route: self.entity_syntax_db().intern_entity_route(scope),
@@ -98,7 +98,7 @@ pub trait AtomContext {
                 RootIdentifier::VisualType => todo!(),
             }),
         };
-        Atom::new(tail, kind)
+        HuskyAtom::new(tail, kind)
     }
 
     fn resolve_symbol_kind(&self, ident: Identifier, range: TextRange) -> AtomResult<SymbolKind> {

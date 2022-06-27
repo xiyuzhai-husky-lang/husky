@@ -1,6 +1,6 @@
-use atom::AtomContext;
 use defn_head::Parameter;
 use entity_route::RangedEntityRoute;
+use husky_atom::AtomContext;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::sync::Arc;

@@ -1,5 +1,5 @@
 use crate::*;
-use atom::{context::SymbolKind, AtomVariant};
+use husky_atom::{context::SymbolKind, AtomVariant};
 use text::TextRanged;
 use token::Token;
 
@@ -9,7 +9,7 @@ impl<'a> AstTransformer<'a> {
         self.parse_expr_from_atoms(atoms)
     }
 
-    pub(crate) fn parse_expr_from_atoms(&mut self, atoms: Vec<Atom>) -> AstResult<RawExprIdx> {
+    pub(crate) fn parse_expr_from_atoms(&mut self, atoms: Vec<HuskyAtom>) -> AstResult<RawExprIdx> {
         should!(atoms.len() > 0);
         let mut atom_iter = atoms.into_iter().peekable();
         let mut stack = ExprStack::new(&mut self.arena);

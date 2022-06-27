@@ -15,7 +15,7 @@ impl<'a> AstTransformer<'a> {
             token_group[1],
             SemanticTokenKind::Entity(EntityKind::Feature)
         );
-        let ty = atom::parse_route(self, &token_group[3..])?;
+        let ty = husky_atom::parse_route(self, &token_group[3..])?;
         Ok(AstVariant::FeatureDecl { ident, ty })
     }
 }

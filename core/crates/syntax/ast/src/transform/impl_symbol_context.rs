@@ -1,5 +1,5 @@
 use crate::*;
-use atom::context::{AtomContext, AtomContextKind, Symbol};
+use husky_atom::context::{AtomContext, AtomContextKind, Symbol};
 use token::AbsSemanticToken;
 
 impl<'a> AtomContext for AstTransformer<'a> {

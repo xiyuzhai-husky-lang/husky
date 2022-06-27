@@ -1,6 +1,6 @@
 use super::utils;
 use crate::*;
-use atom::AtomVariant;
+use husky_atom::AtomVariant;
 
 #[test]
 fn list_type() {

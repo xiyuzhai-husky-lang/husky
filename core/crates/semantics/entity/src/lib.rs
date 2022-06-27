@@ -16,10 +16,6 @@ pub use trai::*;
 pub use ty::*;
 
 use ast::AstVariant;
-use atom::{
-    context::{AtomContextKind, Symbol},
-    AtomContext, AtomContextStandalone,
-};
 use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
@@ -28,6 +24,10 @@ use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use entity_syntax::EntityLocus;
 use file::FilePtr;
 use fold::{FoldIterItem, FoldableStorage};
+use husky_atom::{
+    context::{AtomContextKind, Symbol},
+    AtomContext, AtomContextStandalone,
+};
 use liason::*;
 use map_collect::MapCollect;
 use module::module_defn;

@@ -1,7 +1,7 @@
 use crate::EntityDefn;
 use crate::*;
-use atom::AtomContext;
 use dev_utils::DevSource;
+use husky_atom::AtomContext;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, MethodStaticDefnVariant, StaticTraitImplDefn};
 use std::sync::Arc;

@@ -4,12 +4,12 @@ mod parameter;
 pub use output::*;
 pub use parameter::*;
 
-use atom::{
+use defn_head::*;
+use fold::LocalStack;
+use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext, AtomContextStandalone,
 };
-use defn_head::*;
-use fold::LocalStack;
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{emsg_once, msg_once, p};

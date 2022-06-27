@@ -40,7 +40,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    pub fn parse_all(mut self) -> AtomResult<Vec<Atom>> {
+    pub fn parse_all(mut self) -> AtomResult<Vec<HuskyAtom>> {
         loop {
             if self.stack.is_concave() {
                 let text_start = self.token_stream.text_start();

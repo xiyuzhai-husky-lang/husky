@@ -1,7 +1,7 @@
 mod impl_match;
 
 use crate::{stmt::*, *};
-use atom::context::{Symbol, SymbolKind};
+use husky_atom::context::{Symbol, SymbolKind};
 use text::{TextRange, TextRanged};
 use token::*;
 use vm::*;

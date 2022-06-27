@@ -1,6 +1,6 @@
 use crate::*;
 
-use atom::{
+use husky_atom::{
     context::{AtomContextKind, Symbol},
     *,
 };
@@ -11,7 +11,7 @@ pub(super) fn check_atom_kind(db: &mut HuskyCompileTime, line: &'static str, kin
     should_eq!(atom.kind, kind);
 }
 
-pub(super) fn get_atoms_in_line(db: &mut HuskyCompileTime, line: &'static str) -> Vec<Atom> {
+pub(super) fn get_atoms_in_line(db: &mut HuskyCompileTime, line: &'static str) -> Vec<HuskyAtom> {
     db.set_live_file_text("haha/main.hsk".into(), line.into());
     let tokens = db.tokenize(line);
     let main = db.intern_file("haha/main.hsk".into());

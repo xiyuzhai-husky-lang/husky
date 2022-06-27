@@ -7,11 +7,11 @@ use crate::{context::AtomContext, convexity::Convexity, *};
 
 #[derive(Debug)]
 pub(crate) struct AtomStack {
-    pub(crate) atoms: Vec<Atom>,
+    pub(crate) atoms: Vec<HuskyAtom>,
 }
 
-impl Into<Vec<Atom>> for AtomStack {
-    fn into(self) -> Vec<Atom> {
+impl Into<Vec<HuskyAtom>> for AtomStack {
+    fn into(self) -> Vec<HuskyAtom> {
         self.atoms
     }
 }
@@ -41,7 +41,7 @@ impl AtomStack {
 
 // push
 impl AtomStack {
-    pub(crate) fn push(&mut self, atom: Atom) -> AtomResult<()> {
+    pub(crate) fn push(&mut self, atom: HuskyAtom) -> AtomResult<()> {
         if convexity::compatible(self.convexity(), convexity::left_side_convexity(&atom.kind)) {
             self.atoms.push(atom);
             Ok(())
@@ -52,10 +52,10 @@ impl AtomStack {
 
     pub(crate) fn end_list(&mut self, ket: Bracket, attr: ListEndAttr, ket_range: TextRange) {
         if self.is_convex() {
-            self.push(Atom::new(ket_range.clone(), AtomVariant::ListItem))
+            self.push(HuskyAtom::new(ket_range.clone(), AtomVariant::ListItem))
                 .unwrap();
         }
-        self.push(Atom::new(ket_range, AtomVariant::ListEnd(ket, attr)))
+        self.push(HuskyAtom::new(ket_range, AtomVariant::ListEnd(ket, attr)))
             .unwrap();
     }
 
@@ -69,7 +69,7 @@ impl AtomStack {
         match (ket, self.atoms.last()) {
             (
                 Bracket::Par,
-                Some(Atom {
+                Some(HuskyAtom {
                     kind:
                         AtomVariant::EntityRoute {
                             kind: EntityKind::Type(_),
@@ -94,7 +94,7 @@ impl AtomStack {
     }
 
     pub(crate) fn start_list(&mut self, bra: Bracket, text_range: TextRange) {
-        self.push(Atom::new(
+        self.push(HuskyAtom::new(
             text_range,
             AtomVariant::ListStart(
                 bra,
@@ -134,7 +134,7 @@ impl AtomStack {
         }
     }
 
-    fn pop(&mut self, follower: &mut TextRange) -> AtomResult<Atom> {
+    fn pop(&mut self, follower: &mut TextRange) -> AtomResult<HuskyAtom> {
         let atom = self
             .atoms
             .pop()

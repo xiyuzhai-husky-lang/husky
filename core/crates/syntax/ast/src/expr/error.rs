@@ -38,8 +38,8 @@
 // pub type ExprResult<T> = Result<T, ExprError>;
 // pub type ExprResultArc<T> = Result<Arc<T>, ExprError>;
 
-// impl From<&atom::AtomError> for ExprError {
-//     fn from(error: &atom::AtomError) -> Self {
+// impl From<&husky_atom::AtomError> for ExprError {
+//     fn from(error: &husky_atom::AtomError) -> Self {
 //         Self {
 //             range: error.range.clone(),
 //             kind: ExprErrorKind::AtomError(error.kind.clone()),
@@ -48,8 +48,8 @@
 //     }
 // }
 
-// impl From<atom::AtomError> for ExprError {
-//     fn from(error: atom::AtomError) -> Self {
+// impl From<husky_atom::AtomError> for ExprError {
+//     fn from(error: husky_atom::AtomError) -> Self {
 //         Self {
 //             range: error.range,
 //             kind: ExprErrorKind::AtomError(error.kind),

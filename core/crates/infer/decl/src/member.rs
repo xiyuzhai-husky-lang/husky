@@ -4,8 +4,8 @@ mod method;
 pub use field::*;
 pub use method::*;
 
-use atom::{context::Symbol, AtomContext};
 use fold::LocalStack;
+use husky_atom::{context::Symbol, AtomContext};
 use map_collect::MapCollect;
 use print_utils::{epin, p};
 use vec_map::VecMapEntry;

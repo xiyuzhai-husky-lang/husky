@@ -7,12 +7,12 @@ pub use type_call::*;
 
 use super::*;
 use ast::*;
-use atom::{
+use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr};
+use file::FilePtr;
+use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext,
 };
-use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr};
-use file::FilePtr;
 use infer_decl::{DeclQueryGroup, MemberIdx};
 use infer_total::InferQueryGroup;
 use print_utils::{emsg_once, p};
