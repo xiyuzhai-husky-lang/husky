@@ -64,10 +64,11 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
             })
             .collect(),
     );
+    let reachable = memo!(scope, move || trace.reachable);
     view! {
         scope,
         div(
-            class="TraceNode",
+            class=format!("TraceNode {}", class!(*reachable)),
             on:mousedown=activate_handler
         ) {
             div(

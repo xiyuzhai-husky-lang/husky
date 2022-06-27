@@ -6,11 +6,3 @@
     border: white 2px solid;
     margin: 2px;
 }
-
-.TraceTree {
-    opacity: 0.35;
-}
-
-.TraceTree.reachable {
-    opacity: 1;
-}
