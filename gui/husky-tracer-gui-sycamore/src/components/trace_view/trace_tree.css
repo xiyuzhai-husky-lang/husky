@@ -6,6 +6,10 @@
     border: white 2px solid;
     margin: 2px;
 }
-.TraceTree.FeatureExpr {
-    border: white 2px solid;
+
+.TraceTree.FeatureExpr,
+.TraceTree.EagerExpr {
+    margin: 1px;
+    padding: 1.5px;
+    border: silver 2px groove;
 }
