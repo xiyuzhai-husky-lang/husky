@@ -80,7 +80,7 @@ impl Visualizer {
     //         VisualizerVariant::Vec { ty, .. } => {
     //             let elem_ty = ty.spatial_arguments[0].take_entity_route();
     //             let elem_visualizer = db.visualizer(elem_ty);
-    //             let virtual_vec: &Vec<MemberValue<'eval>> = value.downcast_ref();
+    //             let virtual_vec: &VirtualVec<'eval> = value.downcast_ref();
     //             VisualData::Group(
     //                 virtual_vec
     //                     .iter()
@@ -91,7 +91,7 @@ impl Visualizer {
     //         VisualizerVariant::CyclicSlice { ty } => {
     //             let elem_ty = ty.spatial_arguments[0].take_entity_route();
     //             let elem_visualizer = db.visualizer(elem_ty);
-    //             let virtual_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> =
+    //             let virtual_cyclic_slice: &VirtualCyclicSlice<'eval> =
     //                 value.downcast_ref();
     //             VisualData::Group(
     //                 virtual_cyclic_slice

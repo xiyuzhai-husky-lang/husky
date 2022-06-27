@@ -94,7 +94,7 @@ impl FeatureLazyStmt {
                     feature_interner,
                 ),
             },
-            LazyStmtVariant::ConditionFlow { ref branches } => {
+            LazyStmtVariant::ConditionFlow { ref branches, ty } => {
                 let branches: Vec<Arc<FeatureLazyBranch>> = branches
                     .iter()
                     .map(|branch| {
@@ -105,6 +105,7 @@ impl FeatureLazyStmt {
                                 &branch.stmts,
                                 &symbols,
                                 feature_interner,
+                                ty,
                             ),
                             variant: match branch.variant {
                                 LazyConditionBranchVariant::If { ref condition } => {

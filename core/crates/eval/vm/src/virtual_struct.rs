@@ -1,3 +1,5 @@
+use std::borrow::Cow;
+
 use entity_route::EntityRoutePtr;
 use print_utils::{msg_once, p};
 use serde::Serialize;
@@ -7,11 +9,13 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VirtualStruct<'eval> {
+    ty: EntityRoutePtr,
     fields: IdentPairDict<MemberValue<'eval>>,
 }
 
 impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
     pub fn new_struct(
+        ty: EntityRoutePtr,
         mut arguments: impl Iterator<Item = TempValue<'temp, 'eval>>,
         field_liasons: &[CustomIdentifier],
     ) -> Self {
@@ -19,7 +23,7 @@ impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
         for (ident, mut argument) in std::iter::zip(field_liasons.iter(), arguments) {
             fields.insert_new((*ident, argument.into_member()));
         }
-        VirtualStruct { fields }
+        VirtualStruct { ty, fields }
     }
 
     pub fn eval_field(&self, field_idx: usize) -> &MemberValue<'eval> {
@@ -77,18 +81,18 @@ impl<'eval> Serialize for VirtualStruct<'eval> {
     }
 }
 
+impl<'eval> HasStaticTypeInfo for VirtualStruct<'eval> {
+    type StaticSelf = VirtualStruct<'static>;
+
+    fn static_type_name() -> Cow<'static, str> {
+        "AnyStruct".into()
+    }
+}
+
 impl<'eval, 'a> AnyValue<'eval> for VirtualStruct<'a>
 where
     'a: 'eval,
 {
-    fn static_type_id() -> StaticTypeId {
-        HuskyBuiltinStaticTypeId::VirtualTy.into()
-    }
-
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
-        "VirtualTy".into()
-    }
-
     fn print_short(&self) -> String {
         "VirtualTy(todo)".to_string()
     }
@@ -97,7 +101,12 @@ where
         serde_json::value::Value::Object(
             self.fields
                 .iter()
-                .map(|(ident, value)| (ident.as_str().to_string(), value.to_json_value()))
+                .map(|(ident, value)| {
+                    (
+                        ident.as_str().to_string(),
+                        value.any_ref().to_json_value_dyn(),
+                    )
+                })
                 .collect(),
         )
     }
@@ -110,7 +119,7 @@ where
     }
 
     fn ty(&self) -> EntityRoutePtr {
-        todo!()
+        self.ty
     }
 }
 

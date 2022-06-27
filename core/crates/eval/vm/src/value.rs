@@ -551,7 +551,7 @@ impl<'temp, 'eval: 'temp> TempValue<'temp, 'eval> {
         }
     }
 
-    pub fn static_type_id(&self) -> StaticTypeId {
+    pub fn static_type_id(&self) -> std::any::TypeId {
         self.any_ref().static_type_id_dyn()
     }
 

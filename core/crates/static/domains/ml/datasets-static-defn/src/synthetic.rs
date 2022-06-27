@@ -112,15 +112,15 @@ impl<'eval> Serialize for SimpleSyntheticDataset<'eval> {
     }
 }
 
-impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
-    fn static_type_id() -> StaticTypeId {
-        todo!()
-    }
+impl<'a> HasStaticTypeInfo for SimpleSyntheticDataset<'a> {
+    type StaticSelf = SimpleSyntheticDataset<'static>;
 
     fn static_type_name() -> Cow<'static, str> {
         todo!()
     }
+}
 
+impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
     fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,

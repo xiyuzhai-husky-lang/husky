@@ -88,8 +88,24 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::CallLinkage { linkage } => {
-                    let control = self.call_compiled(linkage).into();
+                InstructionVariant::CallSpecificRoutine { linkage } => {
+                    let control = self.call_routine(linkage).into();
+                    match mode {
+                        Mode::Fast | Mode::TrackMutation => (),
+                        Mode::TrackHistory => self.history.write(
+                            ins,
+                            HistoryEntry::PureExpr {
+                                output: match control {
+                                    VMControl::Err(ref e) => Err(e.clone().into()),
+                                    _ => Ok(self.stack.eval_top()),
+                                },
+                            },
+                        ),
+                    }
+                    control
+                }
+                InstructionVariant::CallGenericRoutine { output_ty, linkage } => {
+                    let control = self.call_generic_transfer(output_ty, linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -128,8 +144,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     };
                     control
                 }
-                InstructionVariant::NewVirtualStruct { ref fields } => {
-                    let control = self.new_virtual_struct(fields).into();
+                InstructionVariant::NewVirtualStruct { ty, ref fields } => {
+                    let control = self.new_virtual_struct(ty, fields).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -247,9 +263,24 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         VMControl::None
     }
 
-    pub(crate) fn eval_linkage(&mut self, linkage: RoutineLinkage) -> EvalValueResult<'eval> {
-        let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
-        should_eq!(self.stack.len(), 0);
-        Ok((linkage.call)(&mut arguments)?.into_eval())
+    pub(crate) fn eval_linkage(
+        &mut self,
+        linkage: Linkage,
+        output_ty: EntityRoutePtr,
+    ) -> EvalValueResult<'eval> {
+        match linkage {
+            Linkage::MemberAccess { .. } => todo!(),
+            Linkage::SpecificTransfer(linkage) => {
+                let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
+                should_eq!(self.stack.len(), 0);
+                Ok((linkage.call)(&mut arguments)?.into_eval())
+            }
+            Linkage::GenericTransfer(linkage) => {
+                let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
+                should_eq!(self.stack.len(), 0);
+                Ok((linkage.call)(output_ty, &mut arguments)?.into_eval())
+            }
+            Linkage::Model(_) => todo!(),
+        }
     }
 }

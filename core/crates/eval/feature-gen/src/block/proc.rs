@@ -1,5 +1,6 @@
 use super::*;
 use avec::Avec;
+use entity_route::RangedEntityRoute;
 use semantics_eager::ProcStmt;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -9,7 +10,8 @@ pub struct FeatureProcBlock {
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    stmts: Avec<ProcStmt>,
+    pub ty: RangedEntityRoute,
+    pub stmts: Avec<ProcStmt>,
 }
 
 impl<'eval> std::hash::Hash for FeatureProcBlock {

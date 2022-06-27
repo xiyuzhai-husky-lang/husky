@@ -222,19 +222,22 @@ impl EntityDefn {
         ) {
             match defn_repr {
                 DefinitionRepr::LazyExpr { ref expr } => extract_lazy_expr_dependees(expr, builder),
-                DefinitionRepr::LazyBlock { stmts } => extract_lazy_stmts_dependees(stmts, builder),
+                DefinitionRepr::LazyBlock { stmts, ty } => {
+                    extract_lazy_stmts_dependees(stmts, builder)
+                }
                 DefinitionRepr::FuncBlock {
                     stmts,
                     file,
                     range,
                     route,
+                    ..
                 } => {
                     builder.push(*route);
                     extract_func_stmts_dependees(stmts, builder)
                 }
-                DefinitionRepr::ProcBlock { stmts, file, range } => {
-                    extract_proc_stmts_dependees(stmts, builder)
-                }
+                DefinitionRepr::ProcBlock {
+                    stmts, file, range, ..
+                } => extract_proc_stmts_dependees(stmts, builder),
             }
         }
 
@@ -246,7 +249,7 @@ impl EntityDefn {
                     LazyStmtVariant::Return { ref result } => {
                         extract_lazy_expr_dependees(result, builder)
                     }
-                    LazyStmtVariant::ConditionFlow { ref branches } => todo!(),
+                    LazyStmtVariant::ConditionFlow { .. } => todo!(),
                     LazyStmtVariant::Match { .. } => todo!(),
                     LazyStmtVariant::ReturnXml { ref xml_expr } => todo!(),
                 }

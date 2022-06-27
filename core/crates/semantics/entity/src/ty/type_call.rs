@@ -2,36 +2,29 @@ use atom::AtomContext;
 use defn_head::Parameter;
 use entity_route::RangedEntityRoute;
 use map_collect::MapCollect;
-use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
+use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::sync::Arc;
-use vm::RoutineLinkage;
+use vm::{GenericRoutineLinkage, Linkage, SpecificRoutineLinkage};
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TyCallDefn {
+pub struct TypeCallDefn {
     pub parameters: Arc<Vec<Parameter>>,
     pub output_ty: RangedEntityRoute,
-    pub source: TyCallSource,
+    pub opt_linkage: Option<Linkage>,
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum TyCallSource {
-    GenericStruct,
-    GenericRecord,
-    Static(RoutineLinkage),
-}
-
-impl TyCallDefn {
+impl TypeCallDefn {
     pub fn from_static(
         context: &mut dyn AtomContext,
         static_defn: &EntityStaticDefn,
-    ) -> Arc<TyCallDefn> {
+    ) -> Arc<TypeCallDefn> {
         Arc::new(match static_defn.variant {
-            EntityStaticDefnVariant::Routine {
+            EntityStaticDefnVariant::Function {
                 ref parameters,
                 output_ty,
                 linkage,
                 ..
-            } => TyCallDefn {
+            } => TypeCallDefn {
                 parameters: Arc::new(parameters.map(|input_placeholder| {
                     context.input_placeholder_from_static(input_placeholder)
                 })),
@@ -39,7 +32,7 @@ impl TyCallDefn {
                     route: context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
-                source: TyCallSource::Static(linkage.clone()),
+                opt_linkage: Some(linkage),
             },
             _ => panic!(),
         })

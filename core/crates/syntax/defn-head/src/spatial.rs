@@ -1,7 +1,7 @@
 use entity_kind::TyKind;
 use entity_route::{EntityKind, RangedEntityRoute};
 use entity_syntax::EntitySyntaxQueryGroup;
-use static_defn::StaticGenericPlaceholder;
+use static_defn::StaticSpatialParameter;
 use text::RangedCustomIdentifier;
 use vec_map::VecMapEntry;
 use word::CustomIdentifier;
@@ -25,7 +25,7 @@ pub enum GenericPlaceholderVariant {
 }
 
 impl SpatialParameter {
-    pub fn from_static(db: &dyn EntitySyntaxQueryGroup, _: &StaticGenericPlaceholder) -> Self {
+    pub fn from_static(db: &dyn EntitySyntaxQueryGroup, _: &StaticSpatialParameter) -> Self {
         todo!()
     }
 }

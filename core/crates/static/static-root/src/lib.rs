@@ -1,3 +1,5 @@
+#![feature(const_trait_impl)]
+#![feature(const_convert)]
 mod b32;
 mod clone;
 mod domains;
@@ -65,7 +67,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "void",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         static_trait_impls: &[],
         ty_members: &[],
         variants: &[],
@@ -81,7 +83,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "b64",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         static_trait_impls: &[],
         ty_members: &[],
         variants: &[],
@@ -97,7 +99,7 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "bool",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         static_trait_impls: &[],
         ty_members: &[],
         variants: &[],

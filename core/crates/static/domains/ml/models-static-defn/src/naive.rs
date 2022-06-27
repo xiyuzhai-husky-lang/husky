@@ -6,14 +6,14 @@ use eval_feature::EvalFeature;
 use feature_gen::FeatureLazyExpr;
 use husky_tracer_protocol::Label;
 use static_defn::*;
-use vm::{EvalResult, EvalValue, EvalValueResult, ModelLinkage, OwnedValue};
+use vm::{EvalResult, EvalValue, EvalValueResult, Linkage, ModelLinkage, OwnedValue};
 
 static_mod! { naive = { naive_i32 } }
 
 pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "naive_i32",
     items: &[],
-    variant: EntityStaticDefnVariant::Model {
+    variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[StaticParameter {
             name: "a",
@@ -22,7 +22,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
         }],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        Model_variant: StaticModelVariant::Model(ModelLinkage {
+        linkage: Linkage::Model(&ModelLinkage {
             train: naive_i32_train,
             eval: naive_i32_eval,
         }),

@@ -1,7 +1,7 @@
 use avec::Avec;
 use entity_route::EntityRouteKind;
 use infer_decl::MethodKind;
-use static_defn::{LinkageSource, MethodStaticDefnVariant};
+use static_defn::MethodStaticDefnVariant;
 
 use super::*;
 

@@ -9,7 +9,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "domains::ml::datasets::cv::mnist::BinaryImage28",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
             dev_src: static_dev_src!(),
             trai: "std::ops::Index<i32>",
@@ -30,9 +30,9 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         output_liason: OutputLiason::MemberAccess {
                             member_liason: MemberLiason::Mutable,
                         },
-                        generic_parameters: &[],
+                        spatial_parameters: &[],
                         kind: MethodStaticDefnVariant::TraitMethodImpl {
-                            opt_source: Some(LinkageSource::MemberAccess {
+                            opt_source: Some(Linkage::MemberAccess {
                                 copy_access: routine_linkage!(
                                     |values| -> EvalResult<TempValue> {
                                         let this_value: &BinaryImage28 = values[0].downcast_ref();
@@ -104,8 +104,8 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryImage28",
     items: &[],
-    variant: EntityStaticDefnVariant::Routine {
-        generic_parameters: &[],
+    variant: EntityStaticDefnVariant::Function {
+        spatial_parameters: &[],
         parameters: &[],
         output_ty: "domains::ml::datasets::cv::mnist::BinaryImage28",
         output_liason: OutputLiason::Transfer,
@@ -116,8 +116,8 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
                 )))
             },
             0
-        ),
-        routine_kind: RoutineKind::TypeCall,
+        )
+        .into(),
     },
     dev_src: static_dev_src!(),
 };
@@ -174,16 +174,15 @@ impl Serialize for BinaryImage28 {
         todo!()
     }
 }
+impl HasStaticTypeInfo for BinaryImage28 {
+    type StaticSelf = Self;
+
+    fn static_type_name() -> Cow<'static, str> {
+        todo!()
+    }
+}
 
 impl<'eval> AnyValue<'eval> for BinaryImage28 {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<Self>().into()
-    }
-
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
-        "BinaryImage28".into()
-    }
-
     fn print_short(&self) -> String {
         "BinaryImage28 { ... }".into()
     }

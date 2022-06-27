@@ -9,7 +9,7 @@ pub struct StaticParameter {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct StaticGenericPlaceholder {
+pub struct StaticSpatialParameter {
     pub name: &'static str,
     pub variant: StaticGenericPlaceholderVariant,
 }
@@ -21,6 +21,21 @@ pub enum StaticGenericPlaceholderVariant {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum StaticModelVariant {
+pub enum FunctionStaticDefnVariant {
     Model(ModelLinkage),
+    GenericTransfer(GenericRoutineLinkage),
+    Routine {
+        linkage: SpecificRoutineLinkage,
+        routine_kind: RoutineKind,
+    },
+}
+
+impl FunctionStaticDefnVariant {
+    pub fn requires_lazy(&self) -> bool {
+        match self {
+            FunctionStaticDefnVariant::Model(_) => true,
+            FunctionStaticDefnVariant::GenericTransfer(_) => false,
+            FunctionStaticDefnVariant::Routine { .. } => false,
+        }
+    }
 }

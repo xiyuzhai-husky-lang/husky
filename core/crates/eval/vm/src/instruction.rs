@@ -78,8 +78,12 @@ pub enum InstructionVariant {
         field_idx: u8,
         field_binding: Binding,
     },
-    CallLinkage {
-        linkage: RoutineLinkage,
+    CallGenericRoutine {
+        output_ty: EntityRoutePtr,
+        linkage: GenericRoutineLinkage,
+    },
+    CallSpecificRoutine {
+        linkage: SpecificRoutineLinkage,
     },
     CallInterpreted {
         routine_uid: EntityUid,
@@ -87,6 +91,7 @@ pub enum InstructionVariant {
         has_this: bool,
     },
     NewVirtualStruct {
+        ty: EntityRoutePtr,
         fields: Vec<CustomIdentifier>,
     },
     OprOpn {

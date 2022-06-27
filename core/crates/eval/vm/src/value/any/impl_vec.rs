@@ -1,14 +1,17 @@
 use super::*;
 
-impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
-    fn static_type_id() -> StaticTypeId {
-        StaticTypeId::Vec(Box::new(T::static_type_id()))
-    }
+impl<'a, T> HasStaticTypeInfo for Vec<T>
+where
+    T: HasStaticTypeInfo,
+{
+    type StaticSelf = Vec<T::StaticSelf>;
 
     fn static_type_name() -> Cow<'static, str> {
         format!("[]{}", T::static_type_name()).into()
     }
+}
 
+impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
     fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }

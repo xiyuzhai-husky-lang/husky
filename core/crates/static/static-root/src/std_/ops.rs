@@ -14,7 +14,7 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Trait {
         base_route: "std::ops::Index",
-        generic_parameters: &[StaticGenericPlaceholder {
+        spatial_parameters: &[StaticSpatialParameter {
             name: "Idx",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
         }],
@@ -38,7 +38,7 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
                     output_liason: OutputLiason::MemberAccess {
                         member_liason: MemberLiason::Mutable,
                     },
-                    generic_parameters: &[],
+                    spatial_parameters: &[],
                     kind: MethodStaticDefnVariant::TraitMethod {
                         opt_default_source: None,
                     },

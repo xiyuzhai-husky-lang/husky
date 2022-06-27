@@ -1,18 +1,21 @@
 use super::*;
 use std::collections::HashMap;
 
+impl<K, V> HasStaticTypeInfo for HashMap<K, V>
+where
+    K: std::cmp::Eq + std::hash::Hash + HasStaticTypeInfo,
+    V: HasStaticTypeInfo,
+{
+    type StaticSelf = HashMap<K::StaticSelf, V::StaticSelf>;
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+}
+
 impl<'eval, 'a: 'eval, K: AnyValue<'a>, V: AnyValue<'a>> AnyValue<'eval> for HashMap<K, V>
 where
     K: std::cmp::Eq + std::hash::Hash,
 {
-    fn static_type_id() -> StaticTypeId {
-        StaticTypeId::HashMap(Box::new(K::static_type_id()), Box::new(V::static_type_id()))
-    }
-
-    fn static_type_name() -> Cow<'static, str> {
-        todo!()
-    }
-
     fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }

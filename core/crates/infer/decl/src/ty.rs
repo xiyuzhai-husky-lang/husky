@@ -46,7 +46,7 @@ impl TyDecl {
         match static_defn.variant {
             EntityStaticDefnVariant::Ty {
                 base_route,
-                generic_parameters,
+                spatial_parameters: generic_parameters,
                 static_trait_impls,
                 ty_members: type_members,
                 variants,
@@ -506,8 +506,7 @@ pub(crate) fn ty_decl(
     let source = db.entity_locus(ty_route)?;
     match source {
         EntityLocus::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
-            EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Model { .. } => todo!(),
+            EntityStaticDefnVariant::Function { .. } => todo!(),
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Ty { .. } => {
                 let base_decl = TyDecl::from_static(db, static_defn);
@@ -599,7 +598,7 @@ pub(crate) fn method_decl_from_static(
             parameters,
             output_ty,
             output_liason,
-            generic_parameters: generic_parameters,
+            spatial_parameters: generic_parameters,
             ref kind,
         } => {
             let generic_parameters = db.generic_parameters_from_static(generic_parameters);

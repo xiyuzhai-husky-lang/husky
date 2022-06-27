@@ -14,7 +14,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "std::slice::CyclicSlice",
-        generic_parameters: &[StaticGenericPlaceholder {
+        spatial_parameters: &[StaticSpatialParameter {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
         }],
@@ -43,9 +43,9 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
         this_liason: ParameterLiason::MemberAccess,
         parameters: &[],
         output_ty: "E",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::MemberAccess {
+            source: Linkage::MemberAccess {
                 copy_access: routine_linkage!(generic_cyclic_slice_first_copy, 1),
                 eval_ref_access: routine_linkage!(generic_cyclic_slice_first_eval_ref, 1),
                 temp_ref_access: routine_linkage!(generic_cyclic_slice_first_temp_ref, 1),
@@ -69,7 +69,7 @@ fn generic_cyclic_slice_first_copy<'temp, 'eval>(
 fn generic_cyclic_slice_first_eval_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
+    let generic_cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_ref();
     match generic_cyclic_slice.first() {
         Some(value) => Ok(value.bind_eval_ref()),
         None => Err(vm_runtime_error!("empty vec")),
@@ -79,7 +79,7 @@ fn generic_cyclic_slice_first_eval_ref<'temp, 'eval>(
 fn generic_cyclic_slice_first_temp_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
+    let generic_cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_ref();
     match generic_cyclic_slice.first() {
         Some(value) => Ok(value.bind_temp_ref()),
         None => Err(vm_runtime_error!("empty vec")),
@@ -105,9 +105,9 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
         this_liason: ParameterLiason::MemberAccess,
         parameters: &[],
         output_ty: "E",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::MemberAccess {
+            source: Linkage::MemberAccess {
                 copy_access: routine_linkage!(generic_cyclic_slice_last_copy, 1),
                 eval_ref_access: routine_linkage!(generic_cyclic_slice_last_eval_ref, 1),
                 temp_ref_access: routine_linkage!(generic_cyclic_slice_last_temp_ref, 1),
@@ -131,7 +131,7 @@ fn generic_cyclic_slice_last_copy<'temp, 'eval>(
 fn generic_cyclic_slice_last_eval_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
+    let generic_cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_ref();
     match generic_cyclic_slice.last() {
         Some(value) => Ok(value.bind_eval_ref()),
         None => Err(vm_runtime_error!("empty vec")),
@@ -141,7 +141,7 @@ fn generic_cyclic_slice_last_eval_ref<'temp, 'eval>(
 fn generic_cyclic_slice_last_temp_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let generic_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
+    let generic_cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_ref();
     match generic_cyclic_slice.last() {
         Some(value) => Ok(value.bind_temp_ref()),
         None => Err(vm_runtime_error!("empty vec")),

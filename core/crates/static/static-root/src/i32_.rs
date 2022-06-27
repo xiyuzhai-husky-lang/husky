@@ -5,7 +5,7 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "i32",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         static_trait_impls: &[],
         ty_members: &[&I32_MIN, &I32_MAX, &I32_SGN, &I32_ABS],
         variants: &[],
@@ -28,9 +28,9 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
         }],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(|values| todo!(), 2)),
+            source: Linkage::SpecificTransfer(routine_linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -48,9 +48,9 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
         }],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(|values| todo!(), 2)),
+            source: Linkage::SpecificTransfer(routine_linkage!(|values| todo!(), 2)),
         },
     },
     dev_src: static_dev_src!(),
@@ -64,9 +64,9 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(|values| todo!(), 1)),
+            source: Linkage::SpecificTransfer(routine_linkage!(|values| todo!(), 1)),
         },
     },
     dev_src: static_dev_src!(),
@@ -80,9 +80,9 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(
+            source: Linkage::SpecificTransfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         values[0].take_copyable().take_i32().abs().into(),

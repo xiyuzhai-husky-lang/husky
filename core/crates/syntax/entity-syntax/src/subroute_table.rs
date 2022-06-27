@@ -21,7 +21,7 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
         Keyword::Mod => Some(EntityKind::Module),
         Keyword::Paradigm(paradigm) => Some(match third_token.kind {
             TokenKind::Special(SpecialToken::LPar) => EntityKind::Function {
-                is_lazy: paradigm.is_lazy(),
+                requires_lazy: paradigm.is_lazy(),
             },
             TokenKind::Special(SpecialToken::LightArrow)
             | TokenKind::Special(SpecialToken::Colon) => EntityKind::Feature,
@@ -208,8 +208,7 @@ impl SubrouteTable {
             })
             .collect();
         match data.variant {
-            EntityStaticDefnVariant::Routine { .. } | EntityStaticDefnVariant::Module => (),
-            EntityStaticDefnVariant::Model { .. } => todo!(),
+            EntityStaticDefnVariant::Function { .. } | EntityStaticDefnVariant::Module => (),
             EntityStaticDefnVariant::Ty {
                 ty_members: type_members,
                 variants,

@@ -1,11 +1,12 @@
 use crate::*;
+use entity_route::EntityRoutePtr;
 use feature_gen::*;
 use husky_tracer_protocol::VisualData;
 use print_utils::{epin, msg_once, p};
 use semantics_entity::{CallFormSource, EntityDefnVariant};
 use semantics_lazy::LazyStmt;
-use static_defn::LinkageSource;
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
+use vm::Linkage;
 use vm::*;
 use word::IdentPairDict;
 
@@ -73,6 +74,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 let result = self.eval_routine_call(
                     opt_instruction_sheet.as_ref().map(|r| &**r),
                     opt_linkage,
+                    expr.expr.ty(),
                     opds,
                     has_this,
                 );
@@ -145,7 +147,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     ref source,
                 } => match source {
                     CallFormSource::Lazy { stmts } => todo!(),
-                    CallFormSource::Static(LinkageSource::Model(ModelLinkage { eval, .. })) => {
+                    CallFormSource::Static(Linkage::Model(ModelLinkage { eval, .. })) => {
                         let values: Vec<_> = opds
                             .iter()
                             .map(|opd| self.eval_feature_lazy_expr(opd))
@@ -198,7 +200,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     fn eval_routine_call(
         &mut self,
         opt_instrns: Option<&InstructionSheet>,
-        opt_linkage: Option<RoutineLinkage>,
+        opt_linkage: Option<Linkage>,
+        output_ty: EntityRoutePtr,
         arguments: &[Arc<FeatureLazyExpr>],
         has_this: bool,
     ) -> EvalValueResult<'eval> {
@@ -212,6 +215,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             db.upcast(),
             opt_instrns,
             opt_linkage,
+            output_ty,
             values,
             [].into_iter(),
             verbose,

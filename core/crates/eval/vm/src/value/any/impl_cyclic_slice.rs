@@ -2,15 +2,17 @@ use cyclic_slice::CyclicSlice;
 
 use super::*;
 
-impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSlice<'b, T> {
-    fn static_type_id() -> StaticTypeId {
-        StaticTypeId::CyclicSlice(Box::new(T::static_type_id()))
-    }
-
+impl<'a, T> HasStaticTypeInfo for CyclicSlice<'a, T>
+where
+    T: HasStaticTypeInfo,
+{
+    type StaticSelf = CyclicSlice<'static, T::StaticSelf>;
     fn static_type_name() -> std::borrow::Cow<'static, str> {
         "CyclicSlice".into()
     }
+}
 
+impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSlice<'b, T> {
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::Value::Array(self.iter().map(|elem| elem.to_json_value()).collect())
     }

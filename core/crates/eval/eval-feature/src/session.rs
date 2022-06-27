@@ -6,6 +6,7 @@ use pack_semantics::{Config, Package};
 use semantics_eager::FuncStmt;
 use trivial_iter::TrivialIter;
 use vm::{eval_fast, EvalResult, InterpreterQueryGroup, Mode};
+use word::RootIdentifier;
 
 use crate::*;
 
@@ -54,6 +55,7 @@ impl<'eval> Session<'eval> {
             db.upcast(),
             Some(&db.dataset_config_instruction_sheet(package.main_defn.file)),
             None,
+            RootIdentifier::DatasetType.into(),
             [].into_iter(),
             [].into_iter(),
             verbose,

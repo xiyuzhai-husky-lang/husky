@@ -7,9 +7,9 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
         this_liason: ParameterLiason::MemberAccess,
         parameters: &[],
         output_ty: "E",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::MemberAccess {
+            source: Linkage::MemberAccess {
                 copy_access: routine_linkage!(generic_vec_last_copy, 1),
                 eval_ref_access: routine_linkage!(generic_vec_last_eval_ref, 1),
                 temp_ref_access: routine_linkage!(generic_vec_last_temp_ref, 1),
@@ -33,7 +33,7 @@ fn generic_vec_last_copy<'temp, 'eval>(
 fn generic_vec_last_eval_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    let generic_vec: &VirtualVec<'eval> = values[0].downcast_ref();
     match generic_vec.last() {
         Some(value) => Ok(value.bind_eval_ref()),
         None => Err(vm_runtime_error!("empty vec")),
@@ -43,7 +43,7 @@ fn generic_vec_last_eval_ref<'temp, 'eval>(
 fn generic_vec_last_temp_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    let generic_vec: &VirtualVec<'eval> = values[0].downcast_ref();
     match generic_vec.last() {
         Some(value) => Ok(value.bind_temp_ref()),
         None => Err(vm_runtime_error!("empty vec")),
@@ -53,7 +53,7 @@ fn generic_vec_last_temp_ref<'temp, 'eval>(
 fn generic_vec_last_mut<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let (generic_vec, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
+    let (generic_vec, stack_idx, gen): (&mut VirtualVec<'eval>, _, _) =
         values[0].downcast_mut_full();
     match generic_vec.last_mut() {
         Some(value) => Ok(value.bind_mut(stack_idx)),

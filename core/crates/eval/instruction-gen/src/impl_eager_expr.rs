@@ -4,7 +4,6 @@ use entity_kind::TyKind;
 use infer_decl::TyDecl;
 use linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
-use static_defn::LinkageSource;
 use vm::*;
 
 impl<'a> InstructionSheetBuilder<'a> {
@@ -77,7 +76,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             field_ident.ident,
                             field_binding,
                         ) {
-                            InstructionVariant::CallLinkage { linkage }
+                            InstructionVariant::CallSpecificRoutine { linkage }
                         } else {
                             let this_ty_decl = self.db.compile_time().ty_decl(this_ty).unwrap();
                             InstructionVariant::FieldAccessInterpreted {
@@ -182,10 +181,17 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerOpnVariant::RoutineCall(routine) => {
                 if let Some(linkage) = self.db.compile_time().routine_linkage(routine.route) {
-                    self.push_instruction(Instruction::new(
-                        InstructionVariant::CallLinkage { linkage },
-                        expr.clone(),
-                    ))
+                    match linkage {
+                        Linkage::MemberAccess { .. } => todo!(),
+                        Linkage::SpecificTransfer(linkage) => {
+                            self.push_instruction(Instruction::new(
+                                InstructionVariant::CallSpecificRoutine { linkage },
+                                expr.clone(),
+                            ))
+                        }
+                        Linkage::GenericTransfer(_) => todo!(),
+                        Linkage::Model(_) => todo!(),
+                    }
                 } else {
                     self.push_instruction(Instruction::new(
                         InstructionVariant::CallInterpreted {
@@ -204,14 +210,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                 field_binding,
             } => {
                 self.push_instruction(Instruction::new(
-                    if let Some(field_access_fp) = self
-                        .db
-                        .compile_time()
-                        .struct_field_access_linkage(*this_ty, field_ident.ident, *field_binding)
-                    {
-                        InstructionVariant::CallLinkage {
-                            linkage: field_access_fp,
-                        }
+                    if let Some(linkage) = self.db.compile_time().struct_field_access_linkage(
+                        *this_ty,
+                        field_ident.ident,
+                        *field_binding,
+                    ) {
+                        InstructionVariant::CallSpecificRoutine { linkage }
                     } else {
                         let this_ty_decl = self.db.compile_time().ty_decl(*this_ty).unwrap();
                         InstructionVariant::FieldAccessInterpreted {
@@ -238,6 +242,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         this_ty_decl,
                         *method_route,
                         method_ident.ident,
+                        expr.ty(),
                         *opt_output_binding,
                     ),
                     expr.clone(),
@@ -251,65 +256,79 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref ty_decl,
             } => {
                 let ty_defn = self.db.compile_time().entity_defn(ranged_ty.route).unwrap();
-                let instruction_kind = match ty_defn.variant {
+                let instruction_variant = match ty_defn.variant {
                     EntityDefnVariant::Ty {
                         kind,
                         ref ty_members,
                         ..
-                    } => match kind {
-                        TyKind::Enum => todo!(),
-                        TyKind::Record => todo!(),
-                        TyKind::Struct => {
-                            self.context.enter();
-                            self.context
-                                .set(InstructionGenContext::NewVirtualStruct { output_stack_idx });
-                            for (i, ty_member) in ty_members.iter().enumerate() {
-                                match ty_member.variant {
-                                    EntityDefnVariant::TyField {
-                                        ty,
-                                        ref field_variant,
-                                        liason,
-                                        ..
-                                    } => match field_variant {
-                                        FieldDefnVariant::StructOriginal => (),
-                                        FieldDefnVariant::StructDefault { default } => {
-                                            msg_once!("handle keyword arguments");
-                                            self.compile_eager_expr(default, output_stack_idx + i)
-                                        }
-                                        FieldDefnVariant::StructDerivedEager { derivation } => self
-                                            .compile_eager_expr(derivation, output_stack_idx + i),
-                                        FieldDefnVariant::StructDerivedLazy { .. } => break,
-                                        FieldDefnVariant::RecordOriginal
-                                        | FieldDefnVariant::RecordDerived { .. } => panic!(),
-                                    },
-                                    _ => break,
-                                }
-                            }
-                            self.context.exit();
-
-                            if let Some(linkage) =
-                                self.db.compile_time().ty_call_linkage(ranged_ty.route)
-                            {
-                                InstructionVariant::CallLinkage { linkage }
-                            } else {
-                                InstructionVariant::NewVirtualStruct {
-                                    fields: ty_decl.eager_fields().map(|decl| decl.ident).collect(),
-                                }
+                    } => {
+                        self.context.enter();
+                        self.context
+                            .set(InstructionGenContext::NewVirtualStruct { output_stack_idx });
+                        for (i, ty_member) in ty_members.iter().enumerate() {
+                            match ty_member.variant {
+                                EntityDefnVariant::TyField {
+                                    ty,
+                                    ref field_variant,
+                                    liason,
+                                    ..
+                                } => match field_variant {
+                                    FieldDefnVariant::StructOriginal => (),
+                                    FieldDefnVariant::StructDefault { default } => {
+                                        msg_once!("handle keyword arguments");
+                                        self.compile_eager_expr(default, output_stack_idx + i)
+                                    }
+                                    FieldDefnVariant::StructDerivedEager { derivation } => {
+                                        self.compile_eager_expr(derivation, output_stack_idx + i)
+                                    }
+                                    FieldDefnVariant::StructDerivedLazy { .. } => break,
+                                    FieldDefnVariant::RecordOriginal
+                                    | FieldDefnVariant::RecordDerived { .. } => panic!(),
+                                },
+                                _ => break,
                             }
                         }
-                        TyKind::Primitive => todo!(),
-                        TyKind::Vec | TyKind::Array => InstructionVariant::CallLinkage {
-                            linkage: self
-                                .db
-                                .compile_time()
-                                .ty_call_linkage(ranged_ty.route)
-                                .unwrap(),
-                        },
-                        TyKind::Other => todo!(),
-                    },
+                        self.context.exit();
+                        if let Some(linkage) =
+                            self.db.compile_time().type_call_linkage(ranged_ty.route)
+                        {
+                            match linkage {
+                                Linkage::SpecificTransfer(linkage) => {
+                                    InstructionVariant::CallSpecificRoutine { linkage }
+                                }
+                                Linkage::GenericTransfer(linkage) => {
+                                    InstructionVariant::CallGenericRoutine {
+                                        output_ty: ranged_ty.route,
+                                        linkage,
+                                    }
+                                }
+                                Linkage::MemberAccess {
+                                    copy_access,
+                                    eval_ref_access,
+                                    temp_ref_access,
+                                    temp_mut_access,
+                                    move_access,
+                                } => todo!(),
+                                Linkage::Model(_) => todo!(),
+                            }
+                        } else {
+                            match kind {
+                                TyKind::Enum => todo!(),
+                                TyKind::Record => todo!(),
+                                TyKind::Struct => InstructionVariant::NewVirtualStruct {
+                                    ty: ranged_ty.route,
+                                    fields: ty_decl.eager_fields().map(|decl| decl.ident).collect(),
+                                },
+                                TyKind::Primitive => todo!(),
+                                TyKind::Vec => todo!(),
+                                TyKind::Array => todo!(),
+                                TyKind::Other => todo!(),
+                            }
+                        }
+                    }
                     _ => panic!(),
                 };
-                self.push_instruction(Instruction::new(instruction_kind, expr.clone()))
+                self.push_instruction(Instruction::new(instruction_variant, expr.clone()))
             }
         }
     }
@@ -321,11 +340,12 @@ impl<'a> InstructionSheetBuilder<'a> {
         element_binding: Binding,
     ) {
         self.push_instruction(Instruction::new(
-            InstructionVariant::CallLinkage {
+            InstructionVariant::CallSpecificRoutine {
                 linkage: self
                     .db
                     .compile_time()
-                    .element_access_linkage(opds.map(|opd| opd.ty()), element_binding),
+                    .element_access_linkage(opds.map(|opd| opd.ty()))
+                    .bind(element_binding),
             },
             this,
         ))
@@ -337,14 +357,22 @@ impl<'a> InstructionSheetBuilder<'a> {
         this_ty_decl: &TyDecl,
         method_route: EntityRoutePtr,
         method_ident: CustomIdentifier,
+        output_ty: EntityRoutePtr,
         output_binding: Binding,
     ) -> InstructionVariant {
-        if let Some(linkage) = self
-            .db
-            .compile_time()
-            .method_linkage(method_route, output_binding)
-        {
-            InstructionVariant::CallLinkage { linkage }
+        if let Some(linkage) = self.db.compile_time().method_linkage(method_route) {
+            match linkage {
+                Linkage::MemberAccess { .. } => InstructionVariant::CallSpecificRoutine {
+                    linkage: linkage.bind(output_binding),
+                },
+                Linkage::SpecificTransfer(linkage) => {
+                    InstructionVariant::CallSpecificRoutine { linkage }
+                }
+                Linkage::GenericTransfer(linkage) => {
+                    InstructionVariant::CallGenericRoutine { output_ty, linkage }
+                }
+                Linkage::Model(_) => todo!(),
+            }
         } else {
             let method_uid = self.db.compile_time().entity_uid(method_route);
             let method_decl = self.db.compile_time().method_decl(method_route).unwrap();

@@ -20,15 +20,15 @@ impl Serialize for EnumKindValue {
     }
 }
 
-impl<'eval> AnyValue<'eval> for EnumKindValue {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<EntityRoutePtr>().into()
-    }
+impl HasStaticTypeInfo for EnumKindValue {
+    type StaticSelf = Self;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        "EntityRoutePtr".into()
+        todo!()
     }
+}
 
+impl<'eval> AnyValue<'eval> for EnumKindValue {
     fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }

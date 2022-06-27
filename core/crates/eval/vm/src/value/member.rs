@@ -127,27 +127,27 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
     }
 }
 
-impl<'eval, 'a: 'eval> AnyValue<'eval> for MemberValue<'a> {
-    fn static_type_id() -> StaticTypeId {
-        StaticTypeId::AnyMemberValue
-    }
+// impl<'eval, 'a: 'eval> AnyValue<'eval> for MemberValue<'a> {
+//     fn static_type_id() -> StaticTypeId {
+//         StaticTypeId::AnyMemberValue
+//     }
 
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
-        "AnyMemberValue".into()
-    }
+//     fn static_type_name() -> std::borrow::Cow<'static, str> {
+//         "AnyMemberValue".into()
+//     }
 
-    fn to_json_value(&self) -> serde_json::value::Value {
-        self.any_ref().to_json_value_dyn()
-    }
+//     fn to_json_value(&self) -> serde_json::value::Value {
+//         self.any_ref().to_json_value_dyn()
+//     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
-    where
-        'eval: 'short,
-    {
-        self
-    }
+//     fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+//     where
+//         'eval: 'short,
+//     {
+//         self
+//     }
 
-    fn ty(&self) -> entity_route::EntityRoutePtr {
-        self.any_ref().ty_dyn()
-    }
-}
+//     fn ty(&self) -> entity_route::EntityRoutePtr {
+//         self.any_ref().ty_dyn()
+//     }
+// }

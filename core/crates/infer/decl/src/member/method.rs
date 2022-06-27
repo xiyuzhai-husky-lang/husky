@@ -102,7 +102,7 @@ impl MethodDecl {
                 parameters: inputs,
                 output_ty,
                 output_liason,
-                generic_parameters: generic_parameters,
+                spatial_parameters: generic_parameters,
                 ref kind,
             } => {
                 let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();

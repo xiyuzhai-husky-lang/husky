@@ -12,7 +12,7 @@ use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
 use file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;
-use static_defn::{StaticGenericPlaceholder, StaticParameter};
+use static_defn::{StaticParameter, StaticSpatialParameter};
 use std::borrow::Cow;
 use text::*;
 use thin_vec::{thin_vec, ThinVec};
@@ -237,7 +237,7 @@ pub trait AtomContext {
 
     fn generic_parameters_from_static(
         &self,
-        static_generic_parameters: &[StaticGenericPlaceholder],
+        static_generic_parameters: &[StaticSpatialParameter],
     ) -> IdentDict<SpatialParameter> {
         static_generic_parameters.map(|static_generic_placeholder| SpatialParameter {
             ident: RangedCustomIdentifier {

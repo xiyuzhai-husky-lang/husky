@@ -30,8 +30,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                 let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = self.db.visualizer(elem_ty);
                 let any_value_dyn: &'static dyn AnyValueDyn<'static> = this_value.eval_ref().0;
-                let virtual_vec: &Vec<MemberValue> =
-                    any_value_dyn.downcast_ref::<Vec<MemberValue<'static>>>();
+                let virtual_vec: &VirtualVec<'static> = any_value_dyn.downcast_ref();
                 VisualData::Group(
                     virtual_vec
                         .iter()
@@ -57,8 +56,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                 let elem_ty = ty.spatial_arguments[0].take_entity_route();
                 let elem_visualizer = self.db.visualizer(elem_ty);
                 let any_value_dyn: &'static dyn AnyValueDyn<'static> = this_value.eval_ref().0;
-                let virtual_cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> =
-                    any_value_dyn.downcast_ref();
+                let virtual_cyclic_slice: &VirtualCyclicSlice<'eval> = any_value_dyn.downcast_ref();
                 VisualData::Group(
                     virtual_cyclic_slice
                         .enum_iter()

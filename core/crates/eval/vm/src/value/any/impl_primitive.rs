@@ -1,14 +1,13 @@
 use super::*;
 
+impl HasStaticTypeInfo for () {
+    type StaticSelf = Self;
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        "void".into()
+    }
+}
+
 impl<'eval> AnyValue<'eval> for () {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<Self>().into()
-    }
-
-    fn static_type_name() -> Cow<'static, str> {
-        "i32".into()
-    }
-
     fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
@@ -47,15 +46,14 @@ impl<'eval> AnyValue<'eval> for () {
     }
 }
 
-impl<'eval> AnyValue<'eval> for i32 {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<Self>().into()
-    }
-
-    fn static_type_name() -> Cow<'static, str> {
+impl HasStaticTypeInfo for i32 {
+    type StaticSelf = Self;
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
         "i32".into()
     }
+}
 
+impl<'eval> AnyValue<'eval> for i32 {
     fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
@@ -94,15 +92,14 @@ impl<'eval> AnyValue<'eval> for i32 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for f32 {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<Self>().into()
-    }
-
-    fn static_type_name() -> Cow<'static, str> {
+impl HasStaticTypeInfo for f32 {
+    type StaticSelf = Self;
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
         "f32".into()
     }
+}
 
+impl<'eval> AnyValue<'eval> for f32 {
     fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
@@ -141,15 +138,14 @@ impl<'eval> AnyValue<'eval> for f32 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for u32 {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<Self>().into()
-    }
-
-    fn static_type_name() -> Cow<'static, str> {
+impl HasStaticTypeInfo for u32 {
+    type StaticSelf = Self;
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
         "u32".into()
     }
+}
 
+impl<'eval> AnyValue<'eval> for u32 {
     fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
@@ -192,15 +188,14 @@ impl<'eval> AnyValue<'eval> for u32 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for u64 {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<Self>().into()
-    }
-
-    fn static_type_name() -> Cow<'static, str> {
+impl HasStaticTypeInfo for u64 {
+    type StaticSelf = Self;
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
         "u64".into()
     }
+}
 
+impl<'eval> AnyValue<'eval> for u64 {
     fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
@@ -243,15 +238,14 @@ impl<'eval> AnyValue<'eval> for u64 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for bool {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<Self>().into()
-    }
-
-    fn static_type_name() -> Cow<'static, str> {
+impl HasStaticTypeInfo for bool {
+    type StaticSelf = Self;
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
         "bool".into()
     }
+}
 
+impl<'eval> AnyValue<'eval> for bool {
     fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,

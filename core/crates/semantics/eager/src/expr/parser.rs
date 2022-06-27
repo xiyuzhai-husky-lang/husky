@@ -265,7 +265,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         match call.variant {
             RawExprVariant::Entity {
                 route: scope,
-                kind: EntityKind::Function { is_lazy },
+                kind:
+                    EntityKind::Function {
+                        requires_lazy: is_lazy,
+                    },
                 ..
             } => {
                 if is_lazy {

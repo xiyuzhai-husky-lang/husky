@@ -3,6 +3,7 @@ mod first;
 mod last;
 
 pub use cyclic_slice_::*;
+use entity_route::EntityRoutePtr;
 pub use first::*;
 pub use last::*;
 use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
@@ -15,7 +16,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "Vec",
-        generic_parameters: &[StaticGenericPlaceholder {
+        spatial_parameters: &[StaticSpatialParameter {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
         }],
@@ -34,9 +35,9 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         output_liason: OutputLiason::MemberAccess {
                             member_liason: MemberLiason::Mutable,
                         },
-                        generic_parameters: &[],
+                        spatial_parameters: &[],
                         kind: MethodStaticDefnVariant::TraitMethodImpl {
-                            opt_source: Some(LinkageSource::MemberAccess {
+                            opt_source: Some(Linkage::MemberAccess {
                                 copy_access: routine_linkage!(generic_vec_element_copy_access, 2),
                                 eval_ref_access: routine_linkage!(
                                     generic_vec_element_eval_ref_access,
@@ -80,30 +81,28 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Vec",
     items: &[],
-    variant: EntityStaticDefnVariant::Routine {
-        generic_parameters: &[],
+    variant: EntityStaticDefnVariant::Function {
+        spatial_parameters: &[],
         parameters: &[],
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
-        linkage: routine_linkage!(vec_type_call, 0),
-        routine_kind: RoutineKind::TypeCall,
+        linkage: generic_routine_linkage!(generic_vec_type_call, 0).into(),
     },
     dev_src: static_dev_src!(),
 };
 
-fn vec_type_call<'temp, 'eval>(
-    _values: &mut [TempValue<'temp, 'eval>],
+pub(crate) fn generic_vec_type_call<'temp, 'eval>(
+    ty: EntityRoutePtr,
+    values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    Ok(TempValue::OwnedEval(OwnedValue::new(Vec::<
-        MemberValue<'eval>,
-    >::new())))
+    Ok(TempValue::OwnedEval(OwnedValue::new(VirtualVec::new(ty))))
 }
 
 fn generic_vec_push<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
     let element = values[1].into_member();
-    let generic_vec: &mut Vec<MemberValue<'eval>> = values[0].downcast_mut();
+    let generic_vec: &mut VirtualVec<'eval> = values[0].downcast_mut();
     generic_vec.push(element);
     Ok(TempValue::Copyable(().into()))
 }
@@ -111,16 +110,8 @@ fn generic_vec_push<'temp, 'eval>(
 fn generic_vec_pop<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let generic_vec: &mut Vec<MemberValue<'eval>> = values[0].downcast_mut();
+    let generic_vec: &mut VirtualVec<'eval> = values[0].downcast_mut();
     Ok(generic_vec.pop().unwrap().into_stack())
-}
-
-pub(crate) fn construct_generic_vec<'temp, 'eval>(
-    values: &mut [TempValue<'temp, 'eval>],
-) -> EvalResult<TempValue<'temp, 'eval>> {
-    Ok(TempValue::OwnedEval(OwnedValue::new(Vec::<
-        MemberValue<'eval>,
-    >::new())))
 }
 
 pub(crate) fn generic_vec_element_move_access<'temp, 'eval>(
@@ -132,7 +123,7 @@ pub(crate) fn generic_vec_element_move_access<'temp, 'eval>(
 pub(crate) fn generic_vec_element_copy_access<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let this_value: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    let this_value: &VirtualVec<'eval> = values[0].downcast_ref();
     let i: usize = match values[1] {
         TempValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
@@ -146,7 +137,7 @@ pub(crate) fn generic_vec_element_copy_access<'temp, 'eval>(
 pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let this_value: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    let this_value: &VirtualVec<'eval> = values[0].downcast_ref();
     let i: usize = match values[1] {
         TempValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
@@ -169,7 +160,7 @@ pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
 pub(crate) fn generic_vec_element_temp_ref_access<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let this_value: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    let this_value: &VirtualVec<'eval> = values[0].downcast_ref();
     let i: usize = match values[1] {
         TempValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
@@ -191,7 +182,7 @@ pub(crate) fn generic_vec_element_borrow_mut_access<'temp, 'eval>(
         TempValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
     };
-    let (this_value, stack_idx, gen): (&mut Vec<MemberValue<'eval>>, _, _) =
+    let (this_value, stack_idx, gen): (&mut VirtualVec<'eval>, _, _) =
         values[0].downcast_mut_full();
     if i >= this_value.len() {
         todo!()
@@ -206,9 +197,9 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
         output_ty: "i32",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(generic_vec_len, 1)),
+            source: Linkage::SpecificTransfer(routine_linkage!(generic_vec_len, 1)),
         },
         output_liason: OutputLiason::Transfer,
     },
@@ -218,7 +209,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
 fn generic_vec_len<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let generic_vec: &Vec<MemberValue<'eval>> = values[0].downcast_ref();
+    let generic_vec: &VirtualVec<'eval> = values[0].downcast_ref();
     let len: i32 = generic_vec.len().try_into().unwrap();
     Ok(TempValue::Copyable(len.into()))
 }
@@ -234,9 +225,9 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
             name: "element",
         }],
         output_ty: "void",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(generic_vec_push, 2)),
+            source: Linkage::SpecificTransfer(routine_linkage!(generic_vec_push, 2)),
         },
         output_liason: OutputLiason::Transfer,
     },
@@ -250,9 +241,9 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
         this_liason: ParameterLiason::TempRefMut,
         parameters: &[],
         output_ty: "E",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(generic_vec_pop, 1)),
+            source: Linkage::SpecificTransfer(routine_linkage!(generic_vec_pop, 1)),
         },
         output_liason: OutputLiason::Transfer,
     },

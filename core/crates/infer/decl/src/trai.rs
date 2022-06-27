@@ -106,7 +106,7 @@ impl TraitDecl {
         match static_defn.variant {
             EntityStaticDefnVariant::Trait {
                 base_route,
-                ref generic_parameters,
+                spatial_parameters: ref generic_parameters,
                 ref members,
             } => {
                 let generic_parameters = db.generic_parameters_from_static(generic_parameters);
@@ -191,8 +191,7 @@ pub(crate) fn trait_decl(
     let entity_source = db.entity_locus(entity_route).unwrap();
     match entity_source {
         EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
-            EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Model { .. } => todo!(),
+            EntityStaticDefnVariant::Function { .. } => todo!(),
             EntityStaticDefnVariant::Ty { .. } => todo!(),
             EntityStaticDefnVariant::Trait { .. } => {
                 let base_decl = TraitDecl::from_static(db, static_defn);

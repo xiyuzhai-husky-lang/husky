@@ -1,5 +1,6 @@
 use super::*;
 use avec::Avec;
+use entity_route::RangedEntityRoute;
 use vm::InstructionSheet;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -10,6 +11,7 @@ pub struct FeatureFuncBlock {
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub stmts: Avec<FuncStmt>,
+    pub ty: RangedEntityRoute,
     pub instruction_sheet: Arc<InstructionSheet>,
 }
 
