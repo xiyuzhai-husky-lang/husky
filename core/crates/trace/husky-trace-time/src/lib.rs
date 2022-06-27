@@ -20,6 +20,7 @@ use husky_tracer_protocol::*;
 use impl_tokens::ExprTokenConfig;
 use print_utils::p;
 use semantics_eager::*;
+use semantics_entity::*;
 use serde::Deserialize;
 use static_root::static_root_defn;
 use std::collections::HashMap;
