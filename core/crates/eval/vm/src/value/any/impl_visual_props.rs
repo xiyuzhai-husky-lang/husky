@@ -1,4 +1,5 @@
 use entity_route::EntityRoutePtr;
+use word::RootIdentifier;
 
 use crate::*;
 
@@ -23,6 +24,6 @@ impl<'eval> AnyValue<'eval> for VisualData {
     }
 
     fn ty(&self) -> EntityRoutePtr {
-        todo!()
+        RootIdentifier::VisualType.into()
     }
 }
