@@ -13,10 +13,7 @@ use word::IdentPairDict;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(crate) fn eval_feature_lazy_expr(
-        &mut self,
-        expr: &FeatureLazyExpr,
-    ) -> EvalValueResult<'eval> {
+    pub(crate) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> EvalValueResult<'eval> {
         match expr.variant {
             FeatureLazyExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
             FeatureLazyExprVariant::EnumKindLiteral { entity_route, uid } => {
@@ -29,8 +26,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref ropd,
             } => Ok(opr
                 .act_on_primitives(
-                    self.eval_feature_lazy_expr(lopd)?.primitive(),
-                    self.eval_feature_lazy_expr(ropd)?.primitive(),
+                    self.eval_feature_expr(lopd)?.primitive(),
+                    self.eval_feature_expr(ropd)?.primitive(),
                 )?
                 .into()),
             FeatureLazyExprVariant::StructOriginalFieldAccess {
@@ -94,7 +91,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             }
             FeatureLazyExprVariant::Variable { ref value, .. } => self
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &mut Self| {
-                    evaluator.eval_feature_lazy_expr(&value)
+                    evaluator.eval_feature_expr(&value)
                 }),
             FeatureLazyExprVariant::RecordOriginalFieldAccess {
                 ref this,
@@ -116,8 +113,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     todo!()
                 }
                 let mut values = vec![
-                    self.eval_feature_lazy_expr(&opds[0])?.into_stack().unwrap(),
-                    self.eval_feature_lazy_expr(&opds[1])?.into_stack().unwrap(),
+                    self.eval_feature_expr(&opds[0])?.into_stack().unwrap(),
+                    self.eval_feature_expr(&opds[1])?.into_stack().unwrap(),
                 ];
                 (linkage.call)(&mut values).map(|mut value| value.into_eval())
             }
@@ -150,7 +147,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     CallFormSource::Static(Linkage::Model(ModelLinkage { eval, .. })) => {
                         let values: Vec<_> = opds
                             .iter()
-                            .map(|opd| self.eval_feature_lazy_expr(opd))
+                            .map(|opd| self.eval_feature_expr(opd))
                             .collect::<EvalResult<Vec<_>>>()?;
                         eval(internal.as_ref().map_err(|e| e.clone())?, values)
                     }
@@ -183,7 +180,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .iter()
                         .map(
                             |(ident, argument)| {
-                                self.eval_feature_lazy_expr(argument)
+                                self.eval_feature_expr(argument)
                                     .map(|v| (*ident, v.any_ref().to_json_value_dyn()))
                             },
                             // argument.any_ref().to_json_value_dyn()
@@ -202,14 +199,14 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         opt_instrns: Option<&InstructionSheet>,
         opt_linkage: Option<Linkage>,
         output_ty: EntityRoutePtr,
-        arguments: &[Arc<FeatureLazyExpr>],
+        arguments: &[Arc<FeatureExpr>],
         has_this: bool,
     ) -> EvalValueResult<'eval> {
         let db = self.db;
         let verbose = self.verbose;
         let values = arguments
             .iter()
-            .map(|expr| TempValue::from_eval(self.eval_feature_lazy_expr(expr)?));
+            .map(|expr| TempValue::from_eval(self.eval_feature_expr(expr)?));
         msg_once!("kwargs");
         eval_fast(
             db.upcast(),

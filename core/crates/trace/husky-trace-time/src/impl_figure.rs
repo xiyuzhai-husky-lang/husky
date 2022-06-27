@@ -1,13 +1,13 @@
 mod impl_eager_expr;
 mod impl_feature_expr;
+mod impl_feature_stmt;
 mod impl_func_stmt;
+mod impl_proc_stmt;
 mod utils;
 
 use crate::*;
 use eval_feature::EvalFeature;
-use feature_gen::{
-    FeatureLazyExpr, FeatureLazyExprVariant, FeatureLazyStmt, FeatureLazyStmtVariant,
-};
+use feature_gen::{FeatureExpr, FeatureLazyExprVariant, FeatureLazyStmtVariant, FeatureStmt};
 use husky_compile_time::*;
 use map_collect::MapCollect;
 use semantics_eager::{

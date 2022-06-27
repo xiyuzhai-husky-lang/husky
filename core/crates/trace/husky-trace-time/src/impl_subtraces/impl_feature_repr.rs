@@ -29,7 +29,7 @@ impl HuskyTraceTime {
         feature_block
             .stmts
             .iter()
-            .map(|stmt| self.feature_lazy_stmt_traces(parent, stmt.clone()))
+            .map(|stmt| self.feature_stmt_traces(parent, stmt.clone()))
             .flatten()
             .collect()
     }

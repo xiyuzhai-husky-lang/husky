@@ -20,7 +20,7 @@ pub(crate) fn record_field_repr<'eval>(
 
 pub(crate) fn expr_record_field<'eval>(
     db: &dyn FeatureGenQueryGroup,
-    this: &Arc<FeatureLazyExpr>,
+    this: &Arc<FeatureExpr>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this.variant {

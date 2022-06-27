@@ -6,7 +6,7 @@ impl HuskyTraceTime {
     pub(crate) fn feature_expr_subtraces(
         &mut self,
         parent: &Trace,
-        expr: &FeatureLazyExpr,
+        expr: &FeatureExpr,
     ) -> Vec<TraceId> {
         match expr.variant {
             FeatureLazyExprVariant::PrimitiveLiteral(_)
@@ -24,7 +24,7 @@ impl HuskyTraceTime {
                         opt_instruction_sheet.as_ref().unwrap();
                     let mut subtraces = vec![];
                     let mut func_input_values = vec![];
-                    subtraces.push(self.new_call_head(parent, routine_defn.clone()));
+                    subtraces.push(self.new_call_head_trace(parent, routine_defn.clone()));
                     let parameters: &[Parameter] = match routine_defn.variant {
                         EntityDefnVariant::Func { ref parameters, .. } => parameters,
                         EntityDefnVariant::Proc { ref parameters, .. } => parameters,
@@ -41,7 +41,7 @@ impl HuskyTraceTime {
                         ));
                         match self
                             .eval_time_singleton
-                            .eval_feature_lazy_expr(func_input, sample_id)
+                            .eval_feature_expr(func_input, sample_id)
                         {
                             Ok(value) => func_input_values.push(value.into_stack().unwrap()),
                             Err(_) => return subtraces,

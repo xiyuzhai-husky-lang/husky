@@ -3,7 +3,7 @@ use std::{collections::HashMap, sync::Arc};
 use super::*;
 use dev_utils::static_dev_src;
 use eval_feature::EvalFeature;
-use feature_gen::FeatureLazyExpr;
+use feature_gen::FeatureExpr;
 use husky_tracer_protocol::Label;
 use static_defn::*;
 use vm::{EvalResult, EvalValue, EvalValueResult, Linkage, ModelLinkage, OwnedValue};
@@ -31,7 +31,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
 };
 
 fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult {
-    let opds: &Vec<Arc<FeatureLazyExpr>> = opds.downcast_ref().unwrap();
+    let opds: &Vec<Arc<FeatureExpr>> = opds.downcast_ref().unwrap();
     assert_eq!(opds.len(), 1);
     let opd = &opds[0];
     let eval_time = husky_eval_time::husky_eval_time();
@@ -44,7 +44,7 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult {
             break;
         }
         let value = eval_time
-            .eval_feature_lazy_expr(opd, sample_id)
+            .eval_feature_expr(opd, sample_id)
             .map_err(|e| (sample_id, e))?
             .primitive()
             .take_i32();

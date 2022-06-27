@@ -10,12 +10,12 @@ use crate::*;
 #[derive(Debug)]
 pub enum TraceVariant<'eval> {
     Main(FeatureRepr),
-    FeatureLazyStmt(Arc<FeatureLazyStmt>),
+    FeatureLazyStmt(Arc<FeatureStmt>),
     FeatureLazyBranch(Arc<FeatureLazyBranch>),
-    FeatureLazyExpr(Arc<FeatureLazyExpr>),
+    FeatureLazyExpr(Arc<FeatureExpr>),
     FeatureCallArgument {
         ident: CustomIdentifier,
-        argument: Arc<FeatureLazyExpr>,
+        argument: Arc<FeatureExpr>,
     },
     FuncStmt {
         stmt: Arc<FuncStmt>,

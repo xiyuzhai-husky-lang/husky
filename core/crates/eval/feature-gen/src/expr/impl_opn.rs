@@ -92,7 +92,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 field_binding,
             } => self.compile_field_access(
                 field_ident,
-                FeatureLazyExpr::new(
+                FeatureExpr::new(
                     self.db,
                     self.opt_this.clone(),
                     opds[0].clone(),
@@ -333,9 +333,9 @@ impl<'a> FeatureExprBuilder<'a> {
 
     fn record_field_value(
         &self,
-        this: &FeatureLazyExpr,
+        this: &FeatureExpr,
         field_ident: CustomIdentifier,
-    ) -> Arc<FeatureLazyExpr> {
+    ) -> Arc<FeatureExpr> {
         match this.variant {
             FeatureLazyExprVariant::Variable { .. } => todo!(),
             FeatureLazyExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
@@ -382,7 +382,7 @@ impl<'a> FeatureExprBuilder<'a> {
         &self,
         block: &FeatureLazyBlock,
         field_ident: CustomIdentifier,
-    ) -> Arc<FeatureLazyExpr> {
+    ) -> Arc<FeatureExpr> {
         todo!()
         // let stmt_features = block.stmt_features();
         // if stmt_features.len() == 1 {

@@ -14,7 +14,7 @@ pub enum FeatureRepr {
         range: TextRange,
         feature: FeaturePtr,
     },
-    Expr(Arc<FeatureLazyExpr>),
+    Expr(Arc<FeatureExpr>),
     LazyBlock(Arc<FeatureLazyBlock>),
     FuncBlock(Arc<FeatureFuncBlock>),
     ProcBlock(Arc<FeatureProcBlock>),
@@ -67,13 +67,9 @@ impl FeatureRepr {
         features: &FeatureInterner,
     ) -> Self {
         match defn_repr {
-            DefinitionRepr::LazyExpr { expr } => FeatureRepr::Expr(FeatureLazyExpr::new(
-                db,
-                opt_this,
-                expr.clone(),
-                &[],
-                features,
-            )),
+            DefinitionRepr::LazyExpr { expr } => {
+                FeatureRepr::Expr(FeatureExpr::new(db, opt_this, expr.clone(), &[], features))
+            }
             DefinitionRepr::LazyBlock { stmts, ty } => FeatureRepr::LazyBlock(
                 FeatureLazyBlock::new(db, opt_this, stmts, &[], features, *ty),
             ),
@@ -117,8 +113,8 @@ impl FeatureRepr {
     }
 }
 
-impl<'eval> From<Arc<FeatureLazyExpr>> for FeatureRepr {
-    fn from(expr: Arc<FeatureLazyExpr>) -> Self {
+impl<'eval> From<Arc<FeatureExpr>> for FeatureRepr {
+    fn from(expr: Arc<FeatureExpr>) -> Self {
         Self::Expr(expr)
     }
 }

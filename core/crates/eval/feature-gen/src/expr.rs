@@ -15,26 +15,26 @@ use word::RootIdentifier;
 use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, Clone)]
-pub struct FeatureLazyExpr {
+pub struct FeatureExpr {
     pub variant: FeatureLazyExprVariant,
     pub feature: FeaturePtr,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
 }
 
-impl std::hash::Hash for FeatureLazyExpr {
+impl std::hash::Hash for FeatureExpr {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }
 }
 
-impl<'eval> PartialEq for FeatureLazyExpr {
+impl<'eval> PartialEq for FeatureExpr {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl<'eval> Eq for FeatureLazyExpr {}
+impl<'eval> Eq for FeatureExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureLazyExprVariant {
@@ -45,12 +45,12 @@ pub enum FeatureLazyExprVariant {
     },
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,
-        lopd: Arc<FeatureLazyExpr>,
-        ropd: Arc<FeatureLazyExpr>,
+        lopd: Arc<FeatureExpr>,
+        ropd: Arc<FeatureExpr>,
     },
     Variable {
         varname: CustomIdentifier,
-        value: Arc<FeatureLazyExpr>,
+        value: Arc<FeatureExpr>,
     },
     ThisValue {
         repr: FeatureRepr,
@@ -78,17 +78,17 @@ pub enum FeatureLazyExprVariant {
         repr: FeatureRepr,
     },
     ElementAccess {
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<Arc<FeatureExpr>>,
         linkage: SpecificRoutineLinkage,
     },
     ModelCall {
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<Arc<FeatureExpr>>,
         has_this: bool,
         model_defn: Arc<EntityDefn>,
         internal: EvalResult,
     },
     RoutineCall {
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<Arc<FeatureExpr>>,
         has_this: bool,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
         opt_linkage: Option<Linkage>,
@@ -102,11 +102,11 @@ pub enum FeatureLazyExprVariant {
     NewRecord {
         ty: RangedEntityRoute,
         entity: Arc<EntityDefn>,
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<Arc<FeatureExpr>>,
     },
 }
 
-impl FeatureLazyExpr {
+impl FeatureExpr {
     pub fn new(
         db: &(dyn FeatureGenQueryGroup),
         this: Option<FeatureRepr>,
@@ -132,7 +132,7 @@ struct FeatureExprBuilder<'a> {
 }
 
 impl<'a> FeatureExprBuilder<'a> {
-    fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureLazyExpr> {
+    fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureExpr> {
         let (kind, feature) = match expr.variant {
             LazyExprVariant::Variable { varname, .. } => self
                 .symbols
@@ -208,7 +208,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 EntityRouteKind::TypeAsTraitMember { .. } => todo!(),
             },
         };
-        Arc::new(FeatureLazyExpr {
+        Arc::new(FeatureExpr {
             variant: kind,
             feature,
             eval_id: Default::default(),
