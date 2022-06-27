@@ -151,17 +151,25 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     result.into()
                 }
                 InstructionVariant::NewVirtualStruct { ty, ref fields } => {
-                    let control = self.new_virtual_struct(ty, fields).into();
+                    let value_result = self.new_virtual_struct(ty, fields);
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => {
-                            let output = self.stack.eval_top();
-                            should_eq!(output.any_ref().ty_dyn(), ty);
-                            self.history
-                                .write(ins, HistoryEntry::PureExpr { result: Ok(output) })
-                        }
+                        Mode::TrackHistory => match value_result {
+                            Ok(_) => {
+                                let output = self.stack.eval_top();
+                                should_eq!(output.any_ref().ty_dyn(), ty);
+                                self.history
+                                    .write(ins, HistoryEntry::PureExpr { result: Ok(output) })
+                            }
+                            Err(ref e) => self.history.write(
+                                ins,
+                                HistoryEntry::PureExpr {
+                                    result: Err(e.clone()),
+                                },
+                            ),
+                        },
                     };
-                    control
+                    value_result.into()
                 }
                 InstructionVariant::Return { output_ty } => {
                     let return_value = self.stack.pop().into_eval();
