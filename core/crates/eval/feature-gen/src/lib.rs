@@ -17,7 +17,7 @@ pub use eval_id::*;
 pub use expr::*;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
 pub use repr::*;
-pub use stmt::{FeatureLazyStmt, FeatureLazyStmtVariant};
+pub use stmt::{FeatureLazyStmtVariant, FeatureStmt};
 pub use unique_allocate::{
     new_feature_interner, AllocateUniqueFeature, FeatureInterner, FeaturePtr,
 };
@@ -36,7 +36,7 @@ use word::{CustomIdentifier, IdentPairDict};
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {
     varname: CustomIdentifier,
-    value: Arc<FeatureLazyExpr>,
+    value: Arc<FeatureExpr>,
     feature: FeaturePtr,
 }
 
@@ -103,7 +103,7 @@ pub enum Feature {
 }
 
 impl Feature {
-    pub fn block(features: &FeatureInterner, stmts: &[Arc<FeatureLazyStmt>]) -> FeaturePtr {
+    pub fn block(features: &FeatureInterner, stmts: &[Arc<FeatureStmt>]) -> FeaturePtr {
         let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
         if stmt_features.len() == 1 {
             stmt_features[0]

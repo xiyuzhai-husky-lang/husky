@@ -9,7 +9,7 @@ pub struct FeatureLazyBranch {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureBranchVariant {
-    If { condition: Arc<FeatureLazyExpr> },
-    Elif { condition: Arc<FeatureLazyExpr> },
+    If { condition: Arc<FeatureExpr> },
+    Elif { condition: Arc<FeatureExpr> },
     Else,
 }

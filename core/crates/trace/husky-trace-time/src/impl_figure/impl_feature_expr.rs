@@ -5,7 +5,7 @@ use super::*;
 impl HuskyTraceTime {
     pub(crate) fn feature_expr_figure(
         &self,
-        expr: &Arc<FeatureLazyExpr>,
+        expr: &Arc<FeatureExpr>,
         attention: &Attention,
     ) -> Result<FigureCanvasData, (SampleId, EvalError)> {
         match attention {
@@ -14,7 +14,7 @@ impl HuskyTraceTime {
             } => {
                 let value = self
                     .eval_time_singleton
-                    .eval_feature_lazy_expr(expr, *sample_id)
+                    .eval_feature_expr(expr, *sample_id)
                     .map_err(|e| (*sample_id, e))?;
                 Ok(FigureCanvasData::new_specific(
                     self.eval_time()

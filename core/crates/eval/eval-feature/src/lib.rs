@@ -65,17 +65,13 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
 
     fn eval_feature_stmt(
         &self,
-        stmt: &FeatureLazyStmt,
+        stmt: &FeatureStmt,
         sample_id: SampleId,
     ) -> EvalResult<EvalValue<'eval>> {
         self.evaluator(sample_id).eval_feature_stmt(stmt)
     }
 
-    fn eval_feature_lazy_expr(
-        &self,
-        expr: &FeatureLazyExpr,
-        sample_id: SampleId,
-    ) -> EvalValueResult<'eval> {
-        self.evaluator(sample_id).eval_feature_lazy_expr(expr)
+    fn eval_feature_expr(&self, expr: &FeatureExpr, sample_id: SampleId) -> EvalValueResult<'eval> {
+        self.evaluator(sample_id).eval_feature_expr(expr)
     }
 }

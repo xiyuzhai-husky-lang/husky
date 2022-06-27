@@ -1,6 +1,8 @@
+mod impl_eager_expr;
 mod impl_feature_branch;
 mod impl_feature_expr;
 mod impl_feature_repr;
+mod impl_proc_stmt;
 
 use super::*;
 use check_utils::should_eq;
@@ -67,9 +69,7 @@ impl HuskyTraceTime {
             TraceVariant::EagerExpr {
                 ref expr,
                 ref history,
-            } => {
-                todo!() // self.eager_expr_subtraces(trace, expr, history)
-            }
+            } => self.eager_expr_subtraces(trace, expr, history),
             TraceVariant::LoopFrame {
                 ref loop_frame_data,
                 ref loop_stmt,

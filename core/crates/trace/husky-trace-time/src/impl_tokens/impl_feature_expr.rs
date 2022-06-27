@@ -13,7 +13,7 @@ use word::CustomIdentifier;
 impl HuskyTraceTime {
     pub(crate) fn feature_expr_tokens(
         &mut self,
-        expr: &Arc<FeatureLazyExpr>,
+        expr: &Arc<FeatureExpr>,
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {
         let opt_associated_trace_id = if config.associated {
@@ -201,7 +201,7 @@ impl HuskyTraceTime {
         &mut self,
         file: FilePtr,
         ranged_scope: RangedEntityRoute,
-        inputs: &[Arc<FeatureLazyExpr>],
+        inputs: &[Arc<FeatureExpr>],
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) -> Vec<TraceTokenData> {

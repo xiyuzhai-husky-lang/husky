@@ -10,7 +10,7 @@ use vm::EvalResult;
 use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, Clone)]
-pub struct FeatureLazyStmt {
+pub struct FeatureStmt {
     pub indent: fold::Indent,
     pub variant: FeatureLazyStmtVariant,
     pub opt_feature: Option<FeaturePtr>,
@@ -19,27 +19,27 @@ pub struct FeatureLazyStmt {
     pub eval_id: FeatureEvalId,
 }
 
-impl std::hash::Hash for FeatureLazyStmt {
+impl std::hash::Hash for FeatureStmt {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }
 }
 
-impl PartialEq for FeatureLazyStmt {
+impl PartialEq for FeatureStmt {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl Eq for FeatureLazyStmt {}
+impl Eq for FeatureStmt {}
 
-impl text::TextRanged for FeatureLazyStmt {
+impl text::TextRanged for FeatureStmt {
     fn text_range(&self) -> text::TextRange {
         self.range
     }
 }
 
-impl FeatureLazyStmt {
+impl FeatureStmt {
     pub fn new_from_lazy(
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
@@ -49,7 +49,7 @@ impl FeatureLazyStmt {
     ) -> Arc<Self> {
         let variant = match lazy_stmt.variant {
             LazyStmtVariant::Init { varname, ref value } => {
-                let value = FeatureLazyExpr::new(
+                let value = FeatureExpr::new(
                     db,
                     opt_this.clone(),
                     value.clone(),
@@ -67,7 +67,7 @@ impl FeatureLazyStmt {
                 }
             }
             LazyStmtVariant::Assert { ref condition } => {
-                let condition = FeatureLazyExpr::new(
+                let condition = FeatureExpr::new(
                     db,
                     opt_this.clone(),
                     condition.clone(),
@@ -77,7 +77,7 @@ impl FeatureLazyStmt {
                 FeatureLazyStmtVariant::Assert { condition }
             }
             LazyStmtVariant::Return { ref result } => FeatureLazyStmtVariant::Return {
-                result: FeatureLazyExpr::new(
+                result: FeatureExpr::new(
                     db,
                     opt_this.clone(),
                     result.clone(),
@@ -110,7 +110,7 @@ impl FeatureLazyStmt {
                             variant: match branch.variant {
                                 LazyConditionBranchVariant::If { ref condition } => {
                                     FeatureBranchVariant::If {
-                                        condition: FeatureLazyExpr::new(
+                                        condition: FeatureExpr::new(
                                             db,
                                             opt_this.clone(),
                                             condition.clone(),
@@ -121,7 +121,7 @@ impl FeatureLazyStmt {
                                 }
                                 LazyConditionBranchVariant::Elif { ref condition } => {
                                     FeatureBranchVariant::Elif {
-                                        condition: FeatureLazyExpr::new(
+                                        condition: FeatureExpr::new(
                                             db,
                                             opt_this.clone(),
                                             condition.clone(),
@@ -143,7 +143,7 @@ impl FeatureLazyStmt {
                 ref branches,
             } => todo!(),
         };
-        Arc::new(FeatureLazyStmt {
+        Arc::new(FeatureStmt {
             file: lazy_stmt.file,
             range: lazy_stmt.range,
             indent: lazy_stmt.indent,

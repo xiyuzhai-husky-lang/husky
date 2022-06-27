@@ -4,13 +4,13 @@ use super::*;
 pub enum FeatureLazyStmtVariant {
     Init {
         varname: CustomIdentifier,
-        value: Arc<FeatureLazyExpr>,
+        value: Arc<FeatureExpr>,
     },
     Assert {
-        condition: Arc<FeatureLazyExpr>,
+        condition: Arc<FeatureExpr>,
     },
     Return {
-        result: Arc<FeatureLazyExpr>,
+        result: Arc<FeatureExpr>,
     },
     ReturnXml {
         result: Arc<FeatureXmlExpr>,

@@ -3,7 +3,7 @@ use vm::EvalValue;
 
 #[derive(Debug, Clone)]
 pub struct Object {
-    pub fields: Vec<Arc<FeatureLazyExpr>>,
+    pub fields: Vec<Arc<FeatureExpr>>,
     pub field_features: Vec<Arc<FeatureLazyBlock>>,
 }
 
