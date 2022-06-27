@@ -1,18 +1,21 @@
 use super::*;
+use entity_route::EntityRoutePtr;
 
-/// RoutineLinkage
+/// GenericTypeCallLinkage
 #[derive(Clone, Copy)]
-pub struct RoutineLinkage {
-    pub call:
-        for<'temp, 'eval> fn(&mut [TempValue<'temp, 'eval>]) -> EvalResult<TempValue<'temp, 'eval>>,
+pub struct GenericRoutineLinkage {
+    pub call: for<'temp, 'eval> fn(
+        ty: EntityRoutePtr,
+        &mut [TempValue<'temp, 'eval>],
+    ) -> EvalResult<TempValue<'temp, 'eval>>,
     pub nargs: u8,
     pub dev_src: &'static StaticDevSource,
 }
 
 #[macro_export]
-macro_rules! routine_linkage {
+macro_rules! generic_routine_linkage {
     ($fp: expr, $nargs: expr) => {{
-        RoutineLinkage {
+        GenericRoutineLinkage {
             call: $fp,
             nargs: $nargs,
             dev_src: &dev_utils::static_dev_src!(),
@@ -20,24 +23,24 @@ macro_rules! routine_linkage {
     }};
 }
 
-impl std::fmt::Debug for RoutineLinkage {
+impl std::fmt::Debug for GenericRoutineLinkage {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
-        f.write_str("RoutineFp(")?;
+        f.write_str("GenericTypeCallFp(")?;
         (self.call as usize).fmt(f)?;
         f.write_str(")")
     }
 }
 
-impl std::hash::Hash for RoutineLinkage {
+impl std::hash::Hash for GenericRoutineLinkage {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         (self.call as usize).hash(state);
     }
 }
 
-impl PartialEq for RoutineLinkage {
+impl PartialEq for GenericRoutineLinkage {
     fn eq(&self, other: &Self) -> bool {
         (self.call as usize) == (other.call as usize)
     }
 }
 
-impl Eq for RoutineLinkage {}
+impl Eq for GenericRoutineLinkage {}

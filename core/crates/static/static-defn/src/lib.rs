@@ -1,15 +1,13 @@
 mod function;
-mod ty;
 pub mod utils;
 
 pub use function::*;
-pub use ty::*;
 
 use dev_utils::StaticDevSource;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use liason::{MemberLiason, OutputLiason, ParameterLiason};
 use visual_syntax::StaticVisualizer;
-use vm::RoutineLinkage;
+use vm::{Linkage, SpecificRoutineLinkage};
 use word::RootIdentifier;
 
 pub trait ResolveStaticRootDefn {
@@ -26,24 +24,16 @@ pub struct EntityStaticDefn {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum EntityStaticDefnVariant {
-    Routine {
-        generic_parameters: &'static [StaticGenericPlaceholder],
+    Function {
+        spatial_parameters: &'static [StaticSpatialParameter],
         parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,
-        linkage: RoutineLinkage,
-        routine_kind: RoutineKind,
-    },
-    Model {
-        spatial_parameters: &'static [StaticGenericPlaceholder],
-        parameters: &'static [StaticParameter],
-        output_ty: &'static str,
-        output_liason: OutputLiason,
-        Model_variant: StaticModelVariant,
+        linkage: Linkage,
     },
     Ty {
         base_route: &'static str,
-        generic_parameters: &'static [StaticGenericPlaceholder],
+        spatial_parameters: &'static [StaticSpatialParameter],
         static_trait_impls: &'static [StaticTraitImplDefn],
         ty_members: &'static [&'static EntityStaticDefn],
         variants: &'static [EntityStaticDefn],
@@ -53,7 +43,7 @@ pub enum EntityStaticDefnVariant {
     },
     Trait {
         base_route: &'static str,
-        generic_parameters: &'static [StaticGenericPlaceholder],
+        spatial_parameters: &'static [StaticSpatialParameter],
         members: &'static [EntityStaticDefn],
     },
     Module,
@@ -61,14 +51,14 @@ pub enum EntityStaticDefnVariant {
         field_kind: FieldKind,
         liason: MemberLiason,
         ty: &'static str,
-        static_linkage_source: &'static LinkageSource,
+        linkage: Linkage,
     },
     Method {
         this_liason: ParameterLiason,
         parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,
-        generic_parameters: &'static [StaticGenericPlaceholder],
+        spatial_parameters: &'static [StaticSpatialParameter],
         kind: MethodStaticDefnVariant,
     },
     TraitAssociatedType {
@@ -84,8 +74,9 @@ pub enum EntityStaticDefnVariant {
 impl EntityStaticDefnVariant {
     pub fn entity_kind(&self) -> EntityKind {
         match self {
-            EntityStaticDefnVariant::Routine { .. } => EntityKind::Function { is_lazy: false },
-            EntityStaticDefnVariant::Model { .. } => EntityKind::Function { is_lazy: true },
+            EntityStaticDefnVariant::Function { ref linkage, .. } => EntityKind::Function {
+                requires_lazy: linkage.requires_lazy(),
+            },
             EntityStaticDefnVariant::Ty { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,
             EntityStaticDefnVariant::Trait { .. } => EntityKind::Trait,
@@ -98,4 +89,30 @@ impl EntityStaticDefnVariant {
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
         }
     }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct StaticTraitImplDefn {
+    pub trai: &'static str,
+    pub member_impls: &'static [EntityStaticDefn],
+    pub dev_src: StaticDevSource,
+}
+
+#[macro_export]
+macro_rules! associated_type_impl {
+    ($name: expr, $ty: expr) => {
+        EntityStaticDefn {
+            dev_src: dev_utils::static_dev_src!(),
+            name: $name,
+            items: &[],
+            variant: EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: $ty },
+        }
+    };
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum MethodStaticDefnVariant {
+    TypeMethod { source: Linkage },
+    TraitMethod { opt_default_source: Option<Linkage> },
+    TraitMethodImpl { opt_source: Option<Linkage> },
 }

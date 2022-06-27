@@ -36,16 +36,16 @@ pub static MNIST_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
 pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "new_binary_dataset",
     items: &[],
-    variant: EntityStaticDefnVariant::Routine {
-        generic_parameters: &[],
+    variant: EntityStaticDefnVariant::Function {
+        spatial_parameters: &[],
         parameters: &[],
         output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: routine_linkage!(
             |_| Ok(TempValue::OwnedEval(OwnedValue::new(new_binary_dataset()))),
             0
-        ),
-        routine_kind: RoutineKind::Normal,
+        )
+        .into(),
     },
     dev_src: dev_utils::static_dev_src!(),
 };
@@ -81,15 +81,15 @@ impl Serialize for MnistDataset {
     }
 }
 
-impl<'eval> AnyValue<'eval> for MnistDataset {
-    fn static_type_id() -> StaticTypeId {
-        todo!()
-    }
+impl HasStaticTypeInfo for MnistDataset {
+    type StaticSelf = Self;
 
     fn static_type_name() -> Cow<'static, str> {
         todo!()
     }
+}
 
+impl<'eval> AnyValue<'eval> for MnistDataset {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }

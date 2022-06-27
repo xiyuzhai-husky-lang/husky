@@ -3,7 +3,7 @@ use entity_kind::RoutineKind;
 use husky_tracer_protocol::SampleId;
 use liason::OutputLiason;
 use std::sync::Arc;
-use vm::{routine_linkage, EvalValue, OwnedValue, RoutineLinkage, TempValue};
+use vm::{routine_linkage, EvalValue, OwnedValue, SpecificRoutineLinkage, TempValue};
 use xrng::XRng;
 
 pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
@@ -16,13 +16,13 @@ pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
 pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "dataset1",
     items: &[],
-    variant: EntityStaticDefnVariant::Routine {
-        generic_parameters: &[],
+    variant: EntityStaticDefnVariant::Function {
+        spatial_parameters: &[],
         parameters: &[],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: routine_linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset1()))), 0),
-        routine_kind: RoutineKind::Normal,
+        linkage: routine_linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset1()))), 0)
+            .into(),
     },
     dev_src: dev_utils::static_dev_src!(),
 };
@@ -30,13 +30,13 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
 pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "dataset2",
     items: &[],
-    variant: EntityStaticDefnVariant::Routine {
-        generic_parameters: &[],
+    variant: EntityStaticDefnVariant::Function {
+        spatial_parameters: &[],
         parameters: &[],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: routine_linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset2()))), 0),
-        routine_kind: RoutineKind::Normal,
+        linkage: routine_linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset2()))), 0)
+            .into(),
     },
     dev_src: dev_utils::static_dev_src!(),
 };

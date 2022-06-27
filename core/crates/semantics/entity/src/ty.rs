@@ -55,7 +55,7 @@ impl EntityDefnVariant {
 
         let opt_type_call = match kind {
             TyKind::Enum => None,
-            TyKind::Record => Some(Arc::new(TyCallDefn {
+            TyKind::Record => Some(Arc::new(TypeCallDefn {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TyField {
                         ty,
@@ -77,9 +77,9 @@ impl EntityDefnVariant {
                     route: ty,
                     range: Default::default(),
                 },
-                source: TyCallSource::GenericRecord,
+                opt_linkage: None,
             })),
-            TyKind::Struct => Some(Arc::new(TyCallDefn {
+            TyKind::Struct => Some(Arc::new(TypeCallDefn {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TyField {
                         ty,
@@ -98,7 +98,7 @@ impl EntityDefnVariant {
                     route: ty,
                     range: Default::default(),
                 },
-                source: TyCallSource::GenericStruct,
+                opt_linkage: None,
             })),
             TyKind::Primitive => todo!(),
             TyKind::Vec => todo!(),
@@ -125,7 +125,7 @@ impl EntityDefnVariant {
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDefn>>,
-        opt_type_call: Option<Arc<TyCallDefn>>,
+        opt_type_call: Option<Arc<TypeCallDefn>>,
         opt_visualizer_source: Option<VisualizerSource>,
     ) -> Self {
         let members = collect_all_members(&type_members, &trait_impls);
@@ -148,7 +148,7 @@ impl EntityDefnVariant {
         match static_defn.variant {
             EntityStaticDefnVariant::Ty {
                 base_route,
-                generic_parameters,
+                spatial_parameters: generic_parameters,
                 static_trait_impls: ref trait_impls,
                 ty_members: ref type_members,
                 ref variants,
@@ -197,7 +197,7 @@ impl EntityDefnVariant {
                     kind,
                     trait_impls,
                     opt_type_call
-                        .map(|type_call| TyCallDefn::from_static(&mut symbol_context, type_call)),
+                        .map(|type_call| TypeCallDefn::from_static(&mut symbol_context, type_call)),
                     opt_visualizer_source,
                 )
             }
@@ -295,8 +295,17 @@ impl EntityDefnVariant {
         let ref ast = item.value.as_ref().unwrap();
         match ast.variant {
             AstVariant::Visual => Some(VisualizerSource::Custom {
-                stmts: parse_lazy_stmts(db, arena, item.opt_children.clone().unwrap(), file)
-                    .unwrap(),
+                stmts: parse_lazy_stmts(
+                    db,
+                    arena,
+                    item.opt_children.clone().unwrap(),
+                    file,
+                    RangedEntityRoute {
+                        route: RootIdentifier::VisualType.into(),
+                        range: Default::default(),
+                    },
+                )
+                .unwrap(),
             }),
             _ => None,
         }

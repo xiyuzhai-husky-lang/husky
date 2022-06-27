@@ -1,6 +1,7 @@
 mod impl_opn;
 mod xml;
 
+use vm::Linkage;
 pub use xml::*;
 
 use entity_route::EntityRouteKind;
@@ -8,7 +9,7 @@ use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use semantics_entity::*;
 use semantics_lazy::*;
 use std::sync::Arc;
-use vm::{Binding, EvalResult, EvalValue, InstructionSheet, RoutineLinkage};
+use vm::{Binding, EvalResult, EvalValue, InstructionSheet, SpecificRoutineLinkage};
 use word::RootIdentifier;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -59,7 +60,7 @@ pub enum FeatureLazyExprVariant {
         field_ident: RangedCustomIdentifier,
         field_idx: usize,
         field_binding: Binding,
-        opt_linkage: Option<RoutineLinkage>,
+        opt_linkage: Option<SpecificRoutineLinkage>,
     },
     RecordOriginalFieldAccess {
         this: FeatureRepr,
@@ -78,7 +79,7 @@ pub enum FeatureLazyExprVariant {
     },
     ElementAccess {
         opds: Vec<Arc<FeatureLazyExpr>>,
-        linkage: RoutineLinkage,
+        linkage: SpecificRoutineLinkage,
     },
     ModelCall {
         opds: Vec<Arc<FeatureLazyExpr>>,
@@ -90,7 +91,7 @@ pub enum FeatureLazyExprVariant {
         opds: Vec<Arc<FeatureLazyExpr>>,
         has_this: bool,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
-        opt_linkage: Option<RoutineLinkage>,
+        opt_linkage: Option<Linkage>,
         routine_defn: Arc<EntityDefn>,
     },
     EntityFeature {

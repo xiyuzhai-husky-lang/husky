@@ -5,6 +5,7 @@ use std::sync::Arc;
 
 use ast::*;
 pub use branch::*;
+use entity_route::RangedEntityRoute;
 use semantics_error::SemanticResultArc;
 use vm::{InstructionId, InstructionSource};
 
@@ -57,6 +58,7 @@ pub enum LazyStmtVariant {
     },
     ConditionFlow {
         branches: Vec<Arc<LazyConditionBranch>>,
+        ty: RangedEntityRoute,
     },
     Match {
         match_expr: Arc<LazyExpr>,
@@ -69,6 +71,7 @@ pub fn parse_lazy_stmts(
     arena: &RawExprArena,
     iter: fold::FoldableIter<AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>,
     file: FilePtr,
+    ty: RangedEntityRoute,
 ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
-    LazyStmtParser::new(db, arena, file).parse_lazy_stmts(iter)
+    LazyStmtParser::new(db, arena, file).parse_lazy_stmts(iter, ty)
 }

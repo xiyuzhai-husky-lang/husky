@@ -8,7 +8,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "b32",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         static_trait_impls: &[],
         ty_members: &[&B32_LEADING_ZEROS, &B32_TRAILING_ZEROS, &B32_LAST_BITS],
         variants: &[],
@@ -37,9 +37,9 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(
+            source: Linkage::SpecificTransfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
@@ -60,9 +60,9 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(
+            source: Linkage::SpecificTransfer(routine_linkage!(
                 |values| {
                     Ok(TempValue::Copyable(
                         (values[0].take_copyable().take_b32().trailing_zeros() as i32).into(),
@@ -87,9 +87,9 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         }],
         output_ty: "b32",
         output_liason: OutputLiason::Transfer,
-        generic_parameters: &[],
+        spatial_parameters: &[],
         kind: MethodStaticDefnVariant::TypeMethod {
-            source: LinkageSource::Transfer(routine_linkage!(
+            source: Linkage::SpecificTransfer(routine_linkage!(
                 |values| {
                     let b = values[0].take_copyable().take_b32();
                     let i = values[1].take_copyable().take_i32();

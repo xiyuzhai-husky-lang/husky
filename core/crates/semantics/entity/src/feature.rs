@@ -18,11 +18,11 @@ impl EntityDefnVariant {
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
-        let lazy_stmts = semantics_lazy::parse_lazy_stmts(db.upcast(), arena, children, file)?;
+        let stmts = semantics_lazy::parse_lazy_stmts(db.upcast(), arena, children, file, ty)?;
         // let feature_block = FeatureBlock::new(db, lazy_stmts, &[], db.features());
         Ok(EntityDefnVariant::Feature {
             ty,
-            defn_repr: DefinitionRepr::LazyBlock { stmts: lazy_stmts },
+            defn_repr: DefinitionRepr::LazyBlock { stmts, ty },
         })
     }
 }

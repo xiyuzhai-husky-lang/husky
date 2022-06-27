@@ -22,7 +22,7 @@ impl<'a> AstTransformer<'a> {
             .atom_context
             .push_abs_semantic_token(AbsSemanticToken::new(
                 SemanticTokenKind::Entity(EntityKind::Function {
-                    is_lazy: paradigm.is_lazy(),
+                    requires_lazy: paradigm.is_lazy(),
                 }),
                 ranged_ident.range,
             ));

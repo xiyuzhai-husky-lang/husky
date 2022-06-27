@@ -1,3 +1,5 @@
+#![feature(const_trait_impl)]
+#![feature(const_convert)]
 pub mod cv;
 mod iter;
 mod labeled;
@@ -21,12 +23,12 @@ pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "Dataset",
-        generic_parameters: &[
-            StaticGenericPlaceholder {
+        spatial_parameters: &[
+            StaticSpatialParameter {
                 name: "Input",
                 variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
             },
-            StaticGenericPlaceholder {
+            StaticSpatialParameter {
                 name: "Output",
                 variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
             },
@@ -52,7 +54,7 @@ use entity_route::{EntityRouteKind, EntityRoutePtr};
 use serde::Serialize;
 use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
-use vm::{AnyValue, AnyValueDyn, HuskyBuiltinStaticTypeId, StaticTypeId};
+use vm::{AnyValue, AnyValueDyn, HasStaticTypeInfo};
 
 pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {
     fn dev_loader(&self) -> DataLoader<'eval>;
@@ -100,16 +102,15 @@ impl<'eval> Serialize for Dataset<'eval> {
         todo!()
     }
 }
-
-impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
-    fn static_type_id() -> StaticTypeId {
-        HuskyBuiltinStaticTypeId::Dataset.into()
-    }
+impl<'a> HasStaticTypeInfo for Dataset<'a> {
+    type StaticSelf = Dataset<'static>;
 
     fn static_type_name() -> Cow<'static, str> {
-        "Arc<dyn Dataset>".into()
+        todo!()
     }
+}
 
+impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }

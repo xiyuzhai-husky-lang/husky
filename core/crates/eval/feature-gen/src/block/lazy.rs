@@ -1,3 +1,4 @@
+use entity_route::RangedEntityRoute;
 use vm::EvalResult;
 
 use super::*;
@@ -9,6 +10,7 @@ pub struct FeatureLazyBlock {
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
+    pub ty: RangedEntityRoute,
     pub stmts: Vec<Arc<FeatureLazyStmt>>,
 }
 
@@ -33,6 +35,7 @@ impl<'eval> FeatureLazyBlock {
         lazy_stmts: &[Arc<LazyStmt>],
         externals: &[FeatureSymbol],
         features: &FeatureInterner,
+        ty: RangedEntityRoute,
     ) -> Arc<FeatureLazyBlock> {
         emsg_once!("generics for feature block");
         let mut symbols: Vec<FeatureSymbol> = externals.into();
@@ -58,6 +61,7 @@ impl<'eval> FeatureLazyBlock {
             file,
             range,
             eval_id: Default::default(),
+            ty,
         })
     }
 

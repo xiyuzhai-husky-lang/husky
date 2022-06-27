@@ -1,6 +1,6 @@
 use crate::*;
 use ast::*;
-use entity_route::EntityRoutePtr;
+use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use file::FilePtr;
 use infer_contract::{ContractSheet, InferContract};
 use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
@@ -34,6 +34,7 @@ impl<'a> LazyStmtParser<'a> {
     pub(super) fn parse_lazy_stmts(
         &mut self,
         iter: AstIter,
+        output_ty: RangedEntityRoute,
     ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
@@ -50,6 +51,7 @@ impl<'a> LazyStmtParser<'a> {
                             not_none!(item.opt_children),
                             &mut iter,
                             condition_branch_kind,
+                            output_ty,
                         )?,
                         RawStmtVariant::PatternBranch { .. } => panic!(),
                         RawStmtVariant::Exec { .. } => todo!(),
@@ -124,6 +126,7 @@ impl<'a> LazyStmtParser<'a> {
         children: AstIter,
         iter: &mut Peekable<AstIter>,
         condition_branch_kind: RawConditionBranchKind,
+        ty: RangedEntityRoute,
     ) -> SemanticResult<LazyStmtVariant> {
         let mut branches = vec![];
         match condition_branch_kind {
@@ -132,7 +135,7 @@ impl<'a> LazyStmtParser<'a> {
                     variant: LazyConditionBranchVariant::If {
                         condition: self.parse_lazy_expr(condition)?,
                     },
-                    stmts: self.parse_lazy_stmts(children)?,
+                    stmts: self.parse_lazy_stmts(children, ty)?,
                 }))
             }
             RawConditionBranchKind::Elif { condition } => todo!(),
@@ -164,7 +167,7 @@ impl<'a> LazyStmtParser<'a> {
                     RawConditionBranchKind::Else => {
                         branches.push(Arc::new(LazyConditionBranch {
                             variant: LazyConditionBranchVariant::Else,
-                            stmts: self.parse_lazy_stmts(not_none!(item.opt_children))?,
+                            stmts: self.parse_lazy_stmts(not_none!(item.opt_children), ty)?,
                         }));
                         break;
                     }
@@ -172,7 +175,7 @@ impl<'a> LazyStmtParser<'a> {
                 _ => break,
             }
         }
-        Ok(LazyStmtVariant::ConditionFlow { branches })
+        Ok(LazyStmtVariant::ConditionFlow { branches, ty })
     }
 }
 

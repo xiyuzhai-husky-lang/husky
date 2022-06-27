@@ -1,14 +1,18 @@
+use std::borrow::Cow;
+
 use super::*;
 
-impl<'temp, 'eval, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'temp [T] {
-    fn static_type_id() -> StaticTypeId {
-        StaticTypeId::Vec(Box::new(T::static_type_id()))
-    }
-
+impl<'temp, T> HasStaticTypeInfo for &'temp [T]
+where
+    T: HasStaticTypeInfo,
+{
+    type StaticSelf = &'static [T::StaticSelf];
     fn static_type_name() -> Cow<'static, str> {
         todo!()
     }
+}
 
+impl<'temp, 'eval, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'temp [T] {
     fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }

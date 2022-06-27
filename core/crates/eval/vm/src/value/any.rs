@@ -18,41 +18,47 @@ use std::{
     sync::Arc,
 };
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum StaticTypeId {
-    RustBuiltin(TypeId),
-    HuskyBuiltin(HuskyBuiltinStaticTypeId),
-    Vec(Box<StaticTypeId>),
-    HashMap(Box<StaticTypeId>, Box<StaticTypeId>),
-    CyclicSlice(Box<StaticTypeId>),
-    AnyMemberValue,
-}
+// #[derive(Debug, PartialEq, Eq)]
+// pub enum StaticTypeId {
+//     RustBuiltin(TypeId),
+//     HuskyBuiltin(HuskyBuiltinStaticTypeId),
+//     Vec(Box<StaticTypeId>),
+//     HashMap(Box<StaticTypeId>, Box<StaticTypeId>),
+//     CyclicSlice(Box<StaticTypeId>),
+//     AnyMemberValue,
+// }
 
-impl From<TypeId> for StaticTypeId {
-    fn from(id: TypeId) -> Self {
-        Self::RustBuiltin(id)
+// impl From<TypeId> for StaticTypeId {
+//     fn from(id: TypeId) -> Self {
+//         Self::RustBuiltin(id)
+//     }
+// }
+
+// impl From<HuskyBuiltinStaticTypeId> for StaticTypeId {
+//     fn from(id: HuskyBuiltinStaticTypeId) -> Self {
+//         Self::HuskyBuiltin(id)
+//     }
+// }
+
+// #[derive(Debug, PartialEq, Eq)]
+// pub enum HuskyBuiltinStaticTypeId {
+//     Dataset,
+//     VirtualTy,
+//     VirtualVec,
+// }
+
+pub trait HasStaticTypeInfo {
+    type StaticSelf: 'static;
+    fn static_type_id() -> std::any::TypeId {
+        std::any::TypeId::of::<Self::StaticSelf>()
     }
-}
-
-impl From<HuskyBuiltinStaticTypeId> for StaticTypeId {
-    fn from(id: HuskyBuiltinStaticTypeId) -> Self {
-        Self::HuskyBuiltin(id)
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum HuskyBuiltinStaticTypeId {
-    Dataset,
-    VirtualTy,
-    VirtualVec,
+    fn static_type_name() -> Cow<'static, str>;
 }
 
 // type level trait
 pub trait AnyValue<'eval>:
-    Debug + Send + Sync + Sized + PartialEq + Clone + RefUnwindSafe + UnwindSafe
+    Debug + Send + Sync + Sized + PartialEq + Clone + RefUnwindSafe + UnwindSafe + HasStaticTypeInfo
 {
-    fn static_type_id() -> StaticTypeId;
-    fn static_type_name() -> Cow<'static, str>;
     // fn clone_shared(&self) -> Arc<dyn AnyValueDyn<'eval>>;
 
     fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
@@ -97,7 +103,7 @@ pub trait AnyValue<'eval>:
 
 // object safe trait
 pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
-    fn static_type_id_dyn(&self) -> StaticTypeId;
+    fn static_type_id_dyn(&self) -> std::any::TypeId;
     fn static_type_name_dyn(&self) -> Cow<'static, str>;
     // fn clone_into_copyable_dyn<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     // where
@@ -149,8 +155,8 @@ impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
 }
 
 impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
-    fn static_type_id_dyn(&self) -> StaticTypeId {
-        T::static_type_id().into()
+    fn static_type_id_dyn(&self) -> std::any::TypeId {
+        T::static_type_id()
     }
 
     fn static_type_name_dyn(&self) -> Cow<'static, str> {

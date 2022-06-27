@@ -67,7 +67,7 @@ impl VisualTy {
                     }
                 },
             },
-            LazyStmtVariant::ConditionFlow { ref branches } => todo!(),
+            LazyStmtVariant::ConditionFlow { .. } => todo!(),
             LazyStmtVariant::Match {
                 ref match_expr,
                 ref branches,

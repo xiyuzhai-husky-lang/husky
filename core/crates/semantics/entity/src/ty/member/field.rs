@@ -10,7 +10,7 @@ impl EntityDefnVariant {
                 field_kind,
                 liason,
                 ty,
-                static_linkage_source,
+                linkage,
             } => Self::TyField {
                 ty: symbol_context.parse_entity_route(ty).unwrap(),
                 liason,
@@ -22,7 +22,7 @@ impl EntityDefnVariant {
                     FieldKind::RecordOriginal => todo!(),
                     FieldKind::RecordDerived => todo!(),
                 },
-                opt_static_linkage_source: Some(static_linkage_source),
+                opt_linkage: Some(linkage),
             },
             _ => todo!(),
         }
@@ -54,8 +54,9 @@ impl EntityDefnVariant {
                                         arena,
                                         children.unwrap(),
                                         file,
+                                        ty,
                                     )?;
-                                    DefinitionRepr::LazyBlock { stmts }
+                                    DefinitionRepr::LazyBlock { stmts, ty }
                                 }
                                 Paradigm::EagerFunctional => {
                                     let stmts = semantics_eager::parse_func_stmts(
@@ -73,6 +74,7 @@ impl EntityDefnVariant {
                                         file,
                                         range: FuncStmt::text_range(&*stmts),
                                         stmts,
+                                        ty,
                                     }
                                 }
                                 Paradigm::EagerProcedural => todo!(),
@@ -87,7 +89,9 @@ impl EntityDefnVariant {
                                 arena,
                                 children.unwrap(),
                                 file,
+                                ty,
                             )?,
+                            ty,
                         }),
                     },
                     FieldAstKind::StructDefault { default } => FieldDefnVariant::StructDefault {
@@ -103,7 +107,7 @@ impl EntityDefnVariant {
                     ty: ty.route,
                     liason,
                     field_variant,
-                    opt_static_linkage_source: None,
+                    opt_linkage: None,
                 })
             }
             _ => panic!(),
@@ -178,16 +182,19 @@ pub enum DefinitionRepr {
     },
     LazyBlock {
         stmts: Arc<Vec<Arc<LazyStmt>>>,
+        ty: RangedEntityRoute,
     },
     FuncBlock {
         route: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
+        ty: RangedEntityRoute,
     },
     ProcBlock {
         file: FilePtr,
         range: TextRange,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
+        ty: RangedEntityRoute,
     },
 }

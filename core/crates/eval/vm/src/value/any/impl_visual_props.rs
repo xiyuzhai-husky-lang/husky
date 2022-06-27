@@ -2,15 +2,15 @@ use entity_route::EntityRoutePtr;
 
 use crate::*;
 
-impl<'eval> AnyValue<'eval> for VisualData {
-    fn static_type_id() -> StaticTypeId {
-        std::any::TypeId::of::<Self>().into()
-    }
+impl HasStaticTypeInfo for VisualData {
+    type StaticSelf = Self;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        "XmlValue".into()
+        todo!()
     }
+}
 
+impl<'eval> AnyValue<'eval> for VisualData {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }

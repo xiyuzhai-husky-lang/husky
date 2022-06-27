@@ -35,6 +35,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             self.db.upcast(),
             Some(&block.instruction_sheet),
             None,
+            block.ty.route,
             arguments.into_iter(),
             [].into_iter(),
             self.verbose,

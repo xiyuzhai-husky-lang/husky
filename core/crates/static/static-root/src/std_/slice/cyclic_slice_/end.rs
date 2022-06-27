@@ -7,7 +7,7 @@ pub static STD_SLICE_CYCLIC_SLICE_END_DEFN: EntityStaticDefn = EntityStaticDefn 
         field_kind: FieldKind::StructOriginal,
         liason: MemberLiason::Mutable,
         ty: "i32",
-        static_linkage_source: &LinkageSource::MemberAccess {
+        linkage: Linkage::MemberAccess {
             copy_access: routine_linkage!(cyclic_slice_end_copy_access, 1),
             eval_ref_access: routine_linkage!(|values| todo!(), 1),
             temp_ref_access: routine_linkage!(|values| todo!(), 1),
@@ -21,6 +21,6 @@ pub static STD_SLICE_CYCLIC_SLICE_END_DEFN: EntityStaticDefn = EntityStaticDefn 
 fn cyclic_slice_end_copy_access<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
-    let cyclic_slice: &CyclicSlice<'eval, MemberValue<'eval>> = values[0].downcast_ref();
+    let cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_ref();
     Ok(TempValue::Copyable(cyclic_slice.end.into()))
 }

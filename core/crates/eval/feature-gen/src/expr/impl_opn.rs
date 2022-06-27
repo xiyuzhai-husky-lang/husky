@@ -5,8 +5,8 @@ use entity_route::{AllocateUniqueScope, EntityRoute};
 use linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
 use semantics_entity::EntityDefnVariant;
-use static_defn::LinkageSource;
 use thin_vec::{thin_vec, ThinVec};
+use vm::Linkage;
 use vm::{Binding, EvalResult, ModelLinkage};
 
 impl<'a> FeatureExprBuilder<'a> {
@@ -52,8 +52,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 let model_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
                 let internal = match model_defn.variant {
                     EntityDefnVariant::Function {
-                        source:
-                            CallFormSource::Static(LinkageSource::Model(ModelLinkage { train, .. })),
+                        source: CallFormSource::Static(Linkage::Model(ModelLinkage { train, .. })),
                         ..
                     } => train(&opds),
                     _ => todo!(),
@@ -78,8 +77,9 @@ impl<'a> FeatureExprBuilder<'a> {
                     inputs: opds.iter().map(|expr| expr.feature).collect(),
                 });
                 let routine_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
+                let opt_linkage = self.db.compile_time().routine_linkage(routine.route);
                 let kind = FeatureLazyExprVariant::RoutineCall {
-                    opt_linkage: self.db.compile_time().routine_linkage(routine.route),
+                    opt_linkage,
                     opds,
                     has_this: false,
                     opt_instruction_sheet: self.db.entity_instruction_sheet(routine.route),
@@ -165,10 +165,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 FeatureLazyExprVariant::RoutineCall {
                     opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
-                    opt_linkage: self
-                        .db
-                        .compile_time()
-                        .method_linkage(method_route, output_binding),
+                    opt_linkage: self.db.compile_time().method_linkage(method_route),
                     opds,
                     has_this: true,
                     routine_defn: method_defn.clone(),
@@ -327,7 +324,8 @@ impl<'a> FeatureExprBuilder<'a> {
             linkage: self
                 .db
                 .compile_time()
-                .element_access_linkage(opds.map(|opd| opd.expr.ty()), element_binding),
+                .element_access_linkage(opds.map(|opd| opd.expr.ty()))
+                .bind(element_binding),
             opds,
         };
         (feature_expr_kind, feature)

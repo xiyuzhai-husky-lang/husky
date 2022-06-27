@@ -1,3 +1,4 @@
+#![feature(const_trait_impl)]
 mod binding;
 mod control;
 mod entity;
@@ -13,12 +14,15 @@ mod mutation;
 mod signature;
 mod snapshot;
 mod stack;
-mod ty;
 mod value;
+mod virtual_cyclic_slice;
+mod virtual_struct;
+mod virtual_vec;
 
 pub use binding::*;
 pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
+use entity_route::EntityRoutePtr;
 pub use error::*;
 pub use frame::{FrameKind, LoopFrameData};
 pub use history::{History, HistoryEntry};
@@ -31,8 +35,10 @@ pub use mutation::*;
 pub use signature::*;
 pub use snapshot::{StackSnapshot, StackValueSnapshot};
 pub use stack::*;
-pub use ty::*;
 pub use value::*;
+pub use virtual_cyclic_slice::*;
+pub use virtual_struct::*;
+pub use virtual_vec::*;
 
 use error::*;
 use husky_tracer_protocol::*;
@@ -42,14 +48,15 @@ use word::CustomIdentifier;
 pub fn eval_fast<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
     opt_instrn_sheet: Option<&InstructionSheet>,
-    opt_linkage: Option<RoutineLinkage>,
+    opt_linkage: Option<Linkage>,
+    output_ty: EntityRoutePtr,
     args: impl Iterator<Item = EvalResult<TempValue<'temp, 'eval>>>, // including this value
     kwargs: impl Iterator<Item = (CustomIdentifier, EvalResult<TempValue<'temp, 'eval>>)>,
     verbose: bool,
 ) -> EvalValueResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, args, verbose)?;
     if let Some(linkage) = opt_linkage {
-        interpreter.eval_linkage(linkage)
+        interpreter.eval_linkage(linkage, output_ty)
     } else {
         interpreter.eval_instructions(opt_instrn_sheet.as_ref().unwrap(), Mode::Fast)
     }

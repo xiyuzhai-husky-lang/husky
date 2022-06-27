@@ -21,7 +21,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
 
     pub fn generic_parameters_from_static(
         &self,
-        static_generic_parameters: &[StaticGenericPlaceholder],
+        static_generic_parameters: &[StaticSpatialParameter],
     ) -> IdentDict<SpatialParameter> {
         static_generic_parameters.map(|static_generic_placeholder| SpatialParameter {
             ident: RangedCustomIdentifier {

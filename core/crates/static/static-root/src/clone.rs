@@ -12,9 +12,9 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                 this_liason: ParameterLiason::Pure,
                 parameters: &[],
                 output_ty: "This",
-                generic_parameters: &[],
+                spatial_parameters: &[],
                 kind: MethodStaticDefnVariant::TraitMethod {
-                    opt_default_source: Some(LinkageSource::Transfer(routine_linkage!(
+                    opt_default_source: Some(Linkage::SpecificTransfer(routine_linkage!(
                         |values| Ok(values[0].clone_into_stack()),
                         1
                     ))),
@@ -23,7 +23,7 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
             },
             dev_src: static_dev_src!(),
         }],
-        generic_parameters: &[],
+        spatial_parameters: &[],
     },
     dev_src: static_dev_src!(),
 };

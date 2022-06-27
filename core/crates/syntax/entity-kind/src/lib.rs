@@ -29,7 +29,7 @@ pub enum EntityKind {
     Type(TyKind),
     Trait,
     Member(MemberKind),
-    Function { is_lazy: bool },
+    Function { requires_lazy: bool },
     Feature,
     EnumLiteral,
     Main,

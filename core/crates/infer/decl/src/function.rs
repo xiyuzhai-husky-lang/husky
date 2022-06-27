@@ -87,11 +87,8 @@ pub(crate) fn function_decl(
     let locus = db.entity_locus(route)?;
     return match locus {
         EntityLocus::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
-            EntityStaticDefnVariant::Routine { .. } => {
+            EntityStaticDefnVariant::Function { .. } => {
                 routine_decl_from_static(db, vec![], route, static_defn)
-            }
-            EntityStaticDefnVariant::Model { .. } => {
-                Model_decl_from_static(db, vec![], route, static_defn)
             }
             EntityStaticDefnVariant::Ty { .. } => match db.ty_decl(route)?.opt_type_call {
                 Some(ref ty_call) => ty_call.clone(),
@@ -135,15 +132,14 @@ pub(crate) fn routine_decl_from_static(
     static_defn: &EntityStaticDefn,
 ) -> Arc<FunctionDecl> {
     match static_defn.variant {
-        EntityStaticDefnVariant::Routine {
-            ref generic_parameters,
+        EntityStaticDefnVariant::Function {
+            ref spatial_parameters,
             ref parameters,
             output_ty,
             output_liason,
-            linkage,
-            routine_kind: paradigm,
+            linkage: ref function_defn_variant,
         } => {
-            let generic_parameters = db.generic_parameters_from_static(generic_parameters);
+            let generic_parameters = db.generic_parameters_from_static(spatial_parameters);
             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
             let mut symbol_context = AtomContextStandalone {
                 opt_package_main: None,
@@ -175,48 +171,48 @@ pub(crate) fn routine_decl_from_static(
     }
 }
 
-pub(crate) fn Model_decl_from_static(
-    db: &dyn DeclQueryGroup,
-    mut symbols: Vec<Symbol>,
-    route: EntityRoutePtr,
-    static_defn: &EntityStaticDefn,
-) -> Arc<FunctionDecl> {
-    match static_defn.variant {
-        EntityStaticDefnVariant::Model {
-            spatial_parameters: ref generic_parameters,
-            ref parameters,
-            output_ty,
-            output_liason,
-            ..
-        } => {
-            let generic_parameters = db.generic_parameters_from_static(generic_parameters);
-            symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
-            let mut symbol_context = AtomContextStandalone {
-                opt_package_main: None,
-                db: db.upcast(),
-                opt_this_ty: None,
-                opt_this_contract: None,
-                symbols: (&symbols as &[Symbol]).into(),
-                kind: AtomContextKind::Normal,
-            };
-            let parameters = parameters.map(|parameter| ParameterDecl {
-                ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),
-                liason: parameter.liason,
-                ident: db.custom_ident(parameter.name),
-            });
-            let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
-            msg_once!("todo: keyword parameters");
-            Arc::new(FunctionDecl {
-                route,
-                spatial_parameters: generic_parameters,
-                primary_parameters: parameters,
-                output: OutputDecl {
-                    liason: output_liason,
-                    ty: output_ty,
-                },
-                keyword_parameters: Default::default(),
-            })
-        }
-        _ => panic!(),
-    }
-}
+// pub(crate) fn model_decl_from_static(
+//     db: &dyn DeclQueryGroup,
+//     mut symbols: Vec<Symbol>,
+//     route: EntityRoutePtr,
+//     static_defn: &EntityStaticDefn,
+// ) -> Arc<FunctionDecl> {
+//     match static_defn.variant {
+//         EntityStaticDefnVariant::Model {
+//             spatial_parameters: ref generic_parameters,
+//             ref parameters,
+//             output_ty,
+//             output_liason,
+//             ..
+//         } => {
+//             let generic_parameters = db.generic_parameters_from_static(generic_parameters);
+//             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
+//             let mut symbol_context = AtomContextStandalone {
+//                 opt_package_main: None,
+//                 db: db.upcast(),
+//                 opt_this_ty: None,
+//                 opt_this_contract: None,
+//                 symbols: (&symbols as &[Symbol]).into(),
+//                 kind: AtomContextKind::Normal,
+//             };
+//             let parameters = parameters.map(|parameter| ParameterDecl {
+//                 ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),
+//                 liason: parameter.liason,
+//                 ident: db.custom_ident(parameter.name),
+//             });
+//             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
+//             msg_once!("todo: keyword parameters");
+//             Arc::new(FunctionDecl {
+//                 route,
+//                 spatial_parameters: generic_parameters,
+//                 primary_parameters: parameters,
+//                 output: OutputDecl {
+//                     liason: output_liason,
+//                     ty: output_ty,
+//                 },
+//                 keyword_parameters: Default::default(),
+//             })
+//         }
+//         _ => panic!(),
+//     }
+// }

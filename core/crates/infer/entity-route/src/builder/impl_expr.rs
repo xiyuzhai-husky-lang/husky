@@ -109,7 +109,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             },
             EntityKind::Type(_) => RootIdentifier::TypeType.into(),
             EntityKind::Trait => RootIdentifier::TraitType.into(),
-            EntityKind::Function { is_lazy } => {
+            EntityKind::Function {
+                requires_lazy: is_lazy,
+            } => {
                 let base_route: EntityRoutePtr = if is_lazy {
                     RootIdentifier::Mor
                 } else {

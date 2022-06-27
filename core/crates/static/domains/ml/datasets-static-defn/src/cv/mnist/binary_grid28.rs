@@ -10,7 +10,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
         base_route: "domains::ml::datasets::cv::mnist::BinaryGrid28",
-        generic_parameters: &[],
+        spatial_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
             dev_src: static_dev_src!(),
             trai: "std::ops::Index<i32>",
@@ -31,9 +31,9 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         output_liason: OutputLiason::MemberAccess {
                             member_liason: MemberLiason::Mutable,
                         },
-                        generic_parameters: &[],
+                        spatial_parameters: &[],
                         kind: MethodStaticDefnVariant::TraitMethodImpl {
-                            opt_source: Some(LinkageSource::MemberAccess {
+                            opt_source: Some(Linkage::MemberAccess {
                                 copy_access: routine_linkage!(
                                     |values| -> EvalResult<TempValue> {
                                         let this_value: &BinaryGrid28 = values[0].downcast_ref();
@@ -105,8 +105,8 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryGrid28",
     items: &[],
-    variant: EntityStaticDefnVariant::Routine {
-        generic_parameters: &[],
+    variant: EntityStaticDefnVariant::Function {
+        spatial_parameters: &[],
         parameters: &[],
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
@@ -117,8 +117,8 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
                 )))
             },
             0
-        ),
-        routine_kind: RoutineKind::TypeCall,
+        )
+        .into(),
     },
     dev_src: static_dev_src!(),
 };
@@ -163,15 +163,15 @@ impl Serialize for BinaryGrid28 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for BinaryGrid28 {
-    fn static_type_id() -> StaticTypeId {
-        TypeId::of::<Self>().into()
-    }
+impl HasStaticTypeInfo for BinaryGrid28 {
+    type StaticSelf = Self;
 
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
+    fn static_type_name() -> Cow<'static, str> {
         todo!()
     }
+}
 
+impl<'eval> AnyValue<'eval> for BinaryGrid28 {
     // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
     //     Arc::new(self.clone())
     // }

@@ -36,14 +36,14 @@ use semantics_eager::*;
 use semantics_error::*;
 use semantics_lazy::parse_lazy_stmts;
 use semantics_lazy::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
-use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, LinkageSource, StaticModelVariant};
+use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use text::*;
 use thin_vec::{thin_vec, ThinVec};
 use vec_map::VecMapEntry;
 use visual_semantics::VisualizerSource;
-use vm::RoutineLinkage;
+use vm::*;
 use word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -183,7 +183,7 @@ pub enum EntityDefnVariant {
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDefn>>,
         members: Avec<EntityDefn>,
-        opt_type_call: Option<Arc<TyCallDefn>>,
+        opt_type_call: Option<Arc<TypeCallDefn>>,
         opt_visualizer_source: Option<VisualizerSource>,
     },
     Trait {
@@ -199,7 +199,7 @@ pub enum EntityDefnVariant {
         ty: EntityRoutePtr,
         field_variant: FieldDefnVariant,
         liason: MemberLiason,
-        opt_static_linkage_source: Option<&'static LinkageSource>,
+        opt_linkage: Option<Linkage>,
     },
     TraitAssociatedTypeImpl {
         trai: EntityRoutePtr,
@@ -216,13 +216,12 @@ impl EntityDefnVariant {
         static_defn: &'static EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
-            EntityStaticDefnVariant::Routine { .. } => todo!(),
-            EntityStaticDefnVariant::Model {
+            EntityStaticDefnVariant::Function {
                 spatial_parameters,
                 parameters,
                 output_ty,
                 output_liason,
-                ref Model_variant,
+                linkage,
             } => EntityDefnVariant::Function {
                 spatial_parameters: spatial_parameters.map(|static_generic_placeholder| {
                     SpatialParameter::from_static(
@@ -237,16 +236,12 @@ impl EntityDefnVariant {
                     route: symbol_context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
-                source: match Model_variant {
-                    StaticModelVariant::Model(linkage) => {
-                        CallFormSource::Static(LinkageSource::Model(linkage))
-                    }
-                },
+                source: CallFormSource::Static(linkage),
             },
             EntityStaticDefnVariant::Ty { .. } => Self::ty_from_static(symbol_context, static_defn),
             EntityStaticDefnVariant::Trait {
                 base_route,
-                generic_parameters,
+                spatial_parameters: generic_parameters,
                 members,
             } => {
                 let mut symbol_context = AtomContextStandalone {
@@ -306,7 +301,7 @@ impl EntityDefnVariant {
                 parameters,
                 output_ty,
                 output_liason,
-                generic_parameters: generic_parameters,
+                spatial_parameters: generic_parameters,
                 ref kind,
             } => EntityDefnVariant::Method {
                 generic_parameters: generic_parameters.map(|static_generic_placeholder| {
@@ -344,6 +339,10 @@ pub(crate) fn main_defn(
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref().unwrap().variant {
             AstVariant::MainDefn => {
+                let ty = RangedEntityRoute {
+                    route: this.global_output_ty(main_file).unwrap(),
+                    range: Default::default(),
+                };
                 return Ok(Arc::new(MainDefn {
                     defn_repr: DefinitionRepr::LazyBlock {
                         stmts: parse_lazy_stmts(
@@ -351,10 +350,12 @@ pub(crate) fn main_defn(
                             &ast_text.arena,
                             not_none!(item.opt_children),
                             main_file,
+                            ty,
                         )?,
+                        ty,
                     },
                     file: main_file,
-                }))
+                }));
             }
             _ => (),
         }

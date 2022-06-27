@@ -100,7 +100,7 @@ impl SubrouteEntry {
                             range: token_group[2].range,
                         }),
                         kind: EntityKind::Function {
-                            is_lazy: paradigm.is_lazy(),
+                            requires_lazy: paradigm.is_lazy(),
                         },
                         source: EntityLocus::from_file(file, token_group_index),
                     })),

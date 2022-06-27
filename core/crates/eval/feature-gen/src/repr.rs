@@ -25,9 +25,9 @@ impl FeatureRepr {
         match self {
             FeatureRepr::Value { ty, .. } => *ty,
             FeatureRepr::Expr(expr) => expr.expr.ty(),
-            FeatureRepr::LazyBlock(block) => todo!(),
-            FeatureRepr::FuncBlock(block) => todo!(),
-            FeatureRepr::ProcBlock(block) => todo!(),
+            FeatureRepr::LazyBlock(block) => block.ty.route,
+            FeatureRepr::FuncBlock(block) => block.ty.route,
+            FeatureRepr::ProcBlock(block) => block.ty.route,
         }
     }
     pub fn feature(&self) -> FeaturePtr {
@@ -74,14 +74,15 @@ impl FeatureRepr {
                 &[],
                 features,
             )),
-            DefinitionRepr::LazyBlock { stmts } => {
-                FeatureRepr::LazyBlock(FeatureLazyBlock::new(db, opt_this, stmts, &[], features))
-            }
+            DefinitionRepr::LazyBlock { stmts, ty } => FeatureRepr::LazyBlock(
+                FeatureLazyBlock::new(db, opt_this, stmts, &[], features, *ty),
+            ),
             DefinitionRepr::FuncBlock {
                 stmts,
                 file,
                 range,
                 route,
+                ty,
             } => FeatureRepr::FuncBlock(Arc::new(FeatureFuncBlock {
                 file: *file,
                 range: *range,
@@ -104,8 +105,14 @@ impl FeatureRepr {
                     },
                 }),
                 opt_this,
+                ty: *ty,
             })),
-            DefinitionRepr::ProcBlock { stmts, file, range } => todo!(),
+            DefinitionRepr::ProcBlock {
+                stmts,
+                file,
+                range,
+                ty,
+            } => todo!(),
         }
     }
 }
