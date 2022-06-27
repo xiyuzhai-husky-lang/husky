@@ -158,7 +158,7 @@ impl HuskyTraceTime {
                 branch_idx,
                 history,
                 ..
-            } => self.proc_branch_lines(indent, branch, history),
+            } => self.proc_branch_lines(stmt, indent, branch, history),
             TraceVariant::FeatureCallArgument {
                 ident,
                 argument: input,

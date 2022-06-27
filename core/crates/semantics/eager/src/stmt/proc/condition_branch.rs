@@ -9,6 +9,7 @@ pub struct ProcConditionBranch {
     pub stmts: Arc<Vec<Arc<ProcStmt>>>,
     pub range: TextRange,
     pub file: FilePtr,
+    pub idx: u8,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

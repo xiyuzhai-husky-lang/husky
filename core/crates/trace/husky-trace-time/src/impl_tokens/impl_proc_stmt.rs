@@ -192,6 +192,7 @@ impl HuskyTraceTime {
 
     pub(crate) fn proc_branch_tokens(
         &mut self,
+        stmt: &ProcStmt,
         indent: Indent,
         branch: &ProcConditionBranch,
         history: &Arc<History<'static>>,
@@ -221,25 +222,18 @@ impl HuskyTraceTime {
                 tokens.push(special!(":"))
             }
         }
+        if let Some(entry) = history.get(stmt) {
+            match entry {
+                HistoryEntry::ControlFlow {
+                    opt_branch_entered,
+                    vm_branches,
+                    control,
+                    stack_snapshot,
+                    mutations,
+                } => add_control_tokens(control, &mut tokens),
+                _ => todo!(),
+            }
+        }
         tokens
-    }
-}
-
-fn add_control_tokens(control: &ControlSnapshot, tokens: &mut Vec<TraceTokenData>) {
-    match control {
-        ControlSnapshot::None => (),
-        ControlSnapshot::Return(ref value) => {
-            tokens.push(fade!(" = "));
-            tokens.push(keyword!("return"));
-            tokens.push(value.eval().into());
-        }
-        ControlSnapshot::Break => {
-            tokens.push(fade!(" = "));
-            tokens.push(keyword!("break"));
-        }
-        ControlSnapshot::Err(ref e) => {
-            tokens.push(fade!(" = "));
-            tokens.push(e.clone().into());
-        }
     }
 }
