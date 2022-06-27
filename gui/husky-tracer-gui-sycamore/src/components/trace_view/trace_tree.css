@@ -9,7 +9,7 @@
 
 .TraceTree.FeatureExpr,
 .TraceTree.EagerExpr {
-    margin: 1px;
-    padding: 1.5px;
+    margin: 0.5px;
+    padding: 0;
     border: silver 2px groove;
 }
