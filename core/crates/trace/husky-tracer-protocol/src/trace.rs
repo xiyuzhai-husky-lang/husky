@@ -59,6 +59,25 @@ pub enum TraceKind {
     CallHead,
 }
 
+impl TraceKind {
+    pub fn as_str(&self) -> &'static str {
+        match self {
+            TraceKind::Main => "Main",
+            TraceKind::FeatureStmt => "FeatureStmt",
+            TraceKind::FeatureBranch => "FeatureBranch",
+            TraceKind::FeatureExpr => "FeatureExpr",
+            TraceKind::FeatureCallArgument => "FeatureCallArgument",
+            TraceKind::FuncStmt => "FuncStmt",
+            TraceKind::ProcStmt => "ProcStmt",
+            TraceKind::ProcBranch => "ProcBranch",
+            TraceKind::LoopFrame => "LoopFrame",
+            TraceKind::EagerExpr => "EagerExpr",
+            TraceKind::EagerCallArgument => "EagerCallArgument",
+            TraceKind::CallHead => "CallHead",
+        }
+    }
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TraceLineData {
     pub indent: Indent,

@@ -41,7 +41,7 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
         (if shown.cget() {
             view! {
                 scope,
-                div(class=format!("TraceTree")) {
+                div(class=format!("TraceTree {}", trace.kind.as_str())) {
                     TraceNode {
                         trace_id: props.trace_id,
                         attention,
