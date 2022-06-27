@@ -18,7 +18,6 @@ pub use stmt::*;
 pub use transform::*;
 pub use xml::*;
 
-use atom::*;
 use check_utils::*;
 use defn_head::*;
 use dev_utils::*;
@@ -26,6 +25,7 @@ use entity_kind::*;
 use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use error::*;
 use file::FilePtr;
+use husky_atom::*;
 use liason::*;
 use print_utils::*;
 use text::*;

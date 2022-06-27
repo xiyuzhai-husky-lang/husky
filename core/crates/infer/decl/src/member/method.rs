@@ -1,9 +1,9 @@
 use crate::*;
-use atom::{
+use fold::LocalStack;
+use husky_atom::{
     context::{AtomContextKind, Symbol},
     *,
 };
-use fold::LocalStack;
 use implement::{Implementable, Implementor};
 use map_collect::MapCollect;
 use print_utils::p;

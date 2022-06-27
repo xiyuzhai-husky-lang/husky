@@ -8,8 +8,8 @@ pub use word::Keyword;
 
 use crate::*;
 use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
-use atom::Atom;
-use atom::AtomVariant;
+use husky_atom::AtomVariant;
+use husky_atom::HuskyAtom;
 pub(crate) use stack::ExprStack;
 use text::TextRange;
 use text::TextRanged;
@@ -91,8 +91,8 @@ impl RawExpr {
     }
 }
 
-impl From<Atom> for RawExpr {
-    fn from(atom: Atom) -> Self {
+impl From<HuskyAtom> for RawExpr {
+    fn from(atom: HuskyAtom) -> Self {
         Self {
             range: atom.text_range(),
             variant: match atom.kind {

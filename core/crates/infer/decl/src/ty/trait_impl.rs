@@ -1,8 +1,8 @@
-use atom::{
+use entity_kind::{FieldKind, MemberKind};
+use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext,
 };
-use entity_kind::{FieldKind, MemberKind};
 use implement::Implementor;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};

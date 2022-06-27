@@ -38,7 +38,7 @@ impl<'a> AstTransformer<'a> {
                 todo!()
             }
             let ident = identify_token!(self, &token_group[0], SemanticTokenKind::Field);
-            let ty = atom::parse_route(self, &token_group[2..])?;
+            let ty = husky_atom::parse_route(self, &token_group[2..])?;
             emsg_once!("field contract");
             Ok(AstVariant::FieldDefnHead {
                 ranged_ident: ident,
@@ -62,7 +62,7 @@ impl<'a> AstTransformer<'a> {
         self.opt_this_liason.set(Some(ParameterLiason::Pure));
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);
         emsg_once!("field contract");
-        let ty = atom::parse_route(self, &token_group[3..])?;
+        let ty = husky_atom::parse_route(self, &token_group[3..])?;
         Ok(AstVariant::FieldDefnHead {
             ranged_ident: ident,
             ty,

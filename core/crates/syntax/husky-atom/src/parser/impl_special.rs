@@ -14,7 +14,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 "unexpected double colon, maybe the identifier before is not recognized as scope",
                 self.token_stream.text_range(text_start)
             )?,
-            SpecialToken::DoubleVertical => self.stack.push(Atom::new(
+            SpecialToken::DoubleVertical => self.stack.push(HuskyAtom::new(
                 self.token_stream.text_range(text_start),
                 if !self.stack.is_concave() {
                     BinaryOpr::Pure(PureBinaryOpr::BitOr).into()
@@ -25,18 +25,18 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             SpecialToken::Vertical => {
                 if self.stack.is_concave() {
                     let lambda_head = self.lambda_head()?;
-                    self.stack.push(Atom::new(
+                    self.stack.push(HuskyAtom::new(
                         self.token_stream.text_range(text_start),
                         AtomVariant::LambdaHead(lambda_head),
                     ))
                 } else {
-                    self.stack.push(Atom::new(
+                    self.stack.push(HuskyAtom::new(
                         self.token_stream.text_range(text_start),
                         BinaryOpr::Pure(PureBinaryOpr::BitOr).into(),
                     ))
                 }
             }
-            SpecialToken::Ambersand => self.stack.push(Atom::new(
+            SpecialToken::Ambersand => self.stack.push(HuskyAtom::new(
                 self.token_stream.text_range(text_start),
                 if self.stack.is_concave() {
                     PrefixOpr::Shared.into()
@@ -44,7 +44,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     BinaryOpr::Pure(PureBinaryOpr::BitAnd).into()
                 },
             )),
-            SpecialToken::Exclamation => self.stack.push(Atom::new(
+            SpecialToken::Exclamation => self.stack.push(HuskyAtom::new(
                 self.token_stream.text_range(text_start),
                 PrefixOpr::Not.into(),
             )),
@@ -88,12 +88,12 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             ),
             SpecialToken::SubOrMinus => {
                 if self.stack.is_convex() {
-                    self.stack.push(Atom::new(
+                    self.stack.push(HuskyAtom::new(
                         self.token_stream.text_range(text_start),
                         BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
                     ))
                 } else {
-                    self.stack.push(Atom::new(
+                    self.stack.push(HuskyAtom::new(
                         self.token_stream.text_range(text_start),
                         PrefixOpr::Minus.into(),
                     ))
@@ -136,7 +136,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 } else {
                     AtomVariant::FieldAccess(ranged_ident)
                 };
-                self.stack.push(Atom::new(range, atom_variant))
+                self.stack.push(HuskyAtom::new(range, atom_variant))
             }
             _ => {
                 self.token_stream.text_range(text_start);

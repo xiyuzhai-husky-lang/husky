@@ -30,11 +30,11 @@ impl<'a> AstTransformer<'a> {
 }
 
 pub struct MatchPatternParser<'a> {
-    atom_iter: std::slice::Iter<'a, Atom>,
+    atom_iter: std::slice::Iter<'a, HuskyAtom>,
 }
 
 impl<'a> MatchPatternParser<'a> {
-    pub fn new(atoms: &'a [Atom]) -> Self {
+    pub fn new(atoms: &'a [HuskyAtom]) -> Self {
         Self {
             atom_iter: atoms.iter(),
         }

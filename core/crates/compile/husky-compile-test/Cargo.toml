@@ -43,7 +43,7 @@ rust-gen = { path = "../rust-gen", version = "0.0.0" }
 diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
-atom = { path = "../../syntax/atom", version = "0.0.0" }
+husky-atom = { path = "../../syntax/husky-atom", version = "0.0.0" }
 husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
 thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }
 static-defn = { path = "../../static/static-defn", version = "0.0.0" }

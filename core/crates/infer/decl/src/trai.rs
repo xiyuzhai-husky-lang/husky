@@ -1,10 +1,10 @@
 use crate::*;
-use atom::{
+use check_utils::should_eq;
+use entity_kind::MemberKind;
+use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext, AtomContextStandalone,
 };
-use check_utils::should_eq;
-use entity_kind::MemberKind;
 use implement::Implementor;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};

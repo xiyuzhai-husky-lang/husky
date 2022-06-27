@@ -14,14 +14,14 @@ pub use vec::*;
 
 use crate::*;
 use ast::AstIter;
-use atom::{
-    context::{AtomContextKind, Symbol, SymbolKind},
-    AtomContext, AtomContextStandalone,
-};
 use defn_head::*;
 use entity_route::*;
 pub use enum_variant::*;
 use fold::LocalStack;
+use husky_atom::{
+    context::{AtomContextKind, Symbol, SymbolKind},
+    AtomContext, AtomContextStandalone,
+};
 use map_collect::MapCollect;
 use text::*;
 use thin_vec::{thin_vec, ThinVec};

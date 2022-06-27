@@ -116,7 +116,7 @@ impl<'a> AstTransformer<'a> {
             TokenKind::Special(SpecialToken::LightArrow) => (),
             _ => todo!(),
         }
-        let ty_result = atom::parse_route(self, &token_group[3..]);
+        let ty_result = husky_atom::parse_route(self, &token_group[3..]);
         self.symbols.push(Symbol {
             init_ident: ident,
             kind: SymbolKind::ThisField {

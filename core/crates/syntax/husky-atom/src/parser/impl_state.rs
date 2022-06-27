@@ -8,8 +8,10 @@ use super::*;
 // inner ops
 impl<'a, 'b> AtomParser<'a, 'b> {
     pub(crate) fn push(&mut self, kind: AtomVariant, text_start: TextPosition) -> AtomResult<()> {
-        self.stack
-            .push(Atom::new(self.token_stream.text_range(text_start), kind))
+        self.stack.push(HuskyAtom::new(
+            self.token_stream.text_range(text_start),
+            kind,
+        ))
     }
 
     pub fn save_state(&self) -> AtomParserState {
