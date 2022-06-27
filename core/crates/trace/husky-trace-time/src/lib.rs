@@ -217,7 +217,9 @@ impl HuskyTraceTime {
         self.trace_nodes[trace_id.0] = Some(TraceNode {
             expansion: false,
             shown: match trace.raw_data.kind {
-                TraceKind::FeatureExpr | TraceKind::EagerExpr => false,
+                TraceKind::FeatureExpr | TraceKind::EagerExpr => {
+                    trace.raw_data.opt_parent_id.is_some()
+                }
                 _ => true,
             },
             trace,
