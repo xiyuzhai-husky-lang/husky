@@ -158,7 +158,7 @@ proc find_line_segments(ct: &RawContour, r: f32) -> []LineSegment:
                     line_segments.pop();
                     ls = LineSegment::new(ct, ls_last.points.start, ls.points.end)
             else:
-                    max_end = start + ct.points.len()
+                max_end = start + ct.points.len()
             line_segments.push(ls)
         start = end
         end = start + 1
