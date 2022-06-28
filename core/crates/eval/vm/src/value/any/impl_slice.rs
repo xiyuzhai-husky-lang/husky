@@ -31,6 +31,9 @@ impl<'temp, 'eval, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'tem
     fn ty(&self) -> EntityRoutePtr {
         todo!()
     }
+    fn print_short(&self) -> String {
+        todo!()
+    }
 }
 
 fn gen_iter<'temp, 'eval: 'temp, T>(

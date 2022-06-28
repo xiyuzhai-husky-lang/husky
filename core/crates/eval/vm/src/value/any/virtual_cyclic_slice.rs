@@ -4,7 +4,7 @@ use print_utils::{msg_once, p};
 use serde::Serialize;
 use word::{CustomIdentifier, IdentPairDict};
 
-use crate::*;
+use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VirtualCyclicSlice<'eval> {
@@ -42,5 +42,15 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
 
     fn ty(&self) -> EntityRoutePtr {
         self.ty
+    }
+
+    fn print_short(&self) -> String {
+        print_sequence(
+            "{ ",
+            self.iter(),
+            &|value| format!("{}", value.any_ref().print_short()),
+            " }",
+            20,
+        )
     }
 }

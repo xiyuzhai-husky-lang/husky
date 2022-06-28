@@ -142,6 +142,10 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
     fn ty(&self) -> EntityRoutePtr {
         todo!()
     }
+
+    fn print_short(&self) -> String {
+        todo!()
+    }
 }
 
 impl<'eval> SyntheticDataset<'eval> for SimpleSyntheticDataset<'eval> {

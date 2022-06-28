@@ -13,9 +13,7 @@ struct LineSegment:
     end: Point2d := points.last().clone()
 
     static func new(ct: &RawContour, from: i32, to: i32) -> LineSegment:
-        L = ct.points.len()
-        pt_start = ct.points[from%L].clone()
-        pt_end = ct.points[to%L].clone()
+        assert from <= to
         LineSegment(ct.points.cyclic_slice(from, to + 1))
 
     func displacement() -> Vector2d:
@@ -169,5 +167,9 @@ proc find_line_segments(ct: &RawContour, r: f32) -> []LineSegment:
     let last_line_segment = line_segments.last()
     if last_line_segment.points.end >= first_line_segment_points_end + N:
         line_segments.pop();
-        line_segments.first() = LineSegment::new(ct, last_line_segment.points.start - N, line_segments.first().points.end)
+        line_segments.first() = LineSegment::new(
+            ct,
+            last_line_segment.points.start - N,
+            line_segments.first().points.end - 1
+        )
     return line_segments

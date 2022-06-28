@@ -4,12 +4,19 @@ mod impl_primitive;
 mod impl_slice;
 mod impl_vec;
 mod impl_visual_props;
+mod utils;
+mod virtual_cyclic_slice;
+mod virtual_struct;
+mod virtual_vec;
 
+pub use virtual_cyclic_slice::*;
+pub use virtual_struct::*;
+pub use virtual_vec::*;
+
+use crate::*;
 use entity_route::EntityRoutePtr;
 use print_utils::p;
 use serde::Serialize;
-
-use crate::*;
 use std::{
     any::TypeId,
     borrow::Cow,
@@ -17,6 +24,7 @@ use std::{
     panic::{RefUnwindSafe, UnwindSafe},
     sync::Arc,
 };
+use utils::*;
 
 // #[derive(Debug, PartialEq, Eq)]
 // pub enum StaticTypeId {
@@ -91,9 +99,9 @@ pub trait AnyValue<'eval>:
         panic!()
     }
 
-    fn print_short(&self) -> String {
-        format!("{:?}", self)
-    }
+    fn print_short(&self) -> String;
+    //     format!("{:?}", self)
+    // }
     fn to_json_value(&self) -> serde_json::value::Value;
     fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where

@@ -15,9 +15,6 @@ mod signature;
 mod snapshot;
 mod stack;
 mod value;
-mod virtual_cyclic_slice;
-mod virtual_struct;
-mod virtual_vec;
 
 pub use binding::*;
 pub use control::{ControlSnapshot, VMControl};
@@ -36,9 +33,6 @@ pub use signature::*;
 pub use snapshot::{StackSnapshot, StackValueSnapshot};
 pub use stack::*;
 pub use value::*;
-pub use virtual_cyclic_slice::*;
-pub use virtual_struct::*;
-pub use virtual_vec::*;
 
 use error::*;
 use husky_tracer_protocol::*;
