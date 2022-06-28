@@ -53,7 +53,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 EagerOpnVariant::FieldAccess { field_ident, .. } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.push(special!("."));
-                    self.push(ident!(field_ident.ident.0));
+                    self.push(ident!(field_ident.ident.0, associated_trace_id));
                 }
                 EagerOpnVariant::MethodCall { method_ident, .. } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
