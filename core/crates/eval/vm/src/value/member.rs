@@ -39,21 +39,15 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
     pub fn any_ref<'a>(&'a self) -> &'a (dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             MemberValue::Copyable(value) => value.any_ref(),
-            MemberValue::Boxed(ref value) => value.any_ref(),
-            MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::EvalRef(_) => todo!(),
-            MemberValue::Moved => todo!(),
+            MemberValue::Boxed(value) => value.any_ref(),
+            MemberValue::GlobalPure(value) => &**value,
+            MemberValue::EvalRef(value) => value.0,
+            MemberValue::Moved => panic!(),
         }
     }
 
     pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval> + 'eval) {
-        match self {
-            MemberValue::Copyable(_) => todo!(),
-            MemberValue::Boxed(ref value) => value.any_ref(),
-            MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::EvalRef(_) => todo!(),
-            MemberValue::Moved => todo!(),
-        }
+        self.any_ref()
     }
 
     pub fn bind(&self, binding: Binding) -> TempValue<'temp, 'eval> {

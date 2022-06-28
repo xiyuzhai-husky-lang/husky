@@ -22,7 +22,7 @@ impl HuskyTraceTime {
             .dev()
             .cache_temp_value(feature, sample_id, value);
         eval_time
-            .visualize(
+            .visualize_feature(
                 FeatureRepr::Value {
                     value,
                     ty,
@@ -33,5 +33,15 @@ impl HuskyTraceTime {
                 sample_id,
             )
             .unwrap()
+    }
+
+    pub fn visualize_control(&self, control: &ControlSnapshot) -> FigureCanvasData {
+        // self.eval_time().visualize_feature(this, sample_id)
+        match control {
+            ControlSnapshot::None => FigureCanvasData::void(),
+            ControlSnapshot::Return(_) => todo!(),
+            ControlSnapshot::Break => todo!(),
+            ControlSnapshot::Err(e) => e.clone().into(),
+        }
     }
 }
