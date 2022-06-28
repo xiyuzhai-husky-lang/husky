@@ -11,5 +11,8 @@
 .TraceTree.EagerExpr {
     margin: 0.5px;
     padding: 0;
-    border: silver 2px groove;
+    border-top: silver 3px solid;
+    border-bottom: silver 1px solid;
+    border-left: silver 3px solid;
+    margin-bottom: 10px;
 }
