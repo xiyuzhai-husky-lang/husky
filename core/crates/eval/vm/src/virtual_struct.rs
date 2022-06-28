@@ -1,8 +1,8 @@
-use std::borrow::Cow;
-
 use entity_route::EntityRoutePtr;
 use print_utils::{msg_once, p};
 use serde::Serialize;
+use std::borrow::Cow;
+use std::fmt::Write;
 use word::{CustomIdentifier, IdentPairDict};
 
 use crate::*;
@@ -94,7 +94,15 @@ where
     'a: 'eval,
 {
     fn print_short(&self) -> String {
-        "VirtualStruct { .. }".to_string()
+        let mut result = "{ ".to_string();
+        for (i, (key, value)) in self.fields.iter().enumerate() {
+            if i > 0 {
+                write!(result, ", ").unwrap()
+            }
+            write!(result, "{}: {}", key.0, value.any_ref().print_short()).unwrap()
+        }
+        result.push_str(" }");
+        result
     }
 
     fn to_json_value(&self) -> serde_json::value::Value {

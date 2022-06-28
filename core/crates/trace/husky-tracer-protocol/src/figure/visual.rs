@@ -29,6 +29,10 @@ pub enum VisualWorld {
 }
 
 impl VisualData {
+    pub fn void() -> VisualData {
+        VisualData::Primitive { value: ().into() }
+    }
+
     pub fn world(&self) -> VisualWorld {
         match self {
             VisualData::LineSegment { .. }

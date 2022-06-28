@@ -36,11 +36,11 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     // Some(self) otherwise
     fn opt_static_eval_feature(&self) -> Option<&dyn EvalFeature<'static>>;
 
-    fn visualize(&self, this: FeatureRepr, sample_id: SampleId) -> EvalResult<VisualData>
+    fn visualize_feature(&self, this: FeatureRepr, sample_id: SampleId) -> EvalResult<VisualData>
     where
         'eval: 'static,
     {
-        self.evaluator(sample_id).visualize(this)
+        self.evaluator(sample_id).visualize_feature(this)
     }
 
     fn eval_feature_repr(&self, repr: &FeatureRepr, sample_id: SampleId) -> EvalValueResult<'eval> {

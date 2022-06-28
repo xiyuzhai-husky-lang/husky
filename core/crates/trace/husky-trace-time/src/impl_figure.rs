@@ -68,12 +68,7 @@ impl HuskyTraceTime {
                     ..
                 }) => {
                     if *branch_entered == Some(branch_idx) {
-                        match control {
-                            ControlSnapshot::None => todo!(),
-                            ControlSnapshot::Return(_) => todo!(),
-                            ControlSnapshot::Break => todo!(),
-                            ControlSnapshot::Err(_) => todo!(),
-                        }
+                        self.visualize_control(control)
                     } else {
                         FigureCanvasData::void()
                     }

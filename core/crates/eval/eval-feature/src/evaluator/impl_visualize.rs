@@ -13,7 +13,7 @@ use word::IdentPairDict;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
-    pub fn visualize(&mut self, this: FeatureRepr) -> EvalResult<VisualData> {
+    pub fn visualize_feature(&mut self, this: FeatureRepr) -> EvalResult<VisualData> {
         self.as_static().visualize_static(this)
     }
     pub fn visualize_static(&mut self, this: FeatureRepr) -> EvalResult<VisualData>
@@ -35,7 +35,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                         .iter()
                         .enumerate()
                         .map(|(index, elem)| {
-                            self.visualize(FeatureRepr::Value {
+                            self.visualize_feature(FeatureRepr::Value {
                                 value: EvalRef(elem.any_ref()),
                                 file: this.file(),
                                 range: this.text_range(),
@@ -60,7 +60,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                     virtual_cyclic_slice
                         .enum_iter()
                         .map(|(index, elem)| {
-                            self.visualize(FeatureRepr::Value {
+                            self.visualize_feature(FeatureRepr::Value {
                                 value: EvalRef(elem.any_ref()),
                                 file: this.file(),
                                 range: this.text_range(),

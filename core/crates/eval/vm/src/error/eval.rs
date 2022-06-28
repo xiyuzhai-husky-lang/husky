@@ -33,6 +33,14 @@ impl Into<TraceTokenData> for EvalError {
     }
 }
 
+impl Into<FigureCanvasData> for EvalError {
+    fn into(self) -> FigureCanvasData {
+        FigureCanvasData::EvalError {
+            message: format!("{:?}", self),
+        }
+    }
+}
+
 pub type EvalResult<T = EvalValue<'static>> = Result<T, EvalError>;
 pub type EvalValueResult<'eval> = Result<EvalValue<'eval>, EvalError>;
 #[macro_export]

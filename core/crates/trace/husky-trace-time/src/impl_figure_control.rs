@@ -1,4 +1,5 @@
 use feature_gen::FeatureLazyStmtVariant;
+use print_utils::msg_once;
 use semantics_eager::ProcStmtVariant;
 use serde::{Deserialize, Serialize};
 use trace::*;
@@ -72,12 +73,8 @@ impl HuskyTraceTime {
                     ..
                 } => {
                     if Some(branch_idx) == *branch_entered {
-                        match control {
-                            ControlSnapshot::None => todo!(),
-                            ControlSnapshot::Return(_) => todo!(),
-                            ControlSnapshot::Break => todo!(),
-                            ControlSnapshot::Err(_) => todo!(),
-                        }
+                        msg_once!("todo");
+                        FigureControlData::default()
                     } else {
                         FigureControlData::default()
                     }

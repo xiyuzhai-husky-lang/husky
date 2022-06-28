@@ -18,7 +18,7 @@ impl HuskyTraceTime {
                     .map_err(|e| (*sample_id, e))?;
                 Ok(FigureCanvasData::new_specific(
                     self.eval_time()
-                        .visualize(FeatureRepr::Expr(expr.clone()), *sample_id)
+                        .visualize_feature(FeatureRepr::Expr(expr.clone()), *sample_id)
                         .unwrap(),
                 ))
             }
@@ -55,9 +55,10 @@ impl HuskyTraceTime {
                             let label = labeled_data.label;
                             if partitioned_samples_collector
                                 .process(label, || -> EvalResult<(SampleId, i32)> {
-                                    let visual_data = self
-                                        .eval_time_singleton
-                                        .visualize(expr.clone().into(), labeled_data.sample_id)?;
+                                    let visual_data = self.eval_time().visualize_feature(
+                                        expr.clone().into(),
+                                        labeled_data.sample_id,
+                                    )?;
                                     Ok((
                                         labeled_data.sample_id,
                                         match visual_data {
@@ -87,9 +88,10 @@ impl HuskyTraceTime {
                             let label = labeled_data.label;
                             if partitioned_samples_collector
                                 .process(label, || -> EvalResult<(SampleId, f32)> {
-                                    let visual_data = self
-                                        .eval_time_singleton
-                                        .visualize(expr.clone().into(), labeled_data.sample_id)?;
+                                    let visual_data = self.eval_time_singleton.visualize_feature(
+                                        expr.clone().into(),
+                                        labeled_data.sample_id,
+                                    )?;
                                     Ok(match visual_data {
                                         VisualData::Primitive {
                                             value: PrimitiveValueData::F32(f),
@@ -121,7 +123,7 @@ impl HuskyTraceTime {
                                 .process(
                                     label,
                                     || -> EvalResult<(SampleId, Graphics2dCanvasData)> {
-                                        let visual_data = self.eval_time().visualize(
+                                        let visual_data = self.eval_time().visualize_feature(
                                             expr.clone().into(),
                                             labeled_data.sample_id,
                                         )?;
