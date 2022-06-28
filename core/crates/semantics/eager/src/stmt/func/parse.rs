@@ -88,6 +88,9 @@ impl<'a> EagerParser<'a> {
                         condition: self.parse_eager_expr(condition)?,
                     },
                     stmts: self.parse_func_stmts(children)?,
+                    range: stmt.range,
+                    file: self.file,
+                    idx: 0,
                 }))
             }
             RawConditionBranchKind::Elif { condition } => todo!(),
@@ -120,6 +123,9 @@ impl<'a> EagerParser<'a> {
                         branches.push(Arc::new(FuncConditionBranch {
                             variant: FuncConditionBranchVariant::Else,
                             stmts: self.parse_func_stmts(not_none!(item.opt_children))?,
+                            range: stmt.range,
+                            file: self.file,
+                            idx: branches.len().try_into().unwrap(),
                         }));
                         break;
                     }

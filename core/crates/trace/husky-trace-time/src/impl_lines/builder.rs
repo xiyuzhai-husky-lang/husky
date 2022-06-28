@@ -80,6 +80,13 @@ impl<'a> TraceTokenBuilder<'a> {
                 ref loop_frame_data,
                 ..
             } => self.loop_frame_tokens(loop_frame_data),
+            TraceVariant::FuncBranch {
+                stmt,
+                branch,
+                branch_idx,
+                history,
+                ..
+            } => self.func_branch_tokens(stmt, branch, history),
             TraceVariant::ProcBranch {
                 stmt,
                 branch,

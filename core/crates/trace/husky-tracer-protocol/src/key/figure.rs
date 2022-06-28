@@ -29,6 +29,7 @@ impl FigureCanvasKey {
             },
             TraceKind::FuncStmt
             | TraceKind::ProcStmt
+            | TraceKind::FuncBranch
             | TraceKind::ProcBranch
             | TraceKind::EagerExpr
             | TraceKind::LoopFrame => FigureCanvasKey::Eager { trace_id },

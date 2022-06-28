@@ -60,6 +60,30 @@ impl HuskyTraceTime {
             TraceVariant::LoopFrame { .. } => {
                 self.gen_figure_control(trace.raw_data.opt_parent_id.unwrap())
             }
+            TraceVariant::FuncBranch {
+                ref stmt,
+                branch_idx,
+                ref history,
+                ..
+            } => match history.get(stmt)? {
+                HistoryEntry::ControlFlow {
+                    opt_branch_entered: branch_entered,
+                    control,
+                    ..
+                } => {
+                    if Some(branch_idx) == *branch_entered {
+                        match control {
+                            ControlSnapshot::None => todo!(),
+                            ControlSnapshot::Return(_) => todo!(),
+                            ControlSnapshot::Break => todo!(),
+                            ControlSnapshot::Err(_) => todo!(),
+                        }
+                    } else {
+                        FigureControlData::default()
+                    }
+                }
+                _ => panic!(),
+            },
             TraceVariant::ProcBranch {
                 ref stmt,
                 branch_idx,

@@ -25,4 +25,40 @@ impl<'a> TraceTokenBuilder<'a> {
             FuncStmtVariant::ConditionFlow { .. } => panic!(),
         }
     }
+
+    pub(crate) fn func_branch_tokens(
+        &mut self,
+        stmt: &FuncStmt,
+        branch: &FuncConditionBranch,
+        history: &Arc<History<'static>>,
+    ) {
+        match branch.variant {
+            FuncConditionBranchVariant::If { ref condition } => {
+                self.push(keyword!("if "));
+                self.eager_expr_tokens(condition, history, ExprTokenConfig::branch());
+                self.push(special!(":"))
+            }
+            FuncConditionBranchVariant::Elif { ref condition } => {
+                self.push(keyword!("elif "));
+                self.eager_expr_tokens(condition, history, ExprTokenConfig::branch());
+                self.push(special!(":"))
+            }
+            FuncConditionBranchVariant::Else => {
+                self.push(keyword!("else"));
+                self.push(special!(":"))
+            }
+        }
+        if let Some(entry) = history.get(stmt) {
+            match entry {
+                HistoryEntry::ControlFlow {
+                    opt_branch_entered,
+                    vm_branches,
+                    control,
+                    stack_snapshot,
+                    mutations,
+                } => self.add_control_tokens(control),
+                _ => todo!(),
+            }
+        }
+    }
 }

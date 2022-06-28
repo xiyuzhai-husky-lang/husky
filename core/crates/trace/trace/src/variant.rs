@@ -32,6 +32,13 @@ pub enum TraceVariant<'eval> {
         branch_idx: u8,
         history: Arc<History<'static>>,
     },
+    FuncBranch {
+        stmt: Arc<FuncStmt>,
+        branch: Arc<FuncConditionBranch>,
+        opt_vm_branch: Option<Arc<VMConditionBranch>>, // not none when executed
+        branch_idx: u8,
+        history: Arc<History<'static>>,
+    },
     LoopFrame {
         loop_stmt: Arc<ProcStmt>,
         body_instruction_sheet: Arc<InstructionSheet>,
@@ -64,7 +71,8 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::FuncStmt { .. } => TraceKind::FuncStmt,
             TraceVariant::ProcStmt { .. } => TraceKind::ProcStmt,
             TraceVariant::ProcBranch { .. } => TraceKind::ProcBranch,
-            TraceVariant::LoopFrame { .. } => TraceKind::ProcBranch,
+            TraceVariant::FuncBranch { .. } => TraceKind::FuncBranch,
+            TraceVariant::LoopFrame { .. } => TraceKind::LoopFrame,
             TraceVariant::EagerExpr { .. } => TraceKind::EagerExpr,
             TraceVariant::CallHead { .. } => TraceKind::CallHead,
             TraceVariant::EagerCallArgument { .. } => TraceKind::EagerCallArgument,
@@ -85,7 +93,8 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::CallHead { ref entity, .. } => (entity.file, entity.range),
             TraceVariant::ProcStmt { stmt, .. } => (stmt.file, stmt.range),
             TraceVariant::LoopFrame { loop_stmt, .. } => (loop_stmt.file, loop_stmt.range),
-            TraceVariant::ProcBranch { stmt, branch, .. } => (stmt.file, branch.range),
+            TraceVariant::ProcBranch { branch, .. } => (branch.file, branch.range),
+            TraceVariant::FuncBranch { branch, .. } => (branch.file, branch.range),
             TraceVariant::EagerCallArgument { argument, .. } => (argument.file, argument.range),
         }
     }
@@ -206,6 +215,30 @@ impl<'eval> TraceVariant<'eval> {
                     false
                 }
             }
+            TraceVariant::FuncBranch {
+                stmt,
+                branch_idx,
+                history,
+                ..
+            } => {
+                if let Some(entry) = history.get(stmt) {
+                    match entry {
+                        HistoryEntry::ControlFlow {
+                            opt_branch_entered: branch_entered,
+                            ..
+                        } => {
+                            if *branch_entered == Some(*branch_idx) {
+                                true
+                            } else {
+                                false
+                            }
+                        }
+                        _ => panic!(),
+                    }
+                } else {
+                    false
+                }
+            }
         }
     }
 
@@ -279,6 +312,33 @@ impl<'eval> TraceVariant<'eval> {
                     false
                 }
             }
+            TraceVariant::FuncBranch {
+                stmt,
+                branch_idx,
+                history,
+                ..
+            } => {
+                if let Some(entry) = history.get(stmt) {
+                    match entry {
+                        HistoryEntry::ControlFlow {
+                            opt_branch_entered, ..
+                        } => {
+                            if let Some(branch_entered) = opt_branch_entered {
+                                if branch_idx > branch_entered {
+                                    false
+                                } else {
+                                    true
+                                }
+                            } else {
+                                *branch_idx == 0
+                            }
+                        }
+                        _ => panic!(),
+                    }
+                } else {
+                    false
+                }
+            }
         }
     }
 }
@@ -300,6 +360,7 @@ impl<'eval> Serialize for TraceVariant<'eval> {
             TraceVariant::CallHead { .. } => "CallHead",
             TraceVariant::LoopFrame { .. } => "LoopFrame",
             TraceVariant::ProcBranch { .. } => "ProcBranch",
+            TraceVariant::FuncBranch { .. } => "FuncBranch",
             TraceVariant::EagerCallArgument { .. } => "EagerCallArgument",
         })
     }
