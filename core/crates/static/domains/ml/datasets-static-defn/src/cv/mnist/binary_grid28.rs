@@ -32,58 +32,57 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             member_liason: MemberLiason::Mutable,
                         },
                         spatial_parameters: &[],
-                        kind: MethodStaticDefnVariant::TraitMethodImpl {
-                            opt_source: Some(Linkage::MemberAccess {
-                                copy_access: routine_linkage!(
-                                    |values| -> EvalResult<TempValue> {
-                                        let this_value: &BinaryGrid28 = values[0].downcast_ref();
-                                        let index_value: usize = values[1]
-                                            .take_copyable()
-                                            .take_i32()
-                                            .try_into()
-                                            .expect("todo");
-                                        this_value
-                                            .get(index_value)
-                                            .map(|v| TempValue::Copyable(v.into()))
-                                            .ok_or(EvalError::Normal {
-                                                message: "todo".into(),
-                                            })
-                                    },
-                                    2
-                                ),
-                                eval_ref_access: routine_linkage!(
-                                    |values| -> EvalResult<TempValue> { todo!() },
-                                    2
-                                ),
-                                temp_ref_access: routine_linkage!(
-                                    |values| -> EvalResult<TempValue> { todo!() },
-                                    2
-                                ),
-                                move_access: routine_linkage!(|_| todo!(), 2),
-                                temp_mut_access: routine_linkage!(
-                                    |values| {
-                                        let index_value: usize = values[1]
-                                            .take_copyable()
-                                            .take_i32()
-                                            .try_into()
-                                            .expect("todo");
-                                        let (this_value, owner, _): (&mut BinaryGrid28, _, _) =
-                                            values[0].downcast_mut_full();
-                                        this_value
-                                            .get_mut(index_value)
-                                            .map(|value| TempValue::TempRefMutEval {
-                                                value,
-                                                owner,
-                                                gen: (),
-                                            })
-                                            .ok_or(EvalError::Normal {
-                                                message: "todo".into(),
-                                            })
-                                    },
-                                    2
-                                ),
-                            }),
-                        },
+                        method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
+                        opt_linkage: Some(Linkage::MemberAccess {
+                            copy_access: routine_linkage!(
+                                |values| -> EvalResult<TempValue> {
+                                    let this_value: &BinaryGrid28 = values[0].downcast_ref();
+                                    let index_value: usize = values[1]
+                                        .take_copyable()
+                                        .take_i32()
+                                        .try_into()
+                                        .expect("todo");
+                                    this_value
+                                        .get(index_value)
+                                        .map(|v| TempValue::Copyable(v.into()))
+                                        .ok_or(EvalError::Normal {
+                                            message: "todo".into(),
+                                        })
+                                },
+                                2
+                            ),
+                            eval_ref_access: routine_linkage!(
+                                |values| -> EvalResult<TempValue> { todo!() },
+                                2
+                            ),
+                            temp_ref_access: routine_linkage!(
+                                |values| -> EvalResult<TempValue> { todo!() },
+                                2
+                            ),
+                            move_access: routine_linkage!(|_| todo!(), 2),
+                            temp_mut_access: routine_linkage!(
+                                |values| {
+                                    let index_value: usize = values[1]
+                                        .take_copyable()
+                                        .take_i32()
+                                        .try_into()
+                                        .expect("todo");
+                                    let (this_value, owner, _): (&mut BinaryGrid28, _, _) =
+                                        values[0].downcast_mut_full();
+                                    this_value
+                                        .get_mut(index_value)
+                                        .map(|value| TempValue::TempRefMutEval {
+                                            value,
+                                            owner,
+                                            gen: (),
+                                        })
+                                        .ok_or(EvalError::Normal {
+                                            message: "todo".into(),
+                                        })
+                                },
+                                2
+                            ),
+                        }),
                     },
                 },
             ],

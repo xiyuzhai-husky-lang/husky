@@ -191,7 +191,56 @@ impl HuskyTraceTime {
                 entity.ident,
                 parameters,
             ),
-            _ => todo!(),
+            EntityDefnVariant::Main(_) => todo!(),
+            EntityDefnVariant::Module { ref module_items } => todo!(),
+            EntityDefnVariant::Feature { ty, ref defn_repr } => todo!(),
+            EntityDefnVariant::Function {
+                ref spatial_parameters,
+                ref parameters,
+                output,
+                ref source,
+            } => todo!(),
+            EntityDefnVariant::Method {
+                spatial_parameters: ref generic_parameters,
+                this_liason: this_contract,
+                ref parameters,
+                output_ty,
+                output_liason,
+                ..
+            } => routine_call_head_tokens(
+                &self
+                    .eval_time_singleton
+                    .compile_time()
+                    .text(entity.file)
+                    .unwrap(),
+                "func ",
+                entity.ident,
+                parameters,
+            ),
+            EntityDefnVariant::Ty {
+                ref generic_parameters,
+                ref ty_members,
+                ref variants,
+                kind,
+                ref trait_impls,
+                ref members,
+                ref opt_type_call,
+                ref opt_visualizer_source,
+            } => todo!(),
+            EntityDefnVariant::Trait {
+                ref generic_parameters,
+                ref members,
+            } => todo!(),
+            EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
+            EntityDefnVariant::Builtin => todo!(),
+            EntityDefnVariant::TyField {
+                ty,
+                ref field_variant,
+                liason,
+                opt_linkage,
+            } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         };
         return self.new_trace(
             Some(parent.id()),

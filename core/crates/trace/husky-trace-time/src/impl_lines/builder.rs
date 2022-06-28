@@ -88,23 +88,23 @@ impl<'a> TraceTokenBuilder<'a> {
                 ..
             } => self.proc_branch_tokens(stmt, branch, history),
             TraceVariant::FeatureCallArgument {
-                ident,
+                name: ident,
                 argument: input,
             } => {
                 self.gen_feature_expr_tokens(input, ExprTokenConfig::expr(true));
                 let first_line = self.lines.first_mut().unwrap();
                 first_line.tokens.insert(0, special!(" = "));
-                first_line.tokens.insert(0, ident!(ident.0))
+                first_line.tokens.insert(0, ident!(*ident))
             }
             TraceVariant::EagerCallArgument {
-                ident,
+                name,
                 ref argument,
                 ref history,
             } => {
                 self.eager_expr_tokens(argument, history, ExprTokenConfig::expr(true));
                 let first_line = self.lines.first_mut().unwrap();
                 first_line.tokens.insert(0, special!(" = "));
-                first_line.tokens.insert(0, ident!(ident.0));
+                first_line.tokens.insert(0, ident!(*name));
             }
         }
         self.lines

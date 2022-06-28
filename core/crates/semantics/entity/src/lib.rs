@@ -157,12 +157,13 @@ pub enum EntityDefnVariant {
         source: CallFormSource,
     },
     Method {
-        generic_parameters: IdentDict<SpatialParameter>,
-        this_contract: ParameterLiason,
+        spatial_parameters: IdentDict<SpatialParameter>,
+        this_liason: ParameterLiason,
         parameters: Arc<Vec<Parameter>>,
         output_ty: RangedEntityRoute,
         output_liason: OutputLiason,
-        method_variant: MethodDefnVariant,
+        method_defn_kind: MethodDefnKind,
+        opt_source: Option<CallFormSource>,
     },
     Func {
         spatial_parameters: IdentDict<SpatialParameter>,
@@ -223,15 +224,15 @@ impl EntityDefnVariant {
                 output_liason,
                 linkage,
             } => EntityDefnVariant::Function {
-                spatial_parameters: spatial_parameters.map(|static_generic_placeholder| {
+                spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                     SpatialParameter::from_static(
                         symbol_context.entity_syntax_db(),
-                        static_generic_placeholder,
+                        static_spatial_parameter,
                     )
                 }),
-                parameters: Arc::new(parameters.map(|input_placeholder| {
-                    symbol_context.input_placeholder_from_static(input_placeholder)
-                })),
+                parameters: Arc::new(
+                    parameters.map(|parameter| symbol_context.parameter_from_static(parameter)),
+                ),
                 output: RangedEntityRoute {
                     route: symbol_context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
@@ -302,24 +303,26 @@ impl EntityDefnVariant {
                 output_ty,
                 output_liason,
                 spatial_parameters: generic_parameters,
-                ref kind,
+                method_static_defn_kind: method_kind,
+                opt_linkage,
             } => EntityDefnVariant::Method {
-                generic_parameters: generic_parameters.map(|static_generic_placeholder| {
+                spatial_parameters: generic_parameters.map(|static_generic_placeholder| {
                     SpatialParameter::from_static(
                         symbol_context.entity_syntax_db(),
                         static_generic_placeholder,
                     )
                 }),
-                this_contract,
+                this_liason: this_contract,
                 parameters: Arc::new(parameters.map(|input_placeholder| {
-                    symbol_context.input_placeholder_from_static(input_placeholder)
+                    symbol_context.parameter_from_static(input_placeholder)
                 })),
                 output_ty: RangedEntityRoute {
                     route: symbol_context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
                 output_liason,
-                method_variant: MethodDefnVariant::from_static(symbol_context, kind),
+                method_defn_kind: MethodDefnKind::from_static(symbol_context, method_kind),
+                opt_source: opt_linkage.map(|linkage| linkage.into()),
             },
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TyField { .. } => {

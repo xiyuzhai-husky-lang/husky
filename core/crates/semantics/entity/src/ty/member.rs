@@ -74,19 +74,16 @@ impl EntityDefnVariant {
                             }
                             Paradigm::LazyFunctional => todo!(),
                         };
-                        let method_variant = MethodDefnVariant::TypeMethod {
-                            ty: ty_route,
-                            method_source,
-                        };
                         (
                             ident.ident,
                             EntityDefnVariant::Method {
                                 parameters: parameters.clone(),
                                 output_ty,
-                                this_contract,
-                                method_variant,
+                                this_liason: this_contract,
                                 output_liason: OutputLiason::Transfer,
-                                generic_parameters: spatial_parameters.clone(),
+                                spatial_parameters: spatial_parameters.clone(),
+                                method_defn_kind: MethodDefnKind::TypeMethod { ty: ty_route },
+                                opt_source: Some(method_source),
                             },
                         )
                     }

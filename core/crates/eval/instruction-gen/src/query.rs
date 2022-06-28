@@ -63,29 +63,22 @@ fn entity_instruction_sheet(
         EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         EntityDefnVariant::Method {
             ref parameters,
-            ref method_variant,
+            ref opt_source,
             ..
         } => {
             msg_once!("handle generics");
-            match method_variant {
-                MethodDefnVariant::TypeMethod { ty, method_source } => match method_source {
-                    CallFormSource::Func { stmts } => Some(new_func_instruction_sheet(
-                        db,
-                        parameters
-                            .iter()
-                            .map(|parameter| parameter.ranged_ident.ident),
-                        stmts,
-                        true, // has_this
-                    )),
-                    CallFormSource::Proc { stmts } => todo!(),
-                    CallFormSource::Lazy { stmts } => todo!(),
-                    CallFormSource::Static(_) => todo!(),
-                },
-                MethodDefnVariant::TraitMethod {
-                    trai,
-                    opt_default_source,
-                } => todo!(),
-                MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
+            match opt_source.as_ref()? {
+                CallFormSource::Func { stmts } => Some(new_func_instruction_sheet(
+                    db,
+                    parameters
+                        .iter()
+                        .map(|parameter| parameter.ranged_ident.ident),
+                    stmts,
+                    true, // has_this
+                )),
+                CallFormSource::Proc { stmts } => todo!(),
+                CallFormSource::Lazy { stmts } => todo!(),
+                CallFormSource::Static(_) => todo!(),
             }
         }
         EntityDefnVariant::Trait { .. } => todo!(),
@@ -116,22 +109,14 @@ fn method_opt_instruction_sheet(
             let method_defn = db.compile_time().member_defn(member_route);
             match method_defn.variant {
                 EntityDefnVariant::Method {
-                    ref method_variant,
-                    parameters: ref parameters,
+                    ref parameters,
+                    ref opt_source,
                     ..
                 } => {
                     let inputs = parameters
                         .iter()
                         .map(|input_placeholder| input_placeholder.ranged_ident.ident);
-                    let source = match method_variant {
-                        MethodDefnVariant::TypeMethod { ty, method_source } => method_source,
-                        MethodDefnVariant::TraitMethod {
-                            trai,
-                            opt_default_source,
-                        } => todo!(),
-                        MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
-                    };
-                    match source {
+                    match opt_source.as_ref()? {
                         CallFormSource::Func { stmts } => {
                             Some(new_func_instruction_sheet(db, inputs, stmts, true))
                         }

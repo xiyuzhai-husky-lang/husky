@@ -63,7 +63,7 @@ impl HuskyTraceTime {
                                 4,
                                 TraceVariant::EagerCallArgument {
                                     argument: argument.clone(),
-                                    ident,
+                                    name: ident,
                                     history: history.clone(),
                                 },
                             ),
@@ -84,7 +84,37 @@ impl HuskyTraceTime {
                 this_ty_decl,
                 method_route,
                 output_binding,
-            } => todo!(),
+            } => {
+                let routine_defn = self
+                    .eval_time()
+                    .compile_time()
+                    .entity_defn(*method_route)
+                    .unwrap();
+                let instruction_sheet = self
+                    .eval_time()
+                    .entity_instruction_sheet(*method_route)
+                    .unwrap();
+                self.routine_call_subtraces(
+                    parent,
+                    &instruction_sheet,
+                    &routine_defn,
+                    opds,
+                    |this, argument, name| {
+                        (
+                            this.new_trace(
+                                Some(parent.id()),
+                                4,
+                                TraceVariant::EagerCallArgument {
+                                    argument: argument.clone(),
+                                    name,
+                                    history: history.clone(),
+                                },
+                            ),
+                            history.value_result(argument),
+                        )
+                    },
+                )
+            }
             EagerOpnVariant::ElementAccess { element_binding } => todo!(),
         }
     }

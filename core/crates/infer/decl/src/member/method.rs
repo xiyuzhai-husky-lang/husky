@@ -41,17 +41,17 @@ impl MethodKind {
 
     pub fn from_static(
         symbol_context: &mut dyn AtomContext,
-        method_variant: &MethodStaticDefnVariant,
+        method_variant: MethodStaticDefnKind,
     ) -> Self {
         match method_variant {
-            MethodStaticDefnVariant::TypeMethod { .. } => Self::Type,
-            MethodStaticDefnVariant::TraitMethod { .. } => {
+            MethodStaticDefnKind::TypeMethod => Self::Type,
+            MethodStaticDefnKind::TraitMethod => {
                 // opt_this_ty,
                 Self::Trait {
                     trai: symbol_context.trai(),
                 }
             }
-            MethodStaticDefnVariant::TraitMethodImpl { opt_source } => todo!(),
+            MethodStaticDefnKind::TraitMethodImpl => todo!(),
         }
     }
 }
@@ -102,8 +102,9 @@ impl MethodDecl {
                 parameters: inputs,
                 output_ty,
                 output_liason,
-                spatial_parameters: generic_parameters,
-                ref kind,
+                spatial_parameters,
+                method_static_defn_kind: method_kind,
+                ..
             } => {
                 let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
                 Arc::new(Self {
@@ -118,13 +119,13 @@ impl MethodDecl {
                         liason: output_liason,
                         ty: output_ty,
                     },
-                    generic_parameters: generic_parameters.map(|static_generic_placeholder| {
+                    generic_parameters: spatial_parameters.map(|static_generic_placeholder| {
                         SpatialParameter::from_static(
                             symbol_context.entity_syntax_db(),
                             static_generic_placeholder,
                         )
                     }),
-                    kind: MethodKind::from_static(symbol_context, kind),
+                    kind: MethodKind::from_static(symbol_context, method_kind),
                     is_lazy: false,
                 })
             }

@@ -160,21 +160,22 @@ impl EntityDefn {
             EntityDefnVariant::Method {
                 parameters: ref parameters,
                 output_ty,
-                ref method_variant,
+                // ref method_variant,
+                ref opt_source,
                 ..
             } => {
                 extract_call_head_dependees(parameters, output_ty, &mut builder);
-                let opt_source = match method_variant {
-                    MethodDefnVariant::TypeMethod { ty, method_source } => {
-                        builder.push(*ty);
-                        Some(method_source)
-                    }
-                    MethodDefnVariant::TraitMethod {
-                        trai,
-                        opt_default_source,
-                    } => todo!(),
-                    MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
-                };
+                // let opt_source = match method_variant {
+                //     MethodDefnKind::TypeMethod { ty, method_source } => {
+                //         builder.push(*ty);
+                //         Some(method_source)
+                //     }
+                //     MethodDefnKind::TraitMethod {
+                //         trai,
+                //         opt_default_source,
+                //     } => todo!(),
+                //     MethodDefnKind::TraitMethodImpl { trai, opt_source } => todo!(),
+                // };
                 if let Some(source) = opt_source {
                     match source {
                         CallFormSource::Func { stmts } => {

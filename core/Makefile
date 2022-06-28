@@ -55,13 +55,14 @@ vscode: cargo-test test-analyzer
 
 mnist:
 	cargo check
-	RUST_BACKTRACE=1 cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
+	cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
 
 print-mnist:
 	cargo run -q --bin husky-analyzer-printer print-qualified-tys $(projects_dir)/cv/mnist-classifier
 
-# mnist-with-backtrace:
-# 	RUST_BACKTRACE=1 cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
+mnist-with-backtrace:
+	cargo check
+	RUST_BACKTRACE=1 cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
 
 mnist-with-backtrace-filtered:
 	RUST_BACKTRACE=1 cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run 2>&1 | python scripts/filter_rust_backtrace.py

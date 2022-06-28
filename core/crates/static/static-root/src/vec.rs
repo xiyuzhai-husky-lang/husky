@@ -36,24 +36,23 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             member_liason: MemberLiason::Mutable,
                         },
                         spatial_parameters: &[],
-                        kind: MethodStaticDefnVariant::TraitMethodImpl {
-                            opt_source: Some(Linkage::MemberAccess {
-                                copy_access: routine_linkage!(generic_vec_element_copy_access, 2),
-                                eval_ref_access: routine_linkage!(
-                                    generic_vec_element_eval_ref_access,
-                                    2
-                                ),
-                                temp_ref_access: routine_linkage!(
-                                    generic_vec_element_temp_ref_access,
-                                    2
-                                ),
-                                move_access: routine_linkage!(generic_vec_element_move_access, 2),
-                                temp_mut_access: routine_linkage!(
-                                    generic_vec_element_borrow_mut_access,
-                                    2
-                                ),
-                            }),
-                        },
+                        method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
+                        opt_linkage: Some(Linkage::MemberAccess {
+                            copy_access: routine_linkage!(generic_vec_element_copy_access, 2),
+                            eval_ref_access: routine_linkage!(
+                                generic_vec_element_eval_ref_access,
+                                2
+                            ),
+                            temp_ref_access: routine_linkage!(
+                                generic_vec_element_temp_ref_access,
+                                2
+                            ),
+                            move_access: routine_linkage!(generic_vec_element_move_access, 2),
+                            temp_mut_access: routine_linkage!(
+                                generic_vec_element_borrow_mut_access,
+                                2
+                            ),
+                        }),
                     },
                 },
             ],
@@ -198,9 +197,11 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "i32",
         spatial_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: Linkage::SpecificTransfer(routine_linkage!(generic_vec_len, 1)),
-        },
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+            generic_vec_len,
+            1
+        ))),
         output_liason: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
@@ -226,9 +227,11 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
         }],
         output_ty: "void",
         spatial_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: Linkage::SpecificTransfer(routine_linkage!(generic_vec_push, 2)),
-        },
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+            generic_vec_push,
+            2
+        ))),
         output_liason: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),
@@ -242,9 +245,11 @@ pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: Linkage::SpecificTransfer(routine_linkage!(generic_vec_pop, 1)),
-        },
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+            generic_vec_pop,
+            1
+        ))),
         output_liason: OutputLiason::Transfer,
     },
     dev_src: static_dev_src!(),

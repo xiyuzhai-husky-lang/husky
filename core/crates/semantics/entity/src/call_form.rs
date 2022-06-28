@@ -9,3 +9,9 @@ pub enum CallFormSource {
     Lazy { stmts: Avec<LazyStmt> },
     Static(Linkage),
 }
+
+impl From<Linkage> for CallFormSource {
+    fn from(linkage: Linkage) -> Self {
+        CallFormSource::Static(linkage)
+    }
+}

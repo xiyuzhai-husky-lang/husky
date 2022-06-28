@@ -8,15 +8,14 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: Linkage::MemberAccess {
-                copy_access: routine_linkage!(generic_vec_first_copy, 1),
-                eval_ref_access: routine_linkage!(generic_vec_first_eval_ref, 1),
-                temp_ref_access: routine_linkage!(generic_vec_first_temp_ref, 1),
-                temp_mut_access: routine_linkage!(generic_vec_first_mut, 1),
-                move_access: routine_linkage!(generic_vec_first_move, 1),
-            },
-        },
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(Linkage::MemberAccess {
+            copy_access: routine_linkage!(generic_vec_first_copy, 1),
+            eval_ref_access: routine_linkage!(generic_vec_first_eval_ref, 1),
+            temp_ref_access: routine_linkage!(generic_vec_first_temp_ref, 1),
+            temp_mut_access: routine_linkage!(generic_vec_first_mut, 1),
+            move_access: routine_linkage!(generic_vec_first_move, 1),
+        }),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },

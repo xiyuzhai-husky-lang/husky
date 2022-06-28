@@ -14,7 +14,7 @@ pub enum TraceVariant<'eval> {
     FeatureLazyBranch(Arc<FeatureLazyBranch>),
     FeatureLazyExpr(Arc<FeatureExpr>),
     FeatureCallArgument {
-        ident: CustomIdentifier,
+        name: &'static str,
         argument: Arc<FeatureExpr>,
     },
     FuncStmt {
@@ -43,7 +43,7 @@ pub enum TraceVariant<'eval> {
         history: Arc<History<'static>>,
     },
     EagerCallArgument {
-        ident: CustomIdentifier,
+        name: &'static str,
         argument: Arc<EagerExpr>,
         history: Arc<History<'static>>,
     },

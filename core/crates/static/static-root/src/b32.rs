@@ -38,16 +38,15 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: Linkage::SpecificTransfer(routine_linkage!(
-                |values| {
-                    Ok(TempValue::Copyable(
-                        (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
-                    ))
-                },
-                1
-            )),
-        },
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+            |values| {
+                Ok(TempValue::Copyable(
+                    (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
+                ))
+            },
+            1
+        ))),
     },
     dev_src: static_dev_src!(),
 };
@@ -61,16 +60,15 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: Linkage::SpecificTransfer(routine_linkage!(
-                |values| {
-                    Ok(TempValue::Copyable(
-                        (values[0].take_copyable().take_b32().trailing_zeros() as i32).into(),
-                    ))
-                },
-                1
-            )),
-        },
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+            |values| {
+                Ok(TempValue::Copyable(
+                    (values[0].take_copyable().take_b32().trailing_zeros() as i32).into(),
+                ))
+            },
+            1
+        ))),
     },
     dev_src: static_dev_src!(),
 };
@@ -88,17 +86,16 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         output_ty: "b32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: Linkage::SpecificTransfer(routine_linkage!(
-                |values| {
-                    let b = values[0].take_copyable().take_b32();
-                    let i = values[1].take_copyable().take_i32();
-                    let last_bits = b & ((1 << i) - 1);
-                    Ok(TempValue::Copyable(last_bits.into()))
-                },
-                2
-            )),
-        },
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+            |values| {
+                let b = values[0].take_copyable().take_b32();
+                let i = values[1].take_copyable().take_i32();
+                let last_bits = b & ((1 << i) - 1);
+                Ok(TempValue::Copyable(last_bits.into()))
+            },
+            2
+        ))),
     },
     dev_src: static_dev_src!(),
 };
