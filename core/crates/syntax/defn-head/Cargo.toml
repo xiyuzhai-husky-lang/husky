@@ -21,7 +21,6 @@ text = { path = "../text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
 token = { path = "../token", version = "0.0.0" }
 entity-route = { path = "../entity-route", version = "0.0.0" }
-datasets-static-defn = { path = "../../static/domains/ml/datasets-static-defn", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }
 entity-syntax = { path = "../entity-syntax", version = "0.0.0" }
 static-defn = { path = "../../static/static-defn", version = "0.0.0" }

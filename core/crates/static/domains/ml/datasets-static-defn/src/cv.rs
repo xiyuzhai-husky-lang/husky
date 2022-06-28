@@ -1,7 +1,7 @@
 mod imagenet;
 mod mnist;
 
-use crate::{labeled::LabeledData, *};
+use crate::*;
 use mnist::*;
 use std::sync::Arc;
 
