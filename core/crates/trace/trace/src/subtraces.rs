@@ -16,6 +16,7 @@ impl<'eval> Trace {
             | TraceVariant::ProcStmt { .. }
             | TraceVariant::LoopFrame { .. }
             | TraceVariant::CallHead { .. }
+            | TraceVariant::FuncBranch { .. }
             | TraceVariant::ProcBranch { .. } => None,
             TraceVariant::FeatureLazyExpr(ref expr) => match expr.variant {
                 FeatureLazyExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),

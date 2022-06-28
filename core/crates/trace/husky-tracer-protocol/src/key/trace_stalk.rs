@@ -3,9 +3,6 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum TraceStalkKey {
     Null,
-    Eager {
-        trace_id: TraceId,
-    },
     Lazy {
         sample_id: SampleId,
         trace_id: TraceId,
@@ -27,10 +24,11 @@ impl TraceStalkKey {
                 trace_id,
                 sample_id,
             },
-            TraceKind::LoopFrame => TraceStalkKey::Eager { trace_id },
-            TraceKind::FuncStmt
+            TraceKind::LoopFrame
+            | TraceKind::FuncStmt
             | TraceKind::ProcStmt
             | TraceKind::ProcBranch
+            | TraceKind::FuncBranch
             | TraceKind::CallHead
             | TraceKind::EagerExpr
             | TraceKind::EagerCallArgument => TraceStalkKey::Null,

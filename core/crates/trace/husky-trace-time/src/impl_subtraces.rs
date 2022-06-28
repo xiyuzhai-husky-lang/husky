@@ -1,6 +1,7 @@
 mod impl_expr;
 mod impl_feature_branch;
 mod impl_feature_repr;
+mod impl_func_stmt;
 mod impl_proc_stmt;
 
 use super::*;
@@ -81,6 +82,29 @@ impl HuskyTraceTime {
                 loop_frame_data,
                 trace,
             ),
+            TraceVariant::FuncBranch {
+                ref stmt,
+                branch_idx,
+                ref history,
+                ref opt_vm_branch,
+                ref branch,
+                ..
+            } => match history.get(stmt).unwrap() {
+                HistoryEntry::ControlFlow {
+                    stack_snapshot,
+                    opt_branch_entered: branch_entered,
+                    ..
+                } => {
+                    should_eq!(Some(branch_idx), *branch_entered);
+                    self.func_branch_subtraces(
+                        &branch.stmts,
+                        &opt_vm_branch.as_ref().unwrap().body,
+                        stack_snapshot,
+                        trace,
+                    )
+                }
+                _ => panic!(),
+            },
             TraceVariant::ProcBranch {
                 ref stmt,
                 branch_idx,

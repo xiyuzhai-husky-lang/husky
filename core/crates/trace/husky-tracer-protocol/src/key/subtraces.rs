@@ -20,6 +20,7 @@ impl SubtracesKey {
             | TraceKind::FeatureBranch
             | TraceKind::FuncStmt
             | TraceKind::ProcStmt
+            | TraceKind::FuncBranch
             | TraceKind::ProcBranch
             | TraceKind::LoopFrame
             | TraceKind::EagerExpr => SubtracesKey::Simple { trace_id },

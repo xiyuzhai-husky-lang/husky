@@ -47,17 +47,6 @@ impl HuskyTraceTime {
             for (i, argument) in arguments.iter().enumerate() {
                 let (argument_trace, result) = argument_trace_gen(self, argument, argnames[i]);
                 subtraces.push(argument_trace);
-                //     self.new_trace(
-                //     Some(parent.id()),
-                //     4,
-                //     TraceVariant::FeatureCallArgument {
-                //         argument: argument.clone(),
-                //         ident: parameters[i].ranged_ident.ident,
-                //     },
-                // )
-                // self
-                // .eval_time_singleton
-                // .eval_feature_expr(argument, sample_id)
                 match result {
                     Ok(value) => func_input_values.push(value),
                     Err(_) => return subtraces,
@@ -80,13 +69,22 @@ impl HuskyTraceTime {
                 }
                 EntityDefnVariant::Function { .. } => todo!(),
                 EntityDefnVariant::Method {
-                    spatial_parameters: ref generic_parameters,
-                    this_liason: this_contract,
+                    ref spatial_parameters,
+                    this_liason,
                     ref parameters,
                     output_ty,
                     output_liason,
+                    ref opt_source,
                     ..
-                } => todo!(),
+                } => match opt_source.as_ref().unwrap() {
+                    CallFormSource::Func { stmts } => {
+                        subtraces.extend(self.func_stmts_traces(parent.id(), 4, stmts, &history));
+                    }
+                    CallFormSource::Proc { stmts } => {
+                        subtraces.extend(self.proc_stmts_traces(parent.id(), 4, stmts, &history));
+                    }
+                    _ => panic!(),
+                },
                 _ => panic!(),
             }
             subtraces

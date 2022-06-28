@@ -52,6 +52,7 @@ impl Attention {
             | TraceKind::FuncStmt
             | TraceKind::ProcStmt
             | TraceKind::ProcBranch
+            | TraceKind::FuncBranch
             | TraceKind::LoopFrame
             | TraceKind::EagerExpr
             | TraceKind::CallHead => false,

@@ -1,6 +1,6 @@
 use crate::*;
 use text::Text;
-use vm::{History, VMControl};
+use vm::{ControlSnapshot, History, VMControl};
 
 impl HuskyTraceTime {
     pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalkData) {
@@ -71,21 +71,10 @@ impl HuskyTraceTime {
             | TraceVariant::ProcStmt { .. }
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. }
-            | TraceVariant::ProcBranch { .. } => TraceStalkData::default(),
-            TraceVariant::LoopFrame {
-                loop_frame_data: ref vm_loop_frame,
-                ..
-            } => match vm_loop_frame.control {
-                vm::ControlSnapshot::None => TraceStalkData::default(),
-                vm::ControlSnapshot::Return(_) => todo!(),
-                vm::ControlSnapshot::Break => todo!(),
-                vm::ControlSnapshot::Err(_) => todo!(),
-            },
-            TraceVariant::EagerCallArgument {
-                name: ident,
-                ref argument,
-                ref history,
-            } => todo!(),
+            | TraceVariant::FuncBranch { .. }
+            | TraceVariant::ProcBranch { .. }
+            | TraceVariant::LoopFrame { .. }
+            | TraceVariant::EagerCallArgument { .. } => TraceStalkData::default(),
         }
     }
 

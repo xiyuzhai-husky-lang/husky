@@ -100,6 +100,7 @@ fn tell_has_subtraces(
         TraceKind::FuncStmt
         | TraceKind::EagerExpr
         | TraceKind::ProcStmt
+        | TraceKind::FuncBranch
         | TraceKind::ProcBranch => can_have_subtraces,
         TraceKind::FeatureExpr => match attention {
             Attention::Specific { .. } => can_have_subtraces,
