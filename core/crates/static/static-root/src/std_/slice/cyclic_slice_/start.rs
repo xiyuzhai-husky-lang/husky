@@ -22,5 +22,5 @@ fn cyclic_slice_start_copy_access<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
     let cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_ref();
-    Ok(TempValue::Copyable(cyclic_slice.end.into()))
+    Ok(TempValue::Copyable(cyclic_slice.start.into()))
 }
