@@ -14,7 +14,7 @@ impl HuskyTraceTime {
             FuncStmtVariant::Init {
                 varname,
                 ref initial_value,
-            } => todo!(),
+            } => self.eager_expr_figure(initial_value, history),
             FuncStmtVariant::Assert { ref condition } => FigureCanvasData::void(),
             FuncStmtVariant::Return { ref result } => self.eager_expr_figure(result, history),
             FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
