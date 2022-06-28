@@ -10,7 +10,7 @@ pub use singleton::*;
 pub use visualizer_gen::VisualizerQueryGroup;
 
 use check_utils::*;
-use datasets_static_defn::LabeledData;
+use datasets_protocol::LabeledData;
 use eval_feature::*;
 use eval_feature::{EvalFeature, Session};
 use file::{FilePtr, FileQueryGroup};

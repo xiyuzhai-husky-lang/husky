@@ -198,6 +198,7 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
     }
 
     fn ty(&self) -> EntityRoutePtr {
+        let eval_time = husky_eval_time::husky_eval_time();
         todo!()
     }
 }

@@ -1,4 +1,4 @@
-use datasets_static_defn::{DataLoader, LabeledData};
+use datasets_protocol::{DataLoader, LabeledData};
 use feature_gen::*;
 use vm::EvalRef;
 

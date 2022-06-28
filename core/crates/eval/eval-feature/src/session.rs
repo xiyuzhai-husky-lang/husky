@@ -16,7 +16,7 @@ use std::{
     sync::Arc,
 };
 
-use datasets_static_defn::{Dataset, DatasetDyn};
+use datasets_protocol::{Dataset, DatasetDyn};
 use division::Division;
 use feature_gen::{Feature, FeaturePtr};
 

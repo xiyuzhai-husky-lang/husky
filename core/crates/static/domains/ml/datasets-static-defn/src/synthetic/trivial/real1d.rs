@@ -1,4 +1,4 @@
-use crate::{synthetic::SimpleSyntheticDataset, *};
+use crate::*;
 use entity_kind::RoutineKind;
 use husky_tracer_protocol::SampleId;
 use liason::OutputLiason;

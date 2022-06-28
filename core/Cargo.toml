@@ -9,6 +9,9 @@ members = [
     "crates/eval/*",
     "crates/trace/*",
     "crates/apps/*",
+    "crates/static/static-root",
+    "crates/static/static-defn",
+    "crates/static/domains/ml/*",
     "crates/try",
 ]
 

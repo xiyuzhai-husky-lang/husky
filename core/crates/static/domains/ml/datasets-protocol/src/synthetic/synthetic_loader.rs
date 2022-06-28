@@ -1,7 +1,5 @@
 use husky_tracer_protocol::SampleId;
 
-use crate::loader::LoadSample;
-
 use super::*;
 
 #[derive(Debug)]

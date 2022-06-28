@@ -5,8 +5,6 @@ use std::{
 
 use vm::AnyValueDyn;
 
-use crate::iter::DataIterator;
-
 use super::*;
 
 pub struct SyntheticSampleIter<'a, 'eval: 'a> {
