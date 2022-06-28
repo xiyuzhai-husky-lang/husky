@@ -1,9 +1,29 @@
+use entity_route::EntityRoutePtr;
+use husky_atom::*;
+
 use crate::*;
 
 pub(crate) static mut HUSKY_EVAL_TIME_SINGLETON: Option<*const HuskyEvalTime> = None;
 
-pub fn husky_eval_time() -> &'static HuskyEvalTime {
+pub fn eval_time() -> &'static HuskyEvalTime {
     unsafe { &*HUSKY_EVAL_TIME_SINGLETON.unwrap() }
+}
+
+pub fn parse_entity_route(text: &str) -> EntityRoutePtr {
+    let eval_time = eval_time();
+    let mut context = AtomContextStandalone {
+        opt_package_main: Some(eval_time.package_main),
+        db: eval_time.compile_time(),
+        opt_this_ty: None,
+        opt_this_contract: None,
+        symbols: (&[] as &[Symbol]).into(),
+        kind: AtomContextKind::Normal,
+    };
+    context.parse_entity_route(text).unwrap()
+}
+
+pub fn compile_time() -> &'static HuskyCompileTime {
+    eval_time().compile_time()
 }
 
 pub struct HuskyEvalTimeSingleton(Box<HuskyEvalTime>);

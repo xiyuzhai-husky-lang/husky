@@ -34,7 +34,7 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult {
     let opds: &Vec<Arc<FeatureExpr>> = opds.downcast_ref().unwrap();
     assert_eq!(opds.len(), 1);
     let opd = &opds[0];
-    let eval_time = husky_eval_time::husky_eval_time();
+    let eval_time = husky_eval_time::eval_time();
     let session = eval_time.session();
     let dev_division = session.dev();
     let mut label_statics_map: HashMap<i32, HashMap<Label, usize>> = Default::default();

@@ -1,14 +1,19 @@
 use super::*;
+use entity_route::{lazy_entity_route, AllocateUniqueScope};
+use husky_eval_time::{compile_time, parse_entity_route};
 use husky_tracer_protocol::*;
 use std::{any::TypeId, sync::Arc};
 use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use vm::*;
 
+pub static BINARY_IMAGE_28_BASE_ROUTE: &'static str =
+    "domains::ml::datasets::cv::mnist::BinaryImage28";
+
 pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryImage28",
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
-        base_route: "domains::ml::datasets::cv::mnist::BinaryImage28",
+        base_route: BINARY_IMAGE_28_BASE_ROUTE,
         spatial_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
             dev_src: static_dev_src!(),
@@ -198,7 +203,6 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
     }
 
     fn ty(&self) -> EntityRoutePtr {
-        let eval_time = husky_eval_time::husky_eval_time();
-        todo!()
+        lazy_entity_route!(BINARY_IMAGE_28_BASE_ROUTE)
     }
 }

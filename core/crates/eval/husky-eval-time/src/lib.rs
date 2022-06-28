@@ -4,6 +4,7 @@ mod singleton;
 mod variant;
 
 pub use feature_gen::{AllocateUniqueFeature, FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
+pub use husky_compile_time::*;
 pub use instruction_gen::InstructionGenQueryGroup;
 pub use query::*;
 pub use singleton::*;
