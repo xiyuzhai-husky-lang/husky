@@ -45,12 +45,17 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
     }
 
     fn print_short(&self) -> String {
-        print_sequence(
-            "{ ",
-            self.iter(),
-            &|value| format!("{}", value.any_ref().print_short()),
-            " }",
-            20,
+        format!(
+            "{{ start: {}, end: {}, data: {} }}",
+            self.start,
+            self.end,
+            print_sequence(
+                "{ ",
+                self.iter(),
+                &|value| format!("{}", value.any_ref().print_short()),
+                " }",
+                20,
+            )
         )
     }
 }

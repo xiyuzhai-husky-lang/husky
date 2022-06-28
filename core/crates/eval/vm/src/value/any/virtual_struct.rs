@@ -94,7 +94,7 @@ where
             self.fields.iter(),
             &|(key, value)| format!("{}: {}", key.0, value.any_ref().print_short()),
             " }",
-            20,
+            40,
         )
     }
 
