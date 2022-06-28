@@ -58,7 +58,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 EagerOpnVariant::MethodCall { method_ident, .. } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.push(special!("."));
-                    self.push(ident!(method_ident.ident.0));
+                    self.push(ident!(method_ident.ident.0, associated_trace_id));
                     self.push(special!("("));
                     for i in 1..opds.len() {
                         if i > 1 {
