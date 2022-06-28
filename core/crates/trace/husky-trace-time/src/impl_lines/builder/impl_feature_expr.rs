@@ -1,4 +1,3 @@
-use super::impl_tokens::ExprTokenConfig;
 use super::*;
 use crate::*;
 use entity_route::RangedEntityRoute;
@@ -10,32 +9,30 @@ use visualizer_gen::VisualTy;
 use vm::InterpreterQueryGroup;
 use word::CustomIdentifier;
 
-impl HuskyTraceTime {
-    pub(crate) fn feature_expr_tokens(
+impl<'a> TraceTokenBuilder<'a> {
+    pub(crate) fn gen_feature_expr_tokens(
         &mut self,
         expr: &Arc<FeatureExpr>,
         config: ExprTokenConfig,
-    ) -> Vec<TraceTokenData> {
+    ) {
         let opt_associated_trace_id = if config.associated {
             Some(self.new_trace(None, 0, TraceVariant::FeatureLazyExpr(expr.clone())))
         } else {
             None
         };
-        return match expr.variant {
-            FeatureLazyExprVariant::PrimitiveLiteral(value) => vec![literal!(value)],
+        match expr.variant {
+            FeatureLazyExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
             FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,
                 ref ropd,
             } => {
-                let mut tokens = vec![];
-                tokens.extend(self.feature_expr_tokens(lopd, config.subexpr()));
-                tokens.push(special!(opr.spaced_code(), opt_associated_trace_id));
-                tokens.extend(self.feature_expr_tokens(ropd, config.subexpr()));
-                tokens
+                self.gen_feature_expr_tokens(lopd, config.subexpr());
+                self.push(special!(opr.spaced_code(), opt_associated_trace_id));
+                self.gen_feature_expr_tokens(ropd, config.subexpr())
             }
             FeatureLazyExprVariant::Variable { varname, .. } => {
-                vec![ident!(varname.0, opt_associated_trace_id)]
+                self.push(ident!(varname.0, opt_associated_trace_id))
             }
             FeatureLazyExprVariant::RoutineCall {
                 opds: ref feature_opds,
@@ -57,21 +54,17 @@ impl HuskyTraceTime {
                         method_route,
                         output_binding,
                     } => {
-                        let mut tokens = vec![];
-                        tokens.extend(self.feature_expr_tokens(&feature_opds[0], config.subexpr()));
-                        tokens.push(special!("."));
-                        tokens.push(ident!(method_ident.ident.0));
-                        tokens.push(special!("("));
+                        self.gen_feature_expr_tokens(&feature_opds[0], config.subexpr());
+                        self.push(special!("."));
+                        self.push(ident!(method_ident.ident.0));
+                        self.push(special!("("));
                         for i in 1..opds.len() {
                             if i > 1 {
-                                tokens.push(special!(", "))
+                                self.push(special!(", "))
                             }
-                            tokens.extend(
-                                self.feature_expr_tokens(&feature_opds[i], config.subexpr()),
-                            );
+                            self.gen_feature_expr_tokens(&feature_opds[i], config.subexpr());
                         }
-                        tokens.push(special!(")"));
-                        tokens
+                        self.push(special!(")"));
                     }
                     _ => panic!(),
                 },
@@ -114,86 +107,82 @@ impl HuskyTraceTime {
                     .compile_time()
                     .text(expr.expr.file)
                     .unwrap();
-                vec![route!(
+                self.push(route!(
                     text.ranged(expr.expr.range),
                     opt_associated_trace_id
-                )]
+                ))
             }
             FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
             FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureLazyExprVariant::EvalInput => vec![keyword!("input")],
+            FeatureLazyExprVariant::EvalInput => self.push(keyword!("input")),
             FeatureLazyExprVariant::ElementAccess { ref opds, .. } => {
-                let mut tokens = vec![];
-                tokens.extend(self.feature_expr_tokens(&opds[0], config.subexpr()));
-                tokens.push(special!("[", opt_associated_trace_id.clone()));
+                self.gen_feature_expr_tokens(&opds[0], config.subexpr());
+                self.push(special!("[", opt_associated_trace_id.clone()));
                 for i in 1..opds.len() {
                     let index_opd = &opds[i];
-                    tokens.extend(self.feature_expr_tokens(index_opd, config.subexpr()));
+                    self.gen_feature_expr_tokens(index_opd, config.subexpr());
                 }
-                tokens.push(special!("]", opt_associated_trace_id));
-                tokens
+                self.push(special!("]", opt_associated_trace_id))
             }
             FeatureLazyExprVariant::RecordDerivedFieldAccess {
                 ref this,
                 field_ident,
                 ..
-            } => self.feature_eager_field_access_tokens(config, this, field_ident),
+            } => self.gen_feature_eager_field_access_tokens(config, this, field_ident),
             FeatureLazyExprVariant::StructOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
-            } => self.feature_eager_field_access_tokens(config, this, field_ident),
+            } => self.gen_feature_eager_field_access_tokens(config, this, field_ident),
             FeatureLazyExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
-            } => self.feature_eager_field_access_tokens(config, this, field_ident),
+            } => self.gen_feature_eager_field_access_tokens(config, this, field_ident),
             FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ..
-            } => self.feature_lazy_field_access_tokens(
+            } => self.gen_feature_lazy_field_access_tokens(
                 config,
                 this,
                 field_ident,
                 opt_associated_trace_id,
             ),
-        };
+        }
     }
 
-    fn feature_eager_field_access_tokens(
+    fn gen_feature_eager_field_access_tokens(
         &mut self,
         config: ExprTokenConfig,
         this: &FeatureRepr,
         field_ident: RangedCustomIdentifier,
-    ) -> Vec<TraceTokenData> {
+    ) {
         match this {
             FeatureRepr::Expr(this) => {
-                let mut tokens = self.feature_expr_tokens(this, config);
-                tokens.extend([special!("."), ident!(field_ident.ident.as_str())]);
-                tokens
+                self.gen_feature_expr_tokens(this, config);
+                self.extend([special!("."), ident!(field_ident.ident.as_str())])
             }
-            _ => vec![ident!(field_ident.ident.as_str())],
+            _ => self.push(ident!(field_ident.ident.as_str())),
         }
     }
 
-    fn feature_lazy_field_access_tokens(
+    fn gen_feature_lazy_field_access_tokens(
         &mut self,
         config: ExprTokenConfig,
         this: &FeatureRepr,
         field_ident: RangedCustomIdentifier,
         opt_associated_trace_id: Option<TraceId>,
-    ) -> Vec<TraceTokenData> {
+    ) {
         match this {
             FeatureRepr::Expr(this) => {
-                let mut tokens = self.feature_expr_tokens(this, config);
-                tokens.extend([
+                self.gen_feature_expr_tokens(this, config);
+                self.extend([
                     special!("."),
                     ident!(field_ident.ident.as_str(), opt_associated_trace_id),
-                ]);
-                tokens
+                ])
             }
-            _ => vec![ident!(field_ident.ident.as_str())],
+            _ => self.push(ident!(field_ident.ident.as_str())),
         }
     }
 
@@ -204,19 +193,18 @@ impl HuskyTraceTime {
         inputs: &[Arc<FeatureExpr>],
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
-    ) -> Vec<TraceTokenData> {
+    ) {
         let text = self.eval_time().compile_time().text(file).unwrap();
-        let mut tokens = vec![
+        self.extend([
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),
-        ];
+        ]);
         for (i, input) in inputs.iter().enumerate() {
             if i > 0 {
-                tokens.push(special!(", "));
+                self.push(special!(", "));
             }
-            tokens.extend(self.feature_expr_tokens(input, config.subexpr()));
+            self.gen_feature_expr_tokens(input, config.subexpr());
         }
-        tokens.push(special!(")"));
-        tokens
+        self.push(special!(")"))
     }
 }

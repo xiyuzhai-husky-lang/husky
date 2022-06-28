@@ -4,7 +4,6 @@ mod impl_figure_control;
 mod impl_lines;
 mod impl_ops;
 mod impl_subtraces;
-mod impl_tokens;
 mod impl_trace;
 mod impl_trace_stalk;
 mod trace_node;
@@ -17,7 +16,7 @@ use file::FilePtr;
 use husky_compile_time::*;
 use husky_eval_time::*;
 use husky_tracer_protocol::*;
-use impl_tokens::ExprTokenConfig;
+use impl_lines::*;
 use print_utils::p;
 use semantics_eager::*;
 use semantics_entity::*;
@@ -108,82 +107,6 @@ impl HuskyTraceTime {
         TraceId(self.trace_nodes.len() - 1)
     }
 
-    pub(crate) fn lines(
-        &mut self,
-        id: TraceId,
-        indent: Indent,
-        variant: &TraceVariant,
-        has_parent: bool,
-    ) -> Vec<TraceLineData> {
-        match variant {
-            TraceVariant::Main(feature_block) => vec![TraceLineData {
-                indent,
-                idx: 0,
-                tokens: vec![TraceTokenData {
-                    kind: TraceTokenKind::Keyword,
-                    value: "main".into(),
-                    opt_associated_trace_id: None,
-                }],
-            }],
-            TraceVariant::FeatureLazyStmt(stmt) => self.feature_stmt_lines(stmt),
-            TraceVariant::FeatureLazyExpr(ref expr) => {
-                self.feature_expr_lines(expr, ExprTokenConfig::expr(false))
-            }
-            TraceVariant::FeatureLazyBranch(branch) => self.feature_branch_lines(indent, branch),
-            TraceVariant::FuncStmt {
-                ref stmt,
-                ref history,
-                ..
-            } => self.func_stmt_lines(stmt, history),
-            TraceVariant::ProcStmt {
-                ref stmt,
-                ref history,
-            } => self.proc_stmt_lines(stmt, history),
-            TraceVariant::EagerExpr {
-                ref expr,
-                ref history,
-            } => self.eager_expr_lines(expr, history, indent, ExprTokenConfig::expr(has_parent)),
-            TraceVariant::CallHead { ref tokens, .. } => vec![TraceLineData {
-                indent: 0,
-                idx: 0,
-                tokens: tokens.clone(),
-            }],
-            TraceVariant::LoopFrame {
-                loop_frame_data: ref vm_loop_frame,
-                ..
-            } => self.loop_frame_lines(indent, vm_loop_frame),
-            TraceVariant::ProcBranch {
-                stmt,
-                branch,
-                branch_idx,
-                history,
-                ..
-            } => self.proc_branch_lines(stmt, indent, branch, history),
-            TraceVariant::FeatureCallArgument {
-                ident,
-                argument: input,
-            } => {
-                let mut lines = self.feature_expr_lines(input, ExprTokenConfig::expr(true));
-                let first_line = lines.first_mut().unwrap();
-                first_line.tokens.insert(0, special!(" = "));
-                first_line.tokens.insert(0, ident!(ident.0));
-                lines
-            }
-            TraceVariant::EagerCallArgument {
-                ident,
-                ref argument,
-                ref history,
-            } => {
-                let mut lines =
-                    self.eager_expr_lines(argument, history, 0, ExprTokenConfig::expr(true));
-                let first_line = lines.first_mut().unwrap();
-                first_line.tokens.insert(0, special!(" = "));
-                first_line.tokens.insert(0, ident!(ident.0));
-                lines
-            }
-        }
-    }
-
     fn new_trace(
         &mut self,
         opt_parent_id: Option<TraceId>,
@@ -196,7 +119,7 @@ impl HuskyTraceTime {
             let text = self.eval_time().compile_time().text(file).unwrap();
             let reachable = variant.reachable();
             let can_have_subtraces = variant.can_have_subtraces(reachable);
-            let lines = self.lines(trace_id, indent, &variant, opt_parent_id.is_some());
+            let lines = self.trace_lines(trace_id, indent, &variant, opt_parent_id.is_some());
             Trace {
                 raw_data: TraceData {
                     id: trace_id,
