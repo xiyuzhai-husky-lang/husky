@@ -27,4 +27,8 @@ impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSli
     fn ty(&self) -> EntityRoutePtr {
         todo!()
     }
+
+    fn print_short(&self) -> String {
+        todo!()
+    }
 }

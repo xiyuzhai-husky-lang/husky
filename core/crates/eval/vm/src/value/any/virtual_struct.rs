@@ -1,11 +1,6 @@
-use entity_route::EntityRoutePtr;
-use print_utils::{msg_once, p};
-use serde::Serialize;
-use std::borrow::Cow;
+use super::*;
 use std::fmt::Write;
-use word::{CustomIdentifier, IdentPairDict};
-
-use crate::*;
+use word::IdentPairDict;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VirtualStruct<'eval> {
@@ -94,15 +89,13 @@ where
     'a: 'eval,
 {
     fn print_short(&self) -> String {
-        let mut result = "{ ".to_string();
-        for (i, (key, value)) in self.fields.iter().enumerate() {
-            if i > 0 {
-                write!(result, ", ").unwrap()
-            }
-            write!(result, "{}: {}", key.0, value.any_ref().print_short()).unwrap()
-        }
-        result.push_str(" }");
-        result
+        print_sequence(
+            "{ ",
+            self.fields.iter(),
+            &|(key, value)| format!("{}: {}", key.0, value.any_ref().print_short()),
+            " }",
+            20,
+        )
     }
 
     fn to_json_value(&self) -> serde_json::value::Value {
@@ -135,10 +128,4 @@ impl<'temp, 'eval: 'temp> Into<TempValue<'temp, 'eval>> for VirtualStruct<'eval>
     fn into(self) -> TempValue<'temp, 'eval> {
         TempValue::OwnedEval(OwnedValue::new(self))
     }
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct VirtualMembVar<'eval> {
-    ident: CustomIdentifier,
-    value: EvalValue<'eval>,
 }

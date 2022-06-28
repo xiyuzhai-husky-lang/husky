@@ -5,7 +5,7 @@ use print_utils::{msg_once, p};
 use serde::Serialize;
 use word::{CustomIdentifier, IdentPairDict};
 
-use crate::*;
+use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VirtualVec<'eval> {
@@ -62,6 +62,16 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualVec<'eval0> {
     }
 
     fn print_short(&self) -> String {
-        format!("{{ len: {}, data: [...] }}", self.len(),)
+        format!(
+            "{{ len: {}, data: {} }}",
+            self.len(),
+            print_sequence(
+                "{ ",
+                self.iter(),
+                &|value| format!("{}", value.any_ref().print_short()),
+                " }",
+                20,
+            )
+        )
     }
 }

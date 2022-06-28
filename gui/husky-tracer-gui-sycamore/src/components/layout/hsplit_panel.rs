@@ -14,7 +14,7 @@ impl<'a> HSplitPanelProps<'a> {
     }
 
     fn left_panel_width(&self) -> u32 {
-        self.width.cget() / 3
+        self.width.cget() * 60 / 100
     }
 
     fn right_panel_style(&self) -> String {

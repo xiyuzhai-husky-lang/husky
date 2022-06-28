@@ -126,4 +126,8 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
     fn ty(&self) -> EntityRoutePtr {
         RootIdentifier::DatasetType.into()
     }
+
+    fn print_short(&self) -> String {
+        todo!()
+    }
 }

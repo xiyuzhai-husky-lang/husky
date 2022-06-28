@@ -26,4 +26,8 @@ impl<'eval> AnyValue<'eval> for VisualData {
     fn ty(&self) -> EntityRoutePtr {
         RootIdentifier::VisualType.into()
     }
+
+    fn print_short(&self) -> String {
+        panic!()
+    }
 }

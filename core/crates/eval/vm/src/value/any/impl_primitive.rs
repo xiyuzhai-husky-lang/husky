@@ -46,6 +46,9 @@ impl<'eval> AnyValue<'eval> for () {
     fn ty(&self) -> EntityRoutePtr {
         todo!()
     }
+    fn print_short(&self) -> String {
+        format!("{:?}", self)
+    }
 }
 
 impl HasStaticTypeInfo for i32 {
@@ -87,6 +90,9 @@ impl<'eval> AnyValue<'eval> for i32 {
         'eval: 'short,
     {
         self
+    }
+    fn print_short(&self) -> String {
+        format!("{:?}", self)
     }
 
     fn ty(&self) -> EntityRoutePtr {
@@ -137,6 +143,10 @@ impl<'eval> AnyValue<'eval> for f32 {
 
     fn ty(&self) -> EntityRoutePtr {
         RootIdentifier::F32.into()
+    }
+
+    fn print_short(&self) -> String {
+        format!("{:?}", self)
     }
 }
 
@@ -283,5 +293,8 @@ impl<'eval> AnyValue<'eval> for bool {
 
     fn ty(&self) -> EntityRoutePtr {
         RootIdentifier::Bool.into()
+    }
+    fn print_short(&self) -> String {
+        format!("{:?}", self)
     }
 }

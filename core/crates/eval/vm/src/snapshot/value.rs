@@ -81,7 +81,9 @@ impl<'temp, 'eval: 'temp> Into<TempValue<'temp, 'eval>> for &StackValueSnapshot<
             StackValueSnapshot::EvalPure(value) => TempValue::EvalPure(value.clone()),
             StackValueSnapshot::Owned(value) => TempValue::OwnedEval(value.clone()),
             StackValueSnapshot::EvalRef(value) => TempValue::EvalRef(*value),
-            StackValueSnapshot::FullyOwnedRef(_) => todo!(),
+            StackValueSnapshot::FullyOwnedRef(value) => {
+                TempValue::OwnedEval(value.clone_into_box_dyn().into())
+            }
         }
     }
 }

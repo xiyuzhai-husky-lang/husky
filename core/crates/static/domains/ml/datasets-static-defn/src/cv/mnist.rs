@@ -104,6 +104,10 @@ impl<'eval> AnyValue<'eval> for MnistDataset {
     fn ty(&self) -> EntityRoutePtr {
         todo!()
     }
+
+    fn print_short(&self) -> String {
+        todo!()
+    }
 }
 
 impl<'eval> DatasetDyn<'eval> for MnistDataset {
