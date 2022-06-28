@@ -34,7 +34,11 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
-            |values| todo!(),
+            |values| {
+                let this = values[0].take_copyable().take_f32();
+                let other = values[0].take_copyable().take_f32();
+                Ok(TempValue::Copyable(this.min(other).into()))
+            },
             2
         ))),
     },
@@ -56,7 +60,11 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
-            |values| todo!(),
+            |values| {
+                let this = values[0].take_copyable().take_f32();
+                let other = values[0].take_copyable().take_f32();
+                Ok(TempValue::Copyable(this.max(other).into()))
+            },
             2
         ))),
     },
