@@ -599,7 +599,8 @@ pub(crate) fn method_decl_from_static(
             output_ty,
             output_liason,
             spatial_parameters: generic_parameters,
-            ref kind,
+            // ref kind,
+            ..
         } => {
             let generic_parameters = db.generic_parameters_from_static(generic_parameters);
             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
@@ -617,7 +618,7 @@ pub(crate) fn method_decl_from_static(
                 ident: db.custom_ident(parameter.name),
             });
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
-            assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
+            // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
             Arc::new(MethodDecl {
                 generic_parameters,
                 parameters,

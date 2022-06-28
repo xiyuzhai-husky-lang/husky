@@ -29,7 +29,7 @@ impl HuskyTraceTime {
                             4,
                             TraceVariant::FeatureCallArgument {
                                 argument: argument.clone(),
-                                ident,
+                                name: ident,
                             },
                         ),
                         this.eval_time_singleton

@@ -77,7 +77,7 @@ impl HuskyTraceTime {
                 _ => panic!(),
             },
             TraceVariant::EagerCallArgument {
-                ident,
+                name: ident,
                 ref argument,
                 ref history,
             } => self.eager_expr_figure(argument, history),

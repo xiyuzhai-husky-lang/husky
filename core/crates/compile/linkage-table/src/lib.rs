@@ -9,9 +9,7 @@ use check_utils::*;
 use entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
 use map_collect::MapCollect;
 use print_utils::p;
-use semantics_entity::{
-    CallFormSource, EntityDefnQueryGroup, EntityDefnVariant, MethodDefnVariant,
-};
+use semantics_entity::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
 use std::collections::HashMap;
 use sync_utils::ARwLock;
 use thin_vec::{thin_vec, ThinVec};
@@ -37,27 +35,22 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         );
         let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();
         match index_trai_impl.member_impls[1].variant {
-            EntityDefnVariant::Method {
-                ref method_variant, ..
-            } => match method_variant {
-                MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
-                    if let Some(source) = opt_source {
-                        match source {
-                            CallFormSource::Func { stmts } => todo!(),
-                            CallFormSource::Proc { stmts } => todo!(),
-                            CallFormSource::Lazy { stmts } => todo!(),
-                            CallFormSource::Static(linkage) => *linkage,
-                        }
-                    } else {
-                        todo!()
+            EntityDefnVariant::Method { ref opt_source, .. } => {
+                if let Some(source) = opt_source {
+                    match source {
+                        CallFormSource::Func { stmts } => todo!(),
+                        CallFormSource::Proc { stmts } => todo!(),
+                        CallFormSource::Lazy { stmts } => todo!(),
+                        CallFormSource::Static(linkage) => *linkage,
                     }
+                } else {
+                    todo!()
                 }
-                _ => {
-                    p!(method_variant, this_ty_defn.file, this_ty_defn.range);
-                    panic!("")
-                }
-            },
-            _ => panic!(""),
+            }
+            _ => {
+                // p!(method_variant, this_ty_defn.file, this_ty_defn.range);
+                panic!()
+            }
         }
     }
 
@@ -97,66 +90,70 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             let method_defn = self.entity_defn(method_route).unwrap();
             match method_defn.variant {
                 EntityDefnVariant::Builtin => todo!(),
-                EntityDefnVariant::Method {
-                    ref method_variant, ..
-                } => match method_variant {
-                    MethodDefnVariant::TypeMethod { method_source, .. } => match method_source {
-                        CallFormSource::Func { .. }
-                        | CallFormSource::Proc { .. }
-                        | CallFormSource::Lazy { .. } => None,
-                        CallFormSource::Static(linkage_source) => Some(*linkage_source),
-                    },
-                    MethodDefnVariant::TraitMethod {
-                        trai,
-                        ref opt_default_source,
-                    } => opt_default_source.as_ref().map(|source| match source {
-                        CallFormSource::Func { stmts } => todo!(),
-                        CallFormSource::Proc { stmts } => todo!(),
-                        CallFormSource::Lazy { stmts } => todo!(),
-                        CallFormSource::Static(linkage_source) => *linkage_source,
-                    }),
-                    MethodDefnVariant::TraitMethodImpl { trai, opt_source } => {
-                        if let Some(source) = opt_source {
-                            return match source {
-                                CallFormSource::Func { ref stmts } => todo!(),
-                                CallFormSource::Proc { ref stmts } => todo!(),
-                                CallFormSource::Lazy { ref stmts } => todo!(),
-                                CallFormSource::Static(linkage_source) => Some(*linkage_source),
-                            };
+                EntityDefnVariant::Method { ref opt_source, .. } => {
+                    if let Some(ref source) = opt_source {
+                        match source {
+                            CallFormSource::Func { .. }
+                            | CallFormSource::Proc { .. }
+                            | CallFormSource::Lazy { .. } => None,
+                            CallFormSource::Static(linkage_source) => Some(*linkage_source),
                         }
-                        let trai_defn = self.entity_defn(*trai).unwrap();
-                        match trai_defn.variant {
-                            EntityDefnVariant::Trait {
-                                ref generic_parameters,
-                                ref members,
-                            } => {
-                                let member = members
-                                    .iter()
-                                    .find(|member| member.ident == method_defn.ident)
-                                    .unwrap();
-                                match member.variant {
-                                    EntityDefnVariant::Method {
-                                        method_variant:
-                                            MethodDefnVariant::TraitMethod {
-                                                trai,
-                                                ref opt_default_source,
-                                            },
-                                        ..
-                                    } => match opt_default_source.as_ref().unwrap() {
-                                        CallFormSource::Func { ref stmts } => todo!(),
-                                        CallFormSource::Proc { ref stmts } => todo!(),
-                                        CallFormSource::Lazy { ref stmts } => todo!(),
-                                        CallFormSource::Static(linkage_source) => {
-                                            Some(*linkage_source)
-                                        }
-                                    },
-                                    _ => panic!(),
-                                }
-                            }
-                            _ => panic!(),
-                        }
+                    } else {
+                        todo!()
+                        // ,
+                        // MethodDefnKind::TraitMethod {
+                        //     trai,
+                        //     ref opt_default_source,
+                        // } => opt_default_source.as_ref().map(|source| match source {
+                        //     CallFormSource::Func { stmts } => todo!(),
+                        //     CallFormSource::Proc { stmts } => todo!(),
+                        //     CallFormSource::Lazy { stmts } => todo!(),
+                        //     CallFormSource::Static(linkage_source) => *linkage_source,
+                        // }),
+                        // MethodDefnKind::TraitMethodImpl { trai, opt_source } => {
+                        //     if let Some(source) = opt_source {
+                        //         return match source {
+                        //             CallFormSource::Func { ref stmts } => todo!(),
+                        //             CallFormSource::Proc { ref stmts } => todo!(),
+                        //             CallFormSource::Lazy { ref stmts } => todo!(),
+                        //             CallFormSource::Static(linkage_source) => Some(*linkage_source),
+                        //         };
+                        //     }
+                        //     let trai_defn = self.entity_defn(*trai).unwrap();
+                        //     match trai_defn.variant {
+                        //         EntityDefnVariant::Trait {
+                        //             ref generic_parameters,
+                        //             ref members,
+                        //         } => {
+                        //             let member = members
+                        //                 .iter()
+                        //                 .find(|member| member.ident == method_defn.ident)
+                        //                 .unwrap();
+                        //             match member.variant {
+                        //                 EntityDefnVariant::Method {
+                        //                     method_variant:
+                        //                         MethodDefnKind::TraitMethod {
+                        //                             trai,
+                        //                             ref opt_default_source,
+                        //                         },
+                        //                     ..
+                        //                 } => match opt_default_source.as_ref().unwrap() {
+                        //                     CallFormSource::Func { ref stmts } => todo!(),
+                        //                     CallFormSource::Proc { ref stmts } => todo!(),
+                        //                     CallFormSource::Lazy { ref stmts } => todo!(),
+                        //                     CallFormSource::Static(linkage_source) => {
+                        //                         Some(*linkage_source)
+                        //                     }
+                        //                 },
+                        //                 _ => panic!(),
+                        //             }
+                        //         }
+                        //         _ => panic!(),
+                        //     }
+                        // }
+                        // },
                     }
-                },
+                }
                 _ => todo!(),
             }
         }

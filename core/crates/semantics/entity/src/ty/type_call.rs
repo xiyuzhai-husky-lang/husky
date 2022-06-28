@@ -25,9 +25,10 @@ impl TypeCallDefn {
                 linkage,
                 ..
             } => TypeCallDefn {
-                parameters: Arc::new(parameters.map(|input_placeholder| {
-                    context.input_placeholder_from_static(input_placeholder)
-                })),
+                parameters: Arc::new(
+                    parameters
+                        .map(|input_placeholder| context.parameter_from_static(input_placeholder)),
+                ),
                 output_ty: RangedEntityRoute {
                     route: context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),

@@ -209,7 +209,7 @@ pub trait AtomContext {
         }
     }
 
-    fn input_placeholder_from_static(&mut self, static_parameter: &StaticParameter) -> Parameter {
+    fn parameter_from_static(&mut self, static_parameter: &StaticParameter) -> Parameter {
         Parameter {
             ranged_ident: RangedCustomIdentifier {
                 ident: self

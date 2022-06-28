@@ -39,9 +39,8 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
                         member_liason: MemberLiason::Mutable,
                     },
                     spatial_parameters: &[],
-                    kind: MethodStaticDefnVariant::TraitMethod {
-                        opt_default_source: None,
-                    },
+                    method_static_defn_kind: MethodStaticDefnKind::TraitMethod,
+                    opt_linkage: None,
                 },
                 dev_src: static_dev_src!(),
             },

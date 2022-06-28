@@ -59,7 +59,8 @@ pub enum EntityStaticDefnVariant {
         output_ty: &'static str,
         output_liason: OutputLiason,
         spatial_parameters: &'static [StaticSpatialParameter],
-        kind: MethodStaticDefnVariant,
+        method_static_defn_kind: MethodStaticDefnKind,
+        opt_linkage: Option<Linkage>,
     },
     TraitAssociatedType {
         trai: &'static str,
@@ -110,9 +111,9 @@ macro_rules! associated_type_impl {
     };
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum MethodStaticDefnVariant {
-    TypeMethod { source: Linkage },
-    TraitMethod { opt_default_source: Option<Linkage> },
-    TraitMethodImpl { opt_source: Option<Linkage> },
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum MethodStaticDefnKind {
+    TypeMethod,
+    TraitMethod,
+    TraitMethodImpl,
 }

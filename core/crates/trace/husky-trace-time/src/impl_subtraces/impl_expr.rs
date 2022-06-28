@@ -1,6 +1,8 @@
 mod impl_eager_expr;
 mod impl_feature_expr;
 
+use std::borrow::Cow;
+
 use word::CustomIdentifier;
 
 use super::*;
@@ -12,21 +14,38 @@ impl HuskyTraceTime {
         instruction_sheet: &InstructionSheet,
         routine_defn: &Arc<EntityDefn>,
         arguments: &[A],
-        argument_trace_gen: impl Fn(&mut Self, &A, CustomIdentifier) -> (TraceId, EvalResult),
+        argument_trace_gen: impl Fn(&mut Self, &A, &'static str) -> (TraceId, EvalResult),
     ) -> Vec<TraceId> {
         if let Some(sample_id) = self.attention.opt_sample_id() {
             // let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
             let mut subtraces = vec![];
             let mut func_input_values = vec![];
             subtraces.push(self.new_call_head_trace(parent, routine_defn.clone()));
-            let parameters: &[Parameter] = match routine_defn.variant {
-                EntityDefnVariant::Func { ref parameters, .. } => parameters,
-                EntityDefnVariant::Proc { ref parameters, .. } => parameters,
+            let argnames: Vec<&'static str> = match routine_defn.variant {
+                EntityDefnVariant::Func { ref parameters, .. } => parameters
+                    .iter()
+                    .map(|param| param.ranged_ident.ident.0)
+                    .collect(),
+                EntityDefnVariant::Proc { ref parameters, .. } => parameters
+                    .iter()
+                    .map(|param| param.ranged_ident.ident.0)
+                    .collect(),
+                EntityDefnVariant::Function { ref parameters, .. } => parameters
+                    .iter()
+                    .map(|param| param.ranged_ident.ident.0)
+                    .collect(),
+                EntityDefnVariant::Method { ref parameters, .. } => {
+                    let mut argnames: Vec<_> = parameters
+                        .iter()
+                        .map(|param| param.ranged_ident.ident.0)
+                        .collect();
+                    argnames.insert(0, "this");
+                    argnames
+                }
                 _ => panic!(),
             };
             for (i, argument) in arguments.iter().enumerate() {
-                let (argument_trace, result) =
-                    argument_trace_gen(self, argument, parameters[i].ranged_ident.ident);
+                let (argument_trace, result) = argument_trace_gen(self, argument, argnames[i]);
                 subtraces.push(argument_trace);
                 //     self.new_trace(
                 //     Some(parent.id()),
@@ -59,6 +78,15 @@ impl HuskyTraceTime {
                 EntityDefnVariant::Proc { ref stmts, .. } => {
                     subtraces.extend(self.proc_stmts_traces(parent.id(), 4, stmts, &history));
                 }
+                EntityDefnVariant::Function { .. } => todo!(),
+                EntityDefnVariant::Method {
+                    spatial_parameters: ref generic_parameters,
+                    this_liason: this_contract,
+                    ref parameters,
+                    output_ty,
+                    output_liason,
+                    ..
+                } => todo!(),
                 _ => panic!(),
             }
             subtraces

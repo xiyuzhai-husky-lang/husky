@@ -57,7 +57,7 @@ impl HuskyTraceTime {
                 ],
             },
             TraceVariant::FeatureCallArgument {
-                ident,
+                name: ident,
                 ref argument,
             } => TraceStalkData {
                 extra_tokens: vec![
@@ -82,7 +82,7 @@ impl HuskyTraceTime {
                 vm::ControlSnapshot::Err(_) => todo!(),
             },
             TraceVariant::EagerCallArgument {
-                ident,
+                name: ident,
                 ref argument,
                 ref history,
             } => todo!(),

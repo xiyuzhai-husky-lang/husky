@@ -152,25 +152,13 @@ impl<'a> FeatureExprBuilder<'a> {
         let member_idx = self.db.compile_time().member_idx(method_route);
         let method_defn = this_ty_defn.method(member_idx);
         let kind = match method_defn.variant {
-            EntityDefnVariant::Method {
-                ref method_variant, ..
-            } => {
-                let source = match method_variant {
-                    MethodDefnVariant::TypeMethod { method_source, .. } => method_source,
-                    MethodDefnVariant::TraitMethod {
-                        trai,
-                        opt_default_source,
-                    } => todo!(),
-                    MethodDefnVariant::TraitMethodImpl { trai, opt_source } => todo!(),
-                };
-                FeatureLazyExprVariant::RoutineCall {
-                    opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
-                    opt_linkage: self.db.compile_time().method_linkage(method_route),
-                    opds,
-                    has_this: true,
-                    routine_defn: method_defn.clone(),
-                }
-            }
+            EntityDefnVariant::Method { .. } => FeatureLazyExprVariant::RoutineCall {
+                opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
+                opt_linkage: self.db.compile_time().method_linkage(method_route),
+                opds,
+                has_this: true,
+                routine_defn: method_defn.clone(),
+            },
             _ => panic!(),
         };
         (kind, feature)

@@ -1,7 +1,5 @@
 use infer_decl::FieldDecl;
-use semantics_entity::{
-    CallFormSource, EnumVariantDefnVariant, FieldDefnVariant, MethodDefnVariant, TraitImplDefn,
-};
+use semantics_entity::{CallFormSource, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn};
 use word::CustomIdentifier;
 
 use super::*;
@@ -107,22 +105,18 @@ impl<'a> RustGenerator<'a> {
         for method in methods {
             match method.variant {
                 EntityDefnVariant::Method {
-                    ref generic_parameters,
-                    this_contract,
-                    parameters: ref parameters,
+                    spatial_parameters: ref generic_parameters,
+                    this_liason: this_contract,
+                    ref parameters,
                     output_ty,
                     output_liason,
-                    ref method_variant,
+                    opt_source: Some(ref source),
+                    ..
                 } => {
-                    match method_variant {
-                        MethodDefnVariant::TypeMethod { ty, method_source } => {
-                            match method_source {
-                                CallFormSource::Func { .. } | CallFormSource::Proc { .. } => (),
-                                CallFormSource::Lazy { .. } => continue,
-                                CallFormSource::Static(_) => panic!(),
-                            }
-                        }
-                        _ => panic!(),
+                    match source {
+                        CallFormSource::Func { .. } | CallFormSource::Proc { .. } => (),
+                        CallFormSource::Lazy { .. } => continue,
+                        CallFormSource::Static(_) => panic!(),
                     }
                     if start_flag {
                         start_flag = false
@@ -167,16 +161,11 @@ impl<'a> RustGenerator<'a> {
                     self.write(") -> ");
                     self.gen_entity_route(output_ty.route);
                     self.write(" {\n");
-                    match method_variant {
-                        MethodDefnVariant::TypeMethod { ty, method_source } => {
-                            match method_source {
-                                CallFormSource::Func { stmts } => self.gen_func_stmts(stmts, 8),
-                                CallFormSource::Proc { stmts } => self.gen_proc_stmts(stmts, 8),
-                                CallFormSource::Lazy { stmts } => todo!(),
-                                CallFormSource::Static(_) => todo!(),
-                            }
-                        }
-                        _ => panic!(),
+                    match source {
+                        CallFormSource::Func { stmts } => self.gen_func_stmts(stmts, 8),
+                        CallFormSource::Proc { stmts } => self.gen_proc_stmts(stmts, 8),
+                        CallFormSource::Lazy { stmts } => todo!(),
+                        CallFormSource::Static(_) => todo!(),
                     }
                     self.write("    }\n");
                 }

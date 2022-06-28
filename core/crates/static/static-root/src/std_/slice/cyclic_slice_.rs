@@ -44,15 +44,14 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: Linkage::MemberAccess {
-                copy_access: routine_linkage!(generic_cyclic_slice_first_copy, 1),
-                eval_ref_access: routine_linkage!(generic_cyclic_slice_first_eval_ref, 1),
-                temp_ref_access: routine_linkage!(generic_cyclic_slice_first_temp_ref, 1),
-                temp_mut_access: routine_linkage!(generic_cyclic_slice_first_mut, 1),
-                move_access: routine_linkage!(generic_cyclic_slice_first_move, 1),
-            },
-        },
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(Linkage::MemberAccess {
+            copy_access: routine_linkage!(generic_cyclic_slice_first_copy, 1),
+            eval_ref_access: routine_linkage!(generic_cyclic_slice_first_eval_ref, 1),
+            temp_ref_access: routine_linkage!(generic_cyclic_slice_first_temp_ref, 1),
+            temp_mut_access: routine_linkage!(generic_cyclic_slice_first_mut, 1),
+            move_access: routine_linkage!(generic_cyclic_slice_first_move, 1),
+        }),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },
@@ -106,15 +105,14 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],
-        kind: MethodStaticDefnVariant::TypeMethod {
-            source: Linkage::MemberAccess {
-                copy_access: routine_linkage!(generic_cyclic_slice_last_copy, 1),
-                eval_ref_access: routine_linkage!(generic_cyclic_slice_last_eval_ref, 1),
-                temp_ref_access: routine_linkage!(generic_cyclic_slice_last_temp_ref, 1),
-                temp_mut_access: routine_linkage!(generic_cyclic_slice_last_mut, 1),
-                move_access: routine_linkage!(generic_cyclic_slice_last_move, 1),
-            },
-        },
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(Linkage::MemberAccess {
+            copy_access: routine_linkage!(generic_cyclic_slice_last_copy, 1),
+            eval_ref_access: routine_linkage!(generic_cyclic_slice_last_eval_ref, 1),
+            temp_ref_access: routine_linkage!(generic_cyclic_slice_last_temp_ref, 1),
+            temp_mut_access: routine_linkage!(generic_cyclic_slice_last_mut, 1),
+            move_access: routine_linkage!(generic_cyclic_slice_last_move, 1),
+        }),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },

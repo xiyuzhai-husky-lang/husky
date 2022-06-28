@@ -3,7 +3,7 @@ use crate::*;
 use dev_utils::DevSource;
 use husky_atom::AtomContext;
 use map_collect::MapCollect;
-use static_defn::{EntityStaticDefn, MethodStaticDefnVariant, StaticTraitImplDefn};
+use static_defn::{EntityStaticDefn, MethodStaticDefnKind, StaticTraitImplDefn};
 use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -83,51 +83,29 @@ impl EntityDefnVariant {
                 }
             }
             EntityStaticDefnVariant::Method {
-                this_liason: this_contract,
-                parameters: inputs,
+                this_liason,
+                parameters,
                 output_ty,
                 output_liason,
-                spatial_parameters: generic_parameters,
-                ref kind,
-            } => {
-                let method_variant = match kind {
-                    MethodStaticDefnVariant::TypeMethod { source } => todo!(),
-                    MethodStaticDefnVariant::TraitMethod { opt_default_source } => {
-                        MethodDefnVariant::TraitMethod {
-                            trai,
-                            opt_default_source: opt_default_source
-                                .clone()
-                                .map(|source| CallFormSource::Static(source)),
-                        }
-                    }
-                    MethodStaticDefnVariant::TraitMethodImpl { opt_source } => {
-                        MethodDefnVariant::TraitMethodImpl {
-                            trai,
-                            opt_source: opt_source
-                                .clone()
-                                .map(|source| CallFormSource::Static(source)),
-                        }
-                    }
-                };
-                Self::Method {
-                    parameters: Arc::new(inputs.map(|input_placeholder| {
-                        context.input_placeholder_from_static(input_placeholder)
-                    })),
-                    output_ty: RangedEntityRoute {
-                        route: context.parse_entity_route(output_ty).unwrap(),
-                        range: Default::default(),
-                    },
-                    this_contract,
-                    output_liason,
-                    method_variant,
-                    generic_parameters: generic_parameters.map(|generic_placeholder| {
-                        SpatialParameter::from_static(
-                            context.entity_syntax_db(),
-                            generic_placeholder,
-                        )
-                    }),
-                }
-            }
+                spatial_parameters,
+                opt_linkage,
+                method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
+            } => Self::Method {
+                parameters: Arc::new(
+                    parameters.map(|parameter| context.parameter_from_static(parameter)),
+                ),
+                output_ty: RangedEntityRoute {
+                    route: context.parse_entity_route(output_ty).unwrap(),
+                    range: Default::default(),
+                },
+                this_liason,
+                output_liason,
+                spatial_parameters: spatial_parameters.map(|spatial_parameter| {
+                    SpatialParameter::from_static(context.entity_syntax_db(), spatial_parameter)
+                }),
+                opt_source: opt_linkage.map(|linkage| CallFormSource::Static(linkage)),
+                method_defn_kind: MethodDefnKind::TraitMethodImpl { trai },
+            },
             _ => panic!(),
         }
     }
