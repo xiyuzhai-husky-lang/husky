@@ -53,12 +53,13 @@ struct Vector2d:
         // 0: no moving
         // expect not antiparallel
         cross = this.cross(other)
-        if cross == 0.0:
-            // expect nonzero and not antiparallel
-            assert this.dot(other) > 0.0
-            0
-        else:
-            cross.sgn()
+        cross.sgn()
+        // if cross == 0.0:
+        //     // expect nonzero and not antiparallel
+        //     assert this.dot(other) > 0.0
+        //     0
+        // else:
+        //     cross.sgn()
 
     func angle_to(other: Vector2d, is_branch_cut_positive: bool) -> f32:
         this_norm = this.norm()

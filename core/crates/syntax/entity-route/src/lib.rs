@@ -1,4 +1,5 @@
 mod intern;
+mod utils;
 
 pub use entity_kind::EntityKind;
 use file::FilePtr;

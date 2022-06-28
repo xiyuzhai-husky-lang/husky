@@ -83,7 +83,10 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
             MemberValue::Boxed(boxed_value) => {
                 TempValue::TempRefEval(unsafe { &*boxed_value.any_ptr() })
             }
-            _ => panic!(),
+            MemberValue::Copyable(_) => todo!(),
+            MemberValue::GlobalPure(_) => todo!(),
+            MemberValue::EvalRef(value) => TempValue::TempRefEval(value.0),
+            MemberValue::Moved => todo!(),
         }
     }
 

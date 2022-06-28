@@ -49,7 +49,7 @@ impl HuskyTraceTime {
         parent: &Trace,
     ) -> Vec<TraceId> {
         let history = exec_debug(
-            husky_eval_time(),
+            eval_time(),
             instruction_sheet,
             &loop_frame_data.stack_snapshot,
             self.eval_time().verbose(),

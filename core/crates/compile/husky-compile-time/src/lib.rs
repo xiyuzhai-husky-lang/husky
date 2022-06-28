@@ -1,6 +1,7 @@
 mod impl_diagnostics;
 mod impl_load;
 mod impl_necessary;
+mod impl_parse_entity_route;
 pub mod utils;
 
 pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
