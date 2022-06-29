@@ -21,8 +21,8 @@ use internal::HuskyDebuggerInternal;
 use json_result::JsonResult;
 use notif::handle_notif;
 use print_utils::*;
-use std::sync::Mutex;
 use std::{collections::HashMap, convert::Infallible, net::ToSocketAddrs, sync::Arc};
+use std::{sync::Mutex, time::Instant};
 use test_utils::TestResult;
 use warp::Filter;
 
@@ -60,8 +60,14 @@ impl HuskyDebugger {
         internal
             .trace_time
             .set_attention(Attention::Specific { sample_id });
-        for trace_id in internal.trace_time.root_traces().into_iter() {
-            let (_, stalk) = internal.trace_time.keyed_trace_stalk(trace_id);
+        for root_trace_id in internal.trace_time.root_traces().into_iter() {
+            let now = Instant::now();
+            let (_, stalk) = internal.trace_time.keyed_trace_stalk(root_trace_id);
+            println!(
+                "{} milliseconds elapsed for computing stalk of trace {}",
+                now.elapsed().as_millis(),
+                root_trace_id.0
+            );
             for token in &stalk.extra_tokens {
                 match token.kind {
                     TraceTokenKind::Error => {
