@@ -6,65 +6,50 @@ impl DebuggerContext {
         self.set_attention(self.attention_context.toggled_attention_kind())
     }
 
-    fn set_attention(&'static self, attention: Attention) {
+    fn set_attention(&'static self, new_attention: Attention) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
-        let request_figure = match opt_active_trace_id {
-            Some(active_trace_id) => {
-                let active_trace = self.trace_context.trace(active_trace_id);
-                !self
-                    .figure_context
-                    .is_figure_cached(&active_trace, &attention)
-            }
-            None => false,
-        };
-        let request_stalk = attention.opt_sample_id().is_some();
-        if request_figure || request_stalk {
-            self.ws.send_message(
-                HuskyTracerGuiMessageVariant::LockAttention {
-                    attention: attention.clone(),
-                    request_figure,
-                    request_stalk,
-                },
+        let need_figure_canvas_data =
+            self.need_figure_canvas_data(opt_active_trace_id, &new_attention);
+        let need_figure_control_data =
+            self.need_figure_control_data(opt_active_trace_id, &new_attention);
+        let need_stalk = self.need_stalk(opt_active_trace_id, &new_attention);
+        let need_response = need_figure_control_data || need_figure_control_data || need_stalk;
+        self.ws.send_message(
+            HuskyTracerGuiMessageVariant::LockAttention {
+                attention: new_attention.clone(),
+                need_figure_canvas_data,
+                need_figure_control_data,
+                need_stalk,
+            },
+            if need_response {
                 Some(Box::new(move |message| match message.variant {
                     HuskyTracerServerMessageVariant::LockAttention {
-                        opt_figure_data,
+                        opt_figure_canvas_data,
+                        opt_figure_control_data,
                         new_trace_stalks,
                     } => {
-                        opt_figure_data.map(|(figure_canvas_data, figure_control_data)| {
-                            let active_trace =
-                                self.trace_context.trace(opt_active_trace_id.unwrap());
-                            self.figure_context.set_figure(
-                                self.scope,
-                                &active_trace,
-                                &attention,
-                                self.alloc_value(figure_canvas_data),
-                                figure_control_data,
-                            )
-                        });
+                        let active_trace = self.trace_context.trace(opt_active_trace_id.unwrap());
+                        self.figure_context.set_opt_figure_data(
+                            self.scope,
+                            &active_trace,
+                            &new_attention,
+                            opt_figure_canvas_data
+                                .map(|figure_canvas_data| self.alloc_value(figure_canvas_data)),
+                            opt_figure_control_data,
+                        );
                         self.trace_context.receive_trace_stalks(
                             new_trace_stalks
                                 .into_iter()
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
-                        self.attention_context.attention.set(attention.clone());
+                        self.attention_context.attention.set(new_attention.clone());
                     }
                     _ => panic!(),
-                })),
-            )
-        } else {
-            self.set_attention_without_request(attention)
-        }
-    }
-
-    fn set_attention_without_request(&self, attention: Attention) {
-        self.attention_context.attention.set(attention.clone());
-        self.ws.send_message(
-            HuskyTracerGuiMessageVariant::LockAttention {
-                attention,
-                request_figure: false,
-                request_stalk: false,
+                }))
+            } else {
+                self.attention_context.attention.set(new_attention.clone());
+                None
             },
-            None,
         );
     }
 

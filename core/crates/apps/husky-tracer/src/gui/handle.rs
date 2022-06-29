@@ -34,18 +34,17 @@ impl HuskyDebugger {
         self: Arc<Self>,
         gui_message: HuskyTracerGuiMessage,
     ) -> Option<String> {
-        let opt_request_id = gui_message.opt_request_id;
         let internal: &mut HuskyDebuggerInternal = &mut self.internal.lock().unwrap();
         let opt_response_variant = internal.handle_gui_message(&gui_message);
         should_eq!(
-            opt_request_id.is_some(),
+            gui_message.opt_request_id.is_some(),
             opt_response_variant.is_some(),
             "{:?}",
             gui_message
         );
         if let Some(variant) = opt_response_variant {
             let msg = HuskyTracerServerMessage {
-                opt_request_id,
+                opt_request_id: gui_message.opt_request_id,
                 variant,
             };
             match serde_json::to_string(&msg) {
@@ -67,6 +66,22 @@ impl HuskyDebuggerInternal {
         &mut self,
         request: &HuskyTracerGuiMessage,
     ) -> Option<HuskyTracerServerMessageVariant> {
+        if let Some(request_id) = request.opt_request_id {
+            if self.next_request_id != request_id {
+                // make sure all requests are received in order
+                match request.variant {
+                    HuskyTracerGuiMessageVariant::InitDataRequest => {
+                        self.next_request_id = request_id + 1;
+                    }
+                    _ => {
+                        p!(request, self.next_request_id, request_id);
+                        panic!("todo: replace panic with caching or warning")
+                    }
+                }
+            } else {
+                self.next_request_id += 1
+            }
+        }
         match request.variant {
             HuskyTracerGuiMessageVariant::InitDataRequest => {
                 Some(HuskyTracerServerMessageVariant::Init {
@@ -75,19 +90,18 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::Activate {
                 trace_id,
-                ref opt_attention_for_figure,
+                need_figure_canvas_data,
+                need_figure_control_data,
             } => {
                 self.trace_time.activate(trace_id);
-                should_eq!(
-                    request.opt_request_id.is_some(),
-                    opt_attention_for_figure.is_some()
-                );
-                if let Some(ref attention) = opt_attention_for_figure {
-                    let figure_canvas_data =
-                        match self.trace_time.figure_canvas(trace_id, attention) {
+                let need_response = need_figure_canvas_data || need_figure_control_data;
+                should_eq!(request.opt_request_id.is_some(), need_response);
+                if need_response {
+                    let opt_figure_canvas_data = if need_figure_canvas_data {
+                        Some(match self.trace_time.figure_canvas(trace_id) {
                             Ok(figure_canvas_data) => figure_canvas_data,
                             Err((sample_id0, error)) => {
-                                match attention {
+                                match self.trace_time.attention() {
                                     Attention::Specific { sample_id } => {
                                         if *sample_id != sample_id0 {
                                             return Some(
@@ -107,10 +121,18 @@ impl HuskyDebuggerInternal {
                                     message: format!("{:?}", error),
                                 }
                             }
-                        };
+                        })
+                    } else {
+                        None
+                    };
+                    let opt_figure_control_data = if need_figure_control_data {
+                        Some(self.trace_time.figure_control(trace_id))
+                    } else {
+                        None
+                    };
                     Some(HuskyTracerServerMessageVariant::Activate {
-                        figure_canvas_data,
-                        figure_control_data: self.trace_time.figure_control(trace_id, attention),
+                        opt_figure_canvas_data,
+                        opt_figure_control_data,
                     })
                 } else {
                     None
@@ -145,32 +167,40 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::LockAttention {
                 ref attention,
-                request_figure,
-                request_stalk,
+                need_figure_canvas_data,
+                need_figure_control_data,
+                need_stalk,
             } => {
                 self.trace_time.set_attention(attention.clone());
-                if request_figure || request_stalk {
-                    let opt_figure_data =
+                if need_figure_canvas_data || need_figure_control_data || need_stalk {
+                    let (opt_figure_canvas_data, opt_figure_control_data) =
                         if let Some(active_trace_id) = self.trace_time.opt_active_trace_id() {
-                            let figure_canvas_data =
-                                match self.trace_time.figure_canvas(active_trace_id, &attention) {
-                                    Ok(figure_canvas) => figure_canvas,
+                            let opt_figure_canvas_data = if need_figure_canvas_data {
+                                match self.trace_time.figure_canvas(active_trace_id) {
+                                    Ok(figure_canvas) => Some(figure_canvas),
                                     Err((sample_id, error)) => return Some(
                                         HuskyTracerServerMessageVariant::LockAttentionWithError {
                                             sample_id,
                                             error: format!("{:?}", error),
                                         },
                                     ),
-                                };
-                            let figure_control_data =
-                                self.trace_time.figure_control(active_trace_id, &attention);
-                            Some((figure_canvas_data, figure_control_data))
+                                }
+                            } else {
+                                None
+                            };
+                            let opt_figure_control_data = if need_figure_control_data {
+                                Some(self.trace_time.figure_control(active_trace_id))
+                            } else {
+                                None
+                            };
+                            (opt_figure_canvas_data, opt_figure_control_data)
                         } else {
-                            None
+                            (None, None)
                         };
                     let new_trace_stalks = self.trace_time.collect_new_trace_stalks();
                     Some(HuskyTracerServerMessageVariant::LockAttention {
-                        opt_figure_data,
+                        opt_figure_canvas_data,
+                        opt_figure_control_data,
                         new_trace_stalks,
                     })
                 } else {

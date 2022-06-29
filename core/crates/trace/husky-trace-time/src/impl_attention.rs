@@ -5,6 +5,10 @@ use text::Text;
 use vm::{History, VMControl};
 
 impl HuskyTraceTime {
+    pub fn attention(&self) -> &Attention {
+        &self.attention
+    }
+
     pub fn set_attention(&mut self, attention: Attention) {
         self.attention = attention;
         if let Some(sample_id0) = self.attention.opt_sample_id() {

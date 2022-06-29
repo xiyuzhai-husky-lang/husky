@@ -1,5 +1,6 @@
 mod attention;
 mod shown;
+mod utils;
 
 use super::*;
 use web_sys::{Event, KeyboardEvent};
@@ -58,44 +59,45 @@ impl DebuggerContext {
         }
     }
 
-    fn activate(&'static self, trace_id: TraceId) {
+    fn activate(&'static self, new_active_trace_id: TraceId) {
         let attention = self.attention_context.attention.get();
-        let trace = self.trace_context.trace(trace_id);
-        let is_figure_cached = self.figure_context.is_figure_cached(&trace, &attention);
-        if (is_figure_cached) {
-            self.trace_context.did_activate(trace_id);
-            self.ws.send_message(
-                HuskyTracerGuiMessageVariant::Activate {
-                    trace_id,
-                    opt_attention_for_figure: None,
-                },
-                None,
-            );
-        } else {
-            self.ws.send_message(
-                HuskyTracerGuiMessageVariant::Activate {
-                    trace_id,
-                    opt_attention_for_figure: Some((*attention).clone()),
-                },
+        let trace = self.trace_context.trace(new_active_trace_id);
+        let need_figure_canvas_data =
+            self.need_figure_canvas_data(Some(new_active_trace_id), &attention);
+        let need_figure_control_data =
+            self.need_figure_control_data(Some(new_active_trace_id), &attention);
+        let need_response = need_figure_control_data || need_figure_control_data;
+        self.ws.send_message(
+            HuskyTracerGuiMessageVariant::Activate {
+                trace_id: new_active_trace_id,
+                need_figure_canvas_data,
+                need_figure_control_data,
+            },
+            if need_response {
                 Some(Box::new(move |response| match response.variant {
                     HuskyTracerServerMessageVariant::Activate {
-                        figure_canvas_data,
-                        figure_control_data,
+                        opt_figure_canvas_data,
+                        opt_figure_control_data,
                     } => {
-                        self.figure_context.set_figure(
+                        self.figure_context.set_opt_figure_data(
                             self.scope,
                             &trace,
                             &attention,
-                            self.alloc_value(figure_canvas_data),
-                            figure_control_data,
+                            opt_figure_canvas_data.map(|data| self.alloc_value(data)),
+                            opt_figure_control_data,
                         );
-                        self.trace_context.did_activate(trace_id);
+                        self.trace_context.did_activate(new_active_trace_id);
                     }
                     HuskyTracerServerMessageVariant::ActivateWithError { .. } => todo!(),
                     _ => panic!("unexpected response {:?}", response),
-                })),
-            );
-        }
+                }))
+            } else {
+                {
+                    self.trace_context.did_activate(new_active_trace_id);
+                    None
+                }
+            },
+        );
     }
 
     fn toggle_expansion(&'static self, trace_id: TraceId) {

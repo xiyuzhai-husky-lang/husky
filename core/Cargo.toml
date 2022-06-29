@@ -16,10 +16,8 @@ members = [
 ]
 
 [profile.dev]
-opt-level = 0
+opt-level = 1
 
 [profile.release]
 opt-level = 3
-# This makes the compiled code faster and smaller, but it makes compiling slower,
-# so it's only enabled in release mode.
 lto = true

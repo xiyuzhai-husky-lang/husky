@@ -15,8 +15,10 @@ pub enum HuskyTracerServerMessageVariant {
         init_data: InitData,
     },
     Activate {
-        figure_canvas_data: FigureCanvasData,
-        figure_control_data: FigureControlData,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        opt_figure_canvas_data: Option<FigureCanvasData>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        opt_figure_control_data: Option<FigureControlData>,
     },
     ActivateWithError {
         sample_id: SampleId,
@@ -34,7 +36,8 @@ pub enum HuskyTracerServerMessageVariant {
         trace_props: TraceData,
     },
     LockAttention {
-        opt_figure_data: Option<(FigureCanvasData, FigureControlData)>,
+        opt_figure_canvas_data: Option<FigureCanvasData>,
+        opt_figure_control_data: Option<FigureControlData>,
         new_trace_stalks: Vec<(TraceStalkKey, TraceStalkData)>,
     },
     LockAttentionWithError {
