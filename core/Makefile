@@ -57,6 +57,11 @@ mnist:
 	cargo check
 	cargo run -q --bin husky-tracer $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
 
+mnist-release:
+	cargo check
+	cargo install --path crates/apps/husky-tracer --bin husky-tracer
+	husky-tracer $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
+
 print-mnist:
 	cargo run -q --bin husky-analyzer-printer print-qualified-tys $(projects_dir)/cv/mnist-classifier
 

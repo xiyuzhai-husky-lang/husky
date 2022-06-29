@@ -1,3 +1,5 @@
+use std::time::Instant;
+
 use crate::*;
 use text::Text;
 use vm::{History, VMControl};
@@ -19,7 +21,12 @@ impl HuskyTraceTime {
 
     fn update_root_traces(&mut self) {
         let main_file = self.eval_time().compile_time().main_file();
+        let now = Instant::now();
         let main_feature_repr = self.eval_time().main_feature_repr(main_file);
+        println!(
+            "{} milliseconds elapsed for computing main feature",
+            now.elapsed().as_millis(),
+        );
         self.root_trace_ids = vec![self.new_trace(None, 0, TraceVariant::Main(main_feature_repr))];
     }
 }

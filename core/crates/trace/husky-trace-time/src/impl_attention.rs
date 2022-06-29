@@ -1,3 +1,5 @@
+use std::time::Instant;
+
 use crate::*;
 use text::Text;
 use vm::{History, VMControl};
