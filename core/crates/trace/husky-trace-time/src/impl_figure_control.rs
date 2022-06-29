@@ -9,17 +9,13 @@ use super::*;
 
 impl HuskyTraceTime {
     #[inline(always)]
-    pub fn figure_control(
-        &mut self,
-        trace_id: TraceId,
-        attention: &Attention,
-    ) -> FigureControlData {
+    pub fn figure_control(&mut self, trace_id: TraceId) -> FigureControlData {
         let trace = self.trace(trace_id);
         let key = FigureControlKey::new(
             trace.raw_data.opt_parent_id,
             trace.raw_data.kind,
             trace.raw_data.id,
-            attention,
+            &self.attention,
         );
         if let Some(control) = self.figure_controls.get(&key) {
             control.clone()

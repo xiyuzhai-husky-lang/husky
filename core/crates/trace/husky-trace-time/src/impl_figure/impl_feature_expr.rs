@@ -6,23 +6,20 @@ impl HuskyTraceTime {
     pub(crate) fn feature_expr_figure(
         &self,
         expr: &Arc<FeatureExpr>,
-        attention: &Attention,
     ) -> Result<FigureCanvasData, (SampleId, EvalError)> {
-        match attention {
-            Attention::Specific {
-                sample_id: sample_id,
-            } => {
+        match self.attention {
+            Attention::Specific { sample_id } => {
                 let value = self
                     .eval_time_singleton
-                    .eval_feature_expr(expr, *sample_id)
-                    .map_err(|e| (*sample_id, e))?;
+                    .eval_feature_expr(expr, sample_id)
+                    .map_err(|e| (sample_id, e))?;
                 Ok(FigureCanvasData::new_specific(
                     self.eval_time()
-                        .visualize_feature(FeatureRepr::Expr(expr.clone()), *sample_id)
+                        .visualize_feature(FeatureRepr::Expr(expr.clone()), sample_id)
                         .unwrap(),
                 ))
             }
-            Attention::Generic { partitions, .. } => {
+            Attention::Generic { ref partitions, .. } => {
                 let session = self.eval_time().session();
                 let dev_division = session.dev();
                 assert_eq!(

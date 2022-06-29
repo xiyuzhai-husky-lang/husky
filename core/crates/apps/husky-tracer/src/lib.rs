@@ -40,7 +40,11 @@ impl HuskyDebugger {
             trace_time.set_attention(Attention::Specific { sample_id });
         }
         Self {
-            internal: Mutex::new(HuskyDebuggerInternal { trace_time, config }),
+            internal: Mutex::new(HuskyDebuggerInternal {
+                trace_time,
+                config,
+                next_request_id: 0,
+            }),
             threadpool: ThreadPool::new().unwrap(),
         }
     }

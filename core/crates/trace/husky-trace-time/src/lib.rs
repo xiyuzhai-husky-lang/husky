@@ -194,21 +194,20 @@ impl HuskyTraceTime {
 
     pub fn init_data(&mut self) -> InitData {
         let root_trace_ids = self.root_trace_ids.clone();
-        let attention = self.attention.clone();
         let mut figure_canvases = Vec::default();
         let mut figure_controls = Vec::default();
         let opt_active_trace_id = self.opt_active_trace_id;
         if let Some(active_trace_id) = opt_active_trace_id {
             let active_trace = self.trace(active_trace_id);
             let figure_canvas_key =
-                FigureCanvasKey::from_trace_data(&active_trace.raw_data, &attention);
+                FigureCanvasKey::from_trace_data(&active_trace.raw_data, &self.attention);
             figure_canvases.push((
                 figure_canvas_key,
-                self.figure_canvas(active_trace_id, &attention).unwrap(),
+                self.figure_canvas(active_trace_id).unwrap(),
             ));
             figure_controls.push((
-                FigureControlKey::from_trace_data(&active_trace.raw_data, &attention),
-                unsafe { ref_to_mut_ref(self) }.figure_control(active_trace_id, &attention),
+                FigureControlKey::from_trace_data(&active_trace.raw_data, &self.attention),
+                self.figure_control(active_trace_id),
             ));
         }
         let traces = self.all_trace_nodes();
@@ -228,7 +227,7 @@ impl HuskyTraceTime {
                     .collect(),
                 root_trace_ids,
             },
-            attention,
+            attention: self.attention.clone(),
             figure_canvases,
             figure_controls,
         }
