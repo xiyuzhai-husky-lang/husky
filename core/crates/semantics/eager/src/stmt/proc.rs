@@ -53,7 +53,7 @@ pub enum ProcStmtVariant {
         expr: Arc<EagerExpr>,
     },
     ConditionFlow {
-        branches: Vec<Arc<ProcConditionBranch>>,
+        branches: Vec<Arc<ProcConditionFlowBranch>>,
     },
     Loop {
         loop_variant: LoopVariant,

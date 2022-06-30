@@ -56,13 +56,13 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_func_condition_flow(
         &self,
-        branches: &[Arc<FuncConditionBranch>],
+        branches: &[Arc<FuncConditionFlowBranch>],
     ) -> Avec<VMConditionBranch> {
         Arc::new(
             branches
                 .iter()
                 .map(|branch| match branch.variant {
-                    FuncConditionBranchVariant::If { ref condition } => {
+                    FuncConditionFlowBranchVariant::If { ref condition } => {
                         Arc::new(VMConditionBranch {
                             opt_condition_sheet: {
                                 let mut condition_sheet_builder = self.subsheet_builder();
@@ -82,7 +82,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             },
                         })
                     }
-                    FuncConditionBranchVariant::Elif { ref condition } => {
+                    FuncConditionFlowBranchVariant::Elif { ref condition } => {
                         Arc::new(VMConditionBranch {
                             opt_condition_sheet: {
                                 let mut condition_sheet_builder = self.subsheet_builder();
@@ -102,7 +102,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             },
                         })
                     }
-                    FuncConditionBranchVariant::Else => Arc::new(VMConditionBranch {
+                    FuncConditionFlowBranchVariant::Else => Arc::new(VMConditionBranch {
                         opt_condition_sheet: None,
                         body: {
                             let mut body_sheet = self.subsheet_builder();

@@ -120,7 +120,7 @@ impl<'a> EagerParser<'a> {
         let mut branches = vec![];
         match condition_branch_kind {
             RawConditionBranchKind::If { condition } => {
-                branches.push(Arc::new(ProcConditionBranch {
+                branches.push(Arc::new(ProcConditionFlowBranch {
                     variant: ProcConditionBranchVariant::If {
                         condition: self.parse_eager_expr(condition)?,
                     },
@@ -162,7 +162,7 @@ impl<'a> EagerParser<'a> {
                         if branches.len() == 0 {
                             todo!()
                         }
-                        branches.push(Arc::new(ProcConditionBranch {
+                        branches.push(Arc::new(ProcConditionFlowBranch {
                             variant: ProcConditionBranchVariant::Elif {
                                 condition: self.parse_eager_expr(condition)?,
                             },
@@ -173,7 +173,7 @@ impl<'a> EagerParser<'a> {
                         }));
                     }
                     RawConditionBranchKind::Else => {
-                        branches.push(Arc::new(ProcConditionBranch {
+                        branches.push(Arc::new(ProcConditionFlowBranch {
                             variant: ProcConditionBranchVariant::Else,
                             stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
                             range: stmt.range,

@@ -1,7 +1,7 @@
 mod flags;
 
 use file::FilePtr;
-use husky_compile_dir::{get_or_create_child_dir, get_rust_dir};
+use husky_compile_dir::{get_or_create_child_dir, get_rust_dir, mkdir};
 use husky_compile_time::*;
 use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
@@ -64,14 +64,13 @@ fn compile_maybe_module(compile_time: &HuskyCompileTime, path: PathBuf, module: 
         _ => return,
     }
     diff_write(&path, &compile_time.rust_mod_rs_content(module.base_route));
+    let dir = path.with_extension("");
+    mkdir(&dir);
     for submodule in module.subentities.iter() {
-        let path = path.with_extension("");
-        p!(path);
-        todo!();
         let submodule_name = submodule.ident.as_str();
         compile_maybe_module(
             compile_time,
-            path.join(format!("{submodule_name}.rs")),
+            dir.join(format!("{submodule_name}.rs")),
             submodule,
         )
     }

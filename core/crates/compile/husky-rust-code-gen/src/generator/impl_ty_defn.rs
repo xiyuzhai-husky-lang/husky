@@ -162,8 +162,8 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_entity_route(output_ty.route);
                     self.write(" {\n");
                     match source {
-                        CallFormSource::Func { stmts } => self.gen_func_stmts(stmts, 8),
-                        CallFormSource::Proc { stmts } => self.gen_proc_stmts(stmts, 8),
+                        CallFormSource::Func { stmts } => self.gen_func_stmts(stmts),
+                        CallFormSource::Proc { stmts } => self.gen_proc_stmts(stmts),
                         CallFormSource::Lazy { stmts } => todo!(),
                         CallFormSource::Static(_) => todo!(),
                     }

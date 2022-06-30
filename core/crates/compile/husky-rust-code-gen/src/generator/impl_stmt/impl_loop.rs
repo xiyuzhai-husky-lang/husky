@@ -33,8 +33,8 @@ impl<'a> RustCodeGenerator<'a> {
                     todo!()
                 }
                 self.write(" {\n");
-                self.gen_proc_stmts(body_stmts, self.indent + 4);
-                self.write_indent();
+                self.gen_proc_stmts(body_stmts);
+                self.indent();
                 self.write("}\n")
             }
             LoopVariant::ForExt {
@@ -46,9 +46,9 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(&frame_var.ident);
                 self.write(match final_boundary.kind {
                     BoundaryKind::UpperOpen => " < ",
-                    BoundaryKind::UpperClosed => todo!(),
+                    BoundaryKind::UpperClosed => " <= ",
                     BoundaryKind::LowerOpen => " > ",
-                    BoundaryKind::LowerClosed => todo!(),
+                    BoundaryKind::LowerClosed => " >= ",
                 });
                 if let Some(bound) = &final_boundary.opt_bound {
                     self.gen_expr(bound)
@@ -56,8 +56,8 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write("0")
                 }
                 self.write(" {\n");
-                self.gen_proc_stmts(body_stmts, self.indent + 4);
-                self.write_indent();
+                self.gen_proc_stmts(body_stmts);
+                self.indent();
                 self.write("    ");
                 self.write(&frame_var.ident);
                 if step.0 > 0 {
@@ -70,29 +70,29 @@ impl<'a> RustCodeGenerator<'a> {
                     panic!()
                 }
                 self.write(";\n");
-                self.write_indent();
+                self.indent();
                 self.write("}\n")
             }
             LoopVariant::While { condition } => {
                 self.write("while ");
                 self.gen_condition(condition);
                 self.write(" {\n");
-                self.gen_proc_stmts(body_stmts, self.indent + 4);
-                self.write_indent();
+                self.gen_proc_stmts(body_stmts);
+                self.indent();
                 self.write("}\n")
             }
             LoopVariant::DoWhile { condition } => {
                 self.write("loop {\n");
-                self.gen_proc_stmts(body_stmts, self.indent + 4);
-                self.write_indent();
+                self.gen_proc_stmts(body_stmts);
+                self.indent();
                 self.write("    if !(");
                 self.gen_condition(condition);
                 self.write(") {\n");
-                self.write_indent();
+                self.indent();
                 self.write("        break;\n");
-                self.write_indent();
+                self.indent();
                 self.write("    }\n");
-                self.write_indent();
+                self.indent();
                 self.write("}\n")
             }
         }

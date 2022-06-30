@@ -29,21 +29,21 @@ impl<'a> TraceTokenBuilder<'a> {
     pub(crate) fn func_branch_tokens(
         &mut self,
         stmt: &FuncStmt,
-        branch: &FuncConditionBranch,
+        branch: &FuncConditionFlowBranch,
         history: &Arc<History<'static>>,
     ) {
         match branch.variant {
-            FuncConditionBranchVariant::If { ref condition } => {
+            FuncConditionFlowBranchVariant::If { ref condition } => {
                 self.push(keyword!("if "));
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::branch());
                 self.push(special!(":"))
             }
-            FuncConditionBranchVariant::Elif { ref condition } => {
+            FuncConditionFlowBranchVariant::Elif { ref condition } => {
                 self.push(keyword!("elif "));
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::branch());
                 self.push(special!(":"))
             }
-            FuncConditionBranchVariant::Else => {
+            FuncConditionFlowBranchVariant::Else => {
                 self.push(keyword!("else"));
                 self.push(special!(":"))
             }

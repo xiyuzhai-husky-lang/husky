@@ -20,7 +20,7 @@ impl HuskyTraceTime {
         parent_id: TraceId,
         indent: Indent,
         stmt: Arc<ProcStmt>,
-        branch: Arc<ProcConditionBranch>,
+        branch: Arc<ProcConditionFlowBranch>,
         branch_idx: u8,
         history: Arc<History<'static>>,
     ) -> TraceId {
