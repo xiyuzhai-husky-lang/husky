@@ -39,7 +39,7 @@ infer-total = { path = "../../infer/total", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 semantics-lazy = { path = "../../semantics/lazy", version = "0.0.0" }
 pack-semantics = { path = "../../semantics/pack", version = "0.0.0" }
-rust-gen = { path = "../rust-gen", version = "0.0.0" }
+husky-rust-code-gen = { path = "../husky-rust-code-gen", version = "0.0.0" }
 diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }

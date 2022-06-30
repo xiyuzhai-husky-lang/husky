@@ -27,14 +27,14 @@ pub enum TraceVariant<'eval> {
     },
     ProcBranch {
         stmt: Arc<ProcStmt>,
-        branch: Arc<ProcConditionBranch>,
+        branch: Arc<ProcConditionFlowBranch>,
         opt_vm_branch: Option<Arc<VMConditionBranch>>, // not none when executed
         branch_idx: u8,
         history: Arc<History<'static>>,
     },
     FuncBranch {
         stmt: Arc<FuncStmt>,
-        branch: Arc<FuncConditionBranch>,
+        branch: Arc<FuncConditionFlowBranch>,
         opt_vm_branch: Option<Arc<VMConditionBranch>>, // not none when executed
         branch_idx: u8,
         history: Arc<History<'static>>,

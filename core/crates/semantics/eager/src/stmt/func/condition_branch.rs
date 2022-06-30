@@ -4,8 +4,8 @@ use text::TextRange;
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct FuncConditionBranch {
-    pub variant: FuncConditionBranchVariant,
+pub struct FuncConditionFlowBranch {
+    pub variant: FuncConditionFlowBranchVariant,
     pub stmts: Arc<Vec<Arc<FuncStmt>>>,
     pub range: TextRange,
     pub file: FilePtr,
@@ -13,7 +13,7 @@ pub struct FuncConditionBranch {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum FuncConditionBranchVariant {
+pub enum FuncConditionFlowBranchVariant {
     If { condition: Arc<EagerExpr> },
     Elif { condition: Arc<EagerExpr> },
     Else,

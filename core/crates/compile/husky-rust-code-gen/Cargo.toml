@@ -1,5 +1,5 @@
 [package]
-name = "rust-gen"
+name = "husky-rust-code-gen"
 version = "0.0.0"
 description = "TBD"
 license = "MIT OR Apache-2.0"

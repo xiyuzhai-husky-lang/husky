@@ -496,7 +496,7 @@ impl EntityDefn {
         }
 
         fn extract_proc_condition_branch_dependees(
-            branch: &ProcConditionBranch,
+            branch: &ProcConditionFlowBranch,
             builder: &mut DependeeMapBuilder,
         ) {
             match branch.variant {
@@ -525,17 +525,17 @@ impl EntityDefn {
         }
 
         fn extract_func_condition_branch_dependees(
-            branch: &FuncConditionBranch,
+            branch: &FuncConditionFlowBranch,
             builder: &mut DependeeMapBuilder,
         ) {
             match branch.variant {
-                FuncConditionBranchVariant::If { ref condition } => {
+                FuncConditionFlowBranchVariant::If { ref condition } => {
                     extract_eager_expr_dependees(condition, builder)
                 }
-                FuncConditionBranchVariant::Elif { ref condition } => {
+                FuncConditionFlowBranchVariant::Elif { ref condition } => {
                     extract_eager_expr_dependees(condition, builder)
                 }
-                FuncConditionBranchVariant::Else => todo!(),
+                FuncConditionFlowBranchVariant::Else => todo!(),
             }
             extract_func_stmts_dependees(&branch.stmts, builder)
         }

@@ -10,6 +10,7 @@ pub use entity_route::{AllocateUniqueScope, EntityRoute};
 pub use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
+pub use husky_rust_code_gen::RustCodeGenQueryGroup;
 use indexmap::IndexMap;
 pub use infer_contract::*;
 pub use infer_decl::*;
@@ -17,7 +18,6 @@ pub use infer_entity_route::*;
 pub use infer_qualifier::*;
 pub use infer_total::*;
 pub use pack_semantics::PackageQueryGroup;
-pub use rust_gen::RustCodeGenQueryGroup;
 pub use semantics_entity::EntityDefnQueryGroup;
 pub use token::TokenQueryGroup;
 pub use token::TokenSalsaQueryGroup;
@@ -46,7 +46,7 @@ use sync_utils::ARwLock;
     semantics_entity::EntityQueryGroupStorage,
     pack_semantics::PackageQueryGroupStorage,
     diagnostic::DiagnosticQueryGroupStorage,
-    rust_gen::RustGenQueryStorage
+    husky_rust_code_gen::RustGenQueryStorage
 )]
 pub struct HuskyCompileTime {
     storage: salsa::Storage<HuskyCompileTime>,

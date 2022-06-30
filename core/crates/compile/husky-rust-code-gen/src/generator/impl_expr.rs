@@ -73,7 +73,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::EnumKindLiteral(_) => todo!(),
+            EagerExprVariant::EnumKindLiteral(value) => self.write(&format!("{value}")),
         }
     }
 

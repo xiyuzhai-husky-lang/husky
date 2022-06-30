@@ -156,7 +156,7 @@ impl<'a> TraceTokenBuilder<'a> {
     pub(crate) fn proc_branch_tokens(
         &mut self,
         stmt: &ProcStmt,
-        branch: &ProcConditionBranch,
+        branch: &ProcConditionFlowBranch,
         history: &Arc<History<'static>>,
     ) {
         match branch.variant {

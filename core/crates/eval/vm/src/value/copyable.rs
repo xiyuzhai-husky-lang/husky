@@ -257,8 +257,8 @@ impl Into<String> for CopyableValue {
         match self {
             CopyableValue::I32(i) => format!("{}", i),
             CopyableValue::F32(f) => format!("{}", f),
-            CopyableValue::B32(b) => format!("{:#032b}", b),
-            CopyableValue::B64(b) => format!("{:#064b}", b),
+            CopyableValue::B32(b) => format!("{}", b),
+            CopyableValue::B64(b) => format!("{}", b),
             CopyableValue::Bool(b) => format!("{}", b),
             CopyableValue::Void(_) => "()".into(),
             CopyableValue::EnumKind(enum_kind) => format!("{:?}", enum_kind.route),
@@ -271,8 +271,8 @@ impl Into<Cow<'static, str>> for CopyableValue {
         match self {
             CopyableValue::I32(i) => format!("{}", i).into(),
             CopyableValue::F32(f) => format!("{}", f).into(),
-            CopyableValue::B32(b) => format!("{:#032b}", b).into(),
-            CopyableValue::B64(b) => format!("{:#064b}", b).into(),
+            CopyableValue::B32(b) => format!("{}", b).into(),
+            CopyableValue::B64(b) => format!("{}", b).into(),
             CopyableValue::Bool(b) => format!("{}", b).into(),
             CopyableValue::Void(_) => "()".into(),
             CopyableValue::EnumKind(enum_kind) => format!("{:?}", enum_kind.route).into(),

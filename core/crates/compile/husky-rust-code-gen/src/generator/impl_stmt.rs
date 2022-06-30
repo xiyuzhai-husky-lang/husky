@@ -1,4 +1,4 @@
-mod impl_control_flow;
+mod impl_condition_flow;
 mod impl_loop;
 mod impl_match_pattern;
 
@@ -12,18 +12,16 @@ use word::RootIdentifier;
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_func_stmts(&mut self, stmts: &[Arc<FuncStmt>], indent: fold::Indent) {
+    pub(super) fn gen_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
         let indent_prev = self.indent;
-        self.indent = indent;
         for stmt in stmts {
             self.gen_func_stmt(stmt);
         }
         self.indent = indent_prev;
     }
 
-    pub(super) fn gen_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>], indent: fold::Indent) {
+    pub(super) fn gen_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
         let indent_prev = self.indent;
-        self.indent = indent;
         for stmt in stmts {
             self.gen_proc_stmt(stmt);
         }
@@ -31,7 +29,8 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     fn gen_func_stmt(&mut self, stmt: &FuncStmt) {
-        self.write_indent();
+        self.indent = stmt.indent;
+        self.indent();
         match stmt.variant {
             FuncStmtVariant::Init {
                 varname,
@@ -49,13 +48,13 @@ impl<'a> RustCodeGenerator<'a> {
             FuncStmtVariant::Match {
                 ref match_expr,
                 ref branches,
-            } => todo!(),
+            } => self.gen_func_match_pattern(match_expr, branches),
         }
-        self.write_newline();
+        self.newline();
     }
 
     fn gen_proc_stmt(&mut self, stmt: &ProcStmt) {
-        self.write_indent();
+        self.indent();
         match stmt.variant {
             ProcStmtVariant::Init {
                 varname,
@@ -83,21 +82,23 @@ impl<'a> RustCodeGenerator<'a> {
             }
             ProcStmtVariant::Return { ref result } => {
                 self.gen_expr(result);
-                self.write_newline();
+                self.newline();
             }
-            ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
+            ProcStmtVariant::ConditionFlow { ref branches } => {
+                self.gen_proc_condition_flow(branches)
+            }
             ProcStmtVariant::Loop {
                 ref loop_variant,
                 ref stmts,
             } => self.gen_loop_stmt(loop_variant, stmts),
             ProcStmtVariant::Break => {
                 self.write("break;");
-                self.write_newline()
+                self.newline()
             }
             ProcStmtVariant::Match {
                 ref match_expr,
                 ref branches,
-            } => todo!(),
+            } => self.gen_proc_match_pattern(match_expr, branches),
         }
     }
 
@@ -128,7 +129,11 @@ impl<'a> RustCodeGenerator<'a> {
         if let Some(bound) = &boundary.opt_bound {
             match boundary.kind {
                 BoundaryKind::UpperOpen => self.gen_expr(bound),
-                BoundaryKind::UpperClosed => todo!(),
+                BoundaryKind::UpperClosed => {
+                    self.write("(");
+                    self.gen_expr(bound);
+                    self.write(" + 1)");
+                }
                 BoundaryKind::LowerOpen => todo!(),
                 BoundaryKind::LowerClosed => todo!(),
             }

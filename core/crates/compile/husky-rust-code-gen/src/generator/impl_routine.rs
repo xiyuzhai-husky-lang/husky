@@ -27,7 +27,7 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write("&")
                     }
                 }
-                ParameterLiason::EvalRef => todo!(),
+                ParameterLiason::EvalRef => self.write("&'eval "),
                 ParameterLiason::Move => todo!(),
                 ParameterLiason::TempRefMut => todo!(),
                 ParameterLiason::MoveMut => todo!(),
@@ -39,7 +39,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.write(") -> ");
         self.gen_entity_route(output);
         self.write(" {\n");
-        self.gen_proc_stmts(stmts, 4);
+        self.gen_proc_stmts(stmts);
         self.write("}\n");
     }
 
@@ -77,7 +77,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.write(") -> ");
         self.gen_entity_route(output);
         self.write(" {\n");
-        self.gen_func_stmts(stmts, 4);
+        self.gen_func_stmts(stmts);
         self.write("}\n");
     }
 }

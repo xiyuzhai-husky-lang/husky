@@ -83,8 +83,8 @@ impl<'a> EagerParser<'a> {
         let mut branches = vec![];
         match condition_branch_kind {
             RawConditionBranchKind::If { condition } => {
-                branches.push(Arc::new(FuncConditionBranch {
-                    variant: FuncConditionBranchVariant::If {
+                branches.push(Arc::new(FuncConditionFlowBranch {
+                    variant: FuncConditionFlowBranchVariant::If {
                         condition: self.parse_eager_expr(condition)?,
                     },
                     stmts: self.parse_func_stmts(children)?,
@@ -120,8 +120,8 @@ impl<'a> EagerParser<'a> {
                         todo!()
                     }
                     RawConditionBranchKind::Else => {
-                        branches.push(Arc::new(FuncConditionBranch {
-                            variant: FuncConditionBranchVariant::Else,
+                        branches.push(Arc::new(FuncConditionFlowBranch {
+                            variant: FuncConditionFlowBranchVariant::Else,
                             stmts: self.parse_func_stmts(not_none!(item.opt_children))?,
                             range: stmt.range,
                             file: self.file,

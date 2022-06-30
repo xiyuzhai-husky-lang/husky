@@ -182,7 +182,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_proc_condition_flow(
         &self,
-        branches: &[Arc<ProcConditionBranch>],
+        branches: &[Arc<ProcConditionFlowBranch>],
     ) -> Avec<VMConditionBranch> {
         Arc::new(
             branches
