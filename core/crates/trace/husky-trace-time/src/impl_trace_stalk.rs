@@ -19,20 +19,20 @@ impl HuskyTraceTime {
         match trace.variant {
             TraceVariant::Main(ref block) => TraceStalkData {
                 extra_tokens: vec![
-                    husky_tracer_protocol::fade!(" = "),
+                    husky_trace_protocol::fade!(" = "),
                     self.eval_time().eval_feature_repr(block, sample_id).into(),
                 ],
             },
             TraceVariant::FeatureLazyStmt(ref stmt) => match stmt.variant {
                 FeatureLazyStmtVariant::Init { varname, ref value } => TraceStalkData {
                     extra_tokens: vec![
-                        husky_tracer_protocol::fade!(" = "),
+                        husky_trace_protocol::fade!(" = "),
                         self.eval_time().eval_feature_expr(value, sample_id).into(),
                     ],
                 },
                 FeatureLazyStmtVariant::Assert { ref condition } => TraceStalkData {
                     extra_tokens: vec![
-                        husky_tracer_protocol::fade!(" = "),
+                        husky_trace_protocol::fade!(" = "),
                         self.eval_time()
                             .eval_feature_expr(condition, sample_id)
                             .into(),
@@ -40,7 +40,7 @@ impl HuskyTraceTime {
                 },
                 FeatureLazyStmtVariant::Return { ref result } => TraceStalkData {
                     extra_tokens: vec![
-                        husky_tracer_protocol::fade!(" = "),
+                        husky_trace_protocol::fade!(" = "),
                         self.eval_time().eval_feature_expr(result, sample_id).into(),
                     ],
                 },
@@ -52,7 +52,7 @@ impl HuskyTraceTime {
             },
             TraceVariant::FeatureLazyExpr(ref expr) => TraceStalkData {
                 extra_tokens: vec![
-                    husky_tracer_protocol::fade!(" = "),
+                    husky_trace_protocol::fade!(" = "),
                     self.eval_time().eval_feature_expr(expr, sample_id).into(),
                 ],
             },
@@ -61,7 +61,7 @@ impl HuskyTraceTime {
                 ref argument,
             } => TraceStalkData {
                 extra_tokens: vec![
-                    husky_tracer_protocol::fade!(" = "),
+                    husky_trace_protocol::fade!(" = "),
                     self.eval_time()
                         .eval_feature_expr(argument, sample_id)
                         .into(),

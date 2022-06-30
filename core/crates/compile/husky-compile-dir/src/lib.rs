@@ -1,10 +1,15 @@
 use pack_semantics::Package;
-use std::path::{Path, PathBuf};
+use print_utils::p;
+use std::{
+    env,
+    path::{Path, PathBuf},
+};
 use word::snake_to_dash;
 
 pub fn get_rust_dir(pack: &Package) -> PathBuf {
-    const RUST_ROOT: &str = "/home/xiyuzhai/Documents/husky/rust-gen";
-    let rust_dir: PathBuf = [RUST_ROOT, &snake_to_dash(&pack.ident)].iter().collect();
+    let husky_dir = env::var("HUSKY_DIR").unwrap();
+    let rust_root = format!("{husky_dir}/.compiled/crates");
+    let rust_dir: PathBuf = [rust_root, snake_to_dash(&pack.ident)].iter().collect();
     mkdir(&rust_dir);
     rust_dir
 }

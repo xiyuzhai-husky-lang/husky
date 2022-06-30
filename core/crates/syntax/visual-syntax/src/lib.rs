@@ -1,6 +1,6 @@
 #![feature(const_fn_trait_bound, const_fn_fn_ptr_basics)]
 use entity_route::EntityRoutePtr;
-use husky_tracer_protocol::*;
+use husky_trace_protocol::*;
 use vm::*;
 
 pub struct StaticVisualizer {

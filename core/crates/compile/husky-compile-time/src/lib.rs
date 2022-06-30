@@ -17,7 +17,7 @@ pub use infer_entity_route::*;
 pub use infer_qualifier::*;
 pub use infer_total::*;
 pub use pack_semantics::PackageQueryGroup;
-pub use rust_gen::RustGenQueryGroup;
+pub use rust_gen::RustCodeGenQueryGroup;
 pub use semantics_entity::EntityDefnQueryGroup;
 pub use token::TokenQueryGroup;
 pub use token::TokenSalsaQueryGroup;

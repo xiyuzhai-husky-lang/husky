@@ -2,7 +2,7 @@ use ast::{CasePattern, CasePatternVariant};
 use entity_route::EntityRouteKind;
 use print_utils::emsg_once;
 use semantics_error::*;
-use vec_map::VecMap;
+use vec_map::{VecMap, VecPairMap};
 
 use crate::*;
 
@@ -91,10 +91,16 @@ impl EntityDefn {
     fn immediate_dependees(
         &self,
         db: &dyn EntityDefnQueryGroup,
-    ) -> VecMap<EntityRoutePtr, (EntityRoutePtr, EntityDefnUid)> {
+    ) -> VecPairMap<EntityRoutePtr, EntityDefnUid> {
         let mut builder = DependeeMapBuilder::new(db);
         match self.variant {
-            EntityDefnVariant::Module { .. } => Default::default(),
+            EntityDefnVariant::Module {
+                ref module_items, ..
+            } => {
+                for item in module_items.iter() {
+                    builder.push(item.base_route)
+                }
+            }
             EntityDefnVariant::Feature { ty, ref defn_repr } => {
                 builder.push(ty.route);
                 extract_defn_repr_dependees(defn_repr, &mut builder);

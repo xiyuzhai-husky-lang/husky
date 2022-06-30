@@ -1,5 +1,5 @@
 use super::*;
-use husky_tracer_protocol::*;
+use husky_trace_protocol::*;
 use liason::{MemberLiason, ParameterLiason};
 use std::any::TypeId;
 use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};

@@ -73,19 +73,18 @@ fn subroute_table(
 
 fn subscopes(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    scope: EntityRoutePtr,
+    entity_route: EntityRoutePtr,
 ) -> Arc<Vec<EntityRoutePtr>> {
-    Arc::new(
-        db.subroute_table(scope)
-            .map_or(Vec::new(), |table| table.subroute_iter(db, scope).collect()),
-    )
+    Arc::new(db.subroute_table(entity_route).map_or(Vec::new(), |table| {
+        table.subroute_iter(db, entity_route).collect()
+    }))
 }
 
 fn entity_kind(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    scope: EntityRoutePtr,
+    entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResult<EntityKind> {
-    entity_kind_from_entity_route_kind(db, scope.kind)
+    entity_kind_from_entity_route_kind(db, entity_route.kind)
 }
 
 fn entity_kind_from_entity_route_kind(
@@ -204,13 +203,17 @@ pub trait EntitySyntaxQueryGroup:
 {
     fn subroute_result(
         &self,
-        parent_scope: EntityRoutePtr,
+        parent_entity_route: EntityRoutePtr,
         ident: CustomIdentifier,
         generics: ThinVec<SpatialArgument>,
     ) -> EntitySyntaxResult<EntityRoutePtr> {
-        let parent_subscope_table = self.subroute_table(parent_scope)?;
+        let parent_subscope_table = self.subroute_table(parent_entity_route)?;
         if parent_subscope_table.has_subscope(ident, &generics) {
-            Ok(self.intern_entity_route(EntityRoute::subroute(parent_scope, ident, generics)))
+            Ok(self.intern_entity_route(EntityRoute::subroute(
+                parent_entity_route,
+                ident,
+                generics,
+            )))
         } else {
             Err(EntitySyntaxError {
                 kind: EntitySyntaxErrorKind::Query,

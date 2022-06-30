@@ -6,7 +6,7 @@ pub use ty::*;
 
 use avec::Avec;
 use entity_route::EntityRoutePtr;
-use husky_tracer_protocol::*;
+use husky_trace_protocol::*;
 use print_utils::p;
 use semantics_eager::FuncStmt;
 use semantics_lazy::LazyStmt;

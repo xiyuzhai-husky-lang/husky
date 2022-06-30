@@ -2,7 +2,7 @@ mod evaluator;
 mod session;
 
 pub use evaluator::*;
-use husky_tracer_protocol::{SampleId, VisualData};
+use husky_trace_protocol::{SampleId, VisualData};
 pub use session::*;
 
 use feature_gen::*;

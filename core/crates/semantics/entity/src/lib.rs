@@ -140,7 +140,7 @@ impl EntityDefn {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub enum EntityDefnVariant {
     Main(MainDefn),
     Module {
@@ -209,6 +209,71 @@ pub enum EntityDefnVariant {
     TraitAssociatedConstSizeImpl {
         value: usize,
     },
+}
+
+impl std::fmt::Debug for EntityDefnVariant {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Main(arg0) => f.write_str("Main { ... }"),
+            Self::Module { module_items } => f.write_str("Module { ... }"),
+            Self::Feature { ty, defn_repr } => f.write_str("Feature { ... }"),
+            Self::Function {
+                spatial_parameters,
+                parameters,
+                output,
+                source,
+            } => f.write_str("Function { ... }"),
+            Self::Method {
+                spatial_parameters,
+                this_liason,
+                parameters,
+                output_ty,
+                output_liason,
+                method_defn_kind,
+                opt_source,
+            } => f.write_str("Method { ... }"),
+            Self::Func {
+                spatial_parameters,
+                parameters,
+                output,
+                stmts,
+            } => f.write_str("Func { ... }"),
+            Self::Proc {
+                generic_parameters,
+                parameters,
+                output,
+                stmts,
+            } => f.write_str("Proc { ... }"),
+            Self::Ty {
+                generic_parameters,
+                ty_members,
+                variants,
+                kind,
+                trait_impls,
+                members,
+                opt_type_call,
+                opt_visualizer_source,
+            } => f.write_str("Ty { ... }"),
+            Self::Trait {
+                generic_parameters,
+                members,
+            } => f.write_str("Trait { ... }"),
+            Self::EnumVariant { ident, variant } => f.write_str("EnumVariant { ... }"),
+            Self::Builtin => f.write_str("Builtin { ... }"),
+            Self::TyField {
+                ty,
+                field_variant,
+                liason,
+                opt_linkage,
+            } => f.write_str("TyField"),
+            Self::TraitAssociatedTypeImpl { trai, ty } => {
+                f.write_str("TraitAssociatedTypeImpl { ... }")
+            }
+            Self::TraitAssociatedConstSizeImpl { value } => {
+                f.write_str("TraitAssociatedConstSizeImpl { ... }")
+            }
+        }
+    }
 }
 
 impl EntityDefnVariant {

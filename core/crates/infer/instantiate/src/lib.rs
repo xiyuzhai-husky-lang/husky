@@ -20,14 +20,14 @@ impl<'a> Instantiator<'a> {
             .position(|p| p.ident.ident == ident)
     }
 
-    pub fn instantiate_entity_route(&self, src_scope: EntityRoutePtr) -> SpatialArgument {
-        match self.db.entity_kind(src_scope).unwrap() {
-            EntityKind::Module => SpatialArgument::EntityRoute(src_scope),
+    pub fn instantiate_entity_route(&self, src_entity_route: EntityRoutePtr) -> SpatialArgument {
+        match self.db.entity_kind(src_entity_route).unwrap() {
+            EntityKind::Module => SpatialArgument::EntityRoute(src_entity_route),
             EntityKind::EnumLiteral => todo!(),
             _ => {
-                let (kind, mut generics) = match src_scope.kind {
+                let (kind, mut generics) = match src_entity_route.kind {
                     EntityRouteKind::Package { .. } => panic!(),
-                    EntityRouteKind::Root { ident } => (src_scope.kind, thin_vec![]),
+                    EntityRouteKind::Root { ident } => (src_entity_route.kind, thin_vec![]),
                     EntityRouteKind::Child { parent, ident } => (
                         EntityRouteKind::Child {
                             parent: self.instantiate_entity_route(parent).take_entity_route(),
@@ -40,7 +40,7 @@ impl<'a> Instantiator<'a> {
                         if let Some(idx) = self.find_generic(ident) {
                             match self.dst_generics[idx] {
                                 SpatialArgument::Const(value) => {
-                                    should_eq!(src_scope.spatial_arguments.len(), 0);
+                                    should_eq!(src_entity_route.spatial_arguments.len(), 0);
                                     return SpatialArgument::Const(value);
                                 }
                                 SpatialArgument::EntityRoute(scope) => {
@@ -60,7 +60,9 @@ impl<'a> Instantiator<'a> {
                     } => todo!(),
                 };
                 // convention: A<B,C> = A<B><C>
-                generics.extend(self.instantiate_generic_arguments(&src_scope.spatial_arguments));
+                generics.extend(
+                    self.instantiate_generic_arguments(&src_entity_route.spatial_arguments),
+                );
                 SpatialArgument::EntityRoute(self.db.intern_entity_route(EntityRoute {
                     kind,
                     temporal_arguments: thin_vec![],

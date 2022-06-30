@@ -1,8 +1,8 @@
-use husky_tracer::*;
+use husky_debugger::*;
 
 #[tokio::main]
 async fn main() {
-    let flags = flags::HuskyTracerCommand::from_env().expect("invalid arguments");
+    let flags = flags::HuskyDebuggerCommand::from_env().expect("invalid arguments");
     if flags.compile {
         todo!()
     } else {

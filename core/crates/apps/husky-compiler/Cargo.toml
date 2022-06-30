@@ -19,8 +19,9 @@ file = { path = "../../syntax/file", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
-compile-time-dir = { path = "../../compile/dir", version = "0.0.0" }
+husky-compile-dir = { path = "../../compile/husky-compile-dir", version = "0.0.0" }
 rust-gen = { path = "../../compile/rust-gen", version = "0.0.0" }
 semantics-error = { path = "../../semantics/error", version = "0.0.0" }
 pack-semantics = { path = "../../semantics/pack", version = "0.0.0" }
+semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 static-root = { path = "../../static/static-root", version = "0.0.0" }

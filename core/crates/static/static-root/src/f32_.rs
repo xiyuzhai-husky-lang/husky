@@ -72,7 +72,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
 };
 
 pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
-    name: "sgn",
+    name: "sgnx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
@@ -84,16 +84,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 let f = values[0].take_copyable().take_f32();
-                Ok(TempValue::Copyable(
-                    (if f > 0. {
-                        1
-                    } else if f == 0. {
-                        0
-                    } else {
-                        -1
-                    })
-                    .into(),
-                ))
+                Ok(TempValue::Copyable(f.sgnx().into()))
             },
             1
         ))),

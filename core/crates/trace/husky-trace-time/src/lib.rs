@@ -15,7 +15,7 @@ use feature_gen::*;
 use file::FilePtr;
 use husky_compile_time::*;
 use husky_eval_time::*;
-use husky_tracer_protocol::*;
+use husky_trace_protocol::*;
 use impl_lines::*;
 use print_utils::p;
 use semantics_eager::*;

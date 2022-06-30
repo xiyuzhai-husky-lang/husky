@@ -20,7 +20,7 @@ semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
-compile-time-dir = { path = "../../compile/dir", version = "0.0.0" }
+husky-compile-dir = { path = "../husky-compile-dir", version = "0.0.0" }
 ast = { path = "../../syntax/ast", version = "0.0.0" }
 infer-decl = { path = "../../infer/decl", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }

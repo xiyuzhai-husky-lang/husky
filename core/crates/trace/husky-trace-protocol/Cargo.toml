@@ -1,5 +1,5 @@
 [package]
-name = "husky-tracer-protocol"
+name = "husky-trace-protocol"
 version = "0.0.0"
 edition = "2021"
 

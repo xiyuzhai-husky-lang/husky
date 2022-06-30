@@ -8,7 +8,7 @@ pub(crate) struct DebuggerConfig {
 
 impl DebuggerConfig {
     pub(crate) fn from_env() -> Self {
-        match flags::HuskyTracerCommand::from_env() {
+        match flags::HuskyDebuggerCommand::from_env() {
             Ok(flags) => Self {
                 verbose: flags.verbose,
                 opt_sample_id: flags.sample_id,

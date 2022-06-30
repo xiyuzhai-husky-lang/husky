@@ -16,11 +16,17 @@ pub trait EntityDefnQueryGroup:
     fn main_defn(&self, main_file: file::FilePtr) -> SemanticResultArc<MainDefn>;
     fn entity_defn(&self, route: EntityRoutePtr) -> SemanticResultArc<EntityDefn>;
     fn member_defn(&self, route: EntityRoutePtr) -> Arc<EntityDefn>;
-    fn entity_immediate_dependees(&self, scope: EntityRoutePtr) -> SemanticResultArc<DependeeMap>;
-    fn entity_dependees(&self, scope: EntityRoutePtr) -> SemanticResultArc<DependeeMap>;
-    fn subentity_defns(&self, scope: EntityRoutePtr) -> SemanticResultArc<Vec<Arc<EntityDefn>>>;
-    fn entity_defn_uid(&self, scope: EntityRoutePtr) -> EntityDefnUid;
-    fn entity_uid(&self, scope: EntityRoutePtr) -> EntityUid;
+    fn entity_immediate_dependees(
+        &self,
+        entity_route: EntityRoutePtr,
+    ) -> SemanticResultArc<DependeeMap>;
+    fn entity_dependees(&self, entity_route: EntityRoutePtr) -> SemanticResultArc<DependeeMap>;
+    fn subentity_defns(
+        &self,
+        entity_route: EntityRoutePtr,
+    ) -> SemanticResultArc<Vec<Arc<EntityDefn>>>;
+    fn entity_defn_uid(&self, entity_route: EntityRoutePtr) -> EntityDefnUid;
+    fn entity_uid(&self, entity_route: EntityRoutePtr) -> EntityUid;
 }
 
 pub trait StoreEntityRoute {

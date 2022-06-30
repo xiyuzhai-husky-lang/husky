@@ -4,7 +4,7 @@ use word::CustomIdentifier;
 
 use super::*;
 
-impl<'a> RustGenerator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_proc_defn(
         &mut self,
         ident: CustomIdentifier,

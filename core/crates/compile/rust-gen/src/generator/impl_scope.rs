@@ -2,9 +2,9 @@ use entity_route::*;
 
 use super::*;
 
-impl<'a> RustGenerator<'a> {
-    pub(super) fn gen_entity_route(&mut self, scope: EntityRoutePtr) {
-        match scope.kind {
+impl<'a> RustCodeGenerator<'a> {
+    pub(super) fn gen_entity_route(&mut self, entity_route: EntityRoutePtr) {
+        match entity_route.kind {
             EntityRouteKind::Root { ident } => self.result += &ident,
             EntityRouteKind::Package { .. } => self.write("crate"),
             EntityRouteKind::Child { parent, ident } => {
@@ -21,13 +21,13 @@ impl<'a> RustGenerator<'a> {
                 ident,
             } => todo!(),
         }
-        if scope.spatial_arguments.len() > 0 {
+        if entity_route.spatial_arguments.len() > 0 {
             self.write("<");
-            for i in 0..scope.spatial_arguments.len() {
+            for i in 0..entity_route.spatial_arguments.len() {
                 if i > 0 {
                     self.write(", ")
                 }
-                match scope.spatial_arguments[i] {
+                match entity_route.spatial_arguments[i] {
                     SpatialArgument::Const(_) => todo!(),
                     SpatialArgument::EntityRoute(entity_route) => {
                         self.gen_entity_route(entity_route)

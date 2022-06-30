@@ -10,7 +10,7 @@ mod utils;
 use cell::RefCell;
 use components::*;
 use context::*;
-use husky_tracer_protocol::*;
+use husky_trace_protocol::*;
 use init::init_debugging_env;
 use services::*;
 use std::{any::TypeId, rc::Rc};

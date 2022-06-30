@@ -134,16 +134,16 @@ eager expr:
     45:18..45:23   180.0                  Copyable     f32
     47:14..47:18   this                   PureRef      mnist_classifier005::geom2d::Vector2d
     47:14..47:19   this.                  Copyable     f32
-    47:14..47:26   this.y.sgn()           Copyable     i32
-    47:14..47:33   this.y.sgn() as f32    Copyable     f32
-    47:37..47:46   cos_value              Copyable     f32
-    47:14..47:34   this.y.sgn() as f32)   Copyable     f32
-    47:37..47:53   cos_value.acos()       Copyable     f32
-    47:14..47:53   this.y.sgn() as f32) * cos_value.acos()   Copyable     f32
-    47:56..47:61   180.0                  Copyable     f32
-    47:14..47:61   this.y.sgn() as f32) * cos_value.acos() * 180.0   Copyable     f32
-    47:64..47:73   3.1415926              Copyable     f32
-    47:14..47:73   this.y.sgn() as f32) * cos_value.acos() * 180.0 / 3.1415926   Copyable     f32
+    47:14..47:27   this.y.sgnx()          Copyable     i32
+    47:14..47:34   this.y.sgnx() as f32   Copyable     f32
+    47:38..47:47   cos_value              Copyable     f32
+    47:14..47:35   this.y.sgnx() as f32)   Copyable     f32
+    47:38..47:54   cos_value.acos()       Copyable     f32
+    47:14..47:54   this.y.sgnx() as f32) * cos_value.acos()   Copyable     f32
+    47:57..47:62   180.0                  Copyable     f32
+    47:14..47:62   this.y.sgnx() as f32) * cos_value.acos() * 180.0   Copyable     f32
+    47:65..47:74   3.1415926              Copyable     f32
+    47:14..47:74   this.y.sgnx() as f32) * cos_value.acos() * 180.0 / 3.1415926   Copyable     f32
     55:17..55:21   this                   PureRef      mnist_classifier005::geom2d::Vector2d
     55:28..55:33   other                  PureRef      mnist_classifier005::geom2d::Vector2d
     55:17..55:34   this.cross(other)      Copyable     f32
@@ -157,7 +157,7 @@ eager expr:
     58:20..58:41   this.dot(other) > 0.0   Copyable     bool
     59:13..59:14   0                      Copyable     i32
     61:13..61:18   cross                  Copyable     f32
-    61:13..61:24   cross.sgn()            Copyable     i32
+    61:13..61:25   cross.sgnx()           Copyable     i32
     64:21..64:25   this                   PureRef      mnist_classifier005::geom2d::Vector2d
     64:21..64:32   this.norm()            Copyable     f32
     65:16..65:25   this_norm              Copyable     f32

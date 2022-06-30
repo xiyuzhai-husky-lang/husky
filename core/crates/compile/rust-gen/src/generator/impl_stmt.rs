@@ -1,3 +1,7 @@
+mod impl_control_flow;
+mod impl_loop;
+mod impl_match_pattern;
+
 use entity_route::EntityRoutePtr;
 use semantics_eager::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
@@ -7,7 +11,7 @@ use word::RootIdentifier;
 
 use super::*;
 
-impl<'a> RustGenerator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_func_stmts(&mut self, stmts: &[Arc<FuncStmt>], indent: fold::Indent) {
         let indent_prev = self.indent;
         self.indent = indent;
@@ -61,7 +65,7 @@ impl<'a> RustGenerator<'a> {
                 self.write(match init_kind {
                     InitKind::Let => "let ",
                     InitKind::Var => "let mut ",
-                    InitKind::Decl => todo!(),
+                    InitKind::Decl => "let ",
                 });
                 self.write(&varname.ident);
                 self.write(" = ");
@@ -83,97 +87,13 @@ impl<'a> RustGenerator<'a> {
             }
             ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
             ProcStmtVariant::Loop {
-                loop_variant: ref loop_kind,
+                ref loop_variant,
                 ref stmts,
-            } => match loop_kind {
-                LoopVariant::For {
-                    frame_var,
-                    initial_boundary,
-                    final_boundary,
-                    step,
-                } => {
-                    if step.0 == 1 {
-                        self.write("for ");
-                        self.write(&frame_var.ident);
-                        self.write(" in ");
-                        self.gen_range_start(initial_boundary);
-                        self.write("..");
-                        self.gen_range_end(final_boundary);
-                    } else if step.0 == -1 {
-                        self.write("for ");
-                        self.write(&frame_var.ident);
-                        self.write(" in ");
-                        self.gen_range_start(final_boundary);
-                        self.write("..");
-                        self.gen_range_end(initial_boundary);
-                    } else {
-                        todo!()
-                    }
-                    self.write(" {\n");
-                    self.gen_proc_stmts(stmts, self.indent + 4);
-                    self.write_indent();
-                    self.write("}\n")
-                }
-                LoopVariant::ForExt {
-                    frame_var,
-                    final_boundary,
-                    step,
-                } => {
-                    self.write("while ");
-                    self.write(&frame_var.ident);
-                    self.write(match final_boundary.kind {
-                        BoundaryKind::UpperOpen => " < ",
-                        BoundaryKind::UpperClosed => todo!(),
-                        BoundaryKind::LowerOpen => " > ",
-                        BoundaryKind::LowerClosed => todo!(),
-                    });
-                    if let Some(bound) = &final_boundary.opt_bound {
-                        self.gen_expr(bound)
-                    } else {
-                        self.write("0")
-                    }
-                    self.write(" {\n");
-                    self.gen_proc_stmts(stmts, self.indent + 4);
-                    self.write_indent();
-                    self.write("    ");
-                    self.write(&frame_var.ident);
-                    if step.0 > 0 {
-                        self.write(" += ");
-                        self.write(&step.0.to_string());
-                    } else if step.0 < 0 {
-                        self.write(" -= ");
-                        self.write(&(-step.0).to_string());
-                    } else {
-                        panic!()
-                    }
-                    self.write(";\n");
-                    self.write_indent();
-                    self.write("}\n")
-                }
-                LoopVariant::While { condition } => {
-                    self.write("while ");
-                    self.gen_condition(condition);
-                    self.write(" {\n");
-                    self.gen_proc_stmts(stmts, self.indent + 4);
-                    self.write_indent();
-                    self.write("}\n")
-                }
-                LoopVariant::DoWhile { condition } => {
-                    self.write("loop {\n");
-                    self.gen_proc_stmts(stmts, self.indent + 4);
-                    self.write_indent();
-                    self.write("    if !(");
-                    self.gen_condition(condition);
-                    self.write(") {\n");
-                    self.write_indent();
-                    self.write("        break;\n");
-                    self.write_indent();
-                    self.write("    }\n");
-                    self.write_indent();
-                    self.write("}\n")
-                }
-            },
-            ProcStmtVariant::Break => todo!(),
+            } => self.gen_loop_stmt(loop_variant, stmts),
+            ProcStmtVariant::Break => {
+                self.write("break;");
+                self.write_newline()
+            }
             ProcStmtVariant::Match {
                 ref match_expr,
                 ref branches,

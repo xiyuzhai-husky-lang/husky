@@ -97,8 +97,8 @@ impl From<usize> for SpatialArgument {
 }
 
 impl From<EntityRoutePtr> for SpatialArgument {
-    fn from(scope: EntityRoutePtr) -> Self {
-        SpatialArgument::EntityRoute(scope)
+    fn from(entity_route: EntityRoutePtr) -> Self {
+        SpatialArgument::EntityRoute(entity_route)
     }
 }
 

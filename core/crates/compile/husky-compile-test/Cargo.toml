@@ -44,7 +44,7 @@ diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
 linkage-table = { path = "../linkage-table", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 husky-atom = { path = "../../syntax/husky-atom", version = "0.0.0" }
-husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
 thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }
 static-defn = { path = "../../static/static-defn", version = "0.0.0" }
 static-root = { path = "../../static/static-root", version = "0.0.0" }

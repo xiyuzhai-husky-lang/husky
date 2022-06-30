@@ -1,5 +1,5 @@
 [package]
-name = "compile-time-dir"
+name = "husky-compile-dir"
 version = "0.0.0"
 description = "TBD"
 license = "MIT OR Apache-2.0"
