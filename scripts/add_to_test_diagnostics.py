@@ -3,7 +3,7 @@
 import os
 import shutil
 
-husky_dir = "/home/xiyuzhai/Documents/husky"
+husky_dir = os.getenv("HUSKY_DIR")
 assert os.getcwd() == husky_dir
 
 mnist_dir = os.path.join(husky_dir, "projects/cv/mnist-classifier")

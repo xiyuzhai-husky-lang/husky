@@ -1,7 +1,7 @@
-projects_dir=/home/xiyuzhai/Documents/husky/projects
-examples_dir=/home/xiyuzhai/Documents/husky/examples
-test_examples_dir=/home/xiyuzhai/Documents/husky/test-examples
-temp_dir=/home/xiyuzhai/Documents/husky/examples/good/input
+projects_dir=${HUSKY_DIR}/projects
+examples_dir=${HUSKY_DIR}/examples
+test_examples_dir=${HUSKY_DIR}/test-examples
+temp_dir=${HUSKY_DIR}/examples/good/input
 
 
 test-examples:
