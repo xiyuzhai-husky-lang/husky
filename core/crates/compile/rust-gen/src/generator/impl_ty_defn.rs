@@ -4,7 +4,7 @@ use word::CustomIdentifier;
 
 use super::*;
 
-impl<'a> RustGenerator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_enum_defn(&mut self, tyname: CustomIdentifier, variants: &[Arc<EntityDefn>]) {
         self.write("enum ");
         self.write(&tyname);
@@ -169,7 +169,7 @@ impl<'a> RustGenerator<'a> {
                     }
                     self.write("    }\n");
                 }
-                _ => panic!(),
+                _ => (),
             }
         }
         self.write("}\n");

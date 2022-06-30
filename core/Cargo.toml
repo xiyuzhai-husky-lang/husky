@@ -11,6 +11,7 @@ members = [
     "crates/apps/*",
     "crates/static/static-root",
     "crates/static/static-defn",
+    "crates/static/__stdx",
     "crates/static/domains/ml/*",
     "crates/try",
 ]

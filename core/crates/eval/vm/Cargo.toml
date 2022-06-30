@@ -21,5 +21,5 @@ word = { path = "../../syntax/word", version = "0.0.0" }
 entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
-husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
 thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }

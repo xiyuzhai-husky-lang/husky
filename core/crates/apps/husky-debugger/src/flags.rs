@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 xflags::xflags! {
-    cmd husky-tracer-command
+    cmd husky-debugger-command
         required dir: PathBuf
     {
         optional -v, --verbose

@@ -1,7 +1,7 @@
 use super::*;
 use entity_route::{lazy_entity_route, AllocateUniqueScope};
 use husky_eval_time::{compile_time, parse_entity_route};
-use husky_tracer_protocol::*;
+use husky_trace_protocol::*;
 use std::{any::TypeId, sync::Arc};
 use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use vm::*;

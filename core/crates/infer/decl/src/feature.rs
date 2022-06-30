@@ -9,9 +9,9 @@ pub struct FeatureDecl {
 
 pub(crate) fn feature_decl(
     db: &dyn DeclQueryGroup,
-    scope: EntityRoutePtr,
+    entity_route: EntityRoutePtr,
 ) -> InferResultArc<FeatureDecl> {
-    let source = db.entity_locus(scope)?;
+    let source = db.entity_locus(entity_route)?;
     match source {
         EntityLocus::StaticModuleItem(data) => todo!(),
         EntityLocus::WithinBuiltinModule => todo!(),

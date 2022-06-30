@@ -1,10 +1,10 @@
 [package]
-name = "husky-tracer"
+name = "husky-debugger"
 version = "0.0.0"
 edition = "2021"
 
 [[bin]]
-name = "husky-tracer"
+name = "husky-debugger"
 path = "src/bin/main.rs"
 
 [dependencies]
@@ -38,7 +38,7 @@ entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
 token = { path = "../../syntax/token", version = "0.0.0" }
-husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
 text = { path = "../../syntax/text", version = "0.0.0" }
 husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
 trace = { path = "../../trace/trace", version = "0.0.0" }

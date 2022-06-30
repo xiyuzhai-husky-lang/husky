@@ -6,7 +6,7 @@ mod impl_visualize;
 mod indicator;
 mod sheet;
 
-use husky_tracer_protocol::SampleId;
+use husky_trace_protocol::SampleId;
 pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 

@@ -2,7 +2,7 @@ use super::*;
 use semantics_eager::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use vm::*;
 
-impl<'a> RustGenerator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_expr(&mut self, expr: &EagerExpr) {
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => self.write(&varname),
@@ -13,7 +13,11 @@ impl<'a> RustGenerator<'a> {
             }
             EagerExprVariant::EntityRoute { route } => self.write(&format!("{:?}", route)),
             EagerExprVariant::PrimitiveLiteral(value) => self.gen_copyable_literal(value),
-            EagerExprVariant::Bracketed(_) => todo!(),
+            EagerExprVariant::Bracketed(ref expr) => {
+                self.write("(");
+                self.gen_expr(expr);
+                self.write(")")
+            }
             EagerExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
@@ -23,8 +27,11 @@ impl<'a> RustGenerator<'a> {
                     self.write(opr.spaced_code());
                     self.gen_expr(&opds[1]);
                 }
-                EagerOpnVariant::Prefix { opr, this_ty: this } => todo!(),
-                EagerOpnVariant::Suffix { opr, this_ty: this } => {
+                EagerOpnVariant::Prefix { opr, .. } => {
+                    self.write(&opr.code());
+                    self.gen_expr(&opds[0]);
+                }
+                EagerOpnVariant::Suffix { opr, .. } => {
                     self.gen_expr(&opds[0]);
                     self.write(&opr.code());
                 }

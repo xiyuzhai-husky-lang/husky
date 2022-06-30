@@ -4,7 +4,7 @@ use super::*;
 use dev_utils::static_dev_src;
 use eval_feature::EvalFeature;
 use feature_gen::FeatureExpr;
-use husky_tracer_protocol::Label;
+use husky_trace_protocol::Label;
 use static_defn::*;
 use vm::{EvalResult, EvalValue, EvalValueResult, Linkage, ModelLinkage, OwnedValue};
 

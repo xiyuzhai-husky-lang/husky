@@ -2,7 +2,7 @@ use crate::*;
 use check_utils::should_eq;
 use cyclic_slice::CyclicSlice;
 use feature_gen::*;
-use husky_tracer_protocol::VisualData;
+use husky_trace_protocol::VisualData;
 use print_utils::{epin, msg_once, p};
 use semantics_lazy::LazyStmt;
 use std::{iter::zip, sync::Arc};

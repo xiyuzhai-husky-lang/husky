@@ -35,7 +35,7 @@ pub use stack::*;
 pub use value::*;
 
 use error::*;
-use husky_tracer_protocol::*;
+use husky_trace_protocol::*;
 use std::sync::Arc;
 use word::CustomIdentifier;
 

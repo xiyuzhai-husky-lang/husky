@@ -16,6 +16,7 @@ pub use i32_::*;
 pub use std_::*;
 pub use vec::*;
 
+use __stdx::*;
 use dev_utils::StaticDevSource;
 use dev_utils::{dev_src, static_dev_src};
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};

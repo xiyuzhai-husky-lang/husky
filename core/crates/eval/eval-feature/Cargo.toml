@@ -38,7 +38,7 @@ semantics-eager = { path = "../../semantics/eager", version = "0.0.0" }
 pack-semantics = { path = "../../semantics/pack", version = "0.0.0" }
 semantics-entity = { path = "../../semantics/entity", version = "0.0.0" }
 defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
-husky-tracer-protocol = { path = "../../trace/husky-tracer-protocol", version = "0.0.0" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
 static-defn = { path = "../../static/static-defn", version = "0.0.0" }
 datasets-protocol = { path = "../../static/domains/ml/datasets-protocol", version = "0.0.0" }
 visualizer-gen = { path = "../visualizer-gen", version = "0.0.0" }

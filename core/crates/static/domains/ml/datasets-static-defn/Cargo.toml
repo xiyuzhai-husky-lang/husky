@@ -19,6 +19,6 @@ visual-syntax = { path = "../../../../syntax/visual-syntax", version = "0.0.0" }
 entity-kind = { path = "../../../../syntax/entity-kind", version = "0.0.0" }
 static-defn = { path = "../../../static-defn", version = "0.0.0" }
 liason = { path = "../../../../semantics/liason", version = "0.0.0" }
-husky-tracer-protocol = { path = "../../../../trace/husky-tracer-protocol", version = "0.0.0" }
+husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol", version = "0.0.0" }
 husky-eval-time = { path = "../../../../eval/husky-eval-time", version = "0.0.0" }
 datasets-protocol = { path = "../datasets-protocol", version = "0.0.0" }

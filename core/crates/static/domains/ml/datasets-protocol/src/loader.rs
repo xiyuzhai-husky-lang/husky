@@ -1,5 +1,5 @@
 use crate::*;
-use husky_tracer_protocol::SampleId;
+use husky_trace_protocol::SampleId;
 
 pub trait LoadSample<'eval>: std::fmt::Debug + Send + Sync + 'eval {
     fn len(&self) -> usize;

@@ -1,6 +1,6 @@
 use crate::*;
 use entity_kind::RoutineKind;
-use husky_tracer_protocol::SampleId;
+use husky_trace_protocol::SampleId;
 use liason::OutputLiason;
 use std::sync::Arc;
 use vm::{routine_linkage, EvalValue, OwnedValue, SpecificRoutineLinkage, TempValue};

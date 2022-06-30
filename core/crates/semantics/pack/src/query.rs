@@ -21,7 +21,7 @@ fn package(db: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResu
     };
     Ok(Arc::new(Package {
         ident,
-        subentity_defns: db.subentity_defns(module)?,
+        subentities: db.subentity_defns(module)?,
         main_defn: db.main_defn(main_file)?,
         config: db.config(main_file)?,
     }))

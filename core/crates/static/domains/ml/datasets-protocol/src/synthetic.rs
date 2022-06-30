@@ -5,7 +5,7 @@ pub use synthetic_iter::*;
 pub use synthetic_loader::*;
 
 use super::*;
-use husky_tracer_protocol::SampleId;
+use husky_trace_protocol::SampleId;
 use vm::*;
 
 pub trait SyntheticDataset<'eval>: AnyValueDyn<'eval> + 'eval {

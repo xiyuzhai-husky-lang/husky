@@ -1,7 +1,7 @@
 use crate::*;
 use entity_route::EntityRoutePtr;
 use feature_gen::*;
-use husky_tracer_protocol::VisualData;
+use husky_trace_protocol::VisualData;
 use print_utils::{epin, msg_once, p};
 use semantics_entity::{CallFormSource, EntityDefnVariant};
 use semantics_lazy::LazyStmt;
