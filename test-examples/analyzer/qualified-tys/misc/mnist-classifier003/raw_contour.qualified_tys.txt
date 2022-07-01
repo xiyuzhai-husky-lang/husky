@@ -123,7 +123,7 @@ eager expr:
     106:21..106:36 Direction::DOWN        Copyable     mnist_classifier003::raw_contour::Direction
     114:9..114:16  contour                PureRef      mnist_classifier003::raw_contour::RawContour
     114:9..114:17  contour.               PureRef      Vec<mnist_classifier003::geom2d::Point2d>
-    114:9..114:29  contour.points.len()   Copyable     i32
+    114:9..114:30  contour.points.ilen()   Copyable     i32
     115:10..115:17 contour                PureRef      mnist_classifier003::raw_contour::RawContour
     115:25..115:26 N                      Copyable     i32
     115:27..115:28 2                      Copyable     i32

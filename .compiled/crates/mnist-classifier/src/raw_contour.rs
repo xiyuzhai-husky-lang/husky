@@ -214,16 +214,16 @@ pub(crate) fn find_raw_contours(cc: &'eval crate::connected_component::Connected
                 boundary_unsearched[i] = boundary_unsearched[i] & (!(1u32 << j));
                 if angle_change != 0 {
                     if prev_angle_change1 == -1i32 && prev_angle_change2 == -1i32 && current_streak == 1i32 && prev_streak1 != -1i32 && prev_streak2 == 1i32 {
-                        contour.last() = crate::raw_contour::get_concave_middle_point(&contour);
+                        contour.last_mut().unwrap() = crate::raw_contour::get_concave_middle_point(&contour);
                         contour.push(crate::geom2d::Point2d::from_i_shift28(i, j));
                         prev_streak2 = -1i32;
                         prev_streak1 = -1i32;
                     } else if prev_angle_change1 == -1i32 && prev_streak1 > 0i32 && prev_streak1 == 1i32 {
-                        contour.last() = crate::geom2d::Point2d::from_i_shift28(i, j);
+                        contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
                         prev_streak2 = prev_streak1;
                         prev_streak1 = current_streak;
                     } else if prev_angle_change1 == -1i32 && prev_streak1 > 0i32 && current_streak == 1i32 && prev_streak1 > 1i32 {
-                        contour.last() = crate::geom2d::Point2d::from_i_shift28(i, j);
+                        contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
                         prev_streak2 = -1i32;
                         prev_streak1 = -1i32;
                     } else {

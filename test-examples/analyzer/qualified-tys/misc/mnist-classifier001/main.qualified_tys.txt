@@ -30,7 +30,7 @@ lazy expr:
     52:35..52:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     52:9..52:41    find_connected_components(input)   Transient Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
     53:5..53:6     d                      PureRef Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
-    53:5..53:12    d.len()                Copyable i32
+    53:5..53:13    d.ilen()               Copyable i32
 
 eager expr:
     4:5..4:50      ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>
@@ -200,4 +200,4 @@ lazy expr:
     52:35..52:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     52:9..52:41    find_connected_components(input)   Transient Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
     53:5..53:6     d                      PureRef Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
-    53:5..53:12    d.len()                Copyable i32
+    53:5..53:13    d.ilen()               Copyable i32
