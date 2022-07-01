@@ -1,8 +1,8 @@
-mod ops;
-mod slice;
+pub mod ops;
+pub mod slice;
 
-pub use ops::*;
-pub use slice::*;
+use ops::*;
+use slice::*;
 
 use crate::*;
 

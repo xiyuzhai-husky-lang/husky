@@ -1,50 +1,51 @@
+use __root::*;
 mod connected_component;
 mod raw_contour;
 mod geom2d;
 mod line_segment_sketch;
 
 pub mod __init__ {
-    pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyLangCompileTime) {
-        todo!("(mnist_classifier::connected_component, EntityDefnUid { raw: 0 })")
-        todo!("(mnist_classifier::raw_contour, EntityDefnUid { raw: 1 })")
-        todo!("(mnist_classifier::geom2d, EntityDefnUid { raw: 2 })")
-        todo!("(mnist_classifier::line_segment_sketch, EntityDefnUid { raw: 3 })")
-        todo!("(mnist_classifier::connected_component::ConnectedComponent, EntityDefnUid { raw: 4 })")
-        todo!("(mnist_classifier::connected_component::connected_components, EntityDefnUid { raw: 5 })")
-        todo!("(mnist_classifier::connected_component::horizontal_extend, EntityDefnUid { raw: 6 })")
-        todo!("(mnist_classifier::connected_component::find_connected_components, EntityDefnUid { raw: 7 })")
-        todo!("(mnist_classifier::raw_contour::RawContour, EntityDefnUid { raw: 8 })")
-        todo!("(mnist_classifier::raw_contour::Direction, EntityDefnUid { raw: 9 })")
-        todo!("(mnist_classifier::raw_contour::get_pixel_pair, EntityDefnUid { raw: 10 })")
-        todo!("(mnist_classifier::raw_contour::get_pixel_to_the_left, EntityDefnUid { raw: 11 })")
-        todo!("(mnist_classifier::raw_contour::get_pixel_to_the_right, EntityDefnUid { raw: 12 })")
-        todo!("(mnist_classifier::raw_contour::get_inward_direction, EntityDefnUid { raw: 13 })")
-        todo!("(mnist_classifier::raw_contour::get_angle_change, EntityDefnUid { raw: 14 })")
-        todo!("(mnist_classifier::raw_contour::get_outward_direction, EntityDefnUid { raw: 15 })")
-        todo!("(mnist_classifier::raw_contour::StreakCache, EntityDefnUid { raw: 16 })")
-        todo!("(mnist_classifier::raw_contour::get_concave_middle_point, EntityDefnUid { raw: 17 })")
-        todo!("(mnist_classifier::raw_contour::find_raw_contours, EntityDefnUid { raw: 18 })")
-        todo!("(mnist_classifier::geom2d::Point2d, EntityDefnUid { raw: 19 })")
-        todo!("(mnist_classifier::geom2d::Vector2d, EntityDefnUid { raw: 20 })")
-        todo!("(mnist_classifier::line_segment_sketch::concave_component, EntityDefnUid { raw: 21 })")
-        todo!("(mnist_classifier::line_segment_sketch::convex_component, EntityDefnUid { raw: 22 })")
-        todo!("(mnist_classifier::line_segment_sketch::convexity, EntityDefnUid { raw: 23 })")
-        todo!("(mnist_classifier::line_segment_sketch::LineSegment, EntityDefnUid { raw: 24 })")
-        todo!("(mnist_classifier::line_segment_sketch::LineSegmentSketch, EntityDefnUid { raw: 25 })")
-        todo!("(mnist_classifier::line_segment_sketch::go_right, EntityDefnUid { raw: 26 })")
-        todo!("(mnist_classifier::line_segment_sketch::go_left, EntityDefnUid { raw: 27 })")
-        todo!("(mnist_classifier::line_segment_sketch::extend_end, EntityDefnUid { raw: 28 })")
-        todo!("(mnist_classifier::line_segment_sketch::extend_start, EntityDefnUid { raw: 29 })")
-        todo!("(mnist_classifier::line_segment_sketch::find_line_segments, EntityDefnUid { raw: 30 })")
-        todo!("(domains::ml::datasets::cv::mnist::BinaryImage28, EntityDefnUid { raw: 31 })")
-        todo!("(domains::ml::datasets::cv::mnist::BinaryGrid28, EntityDefnUid { raw: 32 })")
-        todo!("(mnist_classifier::geom2d::Point2d::from_i_shift28, EntityDefnUid { raw: 33 })")
-        todo!("(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, EntityDefnUid { raw: 34 })")
-        todo!("(mnist_classifier::line_segment_sketch::concave_component::find_concave_components, EntityDefnUid { raw: 35 })")
-        todo!("(mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent, EntityDefnUid { raw: 36 })")
-        todo!("(mnist_classifier::line_segment_sketch::convexity::is_convex, EntityDefnUid { raw: 37 })")
-        todo!("(std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>, EntityDefnUid { raw: 38 })")
-        todo!("(mnist_classifier::line_segment_sketch::LineSegment::new, EntityDefnUid { raw: 39 })")
-        todo!("(std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>, EntityDefnUid { raw: 40 })")
+    pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCompileTime) {
+        todo!("mnist_classifier::connected_component");
+        todo!("mnist_classifier::raw_contour");
+        todo!("mnist_classifier::geom2d");
+        todo!("mnist_classifier::line_segment_sketch");
+        todo!("mnist_classifier::connected_component::ConnectedComponent");
+        todo!("mnist_classifier::connected_component::connected_components");
+        todo!("mnist_classifier::connected_component::horizontal_extend");
+        todo!("mnist_classifier::connected_component::find_connected_components");
+        todo!("mnist_classifier::raw_contour::RawContour");
+        todo!("mnist_classifier::raw_contour::Direction");
+        todo!("mnist_classifier::raw_contour::get_pixel_pair");
+        todo!("mnist_classifier::raw_contour::get_pixel_to_the_left");
+        todo!("mnist_classifier::raw_contour::get_pixel_to_the_right");
+        todo!("mnist_classifier::raw_contour::get_inward_direction");
+        todo!("mnist_classifier::raw_contour::get_angle_change");
+        todo!("mnist_classifier::raw_contour::get_outward_direction");
+        todo!("mnist_classifier::raw_contour::StreakCache");
+        todo!("mnist_classifier::raw_contour::get_concave_middle_point");
+        todo!("mnist_classifier::raw_contour::find_raw_contours");
+        todo!("mnist_classifier::geom2d::Point2d");
+        todo!("mnist_classifier::geom2d::Vector2d");
+        todo!("mnist_classifier::line_segment_sketch::concave_component");
+        todo!("mnist_classifier::line_segment_sketch::convex_component");
+        todo!("mnist_classifier::line_segment_sketch::convexity");
+        todo!("mnist_classifier::line_segment_sketch::LineSegment");
+        todo!("mnist_classifier::line_segment_sketch::LineSegmentSketch");
+        todo!("mnist_classifier::line_segment_sketch::go_right");
+        todo!("mnist_classifier::line_segment_sketch::go_left");
+        todo!("mnist_classifier::line_segment_sketch::extend_end");
+        todo!("mnist_classifier::line_segment_sketch::extend_start");
+        todo!("mnist_classifier::line_segment_sketch::find_line_segments");
+        todo!("domains::ml::datasets::cv::mnist::BinaryImage28");
+        todo!("domains::ml::datasets::cv::mnist::BinaryGrid28");
+        todo!("mnist_classifier::geom2d::Point2d::from_i_shift28");
+        todo!("mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent");
+        todo!("mnist_classifier::line_segment_sketch::concave_component::find_concave_components");
+        todo!("mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent");
+        todo!("mnist_classifier::line_segment_sketch::convexity::is_convex");
+        todo!("std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>");
+        todo!("mnist_classifier::line_segment_sketch::LineSegment::new");
+        todo!("std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>");
     }
 }

@@ -21,6 +21,7 @@ rust-version = "1.56"
 tokio = {{ version = "1.16.1", features = ["sync"] }}
 husky-debugger = {{ path = "{husky_dir_rel}/core/crates/apps/husky-debugger", version = "0.0.0" }}
 husky-compile-time = {{ path = "{husky_dir_rel}/core/crates/compile/husky-compile-time", version = "0.0.0" }}
+__root = {{ path = "{husky_dir_rel}/core/crates/static/__root", version = "0.0.0" }}
 
 
 [[bin]]

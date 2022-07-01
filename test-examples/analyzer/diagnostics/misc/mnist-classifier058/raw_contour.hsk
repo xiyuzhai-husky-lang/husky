@@ -12,7 +12,7 @@ struct RawContour:
         LineSegmentSketch::new(this, 1.2)
 
     func displacement(start: i32, end: i32) -> Vector2d:
-        N = this.points.len()
+        N = this.points.ilen()
         ct_start = this.points[start%N]
         ct_end = this.points[end%N]
         ct_start.to(ct_end)
@@ -122,7 +122,7 @@ struct StreakCache:
     prev2: i32
 
 func get_concave_middle_point(points: []Point2d) -> Point2d:
-    N = points.len()
+    N = points.ilen()
     p0 = points[N-2]
     p2 = points[N-1]
     Point2d(

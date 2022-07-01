@@ -1,5 +1,5 @@
-mod imagenet;
-mod mnist;
+pub mod imagenet;
+pub mod mnist;
 
 use crate::*;
 use mnist::*;

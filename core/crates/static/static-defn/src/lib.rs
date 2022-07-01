@@ -11,7 +11,7 @@ use vm::{Linkage, SpecificRoutineLinkage};
 use word::RootIdentifier;
 
 pub trait ResolveStaticRootDefn {
-    fn static_root_defn_resolver(&self) -> fn(ident: RootIdentifier) -> &'static EntityStaticDefn;
+    fn __root_defn_resolver(&self) -> fn(ident: RootIdentifier) -> &'static EntityStaticDefn;
 }
 
 #[derive(Debug, PartialEq, Eq)]

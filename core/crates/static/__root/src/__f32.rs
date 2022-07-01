@@ -1,5 +1,23 @@
 use super::*;
 
+pub trait __F32X {
+    fn sgnx(self) -> i32;
+}
+
+impl __F32X for f32 {
+    fn sgnx(self) -> i32 {
+        {
+            if self > 0. {
+                1
+            } else if self == 0. {
+                0
+            } else {
+                -1
+            }
+        }
+    }
+}
+
 pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "f32",
     items: &[],

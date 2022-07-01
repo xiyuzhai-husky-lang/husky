@@ -1,4 +1,5 @@
 use super::*;
+use fold::Indent;
 use semantics_eager::{
     FuncConditionFlowBranch, FuncConditionFlowBranchVariant, ProcConditionBranchVariant,
     ProcConditionFlowBranch, ProcStmt,
@@ -6,7 +7,11 @@ use semantics_eager::{
 use std::sync::Arc;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_proc_condition_flow(&mut self, branches: &[Arc<ProcConditionFlowBranch>]) {
+    pub(super) fn gen_proc_condition_flow(
+        &mut self,
+        indent: Indent,
+        branches: &[Arc<ProcConditionFlowBranch>],
+    ) {
         for branch in branches {
             match branch.variant {
                 ProcConditionBranchVariant::If { ref condition } => {
@@ -24,11 +29,16 @@ impl<'a> RustCodeGenerator<'a> {
             self.write(" {");
             self.newline();
             self.gen_proc_stmts(&branch.stmts);
+            self.indent(indent);
             self.write("}");
         }
     }
 
-    pub(super) fn gen_func_condition_flow(&mut self, branches: &[Arc<FuncConditionFlowBranch>]) {
+    pub(super) fn gen_func_condition_flow(
+        &mut self,
+        indent: Indent,
+        branches: &[Arc<FuncConditionFlowBranch>],
+    ) {
         for branch in branches {
             match branch.variant {
                 FuncConditionFlowBranchVariant::If { ref condition } => {
@@ -46,6 +56,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.write(" {");
             self.newline();
             self.gen_func_stmts(&branch.stmts);
+            self.indent(indent);
             self.write("}");
         }
     }

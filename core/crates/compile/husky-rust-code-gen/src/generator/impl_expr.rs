@@ -1,4 +1,4 @@
-use super::*;
+use super::{impl_entity_route::EntityRouteRole, *};
 use semantics_eager::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use vm::*;
 
@@ -28,21 +28,21 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_expr(&opds[1]);
                 }
                 EagerOpnVariant::Prefix { opr, .. } => {
-                    self.write(&opr.code());
+                    self.write(&opr.rust_code());
                     self.gen_expr(&opds[0]);
                 }
                 EagerOpnVariant::Suffix { opr, .. } => {
                     self.gen_expr(&opds[0]);
-                    self.write(&opr.code());
+                    self.write(&opr.rust_code());
                 }
-                EagerOpnVariant::RoutineCall(_) => {
-                    self.gen_expr(&opds[0]);
+                EagerOpnVariant::RoutineCall(routine) => {
+                    self.gen_entity_route(routine.route, EntityRouteRole::Caller);
                     self.write("(");
-                    self.gen_arguments(&opds[1..]);
+                    self.gen_arguments(opds);
                     self.write(")");
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
-                    self.gen_entity_route(ranged_ty.route);
+                    self.gen_entity_route(ranged_ty.route, EntityRouteRole::Caller);
                     self.write("::");
                     self.write("__call__(");
                     self.gen_arguments(opds);
@@ -73,7 +73,9 @@ impl<'a> RustCodeGenerator<'a> {
                 }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::EnumKindLiteral(value) => self.write(&format!("{value}")),
+            EagerExprVariant::EnumKindLiteral(value) => {
+                self.gen_entity_route(value, EntityRouteRole::Value)
+            }
         }
     }
 
@@ -81,6 +83,13 @@ impl<'a> RustCodeGenerator<'a> {
         for (i, expr) in exprs.iter().enumerate() {
             if i > 0 {
                 self.write(", ");
+            }
+            match expr.qualified_ty.qual.binding(expr.contract) {
+                Binding::EvalRef => (),
+                Binding::TempRef => self.write("&"),
+                Binding::TempRefMut => self.write("&mut "),
+                Binding::Move => (),
+                Binding::Copy => (),
             }
             self.gen_expr(expr)
         }

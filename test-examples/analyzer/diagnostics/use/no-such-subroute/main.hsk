@@ -20,4 +20,4 @@ main:
     b = a[1]
     c = a[12]
     d = find_connected_components(input)
-    d.len()
+    d.ilen()

@@ -10,7 +10,7 @@ struct ConcaveComponent:
 
 proc find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:
     var concave_components = []ConcaveComponent()
-    let L = line_segment_sketch.line_segments.len()
+    let L = line_segment_sketch.line_segments.ilen()
     var start = 0
     var end = 1
     while start > -L and !is_convex(line_segment_sketch.contour, line_segments, start):

@@ -1,0 +1,75 @@
+use entity_kind::{EntityKind, FieldKind};
+use entity_route::{EntityRoute, EntityRouteKind, SpatialArgument};
+use infer_decl::TyMemberDecl;
+use word::RootIdentifier;
+
+use super::*;
+
+pub(super) fn contains_eval_ref(
+    db: &dyn RustCodeGenQueryGroup,
+    entity_route_kind: EntityRouteKind,
+) -> bool {
+    let base_route = db.intern_entity_route(EntityRoute {
+        kind: entity_route_kind,
+        temporal_arguments: Default::default(),
+        spatial_arguments: Default::default(),
+    });
+    if entity_route_kind
+        == (EntityRouteKind::Root {
+            ident: RootIdentifier::Ref,
+        })
+    {
+        return true;
+    }
+    let entity_route_menu = db.entity_route_menu();
+    if entity_route_kind == entity_route_menu.std_slice_cyclic_slice.kind {
+        return true;
+    }
+    let entity_kind = db.entity_kind(base_route).unwrap();
+    match entity_kind {
+        EntityKind::Module => return false,
+        EntityKind::Type(_) => {
+            let ty_decl = db.ty_decl(base_route).unwrap();
+            for ty_member in ty_decl.ty_members.iter() {
+                match ty_member {
+                    TyMemberDecl::Field(field_decl) => match field_decl.field_kind {
+                        FieldKind::StructOriginal
+                        | FieldKind::StructDefault
+                        | FieldKind::StructDerivedEager => {
+                            if db.contains_eval_ref(field_decl.ty.kind) {
+                                return true;
+                            }
+                        }
+                        FieldKind::StructDerivedLazy => (),
+                        FieldKind::RecordOriginal => panic!(),
+                        FieldKind::RecordDerived => panic!(),
+                    },
+                    TyMemberDecl::Method(_) => (),
+                    TyMemberDecl::Call(_) => (),
+                }
+            }
+        }
+        EntityKind::Trait => todo!(),
+        EntityKind::Member(_) => todo!(),
+        EntityKind::Function { requires_lazy } => {
+            let function_decl = db.function_decl(base_route).unwrap();
+            for parameter in function_decl.primary_parameters.iter() {
+                if db.contains_eval_ref(parameter.ty.kind) {
+                    return true;
+                }
+            }
+            for parameter in function_decl.keyword_parameters.iter() {
+                if db.contains_eval_ref(parameter.ty.kind) {
+                    return true;
+                }
+            }
+            if db.contains_eval_ref(function_decl.output.ty.kind) {
+                return true;
+            }
+        }
+        EntityKind::Feature => todo!(),
+        EntityKind::EnumLiteral => return false,
+        EntityKind::Main => todo!(),
+    }
+    false
+}

@@ -1,22 +1,21 @@
 #![feature(const_trait_impl)]
 #![feature(const_convert)]
-mod b32;
+mod __b32;
+mod __f32;
+mod __i32;
+pub mod __std;
+mod __vec;
 mod clone;
-mod domains;
-mod f32_;
-mod i32_;
-mod std_;
-mod vec;
+pub mod domains;
 
-pub use b32::*;
+pub use __b32::*;
+pub use __f32::*;
+pub use __i32::*;
+pub use __std::*;
+pub use __vec::*;
 pub use clone::*;
 pub use domains::*;
-pub use f32_::*;
-pub use i32_::*;
-pub use std_::*;
-pub use vec::*;
 
-use __stdx::*;
 use dev_utils::StaticDevSource;
 use dev_utils::{dev_src, static_dev_src};
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
@@ -27,7 +26,7 @@ use visual_syntax::{primitive_visualizer, StaticVisualTy, StaticVisualizer};
 use vm::*;
 use word::RootIdentifier;
 
-pub fn static_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
+pub fn __root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
     match ident {
         RootIdentifier::Void => &VOID_TYPE_DEFN,
         RootIdentifier::I32 => &I32_TYPE_DEFN,

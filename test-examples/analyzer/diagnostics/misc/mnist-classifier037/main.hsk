@@ -14,4 +14,4 @@ main:
     c = a[12]
     connected_components = find_connected_components(input)
     connected_component = connected_components[0]
-    connected_components.len()
+    connected_components.ilen()

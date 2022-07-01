@@ -1,9 +1,9 @@
-mod gui;
-mod ml;
-mod prover;
-mod rl;
+pub mod gui;
+pub mod ml;
+pub mod prover;
+pub mod rl;
 
-pub use ml::*;
+use ml::*;
 
 use crate::*;
 

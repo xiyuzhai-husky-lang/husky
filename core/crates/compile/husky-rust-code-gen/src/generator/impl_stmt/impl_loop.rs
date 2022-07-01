@@ -6,6 +6,7 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_loop_stmt(
         &mut self,
         loop_variant: &LoopVariant,
+        indent: u8,
         body_stmts: &[Arc<ProcStmt>],
     ) {
         match loop_variant {
@@ -34,7 +35,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 self.write(" {\n");
                 self.gen_proc_stmts(body_stmts);
-                self.indent();
+                self.indent(indent);
                 self.write("}\n")
             }
             LoopVariant::ForExt {
@@ -57,8 +58,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 self.write(" {\n");
                 self.gen_proc_stmts(body_stmts);
-                self.indent();
-                self.write("    ");
+                self.indent(indent + 4);
                 self.write(&frame_var.ident);
                 if step.0 > 0 {
                     self.write(" += ");
@@ -70,7 +70,7 @@ impl<'a> RustCodeGenerator<'a> {
                     panic!()
                 }
                 self.write(";\n");
-                self.indent();
+                self.indent(indent);
                 self.write("}\n")
             }
             LoopVariant::While { condition } => {
@@ -78,21 +78,21 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_condition(condition);
                 self.write(" {\n");
                 self.gen_proc_stmts(body_stmts);
-                self.indent();
+                self.indent(indent);
                 self.write("}\n")
             }
             LoopVariant::DoWhile { condition } => {
                 self.write("loop {\n");
                 self.gen_proc_stmts(body_stmts);
-                self.indent();
+                self.indent(indent);
                 self.write("    if !(");
                 self.gen_condition(condition);
                 self.write(") {\n");
-                self.indent();
+                self.indent(indent);
                 self.write("        break;\n");
-                self.indent();
+                self.indent(indent);
                 self.write("    }\n");
-                self.indent();
+                self.indent(indent);
                 self.write("}\n")
             }
         }

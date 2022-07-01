@@ -22,7 +22,7 @@ impl<'a> RustCodeGenerator<'a> {
                     output,
                     ref stmts,
                     ..
-                } => self.gen_proc_defn(entity.ident.custom(), parameters, output.route, stmts),
+                } => self.gen_proc_defn(entity.base_route, parameters, output.route, stmts),
                 EntityDefnVariant::Ty {
                     ref ty_members,
                     ref variants,
@@ -32,9 +32,12 @@ impl<'a> RustCodeGenerator<'a> {
                     ..
                 } => match kind {
                     TyKind::Enum => self.gen_enum_defn(entity.ident.custom(), variants),
-                    TyKind::Struct => {
-                        self.gen_struct_defn(entity.ident.custom(), ty_members, trait_impls)
-                    }
+                    TyKind::Struct => self.gen_struct_defn(
+                        entity.base_route,
+                        entity.ident.custom(),
+                        ty_members,
+                        trait_impls,
+                    ),
                     TyKind::Record { .. } => (),
                     _ => panic!(),
                 },

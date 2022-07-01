@@ -56,4 +56,14 @@ impl PrefixOpr {
             PrefixOpr::Move => "!!",
         }
     }
+
+    pub fn rust_code(self) -> &'static str {
+        match self {
+            PrefixOpr::Minus => "-",
+            PrefixOpr::Not => "!",
+            PrefixOpr::BitNot => "!",
+            PrefixOpr::Shared => "&",
+            PrefixOpr::Move => "!!",
+        }
+    }
 }

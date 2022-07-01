@@ -4,6 +4,7 @@ mod parser;
 use crate::*;
 use ast::{AstIter, RawExprArena, RawExprIdx};
 use file::FilePtr;
+use infer_contract::EagerContract;
 use infer_qualifier::{EagerValueQualifiedTy, EagerVariableQualifier};
 use infer_total::InferQueryGroup;
 pub use opn::*;
@@ -21,6 +22,7 @@ pub struct EagerExpr {
     pub file: FilePtr,
     pub range: TextRange,
     pub qualified_ty: EagerValueQualifiedTy,
+    pub contract: EagerContract,
     pub variant: EagerExprVariant,
     pub instruction_id: InstructionId,
 }
