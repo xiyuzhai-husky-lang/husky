@@ -23,7 +23,7 @@ lazy expr:
     22:54..22:57   1.2                    Copyable f32
     22:21..22:58   find_line_segments(raw_contour0, 1.2)   Transient Vec<mnist_classifier005::line_segment_sketch::LineSegment>
     23:5..23:18    line_segments          PureRef Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    23:5..23:24    line_segments.len()    Copyable i32
+    23:5..23:25    line_segments.ilen()   Copyable i32
 
 eager expr:
     12:5..12:50    ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>
@@ -50,4 +50,4 @@ lazy expr:
     22:54..22:57   1.2                    Copyable f32
     22:21..22:58   find_line_segments(raw_contour0, 1.2)   Transient Vec<mnist_classifier005::line_segment_sketch::LineSegment>
     23:5..23:18    line_segments          PureRef Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    23:5..23:24    line_segments.len()    Copyable i32
+    23:5..23:25    line_segments.ilen()   Copyable i32

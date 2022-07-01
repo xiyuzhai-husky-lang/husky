@@ -53,13 +53,52 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(".");
                     self.write(&field_ident.ident)
                 }
-                EagerOpnVariant::MethodCall { method_ident, .. } => {
-                    self.gen_expr(&opds[0]);
-                    self.write(".");
-                    self.write(&method_ident.ident);
-                    self.write("(");
-                    self.gen_arguments(&opds[1..]);
-                    self.write(")");
+                EagerOpnVariant::MethodCall {
+                    method_ident,
+                    method_route,
+                    output_binding,
+                    ..
+                } => {
+                    let method_decl = self.db.method_decl(*method_route).unwrap();
+                    match method_decl.output.liason {
+                        OutputLiason::Transfer => {
+                            self.gen_expr(&opds[0]);
+                            self.write(".");
+                            self.write(&method_ident.ident);
+                            self.write("(");
+                            self.gen_arguments(&opds[1..]);
+                            self.write(")");
+                        }
+                        OutputLiason::MemberAccess { .. } => match output_binding {
+                            Binding::EvalRef | Binding::TempRef => {
+                                self.gen_expr(&opds[0]);
+                                self.write(".");
+                                self.write(&method_ident.ident);
+                                self.write("(");
+                                self.gen_arguments(&opds[1..]);
+                                self.write(").unwrap()");
+                            }
+                            Binding::Copy => {
+                                self.write("*");
+                                self.gen_expr(&opds[0]);
+                                self.write(".");
+                                self.write(&method_ident.ident);
+                                self.write("(");
+                                self.gen_arguments(&opds[1..]);
+                                self.write(").unwrap()");
+                            }
+                            Binding::TempRefMut => {
+                                self.gen_expr(&opds[0]);
+                                self.write(".");
+                                self.write(&method_ident.ident);
+                                self.write("_mut");
+                                self.write("(");
+                                self.gen_arguments(&opds[1..]);
+                                self.write(").unwrap()");
+                            }
+                            Binding::Move => todo!(),
+                        },
+                    }
                 }
                 EagerOpnVariant::ElementAccess { .. } => {
                     self.gen_expr(&opds[0]);

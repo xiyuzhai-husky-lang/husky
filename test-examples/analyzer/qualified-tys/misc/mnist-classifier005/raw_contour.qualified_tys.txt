@@ -63,7 +63,7 @@ lazy expr:
 eager expr:
     9:13..9:17     this                   PureRef      mnist_classifier005::raw_contour::RawContour
     9:13..9:18     this.                  PureRef      Vec<mnist_classifier005::geom2d::Point2d>
-    9:13..9:30     this.points.len()      Copyable     i32
+    9:13..9:31     this.points.ilen()     Copyable     i32
     10:20..10:24   this                   PureRef      mnist_classifier005::raw_contour::RawContour
     10:32..10:37   start                  Copyable     i32
     10:38..10:39   N                      Copyable     i32
@@ -163,7 +163,7 @@ eager expr:
     114:21..114:37 Direction::RIGHT       Copyable     mnist_classifier005::raw_contour::Direction
     116:21..116:36 Direction::DOWN        Copyable     mnist_classifier005::raw_contour::Direction
     124:9..124:15  points                 PureRef      Vec<mnist_classifier005::geom2d::Point2d>
-    124:9..124:21  points.len()           Copyable     i32
+    124:9..124:22  points.ilen()          Copyable     i32
     125:17..125:18 N                      Copyable     i32
     125:19..125:20 2                      Copyable     i32
     125:10..125:16 points                 PureRef      Vec<mnist_classifier005::geom2d::Point2d>
