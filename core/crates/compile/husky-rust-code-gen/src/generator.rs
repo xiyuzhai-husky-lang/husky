@@ -11,6 +11,7 @@ mod utils;
 use crate::*;
 use entity_kind::TyKind;
 use entity_syntax::EntityRouteMenu;
+use fold::LocalStack;
 use impl_entity_route::*;
 use pack_semantics::Package;
 use semantics_entity::{EntityDefn, EntityDefnVariant};
@@ -21,15 +22,37 @@ pub(crate) struct RustCodeGenerator<'a> {
     result: String,
     package_main: FilePtr,
     entity_route_menu: Arc<EntityRouteMenu>,
+    entity_route_uses: LocalStack<EntityRoutePtr>,
 }
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(crate) fn new(db: &'a dyn RustCodeGenQueryGroup, package_main: FilePtr) -> Self {
+    pub(crate) fn new(db: &'a dyn RustCodeGenQueryGroup, module: EntityRoutePtr) -> Self {
+        let package_main = db.main_file(db.module_file(module).unwrap()).unwrap();
+        let entity_defn = db.entity_defn(module).unwrap();
+        let mut symbols = LocalStack::new();
+        for entity_defn in entity_defn.subentities.iter() {
+            symbols.push(entity_defn.base_route)
+        }
         Self {
             db,
             package_main,
             result: Default::default(),
             entity_route_menu: db.entity_route_menu(),
+            entity_route_uses: symbols,
+        }
+    }
+    pub(crate) fn new_lib(db: &'a dyn RustCodeGenQueryGroup, package_main: FilePtr) -> Self {
+        let mut symbols = LocalStack::new();
+        let package = db.package(package_main).unwrap();
+        for entity_defn in package.subentities.iter() {
+            symbols.push(entity_defn.base_route)
+        }
+        Self {
+            db,
+            package_main,
+            result: Default::default(),
+            entity_route_menu: db.entity_route_menu(),
+            entity_route_uses: symbols,
         }
     }
 

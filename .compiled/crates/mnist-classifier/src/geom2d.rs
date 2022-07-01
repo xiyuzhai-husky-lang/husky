@@ -1,6 +1,6 @@
 use crate::*;
 
-pub struct Point2d {
+pub(crate) struct Point2d {
     pub(crate) x: f32,
     pub(crate) y: f32,
 }
@@ -10,26 +10,26 @@ impl Point2d {
         Self { x, y }
     }
 
-pub(crate) fn from_i_shift28(i: i32, shift: i32) -> crate::geom2d::Point2d {
-        return crate::geom2d::Point2d::__call__((29 - shift) as f32, (29 - i) as f32)
+pub(crate) fn from_i_shift28(i: i32, shift: i32) -> Point2d {
+        return Point2d::__call__((29 - shift) as f32, (29 - i) as f32)
 }
-    pub(crate) fn vector(&self) -> crate::geom2d::Vector2d {
-        return crate::geom2d::Vector2d::__call__(self.x, self.y)
+    pub(crate) fn vector(&self) -> Vector2d {
+        return Vector2d::__call__(self.x, self.y)
     }
 
-    pub(crate) fn to(&self, other: &crate::geom2d::Point2d) -> crate::geom2d::Vector2d {
-        return crate::geom2d::Vector2d::__call__(other.x - self.x, other.y - self.y)
+    pub(crate) fn to(&self, other: &Point2d) -> Vector2d {
+        return Vector2d::__call__(other.x - self.x, other.y - self.y)
     }
 
     pub(crate) fn norm(&self) -> f32 {
         return (self.x * self.x + self.y * self.y).sqrt()
     }
 
-    pub(crate) fn dist(&self, other: &crate::geom2d::Point2d) -> f32 {
+    pub(crate) fn dist(&self, other: &Point2d) -> f32 {
         return self.to(&other).norm()
     }
 }
-pub struct Vector2d {
+pub(crate) struct Vector2d {
     pub(crate) x: f32,
     pub(crate) y: f32,
 }
@@ -38,23 +38,23 @@ impl Vector2d {
     pub(crate) fn __call__(x: f32, y: f32) -> Self {
         Self { x, y }
     }
-    pub(crate) fn point(&self) -> crate::geom2d::Point2d {
-        return crate::geom2d::Point2d::__call__(self.x, self.y)
+    pub(crate) fn point(&self) -> Point2d {
+        return Point2d::__call__(self.x, self.y)
     }
 
-    pub(crate) fn to(&self, other: &crate::geom2d::Vector2d) -> crate::geom2d::Vector2d {
-        return crate::geom2d::Vector2d::__call__(other.x - self.x, other.y - self.y)
+    pub(crate) fn to(&self, other: &Vector2d) -> Vector2d {
+        return Vector2d::__call__(other.x - self.x, other.y - self.y)
     }
 
     pub(crate) fn norm(&self) -> f32 {
         return (self.x * self.x + self.y * self.y).sqrt()
     }
 
-    pub(crate) fn dot(&self, other: &crate::geom2d::Vector2d) -> f32 {
+    pub(crate) fn dot(&self, other: &Vector2d) -> f32 {
         return self.x * other.x + self.y * other.y
     }
 
-    pub(crate) fn cross(&self, other: &crate::geom2d::Vector2d) -> f32 {
+    pub(crate) fn cross(&self, other: &Vector2d) -> f32 {
         return self.x * other.y - self.y * other.x
     }
 
@@ -71,12 +71,12 @@ impl Vector2d {
         }
     }
 
-    pub(crate) fn rotation_direction_to(&self, other: &crate::geom2d::Vector2d) -> i32 {
+    pub(crate) fn rotation_direction_to(&self, other: &Vector2d) -> i32 {
         let cross = self.cross(&other);
         return cross.sgnx()
     }
 
-    pub(crate) fn angle_to(&self, other: &crate::geom2d::Vector2d, is_branch_cut_positive: bool) -> f32 {
+    pub(crate) fn angle_to(&self, other: &Vector2d, is_branch_cut_positive: bool) -> f32 {
         let this_norm = self.norm();
         assert!(this_norm > 0f32);
         let other_norm = other.norm();
