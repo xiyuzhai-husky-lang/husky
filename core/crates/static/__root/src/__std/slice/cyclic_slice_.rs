@@ -37,7 +37,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
 };
 
 pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "first",
+    name: "firstx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,
@@ -98,7 +98,7 @@ fn generic_cyclic_slice_first_move<'temp, 'eval>(
 }
 
 pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "last",
+    name: "lastx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,

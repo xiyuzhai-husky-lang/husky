@@ -1,4 +1,5 @@
 use entity_route::EntityRoutePtr;
+use fold::Indent;
 use semantics_eager::{FuncStmt, ProcStmt};
 use word::CustomIdentifier;
 
@@ -7,6 +8,7 @@ use super::{impl_entity_route::EntityRouteRole, *};
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_proc_defn(
         &mut self,
+        indent: Indent,
         base_route: EntityRoutePtr,
         parameters: &[Parameter],
         output: EntityRoutePtr,
@@ -16,7 +18,9 @@ impl<'a> RustCodeGenerator<'a> {
             && !self
                 .db
                 .entity_route_kind_contains_eval_ref(base_route.parent().kind);
-        self.write("\npub(crate) fn ");
+        self.write("\n");
+        self.indent(indent);
+        self.write("pub(crate) fn ");
         let ident = base_route.ident();
         self.write(&ident);
         if needs_eval_ref {
@@ -48,11 +52,13 @@ impl<'a> RustCodeGenerator<'a> {
         self.gen_entity_route(output, EntityRouteRole::Decl);
         self.write(" {\n");
         self.gen_proc_stmts(stmts);
+        self.indent(indent);
         self.write("}\n");
     }
 
     pub(super) fn gen_func_defn(
         &mut self,
+        indent: Indent,
         base_route: EntityRoutePtr,
         parameters: &[Parameter],
         output: EntityRoutePtr,
@@ -62,7 +68,8 @@ impl<'a> RustCodeGenerator<'a> {
             && !self
                 .db
                 .entity_route_kind_contains_eval_ref(base_route.parent().kind);
-        self.write("\npub(crate) fn ");
+        self.indent(indent);
+        self.write("pub(crate) fn ");
         let ident = base_route.ident();
         self.write(&ident);
         if needs_eval_ref {
@@ -79,6 +86,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.gen_entity_route(output, EntityRouteRole::Decl);
         self.write(" {\n");
         self.gen_func_stmts(stmts);
+        self.indent(indent);
         self.write("}\n");
     }
 }

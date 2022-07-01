@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug, Clone, PartialEq)]
 pub(crate) struct Point2d {
     pub(crate) x: f32,
     pub(crate) y: f32,
@@ -9,10 +10,9 @@ impl Point2d {
     pub(crate) fn __call__(x: f32, y: f32) -> Self {
         Self { x, y }
     }
-
-pub(crate) fn from_i_shift28(i: i32, shift: i32) -> Point2d {
+    pub(crate) fn from_i_shift28(i: i32, shift: i32) -> Point2d {
         return Point2d::__call__((29 - shift) as f32, (29 - i) as f32)
-}
+    }
     pub(crate) fn vector(&self) -> Vector2d {
         return Vector2d::__call__(self.x, self.y)
     }
@@ -29,6 +29,7 @@ pub(crate) fn from_i_shift28(i: i32, shift: i32) -> Point2d {
         return self.to(&other).norm()
     }
 }
+#[derive(Debug, Clone, PartialEq)]
 pub(crate) struct Vector2d {
     pub(crate) x: f32,
     pub(crate) y: f32,

@@ -32,6 +32,7 @@ impl<'a> RustCodeGenerator<'a> {
         ty_members: &[Arc<EntityDefn>],
         trait_impls: &[Arc<TraitImplDefn>],
     ) {
+        self.write("#[derive(Debug, Clone, PartialEq)]\n");
         self.result += "pub(crate) struct ";
         self.result += tyname.0;
         let ty_contains_eval_ref = self.db.entity_route_kind_contains_eval_ref(base_route.kind);
@@ -108,15 +109,43 @@ impl<'a> RustCodeGenerator<'a> {
                     liason,
                     opt_linkage,
                 } => match field_variant {
-                    FieldDefnVariant::StructOriginal
-                    | FieldDefnVariant::StructDefault { .. }
-                    | FieldDefnVariant::StructDerivedEager { .. } => {
+                    FieldDefnVariant::StructOriginal | FieldDefnVariant::StructDefault { .. } => {
                         if i > 0 {
                             self.write(", ")
                         }
                         self.write(&ty_member.ident);
                         self.write(": ");
                         self.gen_entity_route(ty, EntityRouteRole::Decl)
+                    }
+                    FieldDefnVariant::StructDerivedEager { .. }
+                    | FieldDefnVariant::StructDerivedLazy { .. } => break,
+                    FieldDefnVariant::RecordOriginal | FieldDefnVariant::RecordDerived { .. } => {
+                        panic!()
+                    }
+                },
+                _ => break,
+            }
+        }
+        self.write(") -> Self {\n");
+        for (i, ty_member) in ty_members.iter().enumerate() {
+            match ty_member.variant {
+                EntityDefnVariant::TyField {
+                    ty,
+                    ref field_variant,
+                    liason,
+                    opt_linkage,
+                } => match field_variant {
+                    FieldDefnVariant::StructOriginal | FieldDefnVariant::StructDefault { .. } => (),
+                    FieldDefnVariant::StructDerivedEager { ref derivation, .. } => {
+                        self.indent(8);
+                        self.write("let ");
+                        self.write(&ty_member.ident);
+                        self.write(" = ");
+                        self.exec_within_context(RustCodeGenContext::StructDerivedEager, |this| {
+                            this.gen_expr(derivation)
+                        });
+                        self.write(";");
+                        self.newline();
                     }
                     FieldDefnVariant::StructDerivedLazy { .. } => break,
                     FieldDefnVariant::RecordOriginal | FieldDefnVariant::RecordDerived { .. } => {
@@ -126,7 +155,6 @@ impl<'a> RustCodeGenerator<'a> {
                 _ => break,
             }
         }
-        self.write(") -> Self {\n");
         self.write("        Self { ");
         for (i, ty_member) in ty_members.iter().enumerate() {
             match ty_member.variant {
@@ -204,13 +232,13 @@ impl<'a> RustCodeGenerator<'a> {
                 ref parameters,
                 output,
                 ref stmts,
-            } => self.gen_func_defn(ty_member.base_route, parameters, output.route, stmts),
+            } => self.gen_func_defn(4, ty_member.base_route, parameters, output.route, stmts),
             EntityDefnVariant::Proc {
                 ref generic_parameters,
                 ref parameters,
                 output,
                 ref stmts,
-            } => self.gen_proc_defn(ty_member.base_route, parameters, output.route, stmts),
+            } => self.gen_proc_defn(4, ty_member.base_route, parameters, output.route, stmts),
             EntityDefnVariant::Function { .. } => todo!(),
             _ => (),
         }

@@ -320,10 +320,10 @@ eager expr:
     171:129..171:146prev_streak2 == 1      Copyable     bool
     171:24..171:146prev_angle_change1 == -1 and prev_angle_change2 == -1 and current_streak == 1 and prev_streak1 != -1 and prev_streak2 == 1   Copyable     bool
     172:25..172:32 contour                RefMut       Vec<mnist_classifier005::geom2d::Point2d>
-    172:67..172:74 contour                PureRef      Vec<mnist_classifier005::geom2d::Point2d>
-    172:25..172:39 contour.last()         RefMut       mnist_classifier005::geom2d::Point2d
-    172:42..172:75 get_concave_middle_point(contour)   Transient    mnist_classifier005::geom2d::Point2d
-    172:25..172:75 contour.last() = get_concave_middle_point(contour)   Copyable     void
+    172:68..172:75 contour                PureRef      Vec<mnist_classifier005::geom2d::Point2d>
+    172:25..172:40 contour.lastx()        RefMut       mnist_classifier005::geom2d::Point2d
+    172:43..172:76 get_concave_middle_point(contour)   Transient    mnist_classifier005::geom2d::Point2d
+    172:25..172:76 contour.lastx() = get_concave_middle_point(contour)   Copyable     void
     173:62..173:63 i                      Copyable     i32
     173:65..173:66 j                      Copyable     i32
     173:25..173:32 contour                RefMut       Vec<mnist_classifier005::geom2d::Point2d>
@@ -347,11 +347,11 @@ eager expr:
     176:76..176:93 prev_streak1 == 1      Copyable     bool
     176:26..176:93 prev_angle_change1 == -1 and prev_streak1 > 0 and prev_streak1 == 1   Copyable     bool
     177:25..177:32 contour                RefMut       Vec<mnist_classifier005::geom2d::Point2d>
-    177:66..177:67 i                      Copyable     i32
-    177:69..177:70 j                      Copyable     i32
-    177:25..177:39 contour.last()         RefMut       mnist_classifier005::geom2d::Point2d
-    177:42..177:71 Point2d::from_i_shift28(i, j)   Transient    mnist_classifier005::geom2d::Point2d
-    177:25..177:71 contour.last() = Point2d::from_i_shift28(i, j)   Copyable     void
+    177:67..177:68 i                      Copyable     i32
+    177:70..177:71 j                      Copyable     i32
+    177:25..177:40 contour.lastx()        RefMut       mnist_classifier005::geom2d::Point2d
+    177:43..177:72 Point2d::from_i_shift28(i, j)   Transient    mnist_classifier005::geom2d::Point2d
+    177:25..177:72 contour.lastx() = Point2d::from_i_shift28(i, j)   Copyable     void
     178:25..178:37 prev_streak2           RefMut       i32
     178:40..178:52 prev_streak1           Copyable     i32
     178:25..178:52 prev_streak2 = prev_streak1   Copyable     void
@@ -374,11 +374,11 @@ eager expr:
     180:100..180:116prev_streak1 > 1       Copyable     bool
     180:26..180:116prev_angle_change1 == -1 and prev_streak1 > 0 and current_streak == 1 and prev_streak1 > 1   Copyable     bool
     181:25..181:32 contour                RefMut       Vec<mnist_classifier005::geom2d::Point2d>
-    181:66..181:67 i                      Copyable     i32
-    181:69..181:70 j                      Copyable     i32
-    181:25..181:39 contour.last()         RefMut       mnist_classifier005::geom2d::Point2d
-    181:42..181:71 Point2d::from_i_shift28(i, j)   Transient    mnist_classifier005::geom2d::Point2d
-    181:25..181:71 contour.last() = Point2d::from_i_shift28(i, j)   Copyable     void
+    181:67..181:68 i                      Copyable     i32
+    181:70..181:71 j                      Copyable     i32
+    181:25..181:40 contour.lastx()        RefMut       mnist_classifier005::geom2d::Point2d
+    181:43..181:72 Point2d::from_i_shift28(i, j)   Transient    mnist_classifier005::geom2d::Point2d
+    181:25..181:72 contour.lastx() = Point2d::from_i_shift28(i, j)   Copyable     void
     182:25..182:37 prev_streak2           RefMut       i32
     182:41..182:42 1                      Copyable     i32
     182:25..182:42 prev_streak2 = -1      Copyable     void
@@ -464,7 +464,7 @@ eager expr:
     213:69..213:85 prev_streak1 > 0       Copyable     bool
     213:16..213:85 prev_angle_change1 == -1 and current_streak == 1 and prev_streak1 > 0   Copyable     bool
     214:17..214:24 contour                RefMut       Vec<mnist_classifier005::geom2d::Point2d>
-    214:17..214:30 contour.pop()          Transient    mnist_classifier005::geom2d::Point2d
+    214:17..214:31 contour.popx()         Transient    mnist_classifier005::geom2d::Point2d
     215:36..215:43 contour                Transient    Vec<mnist_classifier005::geom2d::Point2d>
     215:13..215:19 result                 RefMut       Vec<mnist_classifier005::raw_contour::RawContour>
     215:25..215:44 RawContour(contour)    Transient    mnist_classifier005::raw_contour::RawContour

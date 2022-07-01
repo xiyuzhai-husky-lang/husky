@@ -12,23 +12,23 @@ func g(a: &A) -> i32:
     1
 
 func h(v: &[]A) -> i32:
-    t1 = g(v.first())
-    t2 = v.first()
+    t1 = g(v.firstx())
+    t2 = v.firstx()
     1
 
 proc i(v: &[]A) -> i32:
-    var t1 = g(v.first())
-    var t2 = v.first()
+    var t1 = g(v.firstx())
+    var t2 = v.firstx()
     return 1
 
 proc i2(v: &[]A) -> i32:
-    var t1 = g(v.first())
-    v.first() = v
+    var t1 = g(v.firstx())
+    v.firstx() = v
     return 1
 
 proc i3(v: &[]A) -> i32:
-    var t1 = g(v.first())
-    v.first() = v.first()
+    var t1 = g(v.firstx())
+    v.firstx() = v.firstx()
     return 1
 
 proc i4(a: &A) -> i32:

@@ -75,11 +75,11 @@ lazy expr:
 
 eager expr:
     6:23..6:29     points                 PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
-    6:23..6:37     points.first()         PureRef      mnist_classifier005::geom2d::Point2d
-    6:23..6:45     points.first().clone()   Transient    mnist_classifier005::geom2d::Point2d
+    6:23..6:38     points.firstx()        PureRef      mnist_classifier005::geom2d::Point2d
+    6:23..6:46     points.firstx().clone()   Transient    mnist_classifier005::geom2d::Point2d
     7:21..7:27     points                 PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
-    7:21..7:34     points.last()          PureRef      mnist_classifier005::geom2d::Point2d
-    7:21..7:42     points.last().clone()   Transient    mnist_classifier005::geom2d::Point2d
+    7:21..7:35     points.lastx()         PureRef      mnist_classifier005::geom2d::Point2d
+    7:21..7:43     points.lastx().clone()   Transient    mnist_classifier005::geom2d::Point2d
     10:13..10:15   ct                     PureRef      mnist_classifier005::raw_contour::RawContour
     10:13..10:16   ct.                    PureRef      Vec<mnist_classifier005::geom2d::Point2d>
     10:13..10:29   ct.points.ilen()       Copyable     i32
@@ -467,8 +467,8 @@ eager expr:
     128:33..128:46 ls_extend_end          PureRef      mnist_classifier005::line_segment_sketch::LineSegment
     128:33..128:61 ls_extend_end.displacement()   Transient    mnist_classifier005::geom2d::Vector2d
     129:31..129:44 line_segments          PureRef      Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    129:31..129:51 line_segments.last()   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
-    129:31..129:66 line_segments.last().displacement()   Transient    mnist_classifier005::geom2d::Vector2d
+    129:31..129:52 line_segments.lastx()   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
+    129:31..129:67 line_segments.lastx().displacement()   Transient    mnist_classifier005::geom2d::Vector2d
     130:16..130:29 dp_extend_end          PureRef      mnist_classifier005::geom2d::Vector2d
     130:36..130:47 dp_previous            PureRef      mnist_classifier005::geom2d::Vector2d
     130:16..130:48 dp_extend_end.cross(dp_previous)   Copyable     f32
@@ -485,15 +485,15 @@ eager expr:
     132:25..132:28 ct.                    PureRef      Vec<mnist_classifier005::geom2d::Point2d>
     132:25..132:41 ct.points.ilen()       Copyable     i32
     133:17..133:30 line_segments          RefMut       Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    133:61..133:74 line_segments          PureRef      Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    133:61..133:81 line_segments.last()   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
-    133:61..133:82 line_segments.last().   PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
-    133:57..133:59 ct                     EvalRef      mnist_classifier005::raw_contour::RawContour
-    133:61..133:89 line_segments.last().points.   Copyable     i32
-    133:96..133:99 end                    Copyable     i32
-    133:17..133:37 line_segments.last()   RefMut       mnist_classifier005::line_segment_sketch::LineSegment
-    133:40..133:100LineSegment::new(ct, line_segments.last().points.start, end)   Transient    mnist_classifier005::line_segment_sketch::LineSegment
-    133:17..133:100line_segments.last() = LineSegment::new(ct, line_segments.last().points.start, end)   Copyable     void
+    133:62..133:75 line_segments          PureRef      Vec<mnist_classifier005::line_segment_sketch::LineSegment>
+    133:62..133:83 line_segments.lastx()   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
+    133:62..133:84 line_segments.lastx().   PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
+    133:58..133:60 ct                     EvalRef      mnist_classifier005::raw_contour::RawContour
+    133:62..133:91 line_segments.lastx().points.   Copyable     i32
+    133:98..133:101end                    Copyable     i32
+    133:17..133:38 line_segments.lastx()   RefMut       mnist_classifier005::line_segment_sketch::LineSegment
+    133:41..133:102LineSegment::new(ct, line_segments.lastx().points.start, end)   Transient    mnist_classifier005::line_segment_sketch::LineSegment
+    133:17..133:102line_segments.lastx() = LineSegment::new(ct, line_segments.lastx().points.start, end)   Copyable     void
     134:17..134:34 extend_start_flag      RefMut       bool
     134:37..134:42 false                  Copyable     bool
     134:17..134:42 extend_start_flag = false   Copyable     void
@@ -514,7 +514,7 @@ eager expr:
     138:39..138:40 0                      Copyable     i32
     138:16..138:40 line_segments.ilen() > 0   Copyable     bool
     139:31..139:44 line_segments          TempRef      Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    139:31..139:51 line_segments.last()   TempRef      mnist_classifier005::line_segment_sketch::LineSegment
+    139:31..139:52 line_segments.lastx()   TempRef      mnist_classifier005::line_segment_sketch::LineSegment
     140:31..140:38 ls_last                PureRef      mnist_classifier005::line_segment_sketch::LineSegment
     140:31..140:53 ls_last.displacement()   Transient    mnist_classifier005::geom2d::Vector2d
     141:26..141:28 ls                     PureRef      mnist_classifier005::line_segment_sketch::LineSegment
@@ -550,7 +550,7 @@ eager expr:
     146:29..146:46 dp.dot(dp1) > 0.0      Copyable     bool
     143:20..146:46 dp.cross(dp_last).abs() < 0.001                         and dp.dot(dp_last) > 0.0                         and dp.cross(dp1).abs()<0.001                         and dp.dot(dp1) > 0.0   Copyable     bool
     147:21..147:34 line_segments          RefMut       Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    147:21..147:40 line_segments.pop()    Transient    mnist_classifier005::line_segment_sketch::LineSegment
+    147:21..147:41 line_segments.popx()   Transient    mnist_classifier005::line_segment_sketch::LineSegment
     148:47..148:54 ls_last                PureRef      mnist_classifier005::line_segment_sketch::LineSegment
     148:47..148:55 ls_last.               PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
     148:69..148:71 ls                     PureRef      mnist_classifier005::line_segment_sketch::LineSegment
@@ -583,11 +583,11 @@ eager expr:
     154:13..154:16 ct.                    PureRef      Vec<mnist_classifier005::geom2d::Point2d>
     154:13..154:29 ct.points.ilen()       Copyable     i32
     155:41..155:54 line_segments          PureRef      Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    155:41..155:62 line_segments.first()   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
-    155:41..155:63 line_segments.first().   PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
-    155:41..155:70 line_segments.first().points.   Copyable     i32
+    155:41..155:63 line_segments.firstx()   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
+    155:41..155:64 line_segments.firstx().   PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
+    155:41..155:71 line_segments.firstx().points.   Copyable     i32
     156:29..156:42 line_segments          TempRef      Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    156:29..156:49 line_segments.last()   TempRef      mnist_classifier005::line_segment_sketch::LineSegment
+    156:29..156:50 line_segments.lastx()   TempRef      mnist_classifier005::line_segment_sketch::LineSegment
     157:8..157:25  last_line_segment      PureRef      mnist_classifier005::line_segment_sketch::LineSegment
     157:8..157:26  last_line_segment.     PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
     157:40..157:69 first_line_segment_points_end   Copyable     i32
@@ -596,21 +596,21 @@ eager expr:
     157:40..157:73 first_line_segment_points_end + N   Copyable     i32
     157:8..157:73  last_line_segment.points.end >= first_line_segment_points_end + N   Copyable     bool
     158:9..158:22  line_segments          RefMut       Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    158:9..158:28  line_segments.pop()    Transient    mnist_classifier005::line_segment_sketch::LineSegment
+    158:9..158:29  line_segments.popx()   Transient    mnist_classifier005::line_segment_sketch::LineSegment
     159:9..159:22  line_segments          RefMut       Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    159:54..159:71 last_line_segment      PureRef      mnist_classifier005::line_segment_sketch::LineSegment
-    159:54..159:72 last_line_segment.     PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
-    159:54..159:79 last_line_segment.points.   Copyable     i32
-    159:87..159:88 N                      Copyable     i32
-    159:90..159:103line_segments          PureRef      Vec<mnist_classifier005::line_segment_sketch::LineSegment>
-    159:90..159:111line_segments.first()   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
-    159:90..159:112line_segments.first().   PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
-    159:50..159:52 ct                     EvalRef      mnist_classifier005::raw_contour::RawContour
-    159:54..159:88 last_line_segment.points.start - N   Copyable     i32
-    159:90..159:119line_segments.first().points.   Copyable     i32
-    159:9..159:30  line_segments.first()   RefMut       mnist_classifier005::line_segment_sketch::LineSegment
-    159:33..159:123LineSegment::new(ct, last_line_segment.points.start - N, line_segments.first().points.end)   Transient    mnist_classifier005::line_segment_sketch::LineSegment
-    159:9..159:123 line_segments.first() = LineSegment::new(ct, last_line_segment.points.start - N, line_segments.first().points.end)   Copyable     void
+    159:55..159:72 last_line_segment      PureRef      mnist_classifier005::line_segment_sketch::LineSegment
+    159:55..159:73 last_line_segment.     PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
+    159:55..159:80 last_line_segment.points.   Copyable     i32
+    159:88..159:89 N                      Copyable     i32
+    159:91..159:104line_segments          PureRef      Vec<mnist_classifier005::line_segment_sketch::LineSegment>
+    159:91..159:113line_segments.firstx()   PureRef      mnist_classifier005::line_segment_sketch::LineSegment
+    159:91..159:114line_segments.firstx().   PureRef      std::slice::CyclicSlice<mnist_classifier005::geom2d::Point2d>
+    159:51..159:53 ct                     EvalRef      mnist_classifier005::raw_contour::RawContour
+    159:55..159:89 last_line_segment.points.start - N   Copyable     i32
+    159:91..159:121line_segments.firstx().points.   Copyable     i32
+    159:9..159:31  line_segments.firstx()   RefMut       mnist_classifier005::line_segment_sketch::LineSegment
+    159:34..159:125LineSegment::new(ct, last_line_segment.points.start - N, line_segments.firstx().points.end)   Transient    mnist_classifier005::line_segment_sketch::LineSegment
+    159:9..159:125 line_segments.firstx() = LineSegment::new(ct, last_line_segment.points.start - N, line_segments.firstx().points.end)   Copyable     void
     160:12..160:25 line_segments          Transient    Vec<mnist_classifier005::line_segment_sketch::LineSegment>
 
 lazy expr:

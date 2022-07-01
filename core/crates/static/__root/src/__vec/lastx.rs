@@ -1,7 +1,7 @@
 use super::*;
 
 pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
-    name: "last",
+    name: "lastx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,
@@ -10,11 +10,11 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(Linkage::MemberAccess {
-            copy_access: routine_linkage!(generic_vec_last_copy, 1),
-            eval_ref_access: routine_linkage!(generic_vec_last_eval_ref, 1),
-            temp_ref_access: routine_linkage!(generic_vec_last_temp_ref, 1),
-            temp_mut_access: routine_linkage!(generic_vec_last_mut, 1),
-            move_access: routine_linkage!(generic_vec_last_move, 1),
+            copy_access: routine_linkage!(generic_vec_lastx_copy, 1),
+            eval_ref_access: routine_linkage!(generic_vec_lastx_eval_ref, 1),
+            temp_ref_access: routine_linkage!(generic_vec_lastx_temp_ref, 1),
+            temp_mut_access: routine_linkage!(generic_vec_lastx_mut, 1),
+            move_access: routine_linkage!(generic_vec_lastx_move, 1),
         }),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,
@@ -23,13 +23,13 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     dev_src: static_dev_src!(),
 };
 
-fn generic_vec_last_copy<'temp, 'eval>(
+fn generic_vec_lastx_copy<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
     todo!()
 }
 
-fn generic_vec_last_eval_ref<'temp, 'eval>(
+fn generic_vec_lastx_eval_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_ref();
@@ -39,7 +39,7 @@ fn generic_vec_last_eval_ref<'temp, 'eval>(
     }
 }
 
-fn generic_vec_last_temp_ref<'temp, 'eval>(
+fn generic_vec_lastx_temp_ref<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_ref();
@@ -49,7 +49,7 @@ fn generic_vec_last_temp_ref<'temp, 'eval>(
     }
 }
 
-fn generic_vec_last_mut<'temp, 'eval>(
+fn generic_vec_lastx_mut<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
     let (generic_vec, stack_idx, gen): (&mut VirtualVec<'eval>, _, _) =
@@ -60,7 +60,7 @@ fn generic_vec_last_mut<'temp, 'eval>(
     }
 }
 
-fn generic_vec_last_move<'temp, 'eval>(
+fn generic_vec_lastx_move<'temp, 'eval>(
     values: &mut [TempValue<'temp, 'eval>],
 ) -> EvalResult<TempValue<'temp, 'eval>> {
     todo!()

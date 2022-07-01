@@ -1,4 +1,4 @@
 125:42..125:44	Ast Error: route `mnist_classifier050::line_segment_sketch::LineSegment` has no subroute named `ne`
-133:40..133:56	Infer Error: unrecognized caller
+133:41..133:57	Infer Error: unrecognized caller
 137:22..137:38	Infer Error: unrecognized caller
-159:33..159:49	Infer Error: unrecognized caller
+159:34..159:50	Infer Error: unrecognized caller

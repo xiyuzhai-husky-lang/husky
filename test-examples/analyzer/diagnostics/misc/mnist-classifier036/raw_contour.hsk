@@ -160,16 +160,16 @@ proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
                 if angle_change:
                     // update contour and previous streaks
                     if prev_angle_change1 == -1 and prev_angle_change2 == -1 and current_streak == 1 and prev_streak1 != -1 and prev_streak2 == 1:
-                        contour.last() = get_concave_middle_point(contour)
+                        contour.lastx() = get_concave_middle_point(contour)
                         contour.push(Point2d::from_ij28(i, j))
                         prev_streak2 = -1
                         prev_streak1 = -1
                     elif prev_angle_change1 == -1 and prev_streak1 > 0 and prev_streak1 == 1:
-                        contour.last() = Point2d::from_ij28(i, j)
+                        contour.lastx() = Point2d::from_ij28(i, j)
                         prev_streak2 = prev_streak1
                         prev_streak1 = current_streak
                     elif prev_angle_change1 == -1 and prev_streak1 > 0 and current_streak == 1 and prev_streak1 > 1:
-                        contour.last() = Point2d::from_ij28(i, j)
+                        contour.lastx() = Point2d::from_ij28(i, j)
                         prev_streak2 = -1
                         prev_streak1 = -1
                     else:
@@ -202,6 +202,6 @@ proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
                 if current_streak != -1:
                     current_streak++
             if prev_angle_change1 == -1 and current_streak == 1 and prev_streak1 > 0:
-                contour.pop();
+                contour.popx();
             result.push(RawContour(contour))
     return result
