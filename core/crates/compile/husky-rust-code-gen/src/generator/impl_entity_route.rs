@@ -6,9 +6,18 @@ use super::*;
 #[derive(Debug, Clone, Copy)]
 pub enum EntityRouteRole {
     Caller,
-    SpatialArgument,
-    Value,
     Decl,
+    Other,
+}
+
+impl EntityRouteRole {
+    fn argument_role(self) -> Self {
+        match self {
+            EntityRouteRole::Caller => EntityRouteRole::Other,
+            EntityRouteRole::Decl => EntityRouteRole::Decl,
+            EntityRouteRole::Other => EntityRouteRole::Other,
+        }
+    }
 }
 
 impl<'a> RustCodeGenerator<'a> {
@@ -23,7 +32,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write("&'eval ");
                     self.gen_entity_route(
                         entity_route.spatial_arguments[0].take_entity_route(),
-                        EntityRouteRole::SpatialArgument,
+                        role.argument_role(),
                     );
                     return;
                 }
@@ -44,26 +53,27 @@ impl<'a> RustCodeGenerator<'a> {
                 ident,
             } => todo!(),
         }
-        let contains_eval_ref = self.db.contains_eval_ref(entity_route.kind);
-        if contains_eval_ref || entity_route.spatial_arguments.len() > 0 {
+        let need_eval_ref = match role {
+            EntityRouteRole::Decl => self.db.contains_eval_ref(entity_route.kind),
+            _ => false,
+        };
+        if need_eval_ref || entity_route.spatial_arguments.len() > 0 {
             match role {
                 EntityRouteRole::Caller => self.write("::"),
-                EntityRouteRole::SpatialArgument => (),
-                EntityRouteRole::Value => (),
-                EntityRouteRole::Decl => (),
+                _ => (),
             }
             self.write("<");
-            if contains_eval_ref {
+            if need_eval_ref {
                 self.write("'eval");
             }
             for i in 0..entity_route.spatial_arguments.len() {
-                if i > 0 || contains_eval_ref {
+                if i > 0 || need_eval_ref {
                     self.write(", ")
                 }
                 match entity_route.spatial_arguments[i] {
                     SpatialArgument::Const(_) => todo!(),
                     SpatialArgument::EntityRoute(entity_route) => {
-                        self.gen_entity_route(entity_route, EntityRouteRole::SpatialArgument)
+                        self.gen_entity_route(entity_route, role.argument_role())
                     }
                 }
             }

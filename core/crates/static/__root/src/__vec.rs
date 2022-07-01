@@ -2,6 +2,7 @@ mod cyclic_slice_;
 mod first;
 mod last;
 
+use cyclic_slice::CyclicSlice;
 pub use cyclic_slice_::*;
 use entity_route::EntityRoutePtr;
 pub use first::*;
@@ -11,13 +12,25 @@ use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use super::*;
 use check_utils::should_eq;
 
-pub trait __VecX {
+pub trait __VecX<T> {
     fn ilen(&self) -> i32;
+
+    fn __call__() -> Self;
+
+    fn cyclic_slice<'eval>(&self, start: i32, end: i32) -> CyclicSlice<'eval, T>;
 }
 
-impl<T> __VecX for Vec<T> {
+impl<T> __VecX<T> for Vec<T> {
     fn ilen(&self) -> i32 {
         self.len() as i32
+    }
+
+    fn __call__() -> Self {
+        Default::default()
+    }
+
+    fn cyclic_slice<'eval>(&self, start: i32, end: i32) -> CyclicSlice<'eval, T> {
+        todo!()
     }
 }
 
