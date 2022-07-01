@@ -6,8 +6,8 @@ pub use func::*;
 pub use lazy::*;
 pub use proc::*;
 
-use file::FilePtr;
 use husky_eager_semantics::FuncStmt;
+use husky_file::FilePtr;
 use husky_lazy_semantics::*;
 use husky_text::{TextRange, TextRanged};
 use std::sync::Arc;

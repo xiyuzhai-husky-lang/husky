@@ -1,6 +1,6 @@
 use crate::{builder::QualifiedTySheetBuilder, *};
-use file::FilePtr;
 use husky_entity_syntax::EntitySyntaxResultArc;
+use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRouteQueryGroup;
 use infer_contract::InferContractQueryGroup;
 use print_utils::p;

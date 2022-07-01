@@ -104,7 +104,7 @@ fn handle_lsp_notification(
             Ok(TaskSet::Nothing)
         })?
         .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
-            use file::LiveFiles;
+            use husky_file::LiveFiles;
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
                 server
                     .db
@@ -113,7 +113,7 @@ fn handle_lsp_notification(
             Ok(TaskSet::SendUpdates)
         })?
         .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
-            use file::LiveFiles;
+            use husky_file::LiveFiles;
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
                 server
                     .db

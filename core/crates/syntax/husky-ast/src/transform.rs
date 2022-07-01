@@ -17,13 +17,13 @@ use crate::{
     query::{AstSalsaQueryGroup, AstText},
     *,
 };
-use file::FilePtr;
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use husky_atom::context::{Symbol, SymbolKind};
 use husky_entity_route_syntax::EntityRouteKind;
 use husky_entity_syntax::EntitySyntaxResult;
+use husky_file::FilePtr;
 use husky_text::TextRanged;
-use token::*;
+use husky_token::*;
 
 pub type AstIter<'a> = FoldableIter<'a, AstResult<Ast>, FoldableList<AstResult<Ast>>>;
 
@@ -102,7 +102,7 @@ impl<'a> AstTransformer<'a> {
     }
 }
 
-impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransformer<'a> {
+impl<'a> fold::Transformer<[HuskyToken], TokenizedText, AstResult<Ast>> for AstTransformer<'a> {
     fn _enter_block(&mut self) {
         self.context.enter();
         self.symbols.enter();
@@ -120,7 +120,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
     fn transform(
         &mut self,
         _indent: fold::Indent,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<Ast> {
         Ok(Ast {
@@ -131,7 +131,7 @@ impl<'a> fold::Transformer<[Token], TokenizedText, AstResult<Ast>> for AstTransf
                 }
                 AstContext::Stmt(_) | AstContext::Match(_) | AstContext::Visual => {
                     match token_group[0].kind {
-                        TokenKind::Keyword(keyword) => match keyword {
+                        HuskyTokenKind::Keyword(keyword) => match keyword {
                             Keyword::Stmt(keyword) => self
                                 .parse_stmt_with_keyword(keyword, token_group, enter_block)?
                                 .into(),

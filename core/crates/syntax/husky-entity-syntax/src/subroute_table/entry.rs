@@ -22,14 +22,14 @@ impl SubrouteEntry {
         file: FilePtr,
         parent_entity_kind: EntityKind,
         token_group_index: usize,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
     ) -> EntitySyntaxResult<Option<SubrouteEntry>> {
-        if token_group[0].kind == TokenKind::Keyword(Keyword::Use.into()) {
+        if token_group[0].kind == HuskyTokenKind::Keyword(Keyword::Use.into()) {
             return Ok(None);
         }
         if token_group.len() < 2 {
             match token_group[0].kind {
-                TokenKind::Identifier(Identifier::Custom(ident)) => {
+                HuskyTokenKind::Identifier(Identifier::Custom(ident)) => {
                     return Ok(Some(SubrouteEntry {
                         ident: Some(RangedCustomIdentifier {
                             ident,
@@ -49,21 +49,21 @@ impl SubrouteEntry {
         }
         if token_group.len() == 2 {
             return match token_group[0].kind {
-                TokenKind::Keyword(Keyword::Main) => Ok(Some(SubrouteEntry {
+                HuskyTokenKind::Keyword(Keyword::Main) => Ok(Some(SubrouteEntry {
                     ident: None,
                     kind: EntityKind::Main,
                     source: EntityLocus::from_file(file, token_group_index),
                 })),
-                TokenKind::Keyword(Keyword::Mod) => {
+                HuskyTokenKind::Keyword(Keyword::Mod) => {
                     SubrouteEntry::submodule(db, file, token_group_index, token_group)
                 }
                 _ => Ok(None),
             };
         }
         match token_group[0].kind {
-            TokenKind::Keyword(keyword) => match keyword {
+            HuskyTokenKind::Keyword(keyword) => match keyword {
                 Keyword::Paradigm(_) | Keyword::Type(_) | Keyword::Mod => {
-                    if let TokenKind::Identifier(ident) = token_group[1].kind {
+                    if let HuskyTokenKind::Identifier(ident) = token_group[1].kind {
                         if let Some(kind) = tell_entity_kind(keyword, &token_group[2]) {
                             return match ident {
                                 Identifier::Builtin(_) => Err(defn_error!(
@@ -92,18 +92,20 @@ impl SubrouteEntry {
                 }
                 _ => Ok(None),
             },
-            TokenKind::Decorator(Decorator::Static) => match token_group[1].kind {
-                TokenKind::Keyword(Keyword::Paradigm(paradigm)) => match token_group[2].kind {
-                    TokenKind::Identifier(Identifier::Custom(ident)) => Ok(Some(SubrouteEntry {
-                        ident: Some(RangedCustomIdentifier {
-                            ident,
-                            range: token_group[2].range,
-                        }),
-                        kind: EntityKind::Function {
-                            requires_lazy: paradigm.is_lazy(),
-                        },
-                        source: EntityLocus::from_file(file, token_group_index),
-                    })),
+            HuskyTokenKind::Decorator(Decorator::Static) => match token_group[1].kind {
+                HuskyTokenKind::Keyword(Keyword::Paradigm(paradigm)) => match token_group[2].kind {
+                    HuskyTokenKind::Identifier(Identifier::Custom(ident)) => {
+                        Ok(Some(SubrouteEntry {
+                            ident: Some(RangedCustomIdentifier {
+                                ident,
+                                range: token_group[2].range,
+                            }),
+                            kind: EntityKind::Function {
+                                requires_lazy: paradigm.is_lazy(),
+                            },
+                            source: EntityLocus::from_file(file, token_group_index),
+                        }))
+                    }
                     _ => todo!(),
                 },
                 _ => todo!(),
@@ -116,10 +118,10 @@ impl SubrouteEntry {
         db: &dyn EntitySyntaxSalsaQueryGroup,
         file: FilePtr,
         token_group_index: usize,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
     ) -> EntitySyntaxResult<Option<SubrouteEntry>> {
         let ident = match token_group[1].kind {
-            TokenKind::Identifier(Identifier::Custom(ident)) => ident,
+            HuskyTokenKind::Identifier(Identifier::Custom(ident)) => ident,
             _ => todo!(),
         };
         if let Some(submodule_file) = db.submodule_file(file, ident) {

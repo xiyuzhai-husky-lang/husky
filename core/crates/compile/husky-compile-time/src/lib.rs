@@ -4,37 +4,37 @@ mod impl_necessary;
 mod impl_parse_entity_route;
 pub mod utils;
 
-pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use husky_diagnostics::DiagnosticQuery;
 pub use husky_entity_route_syntax::{AllocateUniqueScope, EntityRoute};
 pub use husky_entity_semantics::EntityDefnQueryGroup;
 pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
+pub use husky_file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use husky_infer_entity_route::*;
 pub use husky_package_semantics::PackageQueryGroup;
 pub use husky_rust_code_gen::RustCodeGenQueryGroup;
+pub use husky_token::TokenQueryGroup;
+pub use husky_token::TokenSalsaQueryGroup;
 use indexmap::IndexMap;
 pub use infer_contract::*;
 pub use infer_decl::*;
 pub use infer_qualifier::*;
 pub use infer_total::*;
-pub use token::TokenQueryGroup;
-pub use token::TokenSalsaQueryGroup;
 pub use word::InternWord;
 
 use check_utils::*;
-use file::FilePtr;
 use husky_entity_route_syntax::EntityRoutePtr;
 use husky_entity_semantics::EntityRouteStore;
+use husky_file::FilePtr;
 use husky_linkage_table::LinkageSourceTable;
 use print_utils::*;
 use std::{fmt, sync::Arc};
 use sync_utils::ARwLock;
 
 #[salsa::database(
-    file::FileQueryStorage,
-    token::TokenQueryGroupStorage,
+    husky_file::FileQueryStorage,
+    husky_token::TokenQueryGroupStorage,
     husky_entity_syntax::ScopeQueryGroupStorage,
     husky_text::TextQueryGroupStorage,
     husky_ast::AstQueryGroupStorage,
@@ -50,7 +50,7 @@ use sync_utils::ARwLock;
 )]
 pub struct HuskyCompileTime {
     storage: salsa::Storage<HuskyCompileTime>,
-    file_unique_allocator: file::FileInterner,
+    file_unique_allocator: husky_file::FileInterner,
     word_unique_allocator: word::WordAllocator,
     scope_unique_allocator: husky_entity_route_syntax::EntityRouteInterner,
     live_docs: ARwLock<IndexMap<FilePtr, ARwLock<String>>>,
@@ -72,7 +72,7 @@ impl HuskyCompileTime {
         let husky_linkage_table = Default::default();
         Self {
             storage: Default::default(),
-            file_unique_allocator: file::new_file_unique_allocator(),
+            file_unique_allocator: husky_file::new_file_unique_allocator(),
             word_unique_allocator: word::new_word_interner(),
             scope_unique_allocator,
             live_docs,

@@ -4,7 +4,7 @@ use husky_entity_syntax::EntitySyntaxQueryGroup;
 pub use struct_item_context::*;
 
 use crate::*;
-use file::FilePtr;
+use husky_file::FilePtr;
 use thin_vec::thin_vec;
 use word::Paradigm;
 

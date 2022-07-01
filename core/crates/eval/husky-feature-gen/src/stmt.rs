@@ -2,7 +2,7 @@ mod variant;
 
 pub use variant::*;
 
-use file::FilePtr;
+use husky_file::FilePtr;
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
 use husky_text::TextRange;
 use vm::EvalResult;

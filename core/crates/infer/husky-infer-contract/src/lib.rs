@@ -11,9 +11,9 @@ pub use query::*;
 pub use sheet::*;
 
 use check_utils::*;
-use file::FilePtr;
 use husky_ast::RawExprIdx;
 use husky_entity_syntax::EntitySyntaxResultArc;
+use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRouteQueryGroup;
 use husky_liason_semantics::*;
 use infer_error::InferResult;

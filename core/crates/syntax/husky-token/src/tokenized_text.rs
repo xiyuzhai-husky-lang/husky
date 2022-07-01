@@ -1,6 +1,6 @@
 use crate::*;
-use file::URange;
 use fold::{FoldableList, FoldingEnd};
+use husky_file::URange;
 use lsp_types::FoldingRange;
 use print_utils::epin;
 use std::fmt::Write;
@@ -9,7 +9,7 @@ use word::WordAllocator;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenizedText {
-    pub tokens: Vec<Token>,
+    pub tokens: Vec<HuskyToken>,
     pub errors: Vec<LexError>,
     pub token_groups: FoldableList<URange>,
 }
@@ -17,7 +17,7 @@ pub struct TokenizedText {
 impl TokenizedText {
     pub fn new(
         line_groups: Vec<TokenGroup>,
-        tokens: Vec<Token>,
+        tokens: Vec<HuskyToken>,
         errors: Vec<LexError>,
     ) -> TokenizedText {
         TokenizedText {
@@ -76,9 +76,9 @@ impl TokenizedText {
     }
 }
 
-pub type TokenGroupIter<'a> = fold::FoldableIter<'a, [Token], TokenizedText>;
+pub type TokenGroupIter<'a> = fold::FoldableIter<'a, [HuskyToken], TokenizedText>;
 
-impl fold::FoldableStorage<[Token]> for TokenizedText {
+impl fold::FoldableStorage<[HuskyToken]> for TokenizedText {
     fn len(&self) -> usize {
         self.token_groups.len()
     }
@@ -87,7 +87,7 @@ impl fold::FoldableStorage<[Token]> for TokenizedText {
         self.token_groups.folding_end(index)
     }
 
-    fn value(&self, index: usize) -> &[Token] {
+    fn value(&self, index: usize) -> &[HuskyToken] {
         &self.tokens[self.token_groups.value(index).clone()]
     }
 

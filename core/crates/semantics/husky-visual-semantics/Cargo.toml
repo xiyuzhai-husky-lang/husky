@@ -9,7 +9,7 @@ word = { path = "../../syntax/word", version = "0.0.0" }
 husky-eager-semantics = { path = "../husky-eager-semantics", version = "0.0.0" }
 husky-lazy-semantics = { path = "../husky-lazy-semantics", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
-file = { path = "../../syntax/file", version = "0.0.0" }
+husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
 husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
 husky-visual-syntax = { path = "../../syntax/husky-visual-syntax", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }

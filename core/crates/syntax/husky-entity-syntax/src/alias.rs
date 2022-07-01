@@ -1,7 +1,7 @@
 use crate::*;
-use file::FilePtr;
 use husky_entity_route_syntax::EntityRoutePtr;
-use token::TokenKind;
+use husky_file::FilePtr;
+use husky_token::HuskyTokenKind;
 use word::{Identifier, Keyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -18,7 +18,7 @@ impl EntityRouteAliasTable {
         }
     }
 
-    pub fn parse(file_id: FilePtr, token_groups: token::TokenGroupIter) -> Self {
+    pub fn parse(file_id: FilePtr, token_groups: husky_token::TokenGroupIter) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(|item| {
@@ -41,9 +41,9 @@ impl EntityRouteAliasEntry {
     pub fn parse(
         _file_id: FilePtr,
         _token_group_index: usize,
-        token_group: &[token::Token],
+        token_group: &[husky_token::HuskyToken],
     ) -> (Option<EntityRouteAliasEntry>, Option<ScopeAliasDefError>) {
-        if token_group[0].kind == TokenKind::Keyword(Keyword::Use) {
+        if token_group[0].kind == HuskyTokenKind::Keyword(Keyword::Use) {
             todo!()
         } else {
             (None, None)

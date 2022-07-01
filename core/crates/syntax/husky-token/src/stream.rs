@@ -1,12 +1,12 @@
 use crate::*;
 use check_utils::should;
-use file::URange;
+use husky_file::URange;
 use husky_text::TextPosition;
 use vm::Bracket;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
-    pub tokens: &'a [Token],
+    pub tokens: &'a [HuskyToken],
     next: usize,
 }
 
@@ -47,7 +47,7 @@ impl<'a> TokenStream<'a> {
         self.next = state.next;
     }
 
-    pub fn next(&mut self) -> Option<&'a Token> {
+    pub fn next(&mut self) -> Option<&'a HuskyToken> {
         if self.next < self.tokens.len() {
             let next = self.next;
             self.next += 1;
@@ -83,7 +83,7 @@ impl<'a> TokenStream<'a> {
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
         if self.next < self.tokens.len() {
             match self.tokens[self.next].kind {
-                TokenKind::Special(special) => special.opt_bra(),
+                HuskyTokenKind::Special(special) => special.opt_bra(),
                 _ => None,
             }
         } else {
@@ -92,8 +92,8 @@ impl<'a> TokenStream<'a> {
     }
 }
 
-impl<'a> From<&'a [Token]> for TokenStream<'a> {
-    fn from(tokens: &'a [Token]) -> Self {
+impl<'a> From<&'a [HuskyToken]> for TokenStream<'a> {
+    fn from(tokens: &'a [HuskyToken]) -> Self {
         should!(tokens.len() > 0);
         Self { tokens, next: 0 }
     }

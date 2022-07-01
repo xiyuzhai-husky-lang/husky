@@ -32,7 +32,7 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
 }
 
 impl AllocateUniqueFile for HuskyCompileTime {
-    fn file_interner(&self) -> &file::FileInterner {
+    fn file_interner(&self) -> &husky_file::FileInterner {
         &self.file_unique_allocator
     }
 }
@@ -44,12 +44,12 @@ impl InternWord for HuskyCompileTime {
 }
 
 impl LiveFiles for HuskyCompileTime {
-    fn get_live_files(&self) -> &ARwLock<IndexMap<file::FilePtr, ARwLock<String>>> {
+    fn get_live_files(&self) -> &ARwLock<IndexMap<husky_file::FilePtr, ARwLock<String>>> {
         &self.live_docs
     }
 
-    fn did_change_source(&mut self, id: file::FilePtr) {
-        file::FileContentQuery.in_db_mut(self).invalidate(&id);
+    fn did_change_source(&mut self, id: husky_file::FilePtr) {
+        husky_file::FileContentQuery.in_db_mut(self).invalidate(&id);
     }
 }
 

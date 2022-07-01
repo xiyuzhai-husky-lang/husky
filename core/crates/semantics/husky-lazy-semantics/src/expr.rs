@@ -6,7 +6,7 @@ pub use xml::*;
 
 use std::sync::Arc;
 
-use file::FilePtr;
+use husky_file::FilePtr;
 use infer_qualifier::LazyValueQualifiedTy;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;

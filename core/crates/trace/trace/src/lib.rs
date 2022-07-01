@@ -6,11 +6,11 @@ mod variant;
 
 pub use variant::TraceVariant;
 
-use file::FilePtr;
 use fold::Indent;
 use husky_eager_semantics::*;
 use husky_entity_semantics::*;
 use husky_feature_gen::*;
+use husky_file::FilePtr;
 use husky_text::{HuskyText, TextRange};
 use husky_trace_protocol::*;
 use print_utils::p;

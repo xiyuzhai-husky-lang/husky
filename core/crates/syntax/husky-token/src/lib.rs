@@ -12,7 +12,7 @@ mod tokenized_text;
 mod utils;
 
 pub use error::*;
-pub use kind::TokenKind;
+pub use kind::HuskyTokenKind;
 pub use query::*;
 pub use semantic_token::*;
 pub use special::SpecialToken;
@@ -24,20 +24,20 @@ use scanner::TokenScanner;
 use word::Identifier;
 
 #[derive(PartialEq, Eq)]
-pub struct Token {
+pub struct HuskyToken {
     pub range: TextRange,
-    pub kind: TokenKind,
+    pub kind: HuskyTokenKind,
 }
 
-impl std::fmt::Debug for Token {
+impl std::fmt::Debug for HuskyToken {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("Token {{{:?}, {:?}}}", self.kind, self.range))
     }
 }
 
-impl Token {
-    pub fn new(i: usize, start: usize, end: usize, kind: TokenKind) -> Token {
-        Token {
+impl HuskyToken {
+    pub fn new(i: usize, start: usize, end: usize, kind: HuskyTokenKind) -> HuskyToken {
+        HuskyToken {
             range: husky_text::new_same_line(i, start, end),
             kind,
         }
@@ -45,7 +45,7 @@ impl Token {
 
     pub fn ranged_custom_ident(&self) -> Option<RangedCustomIdentifier> {
         match self.kind {
-            TokenKind::Identifier(Identifier::Custom(ident)) => Some(RangedCustomIdentifier {
+            HuskyTokenKind::Identifier(Identifier::Custom(ident)) => Some(RangedCustomIdentifier {
                 ident: ident,
                 range: self.range,
             }),
@@ -54,7 +54,7 @@ impl Token {
     }
 }
 
-impl TextRanged for Token {
+impl TextRanged for HuskyToken {
     fn text_range(&self) -> TextRange {
         self.range
     }

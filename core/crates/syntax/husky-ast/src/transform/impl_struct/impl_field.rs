@@ -5,7 +5,7 @@ use super::*;
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_struct_eager_field(
         &mut self,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         let mut token_stream: TokenStream = token_group.into();
@@ -46,7 +46,11 @@ impl<'a> AstTransformer<'a> {
         } else {
             return err!(format!("expect type"), parser.token_stream.next_range());
         };
-        let field_kind = if try_eat!(parser, token_kind, TokenKind::Special(SpecialToken::Assign)) {
+        let field_kind = if try_eat!(
+            parser,
+            token_kind,
+            HuskyTokenKind::Special(SpecialToken::Assign)
+        ) {
             self.update_struct_item_context(StructItemContext::DefaultField, token_group)?;
             enter_block(self);
             self.context
@@ -66,7 +70,7 @@ impl<'a> AstTransformer<'a> {
         } else if try_eat!(
             parser,
             token_kind,
-            TokenKind::Special(SpecialToken::DeriveAssign)
+            HuskyTokenKind::Special(SpecialToken::DeriveAssign)
         ) {
             self.update_struct_item_context(StructItemContext::DerivedEagerField, token_group)?;
             enter_block(self);
@@ -99,21 +103,21 @@ impl<'a> AstTransformer<'a> {
 
     pub(super) fn parse_struct_derived_lazy_field(
         &mut self,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         let context_update_result =
             self.update_struct_item_context(StructItemContext::DerivedLazyField, token_group);
         enter_block(self);
         let paradigm = match token_group[0].kind {
-            TokenKind::Keyword(Keyword::Paradigm(paradigm)) => paradigm,
+            HuskyTokenKind::Keyword(Keyword::Paradigm(paradigm)) => paradigm,
             _ => todo!(),
         };
         self.context.set(AstContext::Stmt(paradigm));
         self.opt_this_liason.set(Some(ParameterLiason::EvalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);
         match token_group[2].kind {
-            TokenKind::Special(SpecialToken::LightArrow) => (),
+            HuskyTokenKind::Special(SpecialToken::LightArrow) => (),
             _ => todo!(),
         }
         let ty_result = husky_atom::parse_route(self, &token_group[3..]);

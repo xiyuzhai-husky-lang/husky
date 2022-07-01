@@ -25,7 +25,7 @@ upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
 arena = { path = "../../abstraction/arena", version = "0.0.0" }
 json-result = { path = "../../abstraction/json-result", version = "0.0.0" }
-file = { path = "../../syntax/file", version = "0.0.0" }
+husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
 husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }

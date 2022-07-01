@@ -2,8 +2,8 @@ mod opn;
 mod parser;
 
 use crate::*;
-use file::FilePtr;
 use husky_ast::{AstIter, RawExprArena, RawExprIdx};
+use husky_file::FilePtr;
 use infer_contract::EagerContract;
 use infer_qualifier::{EagerValueQualifiedTy, EagerVariableQualifier};
 use infer_total::InferQueryGroup;

@@ -1,10 +1,10 @@
 use crate::*;
 use husky_atom::{context::SymbolKind, AtomVariant};
 use husky_text::TextRanged;
-use token::Token;
+use husky_token::HuskyToken;
 
 impl<'a> AstTransformer<'a> {
-    pub fn parse_expr(&mut self, tokens: &[Token]) -> AstResult<RawExprIdx> {
+    pub fn parse_expr(&mut self, tokens: &[HuskyToken]) -> AstResult<RawExprIdx> {
         let atoms = self.parse_atoms(tokens, |parser| parser.parse_all())?;
         self.parse_expr_from_atoms(atoms)
     }

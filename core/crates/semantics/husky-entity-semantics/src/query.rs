@@ -13,7 +13,7 @@ use vm::EntityUid;
 pub trait EntityDefnQueryGroup:
     InferQueryGroup + husky_ast::AstQueryGroup + Upcast<dyn InferQueryGroup> + StoreEntityRoute
 {
-    fn main_defn(&self, main_file: file::FilePtr) -> SemanticResultArc<MainDefn>;
+    fn main_defn(&self, main_file: husky_file::FilePtr) -> SemanticResultArc<MainDefn>;
     fn entity_defn(&self, route: EntityRoutePtr) -> SemanticResultArc<EntityDefn>;
     fn member_defn(&self, route: EntityRoutePtr) -> Arc<EntityDefn>;
     fn entity_immediate_dependees(

@@ -16,10 +16,10 @@ unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
-file = { path = "../file", version = "0.0.0" }
+husky-file = { path = "../husky-file", version = "0.0.0" }
 husky-text = { path = "../husky-text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
-token = { path = "../token", version = "0.0.0" }
+husky-token = { path = "../husky-token", version = "0.0.0" }
 husky-entity-route-syntax = { path = "../husky-entity-route-syntax", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }
 husky-entity-syntax = { path = "../husky-entity-syntax", version = "0.0.0" }

@@ -7,10 +7,10 @@ pub use sheet::*;
 
 use check_utils::*;
 use defn_head::*;
-use file::FilePtr;
 use husky_ast::*;
 use husky_entity_route_syntax::*;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
+use husky_file::FilePtr;
 use infer_decl::{DeclQueryGroup, FunctionDecl, MethodDecl, TyDecl};
 use infer_error::*;
 use print_utils::*;

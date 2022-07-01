@@ -1,5 +1,5 @@
 use dev_utils::{dev_src, DevSource};
-use file::FileError;
+use husky_file::FileError;
 use husky_text::TextRange;
 use std::fmt::Write;
 use std::{fmt::Formatter, sync::Arc};
@@ -98,6 +98,6 @@ macro_rules! query_not_none {
         }
     }};
 }
+use husky_token::LexError;
 pub(crate) use query_not_none;
 use test_utils::TestDisplay;
-use token::LexError;

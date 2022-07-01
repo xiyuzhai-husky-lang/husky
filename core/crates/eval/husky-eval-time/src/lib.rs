@@ -13,11 +13,11 @@ pub use query::*;
 pub use singleton::*;
 
 use check_utils::*;
-use file::{FilePtr, FileQueryGroup};
 use husky_compile_time::*;
 use husky_datasets_protocol::LabeledData;
 use husky_feature_eval::*;
 use husky_feature_eval::{EvalFeature, Session};
+use husky_file::{FilePtr, FileQueryGroup};
 use husky_text::TextQueryGroupStorage;
 use husky_trace_protocol::*;
 use indexmap::IndexMap;

@@ -1,15 +1,15 @@
 use crate::*;
 use arena::map::ArenaKeyQuery;
-use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldableList, FoldableStorage};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
+use husky_file::FilePtr;
 use husky_text::{HuskyText, TextQueryGroup};
+use husky_token::AbsSemanticToken;
 use lsp_types::FoldingRange;
 use std::fmt::Write;
 use std::sync::Arc;
 use test_utils::TestDisplayConfig;
-use token::AbsSemanticToken;
 use upcast::Upcast;
 
 #[salsa::query_group(AstQueryGroupStorage)]

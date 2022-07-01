@@ -5,7 +5,7 @@ use super::*;
 impl<'a> AstTransformer<'a> {
     pub fn call_defn_head(
         &mut self,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
         opt_this_liason: Option<ParameterLiason>,
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {

@@ -1,4 +1,4 @@
-use file::FilePtr;
+use husky_file::FilePtr;
 use husky_text::TextRange;
 
 use crate::*;
