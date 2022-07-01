@@ -6,15 +6,18 @@ use husky_text::TextRange;
 use word::IdentPairDict;
 
 impl<'a> AstTransformer<'a> {
-    pub(crate) fn parse_xml_expr(&mut self, token_group: &[Token]) -> AstResultArc<RawXmlExpr> {
+    pub(crate) fn parse_xml_expr(
+        &mut self,
+        token_group: &[HuskyToken],
+    ) -> AstResultArc<RawXmlExpr> {
         msg_once!("todo: parse children");
         let variant = match token_group[0].kind {
-            TokenKind::Special(SpecialToken::LAngle) => {
+            HuskyTokenKind::Special(SpecialToken::LAngle) => {
                 if token_group.len() < 2 {
                     return err!(format!("expect xml"), token_group.text_range());
                 }
                 match token_group.last().unwrap().kind {
-                    TokenKind::Special(SpecialToken::XmlKet) => (),
+                    HuskyTokenKind::Special(SpecialToken::XmlKet) => (),
                     _ => return err!(format!("expect `/>`"), token_group[0].range),
                 }
                 if token_group.len() == 2 {
@@ -34,12 +37,12 @@ impl<'a> AstTransformer<'a> {
         }))
     }
 
-    fn parse_xml_props(&mut self, tokens: &[Token]) -> AstResult<IdentPairDict<RawExprIdx>> {
+    fn parse_xml_props(&mut self, tokens: &[HuskyToken]) -> AstResult<IdentPairDict<RawExprIdx>> {
         self.parse_atoms(tokens, |parser| parser.xml_props())?
             .into_iter()
             .map(
                 |(ranged_ident, token_range)| -> AstResult<(CustomIdentifier, RawExprIdx)> {
-                    self.push_abs_semantic_token(token::AbsSemanticToken::new(
+                    self.push_abs_semantic_token(husky_token::AbsSemanticToken::new(
                         SemanticTokenKind::Parameter,
                         ranged_ident.range,
                     ));

@@ -3,8 +3,8 @@ use super::*;
 use entity_kind::TyKind;
 use husky_entity_route_syntax::RangedEntityRoute;
 use husky_text::RangedCustomIdentifier;
+use husky_token::SemanticTokenKind;
 use thin_vec::{thin_vec, ThinVec};
-use token::SemanticTokenKind;
 
 /// parse atoms from left to right
 /// it's hard to parse a standalone tuple from left to right,
@@ -31,7 +31,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     ),
                     kind: EntityKind::Type(TyKind::Other),
                 })
-            } else if let TokenKind::Identifier(ident) = token.kind {
+            } else if let HuskyTokenKind::Identifier(ident) = token.kind {
                 let symbol_kind = self.atom_context.resolve_symbol_kind(ident, token.range)?;
                 Some(match symbol_kind {
                     SymbolKind::EntityRoute(route) => {

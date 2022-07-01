@@ -18,7 +18,6 @@ pub use ty::*;
 use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
-use file::FilePtr;
 use fold::{FoldIterItem, FoldableStorage};
 use husky_ast::AstVariant;
 use husky_atom::{
@@ -29,6 +28,7 @@ use husky_eager_semantics::*;
 use husky_entity_route_syntax::{EntityRoute, EntityRouteKind};
 use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_syntax::EntityLocus;
+use husky_file::FilePtr;
 use husky_lazy_semantics::parse_lazy_stmts;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use husky_liason_semantics::*;
@@ -401,7 +401,7 @@ impl EntityDefnVariant {
 
 pub(crate) fn main_defn(
     this: &dyn EntityDefnQueryGroup,
-    main_file: file::FilePtr,
+    main_file: husky_file::FilePtr,
 ) -> SemanticResultArc<MainDefn> {
     let ast_text = this.ast_text(main_file).unwrap();
     for item in ast_text.folded_results.iter() {

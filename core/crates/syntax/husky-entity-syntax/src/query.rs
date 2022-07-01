@@ -2,8 +2,8 @@ use crate::*;
 use check_utils::{should, should_eq};
 use dev_utils::dev_src;
 use entity_kind::{MemberKind, TyKind};
-use file::{FileError, FileErrorKind, FilePtr};
 use husky_entity_route_syntax::*;
+use husky_file::{FileError, FileErrorKind, FilePtr};
 use husky_text::TextRange;
 use path_utils::*;
 use print_utils::{epin, msg_once, p};
@@ -17,7 +17,7 @@ use fold::FoldableStorage;
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntitySyntaxSalsaQueryGroup:
-    token::TokenQueryGroup + AllocateUniqueScope + ResolveStaticRootDefn
+    husky_token::TokenQueryGroup + AllocateUniqueScope + ResolveStaticRootDefn
 {
     fn subroute_table(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResultArc<SubrouteTable>;
 

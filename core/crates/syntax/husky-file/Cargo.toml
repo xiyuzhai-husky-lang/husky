@@ -1,5 +1,5 @@
 [package]
-name = "file"
+name = "husky-file"
 version = "0.0.0"
 description = "TBD"
 license = "MIT OR Apache-2.0"

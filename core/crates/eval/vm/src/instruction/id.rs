@@ -7,7 +7,7 @@ use std::{
     },
 };
 
-use file::FilePtr;
+use husky_file::FilePtr;
 use husky_text::TextRange;
 
 static NEXT_VM_INSTRUCTION_ID: AtomicUsize = AtomicUsize::new(0);

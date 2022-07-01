@@ -1,5 +1,5 @@
-use file::FilePtr;
 use husky_entity_semantics::DefinitionRepr;
+use husky_file::FilePtr;
 use husky_instruction_gen::new_func_instruction_sheet;
 use vm::{AnyValueDyn, EvalRef, EvalResult};
 

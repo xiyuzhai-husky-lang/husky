@@ -7,7 +7,7 @@ mod mode;
 mod notif;
 
 pub use error::{DebuggerError, DebuggerResult};
-use file::FilePtr;
+use husky_file::FilePtr;
 use husky_trace_time::HuskyTraceTime;
 pub use mode::Mode;
 

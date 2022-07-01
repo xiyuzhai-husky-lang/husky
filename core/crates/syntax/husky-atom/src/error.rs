@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use dev_utils::DevSource;
-use file::FileError;
+use husky_file::FileError;
 use husky_text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

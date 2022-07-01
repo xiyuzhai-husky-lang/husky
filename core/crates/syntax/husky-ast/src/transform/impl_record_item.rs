@@ -1,15 +1,15 @@
 use crate::*;
-use token::*;
+use husky_token::*;
 use word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_record_item(
         &mut self,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         match token_group[0].kind {
-            TokenKind::Keyword(keyword) => match keyword {
+            HuskyTokenKind::Keyword(keyword) => match keyword {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(paradigm) => match paradigm {
                     Paradigm::LazyFunctional => {
@@ -26,13 +26,14 @@ impl<'a> AstTransformer<'a> {
                     )
                 }
             },
-            TokenKind::Identifier(_) => self.parse_record_original_field(token_group),
+            HuskyTokenKind::Identifier(_) => self.parse_record_original_field(token_group),
             _ => err!(format!("expect record item"), token_group[0].range),
         }
     }
 
-    fn parse_record_original_field(&mut self, token_group: &[Token]) -> AstResult<AstVariant> {
-        if token_group.len() >= 2 && token_group[1].kind == TokenKind::Special(SpecialToken::Colon)
+    fn parse_record_original_field(&mut self, token_group: &[HuskyToken]) -> AstResult<AstVariant> {
+        if token_group.len() >= 2
+            && token_group[1].kind == HuskyTokenKind::Special(SpecialToken::Colon)
         {
             if token_group.len() == 2 {
                 todo!()
@@ -54,7 +55,7 @@ impl<'a> AstTransformer<'a> {
 
     fn parse_record_derived_field(
         &mut self,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         enter_block(self);

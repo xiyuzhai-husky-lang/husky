@@ -6,7 +6,6 @@ pub use member::*;
 pub use type_call::*;
 
 use super::*;
-use file::FilePtr;
 use husky_ast::*;
 use husky_atom::{
     context::{AtomContextKind, Symbol},
@@ -14,6 +13,7 @@ use husky_atom::{
 };
 use husky_eager_semantics::{FuncStmt, ProcStmt};
 use husky_entity_route_syntax::{EntityRoute, EntityRouteKind, EntityRoutePtr};
+use husky_file::FilePtr;
 use husky_lazy_semantics::LazyStmt;
 use husky_text::*;
 use infer_decl::{DeclQueryGroup, MemberIdx};

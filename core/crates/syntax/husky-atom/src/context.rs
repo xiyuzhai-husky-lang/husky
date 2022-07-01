@@ -7,16 +7,16 @@ pub use symbol::*;
 use super::*;
 use defn_head::{GenericPlaceholderVariant, Parameter, SpatialParameter};
 use entity_kind::TyKind;
-use file::FilePtr;
 use husky_entity_route_syntax::{EntityRouteKind, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
+use husky_file::FilePtr;
 use husky_text::*;
+use husky_token::AbsSemanticToken;
 use map_collect::MapCollect;
 use print_utils::p;
 use static_defn::{StaticParameter, StaticSpatialParameter};
 use std::borrow::Cow;
 use thin_vec::{thin_vec, ThinVec};
-use token::AbsSemanticToken;
 use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 
 #[derive(Clone, Copy)]

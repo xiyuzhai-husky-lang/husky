@@ -3,9 +3,9 @@ mod lazy;
 
 use std::sync::Arc;
 
-use file::FilePtr;
 use husky_ast::*;
 use husky_entity_syntax::EntitySyntaxResult;
+use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_contract::{ContractSheet, InferContract};
 use infer_decl::DeclQueryGroup;

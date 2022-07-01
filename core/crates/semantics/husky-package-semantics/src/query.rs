@@ -1,19 +1,22 @@
 use crate::*;
-use file::FilePtr;
 use fold::FoldableStorage;
 use husky_ast::{AstText, AstVariant};
 use husky_eager_semantics::parse_func_stmts;
 use husky_entity_route_syntax::EntityRouteKind;
 use husky_entity_semantics::EntityDefnQueryGroup;
+use husky_file::FilePtr;
 use semantics_error::*;
 
 #[salsa::query_group(PackageQueryGroupStorage)]
 pub trait PackageQueryGroup: EntityDefnQueryGroup {
-    fn package(&self, main_file: file::FilePtr) -> SemanticResultArc<Package>;
-    fn config(&self, main_file: file::FilePtr) -> SemanticResultArc<Config>;
+    fn package(&self, main_file: husky_file::FilePtr) -> SemanticResultArc<Package>;
+    fn config(&self, main_file: husky_file::FilePtr) -> SemanticResultArc<Config>;
 }
 
-fn package(db: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Package> {
+fn package(
+    db: &dyn PackageQueryGroup,
+    main_file: husky_file::FilePtr,
+) -> SemanticResultArc<Package> {
     let module = db.module(main_file).unwrap();
     let ident = match module.kind {
         EntityRouteKind::Package { ident, .. } => ident,
@@ -27,7 +30,10 @@ fn package(db: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResu
     }))
 }
 
-fn config(this: &dyn PackageQueryGroup, main_file: file::FilePtr) -> SemanticResultArc<Config> {
+fn config(
+    this: &dyn PackageQueryGroup,
+    main_file: husky_file::FilePtr,
+) -> SemanticResultArc<Config> {
     let ast_text = this.ast_text(main_file).unwrap();
     config_from_ast(this, &ast_text, main_file)
 }

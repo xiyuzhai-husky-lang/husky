@@ -1,4 +1,4 @@
-use file::FilePtr;
+use husky_file::FilePtr;
 use static_defn::EntityStaticDefn;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

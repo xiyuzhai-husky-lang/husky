@@ -1,8 +1,8 @@
 use husky_compile_test::test_all_source_files;
 use husky_compile_time::*;
+use husky_token::AbsSemanticToken;
 use std::path::Path;
 use test_utils::TestResult;
-use token::AbsSemanticToken;
 
 pub(super) fn test_semantic_tokens(package_dir: &Path) -> TestResult {
     test_all_source_files(package_dir, "semantic_tokens.txt", |compile_time, file| {

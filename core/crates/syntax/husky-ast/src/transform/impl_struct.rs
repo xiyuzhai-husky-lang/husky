@@ -6,17 +6,17 @@ mod impl_visual;
 use crate::*;
 use husky_atom::context::{Symbol, SymbolKind};
 use husky_text::TextRanged;
-use token::*;
+use husky_token::*;
 use word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_struct_item(
         &mut self,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         match token_group[0].kind {
-            TokenKind::Keyword(keyword) => {
+            HuskyTokenKind::Keyword(keyword) => {
                 self.abs_semantic_tokens.push(AbsSemanticToken::new(
                     SemanticTokenKind::Keyword,
                     token_group[0].range,
@@ -25,10 +25,10 @@ impl<'a> AstTransformer<'a> {
                     Keyword::Paradigm(routine_keyword) => {
                         expect_at_least!(token_group, token_group.text_range(), 4);
                         match token_group[2].kind {
-                            TokenKind::Special(SpecialToken::LPar) => {
+                            HuskyTokenKind::Special(SpecialToken::LPar) => {
                                 self.parse_struct_method(token_group,  enter_block)
                             },
-                            TokenKind::Special(SpecialToken::LightArrow) =>{
+                            HuskyTokenKind::Special(SpecialToken::LightArrow) =>{
                                 self.parse_struct_derived_lazy_field(token_group,  enter_block)
                             },
                             _=> todo!(),
@@ -47,10 +47,10 @@ impl<'a> AstTransformer<'a> {
                     Keyword::Liason(_) =>  self.parse_struct_eager_field(token_group,   enter_block),
                 }
             },
-            TokenKind::Identifier(_) => {
+            HuskyTokenKind::Identifier(_) => {
                 self.parse_struct_eager_field(token_group,  enter_block)
             },
-            TokenKind::Decorator(_) => {
+            HuskyTokenKind::Decorator(_) => {
                 self.parse_struct_associated_routine(token_group,   enter_block)
             },
             _ => err!(
@@ -63,7 +63,7 @@ impl<'a> AstTransformer<'a> {
     fn update_struct_item_context(
         &mut self,
         new_struct_item_context: StructItemContext,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
     ) -> AstResult<()> {
         let (opt_base_ty, old_struct_item_context) = match self.context.value() {
             AstContext::Struct {
@@ -90,7 +90,7 @@ impl<'a> AstTransformer<'a> {
 
     fn parse_visual(
         &mut self,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         let context_update_result =

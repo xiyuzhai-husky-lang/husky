@@ -3,7 +3,7 @@ mod impl_match;
 use crate::{stmt::*, *};
 use husky_atom::context::{Symbol, SymbolKind};
 use husky_text::{TextRange, TextRanged};
-use token::*;
+use husky_token::*;
 use vm::*;
 use word::Paradigm;
 
@@ -11,7 +11,7 @@ impl<'a> AstTransformer<'a> {
     pub(super) fn parse_stmt_with_keyword(
         &mut self,
         keyword: StmtKeyword,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<RawStmt> {
         let kw_range = token_group[0].text_range();
@@ -47,7 +47,7 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Else => {
                     must_be!(token_group.len() == 2, "expect one tokens after", kw_range);
                     must_be!(
-                        token_group[1].kind == TokenKind::Special(SpecialToken::Colon),
+                        token_group[1].kind == HuskyTokenKind::Special(SpecialToken::Colon),
                         "expect `:` at the end",
                         token_group[0].text_range()
                     );
@@ -117,7 +117,7 @@ impl<'a> AstTransformer<'a> {
 
     pub(super) fn parse_stmt_without_keyword(
         &mut self,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
     ) -> AstResult<RawStmt> {
         Ok(match self.context() {
             AstContext::Record | AstContext::Package(_) | AstContext::Module(_) => {
@@ -158,7 +158,7 @@ impl<'a> AstTransformer<'a> {
             }
             AstContext::Stmt(Paradigm::EagerProcedural) => {
                 let (expr_tokens, discard) = match token_group.last().unwrap().kind {
-                    TokenKind::Special(SpecialToken::Semicolon) => {
+                    HuskyTokenKind::Special(SpecialToken::Semicolon) => {
                         (&token_group[..(token_group.len() - 1)], true)
                     }
                     _ => (token_group, false),
@@ -179,7 +179,7 @@ impl<'a> AstTransformer<'a> {
         &mut self,
         kind: InitKind,
         kw_range: TextRange,
-        tokens: &[Token],
+        tokens: &[HuskyToken],
     ) -> AstResult<RawStmtVariant> {
         match kind {
             InitKind::Let | InitKind::Var => match self.context() {
@@ -207,7 +207,7 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_for_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
+    fn parse_for_loop(&mut self, token_group: &[HuskyToken]) -> AstResult<RawStmtVariant> {
         expect_block_head!(token_group);
         let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[expr];
@@ -326,7 +326,7 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    fn parse_forext_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
+    fn parse_forext_loop(&mut self, token_group: &[HuskyToken]) -> AstResult<RawStmtVariant> {
         expect_block_head!(token_group);
         let raw_expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         let expr = &self.arena[raw_expr_idx];
@@ -352,16 +352,16 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_while_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
+    fn parse_while_loop(&mut self, token_group: &[HuskyToken]) -> AstResult<RawStmtVariant> {
         expect_block_head!(token_group);
         let raw_expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         Ok(RawLoopKind::while_loop(raw_expr_idx).into())
     }
 
-    fn parse_do_while_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
+    fn parse_do_while_loop(&mut self, token_group: &[HuskyToken]) -> AstResult<RawStmtVariant> {
         expect_block_head!(token_group);
         match token_group[1].kind {
-            TokenKind::Keyword(Keyword::Stmt(StmtKeyword::While)) => (),
+            HuskyTokenKind::Keyword(Keyword::Stmt(StmtKeyword::While)) => (),
             _ => {
                 todo!()
             }

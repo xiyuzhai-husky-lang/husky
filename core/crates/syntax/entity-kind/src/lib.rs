@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-// use token::{Special, Token, TokenKind};
+// use husky_token::{Special, Token, TokenKind};
 use word::TyKeyword;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]

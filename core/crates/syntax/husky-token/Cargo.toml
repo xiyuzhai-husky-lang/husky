@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "token"
+name = "husky-token"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"
@@ -16,7 +16,7 @@ print-utils = { path = "../../utils/print", version = "0.0.0" }
 wild-utils = { path = "../../utils/wild", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
-file = { path = "../file", version = "0.0.0" }
+husky-file = { path = "../husky-file", version = "0.0.0" }
 husky-text = { path = "../husky-text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }

@@ -2,7 +2,7 @@ mod cfg;
 mod query;
 
 pub use cfg::*;
-use file::FilePtr;
+use husky_file::FilePtr;
 pub use query::{PackageQueryGroup, PackageQueryGroupStorage};
 
 use std::sync::Arc;

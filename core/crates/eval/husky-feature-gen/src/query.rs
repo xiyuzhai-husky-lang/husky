@@ -25,7 +25,7 @@ pub trait FeatureGenQueryGroup:
     + AskCompileTime
     + VisualizerQueryGroup
 {
-    fn main_feature_repr(&'eval self, main_file: file::FilePtr) -> FeatureRepr;
+    fn main_feature_repr(&'eval self, main_file: husky_file::FilePtr) -> FeatureRepr;
     fn entity_feature_repr(&self, entity_route: EntityRoutePtr) -> FeatureRepr;
     fn record_field_repr(&self, this: FeatureRepr, field_ident: CustomIdentifier) -> FeatureRepr;
     fn visual_feature_repr(&self, this: FeatureRepr) -> EvalResult<FeatureRepr>;

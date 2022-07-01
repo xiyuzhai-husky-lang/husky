@@ -4,7 +4,7 @@ use word::{Decorator, Identifier, Keyword, WordOpr, WordPtr};
 pub use crate::*;
 
 #[derive(Debug, PartialEq, Clone)]
-pub enum TokenKind {
+pub enum HuskyTokenKind {
     Decorator(Decorator),
     Keyword(Keyword),
     Identifier(Identifier),
@@ -15,30 +15,30 @@ pub enum TokenKind {
     IllFormedLiteral(CopyableValue),
 }
 
-impl From<SpecialToken> for TokenKind {
+impl From<SpecialToken> for HuskyTokenKind {
     fn from(special: SpecialToken) -> Self {
-        TokenKind::Special(special)
+        HuskyTokenKind::Special(special)
     }
 }
-impl std::hash::Hash for TokenKind {
+impl std::hash::Hash for HuskyTokenKind {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);
     }
 }
-impl Eq for TokenKind {}
-impl From<WordPtr> for TokenKind {
+impl Eq for HuskyTokenKind {}
+impl From<WordPtr> for HuskyTokenKind {
     fn from(word: WordPtr) -> Self {
         match word {
-            WordPtr::Keyword(keyword) => TokenKind::Keyword(keyword),
-            WordPtr::Identifier(ident) => TokenKind::Identifier(ident),
-            WordPtr::RawOpnVariant(word_opr) => TokenKind::WordOpr(word_opr),
-            WordPtr::Decorator(decorator) => TokenKind::Decorator(decorator),
+            WordPtr::Keyword(keyword) => HuskyTokenKind::Keyword(keyword),
+            WordPtr::Identifier(ident) => HuskyTokenKind::Identifier(ident),
+            WordPtr::RawOpnVariant(word_opr) => HuskyTokenKind::WordOpr(word_opr),
+            WordPtr::Decorator(decorator) => HuskyTokenKind::Decorator(decorator),
         }
     }
 }
 
-impl From<Keyword> for TokenKind {
+impl From<Keyword> for HuskyTokenKind {
     fn from(keyword: Keyword) -> Self {
-        TokenKind::Keyword(keyword)
+        HuskyTokenKind::Keyword(keyword)
     }
 }

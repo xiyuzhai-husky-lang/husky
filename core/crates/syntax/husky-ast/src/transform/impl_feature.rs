@@ -1,11 +1,11 @@
 use super::*;
-use token::*;
+use husky_token::*;
 use word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_feature_defn_head(
         &mut self,
-        token_group: &[Token],
+        token_group: &[HuskyToken],
     ) -> AstResult<AstVariant> {
         self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
         expect_head!(token_group);

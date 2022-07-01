@@ -2,7 +2,7 @@ mod intern;
 mod utils;
 
 pub use entity_kind::EntityKind;
-use file::FilePtr;
+use husky_file::FilePtr;
 use husky_text::{TextRange, TextRanged};
 pub use intern::{
     new_entity_route_interner, AllocateUniqueScope, EntityRouteInterner, EntityRoutePtr,

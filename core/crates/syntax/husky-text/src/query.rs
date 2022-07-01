@@ -1,6 +1,6 @@
 use crate::*;
 
-use file::{FilePtr, FileQueryGroup};
+use husky_file::{FilePtr, FileQueryGroup};
 
 #[salsa::query_group(TextQueryGroupStorage)]
 pub trait TextQueryGroup: FileQueryGroup {

@@ -17,7 +17,7 @@ use husky_entity_route_syntax::EntityRoutePtr;
 use husky_liason_semantics::*;
 use husky_text::TextRange;
 use husky_text::TextRanged;
-use token::{Token, TokenKind};
+use husky_token::{HuskyToken, HuskyTokenKind};
 use word::Identifier;
 use word::RootIdentifier;
 
@@ -48,19 +48,21 @@ impl std::fmt::Debug for HuskyAtom {
     }
 }
 
-impl From<&Token> for HuskyAtom {
-    fn from(token: &Token) -> Self {
+impl From<&HuskyToken> for HuskyAtom {
+    fn from(token: &HuskyToken) -> Self {
         match token.kind {
-            TokenKind::Keyword(_) | TokenKind::Identifier(_) => {
+            HuskyTokenKind::Keyword(_) | HuskyTokenKind::Identifier(_) => {
                 p!(token.kind);
                 panic!()
             }
-            TokenKind::Special(special) => HuskyAtom::new(token.text_range(), special.into()),
-            TokenKind::PrimitiveLiteral(i) => HuskyAtom::new(token.text_range(), i.into()),
-            TokenKind::WordOpr(word_opr) => HuskyAtom::new(token.text_range(), word_opr.into()),
-            TokenKind::Unrecognized(_) => todo!(),
-            TokenKind::IllFormedLiteral(_) => todo!(),
-            TokenKind::Decorator(_) => todo!(),
+            HuskyTokenKind::Special(special) => HuskyAtom::new(token.text_range(), special.into()),
+            HuskyTokenKind::PrimitiveLiteral(i) => HuskyAtom::new(token.text_range(), i.into()),
+            HuskyTokenKind::WordOpr(word_opr) => {
+                HuskyAtom::new(token.text_range(), word_opr.into())
+            }
+            HuskyTokenKind::Unrecognized(_) => todo!(),
+            HuskyTokenKind::IllFormedLiteral(_) => todo!(),
+            HuskyTokenKind::Decorator(_) => todo!(),
         }
     }
 }

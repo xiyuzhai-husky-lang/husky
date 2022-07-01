@@ -23,9 +23,9 @@ test-utils = { path = "../../utils/test", version = "0.0.0" }
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
-file = { path = "../../syntax/file", version = "0.0.0" }
+husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
-token = { path = "../../syntax/token", version = "0.0.0" }
+husky-token = { path = "../../syntax/husky-token", version = "0.0.0" }
 husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
 husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }

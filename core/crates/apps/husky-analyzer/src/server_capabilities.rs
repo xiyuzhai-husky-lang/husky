@@ -104,8 +104,8 @@ pub fn get_server_capabilities() -> ServerCapabilities {
         semantic_tokens_provider: Some(
             SemanticTokensOptions {
                 legend: SemanticTokensLegend {
-                    token_types: token::SUPPORTED_TYPES.to_vec(),
-                    token_modifiers: token::SUPPORTED_MODIFIERS.to_vec(),
+                    token_types: husky_token::SUPPORTED_TYPES.to_vec(),
+                    token_modifiers: husky_token::SUPPORTED_MODIFIERS.to_vec(),
                 },
 
                 full: Some(SemanticTokensFullOptions::Delta { delta: Some(true) }),

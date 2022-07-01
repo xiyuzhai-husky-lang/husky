@@ -10,8 +10,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub fn paradigm(&mut self) -> Option<Paradigm> {
-        if let Some(Token {
-            kind: TokenKind::Keyword(Keyword::Paradigm(paradigm)),
+        if let Some(HuskyToken {
+            kind: HuskyTokenKind::Keyword(Keyword::Paradigm(paradigm)),
             ..
         }) = self.token_stream.next()
         {
@@ -22,8 +22,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub fn usize_literal(&mut self) -> Option<usize> {
-        if let Some(Token {
-            kind: TokenKind::PrimitiveLiteral(CopyableValue::I32(i)),
+        if let Some(HuskyToken {
+            kind: HuskyTokenKind::PrimitiveLiteral(CopyableValue::I32(i)),
             ..
         }) = self.token_stream.next()
         {
@@ -38,8 +38,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub fn custom_ident(&mut self) -> Option<RangedCustomIdentifier> {
-        if let Some(Token {
-            kind: TokenKind::Identifier(Identifier::Custom(ident)),
+        if let Some(HuskyToken {
+            kind: HuskyTokenKind::Identifier(Identifier::Custom(ident)),
             range,
         }) = self.token_stream.next()
         {
@@ -56,8 +56,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         &mut self,
         semantic_token_kind: SemanticTokenKind,
     ) -> Option<RangedCustomIdentifier> {
-        if let Some(Token {
-            kind: TokenKind::Identifier(Identifier::Custom(ident)),
+        if let Some(HuskyToken {
+            kind: HuskyTokenKind::Identifier(Identifier::Custom(ident)),
             range,
         }) = self.token_stream.next()
         {
@@ -72,8 +72,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    pub fn token_kind(&mut self, target: TokenKind) -> Option<()> {
-        if let Some(Token { kind, .. }) = self.token_stream.next() {
+    pub fn token_kind(&mut self, target: HuskyTokenKind) -> Option<()> {
+        if let Some(HuskyToken { kind, .. }) = self.token_stream.next() {
             if *kind == target {
                 return Some(());
             }
@@ -82,9 +82,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub fn liason(&mut self) -> Option<LiasonKeyword> {
-        if let Some(Token { kind, .. }) = self.token_stream.next() {
+        if let Some(HuskyToken { kind, .. }) = self.token_stream.next() {
             match kind {
-                TokenKind::Keyword(Keyword::Liason(liason_keyword)) => {
+                HuskyTokenKind::Keyword(Keyword::Liason(liason_keyword)) => {
                     return Some(*liason_keyword)
                 }
                 _ => (),

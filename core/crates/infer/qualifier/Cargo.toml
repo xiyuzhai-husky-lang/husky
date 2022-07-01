@@ -21,7 +21,7 @@ husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
 husky-infer-entity-route = { path = "../husky-infer-entity-route", version = "0.0.0" }
 infer-contract = { path = "../husky-infer-contract", version = "0.0.0" }
 infer-decl = { path = "../husky-infer-decl", version = "0.0.0" }
-file = { path = "../../syntax/file", version = "0.0.0" }
+husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }

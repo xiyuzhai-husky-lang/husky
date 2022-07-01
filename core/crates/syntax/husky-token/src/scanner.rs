@@ -3,7 +3,7 @@ use std::{iter::Peekable, sync::Arc};
 use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
 
 use dev_utils::dev_src;
-use file::URange;
+use husky_file::URange;
 use husky_text::TextIndent;
 use print_utils::{epin, p};
 use wild_utils::ref_to_mut_ref;
@@ -27,7 +27,7 @@ impl std::fmt::Debug for TokenizedLine {
 
 pub(crate) struct TokenScanner<'lex> {
     word_unique_allocator: &'lex WordAllocator,
-    tokens: Vec<Token>,
+    tokens: Vec<HuskyToken>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
 }
@@ -63,11 +63,11 @@ impl<'token> TokenScanner<'token> {
         })
     }
 
-    fn last_token(&self, line: &TokenizedLine) -> &Token {
+    fn last_token(&self, line: &TokenizedLine) -> &HuskyToken {
         &self.tokens[line.tokens.end - 1]
     }
 
-    fn first_token(&self, line: &TokenizedLine) -> &Token {
+    fn first_token(&self, line: &TokenizedLine) -> &HuskyToken {
         &self.tokens[line.tokens.start]
     }
 
@@ -96,7 +96,8 @@ impl<'token> TokenScanner<'token> {
         TokenGroup {
             indent: group_indent,
             tokens: first_line.tokens.start..{
-                if self.last_token(first_line).kind == TokenKind::Special(SpecialToken::Colon) {
+                if self.last_token(first_line).kind == HuskyTokenKind::Special(SpecialToken::Colon)
+                {
                     if let Some(line) = line_iter.peek() {
                         match line.indent.within(group_indent) {
                             Ok(is_within) => {
@@ -130,14 +131,14 @@ impl<'token> TokenScanner<'token> {
                                     if is_within {
                                         line_iter.next();
                                         if self.last_token(line).kind
-                                            == TokenKind::Special(SpecialToken::Colon)
+                                            == HuskyTokenKind::Special(SpecialToken::Colon)
                                         {
                                             break line.tokens.end;
                                         }
                                     } else {
-                                        fn bind_to_last_line(kind: TokenKind) -> bool {
+                                        fn bind_to_last_line(kind: HuskyTokenKind) -> bool {
                                             match kind {
-                                                TokenKind::Special(special) => match special {
+                                                HuskyTokenKind::Special(special) => match special {
                                                     SpecialToken::RCurl => true,
                                                     SpecialToken::RBox => true,
                                                     SpecialToken::RPar => true,

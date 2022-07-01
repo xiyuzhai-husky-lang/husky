@@ -5,11 +5,11 @@ use husky_entity_route_syntax::{EntityRoute, EntityRouteKind};
 use husky_text::TextRange;
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn parse_use(&mut self, token_group: &[Token]) -> AstResult<AstVariant> {
+    pub(super) fn parse_use(&mut self, token_group: &[HuskyToken]) -> AstResult<AstVariant> {
         if token_group.len() <= 1 {
             return err!("expect route after keyword `use`", token_group.text_range());
         }
-        if token_group.last().unwrap().kind == TokenKind::Special(SpecialToken::Star) {
+        if token_group.last().unwrap().kind == HuskyTokenKind::Special(SpecialToken::Star) {
             // use all
             must_be!(
                 token_group.len() >= 4,
@@ -18,7 +18,7 @@ impl<'a> AstTransformer<'a> {
             );
             let second_last_token = &token_group[token_group.len() - 2];
             must_be!(
-                second_last_token.kind == TokenKind::Special(SpecialToken::DoubleColon),
+                second_last_token.kind == HuskyTokenKind::Special(SpecialToken::DoubleColon),
                 "expect `::`",
                 second_last_token.range
             );

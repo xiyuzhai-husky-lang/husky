@@ -11,7 +11,7 @@ use vm::{InstructionId, InstructionSource};
 
 use parse::LazyStmtParser;
 
-use file::FilePtr;
+use husky_file::FilePtr;
 use husky_text::*;
 use word::CustomIdentifier;
 

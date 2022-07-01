@@ -1,7 +1,7 @@
 use std::sync::atomic::AtomicUsize;
 
-use file::FilePtr;
 use husky_entity_route_syntax::EntityRoutePtr;
+use husky_file::FilePtr;
 use husky_text::TextRange;
 use word::Identifier;
 

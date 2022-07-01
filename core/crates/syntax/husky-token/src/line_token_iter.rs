@@ -43,7 +43,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         }
     }
 
-    fn next_word(&mut self, j_start: usize) -> Token {
+    fn next_word(&mut self, j_start: usize) -> HuskyToken {
         while let Some((_, c)) = self.char_iter.peek() {
             if is_word_char(*c) {
                 self.eat_char();
@@ -52,7 +52,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
             }
         }
         let len = self.buffer.len();
-        return Token::new(
+        return HuskyToken::new(
             self.line_index,
             j_start,
             j_start + len,
@@ -60,7 +60,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         );
     }
 
-    fn next_number(&mut self, j_start: usize) -> Token {
+    fn next_number(&mut self, j_start: usize) -> HuskyToken {
         while self.peek_char().is_digit(10) {
             self.eat_char()
         }
@@ -71,11 +71,11 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     self.eat_char()
                 }
                 let len = self.buffer.len();
-                Token::new(
+                HuskyToken::new(
                     self.line_index,
                     j_start,
                     j_start + len,
-                    TokenKind::PrimitiveLiteral(self.take_buffer_f32().into()),
+                    HuskyTokenKind::PrimitiveLiteral(self.take_buffer_f32().into()),
                 )
             }
             'b' => {
@@ -87,7 +87,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         if self.peek_char() != '2' {
                             (
                                 self.buffer.len() + 2,
-                                TokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
+                                HuskyTokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
                             )
                         } else {
                             self.ignore_char();
@@ -96,7 +96,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                             } else {
                                 (
                                     self.buffer.len() + 3,
-                                    TokenKind::PrimitiveLiteral(self.take_buffer_b32().into()),
+                                    HuskyTokenKind::PrimitiveLiteral(self.take_buffer_b32().into()),
                                 )
                             }
                         }
@@ -110,10 +110,10 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     }
                     _ => (
                         self.buffer.len() + 1,
-                        TokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
+                        HuskyTokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
                     ),
                 };
-                Token::new(self.line_index, j_start, j_start + token_len, kind)
+                HuskyToken::new(self.line_index, j_start, j_start + token_len, kind)
             }
             'i' => {
                 // i64
@@ -127,20 +127,20 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         self.ignore_char();
                         token_len += 1;
                     }
-                    Token::new(
+                    HuskyToken::new(
                         self.line_index,
                         j_start,
                         j_start + token_len,
-                        TokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
+                        HuskyTokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
                     )
                 } else {
                     // i32
                     let len = self.buffer.len();
-                    Token::new(
+                    HuskyToken::new(
                         self.line_index,
                         j_start,
                         j_start + len,
-                        TokenKind::PrimitiveLiteral(self.take_buffer_i32().into()),
+                        HuskyTokenKind::PrimitiveLiteral(self.take_buffer_i32().into()),
                     )
                 }
             }
@@ -193,7 +193,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         let (_, _c) = self.char_iter.next().expect("what");
     }
 
-    fn next_special(&mut self, j_start: usize, c_start: char) -> Option<Token> {
+    fn next_special(&mut self, j_start: usize, c_start: char) -> Option<HuskyToken> {
         let (len, special) = match c_start {
             '=' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::Eq),
@@ -265,25 +265,25 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 _ => (1, SpecialToken::Exclamation),
             },
             c => {
-                return Some(Token::new(
+                return Some(HuskyToken::new(
                     self.line_index,
                     j_start,
                     j_start + 1,
-                    TokenKind::Unrecognized(c),
+                    HuskyTokenKind::Unrecognized(c),
                 ))
             }
         };
-        Some(Token::new(
+        Some(HuskyToken::new(
             self.line_index,
             j_start,
             j_start + len,
-            TokenKind::Special(special),
+            HuskyTokenKind::Special(special),
         ))
     }
 }
 
 impl<'token_line, 'lex: 'token_line> Iterator for LineTokenIter<'token_line, 'lex> {
-    type Item = Token;
+    type Item = HuskyToken;
 
     fn next(&mut self) -> Option<Self::Item> {
         if let Some((j, c)) = self.char_iter.next() {

@@ -1,7 +1,7 @@
 use crate::*;
-use file::FilePtr;
 use husky_ast::*;
 use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
+use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_contract::{ContractSheet, InferContract};
 use infer_qualifier::{InferQualifiedTy, QualifiedTySheet};

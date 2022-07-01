@@ -9,7 +9,7 @@ pub use pattern_branch::*;
 use super::parser::EagerParser;
 use super::*;
 use crate::*;
-use file::FilePtr;
+use husky_file::FilePtr;
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRange;
 use std::sync::Arc;
