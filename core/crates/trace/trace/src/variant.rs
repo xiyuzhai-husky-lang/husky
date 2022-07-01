@@ -183,7 +183,7 @@ impl<'eval> TraceVariant<'eval> {
                     | EagerOpnVariant::Prefix { .. }
                     | EagerOpnVariant::Suffix { .. }
                     | EagerOpnVariant::MethodCall { .. } => !opds[0].ty().is_builtin(),
-                    EagerOpnVariant::ElementAccess { .. } => false,
+                    EagerOpnVariant::Index { .. } => false,
                 },
                 EagerExprVariant::Lambda(_, _)
                 | EagerExprVariant::ThisValue { .. }

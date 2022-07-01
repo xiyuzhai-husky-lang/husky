@@ -12,11 +12,14 @@ impl<'a> RustCodeGenerator<'a> {
         output: EntityRoutePtr,
         stmts: &[Arc<ProcStmt>],
     ) {
-        let contains_eval_ref = self.db.contains_eval_ref(base_route.kind);
+        let needs_eval_ref = self.db.entity_route_kind_contains_eval_ref(base_route.kind)
+            && !self
+                .db
+                .entity_route_kind_contains_eval_ref(base_route.parent().kind);
         self.write("\npub(crate) fn ");
         let ident = base_route.ident();
         self.write(&ident);
-        if contains_eval_ref {
+        if needs_eval_ref {
             self.write("<'eval>")
         }
         self.write("(");
@@ -50,34 +53,27 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(super) fn gen_func_defn(
         &mut self,
-        ident: CustomIdentifier,
+        base_route: EntityRoutePtr,
         parameters: &[Parameter],
         output: EntityRoutePtr,
         stmts: &[Arc<FuncStmt>],
     ) {
+        let needs_eval_ref = self.db.entity_route_kind_contains_eval_ref(base_route.kind)
+            && !self
+                .db
+                .entity_route_kind_contains_eval_ref(base_route.parent().kind);
         self.write("\npub(crate) fn ");
+        let ident = base_route.ident();
         self.write(&ident);
+        if needs_eval_ref {
+            self.write("<'eval>")
+        }
         self.write("(");
         for (i, parameter) in parameters.iter().enumerate() {
             if i > 0 {
                 self.write(", ");
             }
-            self.write(&parameter.ranged_ident.ident);
-            self.write(": ");
-            match parameter.ranged_liason.liason {
-                ParameterLiason::Pure => {
-                    if !self.db.is_copyable(parameter.ranged_ty.route).unwrap() {
-                        self.write("&")
-                    }
-                }
-                ParameterLiason::EvalRef => todo!(),
-                ParameterLiason::Move => todo!(),
-                ParameterLiason::TempRefMut => todo!(),
-                ParameterLiason::MoveMut => todo!(),
-                ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::TempRef => todo!(),
-            }
-            self.gen_entity_route(parameter.ranged_ty.route, EntityRouteRole::Decl);
+            self.gen_parameter(parameter)
         }
         self.write(") -> ");
         self.gen_entity_route(output, EntityRouteRole::Decl);

@@ -1,3 +1,4 @@
+#![allow(warnings)]
 use __root::*;
 mod connected_component;
 mod raw_contour;

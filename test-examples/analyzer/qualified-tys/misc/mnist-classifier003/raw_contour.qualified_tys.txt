@@ -180,7 +180,7 @@ eager expr:
     132:15..132:37 boundary_unsearched[k]   InferError: expect not none
     133:27..133:38 []Point2d()            Transient    Vec<mnist_classifier003::geom2d::Point2d>
     134:21..134:22 k                      Copyable     i32
-    135:21..135:60 boundary_unsearched[k].trailing_zeros()   InferError: expect not none
+    135:21..135:49 boundary_unsearched[k].ctz()   InferError: expect not none
     137:32..137:33 i                      Copyable     i32
     137:34..137:35 1                      Copyable     i32
     137:29..137:31 cc                     PureRef      domains::ml::datasets::cv::mnist::BinaryImage28

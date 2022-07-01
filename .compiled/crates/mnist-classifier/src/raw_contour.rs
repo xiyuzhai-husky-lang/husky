@@ -6,14 +6,17 @@ pub struct RawContour<'eval> {
 }
 
 impl<'eval> RawContour<'eval> {
+    pub(crate) fn __call__(cc: &'eval crate::connected_component::ConnectedComponent, points: Vec<crate::geom2d::Point2d>) -> Self {
+        Self { cc, points }
+    }
     pub(crate) fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
-        let ct_start = self.points[start % N];
-        let ct_end = self.points[end % N];
+        let ct_start = self.points[(start % N) as usize];
+        let ct_end = self.points[(end % N) as usize];
         return ct_start.to(&ct_end)
     }
 }
-enum Direction {
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]pub enum Direction {
     UP,
     LEFT,
     DOWN,
@@ -21,7 +24,7 @@ enum Direction {
 }
 
 pub(crate) fn get_pixel_pair(row: u32, j: i32) -> u32 {
-    return (row >> (j - 1i32)) & 3u32
+    return (row >> (j - 1)) & 3u32
 }
 
 pub(crate) fn get_pixel_to_the_left(row: u32, j: i32) -> u32 {
@@ -29,7 +32,7 @@ pub(crate) fn get_pixel_to_the_left(row: u32, j: i32) -> u32 {
 }
 
 pub(crate) fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
-    return (row >> (j - 1i32)) & 1u32
+    return (row >> (j - 1)) & 1u32
 }
 
 pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> crate::raw_contour::Direction {
@@ -80,13 +83,13 @@ pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> cr
 }
 
 pub(crate) fn get_angle_change(inward: crate::raw_contour::Direction, outward: crate::raw_contour::Direction) -> i32 {
-    let raw_angle_change = (((outward as i32) - (inward as i32)) as b32).last_bits(2i32);
+    let raw_angle_change = (((outward as i32) - (inward as i32)) as u32).last_bits(2);
     match raw_angle_change {
         0 | 1 | 2 => {
             return raw_angle_change as i32
         }
         3 => {
-            return -1i32
+            return -1
         }
         _ => panic!(),
     }
@@ -171,105 +174,104 @@ pub struct StreakCache {
 }
 
 impl StreakCache {
+    pub(crate) fn __call__(prev1: i32, prev2: i32) -> Self {
+        Self { prev1, prev2 }
+    }
 }
 
 pub(crate) fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {
     let N = points.ilen();
-    let p0 = points[N - 2i32];
-    let p2 = points[N - 1i32];
+    let p0 = points[(N - 2) as usize];
+    let p2 = points[(N - 1) as usize];
     return crate::geom2d::Point2d::__call__((p0.x + p2.x) / 2f32, (p0.y + p2.y) / 2f32)
 }
 
-pub(crate) fn find_raw_contours(cc: &'eval crate::connected_component::ConnectedComponent) -> Vec<crate::raw_contour::RawContour<'eval>> {
+pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::ConnectedComponent) -> Vec<crate::raw_contour::RawContour<'eval>> {
     let mut result = Vec::<crate::raw_contour::RawContour>::__call__();
     let mut boundary_unsearched = domains::ml::datasets::cv::mnist::BinaryGrid28::__call__();
-    for i in 1i32..(29i32 + 1) {
-        let r_ur = cc.mask[i - 1i32];
-        let r_dr = cc.mask[i];
-        let r_ul = r_ur << 1i32;
-        let r_dl = r_dr << 1i32;
-        boundary_unsearched[i] = (r_ur | r_dr | r_ul | r_dl) & (!(r_ur & r_dr & r_ul & r_dl));
+    for i in 1..(29 + 1) {
+        let r_ur = cc.mask[(i - 1) as usize];
+        let r_dr = cc.mask[(i) as usize];
+        let r_ul = r_ur << 1;
+        let r_dl = r_dr << 1;
+        boundary_unsearched[(i) as usize] = (r_ur | r_dr | r_ul | r_dl) & (!(r_ur & r_dr & r_ul & r_dl));
     }
-
-    for k in 1i32..(29i32 + 1) {
-        while boundary_unsearched[k] != 0 {
+    for k in 1..(29 + 1) {
+        while boundary_unsearched[(k) as usize] != 0 {
             let mut contour = Vec::<crate::geom2d::Point2d>::__call__();
             let mut i = k;
-            let mut j = boundary_unsearched[k].trailing_zeros();
-            let mut row_above = cc.mask[i - 1i32];
-            let mut row_below = cc.mask[i];
+            let mut j = boundary_unsearched[(k) as usize].ctz();
+            let mut row_above = cc.mask[(i - 1) as usize];
+            let mut row_below = cc.mask[(i) as usize];
             let mut inward_direction = crate::raw_contour::get_inward_direction(row_above, row_below, j);
             let i0 = i;
             let j0 = j;
             let dir0 = inward_direction;
-            let mut prev_angle_change1 = 0i32;
-            let mut prev_angle_change2 = 0i32;
-            let mut total_angle_change = 0i32;
-            let mut prev_streak1 = -1i32;
-            let mut prev_streak2 = -1i32;
-            let mut current_streak = -1i32;
+            let mut prev_angle_change1 = 0;
+            let mut prev_angle_change2 = 0;
+            let mut total_angle_change = 0;
+            let mut prev_streak1 = -1;
+            let mut prev_streak2 = -1;
+            let mut current_streak = -1;
             loop {
                 let outward_direction = crate::raw_contour::get_outward_direction(row_above, row_below, j, inward_direction);
                 let angle_change = crate::raw_contour::get_angle_change(inward_direction, outward_direction);
-                boundary_unsearched[i] = boundary_unsearched[i] & (!(1u32 << j));
+                boundary_unsearched[(i) as usize] = boundary_unsearched[(i) as usize] & (!(1u32 << j));
                 if angle_change != 0 {
-                    if prev_angle_change1 == -1i32 && prev_angle_change2 == -1i32 && current_streak == 1i32 && prev_streak1 != -1i32 && prev_streak2 == 1i32 {
-                        contour.last_mut().unwrap() = crate::raw_contour::get_concave_middle_point(&contour);
+                    if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
+                        *contour.last_mut().unwrap() = crate::raw_contour::get_concave_middle_point(&contour);
                         contour.push(crate::geom2d::Point2d::from_i_shift28(i, j));
-                        prev_streak2 = -1i32;
-                        prev_streak1 = -1i32;
-                    } else if prev_angle_change1 == -1i32 && prev_streak1 > 0i32 && prev_streak1 == 1i32 {
-                        contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
+                        prev_streak2 = -1;
+                        prev_streak1 = -1;
+                    } else if prev_angle_change1 == -1 && prev_streak1 > 0 && prev_streak1 == 1 {
+                        *contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
                         prev_streak2 = prev_streak1;
                         prev_streak1 = current_streak;
-                    } else if prev_angle_change1 == -1i32 && prev_streak1 > 0i32 && current_streak == 1i32 && prev_streak1 > 1i32 {
-                        contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
-                        prev_streak2 = -1i32;
-                        prev_streak1 = -1i32;
+                    } else if prev_angle_change1 == -1 && prev_streak1 > 0 && current_streak == 1 && prev_streak1 > 1 {
+                        *contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
+                        prev_streak2 = -1;
+                        prev_streak1 = -1;
                     } else {
                         contour.push(crate::geom2d::Point2d::from_i_shift28(i, j));
                         prev_streak2 = prev_streak1;
                         prev_streak1 = current_streak;
                     }
-                    current_streak = 0i32;
+                    current_streak = 0;
                     prev_angle_change2 = prev_angle_change1;
                     prev_angle_change1 = angle_change;
                 }
                 match outward_direction {
                     crate::raw_contour::Direction::UP => {
-                        i = i - 1i32;
+                        i = i - 1;
                         row_below = row_above;
-                        row_above = cc.mask[i - 1i32];
+                        row_above = cc.mask[(i - 1) as usize];
                     }
                     crate::raw_contour::Direction::DOWN => {
-                        i = i + 1i32;
+                        i = i + 1;
                         row_above = row_below;
-                        row_below = cc.mask[i];
+                        row_below = cc.mask[(i) as usize];
                     }
                     crate::raw_contour::Direction::LEFT => {
-                        j = j + 1i32;
+                        j = j + 1;
                     }
                     crate::raw_contour::Direction::RIGHT => {
-                        j = j - 1i32;
+                        j = j - 1;
                     }
                 _ => panic!(),
                 }
                 inward_direction = outward_direction;
-                if current_streak != -1i32 {
+                if current_streak != -1 {
                     current_streak += 1;
                 }
                 if !(!(i == i0 && j == j0 && inward_direction == dir0)) {
                     break;
                 }
             }
-
-            if prev_angle_change1 == -1i32 && current_streak == 1i32 && prev_streak1 > 0i32 {
+            if prev_angle_change1 == -1 && current_streak == 1 && prev_streak1 > 0 {
                 contour.pop();
             }
             result.push(crate::raw_contour::RawContour::__call__(cc, contour));
         }
-
     }
-
     return result
 }

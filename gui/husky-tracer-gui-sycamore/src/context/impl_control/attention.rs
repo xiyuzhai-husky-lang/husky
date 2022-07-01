@@ -8,20 +8,20 @@ impl DebuggerContext {
 
     fn set_attention(&'static self, new_attention: Attention) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
-        let need_figure_canvas_data =
-            self.need_figure_canvas_data(opt_active_trace_id, &new_attention);
-        let need_figure_control_data =
-            self.need_figure_control_data(opt_active_trace_id, &new_attention);
-        let need_stalk = self.need_stalk(opt_active_trace_id, &new_attention);
-        let need_response = need_figure_control_data || need_figure_control_data || need_stalk;
+        let needs_figure_canvas_data =
+            self.needs_figure_canvas_data(opt_active_trace_id, &new_attention);
+        let needs_figure_control_data =
+            self.needs_figure_control_data(opt_active_trace_id, &new_attention);
+        let needs_stalk = self.needs_stalk(opt_active_trace_id, &new_attention);
+        let needs_response = needs_figure_control_data || needs_figure_control_data || needs_stalk;
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::LockAttention {
                 attention: new_attention.clone(),
-                need_figure_canvas_data,
-                need_figure_control_data,
-                need_stalk,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
+                needs_stalk,
             },
-            if need_response {
+            if needs_response {
                 Some(Box::new(move |message| match message.variant {
                     HuskyTracerServerMessageVariant::LockAttention {
                         opt_figure_canvas_data,

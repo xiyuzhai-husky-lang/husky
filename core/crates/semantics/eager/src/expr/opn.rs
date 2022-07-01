@@ -36,7 +36,7 @@ pub enum EagerOpnVariant {
         method_route: EntityRoutePtr,
         output_binding: Binding,
     },
-    ElementAccess {
+    Index {
         element_binding: Binding,
     },
 }

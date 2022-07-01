@@ -6,6 +6,7 @@ mod impl_routine_defn;
 mod impl_stmt;
 mod impl_ty_defn;
 mod impl_write;
+mod utils;
 
 use crate::*;
 use entity_kind::TyKind;

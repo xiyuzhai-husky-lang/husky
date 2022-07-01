@@ -6,6 +6,13 @@ pub struct Point2d {
 }
 
 impl Point2d {
+    pub(crate) fn __call__(x: f32, y: f32) -> Self {
+        Self { x, y }
+    }
+
+pub(crate) fn from_i_shift28(i: i32, shift: i32) -> crate::geom2d::Point2d {
+        return crate::geom2d::Point2d::__call__((29 - shift) as f32, (29 - i) as f32)
+}
     pub(crate) fn vector(&self) -> crate::geom2d::Vector2d {
         return crate::geom2d::Vector2d::__call__(self.x, self.y)
     }
@@ -28,6 +35,9 @@ pub struct Vector2d {
 }
 
 impl Vector2d {
+    pub(crate) fn __call__(x: f32, y: f32) -> Self {
+        Self { x, y }
+    }
     pub(crate) fn point(&self) -> crate::geom2d::Point2d {
         return crate::geom2d::Point2d::__call__(self.x, self.y)
     }

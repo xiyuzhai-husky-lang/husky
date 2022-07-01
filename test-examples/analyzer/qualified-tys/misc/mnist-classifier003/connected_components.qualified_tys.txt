@@ -84,7 +84,7 @@ eager expr:
     16:32..16:33   j                      Copyable     i32
     16:21..16:34   unsearched[j]          Copyable     b32
     17:25..17:26   a                      Copyable     b32
-    17:25..17:43   a.trailing_zeros()     Copyable     i32
+    17:25..17:32   a.ctz()                Copyable     i32
     18:24..18:39   BinaryImage28()        Transient    domains::ml::datasets::cv::mnist::BinaryImage28
     19:13..19:17   mask                   RefMut       domains::ml::datasets::cv::mnist::BinaryImage28
     19:18..19:19   j                      Copyable     i32

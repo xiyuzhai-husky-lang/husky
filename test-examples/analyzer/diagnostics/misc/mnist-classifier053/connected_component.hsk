@@ -23,7 +23,7 @@ proc find_connected_components(img: BinaryImage28) -> []BinaryImage28:
     for j < 30:
         while unsearched[j]:
             let a = unsearched[j]
-            let shift = a.trailing_zeros()
+            let shift = a.ctz()
             var mask = BinaryImage28()
             mask[j] = horizontal_extend(a, 1b32 << shift)
             var flag = false

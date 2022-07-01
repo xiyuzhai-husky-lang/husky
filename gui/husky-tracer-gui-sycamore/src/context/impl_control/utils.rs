@@ -2,7 +2,7 @@ use super::*;
 use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
 impl DebuggerContext {
-    pub(super) fn need_figure_canvas_data(
+    pub(super) fn needs_figure_canvas_data(
         &'static self,
         opt_active_trace_id: Option<TraceId>,
         attention: &Attention,
@@ -22,7 +22,7 @@ impl DebuggerContext {
             .contains_key(&key)
     }
 
-    pub(super) fn need_figure_control_data(
+    pub(super) fn needs_figure_control_data(
         &self,
         opt_active_trace_id: Option<TraceId>,
         attention: &Attention,
@@ -41,7 +41,7 @@ impl DebuggerContext {
             .contains_key(&key)
     }
 
-    pub(super) fn need_stalk(
+    pub(super) fn needs_stalk(
         &self,
         opt_active_trace_id: Option<TraceId>,
         attention: &Attention,

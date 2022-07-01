@@ -352,7 +352,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
     ) -> SemanticResult<EagerExprVariant> {
         let element_ty = self.raw_expr_deref_ty(raw_expr_idx).unwrap();
         Ok(EagerExprVariant::Opn {
-            opn_variant: EagerOpnVariant::ElementAccess {
+            opn_variant: EagerOpnVariant::Index {
                 element_binding: {
                     let element_qt = self.eager_expr_qualified_ty(raw_expr_idx).unwrap();
                     let contract = self.eager_expr_contract(raw_expr_idx).unwrap();

@@ -249,7 +249,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     expr.clone(),
                 ))
             }
-            EagerOpnVariant::ElementAccess { element_binding } => {
+            EagerOpnVariant::Index { element_binding } => {
                 self.compile_element_access(expr.clone(), opds, *element_binding)
             }
             EagerOpnVariant::TypeCall {

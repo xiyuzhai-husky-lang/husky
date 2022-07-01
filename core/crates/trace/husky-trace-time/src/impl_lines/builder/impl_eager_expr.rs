@@ -68,7 +68,7 @@ impl<'a> TraceTokenBuilder<'a> {
                     }
                     self.push(special!(")"));
                 }
-                EagerOpnVariant::ElementAccess { element_binding } => {
+                EagerOpnVariant::Index { element_binding } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.push(special!("[", associated_trace_id.clone()));
                     for i in 1..opds.len() {

@@ -127,6 +127,20 @@ pub struct BinaryGrid28 {
     padded_rows: [u32; 31],
 }
 
+impl std::ops::Index<usize> for BinaryGrid28 {
+    type Output = u32;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.padded_rows[index]
+    }
+}
+
+impl std::ops::IndexMut<usize> for BinaryGrid28 {
+    fn index_mut(&mut self, index: usize) -> &mut Self::Output {
+        &mut self.padded_rows[index]
+    }
+}
+
 impl std::fmt::Debug for BinaryGrid28 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!(
@@ -137,6 +151,12 @@ impl std::fmt::Debug for BinaryGrid28 {
 }
 
 impl BinaryGrid28 {
+    pub fn __call__() -> Self {
+        Self {
+            padded_rows: Default::default(),
+        }
+    }
+
     pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
         let value: &BinaryGrid28 = value.downcast_ref();
         VisualData::BinaryGrid28 {

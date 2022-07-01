@@ -62,18 +62,18 @@ impl DebuggerContext {
     fn activate(&'static self, new_active_trace_id: TraceId) {
         let attention = self.attention_context.attention.get();
         let trace = self.trace_context.trace(new_active_trace_id);
-        let need_figure_canvas_data =
-            self.need_figure_canvas_data(Some(new_active_trace_id), &attention);
-        let need_figure_control_data =
-            self.need_figure_control_data(Some(new_active_trace_id), &attention);
-        let need_response = need_figure_control_data || need_figure_control_data;
+        let needs_figure_canvas_data =
+            self.needs_figure_canvas_data(Some(new_active_trace_id), &attention);
+        let needs_figure_control_data =
+            self.needs_figure_control_data(Some(new_active_trace_id), &attention);
+        let needs_response = needs_figure_control_data || needs_figure_control_data;
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::Activate {
                 trace_id: new_active_trace_id,
-                need_figure_canvas_data,
-                need_figure_control_data,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
             },
-            if need_response {
+            if needs_response {
                 Some(Box::new(move |response| match response.variant {
                     HuskyTracerServerMessageVariant::Activate {
                         opt_figure_canvas_data,
