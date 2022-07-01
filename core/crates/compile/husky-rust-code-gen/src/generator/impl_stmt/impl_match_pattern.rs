@@ -93,7 +93,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
             }
             CasePatternVariant::EnumLiteral(entity_route) => {
-                self.gen_entity_route(entity_route, EntityRouteRole::Value)
+                self.gen_entity_route(entity_route, EntityRouteRole::Other)
             }
         }
     }
