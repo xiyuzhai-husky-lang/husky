@@ -2,10 +2,10 @@ mod impl_condition_flow;
 mod impl_loop;
 mod impl_match_pattern;
 
-use entity_route::EntityRoutePtr;
-use semantics_eager::{
+use husky_eager_semantics::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
 };
+use husky_entity_route_syntax::EntityRoutePtr;
 use vm::{BoundaryKind, InitKind};
 use word::RootIdentifier;
 

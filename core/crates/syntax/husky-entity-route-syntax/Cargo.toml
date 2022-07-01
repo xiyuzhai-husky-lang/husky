@@ -1,0 +1,21 @@
+[package]
+edition = "2021"
+name = "husky-entity-route-syntax"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+salsa = "0.17.0-pre.2"
+paste = "1.0"
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
+fold = { path = "../../abstraction/fold", version = "0.0.0" }
+vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
+file = { path = "../file", version = "0.0.0" }
+husky-text = { path = "../husky-text", version = "0.0.0" }
+word = { path = "../word", version = "0.0.0" }
+entity-kind = { path = "../entity-kind", version = "0.0.0" }
+thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }

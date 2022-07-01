@@ -1,5 +1,5 @@
-use entity_route::EntityRoutePtr;
 use husky_atom::*;
+use husky_entity_route_syntax::EntityRoutePtr;
 
 use crate::*;
 

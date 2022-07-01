@@ -1,6 +1,6 @@
 use crate::*;
 use husky_atom::{context::SymbolKind, AtomVariant};
-use text::TextRanged;
+use husky_text::TextRanged;
 use token::Token;
 
 impl<'a> AstTransformer<'a> {

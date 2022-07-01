@@ -9,12 +9,12 @@ use bin_main_rs_content::*;
 use cargo_toml_content::*;
 use contains_eval_ref::*;
 use defn_head::*;
-use entity_route::{EntityRouteKind, EntityRoutePtr};
 use file::FilePtr;
-use liason::*;
+use husky_entity_route_syntax::{EntityRouteKind, EntityRoutePtr};
+use husky_liason_semantics::*;
+use husky_package_semantics::PackageQueryGroup;
 use lib_rs_content::*;
 use mod_rs_content::*;
-use pack_semantics::PackageQueryGroup;
 use print_utils::*;
 use std::sync::Arc;
 

@@ -4,7 +4,7 @@ impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_package_lib_rs_content(&mut self) {
         let package = self.package();
         self.write("#![allow(warnings)]\n");
-        self.write("use __root::*;\n");
+        self.write("use __husky_root::*;\n");
         self.gen_mod_rs_content(&package.subentities);
         self.gen_init();
     }

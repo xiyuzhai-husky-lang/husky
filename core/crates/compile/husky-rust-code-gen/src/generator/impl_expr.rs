@@ -1,5 +1,5 @@
 use super::{impl_entity_route::EntityRouteRole, *};
-use semantics_eager::{EagerExpr, EagerExprVariant, EagerOpnVariant};
+use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use vm::*;
 use word::RootIdentifier;
 

@@ -1,5 +1,5 @@
 use crate::*;
-use entity_route::EntityRoutePtr;
+use husky_entity_route_syntax::EntityRoutePtr;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VMPatternBranch {

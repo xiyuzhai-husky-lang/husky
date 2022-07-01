@@ -1,8 +1,8 @@
 use std::sync::Arc;
 
 use crate::*;
-use defn_head::{CallableDefnHead, GenericPlaceholderVariant, Parameter, SpatialParameter};
-use entity_route::*;
+use defn_head::{GenericPlaceholderVariant, Parameter, SpatialParameter};
+use husky_entity_route_syntax::*;
 use print_utils::msg_once;
 use token::SemanticTokenKind;
 use word::{IdentDict, Paradigm};

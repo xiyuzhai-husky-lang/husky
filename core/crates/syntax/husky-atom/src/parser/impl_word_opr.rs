@@ -1,6 +1,6 @@
-use entity_route::RangedEntityRoute;
+use husky_entity_route_syntax::RangedEntityRoute;
+use husky_text::TextPosition;
 use print_utils::epin;
-use text::TextPosition;
 use vm::*;
 use word::WordOpr;
 

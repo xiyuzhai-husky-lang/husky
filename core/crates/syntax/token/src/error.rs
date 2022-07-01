@@ -1,6 +1,6 @@
 use dev_utils::DevSource;
+use husky_text::TextRange;
 use std::sync::Arc;
-use text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct LexError {

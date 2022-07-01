@@ -1,6 +1,6 @@
 mod struct_item_context;
 
-use entity_syntax::EntitySyntaxQueryGroup;
+use husky_entity_syntax::EntitySyntaxQueryGroup;
 pub use struct_item_context::*;
 
 use crate::*;

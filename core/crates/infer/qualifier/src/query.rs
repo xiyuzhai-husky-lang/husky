@@ -1,8 +1,8 @@
 use crate::{builder::QualifiedTySheetBuilder, *};
-use entity_syntax::EntitySyntaxResultArc;
 use file::FilePtr;
+use husky_entity_syntax::EntitySyntaxResultArc;
+use husky_infer_entity_route::InferEntityRouteQueryGroup;
 use infer_contract::InferContractQueryGroup;
-use infer_entity_route::InferEntityRouteQueryGroup;
 use print_utils::p;
 
 #[salsa::query_group(InferQualifiedTyQueryGroupStorage)]

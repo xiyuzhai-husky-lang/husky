@@ -1,0 +1,10 @@
+[package]
+name = "husky-liason-semantics"
+version = "0.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+word = { path = "../../syntax/word", version = "0.0.0" }
+husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
+husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }

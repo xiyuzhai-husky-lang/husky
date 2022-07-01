@@ -1,8 +1,8 @@
 use entity_kind::TyKind;
-use entity_route::{EntityKind, RangedEntityRoute};
-use entity_syntax::EntitySyntaxQueryGroup;
+use husky_entity_route_syntax::{EntityKind, RangedEntityRoute};
+use husky_entity_syntax::EntitySyntaxQueryGroup;
+use husky_text::RangedCustomIdentifier;
 use static_defn::StaticSpatialParameter;
-use text::RangedCustomIdentifier;
 use vec_map::VecMapEntry;
 use word::CustomIdentifier;
 

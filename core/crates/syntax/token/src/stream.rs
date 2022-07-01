@@ -1,7 +1,7 @@
 use crate::*;
 use check_utils::should;
 use file::URange;
-use text::TextPosition;
+use husky_text::TextPosition;
 use vm::Bracket;
 
 #[derive(Debug, Clone)]

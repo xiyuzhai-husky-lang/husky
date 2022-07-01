@@ -2,7 +2,7 @@
 
 //
 
-// use text::TextRange;
+// use husky_text::TextRange;
 
 // #[derive(Debug, PartialEq, Eq, Clone)]
 // pub struct ExprError {
@@ -58,8 +58,8 @@
 //     }
 // }
 
-// impl From<entity_route::ModuleFromFileError> for ExprError {
-//     fn from(_: entity_route::ModuleFromFileError) -> Self {
+// impl From<husky_entity_route_syntax::ModuleFromFileError> for ExprError {
+//     fn from(_: husky_entity_route_syntax::ModuleFromFileError) -> Self {
 //         todo!()
 //     }
 // }

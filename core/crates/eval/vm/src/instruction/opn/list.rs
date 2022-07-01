@@ -1,4 +1,4 @@
-use entity_route::SpatialArgument;
+use husky_entity_route_syntax::SpatialArgument;
 use thin_vec::ThinVec;
 
 use super::*;

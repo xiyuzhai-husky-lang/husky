@@ -1,4 +1,4 @@
-use text::TextPosition;
+use husky_text::TextPosition;
 use token::TokenStreamState;
 
 use crate::*;

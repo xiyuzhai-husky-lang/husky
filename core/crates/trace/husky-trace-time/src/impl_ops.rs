@@ -1,7 +1,7 @@
 use std::time::Instant;
 
 use crate::*;
-use text::Text;
+use husky_text::HuskyText;
 use vm::{History, VMControl};
 
 impl HuskyTraceTime {

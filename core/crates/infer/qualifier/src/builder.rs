@@ -4,11 +4,11 @@ mod lazy;
 use std::sync::Arc;
 
 use ast::*;
-use entity_syntax::EntitySyntaxResult;
 use file::FilePtr;
+use husky_entity_syntax::EntitySyntaxResult;
+use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_contract::{ContractSheet, InferContract};
 use infer_decl::DeclQueryGroup;
-use infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use word::{Paradigm, RootIdentifier};
 
 use crate::*;
@@ -163,7 +163,7 @@ impl<'a> InferEntityRoute for QualifiedTySheetBuilder<'a> {
         self.db.upcast()
     }
 
-    fn entity_route_sheet(&self) -> &infer_entity_route::EntityRouteSheet {
+    fn entity_route_sheet(&self) -> &husky_infer_entity_route::EntityRouteSheet {
         &self.entity_route_sheet
     }
 }

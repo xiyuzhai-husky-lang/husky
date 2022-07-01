@@ -1,5 +1,5 @@
 use dev_utils::{dev_src, DevSource};
-use entity_syntax::EntitySyntaxError;
+use husky_entity_syntax::EntitySyntaxError;
 use infer_error::InferError;
 use std::sync::Arc;
 use vm::VMCompileError;

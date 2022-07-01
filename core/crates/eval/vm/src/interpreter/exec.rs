@@ -8,7 +8,7 @@ mod exec_pattern_match;
 use crate::{history::HistoryEntry, *};
 use check_utils::{should, should_eq};
 use colored::Colorize;
-use entity_route::EntityRouteKind;
+use husky_entity_route_syntax::EntityRouteKind;
 use path_utils::get_relative_path;
 use print_utils::{msg_once, p, ps};
 use std::iter::zip;

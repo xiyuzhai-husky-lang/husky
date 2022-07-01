@@ -5,7 +5,7 @@ pub use function::*;
 
 use dev_utils::StaticDevSource;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
-use liason::{MemberLiason, OutputLiason, ParameterLiason};
+use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use visual_syntax::StaticVisualizer;
 use vm::{Linkage, SpecificRoutineLinkage};
 use word::RootIdentifier;

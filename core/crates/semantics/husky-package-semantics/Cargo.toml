@@ -1,0 +1,25 @@
+[package]
+edition = "2021"
+name = "husky-package-semantics"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+salsa = "0.17.0-pre.2"
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+dev-utils = { path = "../../utils/dev", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+word = { path = "../../syntax/word", version = "0.0.0" }
+fold = { path = "../../abstraction/fold", version = "0.0.0" }
+unique-vector = { path = "../../abstraction/unique-vector", version = "0.0.0" }
+vm = { path = "../../eval/vm", version = "0.0.0" }
+husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
+file = { path = "../../syntax/file", version = "0.0.0" }
+husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
+ast = { path = "../../syntax/ast", version = "0.0.0" }
+semantics-error = { path = "../error", version = "0.0.0" }
+husky-eager-semantics = { path = "../husky-eager-semantics", version = "0.0.0" }
+husky-entity-semantics = { path = "../husky-entity-semantics", version = "0.0.0" }

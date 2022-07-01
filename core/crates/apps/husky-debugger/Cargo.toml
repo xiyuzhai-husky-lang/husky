@@ -34,13 +34,13 @@ wild-utils = { path = "../../utils/wild", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
 json-result = { path = "../../abstraction/json-result", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
-entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
+husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
-diagnostic = { path = "../../semantics/diagnostic", version = "0.0.0" }
+husky-diagnostics = { path = "../../semantics/husky-diagnostics", version = "0.0.0" }
 token = { path = "../../syntax/token", version = "0.0.0" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
-text = { path = "../../syntax/text", version = "0.0.0" }
+husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
 husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
 trace = { path = "../../trace/trace", version = "0.0.0" }
 husky-trace-time = { path = "../../trace/husky-trace-time", version = "0.0.0" }
-__root = { path = "../../static/__root", version = "0.0.0" }
+__husky_root = { path = "../../static/__husky_root", version = "0.0.0" }

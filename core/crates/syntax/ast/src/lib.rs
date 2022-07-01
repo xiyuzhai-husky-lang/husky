@@ -22,13 +22,13 @@ use check_utils::*;
 use defn_head::*;
 use dev_utils::*;
 use entity_kind::*;
-use entity_route::{EntityRoutePtr, RangedEntityRoute};
 use error::*;
 use file::FilePtr;
 use husky_atom::*;
-use liason::*;
+use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
+use husky_liason_semantics::*;
+use husky_text::*;
 use print_utils::*;
-use text::*;
 use vm::InitKind;
 use word::{CustomIdentifier, IdentDict, Identifier, Paradigm, StmtKeyword};
 

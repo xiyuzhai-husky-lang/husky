@@ -3,7 +3,7 @@ pub(crate) mod event_loop_comm;
 
 use crossbeam_channel::Sender;
 
-use __root::__root_defn;
+use __husky_root::__root_defn;
 use client_comm::ClientCommunicator;
 use event_loop_comm::EventLoopCommunicator;
 use husky_compile_time::HuskyCompileTime;

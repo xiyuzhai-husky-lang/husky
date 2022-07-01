@@ -1,5 +1,5 @@
 use crate::*;
-use text::TextRanged;
+use husky_text::TextRanged;
 use token::*;
 use word::*;
 

@@ -9,7 +9,7 @@ members = [
     "crates/eval/*",
     "crates/trace/*",
     "crates/apps/*",
-    "crates/static/__root",
+    "crates/static/__husky_root",
     "crates/static/static-defn",
     "crates/static/domains/ml/*",
     "crates/try",

@@ -1,6 +1,6 @@
-use entity_route::EntityRoutePtr;
-use semantics_eager::{FuncStmt, ProcStmt};
-use semantics_entity::CallFormSource;
+use husky_eager_semantics::{FuncStmt, ProcStmt};
+use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_semantics::CallFormSource;
 use word::CustomIdentifier;
 
 use super::{impl_entity_route::EntityRouteRole, *};

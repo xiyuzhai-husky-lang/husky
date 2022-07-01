@@ -2,7 +2,7 @@ mod impl_match;
 
 use crate::{stmt::*, *};
 use husky_atom::context::{Symbol, SymbolKind};
-use text::{TextRange, TextRanged};
+use husky_text::{TextRange, TextRanged};
 use token::*;
 use vm::*;
 use word::Paradigm;

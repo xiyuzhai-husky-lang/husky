@@ -14,7 +14,7 @@ pub use virtual_struct::*;
 pub use virtual_vec::*;
 
 use crate::*;
-use entity_route::EntityRoutePtr;
+use husky_entity_route_syntax::EntityRoutePtr;
 use print_utils::p;
 use serde::Serialize;
 use std::{

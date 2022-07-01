@@ -11,7 +11,7 @@ check-utils = { path = "../../utils/check", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 infer-error = { path = "../error", version = "0.0.0" }
-infer-decl = { path = "../decl", version = "0.0.0" }
-infer-entity-route = { path = "../entity-route", version = "0.0.0" }
-infer-contract = { path = "../contract", version = "0.0.0" }
+infer-decl = { path = "../husky-infer-decl", version = "0.0.0" }
+husky-infer-entity-route = { path = "../husky-infer-entity-route", version = "0.0.0" }
+infer-contract = { path = "../husky-infer-contract", version = "0.0.0" }
 infer-qualifier = { path = "../qualifier", version = "0.0.0" }

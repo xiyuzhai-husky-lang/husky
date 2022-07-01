@@ -4,13 +4,13 @@ use ast::*;
 use check_utils::should;
 use defn_head::Parameter;
 use entity_kind::EntityKind;
-use entity_route::{EntityRouteKind, EntityRoutePtr};
+use husky_entity_route_syntax::{EntityRouteKind, EntityRoutePtr};
+use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
+use husky_text::{TextRange, TextRanged};
 use infer_error::{
     derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
 };
 use print_utils::{emsg_once, epin, msg_once, p};
-use text::{BindTextRangeInto, RangedCustomIdentifier};
-use text::{TextRange, TextRanged};
 
 use super::*;
 

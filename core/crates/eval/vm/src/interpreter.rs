@@ -3,12 +3,12 @@ mod query;
 
 use std::collections::HashMap;
 
-use entity_route::EntityRoutePtr;
 use file::FilePtr;
+use husky_entity_route_syntax::EntityRoutePtr;
+use husky_text::TextRange;
 use indexmap::IndexMap;
 use print_utils::{p, ps};
 pub use query::InterpreterQueryGroup;
-use text::TextRange;
 use word::{CustomIdentifier, Identifier};
 
 use crate::*;

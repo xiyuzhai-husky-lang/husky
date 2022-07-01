@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use dev_utils::DevSource;
 use file::FileError;
-use text::TextRange;
+use husky_text::TextRange;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct AtomError {
@@ -58,8 +58,8 @@ impl From<FileError> for AtomError {
     }
 }
 
-impl From<entity_syntax::ModuleFromFileError> for AtomError {
-    fn from(_: entity_syntax::ModuleFromFileError) -> Self {
+impl From<husky_entity_syntax::ModuleFromFileError> for AtomError {
+    fn from(_: husky_entity_syntax::ModuleFromFileError) -> Self {
         Self {
             variant: AtomErrorVariant::Derived,
             dev_src: dev_utils::dev_src!(),

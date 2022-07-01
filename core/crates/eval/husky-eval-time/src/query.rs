@@ -1,6 +1,6 @@
 use crate::HuskyEvalTime;
-use eval_feature::EvalFeature;
 use husky_compile_time::{AskCompileTime, HuskyCompileTime};
+use husky_feature_eval::EvalFeature;
 
 pub trait AskRuntime {
     fn runtime(&self) -> &HuskyEvalTime;

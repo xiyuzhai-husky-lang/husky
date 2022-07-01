@@ -1,5 +1,5 @@
 use crate::*;
-use __root::__root_defn;
+use __husky_root::__root_defn;
 use path_utils::collect_all_package_dirs;
 use std::path::PathBuf;
 

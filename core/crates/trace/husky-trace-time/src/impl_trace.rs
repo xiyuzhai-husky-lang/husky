@@ -1,7 +1,7 @@
 mod impl_func_stmt;
 mod impl_proc_stmt;
 
-use semantics_entity::{EntityDefn, EntityDefnVariant};
+use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use word::Identifier;
 
 use super::*;
@@ -144,7 +144,7 @@ impl HuskyTraceTime {
         );
 
         fn routine_call_head_tokens<'eval>(
-            text: &Text,
+            text: &HuskyText,
             routine_keyword: &'static str,
             ident: Identifier,
             parameters: &[Parameter],

@@ -1,4 +1,4 @@
-use text::RangedCustomIdentifier;
+use husky_text::RangedCustomIdentifier;
 use vm::CopyableValue;
 use word::{Keyword, LiasonKeyword, Paradigm};
 

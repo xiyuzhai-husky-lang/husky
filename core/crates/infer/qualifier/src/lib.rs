@@ -10,12 +10,12 @@ pub use query::*;
 pub use sheet::*;
 
 use ast::RawExprIdx;
-use entity_route::EntityRoutePtr;
+use husky_entity_route_syntax::EntityRoutePtr;
+use husky_liason_semantics::*;
+use husky_text::{Row, TextRange};
 use infer_contract::*;
 use infer_error::InferResult;
-use liason::*;
 use print_utils::emsg_once;
-use text::{Row, TextRange};
 use vm::*;
 use word::{CustomIdentifier, Identifier};
 
