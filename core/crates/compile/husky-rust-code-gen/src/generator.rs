@@ -1,3 +1,4 @@
+mod context;
 mod impl_entity_route;
 mod impl_expr;
 mod impl_lib;
@@ -9,6 +10,7 @@ mod impl_write;
 mod utils;
 
 use crate::*;
+use context::*;
 use entity_kind::TyKind;
 use entity_syntax::EntityRouteMenu;
 use fold::LocalStack;
@@ -23,6 +25,7 @@ pub(crate) struct RustCodeGenerator<'a> {
     package_main: FilePtr,
     entity_route_menu: Arc<EntityRouteMenu>,
     entity_route_uses: LocalStack<EntityRoutePtr>,
+    context: RustCodeGenContext,
 }
 
 impl<'a> RustCodeGenerator<'a> {
@@ -39,6 +42,7 @@ impl<'a> RustCodeGenerator<'a> {
             result: Default::default(),
             entity_route_menu: db.entity_route_menu(),
             entity_route_uses: symbols,
+            context: RustCodeGenContext::Normal,
         }
     }
     pub(crate) fn new_lib(db: &'a dyn RustCodeGenQueryGroup, package_main: FilePtr) -> Self {
@@ -53,10 +57,17 @@ impl<'a> RustCodeGenerator<'a> {
             result: Default::default(),
             entity_route_menu: db.entity_route_menu(),
             entity_route_uses: symbols,
+            context: RustCodeGenContext::Normal,
         }
     }
 
     pub(crate) fn package(&self) -> Arc<Package> {
         self.db.package(self.package_main).unwrap()
+    }
+
+    fn exec_within_context(&mut self, new_context: RustCodeGenContext, f: impl FnOnce(&mut Self)) {
+        let old_context = std::mem::replace(&mut self.context, new_context);
+        f(self);
+        std::mem::replace(&mut self.context, old_context);
     }
 }

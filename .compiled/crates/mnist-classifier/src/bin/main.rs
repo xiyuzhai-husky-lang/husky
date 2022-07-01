@@ -1,4 +1,4 @@
-use husky_lang_debugger::*;
+use husky_debugger::*;
 use mnist_classifier::__init__::link_entity_with_compiled;
 use husky_compile_time::*;
 

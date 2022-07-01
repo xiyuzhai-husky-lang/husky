@@ -1,12 +1,12 @@
 mod cyclic_slice_;
-mod first;
-mod last;
+mod firstx;
+mod lastx;
 
 use cyclic_slice::CyclicSlice;
 pub use cyclic_slice_::*;
 use entity_route::EntityRoutePtr;
-pub use first::*;
-pub use last::*;
+pub use firstx::*;
+pub use lastx::*;
 use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 
 use super::*;
@@ -18,6 +18,16 @@ pub trait __VecX<T> {
     fn __call__() -> Self;
 
     fn cyclic_slice<'eval>(&self, start: i32, end: i32) -> CyclicSlice<'eval, T>;
+
+    fn popx(&mut self) -> T;
+
+    fn firstx(&self) -> &T;
+
+    fn firstx_mut(&mut self) -> &mut T;
+
+    fn lastx(&self) -> &T;
+
+    fn lastx_mut(&mut self) -> &mut T;
 }
 
 impl<T> __VecX<T> for Vec<T> {
@@ -31,6 +41,26 @@ impl<T> __VecX<T> for Vec<T> {
 
     fn cyclic_slice<'eval>(&self, start: i32, end: i32) -> CyclicSlice<'eval, T> {
         todo!()
+    }
+
+    fn popx(&mut self) -> T {
+        self.pop().unwrap()
+    }
+
+    fn firstx(&self) -> &T {
+        self.first().unwrap()
+    }
+
+    fn firstx_mut(&mut self) -> &mut T {
+        self.first_mut().unwrap()
+    }
+
+    fn lastx(&self) -> &T {
+        self.last().unwrap()
+    }
+
+    fn lastx_mut(&mut self) -> &mut T {
+        self.last_mut().unwrap()
     }
 }
 
@@ -84,7 +114,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[
             &VEC_LEN,
             &VEC_PUSH,
-            &VEC_POP,
+            &VEC_POPX,
             &VEC_FIRST,
             &VEC_LAST,
             &VEC_CYCLIC_SLICE,
@@ -260,8 +290,8 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     dev_src: static_dev_src!(),
 };
 
-pub static VEC_POP: EntityStaticDefn = EntityStaticDefn {
-    name: "pop",
+pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
+    name: "popx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::TempRefMut,

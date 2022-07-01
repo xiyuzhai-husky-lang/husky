@@ -139,6 +139,12 @@ impl std::ops::Index<usize> for BinaryImage28 {
     }
 }
 
+impl std::ops::IndexMut<usize> for BinaryImage28 {
+    fn index_mut(&mut self, index: usize) -> &mut Self::Output {
+        &mut self.padded_rows[index]
+    }
+}
+
 impl std::fmt::Debug for BinaryImage28 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!(

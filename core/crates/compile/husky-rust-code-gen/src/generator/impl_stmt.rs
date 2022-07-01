@@ -34,6 +34,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write("let ");
                 self.write(&varname.ident);
                 self.write(" = ");
+                self.gen_binding(initial_value);
                 self.gen_expr(initial_value);
                 self.write(";");
             }
@@ -72,6 +73,7 @@ impl<'a> RustCodeGenerator<'a> {
                 });
                 self.write(&varname.ident);
                 self.write(" = ");
+                self.gen_binding(initial_value);
                 self.gen_expr(initial_value);
                 self.write(";");
             }
@@ -86,6 +88,7 @@ impl<'a> RustCodeGenerator<'a> {
             }
             ProcStmtVariant::Return { ref result } => {
                 self.write("return ");
+                self.gen_binding(result);
                 self.gen_expr(result);
             }
             ProcStmtVariant::ConditionFlow { ref branches } => {

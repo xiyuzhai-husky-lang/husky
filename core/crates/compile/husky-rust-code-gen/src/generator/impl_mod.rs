@@ -16,13 +16,13 @@ impl<'a> RustCodeGenerator<'a> {
                     output,
                     ref stmts,
                     ..
-                } => self.gen_func_defn(entity.base_route, parameters, output.route, stmts),
+                } => self.gen_func_defn(0, entity.base_route, parameters, output.route, stmts),
                 EntityDefnVariant::Proc {
                     parameters: ref parameters,
                     output,
                     ref stmts,
                     ..
-                } => self.gen_proc_defn(entity.base_route, parameters, output.route, stmts),
+                } => self.gen_proc_defn(0, entity.base_route, parameters, output.route, stmts),
                 EntityDefnVariant::Ty {
                     ref ty_members,
                     ref variants,

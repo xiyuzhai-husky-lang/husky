@@ -15,6 +15,9 @@ impl<'a, T> CyclicSlice<'a, T> {
             Some(&self.total[self.start.rem_euclid(self.total.len() as i32) as usize])
         }
     }
+    pub fn firstx(&self) -> &T {
+        self.first().unwrap()
+    }
     pub fn last(&self) -> Option<&T> {
         if self.total.len() == 0 {
             None
@@ -23,6 +26,9 @@ impl<'a, T> CyclicSlice<'a, T> {
         } else {
             Some(&self.total[(self.end - 1).rem_euclid(self.total.len() as i32) as usize])
         }
+    }
+    pub fn lastx(&self) -> &T {
+        self.last().unwrap()
     }
 
     pub fn iter(&self) -> impl Iterator<Item = &T> {

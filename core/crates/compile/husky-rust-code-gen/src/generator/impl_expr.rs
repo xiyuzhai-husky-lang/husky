@@ -8,10 +8,15 @@ impl<'a> RustCodeGenerator<'a> {
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => self.write(&varname),
             EagerExprVariant::ThisValue { .. } => self.write("self"),
-            EagerExprVariant::ThisField { field_ident, .. } => {
-                self.write("self.");
-                self.write(&field_ident.ident);
-            }
+            EagerExprVariant::ThisField { field_ident, .. } => match self.context {
+                RustCodeGenContext::Normal => {
+                    self.write("self.");
+                    self.write(&field_ident.ident);
+                }
+                RustCodeGenContext::StructDerivedEager => {
+                    self.write(&field_ident.ident);
+                }
+            },
             EagerExprVariant::EntityRoute { route } => self.write(&format!("{:?}", route)),
             EagerExprVariant::PrimitiveLiteral(value) => self.gen_copyable_literal(value),
             EagerExprVariant::Bracketed(ref expr) => {
@@ -103,7 +108,7 @@ impl<'a> RustCodeGenerator<'a> {
                                 self.write(&method_ident.ident);
                                 self.write("(");
                                 self.gen_arguments(&opds[1..]);
-                                self.write(").unwrap()");
+                                self.write(")");
                             }
                             Binding::Copy => {
                                 self.write("*");
@@ -112,7 +117,7 @@ impl<'a> RustCodeGenerator<'a> {
                                 self.write(&method_ident.ident);
                                 self.write("(");
                                 self.gen_arguments(&opds[1..]);
-                                self.write(").unwrap()");
+                                self.write(")");
                             }
                             Binding::TempRefMut => {
                                 self.gen_expr(&opds[0]);
@@ -121,7 +126,7 @@ impl<'a> RustCodeGenerator<'a> {
                                 self.write("_mut");
                                 self.write("(");
                                 self.gen_arguments(&opds[1..]);
-                                self.write(").unwrap()");
+                                self.write(")");
                             }
                             Binding::Move => todo!(),
                         },
@@ -153,14 +158,18 @@ impl<'a> RustCodeGenerator<'a> {
             if i > 0 {
                 self.write(", ");
             }
-            match expr.qualified_ty.qual.binding(expr.contract) {
-                Binding::EvalRef => (),
-                Binding::TempRef => self.write("&"),
-                Binding::TempRefMut => self.write("&mut "),
-                Binding::Move => (),
-                Binding::Copy => (),
-            }
+            self.gen_binding(expr);
             self.gen_expr(expr)
+        }
+    }
+
+    pub(super) fn gen_binding(&mut self, expr: &EagerExpr) {
+        match expr.qualified_ty.qual.binding(expr.contract) {
+            Binding::EvalRef => (),
+            Binding::TempRef => self.write("&"),
+            Binding::TempRefMut => self.write("&mut "),
+            Binding::Move => (),
+            Binding::Copy => (),
         }
     }
 

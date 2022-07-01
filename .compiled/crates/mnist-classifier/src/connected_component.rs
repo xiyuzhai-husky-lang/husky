@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug, Clone, PartialEq)]
 pub(crate) struct ConnectedComponent {
     pub(crate) mask: domains::ml::datasets::cv::mnist::BinaryImage28,
 }

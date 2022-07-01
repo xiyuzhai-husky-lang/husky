@@ -1,7 +1,7 @@
 use super::*;
 
 pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
-    name: "first",
+    name: "firstx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,

@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug, Clone, PartialEq)]
 pub(crate) struct RawContour<'eval> {
     pub(crate) cc: &'eval crate::connected_component::ConnectedComponent,
     pub(crate) points: Vec<crate::geom2d::Point2d>,
@@ -11,8 +12,8 @@ impl<'eval> RawContour<'eval> {
     }
     pub(crate) fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
-        let ct_start = self.points[(start % N) as usize];
-        let ct_end = self.points[(end % N) as usize];
+        let ct_start = &self.points[(start % N) as usize];
+        let ct_end = &self.points[(end % N) as usize];
         return ct_start.to(&ct_end)
     }
 }
@@ -23,19 +24,15 @@ pub(crate) enum Direction {
     DOWN,
     RIGHT,
 }
-
 pub(crate) fn get_pixel_pair(row: u32, j: i32) -> u32 {
     return (row >> (j - 1)) & 3u32
 }
-
 pub(crate) fn get_pixel_to_the_left(row: u32, j: i32) -> u32 {
     return (row >> j) & 1u32
 }
-
 pub(crate) fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
     return (row >> (j - 1)) & 1u32
 }
-
 pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
@@ -82,7 +79,6 @@ pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Di
         _ => panic!(),
     }
 }
-
 pub(crate) fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
     let raw_angle_change = (((outward as i32) - (inward as i32)) as u32).last_bits(2);
     match raw_angle_change {
@@ -95,7 +91,6 @@ pub(crate) fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
         _ => panic!(),
     }
 }
-
 pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_direction: Direction) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
@@ -169,6 +164,7 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         _ => panic!(),
     }
 }
+#[derive(Debug, Clone, PartialEq)]
 pub(crate) struct StreakCache {
     pub(crate) prev1: i32,
     pub(crate) prev2: i32,
@@ -179,11 +175,10 @@ impl StreakCache {
         Self { prev1, prev2 }
     }
 }
-
 pub(crate) fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {
     let N = points.ilen();
-    let p0 = points[(N - 2) as usize];
-    let p2 = points[(N - 1) as usize];
+    let p0 = &points[(N - 2) as usize];
+    let p2 = &points[(N - 1) as usize];
     return crate::geom2d::Point2d::__call__((p0.x + p2.x) / 2f32, (p0.y + p2.y) / 2f32)
 }
 
@@ -220,16 +215,16 @@ pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::Co
                 boundary_unsearched[(i) as usize] = boundary_unsearched[(i) as usize] & (!(1u32 << j));
                 if angle_change != 0 {
                     if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
-                        *contour.last_mut().unwrap() = get_concave_middle_point(&contour);
+                        *contour.lastx_mut() = get_concave_middle_point(&contour);
                         contour.push(crate::geom2d::Point2d::from_i_shift28(i, j));
                         prev_streak2 = -1;
                         prev_streak1 = -1;
                     } else if prev_angle_change1 == -1 && prev_streak1 > 0 && prev_streak1 == 1 {
-                        *contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
+                        *contour.lastx_mut() = crate::geom2d::Point2d::from_i_shift28(i, j);
                         prev_streak2 = prev_streak1;
                         prev_streak1 = current_streak;
                     } else if prev_angle_change1 == -1 && prev_streak1 > 0 && current_streak == 1 && prev_streak1 > 1 {
-                        *contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
+                        *contour.lastx_mut() = crate::geom2d::Point2d::from_i_shift28(i, j);
                         prev_streak2 = -1;
                         prev_streak1 = -1;
                     } else {
@@ -269,7 +264,7 @@ pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::Co
                 }
             }
             if prev_angle_change1 == -1 && current_streak == 1 && prev_streak1 > 0 {
-                contour.pop();
+                contour.popx();
             }
             result.push(RawContour::__call__(cc, contour));
         }
