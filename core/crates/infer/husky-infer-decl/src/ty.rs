@@ -13,10 +13,10 @@ pub use trait_impl::*;
 pub use vec::*;
 
 use crate::*;
-use ast::AstIter;
 use defn_head::*;
 pub use enum_variant::*;
 use fold::LocalStack;
+use husky_ast::AstIter;
 use husky_atom::{
     context::{AtomContextKind, Symbol, SymbolKind},
     AtomContext, AtomContextStandalone,

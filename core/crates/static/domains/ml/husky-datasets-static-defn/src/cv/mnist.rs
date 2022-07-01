@@ -15,10 +15,10 @@ use crate::*;
 use dev::*;
 use dev_utils::static_dev_src;
 use entity_kind::{RoutineKind, TyKind};
+use husky_visual_syntax::StaticVisualizer;
 use load::*;
 use test::*;
 use val::*;
-use visual_syntax::StaticVisualizer;
 use vm::*;
 use xrng::permutation_from_seed;
 

@@ -1,6 +1,6 @@
 use crate::*;
-use ast::FieldAstKind;
 use entity_kind::TyKind;
+use husky_ast::FieldAstKind;
 use husky_linkage_table::ResolveLinkage;
 use infer_decl::TyDecl;
 use map_collect::MapCollect;

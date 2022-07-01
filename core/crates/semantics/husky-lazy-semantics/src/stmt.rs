@@ -3,8 +3,8 @@ mod parse;
 
 use std::sync::Arc;
 
-use ast::*;
 pub use branch::*;
+use husky_ast::*;
 use husky_entity_route_syntax::RangedEntityRoute;
 use semantics_error::SemanticResultArc;
 use vm::{InstructionId, InstructionSource};

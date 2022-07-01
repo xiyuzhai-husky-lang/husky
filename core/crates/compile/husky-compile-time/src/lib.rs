@@ -4,8 +4,8 @@ mod impl_necessary;
 mod impl_parse_entity_route;
 pub mod utils;
 
-pub use ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
+pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use husky_diagnostics::DiagnosticQuery;
 pub use husky_entity_route_syntax::{AllocateUniqueScope, EntityRoute};
 pub use husky_entity_semantics::EntityDefnQueryGroup;
@@ -37,7 +37,7 @@ use sync_utils::ARwLock;
     token::TokenQueryGroupStorage,
     husky_entity_syntax::ScopeQueryGroupStorage,
     husky_text::TextQueryGroupStorage,
-    ast::AstQueryGroupStorage,
+    husky_ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
     infer_decl::DeclQueryGroupStorage,
     husky_infer_entity_route::InferEntityRouteQueryGroupStorage,

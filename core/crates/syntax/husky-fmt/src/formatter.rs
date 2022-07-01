@@ -1,12 +1,12 @@
 use std::ops::AddAssign;
 
-use ast::{
-    Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant, RawStmtVariant,
-    StructItemContext,
-};
 use defn_head::Parameter;
 use entity_kind::TyKind;
 use fold::LocalValue;
+use husky_ast::{
+    Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant, RawStmtVariant,
+    StructItemContext,
+};
 use husky_entity_route_syntax::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
@@ -16,7 +16,7 @@ use word::{Paradigm, RootIdentifier, WordAllocator};
 
 pub struct Formatter<'a> {
     db: &'a dyn EntitySyntaxQueryGroup,
-    arena: &'a ast::RawExprArena,
+    arena: &'a husky_ast::RawExprArena,
     indent: fold::Indent,
     result: String,
     context: LocalValue<AstContext>,
@@ -25,7 +25,7 @@ pub struct Formatter<'a> {
 impl<'a> Formatter<'a> {
     pub(crate) fn new(
         db: &'a dyn EntitySyntaxQueryGroup,
-        arena: &'a ast::RawExprArena,
+        arena: &'a husky_ast::RawExprArena,
         context: AstContext,
     ) -> Self {
         Self {
@@ -81,7 +81,7 @@ impl<'a> Formatter<'a> {
 }
 
 impl<'a> Formatter<'a> {
-    fn fmt(&mut self, ast: &ast::Ast, enter_block: impl FnOnce(&mut Self)) {
+    fn fmt(&mut self, ast: &husky_ast::Ast, enter_block: impl FnOnce(&mut Self)) {
         match ast.variant {
             AstVariant::TypeDefnHead {
                 ident,
@@ -202,7 +202,7 @@ impl<'a> Formatter<'a> {
         }
     }
 
-    fn fmt_stmt(&mut self, stmt: &ast::RawStmt) {
+    fn fmt_stmt(&mut self, stmt: &husky_ast::RawStmt) {
         match stmt.variant {
             RawStmtVariant::Loop(_) => todo!(),
             RawStmtVariant::ConditionBranch { .. } => todo!(),

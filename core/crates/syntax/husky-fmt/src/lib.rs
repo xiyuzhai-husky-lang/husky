@@ -1,15 +1,15 @@
 mod formatter;
 
-pub type FormattedText = fold::FoldableList<ast::AstResult<String>>;
+pub type FormattedText = fold::FoldableList<husky_ast::AstResult<String>>;
 
-use ast::AstContext;
 use fold::{Executor, FoldableStorage};
+use husky_ast::AstContext;
 use std::sync::Arc;
 
 use formatter::Formatter;
 
 #[salsa::query_group(FormatQueryGroupStorage)]
-pub trait FmtQuery: ast::AstQueryGroup {
+pub trait FmtQuery: husky_ast::AstQueryGroup {
     fn fmt_text(&self, id: file::FilePtr) -> husky_entity_syntax::EntitySyntaxResultArc<String>;
 }
 

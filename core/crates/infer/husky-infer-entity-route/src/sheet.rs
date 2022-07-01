@@ -4,10 +4,10 @@ mod var;
 use std::{collections::HashMap, sync::Arc};
 
 use arena::map::ArenaMap;
-use ast::{AstText, RawExpr};
 use builder::EntityRouteSheetBuilder;
 use dev_utils::dev_src;
 use fold::FoldableStorage;
+use husky_ast::{AstText, RawExpr};
 use husky_text::{Row, TextRange};
 use infer_decl::MemberIdx;
 use word::CustomIdentifier;

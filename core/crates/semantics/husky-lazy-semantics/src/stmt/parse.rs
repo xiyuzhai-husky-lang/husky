@@ -1,6 +1,6 @@
 use crate::*;
-use ast::*;
 use file::FilePtr;
+use husky_ast::*;
 use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_contract::{ContractSheet, InferContract};

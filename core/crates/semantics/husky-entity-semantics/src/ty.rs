@@ -6,8 +6,8 @@ pub use member::*;
 pub use type_call::*;
 
 use super::*;
-use ast::*;
 use file::FilePtr;
+use husky_ast::*;
 use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext,

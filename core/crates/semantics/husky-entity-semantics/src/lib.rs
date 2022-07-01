@@ -15,12 +15,12 @@ pub use query::*;
 pub use trai::*;
 pub use ty::*;
 
-use ast::AstVariant;
 use avec::Avec;
 use defn_head::*;
 use entity_kind::*;
 use file::FilePtr;
 use fold::{FoldIterItem, FoldableStorage};
+use husky_ast::AstVariant;
 use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext, AtomContextStandalone,

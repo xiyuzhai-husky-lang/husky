@@ -4,8 +4,8 @@ mod impl_locality;
 mod impl_stmt;
 
 use super::*;
-use ast::{AstIter, AstText};
 use fold::LocalStack;
+use husky_ast::{AstIter, AstText};
 use husky_text::TextRanged;
 use std::sync::Arc;
 

@@ -1,5 +1,5 @@
 use crate::*;
-use ast::{AstIter, RawExprArena};
+use husky_ast::{AstIter, RawExprArena};
 use husky_lazy_semantics::LazyStmt;
 use semantics_error::SemanticResult;
 use std::sync::Arc;

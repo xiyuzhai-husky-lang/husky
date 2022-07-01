@@ -1,4 +1,4 @@
-use ast::{CasePattern, CasePatternVariant};
+use husky_ast::{CasePattern, CasePatternVariant};
 use husky_entity_route_syntax::EntityRouteKind;
 use print_utils::emsg_once;
 use semantics_error::*;

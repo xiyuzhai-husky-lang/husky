@@ -1,5 +1,5 @@
 use super::*;
-use ast::{CasePattern, CasePatternVariant};
+use husky_ast::{CasePattern, CasePatternVariant};
 use husky_eager_semantics::{
     FuncPatternBranch, FuncPatternBranchVariant, ProcPatternBranch, ProcPatternBranchVariant,
 };

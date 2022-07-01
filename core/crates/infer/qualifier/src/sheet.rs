@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use arena::map::{ArenaKeyQuery, ArenaMap};
-use ast::RawExprMap;
+use husky_ast::RawExprMap;
 use husky_text::{Row, TextRange};
 use infer_contract::ContractSheet;
 use infer_error::{derived_not_none, InferError, InferErrorVariant};

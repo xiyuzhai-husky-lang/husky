@@ -1,6 +1,6 @@
 use crate::*;
-use ast::CasePattern;
 use file::FilePtr;
+use husky_ast::CasePattern;
 use husky_text::TextRange;
 use std::sync::Arc;
 

@@ -14,7 +14,7 @@ vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
-visual-syntax = { path = "../../syntax/visual-syntax", version = "0.0.0" }
+husky-visual-syntax = { path = "../../syntax/husky-visual-syntax", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 static-defn = { path = "../../static/static-defn", version = "0.0.0" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }

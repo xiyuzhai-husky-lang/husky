@@ -1,7 +1,7 @@
 use crate::*;
-use ast::{AstText, AstVariant};
 use file::FilePtr;
 use fold::FoldableStorage;
+use husky_ast::{AstText, AstVariant};
 use husky_eager_semantics::parse_func_stmts;
 use husky_entity_route_syntax::EntityRouteKind;
 use husky_entity_semantics::EntityDefnQueryGroup;

@@ -1,4 +1,4 @@
-use ast::AstQueryGroup;
+use husky_ast::AstQueryGroup;
 use husky_entity_route_syntax::EntityRoutePtr;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_entity_syntax::EntitySyntaxQueryGroup;

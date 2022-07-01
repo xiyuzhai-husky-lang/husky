@@ -1,8 +1,8 @@
 use std::iter::zip;
 
 use super::*;
-use ast::RawExprRange;
 use dev_utils::dev_src;
+use husky_ast::RawExprRange;
 use husky_text::*;
 use infer_decl::{MethodKind, TraitMemberImplDecl};
 use thin_vec::{thin_vec, ThinVec};

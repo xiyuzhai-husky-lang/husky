@@ -29,7 +29,7 @@ token = { path = "../../syntax/token", version = "0.0.0" }
 husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
 husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
-ast = { path = "../../syntax/ast", version = "0.0.0" }
+husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
 husky-fmt = { path = "../../syntax/husky-fmt", version = "0.0.0" }
 infer-decl = { path = "../../infer/husky-infer-decl", version = "0.0.0" }
 husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route", version = "0.0.0" }

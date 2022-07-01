@@ -8,8 +8,8 @@ pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryGroupStorage};
 pub use severity::DiagnosticSeverity;
 
-use ast::{AstError, AstErrorVariant};
 use dev_utils::DevSource;
+use husky_ast::{AstError, AstErrorVariant};
 use husky_entity_syntax::{EntitySyntaxError, EntitySyntaxErrorKind};
 use husky_text::TextRange;
 use infer_error::{InferError, InferErrorVariant};

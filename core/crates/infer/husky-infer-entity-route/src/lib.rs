@@ -5,10 +5,10 @@ mod sheet;
 pub use query::*;
 pub use sheet::*;
 
-use ast::*;
 use check_utils::*;
 use defn_head::*;
 use file::FilePtr;
+use husky_ast::*;
 use husky_entity_route_syntax::*;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use infer_decl::{DeclQueryGroup, FunctionDecl, MethodDecl, TyDecl};

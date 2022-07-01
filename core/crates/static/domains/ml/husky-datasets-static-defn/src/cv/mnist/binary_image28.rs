@@ -2,8 +2,8 @@ use super::*;
 use husky_entity_route_syntax::{lazy_entity_route, AllocateUniqueScope};
 use husky_eval_time::{compile_time, parse_entity_route};
 use husky_trace_protocol::*;
+use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use std::{any::TypeId, sync::Arc};
-use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use vm::*;
 
 pub static BINARY_IMAGE_28_BASE_ROUTE: &'static str =

@@ -22,7 +22,7 @@ unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0
 husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
-ast = { path = "../../syntax/ast", version = "0.0.0" }
+husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
 entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
 husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }

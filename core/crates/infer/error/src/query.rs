@@ -1,4 +1,4 @@
-use ast::AstError;
+use husky_ast::AstError;
 use husky_text::BindTextRangeInto;
 
 use crate::*;
