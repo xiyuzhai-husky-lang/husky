@@ -1,6 +1,6 @@
 use crate::*;
 
-pub struct ConcaveComponent<'eval> {
+pub(crate) struct ConcaveComponent<'eval> {
     pub(crate) line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>,
     pub(crate) line_segments: __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegment<'eval>>,
 }
@@ -11,8 +11,8 @@ impl<'eval> ConcaveComponent<'eval> {
     }
 }
 
-pub(crate) fn find_concave_components<'eval>(line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>> {
-    let mut concave_components = Vec::<crate::line_segment_sketch::concave_component::ConcaveComponent>::__call__();
+pub(crate) fn find_concave_components<'eval>(line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>) -> Vec<ConcaveComponent<'eval>> {
+    let mut concave_components = Vec::<ConcaveComponent>::__call__();
     let L = line_segment_sketch.line_segments.ilen();
     let mut start = 0;
     let mut end = 1;
@@ -25,7 +25,7 @@ pub(crate) fn find_concave_components<'eval>(line_segment_sketch: &'eval crate::
             end += 1;
         }
         if end > start + 1 {
-            concave_components.push(crate::line_segment_sketch::concave_component::ConcaveComponent::__call__(line_segment_sketch, line_segment_sketch.line_segments.cyclic_slice(start, end)));
+            concave_components.push(ConcaveComponent::__call__(line_segment_sketch, line_segment_sketch.line_segments.cyclic_slice(start, end)));
         }
         start = end;
         end = start + 1;

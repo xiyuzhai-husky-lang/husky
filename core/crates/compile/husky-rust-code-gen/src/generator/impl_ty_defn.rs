@@ -6,8 +6,8 @@ use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_enum_defn(&mut self, tyname: CustomIdentifier, variants: &[Arc<EntityDefn>]) {
-        self.write("#[derive(Debug, Clone, Copy, PartialEq, Eq)]");
-        self.write("pub enum ");
+        self.write("#[derive(Debug, Clone, Copy, PartialEq, Eq)]\n");
+        self.write("pub(crate) enum ");
         self.write(&tyname);
         self.write(" {\n");
         for enum_variant_defn in variants {
@@ -32,7 +32,7 @@ impl<'a> RustCodeGenerator<'a> {
         ty_members: &[Arc<EntityDefn>],
         trait_impls: &[Arc<TraitImplDefn>],
     ) {
-        self.result += "pub struct ";
+        self.result += "pub(crate) struct ";
         self.result += tyname.0;
         let ty_contains_eval_ref = self.db.entity_route_kind_contains_eval_ref(base_route.kind);
         if ty_contains_eval_ref {

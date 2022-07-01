@@ -1,6 +1,6 @@
 use crate::*;
 
-pub struct RawContour<'eval> {
+pub(crate) struct RawContour<'eval> {
     pub(crate) cc: &'eval crate::connected_component::ConnectedComponent,
     pub(crate) points: Vec<crate::geom2d::Point2d>,
 }
@@ -16,7 +16,8 @@ impl<'eval> RawContour<'eval> {
         return ct_start.to(&ct_end)
     }
 }
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]pub enum Direction {
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum Direction {
     UP,
     LEFT,
     DOWN,
@@ -35,34 +36,34 @@ pub(crate) fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
     return (row >> (j - 1)) & 1u32
 }
 
-pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> crate::raw_contour::Direction {
-    let pixel_pair_above = crate::raw_contour::get_pixel_pair(row_above, j);
-    let pixel_pair_below = crate::raw_contour::get_pixel_pair(row_below, j);
+pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Direction {
+    let pixel_pair_above = get_pixel_pair(row_above, j);
+    let pixel_pair_below = get_pixel_pair(row_below, j);
     match pixel_pair_above {
         0 => {
             match pixel_pair_below {
                 1 | 3 => {
-                    return crate::raw_contour::Direction::LEFT
+                    return Direction::LEFT
                 }
                 2 => {
-                    return crate::raw_contour::Direction::UP
+                    return Direction::UP
                 }
                 _ => panic!(),
             }
         }
         1 => {
-            return crate::raw_contour::Direction::DOWN
+            return Direction::DOWN
         }
         2 => {
             match pixel_pair_below {
                 0 => {
-                    return crate::raw_contour::Direction::RIGHT
+                    return Direction::RIGHT
                 }
                 1 | 3 => {
-                    return crate::raw_contour::Direction::LEFT
+                    return Direction::LEFT
                 }
                 2 => {
-                    return crate::raw_contour::Direction::UP
+                    return Direction::UP
                 }
                 _ => panic!(),
             }
@@ -70,10 +71,10 @@ pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> cr
         3 => {
             match pixel_pair_below {
                 0 | 1 => {
-                    return crate::raw_contour::Direction::RIGHT
+                    return Direction::RIGHT
                 }
                 2 => {
-                    return crate::raw_contour::Direction::UP
+                    return Direction::UP
                 }
                 _ => panic!(),
             }
@@ -82,7 +83,7 @@ pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> cr
     }
 }
 
-pub(crate) fn get_angle_change(inward: crate::raw_contour::Direction, outward: crate::raw_contour::Direction) -> i32 {
+pub(crate) fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
     let raw_angle_change = (((outward as i32) - (inward as i32)) as u32).last_bits(2);
     match raw_angle_change {
         0 | 1 | 2 => {
@@ -95,17 +96,17 @@ pub(crate) fn get_angle_change(inward: crate::raw_contour::Direction, outward: c
     }
 }
 
-pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_direction: crate::raw_contour::Direction) -> crate::raw_contour::Direction {
-    let pixel_pair_above = crate::raw_contour::get_pixel_pair(row_above, j);
-    let pixel_pair_below = crate::raw_contour::get_pixel_pair(row_below, j);
+pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_direction: Direction) -> Direction {
+    let pixel_pair_above = get_pixel_pair(row_above, j);
+    let pixel_pair_below = get_pixel_pair(row_below, j);
     match pixel_pair_above {
         0 => {
             match pixel_pair_below {
                 1 => {
-                    return crate::raw_contour::Direction::DOWN
+                    return Direction::DOWN
                 }
                 2 | 3 => {
-                    return crate::raw_contour::Direction::LEFT
+                    return Direction::LEFT
                 }
                 _ => panic!(),
             }
@@ -113,24 +114,24 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         1 => {
             match pixel_pair_below {
                 0 => {
-                    return crate::raw_contour::Direction::RIGHT
+                    return Direction::RIGHT
                 }
                 1 => {
-                    return crate::raw_contour::Direction::DOWN
+                    return Direction::DOWN
                 }
                 2 => {
                     match inward_direction {
-                        crate::raw_contour::Direction::DOWN => {
-                            return crate::raw_contour::Direction::LEFT
+                        Direction::DOWN => {
+                            return Direction::LEFT
                         }
-                        crate::raw_contour::Direction::UP => {
-                            return crate::raw_contour::Direction::RIGHT
+                        Direction::UP => {
+                            return Direction::RIGHT
                         }
                         _ => panic!(),
                     }
                 }
                 3 => {
-                    return crate::raw_contour::Direction::LEFT
+                    return Direction::LEFT
                 }
                 _ => panic!(),
             }
@@ -138,15 +139,15 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         2 => {
             match pixel_pair_below {
                 0 | 2 | 3 => {
-                    return crate::raw_contour::Direction::UP
+                    return Direction::UP
                 }
                 1 => {
                     match inward_direction {
-                        crate::raw_contour::Direction::LEFT => {
-                            return crate::raw_contour::Direction::UP
+                        Direction::LEFT => {
+                            return Direction::UP
                         }
-                        crate::raw_contour::Direction::RIGHT => {
-                            return crate::raw_contour::Direction::DOWN
+                        Direction::RIGHT => {
+                            return Direction::DOWN
                         }
                         _ => panic!(),
                     }
@@ -157,10 +158,10 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         3 => {
             match pixel_pair_below {
                 0 | 2 => {
-                    return crate::raw_contour::Direction::RIGHT
+                    return Direction::RIGHT
                 }
                 1 => {
-                    return crate::raw_contour::Direction::DOWN
+                    return Direction::DOWN
                 }
                 _ => panic!(),
             }
@@ -168,7 +169,7 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         _ => panic!(),
     }
 }
-pub struct StreakCache {
+pub(crate) struct StreakCache {
     pub(crate) prev1: i32,
     pub(crate) prev2: i32,
 }
@@ -186,8 +187,8 @@ pub(crate) fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> 
     return crate::geom2d::Point2d::__call__((p0.x + p2.x) / 2f32, (p0.y + p2.y) / 2f32)
 }
 
-pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::ConnectedComponent) -> Vec<crate::raw_contour::RawContour<'eval>> {
-    let mut result = Vec::<crate::raw_contour::RawContour>::__call__();
+pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::ConnectedComponent) -> Vec<RawContour<'eval>> {
+    let mut result = Vec::<RawContour>::__call__();
     let mut boundary_unsearched = domains::ml::datasets::cv::mnist::BinaryGrid28::__call__();
     for i in 1..(29 + 1) {
         let r_ur = cc.mask[(i - 1) as usize];
@@ -203,7 +204,7 @@ pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::Co
             let mut j = boundary_unsearched[(k) as usize].ctz();
             let mut row_above = cc.mask[(i - 1) as usize];
             let mut row_below = cc.mask[(i) as usize];
-            let mut inward_direction = crate::raw_contour::get_inward_direction(row_above, row_below, j);
+            let mut inward_direction = get_inward_direction(row_above, row_below, j);
             let i0 = i;
             let j0 = j;
             let dir0 = inward_direction;
@@ -214,12 +215,12 @@ pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::Co
             let mut prev_streak2 = -1;
             let mut current_streak = -1;
             loop {
-                let outward_direction = crate::raw_contour::get_outward_direction(row_above, row_below, j, inward_direction);
-                let angle_change = crate::raw_contour::get_angle_change(inward_direction, outward_direction);
+                let outward_direction = get_outward_direction(row_above, row_below, j, inward_direction);
+                let angle_change = get_angle_change(inward_direction, outward_direction);
                 boundary_unsearched[(i) as usize] = boundary_unsearched[(i) as usize] & (!(1u32 << j));
                 if angle_change != 0 {
                     if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
-                        *contour.last_mut().unwrap() = crate::raw_contour::get_concave_middle_point(&contour);
+                        *contour.last_mut().unwrap() = get_concave_middle_point(&contour);
                         contour.push(crate::geom2d::Point2d::from_i_shift28(i, j));
                         prev_streak2 = -1;
                         prev_streak1 = -1;
@@ -241,20 +242,20 @@ pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::Co
                     prev_angle_change1 = angle_change;
                 }
                 match outward_direction {
-                    crate::raw_contour::Direction::UP => {
+                    Direction::UP => {
                         i = i - 1;
                         row_below = row_above;
                         row_above = cc.mask[(i - 1) as usize];
                     }
-                    crate::raw_contour::Direction::DOWN => {
+                    Direction::DOWN => {
                         i = i + 1;
                         row_above = row_below;
                         row_below = cc.mask[(i) as usize];
                     }
-                    crate::raw_contour::Direction::LEFT => {
+                    Direction::LEFT => {
                         j = j + 1;
                     }
-                    crate::raw_contour::Direction::RIGHT => {
+                    Direction::RIGHT => {
                         j = j - 1;
                     }
                 _ => panic!(),
@@ -270,7 +271,7 @@ pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::Co
             if prev_angle_change1 == -1 && current_streak == 1 && prev_streak1 > 0 {
                 contour.pop();
             }
-            result.push(crate::raw_contour::RawContour::__call__(cc, contour));
+            result.push(RawContour::__call__(cc, contour));
         }
     }
     return result
