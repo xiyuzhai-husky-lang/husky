@@ -144,7 +144,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
 //         self
 //     }
 
-//     fn ty(&self) -> entity_route::EntityRoutePtr {
+//     fn ty(&self) -> husky_entity_route_syntax::EntityRoutePtr {
 //         self.any_ref().ty_dyn()
 //     }
 // }

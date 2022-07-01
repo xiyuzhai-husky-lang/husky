@@ -1,14 +1,14 @@
 use crate::*;
 use arena::map::ArenaKeyQuery;
-use entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use file::FilePtr;
 use fold::Transformer;
 use fold::{FoldableList, FoldableStorage};
+use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
+use husky_text::{HuskyText, TextQueryGroup};
 use lsp_types::FoldingRange;
 use std::fmt::Write;
 use std::sync::Arc;
 use test_utils::TestDisplayConfig;
-use text::{Text, TextQueryGroup};
 use token::AbsSemanticToken;
 use upcast::Upcast;
 
@@ -19,7 +19,19 @@ pub trait AstSalsaQueryGroup:
     fn ast_text(&self, file: FilePtr) -> EntitySyntaxResultArc<AstText>;
 }
 
-pub trait AstQueryGroup: AstSalsaQueryGroup {}
+pub trait AstQueryGroup: AstSalsaQueryGroup {
+    fn parse_entity_route(&self, opt_package_main: Option<FilePtr>, text: &str) -> EntityRoutePtr {
+        let mut context = AtomContextStandalone {
+            opt_package_main,
+            db: self.upcast(),
+            opt_this_ty: None,
+            opt_this_contract: None,
+            symbols: (&[] as &[Symbol]).into(),
+            kind: AtomContextKind::Normal,
+        };
+        context.parse_entity_route(text).unwrap()
+    }
+}
 
 fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> EntitySyntaxResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
@@ -34,7 +46,7 @@ pub struct AstText {
     pub arena: RawExprArena,
     pub folded_results: FoldableList<AstResult<Ast>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,
-    pub text: Arc<Text>,
+    pub text: Arc<HuskyText>,
 }
 
 impl AstText {

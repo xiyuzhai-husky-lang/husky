@@ -1,4 +1,4 @@
-use pack_semantics::Package;
+use husky_package_semantics::Package;
 use print_utils::p;
 use std::{
     env,

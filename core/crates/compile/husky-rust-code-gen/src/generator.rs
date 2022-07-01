@@ -12,11 +12,11 @@ mod utils;
 use crate::*;
 use context::*;
 use entity_kind::TyKind;
-use entity_syntax::EntityRouteMenu;
 use fold::LocalStack;
+use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
+use husky_entity_syntax::EntityRouteMenu;
+use husky_package_semantics::Package;
 use impl_entity_route::*;
-use pack_semantics::Package;
-use semantics_entity::{EntityDefn, EntityDefnVariant};
 use std::sync::Arc;
 
 pub(crate) struct RustCodeGenerator<'a> {

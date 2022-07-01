@@ -5,7 +5,7 @@ pub use value::*;
 pub use variable::*;
 
 use crate::*;
-use entity_route::EntityRouteKind;
+use husky_entity_route_syntax::EntityRouteKind;
 use infer_decl::DeclQueryGroup;
 use infer_error::*;
 use print_utils::msg_once;

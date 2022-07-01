@@ -6,14 +6,14 @@ mod impl_proc_stmt;
 mod utils;
 
 use crate::*;
-use eval_feature::EvalFeature;
-use feature_gen::{FeatureExpr, FeatureLazyExprVariant, FeatureLazyStmtVariant, FeatureStmt};
 use husky_compile_time::*;
-use map_collect::MapCollect;
-use semantics_eager::{
+use husky_eager_semantics::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
 };
-use text::TextQueryGroup;
+use husky_feature_eval::EvalFeature;
+use husky_feature_gen::{FeatureExpr, FeatureLazyExprVariant, FeatureLazyStmtVariant, FeatureStmt};
+use husky_text::TextQueryGroup;
+use map_collect::MapCollect;
 use vm::{History, HistoryEntry, MutationData, MutationDataVariant, StackSnapshot};
 
 impl HuskyTraceTime {

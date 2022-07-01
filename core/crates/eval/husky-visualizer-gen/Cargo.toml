@@ -1,0 +1,26 @@
+[package]
+name = "husky-visualizer-gen"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+salsa = "0.17.0-pre.2"
+arrayvec = "0.7.2"
+avec = { path = "../../abstraction/avec", version = "0.0.0" }
+upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
+check-utils = { path = "../../utils/check", version = "0.0.0" }
+print-utils = { path = "../../utils/print", version = "0.0.0" }
+vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
+word = { path = "../../syntax/word", version = "0.0.0" }
+husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
+visual-syntax = { path = "../../syntax/visual-syntax", version = "0.0.0" }
+vm = { path = "../../eval/vm", version = "0.0.0" }
+static-defn = { path = "../../static/static-defn", version = "0.0.0" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }
+husky-visual-semantics = { path = "../../semantics/husky-visual-semantics", version = "0.0.0" }
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics", version = "0.0.0" }
+husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics", version = "0.0.0" }
+husky-instruction-gen = { path = "../husky-instruction-gen", version = "0.0.0" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
+husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }

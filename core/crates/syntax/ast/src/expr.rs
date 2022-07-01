@@ -10,9 +10,9 @@ use crate::*;
 use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
 use husky_atom::AtomVariant;
 use husky_atom::HuskyAtom;
+use husky_text::TextRange;
+use husky_text::TextRanged;
 pub(crate) use stack::ExprStack;
-use text::TextRange;
-use text::TextRanged;
 use vm::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

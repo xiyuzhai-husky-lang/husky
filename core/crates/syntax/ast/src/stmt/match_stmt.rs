@@ -1,5 +1,5 @@
 use crate::*;
-use entity_route::EntityRoutePtr;
+use husky_entity_route_syntax::EntityRoutePtr;
 use map_collect::MapCollect;
 use vm::{CopyableValue, VMCasePattern};
 use word::RootIdentifier;

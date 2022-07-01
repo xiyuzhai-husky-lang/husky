@@ -13,10 +13,10 @@ use print_utils::p;
 pub use variant::{AtomVariant, LambdaHead};
 
 use entity_kind::*;
-use entity_route::EntityRoutePtr;
-use liason::*;
-use text::TextRange;
-use text::TextRanged;
+use husky_entity_route_syntax::EntityRoutePtr;
+use husky_liason_semantics::*;
+use husky_text::TextRange;
+use husky_text::TextRanged;
 use token::{Token, TokenKind};
 use word::Identifier;
 use word::RootIdentifier;

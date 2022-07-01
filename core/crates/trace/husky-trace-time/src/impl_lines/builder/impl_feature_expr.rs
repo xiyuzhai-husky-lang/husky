@@ -1,11 +1,11 @@
 use super::*;
 use crate::*;
-use entity_route::RangedEntityRoute;
-use eval_feature::EvalFeature;
+use husky_entity_route_syntax::RangedEntityRoute;
+use husky_feature_eval::EvalFeature;
+use husky_lazy_semantics::{LazyExprVariant, LazyOpnKind};
+use husky_text::RangedCustomIdentifier;
+use husky_visualizer_gen::VisualTy;
 use print_utils::epin;
-use semantics_lazy::{LazyExprVariant, LazyOpnKind};
-use text::RangedCustomIdentifier;
-use visualizer_gen::VisualTy;
 use vm::InterpreterQueryGroup;
 use word::CustomIdentifier;
 

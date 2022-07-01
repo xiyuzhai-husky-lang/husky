@@ -1,5 +1,5 @@
 #![feature(const_fn_trait_bound, const_fn_fn_ptr_basics)]
-use entity_route::EntityRoutePtr;
+use husky_entity_route_syntax::EntityRoutePtr;
 use husky_trace_protocol::*;
 use vm::*;
 

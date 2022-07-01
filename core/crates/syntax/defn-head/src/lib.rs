@@ -1,24 +1,12 @@
 mod spatial;
 
-use liason::{MemberLiason, OutputLiason, ParameterLiason, RangedParameterLiason};
+use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason, RangedParameterLiason};
 pub use spatial::*;
 use std::sync::Arc;
 
-use entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
-use text::RangedCustomIdentifier;
+use husky_entity_route_syntax::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
+use husky_text::RangedCustomIdentifier;
 use word::{CustomIdentifier, IdentDict, Paradigm, RootIdentifier};
-
-// function or method
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct CallableDefnHead {
-    pub ident: RangedCustomIdentifier,
-    pub paradigm: Paradigm,
-    pub generic_parameters: IdentDict<SpatialParameter>,
-    pub parameters: Arc<Vec<Parameter>>,
-    pub output_ty: RangedEntityRoute,
-    pub output_liason: OutputLiason,
-    pub opt_this_liason: Option<ParameterLiason>,
-}
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Parameter {

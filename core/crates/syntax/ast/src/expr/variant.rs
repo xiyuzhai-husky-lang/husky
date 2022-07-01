@@ -1,8 +1,8 @@
 use crate::*;
-use entity_route::SpatialArgument;
-use entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
-use text::RangedCustomIdentifier;
-use text::Row;
+use husky_entity_route_syntax::SpatialArgument;
+use husky_entity_route_syntax::{EntityKind, EntityRoutePtr, RangedEntityRoute};
+use husky_text::RangedCustomIdentifier;
+use husky_text::Row;
 use vm::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

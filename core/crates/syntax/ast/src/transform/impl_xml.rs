@@ -1,8 +1,8 @@
 use super::*;
 use crate::*;
-use entity_route::{EntityRoute, EntityRouteKind};
 use husky_atom::context::{Symbol, SymbolKind};
-use text::TextRange;
+use husky_entity_route_syntax::{EntityRoute, EntityRouteKind};
+use husky_text::TextRange;
 use word::IdentPairDict;
 
 impl<'a> AstTransformer<'a> {

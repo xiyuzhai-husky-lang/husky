@@ -1,5 +1,5 @@
 use super::*;
-use semantics_eager::ProcStmt;
+use husky_eager_semantics::ProcStmt;
 use std::sync::Arc;
 
 impl<'a> RustCodeGenerator<'a> {

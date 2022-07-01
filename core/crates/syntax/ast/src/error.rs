@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use text::TextRange;
+use husky_text::TextRange;
 
 use crate::*;
 

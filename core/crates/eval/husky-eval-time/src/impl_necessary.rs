@@ -1,4 +1,4 @@
-use semantics_entity::StoreEntityRoute;
+use husky_entity_semantics::StoreEntityRoute;
 use upcast::Upcast;
 use vm::InterpreterQueryGroup;
 
@@ -18,7 +18,7 @@ impl AskCompileTime for HuskyEvalTime {
 //     }
 // }
 impl AllocateUniqueFeature for HuskyEvalTime {
-    fn feature_interner(&self) -> &feature_gen::FeatureInterner {
+    fn feature_interner(&self) -> &husky_feature_gen::FeatureInterner {
         &self.feature_interner
     }
 }
@@ -70,7 +70,7 @@ impl EvalFeature<'static> for HuskyEvalTime {
         self.config.verbose
     }
 
-    fn opt_static_eval_feature(&self) -> Option<&dyn EvalFeature<'static>> {
+    fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>> {
         Some(self)
     }
 }

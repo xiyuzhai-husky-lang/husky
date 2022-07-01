@@ -1,13 +1,13 @@
 mod flags;
 
-use __root::__root_defn;
+use __husky_root::__root_defn;
 use file::FilePtr;
 use husky_compile_dir::{get_or_create_child_dir, get_rust_dir, mkdir};
 use husky_compile_time::*;
+use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
 use print_utils::*;
-use semantics_entity::{EntityDefn, EntityDefnVariant};
 use std::path::{Path, PathBuf};
 
 pub fn compile_all(dir: PathBuf) {

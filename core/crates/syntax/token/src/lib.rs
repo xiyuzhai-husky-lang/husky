@@ -19,8 +19,8 @@ pub use special::SpecialToken;
 pub use stream::*;
 pub use tokenized_text::{TokenGroupIter, TokenizedText};
 
+use husky_text::{RangedCustomIdentifier, TextIndent, TextRange, TextRanged};
 use scanner::TokenScanner;
-use text::{RangedCustomIdentifier, TextIndent, TextRange, TextRanged};
 use word::Identifier;
 
 #[derive(PartialEq, Eq)]
@@ -38,7 +38,7 @@ impl std::fmt::Debug for Token {
 impl Token {
     pub fn new(i: usize, start: usize, end: usize, kind: TokenKind) -> Token {
         Token {
-            range: text::new_same_line(i, start, end),
+            range: husky_text::new_same_line(i, start, end),
             kind,
         }
     }

@@ -1,6 +1,6 @@
 use super::*;
-use entity_route::{EntityKind, RangedEntityRoute};
-use text::*;
+use husky_entity_route_syntax::{EntityKind, RangedEntityRoute};
+use husky_text::*;
 use token::SpecialToken;
 use vm::{
     BinaryOpr, Bracket, CopyableValue, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr,

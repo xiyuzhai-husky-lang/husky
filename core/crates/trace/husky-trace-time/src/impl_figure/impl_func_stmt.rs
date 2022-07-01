@@ -1,4 +1,4 @@
-use text::Text;
+use husky_text::HuskyText;
 use vm::{History, VMControl};
 
 use super::*;

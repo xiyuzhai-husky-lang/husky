@@ -5,7 +5,7 @@ mod impl_visual;
 
 use crate::*;
 use husky_atom::context::{Symbol, SymbolKind};
-use text::TextRanged;
+use husky_text::TextRanged;
 use token::*;
 use word::Paradigm;
 

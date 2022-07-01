@@ -1,4 +1,4 @@
-use entity_syntax::EntitySyntaxQueryGroup;
+use husky_entity_syntax::EntitySyntaxQueryGroup;
 
 use crate::*;
 

@@ -1,5 +1,5 @@
+use husky_text::CharIter;
 use print_utils::p;
-use text::CharIter;
 use word::WordAllocator;
 
 use crate::*;

@@ -1,6 +1,6 @@
 use super::*;
 use ast::{CasePattern, CasePatternVariant};
-use semantics_eager::{
+use husky_eager_semantics::{
     FuncPatternBranch, FuncPatternBranchVariant, ProcPatternBranch, ProcPatternBranchVariant,
 };
 use std::sync::Arc;

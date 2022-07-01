@@ -10,11 +10,13 @@ mod utils;
 
 use super::{stack::AtomStack, *};
 use check_utils::should;
-use entity_route::{EntityKind, EntityRoute, EntityRouteKind, RangedEntityRoute, SpatialArgument};
 use file::URange;
+use husky_entity_route_syntax::{
+    EntityKind, EntityRoute, EntityRouteKind, RangedEntityRoute, SpatialArgument,
+};
+use husky_text::TextRange;
 use print_utils::p;
 use std::iter::Peekable;
-use text::TextRange;
 use token::{
     identify_token, AbsSemanticToken, SemanticTokenKind, SpecialToken, Token, TokenKind,
     TokenStream,

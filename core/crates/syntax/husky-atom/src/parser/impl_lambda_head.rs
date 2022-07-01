@@ -1,5 +1,5 @@
-use entity_route::RangedEntityRoute;
-use text::RangedCustomIdentifier;
+use husky_entity_route_syntax::RangedEntityRoute;
+use husky_text::RangedCustomIdentifier;
 
 use crate::*;
 

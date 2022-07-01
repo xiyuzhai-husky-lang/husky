@@ -13,10 +13,10 @@ pub use sheet::InstructionSheet;
 
 use crate::*;
 use avec::Avec;
-use entity_route::EntityRoutePtr;
 use file::FilePtr;
+use husky_entity_route_syntax::EntityRoutePtr;
+use husky_text::TextRange;
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
-use text::TextRange;
 use word::{CustomIdentifier, IdentPairDict, Identifier};
 
 #[derive(Debug)]

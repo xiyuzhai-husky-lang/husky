@@ -5,7 +5,7 @@ pub use loop_kind::{RawBoundary, RawLoopKind};
 pub use match_stmt::*;
 
 use crate::{expr::RawExprIdx, *};
-use text::{TextRange, TextRanged};
+use husky_text::{TextRange, TextRanged};
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

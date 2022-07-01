@@ -18,8 +18,8 @@ vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
-entity-route = { path = "../../syntax/entity-route", version = "0.0.0" }
-text = { path = "../../syntax/text", version = "0.0.0" }
+husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
+husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
 thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }

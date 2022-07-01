@@ -1,4 +1,4 @@
-use feature_gen::*;
+use husky_feature_gen::*;
 use vm::{
     History, HistoryEntry, InstructionSheet, LoopFrameData, StackValueSnapshot, VMConditionBranch,
     VMControl,

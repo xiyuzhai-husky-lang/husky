@@ -1,8 +1,8 @@
 use crate::*;
 use entity_kind::{EntityKind, MemberKind};
+use husky_text::TextRange;
 use print_utils::p;
 use serde::{Deserialize, Serialize};
-use text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct AbsSemanticToken {

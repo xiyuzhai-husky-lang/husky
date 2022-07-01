@@ -1,4 +1,4 @@
-use semantics_eager::EagerOpnVariant;
+use husky_eager_semantics::EagerOpnVariant;
 
 use crate::*;
 

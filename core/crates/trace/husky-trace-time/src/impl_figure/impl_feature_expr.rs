@@ -1,4 +1,4 @@
-use visualizer_gen::VisualTy;
+use husky_visualizer_gen::VisualTy;
 
 use super::*;
 
@@ -11,7 +11,7 @@ impl HuskyTraceTime {
             Attention::Specific { sample_id } => {
                 let value = self
                     .eval_time_singleton
-                    .eval_feature_expr(expr, sample_id)
+                    .husky_feature_eval_expr(expr, sample_id)
                     .map_err(|e| (sample_id, e))?;
                 Ok(FigureCanvasData::new_specific(
                     self.eval_time()
@@ -35,7 +35,7 @@ impl HuskyTraceTime {
                             .map(|partition| partition.ncol)
                             .sum::<u32>());
                 let ty = expr.expr.ty();
-                use visualizer_gen::VisualizerQueryGroup;
+                use husky_visualizer_gen::VisualizerQueryGroup;
                 let visualizer = self.eval_time().visualizer(ty);
                 match visualizer.ty {
                     VisualTy::Void => {

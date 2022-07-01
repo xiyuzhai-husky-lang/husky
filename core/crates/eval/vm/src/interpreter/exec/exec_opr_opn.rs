@@ -1,4 +1,4 @@
-use entity_route::EntityRoutePtr;
+use husky_entity_route_syntax::EntityRoutePtr;
 use print_utils::{epin, p};
 
 use crate::*;

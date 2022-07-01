@@ -7,7 +7,7 @@ macro_rules! identify_token {
                     $semantic_token_kind,
                     $token.range,
                 ));
-                text::RangedCustomIdentifier {
+                husky_text::RangedCustomIdentifier {
                     ident,
                     range: $token.range,
                 }

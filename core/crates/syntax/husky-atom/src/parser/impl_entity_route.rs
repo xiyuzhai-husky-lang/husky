@@ -1,8 +1,8 @@
 use super::context::SymbolKind;
 use super::*;
 use entity_kind::TyKind;
-use entity_route::RangedEntityRoute;
-use text::RangedCustomIdentifier;
+use husky_entity_route_syntax::RangedEntityRoute;
+use husky_text::RangedCustomIdentifier;
 use thin_vec::{thin_vec, ThinVec};
 use token::SemanticTokenKind;
 

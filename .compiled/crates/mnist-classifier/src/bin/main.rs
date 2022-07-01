@@ -1,6 +1,6 @@
-use husky_compile_time::*;
 use husky_debugger::*;
 use mnist_classifier::__init__::link_entity_with_compiled;
+use husky_compile_time::*;
 
 #[tokio::main]
 async fn main() {

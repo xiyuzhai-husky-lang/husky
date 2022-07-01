@@ -219,6 +219,6 @@ macro_rules! derived_unwrap {
 }
 
 use dev_utils::*;
-use entity_syntax::EntitySyntaxError;
+use husky_entity_syntax::EntitySyntaxError;
+use husky_text::{BindTextRangeFrom, TextRange};
 use test_utils::{TestDisplay, TestDisplayConfig};
-use text::{BindTextRangeFrom, TextRange};

@@ -1,5 +1,5 @@
-use entity_route::EntityRoutePtr;
-use text::TextRange;
+use husky_entity_route_syntax::EntityRoutePtr;
+use husky_text::TextRange;
 
 use crate::*;
 

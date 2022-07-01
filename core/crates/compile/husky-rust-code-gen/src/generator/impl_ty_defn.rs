@@ -1,5 +1,7 @@
+use husky_entity_semantics::{
+    CallFormSource, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
+};
 use infer_decl::FieldDecl;
-use semantics_entity::{CallFormSource, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn};
 use word::CustomIdentifier;
 
 use super::*;

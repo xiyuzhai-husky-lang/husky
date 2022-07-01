@@ -1,5 +1,5 @@
 use ast::AstError;
-use text::BindTextRangeInto;
+use husky_text::BindTextRangeInto;
 
 use crate::*;
 

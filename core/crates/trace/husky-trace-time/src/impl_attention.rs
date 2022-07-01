@@ -1,7 +1,7 @@
 use std::time::Instant;
 
 use crate::*;
-use text::Text;
+use husky_text::HuskyText;
 use vm::{History, VMControl};
 
 impl HuskyTraceTime {
@@ -16,7 +16,7 @@ impl HuskyTraceTime {
             let main_feature_repr = self.eval_time().main_feature_repr(main_file);
             match self
                 .eval_time_singleton
-                .eval_feature_repr(&main_feature_repr, sample_id0)
+                .husky_feature_eval_repr(&main_feature_repr, sample_id0)
             {
                 Ok(_) => (),
                 Err(e) => match e {

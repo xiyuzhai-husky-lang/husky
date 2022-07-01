@@ -2,12 +2,12 @@ use std::sync::Arc;
 
 use arena::map::{ArenaKeyQuery, ArenaMap};
 use ast::RawExprMap;
+use husky_text::{Row, TextRange};
 use infer_contract::ContractSheet;
 use infer_error::{derived_not_none, InferError, InferErrorVariant};
 use print_utils::{p, ps};
 use std::fmt::Write;
 use test_utils::{TestDisplay, TestDisplayConfig};
-use text::{Row, TextRange};
 use vec_map::VecPairMap;
 use word::{CustomIdentifier, Identifier};
 

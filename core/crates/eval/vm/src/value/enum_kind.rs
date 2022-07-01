@@ -1,6 +1,6 @@
 use super::*;
 use core::hash::Hash;
-use entity_route::EntityRoutePtr;
+use husky_entity_route_syntax::EntityRoutePtr;
 use serde::{ser::SerializeStruct, Serialize};
 use std::{any::TypeId, borrow::Cow};
 use word::RootIdentifier;

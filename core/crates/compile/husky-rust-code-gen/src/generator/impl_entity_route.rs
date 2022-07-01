@@ -1,4 +1,4 @@
-use entity_route::*;
+use husky_entity_route_syntax::*;
 use word::RootIdentifier;
 
 use super::*;

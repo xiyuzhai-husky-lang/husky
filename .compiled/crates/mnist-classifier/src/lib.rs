@@ -1,5 +1,5 @@
 #![allow(warnings)]
-use __root::*;
+use __husky_root::*;
 mod connected_component;
 mod raw_contour;
 mod geom2d;

@@ -8,5 +8,5 @@ rust-version = "1.56"
 
 [dependencies]
 print-utils = { path = "../../utils/print", version = "0.0.0" }
-pack-semantics = { path = "../../semantics/pack", version = "0.0.0" }
+husky-package-semantics = { path = "../../semantics/husky-package-semantics", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }

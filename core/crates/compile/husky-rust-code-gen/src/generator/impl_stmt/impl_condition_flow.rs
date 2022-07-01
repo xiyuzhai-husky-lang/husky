@@ -1,6 +1,6 @@
 use super::*;
 use fold::Indent;
-use semantics_eager::{
+use husky_eager_semantics::{
     FuncConditionFlowBranch, FuncConditionFlowBranchVariant, ProcConditionBranchVariant,
     ProcConditionFlowBranch, ProcStmt,
 };

@@ -1,8 +1,8 @@
 use super::utils;
 use crate::*;
 use entity_kind::TyKind;
-use entity_route::EntityKind;
 use husky_atom::*;
+use husky_entity_route_syntax::EntityKind;
 use word::RootIdentifier;
 
 #[test]

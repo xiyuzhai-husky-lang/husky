@@ -17,12 +17,12 @@ use crate::{
     query::{AstSalsaQueryGroup, AstText},
     *,
 };
-use entity_route::EntityRouteKind;
-use entity_syntax::EntitySyntaxResult;
 use file::FilePtr;
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use husky_atom::context::{Symbol, SymbolKind};
-use text::TextRanged;
+use husky_entity_route_syntax::EntityRouteKind;
+use husky_entity_syntax::EntitySyntaxResult;
+use husky_text::TextRanged;
 use token::*;
 
 pub type AstIter<'a> = FoldableIter<'a, AstResult<Ast>, FoldableList<AstResult<Ast>>>;
