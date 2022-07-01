@@ -27,38 +27,36 @@ impl<'eval> Trace {
                 }
                 _ => None,
             },
-            TraceVariant::EagerExpr { ref expr, .. } => {
-                match expr.variant {
-                    EagerExprVariant::Variable { .. }
-                    | EagerExprVariant::EntityRoute { .. }
-                    | EagerExprVariant::PrimitiveLiteral(_) => None,
-                    EagerExprVariant::Opn {
-                        opn_variant: ref opn_kind,
-                        ref opds,
-                        ..
-                    } => match opn_kind {
-                        EagerOpnVariant::FieldAccess { .. }
-                        | EagerOpnVariant::ElementAccess { .. } => None,
-                        EagerOpnVariant::Binary { .. }
-                        | EagerOpnVariant::Prefix { .. }
-                        | EagerOpnVariant::Suffix { .. } => {
-                            if opds[0].ty().is_builtin() {
-                                None
-                            } else {
-                                Some(SubtracesContainerClass::Call)
-                            }
+            TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
+                EagerExprVariant::Variable { .. }
+                | EagerExprVariant::EntityRoute { .. }
+                | EagerExprVariant::PrimitiveLiteral(_) => None,
+                EagerExprVariant::Opn {
+                    opn_variant: ref opn_kind,
+                    ref opds,
+                    ..
+                } => match opn_kind {
+                    EagerOpnVariant::FieldAccess { .. } | EagerOpnVariant::Index { .. } => None,
+                    EagerOpnVariant::Binary { .. }
+                    | EagerOpnVariant::Prefix { .. }
+                    | EagerOpnVariant::Suffix { .. } => {
+                        if opds[0].ty().is_builtin() {
+                            None
+                        } else {
+                            Some(SubtracesContainerClass::Call)
                         }
-                        EagerOpnVariant::RoutineCall { .. }
-                        | EagerOpnVariant::MethodCall { .. } => Some(SubtracesContainerClass::Call),
-                        EagerOpnVariant::TypeCall { .. } => todo!(),
-                    },
-                    EagerExprVariant::Lambda(_, _) => todo!(),
-                    EagerExprVariant::Bracketed(_) => panic!(),
-                    EagerExprVariant::ThisValue { .. } => todo!(),
-                    EagerExprVariant::ThisField { .. } => todo!(),
-                    EagerExprVariant::EnumKindLiteral(_) => todo!(),
-                }
-            }
+                    }
+                    EagerOpnVariant::RoutineCall { .. } | EagerOpnVariant::MethodCall { .. } => {
+                        Some(SubtracesContainerClass::Call)
+                    }
+                    EagerOpnVariant::TypeCall { .. } => todo!(),
+                },
+                EagerExprVariant::Lambda(_, _) => todo!(),
+                EagerExprVariant::Bracketed(_) => panic!(),
+                EagerExprVariant::ThisValue { .. } => todo!(),
+                EagerExprVariant::ThisField { .. } => todo!(),
+                EagerExprVariant::EnumKindLiteral(_) => todo!(),
+            },
             TraceVariant::EagerCallArgument {
                 name: ident,
                 ref argument,

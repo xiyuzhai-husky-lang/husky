@@ -412,7 +412,7 @@ impl EntityDefn {
                         | EagerOpnVariant::Suffix { .. }
                         | EagerOpnVariant::FieldAccess { .. }
                         | EagerOpnVariant::MethodCall { .. }
-                        | EagerOpnVariant::ElementAccess { .. } => (),
+                        | EagerOpnVariant::Index { .. } => (),
                         EagerOpnVariant::RoutineCall(routine) => builder.push(routine.route),
                         EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                             builder.push(ranged_ty.route)

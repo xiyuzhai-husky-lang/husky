@@ -3,6 +3,26 @@ use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 
 use super::*;
 
+pub trait __B32X {
+    fn ctz(self) -> i32;
+    fn clz(self) -> i32;
+    fn last_bits(self, n: i32) -> u32;
+}
+
+impl __B32X for u32 {
+    fn ctz(self) -> i32 {
+        self.trailing_zeros() as i32
+    }
+
+    fn clz(self) -> i32 {
+        self.leading_zeros() as i32
+    }
+    #[inline(always)]
+    fn last_bits(self, n: i32) -> u32 {
+        self & !(u32::MAX << n)
+    }
+}
+
 pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "b32",
     items: &[],
@@ -52,7 +72,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
 };
 
 pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
-    name: "trailing_zeros",
+    name: "ctz",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
@@ -64,7 +84,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
-                    (values[0].take_copyable().take_b32().trailing_zeros() as i32).into(),
+                    (values[0].take_copyable().take_b32().ctz()).into(),
                 ))
             },
             1

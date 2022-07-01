@@ -36,7 +36,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(" {\n");
                 self.gen_proc_stmts(body_stmts);
                 self.indent(indent);
-                self.write("}\n")
+                self.write("}")
             }
             LoopVariant::ForExt {
                 frame_var,
@@ -71,7 +71,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 self.write(";\n");
                 self.indent(indent);
-                self.write("}\n")
+                self.write("}")
             }
             LoopVariant::While { condition } => {
                 self.write("while ");
@@ -79,7 +79,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(" {\n");
                 self.gen_proc_stmts(body_stmts);
                 self.indent(indent);
-                self.write("}\n")
+                self.write("}")
             }
             LoopVariant::DoWhile { condition } => {
                 self.write("loop {\n");
@@ -93,7 +93,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.indent(indent);
                 self.write("    }\n");
                 self.indent(indent);
-                self.write("}\n")
+                self.write("}")
             }
         }
     }

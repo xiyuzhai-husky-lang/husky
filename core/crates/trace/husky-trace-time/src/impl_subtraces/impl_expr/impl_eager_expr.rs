@@ -115,7 +115,7 @@ impl HuskyTraceTime {
                     },
                 )
             }
-            EagerOpnVariant::ElementAccess { element_binding } => todo!(),
+            EagerOpnVariant::Index { element_binding } => todo!(),
         }
     }
 }

@@ -1,6 +1,7 @@
 use super::{impl_entity_route::EntityRouteRole, *};
 use semantics_eager::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use vm::*;
+use word::RootIdentifier;
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_expr(&mut self, expr: &EagerExpr) {
@@ -22,18 +23,44 @@ impl<'a> RustCodeGenerator<'a> {
                 ref opn_variant,
                 ref opds,
             } => match opn_variant {
-                EagerOpnVariant::Binary { opr, this_ty: this } => {
+                EagerOpnVariant::Binary { opr, .. } => {
+                    match opr {
+                        BinaryOpr::Pure(_) => (),
+                        BinaryOpr::Assign(_) => match opds[0].variant {
+                            EagerExprVariant::Variable { varname, binding } => (),
+                            EagerExprVariant::Opn {
+                                ref opn_variant, ..
+                            } => match opn_variant {
+                                EagerOpnVariant::Index { element_binding } => (),
+                                _ => self.write("*"),
+                            },
+                            _ => self.write("*"),
+                        },
+                    }
                     self.gen_expr(&opds[0]);
                     self.write(opr.spaced_code());
                     self.gen_expr(&opds[1]);
                 }
-                EagerOpnVariant::Prefix { opr, .. } => {
-                    self.write(&opr.rust_code());
-                    self.gen_expr(&opds[0]);
-                }
+                EagerOpnVariant::Prefix { opr, .. } => match opr {
+                    PrefixOpr::Not => match opds[0].ty() {
+                        EntityRoutePtr::Root(RootIdentifier::Bool) => {
+                            self.write("!");
+                            self.gen_expr(&opds[0]);
+                        }
+                        _ => {
+                            self.write("(0 == ");
+                            self.gen_expr(&opds[0]);
+                            self.write(")");
+                        }
+                    },
+                    _ => {
+                        self.write(&opr.rust_code());
+                        self.gen_expr(&opds[0]);
+                    }
+                },
                 EagerOpnVariant::Suffix { opr, .. } => {
                     self.gen_expr(&opds[0]);
-                    self.write(&opr.rust_code());
+                    self.gen_suffix_opr(*opr)
                 }
                 EagerOpnVariant::RoutineCall(routine) => {
                     self.gen_entity_route(routine.route, EntityRouteRole::Caller);
@@ -100,13 +127,16 @@ impl<'a> RustCodeGenerator<'a> {
                         },
                     }
                 }
-                EagerOpnVariant::ElementAccess { .. } => {
+                EagerOpnVariant::Index { .. } => {
                     self.gen_expr(&opds[0]);
                     self.write("[");
                     if opds.len() > 2 {
                         todo!()
                     } else {
-                        self.gen_expr(&opds[1])
+                        self.write("(");
+                        self.gen_expr(&opds[1]);
+                        self.write(")");
+                        self.write(" as usize")
                     }
                     self.write("]");
                 }
@@ -138,7 +168,6 @@ impl<'a> RustCodeGenerator<'a> {
         match v {
             CopyableValue::I32(i) => {
                 self.result.push_str(&i.to_string());
-                self.write("i32")
             }
             CopyableValue::F32(f) => {
                 self.result.push_str(&f.to_string());
@@ -155,6 +184,17 @@ impl<'a> RustCodeGenerator<'a> {
             CopyableValue::Bool(b) => self.result.push_str(&b.to_string()),
             CopyableValue::Void(_) => self.result.push_str("()"),
             CopyableValue::EnumKind(_) => todo!(),
+        }
+    }
+
+    fn gen_suffix_opr(&mut self, opr: SuffixOpr) {
+        match opr {
+            SuffixOpr::Incr => self.write(" += 1"),
+            SuffixOpr::Decr => self.write(" -= 1"),
+            SuffixOpr::AsTy(ty) => {
+                self.write(" as ");
+                self.gen_entity_route(ty.route, EntityRouteRole::Other)
+            }
         }
     }
 }

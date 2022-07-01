@@ -242,7 +242,7 @@ eager expr:
     145:21..145:40 boundary_unsearched    PureRef      domains::ml::datasets::cv::mnist::BinaryGrid28
     145:41..145:42 k                      Copyable     i32
     145:21..145:43 boundary_unsearched[k]   Copyable     b32
-    145:21..145:60 boundary_unsearched[k].trailing_zeros()   Copyable     i32
+    145:21..145:49 boundary_unsearched[k].ctz()   Copyable     i32
     147:32..147:33 i                      Copyable     i32
     147:34..147:35 1                      Copyable     i32
     147:29..147:31 cc                     PureRef      domains::ml::datasets::cv::mnist::BinaryImage28

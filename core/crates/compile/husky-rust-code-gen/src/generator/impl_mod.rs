@@ -16,7 +16,7 @@ impl<'a> RustCodeGenerator<'a> {
                     output,
                     ref stmts,
                     ..
-                } => self.gen_func_defn(entity.ident.custom(), parameters, output.route, stmts),
+                } => self.gen_func_defn(entity.base_route, parameters, output.route, stmts),
                 EntityDefnVariant::Proc {
                     parameters: ref parameters,
                     output,

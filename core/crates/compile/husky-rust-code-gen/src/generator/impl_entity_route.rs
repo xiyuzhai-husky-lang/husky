@@ -53,21 +53,23 @@ impl<'a> RustCodeGenerator<'a> {
                 ident,
             } => todo!(),
         }
-        let need_eval_ref = match role {
-            EntityRouteRole::Decl => self.db.contains_eval_ref(entity_route.kind),
+        let needs_eval_ref = match role {
+            EntityRouteRole::Decl => self
+                .db
+                .entity_route_kind_contains_eval_ref(entity_route.kind),
             _ => false,
         };
-        if need_eval_ref || entity_route.spatial_arguments.len() > 0 {
+        if needs_eval_ref || entity_route.spatial_arguments.len() > 0 {
             match role {
                 EntityRouteRole::Caller => self.write("::"),
                 _ => (),
             }
             self.write("<");
-            if need_eval_ref {
+            if needs_eval_ref {
                 self.write("'eval");
             }
             for i in 0..entity_route.spatial_arguments.len() {
-                if i > 0 || need_eval_ref {
+                if i > 0 || needs_eval_ref {
                     self.write(", ")
                 }
                 match entity_route.spatial_arguments[i] {

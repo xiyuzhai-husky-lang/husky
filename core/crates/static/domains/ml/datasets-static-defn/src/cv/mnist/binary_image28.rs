@@ -131,11 +131,11 @@ pub struct BinaryImage28 {
     padded_rows: [u32; 30],
 }
 
-impl std::ops::Index<i32> for BinaryImage28 {
+impl std::ops::Index<usize> for BinaryImage28 {
     type Output = u32;
 
-    fn index(&self, index: i32) -> &Self::Output {
-        &self.padded_rows[index as usize]
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.padded_rows[index]
     }
 }
 

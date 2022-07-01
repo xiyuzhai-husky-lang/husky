@@ -13,8 +13,8 @@ pub enum HuskyTracerGuiMessageVariant {
     InitDataRequest,
     Activate {
         trace_id: TraceId,
-        need_figure_canvas_data: bool,
-        need_figure_control_data: bool,
+        needs_figure_canvas_data: bool,
+        needs_figure_control_data: bool,
     },
     ToggleExpansion {
         trace_id: TraceId,
@@ -27,9 +27,9 @@ pub enum HuskyTracerGuiMessageVariant {
     },
     LockAttention {
         attention: Attention,
-        need_figure_canvas_data: bool,
-        need_figure_control_data: bool,
-        need_stalk: bool,
+        needs_figure_canvas_data: bool,
+        needs_figure_control_data: bool,
+        needs_stalk: bool,
     },
     TraceStalk {
         trace_id: TraceId,

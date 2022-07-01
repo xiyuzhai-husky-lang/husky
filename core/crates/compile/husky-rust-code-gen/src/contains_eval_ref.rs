@@ -5,7 +5,7 @@ use word::RootIdentifier;
 
 use super::*;
 
-pub(super) fn contains_eval_ref(
+pub(super) fn entity_route_kind_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
     entity_route_kind: EntityRouteKind,
 ) -> bool {
@@ -36,7 +36,7 @@ pub(super) fn contains_eval_ref(
                         FieldKind::StructOriginal
                         | FieldKind::StructDefault
                         | FieldKind::StructDerivedEager => {
-                            if db.contains_eval_ref(field_decl.ty.kind) {
+                            if db.entity_route_contains_eval_ref(field_decl.ty) {
                                 return true;
                             }
                         }
@@ -54,22 +54,48 @@ pub(super) fn contains_eval_ref(
         EntityKind::Function { requires_lazy } => {
             let function_decl = db.function_decl(base_route).unwrap();
             for parameter in function_decl.primary_parameters.iter() {
-                if db.contains_eval_ref(parameter.ty.kind) {
+                if db.entity_route_contains_eval_ref(parameter.ty) {
                     return true;
                 }
             }
             for parameter in function_decl.keyword_parameters.iter() {
-                if db.contains_eval_ref(parameter.ty.kind) {
+                match parameter.liason {
+                    ParameterLiason::EvalRef => return true,
+                    ParameterLiason::TempRef => todo!(),
+                    ParameterLiason::TempRefMut => todo!(),
+                    _ => (),
+                }
+                if db.entity_route_contains_eval_ref(parameter.ty) {
                     return true;
                 }
             }
-            if db.contains_eval_ref(function_decl.output.ty.kind) {
+            if db.entity_route_contains_eval_ref(function_decl.output.ty) {
                 return true;
             }
         }
         EntityKind::Feature => todo!(),
         EntityKind::EnumLiteral => return false,
         EntityKind::Main => todo!(),
+    }
+    false
+}
+
+pub(super) fn entity_route_contains_eval_ref(
+    db: &dyn RustCodeGenQueryGroup,
+    entity_route: EntityRoutePtr,
+) -> bool {
+    if db.entity_route_kind_contains_eval_ref(entity_route.kind) {
+        return true;
+    }
+    for argument in entity_route.spatial_arguments.iter() {
+        match argument {
+            SpatialArgument::Const(_) => (),
+            SpatialArgument::EntityRoute(entity_route) => {
+                if db.entity_route_contains_eval_ref(*entity_route) {
+                    return true;
+                }
+            }
+        }
     }
     false
 }

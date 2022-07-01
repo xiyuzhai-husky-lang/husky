@@ -66,8 +66,9 @@ install-compiler:
 	cargo install --path crates/apps/husky-compiler --bin husky-compiler
 
 mnist-compiled:
-	cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
-	echo todo
+	@cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
+	# @cd ${HUSKY_DIR}/.compiled
+	# @cargo fmt
 
 print-mnist:
 	cargo run -q --bin husky-analyzer-printer print-qualified-tys $(projects_dir)/cv/mnist-classifier

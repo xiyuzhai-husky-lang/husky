@@ -90,14 +90,14 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::Activate {
                 trace_id,
-                need_figure_canvas_data,
-                need_figure_control_data,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
             } => {
                 self.trace_time.activate(trace_id);
-                let need_response = need_figure_canvas_data || need_figure_control_data;
-                should_eq!(request.opt_request_id.is_some(), need_response);
-                if need_response {
-                    let opt_figure_canvas_data = if need_figure_canvas_data {
+                let needs_response = needs_figure_canvas_data || needs_figure_control_data;
+                should_eq!(request.opt_request_id.is_some(), needs_response);
+                if needs_response {
+                    let opt_figure_canvas_data = if needs_figure_canvas_data {
                         Some(match self.trace_time.figure_canvas(trace_id) {
                             Ok(figure_canvas_data) => figure_canvas_data,
                             Err((sample_id0, error)) => {
@@ -125,7 +125,7 @@ impl HuskyDebuggerInternal {
                     } else {
                         None
                     };
-                    let opt_figure_control_data = if need_figure_control_data {
+                    let opt_figure_control_data = if needs_figure_control_data {
                         Some(self.trace_time.figure_control(trace_id))
                     } else {
                         None
@@ -167,15 +167,15 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::LockAttention {
                 ref attention,
-                need_figure_canvas_data,
-                need_figure_control_data,
-                need_stalk,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
+                needs_stalk,
             } => {
                 self.trace_time.set_attention(attention.clone());
-                if need_figure_canvas_data || need_figure_control_data || need_stalk {
+                if needs_figure_canvas_data || needs_figure_control_data || needs_stalk {
                     let (opt_figure_canvas_data, opt_figure_control_data) =
                         if let Some(active_trace_id) = self.trace_time.opt_active_trace_id() {
-                            let opt_figure_canvas_data = if need_figure_canvas_data {
+                            let opt_figure_canvas_data = if needs_figure_canvas_data {
                                 match self.trace_time.figure_canvas(active_trace_id) {
                                     Ok(figure_canvas) => Some(figure_canvas),
                                     Err((sample_id, error)) => return Some(
@@ -188,7 +188,7 @@ impl HuskyDebuggerInternal {
                             } else {
                                 None
                             };
-                            let opt_figure_control_data = if need_figure_control_data {
+                            let opt_figure_control_data = if needs_figure_control_data {
                                 Some(self.trace_time.figure_control(active_trace_id))
                             } else {
                                 None
