@@ -4,7 +4,7 @@ use std::{fmt, panic, thread};
 use serde::{de::DeserializeOwned, Serialize};
 
 use salsa::ParallelDatabase;
-type HuskyLangCompileTimeSnapshot = salsa::Snapshot<husky_compile_time::HuskyCompileTime>;
+type HuskyCompileTimeSnapshot = salsa::Snapshot<husky_compile_time::HuskyCompileTime>;
 
 use crate::{
     server::{Server, TaskSet},
@@ -36,7 +36,7 @@ impl<'a> RequestDispatcher<'a> {
     /// Dispatches the request onto the current thread.
     pub(crate) fn on_sync<R>(
         &mut self,
-        f: fn(HuskyLangCompileTimeSnapshot, R::Params) -> Result<R::Result>,
+        f: fn(HuskyCompileTimeSnapshot, R::Params) -> Result<R::Result>,
     ) -> Result<&mut Self>
     where
         R: lsp_types::request::Request + 'static,
@@ -61,7 +61,7 @@ impl<'a> RequestDispatcher<'a> {
     /// Dispatches the request onto the current thread.
     pub(crate) fn on_control<R>(
         &mut self,
-        f: fn(HuskyLangCompileTimeSnapshot, R::Params) -> TaskSet,
+        f: fn(HuskyCompileTimeSnapshot, R::Params) -> TaskSet,
     ) -> Result<&mut Self>
     where
         R: lsp_types::request::Request + 'static,
@@ -88,7 +88,7 @@ impl<'a> RequestDispatcher<'a> {
     /// Dispatches the request onto thread pool
     pub(crate) fn on<R>(
         &mut self,
-        f: fn(HuskyLangCompileTimeSnapshot, R::Params) -> Result<R::Result>,
+        f: fn(HuskyCompileTimeSnapshot, R::Params) -> Result<R::Result>,
     ) -> &mut Self
     where
         R: lsp_types::request::Request + 'static,

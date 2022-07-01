@@ -8,6 +8,7 @@ mod impl_trace;
 mod impl_trace_stalk;
 mod trace_node;
 
+use __root::__root_defn;
 use avec::Avec;
 use defn_head::Parameter;
 use eval_feature::EvalFeature;
@@ -21,7 +22,6 @@ use print_utils::p;
 use semantics_eager::*;
 use semantics_entity::*;
 use serde::Deserialize;
-use static_root::static_root_defn;
 use std::collections::HashMap;
 use std::sync::Arc;
 use sync_utils::ARwLock;
@@ -46,7 +46,7 @@ pub struct HuskyTraceTime {
 impl HuskyTraceTime {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime), verbose: bool) -> Self {
         let mut trace_time = Self {
-            eval_time_singleton: HuskyEvalTime::new(static_root_defn, init_compile_time, verbose),
+            eval_time_singleton: HuskyEvalTime::new(__root_defn, init_compile_time, verbose),
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),

@@ -1,5 +1,6 @@
 mod flags;
 
+use __root::__root_defn;
 use file::FilePtr;
 use husky_compile_dir::{get_or_create_child_dir, get_rust_dir, mkdir};
 use husky_compile_time::*;
@@ -7,7 +8,6 @@ use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
 use print_utils::*;
 use semantics_entity::{EntityDefn, EntityDefnVariant};
-use static_root::static_root_defn;
 use std::path::{Path, PathBuf};
 
 pub fn compile_all(dir: PathBuf) {
@@ -18,7 +18,7 @@ pub fn compile_all(dir: PathBuf) {
 }
 
 pub fn compile_package(package_dir: PathBuf) {
-    let mut compile_time = HuskyCompileTime::new(static_root_defn);
+    let mut compile_time = HuskyCompileTime::new(__root_defn);
     compile_time.load_package(&package_dir);
     let main_file = compile_time.unique_main_file();
     p!(package_dir);
@@ -65,7 +65,6 @@ fn compile_maybe_module(compile_time: &HuskyCompileTime, path: PathBuf, module: 
     }
     diff_write(&path, &compile_time.rust_mod_rs_content(module.base_route));
     let dir = path.with_extension("");
-    mkdir(&dir);
     for submodule in module.subentities.iter() {
         let submodule_name = submodule.ident.as_str();
         compile_maybe_module(

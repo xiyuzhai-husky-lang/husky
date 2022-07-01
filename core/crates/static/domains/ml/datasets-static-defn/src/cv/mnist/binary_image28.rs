@@ -131,6 +131,14 @@ pub struct BinaryImage28 {
     padded_rows: [u32; 30],
 }
 
+impl std::ops::Index<i32> for BinaryImage28 {
+    type Output = u32;
+
+    fn index(&self, index: i32) -> &Self::Output {
+        &self.padded_rows[index as usize]
+    }
+}
+
 impl std::fmt::Debug for BinaryImage28 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!(
@@ -141,6 +149,12 @@ impl std::fmt::Debug for BinaryImage28 {
 }
 
 impl BinaryImage28 {
+    pub fn __call__() -> Self {
+        Self {
+            padded_rows: Default::default(),
+        }
+    }
+
     pub fn read(content: &[u8]) -> Self {
         assert_eq!(content.len(), 28 * 4);
         let mut padded_rows = [0; 30];

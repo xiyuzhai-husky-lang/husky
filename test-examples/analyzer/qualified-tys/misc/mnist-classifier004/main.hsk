@@ -20,4 +20,4 @@ main:
     raw_contours = find_raw_contours(connected_component)
     raw_contour0 = raw_contours[0]
     line_segments = find_line_segments(raw_contour0, 1.2)
-    line_segments.len()
+    line_segments.ilen()

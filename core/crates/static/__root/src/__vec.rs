@@ -11,6 +11,16 @@ use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use super::*;
 use check_utils::should_eq;
 
+pub trait __VecX {
+    fn ilen(&self) -> i32;
+}
+
+impl<T> __VecX for Vec<T> {
+    fn ilen(&self) -> i32 {
+        self.len() as i32
+    }
+}
+
 pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Vec",
     items: &[],
@@ -190,7 +200,7 @@ pub(crate) fn generic_vec_element_borrow_mut_access<'temp, 'eval>(
 }
 
 pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
-    name: "len",
+    name: "ilen",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,

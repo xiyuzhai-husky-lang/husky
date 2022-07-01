@@ -3,7 +3,7 @@ use crate::raw_contour::*
 use crate::geom2d::*
 
 proc is_convex(ct: RawContour, line_segments: []LineSegment, index: i32) -> bool:
-    let L = line_segments.len()
+    let L = line_segments.ilen()
     let current_displacement = line_segments[index%L].displacement()
     let previous_displacement = line_segments[(index-1)%L].displacement()
     let is_rotation_counterclockwise_result 

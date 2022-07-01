@@ -20,7 +20,7 @@ struct LineSegmentSketch:
 proc extend_end(ct: RawContour, start: i32, r: f32) -> i32:
   var end = start
   var dp = ct.displacement(start, end + 1)
-  let N = ct.points.len()
+  let N = ct.points.ilen()
   let max_end = start + ct
   while end <= max_end and get_norm(dp) < r
     end++

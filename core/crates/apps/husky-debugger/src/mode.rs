@@ -1,6 +1,6 @@
 use crate::*;
+use __root::__root_defn;
 use path_utils::collect_all_package_dirs;
-use static_root::static_root_defn;
 use std::path::PathBuf;
 
 #[derive(Debug)]
@@ -55,7 +55,7 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
     );
 
     for package_dir in package_dirs {
-        let mut compile_time = HuskyCompileTime::new(static_root_defn);
+        let mut compile_time = HuskyCompileTime::new(__root_defn);
         init_compile_time_from_dir(&mut compile_time, package_dir.to_path_buf());
         println!(
             "\n{}test{} {}",

@@ -57,13 +57,12 @@ pub struct HuskyCompileTime {
     linkage_table: LinkageSourceTable,
     entity_route_store: EntityRouteStore,
     opt_main: Option<FilePtr>,
-    static_root_defn_resolver:
-        fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
+    __root_defn_resolver: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
 }
 
 impl HuskyCompileTime {
     pub fn new(
-        static_root_defn_resolver: fn(
+        __root_defn_resolver: fn(
             ident: word::RootIdentifier,
         ) -> &'static static_defn::EntityStaticDefn,
     ) -> Self {
@@ -80,7 +79,7 @@ impl HuskyCompileTime {
             linkage_table,
             entity_route_store,
             opt_main: None,
-            static_root_defn_resolver,
+            __root_defn_resolver,
         }
     }
 

@@ -13,24 +13,19 @@ use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
-        let indent_prev = self.indent;
         for stmt in stmts {
             self.gen_func_stmt(stmt);
         }
-        self.indent = indent_prev;
     }
 
     pub(super) fn gen_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
-        let indent_prev = self.indent;
         for stmt in stmts {
             self.gen_proc_stmt(stmt);
         }
-        self.indent = indent_prev;
     }
 
     fn gen_func_stmt(&mut self, stmt: &FuncStmt) {
-        self.indent = stmt.indent;
-        self.indent();
+        self.indent(stmt.indent);
         match stmt.variant {
             FuncStmtVariant::Init {
                 varname,
@@ -40,21 +35,30 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(&varname.ident);
                 self.write(" = ");
                 self.gen_expr(initial_value);
-                self.write(";\n");
+                self.write(";");
             }
-            FuncStmtVariant::Assert { ref condition } => todo!(),
-            FuncStmtVariant::Return { ref result } => self.gen_expr(result),
-            FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
+            FuncStmtVariant::Assert { ref condition } => {
+                self.write("assert!(");
+                self.gen_expr(condition);
+                self.write(");");
+            }
+            FuncStmtVariant::Return { ref result } => {
+                self.write("return ");
+                self.gen_expr(result)
+            }
+            FuncStmtVariant::ConditionFlow { ref branches } => {
+                self.gen_func_condition_flow(stmt.indent, branches)
+            }
             FuncStmtVariant::Match {
                 ref match_expr,
                 ref branches,
-            } => self.gen_func_match_pattern(match_expr, branches),
+            } => self.gen_func_match_pattern(match_expr, stmt.indent, branches),
         }
         self.newline();
     }
 
     fn gen_proc_stmt(&mut self, stmt: &ProcStmt) {
-        self.indent();
+        self.indent(stmt.indent);
         match stmt.variant {
             ProcStmtVariant::Init {
                 varname,
@@ -69,37 +73,37 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(&varname.ident);
                 self.write(" = ");
                 self.gen_expr(initial_value);
-                self.write(";\n");
+                self.write(";");
             }
             ProcStmtVariant::Assert { ref condition } => {
                 self.write("assert!(");
                 self.gen_expr(condition);
-                self.write(");\n");
+                self.write(");");
             }
             ProcStmtVariant::Execute { ref expr } => {
                 self.gen_expr(expr);
-                self.write(";\n");
+                self.write(";");
             }
             ProcStmtVariant::Return { ref result } => {
+                self.write("return ");
                 self.gen_expr(result);
-                self.newline();
             }
             ProcStmtVariant::ConditionFlow { ref branches } => {
-                self.gen_proc_condition_flow(branches)
+                self.gen_proc_condition_flow(stmt.indent, branches)
             }
             ProcStmtVariant::Loop {
                 ref loop_variant,
                 ref stmts,
-            } => self.gen_loop_stmt(loop_variant, stmts),
+            } => self.gen_loop_stmt(loop_variant, stmt.indent, stmts),
             ProcStmtVariant::Break => {
                 self.write("break;");
-                self.newline()
             }
             ProcStmtVariant::Match {
                 ref match_expr,
                 ref branches,
-            } => self.gen_proc_match_pattern(match_expr, branches),
+            } => self.gen_proc_match_pattern(match_expr, stmt.indent, branches),
         }
+        self.newline();
     }
 
     fn gen_range_start(&mut self, boundary: &Boundary) {

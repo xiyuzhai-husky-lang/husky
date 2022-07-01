@@ -26,12 +26,17 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(super) fn gen_struct_defn(
         &mut self,
+        base_route: EntityRoutePtr,
         tyname: CustomIdentifier,
         ty_members: &[Arc<EntityDefn>],
         trait_impls: &[Arc<TraitImplDefn>],
     ) {
         self.result += "pub struct ";
         self.result += tyname.0;
+        let ty_contains_eval_ref = self.db.contains_eval_ref(base_route.kind);
+        if ty_contains_eval_ref {
+            self.write("<'eval>")
+        }
         self.result += " {\n";
         let mut member_iter = ty_members.iter().peekable();
         while let Some(member) = member_iter.peek() {
@@ -43,24 +48,25 @@ impl<'a> RustCodeGenerator<'a> {
                     ..
                 } => {
                     match field_variant {
-                        FieldDefnVariant::StructOriginal => (),
+                        FieldDefnVariant::StructOriginal
+                        | FieldDefnVariant::StructDefault { .. }
+                        | FieldDefnVariant::StructDerivedEager { .. } => (),
                         FieldDefnVariant::StructDerivedLazy { .. } => break,
                         _ => panic!(),
                     }
                     self.result += "    pub(crate) ";
                     self.result += &member.ident;
                     self.result += ": ";
-                    self.gen_entity_route(ty);
+                    self.gen_entity_route(ty, EntityRouteRole::Decl);
                     self.write(",\n");
                 }
-                EntityDefnVariant::Method { .. } => break,
-                _ => panic!(),
+                _ => break,
             }
             member_iter.next();
         }
         self.result += "}\n";
         // impl member routines
-        self.gen_struct_methods(tyname, member_iter);
+        self.gen_struct_methods(tyname, member_iter, ty_contains_eval_ref);
         for trait_impl in trait_impls {
             self.gen_trait_impl(tyname, trait_impl)
         }
@@ -97,9 +103,17 @@ impl<'a> RustCodeGenerator<'a> {
         &mut self,
         tyname: CustomIdentifier,
         methods: impl Iterator<Item = &'b Arc<EntityDefn>>,
+        ty_contains_eval_ref: bool,
     ) {
-        self.write("\nimpl ");
+        if ty_contains_eval_ref {
+            self.write("\nimpl<'eval> ");
+        } else {
+            self.write("\nimpl ");
+        }
         self.write(&tyname);
+        if ty_contains_eval_ref {
+            self.write("<'eval>")
+        }
         self.write(" {\n");
         let mut start_flag = true;
         for method in methods {
@@ -156,10 +170,13 @@ impl<'a> RustCodeGenerator<'a> {
                             ParameterLiason::MemberAccess => todo!(),
                             ParameterLiason::TempRef => todo!(),
                         }
-                        self.gen_entity_route(input_placeholder.ranged_ty.route);
+                        self.gen_entity_route(
+                            input_placeholder.ranged_ty.route,
+                            EntityRouteRole::Decl,
+                        );
                     }
                     self.write(") -> ");
-                    self.gen_entity_route(output_ty.route);
+                    self.gen_entity_route(output_ty.route, EntityRouteRole::Decl);
                     self.write(" {\n");
                     match source {
                         CallFormSource::Func { stmts } => self.gen_func_stmts(stmts),

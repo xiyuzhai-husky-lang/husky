@@ -51,14 +51,14 @@ pub struct HuskyEvalTimeConfig {
 
 impl HuskyEvalTime {
     pub fn new(
-        static_root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
+        __root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
         init_compile_time: impl FnOnce(&mut HuskyCompileTime),
         verbose: bool,
     ) -> HuskyEvalTimeSingleton {
         unsafe {
             HUSKY_EVAL_TIME_SINGLETON = None;
         }
-        let mut compile_time = HuskyCompileTime::new(static_root_defn);
+        let mut compile_time = HuskyCompileTime::new(__root_defn);
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);

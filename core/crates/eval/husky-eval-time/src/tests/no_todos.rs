@@ -1,7 +1,7 @@
 use husky_compile_time::*;
 
 fn walkthrough(main_source: &'static str) {
-    let mut db = HuskyCompileTime::new(static_root_defn);
+    let mut db = HuskyCompileTime::new(__root_defn);
     db.set_live_file_text("haha/main.hsk".into(), main_source.into());
     let main_file = db.intern_file("haha/main.hsk".into());
     let pack = db.package(main_file).unwrap();

@@ -9,7 +9,7 @@ use vm::{AnyValueDyn, InterpreterQueryGroup};
 
 impl fmt::Debug for HuskyCompileTime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("HuskyLangCompileTime").finish()
+        f.debug_struct("HuskyCompileTime").finish()
     }
 }
 
@@ -26,7 +26,7 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
             opt_main: self.opt_main,
-            static_root_defn_resolver: self.static_root_defn_resolver,
+            __root_defn_resolver: self.__root_defn_resolver,
         })
     }
 }
@@ -64,10 +64,10 @@ impl AllocateUniqueScope for HuskyCompileTime {
 impl TokenQueryGroup for HuskyCompileTime {}
 
 impl ResolveStaticRootDefn for HuskyCompileTime {
-    fn static_root_defn_resolver(
+    fn __root_defn_resolver(
         &self,
     ) -> fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn {
-        self.static_root_defn_resolver
+        self.__root_defn_resolver
     }
 }
 

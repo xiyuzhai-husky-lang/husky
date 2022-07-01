@@ -145,7 +145,7 @@ fn entity_locus(
 ) -> EntitySyntaxResult<EntityLocus> {
     match entity_route.kind {
         EntityRouteKind::Root { ident } => Ok(EntityLocus::StaticModuleItem(db
-            .static_root_defn_resolver()(
+            .__root_defn_resolver()(
             ident
         ))),
         EntityRouteKind::Package { main, .. } => Ok(EntityLocus::Module { file: main }),

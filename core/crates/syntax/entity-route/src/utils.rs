@@ -1,16 +1,16 @@
 #[macro_export]
 macro_rules! lazy_entity_route {
     ($text: expr) => {{
-        static mut MEMOIZED_VALUE: Option<EntityRoutePtr> = None;
+        static mut MEMOIZED: Option<EntityRoutePtr> = None;
         unsafe {
-            match MEMOIZED_VALUE {
+            match MEMOIZED {
                 Some(v) => v,
                 None => {
-                    let v = parse_entity_route($text);
+                    let v = husky_eval_time::parse_entity_route($text);
                     // no need to worry about asynchronous access
                     // because the result would be the same
                     // I believe
-                    MEMOIZED_VALUE = Some(v);
+                    MEMOIZED = Some(v);
                     v
                 }
             }

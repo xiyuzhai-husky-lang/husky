@@ -9,50 +9,72 @@ impl<'a> RustCodeGenerator<'a> {
     pub fn gen_func_match_pattern(
         &mut self,
         ref match_expr: &EagerExpr,
+        indent: u8,
         ref branches: &[Arc<FuncPatternBranch>],
     ) {
         self.write("match ");
         self.gen_expr(match_expr);
         self.write(" {");
         self.newline();
+        let mut has_default = false;
         for branch in branches.iter() {
-            self.indent();
+            self.indent(indent + 4);
             match branch.variant {
                 FuncPatternBranchVariant::Case { ref pattern } => {
                     self.gen_case_pattern(pattern);
                 }
-                FuncPatternBranchVariant::Default => self.write("_"),
+                FuncPatternBranchVariant::Default => {
+                    has_default = true;
+                    self.write("_")
+                }
             }
             self.write(" => {");
             self.newline();
             self.gen_func_stmts(&branch.stmts);
-            self.write(" => }");
+            self.indent(indent + 4);
+            self.write("}\n");
         }
+        if !has_default {
+            self.indent(indent + 4);
+            self.write("_ => panic!(),\n")
+        }
+        self.indent(indent);
         self.write("}");
     }
 
     pub fn gen_proc_match_pattern(
         &mut self,
         ref match_expr: &EagerExpr,
+        indent: u8,
         ref branches: &[Arc<ProcPatternBranch>],
     ) {
         self.write("match ");
         self.gen_expr(match_expr);
         self.write(" {");
         self.newline();
+        let mut has_default = false;
         for branch in branches.iter() {
-            self.indent();
+            self.indent(indent + 4);
             match branch.variant {
                 ProcPatternBranchVariant::Case { ref pattern } => {
                     self.gen_case_pattern(pattern);
                 }
-                ProcPatternBranchVariant::Default => self.write("_"),
+                ProcPatternBranchVariant::Default => {
+                    has_default = true;
+                    self.write("_")
+                }
             }
             self.write(" => {");
             self.newline();
             self.gen_proc_stmts(&branch.stmts);
-            self.write(" => }");
+            self.indent(indent + 4);
+            self.write("}\n");
         }
+        if !has_default {
+            self.indent(indent);
+            self.write("_ => panic!(),\n")
+        }
+        self.indent(indent);
         self.write("}");
     }
 
@@ -70,7 +92,9 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_case_pattern(pattern)
                 }
             }
-            CasePatternVariant::EnumLiteral(value) => self.write(&format!("{value}")),
+            CasePatternVariant::EnumLiteral(entity_route) => {
+                self.gen_entity_route(entity_route, EntityRouteRole::Value)
+            }
         }
     }
 }

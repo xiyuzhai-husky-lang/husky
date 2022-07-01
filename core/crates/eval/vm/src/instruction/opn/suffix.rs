@@ -26,4 +26,12 @@ impl SuffixOpr {
             SuffixOpr::AsTy(ty) => format!(" as {}", ty.route).into(),
         }
     }
+
+    pub fn rust_code(self) -> Cow<'static, str> {
+        match self {
+            SuffixOpr::Incr => " += 1".into(),
+            SuffixOpr::Decr => " -= 1".into(),
+            SuffixOpr::AsTy(ty) => format!(" as {}", ty.route).into(),
+        }
+    }
 }

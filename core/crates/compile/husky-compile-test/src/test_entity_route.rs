@@ -2,7 +2,7 @@ use crate::*;
 
 #[test]
 fn no_error_single_file() {
-    let mut db = HuskyCompileTime::new(static_root_defn);
+    let mut db = HuskyCompileTime::new(__root_defn);
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"
@@ -26,7 +26,7 @@ main:
 
 #[test]
 fn no_error_many_files() {
-    let mut db = HuskyCompileTime::new(static_root_defn);
+    let mut db = HuskyCompileTime::new(__root_defn);
     db.set_live_file_text(
         "haha/main.hsk".into(),
         r#"

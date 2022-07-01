@@ -14,7 +14,7 @@ struct LineSegmentSketch:
     line_segments: []LineSegment
 
 func get_displacement(ct: RawContour, start: i32, end: i32) -> Vector2d:
-    N = ct.points.len()
+    N = ct.points.ilen()
     ct_start = ct[start%N]
     ct_end = ct[end%N]
     ct_start.to(ct_end)

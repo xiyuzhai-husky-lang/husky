@@ -9,3 +9,11 @@ pub static ML_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Module,
     dev_src: static_dev_src!(),
 };
+
+pub mod datasets {
+    pub use datasets_static_defn::*;
+}
+
+pub mod models {
+    pub use models_static_defn::*;
+}

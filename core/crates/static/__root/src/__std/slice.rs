@@ -1,6 +1,7 @@
 mod cyclic_slice_;
 mod full_slice;
 
+pub use cyclic_slice::CyclicSlice;
 pub use cyclic_slice_::*;
 
 use crate::*;

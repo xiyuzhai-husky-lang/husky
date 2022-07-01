@@ -10,7 +10,7 @@ async fn main() {
         .expect("")
 }
 
-fn init_compile_time(compile_time: &mut HuskyLangCompileTime) {
+fn init_compile_time(compile_time: &mut HuskyCompileTime) {
     compile_time.load_package("/home/xiyuzhai/Documents/husky/.compiled/crates/mnist-classifier/snapshot".into());
     link_entity_with_compiled(compile_time)
 }

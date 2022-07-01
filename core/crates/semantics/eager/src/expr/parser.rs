@@ -147,7 +147,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             variant: kind,
             file: self.file(),
             instruction_id: Default::default(),
-            qualified_ty: self.eager_expr_qualified_ty(raw_expr_idx)?,
+            qualified_ty: self.eager_expr_qualified_ty(raw_expr_idx).unwrap(),
+            contract: self.eager_expr_contract(raw_expr_idx).unwrap(),
         }))
     }
 

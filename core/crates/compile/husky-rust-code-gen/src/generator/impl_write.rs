@@ -1,12 +1,12 @@
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn write(&mut self, s: &str) {
+    pub(crate) fn write(&mut self, s: &str) {
         self.result += s
     }
 
-    pub(super) fn indent(&mut self) {
-        for _ in 0..self.indent {
+    pub(super) fn indent(&mut self, n: u8) {
+        for _ in 0..n {
             self.result.push(' ');
         }
     }
@@ -15,8 +15,8 @@ impl<'a> RustCodeGenerator<'a> {
         self.result.push('\n');
     }
 
-    pub(super) fn newline_indented(&mut self) {
+    pub(super) fn newline_indented(&mut self, n: u8) {
         self.result.push('\n');
-        self.indent()
+        self.indent(n)
     }
 }

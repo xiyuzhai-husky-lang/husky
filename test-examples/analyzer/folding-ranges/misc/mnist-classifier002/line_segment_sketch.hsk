@@ -35,7 +35,7 @@ fn go_left(u: Vector2d, r: float) -> Vector2d:
 proc extend_end(ct: RawContour, start: i32, r: f32) -> i32:
     var end = start
     var dp = ct.displacement(start, end + 1)
-    let N = ct.points.len()
+    let N = ct.points.ilen()
     let max_end = start + N
     while end <= max_end and dp.norm() < r:
         end++
