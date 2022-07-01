@@ -90,8 +90,8 @@ impl From<EntitySyntaxError> for InferError {
     }
 }
 
-impl From<&ast::AstError> for InferError {
-    fn from(error: &ast::AstError) -> Self {
+impl From<&husky_ast::AstError> for InferError {
+    fn from(error: &husky_ast::AstError) -> Self {
         Self {
             variant: InferErrorVariant::Derived {
                 message: format!("{:?}", error),

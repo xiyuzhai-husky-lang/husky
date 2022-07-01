@@ -29,7 +29,7 @@ file = { path = "../../syntax/file", version = "0.0.0" }
 husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
-ast = { path = "../../syntax/ast", version = "0.0.0" }
+husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
 husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
 vm = { path = "../vm", version = "0.0.0" }
 trivial-iter = { path = "../../abstraction/trivial-iter", version = "0.0.0" }

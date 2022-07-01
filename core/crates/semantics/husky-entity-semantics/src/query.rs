@@ -11,7 +11,7 @@ use vm::EntityUid;
 
 #[salsa::query_group(EntityQueryGroupStorage)]
 pub trait EntityDefnQueryGroup:
-    InferQueryGroup + ast::AstQueryGroup + Upcast<dyn InferQueryGroup> + StoreEntityRoute
+    InferQueryGroup + husky_ast::AstQueryGroup + Upcast<dyn InferQueryGroup> + StoreEntityRoute
 {
     fn main_defn(&self, main_file: file::FilePtr) -> SemanticResultArc<MainDefn>;
     fn entity_defn(&self, route: EntityRoutePtr) -> SemanticResultArc<EntityDefn>;

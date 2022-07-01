@@ -3,9 +3,9 @@ mod start;
 
 use ::cyclic_slice::CyclicSlice;
 use end::*;
+use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use start::*;
 use std::any::TypeId;
-use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use vm::*;
 
 use super::*;

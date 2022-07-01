@@ -9,9 +9,9 @@ use husky_eager_semantics::FuncStmt;
 use husky_entity_route_syntax::EntityRoutePtr;
 use husky_lazy_semantics::LazyStmt;
 use husky_trace_protocol::*;
+use husky_visual_syntax::{StaticVisualTy, StaticVisualizer, StaticVisualizerVariant};
 use print_utils::p;
 use std::sync::Arc;
-use visual_syntax::{StaticVisualTy, StaticVisualizer, StaticVisualizerVariant};
 use vm::*;
 use word::RootIdentifier;
 

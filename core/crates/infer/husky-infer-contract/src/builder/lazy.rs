@@ -1,6 +1,6 @@
 use std::iter::zip;
 
-use ast::*;
+use husky_ast::*;
 
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRange;

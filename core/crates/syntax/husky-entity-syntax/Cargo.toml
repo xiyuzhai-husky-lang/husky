@@ -22,7 +22,7 @@ word = { path = "../word", version = "0.0.0" }
 token = { path = "../token", version = "0.0.0" }
 husky-entity-route-syntax = { path = "../husky-entity-route-syntax", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }
-visual-syntax = { path = "../visual-syntax", version = "0.0.0" }
+husky-visual-syntax = { path = "../husky-visual-syntax", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 static-defn = { path = "../../static/static-defn", version = "0.0.0" }
 thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }

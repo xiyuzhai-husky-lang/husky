@@ -1,5 +1,5 @@
 use crate::*;
-use ast::CasePattern;
+use husky_ast::CasePattern;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FuncPatternBranch {

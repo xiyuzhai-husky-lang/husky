@@ -1,5 +1,5 @@
 use crate::*;
-use ast::{Ast, AstIter, RawExprArena};
+use husky_ast::{Ast, AstIter, RawExprArena};
 use infer_total::InferQueryGroup;
 use semantics_error::*;
 use word::Paradigm;

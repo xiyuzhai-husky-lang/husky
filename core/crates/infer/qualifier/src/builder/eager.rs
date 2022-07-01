@@ -1,9 +1,9 @@
 use std::iter::zip;
 
-use ast::*;
 use check_utils::should;
 use defn_head::Parameter;
 use entity_kind::EntityKind;
+use husky_ast::*;
 use husky_entity_route_syntax::{EntityRouteKind, EntityRoutePtr};
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
 use husky_text::{TextRange, TextRanged};

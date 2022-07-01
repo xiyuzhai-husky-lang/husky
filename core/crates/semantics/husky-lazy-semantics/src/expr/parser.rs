@@ -1,9 +1,9 @@
 use std::sync::Arc;
 
 use crate::*;
-use ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use entity_kind::TyKind;
 use file::FilePtr;
+use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use husky_entity_route_syntax::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use husky_infer_entity_route::InferEntityRoute;
 use husky_text::RangedCustomIdentifier;

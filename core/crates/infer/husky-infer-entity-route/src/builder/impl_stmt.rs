@@ -1,5 +1,5 @@
-use ast::{RawBoundary, RawLoopKind};
 use dev_utils::dev_src;
+use husky_ast::{RawBoundary, RawLoopKind};
 use husky_text::TextRanged;
 
 use super::*;

@@ -1,6 +1,6 @@
 use arena::map::ArenaMap;
-use ast::RawExprMap;
 use fold::FoldableStorage;
+use husky_ast::RawExprMap;
 use husky_infer_entity_route::EntityRouteSheet;
 use infer_error::*;
 use std::{collections::HashMap, sync::Arc};

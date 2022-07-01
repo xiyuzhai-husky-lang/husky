@@ -1,6 +1,6 @@
 use super::*;
-use ast::FieldAstKind;
 use entity_kind::{FieldKind, TyKind};
+use husky_ast::FieldAstKind;
 use husky_entity_route_syntax::{AllocateUniqueScope, EntityRoute};
 use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;

@@ -6,8 +6,8 @@ use cyclic_slice::CyclicSlice;
 pub use cyclic_slice_::*;
 pub use firstx::*;
 use husky_entity_route_syntax::EntityRoutePtr;
+use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 pub use lastx::*;
-use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 
 use super::*;
 use check_utils::should_eq;

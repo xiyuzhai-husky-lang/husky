@@ -20,9 +20,9 @@ use dev_utils::StaticDevSource;
 use dev_utils::{dev_src, static_dev_src};
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
+use husky_visual_syntax::{primitive_visualizer, StaticVisualTy, StaticVisualizer};
 use static_defn::StaticParameter;
 use static_defn::*;
-use visual_syntax::{primitive_visualizer, StaticVisualTy, StaticVisualizer};
 use vm::*;
 use word::RootIdentifier;
 

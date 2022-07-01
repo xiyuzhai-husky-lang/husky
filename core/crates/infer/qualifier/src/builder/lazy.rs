@@ -1,7 +1,7 @@
-use ast::*;
 use check_utils::should;
 use defn_head::Parameter;
 use entity_kind::EntityKind;
+use husky_ast::*;
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRanged;
 use infer_error::derived;

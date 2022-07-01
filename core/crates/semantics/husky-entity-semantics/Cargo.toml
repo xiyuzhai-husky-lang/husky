@@ -16,7 +16,7 @@ vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
 sync-utils = { path = "../../utils/sync", version = "0.0.0" }
-ast = { path = "../../syntax/ast", version = "0.0.0" }
+husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }

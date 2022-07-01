@@ -1,4 +1,4 @@
-use ast::MatchLiason;
+use husky_ast::MatchLiason;
 use husky_entity_route_syntax::EntityRoutePtr;
 use husky_text::TextRange;
 

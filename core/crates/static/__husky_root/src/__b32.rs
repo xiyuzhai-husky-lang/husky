@@ -1,5 +1,5 @@
 use husky_trace_protocol::*;
-use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
+use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 
 use super::*;
 

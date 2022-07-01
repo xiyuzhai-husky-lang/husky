@@ -19,7 +19,7 @@ husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", v
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
 file = { path = "../../syntax/file", version = "0.0.0" }
 husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
-ast = { path = "../../syntax/ast", version = "0.0.0" }
+husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
 semantics-error = { path = "../error", version = "0.0.0" }
 husky-eager-semantics = { path = "../husky-eager-semantics", version = "0.0.0" }
 husky-entity-semantics = { path = "../husky-entity-semantics", version = "0.0.0" }

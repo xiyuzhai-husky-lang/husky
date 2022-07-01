@@ -1,8 +1,8 @@
 use super::*;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
 use husky_trace_protocol::*;
+use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use std::any::TypeId;
-use visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use vm::*;
 
 pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {

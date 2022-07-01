@@ -14,13 +14,13 @@ use print_utils::p;
 pub use trai::*;
 pub use ty::*;
 
-use ast::*;
 use defn_head::*;
 use entity_kind::TyKind;
 use feature::*;
 use file::FilePtr;
 use fold::FoldableStorage;
 use global::*;
+use husky_ast::*;
 use husky_entity_route_syntax::*;
 use husky_entity_syntax::*;
 use husky_liason_semantics::*;
@@ -31,7 +31,7 @@ use std::sync::Arc;
 use word::{CustomIdentifier, RootIdentifier};
 
 #[salsa::query_group(DeclQueryGroupStorage)]
-pub trait DeclQueryGroup: EntitySyntaxQueryGroup + ast::AstQueryGroup {
+pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
     fn function_decl(&self, call_route: EntityRoutePtr) -> InferQueryResultArc<FunctionDecl>;
     fn method_decl(&self, method_route: EntityRoutePtr) -> InferResultArc<MethodDecl>;
     fn ty_decl(&self, ty: EntityRoutePtr) -> InferQueryResultArc<TyDecl>;

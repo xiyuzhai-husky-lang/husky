@@ -8,8 +8,8 @@ pub use proc::*;
 
 use crate::expr::EagerExprParser;
 use crate::*;
-use ast::*;
 use file::FilePtr;
+use husky_ast::*;
 use husky_entity_route_syntax::EntityRoutePtr;
 use husky_text::TextRange;
 use print_utils::*;
