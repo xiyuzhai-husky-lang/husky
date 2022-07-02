@@ -16,6 +16,7 @@ pub use __vec::*;
 pub use clone::*;
 pub use domains::*;
 pub use static_defn::__StaticLinkageKey;
+pub use vm::__AnyValue;
 
 pub mod __init_utils {
     pub use dev_utils::__StaticDevSource;
