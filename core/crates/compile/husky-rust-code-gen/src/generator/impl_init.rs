@@ -229,19 +229,34 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 if parameter_ty.is_ref() {
                     todo!()
                 } else {
-                    self.gen_parameter_temp_ref_downcast(i, parameter)
+                    if self.db.is_copyable(parameter_ty).unwrap() {
+                        self.gen_parameter_downcast_copy(i, parameter)
+                    } else {
+                        self.gen_parameter_downcast_temp_ref(i, parameter)
+                    }
                 }
             }
             ParameterLiason::Move => todo!(),
             ParameterLiason::MoveMut => todo!(),
             ParameterLiason::MemberAccess => todo!(),
-            ParameterLiason::EvalRef => self.gen_parameter_eval_ref_downcast(i, parameter),
+            ParameterLiason::EvalRef => self.gen_parameter_downcast_eval_ref(i, parameter),
             ParameterLiason::TempRef => todo!(),
             ParameterLiason::TempRefMut => todo!(),
         }
     }
 
-    fn gen_parameter_temp_ref_downcast(&mut self, i: usize, parameter: &Parameter) {
+    fn gen_parameter_downcast_copy(&mut self, i: usize, parameter: &Parameter) {
+        let parameter_name = parameter.ranged_ident.ident;
+        let parameter_ty = parameter.ranged_ty.route;
+        self.write(&format!(
+            r#"
+                let {parameter_name}: "#
+        ));
+        self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
+        self.write(&format!(" = __arguments[{i}].downcast_copy();"))
+    }
+
+    fn gen_parameter_downcast_temp_ref(&mut self, i: usize, parameter: &Parameter) {
         let parameter_name = parameter.ranged_ident.ident;
         let parameter_ty = parameter.ranged_ty.route;
         self.write(&format!(
@@ -249,10 +264,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let {parameter_name}: &"#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
-        self.write(&format!(" = __arguments[{i}].downcast_ref();"))
+        self.write(&format!(" = __arguments[{i}].downcast_temp_ref();"))
     }
 
-    fn gen_parameter_eval_ref_downcast(&mut self, i: usize, parameter: &Parameter) {
+    fn gen_parameter_downcast_eval_ref(&mut self, i: usize, parameter: &Parameter) {
         let parameter_name = parameter.ranged_ident.ident;
         let parameter_ty = parameter.ranged_ty.route;
         self.write(&format!(

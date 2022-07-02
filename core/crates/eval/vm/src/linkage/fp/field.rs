@@ -4,7 +4,7 @@ macro_rules! field_copy_fp {
         fn field_copy_access<'temp, 'eval>(
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __EvalResult<__TempValue<'temp, 'eval>> {
-            let value: &$Type = values[0].downcast_ref();
+            let value: &$Type = values[0].downcast_temp_ref();
             Ok(value.$field.take_copyable_dyn().into())
         }
         __SpecificRoutineFp(field_copy_access)

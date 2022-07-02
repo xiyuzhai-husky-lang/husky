@@ -34,7 +34,7 @@ fn generic_vec_lastx_copy<'temp, 'eval>(
 fn generic_vec_lastx_eval_ref<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __EvalResult<__TempValue<'temp, 'eval>> {
-    let generic_vec: &VirtualVec<'eval> = values[0].downcast_ref();
+    let generic_vec: &VirtualVec<'eval> = values[0].downcast_temp_ref();
     match generic_vec.last() {
         Some(value) => Ok(value.bind_eval_ref()),
         None => Err(vm_runtime_error!("empty vec")),
@@ -44,7 +44,7 @@ fn generic_vec_lastx_eval_ref<'temp, 'eval>(
 fn generic_vec_lastx_temp_ref<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __EvalResult<__TempValue<'temp, 'eval>> {
-    let generic_vec: &VirtualVec<'eval> = values[0].downcast_ref();
+    let generic_vec: &VirtualVec<'eval> = values[0].downcast_temp_ref();
     match generic_vec.last() {
         Some(value) => Ok(value.bind_temp_ref()),
         None => Err(vm_runtime_error!("empty vec")),
