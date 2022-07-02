@@ -647,11 +647,6 @@
         "keywords": {
             "patterns": [
                 {
-                    "comment": "control flow keywords",
-                    "name": "keyword.control.husky",
-                    "match": "\\b(break|continue|for|forext|if|elif|else|match|case|default|return|do|while)\\b"
-                },
-                {
                     "comment": "storage keywords",
                     "name": "keyword.other.husky storage.type.husky",
                     "match": "\\b(let|var|mod)\\b"

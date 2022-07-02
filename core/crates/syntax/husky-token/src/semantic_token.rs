@@ -4,7 +4,7 @@ use husky_text::TextRange;
 use print_utils::p;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct AbsSemanticToken {
     pub kind: SemanticTokenKind,
     pub range: TextRange,
@@ -18,7 +18,7 @@ impl AbsSemanticToken {
             kind,
             range,
             token_type: kind.token_type(),
-            token_modifiers_bitset: 0,
+            token_modifiers_bitset: kind.token_modifiers_bitset(),
         }
     }
 
@@ -50,9 +50,9 @@ impl AbsSemanticToken {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SemanticTokenKind {
-    Keyword,
+    Keyword(Keyword),
     Field,
     Special,
     Parameter,
@@ -70,7 +70,7 @@ pub enum SemanticTokenKind {
 impl SemanticTokenKind {
     pub fn token_type(self) -> u32 {
         get_type_index(match self {
-            SemanticTokenKind::Keyword => SemanticTokenType::KEYWORD,
+            SemanticTokenKind::Keyword(_) => SemanticTokenType::KEYWORD,
             SemanticTokenKind::Field => SemanticTokenType::PROPERTY,
             SemanticTokenKind::Special => SemanticTokenType::OPERATOR,
             SemanticTokenKind::Variable => SemanticTokenType::VARIABLE,
@@ -101,12 +101,39 @@ impl SemanticTokenKind {
             SemanticTokenKind::XmlTagKind => SemanticTokenType::FUNCTION,
         })
     }
+
+    pub fn token_modifiers_bitset(self) -> u32 {
+        let mut result = ModifierSet(0);
+        match self {
+            SemanticTokenKind::Keyword(keyword) => match keyword {
+                Keyword::Stmt(stmt_keyword) => match stmt_keyword {
+                    StmtKeyword::If
+                    | StmtKeyword::Elif
+                    | StmtKeyword::Else
+                    | StmtKeyword::Match
+                    | StmtKeyword::Case
+                    | StmtKeyword::DeFault
+                    | StmtKeyword::For
+                    | StmtKeyword::ForExt
+                    | StmtKeyword::While
+                    | StmtKeyword::Do
+                    | StmtKeyword::Break
+                    | StmtKeyword::Return => result |= CONTROL_FLOW,
+                    StmtKeyword::Let | StmtKeyword::Var | StmtKeyword::Assert => (),
+                },
+                _ => (),
+            },
+            _ => (),
+        }
+        result.0
+    }
 }
 
 use lsp_types::{
     Range, SemanticToken, SemanticTokenModifier, SemanticTokenType, SemanticTokens,
     SemanticTokensEdit,
 };
+use word::{Keyword, StmtKeyword};
 
 macro_rules! define_semantic_token_types {
     ($(($ident:ident, $string:literal)),*$(,)?) => {

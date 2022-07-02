@@ -18,7 +18,7 @@ impl<'a> AstTransformer<'a> {
         match token_group[0].kind {
             HuskyTokenKind::Keyword(keyword) => {
                 self.abs_semantic_tokens.push(AbsSemanticToken::new(
-                    SemanticTokenKind::Keyword,
+                    SemanticTokenKind::Keyword(keyword),
                     token_group[0].range,
                 ));
                 match keyword {

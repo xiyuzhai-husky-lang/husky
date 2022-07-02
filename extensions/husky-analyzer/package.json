@@ -49,7 +49,425 @@
                 "scopeName": "source.husky",
                 "path": "./syntaxes/husky.tmLanguage.json"
             }
-        ]
+        ],
+        "problemMatchers": [
+            {
+                "name": "huskyc",
+                "owner": "huskyc",
+                "source": "huskyc",
+                "fileLocation": [
+                    "autoDetect",
+                    "${workspaceRoot}"
+                ],
+                "pattern": "$huskyc"
+            },
+            {
+                "name": "huskyc-json",
+                "owner": "huskyc",
+                "source": "huskyc",
+                "fileLocation": [
+                    "autoDetect",
+                    "${workspaceRoot}"
+                ],
+                "pattern": "$huskyc-json"
+            },
+            {
+                "name": "huskyc-watch",
+                "owner": "huskyc",
+                "source": "huskyc",
+                "fileLocation": [
+                    "autoDetect",
+                    "${workspaceRoot}"
+                ],
+                "background": {
+                    "beginsPattern": "^\\[Running\\b",
+                    "endsPattern": "^\\[Finished running\\b"
+                },
+                "pattern": "$huskyc"
+            }
+        ],
+        "colors": [
+            {
+                "id": "husky_analyzer.syntaxTreeBorder",
+                "description": "Color of the border displayed in the Husky source code for the selected syntax node (see \"Show Syntax Tree\" command)",
+                "defaults": {
+                    "dark": "#ffffff",
+                    "light": "#b700ff",
+                    "highContrast": "#b700ff"
+                }
+            }
+        ],
+        "semanticTokenTypes": [
+            {
+                "id": "angle",
+                "description": "Style for < or >",
+                "superType": "punctuation"
+            },
+            {
+                "id": "arithmetic",
+                "description": "Style for arithmetic operators",
+                "superType": "operator"
+            },
+            {
+                "id": "attribute",
+                "description": "Style for attributes"
+            },
+            {
+                "id": "attributeBracket",
+                "description": "Style for attribute invocation brackets, that is the `#[` and `]` tokens",
+                "superType": "punctuation"
+            },
+            {
+                "id": "bitwise",
+                "description": "Style for bitwise operators",
+                "superType": "operator"
+            },
+            {
+                "id": "boolean",
+                "description": "Style for boolean literals",
+                "superType": "keyword"
+            },
+            {
+                "id": "brace",
+                "description": "Style for { or }",
+                "superType": "punctuation"
+            },
+            {
+                "id": "bracket",
+                "description": "Style for [ or ]",
+                "superType": "punctuation"
+            },
+            {
+                "id": "builtinAttribute",
+                "description": "Style for builtin attributes",
+                "superType": "attribute"
+            },
+            {
+                "id": "builtinType",
+                "description": "Style for builtin types",
+                "superType": "type"
+            },
+            {
+                "id": "character",
+                "description": "Style for character literals",
+                "superType": "string"
+            },
+            {
+                "id": "colon",
+                "description": "Style for :",
+                "superType": "punctuation"
+            },
+            {
+                "id": "comma",
+                "description": "Style for ,",
+                "superType": "punctuation"
+            },
+            {
+                "id": "comparison",
+                "description": "Style for comparison operators",
+                "superType": "operator"
+            },
+            {
+                "id": "constParameter",
+                "description": "Style for const generics"
+            },
+            {
+                "id": "derive",
+                "description": "Style for derives",
+                "superType": "attribute"
+            },
+            {
+                "id": "dot",
+                "description": "Style for .",
+                "superType": "punctuation"
+            },
+            {
+                "id": "escapeSequence",
+                "description": "Style for char escapes in strings"
+            },
+            {
+                "id": "formatSpecifier",
+                "description": "Style for {} placeholders in format strings"
+            },
+            {
+                "id": "label",
+                "description": "Style for labels"
+            },
+            {
+                "id": "lifetime",
+                "description": "Style for lifetimes"
+            },
+            {
+                "id": "logical",
+                "description": "Style for logic operators",
+                "superType": "operator"
+            },
+            {
+                "id": "macroBang",
+                "description": "Style for the ! token of macro calls",
+                "superType": "punctuation"
+            },
+            {
+                "id": "operator",
+                "description": "Style for operators",
+                "superType": "punctuation"
+            },
+            {
+                "id": "parenthesis",
+                "description": "Style for ( or )",
+                "superType": "punctuation"
+            },
+            {
+                "id": "punctuation",
+                "description": "Style for generic punctuation"
+            },
+            {
+                "id": "selfKeyword",
+                "description": "Style for the self keyword",
+                "superType": "keyword"
+            },
+            {
+                "id": "selfTypeKeyword",
+                "description": "Style for the self type keyword",
+                "superType": "keyword"
+            },
+            {
+                "id": "semicolon",
+                "description": "Style for ;",
+                "superType": "punctuation"
+            },
+            {
+                "id": "typeAlias",
+                "description": "Style for type aliases",
+                "superType": "type"
+            },
+            {
+                "id": "union",
+                "description": "Style for C-style untagged unions",
+                "superType": "type"
+            },
+            {
+                "id": "unresolvedReference",
+                "description": "Style for names which can not be resolved due to compilation errors"
+            }
+        ],
+        "semanticTokenModifiers": [
+            {
+                "id": "async",
+                "description": "Style for async functions and the `async` and `await` keywords"
+            },
+            {
+                "id": "attribute",
+                "description": "Style for elements within attributes"
+            },
+            {
+                "id": "callable",
+                "description": "Style for locals whose types implements one of the `Fn*` traits"
+            },
+            {
+                "id": "constant",
+                "description": "Style for compile-time constants"
+            },
+            {
+                "id": "consuming",
+                "description": "Style for locals that are being consumed when use in a function call"
+            },
+            {
+                "id": "controlFlow",
+                "description": "Style for control-flow related tokens, this includes the `?` operator"
+            },
+            {
+                "id": "crateRoot",
+                "description": "Style for names resolving to a crate root"
+            },
+            {
+                "id": "injected",
+                "description": "Style for doc-string injected highlighting like husky source blocks in documentation"
+            },
+            {
+                "id": "intraDocLink",
+                "description": "Style for intra doc links in doc-strings"
+            },
+            {
+                "id": "library",
+                "description": "Style for items that are defined outside of the current crate"
+            },
+            {
+                "id": "mutable",
+                "description": "Style for mutable locals and statics as well as functions taking `&mut self`"
+            },
+            {
+                "id": "public",
+                "description": "Style for items that are from the current crate and are `pub`"
+            },
+            {
+                "id": "reference",
+                "description": "Style for locals behind a reference and functions taking `self` by reference"
+            },
+            {
+                "id": "trait",
+                "description": "Style for associated trait items"
+            },
+            {
+                "id": "unsafe",
+                "description": "Style for unsafe operations, like unsafe function calls, as well as the `unsafe` token"
+            }
+        ],
+        "semanticTokenScopes": [
+            {
+                "language": "husky",
+                "scopes": {
+                    "attribute": [
+                        "meta.attribute.husky"
+                    ],
+                    "boolean": [
+                        "constant.language.boolean.husky"
+                    ],
+                    "builtinType": [
+                        "support.type.primitive.husky"
+                    ],
+                    "constParameter": [
+                        "constant.other.caps.husky"
+                    ],
+                    "enum": [
+                        "entity.name.type.enum.husky"
+                    ],
+                    "formatSpecifier": [
+                        "punctuation.section.embedded.husky"
+                    ],
+                    "function": [
+                        "entity.name.function.husky"
+                    ],
+                    "interface": [
+                        "entity.name.type.trait.husky"
+                    ],
+                    "keyword": [
+                        "keyword.other.husky"
+                    ],
+                    "keyword.controlFlow": [
+                        "keyword.control.husky"
+                    ],
+                    "lifetime": [
+                        "storage.modifier.lifetime.husky"
+                    ],
+                    "macroBang": [
+                        "entity.name.function.macro.husky"
+                    ],
+                    "method": [
+                        "entity.name.function.husky"
+                    ],
+                    "struct": [
+                        "entity.name.type.struct.husky"
+                    ],
+                    "typeAlias": [
+                        "entity.name.type.declaration.husky"
+                    ],
+                    "union": [
+                        "entity.name.type.union.husky"
+                    ],
+                    "variable": [
+                        "variable.other.husky"
+                    ],
+                    "variable.constant": [
+                        "variable.other.constant.husky"
+                    ],
+                    "*.mutable": [
+                        "markup.underline"
+                    ]
+                }
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "husky-analyzer.syntaxTree",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.viewHir",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.viewFileText",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.expandMacro",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.matchingBrace",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.parentModule",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.joinLines",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.run",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.debug",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.newDebugConfig",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.analyzerStatus",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.memoryUsage",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.reloadWorkspace",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.reload",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.onEnter",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.ssr",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.serverVersion",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.toggleInlayHints",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.openDocs",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.openCargoToml",
+                    "when": "inHuskyProject"
+                }
+            ],
+            "editor/context": [
+                {
+                    "command": "husky-analyzer.peekTests",
+                    "when": "inHuskyProject",
+                    "group": "navigation@1000"
+                }
+            ]
+        }
     },
     "engines": {
         "vscode": "^1.57.0"

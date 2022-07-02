@@ -11,7 +11,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstVariant> {
         let keyword = if let HuskyTokenKind::Keyword(keyword) = token_group[0].kind {
             self.abs_semantic_tokens.push(AbsSemanticToken::new(
-                SemanticTokenKind::Keyword,
+                SemanticTokenKind::Keyword(keyword),
                 token_group[0].range,
             ));
             keyword
