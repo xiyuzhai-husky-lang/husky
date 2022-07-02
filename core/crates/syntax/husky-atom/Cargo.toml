@@ -20,7 +20,7 @@ husky-file = { path = "../husky-file", version = "0.0.0" }
 husky-text = { path = "../husky-text", version = "0.0.0" }
 word = { path = "../word", version = "0.0.0" }
 husky-token = { path = "../husky-token", version = "0.0.0" }
-husky-entity-route-syntax = { path = "../husky-entity-route-syntax", version = "0.0.0" }
+husky-entity-route = { path = "../husky-entity-route", version = "0.0.0" }
 husky-entity-syntax = { path = "../husky-entity-syntax", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 entity-kind = { path = "../entity-kind", version = "0.0.0" }

@@ -5,7 +5,7 @@ mod impl_match_pattern;
 use husky_eager_semantics::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
 };
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use vm::{BoundaryKind, InitKind};
 use word::RootIdentifier;
 

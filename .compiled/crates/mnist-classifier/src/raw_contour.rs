@@ -17,6 +17,34 @@ impl<'eval> RawContour<'eval> {
         return ct_start.to(&ct_end)
     }
 }
+
+impl<'eval> __HasStaticTypeInfo for RawContour<'eval> {
+    type StaticSelf = RawContour<'static>;
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+}
+
+impl<'eval> __AnyValue<'eval> for RawContour<'eval> {
+    fn print_short(&self) -> String {
+        todo!()
+    }
+
+    fn to_json_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    where
+        'eval: 'short {
+        todo!()
+    }
+
+    fn ty(&self) -> __EntityRoutePtr {
+        todo!()
+    }
+}
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(crate) enum Direction {
     UP,
@@ -173,6 +201,34 @@ pub(crate) struct StreakCache {
 impl StreakCache {
     pub(crate) fn __call__(prev1: i32, prev2: i32) -> Self {
         Self { prev1, prev2 }
+    }
+}
+
+impl __HasStaticTypeInfo for StreakCache {
+    type StaticSelf = StreakCache;
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+}
+
+impl<'eval> __AnyValue<'eval> for StreakCache {
+    fn print_short(&self) -> String {
+        todo!()
+    }
+
+    fn to_json_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    where
+        'eval: 'short {
+        todo!()
+    }
+
+    fn ty(&self) -> __EntityRoutePtr {
+        todo!()
     }
 }
 pub(crate) fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {

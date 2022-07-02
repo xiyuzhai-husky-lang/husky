@@ -1,5 +1,5 @@
 use entity_kind::{EntityKind, FieldKind};
-use husky_entity_route_syntax::{EntityRoute, EntityRouteKind, SpatialArgument};
+use husky_entity_route::{EntityRoute, EntityRouteKind, SpatialArgument};
 use infer_decl::TyMemberDecl;
 use word::RootIdentifier;
 

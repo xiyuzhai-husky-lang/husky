@@ -1,6 +1,6 @@
 use super::*;
 use core::hash::Hash;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use serde::{ser::SerializeStruct, Serialize};
 use std::{any::TypeId, borrow::Cow};
 use word::RootIdentifier;
@@ -28,8 +28,8 @@ impl HasStaticTypeInfo for EnumKindValue {
     }
 }
 
-impl<'eval> __AnyValue<'eval> for EnumKindValue {
-    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
+impl<'eval> AnyValue<'eval> for EnumKindValue {
+    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -52,7 +52,7 @@ impl<'eval> __AnyValue<'eval> for EnumKindValue {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

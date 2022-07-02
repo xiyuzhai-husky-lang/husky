@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use infer_decl::TyDecl;
 use std::sync::Arc;

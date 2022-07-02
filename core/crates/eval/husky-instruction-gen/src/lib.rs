@@ -10,7 +10,7 @@ pub use query::*;
 use context::*;
 use fold::LocalValue;
 use husky_eager_semantics::*;
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use husky_entity_semantics::*;
 use infer_decl::DeclQueryGroup;
 use print_utils::*;

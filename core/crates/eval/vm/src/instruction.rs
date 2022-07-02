@@ -13,7 +13,7 @@ pub use sheet::InstructionSheet;
 
 use crate::*;
 use avec::Avec;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_text::TextRange;
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};

@@ -1,6 +1,6 @@
 use super::*;
 use crate::*;
-use husky_entity_route_syntax::RangedEntityRoute;
+use husky_entity_route::RangedEntityRoute;
 use husky_feature_eval::EvalFeature;
 use husky_lazy_semantics::{LazyExprVariant, LazyOpnKind};
 use husky_text::RangedCustomIdentifier;

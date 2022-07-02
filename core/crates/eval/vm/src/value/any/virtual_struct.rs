@@ -48,7 +48,7 @@ impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
             Binding::TempRef => todo!(),
             Binding::TempRefMut => {
                 let field_value = &mut self.fields.data_mut()[field_idx].1;
-                let ptr: *mut dyn __AnyValueDyn = match field_value {
+                let ptr: *mut dyn AnyValueDyn = match field_value {
                     MemberValue::Copyable(ref mut value) => value.any_mut(),
                     MemberValue::Boxed(_) => todo!(),
                     MemberValue::GlobalPure(_) => todo!(),
@@ -84,7 +84,7 @@ impl<'eval> HasStaticTypeInfo for VirtualStruct<'eval> {
     }
 }
 
-impl<'eval, 'a> __AnyValue<'eval> for VirtualStruct<'a>
+impl<'eval, 'a> AnyValue<'eval> for VirtualStruct<'a>
 where
     'a: 'eval,
 {
@@ -112,7 +112,7 @@ where
         )
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

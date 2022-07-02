@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::MatchLiason;
-use husky_entity_route_syntax::{EntityRouteKind, EntityRoutePtr};
+use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_text::TextRange;
 use infer_decl::DeclQueryGroup;
 use infer_error::throw;

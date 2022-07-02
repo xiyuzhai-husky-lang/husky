@@ -94,11 +94,15 @@ impl<'a> RustCodeGenerator<'a> {
             self.gen_ty_member_impl(ty_member, &mut start_flag)
         }
 
+        self.write("}\n");
+
+        self.gen_has_static_type_info_impl(tyname, ty_contains_eval_ref);
+
+        self.gen_any_value_impl(tyname, ty_contains_eval_ref);
+
         for trait_impl in trait_impls {
             self.gen_trait_impl(tyname, trait_impl)
         }
-
-        self.write("}\n");
     }
 
     fn gen_struct_call(&mut self, ty_members: &[Arc<EntityDefn>]) {
@@ -244,6 +248,67 @@ impl<'a> RustCodeGenerator<'a> {
             EntityDefnVariant::Function { .. } => todo!(),
             _ => (),
         }
+    }
+
+    fn gen_has_static_type_info_impl(
+        &mut self,
+        tyname: CustomIdentifier,
+        ty_contains_eval_ref: bool,
+    ) {
+        if ty_contains_eval_ref {
+            self.write("\nimpl<'eval> __HasStaticTypeInfo for ");
+        } else {
+            self.write("\nimpl __HasStaticTypeInfo for ");
+        }
+        self.write(&tyname);
+        if ty_contains_eval_ref {
+            self.write("<'eval>")
+        }
+        let static_self = if ty_contains_eval_ref {
+            format!("{tyname}<'static>")
+        } else {
+            tyname.as_str().to_owned()
+        };
+        self.write(&format!(
+            r#" {{
+    type StaticSelf = {static_self};
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {{
+        todo!()
+    }}
+}}
+"#
+        ));
+    }
+
+    fn gen_any_value_impl(&mut self, tyname: CustomIdentifier, ty_contains_eval_ref: bool) {
+        self.write("\nimpl<'eval> __AnyValue<'eval> for ");
+        self.write(&tyname);
+        if ty_contains_eval_ref {
+            self.write("<'eval>")
+        }
+        self.write(
+            r#" {
+    fn print_short(&self) -> String {
+        todo!()
+    }
+
+    fn to_json_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    where
+        'eval: 'short {
+        todo!()
+    }
+
+    fn ty(&self) -> __EntityRoutePtr {
+        todo!()
+    }
+}
+"#,
+        );
     }
 
     fn gen_trait_impl(&mut self, tyname: CustomIdentifier, trait_impl: &TraitImplDefn) {

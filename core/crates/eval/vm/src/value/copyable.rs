@@ -1,12 +1,12 @@
 use super::*;
 use crate::*;
 use core::hash::Hash;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use serde::{ser::SerializeStruct, Serialize};
 use std::{any::TypeId, borrow::Cow};
 use word::RootIdentifier;
 
-// use husky_entity_route_syntax::ScopeId;
+// use husky_entity_route::ScopeId;
 // use word::ReservedIdentifier;
 
 #[derive(Debug, Clone, Copy)]
@@ -129,7 +129,7 @@ impl CopyableValue {
         }
     }
 
-    pub fn any_ref<'eval>(&self) -> &(dyn __AnyValueDyn<'eval> + 'eval) {
+    pub fn any_ref<'eval>(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             CopyableValue::I32(value) => value,
             CopyableValue::F32(value) => value,
@@ -141,7 +141,7 @@ impl CopyableValue {
         }
     }
 
-    pub fn any_mut<'eval>(&mut self) -> &mut (dyn __AnyValueDyn<'eval> + 'eval) {
+    pub fn any_mut<'eval>(&mut self) -> &mut (dyn AnyValueDyn<'eval> + 'eval) {
         match self {
             CopyableValue::I32(value) => value,
             CopyableValue::F32(value) => value,

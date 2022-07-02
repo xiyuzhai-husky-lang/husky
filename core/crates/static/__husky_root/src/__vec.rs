@@ -5,7 +5,7 @@ mod lastx;
 use cyclic_slice::CyclicSlice;
 pub use cyclic_slice_::*;
 pub use firstx::*;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 pub use lastx::*;
 
@@ -200,7 +200,7 @@ pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
             i
         )));
     }
-    let any_ptr: *const (dyn __AnyValueDyn<'eval> + 'eval) = this_value[i].any_ref();
+    let any_ptr: *const (dyn AnyValueDyn<'eval> + 'eval) = this_value[i].any_ref();
     Ok(match values[0] {
         __TempValue::EvalRef(_) => __TempValue::EvalRef(EvalRef(unsafe { &*any_ptr })),
         __TempValue::TempRefEval(_) => __TempValue::TempRefEval(unsafe { &*any_ptr }),

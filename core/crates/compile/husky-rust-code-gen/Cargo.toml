@@ -18,7 +18,7 @@ word = { path = "../../syntax/word", version = "0.0.0" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics", version = "0.0.0" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics", version = "0.0.0" }
-husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
+husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 husky-compile-dir = { path = "../husky-compile-dir", version = "0.0.0" }
 husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }

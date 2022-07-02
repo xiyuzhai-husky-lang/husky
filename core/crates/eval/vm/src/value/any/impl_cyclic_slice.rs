@@ -12,12 +12,12 @@ where
     }
 }
 
-impl<'eval, 'a: 'eval, 'b: 'eval, T: __AnyValue<'a>> __AnyValue<'eval> for CyclicSlice<'b, T> {
+impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSlice<'b, T> {
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::Value::Array(self.iter().map(|elem| elem.to_json_value()).collect())
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

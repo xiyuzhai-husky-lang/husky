@@ -135,7 +135,7 @@ impl BinaryGrid28 {
         }
     }
 
-    pub fn visualize<'temp, 'eval>(value: &(dyn __AnyValueDyn<'eval> + 'temp)) -> VisualData {
+    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
         let value: &BinaryGrid28 = value.downcast_ref();
         VisualData::BinaryGrid28 {
             padded_rows: value.padded_rows.clone(),
@@ -168,7 +168,7 @@ impl HasStaticTypeInfo for BinaryGrid28 {
     }
 }
 
-impl<'eval> __AnyValue<'eval> for BinaryGrid28 {
+impl<'eval> AnyValue<'eval> for BinaryGrid28 {
     // fn snapshot(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
     //     Arc::new(self.clone())
     // }
@@ -181,7 +181,7 @@ impl<'eval> __AnyValue<'eval> for BinaryGrid28 {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

@@ -2,7 +2,7 @@ use crate::*;
 use check_utils::{should, should_eq};
 use dev_utils::dev_src;
 use entity_kind::{MemberKind, TyKind};
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use husky_file::{FileError, FileErrorKind, FilePtr};
 use husky_text::TextRange;
 use path_utils::*;

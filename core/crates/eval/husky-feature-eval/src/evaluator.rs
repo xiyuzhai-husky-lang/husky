@@ -12,7 +12,7 @@ pub use sheet::*;
 
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
-use vm::{EvalValue, __AnyValueDyn};
+use vm::{AnyValueDyn, EvalValue};
 use vm::{EvalValueResult, __EvalResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {

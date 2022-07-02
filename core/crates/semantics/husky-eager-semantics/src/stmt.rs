@@ -9,7 +9,7 @@ pub use proc::*;
 use crate::expr::EagerExprParser;
 use crate::*;
 use husky_ast::*;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_text::TextRange;
 use print_utils::*;

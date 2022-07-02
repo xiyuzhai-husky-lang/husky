@@ -11,7 +11,7 @@ use bin_main_rs_content::*;
 use cargo_toml_content::*;
 use contains_eval_ref::*;
 use defn_head::*;
-use husky_entity_route_syntax::{EntityRouteKind, EntityRoutePtr};
+use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_file::FilePtr;
 use husky_liason_semantics::*;
 use husky_package_semantics::PackageQueryGroup;

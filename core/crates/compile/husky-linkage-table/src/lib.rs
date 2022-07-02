@@ -7,7 +7,7 @@ use static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
 pub use table::*;
 
 use check_utils::*;
-use husky_entity_route_syntax::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
+use husky_entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
 use map_collect::MapCollect;
 use print_utils::p;

@@ -5,7 +5,7 @@ use husky_trace_protocol::*;
 use infer_total::InferQueryGroup;
 use static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
-use vm::{InterpreterQueryGroup, __AnyValueDyn};
+use vm::{AnyValueDyn, InterpreterQueryGroup};
 
 impl fmt::Debug for HuskyCompileTime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
@@ -56,7 +56,7 @@ impl LiveFiles for HuskyCompileTime {
 impl FileQueryGroup for HuskyCompileTime {}
 
 impl AllocateUniqueScope for HuskyCompileTime {
-    fn scope_unique_allocator(&self) -> &husky_entity_route_syntax::EntityRouteInterner {
+    fn scope_unique_allocator(&self) -> &husky_entity_route::EntityRouteInterner {
         &self.scope_unique_allocator
     }
 }

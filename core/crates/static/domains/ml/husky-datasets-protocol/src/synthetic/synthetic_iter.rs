@@ -3,7 +3,7 @@ use std::{
     time::{SystemTime, UNIX_EPOCH},
 };
 
-use vm::__AnyValueDyn;
+use vm::AnyValueDyn;
 
 use super::*;
 

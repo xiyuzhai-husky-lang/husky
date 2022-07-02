@@ -1,5 +1,5 @@
 use cyclic_slice::CyclicSlice;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use print_utils::{msg_once, p};
 use serde::Serialize;
 use word::{CustomIdentifier, IdentPairDict};
@@ -28,12 +28,12 @@ impl<'eval> HasStaticTypeInfo for VirtualCyclicSlice<'eval> {
     }
 }
 
-impl<'eval, 'eval0: 'eval> __AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
+impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

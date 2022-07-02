@@ -2,7 +2,7 @@ use std::iter::zip;
 
 use husky_ast::*;
 
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRange;
 use infer_error::*;

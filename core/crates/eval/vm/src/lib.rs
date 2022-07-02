@@ -22,7 +22,7 @@ pub use entity::*;
 pub use error::*;
 pub use frame::{FrameKind, LoopFrameData};
 pub use history::{History, HistoryEntry};
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 pub use instruction::*;
 pub use interpreter::{Interpreter, InterpreterQueryGroup};
 pub use linkage::*;

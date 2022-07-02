@@ -1,4 +1,4 @@
-use husky_entity_route_syntax::{EntityKind, SpatialArgument};
+use husky_entity_route::{EntityKind, SpatialArgument};
 use thin_vec::{thin_vec, ThinVec};
 use vm::*;
 use word::RootIdentifier;

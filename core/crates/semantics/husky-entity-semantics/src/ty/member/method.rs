@@ -1,5 +1,5 @@
 use avec::Avec;
-use husky_entity_route_syntax::EntityRouteKind;
+use husky_entity_route::EntityRouteKind;
 use infer_decl::MethodKind;
 use static_defn::MethodStaticDefnKind;
 

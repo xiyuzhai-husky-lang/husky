@@ -1,5 +1,5 @@
 use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
-use husky_entity_route_syntax::{EntityKind, EntityRouteKind, EntityRoutePtr};
+use husky_entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};

@@ -12,6 +12,34 @@ impl<'eval> ConcaveComponent<'eval> {
     }
 }
 
+impl<'eval> __HasStaticTypeInfo for ConcaveComponent<'eval> {
+    type StaticSelf = ConcaveComponent<'static>;
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+}
+
+impl<'eval> __AnyValue<'eval> for ConcaveComponent<'eval> {
+    fn print_short(&self) -> String {
+        todo!()
+    }
+
+    fn to_json_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    where
+        'eval: 'short {
+        todo!()
+    }
+
+    fn ty(&self) -> __EntityRoutePtr {
+        todo!()
+    }
+}
+
 pub(crate) fn find_concave_components<'eval>(line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>) -> Vec<ConcaveComponent<'eval>> {
     let mut concave_components = Vec::<ConcaveComponent>::__call__();
     let L = line_segment_sketch.line_segments.ilen();

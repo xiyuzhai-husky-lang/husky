@@ -1,7 +1,7 @@
 use crate::*;
 use entity_kind::FieldKind;
 use husky_atom::AtomContext;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use instantiate::Instantiator;
 use vec_map::VecMapEntry;
 use word::CustomIdentifier;

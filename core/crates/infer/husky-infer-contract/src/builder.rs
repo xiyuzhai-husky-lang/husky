@@ -2,7 +2,7 @@ mod eager;
 mod lazy;
 
 use husky_ast::{AstIter, AstVariant, FieldAstKind};
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use infer_decl::DeclQueryGroup;

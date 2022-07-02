@@ -8,7 +8,7 @@ pub use sheet::*;
 use check_utils::*;
 use defn_head::*;
 use husky_ast::*;
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use husky_file::FilePtr;
 use infer_decl::{DeclQueryGroup, FunctionDecl, MethodDecl, TyDecl};

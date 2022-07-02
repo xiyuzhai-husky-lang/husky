@@ -1,7 +1,7 @@
 use super::*;
 
 pub enum RefValue<'temp, 'eval: 'temp> {
-    Thin(&'temp dyn __AnyValueDyn<'eval>),
+    Thin(&'temp dyn AnyValueDyn<'eval>),
     Slice {
         slice: &'temp [()],
         void_caster: VoidCaster<'eval>,
@@ -13,4 +13,4 @@ pub enum RefValue<'temp, 'eval: 'temp> {
     },
 }
 
-pub type VoidCaster<'eval> = for<'a> unsafe fn(&'a ()) -> &'a dyn __AnyValueDyn<'eval>;
+pub type VoidCaster<'eval> = for<'a> unsafe fn(&'a ()) -> &'a dyn AnyValueDyn<'eval>;

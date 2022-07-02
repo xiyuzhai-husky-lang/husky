@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
 use husky_lazy_semantics::LazyStmt;

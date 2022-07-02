@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_route_syntax::{EntityKind, RangedEntityRoute};
+use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_text::*;
 use husky_token::SpecialToken;
 use vm::{

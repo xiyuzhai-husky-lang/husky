@@ -21,7 +21,7 @@ use husky_atom::{
     context::{AtomContextKind, Symbol, SymbolKind},
     AtomContext, AtomContextStandalone,
 };
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use husky_text::*;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};

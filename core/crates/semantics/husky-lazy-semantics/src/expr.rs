@@ -11,7 +11,7 @@ use infer_qualifier::LazyValueQualifiedTy;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
-use husky_entity_route_syntax::{EntityRoute, EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRoute, EntityRoutePtr, RangedEntityRoute};
 use husky_text::{RangedCustomIdentifier, TextRange};
 use vm::*;
 use word::{CustomIdentifier, Identifier};

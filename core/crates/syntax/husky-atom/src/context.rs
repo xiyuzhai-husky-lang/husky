@@ -7,7 +7,7 @@ pub use symbol::*;
 use super::*;
 use defn_head::{GenericPlaceholderVariant, Parameter, SpatialParameter};
 use entity_kind::TyKind;
-use husky_entity_route_syntax::{EntityRouteKind, *};
+use husky_entity_route::{EntityRouteKind, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
 use husky_file::FilePtr;
 use husky_text::*;

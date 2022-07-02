@@ -11,6 +11,34 @@ impl ConnectedComponent {
     }
 }
 
+impl __HasStaticTypeInfo for ConnectedComponent {
+    type StaticSelf = ConnectedComponent;
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+}
+
+impl<'eval> __AnyValue<'eval> for ConnectedComponent {
+    fn print_short(&self) -> String {
+        todo!()
+    }
+
+    fn to_json_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    where
+        'eval: 'short {
+        todo!()
+    }
+
+    fn ty(&self) -> __EntityRoutePtr {
+        todo!()
+    }
+}
+
 pub(crate) fn horizontal_extend(a: u32, x: u32) -> u32 {
     let mut y = a & (x | (x << 1) | (x >> 1));
     let mut z = a & (y | (y << 1) | (y >> 1));

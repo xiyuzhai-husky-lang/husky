@@ -1,5 +1,5 @@
 use husky_ast::{CasePattern, CasePatternVariant};
-use husky_entity_route_syntax::EntityRouteKind;
+use husky_entity_route::EntityRouteKind;
 use print_utils::emsg_once;
 use semantics_error::*;
 use vec_map::{VecMap, VecPairMap};

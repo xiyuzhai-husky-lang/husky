@@ -19,7 +19,7 @@ use crate::{
 };
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use husky_atom::context::{Symbol, SymbolKind};
-use husky_entity_route_syntax::EntityRouteKind;
+use husky_entity_route::EntityRouteKind;
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_file::FilePtr;
 use husky_text::TextRanged;

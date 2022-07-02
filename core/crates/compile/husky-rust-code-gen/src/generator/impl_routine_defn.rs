@@ -1,6 +1,6 @@
 use fold::Indent;
 use husky_eager_semantics::{FuncStmt, ProcStmt};
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use word::CustomIdentifier;
 
 use super::{impl_entity_route::EntityRouteRole, *};

@@ -1,6 +1,6 @@
 use super::*;
 use avec::Avec;
-use husky_entity_route_syntax::RangedEntityRoute;
+use husky_entity_route::RangedEntityRoute;
 use vm::InstructionSheet;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
