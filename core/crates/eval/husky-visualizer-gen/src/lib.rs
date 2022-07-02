@@ -24,7 +24,7 @@ pub struct Visualizer {
 #[derive(Clone)]
 pub enum VisualizerVariant {
     Compiled {
-        call: for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData,
+        call: for<'temp, 'eval> fn(&(dyn __AnyValueDyn<'eval> + 'temp)) -> VisualData,
     },
     Vec {
         ty: EntityRoutePtr,
@@ -58,7 +58,7 @@ impl Visualizer {
     // fn visualize<'a, 'temp, 'eval>(
     //     &self,
     //     db: &dyn VisualizerQueryGroup,
-    //     value: &(dyn AnyValueDyn<'eval> + 'temp),
+    //     value: &(dyn __AnyValueDyn<'eval> + 'temp),
     //     verbose: bool,
     // ) -> VisualData {
     //     match self.variant {

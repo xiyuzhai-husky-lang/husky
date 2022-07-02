@@ -17,8 +17,19 @@ pub use clone::*;
 pub use domains::*;
 pub use static_defn::__StaticLinkageKey;
 
-use dev_utils::StaticDevSource;
-use dev_utils::{dev_src, static_dev_src};
+pub mod __init_utils {
+    pub use dev_utils::__StaticDevSource;
+    pub use dev_utils::__static_dev_src;
+    pub use vm::__AnyValueDyn;
+    pub use vm::__Linkage;
+    pub use vm::__MemberLinkage;
+    pub use vm::__SpecificRoutineFp;
+    pub use vm::field_copy_fp;
+    pub use vm::field_linkage;
+}
+
+use dev_utils::__StaticDevSource;
+use dev_utils::{__static_dev_src, dev_src};
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::{primitive_visualizer, StaticVisualTy, StaticVisualizer};
@@ -76,7 +87,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visualizer: &primitive_visualizer(StaticVisualTy::Void),
         opt_type_call: None,
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -92,7 +103,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visualizer: &primitive_visualizer(StaticVisualTy::B64),
         opt_type_call: None,
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -108,5 +119,5 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visualizer: &primitive_visualizer(StaticVisualTy::Bool),
         opt_type_call: None,
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };

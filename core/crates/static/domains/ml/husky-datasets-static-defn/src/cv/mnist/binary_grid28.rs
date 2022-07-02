@@ -12,12 +12,12 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         base_route: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         spatial_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
-            dev_src: static_dev_src!(),
+            dev_src: __static_dev_src!(),
             trai: "std::ops::Index<i32>",
             member_impls: &[
                 associated_type_impl!("Output", "b32"),
                 EntityStaticDefn {
-                    dev_src: dev_utils::static_dev_src!(),
+                    dev_src: dev_utils::__static_dev_src!(),
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
@@ -33,8 +33,8 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(Linkage::Member(&MemberLinkage {
-                            copy_access: SpecificRoutineFp(|values| -> EvalResult<TempValue> {
+                        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+                            copy_access: __SpecificRoutineFp(|values| -> EvalResult<TempValue> {
                                 let this_value: &BinaryGrid28 = values[0].downcast_ref();
                                 let index_value: usize = values[1]
                                     .take_copyable()
@@ -48,16 +48,16 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                         message: "todo".into(),
                                     })
                             }),
-                            eval_ref_access: SpecificRoutineFp(|values| -> EvalResult<TempValue> {
-                                todo!()
-                            }),
-                            temp_ref_access: SpecificRoutineFp(|values| -> EvalResult<TempValue> {
-                                todo!()
-                            }),
-                            move_access: SpecificRoutineFp(|_| todo!()),
+                            eval_ref_access: __SpecificRoutineFp(
+                                |values| -> EvalResult<TempValue> { todo!() },
+                            ),
+                            temp_ref_access: __SpecificRoutineFp(
+                                |values| -> EvalResult<TempValue> { todo!() },
+                            ),
+                            move_access: __SpecificRoutineFp(|_| todo!()),
                             temp_mut_access: index_temp_mut_fp!(BinaryGrid28),
                             nargs: 2,
-                            dev_src: static_dev_src!(),
+                            dev_src: __static_dev_src!(),
                         })),
                     },
                 },
@@ -74,7 +74,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         },
         opt_type_call: Some(&BINARY_GRID28_TYPE_CALL_DEFN),
     },
-    dev_src: dev_utils::static_dev_src!(),
+    dev_src: dev_utils::__static_dev_src!(),
 };
 
 pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -85,7 +85,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
-        linkage: routine_linkage!(
+        __Linkage: routine_linkage!(
             |_values| {
                 Ok(TempValue::OwnedEval(OwnedValue::new(
                     BinaryGrid28::default(),
@@ -95,7 +95,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         )
         .into(),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 #[derive(Default, Clone, PartialEq, Eq)]
@@ -133,7 +133,7 @@ impl BinaryGrid28 {
         }
     }
 
-    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
+    pub fn visualize<'temp, 'eval>(value: &(dyn __AnyValueDyn<'eval> + 'temp)) -> VisualData {
         let value: &BinaryGrid28 = value.downcast_ref();
         VisualData::BinaryGrid28 {
             padded_rows: value.padded_rows.clone(),
@@ -166,8 +166,8 @@ impl HasStaticTypeInfo for BinaryGrid28 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for BinaryGrid28 {
-    // fn snapshot(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+impl<'eval> __AnyValue<'eval> for BinaryGrid28 {
+    // fn snapshot(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
     //     Arc::new(self.clone())
     // }
 
@@ -179,7 +179,7 @@ impl<'eval> AnyValue<'eval> for BinaryGrid28 {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {

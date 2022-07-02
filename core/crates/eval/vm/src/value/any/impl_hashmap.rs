@@ -12,11 +12,11 @@ where
     }
 }
 
-impl<'eval, 'a: 'eval, K: AnyValue<'a>, V: AnyValue<'a>> AnyValue<'eval> for HashMap<K, V>
+impl<'eval, 'a: 'eval, K: __AnyValue<'a>, V: __AnyValue<'a>> __AnyValue<'eval> for HashMap<K, V>
 where
     K: std::cmp::Eq + std::hash::Hash,
 {
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -29,7 +29,7 @@ where
         // serde_json::value::Value::Array(self.iter().map(|elem| elem.to_json_value()).collect())
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {

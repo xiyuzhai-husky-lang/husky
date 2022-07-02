@@ -12,8 +12,8 @@ pub use sheet::*;
 
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
-use vm::{AnyValueDyn, EvalValue};
 use vm::{EvalResult, EvalValueResult};
+use vm::{EvalValue, __AnyValueDyn};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,

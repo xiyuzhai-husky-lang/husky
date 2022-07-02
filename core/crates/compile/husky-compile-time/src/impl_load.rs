@@ -1,5 +1,5 @@
 use static_defn::__StaticLinkageKey;
-use vm::Linkage;
+use vm::__Linkage;
 
 use crate::*;
 use std::{fs, path::Path};
@@ -34,7 +34,7 @@ impl HuskyCompileTime {
         self.load_dir(&module_dir);
     }
 
-    pub fn load_linkages(&self, linkages: &'static [(__StaticLinkageKey, Linkage)]) {
+    pub fn load_linkages(&self, linkages: &'static [(__StaticLinkageKey, __Linkage)]) {
         todo!()
     }
 }

@@ -14,19 +14,19 @@ use print_utils::p;
 use std::collections::HashMap;
 use sync_utils::ARwLock;
 use thin_vec::{thin_vec, ThinVec};
-use vm::{Binding, EntityUid, Linkage};
+use vm::{Binding, EntityUid, __Linkage};
 use vm::{EvalResult, EvalValue, OwnedValue, SpecificRoutineLinkage, TempValue};
 use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup {
     fn husky_linkage_table(&self) -> &LinkageSourceTable;
 
-    fn element_access_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> Linkage {
-        if let Some(linkage) = self
+    fn element_access_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {
+        if let Some(__Linkage) = self
             .husky_linkage_table()
             .element_access(opd_tys.map(|ty| self.entity_uid(*ty)))
         {
-            return linkage;
+            return __Linkage;
         }
         let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
         let std_ops_index_trai = self.make_route(
@@ -41,7 +41,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                         CallFormSource::Func { stmts } => todo!(),
                         CallFormSource::Proc { stmts } => todo!(),
                         CallFormSource::Lazy { stmts } => todo!(),
-                        CallFormSource::Static(linkage) => *linkage,
+                        CallFormSource::Static(__Linkage) => *__Linkage,
                     }
                 } else {
                     todo!()
@@ -60,7 +60,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         field_ident: CustomIdentifier,
         field_binding: Binding,
     ) -> Option<SpecificRoutineLinkage> {
-        if let Some(linkage) = self
+        if let Some(__Linkage) = self
             .husky_linkage_table()
             .struct_field_access_linkage_source(
                 self.entity_uid(this_ty),
@@ -68,7 +68,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                 field_binding,
             )
         {
-            return Some(linkage.bind(field_binding));
+            return Some(__Linkage.bind(field_binding));
         }
         let this_ty_defn = self.entity_defn(this_ty).unwrap();
         let ty_field_defn = this_ty_defn.field(field_ident);
@@ -78,17 +78,17 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
                 ref field_variant,
                 liason,
                 opt_linkage,
-            } => opt_linkage.map(|linkage| linkage.bind(field_binding)),
+            } => opt_linkage.map(|__Linkage| __Linkage.bind(field_binding)),
             _ => panic!(""),
         }
     }
 
-    fn method_linkage(&self, method_route: EntityRoutePtr) -> Option<Linkage> {
-        if let Some(linkage) = self
+    fn method_linkage(&self, method_route: EntityRoutePtr) -> Option<__Linkage> {
+        if let Some(__Linkage) = self
             .husky_linkage_table()
             .routine_linkage(self.entity_uid(method_route))
         {
-            Some(linkage)
+            Some(__Linkage)
         } else {
             let method_defn = self.entity_defn(method_route).unwrap();
             match method_defn.variant {
@@ -162,10 +162,10 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         }
     }
 
-    fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<Linkage> {
+    fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<__Linkage> {
         match self.entity_locus(routine).unwrap() {
             EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
-                EntityStaticDefnVariant::Function { linkage, .. } => Some(linkage),
+                EntityStaticDefnVariant::Function { __Linkage, .. } => Some(__Linkage),
                 _ => todo!(),
             },
             EntityLocus::WithinBuiltinModule => todo!(),
@@ -179,16 +179,16 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         }
     }
 
-    fn type_call_linkage(&self, ty: EntityRoutePtr) -> Option<Linkage> {
-        if let Some(linkage) = self
+    fn type_call_linkage(&self, ty: EntityRoutePtr) -> Option<__Linkage> {
+        if let Some(__Linkage) = self
             .husky_linkage_table()
             .type_call_linkage(self.entity_uid(ty))
         {
-            return Some(match linkage {
-                Linkage::Member(_) => todo!(),
-                Linkage::SpecificTransfer(_) => todo!(),
-                Linkage::GenericTransfer(_) => todo!(),
-                Linkage::Model(_) => todo!(),
+            return Some(match __Linkage {
+                __Linkage::Member(_) => todo!(),
+                __Linkage::SpecificTransfer(_) => todo!(),
+                __Linkage::GenericTransfer(_) => todo!(),
+                __Linkage::Model(_) => todo!(),
             });
         }
         let type_defn = self.entity_defn(ty).unwrap();

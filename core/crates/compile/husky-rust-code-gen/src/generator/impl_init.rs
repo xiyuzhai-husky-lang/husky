@@ -7,6 +7,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.write(
             r#"
 use crate::*;
+use __husky_root::__init_utils::*;
 
 pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCompileTime) {
 "#,
@@ -124,7 +125,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
 "#,
                         entity_route
                     ));
-                    self.write("        Linkage::SpecificTransfer(todo!()),");
+                    self.write("        __Linkage::SpecificTransfer(todo!()),");
                     self.write("\n    ),");
                 }
                 for ty_member in members.iter() {
@@ -139,25 +140,18 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                             | FieldDefnVariant::StructDefault { .. }
                             | FieldDefnVariant::StructDerivedEager { .. } => {
                                 self.write("\n    (\n");
+                                let field_ident = ty_member.ident.as_str();
                                 self.write(&format!(
                                     r#"        __StaticLinkageKey::StructFieldAccess {{
-            this_ty: "{}",
-            field_ident: "{}",
-        }},"#,
-                                    entity_route,
-                                    ty_member.ident.as_str()
+            this_ty: "{entity_route}",
+            field_ident: "{field_ident}",
+        }},
+        field_linkage!("#,
                                 ));
-                                self.write(
-                                    r#"
-            Linkage::MemberAccess {
-                copy_access: todo!(),
-                eval_ref_access: todo!(),
-                temp_ref_access: todo!(),
-                temp_mut_access: todo!(),
-                move_access: todo!(),
-            },"#,
-                                );
-                                self.write("\n    ),");
+                                self.gen_entity_route(entity_route, EntityRouteRole::Decl);
+                                self.write(", ");
+                                self.write(field_ident);
+                                self.write(")\n    ),");
                             }
                             FieldDefnVariant::StructDerivedLazy { defn_repr } => (),
                             FieldDefnVariant::RecordOriginal

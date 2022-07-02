@@ -6,7 +6,7 @@ use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
-use vm::Linkage;
+use vm::__Linkage;
 use vm::{Binding, EvalResult, ModelLinkage};
 
 impl<'a> FeatureExprBuilder<'a> {
@@ -52,7 +52,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 let model_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
                 let internal = match model_defn.variant {
                     EntityDefnVariant::Function {
-                        source: CallFormSource::Static(Linkage::Model(ModelLinkage { train, .. })),
+                        source: CallFormSource::Static(__Linkage::Model(ModelLinkage { train, .. })),
                         ..
                     } => train(&opds),
                     _ => todo!(),
@@ -309,7 +309,7 @@ impl<'a> FeatureExprBuilder<'a> {
             opds: opds.map(|opd| opd.feature),
         });
         let feature_expr_kind = FeatureLazyExprVariant::ElementAccess {
-            linkage: self
+            __Linkage: self
                 .db
                 .compile_time()
                 .element_access_linkage(opds.map(|opd| opd.expr.ty()))

@@ -10,7 +10,7 @@ pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "real1d",
     items: &[DATASET1_MODULE_DEFN, DATASET2_SCOPE_DATA],
     variant: EntityStaticDefnVariant::Module,
-    dev_src: dev_utils::static_dev_src!(),
+    dev_src: dev_utils::__static_dev_src!(),
 };
 
 pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
@@ -21,10 +21,10 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         parameters: &[],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: routine_linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset1()))), 0)
+        __Linkage: routine_linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset1()))), 0)
             .into(),
     },
-    dev_src: dev_utils::static_dev_src!(),
+    dev_src: dev_utils::__static_dev_src!(),
 };
 
 pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
@@ -35,10 +35,10 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         parameters: &[],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: routine_linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset2()))), 0)
+        __Linkage: routine_linkage!(|_| Ok(TempValue::OwnedEval(OwnedValue::new(dataset2()))), 0)
             .into(),
     },
-    dev_src: dev_utils::static_dev_src!(),
+    dev_src: dev_utils::__static_dev_src!(),
 };
 
 pub fn gen_sample1<'eval>(seed: u64, sample_id: SampleId) -> LabeledData<'eval> {

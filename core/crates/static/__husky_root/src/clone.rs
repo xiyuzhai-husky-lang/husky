@@ -14,15 +14,15 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                 output_ty: "This",
                 spatial_parameters: &[],
                 method_static_defn_kind: MethodStaticDefnKind::TraitMethod,
-                opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+                opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
                     |values| Ok(values[0].clone_into_stack()),
                     1
                 ))),
                 output_liason: OutputLiason::Transfer,
             },
-            dev_src: static_dev_src!(),
+            dev_src: __static_dev_src!(),
         }],
         spatial_parameters: &[],
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };

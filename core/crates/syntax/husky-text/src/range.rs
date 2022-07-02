@@ -6,7 +6,7 @@ pub use bind_into::*;
 use test_utils::TestDisplay;
 
 use crate::*;
-use dev_utils::StaticDevSource;
+use dev_utils::__StaticDevSource;
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 use word::CustomIdentifier;
@@ -29,8 +29,8 @@ impl TextRange {
     }
 }
 
-impl From<StaticDevSource> for TextRange {
-    fn from(dev_src: StaticDevSource) -> Self {
+impl From<__StaticDevSource> for TextRange {
+    fn from(dev_src: __StaticDevSource) -> Self {
         ((dev_src.line, 0)..(dev_src.line, 10)).into()
     }
 }

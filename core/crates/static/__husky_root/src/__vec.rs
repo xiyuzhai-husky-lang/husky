@@ -78,7 +78,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             member_impls: &[
                 associated_type_impl!("Output", "E"),
                 EntityStaticDefn {
-                    dev_src: static_dev_src!(),
+                    dev_src: __static_dev_src!(),
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
@@ -90,21 +90,25 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(Linkage::Member(&MemberLinkage {
-                            copy_access: SpecificRoutineFp(generic_vec_element_copy_access),
-                            eval_ref_access: SpecificRoutineFp(generic_vec_element_eval_ref_access),
-                            temp_ref_access: SpecificRoutineFp(generic_vec_element_temp_ref_access),
-                            move_access: SpecificRoutineFp(generic_vec_element_move_access),
-                            temp_mut_access: SpecificRoutineFp(
+                        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+                            copy_access: __SpecificRoutineFp(generic_vec_element_copy_access),
+                            eval_ref_access: __SpecificRoutineFp(
+                                generic_vec_element_eval_ref_access,
+                            ),
+                            temp_ref_access: __SpecificRoutineFp(
+                                generic_vec_element_temp_ref_access,
+                            ),
+                            move_access: __SpecificRoutineFp(generic_vec_element_move_access),
+                            temp_mut_access: __SpecificRoutineFp(
                                 generic_vec_element_borrow_mut_access,
                             ),
                             nargs: 2,
-                            dev_src: static_dev_src!(),
+                            dev_src: __static_dev_src!(),
                         })),
                     },
                 },
             ],
-            dev_src: static_dev_src!(),
+            dev_src: __static_dev_src!(),
         }],
         ty_members: &[
             &VEC_LEN,
@@ -122,7 +126,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         },
         opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
     },
-    dev_src: dev_utils::static_dev_src!(),
+    dev_src: dev_utils::__static_dev_src!(),
 };
 
 static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -133,9 +137,9 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
-        linkage: generic_routine_linkage!(generic_vec_type_call, 0).into(),
+        __Linkage: generic_routine_linkage!(generic_vec_type_call, 0).into(),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub(crate) fn generic_vec_type_call<'temp, 'eval>(
@@ -196,7 +200,7 @@ pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
             i
         )));
     }
-    let any_ptr: *const (dyn AnyValueDyn<'eval> + 'eval) = this_value[i].any_ref();
+    let any_ptr: *const (dyn __AnyValueDyn<'eval> + 'eval) = this_value[i].any_ref();
     Ok(match values[0] {
         TempValue::EvalRef(_) => TempValue::EvalRef(EvalRef(unsafe { &*any_ptr })),
         TempValue::TempRefEval(_) => TempValue::TempRefEval(unsafe { &*any_ptr }),
@@ -246,13 +250,13 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "i32",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             generic_vec_len,
             1
         ))),
         output_liason: OutputLiason::Transfer,
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 fn generic_vec_len<'temp, 'eval>(
@@ -276,13 +280,13 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
         output_ty: "void",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             generic_vec_push,
             2
         ))),
         output_liason: OutputLiason::Transfer,
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
@@ -294,11 +298,11 @@ pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             generic_vec_pop,
             1
         ))),
         output_liason: OutputLiason::Transfer,
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };

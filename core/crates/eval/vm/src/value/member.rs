@@ -6,7 +6,7 @@ use crate::*;
 pub enum MemberValue<'eval> {
     Copyable(CopyableValue),
     Boxed(OwnedValue<'eval, 'eval>),
-    GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    GlobalPure(Arc<dyn __AnyValueDyn<'eval> + 'eval>),
     EvalRef(EvalRef<'eval>),
     Moved,
 }
@@ -36,7 +36,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn any_ref<'a>(&'a self) -> &'a (dyn AnyValueDyn<'eval> + 'eval) {
+    pub fn any_ref<'a>(&'a self) -> &'a (dyn __AnyValueDyn<'eval> + 'eval) {
         match self {
             MemberValue::Copyable(value) => value.any_ref(),
             MemberValue::Boxed(value) => value.any_ref(),
@@ -46,7 +46,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval> + 'eval) {
+    pub fn any_ptr(&self) -> *const (dyn __AnyValueDyn<'eval> + 'eval) {
         self.any_ref()
     }
 
@@ -91,7 +91,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
     }
 
     pub fn bind_mut<'a>(&'a mut self, owner: VMStackIdx) -> TempValue<'temp, 'eval> {
-        let value_mut: *mut dyn AnyValueDyn<'eval> = match self {
+        let value_mut: *mut dyn __AnyValueDyn<'eval> = match self {
             MemberValue::Copyable(value) => value.any_mut(),
             MemberValue::Boxed(value) => value.any_mut_ptr(),
             _ => todo!(),
@@ -124,7 +124,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
     }
 }
 
-// impl<'eval, 'a: 'eval> AnyValue<'eval> for MemberValue<'a> {
+// impl<'eval, 'a: 'eval> __AnyValue<'eval> for MemberValue<'a> {
 //     fn static_type_id() -> StaticTypeId {
 //         StaticTypeId::AnyMemberValue
 //     }
@@ -137,7 +137,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
 //         self.any_ref().to_json_value_dyn()
 //     }
 
-//     fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+//     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
 //     where
 //         'eval: 'short,
 //     {

@@ -3,10 +3,10 @@ use crate::*;
 #[derive(Clone)]
 pub enum StackValueSnapshot<'eval> {
     Copyable(CopyableValue),
-    EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    EvalPure(Arc<dyn __AnyValueDyn<'eval> + 'eval>),
     EvalRef(EvalRef<'eval>),
     Owned(OwnedValue<'eval, 'eval>),
-    FullyOwnedRef(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    FullyOwnedRef(Arc<dyn __AnyValueDyn<'eval> + 'eval>),
     RefMut {
         value: EvalValue<'eval>,
         owner: VMStackIdx,
@@ -15,7 +15,7 @@ pub enum StackValueSnapshot<'eval> {
 }
 
 impl<'eval> StackValueSnapshot<'eval> {
-    pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
+    pub fn any_ref(&self) -> &(dyn __AnyValueDyn<'eval> + 'eval) {
         match self {
             StackValueSnapshot::Copyable(value) => value.any_ref(),
             StackValueSnapshot::EvalPure(value) => &**value,

@@ -41,7 +41,7 @@ impl<'eval> HasStaticTypeInfo for VirtualVec<'eval> {
     }
 }
 
-impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualVec<'eval0> {
+impl<'eval, 'eval0: 'eval> __AnyValue<'eval> for VirtualVec<'eval0> {
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::Value::Array(
             self.iter()
@@ -50,7 +50,7 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualVec<'eval0> {
         )
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {

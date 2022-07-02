@@ -10,7 +10,7 @@ impl EntityDefnVariant {
                 field_kind,
                 liason,
                 ty,
-                linkage,
+                __Linkage,
             } => Self::TyField {
                 ty: symbol_context.parse_entity_route(ty).unwrap(),
                 liason,
@@ -22,7 +22,7 @@ impl EntityDefnVariant {
                     FieldKind::RecordOriginal => todo!(),
                     FieldKind::RecordDerived => todo!(),
                 },
-                opt_linkage: Some(linkage),
+                opt_linkage: Some(__Linkage),
             },
             _ => todo!(),
         }

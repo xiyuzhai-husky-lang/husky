@@ -4,13 +4,13 @@ use husky_entity_route_syntax::RangedEntityRoute;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::sync::Arc;
-use vm::{GenericRoutineLinkage, Linkage, SpecificRoutineLinkage};
+use vm::{GenericRoutineLinkage, SpecificRoutineLinkage, __Linkage};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TypeCallDefn {
     pub parameters: Arc<Vec<Parameter>>,
     pub output_ty: RangedEntityRoute,
-    pub opt_linkage: Option<Linkage>,
+    pub opt_linkage: Option<__Linkage>,
 }
 
 impl TypeCallDefn {
@@ -22,7 +22,7 @@ impl TypeCallDefn {
             EntityStaticDefnVariant::Function {
                 ref parameters,
                 output_ty,
-                linkage,
+                __Linkage,
                 ..
             } => TypeCallDefn {
                 parameters: Arc::new(
@@ -33,7 +33,7 @@ impl TypeCallDefn {
                     route: context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
-                opt_linkage: Some(linkage),
+                opt_linkage: Some(__Linkage),
             },
             _ => panic!(),
         })

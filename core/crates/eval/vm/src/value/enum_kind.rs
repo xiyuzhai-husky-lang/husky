@@ -28,8 +28,8 @@ impl HasStaticTypeInfo for EnumKindValue {
     }
 }
 
-impl<'eval> AnyValue<'eval> for EnumKindValue {
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+impl<'eval> __AnyValue<'eval> for EnumKindValue {
+    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -52,7 +52,7 @@ impl<'eval> AnyValue<'eval> for EnumKindValue {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {

@@ -3,11 +3,11 @@ pub mod utils;
 
 pub use function::*;
 
-use dev_utils::StaticDevSource;
+use dev_utils::__StaticDevSource;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualizer;
-use vm::{Linkage, SpecificRoutineLinkage};
+use vm::{SpecificRoutineLinkage, __Linkage};
 use word::RootIdentifier;
 
 #[derive(Debug, Clone, Copy)]
@@ -39,7 +39,7 @@ pub struct EntityStaticDefn {
     pub name: &'static str,
     pub items: &'static [&'static EntityStaticDefn],
     pub variant: EntityStaticDefnVariant,
-    pub dev_src: StaticDevSource,
+    pub dev_src: __StaticDevSource,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -49,7 +49,7 @@ pub enum EntityStaticDefnVariant {
         parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,
-        linkage: Linkage,
+        __Linkage: __Linkage,
     },
     Ty {
         base_route: &'static str,
@@ -71,7 +71,7 @@ pub enum EntityStaticDefnVariant {
         field_kind: FieldKind,
         liason: MemberLiason,
         ty: &'static str,
-        linkage: Linkage,
+        __Linkage: __Linkage,
     },
     Method {
         this_liason: ParameterLiason,
@@ -80,7 +80,7 @@ pub enum EntityStaticDefnVariant {
         output_liason: OutputLiason,
         spatial_parameters: &'static [StaticSpatialParameter],
         method_static_defn_kind: MethodStaticDefnKind,
-        opt_linkage: Option<Linkage>,
+        opt_linkage: Option<__Linkage>,
     },
     TraitAssociatedType {
         trai: &'static str,
@@ -95,8 +95,8 @@ pub enum EntityStaticDefnVariant {
 impl EntityStaticDefnVariant {
     pub fn entity_kind(&self) -> EntityKind {
         match self {
-            EntityStaticDefnVariant::Function { ref linkage, .. } => EntityKind::Function {
-                requires_lazy: linkage.requires_lazy(),
+            EntityStaticDefnVariant::Function { ref __Linkage, .. } => EntityKind::Function {
+                requires_lazy: __Linkage.requires_lazy(),
             },
             EntityStaticDefnVariant::Ty { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,
@@ -116,14 +116,14 @@ impl EntityStaticDefnVariant {
 pub struct StaticTraitImplDefn {
     pub trai: &'static str,
     pub member_impls: &'static [EntityStaticDefn],
-    pub dev_src: StaticDevSource,
+    pub dev_src: __StaticDevSource,
 }
 
 #[macro_export]
 macro_rules! associated_type_impl {
     ($name: expr, $ty: expr) => {
         EntityStaticDefn {
-            dev_src: dev_utils::static_dev_src!(),
+            dev_src: dev_utils::__static_dev_src!(),
             name: $name,
             items: &[],
             variant: EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: $ty },
