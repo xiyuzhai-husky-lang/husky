@@ -7,7 +7,7 @@ use word::CustomIdentifier;
 #[derive(Debug, Clone)]
 pub enum EvalValue<'eval> {
     Copyable(CopyableValue),
-    Owned(OwnedValue<'eval, 'eval>),
+    Owned(__OwnedValue<'eval, 'eval>),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     EvalRef(EvalRef<'eval>),
     Undefined,
@@ -86,7 +86,7 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn owned(self) -> __EvalResult<OwnedValue<'eval, 'eval>> {
+    pub fn owned(self) -> __EvalResult<__OwnedValue<'eval, 'eval>> {
         match self {
             EvalValue::Owned(value) => Ok(value),
             _ => todo!(),

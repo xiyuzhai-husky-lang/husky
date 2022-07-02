@@ -5,7 +5,7 @@ use crate::*;
 #[derive(Debug, Clone)]
 pub enum MemberValue<'eval> {
     Copyable(CopyableValue),
-    Boxed(OwnedValue<'eval, 'eval>),
+    Boxed(__OwnedValue<'eval, 'eval>),
     GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     EvalRef(EvalRef<'eval>),
     Moved,

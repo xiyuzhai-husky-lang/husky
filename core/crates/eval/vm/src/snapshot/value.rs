@@ -5,7 +5,7 @@ pub enum StackValueSnapshot<'eval> {
     Copyable(CopyableValue),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     EvalRef(EvalRef<'eval>),
-    Owned(OwnedValue<'eval, 'eval>),
+    Owned(__OwnedValue<'eval, 'eval>),
     FullyOwnedRef(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     RefMut {
         value: EvalValue<'eval>,

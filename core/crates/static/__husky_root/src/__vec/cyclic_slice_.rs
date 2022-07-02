@@ -39,7 +39,7 @@ fn generic_cyclic_slice<'temp, 'eval>(
     let this: &'eval VirtualVec<'eval> = values[0].downcast_eval_ref();
     let start = values[1].take_copyable().take_i32();
     let end = values[2].take_copyable().take_i32();
-    Ok(__TempValue::OwnedEval(OwnedValue::new(
+    Ok(__TempValue::OwnedEval(__OwnedValue::new(
         VirtualCyclicSlice {
             data: CyclicSlice::<'eval, MemberValue<'eval>> {
                 start,
