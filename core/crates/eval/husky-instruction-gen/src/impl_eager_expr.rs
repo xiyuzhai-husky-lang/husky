@@ -182,7 +182,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::RoutineCall(routine) => {
                 if let Some(linkage) = self.db.compile_time().routine_linkage(routine.route) {
                     match linkage {
-                        Linkage::MemberAccess { .. } => todo!(),
+                        Linkage::Member { .. } => todo!(),
                         Linkage::SpecificTransfer(linkage) => {
                             self.push_instruction(Instruction::new(
                                 InstructionVariant::CallSpecificRoutine { linkage },
@@ -303,13 +303,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                         linkage,
                                     }
                                 }
-                                Linkage::MemberAccess {
-                                    copy_access,
-                                    eval_ref_access,
-                                    temp_ref_access,
-                                    temp_mut_access,
-                                    move_access,
-                                } => todo!(),
+                                Linkage::Member(_) => todo!(),
                                 Linkage::Model(_) => todo!(),
                             }
                         } else {
@@ -363,7 +357,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) -> InstructionVariant {
         if let Some(linkage) = self.db.compile_time().method_linkage(method_route) {
             match linkage {
-                Linkage::MemberAccess { .. } => InstructionVariant::CallSpecificRoutine {
+                Linkage::Member { .. } => InstructionVariant::CallSpecificRoutine {
                     linkage: linkage.bind(output_binding),
                 },
                 Linkage::SpecificTransfer(linkage) => {

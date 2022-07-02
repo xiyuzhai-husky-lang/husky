@@ -6,7 +6,7 @@ pub struct DevSource {
     pub line: u32,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Serialize, Deserialize, Hash)]
 pub struct StaticDevSource {
     pub file: &'static str,
     pub line: u32,

@@ -90,22 +90,17 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(Linkage::MemberAccess {
-                            copy_access: routine_linkage!(generic_vec_element_copy_access, 2),
-                            eval_ref_access: routine_linkage!(
-                                generic_vec_element_eval_ref_access,
-                                2
-                            ),
-                            temp_ref_access: routine_linkage!(
-                                generic_vec_element_temp_ref_access,
-                                2
-                            ),
-                            move_access: routine_linkage!(generic_vec_element_move_access, 2),
-                            temp_mut_access: routine_linkage!(
+                        opt_linkage: Some(Linkage::Member(&MemberLinkage {
+                            copy_access: SpecificRoutineFp(generic_vec_element_copy_access),
+                            eval_ref_access: SpecificRoutineFp(generic_vec_element_eval_ref_access),
+                            temp_ref_access: SpecificRoutineFp(generic_vec_element_temp_ref_access),
+                            move_access: SpecificRoutineFp(generic_vec_element_move_access),
+                            temp_mut_access: SpecificRoutineFp(
                                 generic_vec_element_borrow_mut_access,
-                                2
                             ),
-                        }),
+                            nargs: 2,
+                            dev_src: static_dev_src!(),
+                        })),
                     },
                 },
             ],

@@ -1,8 +1,12 @@
+mod fp;
 mod generic_transfer;
+mod member;
 mod model;
 mod specific_routine;
 
+pub use fp::*;
 pub use generic_transfer::*;
+pub use member::*;
 pub use model::*;
 pub use specific_routine::*;
 
@@ -12,13 +16,7 @@ use dev_utils::{DevSource, StaticDevSource};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Linkage {
-    MemberAccess {
-        copy_access: SpecificRoutineLinkage,
-        eval_ref_access: SpecificRoutineLinkage,
-        temp_ref_access: SpecificRoutineLinkage,
-        temp_mut_access: SpecificRoutineLinkage,
-        move_access: SpecificRoutineLinkage,
-    },
+    Member(&'static MemberLinkage),
     SpecificTransfer(SpecificRoutineLinkage),
     GenericTransfer(GenericRoutineLinkage),
     Model(&'static ModelLinkage),
@@ -28,7 +26,7 @@ impl Linkage {
     pub fn requires_lazy(&self) -> bool {
         match self {
             Linkage::Model(_) => true,
-            Linkage::MemberAccess { .. } => false,
+            Linkage::Member { .. } => false,
             Linkage::SpecificTransfer(_) => false,
             Linkage::GenericTransfer(_) => false,
         }
@@ -36,19 +34,7 @@ impl Linkage {
 
     pub fn bind(&self, binding: Binding) -> SpecificRoutineLinkage {
         match self {
-            Linkage::MemberAccess {
-                copy_access,
-                eval_ref_access,
-                temp_ref_access,
-                temp_mut_access,
-                move_access,
-            } => match binding {
-                Binding::EvalRef => *eval_ref_access,
-                Binding::TempRef => *temp_ref_access,
-                Binding::TempRefMut => *temp_mut_access,
-                Binding::Move => *move_access,
-                Binding::Copy => *copy_access,
-            },
+            Linkage::Member(linkage) => linkage.bind(binding),
             Linkage::SpecificTransfer(linkage) => *linkage,
             Linkage::Model(_) => todo!(),
             Linkage::GenericTransfer(_) => todo!(),
@@ -59,7 +45,7 @@ impl Linkage {
         match opt_binding {
             Some(binding) => self.bind(binding),
             None => match self {
-                Linkage::MemberAccess { .. } => panic!(),
+                Linkage::Member { .. } => panic!(),
                 Linkage::SpecificTransfer(linkage) => *linkage,
                 Linkage::Model(_) => todo!(),
                 Linkage::GenericTransfer(_) => todo!(),

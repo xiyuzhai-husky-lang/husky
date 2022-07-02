@@ -7,20 +7,7 @@ pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDef
         field_kind: FieldKind::StructOriginal,
         liason: MemberLiason::Mutable,
         ty: "i32",
-        linkage: Linkage::MemberAccess {
-            copy_access: routine_linkage!(cyclic_slice_start_copy_access, 1),
-            eval_ref_access: routine_linkage!(|values| todo!(), 1),
-            temp_ref_access: routine_linkage!(|values| todo!(), 1),
-            temp_mut_access: routine_linkage!(|values| todo!(), 1),
-            move_access: routine_linkage!(|values| todo!(), 1),
-        },
+        linkage: field_linkage!(VirtualCyclicSlice<'eval>, start),
     },
     dev_src: dev_utils::static_dev_src!(),
 };
-
-fn cyclic_slice_start_copy_access<'temp, 'eval>(
-    values: &mut [TempValue<'temp, 'eval>],
-) -> EvalResult<TempValue<'temp, 'eval>> {
-    let cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_ref();
-    Ok(TempValue::Copyable(cyclic_slice.start.into()))
-}

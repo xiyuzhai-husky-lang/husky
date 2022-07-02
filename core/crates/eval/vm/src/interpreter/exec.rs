@@ -288,11 +288,11 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         output_ty: EntityRoutePtr,
     ) -> EvalValueResult<'eval> {
         match linkage {
-            Linkage::MemberAccess { .. } => todo!(),
+            Linkage::Member { .. } => todo!(),
             Linkage::SpecificTransfer(linkage) => {
                 let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                Ok((linkage.call)(&mut arguments)?.into_eval())
+                Ok((linkage.call.0)(&mut arguments)?.into_eval())
             }
             Linkage::GenericTransfer(linkage) => {
                 let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
