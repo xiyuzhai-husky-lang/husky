@@ -2,6 +2,7 @@ mod key;
 mod table;
 
 use husky_entity_syntax::EntityLocus;
+use husky_file::FilePtr;
 pub use key::*;
 use static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
 pub use table::*;
@@ -15,11 +16,13 @@ use std::collections::HashMap;
 use sync_utils::ARwLock;
 use thin_vec::{thin_vec, ThinVec};
 use vm::{Binding, EntityUid, __Linkage};
-use vm::{EvalValue, OwnedValue, SpecificRoutineLinkage, __EvalResult, __TempValue};
+use vm::{EvalValue, OwnedValue, __EvalResult, __SpecificRoutineLinkage, __TempValue};
 use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup {
-    fn husky_linkage_table(&self) -> &LinkageSourceTable;
+    fn husky_linkage_table(&self) -> &LinkageTable;
+
+    fn opt_package_main(&self) -> Option<FilePtr>;
 
     fn element_access_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {
         if let Some(__Linkage) = self
@@ -59,7 +62,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         this_ty: EntityRoutePtr,
         field_ident: CustomIdentifier,
         field_binding: Binding,
-    ) -> Option<SpecificRoutineLinkage> {
+    ) -> Option<__SpecificRoutineLinkage> {
         if let Some(__Linkage) = self
             .husky_linkage_table()
             .struct_field_access_linkage_source(
@@ -165,7 +168,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<__Linkage> {
         match self.entity_locus(routine).unwrap() {
             EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
-                EntityStaticDefnVariant::Function { __Linkage, .. } => Some(__Linkage),
+                EntityStaticDefnVariant::Function {
+                    linkage: __Linkage, ..
+                } => Some(__Linkage),
                 _ => todo!(),
             },
             EntityLocus::WithinBuiltinModule => todo!(),
@@ -180,16 +185,11 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     }
 
     fn type_call_linkage(&self, ty: EntityRoutePtr) -> Option<__Linkage> {
-        if let Some(__Linkage) = self
+        if let Some(linkage) = self
             .husky_linkage_table()
             .type_call_linkage(self.entity_uid(ty))
         {
-            return Some(match __Linkage {
-                __Linkage::Member(_) => todo!(),
-                __Linkage::SpecificTransfer(_) => todo!(),
-                __Linkage::GenericTransfer(_) => todo!(),
-                __Linkage::Model(_) => todo!(),
-            });
+            return Some(linkage);
         }
         let type_defn = self.entity_defn(ty).unwrap();
         match type_defn.variant {

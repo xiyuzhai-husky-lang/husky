@@ -7,7 +7,7 @@ use dev_utils::__StaticDevSource;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualizer;
-use vm::{SpecificRoutineLinkage, __Linkage};
+use vm::{__Linkage, __SpecificRoutineLinkage};
 use word::RootIdentifier;
 
 #[derive(Debug, Clone, Copy)]
@@ -49,7 +49,7 @@ pub enum EntityStaticDefnVariant {
         parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,
-        __Linkage: __Linkage,
+        linkage: __Linkage,
     },
     Ty {
         base_route: &'static str,
@@ -95,7 +95,10 @@ pub enum EntityStaticDefnVariant {
 impl EntityStaticDefnVariant {
     pub fn entity_kind(&self) -> EntityKind {
         match self {
-            EntityStaticDefnVariant::Function { ref __Linkage, .. } => EntityKind::Function {
+            EntityStaticDefnVariant::Function {
+                linkage: ref __Linkage,
+                ..
+            } => EntityKind::Function {
                 requires_lazy: __Linkage.requires_lazy(),
             },
             EntityStaticDefnVariant::Ty { kind, .. } => EntityKind::Type(*kind),

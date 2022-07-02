@@ -18,4 +18,5 @@ check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }
 static-defn = { path = "../../static/static-defn", version = "0.0.0" }
-thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }
+thin-vec = { path = "../../../../forks/thin-vec" }
+husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }

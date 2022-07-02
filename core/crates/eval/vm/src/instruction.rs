@@ -83,7 +83,7 @@ pub enum InstructionVariant {
         __Linkage: GenericRoutineLinkage,
     },
     CallSpecificRoutine {
-        __Linkage: SpecificRoutineLinkage,
+        __Linkage: __SpecificRoutineLinkage,
     },
     CallInterpreted {
         routine_uid: EntityUid,

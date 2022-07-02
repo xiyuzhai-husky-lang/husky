@@ -25,3 +25,4 @@ semantics-error = { path = "../../semantics/error", version = "0.0.0" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics", version = "0.0.0" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }
 __husky_root = { path = "../../static/__husky_root", version = "0.0.0" }
+word = { path = "../../syntax/word", version = "0.0.0" }

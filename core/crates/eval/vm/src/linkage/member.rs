@@ -13,8 +13,8 @@ pub struct __MemberLinkage {
 }
 
 impl __MemberLinkage {
-    pub fn bind(&self, binding: Binding) -> SpecificRoutineLinkage {
-        SpecificRoutineLinkage {
+    pub fn bind(&self, binding: Binding) -> __SpecificRoutineLinkage {
+        __SpecificRoutineLinkage {
             call: match binding {
                 Binding::EvalRef => self.eval_ref_access,
                 Binding::TempRef => self.temp_ref_access,

@@ -5,12 +5,28 @@ use vm::__Linkage;
 use crate::*;
 
 #[derive(Debug, Default, Clone)]
-pub struct LinkageSourceTable {
-    linkage_sources: ARwLock<HashMap<LinkageKey, __Linkage>>,
+pub struct LinkageTable {
+    linkages: ARwLock<HashMap<LinkageKey, __Linkage>>,
 }
 
-impl LinkageSourceTable {
-    pub(crate) fn load(linkages: impl Iterator<Item = (__StaticLinkageKey, __Linkage)>) {}
+impl LinkageTable {
+    pub fn load(
+        &self,
+        db: &dyn ResolveLinkage,
+        linkages: &'static [(__StaticLinkageKey, __Linkage)],
+    ) {
+        let new_linkages: HashMap<LinkageKey, __Linkage> = linkages
+            .iter()
+            .map(|(static_key, linkage)| {
+                let key = LinkageKey::from_static(db, *static_key);
+                (key, *linkage)
+            })
+            .collect();
+        self.linkages.write(|linkages| {
+            should_eq!(linkages.len(), 0);
+            *linkages = new_linkages
+        })
+    }
 
     pub(crate) fn type_call_linkage(&self, ty_uid: EntityUid) -> Option<__Linkage> {
         self.get_linkage(LinkageKey::TypeCall { ty_uid })
@@ -37,7 +53,7 @@ impl LinkageSourceTable {
     }
 
     fn get_linkage(&self, key: LinkageKey) -> Option<__Linkage> {
-        self.linkage_sources
+        self.linkages
             .read(|entries| entries.get(&key).map(|linkage_source| *linkage_source))
     }
 }

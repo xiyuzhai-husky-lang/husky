@@ -27,7 +27,7 @@ use check_utils::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityRouteStore;
 use husky_file::FilePtr;
-use husky_linkage_table::LinkageSourceTable;
+use husky_linkage_table::LinkageTable;
 use print_utils::*;
 use std::{fmt, sync::Arc};
 use sync_utils::ARwLock;
@@ -54,7 +54,7 @@ pub struct HuskyCompileTime {
     word_unique_allocator: word::WordAllocator,
     scope_unique_allocator: husky_entity_route::EntityRouteInterner,
     live_docs: ARwLock<IndexMap<FilePtr, ARwLock<String>>>,
-    husky_linkage_table: LinkageSourceTable,
+    linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
     opt_main: Option<FilePtr>,
     __root_defn_resolver: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
@@ -76,7 +76,7 @@ impl HuskyCompileTime {
             word_unique_allocator: word::new_word_interner(),
             scope_unique_allocator,
             live_docs,
-            husky_linkage_table,
+            linkage_table: husky_linkage_table,
             entity_route_store,
             opt_main: None,
             __root_defn_resolver,

@@ -36,6 +36,15 @@ impl EntityRoutePtr {
             _ => self,
         }
     }
+
+    pub fn is_ref(self) -> bool {
+        match self.kind {
+            EntityRouteKind::Root {
+                ident: RootIdentifier::Ref,
+            } => true,
+            _ => false,
+        }
+    }
 }
 
 impl std::fmt::Display for EntityRoutePtr {

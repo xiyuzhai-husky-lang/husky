@@ -1,6 +1,6 @@
 use std::path::Path;
 
-use husky_compile_dir::get_code_snapshot_dir;
+use husky_compile_dir::get_husky_code_snapshot_dir;
 use word::snake_to_dash;
 
 use crate::*;
@@ -27,7 +27,7 @@ async fn main() {{
 
 fn init_compile_time(compile_time: &mut HuskyCompileTime) {{
     let husky_dir: std::path::PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
-    let code_snapshot_dir = husky_dir.join(".compiled/crates/{dashed_package_ident}/snapshot");
+    let code_snapshot_dir = husky_dir.join(".compiled/crates/{dashed_package_ident}/snapshot/{dashed_package_ident}");
     compile_time.load_package(&code_snapshot_dir);
     link_entity_with_compiled(compile_time)
 }}

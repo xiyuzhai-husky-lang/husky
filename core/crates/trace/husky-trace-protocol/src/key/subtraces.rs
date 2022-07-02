@@ -28,9 +28,7 @@ impl SubtracesKey {
                 SubtracesKey::Null
             }
             TraceKind::FeatureExpr => match attention {
-                Attention::Specific {
-                    sample_id: sample_id,
-                } => SubtracesKey::FeatureExprStalk {
+                Attention::Specific { sample_id } => SubtracesKey::FeatureExprStalk {
                     trace_id,
                     sample_id: *sample_id,
                 },

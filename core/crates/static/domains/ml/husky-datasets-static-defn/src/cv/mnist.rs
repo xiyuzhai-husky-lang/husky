@@ -41,7 +41,7 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn 
         parameters: &[],
         output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>",
         output_liason: OutputLiason::Transfer,
-        __Linkage: routine_linkage!(
+        linkage: specific_transfer_linkage!(
             |_| Ok(__TempValue::OwnedEval(
                 OwnedValue::new(new_binary_dataset())
             )),

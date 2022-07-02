@@ -22,7 +22,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
         }],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        __Linkage: __Linkage::Model(&ModelLinkage {
+        linkage: __Linkage::Model(&ModelLinkage {
             train: naive_i32_train,
             eval: naive_i32_eval,
         }),

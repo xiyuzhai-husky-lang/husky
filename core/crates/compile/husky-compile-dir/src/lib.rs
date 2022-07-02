@@ -10,7 +10,6 @@ pub fn get_rust_dir(pack: &Package) -> PathBuf {
     let husky_dir = env::var("HUSKY_DIR").unwrap();
     let rust_root = format!("{husky_dir}/.compiled/crates");
     let dashed_name = snake_to_dash(&pack.ident);
-    p!(dashed_name);
     let rust_dir: PathBuf = [rust_root, dashed_name].iter().collect();
     mkdir(&rust_dir);
     rust_dir
@@ -32,10 +31,10 @@ pub fn mkdir(dir: &Path) {
     }
 }
 
-pub fn get_code_snapshot_dir(pack: &Package) -> String {
-    let rust_dir = get_rust_dir(pack);
+pub fn get_husky_code_snapshot_dir(package: &Package) -> PathBuf {
+    let rust_dir = get_rust_dir(package);
     assert!(rust_dir.exists());
     let snapshot_dir = rust_dir.join("snapshot");
     assert!(snapshot_dir.exists());
-    snapshot_dir.to_str().unwrap().into()
+    get_or_create_child_dir(&snapshot_dir, &snake_to_dash(&package.ident))
 }
