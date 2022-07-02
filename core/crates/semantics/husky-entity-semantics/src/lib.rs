@@ -287,7 +287,7 @@ impl EntityDefnVariant {
                 parameters,
                 output_ty,
                 output_liason,
-                __Linkage,
+                linkage: __Linkage,
             } => EntityDefnVariant::Function {
                 spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                     SpatialParameter::from_static(

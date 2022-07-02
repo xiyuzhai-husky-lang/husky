@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
-use husky_linkage_table::{LinkageSourceTable, ResolveLinkage};
+use husky_linkage_table::{LinkageTable, ResolveLinkage};
 use husky_trace_protocol::*;
 use infer_total::InferQueryGroup;
 use static_defn::ResolveStaticRootDefn;
@@ -23,7 +23,7 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
             word_unique_allocator: self.word_unique_allocator.clone(),
             scope_unique_allocator: self.scope_unique_allocator.clone(),
             live_docs: self.live_docs.clone(),
-            husky_linkage_table: self.husky_linkage_table.clone(),
+            linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
             opt_main: self.opt_main,
             __root_defn_resolver: self.__root_defn_resolver,
@@ -110,8 +110,12 @@ impl infer_contract::InferContractQueryGroup for HuskyCompileTime {}
 impl infer_total::InferQueryGroup for HuskyCompileTime {}
 
 impl ResolveLinkage for HuskyCompileTime {
-    fn husky_linkage_table(&self) -> &LinkageSourceTable {
-        &self.husky_linkage_table
+    fn husky_linkage_table(&self) -> &LinkageTable {
+        &self.linkage_table
+    }
+
+    fn opt_package_main(&self) -> Option<FilePtr> {
+        self.opt_main
     }
 }
 

@@ -64,12 +64,14 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 self.write("\n    (\n");
                 self.write(&format!(
                     r#"        __StaticLinkageKey::Routine {{
-            routine: "{}"
+            routine: "{entity_route}"
         }},
 "#,
-                    entity_defn.base_route
                 ));
-                self.write("        todo!(),");
+                let nargs = parameters.len() + 1;
+                self.write(&format!(
+                    "        specific_transfer_linkage!(|_|todo!(), {nargs}),"
+                ));
                 self.write("\n    ),");
             }
             EntityDefnVariant::Func {
@@ -86,7 +88,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
 "#,
                     entity_route
                 ));
-                self.write("        todo!(),");
+                let nargs = parameters.len();
+                self.write(&format!(
+                    "        specific_transfer_linkage!(|_|todo!(), {nargs}),"
+                ));
                 self.write("\n    ),");
             }
             EntityDefnVariant::Proc {
@@ -99,12 +104,32 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 self.write(&format!(
                     r#"        __StaticLinkageKey::Routine {{
             routine: "{}"
-        }},
-"#,
+        }},"#,
                     entity_route
                 ));
-                self.write("        todo!(),");
-                self.write("\n    ),");
+                let nargs = parameters.len();
+                self.write(&format!(
+                    r#"
+        specific_transfer_linkage!({{
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __EvalResult<__TempValue<'temp, 'eval>> {{"#
+                ));
+                for (i, parameter) in parameters.iter().enumerate() {
+                    self.gen_parameter_downcast(i, parameter)
+                }
+                self.write(
+                    r#"
+                todo!()"#,
+                );
+                self.write(&format!(
+                    r#"
+            }}
+            __wrapper
+        }}, {nargs}),
+"#
+                ));
+                self.write("    ),");
             }
             EntityDefnVariant::Ty {
                 ref generic_parameters,
@@ -125,7 +150,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
 "#,
                         entity_route
                     ));
-                    self.write("        __Linkage::SpecificTransfer(todo!()),");
+                    let nargs = type_call.parameters.len();
+                    self.write(&format!(
+                        "        specific_transfer_linkage!(|_|todo!(), {nargs}),"
+                    ));
                     self.write("\n    ),");
                 }
                 for ty_member in members.iter() {
@@ -182,5 +210,47 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             }
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         }
+    }
+
+    fn gen_parameter_downcast(&mut self, i: usize, parameter: &Parameter) {
+        let parameter_name = parameter.ranged_ident.ident;
+        let parameter_ty = parameter.ranged_ty.route;
+        match parameter.ranged_liason.liason {
+            ParameterLiason::Pure => {
+                if parameter_ty.is_ref() {
+                    todo!()
+                } else {
+                    self.gen_parameter_eval_ref_downcast(i, parameter)
+                }
+            }
+            ParameterLiason::Move => todo!(),
+            ParameterLiason::MoveMut => todo!(),
+            ParameterLiason::MemberAccess => todo!(),
+            ParameterLiason::EvalRef => self.gen_parameter_eval_ref_downcast(i, parameter),
+            ParameterLiason::TempRef => todo!(),
+            ParameterLiason::TempRefMut => todo!(),
+        }
+    }
+
+    fn gen_parameter_temp_ref_downcast(&mut self, i: usize, parameter: &Parameter) {
+        let parameter_name = parameter.ranged_ident.ident;
+        let parameter_ty = parameter.ranged_ty.route;
+        self.write(&format!(
+            r#"
+                let {parameter_name}: &"#
+        ));
+        self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
+        self.write(&format!(" = __arguments[{i}].downcast_ref();"))
+    }
+
+    fn gen_parameter_eval_ref_downcast(&mut self, i: usize, parameter: &Parameter) {
+        let parameter_name = parameter.ranged_ident.ident;
+        let parameter_ty = parameter.ranged_ty.route;
+        self.write(&format!(
+            r#"
+                let {parameter_name}: &'eval "#
+        ));
+        self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
+        self.write(&format!(" = __arguments[{i}].downcast_eval_ref();"))
     }
 }

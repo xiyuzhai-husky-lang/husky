@@ -59,14 +59,14 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(specific_transfer_linkage!(
             |values| {
                 Ok(__TempValue::Copyable(
                     (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
                 ))
             },
             1
-        ))),
+        )),
     },
     dev_src: __static_dev_src!(),
 };
@@ -81,14 +81,14 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(specific_transfer_linkage!(
             |values| {
                 Ok(__TempValue::Copyable(
                     (values[0].take_copyable().take_b32().ctz()).into(),
                 ))
             },
             1
-        ))),
+        )),
     },
     dev_src: __static_dev_src!(),
 };
@@ -107,7 +107,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(specific_transfer_linkage!(
             |values| {
                 let b = values[0].take_copyable().take_b32();
                 let i = values[1].take_copyable().take_i32();
@@ -115,7 +115,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
                 Ok(__TempValue::Copyable(last_bits.into()))
             },
             2
-        ))),
+        )),
     },
     dev_src: __static_dev_src!(),
 };

@@ -17,7 +17,7 @@ use dev_utils::{DevSource, __StaticDevSource};
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum __Linkage {
     Member(&'static __MemberLinkage),
-    SpecificTransfer(SpecificRoutineLinkage),
+    SpecificTransfer(__SpecificRoutineLinkage),
     GenericTransfer(GenericRoutineLinkage),
     Model(&'static ModelLinkage),
 }
@@ -32,7 +32,7 @@ impl __Linkage {
         }
     }
 
-    pub fn bind(&self, binding: Binding) -> SpecificRoutineLinkage {
+    pub fn bind(&self, binding: Binding) -> __SpecificRoutineLinkage {
         match self {
             __Linkage::Member(__Linkage) => __Linkage.bind(binding),
             __Linkage::SpecificTransfer(__Linkage) => *__Linkage,
@@ -41,7 +41,7 @@ impl __Linkage {
         }
     }
 
-    pub fn opt_bind(&self, opt_binding: Option<Binding>) -> SpecificRoutineLinkage {
+    pub fn opt_bind(&self, opt_binding: Option<Binding>) -> __SpecificRoutineLinkage {
         match opt_binding {
             Some(binding) => self.bind(binding),
             None => match self {
@@ -54,8 +54,8 @@ impl __Linkage {
     }
 }
 
-impl const From<SpecificRoutineLinkage> for __Linkage {
-    fn from(__Linkage: SpecificRoutineLinkage) -> Self {
+impl const From<__SpecificRoutineLinkage> for __Linkage {
+    fn from(__Linkage: __SpecificRoutineLinkage) -> Self {
         __Linkage::SpecificTransfer(__Linkage)
     }
 }

@@ -21,15 +21,36 @@ pub trait AstSalsaQueryGroup:
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
     fn parse_entity_route(&self, opt_package_main: Option<FilePtr>, text: &str) -> EntityRoutePtr {
+        let symbols: std::borrow::Cow<'_, [Symbol]> = self
+            .all_main_files()
+            .into_iter()
+            .map(|main_file| -> Symbol {
+                p!(main_file);
+                let module = self.module(main_file).unwrap();
+                Symbol {
+                    init_ident: RangedCustomIdentifier {
+                        ident: module.ident().custom(),
+                        range: Default::default(),
+                    },
+                    kind: SymbolKind::EntityRoute(module),
+                }
+            })
+            .collect::<Vec<_>>()
+            .into();
         let mut context = AtomContextStandalone {
             opt_package_main,
             db: self.upcast(),
             opt_this_ty: None,
             opt_this_contract: None,
-            symbols: (&[] as &[Symbol]).into(),
+            symbols,
             kind: AtomContextKind::Normal,
         };
-        context.parse_entity_route(text).unwrap()
+        match context.parse_entity_route(text) {
+            Ok(route) => route,
+            Err(e) => {
+                panic!("can't parse entity route from text `{text}`,\n    due to error: {e:?}")
+            }
+        }
     }
 }
 

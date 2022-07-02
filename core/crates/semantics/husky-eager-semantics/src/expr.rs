@@ -14,7 +14,7 @@ use std::sync::Arc;
 use husky_entity_route::EntityRoutePtr;
 use husky_text::{RangedCustomIdentifier, TextRange};
 use semantics_error::SemanticResultArc;
-use vm::{Binding, CopyableValue, InstructionId, InstructionSource, SpecificRoutineLinkage};
+use vm::{Binding, CopyableValue, InstructionId, InstructionSource, __SpecificRoutineLinkage};
 use word::CustomIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]

@@ -3,7 +3,10 @@ use entity_kind::RoutineKind;
 use husky_liason_semantics::OutputLiason;
 use husky_trace_protocol::SampleId;
 use std::sync::Arc;
-use vm::{routine_linkage, EvalValue, OwnedValue, SpecificRoutineLinkage, __TempValue};
+use vm::{
+    specific_transfer_linkage, EvalValue, OwnedValue, __Linkage, __SpecificRoutineLinkage,
+    __TempValue,
+};
 use xrng::XRng;
 
 pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
@@ -21,7 +24,7 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         parameters: &[],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        __Linkage: routine_linkage!(
+        linkage: specific_transfer_linkage!(
             |_| Ok(__TempValue::OwnedEval(OwnedValue::new(dataset1()))),
             0
         )
@@ -38,7 +41,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         parameters: &[],
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        __Linkage: routine_linkage!(
+        linkage: specific_transfer_linkage!(
             |_| Ok(__TempValue::OwnedEval(OwnedValue::new(dataset2()))),
             0
         )

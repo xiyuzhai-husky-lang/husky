@@ -137,7 +137,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
-        __Linkage: generic_routine_linkage!(generic_vec_type_call, 0).into(),
+        linkage: generic_routine_linkage!(generic_vec_type_call, 0).into(),
     },
     dev_src: __static_dev_src!(),
 };
@@ -250,10 +250,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "i32",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
-            generic_vec_len,
-            1
-        ))),
+        opt_linkage: Some(specific_transfer_linkage!(generic_vec_len, 1)),
         output_liason: OutputLiason::Transfer,
     },
     dev_src: __static_dev_src!(),
@@ -280,10 +277,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
         output_ty: "void",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
-            generic_vec_push,
-            2
-        ))),
+        opt_linkage: Some(specific_transfer_linkage!(generic_vec_push, 2)),
         output_liason: OutputLiason::Transfer,
     },
     dev_src: __static_dev_src!(),
@@ -298,10 +292,7 @@ pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
-            generic_vec_pop,
-            1
-        ))),
+        opt_linkage: Some(specific_transfer_linkage!(generic_vec_pop, 1)),
         output_liason: OutputLiason::Transfer,
     },
     dev_src: __static_dev_src!(),

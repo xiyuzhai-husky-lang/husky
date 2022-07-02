@@ -13,6 +13,7 @@ use serde::Serialize;
 use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::{borrow::Cow, sync::Arc};
+use vm::*;
 use vm::{AnyValue, AnyValueDyn, HasStaticTypeInfo};
 use word::RootIdentifier;
 

@@ -94,7 +94,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         output_ty: "domains::ml::datasets::cv::mnist::BinaryImage28",
         output_liason: OutputLiason::Transfer,
-        __Linkage: routine_linkage!(
+        linkage: specific_transfer_linkage!(
             |_values| {
                 Ok(__TempValue::OwnedEval(OwnedValue::new(
                     BinaryImage28::default(),

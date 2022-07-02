@@ -20,7 +20,7 @@ use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityRouteStore;
 use husky_entity_syntax::EntityLocus;
 use husky_file::FilePtr;
-use husky_linkage_table::LinkageSourceTable;
+use husky_linkage_table::LinkageTable;
 use print_utils::*;
 use std::path::Path;
 use std::{fmt, sync::Arc};

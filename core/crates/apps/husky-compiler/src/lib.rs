@@ -1,7 +1,9 @@
 mod flags;
 
 use __husky_root::__root_defn;
-use husky_compile_dir::{get_or_create_child_dir, get_rust_dir, mkdir};
+use husky_compile_dir::{
+    get_husky_code_snapshot_dir, get_or_create_child_dir, get_rust_dir, mkdir,
+};
 use husky_compile_time::*;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use husky_file::FilePtr;
@@ -9,6 +11,7 @@ use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
 use print_utils::*;
 use std::path::{Path, PathBuf};
+use word::snake_to_dash;
 
 pub fn compile_all(dir: PathBuf) {
     let pack_dirs = collect_all_package_dirs(dir);
@@ -21,14 +24,17 @@ pub fn compile_package(package_dir: PathBuf) {
     let mut compile_time = HuskyCompileTime::new(__root_defn);
     compile_time.load_package(&package_dir);
     let main_file = compile_time.unique_main_file();
-    p!(package_dir);
     let package = compile_time.package(main_file).unwrap();
     let rust_dir = get_rust_dir(&package);
-    let code_snapshot_dir = get_or_create_child_dir(&rust_dir, "snapshot");
+    let husky_code_snapshot_dir = get_husky_code_snapshot_dir(&package);
     let src_dir = get_or_create_child_dir(&rust_dir, "src");
     let bin_dir = get_or_create_child_dir(&src_dir, "bin");
 
-    save_code_snapshot(&compile_time, &code_snapshot_dir, main_file);
+    save_husky_code_snapshot(
+        &compile_time,
+        &husky_code_snapshot_dir.join("main.hsk"),
+        main_file,
+    );
 
     // Cargo.toml
     diff_write(
@@ -53,6 +59,7 @@ pub fn compile_package(package_dir: PathBuf) {
         compile_maybe_module(
             &compile_time,
             src_dir.join(format!("{module_name}.rs")),
+            &husky_code_snapshot_dir.join(format!("{module_name}.hsk")),
             module,
         )
     }
@@ -64,27 +71,42 @@ pub fn compile_package(package_dir: PathBuf) {
     );
 }
 
-fn compile_maybe_module(compile_time: &HuskyCompileTime, path: PathBuf, module: &EntityDefn) {
+fn compile_maybe_module(
+    compile_time: &HuskyCompileTime,
+    rust_code_path: PathBuf,
+    husky_code_snapshot_path: &Path,
+    module: &EntityDefn,
+) {
     match module.variant {
         EntityDefnVariant::Module { .. } => (),
         _ => return,
     }
-    diff_write(&path, &compile_time.rust_mod_rs_content(module.base_route));
-    let dir = path.with_extension("");
+    diff_write(
+        &rust_code_path,
+        &compile_time.rust_mod_rs_content(module.base_route),
+    );
+    save_husky_code_snapshot(compile_time, husky_code_snapshot_path, module.file);
+    let rust_code_dir = rust_code_path.with_extension("");
+    let husky_code_snapshot_dir = husky_code_snapshot_path.with_extension("");
+    mkdir(&husky_code_snapshot_dir);
     for submodule in module.subentities.iter() {
         let submodule_name = submodule.ident.as_str();
         compile_maybe_module(
             compile_time,
-            dir.join(format!("{submodule_name}.rs")),
+            rust_code_dir.join(format!("{submodule_name}.rs")),
+            &husky_code_snapshot_dir.join(format!("{submodule_name}.hsk")),
             submodule,
         )
     }
 }
 
-fn save_code_snapshot(compile_time: &HuskyCompileTime, snapshot_dir: &Path, main_file: FilePtr) {
+fn save_husky_code_snapshot(
+    compile_time: &HuskyCompileTime,
+    husky_code_snapshot_path: &Path,
+    main_file: FilePtr,
+) {
     diff_write(
-        &snapshot_dir.join("main.hsk"),
+        husky_code_snapshot_path,
         compile_time.file_content(main_file).to_str().unwrap(),
     );
-    emsg_once!("save snapshot of other files")
 }

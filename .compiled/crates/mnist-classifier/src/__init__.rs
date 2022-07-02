@@ -8,7 +8,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::connected_component::ConnectedComponent"
         },
-        __Linkage::SpecificTransfer(todo!()),
+        specific_transfer_linkage!(|_|todo!(), 1),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -21,19 +21,36 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::connected_component::horizontal_extend"
         },
-        todo!(),
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+                let a: &'eval u32 = __arguments[0].downcast_eval_ref();
+                let x: &'eval u32 = __arguments[1].downcast_eval_ref();
+                todo!()
+            }
+            __wrapper
+        }, 2),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::connected_component::find_connected_components"
         },
-        todo!(),
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+                let img: &'eval domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_eval_ref();
+                todo!()
+            }
+            __wrapper
+        }, 1),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::raw_contour::RawContour"
         },
-        __Linkage::SpecificTransfer(todo!()),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -53,43 +70,43 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_pixel_pair"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_pixel_to_the_left"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_pixel_to_the_right"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_inward_direction"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 3),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_angle_change"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_outward_direction"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 4),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::raw_contour::StreakCache"
         },
-        __Linkage::SpecificTransfer(todo!()),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -109,19 +126,27 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_concave_middle_point"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 1),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::find_raw_contours"
         },
-        todo!(),
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+                let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref();
+                todo!()
+            }
+            __wrapper
+        }, 1),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::geom2d::Point2d"
         },
-        __Linkage::SpecificTransfer(todo!()),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -141,7 +166,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::geom2d::Vector2d"
         },
-        __Linkage::SpecificTransfer(todo!()),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -161,7 +186,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::LineSegment"
         },
-        __Linkage::SpecificTransfer(todo!()),
+        specific_transfer_linkage!(|_|todo!(), 1),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -188,7 +213,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch"
         },
-        __Linkage::SpecificTransfer(todo!()),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -208,43 +233,73 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::go_right"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::go_left"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::extend_end"
         },
-        todo!(),
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+                let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
+                let start: &'eval i32 = __arguments[1].downcast_eval_ref();
+                let r: &'eval f32 = __arguments[2].downcast_eval_ref();
+                todo!()
+            }
+            __wrapper
+        }, 3),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::extend_start"
         },
-        todo!(),
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+                let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
+                let start0: &'eval i32 = __arguments[1].downcast_eval_ref();
+                let end: &'eval i32 = __arguments[2].downcast_eval_ref();
+                let r: &'eval f32 = __arguments[3].downcast_eval_ref();
+                todo!()
+            }
+            __wrapper
+        }, 4),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::find_line_segments"
         },
-        todo!(),
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+                let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
+                let r: &'eval f32 = __arguments[1].downcast_eval_ref();
+                todo!()
+            }
+            __wrapper
+        }, 2),
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::geom2d::Point2d::from_i_shift28"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent"
         },
-        __Linkage::SpecificTransfer(todo!()),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -264,13 +319,21 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::concave_component::find_concave_components"
         },
-        todo!(),
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+                let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref();
+                todo!()
+            }
+            __wrapper
+        }, 1),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent"
         },
-        __Linkage::SpecificTransfer(todo!()),
+        specific_transfer_linkage!(|_|todo!(), 2),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -290,7 +353,16 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::convexity::is_convex"
         },
-        todo!(),
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+                let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref();
+                let index: &'eval i32 = __arguments[1].downcast_eval_ref();
+                todo!()
+            }
+            __wrapper
+        }, 2),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
@@ -310,7 +382,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::LineSegment::new"
         },
-        todo!(),
+        specific_transfer_linkage!(|_|todo!(), 3),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
