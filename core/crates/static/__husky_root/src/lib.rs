@@ -21,12 +21,10 @@ pub use vm::__AnyValue;
 pub mod __init_utils {
     pub use dev_utils::__StaticDevSource;
     pub use dev_utils::__static_dev_src;
-    pub use vm::__AnyValueDyn;
-    pub use vm::__Linkage;
-    pub use vm::__MemberLinkage;
-    pub use vm::__SpecificRoutineFp;
-    pub use vm::field_copy_fp;
-    pub use vm::field_linkage;
+    pub use vm::{
+        __AnyValueDyn, __EvalResult, __Linkage, __MemberLinkage, __SpecificRoutineFp, __TempValue,
+        field_copy_fp, field_linkage,
+    };
 }
 
 use dev_utils::__StaticDevSource;

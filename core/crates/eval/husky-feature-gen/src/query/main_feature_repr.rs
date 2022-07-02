@@ -1,5 +1,5 @@
 use super::*;
-use vm::EvalResult;
+use vm::__EvalResult;
 
 pub(super) fn main_feature_repr(
     db: &dyn FeatureGenQueryGroup,

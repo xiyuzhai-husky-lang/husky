@@ -1,7 +1,7 @@
 use super::*;
 
 pub struct ModelLinkage {
-    pub train: fn(&dyn std::any::Any) -> EvalResult,
+    pub train: fn(&dyn std::any::Any) -> __EvalResult,
     pub eval: for<'eval> fn(&EvalValue<'static>, Vec<EvalValue<'eval>>) -> EvalValueResult<'eval>, //ugly
 }
 

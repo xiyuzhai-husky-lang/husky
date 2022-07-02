@@ -26,12 +26,12 @@ impl<'eval> PartialEq for MemberValue<'eval> {
 impl<'eval> Eq for MemberValue<'eval> {}
 
 impl<'temp, 'eval: 'temp> MemberValue<'eval> {
-    pub fn into_stack(self) -> TempValue<'temp, 'eval> {
+    pub fn into_stack(self) -> __TempValue<'temp, 'eval> {
         match self {
-            MemberValue::Copyable(value) => TempValue::Copyable(value),
-            MemberValue::Boxed(value) => TempValue::OwnedEval(value),
-            MemberValue::GlobalPure(value) => TempValue::EvalPure(value),
-            MemberValue::EvalRef(value) => TempValue::EvalRef(value),
+            MemberValue::Copyable(value) => __TempValue::Copyable(value),
+            MemberValue::Boxed(value) => __TempValue::OwnedEval(value),
+            MemberValue::GlobalPure(value) => __TempValue::EvalPure(value),
+            MemberValue::EvalRef(value) => __TempValue::EvalRef(value),
             MemberValue::Moved => panic!(),
         }
     }
@@ -50,14 +50,14 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         self.any_ref()
     }
 
-    pub fn bind(&self, binding: Binding) -> TempValue<'temp, 'eval> {
+    pub fn bind(&self, binding: Binding) -> __TempValue<'temp, 'eval> {
         match binding {
             Binding::EvalRef => self.bind_eval_ref(),
             Binding::TempRef => self.bind_temp_ref(),
             Binding::TempRefMut => todo!(),
             Binding::Move => todo!(),
             Binding::Copy => match self {
-                MemberValue::Copyable(value) => TempValue::Copyable(*value),
+                MemberValue::Copyable(value) => __TempValue::Copyable(*value),
                 MemberValue::Boxed(_) => todo!(),
                 MemberValue::GlobalPure(_) => todo!(),
                 MemberValue::EvalRef(_) => todo!(),
@@ -66,37 +66,37 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn bind_eval_ref(&self) -> TempValue<'temp, 'eval> {
+    pub fn bind_eval_ref(&self) -> __TempValue<'temp, 'eval> {
         match self {
-            MemberValue::EvalRef(value) => TempValue::EvalRef(*value),
+            MemberValue::EvalRef(value) => __TempValue::EvalRef(*value),
             MemberValue::Copyable(_) => panic!("can't bind eval ref to a copyable value"),
             MemberValue::Boxed(ref boxed_value) => {
-                TempValue::EvalRef(EvalRef(unsafe { &*boxed_value.any_ptr() }))
+                __TempValue::EvalRef(EvalRef(unsafe { &*boxed_value.any_ptr() }))
             }
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::Moved => todo!(),
         }
     }
 
-    pub fn bind_temp_ref(&self) -> TempValue<'temp, 'eval> {
+    pub fn bind_temp_ref(&self) -> __TempValue<'temp, 'eval> {
         match self {
             MemberValue::Boxed(boxed_value) => {
-                TempValue::TempRefEval(unsafe { &*boxed_value.any_ptr() })
+                __TempValue::TempRefEval(unsafe { &*boxed_value.any_ptr() })
             }
             MemberValue::Copyable(_) => todo!(),
             MemberValue::GlobalPure(_) => todo!(),
-            MemberValue::EvalRef(value) => TempValue::TempRefEval(value.0),
+            MemberValue::EvalRef(value) => __TempValue::TempRefEval(value.0),
             MemberValue::Moved => todo!(),
         }
     }
 
-    pub fn bind_mut<'a>(&'a mut self, owner: VMStackIdx) -> TempValue<'temp, 'eval> {
+    pub fn bind_mut<'a>(&'a mut self, owner: VMStackIdx) -> __TempValue<'temp, 'eval> {
         let value_mut: *mut dyn __AnyValueDyn<'eval> = match self {
             MemberValue::Copyable(value) => value.any_mut(),
             MemberValue::Boxed(value) => value.any_mut_ptr(),
             _ => todo!(),
         };
-        TempValue::TempRefMutEval {
+        __TempValue::TempRefMutEval {
             value: unsafe { &mut *value_mut },
             owner,
             gen: (),
@@ -113,9 +113,9 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn copy_into_stack(&self) -> TempValue<'temp, 'eval> {
+    pub fn copy_into_stack(&self) -> __TempValue<'temp, 'eval> {
         match self {
-            MemberValue::Copyable(value) => TempValue::Copyable(*value),
+            MemberValue::Copyable(value) => __TempValue::Copyable(*value),
             MemberValue::Boxed(_) => todo!(),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::EvalRef(_) => todo!(),

@@ -51,7 +51,7 @@ impl HuskyTraceTime {
                         for labeled_data in dev_division.each_labeled_data() {
                             let label = labeled_data.label;
                             if partitioned_samples_collector
-                                .process(label, || -> EvalResult<(SampleId, i32)> {
+                                .process(label, || -> __EvalResult<(SampleId, i32)> {
                                     let visual_data = self.eval_time().visualize_feature(
                                         expr.clone().into(),
                                         labeled_data.sample_id,
@@ -84,7 +84,7 @@ impl HuskyTraceTime {
                         for labeled_data in dev_division.each_labeled_data() {
                             let label = labeled_data.label;
                             if partitioned_samples_collector
-                                .process(label, || -> EvalResult<(SampleId, f32)> {
+                                .process(label, || -> __EvalResult<(SampleId, f32)> {
                                     let visual_data = self.eval_time_singleton.visualize_feature(
                                         expr.clone().into(),
                                         labeled_data.sample_id,
@@ -119,7 +119,7 @@ impl HuskyTraceTime {
                             if partitioned_samples_collector
                                 .process(
                                     label,
-                                    || -> EvalResult<(SampleId, Graphics2dCanvasData)> {
+                                    || -> __EvalResult<(SampleId, Graphics2dCanvasData)> {
                                         let visual_data = self.eval_time().visualize_feature(
                                             expr.clone().into(),
                                             labeled_data.sample_id,

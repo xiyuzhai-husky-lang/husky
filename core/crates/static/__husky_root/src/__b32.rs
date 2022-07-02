@@ -61,7 +61,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
-                Ok(TempValue::Copyable(
+                Ok(__TempValue::Copyable(
                     (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
                 ))
             },
@@ -83,7 +83,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
-                Ok(TempValue::Copyable(
+                Ok(__TempValue::Copyable(
                     (values[0].take_copyable().take_b32().ctz()).into(),
                 ))
             },
@@ -112,7 +112,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
                 let b = values[0].take_copyable().take_b32();
                 let i = values[1].take_copyable().take_i32();
                 let last_bits = b & ((1 << i) - 1);
-                Ok(TempValue::Copyable(last_bits.into()))
+                Ok(__TempValue::Copyable(last_bits.into()))
             },
             2
         ))),

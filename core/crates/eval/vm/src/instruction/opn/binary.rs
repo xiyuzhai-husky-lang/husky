@@ -77,7 +77,7 @@ impl PureBinaryOpr {
         &self,
         lopd: CopyableValue,
         ropd: CopyableValue,
-    ) -> EvalResult<CopyableValue> {
+    ) -> __EvalResult<CopyableValue> {
         macro_rules! no_such_opn {
             () => {{
                 todo!()

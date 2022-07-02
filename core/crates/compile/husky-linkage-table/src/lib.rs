@@ -15,7 +15,7 @@ use std::collections::HashMap;
 use sync_utils::ARwLock;
 use thin_vec::{thin_vec, ThinVec};
 use vm::{Binding, EntityUid, __Linkage};
-use vm::{EvalResult, EvalValue, OwnedValue, SpecificRoutineLinkage, TempValue};
+use vm::{EvalValue, OwnedValue, SpecificRoutineLinkage, __EvalResult, __TempValue};
 use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup {

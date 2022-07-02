@@ -2,8 +2,8 @@
 macro_rules! field_copy_fp {
     ($Type: ty, $field: ident) => {{
         fn field_copy_access<'temp, 'eval>(
-            values: &mut [TempValue<'temp, 'eval>],
-        ) -> EvalResult<TempValue<'temp, 'eval>> {
+            values: &mut [__TempValue<'temp, 'eval>],
+        ) -> __EvalResult<__TempValue<'temp, 'eval>> {
             let value: &$Type = values[0].downcast_ref();
             Ok(value.$field.take_copyable_dyn().into())
         }

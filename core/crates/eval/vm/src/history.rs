@@ -24,7 +24,7 @@ impl<'eval> History<'eval> {
 }
 
 impl History<'static> {
-    pub fn value_result<T: InstructionSource>(&self, t: &T) -> EvalResult {
+    pub fn value_result<T: InstructionSource>(&self, t: &T) -> __EvalResult {
         if let Some(entry) = self.entries.get(&t.instruction_id()) {
             entry.result()
         } else {

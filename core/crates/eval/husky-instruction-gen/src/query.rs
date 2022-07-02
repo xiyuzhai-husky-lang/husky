@@ -6,7 +6,7 @@ use husky_file::FilePtr;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;
 use infer_decl::DeclQueryGroup;
-use vm::{EvalResult, EvalValue, MemberValue, OwnedValue, SpecificRoutineLinkage, TempValue};
+use vm::{EvalValue, MemberValue, OwnedValue, SpecificRoutineLinkage, __EvalResult, __TempValue};
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
 pub trait InstructionGenQueryGroup: AskCompileTime {

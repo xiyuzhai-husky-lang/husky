@@ -1,5 +1,5 @@
 use husky_entity_route_syntax::RangedEntityRoute;
-use vm::EvalResult;
+use vm::__EvalResult;
 
 use super::*;
 

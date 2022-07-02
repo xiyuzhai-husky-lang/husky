@@ -69,7 +69,7 @@ impl Visualizer {
     //             //     db.upcast(),
     //             //     Some(instruction_sheet),
     //             //     None,
-    //             //     vec![Ok(TempValue::TempRefTemp(value))].into_iter(),
+    //             //     vec![Ok(__TempValue::TempRefTemp(value))].into_iter(),
     //             //     [].into_iter(),
     //             //     verbose,
     //             // ) {

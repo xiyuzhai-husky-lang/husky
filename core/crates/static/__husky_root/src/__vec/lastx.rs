@@ -26,14 +26,14 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
 };
 
 fn generic_vec_lastx_copy<'temp, 'eval>(
-    values: &mut [TempValue<'temp, 'eval>],
-) -> EvalResult<TempValue<'temp, 'eval>> {
+    values: &mut [__TempValue<'temp, 'eval>],
+) -> __EvalResult<__TempValue<'temp, 'eval>> {
     todo!()
 }
 
 fn generic_vec_lastx_eval_ref<'temp, 'eval>(
-    values: &mut [TempValue<'temp, 'eval>],
-) -> EvalResult<TempValue<'temp, 'eval>> {
+    values: &mut [__TempValue<'temp, 'eval>],
+) -> __EvalResult<__TempValue<'temp, 'eval>> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_ref();
     match generic_vec.last() {
         Some(value) => Ok(value.bind_eval_ref()),
@@ -42,8 +42,8 @@ fn generic_vec_lastx_eval_ref<'temp, 'eval>(
 }
 
 fn generic_vec_lastx_temp_ref<'temp, 'eval>(
-    values: &mut [TempValue<'temp, 'eval>],
-) -> EvalResult<TempValue<'temp, 'eval>> {
+    values: &mut [__TempValue<'temp, 'eval>],
+) -> __EvalResult<__TempValue<'temp, 'eval>> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_ref();
     match generic_vec.last() {
         Some(value) => Ok(value.bind_temp_ref()),
@@ -52,8 +52,8 @@ fn generic_vec_lastx_temp_ref<'temp, 'eval>(
 }
 
 fn generic_vec_lastx_mut<'temp, 'eval>(
-    values: &mut [TempValue<'temp, 'eval>],
-) -> EvalResult<TempValue<'temp, 'eval>> {
+    values: &mut [__TempValue<'temp, 'eval>],
+) -> __EvalResult<__TempValue<'temp, 'eval>> {
     let (generic_vec, stack_idx, gen): (&mut VirtualVec<'eval>, _, _) =
         values[0].downcast_mut_full();
     match generic_vec.last_mut() {
@@ -63,7 +63,7 @@ fn generic_vec_lastx_mut<'temp, 'eval>(
 }
 
 fn generic_vec_lastx_move<'temp, 'eval>(
-    values: &mut [TempValue<'temp, 'eval>],
-) -> EvalResult<TempValue<'temp, 'eval>> {
+    values: &mut [__TempValue<'temp, 'eval>],
+) -> __EvalResult<__TempValue<'temp, 'eval>> {
     todo!()
 }

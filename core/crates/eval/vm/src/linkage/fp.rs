@@ -5,7 +5,9 @@ use super::*;
 
 #[derive(Clone, Copy)]
 pub struct __SpecificRoutineFp(
-    pub for<'temp, 'eval> fn(&mut [TempValue<'temp, 'eval>]) -> EvalResult<TempValue<'temp, 'eval>>,
+    pub  for<'temp, 'eval> fn(
+        &mut [__TempValue<'temp, 'eval>],
+    ) -> __EvalResult<__TempValue<'temp, 'eval>>,
 );
 
 impl std::fmt::Debug for __SpecificRoutineFp {

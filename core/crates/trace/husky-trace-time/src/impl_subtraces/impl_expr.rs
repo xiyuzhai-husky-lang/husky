@@ -14,7 +14,7 @@ impl HuskyTraceTime {
         instruction_sheet: &InstructionSheet,
         routine_defn: &Arc<EntityDefn>,
         arguments: &[A],
-        argument_trace_gen: impl Fn(&mut Self, &A, &'static str) -> (TraceId, EvalResult),
+        argument_trace_gen: impl Fn(&mut Self, &A, &'static str) -> (TraceId, __EvalResult),
     ) -> Vec<TraceId> {
         if let Some(sample_id) = self.attention.opt_sample_id() {
             // let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();

@@ -8,8 +8,8 @@ pub enum VMControl<'eval> {
     Err(EvalError),
 }
 
-impl<'eval> From<EvalResult<()>> for VMControl<'eval> {
-    fn from(result: EvalResult<()>) -> Self {
+impl<'eval> From<__EvalResult<()>> for VMControl<'eval> {
+    fn from(result: __EvalResult<()>) -> Self {
         match result {
             Ok(_) => Self::None,
             Err(e) => Self::Err(e),
@@ -17,8 +17,8 @@ impl<'eval> From<EvalResult<()>> for VMControl<'eval> {
     }
 }
 
-impl<'eval> From<EvalResult<VMControl<'eval>>> for VMControl<'eval> {
-    fn from(result: EvalResult<VMControl<'eval>>) -> Self {
+impl<'eval> From<__EvalResult<VMControl<'eval>>> for VMControl<'eval> {
+    fn from(result: __EvalResult<VMControl<'eval>>) -> Self {
         match result {
             Ok(control) => control,
             Err(e) => Self::Err(e),

@@ -9,7 +9,7 @@ use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
 use std::sync::Arc;
-use vm::{Binding, EvalResult, EvalValue, InstructionSheet, SpecificRoutineLinkage};
+use vm::{Binding, EvalValue, InstructionSheet, SpecificRoutineLinkage, __EvalResult};
 use word::RootIdentifier;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -85,7 +85,7 @@ pub enum FeatureLazyExprVariant {
         opds: Vec<Arc<FeatureExpr>>,
         has_this: bool,
         model_defn: Arc<EntityDefn>,
-        internal: EvalResult,
+        internal: __EvalResult,
     },
     RoutineCall {
         opds: Vec<Arc<FeatureExpr>>,

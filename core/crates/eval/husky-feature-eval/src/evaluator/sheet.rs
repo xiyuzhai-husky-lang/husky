@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use vm::{EvalRef, EvalResult, EvalValue, OwnedValue};
+use vm::{EvalRef, EvalValue, OwnedValue, __EvalResult};
 use word::CustomIdentifier;
 
 use super::*;

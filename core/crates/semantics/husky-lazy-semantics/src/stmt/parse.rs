@@ -7,7 +7,7 @@ use infer_contract::{ContractSheet, InferContract};
 use infer_qualifier::{InferQualifiedTy, QualifiedTySheet};
 use semantics_error::*;
 use std::{iter::Peekable, sync::Arc};
-use vm::{EvalResult, InitKind, VMCompileResult, VMStackIdx, XmlTagKind};
+use vm::{InitKind, VMCompileResult, VMStackIdx, XmlTagKind, __EvalResult};
 use word::{CustomIdentifier, IdentPairDict};
 
 pub(super) struct LazyStmtParser<'a> {

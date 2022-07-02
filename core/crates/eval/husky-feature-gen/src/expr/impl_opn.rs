@@ -7,7 +7,7 @@ use husky_linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
 use vm::__Linkage;
-use vm::{Binding, EvalResult, ModelLinkage};
+use vm::{Binding, ModelLinkage, __EvalResult};
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
