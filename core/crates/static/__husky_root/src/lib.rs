@@ -15,6 +15,7 @@ pub use __std::*;
 pub use __vec::*;
 pub use clone::*;
 pub use domains::*;
+pub use static_defn::__StaticLinkageKey;
 
 use dev_utils::StaticDevSource;
 use dev_utils::{dev_src, static_dev_src};

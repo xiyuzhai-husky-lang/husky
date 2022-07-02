@@ -1,5 +1,6 @@
 use crate::*;
 use smallvec::SmallVec;
+use static_defn::__StaticLinkageKey;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageKey {
@@ -21,45 +22,25 @@ pub enum LinkageKey {
     },
 }
 
-#[derive(Debug, Clone, Copy)]
-pub enum StaticLinkageKey {
-    VecConstructor {
-        element_ty: &'static str,
-    },
-    TypeCall {
-        ty: &'static str,
-    },
-    Routine {
-        routine: &'static str,
-    },
-    ElementAccess {
-        opd_uids: &'static [&'static str],
-    },
-    StructFieldAccess {
-        this_ty: &'static str,
-        field_ident: &'static str,
-    },
-}
-
 impl LinkageKey {
-    pub fn from_static(db: &dyn ResolveLinkage, static_key: StaticLinkageKey) -> Self {
+    pub fn from_static(db: &dyn ResolveLinkage, static_key: __StaticLinkageKey) -> Self {
         match static_key {
-            StaticLinkageKey::VecConstructor { element_ty } => LinkageKey::VecConstructor {
+            __StaticLinkageKey::VecConstructor { element_ty } => LinkageKey::VecConstructor {
                 element_ty_uid: entity_uid(db, element_ty),
             },
-            StaticLinkageKey::TypeCall { ty } => LinkageKey::TypeCall {
+            __StaticLinkageKey::TypeCall { ty } => LinkageKey::TypeCall {
                 ty_uid: entity_uid(db, ty),
             },
-            StaticLinkageKey::Routine { routine } => LinkageKey::Routine {
+            __StaticLinkageKey::Routine { routine } => LinkageKey::Routine {
                 routine_uid: entity_uid(db, routine),
             },
-            StaticLinkageKey::ElementAccess { opd_uids } => LinkageKey::ElementAccess {
+            __StaticLinkageKey::ElementAccess { opd_uids } => LinkageKey::ElementAccess {
                 opd_uids: opd_uids
                     .iter()
                     .map(|opd_uid| entity_uid(db, opd_uid))
                     .collect(),
             },
-            StaticLinkageKey::StructFieldAccess {
+            __StaticLinkageKey::StructFieldAccess {
                 this_ty,
                 field_ident,
             } => LinkageKey::StructFieldAccess {
