@@ -146,7 +146,9 @@ pub(crate) fn generic_vec_type_call<'temp, 'eval>(
     ty: EntityRoutePtr,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __EvalResult<__TempValue<'temp, 'eval>> {
-    Ok(__TempValue::OwnedEval(OwnedValue::new(VirtualVec::new(ty))))
+    Ok(__TempValue::OwnedEval(__OwnedValue::new(VirtualVec::new(
+        ty,
+    ))))
 }
 
 fn generic_vec_push<'temp, 'eval>(

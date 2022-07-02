@@ -26,8 +26,9 @@ pub mod __init_utils {
     pub use dev_utils::__StaticDevSource;
     pub use dev_utils::__static_dev_src;
     pub use vm::{
-        __EvalResult, __Linkage, __MemberLinkage, __SpecificRoutineFp, __SpecificRoutineLinkage,
-        __TempValue, field_copy_fp, field_linkage, specific_transfer_linkage,
+        __EvalResult, __Linkage, __MemberLinkage, __OwnedValue, __SpecificRoutineFp,
+        __SpecificRoutineLinkage, __TempValue, field_copy_fp, field_linkage,
+        specific_transfer_linkage,
     };
 }
 

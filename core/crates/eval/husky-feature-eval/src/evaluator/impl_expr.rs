@@ -174,7 +174,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
                 let visual_data = self.visualize_feature(this);
-                Ok(EvalValue::Owned(OwnedValue::new(visual_data?)))
+                Ok(EvalValue::Owned(__OwnedValue::new(visual_data?)))
             }
             FeatureXmlExprVariant::Tag {
                 tag_kind,
@@ -193,7 +193,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         )
                         .collect::<__EvalResult<IdentPairDict<_>>>()?,
                 };
-                Ok(EvalValue::Owned(OwnedValue::new(VisualData::from(
+                Ok(EvalValue::Owned(__OwnedValue::new(VisualData::from(
                     xml_value.into(),
                 ))))
             }

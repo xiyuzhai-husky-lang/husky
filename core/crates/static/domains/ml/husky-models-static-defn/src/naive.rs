@@ -6,7 +6,7 @@ use husky_feature_eval::EvalFeature;
 use husky_feature_gen::FeatureExpr;
 use husky_trace_protocol::Label;
 use static_defn::*;
-use vm::{EvalValue, EvalValueResult, ModelLinkage, OwnedValue, __EvalResult, __Linkage};
+use vm::{EvalValue, EvalValueResult, ModelLinkage, __EvalResult, __Linkage, __OwnedValue};
 
 static_mod! { naive = { naive_i32 } }
 
@@ -68,7 +68,7 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> __EvalResult {
             )
         })
         .collect();
-    Ok(EvalValue::Owned(OwnedValue::new(most_likely_labels)))
+    Ok(EvalValue::Owned(__OwnedValue::new(most_likely_labels)))
 }
 
 fn naive_i32_eval<'eval>(

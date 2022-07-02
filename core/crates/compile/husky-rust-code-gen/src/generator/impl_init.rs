@@ -120,8 +120,17 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 }
                 self.write(
                     r#"
-                todo!()"#,
+                Ok(__TempValue::OwnedEval(__OwnedValue::new("#,
                 );
+                self.gen_entity_route(entity_route, EntityRouteRole::Caller);
+                self.write("(");
+                for (i, parameter) in parameters.iter().enumerate() {
+                    if i > 0 {
+                        self.write(", ")
+                    }
+                    self.write(&parameter.ranged_ident.ident)
+                }
+                self.write("))))");
                 self.write(&format!(
                     r#"
             }}
@@ -220,7 +229,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 if parameter_ty.is_ref() {
                     todo!()
                 } else {
-                    self.gen_parameter_eval_ref_downcast(i, parameter)
+                    self.gen_parameter_temp_ref_downcast(i, parameter)
                 }
             }
             ParameterLiason::Move => todo!(),

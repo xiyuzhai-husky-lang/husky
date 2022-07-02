@@ -126,6 +126,6 @@ where
 
 impl<'temp, 'eval: 'temp> Into<__TempValue<'temp, 'eval>> for VirtualStruct<'eval> {
     fn into(self) -> __TempValue<'temp, 'eval> {
-        __TempValue::OwnedEval(OwnedValue::new(self))
+        __TempValue::OwnedEval(__OwnedValue::new(self))
     }
 }

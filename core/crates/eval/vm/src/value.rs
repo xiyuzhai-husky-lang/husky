@@ -28,8 +28,8 @@ use word::CustomIdentifier;
 pub enum __TempValue<'temp, 'eval: 'temp> {
     Moved,
     Copyable(CopyableValue),
-    OwnedEval(OwnedValue<'eval, 'eval>),
-    OwnedTemp(OwnedValue<'temp, 'eval>),
+    OwnedEval(__OwnedValue<'eval, 'eval>),
+    OwnedTemp(__OwnedValue<'temp, 'eval>),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
     EvalRef(EvalRef<'eval>),
     TempRefEval(&'temp (dyn AnyValueDyn<'eval> + 'eval)),
