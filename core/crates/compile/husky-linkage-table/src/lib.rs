@@ -185,13 +185,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             .type_call_linkage(self.entity_uid(ty))
         {
             return Some(match linkage {
-                Linkage::MemberAccess {
-                    copy_access,
-                    eval_ref_access,
-                    temp_ref_access,
-                    temp_mut_access,
-                    move_access,
-                } => todo!(),
+                Linkage::Member(_) => todo!(),
                 Linkage::SpecificTransfer(_) => todo!(),
                 Linkage::GenericTransfer(_) => todo!(),
                 Linkage::Model(_) => todo!(),

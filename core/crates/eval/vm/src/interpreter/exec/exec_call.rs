@@ -5,7 +5,7 @@ use super::*;
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn call_routine(&mut self, f: SpecificRoutineLinkage) -> EvalResult<()> {
         let mut parameters = self.stack.drain(f.nargs).collect::<Vec<_>>();
-        let result = (f.call)(&mut parameters)?;
+        let result = (f.call.0)(&mut parameters)?;
         self.stack.push(result.into());
         Ok(())
     }

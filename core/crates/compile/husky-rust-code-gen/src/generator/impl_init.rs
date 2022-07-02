@@ -124,7 +124,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
 "#,
                         entity_route
                     ));
-                    self.write("        todo!(),");
+                    self.write("        Linkage::SpecificTransfer(todo!()),");
                     self.write("\n    ),");
                 }
                 for ty_member in members.iter() {
@@ -143,12 +143,20 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                                     r#"        __StaticLinkageKey::StructFieldAccess {{
             this_ty: "{}",
             field_ident: "{}",
-        }},
-"#,
+        }},"#,
                                     entity_route,
                                     ty_member.ident.as_str()
                                 ));
-                                self.write("        todo!(),");
+                                self.write(
+                                    r#"
+            Linkage::MemberAccess {
+                copy_access: todo!(),
+                eval_ref_access: todo!(),
+                temp_ref_access: todo!(),
+                temp_mut_access: todo!(),
+                move_access: todo!(),
+            },"#,
+                                );
                                 self.write("\n    ),");
                             }
                             FieldDefnVariant::StructDerivedLazy { defn_repr } => (),
