@@ -66,10 +66,12 @@ install-compiler:
 	cargo install --path crates/apps/husky-compiler --bin husky-compiler
 
 mnist-compiled:
+	@cargo check
 	@cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
 	@cd ${HUSKY_DIR}/.compiled/crates/mnist-classifier && cargo run -q mnist-classifier-debugger
 
 mnist-compiled-with-backtrace:
+	@cargo check
 	@cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
 	@cd ${HUSKY_DIR}/.compiled/crates/mnist-classifier && RUST_BACKTRACE=1 cargo run -q mnist-classifier-debugger
 

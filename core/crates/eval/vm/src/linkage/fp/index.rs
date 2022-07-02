@@ -2,7 +2,7 @@
 macro_rules! index_copy_fp {
     ($Type: ty) => {{
         __SpecificRoutineFp(|values| -> __EvalResult<__TempValue> {
-            let this_value: &$Type = values[0].downcast_ref();
+            let this_value: &$Type = values[0].downcast_temp_ref();
             let index_value: usize = values[1]
                 .take_copyable()
                 .take_i32()

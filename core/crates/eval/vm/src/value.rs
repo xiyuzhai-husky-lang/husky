@@ -444,19 +444,24 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
         }
     }
 
-    pub fn downcast_ref<T: AnyValue<'eval>>(&self) -> &T {
-        match self {
-            __TempValue::Moved => todo!(),
-            __TempValue::Copyable(_) => todo!(),
-            __TempValue::OwnedEval(_) => todo!(),
-            __TempValue::EvalPure(value) => value.downcast_ref(),
-            __TempValue::EvalRef(value) => value.downcast_ref(),
-            __TempValue::TempRefEval(value) => value.downcast_ref(),
-            __TempValue::TempRefMutEval { value, .. } => value.downcast_ref(),
-            __TempValue::OwnedTemp(_) => todo!(),
-            __TempValue::TempRefTemp(_) => todo!(),
-            __TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
-        }
+    pub fn downcast_copy<T: AnyValue<'eval> + Copy>(&self) -> T {
+        self.any_ref().downcast_copy()
+    }
+
+    pub fn downcast_temp_ref<T: AnyValue<'eval>>(&self) -> &T {
+        self.any_ref().downcast_ref()
+        // match self {
+        //     __TempValue::Moved => todo!(),
+        //     __TempValue::Copyable(_) => todo!(),
+        //     __TempValue::OwnedEval(_) => todo!(),
+        //     __TempValue::EvalPure(value) => value.downcast_ref(),
+        //     __TempValue::EvalRef(value) => value.downcast_ref(),
+        //     __TempValue::TempRefEval(value) => value.downcast_ref(),
+        //     __TempValue::TempRefMutEval { value, .. } => value.downcast_ref(),
+        //     __TempValue::OwnedTemp(_) => todo!(),
+        //     __TempValue::TempRefTemp(_) => todo!(),
+        //     __TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
+        // }
     }
 
     pub fn downcast_eval_ref<T: AnyValue<'eval>>(&self) -> &'eval T {

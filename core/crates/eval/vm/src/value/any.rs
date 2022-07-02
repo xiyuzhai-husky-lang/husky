@@ -149,6 +149,16 @@ impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
         let ptr: *const T = ptr as *const T;
         unsafe { &*ptr }
     }
+    #[inline]
+    pub fn downcast_copy<'a, T: AnyValue<'eval> + Copy>(&'a self) -> T {
+        if T::static_type_id() != self.static_type_id_dyn() {
+            p!(self.static_type_name_dyn(), T::static_type_name());
+            panic!()
+        }
+        let ptr: *const dyn AnyValueDyn = &*self;
+        let ptr: *const T = ptr as *const T;
+        unsafe { *ptr }
+    }
 
     #[inline]
     pub fn downcast_mut<T: AnyValue<'eval>>(&mut self) -> &mut T {
