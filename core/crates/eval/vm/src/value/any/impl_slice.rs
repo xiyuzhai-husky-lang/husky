@@ -12,8 +12,8 @@ where
     }
 }
 
-impl<'temp, 'eval, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'temp [T] {
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+impl<'temp, 'eval, 'a: 'eval, T: __AnyValue<'a> + 'temp> __AnyValue<'eval> for &'temp [T] {
+    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
     fn to_json_value(&self) -> serde_json::value::Value {
@@ -21,7 +21,7 @@ impl<'temp, 'eval, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'tem
         // serde_json::value::to_value(self).unwrap()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -40,7 +40,7 @@ fn gen_iter<'temp, 'eval: 'temp, T>(
     slice: &'temp [T],
 ) -> Box<dyn Iterator<Item = TempValue<'temp, 'eval>> + 'temp>
 where
-    T: AnyValueDyn<'eval> + 'eval,
+    T: __AnyValueDyn<'eval> + 'eval,
 {
     Box::new(slice.iter().map(|t| TempValue::TempRefEval(t)))
 }

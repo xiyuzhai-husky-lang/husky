@@ -14,7 +14,7 @@ use std::{borrow::Cow, sync::Arc};
 use vm::*;
 use word::RootIdentifier;
 
-pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {
+pub trait DatasetDyn<'eval>: __AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {
     fn dev_loader(&self) -> DataLoader<'eval>;
     fn val_loader(&self) -> DataLoader<'eval>;
     fn test_loader(&self) -> DataLoader<'eval>;
@@ -68,12 +68,12 @@ impl<'a> HasStaticTypeInfo for Dataset<'a> {
     }
 }
 
-impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
+impl<'eval, 'a: 'eval> __AnyValue<'eval> for Dataset<'a> {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {

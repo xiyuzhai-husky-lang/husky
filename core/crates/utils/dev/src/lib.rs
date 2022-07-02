@@ -7,16 +7,16 @@ pub struct DevSource {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Serialize, Deserialize, Hash)]
-pub struct StaticDevSource {
+pub struct __StaticDevSource {
     pub file: &'static str,
     pub line: u32,
 }
 
-impl From<StaticDevSource> for DevSource {
-    fn from(static_dev_src: StaticDevSource) -> Self {
+impl From<__StaticDevSource> for DevSource {
+    fn from(__static_dev_src: __StaticDevSource) -> Self {
         Self {
-            file: static_dev_src.file.into(),
-            line: static_dev_src.line,
+            file: __static_dev_src.file.into(),
+            line: __static_dev_src.line,
         }
     }
 }
@@ -38,9 +38,9 @@ macro_rules! dev_src {
 }
 
 #[macro_export]
-macro_rules! static_dev_src {
+macro_rules! __static_dev_src {
     () => {
-        dev_utils::StaticDevSource {
+        __StaticDevSource {
             file: file!(),
             line: line!(),
         }

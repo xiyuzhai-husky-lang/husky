@@ -8,7 +8,7 @@ macro_rules! static_mod {
                 name: stringify!($name),
                 items: &[$(&[<$items:upper _DEFN>]),*],
                 variant: EntityStaticDefnVariant::Module,
-                dev_src: dev_utils::static_dev_src!(),
+                dev_src: dev_utils::__static_dev_src!(),
             };
         }
     };

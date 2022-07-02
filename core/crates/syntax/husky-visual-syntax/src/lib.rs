@@ -28,7 +28,7 @@ pub enum StaticVisualTy {
 #[derive(Clone)]
 pub enum StaticVisualizerVariant {
     Compiled {
-        call: for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData,
+        call: for<'temp, 'eval> fn(&(dyn __AnyValueDyn<'eval> + 'temp)) -> VisualData,
     },
     Vec,
     CyclicSlice,
@@ -71,7 +71,7 @@ pub const fn primitive_visualizer(ty: StaticVisualTy) -> StaticVisualizer {
     }
 }
 
-fn visualize_primitive<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
+fn visualize_primitive<'temp, 'eval>(value: &(dyn __AnyValueDyn<'eval> + 'temp)) -> VisualData {
     match value.ty_dyn() {
         EntityRoutePtr::Root(_) => VisualData::Primitive {
             value: value.take_copyable_dyn().into(),

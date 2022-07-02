@@ -1,7 +1,7 @@
 #[macro_export]
 macro_rules! index_copy_fp {
     ($Type: ty) => {{
-        SpecificRoutineFp(|values| -> EvalResult<TempValue> {
+        __SpecificRoutineFp(|values| -> EvalResult<TempValue> {
             let this_value: &$Type = values[0].downcast_ref();
             let index_value: usize = values[1]
                 .take_copyable()
@@ -16,28 +16,28 @@ macro_rules! index_copy_fp {
 #[macro_export]
 macro_rules! index_eval_ref_fp {
     ($Type: ty) => {{
-        SpecificRoutineFp(|values| -> EvalResult<TempValue> { todo!() })
+        __SpecificRoutineFp(|values| -> EvalResult<TempValue> { todo!() })
     }};
 }
 
 #[macro_export]
 macro_rules! index_temp_ref_fp {
     ($Type: ty) => {{
-        SpecificRoutineFp(|values| -> EvalResult<TempValue> { todo!() })
+        __SpecificRoutineFp(|values| -> EvalResult<TempValue> { todo!() })
     }};
 }
 
 #[macro_export]
 macro_rules! index_move_fp {
     ($Type: ty) => {{
-        SpecificRoutineFp(|values| -> EvalResult<TempValue> { todo!() })
+        __SpecificRoutineFp(|values| -> EvalResult<TempValue> { todo!() })
     }};
 }
 
 #[macro_export]
 macro_rules! index_temp_mut_fp {
     ($Type: ty) => {{
-        SpecificRoutineFp(|values| -> EvalResult<TempValue> {
+        __SpecificRoutineFp(|values| -> EvalResult<TempValue> {
             let index_value: usize = values[1]
                 .take_copyable()
                 .take_i32()

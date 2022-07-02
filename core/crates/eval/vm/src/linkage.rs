@@ -12,32 +12,32 @@ pub use specific_routine::*;
 
 use crate::*;
 use check_utils::should;
-use dev_utils::{DevSource, StaticDevSource};
+use dev_utils::{DevSource, __StaticDevSource};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum Linkage {
-    Member(&'static MemberLinkage),
+pub enum __Linkage {
+    Member(&'static __MemberLinkage),
     SpecificTransfer(SpecificRoutineLinkage),
     GenericTransfer(GenericRoutineLinkage),
     Model(&'static ModelLinkage),
 }
 
-impl Linkage {
+impl __Linkage {
     pub fn requires_lazy(&self) -> bool {
         match self {
-            Linkage::Model(_) => true,
-            Linkage::Member { .. } => false,
-            Linkage::SpecificTransfer(_) => false,
-            Linkage::GenericTransfer(_) => false,
+            __Linkage::Model(_) => true,
+            __Linkage::Member { .. } => false,
+            __Linkage::SpecificTransfer(_) => false,
+            __Linkage::GenericTransfer(_) => false,
         }
     }
 
     pub fn bind(&self, binding: Binding) -> SpecificRoutineLinkage {
         match self {
-            Linkage::Member(linkage) => linkage.bind(binding),
-            Linkage::SpecificTransfer(linkage) => *linkage,
-            Linkage::Model(_) => todo!(),
-            Linkage::GenericTransfer(_) => todo!(),
+            __Linkage::Member(__Linkage) => __Linkage.bind(binding),
+            __Linkage::SpecificTransfer(__Linkage) => *__Linkage,
+            __Linkage::Model(_) => todo!(),
+            __Linkage::GenericTransfer(_) => todo!(),
         }
     }
 
@@ -45,23 +45,23 @@ impl Linkage {
         match opt_binding {
             Some(binding) => self.bind(binding),
             None => match self {
-                Linkage::Member { .. } => panic!(),
-                Linkage::SpecificTransfer(linkage) => *linkage,
-                Linkage::Model(_) => todo!(),
-                Linkage::GenericTransfer(_) => todo!(),
+                __Linkage::Member { .. } => panic!(),
+                __Linkage::SpecificTransfer(__Linkage) => *__Linkage,
+                __Linkage::Model(_) => todo!(),
+                __Linkage::GenericTransfer(_) => todo!(),
             },
         }
     }
 }
 
-impl const From<SpecificRoutineLinkage> for Linkage {
-    fn from(linkage: SpecificRoutineLinkage) -> Self {
-        Linkage::SpecificTransfer(linkage)
+impl const From<SpecificRoutineLinkage> for __Linkage {
+    fn from(__Linkage: SpecificRoutineLinkage) -> Self {
+        __Linkage::SpecificTransfer(__Linkage)
     }
 }
 
-impl const From<GenericRoutineLinkage> for Linkage {
-    fn from(linkage: GenericRoutineLinkage) -> Self {
-        Linkage::GenericTransfer(linkage)
+impl const From<GenericRoutineLinkage> for __Linkage {
+    fn from(__Linkage: GenericRoutineLinkage) -> Self {
+        __Linkage::GenericTransfer(__Linkage)
     }
 }

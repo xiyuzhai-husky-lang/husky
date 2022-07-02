@@ -1,18 +1,18 @@
 use super::*;
-use dev_utils::StaticDevSource;
+use dev_utils::__StaticDevSource;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MemberLinkage {
-    pub copy_access: SpecificRoutineFp,
-    pub eval_ref_access: SpecificRoutineFp,
-    pub temp_ref_access: SpecificRoutineFp,
-    pub temp_mut_access: SpecificRoutineFp,
-    pub move_access: SpecificRoutineFp,
+pub struct __MemberLinkage {
+    pub copy_access: __SpecificRoutineFp,
+    pub eval_ref_access: __SpecificRoutineFp,
+    pub temp_ref_access: __SpecificRoutineFp,
+    pub temp_mut_access: __SpecificRoutineFp,
+    pub move_access: __SpecificRoutineFp,
     pub nargs: u8,
-    pub dev_src: StaticDevSource,
+    pub dev_src: __StaticDevSource,
 }
 
-impl MemberLinkage {
+impl __MemberLinkage {
     pub fn bind(&self, binding: Binding) -> SpecificRoutineLinkage {
         SpecificRoutineLinkage {
             call: match binding {
@@ -31,14 +31,14 @@ impl MemberLinkage {
 #[macro_export]
 macro_rules! index_usize_linkage {
     ($Type: ty) => {
-        MemberLinkage {
-            copy_access: SpecificRoutineFp,
-            eval_ref_access: SpecificRoutineFp,
-            temp_ref_access: SpecificRoutineFp,
-            temp_mut_access: SpecificRoutineFp,
-            move_access: SpecificRoutineFp,
+        __MemberLinkage {
+            copy_access: __SpecificRoutineFp,
+            eval_ref_access: __SpecificRoutineFp,
+            temp_ref_access: __SpecificRoutineFp,
+            temp_mut_access: __SpecificRoutineFp,
+            move_access: __SpecificRoutineFp,
             pub nargs: u8,
-            pub dev_src: static_dev_src!(),
+            pub dev_src: __static_dev_src!(),
         }
     };
 }

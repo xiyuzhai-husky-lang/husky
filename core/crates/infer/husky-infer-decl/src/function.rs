@@ -137,7 +137,7 @@ pub(crate) fn routine_decl_from_static(
             ref parameters,
             output_ty,
             output_liason,
-            linkage: ref function_defn_variant,
+            __Linkage: ref function_defn_variant,
         } => {
             let generic_parameters = db.generic_parameters_from_static(spatial_parameters);
             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));

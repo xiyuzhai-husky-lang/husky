@@ -80,10 +80,10 @@ pub enum InstructionVariant {
     },
     CallGenericRoutine {
         output_ty: EntityRoutePtr,
-        linkage: GenericRoutineLinkage,
+        __Linkage: GenericRoutineLinkage,
     },
     CallSpecificRoutine {
-        linkage: SpecificRoutineLinkage,
+        __Linkage: SpecificRoutineLinkage,
     },
     CallInterpreted {
         routine_uid: EntityUid,

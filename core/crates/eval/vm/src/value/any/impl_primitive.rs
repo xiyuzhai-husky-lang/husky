@@ -9,8 +9,8 @@ impl HasStaticTypeInfo for () {
     }
 }
 
-impl<'eval> AnyValue<'eval> for () {
-    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for () {
+    fn clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -29,14 +29,14 @@ impl<'eval> AnyValue<'eval> for () {
         }
     }
 
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -58,8 +58,8 @@ impl HasStaticTypeInfo for i32 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for i32 {
-    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for i32 {
+    fn clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -78,14 +78,14 @@ impl<'eval> AnyValue<'eval> for i32 {
         }
     }
 
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -107,8 +107,8 @@ impl HasStaticTypeInfo for f32 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for f32 {
-    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for f32 {
+    fn clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -127,14 +127,14 @@ impl<'eval> AnyValue<'eval> for f32 {
         }
     }
 
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -157,8 +157,8 @@ impl HasStaticTypeInfo for u32 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for u32 {
-    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for u32 {
+    fn clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -177,7 +177,7 @@ impl<'eval> AnyValue<'eval> for u32 {
         }
     }
 
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -188,7 +188,7 @@ impl<'eval> AnyValue<'eval> for u32 {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -207,8 +207,8 @@ impl HasStaticTypeInfo for u64 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for u64 {
-    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for u64 {
+    fn clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -227,7 +227,7 @@ impl<'eval> AnyValue<'eval> for u64 {
         }
     }
 
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -238,7 +238,7 @@ impl<'eval> AnyValue<'eval> for u64 {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -257,8 +257,8 @@ impl HasStaticTypeInfo for bool {
     }
 }
 
-impl<'eval> AnyValue<'eval> for bool {
-    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for bool {
+    fn clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -277,14 +277,14 @@ impl<'eval> AnyValue<'eval> for bool {
         }
     }
 
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
     fn to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {

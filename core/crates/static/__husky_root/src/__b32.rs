@@ -46,7 +46,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         },
         opt_type_call: None,
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
@@ -59,7 +59,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
@@ -68,7 +68,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
@@ -81,7 +81,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     (values[0].take_copyable().take_b32().ctz()).into(),
@@ -90,7 +90,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
@@ -107,7 +107,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 let b = values[0].take_copyable().take_b32();
                 let i = values[1].take_copyable().take_i32();
@@ -117,5 +117,5 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
             2
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };

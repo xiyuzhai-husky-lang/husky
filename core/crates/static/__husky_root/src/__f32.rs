@@ -34,7 +34,7 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visualizer: &primitive_visualizer(StaticVisualTy::F32),
         opt_type_call: None,
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
@@ -51,7 +51,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 let this = values[0].take_copyable().take_f32();
                 let other = values[0].take_copyable().take_f32();
@@ -60,7 +60,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
             2
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
@@ -77,7 +77,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 let this = values[0].take_copyable().take_f32();
                 let other = values[0].take_copyable().take_f32();
@@ -86,7 +86,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
             2
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
@@ -99,7 +99,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 let f = values[0].take_copyable().take_f32();
                 Ok(TempValue::Copyable(f.sgnx().into()))
@@ -107,7 +107,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
@@ -120,7 +120,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     values[0].take_copyable().take_f32().abs().into(),
@@ -129,7 +129,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
@@ -142,7 +142,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     values[0].take_copyable().take_f32().sqrt().into(),
@@ -151,7 +151,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
@@ -164,7 +164,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     values[0].take_copyable().take_f32().cos().into(),
@@ -173,7 +173,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
@@ -186,7 +186,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     values[0].take_copyable().take_f32().sin().into(),
@@ -195,7 +195,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
@@ -208,7 +208,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     values[0].take_copyable().take_f32().tan().into(),
@@ -217,7 +217,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
@@ -230,7 +230,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     values[0].take_copyable().take_f32().acos().into(),
@@ -239,7 +239,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
@@ -252,7 +252,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     values[0].take_copyable().take_f32().asin().into(),
@@ -261,7 +261,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
@@ -274,7 +274,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::SpecificTransfer(routine_linkage!(
+        opt_linkage: Some(__Linkage::SpecificTransfer(routine_linkage!(
             |values| {
                 Ok(TempValue::Copyable(
                     values[0].take_copyable().take_f32().atan().into(),
@@ -283,5 +283,5 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
             1
         ))),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };

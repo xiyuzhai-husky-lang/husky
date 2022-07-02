@@ -1,7 +1,7 @@
 mod impl_opn;
 mod xml;
 
-use vm::Linkage;
+use vm::__Linkage;
 pub use xml::*;
 
 use husky_entity_route_syntax::EntityRouteKind;
@@ -79,7 +79,7 @@ pub enum FeatureLazyExprVariant {
     },
     ElementAccess {
         opds: Vec<Arc<FeatureExpr>>,
-        linkage: SpecificRoutineLinkage,
+        __Linkage: SpecificRoutineLinkage,
     },
     ModelCall {
         opds: Vec<Arc<FeatureExpr>>,
@@ -91,7 +91,7 @@ pub enum FeatureLazyExprVariant {
         opds: Vec<Arc<FeatureExpr>>,
         has_this: bool,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
-        opt_linkage: Option<Linkage>,
+        opt_linkage: Option<__Linkage>,
         routine_defn: Arc<EntityDefn>,
     },
     EntityFeature {

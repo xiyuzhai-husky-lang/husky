@@ -25,7 +25,7 @@ pub enum FunctionStaticDefnVariant {
     Model(ModelLinkage),
     GenericTransfer(GenericRoutineLinkage),
     Routine {
-        linkage: SpecificRoutineLinkage,
+        __Linkage: SpecificRoutineLinkage,
         routine_kind: RoutineKind,
     },
 }

@@ -93,8 +93,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::CallSpecificRoutine { linkage } => {
-                    let control = self.call_routine(linkage).into();
+                InstructionVariant::CallSpecificRoutine { __Linkage } => {
+                    let control = self.call_routine(__Linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -109,8 +109,11 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     control
                 }
-                InstructionVariant::CallGenericRoutine { output_ty, linkage } => {
-                    let control = self.call_generic_transfer(output_ty, linkage).into();
+                InstructionVariant::CallGenericRoutine {
+                    output_ty,
+                    __Linkage,
+                } => {
+                    let control = self.call_generic_transfer(output_ty, __Linkage).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -284,22 +287,22 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(crate) fn eval_linkage(
         &mut self,
-        linkage: Linkage,
+        __Linkage: __Linkage,
         output_ty: EntityRoutePtr,
     ) -> EvalValueResult<'eval> {
-        match linkage {
-            Linkage::Member { .. } => todo!(),
-            Linkage::SpecificTransfer(linkage) => {
-                let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
+        match __Linkage {
+            __Linkage::Member { .. } => todo!(),
+            __Linkage::SpecificTransfer(__Linkage) => {
+                let mut arguments = self.stack.drain(__Linkage.nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                Ok((linkage.call.0)(&mut arguments)?.into_eval())
+                Ok((__Linkage.call.0)(&mut arguments)?.into_eval())
             }
-            Linkage::GenericTransfer(linkage) => {
-                let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
+            __Linkage::GenericTransfer(__Linkage) => {
+                let mut arguments = self.stack.drain(__Linkage.nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                Ok((linkage.call)(output_ty, &mut arguments)?.into_eval())
+                Ok((__Linkage.call)(output_ty, &mut arguments)?.into_eval())
             }
-            Linkage::Model(_) => todo!(),
+            __Linkage::Model(_) => todo!(),
         }
     }
 }

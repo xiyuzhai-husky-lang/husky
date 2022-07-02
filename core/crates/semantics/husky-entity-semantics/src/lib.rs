@@ -200,7 +200,7 @@ pub enum EntityDefnVariant {
         ty: EntityRoutePtr,
         field_variant: FieldDefnVariant,
         liason: MemberLiason,
-        opt_linkage: Option<Linkage>,
+        opt_linkage: Option<__Linkage>,
     },
     TraitAssociatedTypeImpl {
         trai: EntityRoutePtr,
@@ -287,7 +287,7 @@ impl EntityDefnVariant {
                 parameters,
                 output_ty,
                 output_liason,
-                linkage,
+                __Linkage,
             } => EntityDefnVariant::Function {
                 spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                     SpatialParameter::from_static(
@@ -302,7 +302,7 @@ impl EntityDefnVariant {
                     route: symbol_context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
-                source: CallFormSource::Static(linkage),
+                source: CallFormSource::Static(__Linkage),
             },
             EntityStaticDefnVariant::Ty { .. } => Self::ty_from_static(symbol_context, static_defn),
             EntityStaticDefnVariant::Trait {
@@ -387,7 +387,7 @@ impl EntityDefnVariant {
                 },
                 output_liason,
                 method_defn_kind: MethodDefnKind::from_static(symbol_context, method_kind),
-                opt_source: opt_linkage.map(|linkage| linkage.into()),
+                opt_source: opt_linkage.map(|__Linkage| __Linkage.into()),
             },
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TyField { .. } => {

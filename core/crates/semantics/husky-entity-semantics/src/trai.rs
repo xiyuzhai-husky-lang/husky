@@ -103,7 +103,7 @@ impl EntityDefnVariant {
                 spatial_parameters: spatial_parameters.map(|spatial_parameter| {
                     SpatialParameter::from_static(context.entity_syntax_db(), spatial_parameter)
                 }),
-                opt_source: opt_linkage.map(|linkage| CallFormSource::Static(linkage)),
+                opt_source: opt_linkage.map(|__Linkage| CallFormSource::Static(__Linkage)),
                 method_defn_kind: MethodDefnKind::TraitMethodImpl { trai },
             },
             _ => panic!(),

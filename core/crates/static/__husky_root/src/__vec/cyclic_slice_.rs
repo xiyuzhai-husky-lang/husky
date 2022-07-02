@@ -22,14 +22,14 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
         output_ty: "[%]E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(Linkage::GenericTransfer(generic_routine_linkage!(
+        opt_linkage: Some(__Linkage::GenericTransfer(generic_routine_linkage!(
             generic_cyclic_slice,
             3
         ))),
         output_liason: OutputLiason::Transfer,
         // bug if output_liason is OutputLiason::MemberAccess
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 fn generic_cyclic_slice<'temp, 'eval>(

@@ -1,4 +1,4 @@
-use dev_utils::static_dev_src;
+use dev_utils::__static_dev_src;
 
 use crate::*;
 
@@ -6,7 +6,7 @@ pub static STD_OPS_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "ops",
     items: &[&STD_OPS_INDEX_DEFN, &STD_OPS_INDEX_DEFN],
     variant: EntityStaticDefnVariant::Module,
-    dev_src: dev_utils::static_dev_src!(),
+    dev_src: dev_utils::__static_dev_src!(),
 };
 
 pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -26,7 +26,7 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
                     trai: "std::ops::Index",
                     traits: &[],
                 },
-                dev_src: static_dev_src!(),
+                dev_src: __static_dev_src!(),
             },
             EntityStaticDefn {
                 name: "index",
@@ -42,9 +42,9 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
                     method_static_defn_kind: MethodStaticDefnKind::TraitMethod,
                     opt_linkage: None,
                 },
-                dev_src: static_dev_src!(),
+                dev_src: __static_dev_src!(),
             },
         ],
     },
-    dev_src: dev_utils::static_dev_src!(),
+    dev_src: dev_utils::__static_dev_src!(),
 };

@@ -1,12 +1,12 @@
 use std::{collections::HashMap, sync::Arc};
 
 use super::*;
-use dev_utils::static_dev_src;
+use dev_utils::__static_dev_src;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::FeatureExpr;
 use husky_trace_protocol::Label;
 use static_defn::*;
-use vm::{EvalResult, EvalValue, EvalValueResult, Linkage, ModelLinkage, OwnedValue};
+use vm::{EvalResult, EvalValue, EvalValueResult, ModelLinkage, OwnedValue, __Linkage};
 
 static_mod! { naive = { naive_i32 } }
 
@@ -22,12 +22,12 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
         }],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        linkage: Linkage::Model(&ModelLinkage {
+        __Linkage: __Linkage::Model(&ModelLinkage {
             train: naive_i32_train,
             eval: naive_i32_eval,
         }),
     },
-    dev_src: static_dev_src!(),
+    dev_src: __static_dev_src!(),
 };
 
 fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult {

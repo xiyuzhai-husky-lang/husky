@@ -7,11 +7,11 @@ pub enum CallFormSource {
     Func { stmts: Avec<FuncStmt> },
     Proc { stmts: Avec<ProcStmt> },
     Lazy { stmts: Avec<LazyStmt> },
-    Static(Linkage),
+    Static(__Linkage),
 }
 
-impl From<Linkage> for CallFormSource {
-    fn from(linkage: Linkage) -> Self {
-        CallFormSource::Static(linkage)
+impl From<__Linkage> for CallFormSource {
+    fn from(__Linkage: __Linkage) -> Self {
+        CallFormSource::Static(__Linkage)
     }
 }

@@ -1,5 +1,6 @@
 
 use crate::*;
+use __husky_root::__init_utils::*;
 
 pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCompileTime) {
     compile_time.load_linkages(&[
@@ -7,14 +8,14 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::connected_component::ConnectedComponent"
         },
-        todo!(),
+        __Linkage::SpecificTransfer(todo!()),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::connected_component::ConnectedComponent",
             field_ident: "mask",
         },
-        todo!(),
+        field_linkage!(connected_component::ConnectedComponent, mask)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -32,21 +33,21 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::raw_contour::RawContour"
         },
-        todo!(),
+        __Linkage::SpecificTransfer(todo!()),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::raw_contour::RawContour",
             field_ident: "cc",
         },
-        todo!(),
+        field_linkage!(raw_contour::RawContour<'eval>, cc)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::raw_contour::RawContour",
             field_ident: "points",
         },
-        todo!(),
+        field_linkage!(raw_contour::RawContour<'eval>, points)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -88,21 +89,21 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::raw_contour::StreakCache"
         },
-        todo!(),
+        __Linkage::SpecificTransfer(todo!()),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::raw_contour::StreakCache",
             field_ident: "prev1",
         },
-        todo!(),
+        field_linkage!(raw_contour::StreakCache, prev1)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::raw_contour::StreakCache",
             field_ident: "prev2",
         },
-        todo!(),
+        field_linkage!(raw_contour::StreakCache, prev2)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -120,88 +121,88 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::geom2d::Point2d"
         },
-        todo!(),
+        __Linkage::SpecificTransfer(todo!()),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::geom2d::Point2d",
             field_ident: "x",
         },
-        todo!(),
+        field_linkage!(geom2d::Point2d, x)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::geom2d::Point2d",
             field_ident: "y",
         },
-        todo!(),
+        field_linkage!(geom2d::Point2d, y)
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::geom2d::Vector2d"
         },
-        todo!(),
+        __Linkage::SpecificTransfer(todo!()),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::geom2d::Vector2d",
             field_ident: "x",
         },
-        todo!(),
+        field_linkage!(geom2d::Vector2d, x)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::geom2d::Vector2d",
             field_ident: "y",
         },
-        todo!(),
+        field_linkage!(geom2d::Vector2d, y)
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::LineSegment"
         },
-        todo!(),
+        __Linkage::SpecificTransfer(todo!()),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegment",
             field_ident: "points",
         },
-        todo!(),
+        field_linkage!(line_segment_sketch::LineSegment<'eval>, points)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegment",
             field_ident: "start",
         },
-        todo!(),
+        field_linkage!(line_segment_sketch::LineSegment<'eval>, start)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegment",
             field_ident: "end",
         },
-        todo!(),
+        field_linkage!(line_segment_sketch::LineSegment<'eval>, end)
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch"
         },
-        todo!(),
+        __Linkage::SpecificTransfer(todo!()),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch",
             field_ident: "contour",
         },
-        todo!(),
+        field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, contour)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch",
             field_ident: "line_segments",
         },
-        todo!(),
+        field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, line_segments)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -243,21 +244,21 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent"
         },
-        todo!(),
+        __Linkage::SpecificTransfer(todo!()),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
             field_ident: "line_segment_sketch",
         },
-        todo!(),
+        field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, line_segment_sketch)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
             field_ident: "line_segments",
         },
-        todo!(),
+        field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, line_segments)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -269,21 +270,21 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent"
         },
-        todo!(),
+        __Linkage::SpecificTransfer(todo!()),
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent",
             field_ident: "line_segment_sketch",
         },
-        todo!(),
+        field_linkage!(line_segment_sketch::convex_component::ConvexCompoent<'eval>, line_segment_sketch)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent",
             field_ident: "line_segments",
         },
-        todo!(),
+        field_linkage!(line_segment_sketch::convex_component::ConvexCompoent<'eval>, line_segments)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -296,14 +297,14 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             this_ty: "std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>",
             field_ident: "start",
         },
-        todo!(),
+        field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, start)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>",
             field_ident: "end",
         },
-        todo!(),
+        field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, end)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -316,14 +317,14 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>",
             field_ident: "start",
         },
-        todo!(),
+        field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, start)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>",
             field_ident: "end",
         },
-        todo!(),
+        field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, end)
     ),
     ])
 }

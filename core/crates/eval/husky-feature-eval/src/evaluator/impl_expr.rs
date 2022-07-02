@@ -6,7 +6,7 @@ use husky_lazy_semantics::LazyStmt;
 use husky_trace_protocol::VisualData;
 use print_utils::{epin, msg_once, p};
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
-use vm::Linkage;
+use vm::__Linkage;
 use vm::*;
 use word::IdentPairDict;
 
@@ -109,7 +109,9 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ..
             } => self.husky_feature_eval_repr(repr),
             FeatureLazyExprVariant::ElementAccess {
-                ref opds, linkage, ..
+                ref opds,
+                __Linkage,
+                ..
             } => {
                 if opds.len() > 2 {
                     todo!()
@@ -122,7 +124,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .into_stack()
                         .unwrap(),
                 ];
-                (linkage.call.0)(&mut values).map(|mut value| value.into_eval())
+                (__Linkage.call.0)(&mut values).map(|mut value| value.into_eval())
             }
             FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
@@ -150,7 +152,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     ref source,
                 } => match source {
                     CallFormSource::Lazy { stmts } => todo!(),
-                    CallFormSource::Static(Linkage::Model(ModelLinkage { eval, .. })) => {
+                    CallFormSource::Static(__Linkage::Model(ModelLinkage { eval, .. })) => {
                         let values: Vec<_> = opds
                             .iter()
                             .map(|opd| self.husky_feature_eval_expr(opd))
@@ -201,7 +203,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     fn eval_routine_call(
         &mut self,
         opt_instrns: Option<&InstructionSheet>,
-        opt_linkage: Option<Linkage>,
+        opt_linkage: Option<__Linkage>,
         output_ty: EntityRoutePtr,
         arguments: &[Arc<FeatureExpr>],
         has_this: bool,

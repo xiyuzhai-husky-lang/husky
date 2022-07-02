@@ -9,7 +9,7 @@ pub struct GenericRoutineLinkage {
         &mut [TempValue<'temp, 'eval>],
     ) -> EvalResult<TempValue<'temp, 'eval>>,
     pub nargs: u8,
-    pub dev_src: &'static StaticDevSource,
+    pub dev_src: &'static __StaticDevSource,
 }
 
 #[macro_export]
@@ -18,7 +18,7 @@ macro_rules! generic_routine_linkage {
         GenericRoutineLinkage {
             call: $fp,
             nargs: $nargs,
-            dev_src: &dev_utils::static_dev_src!(),
+            dev_src: &dev_utils::__static_dev_src!(),
         }
     }};
 }

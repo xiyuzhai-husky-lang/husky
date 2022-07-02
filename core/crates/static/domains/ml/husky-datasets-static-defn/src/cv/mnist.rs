@@ -13,7 +13,7 @@ use husky_liason_semantics::OutputLiason;
 use super::*;
 use crate::*;
 use dev::*;
-use dev_utils::static_dev_src;
+use dev_utils::__static_dev_src;
 use entity_kind::{RoutineKind, TyKind};
 use husky_visual_syntax::StaticVisualizer;
 use load::*;
@@ -30,7 +30,7 @@ pub static MNIST_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         &BINARY_GRID_28_TYPE_DEFN,
     ],
     variant: EntityStaticDefnVariant::Module,
-    dev_src: dev_utils::static_dev_src!(),
+    dev_src: dev_utils::__static_dev_src!(),
 };
 
 pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
@@ -41,13 +41,13 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn 
         parameters: &[],
         output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: routine_linkage!(
+        __Linkage: routine_linkage!(
             |_| Ok(TempValue::OwnedEval(OwnedValue::new(new_binary_dataset()))),
             0
         )
         .into(),
     },
-    dev_src: dev_utils::static_dev_src!(),
+    dev_src: dev_utils::__static_dev_src!(),
 };
 
 pub fn new_binary_dataset<'eval>() -> Dataset<'eval> {
@@ -89,12 +89,12 @@ impl HasStaticTypeInfo for MnistDataset {
     }
 }
 
-impl<'eval> AnyValue<'eval> for MnistDataset {
+impl<'eval> __AnyValue<'eval> for MnistDataset {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
