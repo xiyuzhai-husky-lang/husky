@@ -10,6 +10,26 @@ use husky_visual_syntax::StaticVisualizer;
 use vm::{Linkage, SpecificRoutineLinkage};
 use word::RootIdentifier;
 
+#[derive(Debug, Clone, Copy)]
+pub enum __StaticLinkageKey {
+    VecConstructor {
+        element_ty: &'static str,
+    },
+    TypeCall {
+        ty: &'static str,
+    },
+    Routine {
+        routine: &'static str,
+    },
+    ElementAccess {
+        opd_uids: &'static [&'static str],
+    },
+    StructFieldAccess {
+        this_ty: &'static str,
+        field_ident: &'static str,
+    },
+}
+
 pub trait ResolveStaticRootDefn {
     fn __root_defn_resolver(&self) -> fn(ident: RootIdentifier) -> &'static EntityStaticDefn;
 }

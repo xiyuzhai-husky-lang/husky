@@ -1,3 +1,6 @@
+use static_defn::__StaticLinkageKey;
+use vm::Linkage;
+
 use crate::*;
 use std::{fs, path::Path};
 
@@ -12,6 +15,7 @@ impl HuskyCompileTime {
     }
 
     fn load_dir(&mut self, dir: &Path) {
+        p!(dir);
         should!(dir.is_dir());
         for maybe_entry in fs::read_dir(dir).unwrap() {
             let path = maybe_entry.expect("what").path();
@@ -28,5 +32,9 @@ impl HuskyCompileTime {
 
     fn load_module(&mut self, module_dir: &Path) {
         self.load_dir(&module_dir);
+    }
+
+    pub fn load_linkages(&self, linkages: &'static [(__StaticLinkageKey, Linkage)]) {
+        todo!()
     }
 }

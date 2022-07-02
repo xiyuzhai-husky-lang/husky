@@ -124,14 +124,14 @@ impl EntityDefn {
                 extract_proc_stmts_dependees(stmts, &mut builder);
             }
             EntityDefnVariant::Ty {
-                ty_members: ref type_members,
+                ref ty_members,
                 ref variants,
                 kind,
                 ref trait_impls,
                 ref members,
                 ..
             } => {
-                type_members.iter().for_each(|member| match member.variant {
+                ty_members.iter().for_each(|member| match member.variant {
                     EntityDefnVariant::TyField { ty, .. } => builder.push(ty),
                     _ => (),
                 });

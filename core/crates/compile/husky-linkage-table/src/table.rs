@@ -1,4 +1,5 @@
 use smallvec::SmallVec;
+use static_defn::__StaticLinkageKey;
 use vm::Linkage;
 
 use crate::*;
@@ -9,7 +10,7 @@ pub struct LinkageSourceTable {
 }
 
 impl LinkageSourceTable {
-    pub(crate) fn load(linkages: impl Iterator<Item = (StaticLinkageKey, Linkage)>) {}
+    pub(crate) fn load(linkages: impl Iterator<Item = (__StaticLinkageKey, Linkage)>) {}
 
     pub(crate) fn type_call_linkage(&self, ty_uid: EntityUid) -> Option<Linkage> {
         self.get_linkage(LinkageKey::TypeCall { ty_uid })

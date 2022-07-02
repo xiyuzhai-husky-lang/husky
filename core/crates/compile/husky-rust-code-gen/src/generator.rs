@@ -1,6 +1,7 @@
 mod context;
 mod impl_entity_route;
 mod impl_expr;
+mod impl_init;
 mod impl_lib;
 mod impl_mod;
 mod impl_routine_defn;
@@ -45,6 +46,7 @@ impl<'a> RustCodeGenerator<'a> {
             context: RustCodeGenContext::Normal,
         }
     }
+
     pub(crate) fn new_lib(db: &'a dyn RustCodeGenQueryGroup, package_main: FilePtr) -> Self {
         let mut symbols = LocalStack::new();
         let package = db.package(package_main).unwrap();

@@ -42,6 +42,12 @@ pub fn compile_package(package_dir: PathBuf) {
         &compile_time.rust_lib_rs_content(main_file),
     );
 
+    // __init__.rs
+    diff_write(
+        &src_dir.join("__init__.rs"),
+        &compile_time.rust_init_rs_content(main_file),
+    );
+
     for module in package.subentities.iter() {
         let module_name = module.ident.as_str();
         compile_maybe_module(
