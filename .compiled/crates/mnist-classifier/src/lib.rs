@@ -2,7 +2,7 @@
 pub mod __init__;
 use __husky_root::*;
 
-mod connected_component;
-mod raw_contour;
-mod geom2d;
-mod line_segment_sketch;
+pub(crate) mod connected_component;
+pub(crate) mod raw_contour;
+pub(crate) mod geom2d;
+pub(crate) mod line_segment_sketch;

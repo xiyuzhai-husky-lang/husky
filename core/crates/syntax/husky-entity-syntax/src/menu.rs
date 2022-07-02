@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use std::sync::Arc;
 use thin_vec::thin_vec;
 use word::RootIdentifier;

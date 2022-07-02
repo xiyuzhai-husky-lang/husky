@@ -20,7 +20,7 @@ use feature::*;
 use fold::FoldableStorage;
 use global::*;
 use husky_ast::*;
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use husky_entity_syntax::*;
 use husky_file::FilePtr;
 use husky_liason_semantics::*;

@@ -10,7 +10,7 @@ pub use query::*;
 pub use sheet::*;
 
 use husky_ast::RawExprIdx;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_liason_semantics::*;
 use husky_text::{Row, TextRange};
 use infer_contract::*;

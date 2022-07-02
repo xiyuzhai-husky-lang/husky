@@ -1,8 +1,8 @@
 use crate::*;
 
-mod concave_component;
-mod convex_component;
-mod convexity;
+pub(crate) mod concave_component;
+pub(crate) mod convex_component;
+pub(crate) mod convexity;
 #[derive(Debug, Clone, PartialEq)]
 pub(crate) struct LineSegment<'eval> {
     pub(crate) points: __std::slice::CyclicSlice<'eval, crate::geom2d::Point2d>,
@@ -24,6 +24,34 @@ impl<'eval> LineSegment<'eval> {
         return self.start.to(&self.end)
     }
 }
+
+impl<'eval> __HasStaticTypeInfo for LineSegment<'eval> {
+    type StaticSelf = LineSegment<'static>;
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+}
+
+impl<'eval> __AnyValue<'eval> for LineSegment<'eval> {
+    fn print_short(&self) -> String {
+        todo!()
+    }
+
+    fn to_json_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    where
+        'eval: 'short {
+        todo!()
+    }
+
+    fn ty(&self) -> __EntityRoutePtr {
+        todo!()
+    }
+}
 #[derive(Debug, Clone, PartialEq)]
 pub(crate) struct LineSegmentSketch<'eval> {
     pub(crate) contour: &'eval crate::raw_contour::RawContour<'eval>,
@@ -36,6 +64,34 @@ impl<'eval> LineSegmentSketch<'eval> {
     }
     pub(crate) fn new(ct: &'eval crate::raw_contour::RawContour<'eval>, r: f32) -> LineSegmentSketch<'eval> {
         return LineSegmentSketch::__call__(ct, find_line_segments(ct, r))
+    }
+}
+
+impl<'eval> __HasStaticTypeInfo for LineSegmentSketch<'eval> {
+    type StaticSelf = LineSegmentSketch<'static>;
+
+    fn static_type_name() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+}
+
+impl<'eval> __AnyValue<'eval> for LineSegmentSketch<'eval> {
+    fn print_short(&self) -> String {
+        todo!()
+    }
+
+    fn to_json_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    where
+        'eval: 'short {
+        todo!()
+    }
+
+    fn ty(&self) -> __EntityRoutePtr {
+        todo!()
     }
 }
 pub(crate) fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {

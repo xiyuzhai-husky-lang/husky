@@ -2,7 +2,7 @@ use std::sync::{Arc, Mutex};
 
 use crate::dependence::*;
 use crate::*;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use infer_total::InferQueryGroup;
 use semantics_error::*;
 use sync_utils::ARwLock;

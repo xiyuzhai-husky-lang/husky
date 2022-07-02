@@ -6,7 +6,7 @@ pub use ty::*;
 
 use avec::Avec;
 use husky_eager_semantics::FuncStmt;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_lazy_semantics::LazyStmt;
 use husky_trace_protocol::*;
 use husky_visual_syntax::{StaticVisualTy, StaticVisualizer, StaticVisualizerVariant};
@@ -24,7 +24,7 @@ pub struct Visualizer {
 #[derive(Clone)]
 pub enum VisualizerVariant {
     Compiled {
-        call: for<'temp, 'eval> fn(&(dyn __AnyValueDyn<'eval> + 'temp)) -> VisualData,
+        call: for<'temp, 'eval> fn(&(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData,
     },
     Vec {
         ty: EntityRoutePtr,

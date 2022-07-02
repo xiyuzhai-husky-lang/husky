@@ -3,7 +3,7 @@ mod query;
 
 use std::collections::HashMap;
 
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_text::TextRange;
 use indexmap::IndexMap;

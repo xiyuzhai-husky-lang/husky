@@ -1,6 +1,6 @@
 use check_utils::should_eq;
 use defn_head::{GenericPlaceholderVariant, SpatialParameter};
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use husky_entity_syntax::*;
 use map_collect::MapCollect;
 use print_utils::p;

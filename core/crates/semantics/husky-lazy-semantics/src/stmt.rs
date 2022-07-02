@@ -5,7 +5,7 @@ use std::sync::Arc;
 
 pub use branch::*;
 use husky_ast::*;
-use husky_entity_route_syntax::RangedEntityRoute;
+use husky_entity_route::RangedEntityRoute;
 use semantics_error::SemanticResultArc;
 use vm::{InstructionId, InstructionSource};
 

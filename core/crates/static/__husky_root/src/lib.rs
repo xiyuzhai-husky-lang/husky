@@ -15,15 +15,19 @@ pub use __std::*;
 pub use __vec::*;
 pub use clone::*;
 pub use domains::*;
+pub use husky_entity_route::EntityRoutePtr as __EntityRoutePtr;
+pub use serde_json::value::Value as __JsonValue;
 pub use static_defn::__StaticLinkageKey;
-pub use vm::__AnyValue;
+pub use vm::{
+    AnyValue as __AnyValue, AnyValueDyn as __AnyValueDyn, HasStaticTypeInfo as __HasStaticTypeInfo,
+};
 
 pub mod __init_utils {
     pub use dev_utils::__StaticDevSource;
     pub use dev_utils::__static_dev_src;
     pub use vm::{
-        __AnyValueDyn, __EvalResult, __Linkage, __MemberLinkage, __SpecificRoutineFp, __TempValue,
-        field_copy_fp, field_linkage,
+        __EvalResult, __Linkage, __MemberLinkage, __SpecificRoutineFp, __TempValue, field_copy_fp,
+        field_linkage,
     };
 }
 

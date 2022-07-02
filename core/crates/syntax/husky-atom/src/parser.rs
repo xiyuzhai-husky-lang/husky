@@ -10,7 +10,7 @@ mod utils;
 
 use super::{stack::AtomStack, *};
 use check_utils::should;
-use husky_entity_route_syntax::{
+use husky_entity_route::{
     EntityKind, EntityRoute, EntityRouteKind, RangedEntityRoute, SpatialArgument,
 };
 use husky_file::URange;

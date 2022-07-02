@@ -5,7 +5,7 @@ pub use entry::*;
 use crate::{error::*, *};
 use dev_utils::dev_src;
 use entity_kind::MemberKind;
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use husky_file::FilePtr;
 use husky_text::{RangedCustomIdentifier, TextRange, TextRanged};
 use husky_token::{HuskyToken, HuskyTokenKind, SpecialToken, TokenGroupIter};

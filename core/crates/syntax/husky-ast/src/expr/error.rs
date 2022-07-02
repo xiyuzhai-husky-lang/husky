@@ -58,8 +58,8 @@
 //     }
 // }
 
-// impl From<husky_entity_route_syntax::ModuleFromFileError> for ExprError {
-//     fn from(_: husky_entity_route_syntax::ModuleFromFileError) -> Self {
+// impl From<husky_entity_route::ModuleFromFileError> for ExprError {
+//     fn from(_: husky_entity_route::ModuleFromFileError) -> Self {
 //         todo!()
 //     }
 // }

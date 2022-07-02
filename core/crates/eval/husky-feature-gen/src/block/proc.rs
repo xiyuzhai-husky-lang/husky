@@ -1,7 +1,7 @@
 use super::*;
 use avec::Avec;
 use husky_eager_semantics::ProcStmt;
-use husky_entity_route_syntax::RangedEntityRoute;
+use husky_entity_route::RangedEntityRoute;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FeatureProcBlock {

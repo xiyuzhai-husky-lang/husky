@@ -1,4 +1,4 @@
-use husky_entity_route_syntax::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
+use husky_entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
 use husky_entity_syntax::EntitySyntaxSalsaQueryGroup;
 use print_utils::p;
 use thin_vec::thin_vec;

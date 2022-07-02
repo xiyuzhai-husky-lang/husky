@@ -24,7 +24,7 @@ use dev_utils::*;
 use entity_kind::*;
 use error::*;
 use husky_atom::*;
-use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_file::FilePtr;
 use husky_liason_semantics::*;
 use husky_text::*;

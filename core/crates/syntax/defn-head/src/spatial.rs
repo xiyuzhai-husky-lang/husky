@@ -1,5 +1,5 @@
 use entity_kind::TyKind;
-use husky_entity_route_syntax::{EntityKind, RangedEntityRoute};
+use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_text::RangedCustomIdentifier;
 use static_defn::StaticSpatialParameter;

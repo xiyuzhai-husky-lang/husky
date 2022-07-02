@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_route_syntax::{lazy_entity_route, AllocateUniqueScope};
+use husky_entity_route::{lazy_entity_route, AllocateUniqueScope};
 use husky_eval_time::{compile_time, parse_entity_route};
 use husky_trace_protocol::*;
 use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
@@ -155,7 +155,7 @@ impl BinaryImage28 {
         Self { padded_rows }
     }
 
-    pub fn visualize<'temp, 'eval>(value: &(dyn __AnyValueDyn<'eval> + 'temp)) -> VisualData {
+    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
         let value: &BinaryImage28 = value.downcast_ref();
         VisualData::BinaryImage28 {
             padded_rows: value.padded_rows.clone(),
@@ -187,7 +187,7 @@ impl HasStaticTypeInfo for BinaryImage28 {
     }
 }
 
-impl<'eval> __AnyValue<'eval> for BinaryImage28 {
+impl<'eval> AnyValue<'eval> for BinaryImage28 {
     fn print_short(&self) -> String {
         "BinaryImage28 { ... }".into()
     }
@@ -196,7 +196,7 @@ impl<'eval> __AnyValue<'eval> for BinaryImage28 {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

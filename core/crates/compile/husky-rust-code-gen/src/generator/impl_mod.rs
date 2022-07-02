@@ -6,7 +6,7 @@ impl<'a> RustCodeGenerator<'a> {
             match entity.variant {
                 EntityDefnVariant::Main(_) => panic!(),
                 EntityDefnVariant::Module { .. } => {
-                    self.write("mod ");
+                    self.write("pub(crate) mod ");
                     self.write(&entity.ident);
                     self.write(";\n");
                 }

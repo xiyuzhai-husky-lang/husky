@@ -11,8 +11,8 @@ where
     }
 }
 
-impl<'eval, 'a: 'eval, T: __AnyValue<'a>> __AnyValue<'eval> for Vec<T> {
-    fn clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
+impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
+    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -24,7 +24,7 @@ impl<'eval, 'a: 'eval, T: __AnyValue<'a>> __AnyValue<'eval> for Vec<T> {
         serde_json::value::Value::Array(self.iter().map(|elem| elem.to_json_value()).collect())
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

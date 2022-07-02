@@ -4,7 +4,7 @@ use husky_atom::{
     context::{AtomContextKind, Symbol, SymbolKind},
     *,
 };
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use husky_text::RangedCustomIdentifier;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};

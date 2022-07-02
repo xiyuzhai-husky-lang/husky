@@ -23,7 +23,7 @@ pub use unique_allocate::{
 };
 
 use husky_compile_time::DeclQueryGroup;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_text::*;
 use print_utils::*;

@@ -11,7 +11,7 @@ pub use opn::*;
 pub(crate) use parser::EagerExprParser;
 use std::sync::Arc;
 
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_text::{RangedCustomIdentifier, TextRange};
 use semantics_error::SemanticResultArc;
 use vm::{Binding, CopyableValue, InstructionId, InstructionSource, SpecificRoutineLinkage};

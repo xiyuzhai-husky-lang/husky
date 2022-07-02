@@ -9,7 +9,7 @@ pub use prefix::*;
 pub use suffix::*;
 
 use crate::*;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_text::RangedCustomIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]

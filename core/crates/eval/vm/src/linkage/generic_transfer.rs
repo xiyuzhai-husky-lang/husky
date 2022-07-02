@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 
 /// GenericTypeCallLinkage
 #[derive(Clone, Copy)]

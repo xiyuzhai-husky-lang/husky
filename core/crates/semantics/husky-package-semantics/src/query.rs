@@ -2,7 +2,7 @@ use crate::*;
 use fold::FoldableStorage;
 use husky_ast::{AstText, AstVariant};
 use husky_eager_semantics::parse_func_stmts;
-use husky_entity_route_syntax::EntityRouteKind;
+use husky_entity_route::EntityRouteKind;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_file::FilePtr;
 use semantics_error::*;

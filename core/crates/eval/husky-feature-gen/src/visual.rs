@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route_syntax::RangedEntityRoute;
+use husky_entity_route::RangedEntityRoute;
 use husky_visualizer_gen::VisualizerVariant;
 use vm::__EvalResult;
 use word::RootIdentifier;

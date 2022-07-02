@@ -34,7 +34,7 @@ wild-utils = { path = "../../utils/wild", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
 json-result = { path = "../../abstraction/json-result", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
-husky-entity-route-syntax = { path = "../../syntax/husky-entity-route-syntax", version = "0.0.0" }
+husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
 husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
 husky-diagnostics = { path = "../../semantics/husky-diagnostics", version = "0.0.0" }
 husky-token = { path = "../../syntax/husky-token", version = "0.0.0" }

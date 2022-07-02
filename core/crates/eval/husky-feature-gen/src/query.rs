@@ -7,7 +7,7 @@ use vm::__EvalResult;
 
 use crate::{record::*, unique_allocate::AllocateUniqueFeature, visual::*, *};
 use husky_compile_time::AskCompileTime;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
 use husky_instruction_gen::InstructionGenQueryGroup;
 use husky_linkage_table::ResolveLinkage;

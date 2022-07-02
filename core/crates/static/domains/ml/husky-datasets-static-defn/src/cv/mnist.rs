@@ -7,7 +7,7 @@ mod val;
 
 pub use binary_grid28::*;
 pub use binary_image28::*;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_liason_semantics::OutputLiason;
 
 use super::*;
@@ -91,12 +91,12 @@ impl HasStaticTypeInfo for MnistDataset {
     }
 }
 
-impl<'eval> __AnyValue<'eval> for MnistDataset {
+impl<'eval> AnyValue<'eval> for MnistDataset {
     fn to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

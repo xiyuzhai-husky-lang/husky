@@ -7,7 +7,7 @@ use husky_ast::{
     Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant, RawStmtVariant,
     StructItemContext,
 };
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
 use print_utils::msg_once;

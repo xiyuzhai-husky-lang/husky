@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_token::HuskyTokenKind;
 use word::{Identifier, Keyword};

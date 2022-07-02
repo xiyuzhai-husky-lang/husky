@@ -1,6 +1,6 @@
 use crate::*;
 use check_utils::should;
-use husky_entity_route_syntax::{RangedEntityRoute, SpatialArgument};
+use husky_entity_route::{RangedEntityRoute, SpatialArgument};
 use husky_text::RangedCustomIdentifier;
 use husky_text::{TextPosition, TextRange};
 use thin_vec::ThinVec;

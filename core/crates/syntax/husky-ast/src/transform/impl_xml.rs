@@ -1,7 +1,7 @@
 use super::*;
 use crate::*;
 use husky_atom::context::{Symbol, SymbolKind};
-use husky_entity_route_syntax::{EntityRoute, EntityRouteKind};
+use husky_entity_route::{EntityRoute, EntityRouteKind};
 use husky_text::TextRange;
 use word::IdentPairDict;
 

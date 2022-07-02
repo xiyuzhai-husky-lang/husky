@@ -25,8 +25,8 @@ use husky_atom::{
     AtomContext, AtomContextStandalone,
 };
 use husky_eager_semantics::*;
-use husky_entity_route_syntax::{EntityRoute, EntityRouteKind};
-use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRoute, EntityRouteKind};
+use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_syntax::EntityLocus;
 use husky_file::FilePtr;
 use husky_lazy_semantics::parse_lazy_stmts;

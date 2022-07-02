@@ -12,4 +12,4 @@ check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
-husky-entity-route-syntax = { path = "../husky-entity-route-syntax", version = "0.0.0" }
+husky-entity-route = { path = "../husky-entity-route", version = "0.0.0" }

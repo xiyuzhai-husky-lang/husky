@@ -6,7 +6,7 @@ pub mod utils;
 
 pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use husky_diagnostics::DiagnosticQuery;
-pub use husky_entity_route_syntax::{AllocateUniqueScope, EntityRoute};
+pub use husky_entity_route::{AllocateUniqueScope, EntityRoute};
 pub use husky_entity_semantics::EntityDefnQueryGroup;
 pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
 pub use husky_file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
@@ -24,7 +24,7 @@ pub use infer_total::*;
 pub use word::InternWord;
 
 use check_utils::*;
-use husky_entity_route_syntax::EntityRoutePtr;
+use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityRouteStore;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageSourceTable;
@@ -52,7 +52,7 @@ pub struct HuskyCompileTime {
     storage: salsa::Storage<HuskyCompileTime>,
     file_unique_allocator: husky_file::FileInterner,
     word_unique_allocator: word::WordAllocator,
-    scope_unique_allocator: husky_entity_route_syntax::EntityRouteInterner,
+    scope_unique_allocator: husky_entity_route::EntityRouteInterner,
     live_docs: ARwLock<IndexMap<FilePtr, ARwLock<String>>>,
     husky_linkage_table: LinkageSourceTable,
     entity_route_store: EntityRouteStore,
@@ -67,7 +67,7 @@ impl HuskyCompileTime {
         ) -> &'static static_defn::EntityStaticDefn,
     ) -> Self {
         let live_docs = Default::default();
-        let scope_unique_allocator = husky_entity_route_syntax::new_entity_route_interner();
+        let scope_unique_allocator = husky_entity_route::new_entity_route_interner();
         let entity_route_store = Default::default();
         let husky_linkage_table = Default::default();
         Self {

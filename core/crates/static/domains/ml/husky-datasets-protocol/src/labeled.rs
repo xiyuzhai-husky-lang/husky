@@ -1,6 +1,6 @@
 use husky_trace_protocol::SampleId;
 use std::sync::Arc;
-use vm::{EvalValue, __AnyValueDyn};
+use vm::{AnyValueDyn, EvalValue};
 
 pub struct LabeledData<'eval> {
     pub sample_id: SampleId,

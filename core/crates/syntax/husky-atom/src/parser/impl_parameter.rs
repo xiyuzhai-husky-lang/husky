@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use crate::*;
 use defn_head::{GenericPlaceholderVariant, Parameter, SpatialParameter};
-use husky_entity_route_syntax::*;
+use husky_entity_route::*;
 use husky_token::SemanticTokenKind;
 use print_utils::msg_once;
 use word::{IdentDict, Paradigm};

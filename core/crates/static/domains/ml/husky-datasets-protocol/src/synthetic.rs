@@ -8,7 +8,7 @@ use super::*;
 use husky_trace_protocol::SampleId;
 use vm::*;
 
-pub trait SyntheticDataset<'eval>: __AnyValueDyn<'eval> + 'eval {
+pub trait SyntheticDataset<'eval>: AnyValueDyn<'eval> + 'eval {
     fn data_generator(&self) -> fn(seed: u64, sample_id: SampleId) -> LabeledData<'eval>;
     fn seed(&self) -> u64;
     fn dev_len(&self) -> usize {
@@ -114,8 +114,8 @@ impl<'a> HasStaticTypeInfo for SimpleSyntheticDataset<'a> {
     }
 }
 
-impl<'eval, 'a: 'eval> __AnyValue<'eval> for SimpleSyntheticDataset<'a> {
-    fn clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
+impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
+    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -126,7 +126,7 @@ impl<'eval, 'a: 'eval> __AnyValue<'eval> for SimpleSyntheticDataset<'a> {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

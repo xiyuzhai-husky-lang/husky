@@ -4,8 +4,8 @@ mod xml;
 use vm::__Linkage;
 pub use xml::*;
 
-use husky_entity_route_syntax::EntityRouteKind;
-use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::EntityRouteKind;
+use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
 use std::sync::Arc;

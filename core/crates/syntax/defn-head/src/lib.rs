@@ -4,7 +4,7 @@ use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason, Ranged
 pub use spatial::*;
 use std::sync::Arc;
 
-use husky_entity_route_syntax::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use word::{CustomIdentifier, IdentDict, Paradigm, RootIdentifier};
 

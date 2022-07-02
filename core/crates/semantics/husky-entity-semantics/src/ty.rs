@@ -12,7 +12,7 @@ use husky_atom::{
     AtomContext,
 };
 use husky_eager_semantics::{FuncStmt, ProcStmt};
-use husky_entity_route_syntax::{EntityRoute, EntityRouteKind, EntityRoutePtr};
+use husky_entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr};
 use husky_file::FilePtr;
 use husky_lazy_semantics::LazyStmt;
 use husky_text::*;

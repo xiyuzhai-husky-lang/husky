@@ -6,14 +6,14 @@ pub mod synthetic;
 use dev_utils::*;
 use entity_kind::TyKind;
 use husky_datasets_protocol::*;
-use husky_entity_route_syntax::{EntityRouteKind, EntityRoutePtr};
+use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_liason_semantics::*;
 use husky_visual_syntax::{primitive_visualizer, StaticVisualTy};
 use serde::Serialize;
 use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::{borrow::Cow, sync::Arc};
-use vm::{HasStaticTypeInfo, __AnyValue, __AnyValueDyn};
+use vm::{AnyValue, AnyValueDyn, HasStaticTypeInfo};
 use word::RootIdentifier;
 
 pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {

@@ -2,7 +2,7 @@ use super::utils;
 use crate::*;
 use entity_kind::TyKind;
 use husky_atom::*;
-use husky_entity_route_syntax::EntityKind;
+use husky_entity_route::EntityKind;
 use word::RootIdentifier;
 
 #[test]

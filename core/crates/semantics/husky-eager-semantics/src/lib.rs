@@ -7,7 +7,7 @@ pub use stmt::*;
 pub use variable::EagerVariable;
 
 use defn_head::*;
-use husky_entity_route_syntax::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_liason_semantics::*;
 use infer_total::InferQueryGroup;
 use print_utils::*;
