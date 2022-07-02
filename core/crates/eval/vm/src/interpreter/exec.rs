@@ -81,7 +81,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::PushEnumKindLiteral(entity_kind) => {
-                    self.stack.push(TempValue::Copyable(entity_kind.into()));
+                    self.stack.push(__TempValue::Copyable(entity_kind.into()));
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -256,7 +256,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 } // InstructionVariant::NewXmlFromValue { ty } => {
                   //     let visual_props = self.db.visualize(ty, self.stack.pop().any_temp_ref());
                   //     self.stack
-                  //         .push(TempValue::OwnedEval(OwnedValue::new(visual_props)));
+                  //         .push(__TempValue::OwnedEval(OwnedValue::new(visual_props)));
                   //     VMControl::None
                   // }
                   // InstructionVariant::NewXmlFromTag {

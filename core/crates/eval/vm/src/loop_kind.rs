@@ -1,6 +1,6 @@
 use word::CustomIdentifier;
 
-use crate::{CopyableValue, TempValue, VMStackIdx};
+use crate::{CopyableValue, VMStackIdx, __TempValue};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VMLoopKind {
@@ -43,9 +43,9 @@ impl LoopStep {
         a + self.0 * i
     }
 
-    pub fn update<'temp, 'eval: 'temp>(&self, frame_var: &mut TempValue<'temp, 'eval>) {
+    pub fn update<'temp, 'eval: 'temp>(&self, frame_var: &mut __TempValue<'temp, 'eval>) {
         match frame_var {
-            TempValue::Copyable(CopyableValue::I32(ref mut frame_var)) => {
+            __TempValue::Copyable(CopyableValue::I32(ref mut frame_var)) => {
                 *frame_var = *frame_var + self.0;
             }
             _ => panic!(),

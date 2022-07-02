@@ -156,7 +156,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         let values: Vec<_> = opds
                             .iter()
                             .map(|opd| self.husky_feature_eval_expr(opd))
-                            .collect::<EvalResult<Vec<_>>>()?;
+                            .collect::<__EvalResult<Vec<_>>>()?;
                         eval(internal.as_ref().map_err(|e| e.clone())?, values)
                     }
                     _ => panic!(),
@@ -191,7 +191,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                             },
                             // argument.any_ref().to_json_value_dyn()
                         )
-                        .collect::<EvalResult<IdentPairDict<_>>>()?,
+                        .collect::<__EvalResult<IdentPairDict<_>>>()?,
                 };
                 Ok(EvalValue::Owned(OwnedValue::new(VisualData::from(
                     xml_value.into(),
@@ -212,7 +212,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         let verbose = self.verbose;
         let values = arguments
             .iter()
-            .map(|expr| TempValue::from_eval(self.husky_feature_eval_expr(expr)?));
+            .map(|expr| __TempValue::from_eval(self.husky_feature_eval_expr(expr)?));
         msg_once!("kwargs");
         eval_fast(
             db.upcast(),

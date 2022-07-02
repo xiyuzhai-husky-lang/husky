@@ -40,10 +40,10 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
                             copy_access: index_copy_fp!(BinaryImage28),
                             eval_ref_access: __SpecificRoutineFp(
-                                |values| -> EvalResult<TempValue> { todo!() },
+                                |values| -> __EvalResult<__TempValue> { todo!() },
                             ),
                             temp_ref_access: __SpecificRoutineFp(
-                                |values| -> EvalResult<TempValue> { todo!() },
+                                |values| -> __EvalResult<__TempValue> { todo!() },
                             ),
                             move_access: __SpecificRoutineFp(|_| todo!()),
                             temp_mut_access: __SpecificRoutineFp(|values| {
@@ -56,7 +56,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                     values[0].downcast_mut_full();
                                 this_value
                                     .get_mut(index_value)
-                                    .map(|value| TempValue::TempRefMutEval {
+                                    .map(|value| __TempValue::TempRefMutEval {
                                         value,
                                         owner,
                                         gen: (),
@@ -96,7 +96,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         __Linkage: routine_linkage!(
             |_values| {
-                Ok(TempValue::OwnedEval(OwnedValue::new(
+                Ok(__TempValue::OwnedEval(OwnedValue::new(
                     BinaryImage28::default(),
                 )))
             },

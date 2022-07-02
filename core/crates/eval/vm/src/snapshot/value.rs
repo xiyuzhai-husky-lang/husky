@@ -73,16 +73,16 @@ impl<'eval> From<CopyableValue> for StackValueSnapshot<'eval> {
     }
 }
 
-impl<'temp, 'eval: 'temp> Into<TempValue<'temp, 'eval>> for &StackValueSnapshot<'eval> {
-    fn into(self) -> TempValue<'temp, 'eval> {
+impl<'temp, 'eval: 'temp> Into<__TempValue<'temp, 'eval>> for &StackValueSnapshot<'eval> {
+    fn into(self) -> __TempValue<'temp, 'eval> {
         match self {
-            StackValueSnapshot::Copyable(value) => TempValue::Copyable(*value),
+            StackValueSnapshot::Copyable(value) => __TempValue::Copyable(*value),
             StackValueSnapshot::RefMut { owner, gen, .. } => todo!(),
-            StackValueSnapshot::EvalPure(value) => TempValue::EvalPure(value.clone()),
-            StackValueSnapshot::Owned(value) => TempValue::OwnedEval(value.clone()),
-            StackValueSnapshot::EvalRef(value) => TempValue::EvalRef(*value),
+            StackValueSnapshot::EvalPure(value) => __TempValue::EvalPure(value.clone()),
+            StackValueSnapshot::Owned(value) => __TempValue::OwnedEval(value.clone()),
+            StackValueSnapshot::EvalRef(value) => __TempValue::EvalRef(*value),
             StackValueSnapshot::FullyOwnedRef(value) => {
-                TempValue::OwnedEval(value.clone_into_box_dyn().into())
+                __TempValue::OwnedEval(value.clone_into_box_dyn().into())
             }
         }
     }

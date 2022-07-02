@@ -5,7 +5,7 @@ pub use variant::*;
 use husky_file::FilePtr;
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
 use husky_text::TextRange;
-use vm::EvalResult;
+use vm::__EvalResult;
 
 use crate::{eval_id::FeatureEvalId, *};
 

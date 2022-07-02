@@ -13,10 +13,10 @@ use word::IdentPairDict;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
-    pub fn visualize_feature(&mut self, this: FeatureRepr) -> EvalResult<VisualData> {
+    pub fn visualize_feature(&mut self, this: FeatureRepr) -> __EvalResult<VisualData> {
         self.as_static().visualize_static(this)
     }
-    pub fn visualize_static(&mut self, this: FeatureRepr) -> EvalResult<VisualData>
+    pub fn visualize_static(&mut self, this: FeatureRepr) -> __EvalResult<VisualData>
     where
         'eval: 'static,
     {
@@ -48,7 +48,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                                 ),
                             })
                         })
-                        .collect::<EvalResult<_>>()?,
+                        .collect::<__EvalResult<_>>()?,
                 )
             }
             VisualizerVariant::CyclicSlice { ty } => {
@@ -73,7 +73,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                                 ),
                             })
                         })
-                        .collect::<EvalResult<_>>()?,
+                        .collect::<__EvalResult<_>>()?,
                 )
             }
             VisualizerVariant::Custom { ref stmts } => {

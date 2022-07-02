@@ -1,13 +1,13 @@
 use crate::*;
 use husky_entity_route_syntax::RangedEntityRoute;
 use husky_visualizer_gen::VisualizerVariant;
-use vm::EvalResult;
+use vm::__EvalResult;
 use word::RootIdentifier;
 
 pub(crate) fn visual_feature_repr(
     db: &dyn FeatureGenQueryGroup,
     this: FeatureRepr,
-) -> EvalResult<FeatureRepr> {
+) -> __EvalResult<FeatureRepr> {
     let visualizer = db.visualizer(this.ty());
     Ok(match visualizer.variant {
         VisualizerVariant::Custom { ref stmts } => FeatureLazyBlock::new(

@@ -44,8 +44,8 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
     opt_instrn_sheet: Option<&InstructionSheet>,
     opt_linkage: Option<__Linkage>,
     output_ty: EntityRoutePtr,
-    args: impl Iterator<Item = EvalResult<TempValue<'temp, 'eval>>>, // including this value
-    kwargs: impl Iterator<Item = (CustomIdentifier, EvalResult<TempValue<'temp, 'eval>>)>,
+    args: impl Iterator<Item = __EvalResult<__TempValue<'temp, 'eval>>>, // including this value
+    kwargs: impl Iterator<Item = (CustomIdentifier, __EvalResult<__TempValue<'temp, 'eval>>)>,
     verbose: bool,
 ) -> EvalValueResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, args, verbose)?;

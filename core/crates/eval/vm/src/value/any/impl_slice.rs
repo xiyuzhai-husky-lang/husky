@@ -38,9 +38,9 @@ impl<'temp, 'eval, 'a: 'eval, T: __AnyValue<'a> + 'temp> __AnyValue<'eval> for &
 
 fn gen_iter<'temp, 'eval: 'temp, T>(
     slice: &'temp [T],
-) -> Box<dyn Iterator<Item = TempValue<'temp, 'eval>> + 'temp>
+) -> Box<dyn Iterator<Item = __TempValue<'temp, 'eval>> + 'temp>
 where
     T: __AnyValueDyn<'eval> + 'eval,
 {
-    Box::new(slice.iter().map(|t| TempValue::TempRefEval(t)))
+    Box::new(slice.iter().map(|t| __TempValue::TempRefEval(t)))
 }

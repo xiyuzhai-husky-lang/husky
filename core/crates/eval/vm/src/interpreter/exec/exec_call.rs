@@ -3,7 +3,7 @@ use husky_entity_route_syntax::EntityRoutePtr;
 use super::*;
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
-    pub(super) fn call_routine(&mut self, f: SpecificRoutineLinkage) -> EvalResult<()> {
+    pub(super) fn call_routine(&mut self, f: SpecificRoutineLinkage) -> __EvalResult<()> {
         let mut parameters = self.stack.drain(f.nargs).collect::<Vec<_>>();
         let result = (f.call.0)(&mut parameters)?;
         self.stack.push(result.into());
@@ -13,7 +13,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         output_ty: EntityRoutePtr,
         f: GenericRoutineLinkage,
-    ) -> EvalResult<()> {
+    ) -> __EvalResult<()> {
         let mut parameters = self.stack.drain(f.nargs).collect::<Vec<_>>();
         let result = (f.call)(output_ty, &mut parameters)?;
         self.stack.push(result.into());
@@ -25,7 +25,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         sheet: &InstructionSheet,
         nargs: u8,
         has_this: bool,
-    ) -> EvalResult<()> {
+    ) -> __EvalResult<()> {
         let mut interpreter =
             Interpreter::new(self.db, self.stack.drain(nargs), has_this, self.verbose);
         self.stack.push(

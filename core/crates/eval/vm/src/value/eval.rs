@@ -86,19 +86,19 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn owned(self) -> EvalResult<OwnedValue<'eval, 'eval>> {
+    pub fn owned(self) -> __EvalResult<OwnedValue<'eval, 'eval>> {
         match self {
             EvalValue::Owned(value) => Ok(value),
             _ => todo!(),
         }
     }
 
-    pub fn into_stack<'stack>(self) -> EvalResult<TempValue<'stack, 'eval>> {
+    pub fn into_stack<'stack>(self) -> __EvalResult<__TempValue<'stack, 'eval>> {
         match self {
-            EvalValue::Copyable(value) => Ok(TempValue::Copyable(value)),
-            EvalValue::Owned(value) => Ok(TempValue::OwnedEval(value)),
-            EvalValue::EvalPure(value) => Ok(TempValue::EvalPure(value)),
-            EvalValue::EvalRef(value) => Ok(TempValue::EvalRef(value)),
+            EvalValue::Copyable(value) => Ok(__TempValue::Copyable(value)),
+            EvalValue::Owned(value) => Ok(__TempValue::OwnedEval(value)),
+            EvalValue::EvalPure(value) => Ok(__TempValue::EvalPure(value)),
+            EvalValue::EvalRef(value) => Ok(__TempValue::EvalRef(value)),
             EvalValue::Undefined => todo!(),
         }
     }

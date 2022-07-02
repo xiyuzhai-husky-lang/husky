@@ -6,8 +6,8 @@ use husky_entity_route_syntax::EntityRoutePtr;
 pub struct GenericRoutineLinkage {
     pub call: for<'temp, 'eval> fn(
         ty: EntityRoutePtr,
-        &mut [TempValue<'temp, 'eval>],
-    ) -> EvalResult<TempValue<'temp, 'eval>>,
+        &mut [__TempValue<'temp, 'eval>],
+    ) -> __EvalResult<__TempValue<'temp, 'eval>>,
     pub nargs: u8,
     pub dev_src: &'static __StaticDevSource,
 }

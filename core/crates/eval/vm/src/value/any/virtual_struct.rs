@@ -11,7 +11,7 @@ pub struct VirtualStruct<'eval> {
 impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
     pub fn new_struct(
         ty: EntityRoutePtr,
-        mut arguments: impl Iterator<Item = TempValue<'temp, 'eval>>,
+        mut arguments: impl Iterator<Item = __TempValue<'temp, 'eval>>,
         field_liasons: &[CustomIdentifier],
     ) -> Self {
         let mut fields = IdentPairDict::<MemberValue<'eval>>::default();
@@ -25,7 +25,7 @@ impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
         &self.fields.data()[field_idx].1
     }
 
-    pub fn take_field(&mut self, field_idx: usize) -> TempValue<'temp, 'eval> {
+    pub fn take_field(&mut self, field_idx: usize) -> __TempValue<'temp, 'eval> {
         std::mem::replace(&mut self.fields.data_mut()[field_idx].1, MemberValue::Moved).into_stack()
     }
 
@@ -33,7 +33,7 @@ impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
         &self,
         field_idx: usize,
         field_binding: Binding,
-    ) -> TempValue<'temp, 'eval> {
+    ) -> __TempValue<'temp, 'eval> {
         self.fields.data()[field_idx].1.bind(field_binding)
     }
 
@@ -42,7 +42,7 @@ impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
         field_idx: usize,
         field_binding: Binding,
         owner: VMStackIdx,
-    ) -> TempValue<'temp, 'eval> {
+    ) -> __TempValue<'temp, 'eval> {
         match field_binding {
             Binding::EvalRef => todo!(),
             Binding::TempRef => todo!(),
@@ -55,7 +55,7 @@ impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
                     MemberValue::EvalRef(_) => todo!(),
                     MemberValue::Moved => todo!(),
                 };
-                TempValue::TempRefMutEval {
+                __TempValue::TempRefMutEval {
                     value: unsafe { &mut *ptr },
                     owner,
                     gen: (),
@@ -124,8 +124,8 @@ where
     }
 }
 
-impl<'temp, 'eval: 'temp> Into<TempValue<'temp, 'eval>> for VirtualStruct<'eval> {
-    fn into(self) -> TempValue<'temp, 'eval> {
-        TempValue::OwnedEval(OwnedValue::new(self))
+impl<'temp, 'eval: 'temp> Into<__TempValue<'temp, 'eval>> for VirtualStruct<'eval> {
+    fn into(self) -> __TempValue<'temp, 'eval> {
+        __TempValue::OwnedEval(OwnedValue::new(self))
     }
 }

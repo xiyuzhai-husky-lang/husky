@@ -12,7 +12,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use upcast::Upcast;
-use vm::{EvalResult, EvalValue, EvalValueResult};
+use vm::{EvalValue, EvalValueResult, __EvalResult};
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;
@@ -36,7 +36,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     // Some(self) otherwise
     fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>>;
 
-    fn visualize_feature(&self, this: FeatureRepr, sample_id: SampleId) -> EvalResult<VisualData>
+    fn visualize_feature(&self, this: FeatureRepr, sample_id: SampleId) -> __EvalResult<VisualData>
     where
         'eval: 'static,
     {
@@ -73,7 +73,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         stmt: &FeatureStmt,
         sample_id: SampleId,
-    ) -> EvalResult<EvalValue<'eval>> {
+    ) -> __EvalResult<EvalValue<'eval>> {
         self.evaluator(sample_id).husky_feature_eval_stmt(stmt)
     }
 

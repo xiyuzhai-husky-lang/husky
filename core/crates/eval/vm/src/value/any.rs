@@ -83,9 +83,9 @@ pub trait __AnyValue<'eval>:
         Arc::new(self.clone())
     }
 
-    fn from_stack<'temp>(stack_value: TempValue<'temp, 'eval>) -> Self {
+    fn from_stack<'temp>(stack_value: __TempValue<'temp, 'eval>) -> Self {
         match stack_value {
-            TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
+            __TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
             _ => {
                 p!(Self::static_type_name());
                 p!(stack_value);
@@ -123,7 +123,7 @@ pub trait __AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe
     where
         Self: 'eval;
     fn equal_any(&self, other: &dyn __AnyValueDyn<'eval>) -> bool;
-    fn assign<'temp>(&mut self, other: TempValue<'temp, 'eval>);
+    fn assign<'temp>(&mut self, other: __TempValue<'temp, 'eval>);
     fn take_copyable_dyn(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn __AnyValueDyn<'eval>);
     fn print_short(&self) -> String;
@@ -189,7 +189,7 @@ impl<'eval, T: __AnyValue<'eval>> __AnyValueDyn<'eval> for T {
         todo!()
     }
 
-    fn assign<'temp>(&mut self, other: TempValue<'temp, 'eval>) {
+    fn assign<'temp>(&mut self, other: __TempValue<'temp, 'eval>) {
         *self = T::from_stack(other)
     }
 

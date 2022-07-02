@@ -52,7 +52,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         exec_before_each_frame: impl Fn(&mut Self),
         exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl<'eval>),
         mode: Mode,
-    ) -> EvalResult<VMControl<'eval>> {
+    ) -> __EvalResult<VMControl<'eval>> {
         let control = match loop_kind {
             VMLoopKind::For {
                 initial_boundary_kind,
@@ -83,7 +83,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 let stack_len = self.stack.len();
                 for i in 0..n {
                     let frame_var = step.frame_var(initial_bound_shifted, i);
-                    self.stack.push(TempValue::Copyable(frame_var.into()));
+                    self.stack.push(__TempValue::Copyable(frame_var.into()));
                     exec_before_each_frame(self);
                     let frame_control = self.exec_all(body, mode);
                     exec_after_each_frame(self, frame_var, &frame_control);

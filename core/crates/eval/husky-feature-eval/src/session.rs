@@ -5,7 +5,7 @@ use husky_compile_time::HuskyCompileTime;
 use husky_eager_semantics::FuncStmt;
 use husky_package_semantics::{Config, Package};
 use trivial_iter::TrivialIter;
-use vm::{eval_fast, EvalResult, InterpreterQueryGroup, Mode};
+use vm::{eval_fast, InterpreterQueryGroup, Mode, __EvalResult};
 use word::RootIdentifier;
 
 use crate::*;
@@ -49,7 +49,7 @@ impl<'eval> Session<'eval> {
         package: &Package,
         db: &dyn FeatureGenQueryGroup,
         verbose: bool,
-    ) -> EvalResult<Self> {
+    ) -> __EvalResult<Self> {
         let config = package.config.clone();
         let dataset: Dataset = eval_fast(
             db.upcast(),

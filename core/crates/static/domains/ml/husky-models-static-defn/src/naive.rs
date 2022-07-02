@@ -6,7 +6,7 @@ use husky_feature_eval::EvalFeature;
 use husky_feature_gen::FeatureExpr;
 use husky_trace_protocol::Label;
 use static_defn::*;
-use vm::{EvalResult, EvalValue, EvalValueResult, ModelLinkage, OwnedValue, __Linkage};
+use vm::{EvalValue, EvalValueResult, ModelLinkage, OwnedValue, __EvalResult, __Linkage};
 
 static_mod! { naive = { naive_i32 } }
 
@@ -30,7 +30,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
     dev_src: __static_dev_src!(),
 };
 
-fn naive_i32_train(opds: &dyn std::any::Any) -> EvalResult {
+fn naive_i32_train(opds: &dyn std::any::Any) -> __EvalResult {
     let opds: &Vec<Arc<FeatureExpr>> = opds.downcast_ref().unwrap();
     assert_eq!(opds.len(), 1);
     let opd = &opds[0];

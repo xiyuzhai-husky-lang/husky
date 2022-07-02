@@ -1,6 +1,6 @@
 use crate::*;
 use husky_lazy_semantics::{XmlExpr, XmlExprVariant};
-use vm::{EvalResult, XmlTagKind};
+use vm::{XmlTagKind, __EvalResult};
 use word::{IdentDict, IdentPairDict};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
