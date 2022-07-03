@@ -61,7 +61,7 @@ impl<'eval> Session<'eval> {
             vm_config,
         )?
         .owned()?
-        .take()?;
+        .downcast_move()?;
         Ok(Self {
             dev: Division::new(dataset.dev_loader()),
             val: Division::new(dataset.val_loader()),

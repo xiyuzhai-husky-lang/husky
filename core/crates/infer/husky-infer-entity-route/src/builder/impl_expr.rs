@@ -486,7 +486,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         for (argument, parameter) in zip(parameters.into_iter(), method_decl.parameters.iter()) {
             self.infer_expr(argument, Some(parameter.ty), arena);
         }
-        let spatial_arguments = if method_decl.generic_parameters.len() > 0 {
+        let spatial_arguments = if method_decl.spatial_parameters.len() > 0 {
             todo!()
         } else {
             thin_vec![]

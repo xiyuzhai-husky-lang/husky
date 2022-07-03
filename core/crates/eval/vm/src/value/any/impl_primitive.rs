@@ -24,7 +24,7 @@ impl<'eval> AnyValue<'eval> for () {
     fn from_stack(stack_value: __TempValue) -> Self {
         match stack_value {
             __TempValue::Copyable(CopyableValue::Void(value)) => value,
-            __TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
+            __TempValue::OwnedEval(boxed_value) => boxed_value.downcast_move().unwrap(),
             _ => panic!(),
         }
     }
@@ -74,7 +74,7 @@ impl<'eval> AnyValue<'eval> for i32 {
     fn from_stack(stack_value: __TempValue) -> Self {
         match stack_value {
             __TempValue::Copyable(CopyableValue::I32(value)) => value,
-            __TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
+            __TempValue::OwnedEval(boxed_value) => boxed_value.downcast_move().unwrap(),
             _ => panic!(),
         }
     }
@@ -123,7 +123,7 @@ impl<'eval> AnyValue<'eval> for f32 {
     fn from_stack(stack_value: __TempValue) -> Self {
         match stack_value {
             __TempValue::Copyable(CopyableValue::F32(value)) => value,
-            __TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
+            __TempValue::OwnedEval(boxed_value) => boxed_value.downcast_move().unwrap(),
             _ => panic!(),
         }
     }
@@ -173,7 +173,7 @@ impl<'eval> AnyValue<'eval> for u32 {
     fn from_stack(stack_value: __TempValue) -> Self {
         match stack_value {
             __TempValue::Copyable(CopyableValue::B32(value)) => value,
-            __TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
+            __TempValue::OwnedEval(boxed_value) => boxed_value.downcast_move().unwrap(),
             _ => panic!(),
         }
     }
@@ -223,7 +223,7 @@ impl<'eval> AnyValue<'eval> for u64 {
     fn from_stack(stack_value: __TempValue) -> Self {
         match stack_value {
             __TempValue::Copyable(CopyableValue::B64(value)) => value,
-            __TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
+            __TempValue::OwnedEval(boxed_value) => boxed_value.downcast_move().unwrap(),
             _ => panic!(),
         }
     }
@@ -273,7 +273,7 @@ impl<'eval> AnyValue<'eval> for bool {
     fn from_stack(stack_value: __TempValue) -> Self {
         match stack_value {
             __TempValue::Copyable(CopyableValue::Bool(value)) => value,
-            __TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
+            __TempValue::OwnedEval(boxed_value) => boxed_value.downcast_move().unwrap(),
             _ => panic!(),
         }
     }

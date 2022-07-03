@@ -1,5 +1,6 @@
 mod spatial;
 
+use check_utils::should;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason, RangedParameterLiason};
 pub use spatial::*;
 use std::sync::Arc;
@@ -40,6 +41,13 @@ impl Parameter {
         member_ty: EntityRoutePtr,
         is_member_ty_copyable: bool,
     ) -> Self {
+        should!(ranged_ident
+            .ident
+            .as_str()
+            .chars()
+            .next()
+            .unwrap()
+            .is_lowercase());
         Parameter {
             ranged_ident,
             ranged_liason: RangedParameterLiason {

@@ -36,7 +36,7 @@ impl<'temp, 'eval: 'temp> __OwnedValue<'temp, 'eval> {
         Self(value.clone_into_box_dyn())
     }
 
-    pub fn take<T: AnyValue<'eval>>(self) -> __EvalResult<T> {
+    pub fn downcast_move<T: AnyValue<'eval>>(self) -> __EvalResult<T> {
         // check type
         if (*self.0).static_type_id_dyn() != T::static_type_id() {
             Err(vm_runtime_error!(format!("type_mismatch")))
@@ -90,13 +90,13 @@ impl<'temp, 'eval: 'temp> std::fmt::Debug for __OwnedValue<'temp, 'eval> {
 #[test]
 fn test_owned() {
     let a = __OwnedValue::new(0 as i32);
-    let b: i32 = a.take().unwrap();
+    let b: i32 = a.downcast_move().unwrap();
     should_eq!(b, 0);
 }
 
 #[test]
 fn test_owned_type_mistach() {
     let a = __OwnedValue::new(0 as i32);
-    let b = a.take::<f32>();
+    let b = a.downcast_move::<f32>();
     should!(b.is_err());
 }

@@ -454,6 +454,21 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
         }
     }
 
+    pub fn downcast_move<T: AnyValue<'eval>>(&mut self) -> T {
+        match std::mem::replace(self, __TempValue::Moved) {
+            __TempValue::Moved => panic!(),
+            __TempValue::Copyable(_) => todo!(),
+            __TempValue::OwnedEval(owned_value) => owned_value.downcast_move().unwrap(),
+            __TempValue::OwnedTemp(_) => todo!(),
+            __TempValue::EvalPure(_) => todo!(),
+            __TempValue::EvalRef(_) => todo!(),
+            __TempValue::TempRefEval(_) => todo!(),
+            __TempValue::TempRefTemp(_) => todo!(),
+            __TempValue::TempRefMutEval { value, owner, gen } => todo!(),
+            __TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
+        }
+    }
+
     pub fn downcast_copy<T: AnyValue<'eval> + Copy>(&self) -> T {
         self.any_ref().downcast_copy()
     }
@@ -584,7 +599,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
         msg_once!("ad hoc");
         match self {
             __TempValue::OwnedEval(boxed_value) => {
-                let mut value: VirtualStruct = boxed_value.take().unwrap();
+                let mut value: VirtualStruct = boxed_value.downcast_move().unwrap();
                 value.take_field(field_idx)
             }
             __TempValue::EvalPure(_) => todo!(),
