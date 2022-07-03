@@ -11,6 +11,7 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 xrng = { path = "../../utils/xrng", version = "0.0.0" }
 dev-utils = { path = "../../utils/dev", version = "0.0.0" }
+wild-utils = { path = "../../utils/wild", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice", version = "0.0.0" }
 word = { path = "../../syntax/word", version = "0.0.0" }

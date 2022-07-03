@@ -82,7 +82,10 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(value) => *value,
             EvalValue::EvalRef(value) => value.take_copyable_dyn(),
-            _ => panic!(),
+            _ => {
+                p!(self);
+                panic!()
+            }
         }
     }
 
