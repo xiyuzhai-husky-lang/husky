@@ -24,6 +24,26 @@ pub enum LinkageKey {
     },
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+pub enum ExtrinsicLinkageKey {
+    VecConstructor {
+        element_ty: EntityRoutePtr,
+    },
+    TypeCall {
+        ty: EntityRoutePtr,
+    },
+    Routine {
+        routine: EntityRoutePtr,
+    },
+    ElementAccess {
+        opd_tys: SmallVec<[EntityRoutePtr; 2]>,
+    },
+    StructFieldAccess {
+        this_ty: EntityRoutePtr,
+        field_ident: CustomIdentifier,
+    },
+}
+
 impl LinkageKey {
     pub fn from_static(db: &dyn ResolveLinkage, static_key: __StaticLinkageKey) -> Self {
         match static_key {
@@ -52,8 +72,31 @@ impl LinkageKey {
         }
     }
 
-    pub fn into_static(&self, db: &dyn EntitySyntaxQueryGroup) -> __StaticLinkageKey {
-        todo!()
+    pub fn into_static(&self, db: &dyn EntityDefnQueryGroup) -> ExtrinsicLinkageKey {
+        match self {
+            LinkageKey::VecConstructor { element_ty_uid } => ExtrinsicLinkageKey::VecConstructor {
+                element_ty: db.entity_route_by_uid(*element_ty_uid),
+            },
+            LinkageKey::TypeCall { ty_uid } => ExtrinsicLinkageKey::TypeCall {
+                ty: db.entity_route_by_uid(*ty_uid),
+            },
+            LinkageKey::Routine { routine_uid } => ExtrinsicLinkageKey::Routine {
+                routine: db.entity_route_by_uid(*routine_uid),
+            },
+            LinkageKey::ElementAccess { opd_uids } => ExtrinsicLinkageKey::ElementAccess {
+                opd_tys: opd_uids
+                    .iter()
+                    .map(|uid| db.entity_route_by_uid(*uid))
+                    .collect(),
+            },
+            LinkageKey::StructFieldAccess {
+                this_ty_uid,
+                field_ident,
+            } => ExtrinsicLinkageKey::StructFieldAccess {
+                this_ty: db.entity_route_by_uid(*this_ty_uid),
+                field_ident: *field_ident,
+            },
+        }
     }
 }
 
