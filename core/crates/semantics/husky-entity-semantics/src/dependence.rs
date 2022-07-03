@@ -23,17 +23,23 @@ impl<'a> DependeeMapBuilder<'a> {
 
     fn push(&mut self, entity_route: EntityRoutePtr) {
         match entity_route.kind {
-            EntityRouteKind::Root { .. } => return,
+            EntityRouteKind::Root { ident, .. } => {
+                if ident == RootIdentifier::Ref {
+                    self.push(entity_route.deref_route());
+                    return;
+                } else {
+                    if entity_route.spatial_arguments.len() == 0 {
+                        return;
+                    }
+                }
+            }
             EntityRouteKind::Input { main } => return,
             EntityRouteKind::Package { main, ident } => todo!(),
             EntityRouteKind::Child { parent, ident } => {
                 emsg_once!("dependences on entity from external packs should be merged");
                 ()
             }
-            EntityRouteKind::Generic {
-                ident,
-                entity_kind: entity_kind,
-            } => todo!(),
+            EntityRouteKind::Generic { ident, entity_kind } => todo!(),
             EntityRouteKind::ThisType => todo!(),
             EntityRouteKind::TypeAsTraitMember {
                 ty: parent,

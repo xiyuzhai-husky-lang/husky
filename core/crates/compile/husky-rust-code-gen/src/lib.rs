@@ -3,9 +3,9 @@ mod cargo_toml_content;
 mod contains_eval_ref;
 mod generator;
 mod init_content;
-mod is_defn_static;
 mod lib_rs_content;
 mod mod_rs_content;
+mod utils;
 
 use bin_main_rs_content::*;
 use cargo_toml_content::*;
@@ -16,11 +16,11 @@ use husky_file::FilePtr;
 use husky_liason_semantics::*;
 use husky_package_semantics::PackageQueryGroup;
 use init_content::*;
-use is_defn_static::*;
 use lib_rs_content::*;
 use mod_rs_content::*;
 use print_utils::*;
 use std::sync::Arc;
+use utils::*;
 
 #[salsa::query_group(RustGenQueryStorage)]
 pub trait RustCodeGenQueryGroup: PackageQueryGroup {
@@ -32,4 +32,5 @@ pub trait RustCodeGenQueryGroup: PackageQueryGroup {
     fn entity_route_kind_contains_eval_ref(&self, entity_route_kind: EntityRouteKind) -> bool;
     fn entity_route_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;
     fn is_defn_static(&self, entity_route: EntityRoutePtr) -> bool;
+    fn contains_spatial_parameters(&self, entity_route: EntityRoutePtr) -> bool;
 }

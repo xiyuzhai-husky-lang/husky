@@ -23,7 +23,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
     }
 
     fn gen_linkage_entry(&mut self, entity_route: EntityRoutePtr, entity_defn: &EntityDefn) {
-        if self.db.is_defn_static(entity_defn.base_route) {
+        if self.db.is_defn_static(entity_route)
+            || !self.db.contains_spatial_parameters(entity_route)
+        {
             return;
         }
         match entity_defn.variant {
@@ -200,7 +202,14 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                                 panic!()
                             }
                         },
-                        _ => break,
+                        _ => {
+                            if self.db.is_defn_static(entity_route) {
+                                p!(entity_route);
+                                todo!()
+                            } else {
+                                break;
+                            }
+                        }
                     }
                 }
             }
