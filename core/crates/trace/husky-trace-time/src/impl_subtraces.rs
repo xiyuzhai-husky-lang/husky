@@ -46,7 +46,6 @@ impl HuskyTraceTime {
                             stmts,
                             stack_snapshot,
                             body,
-                            self.eval_time().verbose(),
                         ),
                         HistoryEntry::ControlFlow {
                             opt_branch_entered: enter,

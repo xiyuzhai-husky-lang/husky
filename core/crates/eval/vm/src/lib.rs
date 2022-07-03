@@ -1,5 +1,6 @@
 #![feature(const_trait_impl)]
 mod binding;
+mod config;
 mod control;
 mod entity;
 mod error;
@@ -17,6 +18,7 @@ mod stack;
 mod value;
 
 pub use binding::*;
+pub use config::*;
 pub use control::{ControlSnapshot, VMControl};
 pub use entity::*;
 pub use error::*;
@@ -29,6 +31,7 @@ pub use linkage::*;
 pub use loop_kind::{BoundaryKind, LoopStep, VMLoopKind};
 pub use mode::Mode;
 pub use mutation::*;
+use print_utils::p;
 pub use signature::*;
 pub use snapshot::{StackSnapshot, StackValueSnapshot};
 pub use stack::*;
@@ -46,9 +49,9 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
     output_ty: EntityRoutePtr,
     args: impl Iterator<Item = __EvalResult<__TempValue<'temp, 'eval>>>, // including this value
     kwargs: impl Iterator<Item = (CustomIdentifier, __EvalResult<__TempValue<'temp, 'eval>>)>,
-    verbose: bool,
+    vm_config: &'temp VMConfig,
 ) -> EvalValueResult<'eval> {
-    let mut interpreter = Interpreter::try_new(db, args, verbose)?;
+    let mut interpreter = Interpreter::try_new(db, args, vm_config)?;
     if let Some(__Linkage) = opt_linkage {
         interpreter.eval_linkage(__Linkage, output_ty)
     } else {
@@ -60,9 +63,9 @@ pub fn exec_debug<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
     sheet: &InstructionSheet,
     prestack: impl Into<VMStack<'temp, 'eval>>,
-    verbose: bool,
+    vm_config: &'temp VMConfig,
 ) -> Arc<History<'eval>> {
-    let mut interpreter = Interpreter::from_prestack(db, prestack, verbose);
+    let mut interpreter = Interpreter::from_prestack(db, prestack, vm_config);
     interpreter.exec_all(sheet, Mode::TrackHistory);
     Arc::new(interpreter.history)
 }
@@ -72,9 +75,9 @@ pub fn exec_loop_debug<'temp, 'eval: 'temp>(
     loop_kind: VMLoopKind,
     sheet: &InstructionSheet,
     stack_snapshot: &StackSnapshot<'eval>,
-    verbose: bool,
+    vm_config: &'temp VMConfig,
 ) -> Vec<LoopFrameData<'eval>> {
-    let mut interpreter = Interpreter::from_prestack(db, stack_snapshot, verbose);
+    let mut interpreter = Interpreter::from_prestack(db, stack_snapshot, vm_config);
     interpreter.exec_loop_tracking_frame(loop_kind, &sheet);
     interpreter.frames
 }

@@ -58,7 +58,7 @@ impl HuskyTraceTime {
                 func_input_values
                     .into_iter()
                     .map(|value| value.into_stack().unwrap()),
-                self.eval_time().verbose(),
+                self.eval_time().vm_config(),
             );
             match routine_defn.variant {
                 EntityDefnVariant::Func { ref stmts, .. } => {

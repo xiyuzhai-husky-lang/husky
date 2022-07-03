@@ -48,7 +48,7 @@ impl<'eval> Session<'eval> {
     pub fn new(
         package: &Package,
         db: &dyn FeatureGenQueryGroup,
-        verbose: bool,
+        vm_config: &VMConfig,
     ) -> __EvalResult<Self> {
         let config = package.config.clone();
         let dataset: Dataset = eval_fast(
@@ -58,7 +58,7 @@ impl<'eval> Session<'eval> {
             RootIdentifier::DatasetType.into(),
             [].into_iter(),
             [].into_iter(),
-            verbose,
+            vm_config,
         )?
         .owned()?
         .take()?;

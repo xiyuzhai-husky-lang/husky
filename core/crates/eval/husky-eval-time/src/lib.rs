@@ -30,7 +30,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use variant::*;
-use vm::{AnyValueDyn, Instruction};
+use vm::{AnyValueDyn, Instruction, VMConfig};
 
 #[salsa::database(
     husky_feature_gen::FeatureGenQueryGroupStorage,
@@ -48,14 +48,14 @@ pub struct HuskyEvalTime {
 }
 
 pub struct HuskyEvalTimeConfig {
-    verbose: bool,
+    pub vm_config: VMConfig,
 }
 
 impl HuskyEvalTime {
     pub fn new(
         __root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
         init_compile_time: impl FnOnce(&mut HuskyCompileTime),
-        verbose: bool,
+        config: HuskyEvalTimeConfig,
     ) -> HuskyEvalTimeSingletonKeeper {
         let mut compile_time = HuskyCompileTime::new(__root_defn);
         init_compile_time(&mut compile_time);
@@ -69,7 +69,7 @@ impl HuskyEvalTime {
             compile_time,
             compile_time_version: 0,
             package_main,
-            config: HuskyEvalTimeConfig { verbose },
+            config,
             feature_interner,
         };
         eval_time.init();
@@ -94,7 +94,7 @@ impl HuskyEvalTime {
             }
         };
         self.variant = HuskyEvalTimeVariant::Learning {
-            session: Session::new(&package, self, self.verbose()).unwrap(),
+            session: Session::new(&package, self, self.vm_config()).unwrap(),
         }
     }
 }

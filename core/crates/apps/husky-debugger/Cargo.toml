@@ -41,7 +41,9 @@ husky-diagnostics = { path = "../../semantics/husky-diagnostics", version = "0.0
 husky-token = { path = "../../syntax/husky-token", version = "0.0.0" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
 husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
+husky-eval-time = { path = "../../eval/husky-eval-time", version = "0.0.0" }
 husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
 trace = { path = "../../trace/trace", version = "0.0.0" }
 husky-trace-time = { path = "../../trace/husky-trace-time", version = "0.0.0" }
 __husky_root = { path = "../../static/__husky_root", version = "0.0.0" }
+vm = { path = "../../eval/vm", version = "0.0.0" }

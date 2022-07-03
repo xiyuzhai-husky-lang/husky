@@ -44,9 +44,16 @@ pub struct HuskyTraceTime {
 }
 
 impl HuskyTraceTime {
-    pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime), verbose: bool) -> Self {
+    pub fn new(
+        init_compile_time: impl FnOnce(&mut HuskyCompileTime),
+        eval_time_config: HuskyEvalTimeConfig,
+    ) -> Self {
         let mut trace_time = Self {
-            eval_time_singleton: HuskyEvalTime::new(__root_defn, init_compile_time, verbose),
+            eval_time_singleton: HuskyEvalTime::new(
+                __root_defn,
+                init_compile_time,
+                eval_time_config,
+            ),
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),

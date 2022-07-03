@@ -17,7 +17,7 @@ use word::RootIdentifier;
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
         for ins in &sheet.instructions {
-            if self.verbose {
+            if self.vm_config.verbose {
                 println!(
                     "{} {}:{}",
                     "exec".red(),
