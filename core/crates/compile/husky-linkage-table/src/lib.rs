@@ -8,6 +8,7 @@ use static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
 pub use table::*;
 
 use check_utils::*;
+use colored::Colorize;
 use husky_entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
 use map_collect::MapCollect;
@@ -15,11 +16,12 @@ use print_utils::p;
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
 use thin_vec::{thin_vec, ThinVec};
+use upcast::Upcast;
 use vm::{Binding, EntityUid, __Linkage};
 use vm::{EvalValue, __EvalResult, __OwnedValue, __SpecificRoutineLinkage, __TempValue};
 use word::{CustomIdentifier, RootIdentifier};
 
-pub trait ResolveLinkage: EntityDefnQueryGroup {
+pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup> {
     fn husky_linkage_table(&self) -> &LinkageTable;
 
     fn element_access_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {

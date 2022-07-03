@@ -73,7 +73,7 @@ mnist-compiled:
 mnist-compiled-with-backtrace:
 	@cargo check
 	@cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
-	@cd ${HUSKY_DIR}/.compiled/crates/mnist-classifier && RUST_BACKTRACE=1 cargo run -q mnist-classifier-debugger --release
+	@cd ${HUSKY_DIR}/.compiled/crates/mnist-classifier && RUST_BACKTRACE=1 cargo run -q mnist-classifier-debugger
 
 print-mnist:
 	cargo run -q --bin husky-analyzer-printer print-qualified-tys $(projects_dir)/cv/mnist-classifier

@@ -8,6 +8,7 @@ rust-version = "1.56"
 
 [dependencies]
 smallvec = "1.8.0"
+colored = "2.0.0"
 vm = { path = "../../eval/vm", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
 upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
