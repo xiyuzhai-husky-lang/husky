@@ -387,7 +387,7 @@ impl EntityDefnVariant {
                 },
                 output_liason,
                 method_defn_kind: MethodDefnKind::from_static(symbol_context, method_kind),
-                opt_source: opt_linkage.map(|__Linkage| __Linkage.into()),
+                opt_source: opt_linkage.map(|linkage| linkage.into()),
             },
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TyField { .. } => {

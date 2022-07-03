@@ -1,4 +1,4 @@
-use husky_entity_route::make_subroute;
+use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
 
 use super::*;
@@ -206,14 +206,31 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                         },
                         _ => {
                             if is_defn_static {
-                                self.gen_linkage_entry(
-                                    make_subroute(
+                                let member_entity_route = match ty_member.base_route.kind {
+                                    EntityRouteKind::Root { ident } => {
+                                        p!(ty_member.base_route, ty_member.ident);
+                                        todo!()
+                                    }
+                                    EntityRouteKind::Package { main, ident } => todo!(),
+                                    EntityRouteKind::Child { parent, ident } => make_subroute(
                                         entity_route,
                                         ty_member.ident.custom(),
                                         Default::default(),
                                     ),
-                                    ty_member,
-                                )
+                                    EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                                        msg_once!("todo: ignore trait that is generic over a specific type");
+                                        make_type_as_trait_member_route(
+                                            entity_route,
+                                            trai,
+                                            ident,
+                                            Default::default(),
+                                        )
+                                    }
+                                    EntityRouteKind::Input { main } => todo!(),
+                                    EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+                                    EntityRouteKind::ThisType => todo!(),
+                                };
+                                self.gen_linkage_entry(member_entity_route, ty_member)
                             } else {
                                 break;
                             }
@@ -233,15 +250,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 liason,
                 opt_linkage,
             } => panic!(),
-            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {
-                // p!(entity_route);
-                // p!(trai, ty);
-                // if trai.kind == self.entity_route_menu.std_ops_index_trai.kind {
-                //     self.gen_index(entity_route)
-                // } else {
-                //     todo!()
-                // }
-            }
+            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {}
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         }
     }

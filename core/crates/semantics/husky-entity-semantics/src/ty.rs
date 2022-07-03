@@ -121,17 +121,17 @@ impl EntityDefnVariant {
 
     fn new_ty(
         generic_parameters: IdentDict<SpatialParameter>,
-        type_members: IdentDict<Arc<EntityDefn>>,
+        ty_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDefn>>,
         opt_type_call: Option<Arc<TypeCallDefn>>,
         opt_visualizer_source: Option<VisualizerSource>,
     ) -> Self {
-        let members = collect_all_members(&type_members, &trait_impls);
+        let members = collect_all_members(&ty_members, &trait_impls);
         EntityDefnVariant::Ty {
             generic_parameters,
-            ty_members: type_members,
+            ty_members,
             variants,
             kind,
             trait_impls,
@@ -150,7 +150,7 @@ impl EntityDefnVariant {
                 base_route,
                 spatial_parameters: generic_parameters,
                 static_trait_impls: ref trait_impls,
-                ty_members: ref type_members,
+                ref ty_members,
                 ref variants,
                 kind,
                 ref visualizer,
@@ -177,13 +177,13 @@ impl EntityDefnVariant {
                 let symbols = symbol_context.symbols_from_generic_parameters(&generic_parameters);
                 symbol_context.symbols = symbols.into();
                 symbol_context.opt_this_ty = Some(this_ty);
-                let type_members = type_members.map(|type_member| {
+                let ty_members = ty_members.map(|ty_member| {
                     let route = symbol_context.db.intern_entity_route(EntityRoute::subroute(
                         this_ty,
-                        symbol_context.db.intern_word(type_member.name).custom(),
+                        symbol_context.db.intern_word(ty_member.name).custom(),
                         thin_vec![],
                     ));
-                    EntityDefn::from_static(&mut symbol_context, route, type_member)
+                    EntityDefn::from_static(&mut symbol_context, route, ty_member)
                 });
                 let variants = variants.map(|_| todo!());
                 let kind = kind;
@@ -192,7 +192,7 @@ impl EntityDefnVariant {
                 let opt_visualizer_source = Some(VisualizerSource::Static(visualizer));
                 Self::new_ty(
                     generic_parameters,
-                    type_members,
+                    ty_members,
                     variants,
                     kind,
                     trait_impls,

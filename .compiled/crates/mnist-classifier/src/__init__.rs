@@ -345,7 +345,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::raw_contour::RawContour>::index"
+            routine: "<Vec<mnist_classifier::raw_contour::RawContour> as std::ops::Index<i32>>::index"
         },
         specific_transfer_linkage!(|_|todo!(), 1),
     ),
@@ -393,7 +393,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::index"
+            routine: "<Vec<mnist_classifier::connected_component::ConnectedComponent> as std::ops::Index<i32>>::index"
         },
         specific_transfer_linkage!(|_|todo!(), 1),
     ),
@@ -441,7 +441,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::index"
+            routine: "<Vec<mnist_classifier::geom2d::Point2d> as std::ops::Index<i32>>::index"
         },
         specific_transfer_linkage!(|_|todo!(), 1),
     ),
@@ -594,7 +594,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::index"
+            routine: "<Vec<mnist_classifier::line_segment_sketch::LineSegment> as std::ops::Index<i32>>::index"
         },
         specific_transfer_linkage!(|_|todo!(), 1),
     ),
@@ -642,7 +642,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::index"
+            routine: "<Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent> as std::ops::Index<i32>>::index"
         },
         specific_transfer_linkage!(|_|todo!(), 1),
     ),

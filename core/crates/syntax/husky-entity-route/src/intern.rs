@@ -27,6 +27,19 @@ pub fn make_route(
     })
 }
 
+pub fn make_type_as_trait_member_route(
+    ty: EntityRoutePtr,
+    trai: EntityRoutePtr,
+    ident: CustomIdentifier,
+    spatial_arguments: ThinVec<SpatialArgument>,
+) -> EntityRoutePtr {
+    entity_route_interner().intern(EntityRoute {
+        kind: EntityRouteKind::TypeAsTraitMember { ty, trai, ident },
+        temporal_arguments: Default::default(),
+        spatial_arguments,
+    })
+}
+
 pub fn make_subroute(
     parent: EntityRoutePtr,
     ident: CustomIdentifier,
