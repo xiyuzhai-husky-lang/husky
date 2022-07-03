@@ -85,7 +85,7 @@ pub trait AnyValue<'eval>:
 
     fn from_stack<'temp>(stack_value: __TempValue<'temp, 'eval>) -> Self {
         match stack_value {
-            __TempValue::OwnedEval(boxed_value) => boxed_value.take().unwrap(),
+            __TempValue::OwnedEval(boxed_value) => boxed_value.downcast_move().unwrap(),
             _ => {
                 p!(Self::static_type_name());
                 p!(stack_value);

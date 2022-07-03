@@ -119,7 +119,7 @@ impl<'eval> EvalValue<'eval> {
         match self {
             EvalValue::Copyable(_) => panic!("primitive doesn't have member variables"),
             EvalValue::Owned(value) => {
-                let mut value: VirtualStruct = value.take().unwrap();
+                let mut value: VirtualStruct = value.downcast_move().unwrap();
                 value.take_field(field_idx).into_eval()
             }
             EvalValue::EvalPure(_) => panic!("expect global ref"),

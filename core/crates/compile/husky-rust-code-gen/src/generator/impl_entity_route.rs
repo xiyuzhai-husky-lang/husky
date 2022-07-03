@@ -51,7 +51,10 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(&ident)
                 }
                 EntityRouteKind::Input { main } => todo!(),
-                EntityRouteKind::Generic { ident, .. } => todo!(),
+                EntityRouteKind::Generic { ident, .. } => {
+                    p!(entity_route);
+                    todo!()
+                }
                 EntityRouteKind::ThisType => todo!(),
                 EntityRouteKind::TypeAsTraitMember {
                     ty: parent,

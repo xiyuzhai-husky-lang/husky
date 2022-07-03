@@ -620,7 +620,7 @@ pub(crate) fn method_decl_from_static(
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
             Arc::new(MethodDecl {
-                generic_parameters,
+                spatial_parameters: generic_parameters,
                 parameters,
                 output: OutputDecl {
                     liason: output_liason,

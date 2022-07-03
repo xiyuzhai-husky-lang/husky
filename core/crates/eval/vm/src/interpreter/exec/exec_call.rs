@@ -8,8 +8,14 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         f: __SpecificRoutineLinkage,
         output_ty: EntityRoutePtr,
     ) -> __EvalResult<()> {
-        let mut parameters = self.stack.drain(f.nargs).collect::<Vec<_>>();
-        let result = (f.call.0)(&mut parameters)?;
+        let mut arguments = self.stack.drain(f.nargs).collect::<Vec<_>>();
+        for argument in arguments.iter() {
+            match argument {
+                __TempValue::Moved => panic!(),
+                _ => (),
+            }
+        }
+        let result = (f.call.0)(&mut arguments)?;
         msg_once!("ugly");
         if output_ty.kind
             != (EntityRouteKind::Root {

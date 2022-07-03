@@ -63,9 +63,15 @@ impl EntityDefnVariant {
                         liason,
                         ..
                     } => match field_variant {
-                        FieldDefnVariant::RecordOriginal => {
-                            Parameter::from_member(ident, liason, ty, db.is_copyable(ty).unwrap())
-                        }
+                        FieldDefnVariant::RecordOriginal => Parameter::from_member(
+                            RangedCustomIdentifier {
+                                ident: ty_member.ident.custom(),
+                                range: Default::default(),
+                            },
+                            liason,
+                            ty,
+                            db.is_copyable(ty).unwrap(),
+                        ),
                         _ => {
                             p!(field_variant);
                             panic!()
@@ -87,9 +93,15 @@ impl EntityDefnVariant {
                         liason,
                         ..
                     } => match field_variant {
-                        FieldDefnVariant::StructOriginal => {
-                            Parameter::from_member(ident, liason, ty, db.is_copyable(ty).unwrap())
-                        }
+                        FieldDefnVariant::StructOriginal => Parameter::from_member(
+                            RangedCustomIdentifier {
+                                ident: ty_member.ident.custom(),
+                                range: Default::default(),
+                            },
+                            liason,
+                            ty,
+                            db.is_copyable(ty).unwrap(),
+                        ),
                         _ => panic!(),
                     },
                     _ => panic!(),

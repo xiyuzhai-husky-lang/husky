@@ -90,7 +90,7 @@ impl TraitImplDecl {
                         liason: OutputLiason::Transfer,
                         ty: this_ty,
                     },
-                    generic_parameters: Default::default(),
+                    spatial_parameters: Default::default(),
                     kind: MethodKind::Trait { trai: clone_trait },
                     is_lazy: false,
                 }))],

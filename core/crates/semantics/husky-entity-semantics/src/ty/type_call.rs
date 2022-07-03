@@ -26,8 +26,7 @@ impl TypeCallDefn {
                 ..
             } => TypeCallDefn {
                 parameters: Arc::new(
-                    parameters
-                        .map(|input_placeholder| context.parameter_from_static(input_placeholder)),
+                    parameters.map(|parameter| context.parameter_from_static(parameter)),
                 ),
                 output_ty: RangedEntityRoute {
                     route: context.parse_entity_route(output_ty).unwrap(),

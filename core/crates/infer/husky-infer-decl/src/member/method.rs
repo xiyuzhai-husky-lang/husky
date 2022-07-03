@@ -16,7 +16,7 @@ pub struct MethodDecl {
     pub this_liason: ParameterLiason,
     pub parameters: Vec<ParameterDecl>,
     pub output: OutputDecl,
-    pub generic_parameters: IdentDict<SpatialParameter>,
+    pub spatial_parameters: IdentDict<SpatialParameter>,
     pub is_lazy: bool,
     pub kind: MethodKind,
 }
@@ -77,7 +77,7 @@ impl MethodDecl {
                 .map(|input| input.instantiate(instantiator))
                 .collect(),
             output: self.output.instantiate(instantiator),
-            generic_parameters: Default::default(),
+            spatial_parameters: Default::default(),
             kind: self.kind.instantiate(instantiator),
             is_lazy: self.is_lazy,
         })
@@ -89,7 +89,7 @@ impl MethodDecl {
             this_liason: self.this_liason,
             parameters: self.parameters.map(|input| input.implement(implementor)),
             output: self.output.implement(implementor),
-            generic_parameters: self.generic_parameters.clone(),
+            spatial_parameters: self.spatial_parameters.clone(),
             kind: self.kind,
             is_lazy: self.is_lazy,
         })
@@ -119,7 +119,7 @@ impl MethodDecl {
                         liason: output_liason,
                         ty: output_ty,
                     },
-                    generic_parameters: spatial_parameters.map(|static_generic_placeholder| {
+                    spatial_parameters: spatial_parameters.map(|static_generic_placeholder| {
                         SpatialParameter::from_static(
                             symbol_context.entity_syntax_db(),
                             static_generic_placeholder,
@@ -151,7 +151,7 @@ impl MethodDecl {
                     ty: output_ty.route,
                 },
                 this_liason: opt_this_liason.unwrap(),
-                generic_parameters: generic_parameters.clone(),
+                spatial_parameters: generic_parameters.clone(),
                 kind,
                 is_lazy: paradigm.is_lazy(),
             }),
