@@ -12,14 +12,15 @@ log = "0.4.3"
 serde = { version = "1.0.106", features = ["derive", "rc"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 threadpool = "1.7.1"
-parking_lot = "0.11.0"
+parking_lot = "0.12.1"
 rustc-hash = "1.1.0"
 tracing = "0.1"
 itertools = "^0.10.3"
 futures = { version = "0.3.19", features = ["executor", "thread-pool"] }
-tokio = { version = "0.2", features = ["full"] }
-warp = "0.2"
-lsp-server = "0.5.2"
+tokio = { version = "1.19.2", features = ["full"] }
+tokio-stream = { version = "0.1.9" }
+warp = "0.3.2"
+lsp-server = "0.6.0"
 xflags = "0.2.4"
 salsa = "0.17.0-pre.2"
 text-diff = "0.4.0"

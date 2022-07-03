@@ -21,7 +21,7 @@ edition = "2021"
 rust-version = "1.56"
 
 [dependencies]
-tokio = {{ version = "1.16.1", features = ["full"] }}
+tokio = {{ version = "1.19.2", features = ["full"] }}
 husky-debugger = {{ path = "{husky_dir_rel}/core/crates/apps/husky-debugger", version = "0.0.0" }}
 husky-compile-time = {{ path = "{husky_dir_rel}/core/crates/compile/husky-compile-time", version = "0.0.0" }}
 __husky_root = {{ path = "{husky_dir_rel}/core/crates/static/__husky_root", version = "0.0.0" }}
