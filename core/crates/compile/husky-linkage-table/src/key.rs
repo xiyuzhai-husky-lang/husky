@@ -1,6 +1,8 @@
 use crate::*;
+use husky_entity_syntax::EntitySyntaxQueryGroup;
 use smallvec::SmallVec;
 use static_defn::__StaticLinkageKey;
+use upcast::Upcast;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageKey {
@@ -49,7 +51,12 @@ impl LinkageKey {
             },
         }
     }
+
+    pub fn into_static(&self, db: &dyn EntitySyntaxQueryGroup) -> __StaticLinkageKey {
+        todo!()
+    }
 }
+
 fn entity_uid(db: &dyn ResolveLinkage, text: &str) -> EntityUid {
     db.entity_uid(db.parse_entity_route(text))
 }
