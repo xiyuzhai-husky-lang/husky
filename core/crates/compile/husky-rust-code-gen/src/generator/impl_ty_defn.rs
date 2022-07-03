@@ -103,7 +103,7 @@ impl<'a> RustCodeGenerator<'a> {
 
         self.write("}\n");
 
-        self.gen_has_static_type_info_impl(tyname, ty_contains_eval_ref);
+        self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
 
         self.gen_any_value_impl(base_route, tyname, ty_contains_eval_ref);
 
@@ -259,6 +259,7 @@ impl<'a> RustCodeGenerator<'a> {
 
     fn gen_has_static_type_info_impl(
         &mut self,
+        base_route: EntityRoutePtr,
         tyname: CustomIdentifier,
         ty_contains_eval_ref: bool,
     ) {
@@ -281,7 +282,7 @@ impl<'a> RustCodeGenerator<'a> {
     type StaticSelf = {static_self};
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {{
-        todo!()
+        "{base_route:?}".into()
     }}
 }}
 "#
