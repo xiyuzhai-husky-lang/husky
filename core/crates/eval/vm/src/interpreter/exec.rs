@@ -174,6 +174,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             ident: RootIdentifier::DatasetType,
                         })
                     {
+                        p!(ins.src.file(), ins.src.text_range());
+                        p!(sheet.instructions);
                         should_eq!(output_ty, return_value.any_ref().ty_dyn());
                     }
                     VMControl::Return(return_value)
