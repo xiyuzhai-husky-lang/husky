@@ -1,5 +1,0 @@
-[workspace]
-members = ["crates/*"]
-
-[profile.dev]
-opt-level = 0
