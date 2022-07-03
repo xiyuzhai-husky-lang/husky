@@ -5,7 +5,7 @@ use lsp_types::FoldingRange;
 use print_utils::epin;
 use std::fmt::Write;
 use std::sync::Arc;
-use word::WordAllocator;
+use word::WordInterner;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenizedText {
@@ -117,8 +117,8 @@ impl fold::ItemToFold<URange> for TokenGroup {
 }
 
 impl TokenizedText {
-    pub(crate) fn parse(word_unique_allocator: &WordAllocator, text: &str) -> Arc<Self> {
-        let mut token_scanner = TokenScanner::new(word_unique_allocator);
+    pub(crate) fn parse(word_interner: &WordInterner, text: &str) -> Arc<Self> {
+        let mut token_scanner = TokenScanner::new(word_interner);
         for (i, line) in text.lines().enumerate() {
             token_scanner.scan(i, line)
         }

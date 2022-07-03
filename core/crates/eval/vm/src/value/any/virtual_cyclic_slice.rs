@@ -40,6 +40,10 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
         todo!()
     }
 
+    fn static_ty() -> EntityRoutePtr {
+        panic!()
+    }
+
     fn ty(&self) -> EntityRoutePtr {
         self.ty
     }

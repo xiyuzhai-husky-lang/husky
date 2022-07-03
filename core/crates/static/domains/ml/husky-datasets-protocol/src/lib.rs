@@ -80,7 +80,7 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
         self
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn static_ty() -> EntityRoutePtr {
         RootIdentifier::DatasetType.into()
     }
 

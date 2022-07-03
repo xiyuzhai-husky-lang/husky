@@ -19,9 +19,9 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
     fn snapshot(&self) -> salsa::Snapshot<HuskyCompileTime> {
         salsa::Snapshot::new(HuskyCompileTime {
             storage: self.storage.snapshot(),
-            file_unique_allocator: self.file_unique_allocator.clone(),
-            word_unique_allocator: self.word_unique_allocator.clone(),
-            scope_unique_allocator: self.scope_unique_allocator.clone(),
+            file_interner: self.file_interner.clone(),
+            word_interner: self.word_interner.clone(),
+            scope_interner: self.scope_interner.clone(),
             live_docs: self.live_docs.clone(),
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
@@ -33,18 +33,18 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
 
 impl AllocateUniqueFile for HuskyCompileTime {
     fn file_interner(&self) -> &husky_file::FileInterner {
-        &self.file_unique_allocator
+        &self.file_interner
     }
 }
 
 impl InternWord for HuskyCompileTime {
-    fn word_allocator(&self) -> &word::WordAllocator {
-        &self.word_unique_allocator
+    fn word_allocator(&self) -> &word::WordInterner {
+        &self.word_interner
     }
 }
 
 impl LiveFiles for HuskyCompileTime {
-    fn get_live_files(&self) -> &ARwLock<IndexMap<husky_file::FilePtr, ARwLock<String>>> {
+    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::FilePtr, ASafeRwLock<String>>> {
         &self.live_docs
     }
 
@@ -55,9 +55,9 @@ impl LiveFiles for HuskyCompileTime {
 
 impl FileQueryGroup for HuskyCompileTime {}
 
-impl AllocateUniqueScope for HuskyCompileTime {
-    fn scope_unique_allocator(&self) -> &husky_entity_route::EntityRouteInterner {
-        &self.scope_unique_allocator
+impl InternEntityRoute for HuskyCompileTime {
+    fn scope_interner(&self) -> &husky_entity_route::EntityRouteInterner {
+        &self.scope_interner
     }
 }
 
@@ -71,7 +71,11 @@ impl ResolveStaticRootDefn for HuskyCompileTime {
     }
 }
 
-impl EntitySyntaxQueryGroup for HuskyCompileTime {}
+impl EntitySyntaxQueryGroup for HuskyCompileTime {
+    fn opt_package_main(&self) -> Option<FilePtr> {
+        self.opt_main
+    }
+}
 
 impl AstQueryGroup for HuskyCompileTime {}
 
@@ -112,10 +116,6 @@ impl infer_total::InferQueryGroup for HuskyCompileTime {}
 impl ResolveLinkage for HuskyCompileTime {
     fn husky_linkage_table(&self) -> &LinkageTable {
         &self.linkage_table
-    }
-
-    fn opt_package_main(&self) -> Option<FilePtr> {
-        self.opt_main
     }
 }
 

@@ -1,4 +1,7 @@
 use super::*;
+use husky_entity_route::{lazy_entity_route, make_route};
+use thin_vec::thin_vec;
+use word::RootIdentifier;
 
 impl<'a, T> HasStaticTypeInfo for Vec<T>
 where
@@ -31,7 +34,13 @@ impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
         self
     }
 
+    fn static_ty() -> EntityRoutePtr {
+        lazy_entity_route!({
+            make_route(RootIdentifier::Vec.into(), thin_vec![T::static_ty().into()])
+        })
+    }
+
     fn ty(&self) -> EntityRoutePtr {
-        todo!()
+        Self::static_ty()
     }
 }

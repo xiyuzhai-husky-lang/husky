@@ -17,16 +17,16 @@ pub trait AstSalsaQueryGroup:
     EntitySyntaxQueryGroup + Upcast<dyn EntitySyntaxQueryGroup> + TextQueryGroup
 {
     fn ast_text(&self, file: FilePtr) -> EntitySyntaxResultArc<AstText>;
+
+    fn root_symbols(&self) -> Arc<Vec<Symbol>>;
 }
 
-pub trait AstQueryGroup: AstSalsaQueryGroup {
-    fn parse_entity_route(&self, opt_package_main: Option<FilePtr>, text: &str) -> EntityRoutePtr {
-        let symbols: std::borrow::Cow<'_, [Symbol]> = self
-            .all_main_files()
+fn root_symbols(db: &dyn AstSalsaQueryGroup) -> Arc<Vec<Symbol>> {
+    Arc::new(
+        db.all_main_files()
             .into_iter()
             .map(|main_file| -> Symbol {
-                p!(main_file);
-                let module = self.module(main_file).unwrap();
+                let module = db.module(main_file).unwrap();
                 Symbol {
                     init_ident: RangedCustomIdentifier {
                         ident: module.ident().custom(),
@@ -35,14 +35,19 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
                     kind: SymbolKind::EntityRoute(module),
                 }
             })
-            .collect::<Vec<_>>()
-            .into();
+            .collect::<Vec<_>>(),
+    )
+}
+
+pub trait AstQueryGroup: AstSalsaQueryGroup {
+    fn parse_entity_route(&self, text: &str) -> EntityRoutePtr {
+        let root_symbols = self.root_symbols();
         let mut context = AtomContextStandalone {
-            opt_package_main,
+            opt_package_main: self.opt_package_main(),
             db: self.upcast(),
             opt_this_ty: None,
             opt_this_contract: None,
-            symbols,
+            symbols: (&root_symbols as &[_]).into(),
             kind: AtomContextKind::Normal,
         };
         match context.parse_entity_route(text) {

@@ -28,6 +28,10 @@ impl<'temp, 'eval, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'tem
         self
     }
 
+    fn static_ty() -> EntityRoutePtr {
+        todo!()
+    }
+
     fn ty(&self) -> EntityRoutePtr {
         todo!()
     }

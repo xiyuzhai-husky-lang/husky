@@ -11,7 +11,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         let text_start = self.token_stream.text_start();
         match special {
             SpecialToken::DoubleColon => err!(
-                "unexpected double colon, maybe the identifier before is not recognized as scope",
+                "unexpected double colon, maybe the identifier before is not recognized as entity_route correctly",
                 self.token_stream.text_range(text_start)
             )?,
             SpecialToken::DoubleVertical => self.stack.push(HuskyAtom::new(

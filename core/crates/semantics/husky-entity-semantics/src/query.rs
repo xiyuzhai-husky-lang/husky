@@ -5,7 +5,7 @@ use crate::*;
 use husky_entity_route::EntityRoutePtr;
 use infer_total::InferQueryGroup;
 use semantics_error::*;
-use sync_utils::ARwLock;
+use sync_utils::ASafeRwLock;
 use upcast::Upcast;
 use vm::EntityUid;
 
@@ -39,7 +39,7 @@ pub trait StoreEntityRoute {
 
 #[derive(Debug, Default, Clone)]
 pub struct EntityRouteStore {
-    internal: ARwLock<Vec<EntityRoutePtr>>,
+    internal: ASafeRwLock<Vec<EntityRoutePtr>>,
 }
 
 impl EntityRouteStore {

@@ -120,7 +120,8 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 }
                 self.write(
                     r#"
-                Ok(__TempValue::OwnedEval(__OwnedValue::new("#,
+                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                    "#,
                 );
                 self.gen_entity_route(entity_route, EntityRouteRole::Caller);
                 self.write("(");
@@ -130,7 +131,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                     }
                     self.write(&parameter.ranged_ident.ident)
                 }
-                self.write("))))");
+                self.write(
+                    r#")
+                )))"#,
+                );
                 self.write(&format!(
                     r#"
             }}

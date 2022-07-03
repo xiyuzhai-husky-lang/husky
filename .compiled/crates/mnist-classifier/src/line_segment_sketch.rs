@@ -48,8 +48,8 @@ impl<'eval> __AnyValue<'eval> for LineSegment<'eval> {
         todo!()
     }
 
-    fn ty(&self) -> __EntityRoutePtr {
-        todo!()
+    fn static_ty() -> __EntityRoutePtr {
+        __lazy_entity_route_from_text!("mnist_classifier::line_segment_sketch::LineSegment")
     }
 }
 #[derive(Debug, Clone, PartialEq)]
@@ -90,8 +90,8 @@ impl<'eval> __AnyValue<'eval> for LineSegmentSketch<'eval> {
         todo!()
     }
 
-    fn ty(&self) -> __EntityRoutePtr {
-        todo!()
+    fn static_ty() -> __EntityRoutePtr {
+        __lazy_entity_route_from_text!("mnist_classifier::line_segment_sketch::LineSegmentSketch")
     }
 }
 pub(crate) fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {

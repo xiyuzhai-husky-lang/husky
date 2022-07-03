@@ -34,8 +34,8 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
         todo!()
     }
 
-    fn ty(&self) -> __EntityRoutePtr {
-        todo!()
+    fn static_ty() -> __EntityRoutePtr {
+        __lazy_entity_route_from_text!("mnist_classifier::connected_component::ConnectedComponent")
     }
 }
 

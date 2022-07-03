@@ -103,7 +103,7 @@ impl<'eval> AnyValue<'eval> for MnistDataset {
         todo!()
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn static_ty() -> EntityRoutePtr {
         todo!()
     }
 

@@ -1,11 +1,11 @@
 use husky_text::CharIter;
 use print_utils::p;
-use word::WordAllocator;
+use word::WordInterner;
 
 use crate::*;
 
 pub(crate) struct LineTokenIter<'token_line, 'lex: 'token_line> {
-    word_unique_allocator: &'lex WordAllocator,
+    word_interner: &'lex WordInterner,
     line_index: usize,
     buffer: String,
     char_iter: CharIter<'token_line>,
@@ -13,7 +13,7 @@ pub(crate) struct LineTokenIter<'token_line, 'lex: 'token_line> {
 
 impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     pub fn new(
-        word_unique_allocator: &'lex WordAllocator,
+        word_interner: &'lex WordInterner,
         line_index: usize,
         mut char_iter: CharIter<'token_line>,
     ) -> (TextIndent, Self) {
@@ -23,7 +23,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         (
             indent,
             Self {
-                word_unique_allocator,
+                word_interner,
                 line_index,
                 buffer,
                 char_iter,
@@ -148,9 +148,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     }
 
     fn take_buffer_word(&mut self) -> word::WordPtr {
-        let word = self
-            .word_unique_allocator
-            .intern(std::mem::take(&mut self.buffer));
+        let word = self.word_interner.intern(std::mem::take(&mut self.buffer));
         self.buffer.clear();
         word
     }

@@ -1,6 +1,6 @@
 mod impl_necessary;
 mod query;
-mod singleton;
+mod utils;
 mod variant;
 
 pub use husky_compile_time::*;
@@ -10,7 +10,7 @@ pub use husky_feature_gen::{
 pub use husky_instruction_gen::InstructionGenQueryGroup;
 pub use husky_visualizer_gen::VisualizerQueryGroup;
 pub use query::*;
-pub use singleton::*;
+pub use utils::*;
 
 use check_utils::*;
 use husky_compile_time::*;
@@ -56,10 +56,7 @@ impl HuskyEvalTime {
         __root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
         init_compile_time: impl FnOnce(&mut HuskyCompileTime),
         verbose: bool,
-    ) -> HuskyEvalTimeSingleton {
-        unsafe {
-            HUSKY_EVAL_TIME_SINGLETON = None;
-        }
+    ) -> HuskyEvalTimeSingletonKeeper {
         let mut compile_time = HuskyCompileTime::new(__root_defn);
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();

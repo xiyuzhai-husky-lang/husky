@@ -8,18 +8,19 @@ use check_utils::should_eq;
 use indexmap::IndexMap;
 use itertools::Itertools;
 use path_utils::{parent_module_path, submodule_path};
-use print_utils::p;
-use sync_utils::ARwLock;
+use print_utils::{msg_once, p};
+use sync_utils::{ASafeRwLock, SafeRwLock};
 use word::CustomIdentifier;
 
 pub trait LiveFiles: AllocateUniqueFile {
-    fn get_live_files(&self) -> &ARwLock<IndexMap<FilePtr, ARwLock<String>>>;
+    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>;
     fn did_change_source(&mut self, id: FilePtr);
 
     fn set_live_file_text(&mut self, path: PathBuf, text: String) {
         let id = self.intern_file(path);
+        msg_once!("maybe need improving");
         self.get_live_files()
-            .write(|live_docs| live_docs.insert(id, ARwLock::new(text)));
+            .write(|live_docs| live_docs.insert(id, Arc::new(SafeRwLock::new(text))));
         self.did_change_source(id);
     }
 

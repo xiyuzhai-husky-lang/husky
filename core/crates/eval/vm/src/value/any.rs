@@ -106,7 +106,10 @@ pub trait AnyValue<'eval>:
     fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short;
-    fn ty(&self) -> EntityRoutePtr;
+    fn static_ty() -> EntityRoutePtr;
+    fn ty(&self) -> EntityRoutePtr {
+        Self::static_ty()
+    }
 }
 
 // object safe trait

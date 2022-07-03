@@ -1,14 +1,16 @@
 use std::sync::{Arc, RwLock};
 
+pub type ASafeRwLock<T> = Arc<SafeRwLock<T>>;
+
 #[derive(Debug)]
-pub struct ARwLock<T> {
-    inner: Arc<RwLock<T>>,
+pub struct SafeRwLock<T> {
+    inner: RwLock<T>,
 }
 
-impl<T> ARwLock<T> {
-    pub fn new(data: T) -> ARwLock<T> {
+impl<T> SafeRwLock<T> {
+    pub fn new(data: T) -> SafeRwLock<T> {
         Self {
-            inner: Arc::new(RwLock::new(data)),
+            inner: RwLock::new(data),
         }
     }
     // declarative style prevents deadlock
@@ -33,21 +35,13 @@ impl<T> ARwLock<T> {
     }
 }
 
-impl<T> Default for ARwLock<T>
+impl<T> Default for SafeRwLock<T>
 where
     T: Default,
 {
     fn default() -> Self {
         Self {
             inner: Default::default(),
-        }
-    }
-}
-
-impl<T> Clone for ARwLock<T> {
-    fn clone(&self) -> Self {
-        Self {
-            inner: self.inner.clone(),
         }
     }
 }

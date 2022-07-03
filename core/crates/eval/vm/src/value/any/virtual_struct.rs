@@ -119,6 +119,10 @@ where
         self
     }
 
+    fn static_ty() -> EntityRoutePtr {
+        panic!()
+    }
+
     fn ty(&self) -> EntityRoutePtr {
         self.ty
     }
