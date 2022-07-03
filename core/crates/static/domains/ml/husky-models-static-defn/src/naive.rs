@@ -1,4 +1,4 @@
-use std::{collections::HashMap, sync::Arc};
+use std::{collections::HashMap, sync::Arc, time::Instant};
 
 use super::*;
 use dev_utils::__static_dev_src;
@@ -38,9 +38,10 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> __EvalResult {
     let session = eval_time.session();
     let dev_division = session.dev();
     let mut label_statics_map: HashMap<i32, HashMap<Label, usize>> = Default::default();
+    let now = Instant::now();
     for labeled_data in dev_division.each_labeled_data() {
         let sample_id = labeled_data.sample_id;
-        if sample_id.0 >= 1000 {
+        if sample_id.0 >= 10000 {
             break;
         }
         let value = eval_time
@@ -54,6 +55,10 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> __EvalResult {
             .entry(labeled_data.label)
             .or_default() += 1;
     }
+    println!(
+        "{} milliseconds elapsed for evaluating first 1000 in naive train",
+        now.elapsed().as_millis(),
+    );
     let most_likely_labels: HashMap<i32, i32> = label_statics_map
         .into_iter()
         .map(|(value, label_statics)| -> (i32, i32) {

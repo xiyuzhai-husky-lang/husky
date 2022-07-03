@@ -1,6 +1,6 @@
 use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
-use infer_decl::ParameterDecl;
+use infer_decl::{OutputDecl, ParameterDecl};
 
 use super::*;
 
@@ -61,7 +61,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             } => {
                 self.write("\n    (\n");
                 match method_defn_kind {
-                    MethodDefnKind::TypeMethod { ty } => {
+                    MethodDefnKind::TypeMethod { .. } => {
                         self.write(&format!(
                             r#"        __StaticLinkageKey::Routine {{
             routine: "{entity_route}"
@@ -72,9 +72,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                             ParameterLiason::MemberAccess => {
                                 self.write(&format!(
                                     r#"
-        method_index_linkage!("#
+        method_elem_linkage!("#
                                 ));
-                                self.gen_entity_route(entity_route, EntityRouteRole::Decl);
+                                self.gen_entity_route(entity_route.parent(), EntityRouteRole::Decl);
                                 let method_name = entity_route.ident().as_str();
                                 self.write(&format!(", {method_name})"))
                             }
@@ -87,6 +87,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                                     ));
                                 },
                                 &method_decl.parameters,
+                                &method_decl.output,
                             ),
                         }
                     }
@@ -145,6 +146,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
                     &function_decl.primary_parameters,
+                    &function_decl.output,
                 );
                 self.write("    ),");
             }
@@ -176,6 +178,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                             this.write("::__call__")
                         },
                         &function_decl.primary_parameters,
+                        &function_decl.output,
                     );
                     self.write("\n    ),");
                 }
@@ -267,8 +270,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         opt_this: Option<(ParameterLiason, EntityRoutePtr)>,
         gen_caller: impl FnOnce(&mut Self),
         parameters: &[ParameterDecl],
+        output: &OutputDecl,
     ) {
-        let nargs = parameters.len();
+        let base = if opt_this.is_some() { 1 } else { 0 };
+        let nargs = parameters.len() + base;
         self.write(&format!(
             r#"
         specific_transfer_linkage!({{
@@ -281,7 +286,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 ParameterLiason::Pure => {
                     self.write(&format!(
                         r#"
-                    let __this: "#
+                let __this: "#
                     ));
                     if self.db.is_copyable(this_ty).unwrap() {
                         todo!()
@@ -297,7 +302,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 ParameterLiason::EvalRef => {
                     self.write(&format!(
                         r#"
-                    let __this: "#
+                let __this: "#
                     ));
                     if self.db.is_copyable(this_ty).unwrap() {
                         todo!()
@@ -311,22 +316,32 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 ParameterLiason::TempRefMut => {
                     self.write(&format!(
                         r#"
-                    let __this: "#
+                let __this: "#
                     ));
                     self.write("&mut ");
                     self.gen_entity_route(this_ty, EntityRouteRole::Decl);
-                    self.write(&format!(" = __arguments[0].downcast_mut();"))
+                    self.write(&format!(
+                        " = unsafe {{ __arb_ref(&__arguments[0]) }}.downcast_mut();"
+                    ))
                 }
             }
         }
         for (i, parameter) in parameters.iter().enumerate() {
-            self.gen_parameter_downcast(i + 1, parameter)
+            self.gen_parameter_downcast(i + base, parameter)
         }
-        self.write(
-            r#"
+        if self.db.is_copyable(output.ty).unwrap() {
+            self.write(
+                r#"
+                Ok(__TempValue::Copyable(
+                    "#,
+            );
+        } else {
+            self.write(
+                r#"
                 Ok(__TempValue::OwnedEval(__OwnedValue::new(
-            "#,
-        );
+                    "#,
+            );
+        }
         gen_caller(self);
         self.write("(");
         for (i, parameter) in parameters.iter().enumerate() {
@@ -335,10 +350,17 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             }
             self.write(&parameter.ident)
         }
-        self.write(
-            r#")
-                )))"#,
-        );
+        if self.db.is_copyable(output.ty).unwrap() {
+            self.write(
+                r#")
+                    .take_copyable_dyn()))"#,
+            );
+        } else {
+            self.write(
+                r#")
+                    )))"#,
+            );
+        }
         self.write(&format!(
             r#"
             }}
@@ -408,7 +430,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let {parameter_name}: "#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
-        self.write(&format!(" = __arguments[{i}].downcast_move();"))
+        self.write(&format!(
+            " = unsafe {{ __arb_ref(&__arguments[{i}]) }}.downcast_move();"
+        ))
     }
 
     fn gen_parameter_downcast_temp_ref(&mut self, i: usize, parameter: &ParameterDecl) {
