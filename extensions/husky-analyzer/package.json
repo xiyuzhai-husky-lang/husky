@@ -502,7 +502,7 @@
         "svelte-check": "^2.2.11",
         "svelte-jester": "^2.1.5",
         "ts-todo": "^1.0.0",
-        "vsce": "^1.102.0",
+        "vsce": "^2.9.2",
         "vscode-test": "^1.6.1"
     }
 }
