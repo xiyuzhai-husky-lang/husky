@@ -16,7 +16,7 @@ impl<'eval> __HasStaticTypeInfo for ConvexCompoent<'eval> {
     type StaticSelf = ConvexCompoent<'static>;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent".into()
     }
 }
 

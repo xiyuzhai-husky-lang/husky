@@ -34,7 +34,7 @@ impl __HasStaticTypeInfo for Point2d {
     type StaticSelf = Point2d;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "mnist_classifier::geom2d::Point2d".into()
     }
 }
 
@@ -128,7 +128,7 @@ impl __HasStaticTypeInfo for Vector2d {
     type StaticSelf = Vector2d;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "mnist_classifier::geom2d::Vector2d".into()
     }
 }
 

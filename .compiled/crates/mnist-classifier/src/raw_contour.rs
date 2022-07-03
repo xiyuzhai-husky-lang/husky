@@ -22,7 +22,7 @@ impl<'eval> __HasStaticTypeInfo for RawContour<'eval> {
     type StaticSelf = RawContour<'static>;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "mnist_classifier::raw_contour::RawContour".into()
     }
 }
 
@@ -208,7 +208,7 @@ impl __HasStaticTypeInfo for StreakCache {
     type StaticSelf = StreakCache;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "mnist_classifier::raw_contour::StreakCache".into()
     }
 }
 
