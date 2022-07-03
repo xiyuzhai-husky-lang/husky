@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_route::{lazy_entity_route, make_route};
+use print_utils::msg_once;
 use thin_vec::thin_vec;
 use word::RootIdentifier;
 
@@ -35,9 +36,8 @@ impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
     }
 
     fn static_ty() -> EntityRoutePtr {
-        lazy_entity_route!({
-            make_route(RootIdentifier::Vec.into(), thin_vec![T::static_ty().into()])
-        })
+        msg_once!("todo: cache this by using static_type_id");
+        make_route(RootIdentifier::Vec.into(), thin_vec![T::static_ty().into()])
     }
 
     fn ty(&self) -> EntityRoutePtr {

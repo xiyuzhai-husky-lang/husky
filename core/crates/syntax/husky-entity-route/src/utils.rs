@@ -1,3 +1,4 @@
+// deprecated in favor of using static type id to cache everything
 #[macro_export]
 macro_rules! lazy_entity_route_from_text {
     ($text: expr) => {{

@@ -3,9 +3,30 @@ use husky_entity_route::EntityRoutePtr;
 use super::*;
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
-    pub(super) fn call_routine(&mut self, f: __SpecificRoutineLinkage) -> __EvalResult<()> {
+    pub(super) fn call_specific_routine(
+        &mut self,
+        f: __SpecificRoutineLinkage,
+        output_ty: EntityRoutePtr,
+    ) -> __EvalResult<()> {
         let mut parameters = self.stack.drain(f.nargs).collect::<Vec<_>>();
         let result = (f.call.0)(&mut parameters)?;
+        msg_once!("ugly");
+        if output_ty.kind
+            != (EntityRouteKind::Root {
+                ident: RootIdentifier::DatasetType,
+            })
+        {
+            should_eq!(
+                result.ty(),
+                output_ty,
+                r#"
+    linkage source: {:?}
+    result:
+        {result:?}
+"#,
+                f.dev_src
+            );
+        }
         self.stack.push(result.into());
         Ok(())
     }
