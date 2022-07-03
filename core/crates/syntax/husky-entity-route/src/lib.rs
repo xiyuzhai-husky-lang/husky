@@ -5,8 +5,8 @@ pub use entity_kind::EntityKind;
 use husky_file::FilePtr;
 use husky_text::{TextRange, TextRanged};
 pub use intern::{
-    make_route, make_subroute, new_entity_route_interner, EntityRouteInterner,
-    EntityRouteInternerSingletonKeeper, EntityRoutePtr, InternEntityRoute,
+    make_route, make_subroute, make_type_as_trait_member_route, new_entity_route_interner,
+    EntityRouteInterner, EntityRouteInternerSingletonKeeper, EntityRoutePtr, InternEntityRoute,
 };
 use thin_vec::{thin_vec, ThinVec};
 use word::{CustomIdentifier, Identifier, RootIdentifier};

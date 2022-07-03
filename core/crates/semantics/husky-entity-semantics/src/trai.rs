@@ -2,6 +2,7 @@ use crate::EntityDefn;
 use crate::*;
 use dev_utils::DevSource;
 use husky_atom::AtomContext;
+use husky_entity_route::{make_route, make_type_as_trait_member_route};
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, MethodStaticDefnKind, StaticTraitImplDefn};
 use std::sync::Arc;
@@ -57,10 +58,11 @@ impl EntityDefn {
             .entity_syntax_db()
             .intern_word(static_trait_impl.name)
             .ident();
+        let ty = context.opt_this_ty().unwrap();
         Self::new(
             ident,
             variant,
-            context.opt_this_ty().unwrap(),
+            make_type_as_trait_member_route(ty, trai, ident.custom(), Default::default()),
             context
                 .entity_syntax_db()
                 .intern_file(static_trait_impl.dev_src.file.into()),
