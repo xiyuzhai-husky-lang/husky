@@ -6,6 +6,7 @@ use futures::{task::SpawnExt, FutureExt, StreamExt};
 use handle::handle_message;
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc::{self, UnboundedSender};
+use tokio_stream::wrappers::UnboundedReceiverStream;
 use warp::ws::{Message, WebSocket};
 
 pub(crate) async fn handle_query(
@@ -17,12 +18,19 @@ pub(crate) async fn handle_query(
 
 pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<HuskyDebugger>) {
     let (tx, mut rx) = websocket.split();
-    let (client_sender, client_rcv) = mpsc::unbounded_channel::<Result<Message, warp::Error>>();
-    tokio::task::spawn(client_rcv.forward(tx).map(|result| {
-        if let Err(e) = result {
-            eprintln!("error sending websocket msg: {}", e);
-        }
-    }));
+    let (client_sender, mut client_rcv) = mpsc::unbounded_channel::<Result<Message, warp::Error>>();
+    let client_rcv = UnboundedReceiverStream::new(client_rcv);
+    tokio::task::spawn(
+        client_rcv.forward(tx).map(|result| {
+            if let Err(e) = result {
+                eprintln!("error sending websocket msg: {}", e);
+            }
+        }), // async move {
+            // while let Some(_) = client_rcv.recv().await {
+            //     //   tx.
+            //     todo!()
+            // }
+    );
     println!(
         "{}husky:{} query connection established.",
         print_utils::CYAN,
