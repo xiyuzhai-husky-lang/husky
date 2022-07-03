@@ -18,7 +18,7 @@ macro_rules! index_linkage {
         __Linkage::Member(&__MemberLinkage {
             copy_access: index_copy_fp!($Type),
             eval_ref_access: index_eval_ref_fp!($Type),
-            temp_ref_access: __SpecificRoutineFp(|values| todo!()),
+            temp_ref_access: index_temp_ref_fp!($Type),
             temp_mut_access: index_temp_mut_fp!($Type),
             move_access: index_move_fp!($Type),
             nargs: 1,
