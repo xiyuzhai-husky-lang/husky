@@ -1,5 +1,5 @@
 use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
-use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
+use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
 
 use super::*;
 
@@ -65,16 +65,38 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 ref opt_source,
             } => {
                 self.write("\n    (\n");
-                self.write(&format!(
-                    r#"        __StaticLinkageKey::Routine {{
+                match method_defn_kind {
+                    MethodDefnKind::TypeMethod { ty } => {
+                        self.write(&format!(
+                            r#"        __StaticLinkageKey::Routine {{
             routine: "{entity_route}"
         }},
 "#,
-                ));
-                let nargs = parameters.len() + 1;
-                self.write(&format!(
-                    "        specific_transfer_linkage!(|_|todo!(), {nargs}),"
-                ));
+                        ));
+                        let nargs = parameters.len() + 1;
+                        self.write(&format!(
+                            "        specific_transfer_linkage!(|_|todo!(), {nargs}),"
+                        ));
+                    }
+                    MethodDefnKind::TraitMethod { trai } => todo!(),
+                    MethodDefnKind::TraitMethodImpl { trai } => {
+                        if trai.kind == self.entity_route_menu.std_ops_index_trai.kind {
+                            match entity_route.kind {
+                                EntityRouteKind::Root { ident } => todo!(),
+                                EntityRouteKind::Package { main, ident } => todo!(),
+                                EntityRouteKind::Child { parent, ident } => todo!(),
+                                EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                                    self.gen_index(ty)
+                                }
+                                EntityRouteKind::Input { main } => todo!(),
+                                EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+                                EntityRouteKind::ThisType => todo!(),
+                            }
+                        } else {
+                            todo!()
+                        }
+                    }
+                }
                 self.write("\n    ),");
             }
             EntityDefnVariant::Func {
@@ -255,8 +277,20 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         }
     }
 
-    fn gen_index(&mut self) {
-        todo!()
+    fn gen_index(&mut self, ty: EntityRoutePtr) {
+        msg_once!("todo: generic indexing");
+        self.write(&format!(
+            r#"        __StaticLinkageKey::Index {{
+                    opd_tys: &["{ty:?}", "i32"],
+                }},"#,
+        ));
+        let nargs = 2;
+        self.write(&format!(
+            r#"
+            index_linkage!("#
+        ));
+        self.gen_entity_route(ty, EntityRouteRole::Decl);
+        self.write(")")
     }
 
     fn gen_parameter_downcast(&mut self, i: usize, parameter: &Parameter) {

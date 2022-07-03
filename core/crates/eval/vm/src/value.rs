@@ -31,7 +31,7 @@ pub enum __TempValue<'temp, 'eval: 'temp> {
     OwnedEval(__OwnedValue<'eval, 'eval>),
     OwnedTemp(__OwnedValue<'temp, 'eval>),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    EvalRef(EvalRef<'eval>),
+    EvalRef(__EvalRef<'eval>),
     TempRefEval(&'temp (dyn AnyValueDyn<'eval> + 'eval)),
     TempRefTemp(&'temp (dyn AnyValueDyn<'eval> + 'temp)),
     TempRefMutEval {
@@ -124,6 +124,12 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
 impl<'temp, 'eval: 'temp> From<CopyableValue> for __TempValue<'temp, 'eval> {
     fn from(value: CopyableValue) -> Self {
         __TempValue::Copyable(value)
+    }
+}
+
+impl<'temp, 'eval: 'temp> From<__EvalRef<'eval>> for __TempValue<'temp, 'eval> {
+    fn from(value: __EvalRef<'eval>) -> Self {
+        __TempValue::EvalRef(value)
     }
 }
 

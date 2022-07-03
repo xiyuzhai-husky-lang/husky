@@ -7,7 +7,7 @@ pub enum MemberValue<'eval> {
     Copyable(CopyableValue),
     Boxed(__OwnedValue<'eval, 'eval>),
     GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    EvalRef(EvalRef<'eval>),
+    EvalRef(__EvalRef<'eval>),
     Moved,
 }
 
@@ -71,7 +71,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
             MemberValue::EvalRef(value) => __TempValue::EvalRef(*value),
             MemberValue::Copyable(_) => panic!("can't bind eval ref to a copyable value"),
             MemberValue::Boxed(ref boxed_value) => {
-                __TempValue::EvalRef(EvalRef(unsafe { &*boxed_value.any_ptr() }))
+                __TempValue::EvalRef(__EvalRef(unsafe { &*boxed_value.any_ptr() }))
             }
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::Moved => todo!(),
@@ -106,7 +106,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
     pub fn share_globally(&'eval self) -> EvalValue<'eval> {
         match self {
             MemberValue::Copyable(value) => EvalValue::Copyable(*value),
-            MemberValue::Boxed(value) => EvalValue::EvalRef(EvalRef(value.any_ref())),
+            MemberValue::Boxed(value) => EvalValue::EvalRef(__EvalRef(value.any_ref())),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::EvalRef(_) => todo!(),
             MemberValue::Moved => todo!(),

@@ -9,29 +9,29 @@ pub enum EvalValue<'eval> {
     Copyable(CopyableValue),
     Owned(__OwnedValue<'eval, 'eval>),
     EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
-    EvalRef(EvalRef<'eval>),
+    EvalRef(__EvalRef<'eval>),
     Undefined,
 }
 
 #[derive(Debug, Clone, Copy)]
-pub struct EvalRef<'eval>(pub &'eval (dyn AnyValueDyn<'eval> + 'eval));
+pub struct __EvalRef<'eval>(pub &'eval (dyn AnyValueDyn<'eval> + 'eval));
 
-impl<'eval1, 'eval2: 'eval1> EvalRef<'eval2> {
-    pub fn short(&self) -> EvalRef<'eval1> {
-        EvalRef(self.0.short_dyn())
+impl<'eval1, 'eval2: 'eval1> __EvalRef<'eval2> {
+    pub fn short(&self) -> __EvalRef<'eval1> {
+        __EvalRef(self.0.short_dyn())
     }
 }
 
-impl<'eval> PartialEq for EvalRef<'eval> {
+impl<'eval> PartialEq for __EvalRef<'eval> {
     fn eq(&self, other: &Self) -> bool {
         self.0 as *const (dyn AnyValueDyn<'eval> + 'eval)
             == other.0 as *const (dyn AnyValueDyn<'eval> + 'eval)
     }
 }
 
-impl<'eval> Eq for EvalRef<'eval> {}
+impl<'eval> Eq for __EvalRef<'eval> {}
 
-impl<'eval> std::ops::Deref for EvalRef<'eval> {
+impl<'eval> std::ops::Deref for __EvalRef<'eval> {
     type Target = dyn AnyValueDyn<'eval> + 'eval;
 
     fn deref(&self) -> &Self::Target {
@@ -39,7 +39,7 @@ impl<'eval> std::ops::Deref for EvalRef<'eval> {
     }
 }
 
-impl<'eval> std::hash::Hash for EvalRef<'eval> {
+impl<'eval> std::hash::Hash for __EvalRef<'eval> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         (self.0 as *const (dyn AnyValueDyn<'eval> + 'eval) as *const u8).hash(state);
     }
@@ -164,7 +164,7 @@ impl<'eval> EvalValue<'eval> {
         }
     }
 
-    pub fn eval_ref(&self) -> EvalRef<'eval> {
+    pub fn eval_ref(&self) -> __EvalRef<'eval> {
         match self {
             EvalValue::Copyable(value) => panic!(),
             EvalValue::Owned(value) => panic!(),

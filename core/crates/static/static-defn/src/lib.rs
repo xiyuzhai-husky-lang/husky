@@ -21,8 +21,8 @@ pub enum __StaticLinkageKey {
     Routine {
         routine: &'static str,
     },
-    ElementAccess {
-        opd_uids: &'static [&'static str],
+    Index {
+        opd_tys: &'static [&'static str],
     },
     StructFieldAccess {
         this_ty: &'static str,
