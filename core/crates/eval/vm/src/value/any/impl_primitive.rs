@@ -43,9 +43,10 @@ impl<'eval> AnyValue<'eval> for () {
         self
     }
 
-    fn ty(&self) -> EntityRoutePtr {
-        todo!()
+    fn static_ty() -> EntityRoutePtr {
+        RootIdentifier::Void.into()
     }
+
     fn print_short(&self) -> String {
         format!("{:?}", self)
     }
@@ -95,7 +96,7 @@ impl<'eval> AnyValue<'eval> for i32 {
         format!("{:?}", self)
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn static_ty() -> EntityRoutePtr {
         RootIdentifier::I32.into()
     }
 }
@@ -141,7 +142,7 @@ impl<'eval> AnyValue<'eval> for f32 {
         self
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn static_ty() -> EntityRoutePtr {
         RootIdentifier::F32.into()
     }
 
@@ -195,7 +196,7 @@ impl<'eval> AnyValue<'eval> for u32 {
         self
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn static_ty() -> EntityRoutePtr {
         RootIdentifier::B32.into()
     }
 }
@@ -245,7 +246,7 @@ impl<'eval> AnyValue<'eval> for u64 {
         self
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn static_ty() -> EntityRoutePtr {
         todo!()
     }
 }
@@ -291,7 +292,7 @@ impl<'eval> AnyValue<'eval> for bool {
         self
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn static_ty() -> EntityRoutePtr {
         RootIdentifier::Bool.into()
     }
     fn print_short(&self) -> String {

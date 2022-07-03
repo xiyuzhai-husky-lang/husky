@@ -1,10 +1,14 @@
-use std::path::{Path, PathBuf};
+use std::{
+    path::{Path, PathBuf},
+    sync::Arc,
+};
 
-use unique_allocator::UniqueAllocator;
+use interner::Interner;
+use singleton::singleton;
 use word::CustomIdentifier;
 
-pub type FileInterner = UniqueAllocator<Path, PathBuf>;
-pub type FilePtr = unique_allocator::InternedPtr<Path>;
+pub type FileInterner = Interner<Path, PathBuf>;
+pub type FilePtr = interner::InternedPtr<Path>;
 
 pub trait AllocateUniqueFile {
     fn file_interner(&self) -> &FileInterner;
@@ -18,15 +22,17 @@ pub trait AllocateUniqueFile {
     }
 }
 
-pub fn new_file_unique_allocator() -> FileInterner {
-    FileInterner::empty()
+pub fn new_file_interner() -> Arc<FileInternerSingletonKeeper> {
+    Arc::new(FileInterner::empty().into())
 }
+
+singleton! { FileInterner }
 
 #[test]
 fn test_intern_file() {
     use check_utils::*;
-    let unique_allocator = new_file_unique_allocator();
-    let path = &*unique_allocator.intern("haha".into());
+    let interner = new_file_interner();
+    let path = &*interner.intern("haha".into());
     let path1: PathBuf = "haha".into();
     should_eq!(path, &path1);
 }

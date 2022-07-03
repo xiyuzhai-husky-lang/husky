@@ -7,7 +7,7 @@ use husky_file::URange;
 use husky_text::TextIndent;
 use print_utils::{epin, p};
 use wild_utils::ref_to_mut_ref;
-use word::WordAllocator;
+use word::WordInterner;
 
 #[derive(PartialEq, Eq)]
 pub struct TokenizedLine {
@@ -26,7 +26,7 @@ impl std::fmt::Debug for TokenizedLine {
 }
 
 pub(crate) struct TokenScanner<'lex> {
-    word_unique_allocator: &'lex WordAllocator,
+    word_interner: &'lex WordInterner,
     tokens: Vec<HuskyToken>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
@@ -39,9 +39,9 @@ impl<'lex> std::fmt::Debug for TokenScanner<'lex> {
 }
 
 impl<'token> TokenScanner<'token> {
-    pub(crate) fn new(word_unique_allocator: &'token WordAllocator) -> Self {
+    pub(crate) fn new(word_interner: &'token WordInterner) -> Self {
         Self {
-            word_unique_allocator,
+            word_interner,
             tokens: vec![],
             tokenized_lines: vec![],
             errors: vec![],
@@ -51,7 +51,7 @@ impl<'token> TokenScanner<'token> {
     pub(crate) fn scan(&mut self, line_index: usize, line: &str) {
         let start = self.tokens.len();
         let (indent, token_iter) = LineTokenIter::new(
-            self.word_unique_allocator,
+            self.word_interner,
             line_index,
             line.chars().enumerate().peekable(),
         );

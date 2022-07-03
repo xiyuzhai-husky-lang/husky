@@ -9,9 +9,10 @@ description = "Generic LSP server scaffold."
 [dependencies]
 salsa = "0.17.0-pre.2"
 paste = "1.0"
+singleton = { path = "../../abstraction/singleton", version = "0.0.0" }
+interner = { path = "../../abstraction/interner", version = "0.0.0" }
 check-utils = { path = "../../utils/check", version = "0.0.0" }
 print-utils = { path = "../../utils/print", version = "0.0.0" }
-unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
 husky-file = { path = "../husky-file", version = "0.0.0" }

@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Symbol {
     pub init_ident: RangedCustomIdentifier,
     pub kind: SymbolKind,
@@ -17,7 +17,7 @@ impl Symbol {
     }
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SymbolKind {
     EntityRoute(EntityRoutePtr),
     Variable {

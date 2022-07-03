@@ -6,35 +6,35 @@ mod ptr;
 pub use ptr::{Intern, InternedPtr};
 
 use std::{borrow::Borrow, fmt::Debug, hash::Hash, marker::PhantomData};
-use sync_utils::ARwLock;
+use sync_utils::{ASafeRwLock, SafeRwLock};
 
-use internal::UniqueAllocatorInternal;
+use internal::InternerInternal;
 
-pub struct UniqueAllocator<T, Owned = T, Ptr = InternedPtr<T>>
+pub struct Interner<T, Owned = T, Ptr = InternedPtr<T>>
 where
     T: Hash + Eq + 'static + ?Sized,
     Ptr: Intern<Thing = T>,
     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
-    internal: ARwLock<UniqueAllocatorInternal<T, Owned, Ptr>>,
+    internal: SafeRwLock<InternerInternal<T, Owned, Ptr>>,
     phantom: PhantomData<T>,
 }
 
-impl<T, Owned, Id> Clone for UniqueAllocator<T, Owned, Id>
-where
-    T: Hash + Eq + 'static + ?Sized,
-    Id: Intern<Thing = T>,
-    Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
-{
-    fn clone(&self) -> Self {
-        Self {
-            internal: self.internal.clone(),
-            phantom: PhantomData,
-        }
-    }
-}
+// impl<T, Owned, Id> Clone for Interner<T, Owned, Id>
+// where
+//     T: Hash + Eq + 'static + ?Sized,
+//     Id: Intern<Thing = T>,
+//     Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
+// {
+//     fn clone(&self) -> Self {
+//         Self {
+//             internal: self.internal.clone(),
+//             phantom: PhantomData,
+//         }
+//     }
+// }
 
-impl<T, Owned, Ptr> UniqueAllocator<T, Owned, Ptr>
+impl<T, Owned, Ptr> Interner<T, Owned, Ptr>
 where
     T: Hash + Eq + 'static + ?Sized,
     Ptr: Intern<Thing = T>,
@@ -42,7 +42,7 @@ where
 {
     pub fn empty() -> Self {
         Self {
-            internal: ARwLock::new(UniqueAllocatorInternal::default()),
+            internal: SafeRwLock::new(InternerInternal::default()),
             phantom: PhantomData,
         }
     }
@@ -52,14 +52,14 @@ where
         Ptr: for<'a> From<&'a I>,
     {
         Self {
-            internal: ARwLock::new(UniqueAllocatorInternal::new_from(ids)),
+            internal: SafeRwLock::new(InternerInternal::new_from(ids)),
             phantom: PhantomData,
         }
     }
 
     pub fn new(ids: &[Ptr]) -> Self {
         Self {
-            internal: ARwLock::new(UniqueAllocatorInternal::new(ids)),
+            internal: SafeRwLock::new(InternerInternal::new(ids)),
             phantom: PhantomData,
         }
     }

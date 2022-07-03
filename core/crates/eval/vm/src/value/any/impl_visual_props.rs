@@ -23,6 +23,10 @@ impl<'eval> AnyValue<'eval> for VisualData {
         self
     }
 
+    fn static_ty() -> EntityRoutePtr {
+        RootIdentifier::VisualType.into()
+    }
+
     fn ty(&self) -> EntityRoutePtr {
         RootIdentifier::VisualType.into()
     }

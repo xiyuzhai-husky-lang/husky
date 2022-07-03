@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_route::{lazy_entity_route, AllocateUniqueScope};
+use husky_entity_route::{lazy_entity_route_from_text, InternEntityRoute};
 use husky_eval_time::{compile_time, parse_entity_route};
 use husky_trace_protocol::*;
 use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
@@ -203,7 +203,7 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
         self
     }
 
-    fn ty(&self) -> EntityRoutePtr {
-        lazy_entity_route!(BINARY_IMAGE_28_BASE_ROUTE)
+    fn static_ty() -> EntityRoutePtr {
+        lazy_entity_route_from_text!(BINARY_IMAGE_28_BASE_ROUTE)
     }
 }

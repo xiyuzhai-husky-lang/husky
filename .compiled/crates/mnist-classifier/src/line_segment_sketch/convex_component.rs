@@ -35,7 +35,7 @@ impl<'eval> __AnyValue<'eval> for ConvexCompoent<'eval> {
         todo!()
     }
 
-    fn ty(&self) -> __EntityRoutePtr {
-        todo!()
+    fn static_ty() -> __EntityRoutePtr {
+        __lazy_entity_route_from_text!("mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent")
     }
 }

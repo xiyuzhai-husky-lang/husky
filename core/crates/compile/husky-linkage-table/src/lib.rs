@@ -13,7 +13,7 @@ use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVar
 use map_collect::MapCollect;
 use print_utils::p;
 use std::collections::HashMap;
-use sync_utils::ARwLock;
+use sync_utils::ASafeRwLock;
 use thin_vec::{thin_vec, ThinVec};
 use vm::{Binding, EntityUid, __Linkage};
 use vm::{EvalValue, __EvalResult, __OwnedValue, __SpecificRoutineLinkage, __TempValue};
@@ -21,8 +21,6 @@ use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup {
     fn husky_linkage_table(&self) -> &LinkageTable;
-
-    fn opt_package_main(&self) -> Option<FilePtr>;
 
     fn element_access_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {
         if let Some(__Linkage) = self

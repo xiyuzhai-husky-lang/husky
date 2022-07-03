@@ -6,8 +6,8 @@ use word::new_word_interner;
 use crate::TokenizedText;
 
 fn standalone_tokenize(text: &'static str) -> Arc<TokenizedText> {
-    let word_unique_allocator = new_word_interner();
-    TokenizedText::parse(&word_unique_allocator, text)
+    let word_interner = new_word_interner();
+    TokenizedText::parse(&word_interner, text)
 }
 
 #[test]

@@ -40,7 +40,6 @@ async fn run(path: PathBuf) {
 }
 
 fn init_compile_time_from_dir(compile_time: &mut HuskyCompileTime, dir: PathBuf) {
-    compile_time.set_main_package(&dir);
     compile_time.load_package(&dir)
 }
 

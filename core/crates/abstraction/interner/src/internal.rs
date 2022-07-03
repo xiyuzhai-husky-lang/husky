@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use crate::{pool::Pool, *};
 
-pub struct UniqueAllocatorInternal<T, Owned, Id>
+pub struct InternerInternal<T, Owned, Id>
 where
     T: Hash + Eq + 'static + ?Sized,
     Id: Intern<Thing = T>,
@@ -11,7 +11,7 @@ where
     pub(crate) things: Pool<Owned, 10000>,
     pub(crate) ids: HashMap<Owned, Id>,
 }
-impl<T, Owned, Id> Default for UniqueAllocatorInternal<T, Owned, Id>
+impl<T, Owned, Id> Default for InternerInternal<T, Owned, Id>
 where
     T: Hash + Eq + 'static + ?Sized,
     Id: Intern<Thing = T>,
@@ -25,7 +25,7 @@ where
     }
 }
 
-impl<T, Owned, Id> UniqueAllocatorInternal<T, Owned, Id>
+impl<T, Owned, Id> InternerInternal<T, Owned, Id>
 where
     T: Hash + Eq + 'static + ?Sized,
     Id: Intern<Thing = T>,

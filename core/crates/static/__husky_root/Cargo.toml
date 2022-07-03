@@ -23,3 +23,4 @@ husky-liason-semantics = { path = "../../semantics/husky-liason-semantics", vers
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
 husky-models-static-defn = { path = "../domains/ml/husky-models-static-defn", version = "0.0.0" }
 husky-datasets-static-defn = { path = "../domains/ml/husky-datasets-static-defn", version = "0.0.0" }
+husky-eval-time = { path = "../../eval/husky-eval-time", version = "0.0.0" }

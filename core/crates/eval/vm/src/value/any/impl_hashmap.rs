@@ -36,7 +36,7 @@ where
         self
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn static_ty() -> EntityRoutePtr {
         todo!()
     }
 }

@@ -133,7 +133,7 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
         self
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn static_ty() -> EntityRoutePtr {
         todo!()
     }
 

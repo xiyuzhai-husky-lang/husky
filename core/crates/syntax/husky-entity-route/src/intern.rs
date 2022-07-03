@@ -1,12 +1,43 @@
+use crate::*;
 use core::hash::Hash;
 use husky_text::RangedCustomIdentifier;
+use interner::{Intern, Interner};
 use paste::paste;
+use singleton::singleton;
 use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
-use unique_allocator::{Intern, UniqueAllocator};
 
-use crate::*;
+pub type EntityRouteInterner = Interner<EntityRoute, EntityRoute, EntityRoutePtr>;
 
-pub type EntityRouteInterner = UniqueAllocator<EntityRoute, EntityRoute, EntityRoutePtr>;
+singleton! { EntityRouteInterner }
+
+fn entity_route_interner() -> &'static EntityRouteInterner {
+    access_singleton()
+}
+
+pub fn make_route(
+    route: EntityRoutePtr,
+    generic_arguments: ThinVec<SpatialArgument>,
+) -> EntityRoutePtr {
+    let mut generics = route.spatial_arguments.clone();
+    generics.extend(generic_arguments);
+    entity_route_interner().intern(EntityRoute {
+        kind: route.kind,
+        temporal_arguments: Default::default(),
+        spatial_arguments: generics,
+    })
+}
+
+pub fn make_subroute(
+    parent: EntityRoutePtr,
+    ident: CustomIdentifier,
+    spatial_arguments: ThinVec<SpatialArgument>,
+) -> EntityRoutePtr {
+    entity_route_interner().intern(EntityRoute {
+        kind: EntityRouteKind::Child { parent, ident },
+        temporal_arguments: Default::default(),
+        spatial_arguments,
+    })
+}
 
 #[derive(Clone, Copy)]
 pub enum EntityRoutePtr {
@@ -167,10 +198,10 @@ impl From<&EntityRoute> for EntityRoute {
     }
 }
 
-pub trait AllocateUniqueScope {
-    fn scope_unique_allocator(&self) -> &EntityRouteInterner;
+pub trait InternEntityRoute {
+    fn scope_interner(&self) -> &EntityRouteInterner;
     fn intern_entity_route(&self, scope: EntityRoute) -> EntityRoutePtr {
-        self.scope_unique_allocator().intern(scope)
+        self.scope_interner().intern(scope)
     }
 
     fn make_route(
@@ -201,35 +232,38 @@ pub trait AllocateUniqueScope {
     }
 }
 
-pub fn new_entity_route_interner() -> EntityRouteInterner {
-    EntityRouteInterner::new_from::<RootIdentifier>(&[
-        RootIdentifier::Void,
-        RootIdentifier::I32,
-        RootIdentifier::F32,
-        RootIdentifier::B32,
-        RootIdentifier::B64,
-        RootIdentifier::Bool,
-        RootIdentifier::True,
-        RootIdentifier::False,
-        RootIdentifier::Vec,
-        RootIdentifier::Tuple,
-        RootIdentifier::Debug,
-        RootIdentifier::Std,
-        RootIdentifier::Core,
-        RootIdentifier::Fp,
-        RootIdentifier::Fn,
-        RootIdentifier::FnMut,
-        RootIdentifier::FnOnce,
-        RootIdentifier::Array,
-        RootIdentifier::Domains,
-        RootIdentifier::DatasetType,
-        RootIdentifier::TypeType,
-        RootIdentifier::ModuleType,
-        RootIdentifier::CloneTrait,
-        RootIdentifier::CopyTrait,
-        RootIdentifier::PartialEqTrait,
-        RootIdentifier::EqTrait,
-    ])
+pub fn new_entity_route_interner() -> Arc<EntityRouteInternerSingletonKeeper> {
+    Arc::new(
+        EntityRouteInterner::new_from::<RootIdentifier>(&[
+            RootIdentifier::Void,
+            RootIdentifier::I32,
+            RootIdentifier::F32,
+            RootIdentifier::B32,
+            RootIdentifier::B64,
+            RootIdentifier::Bool,
+            RootIdentifier::True,
+            RootIdentifier::False,
+            RootIdentifier::Vec,
+            RootIdentifier::Tuple,
+            RootIdentifier::Debug,
+            RootIdentifier::Std,
+            RootIdentifier::Core,
+            RootIdentifier::Fp,
+            RootIdentifier::Fn,
+            RootIdentifier::FnMut,
+            RootIdentifier::FnOnce,
+            RootIdentifier::Array,
+            RootIdentifier::Domains,
+            RootIdentifier::DatasetType,
+            RootIdentifier::TypeType,
+            RootIdentifier::ModuleType,
+            RootIdentifier::CloneTrait,
+            RootIdentifier::CopyTrait,
+            RootIdentifier::PartialEqTrait,
+            RootIdentifier::EqTrait,
+        ])
+        .into(),
+    )
 }
 
 #[test]

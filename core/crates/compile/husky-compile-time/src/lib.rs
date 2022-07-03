@@ -1,12 +1,11 @@
 mod impl_diagnostics;
 mod impl_load;
 mod impl_necessary;
-mod impl_parse_entity_route;
 pub mod utils;
 
 pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use husky_diagnostics::DiagnosticQuery;
-pub use husky_entity_route::{AllocateUniqueScope, EntityRoute};
+pub use husky_entity_route::{EntityRoute, InternEntityRoute};
 pub use husky_entity_semantics::EntityDefnQueryGroup;
 pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
 pub use husky_file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
@@ -30,7 +29,7 @@ use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
 use print_utils::*;
 use std::{fmt, sync::Arc};
-use sync_utils::ARwLock;
+use sync_utils::ASafeRwLock;
 
 #[salsa::database(
     husky_file::FileQueryStorage,
@@ -50,10 +49,10 @@ use sync_utils::ARwLock;
 )]
 pub struct HuskyCompileTime {
     storage: salsa::Storage<HuskyCompileTime>,
-    file_unique_allocator: husky_file::FileInterner,
-    word_unique_allocator: word::WordAllocator,
-    scope_unique_allocator: husky_entity_route::EntityRouteInterner,
-    live_docs: ARwLock<IndexMap<FilePtr, ARwLock<String>>>,
+    file_interner: Arc<husky_file::FileInternerSingletonKeeper>,
+    word_interner: Arc<word::WordInternerSingletonKeeper>,
+    scope_interner: Arc<husky_entity_route::EntityRouteInternerSingletonKeeper>,
+    live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
     opt_main: Option<FilePtr>,
@@ -67,14 +66,14 @@ impl HuskyCompileTime {
         ) -> &'static static_defn::EntityStaticDefn,
     ) -> Self {
         let live_docs = Default::default();
-        let scope_unique_allocator = husky_entity_route::new_entity_route_interner();
+        let scope_interner = husky_entity_route::new_entity_route_interner();
         let entity_route_store = Default::default();
         let husky_linkage_table = Default::default();
         Self {
             storage: Default::default(),
-            file_unique_allocator: husky_file::new_file_unique_allocator(),
-            word_unique_allocator: word::new_word_interner(),
-            scope_unique_allocator,
+            file_interner: husky_file::new_file_interner(),
+            word_interner: word::new_word_interner(),
+            scope_interner,
             live_docs,
             linkage_table: husky_linkage_table,
             entity_route_store,

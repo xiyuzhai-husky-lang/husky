@@ -24,7 +24,7 @@ upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
 avec = { path = "../../abstraction/avec", version = "0.0.0" }
 fold = { path = "../../abstraction/fold", version = "0.0.0" }
 map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
-unique-allocator = { path = "../../abstraction/unique-allocator", version = "0.0.0" }
+interner = { path = "../../abstraction/interner", version = "0.0.0" }
 husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
 vm = { path = "../../eval/vm", version = "0.0.0" }
 husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }

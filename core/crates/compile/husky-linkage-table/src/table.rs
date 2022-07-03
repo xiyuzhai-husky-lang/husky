@@ -6,7 +6,7 @@ use crate::*;
 
 #[derive(Debug, Default, Clone)]
 pub struct LinkageTable {
-    linkages: ARwLock<HashMap<LinkageKey, __Linkage>>,
+    linkages: ASafeRwLock<HashMap<LinkageKey, __Linkage>>,
 }
 
 impl LinkageTable {

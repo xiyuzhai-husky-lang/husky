@@ -1,3 +1,4 @@
+
 use crate::*;
 use __husky_root::__init_utils::*;
 
@@ -26,7 +27,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             ) -> __EvalResult<__TempValue<'temp, 'eval>> {
                 let a: u32 = __arguments[0].downcast_copy();
                 let x: u32 = __arguments[1].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(connected_component::horizontal_extend(a, x))))
+                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                    connected_component::horizontal_extend(a, x)
+                )))
             }
             __wrapper
         }, 2),
@@ -40,7 +43,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __EvalResult<__TempValue<'temp, 'eval>> {
                 let img: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(connected_component::find_connected_components(img))))
+                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                    connected_component::find_connected_components(img)
+                )))
             }
             __wrapper
         }, 1),
@@ -136,7 +141,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __EvalResult<__TempValue<'temp, 'eval>> {
                 let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(raw_contour::find_raw_contours(cc))))
+                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                    raw_contour::find_raw_contours(cc)
+                )))
             }
             __wrapper
         }, 1),
@@ -251,7 +258,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
                 let start: i32 = __arguments[1].downcast_copy();
                 let r: f32 = __arguments[2].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(line_segment_sketch::extend_end(ct, start, r))))
+                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                    line_segment_sketch::extend_end(ct, start, r)
+                )))
             }
             __wrapper
         }, 3),
@@ -268,7 +277,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let start0: i32 = __arguments[1].downcast_copy();
                 let end: i32 = __arguments[2].downcast_copy();
                 let r: f32 = __arguments[3].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(line_segment_sketch::extend_start(ct, start0, end, r))))
+                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                    line_segment_sketch::extend_start(ct, start0, end, r)
+                )))
             }
             __wrapper
         }, 4),
@@ -283,7 +294,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             ) -> __EvalResult<__TempValue<'temp, 'eval>> {
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
                 let r: f32 = __arguments[1].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(line_segment_sketch::find_line_segments(ct, r))))
+                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                    line_segment_sketch::find_line_segments(ct, r)
+                )))
             }
             __wrapper
         }, 2),
@@ -323,7 +336,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __EvalResult<__TempValue<'temp, 'eval>> {
                 let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(line_segment_sketch::concave_component::find_concave_components(line_segment_sketch))))
+                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                    line_segment_sketch::concave_component::find_concave_components(line_segment_sketch)
+                )))
             }
             __wrapper
         }, 1),
@@ -358,7 +373,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             ) -> __EvalResult<__TempValue<'temp, 'eval>> {
                 let line_segment_sketch: &line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_temp_ref();
                 let index: i32 = __arguments[1].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(line_segment_sketch::convexity::is_convex(line_segment_sketch, index))))
+                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                    line_segment_sketch::convexity::is_convex(line_segment_sketch, index)
+                )))
             }
             __wrapper
         }, 2),

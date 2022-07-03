@@ -25,7 +25,7 @@ use print_utils::p;
 use serde::Deserialize;
 use std::collections::HashMap;
 use std::sync::Arc;
-use sync_utils::ARwLock;
+use sync_utils::ASafeRwLock;
 use trace::*;
 use trace_node::*;
 use upcast::Upcast;
@@ -33,7 +33,7 @@ use vm::*;
 use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
-    eval_time_singleton: HuskyEvalTimeSingleton,
+    eval_time_singleton: HuskyEvalTimeSingletonKeeper,
     attention: Attention,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,

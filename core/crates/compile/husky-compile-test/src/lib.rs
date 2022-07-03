@@ -24,7 +24,7 @@ use husky_linkage_table::LinkageTable;
 use print_utils::*;
 use std::path::Path;
 use std::{fmt, sync::Arc};
-use sync_utils::ARwLock;
+use sync_utils::ASafeRwLock;
 use test_utils::{compare_saved_data, TestDisplay, TestResult};
 use thin_vec::{thin_vec, ThinVec};
 use word::RootIdentifier;

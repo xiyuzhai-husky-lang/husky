@@ -17,7 +17,7 @@ use fold::FoldableStorage;
 use std::{ops::Deref, path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntitySyntaxSalsaQueryGroup:
-    husky_token::TokenQueryGroup + AllocateUniqueScope + ResolveStaticRootDefn
+    husky_token::TokenQueryGroup + InternEntityRoute + ResolveStaticRootDefn
 {
     fn subroute_table(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResultArc<SubrouteTable>;
 
@@ -199,8 +199,10 @@ pub enum ModuleFromFileRule {
 }
 
 pub trait EntitySyntaxQueryGroup:
-    EntitySyntaxSalsaQueryGroup + AllocateUniqueScope + Upcast<dyn EntitySyntaxSalsaQueryGroup>
+    EntitySyntaxSalsaQueryGroup + InternEntityRoute + Upcast<dyn EntitySyntaxSalsaQueryGroup>
 {
+    fn opt_package_main(&self) -> Option<FilePtr>;
+
     fn subroute_result(
         &self,
         parent_entity_route: EntityRoutePtr,

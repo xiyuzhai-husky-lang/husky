@@ -68,11 +68,18 @@ impl<'a> RustCodeGenerator<'a> {
         }
         self.result += "}\n";
         // impl member routines
-        self.gen_struct_impls(tyname, ty_members, ty_contains_eval_ref, trait_impls);
+        self.gen_struct_impls(
+            base_route,
+            tyname,
+            ty_members,
+            ty_contains_eval_ref,
+            trait_impls,
+        );
     }
 
     fn gen_struct_impls<'b>(
         &mut self,
+        base_route: EntityRoutePtr,
         tyname: CustomIdentifier,
         ty_members: &[Arc<EntityDefn>],
         ty_contains_eval_ref: bool,
@@ -98,7 +105,7 @@ impl<'a> RustCodeGenerator<'a> {
 
         self.gen_has_static_type_info_impl(tyname, ty_contains_eval_ref);
 
-        self.gen_any_value_impl(tyname, ty_contains_eval_ref);
+        self.gen_any_value_impl(base_route, tyname, ty_contains_eval_ref);
 
         for trait_impl in trait_impls {
             self.gen_trait_impl(tyname, trait_impl)
@@ -281,34 +288,39 @@ impl<'a> RustCodeGenerator<'a> {
         ));
     }
 
-    fn gen_any_value_impl(&mut self, tyname: CustomIdentifier, ty_contains_eval_ref: bool) {
+    fn gen_any_value_impl(
+        &mut self,
+        base_route: EntityRoutePtr,
+        tyname: CustomIdentifier,
+        ty_contains_eval_ref: bool,
+    ) {
         self.write("\nimpl<'eval> __AnyValue<'eval> for ");
         self.write(&tyname);
         if ty_contains_eval_ref {
             self.write("<'eval>")
         }
-        self.write(
-            r#" {
-    fn print_short(&self) -> String {
+        self.write(&format!(
+            r#" {{
+    fn print_short(&self) -> String {{
         todo!()
-    }
+    }}
 
-    fn to_json_value(&self) -> __JsonValue {
+    fn to_json_value(&self) -> __JsonValue {{
         todo!()
-    }
+    }}
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
-        'eval: 'short {
+        'eval: 'short {{
         todo!()
-    }
+    }}
 
-    fn ty(&self) -> __EntityRoutePtr {
-        todo!()
-    }
-}
+    fn static_ty() -> __EntityRoutePtr {{
+        __lazy_entity_route_from_text!("{base_route:?}")
+    }}
+}}
 "#,
-        );
+        ));
     }
 
     fn gen_trait_impl(&mut self, tyname: CustomIdentifier, trait_impl: &TraitImplDefn) {

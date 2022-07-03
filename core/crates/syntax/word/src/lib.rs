@@ -6,7 +6,7 @@ mod style;
 
 pub use decorator::*;
 pub use ident::*;
-pub use intern::{new_word_interner, InternWord, WordAllocator};
+pub use intern::{new_word_interner, InternWord, WordInterner, WordInternerSingletonKeeper};
 pub use keyword::*;
 pub use opr::*;
 pub use style::*;
