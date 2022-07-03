@@ -25,7 +25,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     fn element_access_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {
         if let Some(__Linkage) = self
             .husky_linkage_table()
-            .element_access(opd_tys.map(|ty| self.entity_uid(*ty)))
+            .element_access(self.upcast(), opd_tys.map(|ty| self.entity_uid(*ty)))
         {
             return __Linkage;
         }
@@ -64,6 +64,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
         if let Some(__Linkage) = self
             .husky_linkage_table()
             .struct_field_access_linkage_source(
+                self.upcast(),
                 self.entity_uid(this_ty),
                 field_ident,
                 field_binding,
@@ -87,7 +88,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     fn method_linkage(&self, method_route: EntityRoutePtr) -> Option<__Linkage> {
         if let Some(__Linkage) = self
             .husky_linkage_table()
-            .routine_linkage(self.entity_uid(method_route))
+            .routine_linkage(self.upcast(), self.entity_uid(method_route))
         {
             Some(__Linkage)
         } else {
@@ -174,7 +175,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
             EntityLocus::WithinBuiltinModule => todo!(),
             EntityLocus::WithinModule { .. } => self
                 .husky_linkage_table()
-                .routine_linkage(self.entity_uid(routine)),
+                .routine_linkage(self.upcast(), self.entity_uid(routine)),
             EntityLocus::Module { file } => todo!(),
             EntityLocus::Input { main } => todo!(),
             EntityLocus::StaticTypeMember => todo!(),
@@ -185,7 +186,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup {
     fn type_call_linkage(&self, ty: EntityRoutePtr) -> Option<__Linkage> {
         if let Some(linkage) = self
             .husky_linkage_table()
-            .type_call_linkage(self.entity_uid(ty))
+            .type_call_linkage(self.upcast(), self.entity_uid(ty))
         {
             return Some(linkage);
         }
