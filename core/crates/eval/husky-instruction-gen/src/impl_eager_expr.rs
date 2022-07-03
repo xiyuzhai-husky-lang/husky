@@ -66,17 +66,20 @@ impl<'a> InstructionSheetBuilder<'a> {
                             stack_idx: VMStackIdx::this(),
                             binding: this_binding,
                             range: expr.range,
-                            ty: expr.ty(),
+                            ty: this_ty,
                         },
                         expr.clone(),
                     ));
                     self.push_instruction(Instruction::new(
-                        if let Some(__Linkage) = self.db.compile_time().struct_field_access_linkage(
+                        if let Some(linkage) = self.db.compile_time().struct_field_access_linkage(
                             this_ty,
                             field_ident.ident,
                             field_binding,
                         ) {
-                            InstructionVariant::CallSpecificRoutine { __Linkage }
+                            InstructionVariant::CallSpecificRoutine {
+                                output_ty: expr.ty(),
+                                linkage,
+                            }
                         } else {
                             let this_ty_decl = self.db.compile_time().ty_decl(this_ty).unwrap();
                             InstructionVariant::FieldAccessInterpreted {
@@ -183,9 +186,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                 if let Some(__Linkage) = self.db.compile_time().routine_linkage(routine.route) {
                     match __Linkage {
                         __Linkage::Member { .. } => todo!(),
-                        __Linkage::SpecificTransfer(__Linkage) => {
+                        __Linkage::SpecificTransfer(linkage) => {
                             self.push_instruction(Instruction::new(
-                                InstructionVariant::CallSpecificRoutine { __Linkage },
+                                InstructionVariant::CallSpecificRoutine {
+                                    output_ty: expr.ty(),
+                                    linkage,
+                                },
                                 expr.clone(),
                             ))
                         }
@@ -211,12 +217,15 @@ impl<'a> InstructionSheetBuilder<'a> {
                 field_binding,
             } => {
                 self.push_instruction(Instruction::new(
-                    if let Some(__Linkage) = self.db.compile_time().struct_field_access_linkage(
+                    if let Some(linkage) = self.db.compile_time().struct_field_access_linkage(
                         *this_ty,
                         field_ident.ident,
                         *field_binding,
                     ) {
-                        InstructionVariant::CallSpecificRoutine { __Linkage }
+                        InstructionVariant::CallSpecificRoutine {
+                            output_ty: expr.ty(),
+                            linkage,
+                        }
                     } else {
                         let this_ty_decl = self.db.compile_time().ty_decl(*this_ty).unwrap();
                         InstructionVariant::FieldAccessInterpreted {
@@ -294,13 +303,16 @@ impl<'a> InstructionSheetBuilder<'a> {
                             self.db.compile_time().type_call_linkage(ranged_ty.route)
                         {
                             match __Linkage {
-                                __Linkage::SpecificTransfer(__Linkage) => {
-                                    InstructionVariant::CallSpecificRoutine { __Linkage }
+                                __Linkage::SpecificTransfer(linkage) => {
+                                    InstructionVariant::CallSpecificRoutine {
+                                        output_ty: expr.ty(),
+                                        linkage,
+                                    }
                                 }
                                 __Linkage::GenericTransfer(__Linkage) => {
                                     InstructionVariant::CallGenericRoutine {
                                         output_ty: ranged_ty.route,
-                                        __Linkage,
+                                        linkage: __Linkage,
                                     }
                                 }
                                 __Linkage::Member(_) => todo!(),
@@ -330,19 +342,20 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_element_access(
         &mut self,
-        this: Arc<EagerExpr>,
+        expr: Arc<EagerExpr>,
         opds: &[Arc<EagerExpr>],
         element_binding: Binding,
     ) {
         self.push_instruction(Instruction::new(
             InstructionVariant::CallSpecificRoutine {
-                __Linkage: self
+                output_ty: expr.ty(),
+                linkage: self
                     .db
                     .compile_time()
                     .element_access_linkage(opds.map(|opd| opd.ty()))
                     .bind(element_binding),
             },
-            this,
+            expr,
         ))
     }
 
@@ -355,18 +368,18 @@ impl<'a> InstructionSheetBuilder<'a> {
         output_ty: EntityRoutePtr,
         output_binding: Binding,
     ) -> InstructionVariant {
-        if let Some(__Linkage) = self.db.compile_time().method_linkage(method_route) {
-            match __Linkage {
+        if let Some(linkage) = self.db.compile_time().method_linkage(method_route) {
+            match linkage {
                 __Linkage::Member { .. } => InstructionVariant::CallSpecificRoutine {
-                    __Linkage: __Linkage.bind(output_binding),
-                },
-                __Linkage::SpecificTransfer(__Linkage) => {
-                    InstructionVariant::CallSpecificRoutine { __Linkage }
-                }
-                __Linkage::GenericTransfer(__Linkage) => InstructionVariant::CallGenericRoutine {
                     output_ty,
-                    __Linkage,
+                    linkage: linkage.bind(output_binding),
                 },
+                __Linkage::SpecificTransfer(linkage) => {
+                    InstructionVariant::CallSpecificRoutine { output_ty, linkage }
+                }
+                __Linkage::GenericTransfer(linkage) => {
+                    InstructionVariant::CallGenericRoutine { output_ty, linkage }
+                }
                 __Linkage::Model(_) => todo!(),
             }
         } else {

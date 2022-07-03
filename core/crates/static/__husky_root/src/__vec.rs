@@ -17,7 +17,7 @@ pub trait __VecX<T> {
 
     fn __call__() -> Self;
 
-    fn cyclic_slice<'eval>(&self, start: i32, end: i32) -> CyclicSlice<'eval, T>;
+    fn cyclic_slice<'a>(&'a self, start: i32, end: i32) -> CyclicSlice<'a, T>;
 
     fn popx(&mut self) -> T;
 
@@ -39,8 +39,12 @@ impl<T> __VecX<T> for Vec<T> {
         Default::default()
     }
 
-    fn cyclic_slice<'eval>(&self, start: i32, end: i32) -> CyclicSlice<'eval, T> {
-        todo!()
+    fn cyclic_slice<'a>(&'a self, start: i32, end: i32) -> CyclicSlice<'a, T> {
+        CyclicSlice::<T> {
+            start,
+            end,
+            total: self.as_slice(),
+        }
     }
 
     fn popx(&mut self) -> T {

@@ -93,8 +93,11 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::CallSpecificRoutine { __Linkage } => {
-                    let control = self.call_routine(__Linkage).into();
+                InstructionVariant::CallSpecificRoutine {
+                    linkage,
+                    output_ty: ty,
+                } => {
+                    let control = self.call_specific_routine(linkage, ty).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -111,7 +114,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 }
                 InstructionVariant::CallGenericRoutine {
                     output_ty,
-                    __Linkage,
+                    linkage: __Linkage,
                 } => {
                     let control = self.call_generic_transfer(output_ty, __Linkage).into();
                     match mode {
@@ -174,8 +177,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             ident: RootIdentifier::DatasetType,
                         })
                     {
-                        p!(ins.src.file(), ins.src.text_range());
-                        p!(sheet.instructions);
                         should_eq!(output_ty, return_value.any_ref().ty_dyn());
                     }
                     VMControl::Return(return_value)

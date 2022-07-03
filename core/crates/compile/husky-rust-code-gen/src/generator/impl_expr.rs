@@ -43,8 +43,18 @@ impl<'a> RustCodeGenerator<'a> {
                         },
                     }
                     self.gen_expr(&opds[0]);
-                    self.write(opr.spaced_code());
-                    self.gen_expr(&opds[1]);
+                    match opr {
+                        BinaryOpr::Pure(PureBinaryOpr::RemEuclid) => {
+                            self.write(".rem_euclid(");
+                            self.gen_expr(&opds[1]);
+                            self.write(")")
+                        }
+                        BinaryOpr::Assign(Some(PureBinaryOpr::RemEuclid)) => todo!(),
+                        _ => {
+                            self.write(opr.spaced_code());
+                            self.gen_expr(&opds[1]);
+                        }
+                    }
                 }
                 EagerOpnVariant::Prefix { opr, .. } => match opr {
                     PrefixOpr::Not => match opds[0].ty() {

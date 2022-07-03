@@ -12,8 +12,8 @@ impl<'eval> RawContour<'eval> {
     }
     pub(crate) fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
-        let ct_start = &self.points[(start % N) as usize];
-        let ct_end = &self.points[(end % N) as usize];
+        let ct_start = &self.points[(start.rem_euclid(N)) as usize];
+        let ct_end = &self.points[(end.rem_euclid(N)) as usize];
         return ct_start.to(&ct_end)
     }
 }

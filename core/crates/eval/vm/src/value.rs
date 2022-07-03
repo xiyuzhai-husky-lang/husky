@@ -74,6 +74,10 @@ impl<'temp, 'eval: 'temp> std::fmt::Debug for __TempValue<'temp, 'eval> {
 }
 
 impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
+    pub fn ty(&self) -> EntityRoutePtr {
+        self.any_ref().ty_dyn()
+    }
+
     pub fn print_short(&self) -> String {
         let mut result = String::new();
         match self {
