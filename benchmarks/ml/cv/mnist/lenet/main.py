@@ -2,12 +2,7 @@
 from __future__ import print_function
 import os
 
-os.environ["MKL_NUM_THREADS"] = "1"
-os.environ["NUMEXPR_NUM_THREADS"] = "1"
-os.environ["OMP_NUM_THREADS"] = "1"
 import torch
-
-torch.set_num_threads(1)
 import argparse
 import time
 import torch.nn as nn
@@ -95,6 +90,7 @@ def test(model, device, test_loader):
 
 
 def profile(model, device, test_loader):
+    torch.set_num_threads(1)
     model.eval()
     profile_device = torch.device("cpu")
     model.to(profile_device)
@@ -189,8 +185,8 @@ def main():
     transform = transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
     )
-    dataset1 = datasets.MNIST("../data", train=True, download=True, transform=transform)
-    dataset2 = datasets.MNIST("../data", train=False, transform=transform)
+    dataset1 = datasets.MNIST("./data", train=True, download=True, transform=transform)
+    dataset2 = datasets.MNIST("./data", train=False, transform=transform)
     train_loader = torch.utils.data.DataLoader(dataset1, **train_kwargs)
     test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
 
