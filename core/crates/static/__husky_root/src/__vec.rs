@@ -204,7 +204,7 @@ pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
     }
     let any_ptr: *const (dyn AnyValueDyn<'eval> + 'eval) = this_value[i].any_ref();
     Ok(match values[0] {
-        __TempValue::EvalRef(_) => __TempValue::EvalRef(EvalRef(unsafe { &*any_ptr })),
+        __TempValue::EvalRef(_) => __TempValue::EvalRef(__EvalRef(unsafe { &*any_ptr })),
         __TempValue::TempRefEval(_) => __TempValue::TempRefEval(unsafe { &*any_ptr }),
         _ => panic!(),
     })

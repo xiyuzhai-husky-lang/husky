@@ -36,7 +36,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                         .enumerate()
                         .map(|(index, elem)| {
                             self.visualize_feature(FeatureRepr::Value {
-                                value: EvalRef(elem.any_ref()),
+                                value: __EvalRef(elem.any_ref()),
                                 file: this.file(),
                                 range: this.text_range(),
                                 ty: elem_ty,
@@ -61,7 +61,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                         .enum_iter()
                         .map(|(index, elem)| {
                             self.visualize_feature(FeatureRepr::Value {
-                                value: EvalRef(elem.any_ref()),
+                                value: __EvalRef(elem.any_ref()),
                                 file: this.file(),
                                 range: this.text_range(),
                                 ty: elem_ty,

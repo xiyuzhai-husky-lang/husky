@@ -1,6 +1,6 @@
 use husky_datasets_protocol::{DataLoader, LabeledData};
 use husky_feature_gen::*;
-use vm::EvalRef;
+use vm::__EvalRef;
 
 use crate::*;
 
@@ -44,7 +44,7 @@ impl<'eval> Division<'eval> {
         feature: FeaturePtr,
         sample_id: SampleId,
         value: &EvalValue<'static>,
-    ) -> EvalRef<'static>
+    ) -> __EvalRef<'static>
     where
         'eval: 'static,
     {

@@ -22,6 +22,7 @@ pub use serde_json::value::Value as __JsonValue;
 pub use static_defn::__StaticLinkageKey;
 pub use vm::{
     AnyValue as __AnyValue, AnyValueDyn as __AnyValueDyn, HasStaticTypeInfo as __HasStaticTypeInfo,
+    __EvalRef,
 };
 
 pub mod __init_utils {
@@ -29,7 +30,8 @@ pub mod __init_utils {
     pub use dev_utils::__static_dev_src;
     pub use vm::{
         __EvalResult, __Linkage, __MemberLinkage, __OwnedValue, __SpecificRoutineFp,
-        __SpecificRoutineLinkage, __TempValue, field_copy_fp, field_linkage,
+        __SpecificRoutineLinkage, __TempValue, field_copy_fp, field_linkage, index_copy_fp,
+        index_eval_ref_fp, index_linkage, index_move_fp, index_temp_mut_fp, index_temp_ref_fp,
         specific_transfer_linkage,
     };
 }

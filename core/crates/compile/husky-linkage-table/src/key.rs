@@ -56,7 +56,7 @@ impl LinkageKey {
             __StaticLinkageKey::Routine { routine } => LinkageKey::Routine {
                 routine_uid: entity_uid(db, routine),
             },
-            __StaticLinkageKey::ElementAccess { opd_uids } => LinkageKey::ElementAccess {
+            __StaticLinkageKey::Index { opd_tys: opd_uids } => LinkageKey::ElementAccess {
                 opd_uids: opd_uids
                     .iter()
                     .map(|opd_uid| entity_uid(db, opd_uid))

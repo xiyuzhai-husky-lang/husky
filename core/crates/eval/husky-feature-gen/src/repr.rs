@@ -1,14 +1,14 @@
 use husky_entity_semantics::DefinitionRepr;
 use husky_file::FilePtr;
 use husky_instruction_gen::new_func_instruction_sheet;
-use vm::{AnyValueDyn, EvalRef, __EvalResult};
+use vm::{AnyValueDyn, __EvalRef, __EvalResult};
 
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum FeatureRepr {
     Value {
-        value: EvalRef<'static>,
+        value: __EvalRef<'static>,
         ty: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
