@@ -53,7 +53,12 @@ impl LinkageTable {
     }
 
     fn get_linkage(&self, key: LinkageKey) -> Option<__Linkage> {
-        self.linkages
-            .read(|entries| entries.get(&key).map(|linkage_source| *linkage_source))
+        let result = self
+            .linkages
+            .read(|entries| entries.get(&key).map(|linkage_source| *linkage_source));
+        if result.is_none() {
+            println!("linkage miss for {key:?}")
+        }
+        result
     }
 }

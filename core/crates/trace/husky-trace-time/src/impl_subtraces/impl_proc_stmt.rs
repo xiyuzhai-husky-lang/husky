@@ -9,7 +9,6 @@ impl HuskyTraceTime {
         body_stmts: &Arc<Vec<Arc<ProcStmt>>>,
         stack_snapshot: &StackSnapshot<'static>,
         body_instruction_sheet: &Arc<InstructionSheet>,
-        verbose: bool,
     ) -> Vec<TraceId> {
         let text = self
             .eval_time_singleton
@@ -21,7 +20,7 @@ impl HuskyTraceTime {
             loop_kind,
             &body_instruction_sheet,
             stack_snapshot,
-            verbose,
+            self.eval_time().vm_config(),
         );
         frames
             .into_iter()
@@ -52,7 +51,7 @@ impl HuskyTraceTime {
             eval_time(),
             instruction_sheet,
             &loop_frame_data.stack_snapshot,
-            self.eval_time().verbose(),
+            self.eval_time().vm_config(),
         );
         let mut subtraces: Vec<_> =
             self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 2, stmts, &history);
@@ -93,7 +92,7 @@ impl HuskyTraceTime {
             self.eval_time().upcast(),
             instruction_sheet,
             stack_snapshot,
-            self.eval_time().verbose(),
+            self.eval_time().vm_config(),
         );
         self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 4, stmts, &history)
     }

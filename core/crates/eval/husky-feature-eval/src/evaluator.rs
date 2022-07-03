@@ -12,7 +12,7 @@ pub use sheet::*;
 
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
-use vm::{AnyValueDyn, EvalValue};
+use vm::{AnyValueDyn, EvalValue, VMConfig};
 use vm::{EvalValueResult, __EvalResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
@@ -20,7 +20,7 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) eval_input: EvalValue<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
     pub(crate) db: &'a dyn FeatureGenQueryGroup,
-    pub(crate) verbose: bool,
+    pub(crate) vm_config: &'a VMConfig,
     pub(crate) opt_static_husky_feature_eval: Option<&'a dyn EvalFeature<'static>>,
 }
 

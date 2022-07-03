@@ -12,7 +12,7 @@ use husky_trace_time::HuskyTraceTime;
 pub use mode::Mode;
 
 use avec::Avec;
-use config::DebuggerConfig;
+use config::HuskyDebuggerConfig;
 use futures::executor::ThreadPool;
 use gui::handle_query;
 use husky_compile_time::HuskyCompileTime;
@@ -33,8 +33,8 @@ pub struct HuskyDebugger {
 
 impl HuskyDebugger {
     pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime)) -> Self {
-        let config = DebuggerConfig::from_env();
-        let mut trace_time = HuskyTraceTime::new(init_compile_time, config.verbose);
+        let config = HuskyDebuggerConfig::from_env();
+        let mut trace_time = HuskyTraceTime::new(init_compile_time, config.eval_time());
         if let Some(ref sample_id_str) = config.opt_sample_id {
             let sample_id: SampleId = SampleId(sample_id_str.parse().unwrap());
             trace_time.set_attention(Attention::Specific { sample_id });

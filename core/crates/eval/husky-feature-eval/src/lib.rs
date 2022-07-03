@@ -2,6 +2,7 @@ mod evaluator;
 mod session;
 
 pub use evaluator::*;
+use husky_entity_route::EntityRoutePtr;
 use husky_trace_protocol::{SampleId, VisualData};
 pub use session::*;
 
@@ -12,11 +13,11 @@ use std::{
     sync::{Arc, Mutex},
 };
 use upcast::Upcast;
-use vm::{EvalValue, EvalValueResult, __EvalResult};
+use vm::{EvalValue, EvalValueResult, VMConfig, __EvalResult};
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;
-    fn verbose(&self) -> bool;
+    fn vm_config(&self) -> &VMConfig;
 
     fn evaluator<'a>(&'a self, sample_id: SampleId) -> FeatureEvaluator<'a, 'eval> {
         let dev = self.session().dev();
@@ -27,7 +28,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
             db: self.upcast(),
             eval_input,
             sheet,
-            verbose: self.verbose(),
+            vm_config: self.vm_config(),
             opt_static_husky_feature_eval: self.opt_static_husky_feature_eval(),
         }
     }

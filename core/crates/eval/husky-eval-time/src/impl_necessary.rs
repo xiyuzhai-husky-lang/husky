@@ -1,6 +1,6 @@
 use husky_entity_semantics::StoreEntityRoute;
 use upcast::Upcast;
-use vm::InterpreterQueryGroup;
+use vm::{InterpreterQueryGroup, VMConfig};
 
 use crate::*;
 
@@ -66,8 +66,8 @@ impl EvalFeature<'static> for HuskyEvalTime {
         }
     }
 
-    fn verbose(&self) -> bool {
-        self.config.verbose
+    fn vm_config(&self) -> &VMConfig {
+        &self.config.vm_config
     }
 
     fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>> {

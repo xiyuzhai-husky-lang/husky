@@ -209,7 +209,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         has_this: bool,
     ) -> EvalValueResult<'eval> {
         let db = self.db;
-        let verbose = self.verbose;
+        let verbose = self.vm_config;
         let values = arguments
             .iter()
             .map(|expr| __TempValue::from_eval(self.husky_feature_eval_expr(expr)?));

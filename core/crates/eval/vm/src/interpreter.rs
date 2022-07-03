@@ -20,14 +20,14 @@ pub struct Interpreter<'temp, 'eval: 'temp> {
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
     variable_mutations: IndexMap<VMStackIdx, (Identifier, FilePtr, TextRange, EntityRoutePtr)>,
-    verbose: bool,
+    vm_config: &'temp VMConfig,
 }
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn try_new(
         db: &'temp dyn InterpreterQueryGroup,
         argument_iter: impl Iterator<Item = __EvalResult<__TempValue<'temp, 'eval>>>,
-        verbose: bool,
+        vm_config: &'temp VMConfig,
     ) -> __EvalResult<Interpreter<'temp, 'eval>> {
         Ok(Self {
             db,
@@ -36,7 +36,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             opt_snapshot_saved: None,
             frames: vec![],
             variable_mutations: Default::default(),
-            verbose,
+            vm_config,
         })
     }
 
@@ -44,7 +44,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         db: &'temp dyn InterpreterQueryGroup,
         argument_iter: impl Iterator<Item = __TempValue<'temp, 'eval>>,
         has_this: bool,
-        verbose: bool,
+        vm_config: &'temp VMConfig,
     ) -> Interpreter<'temp, 'eval> {
         Self {
             db,
@@ -53,14 +53,14 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             opt_snapshot_saved: None,
             frames: vec![],
             variable_mutations: Default::default(),
-            verbose,
+            vm_config,
         }
     }
 
     pub(crate) fn from_prestack(
         db: &'temp dyn InterpreterQueryGroup,
         prestack: impl Into<VMStack<'temp, 'eval>>,
-        verbose: bool,
+        vm_config: &'temp VMConfig,
     ) -> Interpreter<'temp, 'eval> {
         Self {
             db,
@@ -69,7 +69,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             opt_snapshot_saved: None,
             frames: vec![],
             variable_mutations: Default::default(),
-            verbose,
+            vm_config,
         }
     }
 

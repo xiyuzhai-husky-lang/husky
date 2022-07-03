@@ -55,7 +55,7 @@ impl HuskyTraceTime {
             self.eval_time().upcast(),
             instruction_sheet,
             arguments.into_iter(),
-            self.eval_time().verbose(),
+            self.eval_time().vm_config(),
         );
         let mut subtraces = vec![];
         subtraces.extend(self.func_stmts_traces(parent.id(), 4, &feature_block.stmts, &history));
