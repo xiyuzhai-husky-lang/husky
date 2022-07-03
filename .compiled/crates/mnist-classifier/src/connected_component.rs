@@ -15,7 +15,7 @@ impl __HasStaticTypeInfo for ConnectedComponent {
     type StaticSelf = ConnectedComponent;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "mnist_classifier::connected_component::ConnectedComponent".into()
     }
 }
 

@@ -29,7 +29,7 @@ impl<'eval> __HasStaticTypeInfo for LineSegment<'eval> {
     type StaticSelf = LineSegment<'static>;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "mnist_classifier::line_segment_sketch::LineSegment".into()
     }
 }
 
@@ -71,7 +71,7 @@ impl<'eval> __HasStaticTypeInfo for LineSegmentSketch<'eval> {
     type StaticSelf = LineSegmentSketch<'static>;
 
     fn static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "mnist_classifier::line_segment_sketch::LineSegmentSketch".into()
     }
 }
 
