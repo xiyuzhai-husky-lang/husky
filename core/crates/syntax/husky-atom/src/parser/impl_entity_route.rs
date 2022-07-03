@@ -1,7 +1,7 @@
 use super::context::SymbolKind;
 use super::*;
 use entity_kind::TyKind;
-use husky_entity_route::RangedEntityRoute;
+use husky_entity_route::{make_subroute, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use husky_token::SemanticTokenKind;
 use thin_vec::{thin_vec, ThinVec};
@@ -158,12 +158,16 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             .make_route(route, generic_arguments);
         while try_eat!(self, SpecialToken::DoubleColon) {
             let ranged_ident = get!(self, custom_ident);
-            let generics = self.generics(route)?;
-            route = self.atom_context.entity_syntax_db().make_subroute(
-                route,
-                ranged_ident.ident,
-                generics,
-            );
+            let new_route = make_subroute(route, ranged_ident.ident, Default::default());
+            match self.atom_context.entity_syntax_db().entity_kind(new_route) {
+                Ok(_) => (),
+                Err(e) => {
+                    let message = e.message;
+                    err!(format!("{message}"), ranged_ident.range)?
+                }
+            }
+            let generic_arguments = self.generics(new_route)?;
+            route = make_subroute(route, ranged_ident.ident, generic_arguments);
             self.atom_context
                 .push_abs_semantic_token(AbsSemanticToken::new(
                     SemanticTokenKind::Entity(
@@ -171,11 +175,6 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     ),
                     ranged_ident.range,
                 ));
-            let generic_arguments = self.generics(route)?;
-            route = self
-                .atom_context
-                .entity_syntax_db()
-                .make_route(route, generic_arguments);
         }
         return Ok(AtomVariant::EntityRoute {
             route,
@@ -220,6 +219,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     fn generics(&mut self, route: EntityRoutePtr) -> AtomResult<ThinVec<SpatialArgument>> {
         if route.spatial_arguments.len() > 0 {
+            p!(route);
             todo!()
         }
         match route.kind {
@@ -255,20 +255,22 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 RootIdentifier::Ref => todo!(),
                 RootIdentifier::VisualType => todo!(),
             },
-            _ => match self
-                .atom_context
-                .entity_kind(route, Default::default())
-                .unwrap()
-            {
-                EntityKind::Module
-                | EntityKind::EnumLiteral
-                | EntityKind::Feature
-                | EntityKind::Member(_) => Ok(thin_vec![]),
-                EntityKind::Type(_) | EntityKind::Trait | EntityKind::Function { .. } => {
-                    self.angled_generics()
+            _ => {
+                let entity_kind = self
+                    .atom_context
+                    .entity_kind(route, Default::default())
+                    .unwrap();
+                match entity_kind {
+                    EntityKind::Module
+                    | EntityKind::EnumLiteral
+                    | EntityKind::Feature
+                    | EntityKind::Member(_) => Ok(thin_vec![]),
+                    EntityKind::Type(_) | EntityKind::Trait | EntityKind::Function { .. } => {
+                        self.angled_generics()
+                    }
+                    EntityKind::Main => panic!(),
                 }
-                EntityKind::Main => panic!(),
-            },
+            }
         }
     }
 

@@ -1,3 +1,4 @@
+use husky_entity_route::make_subroute;
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
 
 use super::*;
@@ -172,6 +173,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                     self.write("\n    ),");
                 }
                 for ty_member in members.iter() {
+                    let is_defn_static = self.db.is_defn_static(entity_route);
                     match ty_member.variant {
                         EntityDefnVariant::TyField {
                             ty,
@@ -203,9 +205,15 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                             }
                         },
                         _ => {
-                            if self.db.is_defn_static(entity_route) {
-                                p!(entity_route);
-                                todo!()
+                            if is_defn_static {
+                                self.gen_linkage_entry(
+                                    make_subroute(
+                                        entity_route,
+                                        ty_member.ident.custom(),
+                                        Default::default(),
+                                    ),
+                                    ty_member,
+                                )
                             } else {
                                 break;
                             }
@@ -226,12 +234,20 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 opt_linkage,
             } => panic!(),
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {
-                p!(entity_route);
-                p!(trai, ty);
-                todo!()
+                // p!(entity_route);
+                // p!(trai, ty);
+                // if trai.kind == self.entity_route_menu.std_ops_index_trai.kind {
+                //     self.gen_index(entity_route)
+                // } else {
+                //     todo!()
+                // }
             }
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
         }
+    }
+
+    fn gen_index(&mut self) {
+        todo!()
     }
 
     fn gen_parameter_downcast(&mut self, i: usize, parameter: &Parameter) {
