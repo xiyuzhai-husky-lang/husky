@@ -13,8 +13,8 @@ pub fn eval_time() -> &'static HuskyEvalTime {
     // unsafe { &*HUSKY_EVAL_TIME_SINGLETON.unwrap() }
 }
 
-pub fn parse_entity_route_without_context(text: &str) -> EntityRoutePtr {
-    compile_time().parse_entity_route(text)
+pub fn ty_route_from_static_binded(type_id: std::any::TypeId, text: &str) -> EntityRoutePtr {
+    compile_time().ty_route_from_static(type_id, text)
 }
 
 pub fn compile_time() -> &'static HuskyCompileTime {

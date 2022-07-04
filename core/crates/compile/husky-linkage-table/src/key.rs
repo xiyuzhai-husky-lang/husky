@@ -101,5 +101,5 @@ impl LinkageKey {
 }
 
 fn entity_uid(db: &dyn ResolveLinkage, text: &str) -> EntityUid {
-    db.entity_uid(db.parse_entity_route(text))
+    db.entity_uid(db.parse_route_from_text(text))
 }

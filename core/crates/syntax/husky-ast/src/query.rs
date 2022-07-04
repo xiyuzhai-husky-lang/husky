@@ -7,8 +7,8 @@ use husky_file::FilePtr;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_token::AbsSemanticToken;
 use lsp_types::FoldingRange;
-use std::fmt::Write;
-use std::sync::Arc;
+use std::{collections::HashMap, sync::Arc};
+use std::{fmt::Write, sync::Mutex};
 use test_utils::TestDisplayConfig;
 use upcast::Upcast;
 
@@ -40,7 +40,19 @@ fn root_symbols(db: &dyn AstSalsaQueryGroup) -> Arc<Vec<Symbol>> {
 }
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
-    fn parse_entity_route(&self, text: &str) -> EntityRoutePtr {
+    fn static_ty_cache(&self) -> &Mutex<HashMap<std::any::TypeId, EntityRoutePtr>>;
+    fn ty_route_from_static(&self, type_id: std::any::TypeId, text: &str) -> EntityRoutePtr {
+        let mut cache = self.static_ty_cache().lock().unwrap();
+        if cache.contains_key(&type_id) {
+            cache[&type_id]
+        } else {
+            let ty = self.parse_route_from_text(text);
+            cache.insert(type_id, ty);
+            ty
+        }
+    }
+
+    fn parse_route_from_text(&self, text: &str) -> EntityRoutePtr {
         let root_symbols = self.root_symbols();
         let mut context = AtomContextStandalone {
             opt_package_main: self.opt_package_main(),
