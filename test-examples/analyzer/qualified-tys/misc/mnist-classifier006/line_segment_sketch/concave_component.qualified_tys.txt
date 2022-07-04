@@ -8,7 +8,7 @@ eager variable:
     ccv_start   18:9..18:18  Copyable     i32
 
 lazy expr:
-    9:9..9:22      line_segments          PureRef std::slice::CyclicSlice<mnist_classifier006::line_segment_sketch::LineSegment>
+    9:9..9:22      line_segments          EvalRef std::slice::CyclicSlice<mnist_classifier006::line_segment_sketch::LineSegment>
 
 eager expr:
     12:30..12:50   []ConcaveComponent()   Transient    Vec<mnist_classifier006::line_segment_sketch::concave_component::ConcaveComponent>
@@ -71,4 +71,4 @@ eager expr:
     29:12..29:30   concave_components     Transient    Vec<mnist_classifier006::line_segment_sketch::concave_component::ConcaveComponent>
 
 lazy expr:
-    9:9..9:22      line_segments          PureRef std::slice::CyclicSlice<mnist_classifier006::line_segment_sketch::LineSegment>
+    9:9..9:22      line_segments          EvalRef std::slice::CyclicSlice<mnist_classifier006::line_segment_sketch::LineSegment>
