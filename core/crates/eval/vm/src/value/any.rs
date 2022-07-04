@@ -148,8 +148,11 @@ impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
     #[inline]
     pub fn downcast_ref<'a, T: AnyValue<'eval>>(&'a self) -> &'a T {
         if T::static_type_id() != self.static_type_id_dyn() {
-            p!(self.static_type_name_dyn(), T::static_type_name());
-            panic!()
+            panic!(
+                "expect type `{}`, but got `{}` instead",
+                T::static_type_name(),
+                self.static_type_name_dyn()
+            )
         }
         let ptr: *const dyn AnyValueDyn = &*self;
         let ptr: *const T = ptr as *const T;
@@ -158,8 +161,11 @@ impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
     #[inline]
     pub fn downcast_copy<'a, T: AnyValue<'eval> + Copy>(&'a self) -> T {
         if T::static_type_id() != self.static_type_id_dyn() {
-            p!(self.static_type_name_dyn(), T::static_type_name());
-            panic!()
+            panic!(
+                "expect type `{}`, but got `{}` instead",
+                T::static_type_name(),
+                self.static_type_name_dyn()
+            )
         }
         let ptr: *const dyn AnyValueDyn = &*self;
         let ptr: *const T = ptr as *const T;
@@ -169,8 +175,11 @@ impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
     #[inline]
     pub fn downcast_mut<T: AnyValue<'eval>>(&mut self) -> &mut T {
         if T::static_type_id() != self.static_type_id_dyn() {
-            p!(T::static_type_id(), self.static_type_id_dyn());
-            panic!()
+            panic!(
+                "expect type `{}`, but got `{}` instead",
+                T::static_type_name(),
+                self.static_type_name_dyn()
+            )
         }
         let ptr: *mut dyn AnyValueDyn = &mut *self;
         let ptr: *mut T = ptr as *mut T;
