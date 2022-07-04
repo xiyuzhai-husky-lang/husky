@@ -1,15 +1,19 @@
 use super::*;
+use husky_eval_time::parse_entity_route_without_context;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
 use husky_trace_protocol::*;
 use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use std::any::TypeId;
 use vm::*;
 
+pub static BINARY_GRID_28_BASE_ROUTE: &'static str =
+    "domains::ml::datasets::cv::mnist::BinaryGrid28";
+
 pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryGrid28",
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
-        base_route: "domains::ml::datasets::cv::mnist::BinaryGrid28",
+        base_route: BINARY_GRID_28_BASE_ROUTE,
         spatial_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
             dev_src: __static_dev_src!(),
@@ -158,10 +162,6 @@ impl HasStaticTypeInfo for BinaryGrid28 {
 }
 
 impl<'eval> AnyValue<'eval> for BinaryGrid28 {
-    // fn snapshot(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
-    //     Arc::new(self.clone())
-    // }
-
     fn print_short(&self) -> String {
         "BinaryGrid28 { ... }".into()
     }
@@ -178,6 +178,6 @@ impl<'eval> AnyValue<'eval> for BinaryGrid28 {
     }
 
     fn static_ty() -> EntityRoutePtr {
-        todo!()
+        parse_entity_route_without_context(BINARY_GRID_28_BASE_ROUTE)
     }
 }

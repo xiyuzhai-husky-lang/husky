@@ -389,7 +389,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
                     CopyableValue::B32(value) => value,
                     CopyableValue::B64(value) => value,
                     CopyableValue::Bool(value) => value,
-                    CopyableValue::Void(_) => todo!(),
+                    CopyableValue::Void(value) => value,
                     CopyableValue::EnumKind(value) => value,
                 },
                 __TempValue::OwnedEval(value) => value.any_ref(),

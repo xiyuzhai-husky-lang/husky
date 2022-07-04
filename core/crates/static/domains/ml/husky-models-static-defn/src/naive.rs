@@ -41,7 +41,7 @@ fn naive_i32_train(opds: &dyn std::any::Any) -> __EvalResult {
     let now = Instant::now();
     for labeled_data in dev_division.each_labeled_data() {
         let sample_id = labeled_data.sample_id;
-        if sample_id.0 >= 10000 {
+        if sample_id.0 >= 1000 {
             break;
         }
         let value = eval_time
