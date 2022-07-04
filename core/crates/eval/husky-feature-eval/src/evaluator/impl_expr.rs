@@ -39,6 +39,16 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ..
             } => {
                 if let Some(linkage) = opt_linkage {
+                    match field_binding {
+                        Binding::EvalRef => todo!(),
+                        Binding::TempRef => {
+                            p!(expr.expr.file(), expr.expr.text_range());
+                            panic!()
+                        }
+                        Binding::TempRefMut => todo!(),
+                        Binding::Move => todo!(),
+                        Binding::Copy => todo!(),
+                    }
                     let this_value = self.husky_feature_eval_repr(this)?;
                     let this_value = this_value.into_stack()?;
                     linkage.eval(vec![this_value])
