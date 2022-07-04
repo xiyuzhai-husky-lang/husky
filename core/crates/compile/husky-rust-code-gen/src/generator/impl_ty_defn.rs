@@ -317,7 +317,7 @@ impl<'a> RustCodeGenerator<'a> {
     }}
 
     fn static_ty() -> __EntityRoutePtr {{
-        __lazy_entity_route_from_text!("{base_route:?}")
+        __ty_route_from_static_binded::<Self>("{base_route:?}")
     }}
 }}
 "#,

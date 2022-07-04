@@ -28,7 +28,11 @@ use husky_entity_semantics::EntityRouteStore;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
 use print_utils::*;
-use std::{fmt, sync::Arc};
+use std::{
+    collections::HashMap,
+    fmt,
+    sync::{Arc, Mutex},
+};
 use sync_utils::ASafeRwLock;
 
 #[salsa::database(
@@ -49,6 +53,7 @@ use sync_utils::ASafeRwLock;
 )]
 pub struct HuskyCompileTime {
     storage: salsa::Storage<HuskyCompileTime>,
+    static_ty_cache: Arc<Mutex<HashMap<std::any::TypeId, EntityRoutePtr>>>,
     file_interner: Arc<husky_file::FileInternerSingletonKeeper>,
     word_interner: Arc<word::WordInternerSingletonKeeper>,
     scope_interner: Arc<husky_entity_route::EntityRouteInternerSingletonKeeper>,
@@ -79,6 +84,7 @@ impl HuskyCompileTime {
             entity_route_store,
             opt_main: None,
             __root_defn_resolver,
+            static_ty_cache: Default::default(),
         }
     }
 

@@ -12,11 +12,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let mask: domains::ml::datasets::cv::mnist::BinaryImage28 = unsafe { __arb_ref(&__arguments[0]) }.downcast_move();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     connected_component::ConnectedComponent::__call__(mask)
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -36,12 +36,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let a: u32 = __arguments[0].downcast_copy();
                 let x: u32 = __arguments[1].downcast_copy();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     connected_component::horizontal_extend(a, x)
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -53,11 +53,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let img: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     connected_component::find_connected_components(img)
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -70,12 +70,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref();
                 let points: Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     raw_contour::RawContour::__call__(cc, points)
-                    )))
+                    ))
             }
             __wrapper
         }, 2),
@@ -139,12 +139,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let prev1: i32 = __arguments[0].downcast_copy();
                 let prev2: i32 = __arguments[1].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     raw_contour::StreakCache::__call__(prev1, prev2)
-                    )))
+                    ))
             }
             __wrapper
         }, 2),
@@ -177,11 +177,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     raw_contour::find_raw_contours(cc)
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -194,12 +194,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let x: f32 = __arguments[0].downcast_copy();
                 let y: f32 = __arguments[1].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     geom2d::Point2d::__call__(x, y)
-                    )))
+                    ))
             }
             __wrapper
         }, 2),
@@ -227,12 +227,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let x: f32 = __arguments[0].downcast_copy();
                 let y: f32 = __arguments[1].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     geom2d::Vector2d::__call__(x, y)
-                    )))
+                    ))
             }
             __wrapper
         }, 2),
@@ -260,11 +260,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let points: __std::slice::CyclicSlice<'eval, geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_move();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     line_segment_sketch::LineSegment::__call__(points)
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -299,12 +299,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let contour: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
                 let line_segments: Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     line_segment_sketch::LineSegmentSketch::__call__(contour, line_segments)
-                    )))
+                    ))
             }
             __wrapper
         }, 2),
@@ -343,13 +343,13 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
                 let start: i32 = __arguments[1].downcast_copy();
                 let r: f32 = __arguments[2].downcast_copy();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     line_segment_sketch::extend_end(ct, start, r)
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 3),
@@ -361,14 +361,14 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
                 let start0: i32 = __arguments[1].downcast_copy();
                 let end: i32 = __arguments[2].downcast_copy();
                 let r: f32 = __arguments[3].downcast_copy();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     line_segment_sketch::extend_start(ct, start0, end, r)
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 4),
@@ -380,12 +380,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
                 let r: f32 = __arguments[1].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     line_segment_sketch::find_line_segments(ct, r)
-                    )))
+                    ))
             }
             __wrapper
         }, 2),
@@ -398,10 +398,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+            ) -> __TempValue<'temp, 'eval> {
+                __TempValue::OwnedEval(__OwnedValue::new(
                     Vec::<raw_contour::RawContour>::__call__()
-                    )))
+                    ))
             }
             __wrapper
         }, 0),
@@ -414,11 +414,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<raw_contour::RawContour<'eval>> = __arguments[0].downcast_temp_ref();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -431,12 +431,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<raw_contour::RawContour<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
                 let element: raw_contour::RawContour<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -449,11 +449,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<raw_contour::RawContour<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.popx()
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -478,13 +478,13 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<raw_contour::RawContour<'eval>> = __arguments[0].downcast_eval_ref();
                 let start: i32 = __arguments[1].downcast_copy();
                 let end: i32 = __arguments[2].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.cyclic_slice(start, end)
-                    )))
+                    ))
             }
             __wrapper
         }, 3),
@@ -505,10 +505,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+            ) -> __TempValue<'temp, 'eval> {
+                __TempValue::OwnedEval(__OwnedValue::new(
                     Vec::<connected_component::ConnectedComponent>::__call__()
-                    )))
+                    ))
             }
             __wrapper
         }, 0),
@@ -521,11 +521,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<connected_component::ConnectedComponent> = __arguments[0].downcast_temp_ref();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -538,12 +538,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<connected_component::ConnectedComponent> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
                 let element: connected_component::ConnectedComponent = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -556,11 +556,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<connected_component::ConnectedComponent> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.popx()
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -585,13 +585,13 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<connected_component::ConnectedComponent> = __arguments[0].downcast_eval_ref();
                 let start: i32 = __arguments[1].downcast_copy();
                 let end: i32 = __arguments[2].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.cyclic_slice(start, end)
-                    )))
+                    ))
             }
             __wrapper
         }, 3),
@@ -612,10 +612,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+            ) -> __TempValue<'temp, 'eval> {
+                __TempValue::OwnedEval(__OwnedValue::new(
                     Vec::<geom2d::Point2d>::__call__()
-                    )))
+                    ))
             }
             __wrapper
         }, 0),
@@ -628,11 +628,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -645,12 +645,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
                 let element: geom2d::Point2d = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -663,11 +663,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.popx()
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -692,13 +692,13 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<geom2d::Point2d> = __arguments[0].downcast_eval_ref();
                 let start: i32 = __arguments[1].downcast_copy();
                 let end: i32 = __arguments[2].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.cyclic_slice(start, end)
-                    )))
+                    ))
             }
             __wrapper
         }, 3),
@@ -725,12 +725,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref();
                 let line_segments: __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     line_segment_sketch::concave_component::ConcaveComponent::__call__(line_segment_sketch, line_segments)
-                    )))
+                    ))
             }
             __wrapper
         }, 2),
@@ -757,11 +757,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     line_segment_sketch::concave_component::find_concave_components(line_segment_sketch)
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -774,12 +774,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref();
                 let line_segments: __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     line_segment_sketch::convex_component::ConvexCompoent::__call__(line_segment_sketch, line_segments)
-                    )))
+                    ))
             }
             __wrapper
         }, 2),
@@ -806,12 +806,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let line_segment_sketch: &line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_temp_ref();
                 let index: i32 = __arguments[1].downcast_copy();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     line_segment_sketch::convexity::is_convex(line_segment_sketch, index)
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -850,10 +850,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+            ) -> __TempValue<'temp, 'eval> {
+                __TempValue::OwnedEval(__OwnedValue::new(
                     Vec::<line_segment_sketch::LineSegment>::__call__()
-                    )))
+                    ))
             }
             __wrapper
         }, 0),
@@ -866,11 +866,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_temp_ref();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -883,12 +883,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
                 let element: line_segment_sketch::LineSegment<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -901,11 +901,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.popx()
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -930,13 +930,13 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_eval_ref();
                 let start: i32 = __arguments[1].downcast_copy();
                 let end: i32 = __arguments[2].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.cyclic_slice(start, end)
-                    )))
+                    ))
             }
             __wrapper
         }, 3),
@@ -957,10 +957,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+            ) -> __TempValue<'temp, 'eval> {
+                __TempValue::OwnedEval(__OwnedValue::new(
                     Vec::<line_segment_sketch::concave_component::ConcaveComponent>::__call__()
-                    )))
+                    ))
             }
             __wrapper
         }, 0),
@@ -973,11 +973,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_temp_ref();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -990,12 +990,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
                 let element: line_segment_sketch::concave_component::ConcaveComponent<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn()))
+                    .take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -1008,11 +1008,11 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.popx()
-                    )))
+                    ))
             }
             __wrapper
         }, 1),
@@ -1037,13 +1037,13 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {
+            ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_eval_ref();
                 let start: i32 = __arguments[1].downcast_copy();
                 let end: i32 = __arguments[2].downcast_copy();
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     __this.cyclic_slice(start, end)
-                    )))
+                    ))
             }
             __wrapper
         }, 3),

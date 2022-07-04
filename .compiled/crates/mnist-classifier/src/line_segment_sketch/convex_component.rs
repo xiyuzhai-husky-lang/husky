@@ -36,6 +36,6 @@ impl<'eval> __AnyValue<'eval> for ConvexCompoent<'eval> {
     }
 
     fn static_ty() -> __EntityRoutePtr {
-        __lazy_entity_route_from_text!("mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent")
+        __ty_route_from_static_binded::<Self>("mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent")
     }
 }

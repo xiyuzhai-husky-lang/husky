@@ -332,13 +332,13 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         if self.db.is_copyable(output.ty).unwrap() {
             self.write(
                 r#"
-                Ok(__TempValue::Copyable(
+                __TempValue::Copyable(
                     "#,
             );
         } else {
             self.write(
                 r#"
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
+                __TempValue::OwnedEval(__OwnedValue::new(
                     "#,
             );
         }
@@ -353,12 +353,12 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         if self.db.is_copyable(output.ty).unwrap() {
             self.write(
                 r#")
-                    .take_copyable_dyn()))"#,
+                    .take_copyable_dyn())"#,
             );
         } else {
             self.write(
                 r#")
-                    )))"#,
+                    ))"#,
             );
         }
         self.write(&format!(
