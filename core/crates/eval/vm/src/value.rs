@@ -53,26 +53,20 @@ impl<'temp, 'eval> UnwindSafe for __TempValue<'temp, 'eval> {}
 
 impl<'temp, 'eval: 'temp> std::fmt::Debug for __TempValue<'temp, 'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            __TempValue::Copyable(arg0) => {
-                f.write_str("Primitive ")?;
-                arg0.fmt(f)
-            }
-            __TempValue::OwnedEval(arg0) => f.debug_tuple("OwnedEval").field(arg0).finish(),
-            __TempValue::OwnedTemp(arg0) => f.debug_tuple("OwnedTemp").field(arg0).finish(),
-            __TempValue::EvalPure(arg0) => f.debug_tuple("EvalPure").field(arg0).finish(),
-            __TempValue::EvalRef(arg0) => f.debug_tuple("EvalRef").field(arg0).finish(),
-            __TempValue::TempRefEval(value) => f.debug_tuple("TempRefEval").field(value).finish(),
-            __TempValue::TempRefTemp(value) => f.debug_tuple("TempRefTemp").field(value).finish(),
-            __TempValue::TempRefMutEval { value, .. } => f
-                .debug_tuple("CopyableMutOrTempRefMutEval")
-                .field(value)
-                .finish(),
-            __TempValue::TempRefMutTemp { value, owner, gen } => {
-                f.debug_tuple("TempRefMutTemp").field(value).finish()
-            }
-            __TempValue::Moved => f.write_str("Moved"),
-        }
+        f.debug_tuple(match self {
+            __TempValue::Copyable(arg0) => "OwnedEval",
+            __TempValue::OwnedEval(arg0) => "OwnedEval",
+            __TempValue::OwnedTemp(arg0) => "OwnedTemp",
+            __TempValue::EvalPure(arg0) => "EvalPure",
+            __TempValue::EvalRef(arg0) => "EvalRef",
+            __TempValue::TempRefEval(value) => "TempRefEval",
+            __TempValue::TempRefTemp(value) => "TempRefTemp",
+            __TempValue::TempRefMutEval { value, .. } => "CopyableMutOrTempRefMutEval",
+            __TempValue::TempRefMutTemp { value, owner, gen } => "TempRefMutTemp",
+            __TempValue::Moved => "Moved",
+        })
+        .field(&self.any_ref().print_short())
+        .finish()
     }
 }
 
@@ -166,6 +160,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             __TempValue::TempRefEval { .. }
             | __TempValue::TempRefMutEval { .. }
             | __TempValue::Moved => {
+                p!(self);
                 panic!()
             }
             __TempValue::OwnedTemp(_) => todo!(),
