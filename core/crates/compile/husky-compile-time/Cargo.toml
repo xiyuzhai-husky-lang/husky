@@ -21,35 +21,35 @@ itertools = "0.10.0"
 arrayvec = "0.7"
 indexmap = "1.7"
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-dev-utils = { path = "../../utils/dev", version = "0.0.0" }
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-sync-utils = { path = "../../utils/sync", version = "0.0.0" }
-test-utils = { path = "../../utils/test", version = "0.0.0" }
-upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
-fold = { path = "../../abstraction/fold", version = "0.0.0" }
-vm = { path = "../../eval/vm", version = "0.0.0" }
-husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
-word = { path = "../../syntax/word", version = "0.0.0" }
-husky-token = { path = "../../syntax/husky-token", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
-husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
-husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
-husky-fmt = { path = "../../syntax/husky-fmt", version = "0.0.0" }
-infer-decl = { path = "../../infer/husky-infer-decl", version = "0.0.0" }
-husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route", version = "0.0.0" }
-infer-contract = { path = "../../infer/husky-infer-contract", version = "0.0.0" }
-infer-qualifier = { path = "../../infer/qualifier", version = "0.0.0" }
-infer-total = { path = "../../infer/total", version = "0.0.0" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }
-husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics", version = "0.0.0" }
-husky-package-semantics = { path = "../../semantics/husky-package-semantics", version = "0.0.0" }
-husky-rust-code-gen = { path = "../husky-rust-code-gen", version = "0.0.0" }
-husky-diagnostics = { path = "../../semantics/husky-diagnostics", version = "0.0.0" }
-husky-linkage-table = { path = "../husky-linkage-table", version = "0.0.0" }
-entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
-husky-atom = { path = "../../syntax/husky-atom", version = "0.0.0" }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
-thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }
-static-defn = { path = "../../static/static-defn", version = "0.0.0" }
+check-utils = { path = "../../utils/check" }
+dev-utils = { path = "../../utils/dev" }
+print-utils = { path = "../../utils/print" }
+sync-utils = { path = "../../utils/sync" }
+test-utils = { path = "../../utils/test" }
+upcast = { path = "../../abstraction/upcast" }
+fold = { path = "../../abstraction/fold" }
+vm = { path = "../../vm/husky-vm" }
+husky-file = { path = "../../syntax/husky-file" }
+word = { path = "../../syntax/word" }
+husky-token = { path = "../../syntax/husky-token" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-fmt = { path = "../../syntax/husky-fmt" }
+infer-decl = { path = "../../infer/husky-infer-decl" }
+husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
+infer-contract = { path = "../../infer/husky-infer-contract" }
+infer-qualifier = { path = "../../infer/qualifier" }
+infer-total = { path = "../../infer/total" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
+husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
+husky-rust-code-gen = { path = "../husky-rust-code-gen" }
+husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
+husky-linkage-table = { path = "../husky-linkage-table" }
+entity-kind = { path = "../../syntax/entity-kind" }
+husky-atom = { path = "../../syntax/husky-atom" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+thin-vec = { path = "../../../../forks/thin-vec" }
+static-defn = { path = "../../static/static-defn" }

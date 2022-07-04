@@ -7,31 +7,31 @@ edition = "2021"
 salsa = "0.17.0-pre.2"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-dev-utils = { path = "../../utils/dev", version = "0.0.0" }
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-sync-utils = { path = "../../utils/sync", version = "0.0.0" }
-wild-utils = { path = "../../utils/wild", version = "0.0.0" }
-fold = { path = "../../abstraction/fold", version = "0.0.0" }
-upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
-map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
-avec = { path = "../../abstraction/avec", version = "0.0.0" }
-husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
-husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-vm = { path = "../../eval/vm", version = "0.0.0" }
-word = { path = "../../syntax/word", version = "0.0.0" }
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics", version = "0.0.0" }
-husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics", version = "0.0.0" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }
-husky-visual-syntax = { path = "../../syntax/husky-visual-syntax", version = "0.0.0" }
-husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
-husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
-defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
-husky-feature-eval = { path = "../../eval/husky-feature-eval", version = "0.0.0" }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
-husky-eval-time = { path = "../../eval/husky-eval-time", version = "0.0.0" }
-trace = { path = "../trace", version = "0.0.0" }
-husky-feature-gen = { path = "../../eval/husky-feature-gen", version = "0.0.0" }
-husky-visualizer-gen = { path = "../../eval/husky-visualizer-gen", version = "0.0.0" }
-__husky_root = { path = "../../static/__husky_root", version = "0.0.0" }
+check-utils = { path = "../../utils/check" }
+dev-utils = { path = "../../utils/dev" }
+print-utils = { path = "../../utils/print" }
+sync-utils = { path = "../../utils/sync" }
+wild-utils = { path = "../../utils/wild" }
+fold = { path = "../../abstraction/fold" }
+upcast = { path = "../../abstraction/upcast" }
+map-collect = { path = "../../abstraction/map-collect" }
+avec = { path = "../../abstraction/avec" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+vm = { path = "../../vm/husky-vm" }
+word = { path = "../../syntax/word" }
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-visual-syntax = { path = "../../syntax/husky-visual-syntax" }
+husky-compile-time = { path = "../../compile/husky-compile-time" }
+husky-ast = { path = "../../syntax/husky-ast" }
+defn-head = { path = "../../syntax/defn-head" }
+husky-feature-eval = { path = "../../eval/husky-feature-eval" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-eval-time = { path = "../../eval/husky-eval-time" }
+trace = { path = "../trace" }
+husky-feature-gen = { path = "../../eval/husky-feature-gen" }
+husky-visualizer-gen = { path = "../../eval/husky-visualizer-gen" }
+__husky_root = { path = "../../static/__husky_root" }

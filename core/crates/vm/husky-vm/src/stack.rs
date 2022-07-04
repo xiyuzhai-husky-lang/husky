@@ -6,47 +6,6 @@ use print_utils::{emsg_once, p};
 use std::{fmt::Write, ops::Add};
 use word::CustomIdentifier;
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
-pub struct VMStackIdx(u8);
-
-impl Add<u8> for VMStackIdx {
-    type Output = Self;
-
-    fn add(self, rhs: u8) -> Self::Output {
-        VMStackIdx(self.0 + rhs)
-    }
-}
-
-impl Add<usize> for VMStackIdx {
-    type Output = Self;
-
-    fn add(self, rhs: usize) -> Self::Output {
-        let rhs: u8 = rhs.try_into().unwrap();
-        VMStackIdx(self.0 + rhs)
-    }
-}
-
-impl std::fmt::Debug for VMStackIdx {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("StackIdx({})", self.0))
-    }
-}
-
-impl VMStackIdx {
-    pub fn this() -> VMStackIdx {
-        Self(0)
-    }
-
-    pub fn new(raw: usize) -> VMCompileResult<VMStackIdx> {
-        let raw: u8 = raw.try_into().unwrap();
-        Ok(VMStackIdx(raw))
-    }
-
-    pub(crate) fn raw(&self) -> usize {
-        self.0 as usize
-    }
-}
-
 pub const STACK_SIZE: usize = 255;
 
 pub struct VMStack<'temp, 'eval: 'temp> {
@@ -182,7 +141,7 @@ impl VariableStack {
     }
 
     pub fn next_stack_idx(&self) -> VMStackIdx {
-        VMStackIdx::new(self.non_this_variables.len()).unwrap()
+        VMStackIdx::new(self.non_this_variables.len())
     }
 
     pub fn stack_idx(&self, ident0: CustomIdentifier) -> VMStackIdx {
@@ -193,7 +152,7 @@ impl VariableStack {
                 .rev()
                 .position(|ident| *ident == ident0)
                 .unwrap());
-        VMStackIdx::new(if self.has_this { idx + 1 } else { idx }).unwrap()
+        VMStackIdx::new(if self.has_this { idx + 1 } else { idx })
     }
 
     pub fn push(&mut self, ident: CustomIdentifier) {
@@ -201,7 +160,7 @@ impl VariableStack {
     }
 
     pub fn varname(&self, stack_idx: VMStackIdx) -> CustomIdentifier {
-        self.non_this_variables[stack_idx.0 as usize]
+        self.non_this_variables[stack_idx.raw() as usize]
     }
 
     pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) -> String {

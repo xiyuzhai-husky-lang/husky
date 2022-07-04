@@ -8,5 +8,5 @@ doctest = false
 
 [dependencies]
 pathdiff = "0.2.1"
-print-utils = { path = "../print", version = "0.0.0" }
-check-utils = { path = "../check", version = "0.0.0" }
+print-utils = { path = "../print" }
+check-utils = { path = "../check" }

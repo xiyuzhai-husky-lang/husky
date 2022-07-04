@@ -10,15 +10,15 @@ rand = "0.8.5"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 xrng = { path = "../../../../utils/xrng" }
-word = { path = "../../../../syntax/word", version = "0.0.0" }
-husky-entity-route = { path = "../../../../syntax/husky-entity-route", version = "0.0.0" }
-vm = { path = "../../../../eval/vm", version = "0.0.0" }
-print-utils = { path = "../../../../utils/print", version = "0.0.0" }
-dev-utils = { path = "../../../../utils/dev", version = "0.0.0" }
-husky-visual-syntax = { path = "../../../../syntax/husky-visual-syntax", version = "0.0.0" }
-entity-kind = { path = "../../../../syntax/entity-kind", version = "0.0.0" }
-static-defn = { path = "../../../static-defn", version = "0.0.0" }
-husky-liason-semantics = { path = "../../../../semantics/husky-liason-semantics", version = "0.0.0" }
-husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol", version = "0.0.0" }
-husky-eval-time = { path = "../../../../eval/husky-eval-time", version = "0.0.0" }
-husky-datasets-protocol = { path = "../husky-datasets-protocol", version = "0.0.0" }
+word = { path = "../../../../syntax/word" }
+husky-entity-route = { path = "../../../../syntax/husky-entity-route" }
+vm = { path = "../../../../vm/husky-vm" }
+print-utils = { path = "../../../../utils/print" }
+dev-utils = { path = "../../../../utils/dev" }
+husky-visual-syntax = { path = "../../../../syntax/husky-visual-syntax" }
+entity-kind = { path = "../../../../syntax/entity-kind" }
+static-defn = { path = "../../../static-defn" }
+husky-liason-semantics = { path = "../../../../semantics/husky-liason-semantics" }
+husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
+husky-eval-time = { path = "../../../../eval/husky-eval-time" }
+husky-datasets-protocol = { path = "../husky-datasets-protocol" }

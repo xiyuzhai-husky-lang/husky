@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-word = { path = "../../../../syntax/word", version = "0.0.0" }
-husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol", version = "0.0.0" }
-vm = { path = "../../../../eval/vm", version = "0.0.0" }
-husky-entity-route = { path = "../../../../syntax/husky-entity-route", version = "0.0.0" }
+word = { path = "../../../../syntax/word" }
+husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
+vm = { path = "../../../../vm/husky-vm" }
+husky-entity-route = { path = "../../../../syntax/husky-entity-route" }

@@ -11,19 +11,19 @@ doctest = false
 
 [dependencies]
 salsa = "0.17.0-pre.2"
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-fold = { path = "../../abstraction/fold", version = "0.0.0" }
-husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
-word = { path = "../../syntax/word", version = "0.0.0" }
-husky-package-semantics = { path = "../../semantics/husky-package-semantics", version = "0.0.0" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-vm = { path = "../../eval/vm", version = "0.0.0" }
-husky-compile-dir = { path = "../husky-compile-dir", version = "0.0.0" }
-husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
-infer-decl = { path = "../../infer/husky-infer-decl", version = "0.0.0" }
-defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
-entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
-husky-liason-semantics = { path = "../../semantics/husky-liason-semantics", version = "0.0.0" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
+print-utils = { path = "../../utils/print" }
+fold = { path = "../../abstraction/fold" }
+husky-file = { path = "../../syntax/husky-file" }
+word = { path = "../../syntax/word" }
+husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+vm = { path = "../../vm/husky-vm" }
+husky-compile-dir = { path = "../husky-compile-dir" }
+husky-ast = { path = "../../syntax/husky-ast" }
+infer-decl = { path = "../../infer/husky-infer-decl" }
+defn-head = { path = "../../syntax/defn-head" }
+entity-kind = { path = "../../syntax/entity-kind" }
+husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }

@@ -30,15 +30,15 @@ tracing = "0.1"
 itertools = "^0.10.3"
 lsp-server = "0.5.2"
 salsa = "0.17.0-pre.2"
-error-utils = { path = "../../utils/error", version = "0.0.0" }
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-path-utils = { path = "../../utils/path", version = "0.0.0" }
-test-utils = { path = "../../utils/test", version = "0.0.0" }
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
-husky-compile-test = { path = "../../compile/husky-compile-test", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
-husky-diagnostics = { path = "../../semantics/husky-diagnostics", version = "0.0.0" }
-husky-token = { path = "../../syntax/husky-token", version = "0.0.0" }
-__husky_root = { path = "../../static/__husky_root", version = "0.0.0" }
+error-utils = { path = "../../utils/error" }
+print-utils = { path = "../../utils/print" }
+path-utils = { path = "../../utils/path" }
+test-utils = { path = "../../utils/test" }
+check-utils = { path = "../../utils/check" }
+husky-compile-time = { path = "../../compile/husky-compile-time" }
+husky-compile-test = { path = "../../compile/husky-compile-test" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
+husky-token = { path = "../../syntax/husky-token" }
+__husky_root = { path = "../../static/__husky_root" }

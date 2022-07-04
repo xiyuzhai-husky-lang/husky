@@ -9,6 +9,6 @@ edition = "2021"
 doctest = false
 
 [dependencies]
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-test-utils = { path = "../../utils/test", version = "0.0.0" }
+check-utils = { path = "../../utils/check" }
+print-utils = { path = "../../utils/print" }
+test-utils = { path = "../../utils/test" }

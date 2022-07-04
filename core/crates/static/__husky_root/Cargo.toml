@@ -9,19 +9,19 @@ edition = "2021"
 rand = "0.8.5"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-xrng = { path = "../../utils/xrng", version = "0.0.0" }
-dev-utils = { path = "../../utils/dev", version = "0.0.0" }
-wild-utils = { path = "../../utils/wild", version = "0.0.0" }
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-cyclic-slice = { path = "../../abstraction/cyclic-slice", version = "0.0.0" }
-word = { path = "../../syntax/word", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-vm = { path = "../../eval/vm", version = "0.0.0" }
-husky-visual-syntax = { path = "../../syntax/husky-visual-syntax", version = "0.0.0" }
-entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
-static-defn = { path = "../static-defn", version = "0.0.0" }
-husky-liason-semantics = { path = "../../semantics/husky-liason-semantics", version = "0.0.0" }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
-husky-models-static-defn = { path = "../domains/ml/husky-models-static-defn", version = "0.0.0" }
-husky-datasets-static-defn = { path = "../domains/ml/husky-datasets-static-defn", version = "0.0.0" }
-husky-eval-time = { path = "../../eval/husky-eval-time", version = "0.0.0" }
+xrng = { path = "../../utils/xrng" }
+dev-utils = { path = "../../utils/dev" }
+wild-utils = { path = "../../utils/wild" }
+check-utils = { path = "../../utils/check" }
+cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+word = { path = "../../syntax/word" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+vm = { path = "../../vm/husky-vm" }
+husky-visual-syntax = { path = "../../syntax/husky-visual-syntax" }
+entity-kind = { path = "../../syntax/entity-kind" }
+static-defn = { path = "../static-defn" }
+husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-models-static-defn = { path = "../domains/ml/husky-models-static-defn" }
+husky-datasets-static-defn = { path = "../domains/ml/husky-datasets-static-defn" }
+husky-eval-time = { path = "../../eval/husky-eval-time" }

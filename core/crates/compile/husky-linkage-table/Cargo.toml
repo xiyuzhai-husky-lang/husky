@@ -9,16 +9,16 @@ rust-version = "1.56"
 [dependencies]
 smallvec = "1.8.0"
 colored = "2.0.0"
-vm = { path = "../../eval/vm", version = "0.0.0" }
-map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
-upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
-sync-utils = { path = "../../utils/sync", version = "0.0.0" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-word = { path = "../../syntax/word", version = "0.0.0" }
-static-defn = { path = "../../static/static-defn", version = "0.0.0" }
+vm = { path = "../../vm/husky-vm" }
+map-collect = { path = "../../abstraction/map-collect" }
+upcast = { path = "../../abstraction/upcast" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+sync-utils = { path = "../../utils/sync" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+check-utils = { path = "../../utils/check" }
+print-utils = { path = "../../utils/print" }
+word = { path = "../../syntax/word" }
+static-defn = { path = "../../static/static-defn" }
 thin-vec = { path = "../../../../forks/thin-vec" }
-husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
+husky-file = { path = "../../syntax/husky-file" }
