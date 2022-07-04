@@ -22,7 +22,7 @@ impl TypeCallDefn {
             EntityStaticDefnVariant::Function {
                 ref parameters,
                 output_ty,
-                linkage: __Linkage,
+                linkage,
                 ..
             } => TypeCallDefn {
                 parameters: Arc::new(
@@ -32,7 +32,7 @@ impl TypeCallDefn {
                     route: context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
-                opt_linkage: Some(__Linkage),
+                opt_linkage: Some(linkage),
             },
             _ => panic!(),
         })

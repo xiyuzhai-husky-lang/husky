@@ -15,7 +15,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 _ => (),
             }
         }
-        let result = (f.call.0)(&mut arguments);
+        let output = f.call(arguments)?;
         msg_once!("ugly");
         if output_ty.kind
             != (EntityRouteKind::Root {
@@ -23,17 +23,17 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             })
         {
             should_eq!(
-                result.ty(),
+                output.ty(),
                 output_ty,
                 r#"
     linkage source: {:?}
-    result:
-        {result:?}
+    output:
+        {output:?}
 "#,
                 f.dev_src
             );
         }
-        self.stack.push(result.into());
+        self.stack.push(output.into());
         Ok(())
     }
     pub(super) fn call_generic_transfer(

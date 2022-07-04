@@ -287,7 +287,7 @@ impl EntityDefnVariant {
                 parameters,
                 output_ty,
                 output_liason,
-                linkage: __Linkage,
+                linkage,
             } => EntityDefnVariant::Function {
                 spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                     SpatialParameter::from_static(
@@ -302,7 +302,7 @@ impl EntityDefnVariant {
                     route: symbol_context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
-                source: CallFormSource::Static(__Linkage),
+                source: CallFormSource::Static(linkage),
             },
             EntityStaticDefnVariant::Ty { .. } => Self::ty_from_static(symbol_context, static_defn),
             EntityStaticDefnVariant::Trait {

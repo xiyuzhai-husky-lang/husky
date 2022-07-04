@@ -41,11 +41,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if let Some(linkage) = opt_linkage {
                     let this_value = self.husky_feature_eval_repr(this)?;
                     let this_value = this_value.into_stack()?;
-                    let mut arguments = vec![this_value];
-                    match catch_unwind(move || linkage.call.0(&mut arguments)) {
-                        Ok(result) => todo!(),
-                        Err(_) => todo!(),
-                    }
+                    linkage.eval(vec![this_value])
                 } else {
                     let this_value = self.husky_feature_eval_repr(this)?;
                     match catch_unwind(move || unsafe {
@@ -115,9 +111,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ..
             } => self.husky_feature_eval_repr(repr),
             FeatureLazyExprVariant::ElementAccess {
-                ref opds,
-                __Linkage,
-                ..
+                ref opds, linkage, ..
             } => {
                 if opds.len() > 2 {
                     todo!()
@@ -130,7 +124,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .into_stack()
                         .unwrap(),
                 ];
-                Ok((__Linkage.call.0)(&mut values).into_eval())
+                linkage.eval(values)
             }
             FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
                 ref this,

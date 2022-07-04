@@ -309,10 +309,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                                         linkage,
                                     }
                                 }
-                                __Linkage::GenericTransfer(__Linkage) => {
+                                __Linkage::GenericTransfer(linkage) => {
                                     InstructionVariant::CallGenericRoutine {
                                         output_ty: ranged_ty.route,
-                                        linkage: __Linkage,
+                                        linkage,
                                     }
                                 }
                                 __Linkage::Member(_) => todo!(),

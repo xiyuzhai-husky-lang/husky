@@ -79,7 +79,7 @@ pub enum FeatureLazyExprVariant {
     },
     ElementAccess {
         opds: Vec<Arc<FeatureExpr>>,
-        __Linkage: __SpecificRoutineLinkage,
+        linkage: __SpecificRoutineLinkage,
     },
     ModelCall {
         opds: Vec<Arc<FeatureExpr>>,
