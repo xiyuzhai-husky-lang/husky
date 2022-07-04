@@ -11,23 +11,23 @@ doctest = false
 
 [dependencies]
 salsa = "0.17.0-pre.2"
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-fold = { path = "../../abstraction/fold", version = "0.0.0" }
-map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
-avec = { path = "../../abstraction/avec", version = "0.0.0" }
-husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
-word = { path = "../../syntax/word", version = "0.0.0" }
-husky-package-semantics = { path = "../../semantics/husky-package-semantics", version = "0.0.0" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-vm = { path = "../../eval/vm", version = "0.0.0" }
-husky-compile-dir = { path = "../../compile/husky-compile-dir", version = "0.0.0" }
-infer-decl = { path = "../../infer/husky-infer-decl", version = "0.0.0" }
-husky-linkage-table = { path = "../../compile/husky-linkage-table", version = "0.0.0" }
-static-defn = { path = "../../static/static-defn", version = "0.0.0" }
-entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
-husky-visual-semantics = { path = "../../semantics/husky-visual-semantics", version = "0.0.0" }
-husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
-husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
+print-utils = { path = "../../utils/print" }
+check-utils = { path = "../../utils/check" }
+fold = { path = "../../abstraction/fold" }
+map-collect = { path = "../../abstraction/map-collect" }
+avec = { path = "../../abstraction/avec" }
+husky-file = { path = "../../syntax/husky-file" }
+word = { path = "../../syntax/word" }
+husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+vm = { path = "../../vm/husky-vm" }
+husky-compile-dir = { path = "../../compile/husky-compile-dir" }
+infer-decl = { path = "../../infer/husky-infer-decl" }
+husky-linkage-table = { path = "../../compile/husky-linkage-table" }
+static-defn = { path = "../../static/static-defn" }
+entity-kind = { path = "../../syntax/entity-kind" }
+husky-visual-semantics = { path = "../../semantics/husky-visual-semantics" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-compile-time = { path = "../../compile/husky-compile-time" }

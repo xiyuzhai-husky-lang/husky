@@ -1,4 +1,4 @@
-use super::*;
+use husky_trace_protocol::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EvalError {
@@ -41,8 +41,6 @@ impl Into<FigureCanvasData> for EvalError {
     }
 }
 
-pub type __EvalResult<T = EvalValue<'static>> = Result<T, EvalError>;
-pub type EvalValueResult<'eval> = Result<EvalValue<'eval>, EvalError>;
 #[macro_export]
 macro_rules! vm_runtime_error {
     ($message: expr) => {

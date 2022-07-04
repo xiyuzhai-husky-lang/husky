@@ -102,7 +102,7 @@ impl CopyableValue {
         }
     }
 
-    pub(crate) fn take_bool(&self) -> bool {
+    pub fn take_bool(&self) -> bool {
         if let CopyableValue::Bool(b) = self {
             *b
         } else {
@@ -121,7 +121,7 @@ impl CopyableValue {
         }
     }
 
-    pub(crate) fn take_enum_kind(self) -> EnumKindValue {
+    pub fn take_enum_kind(self) -> EnumKindValue {
         if let CopyableValue::EnumKind(b) = self {
             b
         } else {

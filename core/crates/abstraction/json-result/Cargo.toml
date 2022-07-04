@@ -13,5 +13,5 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 
 [dev-dependencies]
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-print-utils = { path = "../../utils/print", version = "0.0.0" }
+check-utils = { path = "../../utils/check" }
+print-utils = { path = "../../utils/print" }

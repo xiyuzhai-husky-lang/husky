@@ -8,33 +8,33 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-dev-utils = { path = "../../utils/dev", version = "0.0.0" }
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
-vec-map = { path = "../../abstraction/vec-map", version = "0.0.0" }
-avec = { path = "../../abstraction/avec", version = "0.0.0" }
-map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
-sync-utils = { path = "../../utils/sync", version = "0.0.0" }
-husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
-vm = { path = "../../eval/vm", version = "0.0.0" }
-husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
-husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
-word = { path = "../../syntax/word", version = "0.0.0" }
-fold = { path = "../../abstraction/fold", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-semantics-error = { path = "../../semantics/error", version = "0.0.0" }
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics", version = "0.0.0" }
-husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics", version = "0.0.0" }
-husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route", version = "0.0.0" }
-infer-contract = { path = "../../infer/husky-infer-contract", version = "0.0.0" }
-infer-decl = { path = "../../infer/husky-infer-decl", version = "0.0.0" }
-infer-total = { path = "../../infer/total", version = "0.0.0" }
-entity-kind = { path = "../../syntax/entity-kind", version = "0.0.0" }
-defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
-static-defn = { path = "../../static/static-defn", version = "0.0.0" }
-husky-atom = { path = "../../syntax/husky-atom", version = "0.0.0" }
-husky-visual-semantics = { path = "../husky-visual-semantics", version = "0.0.0" }
-husky-liason-semantics = { path = "../../semantics/husky-liason-semantics", version = "0.0.0" }
-thin-vec = { path = "../../../../forks/thin-vec", version = "0.2.5" }
+check-utils = { path = "../../utils/check" }
+dev-utils = { path = "../../utils/dev" }
+print-utils = { path = "../../utils/print" }
+upcast = { path = "../../abstraction/upcast" }
+vec-map = { path = "../../abstraction/vec-map" }
+avec = { path = "../../abstraction/avec" }
+map-collect = { path = "../../abstraction/map-collect" }
+sync-utils = { path = "../../utils/sync" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+vm = { path = "../../vm/husky-vm" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-text = { path = "../../syntax/husky-text" }
+word = { path = "../../syntax/word" }
+fold = { path = "../../abstraction/fold" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+semantics-error = { path = "../../semantics/error" }
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
+husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
+infer-contract = { path = "../../infer/husky-infer-contract" }
+infer-decl = { path = "../../infer/husky-infer-decl" }
+infer-total = { path = "../../infer/total" }
+entity-kind = { path = "../../syntax/entity-kind" }
+defn-head = { path = "../../syntax/defn-head" }
+static-defn = { path = "../../static/static-defn" }
+husky-atom = { path = "../../syntax/husky-atom" }
+husky-visual-semantics = { path = "../husky-visual-semantics" }
+husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+thin-vec = { path = "../../../../forks/thin-vec" }

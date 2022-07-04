@@ -7,22 +7,22 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-dev-utils = { path = "../../utils/dev", version = "0.0.0" }
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-word = { path = "../../syntax/word", version = "0.0.0" }
-fold = { path = "../../abstraction/fold", version = "0.0.0" }
-vm = { path = "../../eval/vm", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax", version = "0.0.0" }
-husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
-husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
-husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
-semantics-error = { path = "../error", version = "0.0.0" }
-husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route", version = "0.0.0" }
-infer-decl = { path = "../../infer/husky-infer-decl", version = "0.0.0" }
-infer-total = { path = "../../infer/total", version = "0.0.0" }
-infer-contract = { path = "../../infer/husky-infer-contract", version = "0.0.0" }
-infer-qualifier = { path = "../../infer/qualifier", version = "0.0.0" }
-defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
-husky-liason-semantics = { path = "../../semantics/husky-liason-semantics", version = "0.0.0" }
+check-utils = { path = "../../utils/check" }
+dev-utils = { path = "../../utils/dev" }
+print-utils = { path = "../../utils/print" }
+word = { path = "../../syntax/word" }
+fold = { path = "../../abstraction/fold" }
+vm = { path = "../../vm/husky-vm" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-ast = { path = "../../syntax/husky-ast" }
+semantics-error = { path = "../error" }
+husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
+infer-decl = { path = "../../infer/husky-infer-decl" }
+infer-total = { path = "../../infer/total" }
+infer-contract = { path = "../../infer/husky-infer-contract" }
+infer-qualifier = { path = "../../infer/qualifier" }
+defn-head = { path = "../../syntax/defn-head" }
+husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }

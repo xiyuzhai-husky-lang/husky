@@ -1,19 +1,20 @@
-mod any;
 mod copyable;
 mod enum_kind;
 mod eval;
 mod member;
 mod owned;
 mod ref_;
+mod snapshot;
 mod xml;
 
-pub use any::*;
 pub use copyable::*;
 pub use enum_kind::*;
 pub use eval::*;
+use husky_vm_runtime_error::EvalError;
 pub use member::*;
 pub use owned::*;
 pub use ref_::*;
+pub use snapshot::*;
 pub use xml::*;
 
 use crate::*;
@@ -21,6 +22,9 @@ use print_utils::{msg_once, p, ps};
 use std::sync::Arc;
 use std::{fmt::Write, panic::UnwindSafe};
 use word::CustomIdentifier;
+
+pub type __EvalResult<T = EvalValue<'static>> = Result<T, EvalError>;
+pub type EvalValueResult<'eval> = Result<EvalValue<'eval>, EvalError>;
 
 // the primary concerns are safety and stability
 // this whole vm thing will be replaced by JIT for fast evaluation purposes
@@ -218,7 +222,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
         }
     }
 
-    pub(crate) unsafe fn bind(&mut self, binding: Binding, stack_idx: VMStackIdx) -> Self {
+    pub unsafe fn bind(&mut self, binding: Binding, stack_idx: VMStackIdx) -> Self {
         match binding {
             Binding::EvalRef => self.bind_eval_ref(),
             Binding::TempRef => self.bind_temp_ref(),
@@ -569,7 +573,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
         }
     }
 
-    pub(crate) fn snapshot(&self) -> StackValueSnapshot<'eval> {
+    pub fn snapshot(&self) -> StackValueSnapshot<'eval> {
         match self {
             __TempValue::Copyable(value) => StackValueSnapshot::Copyable(*value),
             __TempValue::OwnedEval(value) => StackValueSnapshot::Owned(value.clone()),

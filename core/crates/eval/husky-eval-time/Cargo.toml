@@ -9,34 +9,34 @@ tokio = { version = "1.19.2", features = ["sync"] }
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
-json-map = { path = "../../abstraction/json-map", version = "0.0.0" }
-singleton = { path = "../../abstraction/singleton", version = "0.0.0" }
-check-utils = { path = "../../utils/check", version = "0.0.0" }
-dev-utils = { path = "../../utils/dev", version = "0.0.0" }
-print-utils = { path = "../../utils/print", version = "0.0.0" }
-interner = { path = "../../abstraction/interner", version = "0.0.0" }
-fold = { path = "../../abstraction/fold", version = "0.0.0" }
-upcast = { path = "../../abstraction/upcast", version = "0.0.0" }
-map-collect = { path = "../../abstraction/map-collect", version = "0.0.0" }
-arena = { path = "../../abstraction/arena", version = "0.0.0" }
-json-result = { path = "../../abstraction/json-result", version = "0.0.0" }
-husky-file = { path = "../../syntax/husky-file", version = "0.0.0" }
-husky-text = { path = "../../syntax/husky-text", version = "0.0.0" }
-word = { path = "../../syntax/word", version = "0.0.0" }
-husky-entity-route = { path = "../../syntax/husky-entity-route", version = "0.0.0" }
-husky-ast = { path = "../../syntax/husky-ast", version = "0.0.0" }
-husky-compile-time = { path = "../../compile/husky-compile-time", version = "0.0.0" }
-vm = { path = "../vm", version = "0.0.0" }
-trivial-iter = { path = "../../abstraction/trivial-iter", version = "0.0.0" }
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics", version = "0.0.0" }
-husky-package-semantics = { path = "../../semantics/husky-package-semantics", version = "0.0.0" }
-husky-feature-gen = { path = "../husky-feature-gen", version = "0.0.0" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics", version = "0.0.0" }
-defn-head = { path = "../../syntax/defn-head", version = "0.0.0" }
-husky-feature-eval = { path = "../husky-feature-eval", version = "0.0.0" }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol", version = "0.0.0" }
-husky-instruction-gen = { path = "../husky-instruction-gen", version = "0.0.0" }
-husky-visualizer-gen = { path = "../husky-visualizer-gen", version = "0.0.0" }
-static-defn = { path = "../../static/static-defn", version = "0.0.0" }
-husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-protocol", version = "0.0.0" }
-husky-atom = { path = "../../syntax/husky-atom", version = "0.0.0" }
+json-map = { path = "../../abstraction/json-map" }
+singleton = { path = "../../abstraction/singleton" }
+check-utils = { path = "../../utils/check" }
+dev-utils = { path = "../../utils/dev" }
+print-utils = { path = "../../utils/print" }
+interner = { path = "../../abstraction/interner" }
+fold = { path = "../../abstraction/fold" }
+upcast = { path = "../../abstraction/upcast" }
+map-collect = { path = "../../abstraction/map-collect" }
+arena = { path = "../../abstraction/arena" }
+json-result = { path = "../../abstraction/json-result" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-text = { path = "../../syntax/husky-text" }
+word = { path = "../../syntax/word" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-compile-time = { path = "../../compile/husky-compile-time" }
+vm = { path = "../../vm/husky-vm" }
+trivial-iter = { path = "../../abstraction/trivial-iter" }
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
+husky-feature-gen = { path = "../husky-feature-gen" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+defn-head = { path = "../../syntax/defn-head" }
+husky-feature-eval = { path = "../husky-feature-eval" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-instruction-gen = { path = "../husky-instruction-gen" }
+husky-visualizer-gen = { path = "../husky-visualizer-gen" }
+static-defn = { path = "../../static/static-defn" }
+husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-protocol" }
+husky-atom = { path = "../../syntax/husky-atom" }

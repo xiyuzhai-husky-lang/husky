@@ -1,5 +1,6 @@
 #[cfg(test)]
 use check_utils::*;
+use husky_vm_runtime_error::vm_runtime_error;
 
 use crate::*;
 

@@ -1,6 +1,6 @@
 use super::*;
 use std::fmt::Write;
-use word::IdentPairDict;
+use word::{CustomIdentifier, IdentPairDict};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VirtualStruct<'eval> {
