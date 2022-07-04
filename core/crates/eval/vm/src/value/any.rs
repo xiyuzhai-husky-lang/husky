@@ -129,6 +129,9 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
     fn assign<'temp>(&mut self, other: __TempValue<'temp, 'eval>);
     fn take_copyable_dyn(&self) -> CopyableValue;
     fn upcast_any(&self) -> &(dyn AnyValueDyn<'eval>);
+    unsafe fn upcast_arb_any<'a>(&self) -> &'a (dyn AnyValueDyn<'eval>)
+    where
+        Self: 'a;
     fn print_short(&self) -> String;
     fn short_dyn<'shorter_eval>(&'eval self) -> &'shorter_eval dyn AnyValueDyn<'shorter_eval>
     where
@@ -213,6 +216,15 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
     fn upcast_any(&self) -> &dyn AnyValueDyn<'eval> {
         self
     }
+
+    unsafe fn upcast_arb_any<'a>(&self) -> &'a (dyn AnyValueDyn<'eval>)
+    where
+        T: 'a,
+    {
+        let ptr: *const T = self;
+        &*ptr
+    }
+
     fn print_short(&self) -> String {
         T::print_short(self)
     }
