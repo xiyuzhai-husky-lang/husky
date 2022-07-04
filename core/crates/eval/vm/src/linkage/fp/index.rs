@@ -28,7 +28,7 @@ macro_rules! index_eval_ref_fp {
                 .take_i32()
                 .try_into()
                 .expect("todo");
-            Ok(__EvalRef(&this_value[index_value]).into())
+            __EvalRef(&this_value[index_value]).into()
         }
         __SpecificRoutineFp(__wrapper)
     }};

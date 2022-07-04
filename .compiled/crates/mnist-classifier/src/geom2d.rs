@@ -54,7 +54,7 @@ impl<'eval> __AnyValue<'eval> for Point2d {
     }
 
     fn static_ty() -> __EntityRoutePtr {
-        __lazy_entity_route_from_text!("mnist_classifier::geom2d::Point2d")
+        __ty_route_from_static_binded::<Self>("mnist_classifier::geom2d::Point2d")
     }
 }
 #[derive(Debug, Clone, PartialEq)]
@@ -148,6 +148,6 @@ impl<'eval> __AnyValue<'eval> for Vector2d {
     }
 
     fn static_ty() -> __EntityRoutePtr {
-        __lazy_entity_route_from_text!("mnist_classifier::geom2d::Vector2d")
+        __ty_route_from_static_binded::<Self>("mnist_classifier::geom2d::Vector2d")
     }
 }

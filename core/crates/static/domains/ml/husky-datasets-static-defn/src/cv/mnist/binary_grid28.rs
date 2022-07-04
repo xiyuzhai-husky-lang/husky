@@ -178,6 +178,6 @@ impl<'eval> AnyValue<'eval> for BinaryGrid28 {
     }
 
     fn static_ty() -> EntityRoutePtr {
-        ty_route_from_static_binded(TypeId::of::<Self>(), BINARY_GRID_28_BASE_ROUTE)
+        ty_route_from_static_binded::<Self>(BINARY_GRID_28_BASE_ROUTE)
     }
 }

@@ -1,3 +1,5 @@
+use std::{collections::HashMap, sync::Mutex};
+
 use crate::*;
 use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
 use husky_linkage_table::{LinkageTable, ResolveLinkage};
@@ -27,6 +29,7 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
             entity_route_store: self.entity_route_store.clone(),
             opt_main: self.opt_main,
             __root_defn_resolver: self.__root_defn_resolver,
+            static_ty_cache: self.static_ty_cache.clone(),
         })
     }
 }
@@ -77,7 +80,11 @@ impl EntitySyntaxQueryGroup for HuskyCompileTime {
     }
 }
 
-impl AstQueryGroup for HuskyCompileTime {}
+impl AstQueryGroup for HuskyCompileTime {
+    fn static_ty_cache(&self) -> &Mutex<HashMap<std::any::TypeId, EntityRoutePtr>> {
+        &self.static_ty_cache
+    }
+}
 
 impl Upcast<dyn InferQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn infer_total::InferQueryGroup + 'static) {

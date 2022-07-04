@@ -42,7 +42,7 @@ impl<'eval> __AnyValue<'eval> for RawContour<'eval> {
     }
 
     fn static_ty() -> __EntityRoutePtr {
-        __lazy_entity_route_from_text!("mnist_classifier::raw_contour::RawContour")
+        __ty_route_from_static_binded::<Self>("mnist_classifier::raw_contour::RawContour")
     }
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -228,7 +228,7 @@ impl<'eval> __AnyValue<'eval> for StreakCache {
     }
 
     fn static_ty() -> __EntityRoutePtr {
-        __lazy_entity_route_from_text!("mnist_classifier::raw_contour::StreakCache")
+        __ty_route_from_static_binded::<Self>("mnist_classifier::raw_contour::StreakCache")
     }
 }
 pub(crate) fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {
