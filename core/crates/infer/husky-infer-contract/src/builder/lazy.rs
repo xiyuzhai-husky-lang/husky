@@ -68,11 +68,11 @@ impl<'a> ContractSheetBuilder<'a> {
             } => self.infer_lazy_expr(match_expr, LazyContract::from_match(match_liason), arena),
             RawStmtVariant::ReturnXml(ref xml_expr) => match xml_expr.variant {
                 RawXmlExprVariant::Value(raw_expr_idx) => {
-                    self.infer_lazy_expr(raw_expr_idx, LazyContract::Pure, arena);
+                    self.infer_lazy_expr(raw_expr_idx, LazyContract::Pass, arena);
                 }
                 RawXmlExprVariant::Tag { ref props, .. } => {
                     props.iter().for_each(|(_, argument)| {
-                        self.infer_lazy_expr(*argument, LazyContract::Pure, arena);
+                        self.infer_lazy_expr(*argument, LazyContract::Pass, arena);
                     })
                 }
             },

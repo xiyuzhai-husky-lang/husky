@@ -67,12 +67,12 @@ eager variable:
     last_line_segment  169:13..169:30  Owned        mnist_classifier006::line_segment_sketch::LineSegment
 
 lazy expr:
-    23:29..23:33   this                   PureRef mnist_classifier006::line_segment_sketch::LineSegment
-    23:29..23:34   this.                  PureRef mnist_classifier006::geom2d::Point2d
-    23:46..23:50   this                   PureRef mnist_classifier006::line_segment_sketch::LineSegment
-    23:46..23:51   this.                  PureRef mnist_classifier006::geom2d::Point2d
-    36:9..36:13    this                   PureRef mnist_classifier006::line_segment_sketch::LineSegmentSketch
-    36:9..36:14    this.                  PureRef Vec<mnist_classifier006::line_segment_sketch::LineSegment>
+    23:29..23:33   this                   EvalRef mnist_classifier006::line_segment_sketch::LineSegment
+    23:29..23:34   this.                  EvalRef mnist_classifier006::geom2d::Point2d
+    23:46..23:50   this                   EvalRef mnist_classifier006::line_segment_sketch::LineSegment
+    23:46..23:51   this.                  EvalRef mnist_classifier006::geom2d::Point2d
+    36:9..36:13    this                   EvalRef mnist_classifier006::line_segment_sketch::LineSegmentSketch
+    36:9..36:14    this.                  EvalRef Vec<mnist_classifier006::line_segment_sketch::LineSegment>
 
 eager expr:
     12:23..12:29   points                 PureRef      std::slice::CyclicSlice<mnist_classifier006::geom2d::Point2d>
@@ -610,9 +610,9 @@ eager expr:
     175:12..175:25 line_segments          Transient    Vec<mnist_classifier006::line_segment_sketch::LineSegment>
 
 lazy expr:
-    23:29..23:33   this                   PureRef mnist_classifier006::line_segment_sketch::LineSegment
-    23:29..23:34   this.                  PureRef mnist_classifier006::geom2d::Point2d
-    23:46..23:50   this                   PureRef mnist_classifier006::line_segment_sketch::LineSegment
-    23:46..23:51   this.                  PureRef mnist_classifier006::geom2d::Point2d
-    36:9..36:13    this                   PureRef mnist_classifier006::line_segment_sketch::LineSegmentSketch
-    36:9..36:14    this.                  PureRef Vec<mnist_classifier006::line_segment_sketch::LineSegment>
+    23:29..23:33   this                   EvalRef mnist_classifier006::line_segment_sketch::LineSegment
+    23:29..23:34   this.                  EvalRef mnist_classifier006::geom2d::Point2d
+    23:46..23:50   this                   EvalRef mnist_classifier006::line_segment_sketch::LineSegment
+    23:46..23:51   this.                  EvalRef mnist_classifier006::geom2d::Point2d
+    36:9..36:13    this                   EvalRef mnist_classifier006::line_segment_sketch::LineSegmentSketch
+    36:9..36:14    this.                  EvalRef Vec<mnist_classifier006::line_segment_sketch::LineSegment>

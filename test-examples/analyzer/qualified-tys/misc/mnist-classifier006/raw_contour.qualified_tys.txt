@@ -57,8 +57,8 @@ eager variable:
     angle_change  167:21..167:33  Copyable     i32
 
 lazy expr:
-    21:26..21:30   this                   PureRef mnist_classifier006::raw_contour::RawContour
-    21:26..21:31   this.                  PureRef Vec<mnist_classifier006::geom2d::Point2d>
+    21:26..21:30   this                   EvalRef mnist_classifier006::raw_contour::RawContour
+    21:26..21:31   this.                  EvalRef Vec<mnist_classifier006::geom2d::Point2d>
 
 eager expr:
     12:32..12:36   this                   EvalRef      mnist_classifier006::raw_contour::RawContour
@@ -482,5 +482,5 @@ eager expr:
     217:12..217:18 result                 Transient    Vec<mnist_classifier006::raw_contour::RawContour>
 
 lazy expr:
-    21:26..21:30   this                   PureRef mnist_classifier006::raw_contour::RawContour
-    21:26..21:31   this.                  PureRef Vec<mnist_classifier006::geom2d::Point2d>
+    21:26..21:30   this                   EvalRef mnist_classifier006::raw_contour::RawContour
+    21:26..21:31   this.                  EvalRef Vec<mnist_classifier006::geom2d::Point2d>

@@ -20,7 +20,7 @@ eager variable:
     k           51:22..51:23  Copyable     i32
 
 lazy expr:
-    11:9..11:13    mask                   PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    11:9..11:13    mask                   EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     14:31..14:36   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     14:5..14:37    find_connected_components(input)   Transient Vec<mnist_classifier006::connected_component::ConnectedComponent>
 
@@ -185,6 +185,6 @@ eager expr:
     54:12..54:18   result                 Transient    Vec<mnist_classifier006::connected_component::ConnectedComponent>
 
 lazy expr:
-    11:9..11:13    mask                   PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    11:9..11:13    mask                   EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     14:31..14:36   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     14:5..14:37    find_connected_components(input)   Transient Vec<mnist_classifier006::connected_component::ConnectedComponent>
