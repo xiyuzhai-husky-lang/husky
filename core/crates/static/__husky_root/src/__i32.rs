@@ -80,11 +80,7 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(
-            |values| {
-                Ok(__TempValue::Copyable(
-                    values[0].take_copyable().take_i32().abs().into(),
-                ))
-            },
+            |values| { __TempValue::Copyable(values[0].take_copyable().take_i32().abs().into(),) },
             1
         )),
     },

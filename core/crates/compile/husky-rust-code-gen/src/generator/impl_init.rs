@@ -279,7 +279,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         specific_transfer_linkage!({{
             fn __wrapper<'temp, 'eval>(
                 __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __EvalResult<__TempValue<'temp, 'eval>> {{"#
+            ) -> __TempValue<'temp, 'eval> {{"#
         ));
         if let Some((this_liason, this_ty)) = opt_this {
             match this_liason {

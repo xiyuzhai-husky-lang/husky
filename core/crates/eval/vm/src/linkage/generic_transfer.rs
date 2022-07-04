@@ -7,7 +7,7 @@ pub struct GenericRoutineLinkage {
     pub call: for<'temp, 'eval> fn(
         ty: EntityRoutePtr,
         &mut [__TempValue<'temp, 'eval>],
-    ) -> __EvalResult<__TempValue<'temp, 'eval>>,
+    ) -> __TempValue<'temp, 'eval>,
     pub nargs: u8,
     pub dev_src: &'static __StaticDevSource,
 }

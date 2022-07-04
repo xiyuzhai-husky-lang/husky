@@ -15,7 +15,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 _ => (),
             }
         }
-        let result = (f.call.0)(&mut arguments)?;
+        let result = (f.call.0)(&mut arguments);
         msg_once!("ugly");
         if output_ty.kind
             != (EntityRouteKind::Root {
@@ -42,7 +42,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         f: GenericRoutineLinkage,
     ) -> __EvalResult<()> {
         let mut parameters = self.stack.drain(f.nargs).collect::<Vec<_>>();
-        let result = (f.call)(output_ty, &mut parameters)?;
+        let result = (f.call)(output_ty, &mut parameters);
         self.stack.push(result.into());
         Ok(())
     }
