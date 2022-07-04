@@ -290,15 +290,15 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(crate) fn eval_linkage(
         &mut self,
-        __Linkage: __Linkage,
+        linkage: __Linkage,
         output_ty: EntityRoutePtr,
     ) -> EvalValueResult<'eval> {
-        match __Linkage {
+        match linkage {
             __Linkage::Member { .. } => todo!(),
             __Linkage::SpecificTransfer(linkage) => {
                 let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                Ok((linkage.call.0)(&mut arguments).into_eval())
+                linkage.eval(arguments)
             }
             __Linkage::GenericTransfer(__Linkage) => {
                 let mut arguments = self.stack.drain(__Linkage.nargs).collect::<Vec<_>>();

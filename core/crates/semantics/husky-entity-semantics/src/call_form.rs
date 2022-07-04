@@ -11,7 +11,7 @@ pub enum CallFormSource {
 }
 
 impl From<__Linkage> for CallFormSource {
-    fn from(__Linkage: __Linkage) -> Self {
-        CallFormSource::Static(__Linkage)
+    fn from(linkage: __Linkage) -> Self {
+        CallFormSource::Static(linkage)
     }
 }

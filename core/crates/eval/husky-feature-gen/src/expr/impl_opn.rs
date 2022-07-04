@@ -309,7 +309,7 @@ impl<'a> FeatureExprBuilder<'a> {
             opds: opds.map(|opd| opd.feature),
         });
         let feature_expr_kind = FeatureLazyExprVariant::ElementAccess {
-            __Linkage: self
+            linkage: self
                 .db
                 .compile_time()
                 .element_access_linkage(opds.map(|opd| opd.expr.ty()))

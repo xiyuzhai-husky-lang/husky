@@ -169,9 +169,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
     fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<__Linkage> {
         match self.entity_locus(routine).unwrap() {
             EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
-                EntityStaticDefnVariant::Function {
-                    linkage: __Linkage, ..
-                } => Some(__Linkage),
+                EntityStaticDefnVariant::Function { linkage, .. } => Some(linkage),
                 _ => todo!(),
             },
             EntityLocus::WithinBuiltinModule => todo!(),

@@ -10,7 +10,7 @@ impl EntityDefnVariant {
                 field_kind,
                 liason,
                 ty,
-                __Linkage,
+                linkage: __Linkage,
             } => Self::TyField {
                 ty: symbol_context.parse_entity_route(ty).unwrap(),
                 liason,
