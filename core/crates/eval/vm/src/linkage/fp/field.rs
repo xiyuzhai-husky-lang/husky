@@ -29,8 +29,9 @@ macro_rules! field_temp_ref_fp {
         fn __wrapper<'temp, 'eval>(
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
-            let value: &$Type = values[0].downcast_temp_ref();
-            __TempValue::TempRefEval(unsafe { value.$field.upcast_arb_any() })
+            todo!()
+            // let value: &$Type = values[0].downcast_temp_ref();
+            // __TempValue::TempRefEval(unsafe { value.$field.upcast_arb_any() })
         }
         __SpecificRoutineFp(__wrapper)
     }};

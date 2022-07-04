@@ -21,9 +21,12 @@ impl __SpecificRoutineLinkage {
         &self,
         mut arguments: Vec<__TempValue<'temp, 'eval>>,
     ) -> EvalValueResult<'eval> {
-        catch_unwind(move || self.fp.0(&mut arguments))
-            .map_err(|_| todo!())
-            .map(|v| v.into_eval())
+        catch_unwind(move || self.fp.0(&mut arguments).into_eval()).map_err(|e| EvalError::Normal {
+            message: format!(
+                "error: {e:?} when calling linkage with src = {}",
+                self.dev_src
+            ),
+        })
     }
 }
 
