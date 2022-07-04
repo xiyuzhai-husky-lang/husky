@@ -298,12 +298,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             __Linkage::SpecificTransfer(linkage) => {
                 let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                Ok((linkage.call.0)(&mut arguments)?.into_eval())
+                Ok((linkage.call.0)(&mut arguments).into_eval())
             }
             __Linkage::GenericTransfer(__Linkage) => {
                 let mut arguments = self.stack.drain(__Linkage.nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                Ok((__Linkage.call)(output_ty, &mut arguments)?.into_eval())
+                Ok((__Linkage.call)(output_ty, &mut arguments).into_eval())
             }
             __Linkage::Model(_) => todo!(),
         }

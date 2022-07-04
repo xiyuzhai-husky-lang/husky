@@ -35,18 +35,16 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
 fn generic_cyclic_slice<'temp, 'eval>(
     ty: EntityRoutePtr,
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
+) -> __TempValue<'temp, 'eval> {
     let this: &'eval VirtualVec<'eval> = values[0].downcast_eval_ref();
     let start = values[1].take_copyable().take_i32();
     let end = values[2].take_copyable().take_i32();
-    Ok(__TempValue::OwnedEval(__OwnedValue::new(
-        VirtualCyclicSlice {
-            data: CyclicSlice::<'eval, MemberValue<'eval>> {
-                start,
-                end,
-                total: this.as_slice(),
-            },
-            ty,
+    __TempValue::OwnedEval(__OwnedValue::new(VirtualCyclicSlice {
+        data: CyclicSlice::<'eval, MemberValue<'eval>> {
+            start,
+            end,
+            total: this.as_slice(),
         },
-    )))
+        ty,
+    }))
 }

@@ -34,28 +34,21 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
-                            copy_access: __SpecificRoutineFp(
-                                |values| -> __EvalResult<__TempValue> {
-                                    let this_value: &BinaryGrid28 = values[0].downcast_temp_ref();
-                                    let index_value: usize = values[1]
-                                        .take_copyable()
-                                        .take_i32()
-                                        .try_into()
-                                        .expect("todo");
-                                    this_value
-                                        .get(index_value)
-                                        .map(|v| __TempValue::Copyable(v.into()))
-                                        .ok_or(EvalError::Normal {
-                                            message: "todo".into(),
-                                        })
-                                },
-                            ),
-                            eval_ref_access: __SpecificRoutineFp(
-                                |values| -> __EvalResult<__TempValue> { todo!() },
-                            ),
-                            temp_ref_access: __SpecificRoutineFp(
-                                |values| -> __EvalResult<__TempValue> { todo!() },
-                            ),
+                            copy_access: __SpecificRoutineFp(|values| -> __TempValue {
+                                let this_value: &BinaryGrid28 = values[0].downcast_temp_ref();
+                                let index_value: usize = values[1]
+                                    .take_copyable()
+                                    .take_i32()
+                                    .try_into()
+                                    .expect("todo");
+                                this_value.get(index_value).unwrap().take_copyable().into()
+                            }),
+                            eval_ref_access: __SpecificRoutineFp(|values| -> __TempValue {
+                                todo!()
+                            }),
+                            temp_ref_access: __SpecificRoutineFp(|values| -> __TempValue {
+                                todo!()
+                            }),
                             move_access: __SpecificRoutineFp(|_| todo!()),
                             temp_mut_access: index_temp_mut_fp!(BinaryGrid28),
                             nargs: 2,
@@ -88,11 +81,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(
-            |_values| {
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
-                    BinaryGrid28::default(),
-                )))
-            },
+            |_values| { __TempValue::OwnedEval(__OwnedValue::new(BinaryGrid28::default(),)) },
             0
         )
         .into(),

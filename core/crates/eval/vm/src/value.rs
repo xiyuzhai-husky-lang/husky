@@ -18,13 +18,14 @@ pub use xml::*;
 
 use crate::*;
 use print_utils::{msg_once, p, ps};
-use std::fmt::Write;
 use std::sync::Arc;
+use std::{fmt::Write, panic::UnwindSafe};
 use word::CustomIdentifier;
 
 // the primary concerns are safety and stability
 // this whole vm thing will be replaced by JIT for fast evaluation purposes
 // so we don't need to worry too much about speed here
+
 pub enum __TempValue<'temp, 'eval: 'temp> {
     Moved,
     Copyable(CopyableValue),
@@ -47,6 +48,8 @@ pub enum __TempValue<'temp, 'eval: 'temp> {
 }
 
 pub type MutRefGenerator = ();
+
+impl<'temp, 'eval> UnwindSafe for __TempValue<'temp, 'eval> {}
 
 impl<'temp, 'eval: 'temp> std::fmt::Debug for __TempValue<'temp, 'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

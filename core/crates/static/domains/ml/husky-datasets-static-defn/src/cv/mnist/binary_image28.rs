@@ -39,12 +39,12 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
                             copy_access: index_copy_fp!(BinaryImage28),
-                            eval_ref_access: __SpecificRoutineFp(
-                                |values| -> __EvalResult<__TempValue> { todo!() },
-                            ),
-                            temp_ref_access: __SpecificRoutineFp(
-                                |values| -> __EvalResult<__TempValue> { todo!() },
-                            ),
+                            eval_ref_access: __SpecificRoutineFp(|values| -> __TempValue {
+                                todo!()
+                            }),
+                            temp_ref_access: __SpecificRoutineFp(|values| -> __TempValue {
+                                todo!()
+                            }),
                             move_access: __SpecificRoutineFp(|_| todo!()),
                             temp_mut_access: __SpecificRoutineFp(|values| {
                                 let index_value: usize = values[1]
@@ -54,16 +54,11 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                     .expect("todo");
                                 let (this_value, owner, _): (&mut BinaryImage28, _, _) =
                                     values[0].downcast_mut_full();
-                                this_value
-                                    .get_mut(index_value)
-                                    .map(|value| __TempValue::TempRefMutEval {
-                                        value,
-                                        owner,
-                                        gen: (),
-                                    })
-                                    .ok_or(EvalError::Normal {
-                                        message: "todo".into(),
-                                    })
+                                __TempValue::TempRefMutEval {
+                                    value: &mut this_value[index_value],
+                                    owner,
+                                    gen: (),
+                                }
                             }),
                             nargs: 2,
                             dev_src: __static_dev_src!(),
@@ -95,11 +90,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "domains::ml::datasets::cv::mnist::BinaryImage28",
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(
-            |_values| {
-                Ok(__TempValue::OwnedEval(__OwnedValue::new(
-                    BinaryImage28::default(),
-                )))
-            },
+            |_values| { __TempValue::OwnedEval(__OwnedValue::new(BinaryImage28::default(),)) },
             0
         )
         .into(),

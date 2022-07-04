@@ -149,37 +149,35 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub(crate) fn generic_vec_type_call<'temp, 'eval>(
     ty: EntityRoutePtr,
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
-    Ok(__TempValue::OwnedEval(__OwnedValue::new(VirtualVec::new(
-        ty,
-    ))))
+) -> __TempValue<'temp, 'eval> {
+    __TempValue::OwnedEval(__OwnedValue::new(VirtualVec::new(ty)))
 }
 
 fn generic_vec_push<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
+) -> __TempValue<'temp, 'eval> {
     let element = values[1].into_member();
     let generic_vec: &mut VirtualVec<'eval> = values[0].downcast_mut();
     generic_vec.push(element);
-    Ok(__TempValue::Copyable(().into()))
+    __TempValue::Copyable(().into())
 }
 
 fn generic_vec_pop<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
+) -> __TempValue<'temp, 'eval> {
     let generic_vec: &mut VirtualVec<'eval> = values[0].downcast_mut();
-    Ok(generic_vec.pop().unwrap().into_stack())
+    generic_vec.pop().unwrap().into_stack()
 }
 
 pub(crate) fn generic_vec_element_move_access<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
+) -> __TempValue<'temp, 'eval> {
     todo!()
 }
 
 pub(crate) fn generic_vec_element_copy_access<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
+) -> __TempValue<'temp, 'eval> {
     let this_value: &VirtualVec<'eval> = values[0].downcast_temp_ref();
     let i: usize = match values[1] {
         __TempValue::Copyable(value) => value.take_i32().try_into().unwrap(),
@@ -188,53 +186,39 @@ pub(crate) fn generic_vec_element_copy_access<'temp, 'eval>(
     if i >= this_value.len() {
         todo!()
     }
-    Ok(this_value[i].copy_into_stack())
+    this_value[i].copy_into_stack()
 }
 
 pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
+) -> __TempValue<'temp, 'eval> {
     let this_value: &VirtualVec<'eval> = values[0].downcast_temp_ref();
     let i: usize = match values[1] {
         __TempValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
     };
-    if i >= this_value.len() {
-        return Err(vm_runtime_error!(format!(
-            "index out of bounds: the len is {} but the index is {}",
-            this_value.len(),
-            i
-        )));
-    }
     let any_ptr: *const (dyn AnyValueDyn<'eval> + 'eval) = this_value[i].any_ref();
-    Ok(match values[0] {
+    match values[0] {
         __TempValue::EvalRef(_) => __TempValue::EvalRef(__EvalRef(unsafe { &*any_ptr })),
         __TempValue::TempRefEval(_) => __TempValue::TempRefEval(unsafe { &*any_ptr }),
         _ => panic!(),
-    })
+    }
 }
 
 pub(crate) fn generic_vec_element_temp_ref_access<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
+) -> __TempValue<'temp, 'eval> {
     let this_value: &VirtualVec<'eval> = values[0].downcast_temp_ref();
     let i: usize = match values[1] {
         __TempValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
     };
-    if i >= this_value.len() {
-        return Err(vm_runtime_error!(format!(
-            "index out of bounds: the len is {} but the index is {}",
-            this_value.len(),
-            i
-        )));
-    }
-    Ok(this_value[i].bind_temp_ref())
+    this_value[i].bind_temp_ref()
 }
 
 pub(crate) fn generic_vec_element_borrow_mut_access<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
+) -> __TempValue<'temp, 'eval> {
     let i: usize = match values[1] {
         __TempValue::Copyable(value) => value.take_i32().try_into().unwrap(),
         _ => panic!(),
@@ -244,7 +228,7 @@ pub(crate) fn generic_vec_element_borrow_mut_access<'temp, 'eval>(
     if i >= this_value.len() {
         todo!()
     }
-    Ok(this_value[i].bind_mut(stack_idx))
+    this_value[i].bind_mut(stack_idx)
 }
 
 pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
@@ -264,10 +248,10 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
 
 fn generic_vec_len<'temp, 'eval>(
     values: &mut [__TempValue<'temp, 'eval>],
-) -> __EvalResult<__TempValue<'temp, 'eval>> {
+) -> __TempValue<'temp, 'eval> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_temp_ref();
     let len: i32 = generic_vec.len().try_into().unwrap();
-    Ok(__TempValue::Copyable(len.into()))
+    __TempValue::Copyable(len.into())
 }
 
 pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {

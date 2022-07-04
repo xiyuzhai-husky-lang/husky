@@ -103,25 +103,8 @@ where
         })
     }
     pub fn set(&self, value: T) {
-        let old_value = format!("{:?}", self.get());
-        let new_value = format!("{:?}", value);
-        // log::info!(
-        //     "here5 with old value {}, new value {}",
-        //     old_value,
-        //     new_value
-        // );
         self.set_silent(value);
-        // log::info!(
-        //     "here6 with old value {}, new value {}",
-        //     old_value,
-        //     new_value
-        // );
         self.0.emitter.trigger_subscribers();
-        // log::info!(
-        //     "here7 with old value {}, new value {}",
-        //     old_value,
-        //     new_value
-        // );
     }
 
     pub fn set_rc(&self, value: Rc<T>) {

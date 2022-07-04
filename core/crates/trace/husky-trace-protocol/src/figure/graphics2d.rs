@@ -35,7 +35,7 @@ impl Graphics2dCanvasData {
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
-            VisualData::Group(mut visual_data_group) => {
+            VisualData::Group(visual_data_group) => {
                 let mut image_layers = Vec::new();
                 let mut shapes = Vec::new();
                 for visual_data in visual_data_group {
@@ -43,7 +43,7 @@ impl Graphics2dCanvasData {
                         VisualData::BinaryImage28 { ref padded_rows } => {
                             image_layers.push(ImageLayerData::binary_image28(padded_rows))
                         }
-                        VisualData::Primitive { value } => todo!(),
+                        VisualData::Primitive { .. } => todo!(),
                         VisualData::BinaryGrid28 { .. }
                         | VisualData::Contour { .. }
                         | VisualData::Group(_)
