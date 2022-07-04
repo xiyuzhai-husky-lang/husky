@@ -13,7 +13,7 @@ pub fn eval_time() -> &'static HuskyEvalTime {
     // unsafe { &*HUSKY_EVAL_TIME_SINGLETON.unwrap() }
 }
 
-pub fn parse_entity_route(text: &str) -> EntityRoutePtr {
+pub fn parse_entity_route_without_context(text: &str) -> EntityRoutePtr {
     compile_time().parse_entity_route(text)
 }
 

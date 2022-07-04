@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_route::{lazy_entity_route_from_text, InternEntityRoute};
-use husky_eval_time::{compile_time, parse_entity_route};
+use husky_eval_time::{compile_time, parse_entity_route_without_context};
 use husky_trace_protocol::*;
 use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
 use std::{any::TypeId, sync::Arc};
@@ -87,7 +87,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[],
-        output_ty: "domains::ml::datasets::cv::mnist::BinaryImage28",
+        output_ty: BINARY_IMAGE_28_BASE_ROUTE,
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(
             |_values| { __TempValue::OwnedEval(__OwnedValue::new(BinaryImage28::default(),)) },
