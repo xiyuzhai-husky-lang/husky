@@ -3,7 +3,7 @@ mod main_feature_repr;
 
 pub use entity_feature_repr::*;
 pub use main_feature_repr::*;
-use vm::__EvalResult;
+use vm::{InterpreterQueryGroup, __EvalResult};
 
 use crate::{record::*, unique_allocate::AllocateUniqueFeature, visual::*, *};
 use husky_compile_time::AskCompileTime;
@@ -12,7 +12,6 @@ use husky_entity_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
 use husky_instruction_gen::InstructionGenQueryGroup;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::*;
-use husky_visualizer_gen::VisualizerQueryGroup;
 use semantics_error::SemanticResult;
 use std::marker::PhantomData;
 use upcast::Upcast;
@@ -22,8 +21,8 @@ pub trait FeatureGenQueryGroup:
     AllocateUniqueFeature
     + Upcast<dyn InstructionGenQueryGroup>
     + InstructionGenQueryGroup
+    + Upcast<dyn InterpreterQueryGroup>
     + AskCompileTime
-    + VisualizerQueryGroup
 {
     fn main_feature_repr(&'eval self, main_file: husky_file::FilePtr) -> FeatureRepr;
     fn entity_feature_repr(&self, entity_route: EntityRoutePtr) -> FeatureRepr;

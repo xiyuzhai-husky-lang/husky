@@ -43,4 +43,14 @@ impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
     fn ty(&self) -> EntityRoutePtr {
         Self::static_ty()
     }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
+    }
 }

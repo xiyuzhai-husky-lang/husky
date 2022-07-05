@@ -88,12 +88,15 @@ impl HuskyTraceTime {
                                     }
                                 },
                                 before: None,
-                                after: FigureCanvasData::new_specific(self.visualize_temp_value(
-                                    &stack_snapshot[mutation_data.varidx()].eval(),
-                                    mutation_data.ty,
-                                    mutation_data.file,
-                                    mutation_data.range,
-                                )),
+                                after: FigureCanvasData::new_specific(
+                                    self.visualize_temp_value(
+                                        &stack_snapshot[mutation_data.varidx()].eval(),
+                                        mutation_data.ty,
+                                        mutation_data.file,
+                                        mutation_data.range,
+                                    )
+                                    .unwrap(),
+                                ),
                                 idx,
                             }
                         }
@@ -135,21 +138,27 @@ impl HuskyTraceTime {
                 MutationDataVariant::Block { varname, .. } => varname.as_str().to_string(),
             },
             before: if let Some(before) = mutation_data.before.as_ref() {
-                Some(FigureCanvasData::new_specific(self.visualize_temp_value(
-                    before,
-                    mutation_data.ty,
-                    mutation_data.file,
-                    mutation_data.range,
-                )))
+                Some(FigureCanvasData::new_specific(
+                    self.visualize_temp_value(
+                        before,
+                        mutation_data.ty,
+                        mutation_data.file,
+                        mutation_data.range,
+                    )
+                    .unwrap(),
+                ))
             } else {
                 None
             },
-            after: FigureCanvasData::new_specific(self.visualize_temp_value(
-                &mutation_data.after,
-                mutation_data.ty,
-                mutation_data.file,
-                mutation_data.range,
-            ))
+            after: FigureCanvasData::new_specific(
+                self.visualize_temp_value(
+                    &mutation_data.after,
+                    mutation_data.ty,
+                    mutation_data.file,
+                    mutation_data.range,
+                )
+                .unwrap(),
+            )
             .into(),
             idx,
         }

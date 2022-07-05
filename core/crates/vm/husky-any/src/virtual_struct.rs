@@ -126,6 +126,16 @@ where
     fn ty(&self) -> EntityRoutePtr {
         self.ty
     }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
+    }
 }
 
 impl<'temp, 'eval: 'temp> Into<__TempValue<'temp, 'eval>> for VirtualStruct<'eval> {

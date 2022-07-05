@@ -15,7 +15,6 @@ use crate::*;
 use dev::*;
 use dev_utils::__static_dev_src;
 use entity_kind::{RoutineKind, TyKind};
-use husky_visual_syntax::StaticVisualizer;
 use load::*;
 use test::*;
 use val::*;
@@ -106,6 +105,16 @@ impl<'eval> AnyValue<'eval> for MnistDataset {
     }
 
     fn print_short(&self) -> String {
+        todo!()
+    }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<husky_trace_protocol::VisualData> {
         todo!()
     }
 }

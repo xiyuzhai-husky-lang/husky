@@ -2,7 +2,7 @@ use super::*;
 use husky_eval_time::ty_route_from_static_binded;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
 use husky_trace_protocol::*;
-use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
+use husky_visual_syntax::StaticVisualTy;
 use std::any::TypeId;
 use vm::*;
 
@@ -65,12 +65,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Array,
-        visualizer: &StaticVisualizer {
-            variant: StaticVisualizerVariant::Compiled {
-                call: BinaryGrid28::visualize,
-            },
-            ty: StaticVisualTy::Shape2d,
-        },
+        visual_ty: StaticVisualTy::Shape2d,
         opt_type_call: Some(&BINARY_GRID28_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::__static_dev_src!(),
@@ -128,13 +123,6 @@ impl BinaryGrid28 {
         }
     }
 
-    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
-        let value: &BinaryGrid28 = value.downcast_ref();
-        VisualData::BinaryGrid28 {
-            padded_rows: value.padded_rows.clone(),
-        }
-    }
-
     pub(crate) fn get(&self, index: usize) -> Option<u32> {
         self.padded_rows.get(index).map(|x| *x)
     }
@@ -179,5 +167,17 @@ impl<'eval> AnyValue<'eval> for BinaryGrid28 {
 
     fn static_ty() -> EntityRoutePtr {
         ty_route_from_static_binded::<Self>(BINARY_GRID_28_BASE_ROUTE)
+    }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        Some(VisualData::BinaryGrid28 {
+            padded_rows: self.padded_rows.clone(),
+        })
     }
 }

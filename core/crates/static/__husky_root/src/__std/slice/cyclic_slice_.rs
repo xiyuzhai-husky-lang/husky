@@ -3,7 +3,7 @@ mod start;
 
 use ::cyclic_slice::CyclicSlice;
 use end::*;
-use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
+use husky_visual_syntax::StaticVisualTy;
 use start::*;
 use std::any::TypeId;
 use vm::*;
@@ -27,10 +27,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         static_trait_impls: &[],
         variants: &[],
         kind: TyKind::Struct,
-        visualizer: &StaticVisualizer {
-            ty: StaticVisualTy::Group,
-            variant: StaticVisualizerVariant::CyclicSlice,
-        },
+        visual_ty: StaticVisualTy::Group,
         opt_type_call: None,
     },
     dev_src: dev_utils::__static_dev_src!(),

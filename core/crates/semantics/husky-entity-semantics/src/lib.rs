@@ -7,6 +7,7 @@ mod query;
 mod subentities;
 mod trai;
 mod ty;
+mod visual;
 
 pub use call_form::*;
 pub use feature::*;
@@ -14,6 +15,7 @@ pub use function::*;
 pub use query::*;
 pub use trai::*;
 pub use ty::*;
+pub use visual::*;
 
 use avec::Avec;
 use defn_head::*;
@@ -33,7 +35,7 @@ use husky_lazy_semantics::parse_lazy_stmts;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use husky_liason_semantics::*;
 use husky_text::*;
-use husky_visual_semantics::VisualizerSource;
+use husky_visual_syntax::StaticVisualTy;
 use map_collect::MapCollect;
 use module::module_defn;
 use print_utils::{msg_once, p};
@@ -185,7 +187,8 @@ pub enum EntityDefnVariant {
         trait_impls: Vec<Arc<TraitImplDefn>>,
         members: Avec<EntityDefn>,
         opt_type_call: Option<Arc<TypeCallDefn>>,
-        opt_visualizer_source: Option<VisualizerSource>,
+        opt_static_visual_ty: Option<StaticVisualTy>,
+        opt_visual_stmts: Option<Avec<LazyStmt>>,
     },
     Trait {
         generic_parameters: IdentDict<SpatialParameter>,
@@ -214,62 +217,20 @@ pub enum EntityDefnVariant {
 impl std::fmt::Debug for EntityDefnVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Main(arg0) => f.write_str("Main { ... }"),
-            Self::Module { module_items } => f.write_str("Module { ... }"),
-            Self::Feature { ty, defn_repr } => f.write_str("Feature { ... }"),
-            Self::Function {
-                spatial_parameters,
-                parameters,
-                output,
-                source,
-            } => f.write_str("Function { ... }"),
-            Self::Method {
-                spatial_parameters,
-                this_liason,
-                parameters,
-                output_ty,
-                output_liason,
-                method_defn_kind,
-                opt_source,
-            } => f.write_str("Method { ... }"),
-            Self::Func {
-                spatial_parameters,
-                parameters,
-                output,
-                stmts,
-            } => f.write_str("Func { ... }"),
-            Self::Proc {
-                generic_parameters,
-                parameters,
-                output,
-                stmts,
-            } => f.write_str("Proc { ... }"),
-            Self::Ty {
-                generic_parameters,
-                ty_members,
-                variants,
-                kind,
-                trait_impls,
-                members,
-                opt_type_call,
-                opt_visualizer_source,
-            } => f.write_str("Ty { ... }"),
-            Self::Trait {
-                generic_parameters,
-                members,
-            } => f.write_str("Trait { ... }"),
+            Self::Main(_) => f.write_str("Main { ... }"),
+            Self::Module { .. } => f.write_str("Module { ... }"),
+            Self::Feature { .. } => f.write_str("Feature { ... }"),
+            Self::Function { .. } => f.write_str("Function { ... }"),
+            Self::Method { .. } => f.write_str("Method { ... }"),
+            Self::Func { .. } => f.write_str("Func { ... }"),
+            Self::Proc { .. } => f.write_str("Proc { ... }"),
+            Self::Ty { .. } => f.write_str("Ty { ... }"),
+            Self::Trait { .. } => f.write_str("Trait { ... }"),
             Self::EnumVariant { ident, variant } => f.write_str("EnumVariant { ... }"),
             Self::Builtin => f.write_str("Builtin { ... }"),
-            Self::TyField {
-                ty,
-                field_variant,
-                liason,
-                opt_linkage,
-            } => f.write_str("TyField"),
-            Self::TraitAssociatedTypeImpl { trai, ty } => {
-                f.write_str("TraitAssociatedTypeImpl { ... }")
-            }
-            Self::TraitAssociatedConstSizeImpl { value } => {
+            Self::TyField { .. } => f.write_str("TyField"),
+            Self::TraitAssociatedTypeImpl { .. } => f.write_str("TraitAssociatedTypeImpl { ... }"),
+            Self::TraitAssociatedConstSizeImpl { .. } => {
                 f.write_str("TraitAssociatedConstSizeImpl { ... }")
             }
         }
@@ -477,7 +438,7 @@ pub(crate) fn entity_defn(
                     (
                         ident,
                         EntityDefnVariant::ty_from_ast(
-                            db.upcast(),
+                            db,
                             entity_route,
                             ast,
                             not_none!(opt_children),
@@ -494,13 +455,7 @@ pub(crate) fn entity_defn(
                     Some(_) => return Ok(db.member_defn(entity_route)),
                     None => (
                         ident,
-                        EntityDefnVariant::function(
-                            db.upcast(),
-                            ast,
-                            not_none!(opt_children),
-                            arena,
-                            file,
-                        )?,
+                        EntityDefnVariant::function(db, ast, not_none!(opt_children), arena, file)?,
                     ),
                 },
                 AstVariant::FieldDefnHead { .. } => return Ok(db.member_defn(entity_route)),

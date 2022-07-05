@@ -1,5 +1,5 @@
 use husky_trace_protocol::*;
-use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
+use husky_visual_syntax::StaticVisualTy;
 
 use super::*;
 
@@ -33,17 +33,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[&B32_LEADING_ZEROS, &B32_TRAILING_ZEROS, &B32_LAST_BITS],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: &StaticVisualizer {
-            ty: StaticVisualTy::B32,
-            variant: StaticVisualizerVariant::Compiled {
-                call: |value| {
-                    let value: &u32 = value.downcast_ref();
-                    VisualData::Primitive {
-                        value: (*value).into(),
-                    }
-                },
-            },
-        },
+        visual_ty: StaticVisualTy::B32,
         opt_type_call: None,
     },
     dev_src: __static_dev_src!(),

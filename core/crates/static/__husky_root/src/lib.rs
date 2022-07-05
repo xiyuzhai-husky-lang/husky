@@ -43,7 +43,7 @@ use dev_utils::__StaticDevSource;
 use dev_utils::{__static_dev_src, dev_src};
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
-use husky_visual_syntax::{primitive_visualizer, StaticVisualTy, StaticVisualizer};
+use husky_visual_syntax::StaticVisualTy;
 use static_defn::StaticParameter;
 use static_defn::*;
 use vm::*;
@@ -95,7 +95,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: &primitive_visualizer(StaticVisualTy::Void),
+        visual_ty: StaticVisualTy::Void,
         opt_type_call: None,
     },
     dev_src: __static_dev_src!(),
@@ -111,7 +111,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: &primitive_visualizer(StaticVisualTy::B64),
+        visual_ty: StaticVisualTy::B64,
         opt_type_call: None,
     },
     dev_src: __static_dev_src!(),
@@ -127,7 +127,7 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: &primitive_visualizer(StaticVisualTy::Bool),
+        visual_ty: StaticVisualTy::Bool,
         opt_type_call: None,
     },
     dev_src: __static_dev_src!(),

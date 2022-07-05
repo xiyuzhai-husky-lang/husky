@@ -8,7 +8,6 @@ pub use husky_feature_gen::{
     AllocateUniqueFeature, FeatureGenQueryGroup, FeatureGenQueryGroupStorage,
 };
 pub use husky_instruction_gen::InstructionGenQueryGroup;
-pub use husky_visualizer_gen::VisualizerQueryGroup;
 pub use query::*;
 pub use utils::*;
 
@@ -34,8 +33,7 @@ use vm::{AnyValueDyn, Instruction, VMConfig};
 
 #[salsa::database(
     husky_feature_gen::FeatureGenQueryGroupStorage,
-    husky_instruction_gen::InstructionGenQueryGroupStorage,
-    husky_visualizer_gen::VisualizerQueryGroupStorage
+    husky_instruction_gen::InstructionGenQueryGroupStorage
 )]
 pub struct HuskyEvalTime {
     storage: salsa::Storage<HuskyEvalTime>,

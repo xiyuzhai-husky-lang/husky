@@ -1,5 +1,3 @@
-use husky_visualizer_gen::VisualTy;
-
 use super::*;
 
 impl HuskyTraceTime {
@@ -35,9 +33,8 @@ impl HuskyTraceTime {
                             .map(|partition| partition.ncol)
                             .sum::<u32>());
                 let ty = expr.expr.ty();
-                use husky_visualizer_gen::VisualizerQueryGroup;
-                let visualizer = self.eval_time().visualizer(ty);
-                match visualizer.ty {
+                let visualizer = self.eval_time().compile_time().visualizer(ty);
+                match visualizer.visual_ty {
                     VisualTy::Void => {
                         p!(ty);
                         todo!()
@@ -139,6 +136,7 @@ impl HuskyTraceTime {
                             partitioned_samples: partitioned_samples_collector.finish(),
                         })
                     }
+                    VisualTy::Dataset => todo!(),
                 }
             }
         }

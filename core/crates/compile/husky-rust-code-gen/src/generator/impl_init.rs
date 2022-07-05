@@ -158,7 +158,8 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 ref trait_impls,
                 ref members,
                 ref opt_type_call,
-                ref opt_visualizer_source,
+                ref opt_visual_stmts,
+                ..
             } => {
                 if let Some(_) = opt_type_call {
                     self.write("\n    (\n");
