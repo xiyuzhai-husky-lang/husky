@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct ConcaveComponent<'eval> {
     pub(crate) line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>,
     pub(crate) line_segments: __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegment<'eval>>,
@@ -26,13 +26,13 @@ impl<'eval> __AnyValue<'eval> for ConcaveComponent<'eval> {
     }
 
     fn to_json_value(&self) -> __JsonValue {
-        todo!()
+        serde_json::value::to_value(self).unwrap()
     }
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
-        todo!()
+        self
     }
 
     fn static_ty() -> __EntityRoutePtr {

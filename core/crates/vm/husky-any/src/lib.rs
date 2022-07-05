@@ -88,13 +88,13 @@ pub trait AnyValue<'eval>:
         Self::static_ty()
     }
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
-        None
+    ) -> __EvalResult<Option<VisualData>> {
+        Ok(None)
     }
 }
 
@@ -129,12 +129,12 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
     fn to_json_value_dyn(&self) -> serde_json::value::Value;
     fn ty_dyn(&self) -> EntityRoutePtr;
     fn opt_visualize_dyn(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData>;
+    ) -> __EvalResult<Option<VisualData>>;
 }
 
 impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
@@ -257,12 +257,12 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
     }
 
     fn opt_visualize_dyn(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
+    ) -> __EvalResult<Option<VisualData>> {
         self.opt_visualize(visualize_element)
     }
 }

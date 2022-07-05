@@ -1,4 +1,6 @@
-#[derive(Debug, PartialEq, Eq, Clone)]
+use serde::Serialize;
+
+#[derive(Debug, PartialEq, Eq, Clone, Serialize)]
 pub struct CyclicSlice<'a, T> {
     pub start: i32,
     pub end: i32,

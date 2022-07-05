@@ -3,7 +3,7 @@ use crate::*;
 pub(crate) mod concave_component;
 pub(crate) mod convex_component;
 pub(crate) mod convexity;
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct LineSegment<'eval> {
     pub(crate) points: __std::slice::CyclicSlice<'eval, crate::geom2d::Point2d>,
     pub(crate) start: crate::geom2d::Point2d,
@@ -39,20 +39,20 @@ impl<'eval> __AnyValue<'eval> for LineSegment<'eval> {
     }
 
     fn to_json_value(&self) -> __JsonValue {
-        todo!()
+        serde_json::value::to_value(self).unwrap()
     }
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
-        todo!()
+        self
     }
 
     fn static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::line_segment_sketch::LineSegment")
     }
 }
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct LineSegmentSketch<'eval> {
     pub(crate) contour: &'eval crate::raw_contour::RawContour<'eval>,
     pub(crate) line_segments: Vec<LineSegment<'eval>>,
@@ -81,13 +81,13 @@ impl<'eval> __AnyValue<'eval> for LineSegmentSketch<'eval> {
     }
 
     fn to_json_value(&self) -> __JsonValue {
-        todo!()
+        serde_json::value::to_value(self).unwrap()
     }
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
-        todo!()
+        self
     }
 
     fn static_ty() -> __EntityRoutePtr {

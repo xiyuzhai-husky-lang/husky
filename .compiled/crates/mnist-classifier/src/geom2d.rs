@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct Point2d {
     pub(crate) x: f32,
     pub(crate) y: f32,
@@ -44,20 +44,20 @@ impl<'eval> __AnyValue<'eval> for Point2d {
     }
 
     fn to_json_value(&self) -> __JsonValue {
-        todo!()
+        serde_json::value::to_value(self).unwrap()
     }
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
-        todo!()
+        self
     }
 
     fn static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::geom2d::Point2d")
     }
 }
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct Vector2d {
     pub(crate) x: f32,
     pub(crate) y: f32,
@@ -138,13 +138,13 @@ impl<'eval> __AnyValue<'eval> for Vector2d {
     }
 
     fn to_json_value(&self) -> __JsonValue {
-        todo!()
+        serde_json::value::to_value(self).unwrap()
     }
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
-        todo!()
+        self
     }
 
     fn static_ty() -> __EntityRoutePtr {
