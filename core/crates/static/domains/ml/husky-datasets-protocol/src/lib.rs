@@ -90,12 +90,12 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
     }
 
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<husky_trace_protocol::VisualData> {
+    ) -> __EvalResult<Option<husky_trace_protocol::VisualData>> {
         todo!()
     }
 }

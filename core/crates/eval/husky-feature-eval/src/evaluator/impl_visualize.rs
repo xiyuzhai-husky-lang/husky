@@ -22,24 +22,24 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
         let visualizer = self.db.compile_time().visualizer(this.ty());
         let this_value = self.husky_feature_eval_repr_cached(&this).unwrap();
         should_eq!(this_value.any_ref().ty_dyn(), this.ty());
-        if let Some(visual_data) = this_value
-            .eval_ref()
-            .0
-            .opt_visualize_dyn(&mut |index, elem| {
-                self.visualize_feature(FeatureRepr::Value {
-                    value: __EvalRef(elem),
-                    file: this.file(),
-                    range: this.text_range(),
-                    ty: elem.ty_dyn(),
-                    feature: self
-                        .db
-                        .feature_interner()
-                        .intern(Feature::ElementAccessConstIndex {
-                            this: this.feature(),
-                            index,
-                        }),
-                })
-            })
+        if let Some(visual_data) =
+            this_value
+                .eval_ref()
+                .0
+                .opt_visualize_dyn(&mut |index, elem| {
+                    self.visualize_feature(FeatureRepr::Value {
+                        value: __EvalRef(elem),
+                        file: this.file(),
+                        range: this.text_range(),
+                        ty: elem.ty_dyn(),
+                        feature: self.db.feature_interner().intern(
+                            Feature::ElementAccessConstIndex {
+                                this: this.feature(),
+                                index,
+                            },
+                        ),
+                    })
+                })?
         {
             return Ok(visual_data);
         }

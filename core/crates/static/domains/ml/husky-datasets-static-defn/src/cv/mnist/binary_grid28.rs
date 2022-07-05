@@ -170,14 +170,14 @@ impl<'eval> AnyValue<'eval> for BinaryGrid28 {
     }
 
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
-        Some(VisualData::BinaryGrid28 {
+    ) -> __EvalResult<Option<VisualData>> {
+        Ok(Some(VisualData::BinaryGrid28 {
             padded_rows: self.padded_rows.clone(),
-        })
+        }))
     }
 }

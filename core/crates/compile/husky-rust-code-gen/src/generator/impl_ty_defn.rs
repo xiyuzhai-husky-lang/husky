@@ -8,7 +8,7 @@ use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_enum_defn(&mut self, tyname: CustomIdentifier, variants: &[Arc<EntityDefn>]) {
-        self.write("#[derive(Debug, Clone, Copy, PartialEq, Eq)]\n");
+        self.write("#[derive(Debug, Clone, Copy, PartialEq, Eq, __Serialize)]\n");
         self.write("pub(crate) enum ");
         self.write(&tyname);
         self.write(" {\n");
@@ -34,7 +34,7 @@ impl<'a> RustCodeGenerator<'a> {
         ty_members: &[Arc<EntityDefn>],
         trait_impls: &[Arc<TraitImplDefn>],
     ) {
-        self.write("#[derive(Debug, Clone, PartialEq)]\n");
+        self.write("#[derive(Debug, Clone, PartialEq, __Serialize)]\n");
         self.result += "pub(crate) struct ";
         self.result += tyname.0;
         let ty_contains_eval_ref = self.db.entity_route_kind_contains_eval_ref(base_route.kind);
@@ -307,13 +307,13 @@ impl<'a> RustCodeGenerator<'a> {
     }}
 
     fn to_json_value(&self) -> __JsonValue {{
-        todo!()
+        serde_json::value::to_value(self).unwrap()
     }}
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {{
-        todo!()
+        self
     }}
 
     fn static_ty() -> __EntityRoutePtr {{

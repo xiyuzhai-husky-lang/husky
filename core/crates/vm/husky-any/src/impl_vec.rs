@@ -45,12 +45,16 @@ impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
     }
 
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
-        todo!()
+    ) -> __EvalResult<Option<VisualData>> {
+        let mut elements = vec![];
+        for i in 0..self.len() {
+            elements.push(visualize_element(i, self[i].short())?)
+        }
+        Ok(Some(VisualData::Group(elements)))
     }
 }

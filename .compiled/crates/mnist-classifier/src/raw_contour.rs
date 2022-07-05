@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct RawContour<'eval> {
     pub(crate) cc: &'eval crate::connected_component::ConnectedComponent,
     pub(crate) points: Vec<crate::geom2d::Point2d>,
@@ -32,20 +32,20 @@ impl<'eval> __AnyValue<'eval> for RawContour<'eval> {
     }
 
     fn to_json_value(&self) -> __JsonValue {
-        todo!()
+        serde_json::value::to_value(self).unwrap()
     }
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
-        todo!()
+        self
     }
 
     fn static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::raw_contour::RawContour")
     }
 }
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, __Serialize)]
 pub(crate) enum Direction {
     UP,
     LEFT,
@@ -192,7 +192,7 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         _ => panic!(),
     }
 }
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct StreakCache {
     pub(crate) prev1: i32,
     pub(crate) prev2: i32,
@@ -218,13 +218,13 @@ impl<'eval> __AnyValue<'eval> for StreakCache {
     }
 
     fn to_json_value(&self) -> __JsonValue {
-        todo!()
+        serde_json::value::to_value(self).unwrap()
     }
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
-        todo!()
+        self
     }
 
     fn static_ty() -> __EntityRoutePtr {

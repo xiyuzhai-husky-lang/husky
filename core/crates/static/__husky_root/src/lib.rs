@@ -17,6 +17,7 @@ pub use clone::*;
 pub use domains::*;
 pub use husky_entity_route::EntityRoutePtr as __EntityRoutePtr;
 pub use husky_eval_time::ty_route_from_static_binded as __ty_route_from_static_binded;
+pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
 pub use static_defn::__StaticLinkageKey;
 pub use vm::{

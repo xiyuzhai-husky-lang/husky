@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct ConnectedComponent {
     pub(crate) mask: domains::ml::datasets::cv::mnist::BinaryImage28,
 }
@@ -25,13 +25,13 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
     }
 
     fn to_json_value(&self) -> __JsonValue {
-        todo!()
+        serde_json::value::to_value(self).unwrap()
     }
 
     fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
-        todo!()
+        self
     }
 
     fn static_ty() -> __EntityRoutePtr {

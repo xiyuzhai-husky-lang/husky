@@ -52,12 +52,12 @@ impl<'eval> AnyValue<'eval> for () {
     }
 
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
+    ) -> __EvalResult<Option<VisualData>> {
         todo!()
     }
 }
@@ -111,12 +111,12 @@ impl<'eval> AnyValue<'eval> for i32 {
     }
 
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
+    ) -> __EvalResult<Option<VisualData>> {
         todo!()
     }
 }
@@ -171,12 +171,12 @@ impl<'eval> AnyValue<'eval> for f32 {
     }
 
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
+    ) -> __EvalResult<Option<VisualData>> {
         todo!()
     }
 }
@@ -231,12 +231,12 @@ impl<'eval> AnyValue<'eval> for u32 {
     }
 
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
+    ) -> __EvalResult<Option<VisualData>> {
         todo!()
     }
 }
@@ -291,12 +291,12 @@ impl<'eval> AnyValue<'eval> for u64 {
     }
 
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
+    ) -> __EvalResult<Option<VisualData>> {
         todo!()
     }
 }
@@ -350,12 +350,12 @@ impl<'eval> AnyValue<'eval> for bool {
     }
 
     fn opt_visualize(
-        &'static self,
+        &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'static dyn AnyValueDyn<'static>,
+            &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
-    ) -> Option<VisualData> {
+    ) -> __EvalResult<Option<VisualData>> {
         todo!()
     }
 }
