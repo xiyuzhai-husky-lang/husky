@@ -1,13 +1,21 @@
+mod cache;
 mod intern;
+mod menu;
 mod utils;
 
+pub use cache::{
+    insert_new_ty_route, new_ty_route_cache, try_get_ty_route, ty_route_with,
+    TyRouteCacheSingletonKeeper,
+};
 pub use entity_kind::EntityKind;
-use husky_file::FilePtr;
-use husky_text::{TextRange, TextRanged};
 pub use intern::{
     make_route, make_subroute, make_type_as_trait_member_route, new_entity_route_interner,
     EntityRouteInterner, EntityRouteInternerSingletonKeeper, EntityRoutePtr, InternEntityRoute,
 };
+pub use menu::{entity_route_menu, new_entity_route_menu, EntityRouteMenuSingletonKeeper};
+
+use husky_file::FilePtr;
+use husky_text::{TextRange, TextRanged};
 use thin_vec::{thin_vec, ThinVec};
 use word::{CustomIdentifier, Identifier, RootIdentifier};
 

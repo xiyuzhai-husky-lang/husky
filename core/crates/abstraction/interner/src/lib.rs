@@ -90,7 +90,7 @@ where
         return result;
     }
 
-    pub fn alloc_from_ref(&self, t: &T) -> Ptr {
+    pub fn intern_borrowed(&self, t: &T) -> Ptr {
         let result = match self
             .internal
             .read(|internal| internal.ids.get(t).map(|id| *id))

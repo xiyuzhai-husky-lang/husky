@@ -23,13 +23,14 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
             storage: self.storage.snapshot(),
             file_interner: self.file_interner.clone(),
             word_interner: self.word_interner.clone(),
-            scope_interner: self.scope_interner.clone(),
+            entity_route_interner: self.entity_route_interner.clone(),
             live_docs: self.live_docs.clone(),
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
             opt_main: self.opt_main,
             __root_defn_resolver: self.__root_defn_resolver,
-            static_ty_cache: self.static_ty_cache.clone(),
+            ty_cache: self.ty_cache.clone(),
+            entity_route_menu: self.entity_route_menu.clone(),
         })
     }
 }
@@ -60,7 +61,7 @@ impl FileQueryGroup for HuskyCompileTime {}
 
 impl InternEntityRoute for HuskyCompileTime {
     fn scope_interner(&self) -> &husky_entity_route::EntityRouteInterner {
-        &self.scope_interner
+        &self.entity_route_interner
     }
 }
 
@@ -80,11 +81,7 @@ impl EntitySyntaxQueryGroup for HuskyCompileTime {
     }
 }
 
-impl AstQueryGroup for HuskyCompileTime {
-    fn static_ty_cache(&self) -> &Mutex<HashMap<std::any::TypeId, EntityRoutePtr>> {
-        &self.static_ty_cache
-    }
-}
+impl AstQueryGroup for HuskyCompileTime {}
 
 impl Upcast<dyn InferQueryGroup> for HuskyCompileTime {
     fn upcast(&self) -> &(dyn infer_total::InferQueryGroup + 'static) {

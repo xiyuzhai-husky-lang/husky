@@ -46,7 +46,12 @@ impl<'temp, 'eval, 'a: 'eval, T: AnyValue<'a> + 'temp> AnyValue<'eval> for &'tem
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        todo!()
+        Ok(Some(VisualData::Group(
+            self.iter()
+                .enumerate()
+                .map(|(i, element)| visualize_element(i, element.short()))
+                .collect::<__EvalResult<Vec<_>>>()?,
+        )))
     }
 }
 

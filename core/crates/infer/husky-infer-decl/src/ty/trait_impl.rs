@@ -67,7 +67,7 @@ impl TraitImplDecl {
         variants: &[EnumVariantDecl],
     ) -> InferResult<Vec<Arc<TraitImplDecl>>> {
         let mut trait_impl_decls = Vec::new();
-        let entity_route_menu = db.entity_route_menu();
+        let entity_route_menu = entity_route_menu();
         let is_copyable = derive_is_copyable(db, ty_kind, ty_members, variants);
         if is_copyable {
             trait_impl_decls.push(Arc::new(TraitImplDecl {
@@ -155,7 +155,7 @@ fn derive_is_clonable(
                             if !db.is_copyable(field.ty)? && !db.is_clonable(field.ty)? {
                                 p!(field.ty, db.is_copyable(field.ty), db.is_clonable(field.ty));
                                 let ty_decl = db.ty_decl(field.ty).unwrap();
-                                let clone_trait = db.entity_route_menu().clone_trait;
+                                let clone_trait = entity_route_menu().clone_trait;
                                 for trait_impl in &ty_decl.trait_impls {
                                     p!(trait_impl.trait_route, clone_trait);
                                 }

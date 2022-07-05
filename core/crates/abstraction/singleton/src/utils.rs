@@ -15,7 +15,7 @@ macro_rules! singleton {
                 unsafe { &*([<$Type:upper SINGLETON>].unwrap()) }
             }
 
-            pub fn access_singleton() -> &'static $Type {
+            pub fn __access_singleton() -> &'static $Type {
                 unsafe { &*([<$Type:upper SINGLETON>].unwrap()) }
             }
 

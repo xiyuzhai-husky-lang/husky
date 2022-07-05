@@ -117,7 +117,7 @@ impl<'eval> AnyValue<'eval> for i32 {
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        todo!()
+        Ok(Some(VisualData::Primitive { value: self.into() }))
     }
 }
 
@@ -177,7 +177,7 @@ impl<'eval> AnyValue<'eval> for f32 {
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        todo!()
+        Ok(Some(VisualData::Primitive { value: self.into() }))
     }
 }
 
@@ -237,7 +237,7 @@ impl<'eval> AnyValue<'eval> for u32 {
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        todo!()
+        Ok(Some(VisualData::Primitive { value: self.into() }))
     }
 }
 
@@ -297,7 +297,7 @@ impl<'eval> AnyValue<'eval> for u64 {
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        todo!()
+        Ok(Some(VisualData::Primitive { value: self.into() }))
     }
 }
 
@@ -356,6 +356,6 @@ impl<'eval> AnyValue<'eval> for bool {
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        todo!()
+        Ok(Some(VisualData::Primitive { value: self.into() }))
     }
 }

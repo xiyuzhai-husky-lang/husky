@@ -36,12 +36,9 @@ impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
     }
 
     fn static_ty() -> EntityRoutePtr {
-        msg_once!("todo: cache this by using static_type_id");
-        make_route(RootIdentifier::Vec.into(), thin_vec![T::static_ty().into()])
-    }
-
-    fn ty(&self) -> EntityRoutePtr {
-        Self::static_ty()
+        husky_entity_route::ty_route_with::<Self::StaticSelf>(|| {
+            make_route(RootIdentifier::Vec.into(), thin_vec![T::static_ty().into()])
+        })
     }
 
     fn opt_visualize(
@@ -51,10 +48,11 @@ impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        let mut elements = vec![];
-        for i in 0..self.len() {
-            elements.push(visualize_element(i, self[i].short())?)
-        }
-        Ok(Some(VisualData::Group(elements)))
+        Ok(Some(VisualData::Group(
+            self.iter()
+                .enumerate()
+                .map(|(i, element)| visualize_element(i, element.short()))
+                .collect::<__EvalResult<Vec<_>>>()?,
+        )))
     }
 }

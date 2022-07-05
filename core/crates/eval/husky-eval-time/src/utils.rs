@@ -10,7 +10,7 @@ singleton! {HuskyEvalTime}
 // pub(crate) static mut HUSKY_EVAL_TIME_SINGLETON: Option<*const HuskyEvalTime> = None;
 
 pub fn eval_time() -> &'static HuskyEvalTime {
-    access_singleton()
+    __access_singleton()
     // unsafe { &*HUSKY_EVAL_TIME_SINGLETON.unwrap() }
 }
 

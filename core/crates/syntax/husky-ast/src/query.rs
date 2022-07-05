@@ -40,18 +40,6 @@ fn root_symbols(db: &dyn AstSalsaQueryGroup) -> Arc<Vec<Symbol>> {
 }
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
-    fn static_ty_cache(&self) -> &Mutex<HashMap<std::any::TypeId, EntityRoutePtr>>;
-    fn ty_route_from_static(&self, type_id: std::any::TypeId, text: &str) -> EntityRoutePtr {
-        let mut cache = self.static_ty_cache().lock().unwrap();
-        if cache.contains_key(&type_id) {
-            cache[&type_id]
-        } else {
-            let ty = self.parse_route_from_text(text);
-            cache.insert(type_id, ty);
-            ty
-        }
-    }
-
     fn parse_route_from_text(&self, text: &str) -> EntityRoutePtr {
         let root_symbols = self.root_symbols();
         let mut context = AtomContextStandalone {

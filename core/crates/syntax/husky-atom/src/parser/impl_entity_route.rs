@@ -1,7 +1,7 @@
 use super::context::SymbolKind;
 use super::*;
 use entity_kind::TyKind;
-use husky_entity_route::{make_subroute, RangedEntityRoute};
+use husky_entity_route::{entity_route_menu, make_subroute, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use husky_token::SemanticTokenKind;
 use thin_vec::{thin_vec, ThinVec};
@@ -124,12 +124,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         } else if try_eat!(self, SpecialToken::Modulo) {
             eat!(self, token_kind, SpecialToken::RBox.into());
             let element = self.generic()?;
-            Ok(self
-                .atom_context
-                .entity_syntax_db()
-                .entity_route_menu()
-                .std_slice_cyclic_slice
-                .call([element]))
+            Ok(entity_route_menu().std_slice_cyclic_slice.call([element]))
         } else {
             self.array_ty()
         }?;

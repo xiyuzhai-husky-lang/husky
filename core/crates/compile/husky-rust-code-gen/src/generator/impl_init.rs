@@ -1,3 +1,4 @@
+use husky_entity_route::entity_route_menu;
 use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
 use infer_decl::{OutputDecl, ParameterDecl};
@@ -93,7 +94,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                     }
                     MethodDefnKind::TraitMethod { trai } => todo!(),
                     MethodDefnKind::TraitMethodImpl { trai } => {
-                        if trai.kind == self.entity_route_menu.std_ops_index_trai.kind {
+                        if trai.kind == entity_route_menu().std_ops_index_trai.kind {
                             match entity_route.kind {
                                 EntityRouteKind::Root { ident } => todo!(),
                                 EntityRouteKind::Package { main, ident } => todo!(),
