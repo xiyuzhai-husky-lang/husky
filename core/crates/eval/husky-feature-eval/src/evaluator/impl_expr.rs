@@ -187,7 +187,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .map(
                             |(ident, argument)| {
                                 self.husky_feature_eval_expr(argument)
-                                    .map(|v| (*ident, v.any_ref().to_json_value_dyn()))
+                                    .map(|v| (*ident, v.any_ref().__to_json_value_dyn()))
                             },
                             // argument.any_ref().to_json_value_dyn()
                         )

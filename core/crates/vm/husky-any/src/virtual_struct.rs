@@ -77,9 +77,9 @@ impl<'eval> Serialize for VirtualStruct<'eval> {
 }
 
 impl<'eval> HasStaticTypeInfo for VirtualStruct<'eval> {
-    type StaticSelf = VirtualStruct<'static>;
+    type __StaticSelf = VirtualStruct<'static>;
 
-    fn static_type_name() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         "AnyStruct".into()
     }
 }
@@ -88,46 +88,46 @@ impl<'eval, 'a> AnyValue<'eval> for VirtualStruct<'a>
 where
     'a: 'eval,
 {
-    fn print_short(&self) -> String {
+    fn __print_short(&self) -> String {
         print_sequence(
             "{ ",
             self.fields.iter(),
-            &|(key, value)| format!("{}: {}", key.0, value.any_ref().print_short()),
+            &|(key, value)| format!("{}: {}", key.0, value.any_ref().__print_short()),
             " }",
             40,
         )
     }
 
-    fn to_json_value(&self) -> serde_json::value::Value {
+    fn __to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::Value::Object(
             self.fields
                 .iter()
                 .map(|(ident, value)| {
                     (
                         ident.as_str().to_string(),
-                        value.any_ref().to_json_value_dyn(),
+                        value.any_ref().__to_json_value_dyn(),
                     )
                 })
                 .collect(),
         )
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {
         self
     }
 
-    fn static_ty() -> EntityRoutePtr {
+    fn __static_ty() -> EntityRoutePtr {
         panic!()
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn __ty(&self) -> EntityRoutePtr {
         self.ty
     }
 
-    fn opt_visualize(
+    fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,

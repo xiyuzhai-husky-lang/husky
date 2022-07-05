@@ -18,7 +18,7 @@ pub struct __EvalRef<'eval>(pub &'eval (dyn AnyValueDyn<'eval> + 'eval));
 
 impl<'eval1, 'eval2: 'eval1> __EvalRef<'eval2> {
     pub fn short(&self) -> __EvalRef<'eval1> {
-        __EvalRef(self.0.short_dyn())
+        __EvalRef(self.0.__short_dyn())
     }
 }
 
@@ -69,9 +69,9 @@ impl<'eval> Into<TraceTokenData> for EvalValue<'eval> {
     fn into(self) -> TraceTokenData {
         match self {
             EvalValue::Copyable(value) => fade!(value),
-            EvalValue::Owned(value) => fade!(value.any_ref().print_short()),
-            EvalValue::EvalPure(value) => fade!(value.print_short()),
-            EvalValue::EvalRef(value) => fade!(value.print_short()),
+            EvalValue::Owned(value) => fade!(value.any_ref().__print_short()),
+            EvalValue::EvalPure(value) => fade!(value.__print_short()),
+            EvalValue::EvalRef(value) => fade!(value.__print_short()),
             EvalValue::Undefined => fade!("undefined"),
         }
     }
@@ -81,7 +81,7 @@ impl<'eval> EvalValue<'eval> {
     pub fn primitive(&self) -> CopyableValue {
         match self {
             EvalValue::Copyable(value) => *value,
-            EvalValue::EvalRef(value) => value.take_copyable_dyn(),
+            EvalValue::EvalRef(value) => value.__take_copyable_dyn(),
             _ => {
                 p!(self);
                 panic!()
@@ -129,7 +129,7 @@ impl<'eval> EvalValue<'eval> {
             EvalValue::EvalRef(value) => unsafe {
                 value
                     .0
-                    .downcast_ref::<VirtualStruct<'eval>>()
+                    .__downcast_ref::<VirtualStruct<'eval>>()
                     .eval_field(field_idx)
                     .share_globally()
             },

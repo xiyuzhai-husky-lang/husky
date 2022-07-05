@@ -107,41 +107,41 @@ impl<'eval> Serialize for SimpleSyntheticDataset<'eval> {
 }
 
 impl<'a> HasStaticTypeInfo for SimpleSyntheticDataset<'a> {
-    type StaticSelf = SimpleSyntheticDataset<'static>;
+    type __StaticSelf = SimpleSyntheticDataset<'static>;
 
-    fn static_type_name() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         todo!()
     }
 }
 
 impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
-    fn clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+    fn __clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
         Box::new(self.clone())
     }
 
-    fn to_json_value(&self) -> serde_json::value::Value {
+    fn __to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {
         self
     }
 
-    fn static_ty() -> EntityRoutePtr {
+    fn __static_ty() -> EntityRoutePtr {
         todo!()
     }
 
-    fn print_short(&self) -> String {
+    fn __print_short(&self) -> String {
         todo!()
     }
 
-    fn opt_visualize(
+    fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,

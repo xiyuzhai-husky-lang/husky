@@ -159,34 +159,34 @@ impl Serialize for BinaryImage28 {
     }
 }
 impl HasStaticTypeInfo for BinaryImage28 {
-    type StaticSelf = Self;
+    type __StaticSelf = Self;
 
-    fn static_type_name() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         todo!()
     }
 }
 
 impl<'eval> AnyValue<'eval> for BinaryImage28 {
-    fn print_short(&self) -> String {
+    fn __print_short(&self) -> String {
         "BinaryImage28 { ... }".into()
     }
 
-    fn to_json_value(&self) -> serde_json::value::Value {
+    fn __to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {
         self
     }
 
-    fn static_ty() -> EntityRoutePtr {
+    fn __static_ty() -> EntityRoutePtr {
         ty_route_from_static_binded::<Self>(BINARY_IMAGE_28_BASE_ROUTE)
     }
 
-    fn opt_visualize(
+    fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,

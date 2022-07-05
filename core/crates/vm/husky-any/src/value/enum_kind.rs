@@ -21,57 +21,57 @@ impl Serialize for EnumKindValue {
 }
 
 impl HasStaticTypeInfo for EnumKindValue {
-    type StaticSelf = Self;
+    type __StaticSelf = Self;
 
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         todo!()
     }
 }
 
 impl<'eval> AnyValue<'eval> for EnumKindValue {
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }
 
-    fn take_copyable(&self) -> CopyableValue {
+    fn __take_copyable(&self) -> CopyableValue {
         CopyableValue::EnumKind(*self)
     }
 
-    fn from_stack<'temp>(stack_value: __TempValue<'temp, 'eval>) -> Self {
+    fn __from_stack<'temp>(stack_value: __TempValue<'temp, 'eval>) -> Self {
         match stack_value {
             __TempValue::Copyable(CopyableValue::EnumKind(enum_kind)) => enum_kind,
             _ => {
-                p!(Self::static_type_name());
+                p!(Self::__static_type_name());
                 p!(stack_value);
                 panic!()
             }
         }
     }
 
-    fn to_json_value(&self) -> serde_json::value::Value {
+    fn __to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {
         self
     }
 
-    fn static_ty() -> EntityRoutePtr {
+    fn __static_ty() -> EntityRoutePtr {
         panic!()
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn __ty(&self) -> EntityRoutePtr {
         self.route.parent()
     }
 
-    fn print_short(&self) -> String {
+    fn __print_short(&self) -> String {
         format!("{:?}", self.route)
     }
 
-    fn opt_visualize(
+    fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,

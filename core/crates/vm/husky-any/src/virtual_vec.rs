@@ -34,52 +34,52 @@ impl<'eval> std::ops::DerefMut for VirtualVec<'eval> {
 }
 
 impl<'eval> HasStaticTypeInfo for VirtualVec<'eval> {
-    type StaticSelf = VirtualVec<'static>;
+    type __StaticSelf = VirtualVec<'static>;
 
-    fn static_type_name() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         "[]Any".into()
     }
 }
 
 impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualVec<'eval0> {
-    fn to_json_value(&self) -> serde_json::value::Value {
+    fn __to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::Value::Array(
             self.iter()
-                .map(|elem| elem.any_ref().to_json_value_dyn())
+                .map(|elem| elem.any_ref().__to_json_value_dyn())
                 .collect(),
         )
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {
         todo!()
     }
 
-    fn static_ty() -> EntityRoutePtr {
+    fn __static_ty() -> EntityRoutePtr {
         panic!()
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn __ty(&self) -> EntityRoutePtr {
         self.ty
     }
 
-    fn print_short(&self) -> String {
+    fn __print_short(&self) -> String {
         format!(
             "{{ len: {}, data: {} }}",
             self.len(),
             print_sequence(
                 "{ ",
                 self.iter(),
-                &|value| format!("{}", value.any_ref().print_short()),
+                &|value| format!("{}", value.any_ref().__print_short()),
                 " }",
                 20,
             )
         )
     }
 
-    fn opt_visualize(
+    fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
@@ -89,7 +89,7 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualVec<'eval0> {
         Ok(Some(VisualData::Group(
             self.iter()
                 .enumerate()
-                .map(|(i, element)| visualize_element(i, element.any_ref().short_dyn()))
+                .map(|(i, element)| visualize_element(i, element.any_ref().__short_dyn()))
                 .collect::<__EvalResult<Vec<_>>>()?,
         )))
     }

@@ -22,15 +22,21 @@ impl TraceContext {
             sample_id,
             &self.trace_nodes.borrow(file!(), line!())[trace_id.0].data,
         );
-        self.trace_stalks.borrow(file!(), line!())[&key]
-        // if let Some(trace_stalk) = self.trace_stalks.borrow(file!(), line!()).get(&key) {
-        //     trace_stalk
-        // } else {
-        //     log::info!("{:?}", key);
-        //     let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
-        //     log::info!("trace: {:?}", trace);
-        //     panic!()
-        // }
+        // self.trace_stalks.borrow(file!(), line!())[&key]
+        if let Some(trace_stalk) = self.trace_stalks.borrow(file!(), line!()).get(&key) {
+            trace_stalk
+        } else {
+            log::info!("{:?}", key);
+            let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
+            log::info!("trace: {:?}", trace);
+            panic!()
+        }
+    }
+
+    pub(crate) fn opt_active_trace(&self) -> Option<&'static TraceData> {
+        self.opt_active_trace_id
+            .cget()
+            .map(|trace_id| self.trace(trace_id))
     }
 
     pub(crate) fn subtrace_ids(&self, attention: &Attention, trace_id: TraceId) -> Vec<TraceId> {

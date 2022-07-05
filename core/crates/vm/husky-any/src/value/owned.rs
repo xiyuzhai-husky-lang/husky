@@ -16,13 +16,13 @@ impl<'temp, 'eval: 'temp> From<Box<dyn AnyValueDyn<'eval> + 'eval>> for __OwnedV
 
 impl<'temp, 'eval: 'temp> Clone for __OwnedValue<'temp, 'eval> {
     fn clone(&self) -> Self {
-        Self(self.0.clone_into_box_dyn())
+        Self(self.0.__clone_into_box_dyn())
     }
 }
 
 impl<'temp, 'eval: 'temp> PartialEq for __OwnedValue<'temp, 'eval> {
     fn eq(&self, other: &__OwnedValue<'temp, 'eval>) -> bool {
-        self.0.equal_any(&*other.0)
+        self.0.__equal_any(&*other.0)
     }
 }
 
@@ -34,12 +34,12 @@ impl<'temp, 'eval: 'temp> __OwnedValue<'temp, 'eval> {
     }
 
     pub fn from_any_ref(value: &(dyn AnyValueDyn<'eval> + 'eval)) -> __OwnedValue<'temp, 'eval> {
-        Self(value.clone_into_box_dyn())
+        Self(value.__clone_into_box_dyn())
     }
 
     pub fn downcast_move<T: AnyValue<'eval>>(self) -> __EvalResult<T> {
         // check type
-        if (*self.0).static_type_id_dyn() != T::static_type_id() {
+        if (*self.0).__static_type_id_dyn() != T::__static_type_id() {
             Err(vm_runtime_error!(format!("type_mismatch")))
         } else {
             let raw_pointer = Box::into_raw(self.0);
@@ -52,7 +52,7 @@ impl<'temp, 'eval: 'temp> __OwnedValue<'temp, 'eval> {
         Self: 'eval,
     {
         let raw_pointer = Box::<(dyn AnyValueDyn<'eval> + 'temp)>::into_raw(self.0);
-        unsafe { (*raw_pointer).take_into_arc() }
+        unsafe { (*raw_pointer).__take_into_arc() }
     }
 
     pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval> + 'temp) {
@@ -68,7 +68,7 @@ impl<'temp, 'eval: 'temp> __OwnedValue<'temp, 'eval> {
     }
 
     pub fn downcast_ref<T: AnyValue<'eval> + 'temp>(&self) -> &T {
-        self.0.downcast_ref()
+        self.0.__downcast_ref()
         // if T::static_type_id() != self.0.static_type_id() {
         //     panic!()
         // }
@@ -78,7 +78,7 @@ impl<'temp, 'eval: 'temp> __OwnedValue<'temp, 'eval> {
     }
 
     pub fn get_json_value(&self) -> serde_json::value::Value {
-        self.0.to_json_value_dyn()
+        self.0.__to_json_value_dyn()
     }
 }
 

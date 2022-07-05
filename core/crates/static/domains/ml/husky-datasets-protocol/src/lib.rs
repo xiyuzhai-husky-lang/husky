@@ -49,7 +49,7 @@ impl<'eval> Dataset<'eval> {
 
 impl<'eval> PartialEq for Dataset<'eval> {
     fn eq(&self, other: &Self) -> bool {
-        self.0.equal_any(other.0.upcast_any())
+        self.0.__equal_any(other.0.__upcast_any())
     }
 }
 
@@ -62,34 +62,34 @@ impl<'eval> Serialize for Dataset<'eval> {
     }
 }
 impl<'a> HasStaticTypeInfo for Dataset<'a> {
-    type StaticSelf = Dataset<'static>;
+    type __StaticSelf = Dataset<'static>;
 
-    fn static_type_name() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         todo!()
     }
 }
 
 impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
-    fn to_json_value(&self) -> serde_json::value::Value {
+    fn __to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {
         self
     }
 
-    fn static_ty() -> EntityRoutePtr {
+    fn __static_ty() -> EntityRoutePtr {
         RootIdentifier::DatasetType.into()
     }
 
-    fn print_short(&self) -> String {
+    fn __print_short(&self) -> String {
         todo!()
     }
 
-    fn opt_visualize(
+    fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,

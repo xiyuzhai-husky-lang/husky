@@ -12,29 +12,29 @@ impl ConnectedComponent {
 }
 
 impl __HasStaticTypeInfo for ConnectedComponent {
-    type StaticSelf = ConnectedComponent;
+    type __StaticSelf = ConnectedComponent;
 
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::connected_component::ConnectedComponent".into()
     }
 }
 
 impl<'eval> __AnyValue<'eval> for ConnectedComponent {
-    fn print_short(&self) -> String {
-        todo!()
+    fn __print_short(&self) -> String {
+        "{ ... }".to_owned()
     }
 
-    fn to_json_value(&self) -> __JsonValue {
+    fn __to_json_value(&self) -> __JsonValue {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
         self
     }
 
-    fn static_ty() -> __EntityRoutePtr {
+    fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::connected_component::ConnectedComponent")
     }
 }

@@ -81,34 +81,34 @@ impl Serialize for MnistDataset {
 }
 
 impl HasStaticTypeInfo for MnistDataset {
-    type StaticSelf = Self;
+    type __StaticSelf = Self;
 
-    fn static_type_name() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         todo!()
     }
 }
 
 impl<'eval> AnyValue<'eval> for MnistDataset {
-    fn to_json_value(&self) -> serde_json::value::Value {
+    fn __to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {
         todo!()
     }
 
-    fn static_ty() -> EntityRoutePtr {
+    fn __static_ty() -> EntityRoutePtr {
         todo!()
     }
 
-    fn print_short(&self) -> String {
+    fn __print_short(&self) -> String {
         todo!()
     }
 
-    fn opt_visualize(
+    fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,

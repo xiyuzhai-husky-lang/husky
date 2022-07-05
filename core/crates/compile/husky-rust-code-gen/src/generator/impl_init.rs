@@ -203,7 +203,18 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             this_ty: "{entity_route}",
             field_ident: "{field_ident}",
         }},
-        field_linkage!("#,
+        {}!("#,
+                                    match liason {
+                                        MemberLiason::Immutable => "field_linkage",
+                                        MemberLiason::Mutable => {
+                                            if ty.is_ref() {
+                                                todo!()
+                                            } else {
+                                                "mut_field_linkage"
+                                            }
+                                        }
+                                        MemberLiason::Derived => todo!(),
+                                    }
                                 ));
                                 self.gen_entity_route(entity_route, EntityRouteRole::Decl);
                                 self.write(", ");
@@ -355,7 +366,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         if self.db.is_copyable(output.ty).unwrap() {
             self.write(
                 r#")
-                    .take_copyable_dyn())"#,
+                    .__take_copyable_dyn())"#,
             );
         } else {
             self.write(

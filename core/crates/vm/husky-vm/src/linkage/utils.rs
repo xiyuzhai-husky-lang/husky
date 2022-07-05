@@ -5,6 +5,21 @@ macro_rules! field_linkage {
             copy_access: field_copy_fp!($Type, $field),
             eval_ref_access: field_eval_ref_fp!($Type, $field),
             temp_ref_access: field_temp_ref_fp!($Type, $field),
+            temp_mut_access: field_temp_mut_invalid_fp!($Type, $field),
+            move_access: field_move_fp!($Type, $field),
+            nargs: 1,
+            dev_src: __static_dev_src!(),
+        })
+    }};
+}
+
+#[macro_export]
+macro_rules! mut_field_linkage {
+    ($Type: ty, $field: ident) => {{
+        __Linkage::Member(&__MemberLinkage {
+            copy_access: field_copy_fp!($Type, $field),
+            eval_ref_access: field_eval_ref_fp!($Type, $field),
+            temp_ref_access: field_temp_ref_fp!($Type, $field),
             temp_mut_access: field_temp_mut_fp!($Type, $field),
             move_access: field_move_fp!($Type, $field),
             nargs: 1,

@@ -162,8 +162,8 @@ pub fn binary_assign<'temp, 'eval>(
 ) -> __EvalResult<()> {
     match lopd {
         __TempValue::TempRefMutEval { ref mut value, .. } => {
-            value.assign(if let Some(binary_opr) = opt_binary_opr {
-                let lopd_value = value.take_copyable_dyn();
+            value.__assign(if let Some(binary_opr) = opt_binary_opr {
+                let lopd_value = value.__take_copyable_dyn();
                 binary_opr
                     .act_on_primitives(lopd_value, ropd.take_copyable())?
                     .into()
@@ -180,7 +180,7 @@ pub fn incr<'temp, 'eval>(opd: &mut __TempValue<'temp, 'eval>) {
     let opd_primitive = opd.take_copyable();
     match opd {
         __TempValue::TempRefMutEval { value, owner, gen } => {
-            value.assign(__TempValue::Copyable(match opd_primitive {
+            value.__assign(__TempValue::Copyable(match opd_primitive {
                 CopyableValue::I32(i) => (i + 1).into(),
                 CopyableValue::F32(_) => todo!(),
                 _ => panic!(),
@@ -195,7 +195,7 @@ pub fn decr<'temp, 'eval>(opd: &mut __TempValue<'temp, 'eval>) {
     let opd_primitive = opd.take_copyable();
     match opd {
         __TempValue::TempRefMutEval { value, owner, gen } => {
-            value.assign(__TempValue::Copyable(match opd_primitive {
+            value.__assign(__TempValue::Copyable(match opd_primitive {
                 CopyableValue::I32(i) => (i - 1).into(),
                 CopyableValue::F32(_) => todo!(),
                 _ => panic!(),

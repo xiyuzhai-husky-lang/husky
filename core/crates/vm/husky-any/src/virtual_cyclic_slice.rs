@@ -20,35 +20,41 @@ impl<'eval> std::ops::Deref for VirtualCyclicSlice<'eval> {
     }
 }
 
-impl<'eval> HasStaticTypeInfo for VirtualCyclicSlice<'eval> {
-    type StaticSelf = VirtualCyclicSlice<'static>;
+impl<'eval> std::ops::DerefMut for VirtualCyclicSlice<'eval> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.data
+    }
+}
 
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
+impl<'eval> HasStaticTypeInfo for VirtualCyclicSlice<'eval> {
+    type __StaticSelf = VirtualCyclicSlice<'static>;
+
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         todo!()
     }
 }
 
 impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
-    fn to_json_value(&self) -> serde_json::value::Value {
+    fn __to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {
         todo!()
     }
 
-    fn static_ty() -> EntityRoutePtr {
+    fn __static_ty() -> EntityRoutePtr {
         panic!()
     }
 
-    fn ty(&self) -> EntityRoutePtr {
+    fn __ty(&self) -> EntityRoutePtr {
         self.ty
     }
 
-    fn print_short(&self) -> String {
+    fn __print_short(&self) -> String {
         format!(
             "{{ start: {}, end: {}, data: {} }}",
             self.start,
@@ -56,14 +62,14 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
             print_sequence(
                 "{ ",
                 self.iter(),
-                &|value| format!("{}", value.any_ref().print_short()),
+                &|value| format!("{}", value.any_ref().__print_short()),
                 " }",
                 20,
             )
         )
     }
 
-    fn opt_visualize(
+    fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
@@ -73,7 +79,7 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
         Ok(Some(VisualData::Group(
             self.iter()
                 .enumerate()
-                .map(|(i, element)| visualize_element(i, element.any_ref().short_dyn()))
+                .map(|(i, element)| visualize_element(i, element.any_ref().__short_dyn()))
                 .collect::<__EvalResult<Vec<_>>>()?,
         )))
     }
