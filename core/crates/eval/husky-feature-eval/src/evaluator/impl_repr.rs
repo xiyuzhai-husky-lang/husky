@@ -15,7 +15,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             FeatureRepr::ProcBlock(_) => todo!(),
         };
         if let Ok(ref value) = result {
-            should_eq!({ value.any_ref().ty_dyn() }, repr.ty())
+            should_eq!({ value.any_ref().__ty_dyn() }, repr.ty())
         }
         result
     }
@@ -27,7 +27,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         let eval_key = EvalKey::Feature(repr.feature());
         if let Some(result) = self.sheet.cached_value(eval_key) {
             if let Ok(ref value) = result {
-                should_eq!(value.any_ref().ty_dyn(), repr.ty())
+                should_eq!(value.any_ref().__ty_dyn(), repr.ty())
             }
             result
         } else {

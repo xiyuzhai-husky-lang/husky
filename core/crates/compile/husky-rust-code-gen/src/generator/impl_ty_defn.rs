@@ -279,9 +279,9 @@ impl<'a> RustCodeGenerator<'a> {
         };
         self.write(&format!(
             r#" {{
-    type StaticSelf = {static_self};
+    type __StaticSelf = {static_self};
 
-    fn static_type_name() -> std::borrow::Cow<'static, str> {{
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {{
         "{base_route:?}".into()
     }}
 }}
@@ -302,21 +302,21 @@ impl<'a> RustCodeGenerator<'a> {
         }
         self.write(&format!(
             r#" {{
-    fn print_short(&self) -> String {{
-        todo!()
+    fn __print_short(&self) -> String {{
+        "{{ ... }}".to_owned()
     }}
 
-    fn to_json_value(&self) -> __JsonValue {{
+    fn __to_json_value(&self) -> __JsonValue {{
         serde_json::value::to_value(self).unwrap()
     }}
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {{
         self
     }}
 
-    fn static_ty() -> __EntityRoutePtr {{
+    fn __static_ty() -> __EntityRoutePtr {{
         __ty_route_from_static_binded::<Self>("{base_route:?}")
     }}
 }}

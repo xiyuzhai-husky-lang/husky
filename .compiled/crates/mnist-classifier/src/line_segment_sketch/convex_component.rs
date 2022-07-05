@@ -13,29 +13,29 @@ impl<'eval> ConvexCompoent<'eval> {
 }
 
 impl<'eval> __HasStaticTypeInfo for ConvexCompoent<'eval> {
-    type StaticSelf = ConvexCompoent<'static>;
+    type __StaticSelf = ConvexCompoent<'static>;
 
-    fn static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent".into()
     }
 }
 
 impl<'eval> __AnyValue<'eval> for ConvexCompoent<'eval> {
-    fn print_short(&self) -> String {
-        todo!()
+    fn __print_short(&self) -> String {
+        "{ ... }".to_owned()
     }
 
-    fn to_json_value(&self) -> __JsonValue {
+    fn __to_json_value(&self) -> __JsonValue {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short {
         self
     }
 
-    fn static_ty() -> __EntityRoutePtr {
+    fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent")
     }
 }

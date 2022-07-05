@@ -52,7 +52,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             _ => (),
                         },
                         Mode::TrackHistory => {
-                            should_eq!(ty, value.any_ref().ty_dyn());
+                            should_eq!(ty, value.any_ref().__ty_dyn());
                             self.history.write(
                                 ins,
                                 HistoryEntry::PureExpr {
@@ -162,7 +162,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
                             let output = self.stack.eval_top();
-                            should_eq!(output.any_ref().ty_dyn(), ty);
+                            should_eq!(output.any_ref().__ty_dyn(), ty);
                             self.history
                                 .write(ins, HistoryEntry::PureExpr { result: Ok(output) })
                         }
@@ -177,7 +177,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             ident: RootIdentifier::DatasetType,
                         })
                     {
-                        should_eq!(output_ty, return_value.any_ref().ty_dyn());
+                        should_eq!(output_ty, return_value.any_ref().__ty_dyn());
                     }
                     VMControl::Return(return_value)
                 }

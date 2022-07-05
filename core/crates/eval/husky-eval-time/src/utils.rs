@@ -15,7 +15,7 @@ pub fn eval_time() -> &'static HuskyEvalTime {
 }
 
 pub fn ty_route_from_static_binded<T: HasStaticTypeInfo>(text: &str) -> EntityRoutePtr {
-    compile_time().ty_route_from_static(std::any::TypeId::of::<T::StaticSelf>(), text)
+    compile_time().ty_route_from_static(std::any::TypeId::of::<T::__StaticSelf>(), text)
 }
 
 pub fn compile_time() -> &'static HuskyCompileTime {

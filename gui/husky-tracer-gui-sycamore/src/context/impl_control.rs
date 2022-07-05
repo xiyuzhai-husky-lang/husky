@@ -30,7 +30,10 @@ impl DebuggerContext {
                 match c {
                     'T' => {
                         // 't'
-                        todo!("t")
+                        log::info!(
+                            "active trace is {:?}",
+                            self.trace_context.opt_active_trace()
+                        )
                     }
                     'C' => {
                         // 't'

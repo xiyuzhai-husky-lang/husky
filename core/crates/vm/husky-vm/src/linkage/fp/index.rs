@@ -10,7 +10,7 @@ macro_rules! index_copy_fp {
                 .take_i32()
                 .try_into()
                 .expect("todo");
-            this_value[index_value].take_copyable_dyn().into()
+            this_value[index_value].__take_copyable_dyn().into()
         }
         __SpecificRoutineFp(__wrapper)
     }};

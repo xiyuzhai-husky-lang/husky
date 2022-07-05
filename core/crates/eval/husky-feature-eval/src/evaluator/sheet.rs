@@ -68,7 +68,7 @@ unsafe fn cache_raw_eval_value<'eval>(raw: &mut EvalValueResult<'eval>) -> EvalV
         Ok(value) => match value {
             EvalValue::Copyable(value) => {
                 *raw = Ok(EvalValue::Owned(
-                    value.any_ref().clone_into_box_dyn().into(),
+                    value.any_ref().__clone_into_box_dyn().into(),
                 ))
             }
             _ => (),

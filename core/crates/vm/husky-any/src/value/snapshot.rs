@@ -82,7 +82,7 @@ impl<'temp, 'eval: 'temp> Into<__TempValue<'temp, 'eval>> for &StackValueSnapsho
             StackValueSnapshot::Owned(value) => __TempValue::OwnedEval(value.clone()),
             StackValueSnapshot::EvalRef(value) => __TempValue::EvalRef(*value),
             StackValueSnapshot::FullyOwnedRef(value) => {
-                __TempValue::OwnedEval(value.clone_into_box_dyn().into())
+                __TempValue::OwnedEval(value.__clone_into_box_dyn().into())
             }
         }
     }

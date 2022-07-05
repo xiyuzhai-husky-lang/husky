@@ -69,14 +69,14 @@ impl<'temp, 'eval: 'temp> std::fmt::Debug for __TempValue<'temp, 'eval> {
             __TempValue::TempRefMutTemp { value, owner, gen } => "TempRefMutTemp",
             __TempValue::Moved => "Moved",
         })
-        .field(&self.any_ref().print_short())
+        .field(&self.any_ref().__print_short())
         .finish()
     }
 }
 
 impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
     pub fn ty(&self) -> EntityRoutePtr {
-        self.any_ref().ty_dyn()
+        self.any_ref().__ty_dyn()
     }
 
     pub fn print_short(&self) -> String {
@@ -85,40 +85,40 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             __TempValue::Moved => result.push_str("Moved"),
             __TempValue::Copyable(value) => {
                 result.push_str("Primitive ");
-                result.push_str(&value.any_ref().print_short())
+                result.push_str(&value.any_ref().__print_short())
             }
             __TempValue::OwnedEval(value) => {
                 result.push_str("Boxed ");
-                result.push_str(&value.any_ref().print_short())
+                result.push_str(&value.any_ref().__print_short())
             }
             __TempValue::OwnedTemp(value) => {
                 result.push_str("OwnedTemp ");
-                result.push_str(&value.any_ref().print_short());
+                result.push_str(&value.any_ref().__print_short());
             }
             __TempValue::EvalPure(value) => {
                 result.push_str("EvalPure ");
-                result.push_str(&value.print_short())
+                result.push_str(&value.__print_short())
             }
             __TempValue::EvalRef(value) => {
                 result.push_str("EvalRef ");
-                result.push_str(&value.print_short());
+                result.push_str(&value.__print_short());
             }
             __TempValue::TempRefEval(value) => {
                 result.push_str("TempRefEval ");
-                result.push_str(&value.print_short());
+                result.push_str(&value.__print_short());
             }
             __TempValue::TempRefTemp(value) => {
                 result.push_str("TempRefTemp ");
-                result.push_str(&value.print_short());
+                result.push_str(&value.__print_short());
             }
             __TempValue::TempRefMutEval { value, owner, gen } => {
                 result.push_str("CopyableOrTempMutEval ");
-                result.push_str(&value.print_short());
+                result.push_str(&value.__print_short());
                 write!(result, " Owner({:?}) ", owner);
             }
             __TempValue::TempRefMutTemp { value, owner, gen } => {
                 result.push_str("TempRefMutTemp ");
-                result.push_str(&value.print_short());
+                result.push_str(&value.__print_short());
                 write!(result, " Owner({:?}) ", owner);
             }
         }
@@ -179,11 +179,13 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             __TempValue::OwnedEval(boxed_value) => EvalValue::Owned(boxed_value.clone()),
             __TempValue::EvalPure(_) => todo!(),
             __TempValue::EvalRef(value) => EvalValue::EvalRef(*value),
-            __TempValue::TempRefEval(value) => EvalValue::Owned(value.clone_into_box_dyn().into()),
+            __TempValue::TempRefEval(value) => {
+                EvalValue::Owned(value.__clone_into_box_dyn().into())
+            }
             __TempValue::OwnedTemp(_) => todo!(),
             __TempValue::TempRefTemp(_) => todo!(),
             __TempValue::TempRefMutEval { value, owner, gen } => {
-                EvalValue::Owned(value.clone_into_box_dyn().into())
+                EvalValue::Owned(value.__clone_into_box_dyn().into())
             }
             __TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
             _ => panic!(),
@@ -194,7 +196,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
         match self {
             __TempValue::Copyable(v) => v.to_bool(),
             __TempValue::TempRefMutEval { value, owner, gen } => {
-                value.take_copyable_dyn().to_bool()
+                value.__take_copyable_dyn().to_bool()
             }
             _ => panic!(),
         }
@@ -272,8 +274,8 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
     fn bind_copy(&self) -> Self {
         match self {
             __TempValue::Copyable(value) => __TempValue::Copyable(*value),
-            __TempValue::EvalRef(value) => value.take_copyable_dyn().into(),
-            __TempValue::TempRefMutEval { value, owner, gen } => value.take_copyable_dyn().into(),
+            __TempValue::EvalRef(value) => value.__take_copyable_dyn().into(),
+            __TempValue::TempRefMutEval { value, owner, gen } => value.__take_copyable_dyn().into(),
             _ => panic!(),
         }
     }
@@ -472,11 +474,11 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
     }
 
     pub fn downcast_copy<T: AnyValue<'eval> + Copy>(&self) -> T {
-        self.any_ref().downcast_copy()
+        self.any_ref().__downcast_copy()
     }
 
     pub fn downcast_temp_ref<T: AnyValue<'eval>>(&self) -> &T {
-        self.any_ref().downcast_ref()
+        self.any_ref().__downcast_ref()
         // match self {
         //     __TempValue::Moved => todo!(),
         //     __TempValue::Copyable(_) => todo!(),
@@ -497,7 +499,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             __TempValue::Copyable(_) => todo!(),
             __TempValue::OwnedEval(_) => todo!(),
             __TempValue::EvalPure(value) => panic!(),
-            __TempValue::EvalRef(value) => value.0.downcast_ref(),
+            __TempValue::EvalRef(value) => value.0.__downcast_ref(),
             __TempValue::TempRefEval(value) => panic!(),
             __TempValue::TempRefMutEval { value, .. } => panic!(),
             __TempValue::OwnedTemp(_) => todo!(),
@@ -516,7 +518,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             | __TempValue::TempRefEval { .. } => {
                 panic!()
             }
-            __TempValue::TempRefMutEval { ref mut value, .. } => value.downcast_mut(),
+            __TempValue::TempRefMutEval { ref mut value, .. } => value.__downcast_mut(),
             __TempValue::OwnedTemp(_) => todo!(),
             __TempValue::TempRefTemp(_) => todo!(),
             __TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
@@ -534,7 +536,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
                 panic!()
             }
             __TempValue::TempRefMutEval { value, owner, gen } => {
-                let ptr: *mut T = value.downcast_mut();
+                let ptr: *mut T = value.__downcast_mut();
                 (unsafe { &mut *ptr }, *owner, *gen)
             }
             __TempValue::OwnedTemp(_) => todo!(),
@@ -546,7 +548,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
     pub fn take_copyable(&self) -> CopyableValue {
         match self {
             __TempValue::Copyable(value) => *value,
-            __TempValue::TempRefMutEval { value, .. } => value.take_copyable_dyn(),
+            __TempValue::TempRefMutEval { value, .. } => value.__take_copyable_dyn(),
             _ => {
                 p!(self);
                 panic!("")
@@ -560,11 +562,11 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             __TempValue::Copyable(_) => todo!(),
             __TempValue::OwnedEval(_) => todo!(),
             __TempValue::EvalPure(value) => {
-                __TempValue::OwnedEval(value.clone_into_box_dyn().into())
+                __TempValue::OwnedEval(value.__clone_into_box_dyn().into())
             }
             __TempValue::EvalRef(_) => todo!(),
             __TempValue::TempRefEval(value) => {
-                __TempValue::OwnedEval(value.clone_into_box_dyn().into())
+                __TempValue::OwnedEval(value.__clone_into_box_dyn().into())
             }
             __TempValue::TempRefMutEval { value, owner, gen } => todo!(),
             __TempValue::OwnedTemp(_) => todo!(),
@@ -580,7 +582,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             __TempValue::EvalPure(value) => StackValueSnapshot::EvalPure(value.clone()),
             __TempValue::EvalRef(value) => StackValueSnapshot::EvalRef(*value),
             __TempValue::TempRefEval(value) => {
-                StackValueSnapshot::FullyOwnedRef(value.clone_into_arc_dyn())
+                StackValueSnapshot::FullyOwnedRef(value.__clone_into_arc_dyn())
             }
             __TempValue::TempRefMutEval { value, owner, gen } => {
                 p!(value);
@@ -594,7 +596,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
     }
 
     pub fn static_type_id(&self) -> std::any::TypeId {
-        self.any_ref().static_type_id_dyn()
+        self.any_ref().__static_type_id_dyn()
     }
 
     pub fn field(self, field_idx: usize, field_binding: Binding) -> __TempValue<'temp, 'eval> {
@@ -606,19 +608,19 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             }
             __TempValue::EvalPure(_) => todo!(),
             __TempValue::EvalRef(value) => {
-                let value: &VirtualStruct = value.downcast_ref();
+                let value: &VirtualStruct = value.__downcast_ref();
                 value.access_field(field_idx, field_binding)
             }
             __TempValue::TempRefEval(value) => {
-                let value: &VirtualStruct = value.downcast_ref();
+                let value: &VirtualStruct = value.__downcast_ref();
                 value.access_field(field_idx, field_binding)
             }
             __TempValue::TempRefTemp(value) => {
-                let value: &VirtualStruct = value.downcast_ref();
+                let value: &VirtualStruct = value.__downcast_ref();
                 value.access_field(field_idx, field_binding)
             }
             __TempValue::TempRefMutEval { value, owner, gen } => {
-                let virtual_value: &mut VirtualStruct = value.downcast_mut();
+                let virtual_value: &mut VirtualStruct = value.__downcast_mut();
                 msg_once!("need cleaning");
                 virtual_value.field_mut(field_idx, field_binding, owner)
             }

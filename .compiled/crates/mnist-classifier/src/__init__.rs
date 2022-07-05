@@ -41,7 +41,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let x: u32 = __arguments[1].downcast_copy();
                 __TempValue::Copyable(
                     connected_component::horizontal_extend(a, x)
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -349,7 +349,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let r: f32 = __arguments[2].downcast_copy();
                 __TempValue::Copyable(
                     line_segment_sketch::extend_end(ct, start, r)
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 3),
@@ -368,7 +368,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let r: f32 = __arguments[3].downcast_copy();
                 __TempValue::Copyable(
                     line_segment_sketch::extend_start(ct, start0, end, r)
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 4),
@@ -418,7 +418,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let __this: &Vec<raw_contour::RawContour<'eval>> = __arguments[0].downcast_temp_ref();
                 __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -436,7 +436,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let element: raw_contour::RawContour<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
                 __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -525,7 +525,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let __this: &Vec<connected_component::ConnectedComponent> = __arguments[0].downcast_temp_ref();
                 __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -543,7 +543,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let element: connected_component::ConnectedComponent = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
                 __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -632,7 +632,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref();
                 __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -650,7 +650,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let element: geom2d::Point2d = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
                 __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -811,7 +811,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let index: i32 = __arguments[1].downcast_copy();
                 __TempValue::Copyable(
                     line_segment_sketch::convexity::is_convex(line_segment_sketch, index)
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -821,14 +821,14 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             this_ty: "std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>",
             field_ident: "start",
         },
-        field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, start)
+        mut_field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, start)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>",
             field_ident: "end",
         },
-        field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, end)
+        mut_field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, end)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -870,7 +870,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let __this: &Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_temp_ref();
                 __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -888,7 +888,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let element: line_segment_sketch::LineSegment<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
                 __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -977,7 +977,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let __this: &Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_temp_ref();
                 __TempValue::Copyable(
                     __this.ilen()
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 1),
@@ -995,7 +995,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 let element: line_segment_sketch::concave_component::ConcaveComponent<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
                 __TempValue::Copyable(
                     __this.push(element)
-                    .take_copyable_dyn())
+                    .__take_copyable_dyn())
             }
             __wrapper
         }, 2),
@@ -1067,14 +1067,14 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>",
             field_ident: "start",
         },
-        field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, start)
+        mut_field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, start)
     ),
     (
         __StaticLinkageKey::StructFieldAccess {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>",
             field_ident: "end",
         },
-        field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, end)
+        mut_field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, end)
     ),
     (
         __StaticLinkageKey::Routine {

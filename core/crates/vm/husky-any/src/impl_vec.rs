@@ -8,40 +8,43 @@ impl<'a, T> HasStaticTypeInfo for Vec<T>
 where
     T: HasStaticTypeInfo,
 {
-    type StaticSelf = Vec<T::StaticSelf>;
+    type __StaticSelf = Vec<T::__StaticSelf>;
 
-    fn static_type_name() -> Cow<'static, str> {
-        format!("[]{}", T::static_type_name()).into()
+    fn __static_type_name() -> Cow<'static, str> {
+        format!("[]{}", T::__static_type_name()).into()
     }
 }
 
 impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
-    fn clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
         panic!()
     }
 
-    fn print_short(&self) -> String {
+    fn __print_short(&self) -> String {
         format!("{{ len: {}, data: [...] }}", self.len(),)
     }
 
-    fn to_json_value(&self) -> serde_json::value::Value {
-        serde_json::value::Value::Array(self.iter().map(|elem| elem.to_json_value()).collect())
+    fn __to_json_value(&self) -> serde_json::value::Value {
+        serde_json::value::Value::Array(self.iter().map(|elem| elem.__to_json_value()).collect())
     }
 
-    fn short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {
         self
     }
 
-    fn static_ty() -> EntityRoutePtr {
-        husky_entity_route::ty_route_with::<Self::StaticSelf>(|| {
-            make_route(RootIdentifier::Vec.into(), thin_vec![T::static_ty().into()])
+    fn __static_ty() -> EntityRoutePtr {
+        husky_entity_route::ty_route_with::<Self::__StaticSelf>(|| {
+            make_route(
+                RootIdentifier::Vec.into(),
+                thin_vec![T::__static_ty().into()],
+            )
         })
     }
 
-    fn opt_visualize(
+    fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
@@ -51,7 +54,7 @@ impl<'eval, 'a: 'eval, T: AnyValue<'a>> AnyValue<'eval> for Vec<T> {
         Ok(Some(VisualData::Group(
             self.iter()
                 .enumerate()
-                .map(|(i, element)| visualize_element(i, element.short()))
+                .map(|(i, element)| visualize_element(i, element.__short()))
                 .collect::<__EvalResult<Vec<_>>>()?,
         )))
     }
