@@ -31,7 +31,7 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ],
         variants: &[],
         kind: TyKind::Primitive,
-        visualizer: &primitive_visualizer(StaticVisualTy::F32),
+        visual_ty: StaticVisualTy::F32,
         opt_type_call: None,
     },
     dev_src: __static_dev_src!(),

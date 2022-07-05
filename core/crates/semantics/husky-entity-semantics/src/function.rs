@@ -6,7 +6,7 @@ use word::Paradigm;
 
 impl EntityDefnVariant {
     pub(crate) fn function(
-        db: &dyn InferQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         ast: &Ast,
         children: AstIter,
         arena: &RawExprArena,
@@ -23,7 +23,7 @@ impl EntityDefnVariant {
                 opt_this_liason,
             } => Ok(match paradigm {
                 Paradigm::EagerProcedural => {
-                    let stmts = parse_impr_stmts(parameters, db, arena, children, file)?;
+                    let stmts = parse_impr_stmts(parameters, db.upcast(), arena, children, file)?;
                     EntityDefnVariant::Proc {
                         generic_parameters: spatial_parameters.clone(),
                         parameters: parameters.clone(),
@@ -32,7 +32,7 @@ impl EntityDefnVariant {
                     }
                 }
                 Paradigm::EagerFunctional => {
-                    let stmts = parse_func_stmts(db, arena, children, file)?;
+                    let stmts = parse_func_stmts(db.upcast(), arena, children, file)?;
                     EntityDefnVariant::Func {
                         spatial_parameters: spatial_parameters.clone(),
                         parameters: parameters.clone(),

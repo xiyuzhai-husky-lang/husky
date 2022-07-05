@@ -6,7 +6,7 @@ pub use function::*;
 use dev_utils::__StaticDevSource;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
-use husky_visual_syntax::StaticVisualizer;
+use husky_visual_syntax::StaticVisualTy;
 use vm::{__Linkage, __SpecificRoutineLinkage};
 use word::RootIdentifier;
 
@@ -58,7 +58,7 @@ pub enum EntityStaticDefnVariant {
         ty_members: &'static [&'static EntityStaticDefn],
         variants: &'static [EntityStaticDefn],
         kind: TyKind,
-        visualizer: &'static StaticVisualizer,
+        visual_ty: StaticVisualTy,
         opt_type_call: Option<&'static EntityStaticDefn>,
     },
     Trait {

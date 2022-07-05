@@ -140,6 +140,16 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
     fn print_short(&self) -> String {
         todo!()
     }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<husky_trace_protocol::VisualData> {
+        todo!()
+    }
 }
 
 impl<'eval> SyntheticDataset<'eval> for SimpleSyntheticDataset<'eval> {

@@ -50,6 +50,16 @@ impl<'eval> AnyValue<'eval> for () {
     fn print_short(&self) -> String {
         format!("{:?}", self)
     }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
+    }
 }
 
 impl HasStaticTypeInfo for i32 {
@@ -98,6 +108,16 @@ impl<'eval> AnyValue<'eval> for i32 {
 
     fn static_ty() -> EntityRoutePtr {
         RootIdentifier::I32.into()
+    }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
     }
 }
 
@@ -149,6 +169,16 @@ impl<'eval> AnyValue<'eval> for f32 {
     fn print_short(&self) -> String {
         format!("{:?}", self)
     }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
+    }
 }
 
 impl HasStaticTypeInfo for u32 {
@@ -198,6 +228,16 @@ impl<'eval> AnyValue<'eval> for u32 {
 
     fn static_ty() -> EntityRoutePtr {
         RootIdentifier::B32.into()
+    }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
     }
 }
 
@@ -249,6 +289,16 @@ impl<'eval> AnyValue<'eval> for u64 {
     fn static_ty() -> EntityRoutePtr {
         todo!()
     }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
+    }
 }
 
 impl HasStaticTypeInfo for bool {
@@ -297,5 +347,15 @@ impl<'eval> AnyValue<'eval> for bool {
     }
     fn print_short(&self) -> String {
         format!("{:?}", self)
+    }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
     }
 }

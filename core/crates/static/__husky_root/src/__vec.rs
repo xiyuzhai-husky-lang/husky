@@ -6,7 +6,7 @@ use cyclic_slice::CyclicSlice;
 pub use cyclic_slice_::*;
 pub use firstx::*;
 use husky_entity_route::EntityRoutePtr;
-use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
+use husky_visual_syntax::StaticVisualTy;
 pub use lastx::*;
 
 use super::*;
@@ -124,10 +124,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ],
         variants: &[],
         kind: TyKind::Vec,
-        visualizer: &StaticVisualizer {
-            ty: StaticVisualTy::Group,
-            variant: StaticVisualizerVariant::Vec,
-        },
+        visual_ty: StaticVisualTy::Group,
         opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::__static_dev_src!(),

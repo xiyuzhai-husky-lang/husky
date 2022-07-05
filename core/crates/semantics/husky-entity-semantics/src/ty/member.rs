@@ -35,7 +35,7 @@ pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRoutePtr) 
 
 impl EntityDefnVariant {
     pub(crate) fn collect_other_ty_members(
-        db: &dyn InferQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
         file: FilePtr,
         ty_route: EntityRoutePtr,
@@ -65,7 +65,7 @@ impl EntityDefnVariant {
                             Paradigm::EagerProcedural => todo!(),
                             Paradigm::EagerFunctional => {
                                 let stmts = husky_eager_semantics::parse_func_stmts(
-                                    db,
+                                    db.upcast(),
                                     arena,
                                     child.opt_children.clone().unwrap(),
                                     file,

@@ -13,12 +13,10 @@ impl HuskyTraceTime {
                 HistoryEntry::PureExpr { result } => match result {
                     Ok(output) => {
                         should_eq!(output.any_ref().ty_dyn(), expr.ty());
-                        FigureCanvasData::new_specific(self.visualize_temp_value(
-                            output,
-                            expr.ty(),
-                            expr.file,
-                            expr.range,
-                        ))
+                        FigureCanvasData::new_specific(
+                            self.visualize_temp_value(output, expr.ty(), expr.file, expr.range)
+                                .unwrap(),
+                        )
                     }
                     Err(e) => FigureCanvasData::void(),
                 },

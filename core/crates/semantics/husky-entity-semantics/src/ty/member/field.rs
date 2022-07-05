@@ -29,7 +29,7 @@ impl EntityDefnVariant {
     }
 
     pub(crate) fn ty_field_from_ast(
-        db: &dyn InferQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
         file: FilePtr,
         ty_route: EntityRoutePtr,
@@ -50,7 +50,7 @@ impl EntityDefnVariant {
                             defn_repr: Arc::new(match paradigm {
                                 Paradigm::LazyFunctional => {
                                     let stmts = husky_lazy_semantics::parse_lazy_stmts(
-                                        db,
+                                        db.upcast(),
                                         arena,
                                         children.unwrap(),
                                         file,
@@ -60,7 +60,7 @@ impl EntityDefnVariant {
                                 }
                                 Paradigm::EagerFunctional => {
                                     let stmts = husky_eager_semantics::parse_func_stmts(
-                                        db,
+                                        db.upcast(),
                                         arena,
                                         children.unwrap(),
                                         file,
@@ -85,7 +85,7 @@ impl EntityDefnVariant {
                     FieldAstKind::RecordDerived => FieldDefnVariant::RecordDerived {
                         defn_repr: Arc::new(DefinitionRepr::LazyBlock {
                             stmts: husky_lazy_semantics::parse_lazy_stmts(
-                                db,
+                                db.upcast(),
                                 arena,
                                 children.unwrap(),
                                 file,
@@ -95,11 +95,11 @@ impl EntityDefnVariant {
                         }),
                     },
                     FieldAstKind::StructDefault { default } => FieldDefnVariant::StructDefault {
-                        default: parse_eager_expr(db, arena, file, default)?,
+                        default: parse_eager_expr(db.upcast(), arena, file, default)?,
                     },
                     FieldAstKind::StructDerivedEager { derivation } => {
                         FieldDefnVariant::StructDerivedEager {
-                            derivation: parse_eager_expr(db, arena, file, derivation)?,
+                            derivation: parse_eager_expr(db.upcast(), arena, file, derivation)?,
                         }
                     }
                 };
@@ -115,7 +115,7 @@ impl EntityDefnVariant {
     }
 
     pub(crate) fn collect_original_fields(
-        db: &dyn InferQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
         file: FilePtr,
         ty_route: EntityRoutePtr,

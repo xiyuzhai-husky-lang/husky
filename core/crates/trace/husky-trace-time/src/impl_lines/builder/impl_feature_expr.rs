@@ -4,7 +4,6 @@ use husky_entity_route::RangedEntityRoute;
 use husky_feature_eval::EvalFeature;
 use husky_lazy_semantics::{LazyExprVariant, LazyOpnKind};
 use husky_text::RangedCustomIdentifier;
-use husky_visualizer_gen::VisualTy;
 use print_utils::epin;
 use vm::InterpreterQueryGroup;
 use word::CustomIdentifier;

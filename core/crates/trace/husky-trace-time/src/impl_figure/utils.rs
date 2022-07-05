@@ -10,7 +10,7 @@ impl HuskyTraceTime {
         ty: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
-    ) -> VisualData {
+    ) -> __EvalResult<VisualData> {
         let eval_time = self.eval_time();
         let sample_id = self.attention.opt_sample_id().unwrap();
         let feature = self
@@ -21,18 +21,16 @@ impl HuskyTraceTime {
             .session()
             .dev()
             .cache_temp_value(feature, sample_id, value);
-        eval_time
-            .visualize_feature(
-                FeatureRepr::Value {
-                    value,
-                    ty,
-                    file,
-                    range,
-                    feature,
-                },
-                sample_id,
-            )
-            .unwrap()
+        eval_time.visualize_feature(
+            FeatureRepr::Value {
+                value,
+                ty,
+                file,
+                range,
+                feature,
+            },
+            sample_id,
+        )
     }
 
     pub fn visualize_control(&self, control: &ControlSnapshot) -> FigureCanvasData {

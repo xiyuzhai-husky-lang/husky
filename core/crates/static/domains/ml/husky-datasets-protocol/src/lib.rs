@@ -3,6 +3,7 @@ mod labeled;
 mod loader;
 mod synthetic;
 
+use husky_trace_protocol::VisualData;
 pub use iter::*;
 pub use labeled::*;
 pub use loader::*;
@@ -85,6 +86,16 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
     }
 
     fn print_short(&self) -> String {
+        todo!()
+    }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<husky_trace_protocol::VisualData> {
         todo!()
     }
 }

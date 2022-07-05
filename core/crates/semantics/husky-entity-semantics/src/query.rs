@@ -1,10 +1,9 @@
-use std::sync::{Arc, Mutex};
-
 use crate::dependence::*;
 use crate::*;
 use husky_entity_route::EntityRoutePtr;
 use infer_total::InferQueryGroup;
 use semantics_error::*;
+use std::sync::{Arc, Mutex};
 use sync_utils::ASafeRwLock;
 use upcast::Upcast;
 use vm::EntityUid;
@@ -27,6 +26,8 @@ pub trait EntityDefnQueryGroup:
     ) -> SemanticResultArc<Vec<Arc<EntityDefn>>>;
     fn entity_defn_uid(&self, entity_route: EntityRoutePtr) -> EntityDefnUid;
     fn entity_uid(&self, entity_route: EntityRoutePtr) -> EntityUid;
+    fn visualizer(&self, ty: EntityRoutePtr) -> Arc<Visualizer>;
+    fn visual_ty(&self, ty: EntityRoutePtr) -> VisualTy;
 }
 
 pub trait StoreEntityRoute {

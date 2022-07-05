@@ -44,5 +44,4 @@ entity-kind = { path = "../../syntax/entity-kind" }
 static-defn = { path = "../../static/static-defn" }
 thin-vec = { path = "../../../../forks/thin-vec" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
-husky-visualizer-gen = { path = "../husky-visualizer-gen" }
 husky-compile-time = { path = "../../compile/husky-compile-time" }

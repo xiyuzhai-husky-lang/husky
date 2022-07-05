@@ -70,4 +70,14 @@ impl<'eval> AnyValue<'eval> for EnumKindValue {
     fn print_short(&self) -> String {
         format!("{:?}", self.route)
     }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
+    }
 }

@@ -32,35 +32,6 @@ use std::{
 };
 use utils::*;
 
-// #[derive(Debug, PartialEq, Eq)]
-// pub enum StaticTypeId {
-//     RustBuiltin(TypeId),
-//     HuskyBuiltin(HuskyBuiltinStaticTypeId),
-//     Vec(Box<StaticTypeId>),
-//     HashMap(Box<StaticTypeId>, Box<StaticTypeId>),
-//     CyclicSlice(Box<StaticTypeId>),
-//     AnyMemberValue,
-// }
-
-// impl From<TypeId> for StaticTypeId {
-//     fn from(id: TypeId) -> Self {
-//         Self::RustBuiltin(id)
-//     }
-// }
-
-// impl From<HuskyBuiltinStaticTypeId> for StaticTypeId {
-//     fn from(id: HuskyBuiltinStaticTypeId) -> Self {
-//         Self::HuskyBuiltin(id)
-//     }
-// }
-
-// #[derive(Debug, PartialEq, Eq)]
-// pub enum HuskyBuiltinStaticTypeId {
-//     Dataset,
-//     VirtualTy,
-//     VirtualVec,
-// }
-
 pub trait HasStaticTypeInfo {
     type StaticSelf: 'static;
     fn static_type_id() -> std::any::TypeId {
@@ -116,6 +87,15 @@ pub trait AnyValue<'eval>:
     fn ty(&self) -> EntityRoutePtr {
         Self::static_ty()
     }
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        None
+    }
 }
 
 // object safe trait
@@ -148,6 +128,13 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
         Self: 'eval;
     fn to_json_value_dyn(&self) -> serde_json::value::Value;
     fn ty_dyn(&self) -> EntityRoutePtr;
+    fn opt_visualize_dyn(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData>;
 }
 
 impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
@@ -267,5 +254,15 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
 
     fn ty_dyn(&self) -> EntityRoutePtr {
         self.ty()
+    }
+
+    fn opt_visualize_dyn(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        self.opt_visualize(visualize_element)
     }
 }

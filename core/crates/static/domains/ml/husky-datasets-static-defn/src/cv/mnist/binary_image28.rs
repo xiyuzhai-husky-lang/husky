@@ -2,7 +2,7 @@ use super::*;
 use husky_entity_route::InternEntityRoute;
 use husky_eval_time::{compile_time, ty_route_from_static_binded};
 use husky_trace_protocol::*;
-use husky_visual_syntax::{StaticVisualTy, StaticVisualizerVariant};
+use husky_visual_syntax::StaticVisualTy;
 use std::{any::TypeId, sync::Arc};
 use vm::*;
 
@@ -70,12 +70,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Array,
-        visualizer: &StaticVisualizer {
-            ty: StaticVisualTy::Image2d,
-            variant: StaticVisualizerVariant::Compiled {
-                call: BinaryImage28::visualize,
-            },
-        },
+        visual_ty: StaticVisualTy::Image2d,
         opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DEFN),
     },
     dev_src: dev_utils::__static_dev_src!(),
@@ -196,5 +191,15 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
 
     fn static_ty() -> EntityRoutePtr {
         ty_route_from_static_binded::<Self>(BINARY_IMAGE_28_BASE_ROUTE)
+    }
+
+    fn opt_visualize(
+        &'static self,
+        visualize_element: &mut dyn FnMut(
+            usize,
+            &'static dyn AnyValueDyn<'static>,
+        ) -> __EvalResult<VisualData>,
+    ) -> Option<VisualData> {
+        todo!()
     }
 }

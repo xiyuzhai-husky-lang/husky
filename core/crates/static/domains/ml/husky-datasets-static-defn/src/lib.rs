@@ -8,7 +8,8 @@ use entity_kind::TyKind;
 use husky_datasets_protocol::*;
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_liason_semantics::*;
-use husky_visual_syntax::{primitive_visualizer, StaticVisualTy};
+use husky_trace_protocol::VisualData;
+use husky_visual_syntax::StaticVisualTy;
 use serde::Serialize;
 use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
@@ -43,7 +44,7 @@ pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Other,
-        visualizer: &primitive_visualizer(StaticVisualTy::Dataset),
+        visual_ty: StaticVisualTy::Dataset,
         opt_type_call: None,
     },
     dev_src: dev_utils::__static_dev_src!(),

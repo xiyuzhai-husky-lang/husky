@@ -14,7 +14,7 @@ use husky_atom::{
 use husky_eager_semantics::{FuncStmt, ProcStmt};
 use husky_entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr};
 use husky_file::FilePtr;
-use husky_lazy_semantics::LazyStmt;
+use husky_lazy_semantics::{LazyStmt, XmlExprVariant};
 use husky_text::*;
 use infer_decl::{DeclQueryGroup, MemberIdx};
 use infer_total::InferQueryGroup;
@@ -26,7 +26,7 @@ use word::{CustomIdentifier, IdentDict};
 
 impl EntityDefnVariant {
     pub(crate) fn ty_from_ast(
-        db: &dyn InferQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         ty: EntityRoutePtr,
         head: &Ast,
         children: AstIter,
@@ -118,8 +118,7 @@ impl EntityDefnVariant {
             TyKind::Other => todo!(),
         };
         Self::collect_other_ty_members(db, arena, file, ty, &mut children, &mut ty_members)?;
-        let opt_visualizer_source = Self::collect_visual_source(db, arena, file, ty, &mut children);
-        should!(children.peek().is_none());
+        let opt_visual_stmts = Self::collect_visual_source(db, arena, file, ty, &mut children);
         Ok(EntityDefnVariant::new_ty(
             generic_parameters,
             ty_members,
@@ -127,7 +126,8 @@ impl EntityDefnVariant {
             kind,
             trait_impls,
             opt_type_call,
-            opt_visualizer_source,
+            None,
+            opt_visual_stmts,
         ))
     }
 
@@ -138,7 +138,8 @@ impl EntityDefnVariant {
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDefn>>,
         opt_type_call: Option<Arc<TypeCallDefn>>,
-        opt_visualizer_source: Option<VisualizerSource>,
+        opt_static_visual_ty: Option<StaticVisualTy>,
+        opt_visual_stmts: Option<Avec<LazyStmt>>,
     ) -> Self {
         let members = collect_all_members(&ty_members, &trait_impls);
         EntityDefnVariant::Ty {
@@ -149,7 +150,8 @@ impl EntityDefnVariant {
             trait_impls,
             members,
             opt_type_call,
-            opt_visualizer_source,
+            opt_static_visual_ty,
+            opt_visual_stmts,
         }
     }
 
@@ -165,7 +167,7 @@ impl EntityDefnVariant {
                 ref ty_members,
                 ref variants,
                 kind,
-                ref visualizer,
+                visual_ty,
                 opt_type_call,
             } => {
                 let mut symbol_context = AtomContextStandalone {
@@ -201,7 +203,6 @@ impl EntityDefnVariant {
                 let kind = kind;
                 let trait_impls = trait_impls
                     .map(|trait_impl| TraitImplDefn::from_static(&mut symbol_context, trait_impl));
-                let opt_visualizer_source = Some(VisualizerSource::Static(visualizer));
                 Self::new_ty(
                     generic_parameters,
                     ty_members,
@@ -210,7 +211,8 @@ impl EntityDefnVariant {
                     trait_impls,
                     opt_type_call
                         .map(|type_call| TypeCallDefn::from_static(&mut symbol_context, type_call)),
-                    opt_visualizer_source,
+                    Some(visual_ty),
+                    None,
                 )
             }
             _ => panic!(),
@@ -218,7 +220,7 @@ impl EntityDefnVariant {
     }
 
     fn collect_variants(
-        db: &dyn InferQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         file: FilePtr,
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
@@ -252,7 +254,7 @@ impl EntityDefnVariant {
     }
 
     fn record_from_ast(
-        db: &dyn InferQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         children: AstIter,
         arena: &RawExprArena,
         file: FilePtr,
@@ -293,12 +295,12 @@ impl EntityDefnVariant {
     }
 
     fn collect_visual_source(
-        db: &dyn InferQueryGroup,
+        db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
         file: FilePtr,
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
-    ) -> Option<VisualizerSource> {
+    ) -> Option<Avec<LazyStmt>> {
         let item = if let Some(_) = children.peek() {
             children.next().unwrap()
         } else {
@@ -306,9 +308,9 @@ impl EntityDefnVariant {
         };
         let ref ast = item.value.as_ref().unwrap();
         match ast.variant {
-            AstVariant::Visual => Some(VisualizerSource::Custom {
-                stmts: parse_lazy_stmts(
-                    db,
+            AstVariant::Visual => Some(
+                parse_lazy_stmts(
+                    db.upcast(),
                     arena,
                     item.opt_children.clone().unwrap(),
                     file,
@@ -318,7 +320,7 @@ impl EntityDefnVariant {
                     },
                 )
                 .unwrap(),
-            }),
+            ),
             _ => None,
         }
     }
