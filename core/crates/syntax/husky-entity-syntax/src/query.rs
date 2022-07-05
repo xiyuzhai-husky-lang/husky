@@ -26,8 +26,6 @@ pub trait EntitySyntaxSalsaQueryGroup:
     fn entity_kind(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityKind>;
 
     fn entity_locus(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityLocus>;
-
-    fn entity_route_menu(&self) -> Arc<EntityRouteMenu>;
 }
 
 fn subroute_table(

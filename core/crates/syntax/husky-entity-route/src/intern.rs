@@ -11,7 +11,7 @@ pub type EntityRouteInterner = Interner<EntityRoute, EntityRoute, EntityRoutePtr
 singleton! { EntityRouteInterner }
 
 fn entity_route_interner() -> &'static EntityRouteInterner {
-    access_singleton()
+    __access_singleton()
 }
 
 pub fn make_route(

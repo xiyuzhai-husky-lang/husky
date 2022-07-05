@@ -15,7 +15,6 @@ use context::*;
 use entity_kind::TyKind;
 use fold::LocalStack;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
-use husky_entity_syntax::EntityRouteMenu;
 use husky_package_semantics::Package;
 use impl_entity_route::*;
 use std::sync::Arc;
@@ -24,7 +23,6 @@ pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustCodeGenQueryGroup,
     result: String,
     package_main: FilePtr,
-    entity_route_menu: Arc<EntityRouteMenu>,
     entity_route_uses: LocalStack<EntityRoutePtr>,
     context: RustCodeGenContext,
 }
@@ -41,7 +39,6 @@ impl<'a> RustCodeGenerator<'a> {
             db,
             package_main,
             result: Default::default(),
-            entity_route_menu: db.entity_route_menu(),
             entity_route_uses: symbols,
             context: RustCodeGenContext::Normal,
         }
@@ -57,7 +54,6 @@ impl<'a> RustCodeGenerator<'a> {
             db,
             package_main,
             result: Default::default(),
-            entity_route_menu: db.entity_route_menu(),
             entity_route_uses: symbols,
             context: RustCodeGenContext::Normal,
         }

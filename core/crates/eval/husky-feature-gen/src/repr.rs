@@ -66,7 +66,7 @@ impl FeatureRepr {
         defn_repr: &DefinitionRepr,
         features: &FeatureInterner,
     ) -> Self {
-        match defn_repr {
+        let result = match defn_repr {
             DefinitionRepr::LazyExpr { expr } => {
                 FeatureRepr::Expr(FeatureExpr::new(db, opt_this, expr.clone(), &[], features))
             }
@@ -84,22 +84,26 @@ impl FeatureRepr {
                 range: *range,
                 eval_id: Default::default(),
                 stmts: stmts.clone(),
-                instruction_sheet: new_func_instruction_sheet(
-                    db.upcast(),
-                    [].into_iter(),
-                    stmts,
-                    opt_this.is_some(),
-                ),
-                feature: features.intern(match opt_this {
-                    Some(ref this) => Feature::FieldAccess {
-                        this: this.feature(),
-                        field_ident: route.ident().custom(),
-                    },
-                    None => Feature::EntityFeature {
-                        route: *route,
-                        uid: db.compile_time().entity_uid(*route),
-                    },
-                }),
+                instruction_sheet: {
+                    new_func_instruction_sheet(
+                        db.upcast(),
+                        [].into_iter(),
+                        stmts,
+                        opt_this.is_some(),
+                    )
+                },
+                feature: {
+                    features.intern(match opt_this {
+                        Some(ref this) => Feature::FieldAccess {
+                            this: this.feature(),
+                            field_ident: route.ident().custom(),
+                        },
+                        None => Feature::EntityFeature {
+                            route: *route,
+                            uid: db.compile_time().entity_uid(*route),
+                        },
+                    })
+                },
                 opt_this,
                 ty: *ty,
             })),
@@ -108,8 +112,11 @@ impl FeatureRepr {
                 file,
                 range,
                 ty,
-            } => todo!(),
-        }
+            } => {
+                todo!()
+            }
+        };
+        result
     }
 }
 

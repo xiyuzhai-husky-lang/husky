@@ -70,6 +70,11 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        todo!()
+        Ok(Some(VisualData::Group(
+            self.iter()
+                .enumerate()
+                .map(|(i, element)| visualize_element(i, element.any_ref().short_dyn()))
+                .collect::<__EvalResult<Vec<_>>>()?,
+        )))
     }
 }

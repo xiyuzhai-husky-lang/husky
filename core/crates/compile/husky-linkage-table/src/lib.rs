@@ -9,7 +9,9 @@ pub use table::*;
 
 use check_utils::*;
 use colored::Colorize;
-use husky_entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
+use husky_entity_route::{
+    entity_route_menu, EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument,
+};
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
 use map_collect::MapCollect;
 use print_utils::p;
@@ -33,7 +35,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         }
         let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
         let std_ops_index_trai = self.make_route(
-            self.entity_route_menu().std_ops_index_trai,
+            entity_route_menu().std_ops_index_trai,
             thin_vec![SpatialArgument::EntityRoute(opd_tys[1])],
         );
         let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();

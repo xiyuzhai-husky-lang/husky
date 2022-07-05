@@ -15,7 +15,6 @@ pub use husky_package_semantics::PackageQueryGroup;
 pub use husky_rust_code_gen::RustCodeGenQueryGroup;
 pub use husky_token::TokenQueryGroup;
 pub use husky_token::TokenSalsaQueryGroup;
-use indexmap::IndexMap;
 pub use infer_contract::*;
 pub use infer_decl::*;
 pub use infer_qualifier::*;
@@ -23,10 +22,11 @@ pub use infer_total::*;
 pub use word::InternWord;
 
 use check_utils::*;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::{new_ty_route_cache, EntityRoutePtr};
 use husky_entity_semantics::EntityRouteStore;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
+use indexmap::IndexMap;
 use print_utils::*;
 use std::{
     collections::HashMap,
@@ -53,10 +53,11 @@ use sync_utils::ASafeRwLock;
 )]
 pub struct HuskyCompileTime {
     storage: salsa::Storage<HuskyCompileTime>,
-    static_ty_cache: Arc<Mutex<HashMap<std::any::TypeId, EntityRoutePtr>>>,
     file_interner: Arc<husky_file::FileInternerSingletonKeeper>,
+    ty_cache: Arc<husky_entity_route::TyRouteCacheSingletonKeeper>,
     word_interner: Arc<word::WordInternerSingletonKeeper>,
-    scope_interner: Arc<husky_entity_route::EntityRouteInternerSingletonKeeper>,
+    entity_route_interner: Arc<husky_entity_route::EntityRouteInternerSingletonKeeper>,
+    entity_route_menu: Arc<husky_entity_route::EntityRouteMenuSingletonKeeper>,
     live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
@@ -71,20 +72,21 @@ impl HuskyCompileTime {
         ) -> &'static static_defn::EntityStaticDefn,
     ) -> Self {
         let live_docs = Default::default();
-        let scope_interner = husky_entity_route::new_entity_route_interner();
+        let entity_route_interner = husky_entity_route::new_entity_route_interner();
         let entity_route_store = Default::default();
         let husky_linkage_table = Default::default();
         Self {
             storage: Default::default(),
             file_interner: husky_file::new_file_interner(),
             word_interner: word::new_word_interner(),
-            scope_interner,
+            entity_route_interner,
             live_docs,
             linkage_table: husky_linkage_table,
             entity_route_store,
             opt_main: None,
             __root_defn_resolver,
-            static_ty_cache: Default::default(),
+            ty_cache: new_ty_route_cache(),
+            entity_route_menu: husky_entity_route::new_entity_route_menu(),
         }
     }
 

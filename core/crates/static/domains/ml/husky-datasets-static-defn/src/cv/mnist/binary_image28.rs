@@ -141,13 +141,6 @@ impl BinaryImage28 {
         Self { padded_rows }
     }
 
-    pub fn visualize<'temp, 'eval>(value: &(dyn AnyValueDyn<'eval> + 'temp)) -> VisualData {
-        let value: &BinaryImage28 = value.downcast_ref();
-        VisualData::BinaryImage28 {
-            padded_rows: value.padded_rows.clone(),
-        }
-    }
-
     pub(crate) fn get(&self, index: usize) -> Option<u32> {
         self.padded_rows.get(index).map(|x| *x)
     }
@@ -200,6 +193,8 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        todo!()
+        Ok(Some(VisualData::BinaryImage28 {
+            padded_rows: self.padded_rows.clone(),
+        }))
     }
 }

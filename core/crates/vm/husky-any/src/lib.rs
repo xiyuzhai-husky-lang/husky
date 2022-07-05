@@ -119,7 +119,7 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
     where
         Self: 'a;
     fn print_short(&self) -> String;
-    fn short_dyn<'shorter_eval>(&'eval self) -> &'shorter_eval dyn AnyValueDyn<'shorter_eval>
+    fn short_dyn<'shorter_eval>(&self) -> &dyn AnyValueDyn<'shorter_eval>
     where
         'eval: 'shorter_eval;
     // consume the memory pointed at to create an Arc
@@ -245,7 +245,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         self.to_json_value()
     }
 
-    fn short_dyn<'short>(&'eval self) -> &'short dyn AnyValueDyn<'short>
+    fn short_dyn<'short>(&self) -> &dyn AnyValueDyn<'short>
     where
         'eval: 'short,
     {

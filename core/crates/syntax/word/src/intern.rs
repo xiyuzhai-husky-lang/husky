@@ -116,9 +116,17 @@ pub fn new_word_interner() -> Arc<WordInternerSingletonKeeper> {
 pub trait InternWord {
     fn word_allocator(&self) -> &WordInterner;
     fn intern_word(&self, word: &str) -> WordPtr {
-        self.word_allocator().alloc_from_ref(word)
+        self.word_allocator().intern_borrowed(word)
     }
     fn custom_ident(&self, word: &str) -> CustomIdentifier {
         self.intern_word(word).opt_custom().unwrap()
     }
+}
+
+pub fn word_interner() -> &'static WordInterner {
+    __access_singleton()
+}
+
+pub fn intern_word(text: &str) -> WordPtr {
+    word_interner().intern_borrowed(text)
 }

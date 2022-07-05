@@ -1,4 +1,7 @@
 use cyclic_slice::CyclicSlice;
+use husky_entity_route::{entity_route_menu, make_route};
+use thin_vec::thin_vec;
+use word::RootIdentifier;
 
 use super::*;
 
@@ -25,7 +28,12 @@ impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSli
     }
 
     fn static_ty() -> EntityRoutePtr {
-        todo!()
+        husky_entity_route::ty_route_with::<Self::StaticSelf>(|| {
+            make_route(
+                entity_route_menu().std_slice_cyclic_slice,
+                thin_vec![T::static_ty().into()],
+            )
+        })
     }
 
     fn print_short(&self) -> String {
@@ -39,6 +47,11 @@ impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSli
             &'eval dyn AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
-        todo!()
+        Ok(Some(VisualData::Group(
+            self.iter()
+                .enumerate()
+                .map(|(i, element)| visualize_element(i, element.short()))
+                .collect::<__EvalResult<Vec<_>>>()?,
+        )))
     }
 }

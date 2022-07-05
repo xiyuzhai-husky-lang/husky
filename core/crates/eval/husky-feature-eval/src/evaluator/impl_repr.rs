@@ -1,5 +1,6 @@
 use crate::*;
 use check_utils::should_eq;
+use print_utils::{epin, p};
 use vm::*;
 
 use super::FeatureEvaluator;
@@ -14,7 +15,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             FeatureRepr::ProcBlock(_) => todo!(),
         };
         if let Ok(ref value) = result {
-            should_eq!(value.any_ref().ty_dyn(), repr.ty())
+            should_eq!({ value.any_ref().ty_dyn() }, repr.ty())
         }
         result
     }
