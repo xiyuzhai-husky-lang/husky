@@ -1,1 +1,3 @@
-pub enum LinkageCollectorContext {}
+pub enum LinkageCollectorContext {
+    Base,
+}

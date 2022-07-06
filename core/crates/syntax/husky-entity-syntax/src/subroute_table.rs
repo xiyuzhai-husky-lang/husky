@@ -210,17 +210,17 @@ impl SubrouteTable {
         match data.variant {
             EntityStaticDefnVariant::Function { .. } | EntityStaticDefnVariant::Module => (),
             EntityStaticDefnVariant::Ty {
-                ty_members: type_members,
+                ty_members,
                 variants,
                 ..
             } => {
-                for type_member in type_members {
+                for ty_member in ty_members {
                     entries.push(SubrouteEntry {
                         ident: Some(RangedCustomIdentifier {
-                            ident: db.intern_word(type_member.name).custom(),
+                            ident: db.intern_word(ty_member.name).custom(),
                             range: Default::default(),
                         }),
-                        kind: EntityKind::Member(match type_member.variant {
+                        kind: EntityKind::Member(match ty_member.variant {
                             EntityStaticDefnVariant::TyField { .. } => MemberKind::Field,
                             EntityStaticDefnVariant::Method { .. } => {
                                 MemberKind::Method { is_lazy: false }
@@ -234,7 +234,10 @@ impl SubrouteTable {
                     todo!()
                 }
             }
-            EntityStaticDefnVariant::Trait { .. } => todo!(),
+            EntityStaticDefnVariant::Trait { .. } => {
+                p!(route);
+                todo!()
+            }
             EntityStaticDefnVariant::Method { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),

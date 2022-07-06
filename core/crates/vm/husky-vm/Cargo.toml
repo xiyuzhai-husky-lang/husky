@@ -14,7 +14,7 @@ print-utils = { path = "../../utils/print" }
 path-utils = { path = "../../utils/path" }
 dev-utils = { path = "../../utils/dev" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
-vec-map = { path = "../../abstraction/vec-map" }
+vec-like = { path = "../../abstraction/vec-like" }
 avec = { path = "../../abstraction/avec" }
 map-collect = { path = "../../abstraction/map-collect" }
 word = { path = "../../syntax/word" }

@@ -44,7 +44,7 @@ use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnV
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use thin_vec::{thin_vec, ThinVec};
-use vec_map::VecMapEntry;
+use vec_like::VecMapEntry;
 use vm::*;
 use word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 
@@ -140,6 +140,46 @@ impl EntityDefn {
             _ => panic!(""),
         }
     }
+
+    pub fn spatial_parameters(&self) -> &[SpatialParameter] {
+        match self.variant {
+            EntityDefnVariant::Main(_) => panic!(),
+            EntityDefnVariant::Module { .. } => panic!(),
+            EntityDefnVariant::Feature { .. } => panic!(),
+            EntityDefnVariant::Function {
+                ref spatial_parameters,
+                ..
+            } => todo!(),
+            EntityDefnVariant::Method {
+                ref spatial_parameters,
+                ..
+            } => todo!(),
+            EntityDefnVariant::Func {
+                ref spatial_parameters,
+                ..
+            } => spatial_parameters,
+            EntityDefnVariant::Proc {
+                ref spatial_parameters,
+                ..
+            } => spatial_parameters,
+            EntityDefnVariant::Ty {
+                ref spatial_parameters,
+                ..
+            } => spatial_parameters,
+            EntityDefnVariant::Trait {
+                ref spatial_parameters,
+                ..
+            } => spatial_parameters,
+            EntityDefnVariant::EnumVariant { .. } => {
+                msg_once!("enum spatial parameters");
+                todo!()
+            }
+            EntityDefnVariant::Builtin => todo!(),
+            EntityDefnVariant::TyField { .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+        }
+    }
 }
 
 #[derive(PartialEq, Eq)]
@@ -174,13 +214,13 @@ pub enum EntityDefnVariant {
         stmts: Arc<Vec<Arc<FuncStmt>>>,
     },
     Proc {
-        generic_parameters: IdentDict<SpatialParameter>,
+        spatial_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
         output: RangedEntityRoute,
         stmts: Avec<ProcStmt>,
     },
     Ty {
-        generic_parameters: IdentDict<SpatialParameter>,
+        spatial_parameters: IdentDict<SpatialParameter>,
         ty_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
         kind: TyKind,
@@ -191,7 +231,7 @@ pub enum EntityDefnVariant {
         opt_visual_stmts: Option<Avec<LazyStmt>>,
     },
     Trait {
-        generic_parameters: IdentDict<SpatialParameter>,
+        spatial_parameters: IdentDict<SpatialParameter>,
         members: IdentDict<Arc<EntityDefn>>,
     },
     EnumVariant {
@@ -311,7 +351,7 @@ impl EntityDefnVariant {
                     member_kinds: &member_kinds,
                 };
                 EntityDefnVariant::Trait {
-                    generic_parameters,
+                    spatial_parameters: generic_parameters,
                     members: members.map(|member: &'static EntityStaticDefn| {
                         let route = symbol_context.db.intern_entity_route(EntityRoute::subroute(
                             this_trai,

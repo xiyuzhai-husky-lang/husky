@@ -16,9 +16,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
 "#,
         );
         let main_module = self.db.module(self.package_main).unwrap();
-        let entity_dependees = self.db.entity_dependees(main_module).unwrap();
+        let entity_linkage_dependees = self.db.entity_linkage_dependees(main_module);
         self.write("    compile_time.load_linkages(&[");
-        for (entity_route, _) in entity_dependees.iter() {
+        for entity_route in entity_linkage_dependees.iter() {
             let entity_defn = self.db.entity_defn(*entity_route).unwrap();
             self.gen_linkage_entry(*entity_route, &entity_defn);
         }
@@ -33,7 +33,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         }
         match entity_defn.variant {
             EntityDefnVariant::Main(_) => todo!(),
-            EntityDefnVariant::Module { ref module_items } => (),
+            EntityDefnVariant::Module { .. } => (),
             EntityDefnVariant::Feature { ty, ref defn_repr } => match defn_repr {
                 DefinitionRepr::LazyExpr { expr } => (),
                 DefinitionRepr::LazyBlock { stmts, ty } => (),
@@ -79,17 +79,20 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                                 let method_name = entity_route.ident().as_str();
                                 self.write(&format!(", {method_name})"))
                             }
-                            _ => self.gen_specific_routine_linkage(
-                                Some((method_decl.this_liason, entity_route.parent())),
-                                |this| {
-                                    this.write(&format!(
-                                        "__this.{}",
-                                        entity_route.ident().as_str()
-                                    ));
-                                },
-                                &method_decl.parameters,
-                                &method_decl.output,
-                            ),
+                            _ => {
+                                p!(entity_route);
+                                self.gen_specific_routine_linkage(
+                                    Some((method_decl.this_liason, entity_route.parent())),
+                                    |this| {
+                                        this.write(&format!(
+                                            "__this.{}",
+                                            entity_route.ident().as_str()
+                                        ));
+                                    },
+                                    &method_decl.parameters,
+                                    &method_decl.output,
+                                )
+                            }
                         }
                     }
                     MethodDefnKind::TraitMethod { trai } => todo!(),
@@ -152,7 +155,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                 self.write("    ),");
             }
             EntityDefnVariant::Ty {
-                ref generic_parameters,
+                spatial_parameters: ref generic_parameters,
                 ref ty_members,
                 ref variants,
                 kind,
@@ -184,9 +187,9 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                     );
                     self.write("\n    ),");
                 }
-                for ty_member in members.iter() {
+                for member in members.iter() {
                     let is_defn_static = self.db.is_defn_static(entity_route);
-                    match ty_member.variant {
+                    match member.variant {
                         EntityDefnVariant::TyField {
                             ty,
                             ref field_variant,
@@ -197,7 +200,7 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                             | FieldDefnVariant::StructDefault { .. }
                             | FieldDefnVariant::StructDerivedEager { .. } => {
                                 self.write("\n    (\n");
-                                let field_ident = ty_member.ident.as_str();
+                                let field_ident = member.ident.as_str();
                                 self.write(&format!(
                                     r#"        __StaticLinkageKey::StructFieldAccess {{
             this_ty: "{entity_route}",
@@ -227,42 +230,43 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                                 panic!()
                             }
                         },
-                        _ => {
-                            if is_defn_static {
-                                let member_entity_route = match ty_member.base_route.kind {
-                                    EntityRouteKind::Root { ident } => {
-                                        p!(ty_member.base_route, ty_member.ident);
-                                        todo!()
-                                    }
-                                    EntityRouteKind::Package { main, ident } => todo!(),
-                                    EntityRouteKind::Child { parent, ident } => make_subroute(
-                                        entity_route,
-                                        ty_member.ident.custom(),
-                                        Default::default(),
-                                    ),
-                                    EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
-                                        msg_once!("todo: ignore trait that is generic over a specific type");
-                                        make_type_as_trait_member_route(
-                                            entity_route,
-                                            trai,
-                                            ident,
-                                            Default::default(),
-                                        )
-                                    }
-                                    EntityRouteKind::Input { main } => todo!(),
-                                    EntityRouteKind::Generic { ident, entity_kind } => todo!(),
-                                    EntityRouteKind::ThisType => todo!(),
-                                };
-                                self.gen_linkage_entry(member_entity_route, ty_member)
-                            } else {
-                                break;
-                            }
-                        }
+                        _ => (),
+                        // {
+                        //     if is_defn_static {
+                        //         let member_entity_route = match member.base_route.kind {
+                        //             EntityRouteKind::Root { ident } => {
+                        //                 p!(member.base_route, member.ident);
+                        //                 todo!()
+                        //             }
+                        //             EntityRouteKind::Package { main, ident } => todo!(),
+                        //             EntityRouteKind::Child { parent, ident } => make_subroute(
+                        //                 entity_route,
+                        //                 member.ident.custom(),
+                        //                 Default::default(),
+                        //             ),
+                        //             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                        //                 msg_once!("todo: ignore trait that is generic over a specific type");
+                        //                 make_type_as_trait_member_route(
+                        //                     entity_route,
+                        //                     trai,
+                        //                     ident,
+                        //                     Default::default(),
+                        //                 )
+                        //             }
+                        //             EntityRouteKind::Input { main } => todo!(),
+                        //             EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+                        //             EntityRouteKind::ThisType => todo!(),
+                        //         };
+                        //         self.gen_linkage_entry(member_entity_route, member)
+                        //     } else {
+                        //         break;
+                        //     }
+                        // }
                     }
                 }
             }
             EntityDefnVariant::Trait {
-                ref generic_parameters,
+                spatial_parameters: ref generic_parameters,
                 ref members,
             } => todo!(),
             EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),

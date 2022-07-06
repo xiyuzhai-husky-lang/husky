@@ -3,7 +3,7 @@ use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_text::RangedCustomIdentifier;
 use static_defn::StaticSpatialParameter;
-use vec_map::VecMapEntry;
+use vec_like::VecMapEntry;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

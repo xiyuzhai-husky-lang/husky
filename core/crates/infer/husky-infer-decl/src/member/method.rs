@@ -8,7 +8,7 @@ use husky_implement::{Implementable, Implementor};
 use husky_instantiate::InstantiationContext;
 use map_collect::MapCollect;
 use print_utils::p;
-use vec_map::VecMapEntry;
+use vec_like::VecMapEntry;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]

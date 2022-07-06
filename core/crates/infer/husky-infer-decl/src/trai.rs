@@ -9,7 +9,7 @@ use husky_implement::Implementor;
 use husky_instantiate::{Instantiable, InstantiationContext};
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
-use vec_map::VecMapEntry;
+use vec_like::VecMapEntry;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]

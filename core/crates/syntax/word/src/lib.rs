@@ -17,7 +17,7 @@ pub type IdentArcDict<T> = VecMap<CustomIdentifier, Arc<T>>;
 pub type IdentPairDict<T> = VecPairMap<CustomIdentifier, T>;
 
 use std::sync::Arc;
-use vec_map::{VecMap, VecPairMap};
+use vec_like::{VecMap, VecPairMap};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum WordPtr {

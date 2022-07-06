@@ -18,10 +18,12 @@ use husky_liason_semantics::*;
 use husky_package_semantics::PackageQueryGroup;
 use init_content::*;
 use lib_rs_content::*;
+use linkage_collector::*;
 use mod_rs_content::*;
 use print_utils::*;
-use std::sync::Arc;
+use std::{collections::HashSet, sync::Arc};
 use utils::*;
+use vec_like::VecSet;
 
 #[salsa::query_group(RustGenQueryStorage)]
 pub trait RustCodeGenQueryGroup: PackageQueryGroup {
@@ -34,4 +36,10 @@ pub trait RustCodeGenQueryGroup: PackageQueryGroup {
     fn entity_route_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;
     fn is_defn_static(&self, entity_route: EntityRoutePtr) -> bool;
     fn contains_spatial_parameters(&self, entity_route: EntityRoutePtr) -> bool;
+    fn entity_immediate_linkage_dependees(
+        &self,
+        entity_route: EntityRoutePtr,
+    ) -> Arc<VecSet<EntityRoutePtr>>;
+    fn entity_linkage_dependees(&self, entity_route: EntityRoutePtr)
+        -> Arc<VecSet<EntityRoutePtr>>;
 }

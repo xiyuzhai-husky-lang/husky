@@ -1,5 +1,5 @@
 use crate::*;
-use vec_map::VecMap;
+use vec_like::VecMap;
 use word::IdentDict;
 
 pub(crate) fn struct_decl(

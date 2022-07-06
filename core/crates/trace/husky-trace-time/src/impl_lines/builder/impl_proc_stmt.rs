@@ -160,17 +160,17 @@ impl<'a> TraceTokenBuilder<'a> {
         history: &Arc<History<'static>>,
     ) {
         match branch.variant {
-            ProcConditionBranchVariant::If { ref condition } => {
+            ProcConditionFlowBranchVariant::If { ref condition } => {
                 self.push(keyword!("if "));
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::branch());
                 self.push(special!(":"))
             }
-            ProcConditionBranchVariant::Elif { ref condition } => {
+            ProcConditionFlowBranchVariant::Elif { ref condition } => {
                 self.push(keyword!("elif "));
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::branch());
                 self.push(special!(":"))
             }
-            ProcConditionBranchVariant::Else => {
+            ProcConditionFlowBranchVariant::Else => {
                 self.push(keyword!("else"));
                 self.push(special!(":"))
             }

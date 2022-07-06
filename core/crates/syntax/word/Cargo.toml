@@ -13,5 +13,5 @@ serde = { version = "1.0.106", features = ["derive"] }
 singleton = { path = "../../abstraction/singleton" }
 test-utils = { path = "../../utils/test" }
 interner = { path = "../../abstraction/interner" }
-vec-map = { path = "../../abstraction/vec-map" }
+vec-like = { path = "../../abstraction/vec-like" }
 print-utils = { path = "../../utils/print" }

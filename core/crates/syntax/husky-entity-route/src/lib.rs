@@ -9,8 +9,9 @@ pub use cache::{
 };
 pub use entity_kind::EntityKind;
 pub use intern::{
-    make_route, make_subroute, make_type_as_trait_member_route, new_entity_route_interner,
-    EntityRouteInterner, EntityRouteInternerSingletonKeeper, EntityRoutePtr, InternEntityRoute,
+    base_route, make_route, make_subroute, make_type_as_trait_member_route,
+    new_entity_route_interner, EntityRouteInterner, EntityRouteInternerSingletonKeeper,
+    EntityRoutePtr, InternEntityRoute,
 };
 pub use menu::{entity_route_menu, new_entity_route_menu, EntityRouteMenuSingletonKeeper};
 
@@ -244,14 +245,18 @@ impl EntityRoute {
     }
 
     pub fn parent(&self) -> EntityRoutePtr {
+        self.opt_parent().unwrap()
+    }
+
+    pub fn opt_parent(&self) -> Option<EntityRoutePtr> {
         match self.kind {
             EntityRouteKind::Root { .. }
             | EntityRouteKind::Input { .. }
             | EntityRouteKind::Package { .. }
             | EntityRouteKind::Generic { .. }
-            | EntityRouteKind::ThisType => panic!(),
-            EntityRouteKind::Child { parent, .. } => parent,
-            EntityRouteKind::TypeAsTraitMember { ty: parent, .. } => parent,
+            | EntityRouteKind::ThisType => None,
+            EntityRouteKind::Child { parent, .. } => Some(parent),
+            EntityRouteKind::TypeAsTraitMember { ty: parent, .. } => Some(parent),
         }
     }
 }

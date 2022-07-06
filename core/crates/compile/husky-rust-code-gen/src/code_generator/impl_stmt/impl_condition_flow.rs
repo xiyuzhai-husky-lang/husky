@@ -1,8 +1,8 @@
 use super::*;
 use fold::Indent;
 use husky_eager_semantics::{
-    FuncConditionFlowBranch, FuncConditionFlowBranchVariant, ProcConditionBranchVariant,
-    ProcConditionFlowBranch, ProcStmt,
+    FuncConditionFlowBranch, FuncConditionFlowBranchVariant, ProcConditionFlowBranch,
+    ProcConditionFlowBranchVariant, ProcStmt,
 };
 use std::sync::Arc;
 
@@ -14,15 +14,15 @@ impl<'a> RustCodeGenerator<'a> {
     ) {
         for branch in branches {
             match branch.variant {
-                ProcConditionBranchVariant::If { ref condition } => {
+                ProcConditionFlowBranchVariant::If { ref condition } => {
                     self.write("if ");
                     self.gen_condition(condition);
                 }
-                ProcConditionBranchVariant::Elif { ref condition } => {
+                ProcConditionFlowBranchVariant::Elif { ref condition } => {
                     self.write(" else if ");
                     self.gen_condition(condition);
                 }
-                ProcConditionBranchVariant::Else => {
+                ProcConditionFlowBranchVariant::Else => {
                     self.write(" else");
                 }
             }

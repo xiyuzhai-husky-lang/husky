@@ -5,7 +5,7 @@ use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ProcConditionFlowBranch {
-    pub variant: ProcConditionBranchVariant,
+    pub variant: ProcConditionFlowBranchVariant,
     pub stmts: Arc<Vec<Arc<ProcStmt>>>,
     pub range: TextRange,
     pub file: FilePtr,
@@ -13,7 +13,7 @@ pub struct ProcConditionFlowBranch {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ProcConditionBranchVariant {
+pub enum ProcConditionFlowBranchVariant {
     If { condition: Arc<EagerExpr> },
     Elif { condition: Arc<EagerExpr> },
     Else,

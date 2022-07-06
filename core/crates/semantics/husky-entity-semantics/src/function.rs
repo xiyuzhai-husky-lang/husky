@@ -25,7 +25,7 @@ impl EntityDefnVariant {
                 Paradigm::EagerProcedural => {
                     let stmts = parse_impr_stmts(parameters, db.upcast(), arena, children, file)?;
                     EntityDefnVariant::Proc {
-                        generic_parameters: spatial_parameters.clone(),
+                        spatial_parameters: spatial_parameters.clone(),
                         parameters: parameters.clone(),
                         output: output_ty,
                         stmts,

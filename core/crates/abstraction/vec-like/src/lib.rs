@@ -1,4 +1,7 @@
 mod impl_compare;
+mod set;
+
+pub use set::*;
 
 use std::{marker::PhantomData, ops::Deref, sync::Arc};
 
@@ -164,14 +167,14 @@ where
         self.entries.iter().position(|entry| entry.key() == key)
     }
 
-    pub fn extends(&mut self, other: Self) -> Result<(), EntryRepeatError<Entry>> {
+    pub fn extend(&mut self, other: Self) -> Result<(), EntryRepeatError<Entry>> {
         for v in other.entries {
             self.insert_new(v)?
         }
         Ok(())
     }
 
-    pub fn extends_from_ref(&mut self, other: &Self)
+    pub fn extend_from_ref(&mut self, other: &Self)
     where
         Entry: Clone,
     {

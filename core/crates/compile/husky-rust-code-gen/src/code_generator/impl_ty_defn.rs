@@ -247,7 +247,7 @@ impl<'a> RustCodeGenerator<'a> {
                 ref stmts,
             } => self.gen_func_defn(4, ty_member.base_route, parameters, output.route, stmts),
             EntityDefnVariant::Proc {
-                ref generic_parameters,
+                spatial_parameters: ref generic_parameters,
                 ref parameters,
                 output,
                 ref stmts,

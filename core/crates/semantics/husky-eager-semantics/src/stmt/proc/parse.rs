@@ -121,7 +121,7 @@ impl<'a> EagerParser<'a> {
         match condition_branch_kind {
             RawConditionBranchKind::If { condition } => {
                 branches.push(Arc::new(ProcConditionFlowBranch {
-                    variant: ProcConditionBranchVariant::If {
+                    variant: ProcConditionFlowBranchVariant::If {
                         condition: self.parse_eager_expr(condition)?,
                     },
                     stmts: self.parse_proc_stmts(children)?,
@@ -163,7 +163,7 @@ impl<'a> EagerParser<'a> {
                             todo!()
                         }
                         branches.push(Arc::new(ProcConditionFlowBranch {
-                            variant: ProcConditionBranchVariant::Elif {
+                            variant: ProcConditionFlowBranchVariant::Elif {
                                 condition: self.parse_eager_expr(condition)?,
                             },
                             stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
@@ -174,7 +174,7 @@ impl<'a> EagerParser<'a> {
                     }
                     RawConditionBranchKind::Else => {
                         branches.push(Arc::new(ProcConditionFlowBranch {
-                            variant: ProcConditionBranchVariant::Else,
+                            variant: ProcConditionFlowBranchVariant::Else,
                             stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
                             range: stmt.range,
                             file: self.file,

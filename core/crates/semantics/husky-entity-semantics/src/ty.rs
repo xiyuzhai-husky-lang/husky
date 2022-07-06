@@ -21,7 +21,7 @@ use infer_total::InferQueryGroup;
 use print_utils::{emsg_once, p};
 use semantics_error::SemanticResult;
 use std::{iter::Peekable, sync::Arc};
-use vec_map::VecMap;
+use vec_like::VecMap;
 use word::{CustomIdentifier, IdentDict};
 
 impl EntityDefnVariant {
@@ -143,7 +143,7 @@ impl EntityDefnVariant {
     ) -> Self {
         let members = collect_all_members(&ty_members, &trait_impls);
         EntityDefnVariant::Ty {
-            generic_parameters,
+            spatial_parameters: generic_parameters,
             ty_members,
             variants,
             kind,
