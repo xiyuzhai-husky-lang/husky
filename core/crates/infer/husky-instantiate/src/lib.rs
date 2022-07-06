@@ -1,5 +1,6 @@
 mod context;
 mod impl_entity_route;
+mod impl_hash_set;
 mod impl_spatial_arguments;
 mod impl_spatial_parameter;
 mod impl_thin_vec;

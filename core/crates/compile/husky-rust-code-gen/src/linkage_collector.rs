@@ -1,13 +1,13 @@
 use crate::*;
 use husky_linkage_table::LinkageKey;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 mod context;
 
 pub use context::*;
 
 pub(crate) struct LinkageCollector<'a> {
     db: &'a dyn RustCodeGenQueryGroup,
-    linkages: HashMap<LinkageKey, String>,
+    linkages: HashSet<EntityRoutePtr>,
     context: LinkageCollectorContext,
 }
 
