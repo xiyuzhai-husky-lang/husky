@@ -66,6 +66,7 @@ impl HuskyDebuggerInternal {
         &mut self,
         request: &HuskyTracerGuiMessage,
     ) -> Option<HuskyTracerServerMessageVariant> {
+        p!(request);
         if let Some(request_id) = request.opt_request_id {
             if self.next_request_id != request_id {
                 // make sure all requests are received in order
@@ -171,7 +172,7 @@ impl HuskyDebuggerInternal {
                 needs_figure_control_data,
                 needs_stalk,
             } => {
-                self.trace_time.set_attention(attention.clone());
+                let new_trace_stalks = self.trace_time.set_attention(attention.clone());
                 if needs_figure_canvas_data || needs_figure_control_data || needs_stalk {
                     let (opt_figure_canvas_data, opt_figure_control_data) =
                         if let Some(active_trace_id) = self.trace_time.opt_active_trace_id() {
@@ -197,7 +198,10 @@ impl HuskyDebuggerInternal {
                         } else {
                             (None, None)
                         };
-                    let new_trace_stalks = self.trace_time.collect_new_trace_stalks();
+                    p!(self.trace_time.trace_stalks);
+                    if needs_stalk {
+                        assert!(new_trace_stalks.len() > 0);
+                    }
                     Some(HuskyTracerServerMessageVariant::LockAttention {
                         opt_figure_canvas_data,
                         opt_figure_control_data,

@@ -1,10 +1,10 @@
 use super::*;
 
 impl TraceContext {
-    pub(crate) fn trace(&self, trace_id: TraceId) -> &'static TraceData {
-        let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
-        assert!(trace.id == trace_id);
-        trace
+    pub(crate) fn trace_data(&self, trace_id: TraceId) -> &'static TraceData {
+        let trace_data = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
+        assert!(trace_data.id == trace_id);
+        trace_data
     }
 
     pub(crate) fn trace_kind(&self, trace_id: TraceId) -> TraceKind {
@@ -26,17 +26,20 @@ impl TraceContext {
         if let Some(trace_stalk) = self.trace_stalks.borrow(file!(), line!()).get(&key) {
             trace_stalk
         } else {
-            log::info!("{:?}", key);
+            log::info!(
+                "self.trace_stalks = {:?}",
+                self.trace_stalks.borrow(file!(), line!())
+            );
             let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
             log::info!("trace: {:?}", trace);
-            panic!()
+            panic!("no trace stalk for key {:?}", key);
         }
     }
 
     pub(crate) fn opt_active_trace(&self) -> Option<&'static TraceData> {
         self.opt_active_trace_id
             .cget()
-            .map(|trace_id| self.trace(trace_id))
+            .map(|trace_id| self.trace_data(trace_id))
     }
 
     pub(crate) fn subtrace_ids(&self, attention: &Attention, trace_id: TraceId) -> Vec<TraceId> {
@@ -72,7 +75,6 @@ impl TraceContext {
         &self,
         new_trace_stalks: impl Iterator<Item = (TraceStalkKey, &'static TraceStalkData)>,
     ) {
-        log::info!("receive trace stalks");
         let mut trace_stalks = self.trace_stalks.borrow_mut(file!(), line!());
         for (key, raw_data) in new_trace_stalks {
             assert!(trace_stalks.insert(key, raw_data).is_none());

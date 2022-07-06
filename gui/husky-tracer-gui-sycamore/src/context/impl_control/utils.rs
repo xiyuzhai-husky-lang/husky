@@ -12,7 +12,7 @@ impl DebuggerContext {
         } else {
             return false;
         };
-        let trace = self.trace_context.trace(active_trace_id);
+        let trace = self.trace_context.trace_data(active_trace_id);
         // let attention = opt_new_attention.unwrap_or(&self.attention_context.attention.get());
         let key = FigureCanvasKey::new(trace.kind, trace.id, attention);
         !self
@@ -32,7 +32,7 @@ impl DebuggerContext {
         } else {
             return false;
         };
-        let trace = self.trace_context.trace(active_trace_id);
+        let trace = self.trace_context.trace_data(active_trace_id);
         let key = FigureControlKey::from_trace_data(trace, attention);
         !self
             .figure_context
@@ -46,21 +46,24 @@ impl DebuggerContext {
         opt_active_trace_id: Option<TraceId>,
         attention: &Attention,
     ) -> bool {
-        let active_trace_id = if let Some(active_trace_id) = opt_active_trace_id {
-            active_trace_id
-        } else {
-            return false;
-        };
-        let trace = self.trace_context.trace(active_trace_id);
+        // let active_trace_id = if let Some(active_trace_id) = opt_active_trace_id {
+        //     active_trace_id
+        // } else {
+        //     return false;
+        // };
+        // let trace = self.trace_context.trace(active_trace_id);
         let sample_id = match attention.opt_sample_id() {
             Some(sample_id) => sample_id,
             None => return false,
         };
-        let key = TraceStalkKey::from_trace_data(sample_id, trace);
         !self
             .trace_context
-            .trace_stalks
-            .borrow(file!(), line!())
-            .contains_key(&key)
+            .for_all_expanded_traces(attention, |trace_data| {
+                let key = TraceStalkKey::from_trace_data(sample_id, trace_data);
+                self.trace_context
+                    .trace_stalks
+                    .borrow(file!(), line!())
+                    .contains_key(&key)
+            })
     }
 }

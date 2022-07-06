@@ -28,21 +28,23 @@ impl DebuggerContext {
                         opt_figure_control_data,
                         new_trace_stalks,
                     } => {
-                        let active_trace = self.trace_context.trace(opt_active_trace_id.unwrap());
-                        self.figure_context.set_opt_figure_data(
-                            self.scope,
-                            &active_trace,
-                            &new_attention,
-                            opt_figure_canvas_data
-                                .map(|figure_canvas_data| self.alloc_value(figure_canvas_data)),
-                            opt_figure_control_data,
-                        );
+                        opt_active_trace_id.map(|active_trace_id| {
+                            let active_trace = self.trace_context.trace_data(active_trace_id);
+                            self.figure_context.set_opt_figure_data(
+                                self.scope,
+                                &active_trace,
+                                &new_attention,
+                                opt_figure_canvas_data
+                                    .map(|figure_canvas_data| self.alloc_value(figure_canvas_data)),
+                                opt_figure_control_data,
+                            )
+                        });
                         self.trace_context.receive_trace_stalks(
                             new_trace_stalks
                                 .into_iter()
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
-                        self.attention_context.attention.set(new_attention.clone());
+                        self.attention_context.attention.set(new_attention.clone())
                     }
                     _ => panic!(),
                 }))

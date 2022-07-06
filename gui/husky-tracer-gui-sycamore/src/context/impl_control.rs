@@ -64,7 +64,7 @@ impl DebuggerContext {
 
     fn activate(&'static self, new_active_trace_id: TraceId) {
         let attention = self.attention_context.attention.get();
-        let trace = self.trace_context.trace(new_active_trace_id);
+        let trace = self.trace_context.trace_data(new_active_trace_id);
         let needs_figure_canvas_data =
             self.needs_figure_canvas_data(Some(new_active_trace_id), &attention);
         let needs_figure_control_data =
