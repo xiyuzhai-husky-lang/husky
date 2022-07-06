@@ -27,7 +27,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
     let attention = &tracer_context.attention_context.attention;
     let opt_canvas_and_control_data = memo!(scope, move || opt_active_trace_id.cget().map(
         |active_trace_id| {
-            let active_trace = tracer_context.trace_context.trace(active_trace_id);
+            let active_trace = tracer_context.trace_context.trace_data(active_trace_id);
             let canvas_data = tracer_context
                 .figure_context
                 .figure_canvas_data(&active_trace, &attention.get());

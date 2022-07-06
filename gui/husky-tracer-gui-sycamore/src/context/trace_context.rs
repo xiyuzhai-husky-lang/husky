@@ -1,5 +1,6 @@
 mod impl_control;
 mod impl_storage;
+mod utils;
 
 use super::*;
 use impl_control::*;
@@ -102,7 +103,7 @@ impl TraceContext {
     ) {
         trace_listing.push(trace_id);
         self.add_associated_traces(attention, trace_id, trace_listing);
-        if (self.expanded(trace_id)) {
+        if (self.is_expanded(trace_id)) {
             for subtrace_id in self.subtrace_ids(attention, trace_id) {
                 self.update_trace_listing_dfs(attention, subtrace_id, trace_listing);
             }
@@ -115,11 +116,11 @@ impl TraceContext {
         trace_id: TraceId,
         trace_listing: &mut Vec<TraceId>,
     ) {
-        let trace = self.trace(trace_id);
+        let trace = self.trace_data(trace_id);
         for line in &trace.lines {
             for token in &line.tokens {
                 if let Some(associated_trace_id) = token.opt_associated_trace_id {
-                    if (self.shown(associated_trace_id)) {
+                    if (self.is_shown(associated_trace_id)) {
                         self.update_trace_listing_dfs(
                             attention,
                             associated_trace_id,

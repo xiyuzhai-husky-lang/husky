@@ -15,7 +15,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let shown = trace_context.shown_signal(props.trace_id);
     let expansion = trace_context.expanded_signal(props.trace_id);
     let expanded = memo!(scope, move || expansion.cget(), expansion);
-    let trace = trace_context.trace(props.trace_id);
+    let trace = trace_context.trace_data(props.trace_id);
     let trace_kind = trace.kind;
     let attention = props.attention;
     let has_stalk = memo!(scope, move || attention.get().has_stalk(trace_kind));

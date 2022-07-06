@@ -37,7 +37,7 @@ pub struct HuskyTraceTime {
     attention: Attention,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
-    trace_stalks: HashMap<TraceStalkKey, TraceStalkData>,
+    pub trace_stalks: HashMap<TraceStalkKey, TraceStalkData>,
     root_trace_ids: Vec<TraceId>,
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
     figure_controls: HashMap<FigureControlKey, FigureControlData>,

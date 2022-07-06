@@ -1,7 +1,7 @@
 use super::*;
 
 impl TraceContext {
-    pub(crate) fn expanded(&self, trace_id: TraceId) -> bool {
+    pub(crate) fn is_expanded(&self, trace_id: TraceId) -> bool {
         self.trace_nodes.borrow(file!(), line!())[trace_id.0]
             .expanded
             .cget()
@@ -18,7 +18,7 @@ impl TraceContext {
         // self.update_trace_listing(attention);
     }
 
-    pub(crate) fn shown(&self, trace_id: TraceId) -> bool {
+    pub(crate) fn is_shown(&self, trace_id: TraceId) -> bool {
         self.trace_nodes.borrow(file!(), line!())[trace_id.0]
             .shown
             .cget()

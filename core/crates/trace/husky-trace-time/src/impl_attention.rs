@@ -9,7 +9,7 @@ impl HuskyTraceTime {
         &self.attention
     }
 
-    pub fn set_attention(&mut self, attention: Attention) {
+    pub fn set_attention(&mut self, attention: Attention) -> Vec<(TraceStalkKey, TraceStalkData)> {
         self.attention = attention;
         if let Some(sample_id0) = self.attention.opt_sample_id() {
             let main_file = self.eval_time().compile_time().main_file();
@@ -21,14 +21,15 @@ impl HuskyTraceTime {
                 Ok(_) => (),
                 Err(e) => match e {
                     EvalError::FromBatch { sample_id, .. } => {
-                        self.set_attention_raw(Attention::Specific { sample_id })
+                        todo!()
+                        // self.set_attention_raw(Attention::Specific { sample_id })
                     }
                     EvalError::Normal { .. } => (),
                 },
             }
-            for root_trace_id in self.root_trace_ids.clone() {
-                let _ = self.keyed_trace_stalk(root_trace_id);
-            }
+            self.collect_new_trace_stalks()
+        } else {
+            vec![]
         }
     }
 
