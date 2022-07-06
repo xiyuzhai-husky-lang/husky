@@ -35,7 +35,7 @@ impl FunctionDecl {
             spatial_parameters: self
                 .spatial_parameters
                 .iter()
-                .filter_map(|placeholder| ctx.instantiate_generic_placeholder(placeholder))
+                .filter_map(|parameter| parameter.instantiate(ctx))
                 .collect(),
             primary_parameters: self
                 .primary_parameters
