@@ -2,6 +2,7 @@ use crate::*;
 
 impl Instantiable for EntityRoutePtr {
     type Target = SpatialArgument;
+
     fn instantiate(&self, ctx: &InstantiationContext) -> SpatialArgument {
         match ctx.db.entity_kind(*self).unwrap() {
             EntityKind::Module => SpatialArgument::EntityRoute(*self),
@@ -42,7 +43,7 @@ impl Instantiable for EntityRoutePtr {
                     } => todo!(),
                 };
                 // convention: A<B,C> = A<B><C>
-                generics.extend(ctx.instantiate_generic_arguments(&*self.spatial_arguments));
+                generics.extend(self.spatial_arguments.instantiate(ctx));
                 SpatialArgument::EntityRoute(ctx.db.intern_entity_route(EntityRoute {
                     kind,
                     temporal_arguments: thin_vec![],

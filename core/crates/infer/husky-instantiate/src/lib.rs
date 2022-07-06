@@ -1,9 +1,10 @@
 mod context;
 mod impl_entity_route;
-mod instantiable;
+mod impl_spatial_arguments;
+mod impl_spatial_parameter;
+mod impl_thin_vec;
 
 pub use context::*;
-pub use instantiable::*;
 
 use check_utils::should_eq;
 use defn_head::{GenericPlaceholderVariant, SpatialParameter};
@@ -13,3 +14,15 @@ use map_collect::MapCollect;
 use print_utils::p;
 use thin_vec::{thin_vec, ThinVec};
 use word::CustomIdentifier;
+
+pub trait Instantiable {
+    type Target;
+
+    fn instantiate(&self, ctx: &InstantiationContext) -> Self::Target;
+}
+
+pub trait FilterInstantiable {
+    type Target;
+
+    fn instantiate(&self, ctx: &InstantiationContext) -> Option<Self::Target>;
+}
