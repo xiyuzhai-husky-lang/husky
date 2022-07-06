@@ -6,6 +6,7 @@ use husky_atom::{
     AtomContext, AtomContextStandalone,
 };
 use husky_implement::Implementor;
+use husky_instantiate::{Instantiable, InstantiationContext};
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
 use vec_map::VecMapEntry;
@@ -50,24 +51,6 @@ impl TraitMemberDecl {
         }
     }
 
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
-        match self {
-            TraitMemberDecl::Method(method_decl) => {
-                TraitMemberDecl::Method(method_decl.instantiate(instantiator))
-            }
-            TraitMemberDecl::Type { ident, traits } => TraitMemberDecl::Type {
-                ident: *ident,
-                traits: traits.map(|trai| {
-                    instantiator
-                        .instantiate_entity_route(*trai)
-                        .take_entity_route()
-                }),
-            },
-            TraitMemberDecl::ConstSize(_) => todo!(),
-            TraitMemberDecl::Call {} => todo!(),
-        }
-    }
-
     pub fn implement(
         &self,
         db: &dyn DeclQueryGroup,
@@ -84,6 +67,24 @@ impl TraitMemberDecl {
                 let ty = implementor.generic_argument(*ident).take_entity_route();
                 TraitMemberImplDecl::AssociatedType { ident: *ident, ty }
             }
+            TraitMemberDecl::ConstSize(_) => todo!(),
+            TraitMemberDecl::Call {} => todo!(),
+        }
+    }
+}
+
+impl Instantiable for TraitMemberDecl {
+    type Target = Self;
+
+    fn instantiate(&self, ctx: &InstantiationContext) -> Self {
+        match self {
+            TraitMemberDecl::Method(method_decl) => {
+                TraitMemberDecl::Method(method_decl.instantiate(ctx))
+            }
+            TraitMemberDecl::Type { ident, traits } => TraitMemberDecl::Type {
+                ident: *ident,
+                traits: traits.map(|trai| trai.instantiate(ctx).take_entity_route()),
+            },
             TraitMemberDecl::ConstSize(_) => todo!(),
             TraitMemberDecl::Call {} => todo!(),
         }
@@ -165,20 +166,18 @@ impl TraitDecl {
         dst_generics: &[SpatialArgument],
     ) -> Arc<Self> {
         should_eq!(self.generic_parameters.len(), dst_generics.len());
-        let instantiator = Instantiator {
+        let ctx = InstantiationContext {
             db: db.upcast(),
-            generic_parameters: &self.generic_parameters,
-            dst_generics,
+            spatial_parameters: &self.generic_parameters,
+            spatial_arguments: dst_generics,
         };
         Arc::new(TraitDecl {
-            trai: instantiator
-                .instantiate_entity_route(self.trai)
-                .take_entity_route(),
+            trai: self.trai.instantiate(&ctx).take_entity_route(),
             generic_parameters: Default::default(),
             members: self
                 .members
                 .iter()
-                .map(|member| member.instantiate(&instantiator))
+                .map(|member| member.instantiate(&ctx))
                 .collect(),
         })
     }

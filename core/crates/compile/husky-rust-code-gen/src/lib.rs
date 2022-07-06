@@ -1,9 +1,10 @@
 mod bin_main_rs_content;
 mod cargo_toml_content;
+mod code_generator;
 mod contains_eval_ref;
-mod generator;
 mod init_content;
 mod lib_rs_content;
+mod linkage_collector;
 mod mod_rs_content;
 mod utils;
 

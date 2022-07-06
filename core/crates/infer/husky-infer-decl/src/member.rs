@@ -97,7 +97,7 @@ pub enum TyMemberDecl {
 }
 
 impl TyMemberDecl {
-    pub(crate) fn instantiate(&self, instantiator: &Instantiator) -> Self {
+    pub(crate) fn instantiate(&self, instantiator: &InstantiationContext) -> Self {
         match self {
             TyMemberDecl::Field(field_decl) => {
                 TyMemberDecl::Field(field_decl.instantiate(instantiator))

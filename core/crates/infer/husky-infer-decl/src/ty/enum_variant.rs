@@ -51,7 +51,7 @@ impl EnumVariantDecl {
         todo!()
     }
 
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
+    pub fn instantiate(&self, instantiator: &InstantiationContext) -> Self {
         todo!()
     }
 }

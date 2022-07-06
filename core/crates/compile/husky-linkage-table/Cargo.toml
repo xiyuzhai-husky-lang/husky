@@ -22,3 +22,4 @@ word = { path = "../../syntax/word" }
 static-defn = { path = "../../static/static-defn" }
 thin-vec = { path = "../../../../forks/thin-vec" }
 husky-file = { path = "../../syntax/husky-file" }
+husky-instantiate = { path = "../../infer/husky-instantiate" }

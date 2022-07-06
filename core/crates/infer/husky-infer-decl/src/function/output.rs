@@ -1,5 +1,6 @@
 use check_utils::should_eq;
 use husky_implement::Implementable;
+use husky_instantiate::Instantiable;
 
 use super::*;
 
@@ -9,12 +10,12 @@ pub struct OutputDecl {
     pub ty: EntityRoutePtr,
 }
 
-impl OutputDecl {
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
+impl Instantiable for OutputDecl {
+    type Target = Self;
+
+    fn instantiate(&self, ctx: &InstantiationContext) -> Self {
         Self {
-            ty: instantiator
-                .instantiate_entity_route(self.ty)
-                .take_entity_route(),
+            ty: self.ty.instantiate(ctx).take_entity_route(),
             liason: self.liason,
         }
     }

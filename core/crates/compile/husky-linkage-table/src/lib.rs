@@ -1,10 +1,9 @@
+mod form;
 mod key;
 mod table;
 
-use husky_entity_syntax::EntityLocus;
-use husky_file::FilePtr;
+pub use form::*;
 pub use key::*;
-use static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
 pub use table::*;
 
 use check_utils::*;
@@ -13,8 +12,11 @@ use husky_entity_route::{
     entity_route_menu, EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument,
 };
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
+use husky_entity_syntax::EntityLocus;
+use husky_file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;
+use static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
 use thin_vec::{thin_vec, ThinVec};

@@ -1,6 +1,7 @@
 mod output;
 mod parameter;
 
+use husky_instantiate::InstantiationContext;
 pub use output::*;
 pub use parameter::*;
 
@@ -28,23 +29,21 @@ pub struct FunctionDecl {
 }
 
 impl FunctionDecl {
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
+    pub fn instantiate(&self, ctx: &InstantiationContext) -> Arc<Self> {
         Arc::new(Self {
-            route: instantiator
-                .instantiate_entity_route(self.route)
-                .take_entity_route(),
+            route: self.route.instantiate(ctx).take_entity_route(),
             spatial_parameters: self
                 .spatial_parameters
                 .iter()
-                .filter_map(|placeholder| instantiator.instantiate_generic_placeholder(placeholder))
+                .filter_map(|placeholder| ctx.instantiate_generic_placeholder(placeholder))
                 .collect(),
             primary_parameters: self
                 .primary_parameters
-                .map(|parameter| parameter.instantiate(instantiator)),
-            output: self.output.instantiate(instantiator),
+                .map(|parameter| parameter.instantiate(ctx)),
+            output: self.output.instantiate(ctx),
             keyword_parameters: self
                 .primary_parameters
-                .map(|parameter| parameter.instantiate(instantiator)),
+                .map(|parameter| parameter.instantiate(ctx)),
         })
     }
 

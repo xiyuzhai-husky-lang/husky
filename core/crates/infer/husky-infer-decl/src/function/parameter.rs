@@ -39,11 +39,9 @@ impl ParameterDecl {
         })
     }
 
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
+    pub fn instantiate(&self, ctx: &InstantiationContext) -> Self {
         Self {
-            ty: instantiator
-                .instantiate_entity_route(self.ty)
-                .take_entity_route(),
+            ty: self.ty.instantiate(ctx).take_entity_route(),
             liason: self.liason,
             ident: self.ident,
         }

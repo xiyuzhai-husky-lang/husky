@@ -27,3 +27,4 @@ defn-head = { path = "../../syntax/defn-head" }
 entity-kind = { path = "../../syntax/entity-kind" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-linkage-table = { path = "../husky-linkage-table" }
