@@ -1,9 +1,11 @@
 mod context;
+mod impl_arc;
 mod impl_entity_route;
 mod impl_hash_set;
 mod impl_spatial_arguments;
 mod impl_spatial_parameter;
 mod impl_thin_vec;
+mod impl_vec_set;
 
 pub use context::*;
 

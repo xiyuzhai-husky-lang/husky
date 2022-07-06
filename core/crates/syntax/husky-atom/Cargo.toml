@@ -13,7 +13,7 @@ print-utils = { path = "../../utils/print" }
 dev-utils = { path = "../../utils/dev" }
 interner = { path = "../../abstraction/interner" }
 fold = { path = "../../abstraction/fold" }
-vec-map = { path = "../../abstraction/vec-map" }
+vec-like = { path = "../../abstraction/vec-like" }
 map-collect = { path = "../../abstraction/map-collect" }
 arena = { path = "../../abstraction/arena" }
 husky-file = { path = "../husky-file" }

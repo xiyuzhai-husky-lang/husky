@@ -1,4 +1,4 @@
-use vec_map::VecMap;
+use vec_like::VecMap;
 use word::{CustomIdentifier, IdentDict};
 
 use crate::*;

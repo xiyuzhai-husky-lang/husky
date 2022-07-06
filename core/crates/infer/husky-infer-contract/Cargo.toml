@@ -17,7 +17,7 @@ dev-utils = { path = "../../utils/dev" }
 print-utils = { path = "../../utils/print" }
 fold = { path = "../../abstraction/fold" }
 arena = { path = "../../abstraction/arena" }
-vec-map = { path = "../../abstraction/vec-map" }
+vec-like = { path = "../../abstraction/vec-like" }
 interner = { path = "../../abstraction/interner" }
 husky-text = { path = "../../syntax/husky-text" }
 vm = { path = "../../vm/husky-vm" }

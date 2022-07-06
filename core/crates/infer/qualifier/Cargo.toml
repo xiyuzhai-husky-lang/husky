@@ -14,7 +14,7 @@ test-utils = { path = "../../utils/test" }
 dev-utils = { path = "../../utils/dev" }
 fold = { path = "../../abstraction/fold" }
 arena = { path = "../../abstraction/arena" }
-vec-map = { path = "../../abstraction/vec-map" }
+vec-like = { path = "../../abstraction/vec-like" }
 vm = { path = "../../vm/husky-vm" }
 infer-error = { path = "../error" }
 husky-ast = { path = "../../syntax/husky-ast" }

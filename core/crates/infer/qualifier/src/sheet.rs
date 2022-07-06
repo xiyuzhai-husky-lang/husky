@@ -8,7 +8,7 @@ use infer_error::{derived_not_none, InferError, InferErrorVariant};
 use print_utils::{p, ps};
 use std::fmt::Write;
 use test_utils::{TestDisplay, TestDisplayConfig};
-use vec_map::VecPairMap;
+use vec_like::VecPairMap;
 use word::{CustomIdentifier, Identifier};
 
 use crate::*;

@@ -25,7 +25,7 @@ use husky_entity_route::*;
 use husky_text::*;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
-use vec_map::VecMap;
+use vec_like::VecMap;
 use vm::TySignature;
 use word::{IdentArcDict, IdentDict, Paradigm};
 

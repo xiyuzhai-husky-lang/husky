@@ -8,7 +8,7 @@ use fold::LocalStack;
 use husky_atom::{context::Symbol, AtomContext};
 use map_collect::MapCollect;
 use print_utils::{epin, p};
-use vec_map::VecMapEntry;
+use vec_like::VecMapEntry;
 
 use crate::*;
 

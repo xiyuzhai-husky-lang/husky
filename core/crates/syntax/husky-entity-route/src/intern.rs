@@ -14,6 +14,14 @@ fn entity_route_interner() -> &'static EntityRouteInterner {
     __access_singleton()
 }
 
+pub fn base_route(route: EntityRoutePtr) -> EntityRoutePtr {
+    entity_route_interner().intern(EntityRoute {
+        kind: route.kind,
+        temporal_arguments: Default::default(),
+        spatial_arguments: Default::default(),
+    })
+}
+
 pub fn make_route(
     route: EntityRoutePtr,
     generic_arguments: ThinVec<SpatialArgument>,

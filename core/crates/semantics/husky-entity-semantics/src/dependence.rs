@@ -2,7 +2,7 @@ use husky_ast::{CasePattern, CasePatternVariant};
 use husky_entity_route::EntityRouteKind;
 use print_utils::emsg_once;
 use semantics_error::*;
-use vec_map::{VecMap, VecPairMap};
+use vec_like::{VecMap, VecPairMap};
 
 use crate::*;
 
@@ -70,22 +70,22 @@ pub(crate) fn entity_dependees(
     db: &dyn EntityDefnQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> SemanticResultArc<DependeeMap> {
-    let mut immediate_dependees = (*db.entity_immediate_dependees(entity_route)?).clone();
-    visit_all(db, &mut immediate_dependees, 0)?;
-    return Ok(Arc::new(immediate_dependees));
+    let mut dependees = (*db.entity_immediate_dependees(entity_route)?).clone();
+    visit_all(db, &mut dependees, 0)?;
+    return Ok(Arc::new(dependees));
 
     fn visit_all(
         db: &dyn EntityDefnQueryGroup,
         map: &mut DependeeMap,
         start: usize,
     ) -> SemanticResult<()> {
-        let len0 = map.data().len();
+        let len0 = map.len();
         for i in start..len0 {
             let (subroute, _) = map.data()[i];
             let submap = db.entity_immediate_dependees(subroute)?;
-            map.extends_from_ref(&submap);
+            map.extend_from_ref(&submap);
         }
-        if map.data().len() > len0 {
+        if map.len() > len0 {
             visit_all(db, map, len0)
         } else {
             Ok(())
@@ -206,7 +206,7 @@ impl EntityDefn {
             EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             EntityDefnVariant::Trait {
-                ref generic_parameters,
+                spatial_parameters: ref generic_parameters,
                 ref members,
             } => todo!(),
             EntityDefnVariant::Function {
@@ -474,7 +474,7 @@ impl EntityDefn {
                 EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
                 EntityDefnVariant::Method { .. } => todo!(),
                 EntityDefnVariant::Trait {
-                    ref generic_parameters,
+                    spatial_parameters: ref generic_parameters,
                     ref members,
                 } => todo!(),
                 EntityDefnVariant::Function {
@@ -506,13 +506,13 @@ impl EntityDefn {
             builder: &mut DependeeMapBuilder,
         ) {
             match branch.variant {
-                ProcConditionBranchVariant::If { ref condition } => {
+                ProcConditionFlowBranchVariant::If { ref condition } => {
                     extract_eager_expr_dependees(condition, builder)
                 }
-                ProcConditionBranchVariant::Elif { ref condition } => {
+                ProcConditionFlowBranchVariant::Elif { ref condition } => {
                     extract_eager_expr_dependees(condition, builder)
                 }
-                ProcConditionBranchVariant::Else => (),
+                ProcConditionFlowBranchVariant::Else => (),
             }
             extract_proc_stmts_dependees(&branch.stmts, builder)
         }

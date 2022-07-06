@@ -3,7 +3,7 @@ use entity_kind::FieldKind;
 use husky_atom::AtomContext;
 use husky_entity_route::EntityRoutePtr;
 use husky_instantiate::InstantiationContext;
-use vec_map::VecMapEntry;
+use vec_like::VecMapEntry;
 use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

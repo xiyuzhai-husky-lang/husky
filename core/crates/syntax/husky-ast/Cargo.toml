@@ -16,7 +16,7 @@ dev-utils = { path = "../../utils/dev" }
 test-utils = { path = "../../utils/test" }
 interner = { path = "../../abstraction/interner" }
 fold = { path = "../../abstraction/fold" }
-vec-map = { path = "../../abstraction/vec-map" }
+vec-like = { path = "../../abstraction/vec-like" }
 upcast = { path = "../../abstraction/upcast" }
 arena = { path = "../../abstraction/arena" }
 map-collect = { path = "../../abstraction/map-collect" }

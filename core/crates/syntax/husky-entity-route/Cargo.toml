@@ -14,7 +14,7 @@ interner = { path = "../../abstraction/interner" }
 check-utils = { path = "../../utils/check" }
 print-utils = { path = "../../utils/print" }
 fold = { path = "../../abstraction/fold" }
-vec-map = { path = "../../abstraction/vec-map" }
+vec-like = { path = "../../abstraction/vec-like" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
 word = { path = "../word" }

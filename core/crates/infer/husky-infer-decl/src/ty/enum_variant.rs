@@ -1,5 +1,5 @@
 use entity_kind::EnumVariantKind;
-use vec_map::VecMapEntry;
+use vec_like::VecMapEntry;
 
 use super::*;
 
