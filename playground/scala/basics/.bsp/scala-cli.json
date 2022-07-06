@@ -1,0 +1,16 @@
+{
+  "name": "scala-cli",
+  "argv": [
+    "/home/xiyuzhai/.cache/scalacli/local-repo/bin/scala-cli/scala-cli",
+    "bsp",
+    "--json-options",
+    "/home/xiyuzhai/Documents/husky/playground/scala/basics/.scala-build/ide-options-v2.json",
+    "/home/xiyuzhai/Documents/husky/playground/scala/basics/demo.sc"
+  ],
+  "version": "0.1.9",
+  "bspVersion": "2.0.0",
+  "languages": [
+    "scala",
+    "java"
+  ]
+}

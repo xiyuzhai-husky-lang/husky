@@ -29,7 +29,7 @@ husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 word = { path = "../../syntax/word" }
 infer-error = { path = "../../infer/error" }
 entity-kind = { path = "../../syntax/entity-kind" }
-instantiate = { path = "../instantiate" }
+husky-instantiate = { path = "../husky-instantiate" }
 husky-implement = { path = "../husky-implement" }
 static-defn = { path = "../../static/static-defn" }
 defn-head = { path = "../../syntax/defn-head" }

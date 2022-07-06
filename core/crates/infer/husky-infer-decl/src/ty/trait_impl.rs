@@ -39,17 +39,11 @@ impl TraitImplDecl {
         })
     }
 
-    pub(crate) fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
+    pub(crate) fn instantiate(&self, ctx: &InstantiationContext) -> Arc<Self> {
         Arc::new(Self {
-            trait_route: instantiator
-                .instantiate_entity_route(self.trait_route)
-                .take_entity_route(),
-            this_ty: instantiator
-                .instantiate_entity_route(self.this_ty)
-                .take_entity_route(),
-            member_impls: self
-                .member_impls
-                .map(|member| member.instantiate(instantiator)),
+            trait_route: self.trait_route.instantiate(ctx).take_entity_route(),
+            this_ty: self.this_ty.instantiate(ctx).take_entity_route(),
+            member_impls: self.member_impls.map(|member| member.instantiate(ctx)),
         })
     }
 
@@ -265,17 +259,15 @@ impl TraitMemberImplDecl {
         // }
     }
 
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
+    pub fn instantiate(&self, ctx: &InstantiationContext) -> Self {
         match self {
             TraitMemberImplDecl::Method(method_decl) => {
-                TraitMemberImplDecl::Method(method_decl.instantiate(instantiator))
+                TraitMemberImplDecl::Method(method_decl.instantiate(ctx))
             }
             TraitMemberImplDecl::AssociatedType { ident, ty } => {
                 TraitMemberImplDecl::AssociatedType {
                     ident: *ident,
-                    ty: instantiator
-                        .instantiate_entity_route(*ty)
-                        .take_entity_route(),
+                    ty: ty.instantiate(ctx).take_entity_route(),
                 }
             }
             TraitMemberImplDecl::Call {} => todo!(),

@@ -1,5 +1,5 @@
 use crate::*;
-use generator::RustCodeGenerator;
+use code_generator::RustCodeGenerator;
 
 pub(crate) fn rust_mod_rs_content(
     db: &dyn RustCodeGenQueryGroup,

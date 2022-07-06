@@ -76,7 +76,7 @@ impl LinkageTable {
             .linkages
             .read(|entries| entries.get(&key).map(|linkage_source| *linkage_source));
         if result.is_none() {
-            let static_key = key.into_static(db);
+            let static_key = key.into_form(db);
             println!(
                 "{} for {static_key:?} among {} linkages",
                 "linkage missed".red(),

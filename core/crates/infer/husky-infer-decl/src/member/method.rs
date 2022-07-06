@@ -5,6 +5,7 @@ use husky_atom::{
     *,
 };
 use husky_implement::{Implementable, Implementor};
+use husky_instantiate::InstantiationContext;
 use map_collect::MapCollect;
 use print_utils::p;
 use vec_map::VecMapEntry;
@@ -28,13 +29,11 @@ pub enum MethodKind {
 }
 
 impl MethodKind {
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Self {
+    pub fn instantiate(&self, instantiator: &InstantiationContext) -> Self {
         match self {
             MethodKind::Type => MethodKind::Type,
             MethodKind::Trait { trai } => MethodKind::Trait {
-                trai: instantiator
-                    .instantiate_entity_route(*trai)
-                    .take_entity_route(),
+                trai: trai.instantiate(instantiator).take_entity_route(),
             },
         }
     }
@@ -67,7 +66,7 @@ impl MethodDecl {
         (self.parameters.len() + 1).try_into().unwrap()
     }
 
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
+    pub fn instantiate(&self, instantiator: &InstantiationContext) -> Arc<Self> {
         Arc::new(Self {
             ident: self.ident,
             this_liason: self.this_liason,

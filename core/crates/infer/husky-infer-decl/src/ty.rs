@@ -302,17 +302,17 @@ impl TyDecl {
         db: &dyn DeclQueryGroup,
         this_ty: EntityRoutePtr,
         generic_parameters: IdentDict<SpatialParameter>,
-        type_members: IdentDict<TyMemberDecl>,
+        ty_members: IdentDict<TyMemberDecl>,
         variants: IdentDict<EnumVariantDecl>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDecl>>,
         opt_type_call: Option<Arc<FunctionDecl>>,
     ) -> Arc<Self> {
-        let members = MemberDecl::collect_all(db, &type_members, &trait_impls);
+        let members = MemberDecl::collect_all(db, &ty_members, &trait_impls);
         Arc::new(Self {
             this_ty,
             generic_parameters,
-            ty_members: type_members,
+            ty_members,
             variants,
             kind,
             trait_impls,

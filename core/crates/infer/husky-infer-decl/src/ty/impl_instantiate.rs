@@ -1,33 +1,30 @@
 use super::*;
 use check_utils::should_eq;
+use print_utils::msg_once;
 
 impl TyDecl {
     pub fn instantiate(
         &self,
         db: &dyn DeclQueryGroup,
-        dst_generics: &[SpatialArgument],
+        spatial_arguments: &[SpatialArgument],
     ) -> Arc<Self> {
-        should_eq!(self.generic_parameters.len(), dst_generics.len());
-        let instantiator = Instantiator {
+        should_eq!(self.generic_parameters.len(), spatial_arguments.len());
+        let ctx = InstantiationContext {
             db: db.upcast(),
-            generic_parameters: &self.generic_parameters,
-            dst_generics,
+            spatial_parameters: &self.generic_parameters,
+            spatial_arguments,
         };
         Self::new(
             db,
-            instantiator
-                .instantiate_entity_route(self.this_ty)
-                .take_entity_route(),
+            self.this_ty.instantiate(&ctx).take_entity_route(),
             Default::default(), // generic_parameters
-            self.ty_members
-                .map(|member| member.instantiate(&instantiator)), //   type_methods
-            self.variants
-                .map(|variant| variant.instantiate(&instantiator)), //   variants
+            self.ty_members.map(|member| member.instantiate(&ctx)), //   type_methods
+            self.variants.map(|variant| variant.instantiate(&ctx)), //   variants
             self.kind,          //      kind
-            self.trait_impls.map(|t| t.instantiate(&instantiator)), //   trait_impls
+            self.trait_impls.map(|t| t.instantiate(&ctx)), //   trait_impls
             self.opt_type_call
                 .as_ref()
-                .map(|type_call| type_call.instantiate(&instantiator)),
+                .map(|type_call| type_call.instantiate(&ctx)),
         )
     }
 }

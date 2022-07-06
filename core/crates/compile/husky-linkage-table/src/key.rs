@@ -24,26 +24,6 @@ pub enum LinkageKey {
     },
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum ExtrinsicLinkageKey {
-    VecConstructor {
-        element_ty: EntityRoutePtr,
-    },
-    TypeCall {
-        ty: EntityRoutePtr,
-    },
-    Routine {
-        routine: EntityRoutePtr,
-    },
-    ElementAccess {
-        opd_tys: SmallVec<[EntityRoutePtr; 2]>,
-    },
-    StructFieldAccess {
-        this_ty: EntityRoutePtr,
-        field_ident: CustomIdentifier,
-    },
-}
-
 impl LinkageKey {
     pub fn from_static(db: &dyn ResolveLinkage, static_key: __StaticLinkageKey) -> Self {
         match static_key {
@@ -72,18 +52,18 @@ impl LinkageKey {
         }
     }
 
-    pub fn into_static(&self, db: &dyn EntityDefnQueryGroup) -> ExtrinsicLinkageKey {
+    pub fn into_form(&self, db: &dyn EntityDefnQueryGroup) -> LinkageForm {
         match self {
-            LinkageKey::VecConstructor { element_ty_uid } => ExtrinsicLinkageKey::VecConstructor {
+            LinkageKey::VecConstructor { element_ty_uid } => LinkageForm::VecConstructor {
                 element_ty: db.entity_route_by_uid(*element_ty_uid),
             },
-            LinkageKey::TypeCall { ty_uid } => ExtrinsicLinkageKey::TypeCall {
+            LinkageKey::TypeCall { ty_uid } => LinkageForm::TypeCall {
                 ty: db.entity_route_by_uid(*ty_uid),
             },
-            LinkageKey::Routine { routine_uid } => ExtrinsicLinkageKey::Routine {
+            LinkageKey::Routine { routine_uid } => LinkageForm::Routine {
                 routine: db.entity_route_by_uid(*routine_uid),
             },
-            LinkageKey::ElementAccess { opd_uids } => ExtrinsicLinkageKey::ElementAccess {
+            LinkageKey::ElementAccess { opd_uids } => LinkageForm::ElementAccess {
                 opd_tys: opd_uids
                     .iter()
                     .map(|uid| db.entity_route_by_uid(*uid))
@@ -92,7 +72,7 @@ impl LinkageKey {
             LinkageKey::StructFieldAccess {
                 this_ty_uid,
                 field_ident,
-            } => ExtrinsicLinkageKey::StructFieldAccess {
+            } => LinkageForm::StructFieldAccess {
                 this_ty: db.entity_route_by_uid(*this_ty_uid),
                 field_ident: *field_ident,
             },

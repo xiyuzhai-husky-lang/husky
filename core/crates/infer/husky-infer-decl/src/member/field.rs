@@ -2,7 +2,7 @@ use crate::*;
 use entity_kind::FieldKind;
 use husky_atom::AtomContext;
 use husky_entity_route::EntityRoutePtr;
-use instantiate::Instantiator;
+use husky_instantiate::InstantiationContext;
 use vec_map::VecMapEntry;
 use word::CustomIdentifier;
 
@@ -15,13 +15,11 @@ pub struct FieldDecl {
 }
 
 impl FieldDecl {
-    pub fn instantiate(&self, instantiator: &Instantiator) -> Arc<Self> {
+    pub fn instantiate(&self, ctx: &InstantiationContext) -> Arc<Self> {
         Arc::new(Self {
             ident: self.ident,
             liason: self.liason,
-            ty: instantiator
-                .instantiate_entity_route(self.ty)
-                .take_entity_route(),
+            ty: self.ty.instantiate(ctx).take_entity_route(),
             field_kind: self.field_kind,
         })
     }
