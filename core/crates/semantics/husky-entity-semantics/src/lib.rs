@@ -531,10 +531,7 @@ pub(crate) fn entity_defn(
             EntityRouteKind::Child { parent: ty, ident } => {
                 let ty_defn = db.entity_defn(ty).unwrap();
                 match ty_defn.variant {
-                    EntityDefnVariant::Ty {
-                        ty_members: ref type_members,
-                        ..
-                    } => Ok(type_members[ident].clone()),
+                    EntityDefnVariant::Ty { ref ty_members, .. } => Ok(ty_members[ident].clone()),
                     _ => panic!(),
                 }
             }
