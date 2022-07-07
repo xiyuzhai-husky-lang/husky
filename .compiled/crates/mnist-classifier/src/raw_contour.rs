@@ -52,6 +52,34 @@ pub(crate) enum Direction {
     DOWN,
     RIGHT,
 }
+
+impl __HasStaticTypeInfo for Direction {
+    type __StaticSelf = Direction;
+
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+        "mnist_classifier::raw_contour::Direction".into()
+    }
+}
+
+impl<'eval> __AnyValue<'eval> for Direction {
+    fn __print_short(&self) -> String {
+        "{ ... }".to_owned()
+    }
+
+    fn __to_json_value(&self) -> __JsonValue {
+        serde_json::value::to_value(self).unwrap()
+    }
+
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
+    where
+        'eval: 'short {
+        self
+    }
+
+    fn __static_ty() -> __EntityRoutePtr {
+        __ty_route_from_static_binded::<Self>("mnist_classifier::raw_contour::Direction")
+    }
+}
 pub(crate) fn get_pixel_pair(row: u32, j: i32) -> u32 {
     return (row >> (j - 1)) & 3u32
 }
