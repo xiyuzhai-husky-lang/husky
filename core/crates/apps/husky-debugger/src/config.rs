@@ -1,8 +1,9 @@
 use crate::*;
 use husky_eval_time::HuskyEvalTimeConfig;
+use serde::{Deserialize, Serialize};
 use vm::VMConfig;
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct HuskyDebuggerConfig {
     pub package_dir: PathBuf,
     pub opt_sample_id: Option<SampleId>,
