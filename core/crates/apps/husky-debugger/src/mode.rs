@@ -50,7 +50,6 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
     );
 
     for package_dir in package_dirs {
-        let mut compile_time = HuskyCompileTime::new(__root_defn);
         println!(
             "\n{}test{} {}",
             print_utils::CYAN,

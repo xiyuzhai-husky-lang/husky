@@ -15,7 +15,9 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             FeatureRepr::ProcBlock(_) => todo!(),
         };
         if let Ok(ref value) = result {
-            should_eq!({ value.any_ref().__ty_dyn() }, repr.ty())
+            if value != &EvalValue::Undefined {
+                should_eq!({ value.any_ref().__ty_dyn() }, repr.ty())
+            }
         }
         result
     }

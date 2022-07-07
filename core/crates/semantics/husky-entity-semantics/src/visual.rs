@@ -44,9 +44,7 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
                     if let Some(ref stmts) = opt_visual_stmts {
                         VisualTy::from_stmts(db, stmts)
                     } else {
-                        p!("No visual source for ty `{ty:?}`");
-                        todo!("record if new");
-                        panic!()
+                        panic!("No visual source for ty `{ty:?}`")
                     }
                 }
             },
