@@ -19,8 +19,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         let entity_linkage_dependees = self.db.entity_linkage_dependees(main_module);
         self.write("    compile_time.load_linkages(&[");
         for entity_route in entity_linkage_dependees.iter() {
-            let entity_defn = self.db.entity_defn(*entity_route).unwrap();
-            self.gen_linkage_entry(*entity_route, &entity_defn);
+            if !entity_route.is_generic() {
+                let entity_defn = self.db.entity_defn(*entity_route).unwrap();
+                self.gen_linkage_entry(*entity_route, &entity_defn);
+            }
         }
         self.write("\n    ])\n}\n");
     }
@@ -79,20 +81,17 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                                 let method_name = entity_route.ident().as_str();
                                 self.write(&format!(", {method_name})"))
                             }
-                            _ => {
-                                p!(entity_route);
-                                self.gen_specific_routine_linkage(
-                                    Some((method_decl.this_liason, entity_route.parent())),
-                                    |this| {
-                                        this.write(&format!(
-                                            "__this.{}",
-                                            entity_route.ident().as_str()
-                                        ));
-                                    },
-                                    &method_decl.parameters,
-                                    &method_decl.output,
-                                )
-                            }
+                            _ => self.gen_specific_routine_linkage(
+                                Some((method_decl.this_liason, entity_route.parent())),
+                                |this| {
+                                    this.write(&format!(
+                                        "__this.{}",
+                                        entity_route.ident().as_str()
+                                    ));
+                                },
+                                &method_decl.parameters,
+                                &method_decl.output,
+                            ),
                         }
                     }
                     MethodDefnKind::TraitMethod { trai } => todo!(),

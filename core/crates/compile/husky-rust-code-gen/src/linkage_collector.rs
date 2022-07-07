@@ -1,6 +1,6 @@
 use crate::*;
 use check_utils::should;
-use husky_entity_route::{base_route, entity_route_menu, make_route};
+use husky_entity_route::{base_route, entity_route_menu, make_route, SpatialArgument};
 use husky_instantiate::InstantiationContext;
 use husky_linkage_table::LinkageKey;
 use std::collections::{HashMap, HashSet};
@@ -20,11 +20,10 @@ impl<'a> LinkageCollector<'a> {
     pub(crate) fn insert(&mut self, entity_route: EntityRoutePtr) {
         match entity_route.kind {
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
-                if (trai == entity_route_menu().clone_trait) {
+                if trai == entity_route_menu().clone_trait {
                     return;
                 }
             }
-            EntityRouteKind::Generic { .. } => return,
             _ => (),
         }
         self.linkages.insert(entity_route)
@@ -53,12 +52,18 @@ pub(crate) fn entity_immediate_linkage_dependees(
             spatial_arguments: &entity_route.spatial_arguments,
         };
         use husky_instantiate::Instantiable;
-        Arc::new(
-            db.entity_immediate_linkage_dependees(base_route(entity_route))
-                .iter()
-                .map(|entity_route| entity_route.instantiate(&ctx).take_entity_route())
-                .collect(),
-        )
+        let mut set: VecSet<_> = db
+            .entity_immediate_linkage_dependees(base_route(entity_route))
+            .iter()
+            .map(|entity_route| entity_route.instantiate(&ctx).take_entity_route())
+            .collect();
+        for spatial_argument in &entity_route.spatial_arguments {
+            match spatial_argument {
+                SpatialArgument::Const(_) => (),
+                SpatialArgument::EntityRoute(route) => set.insert(*route),
+            }
+        }
+        Arc::new(set)
     } else {
         LinkageCollector {
             db,
@@ -92,6 +97,10 @@ pub(crate) fn entity_linkage_dependees(
             .map(|subroute| *subroute)
             .collect::<Vec<_>>()
         {
+            match subroute.kind {
+                EntityRouteKind::Generic { .. } => continue,
+                _ => (),
+            }
             let subroute_dependees = db.entity_immediate_linkage_dependees(subroute);
             dependees.extend(&subroute_dependees)
         }

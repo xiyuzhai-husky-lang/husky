@@ -234,9 +234,30 @@ impl SubrouteTable {
                     todo!()
                 }
             }
-            EntityStaticDefnVariant::Trait { .. } => {
-                p!(route);
-                todo!()
+            EntityStaticDefnVariant::Trait {
+                base_route,
+                spatial_parameters,
+                ref members,
+            } => {
+                for member in members.iter() {
+                    entries.push(SubrouteEntry {
+                        ident: Some(RangedCustomIdentifier {
+                            ident: db.intern_word(member.name).custom(),
+                            range: Default::default(),
+                        }),
+                        kind: EntityKind::Member(match member.variant {
+                            EntityStaticDefnVariant::Method { .. } => {
+                                MemberKind::Method { is_lazy: false }
+                            }
+                            EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => {
+                                todo!()
+                            }
+                            EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+                            _ => panic!(),
+                        }),
+                        source: EntityLocus::StaticTypeMember,
+                    })
+                }
             }
             EntityStaticDefnVariant::Method { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),

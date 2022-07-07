@@ -97,6 +97,39 @@ impl EntityRoutePtr {
             _ => false,
         }
     }
+
+    pub fn is_generic(&self) -> bool {
+        match self.kind {
+            EntityRouteKind::Child { parent, ident } => {
+                if parent.is_generic() {
+                    return true;
+                }
+            }
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                if ty.is_generic() {
+                    return true;
+                }
+                if trai.is_generic() {
+                    return true;
+                }
+            }
+            EntityRouteKind::Input { main } => todo!(),
+            EntityRouteKind::Generic { ident, entity_kind } => return true,
+            EntityRouteKind::ThisType => todo!(),
+            _ => (),
+        }
+        for spatial_argument in self.spatial_arguments.iter() {
+            match spatial_argument {
+                SpatialArgument::Const(_) => (),
+                SpatialArgument::EntityRoute(route) => {
+                    if route.is_generic() {
+                        return true;
+                    }
+                }
+            }
+        }
+        false
+    }
 }
 
 impl std::fmt::Display for EntityRoutePtr {
