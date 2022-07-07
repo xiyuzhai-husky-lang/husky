@@ -40,7 +40,15 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
         } => Visualizer {
             visual_ty: match opt_static_visual_ty {
                 Some(static_visual_ty) => VisualTy::from_static(db, ty, static_visual_ty),
-                None => VisualTy::from_stmts(db, opt_visual_stmts.as_ref().unwrap()),
+                None => {
+                    if let Some(ref stmts) = opt_visual_stmts {
+                        VisualTy::from_stmts(db, stmts)
+                    } else {
+                        p!("No visual source for ty `{ty:?}`");
+                        todo!("record if new");
+                        panic!()
+                    }
+                }
             },
             opt_stmts: opt_visual_stmts.clone(),
         },

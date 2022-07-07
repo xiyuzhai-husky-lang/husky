@@ -46,7 +46,13 @@ impl FigureContext {
         attention: &Attention,
     ) -> &'static FigureCanvasData {
         let figure_canvas_key = FigureCanvasKey::new(trace.kind, trace.id, attention);
-        self.figure_canvases.borrow(file!(), line!())[&figure_canvas_key]
+        let figure_canvases_borrowed = self.figure_canvases.borrow(file!(), line!());
+        if let Some(figure_canvas_data) = figure_canvases_borrowed.get(&figure_canvas_key) {
+            figure_canvas_data
+        } else {
+            log::info!("no entry with key {figure_canvas_key:?}");
+            panic!()
+        }
     }
 
     fn set_figure_control_data(
