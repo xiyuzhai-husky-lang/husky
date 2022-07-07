@@ -3,7 +3,6 @@ mod generic_transfer;
 mod member;
 mod model;
 mod specific_routine;
-mod utils;
 
 pub use fp::*;
 pub use generic_transfer::*;
