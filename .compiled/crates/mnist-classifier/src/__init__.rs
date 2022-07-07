@@ -48,6 +48,96 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
     ),
     (
         __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::ilen"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &Vec<connected_component::ConnectedComponent> = __arguments[0].downcast_temp_ref();
+                __TempValue::Copyable(
+                    __this.ilen()
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::push"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<connected_component::ConnectedComponent> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                let element: connected_component::ConnectedComponent = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
+                __TempValue::Copyable(
+                    __this.push(element)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::popx"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<connected_component::ConnectedComponent> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.popx()
+                    ))
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::firstx"
+        },
+        method_elem_linkage!(Vec<connected_component::ConnectedComponent>, firstx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::lastx"
+        },
+        method_elem_linkage!(Vec<connected_component::ConnectedComponent>, lastx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::cyclic_slice"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &'eval Vec<connected_component::ConnectedComponent> = __arguments[0].downcast_eval_ref();
+                let start: i32 = __arguments[1].downcast_copy();
+                let end: i32 = __arguments[2].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.cyclic_slice(start, end)
+                    ))
+            }
+            __wrapper
+        }, 3),
+
+    ),
+    (
+
+        __StaticLinkageKey::Index {
+            opd_tys: &["Vec<mnist_classifier::connected_component::ConnectedComponent>", "i32"],
+        },
+        index_linkage!(Vec<connected_component::ConnectedComponent>)
+    ),
+    (
+        __StaticLinkageKey::Routine {
             routine: "mnist_classifier::connected_component::horizontal_extend"
         },
         specific_transfer_linkage!({
@@ -134,37 +224,118 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_pixel_pair"
         },
-        specific_transfer_linkage!(|_|todo!(), 2),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let row: u32 = __arguments[0].downcast_copy();
+                let j: i32 = __arguments[1].downcast_copy();
+                __TempValue::Copyable(
+                    raw_contour::get_pixel_pair(row, j)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
+
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_pixel_to_the_left"
         },
-        specific_transfer_linkage!(|_|todo!(), 2),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let row: u32 = __arguments[0].downcast_copy();
+                let j: i32 = __arguments[1].downcast_copy();
+                __TempValue::Copyable(
+                    raw_contour::get_pixel_to_the_left(row, j)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
+
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_pixel_to_the_right"
         },
-        specific_transfer_linkage!(|_|todo!(), 2),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let row: u32 = __arguments[0].downcast_copy();
+                let j: i32 = __arguments[1].downcast_copy();
+                __TempValue::Copyable(
+                    raw_contour::get_pixel_to_the_right(row, j)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
+
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_inward_direction"
         },
-        specific_transfer_linkage!(|_|todo!(), 3),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let row_above: u32 = __arguments[0].downcast_copy();
+                let row_below: u32 = __arguments[1].downcast_copy();
+                let j: i32 = __arguments[2].downcast_copy();
+                __TempValue::Copyable(
+                    raw_contour::get_inward_direction(row_above, row_below, j)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 3),
+
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_angle_change"
         },
-        specific_transfer_linkage!(|_|todo!(), 2),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let inward: raw_contour::Direction = __arguments[0].downcast_copy();
+                let outward: raw_contour::Direction = __arguments[1].downcast_copy();
+                __TempValue::Copyable(
+                    raw_contour::get_angle_change(inward, outward)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
+
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_outward_direction"
         },
-        specific_transfer_linkage!(|_|todo!(), 4),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let row_above: u32 = __arguments[0].downcast_copy();
+                let row_below: u32 = __arguments[1].downcast_copy();
+                let j: i32 = __arguments[2].downcast_copy();
+                let inward_direction: raw_contour::Direction = __arguments[3].downcast_copy();
+                __TempValue::Copyable(
+                    raw_contour::get_outward_direction(row_above, row_below, j, inward_direction)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 4),
+
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -203,7 +374,19 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::raw_contour::get_concave_middle_point"
         },
-        specific_transfer_linkage!(|_|todo!(), 1),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let points: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    raw_contour::get_concave_middle_point(points)
+                    ))
+            }
+            __wrapper
+        }, 1),
+
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -221,6 +404,96 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             __wrapper
         }, 0),
 
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::geom2d::Point2d>::ilen"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref();
+                __TempValue::Copyable(
+                    __this.ilen()
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::geom2d::Point2d>::push"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                let element: geom2d::Point2d = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
+                __TempValue::Copyable(
+                    __this.push(element)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::geom2d::Point2d>::popx"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.popx()
+                    ))
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::geom2d::Point2d>::firstx"
+        },
+        method_elem_linkage!(Vec<geom2d::Point2d>, firstx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::geom2d::Point2d>::lastx"
+        },
+        method_elem_linkage!(Vec<geom2d::Point2d>, lastx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &'eval Vec<geom2d::Point2d> = __arguments[0].downcast_eval_ref();
+                let start: i32 = __arguments[1].downcast_copy();
+                let end: i32 = __arguments[2].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.cyclic_slice(start, end)
+                    ))
+            }
+            __wrapper
+        }, 3),
+
+    ),
+    (
+
+        __StaticLinkageKey::Index {
+            opd_tys: &["Vec<mnist_classifier::geom2d::Point2d>", "i32"],
+        },
+        index_linkage!(Vec<geom2d::Point2d>)
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -307,6 +580,96 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
     ),
     (
         __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::raw_contour::RawContour>::ilen"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &Vec<raw_contour::RawContour<'eval>> = __arguments[0].downcast_temp_ref();
+                __TempValue::Copyable(
+                    __this.ilen()
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::raw_contour::RawContour>::push"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<raw_contour::RawContour<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                let element: raw_contour::RawContour<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
+                __TempValue::Copyable(
+                    __this.push(element)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::raw_contour::RawContour>::popx"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<raw_contour::RawContour<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.popx()
+                    ))
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::raw_contour::RawContour>::firstx"
+        },
+        method_elem_linkage!(Vec<raw_contour::RawContour<'eval>>, firstx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::raw_contour::RawContour>::lastx"
+        },
+        method_elem_linkage!(Vec<raw_contour::RawContour<'eval>>, lastx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::raw_contour::RawContour>::cyclic_slice"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &'eval Vec<raw_contour::RawContour<'eval>> = __arguments[0].downcast_eval_ref();
+                let start: i32 = __arguments[1].downcast_copy();
+                let end: i32 = __arguments[2].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.cyclic_slice(start, end)
+                    ))
+            }
+            __wrapper
+        }, 3),
+
+    ),
+    (
+
+        __StaticLinkageKey::Index {
+            opd_tys: &["Vec<mnist_classifier::raw_contour::RawContour>", "i32"],
+        },
+        index_linkage!(Vec<raw_contour::RawContour<'eval>>)
+    ),
+    (
+        __StaticLinkageKey::Routine {
             routine: "Vec<mnist_classifier::geom2d::Point2d>::lastx"
         },
         method_elem_linkage!(Vec<geom2d::Point2d>, lastx)
@@ -315,7 +678,20 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::geom2d::Point2d::from_i_shift28"
         },
-        specific_transfer_linkage!(|_|todo!(), 2),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let i: i32 = __arguments[0].downcast_copy();
+                let shift: i32 = __arguments[1].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    geom2d::Point2d::from_i_shift28(i, shift)
+                    ))
+            }
+            __wrapper
+        }, 2),
+
     ),
     (
         __StaticLinkageKey::Routine {
@@ -501,6 +877,96 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             __wrapper
         }, 0),
 
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_temp_ref();
+                __TempValue::Copyable(
+                    __this.ilen()
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::push"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                let element: line_segment_sketch::concave_component::ConcaveComponent<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
+                __TempValue::Copyable(
+                    __this.push(element)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::popx"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.popx()
+                    ))
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::firstx"
+        },
+        method_elem_linkage!(Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>, firstx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::lastx"
+        },
+        method_elem_linkage!(Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>, lastx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::cyclic_slice"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &'eval Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_eval_ref();
+                let start: i32 = __arguments[1].downcast_copy();
+                let end: i32 = __arguments[2].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.cyclic_slice(start, end)
+                    ))
+            }
+            __wrapper
+        }, 3),
+
+    ),
+    (
+
+        __StaticLinkageKey::Index {
+            opd_tys: &["Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>", "i32"],
+        },
+        index_linkage!(Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -721,25 +1187,78 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::LineSegment::new"
         },
-        specific_transfer_linkage!(|_|todo!(), 3),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
+                let from: i32 = __arguments[1].downcast_copy();
+                let to: i32 = __arguments[2].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    line_segment_sketch::LineSegment::new(ct, from, to)
+                    ))
+            }
+            __wrapper
+        }, 3),
+
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::LineSegmentSketch::new"
         },
-        specific_transfer_linkage!(|_|todo!(), 2),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
+                let r: f32 = __arguments[1].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    line_segment_sketch::LineSegmentSketch::new(ct, r)
+                    ))
+            }
+            __wrapper
+        }, 2),
+
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::go_right"
         },
-        specific_transfer_linkage!(|_|todo!(), 2),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let u: &geom2d::Vector2d = __arguments[0].downcast_temp_ref();
+                let r: f32 = __arguments[1].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    line_segment_sketch::go_right(u, r)
+                    ))
+            }
+            __wrapper
+        }, 2),
+
     ),
     (
         __StaticLinkageKey::Routine {
             routine: "mnist_classifier::line_segment_sketch::go_left"
         },
-        specific_transfer_linkage!(|_|todo!(), 2),
+
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let u: &geom2d::Vector2d = __arguments[0].downcast_temp_ref();
+                let r: f32 = __arguments[1].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    line_segment_sketch::go_left(u, r)
+                    ))
+            }
+            __wrapper
+        }, 2),
+
     ),
     (
         __StaticLinkageKey::Routine {
@@ -828,6 +1347,96 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
             __wrapper
         }, 0),
 
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::ilen"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_temp_ref();
+                __TempValue::Copyable(
+                    __this.ilen()
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::push"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                let element: line_segment_sketch::LineSegment<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
+                __TempValue::Copyable(
+                    __this.push(element)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::popx"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.popx()
+                    ))
+            }
+            __wrapper
+        }, 1),
+
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::firstx"
+        },
+        method_elem_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>, firstx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::lastx"
+        },
+        method_elem_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>, lastx)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::cyclic_slice"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let __this: &'eval Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_eval_ref();
+                let start: i32 = __arguments[1].downcast_copy();
+                let end: i32 = __arguments[2].downcast_copy();
+                __TempValue::OwnedEval(__OwnedValue::new(
+                    __this.cyclic_slice(start, end)
+                    ))
+            }
+            __wrapper
+        }, 3),
+
+    ),
+    (
+
+        __StaticLinkageKey::Index {
+            opd_tys: &["Vec<mnist_classifier::line_segment_sketch::LineSegment>", "i32"],
+        },
+        index_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>)
     ),
     (
         __StaticLinkageKey::Routine {

@@ -7,7 +7,12 @@ use word::CustomIdentifier;
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_enum_defn(&mut self, tyname: CustomIdentifier, variants: &[Arc<EntityDefn>]) {
+    pub(super) fn gen_enum_defn(
+        &mut self,
+        base_route: EntityRoutePtr,
+        tyname: CustomIdentifier,
+        variants: &[Arc<EntityDefn>],
+    ) {
         self.write("#[derive(Debug, Clone, Copy, PartialEq, Eq, __Serialize)]\n");
         self.write("pub(crate) enum ");
         self.write(&tyname);
@@ -25,6 +30,9 @@ impl<'a> RustCodeGenerator<'a> {
             }
         }
         self.result += "}\n";
+        let ty_contains_eval_ref = self.db.entity_route_kind_contains_eval_ref(base_route.kind);
+        self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
+        self.gen_any_value_impl(base_route, tyname, ty_contains_eval_ref);
     }
 
     pub(super) fn gen_struct_defn(

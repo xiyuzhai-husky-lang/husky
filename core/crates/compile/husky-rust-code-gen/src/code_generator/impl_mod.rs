@@ -31,7 +31,9 @@ impl<'a> RustCodeGenerator<'a> {
                     ref members,
                     ..
                 } => match kind {
-                    TyKind::Enum => self.gen_enum_defn(entity.ident.custom(), variants),
+                    TyKind::Enum => {
+                        self.gen_enum_defn(entity.base_route, entity.ident.custom(), variants)
+                    }
                     TyKind::Struct => self.gen_struct_defn(
                         entity.base_route,
                         entity.ident.custom(),

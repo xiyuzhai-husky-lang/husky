@@ -33,6 +33,10 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
         {
             return;
         }
+        if entity_route.ident().as_str() == "BinaryImage28" {
+            p!(entity_defn.variant);
+            todo!()
+        }
         match entity_defn.variant {
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Module { .. } => (),
@@ -129,10 +133,14 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
 "#,
                     entity_route
                 ));
-                let nargs = parameters.len();
-                self.write(&format!(
-                    "        specific_transfer_linkage!(|_|todo!(), {nargs}),"
-                ));
+                let function_decl = self.db.function_decl(entity_route).unwrap();
+                msg_once!("keyword_parameters");
+                self.gen_specific_routine_linkage(
+                    None,
+                    |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
+                    &function_decl.primary_parameters,
+                    &function_decl.output,
+                );
                 self.write("\n    ),");
             }
             EntityDefnVariant::Proc { .. } => {
@@ -229,38 +237,37 @@ pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCom
                                 panic!()
                             }
                         },
-                        _ => (),
-                        // {
-                        //     if is_defn_static {
-                        //         let member_entity_route = match member.base_route.kind {
-                        //             EntityRouteKind::Root { ident } => {
-                        //                 p!(member.base_route, member.ident);
-                        //                 todo!()
-                        //             }
-                        //             EntityRouteKind::Package { main, ident } => todo!(),
-                        //             EntityRouteKind::Child { parent, ident } => make_subroute(
-                        //                 entity_route,
-                        //                 member.ident.custom(),
-                        //                 Default::default(),
-                        //             ),
-                        //             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
-                        //                 msg_once!("todo: ignore trait that is generic over a specific type");
-                        //                 make_type_as_trait_member_route(
-                        //                     entity_route,
-                        //                     trai,
-                        //                     ident,
-                        //                     Default::default(),
-                        //                 )
-                        //             }
-                        //             EntityRouteKind::Input { main } => todo!(),
-                        //             EntityRouteKind::Generic { ident, entity_kind } => todo!(),
-                        //             EntityRouteKind::ThisType => todo!(),
-                        //         };
-                        //         self.gen_linkage_entry(member_entity_route, member)
-                        //     } else {
-                        //         break;
-                        //     }
-                        // }
+                        _ => {
+                            if is_defn_static {
+                                let member_entity_route = match member.base_route.kind {
+                                    EntityRouteKind::Root { ident } => {
+                                        p!(member.base_route, member.ident);
+                                        todo!()
+                                    }
+                                    EntityRouteKind::Package { main, ident } => todo!(),
+                                    EntityRouteKind::Child { parent, ident } => make_subroute(
+                                        entity_route,
+                                        member.ident.custom(),
+                                        Default::default(),
+                                    ),
+                                    EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                                        msg_once!("todo: ignore trait that is generic over a specific type");
+                                        make_type_as_trait_member_route(
+                                            entity_route,
+                                            trai,
+                                            ident,
+                                            Default::default(),
+                                        )
+                                    }
+                                    EntityRouteKind::Input { main } => todo!(),
+                                    EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+                                    EntityRouteKind::ThisType => todo!(),
+                                };
+                                self.gen_linkage_entry(member_entity_route, member)
+                            } else {
+                                break;
+                            }
+                        }
                     }
                 }
             }
