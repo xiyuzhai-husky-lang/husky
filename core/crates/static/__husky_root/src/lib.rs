@@ -40,6 +40,9 @@ pub mod __init_utils {
     pub use wild_utils::arb_ref as __arb_ref;
 }
 
+pub mod __main_utils {
+    pub use husky_trace_protocol::SampleId;
+}
 use __init_utils::*;
 use dev_utils::__StaticDevSource;
 use dev_utils::{__static_dev_src, dev_src};

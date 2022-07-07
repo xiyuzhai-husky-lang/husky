@@ -12,19 +12,18 @@ impl<'a> RustCodeGenerator<'a> {
 use crate::*;
 use __husky_root::__init_utils::*;
 
-pub fn link_entity_with_compiled(compile_time: &mut husky_compile_time::HuskyCompileTime) {
+pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 "#,
         );
         let main_module = self.db.module(self.package_main).unwrap();
         let entity_linkage_dependees = self.db.entity_linkage_dependees(main_module);
-        self.write("    compile_time.load_linkages(&[");
         for entity_route in entity_linkage_dependees.iter() {
             if !entity_route.is_generic() {
                 let entity_defn = self.db.entity_defn(*entity_route).unwrap();
                 self.gen_linkage_entry(*entity_route, &entity_defn);
             }
         }
-        self.write("\n    ])\n}\n");
+        self.write("\n];");
     }
 
     fn gen_linkage_entry(&mut self, entity_route: EntityRoutePtr, entity_defn: &EntityDefn) {

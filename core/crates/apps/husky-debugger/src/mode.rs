@@ -1,7 +1,7 @@
 use crate::*;
 use __husky_root::__root_defn;
 use path_utils::collect_all_package_dirs;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 #[derive(Debug)]
 pub enum Mode {
@@ -12,7 +12,7 @@ pub enum Mode {
 impl Mode {
     pub async fn run(&self, dir: PathBuf) {
         match self {
-            Mode::Run => run(dir).await,
+            Mode::Run => run(&dir).await,
             Mode::Test => test_all_packages_in_dir(dir).await,
         }
     }
@@ -32,15 +32,11 @@ impl From<Option<String>> for Mode {
     }
 }
 
-async fn run(path: PathBuf) {
-    HuskyDebugger::new(|compile_time| init_compile_time_from_dir(compile_time, path.into()))
+async fn run(package_dir: &Path) {
+    HuskyDebugger::new_from_flags()
         .serve("localhost:51617")
         .await
         .expect("")
-}
-
-fn init_compile_time_from_dir(compile_time: &mut HuskyCompileTime, dir: PathBuf) {
-    compile_time.load_package(&dir)
 }
 
 async fn test_all_packages_in_dir(dir: PathBuf) {
@@ -55,16 +51,21 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
 
     for package_dir in package_dirs {
         let mut compile_time = HuskyCompileTime::new(__root_defn);
-        init_compile_time_from_dir(&mut compile_time, package_dir.to_path_buf());
         println!(
             "\n{}test{} {}",
             print_utils::CYAN,
             print_utils::RESET,
             package_dir.as_os_str().to_str().unwrap(),
         );
-        match HuskyDebugger::new(|compile_time| {
-            init_compile_time_from_dir(compile_time, package_dir)
-        })
+        match HuskyDebugger::new(
+            HuskyDebuggerConfig {
+                package_dir,
+                opt_sample_id: Some(SampleId(23)),
+                verbose: false,
+                report_vm: false,
+            },
+            &[],
+        )
         .serve_on_error("localhost:51617", SampleId(0))
         .await
         {

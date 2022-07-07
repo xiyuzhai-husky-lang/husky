@@ -1,10 +1,10 @@
+use super::*;
 use check_utils::should_eq;
-use std::panic::catch_unwind;
+use colored::Colorize;
+use std::panic::{catch_unwind, panic_any};
 use std::{collections::hash_map::DefaultHasher, hash::Hasher};
 use std::{hash::Hash, path::PathBuf};
 use wild_utils::ref_to_mut_ref;
-
-use super::*;
 
 pub fn handle_message(
     debugger: Arc<HuskyDebugger>,
@@ -20,7 +20,7 @@ pub fn handle_message(
             Err(_) => todo!(),
         },
         Ok(None) => (),
-        Err(e) => save_server_history_and_panic(gui_messages, e),
+        Err(e) => save_server_history(gui_messages, e),
     }
 }
 #[derive(Debug, Serialize, Deserialize)]
@@ -28,7 +28,7 @@ struct DebuggerServerHistory {
     gui_messages: Vec<HuskyTracerGuiMessage>,
 }
 
-fn save_server_history_and_panic(
+fn save_server_history(
     gui_messages: &[HuskyTracerGuiMessage],
     e: Box<dyn std::any::Any + std::marker::Send>,
 ) {
@@ -36,19 +36,12 @@ fn save_server_history_and_panic(
     let mut hasher = DefaultHasher::new();
     value.hash(&mut hasher);
     let filename = format!("gui-messages-with-hash-{}.json", hasher.finish());
-    if !is_already_saved(&filename) {
-        let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
-        let path: PathBuf = husky_dir.join(format!("test-examples/debugger/server/{filename}"));
-        p!(path);
-        std::fs::write(path, value).unwrap();
-        panic!("new sequence of gui messages causing panic {e:?} saved")
-    } else {
-        panic!("old sequence of gui messages causing panic {e:?} already saved")
-    }
-}
-
-fn is_already_saved(filename: &str) -> bool {
-    todo!()
+    let filename: &str = &filename;
+    let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
+    let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
+    let filepath: PathBuf = husky_dir.join(format!("test-examples/debugger/server/{filename}"));
+    io_utils::diff_write(&filepath, &value);
+    println!("{}", "server history saved".red())
 }
 
 impl HuskyDebugger {

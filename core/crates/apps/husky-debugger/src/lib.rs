@@ -1,29 +1,38 @@
 mod config;
 mod error;
-pub mod flags;
+mod flags;
 mod gui;
 mod internal;
 mod mode;
 mod notif;
 
+pub use config::HuskyDebuggerConfig;
 pub use error::{DebuggerError, DebuggerResult};
-use husky_file::FilePtr;
-use husky_trace_time::HuskyTraceTime;
+pub use flags::HuskyDebuggerFlags;
 pub use mode::Mode;
 
+use __husky_root::__StaticLinkageKey;
 use avec::Avec;
-use config::HuskyDebuggerConfig;
 use futures::executor::ThreadPool;
 use gui::handle_query;
 use husky_compile_time::HuskyCompileTime;
+use husky_file::FilePtr;
 use husky_trace_protocol::*;
+use husky_trace_time::HuskyTraceTime;
 use internal::HuskyDebuggerInternal;
 use json_result::JsonResult;
 use notif::handle_notif;
 use print_utils::*;
-use std::{collections::HashMap, convert::Infallible, net::ToSocketAddrs, sync::Arc};
+use std::{
+    collections::HashMap,
+    convert::Infallible,
+    net::ToSocketAddrs,
+    path::{Path, PathBuf},
+    sync::Arc,
+};
 use std::{sync::Mutex, time::Instant};
 use test_utils::TestResult;
+use vm::__Linkage;
 use warp::Filter;
 
 pub struct HuskyDebugger {
@@ -32,11 +41,20 @@ pub struct HuskyDebugger {
 }
 
 impl HuskyDebugger {
-    pub fn new(init_compile_time: impl FnOnce(&mut HuskyCompileTime)) -> Self {
-        let config = HuskyDebuggerConfig::from_env();
-        let mut trace_time = HuskyTraceTime::new(init_compile_time, config.eval_time());
-        if let Some(ref sample_id_str) = config.opt_sample_id {
-            let sample_id: SampleId = SampleId(sample_id_str.parse().unwrap());
+    pub fn new_from_flags() -> Self {
+        let mut config = HuskyDebuggerConfig::from_env();
+        HuskyDebugger::new(config, &[])
+    }
+    pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
+        let package_dir: &Path = &config.package_dir;
+        let mut trace_time = HuskyTraceTime::new(
+            |compile_time| {
+                compile_time.load_package(package_dir);
+                compile_time.load_linkages(linkages)
+            },
+            config.eval_time(),
+        );
+        if let Some(sample_id) = config.opt_sample_id {
             trace_time.set_attention(Attention::Specific { sample_id });
         }
         Self {

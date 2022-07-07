@@ -35,7 +35,7 @@ impl HuskyCompileTime {
         self.load_dir(&module_dir);
     }
 
-    pub fn load_linkages(&self, linkages: &'static [(__StaticLinkageKey, __Linkage)]) {
+    pub fn load_linkages(&self, linkages: &[(__StaticLinkageKey, __Linkage)]) {
         self.linkage_table.load(self, linkages)
     }
 }
