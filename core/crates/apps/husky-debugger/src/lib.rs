@@ -36,6 +36,7 @@ use vm::__Linkage;
 use warp::Filter;
 
 pub struct HuskyDebugger {
+    pub(crate) config: HuskyDebuggerConfig,
     internal: Mutex<HuskyDebuggerInternal>,
     threadpool: ThreadPool,
 }
@@ -60,9 +61,9 @@ impl HuskyDebugger {
         Self {
             internal: Mutex::new(HuskyDebuggerInternal {
                 trace_time,
-                config,
                 next_request_id: 0,
             }),
+            config,
             threadpool: ThreadPool::new().unwrap(),
         }
     }

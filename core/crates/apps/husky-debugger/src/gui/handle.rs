@@ -10,6 +10,7 @@ pub fn handle_message(
     debugger: Arc<HuskyDebugger>,
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
     gui_messages: &[HuskyTracerGuiMessage],
+    config: &HuskyDebuggerConfig,
 ) {
     let debugger_ = debugger.clone();
     let client_sender_ = client_sender.clone();
@@ -20,22 +21,29 @@ pub fn handle_message(
             Err(_) => todo!(),
         },
         Ok(None) => (),
-        Err(e) => save_server_history(gui_messages, e),
+        Err(e) => save_server_history(
+            &(DebuggerServerHistory {
+                config: config.clone(),
+                gui_messages: gui_messages.to_vec(),
+            }),
+            e,
+        ),
     }
 }
 #[derive(Debug, Serialize, Deserialize)]
 struct DebuggerServerHistory {
+    config: HuskyDebuggerConfig,
     gui_messages: Vec<HuskyTracerGuiMessage>,
 }
 
 fn save_server_history(
-    gui_messages: &[HuskyTracerGuiMessage],
+    server_history: &DebuggerServerHistory,
     e: Box<dyn std::any::Any + std::marker::Send>,
 ) {
-    let value = serde_json::to_string(gui_messages).unwrap();
+    let value = serde_json::to_string_pretty(server_history).unwrap();
     let mut hasher = DefaultHasher::new();
     value.hash(&mut hasher);
-    let filename = format!("gui-messages-with-hash-{}.json", hasher.finish());
+    let filename = format!("history-{}.json", hasher.finish());
     let filename: &str = &filename;
     let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
     let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
@@ -78,7 +86,6 @@ impl HuskyDebuggerInternal {
         &mut self,
         request: &HuskyTracerGuiMessage,
     ) -> Option<HuskyTracerServerMessageVariant> {
-        p!(request);
         if let Some(request_id) = request.opt_request_id {
             if self.next_request_id != request_id {
                 // make sure all requests are received in order
