@@ -55,12 +55,12 @@ vscode: cargo-test test-analyzer
 
 mnist:
 	cargo check
-	cargo run -q --bin husky-debugger $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
+	cargo run -q --bin husky-debugger -- --package-dir $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
 
 mnist-release:
 	cargo check
 	cargo install --path crates/apps/husky-debugger --bin husky-debugger
-	husky-debugger $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
+	husky-debugger --package-dir $(projects_dir)/cv/mnist-classifier --sample-id 23 --mode run
 
 install-compiler:
 	cargo install --path crates/apps/husky-compiler --bin husky-compiler
@@ -68,17 +68,17 @@ install-compiler:
 mnist-compiled:
 	cargo check
 	cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
-	cd ${HUSKY_DIR}/.compiled/crates/mnist-classifier && cargo run -q mnist-classifier-debugger --report-vm
+	cd ${HUSKY_DIR}/.compiled && cargo run -q mnist-classifier-debugger --report-vm
 
 mnist-compiled-release:
 	cargo check
 	cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
-	cd ${HUSKY_DIR}/.compiled/crates/mnist-classifier && cargo run -q --release mnist-classifier-debugger --report-vm
+	cd ${HUSKY_DIR}/.compiled && cargo run -q --release mnist-classifier-debugger --report-vm
 
 mnist-compiled-with-backtrace:
 	@cargo check
 	@RUST_BACKTRACE=1 cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
-	@cd ${HUSKY_DIR}/.compiled/crates/mnist-classifier && RUST_BACKTRACE=1 cargo run -q mnist-classifier-debugger
+	@cd ${HUSKY_DIR}/.compiled&& RUST_BACKTRACE=1 cargo run -q mnist-classifier-debugger
 
 print-mnist:
 	cargo run -q --bin husky-analyzer-printer print-qualified-tys $(projects_dir)/cv/mnist-classifier

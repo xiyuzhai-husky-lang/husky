@@ -1,18 +1,22 @@
 use husky_debugger::*;
-use mnist_classifier::__init__::link_entity_with_compiled;
+use __husky_root::__main_utils::*;
+use mnist_classifier::__init__::LINKAGES;
 use husky_compile_time::*;
 
 #[tokio::main]
 async fn main() {
-    HuskyDebugger::new(|compile_time| init_compile_time(compile_time))
-        .serve("localhost:51617")
-        .await
-        .expect("")
-}
-
-fn init_compile_time(compile_time: &mut HuskyCompileTime) {
-    let husky_dir: std::path::PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
-    let code_snapshot_dir = husky_dir.join(".compiled/crates/mnist-classifier/snapshot/mnist-classifier");
-    compile_time.load_package(&code_snapshot_dir);
-    link_entity_with_compiled(compile_time)
+    let code_snapshot_dir =
+        "crates/mnist-classifier/snapshot/mnist-classifier".into();
+    HuskyDebugger::new(
+        HuskyDebuggerConfig {
+            package_dir: code_snapshot_dir,
+            opt_sample_id: Some(SampleId(23)),
+            verbose: false,
+            report_vm: false,
+        },
+        LINKAGES,
+    )
+    .serve("localhost:51617")
+    .await
+    .expect("")
 }

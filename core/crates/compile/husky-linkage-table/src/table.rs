@@ -14,7 +14,7 @@ impl LinkageTable {
     pub fn load(
         &self,
         db: &dyn ResolveLinkage,
-        static_linkages: &'static [(__StaticLinkageKey, __Linkage)],
+        static_linkages: &[(__StaticLinkageKey, __Linkage)],
     ) {
         let new_linkages: HashMap<LinkageKey, __Linkage> = static_linkages
             .iter()

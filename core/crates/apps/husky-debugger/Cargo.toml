@@ -26,12 +26,14 @@ salsa = "0.17.0-pre.2"
 text-diff = "0.4.0"
 indexmap = "1.8.1"
 lsp-types = { version = "0.93", features = ["proposed"] }
+colored = "2.0.0"
 check-utils = { path = "../../utils/check" }
 dev-utils = { path = "../../utils/dev" }
 print-utils = { path = "../../utils/print" }
 path-utils = { path = "../../utils/path" }
 test-utils = { path = "../../utils/test" }
 wild-utils = { path = "../../utils/wild" }
+io-utils = { path = "../../utils/io" }
 map-collect = { path = "../../abstraction/map-collect" }
 json-result = { path = "../../abstraction/json-result" }
 avec = { path = "../../abstraction/avec" }
