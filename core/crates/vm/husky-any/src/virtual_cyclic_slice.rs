@@ -30,7 +30,7 @@ impl<'eval> HasStaticTypeInfo for VirtualCyclicSlice<'eval> {
     type __StaticSelf = VirtualCyclicSlice<'static>;
 
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "CyclicSlice<Any>".into()
     }
 }
 

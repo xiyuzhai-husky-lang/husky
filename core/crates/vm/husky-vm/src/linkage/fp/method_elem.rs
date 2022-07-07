@@ -27,10 +27,13 @@ macro_rules! method_elem_eval_ref_fp {
 #[macro_export]
 macro_rules! method_elem_temp_ref_fp {
     ($Type: ty, $method_name: ident) => {{
-        __SpecificRoutineFp(|values| -> __TempValue {
+        fn __wrapper<'temp, 'eval>(
+            values: &mut [__TempValue<'temp, 'eval>],
+        ) -> __TempValue<'temp, 'eval> {
             let this_value: &$Type = values[0].downcast_temp_ref();
-            __TempValue::TempRefEval(this_value.$method_name())
-        })
+            __TempValue::TempRefEval(unsafe { this_value.$method_name().__upcast_arb_any_ref() })
+        }
+        __SpecificRoutineFp(__wrapper)
     }};
 }
 

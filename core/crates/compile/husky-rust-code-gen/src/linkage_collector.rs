@@ -26,7 +26,13 @@ impl<'a> LinkageCollector<'a> {
             }
             _ => (),
         }
-        self.linkages.insert(entity_route)
+        for argument in entity_route.spatial_arguments.iter() {
+            match argument {
+                SpatialArgument::Const(_) => (),
+                SpatialArgument::EntityRoute(route) => self.insert(*route),
+            }
+        }
+        self.linkages.insert(entity_route.deref_route())
     }
 
     fn produce_from_entity_defn(
