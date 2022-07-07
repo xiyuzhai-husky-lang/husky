@@ -1,6 +1,8 @@
 mod handle;
 mod tests;
 
+use std::panic::catch_unwind;
+
 use crate::*;
 use futures::{task::SpawnExt, FutureExt, StreamExt};
 use handle::handle_message;
@@ -38,8 +40,18 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<Hu
     );
     while let Some(message_result) = rx.next().await {
         let message = message_result.expect("error receiving ws message: {}");
+        let mut gui_messages = Vec::new();
         match message.to_str() {
-            Ok(text) => handle_message(debugger.clone(), text, client_sender.clone()),
+            Ok(text) => match serde_json::from_str(text) {
+                Ok::<HuskyTracerGuiMessage, _>(gui_message) => {
+                    gui_messages.push(gui_message);
+                    handle_message(debugger.clone(), client_sender.clone(), &gui_messages)
+                }
+                Err(_) => {
+                    p!(text);
+                    todo!()
+                }
+            },
             Err(_) => {
                 if message.is_close() {
                     println!(

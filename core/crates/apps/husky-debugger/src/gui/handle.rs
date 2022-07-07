@@ -1,41 +1,60 @@
 use check_utils::should_eq;
+use std::panic::catch_unwind;
+use std::{collections::hash_map::DefaultHasher, hash::Hasher};
+use std::{hash::Hash, path::PathBuf};
 use wild_utils::ref_to_mut_ref;
 
 use super::*;
 
 pub fn handle_message(
     debugger: Arc<HuskyDebugger>,
-    text: &str,
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
+    gui_messages: &[HuskyTracerGuiMessage],
 ) {
-    match serde_json::from_str(text) {
-        Ok::<HuskyTracerGuiMessage, _>(request) => {
-            let debugger_ = debugger.clone();
-            let client_sender_ = client_sender.clone();
-            let future = async move {
-                if let Some(text) = debugger_.handle_gui_message(request).await {
-                    match client_sender_.send(Ok(Message::text(text))) {
-                        Ok(_) => (),
-                        Err(_) => todo!(),
-                    }
-                }
-            };
-            debugger.threadpool.spawn(future).unwrap();
-        }
-        Err(_) => {
-            p!(text);
-            todo!()
-        }
+    let debugger_ = debugger.clone();
+    let client_sender_ = client_sender.clone();
+    let latest_gui_message = gui_messages.last().unwrap();
+    match catch_unwind(|| debugger_.handle_gui_message(&latest_gui_message)) {
+        Ok(Some(text)) => match client_sender_.send(Ok(Message::text(text))) {
+            Ok(_) => (),
+            Err(_) => todo!(),
+        },
+        Ok(None) => (),
+        Err(e) => save_server_history_and_panic(gui_messages, e),
+    }
+}
+#[derive(Debug, Serialize, Deserialize)]
+struct DebuggerServerHistory {
+    gui_messages: Vec<HuskyTracerGuiMessage>,
+}
+
+fn save_server_history_and_panic(
+    gui_messages: &[HuskyTracerGuiMessage],
+    e: Box<dyn std::any::Any + std::marker::Send>,
+) {
+    let value = serde_json::to_string(gui_messages).unwrap();
+    let mut hasher = DefaultHasher::new();
+    value.hash(&mut hasher);
+    let filename = format!("gui-messages-with-hash-{}.json", hasher.finish());
+    if !is_already_saved(&filename) {
+        let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
+        let path: PathBuf = husky_dir.join(format!("test-examples/debugger/server/{filename}"));
+        p!(path);
+        std::fs::write(path, value).unwrap();
+        panic!("new sequence of gui messages causing panic {e:?} saved")
+    } else {
+        panic!("old sequence of gui messages causing panic {e:?} already saved")
     }
 }
 
+fn is_already_saved(filename: &str) -> bool {
+    todo!()
+}
+
 impl HuskyDebugger {
-    async fn handle_gui_message(
-        self: Arc<Self>,
-        gui_message: HuskyTracerGuiMessage,
-    ) -> Option<String> {
+    fn handle_gui_message(self: Arc<Self>, gui_message: &HuskyTracerGuiMessage) -> Option<String> {
         let internal: &mut HuskyDebuggerInternal = &mut self.internal.lock().unwrap();
-        let opt_response_variant = internal.handle_gui_message(&gui_message);
+        let opt_response_variant = internal.handle_gui_message(gui_message);
         should_eq!(
             gui_message.opt_request_id.is_some(),
             opt_response_variant.is_some(),
