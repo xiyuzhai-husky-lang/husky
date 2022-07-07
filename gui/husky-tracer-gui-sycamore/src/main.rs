@@ -4,7 +4,6 @@ mod components;
 mod context;
 mod init;
 mod services;
-mod store;
 mod utils;
 
 use cell::RefCell;
@@ -14,7 +13,6 @@ use husky_trace_protocol::*;
 use init::init_debugging_env;
 use services::*;
 use std::{any::TypeId, rc::Rc};
-use store::*;
 use sycamore::prelude::*;
 use utils::*;
 use wasm_bindgen::prelude::*;

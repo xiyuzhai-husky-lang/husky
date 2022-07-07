@@ -69,5 +69,5 @@ The use of ascension makes type specification very concise.
 In general, an ascension is defined as a map from types to types, such that operations are reserved.
 In the case above, there are addition, subtraction, etc for `f32`, and we have induced operations for `Input->f32` by pointwise calculation. Things generalize to function and methods. For example, we can compose `A->B` and `B->C`, we can also compose `Input->A->B` and `Input->B->C` by doing pointwise composition. This reservation of operation allows us to write code while simply thinking features as constants depending on `input`.
 
-For GUI development, the user input is seen as a stream, say `Stream<Information>`, then type ascension of a type `A` is then
-`Stream<Information> -> Time -> A`
+For GUI development, the user input is seen as a stream, say `Stream<UserEvent>`, then type ascension of a type `A` is then
+`Stream<UserEvent> -> Time -> A`
