@@ -35,16 +35,13 @@ test-analyzer-with-backtrace-filtered:
 	RUST_BACKTRACE=1 cargo run -q --bin husky-analyzer-tester test-qualified-tys $(test_examples_dir)/analyzer/qualified-tys 2>&1 | python scripts/filter_rust_backtrace.py
 
 test-debugger:
-	cargo run -q --bin husky-debugger $(test_examples_dir)/debugger --sample-id 23 --mode test
+	cargo run -q --bin husky-debugger -- --package-dir $(test_examples_dir)/debugger --sample-id 23 --mode test
 
 test-debugger-v:
-	cargo run -q --bin husky-debugger $(test_examples_dir)/debugger -v --sample-id 23 --mode test
-
-test-temp:
-	cargo run -q --bin husky-debugger $(test_examples_dir)/debugger/proc/loop2 --sample-id 23 --mode run
+	cargo run -q --bin husky-debugger -- --package-dir $(test_examples_dir)/debugger -v --sample-id 23 --mode test
 
 test-debugger-with-backtrace:
-	RUST_BACKTRACE=1 cargo run -q --bin husky-debugger $(test_examples_dir)/debugger --sample-id 23 --mode test
+	RUST_BACKTRACE=1 cargo run -q --bin husky-debugger -- --package-dir $(test_examples_dir)/debugger --sample-id 23 --mode test
 	
 #	| python scripts/filter_rust_backtrace.py
 

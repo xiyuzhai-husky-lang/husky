@@ -23,8 +23,6 @@ impl LinkageTable {
                 (key, *linkage)
             })
             .collect();
-        should!(static_linkages.len() > 0);
-        should!(new_linkages.len() > 0);
         self.linkages.write(|linkages| {
             should_eq!(linkages.len(), 0);
             *linkages = new_linkages
