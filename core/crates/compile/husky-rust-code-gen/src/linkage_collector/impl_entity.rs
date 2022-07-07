@@ -88,7 +88,7 @@ impl<'a> LinkageCollector<'a> {
                             ref field_variant,
                             liason,
                             opt_linkage,
-                        } => (),
+                        } => self.insert(ty),
                         EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {
                             if defn.base_route == entity_route_menu.clone_trait {
                                 ()

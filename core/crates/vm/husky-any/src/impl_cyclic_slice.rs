@@ -11,7 +11,7 @@ where
 {
     type __StaticSelf = CyclicSlice<'static, T::__StaticSelf>;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
-        "CyclicSlice".into()
+        format!("CyclicSlice<{}>", T::__static_type_name()).into()
     }
 }
 
@@ -37,7 +37,18 @@ impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSli
     }
 
     fn __print_short(&self) -> String {
-        todo!()
+        format!(
+            "{{ start: {}, end: {}, data: {} }}",
+            self.start,
+            self.end,
+            print_sequence(
+                "{ ",
+                self.iter(),
+                &|value| format!("{}", value.__print_short()),
+                " }",
+                20,
+            )
+        )
     }
 
     fn __opt_visualize(
