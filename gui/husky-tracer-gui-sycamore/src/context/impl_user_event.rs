@@ -3,61 +3,107 @@ mod shown;
 mod utils;
 
 use super::*;
-use web_sys::{Event, KeyboardEvent};
+use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
+
+enum UserEvent {
+    ToggleExpansion { trace_id: TraceId },
+    Activate { trace_id: TraceId },
+    SetAttention { attention: Attention },
+}
+
+impl UserEvent {
+    fn set_attention_from_dialog() -> Self {
+        let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
+        loop {
+            match sample_id_value.parse::<usize>() {
+                Ok(raw) => {
+                    let attention_dialog =
+                        get_element_by_id::<HtmlDialogElement>("attention-dialog");
+                    attention_dialog.close();
+                    break UserEvent::SetAttention {
+                        attention: Attention::Specific {
+                            sample_id: SampleId(raw),
+                        },
+                    };
+                }
+                Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),
+            }
+        }
+    }
+
+    fn toggle_attention_kind(ctx: &'static DebuggerContext) -> Self {
+        UserEvent::SetAttention {
+            attention: ctx.attention_context.toggled_attention_kind(),
+        }
+    }
+
+    fn keydown(ctx: &'static DebuggerContext, ev: Event) -> Option<Self> {
+        if !ctx.dialog_opened.cget() {
+            let ev: KeyboardEvent = ev.unchecked_into();
+            let c = char::from_u32(ev.key_code()).unwrap();
+            match c {
+                'T' => {
+                    // 't'
+                    log::info!("active trace is {:?}", ctx.trace_context.opt_active_trace())
+                }
+                'C' => {
+                    // 't'
+                    log::info!("figure context is \n:{:?}", ctx.figure_context);
+                    // log::info!("fcous context is \n:{:?}", self.attention_context);
+                    log::info!(
+                        "opt active trace id is \n:{:?}",
+                        ctx.trace_context.opt_active_trace_id
+                    );
+                }
+                'J' => {
+                    todo!()
+                }
+                'K' => {
+                    todo!()
+                }
+                'L' => {
+                    todo!()
+                }
+                'H' => {
+                    todo!()
+                }
+                _ => log::info!("keydown with char: {}", c),
+            }
+        }
+        None
+    }
+}
 
 impl DebuggerContext {
+    fn handle_user_event(&'static self, event: UserEvent) {
+        // todo: record user events
+        match event {
+            UserEvent::ToggleExpansion { trace_id } => self.toggle_expansion(trace_id),
+            UserEvent::Activate { trace_id } => self.activate(trace_id),
+            UserEvent::SetAttention { attention } => self.set_attention(attention),
+        }
+    }
+
     pub fn toggle_expansion_handler(&'static self, trace_id: TraceId) -> Rc<dyn Fn()> {
-        Rc::new(move || self.toggle_expansion(trace_id))
+        Rc::new(move || self.handle_user_event(UserEvent::ToggleExpansion { trace_id }))
     }
 
     pub fn activate_handler(&'static self, trace_id: TraceId) -> impl Fn(Event) {
-        move |_| self.activate(trace_id)
+        move |_| self.handle_user_event(UserEvent::Activate { trace_id })
     }
 
     pub fn toggle_attention_kind_handler(&'static self) -> impl Fn(Event) {
-        move |_| self.toggle_attention_kind()
+        move |_| self.handle_user_event(UserEvent::toggle_attention_kind(self))
     }
 
     pub fn set_attention_from_dialog_handler(&'static self) -> impl Fn() {
-        move || self.set_attention_from_dialog()
+        move || self.handle_user_event(UserEvent::set_attention_from_dialog())
     }
 
     pub fn keydown_handler(&'static self) -> impl Fn(Event) {
         move |ev| {
-            if !self.dialog_opened.cget() {
-                let ev: KeyboardEvent = ev.unchecked_into();
-                let c = char::from_u32(ev.key_code()).unwrap();
-                match c {
-                    'T' => {
-                        // 't'
-                        log::info!(
-                            "active trace is {:?}",
-                            self.trace_context.opt_active_trace()
-                        )
-                    }
-                    'C' => {
-                        // 't'
-                        log::info!("figure context is \n:{:?}", self.figure_context);
-                        // log::info!("fcous context is \n:{:?}", self.attention_context);
-                        log::info!(
-                            "opt active trace id is \n:{:?}",
-                            self.trace_context.opt_active_trace_id
-                        );
-                    }
-                    'J' => {
-                        todo!()
-                    }
-                    'K' => {
-                        todo!()
-                    }
-                    'L' => {
-                        todo!()
-                    }
-                    'H' => {
-                        todo!()
-                    }
-                    _ => log::info!("keydown with char: {}", c),
-                }
+            if let Some(event) = UserEvent::keydown(self, ev) {
+                self.handle_user_event(event)
             }
         }
     }
