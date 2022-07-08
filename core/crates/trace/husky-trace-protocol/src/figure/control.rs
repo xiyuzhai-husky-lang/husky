@@ -1,7 +1,4 @@
-use std::{
-    convert::Infallible,
-    ops::{FromResidual, Try},
-};
+use std::{convert::Infallible, ops::FromResidual};
 
 use super::*;
 use sycamore::prelude::Signalable;
@@ -12,10 +9,11 @@ pub struct FigureControlData {
 }
 
 impl FromResidual<std::option::Option<Infallible>> for FigureControlData {
-    fn from_residual(residual: std::option::Option<Infallible>) -> Self {
+    fn from_residual(_residual: std::option::Option<Infallible>) -> Self {
         Self::default()
     }
 }
+
 impl Signalable for FigureControlData {}
 
 impl FigureControlData {

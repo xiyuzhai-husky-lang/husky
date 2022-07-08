@@ -124,11 +124,11 @@ impl FigureCanvasData {
                 VisualData::BinaryImage28 { ref padded_rows } => {
                     image_layers.push(ImageLayerData::binary_image28(padded_rows))
                 }
-                VisualData::Primitive { value } => todo!(),
                 VisualData::BinaryGrid28 { .. }
                 | VisualData::Contour { .. }
                 | VisualData::Group(_)
                 | VisualData::LineSegment { .. } => shapes.push(visual_data.into()),
+                VisualData::Primitive { .. } => panic!(),
             }
         }
         FigureCanvasData::Graphics2d {
