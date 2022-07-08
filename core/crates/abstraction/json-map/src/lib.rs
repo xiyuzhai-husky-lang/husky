@@ -64,8 +64,7 @@ where
 
 #[test]
 fn test_it() {
-    use print_utils::*;
     let mut m: JsonListMap<i32, bool> = Default::default();
     m.insert(0, true);
-    serde_json::to_string(&m);
+    let _ = serde_json::to_string(&m);
 }

@@ -2,7 +2,6 @@ use crate::*;
 use fold::{FoldableList, FoldingEnd};
 use husky_file::URange;
 use lsp_types::FoldingRange;
-use print_utils::epin;
 use std::fmt::Write;
 use std::sync::Arc;
 use word::WordInterner;
@@ -70,7 +69,8 @@ impl TokenizedText {
                     .collect::<String>()),
                 folded_result.folding_end,
                 folded_result.value
-            );
+            )
+            .unwrap();
         }
         summary
     }

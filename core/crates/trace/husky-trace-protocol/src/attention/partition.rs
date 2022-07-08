@@ -15,10 +15,10 @@ pub enum PartitionDefnDataVariant {
 }
 
 impl PartitionDefnData {
-    pub fn contains(&self, label: Label) -> bool {
+    pub fn contains(&self, query: Label) -> bool {
         match self.variant {
-            PartitionDefnDataVariant::Label(_) => todo!(),
-            PartitionDefnDataVariant::LabelSet(_) => todo!(),
+            PartitionDefnDataVariant::Label(label) => label == query,
+            PartitionDefnDataVariant::LabelSet(ref labels) => labels.contains(&query),
             PartitionDefnDataVariant::Other => true,
         }
     }

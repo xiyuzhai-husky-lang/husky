@@ -6,7 +6,7 @@ mod ptr;
 pub use ptr::{Intern, InternedPtr};
 
 use std::{borrow::Borrow, fmt::Debug, hash::Hash, marker::PhantomData};
-use sync_utils::{ASafeRwLock, SafeRwLock};
+use sync_utils::SafeRwLock;
 
 use internal::InternerInternal;
 

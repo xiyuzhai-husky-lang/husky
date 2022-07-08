@@ -1,5 +1,4 @@
 use husky_text::CharIter;
-use print_utils::p;
 use word::WordInterner;
 
 use crate::*;

@@ -20,7 +20,7 @@ impl ImageLayerData {
                 width: pixels[0].len() as u32,
                 height: pixels.len() as u32,
             },
-            ImageLayerData::Binary28 { rows } => PixelDimension {
+            ImageLayerData::Binary28 { .. } => PixelDimension {
                 width: 28,
                 height: 28,
             },

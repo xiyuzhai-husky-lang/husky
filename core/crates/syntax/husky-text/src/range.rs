@@ -7,6 +7,7 @@ use test_utils::TestDisplay;
 
 use crate::*;
 use dev_utils::__StaticDevSource;
+use print_utils::*;
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 use word::CustomIdentifier;
@@ -19,7 +20,11 @@ pub struct TextRange {
 
 impl TestDisplay for TextRange {
     fn write_inherent(&self, config: test_utils::TestDisplayConfig, result: &mut String) {
-        write!(result, "{:?}", self).unwrap()
+        if config.colored {
+            write!(result, "{GREEN}{:?}{RESET}", self).unwrap()
+        } else {
+            write!(result, "{:?}", self).unwrap()
+        }
     }
 }
 

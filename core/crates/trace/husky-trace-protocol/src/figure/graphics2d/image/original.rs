@@ -15,7 +15,7 @@ impl OriginalImageData {
     pub fn new(image_layer: &ImageLayerData) -> Self {
         let dimension = image_layer.dimension();
         match image_layer {
-            ImageLayerData::Colored { pixels } => todo!(),
+            ImageLayerData::Colored { .. } => todo!(),
             ImageLayerData::Binary28 { rows } => {
                 let mut data = Vec::new();
                 data.reserve(28 * 28 * 4);

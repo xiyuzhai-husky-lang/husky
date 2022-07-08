@@ -3,7 +3,7 @@
 # If you are using rust stable, remove the "-Zshare-generics=y" below.
 [target.x86_64-unknown-linux-gnu]
 linker = "clang"
-rustflags = ["-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y"]
+rustflags = ["-Awarnings", "-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y"]
 
 # NOTE: you must manually install https://github.com/michaeleisel/zld on mac. you can easily do this with the "brew" package manager:
 # `brew install michaeleisel/zld/zld`
@@ -20,10 +20,7 @@ rustflags = [
 [target.x86_64-pc-windows-msvc]
 linker = "rust-lld.exe"
 rustflags = ["-Zshare-generics=n"]
-
 # Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'
 # In most cases the gains are negligible, but if you are on macos and have slow compile times you should see significant gains.
 #[profile.dev]
 #debug = 1
-[build]
-rustflags = ["-Awarnings"]
