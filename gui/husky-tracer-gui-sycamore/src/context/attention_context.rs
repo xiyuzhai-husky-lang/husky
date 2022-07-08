@@ -59,7 +59,7 @@ fn ask_for_sample_id() -> SampleId {
                 }
             },
             Ok(None) => last_error = Some(format!("expect a valid number, but get nothing")),
-            Err(ref e) => last_error = Some(js_sys::JSON::stringify(e).unwrap().into()),
+            Err(ref e) => last_error = Some(unsafe { js_sys::JSON::stringify(e) }.unwrap().into()),
         }
     }
 }

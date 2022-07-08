@@ -6,7 +6,7 @@ impl DebuggerContext {
         self.set_attention(self.attention_context.toggled_attention_kind())
     }
 
-    fn set_attention(&'static self, new_attention: Attention) {
+    pub(crate) fn set_attention(&'static self, new_attention: Attention) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
         let needs_figure_canvas_data =
             self.needs_figure_canvas_data(opt_active_trace_id, &new_attention);
