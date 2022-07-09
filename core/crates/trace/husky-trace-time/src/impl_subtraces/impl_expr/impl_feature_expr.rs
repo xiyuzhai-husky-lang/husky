@@ -62,6 +62,7 @@ impl HuskyTraceTime {
                 has_this,
                 ref model_defn,
                 ref internal,
+                ..
             } => todo!(),
         }
     }

@@ -54,6 +54,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     value.clone(),
                     &symbols,
+                    todo!(),
                     feature_interner,
                 );
                 symbols.push(FeatureSymbol {
@@ -72,6 +73,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     condition.clone(),
                     &symbols,
+                    todo!(),
                     feature_interner,
                 );
                 FeatureLazyStmtVariant::Assert { condition }
@@ -82,6 +84,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     result.clone(),
                     &symbols,
+                    todo!(),
                     feature_interner,
                 ),
             },
@@ -91,14 +94,15 @@ impl FeatureStmt {
                     opt_this.clone(),
                     xml_expr.clone(),
                     &symbols,
+                    todo!(),
                     feature_interner,
                 ),
             },
             LazyStmtVariant::ConditionFlow { ref branches, ty } => {
-                let branches: Vec<Arc<FeatureLazyBranch>> = branches
+                let branches: Vec<Arc<FeatureBranch>> = branches
                     .iter()
                     .map(|branch| {
-                        Arc::new(FeatureLazyBranch {
+                        Arc::new(FeatureBranch {
                             block: FeatureLazyBlock::new(
                                 db,
                                 opt_this.clone(),
@@ -115,6 +119,7 @@ impl FeatureStmt {
                                             opt_this.clone(),
                                             condition.clone(),
                                             &symbols,
+                                            todo!(),
                                             feature_interner,
                                         ),
                                     }
@@ -126,6 +131,7 @@ impl FeatureStmt {
                                             opt_this.clone(),
                                             condition.clone(),
                                             &symbols,
+                                            todo!(),
                                             feature_interner,
                                         ),
                                     }

@@ -12,7 +12,7 @@ mod unique_allocate;
 mod visual;
 
 pub use block::*;
-pub use branch::{FeatureBranchVariant, FeatureLazyBranch};
+pub use branch::{FeatureBranch, FeatureBranchIndicator, FeatureBranchVariant};
 pub use eval_id::*;
 pub use expr::*;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
