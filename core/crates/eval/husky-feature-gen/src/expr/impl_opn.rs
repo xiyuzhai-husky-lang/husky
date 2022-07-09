@@ -52,12 +52,12 @@ impl<'a> FeatureExprBuilder<'a> {
                 let model_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
                 let internal = match model_defn.variant {
                     EntityDefnVariant::Function {
-                        source: CallFormSource::Static(__Linkage::Model(ModelLinkage { train, .. })),
+                        source: CallFormSource::Static(__Linkage::Model(model)),
                         ..
-                    } => {
-                        todo!("handle branching");
-                        train(&opds)
-                    }
+                    } => model.train(
+                        self.opt_branch_indicator.map(|r| r as &dyn std::any::Any),
+                        &opds,
+                    ),
                     _ => todo!(),
                 };
                 let kind = FeatureLazyExprVariant::ModelCall {
@@ -65,8 +65,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     has_this: false,
                     model_defn,
                     internal,
-                    branch_indicator: self
-                        .branch_indicator
+                    opt_branch_indicator: self
+                        .opt_branch_indicator
                         .map(|branch_indicator| branch_indicator.clone()),
                 };
                 (kind, feature)
@@ -103,7 +103,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     self.opt_this.clone(),
                     opds[0].clone(),
                     self.symbols,
-                    self.branch_indicator,
+                    self.opt_branch_indicator,
                     self.features,
                 )
                 .into(),

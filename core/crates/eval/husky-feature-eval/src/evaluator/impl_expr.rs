@@ -152,12 +152,12 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     ref source,
                 } => match source {
                     CallFormSource::Lazy { stmts } => todo!(),
-                    CallFormSource::Static(__Linkage::Model(ModelLinkage { eval, .. })) => {
+                    CallFormSource::Static(__Linkage::Model(model)) => {
                         let values: Vec<_> = opds
                             .iter()
                             .map(|opd| self.husky_feature_eval_expr(opd))
                             .collect::<__EvalResult<Vec<_>>>()?;
-                        eval(internal.as_ref().map_err(|e| e.clone())?, values)
+                        model.eval(internal.as_ref().map_err(|e| e.clone())?, &values)
                     }
                     _ => panic!(),
                 },

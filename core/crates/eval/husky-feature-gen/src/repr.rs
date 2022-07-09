@@ -64,7 +64,7 @@ impl FeatureRepr {
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
         defn_repr: &DefinitionRepr,
-        features: &FeatureInterner,
+        feature_interner: &FeatureInterner,
     ) -> Self {
         let result = match defn_repr {
             DefinitionRepr::LazyExpr { expr } => FeatureRepr::Expr(FeatureExpr::new(
@@ -73,10 +73,10 @@ impl FeatureRepr {
                 expr.clone(),
                 &[],
                 None,
-                features,
+                feature_interner,
             )),
             DefinitionRepr::LazyBlock { stmts, ty } => FeatureRepr::LazyBlock(
-                FeatureLazyBlock::new(db, opt_this, stmts, &[], features, *ty),
+                FeatureLazyBlock::new(db, opt_this, stmts, &[], None, feature_interner, *ty),
             ),
             DefinitionRepr::FuncBlock {
                 stmts,
@@ -98,7 +98,7 @@ impl FeatureRepr {
                     )
                 },
                 feature: {
-                    features.intern(match opt_this {
+                    feature_interner.intern(match opt_this {
                         Some(ref this) => Feature::FieldAccess {
                             this: this.feature(),
                             field_ident: route.ident().custom(),

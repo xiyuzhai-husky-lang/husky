@@ -3,10 +3,10 @@ use std::{collections::HashMap, sync::Arc, time::Instant};
 use super::*;
 use dev_utils::__static_dev_src;
 use husky_feature_eval::EvalFeature;
-use husky_feature_gen::FeatureExpr;
+use husky_feature_gen::{FeatureBranchIndicator, FeatureExpr};
 use husky_trace_protocol::Label;
 use static_defn::*;
-use vm::{EvalValue, EvalValueResult, ModelLinkage, __EvalResult, __Linkage, __OwnedValue};
+use vm::{EvalValue, EvalValueResult, Model, ModelLinkage, __EvalResult, __Linkage, __OwnedValue};
 
 static_mod! { naive = { naive_i32 } }
 
@@ -22,15 +22,32 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
         }],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        linkage: __Linkage::Model(&ModelLinkage {
-            train: naive_i32_train,
-            eval: naive_i32_eval,
-        }),
+        linkage: __Linkage::Model(ModelLinkage(&NaiveI32)),
     },
     dev_src: __static_dev_src!(),
 };
 
-fn naive_i32_train(opds: &dyn std::any::Any) -> __EvalResult {
+impl Model for NaiveI32 {
+    type Internal = HashMap<i32, HashMap<Label, usize>>;
+
+    fn train(
+        branch_indicator: Option<&dyn std::any::Any>,
+        opds: &dyn std::any::Any,
+    ) -> Self::Internal {
+        todo!()
+    }
+}
+
+#[derive(Debug)]
+struct NaiveI32;
+
+fn naive_i32_train(
+    branch_indicator: Option<&dyn std::any::Any>,
+    opds: &dyn std::any::Any,
+) -> __EvalResult {
+    let branch_indicator: Option<&FeatureBranchIndicator> =
+        branch_indicator.map(|r| r.downcast_ref().unwrap());
+    todo!();
     let opds: &Vec<Arc<FeatureExpr>> = opds.downcast_ref().unwrap();
     assert_eq!(opds.len(), 1);
     let opd = &opds[0];

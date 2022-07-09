@@ -13,6 +13,7 @@ pub(crate) fn visual_feature_repr(
         Some(this),
         visualizer.opt_stmts.as_ref().unwrap(),
         &[],
+        None,
         db.feature_interner(),
         RangedEntityRoute {
             route: RootIdentifier::VisualType.into(),

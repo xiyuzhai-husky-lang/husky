@@ -45,6 +45,7 @@ impl FeatureStmt {
         opt_this: Option<FeatureRepr>,
         lazy_stmt: &Arc<LazyStmt>,
         symbols: &mut Vec<FeatureSymbol>,
+        branch_indicator: Option<&Arc<FeatureBranchIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         let variant = match lazy_stmt.variant {
@@ -54,7 +55,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     value.clone(),
                     &symbols,
-                    todo!(),
+                    branch_indicator,
                     feature_interner,
                 );
                 symbols.push(FeatureSymbol {
@@ -84,7 +85,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     result.clone(),
                     &symbols,
-                    todo!(),
+                    branch_indicator,
                     feature_interner,
                 ),
             },
@@ -102,12 +103,14 @@ impl FeatureStmt {
                 let branches: Vec<Arc<FeatureBranch>> = branches
                     .iter()
                     .map(|branch| {
+                        let indicator = FeatureBranchIndicator::new();
                         Arc::new(FeatureBranch {
                             block: FeatureLazyBlock::new(
                                 db,
                                 opt_this.clone(),
                                 &branch.stmts,
                                 &symbols,
+                                Some(&indicator),
                                 feature_interner,
                                 ty,
                             ),
@@ -138,6 +141,7 @@ impl FeatureStmt {
                                 }
                                 LazyConditionBranchVariant::Else => FeatureBranchVariant::Else,
                             },
+                            indicator,
                             eval_id: Default::default(),
                         })
                     })
