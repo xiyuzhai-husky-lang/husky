@@ -39,9 +39,9 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<Hu
         print_utils::RESET
     );
     let config = &debugger.config;
+    let mut gui_messages = Vec::new();
     while let Some(message_result) = rx.next().await {
         let message = message_result.expect("error receiving ws message: {}");
-        let mut gui_messages = Vec::new();
         match message.to_str() {
             Ok(text) => match serde_json::from_str(text) {
                 Ok::<HuskyTracerGuiMessage, _>(gui_message) => {
