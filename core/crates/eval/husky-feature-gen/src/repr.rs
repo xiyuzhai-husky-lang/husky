@@ -67,9 +67,14 @@ impl FeatureRepr {
         features: &FeatureInterner,
     ) -> Self {
         let result = match defn_repr {
-            DefinitionRepr::LazyExpr { expr } => {
-                FeatureRepr::Expr(FeatureExpr::new(db, opt_this, expr.clone(), &[], features))
-            }
+            DefinitionRepr::LazyExpr { expr } => FeatureRepr::Expr(FeatureExpr::new(
+                db,
+                opt_this,
+                expr.clone(),
+                &[],
+                None,
+                features,
+            )),
             DefinitionRepr::LazyBlock { stmts, ty } => FeatureRepr::LazyBlock(
                 FeatureLazyBlock::new(db, opt_this, stmts, &[], features, *ty),
             ),

@@ -16,7 +16,7 @@ pub enum FeatureLazyStmtVariant {
         result: Arc<FeatureXmlExpr>,
     },
     ConditionFlow {
-        branches: Vec<Arc<FeatureLazyBranch>>,
+        branches: Vec<Arc<FeatureBranch>>,
     },
 }
 
@@ -31,29 +31,27 @@ impl FeatureLazyStmtVariant {
             }
             FeatureLazyStmtVariant::Return { result } => Some(result.feature),
             FeatureLazyStmtVariant::ReturnXml { result } => Some(result.feature),
-            FeatureLazyStmtVariant::ConditionFlow { branches } => {
-                Some(feature_interner.intern(
-                    Feature::Branches {
-                        branches: branches
-                            .iter()
-                            .map(|branch| match branch.variant {
-                                FeatureBranchVariant::If { ref condition } => BranchedFeature {
-                                    condition: Some(condition.feature),
-                                    block: branch.block.feature,
-                                },
-                                FeatureBranchVariant::Elif { ref condition } => BranchedFeature {
-                                    condition: Some(condition.feature),
-                                    block: branch.block.feature,
-                                },
-                                FeatureBranchVariant::Else => BranchedFeature {
-                                    condition: None,
-                                    block: branch.block.feature,
-                                },
-                            })
-                            .collect(),
-                    },
-                ))
-            }
+            FeatureLazyStmtVariant::ConditionFlow { branches } => Some(
+                feature_interner.intern(Feature::Branches {
+                    branches: branches
+                        .iter()
+                        .map(|branch| match branch.variant {
+                            FeatureBranchVariant::If { ref condition } => BranchedFeature {
+                                condition: Some(condition.feature),
+                                block: branch.block.feature,
+                            },
+                            FeatureBranchVariant::Elif { ref condition } => BranchedFeature {
+                                condition: Some(condition.feature),
+                                block: branch.block.feature,
+                            },
+                            FeatureBranchVariant::Else => BranchedFeature {
+                                condition: None,
+                                block: branch.block.feature,
+                            },
+                        })
+                        .collect(),
+                }),
+            ),
         }
     }
 }

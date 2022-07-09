@@ -54,7 +54,10 @@ impl<'a> FeatureExprBuilder<'a> {
                     EntityDefnVariant::Function {
                         source: CallFormSource::Static(__Linkage::Model(ModelLinkage { train, .. })),
                         ..
-                    } => train(&opds),
+                    } => {
+                        todo!("handle branching");
+                        train(&opds)
+                    }
                     _ => todo!(),
                 };
                 let kind = FeatureLazyExprVariant::ModelCall {
@@ -62,6 +65,9 @@ impl<'a> FeatureExprBuilder<'a> {
                     has_this: false,
                     model_defn,
                     internal,
+                    branch_indicator: self
+                        .branch_indicator
+                        .map(|branch_indicator| branch_indicator.clone()),
                 };
                 (kind, feature)
             }
@@ -97,6 +103,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     self.opt_this.clone(),
                     opds[0].clone(),
                     self.symbols,
+                    self.branch_indicator,
                     self.features,
                 )
                 .into(),

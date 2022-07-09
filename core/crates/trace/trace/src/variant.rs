@@ -11,7 +11,7 @@ use crate::*;
 pub enum TraceVariant<'eval> {
     Main(FeatureRepr),
     FeatureLazyStmt(Arc<FeatureStmt>),
-    FeatureLazyBranch(Arc<FeatureLazyBranch>),
+    FeatureLazyBranch(Arc<FeatureBranch>),
     FeatureLazyExpr(Arc<FeatureExpr>),
     FeatureCallArgument {
         name: &'static str,
@@ -154,6 +154,7 @@ impl<'eval> TraceVariant<'eval> {
                     has_this,
                     ref model_defn,
                     ref internal,
+                    ..
                 } => match model_defn.variant {
                     EntityDefnVariant::Function { ref source, .. } => match source {
                         CallFormSource::Lazy { stmts } => true,

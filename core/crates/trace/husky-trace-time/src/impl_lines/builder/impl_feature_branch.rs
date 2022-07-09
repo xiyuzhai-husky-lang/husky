@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> TraceTokenBuilder<'a> {
-    pub(crate) fn feature_branch_tokens(&mut self, branch: &FeatureLazyBranch) {
+    pub(crate) fn feature_branch_tokens(&mut self, branch: &FeatureBranch) {
         match branch.variant {
             FeatureBranchVariant::If { ref condition } => {
                 self.push(keyword!("if "));

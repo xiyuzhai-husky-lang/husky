@@ -34,7 +34,7 @@ impl HuskyTraceTime {
         &mut self,
         parent: &Trace,
         indent: Indent,
-        branch: Arc<FeatureLazyBranch>,
+        branch: Arc<FeatureBranch>,
     ) -> TraceId {
         self.new_trace(
             Some(parent.id()),
