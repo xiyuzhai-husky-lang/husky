@@ -23,3 +23,4 @@ husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
 husky-feature-eval = { path = "../../../../eval/husky-feature-eval" }
 husky-feature-gen = { path = "../../../../eval/husky-feature-gen" }
 husky-eval-time = { path = "../../../../eval/husky-eval-time" }
+husky-model = { path = "../husky-model" }

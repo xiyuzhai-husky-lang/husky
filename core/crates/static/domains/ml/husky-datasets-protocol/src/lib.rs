@@ -15,7 +15,7 @@ use std::{borrow::Cow, sync::Arc};
 use vm::*;
 use word::RootIdentifier;
 
-pub trait DatasetDyn<'eval>: AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {
+pub trait DatasetDyn<'eval>: __AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {
     fn dev_loader(&self) -> DataLoader<'eval>;
     fn val_loader(&self) -> DataLoader<'eval>;
     fn test_loader(&self) -> DataLoader<'eval>;
@@ -61,7 +61,7 @@ impl<'eval> Serialize for Dataset<'eval> {
         todo!()
     }
 }
-impl<'a> HasStaticTypeInfo for Dataset<'a> {
+impl<'a> __HasStaticTypeInfo for Dataset<'a> {
     type __StaticSelf = Dataset<'static>;
 
     fn __static_type_name() -> Cow<'static, str> {
@@ -69,12 +69,12 @@ impl<'a> HasStaticTypeInfo for Dataset<'a> {
     }
 }
 
-impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
+impl<'eval, 'a: 'eval> __AnyValue<'eval> for Dataset<'a> {
     fn __to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -93,9 +93,13 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for Dataset<'a> {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<husky_trace_protocol::VisualData>> {
+        todo!()
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
         todo!()
     }
 }

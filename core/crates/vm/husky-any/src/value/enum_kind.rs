@@ -20,7 +20,7 @@ impl Serialize for EnumKindValue {
     }
 }
 
-impl HasStaticTypeInfo for EnumKindValue {
+impl __HasStaticTypeInfo for EnumKindValue {
     type __StaticSelf = Self;
 
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
@@ -28,8 +28,8 @@ impl HasStaticTypeInfo for EnumKindValue {
     }
 }
 
-impl<'eval> AnyValue<'eval> for EnumKindValue {
-    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+impl<'eval> __AnyValue<'eval> for EnumKindValue {
+    fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -52,7 +52,7 @@ impl<'eval> AnyValue<'eval> for EnumKindValue {
         todo!()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -75,9 +75,13 @@ impl<'eval> AnyValue<'eval> for EnumKindValue {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
+        todo!()
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
         todo!()
     }
 }

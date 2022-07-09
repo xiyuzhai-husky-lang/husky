@@ -7,7 +7,7 @@ use husky_trace_protocol::*;
 use infer_total::InferQueryGroup;
 use static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
-use vm::{AnyValueDyn, InterpreterQueryGroup};
+use vm::{InterpreterQueryGroup, __AnyValueDyn};
 
 impl fmt::Debug for HuskyCompileTime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {

@@ -48,7 +48,7 @@ impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
             Binding::TempRef => todo!(),
             Binding::TempRefMut => {
                 let field_value = &mut self.fields.data_mut()[field_idx].1;
-                let ptr: *mut dyn AnyValueDyn = match field_value {
+                let ptr: *mut dyn __AnyValueDyn = match field_value {
                     MemberValue::Copyable(ref mut value) => value.any_mut(),
                     MemberValue::Boxed(_) => todo!(),
                     MemberValue::GlobalPure(_) => todo!(),
@@ -76,7 +76,7 @@ impl<'eval> Serialize for VirtualStruct<'eval> {
     }
 }
 
-impl<'eval> HasStaticTypeInfo for VirtualStruct<'eval> {
+impl<'eval> __HasStaticTypeInfo for VirtualStruct<'eval> {
     type __StaticSelf = VirtualStruct<'static>;
 
     fn __static_type_name() -> Cow<'static, str> {
@@ -84,7 +84,7 @@ impl<'eval> HasStaticTypeInfo for VirtualStruct<'eval> {
     }
 }
 
-impl<'eval, 'a> AnyValue<'eval> for VirtualStruct<'a>
+impl<'eval, 'a> __AnyValue<'eval> for VirtualStruct<'a>
 where
     'a: 'eval,
 {
@@ -112,7 +112,7 @@ where
         )
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -131,9 +131,13 @@ where
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
+        todo!()
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
         todo!()
     }
 }

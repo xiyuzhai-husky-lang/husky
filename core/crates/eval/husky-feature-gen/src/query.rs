@@ -3,7 +3,7 @@ mod main_feature_repr;
 
 pub use entity_feature_repr::*;
 pub use main_feature_repr::*;
-use vm::{InterpreterQueryGroup, __EvalResult};
+use vm::{InterpreterQueryGroup, ModelLinkage, __EvalResult};
 
 use crate::{record::*, unique_allocate::AllocateUniqueFeature, visual::*, *};
 use husky_compile_time::AskCompileTime;
@@ -23,9 +23,19 @@ pub trait FeatureGenQueryGroup:
     + InstructionGenQueryGroup
     + Upcast<dyn InterpreterQueryGroup>
     + AskCompileTime
+    + TrainModel
 {
     fn main_feature_repr(&'eval self, main_file: husky_file::FilePtr) -> FeatureRepr;
     fn entity_feature_repr(&self, entity_route: EntityRoutePtr) -> FeatureRepr;
     fn record_field_repr(&self, this: FeatureRepr, field_ident: CustomIdentifier) -> FeatureRepr;
     fn visual_feature_repr(&self, this: FeatureRepr) -> __EvalResult<FeatureRepr>;
+}
+
+pub trait TrainModel {
+    fn train(
+        &self,
+        model: ModelLinkage,
+        opt_branch_indicator: Option<&Arc<FeatureBranchIndicator>>,
+        opds: &[Arc<FeatureExpr>],
+    ) -> __EvalResult;
 }

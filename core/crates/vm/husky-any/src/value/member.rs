@@ -6,7 +6,7 @@ use crate::*;
 pub enum MemberValue<'eval> {
     Copyable(CopyableValue),
     Boxed(__OwnedValue<'eval, 'eval>),
-    GlobalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    GlobalPure(Arc<dyn __AnyValueDyn<'eval> + 'eval>),
     EvalRef(__EvalRef<'eval>),
     Moved,
 }
@@ -36,7 +36,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn any_ref<'a>(&'a self) -> &'a (dyn AnyValueDyn<'eval> + 'eval) {
+    pub fn any_ref<'a>(&'a self) -> &'a (dyn __AnyValueDyn<'eval> + 'eval) {
         match self {
             MemberValue::Copyable(value) => value.any_ref(),
             MemberValue::Boxed(value) => value.any_ref(),
@@ -46,7 +46,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn any_ptr(&self) -> *const (dyn AnyValueDyn<'eval> + 'eval) {
+    pub fn any_ptr(&self) -> *const (dyn __AnyValueDyn<'eval> + 'eval) {
         self.any_ref()
     }
 
@@ -91,7 +91,7 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
     }
 
     pub fn bind_mut<'a>(&'a mut self, owner: VMStackIdx) -> __TempValue<'temp, 'eval> {
-        let value_mut: *mut dyn AnyValueDyn<'eval> = match self {
+        let value_mut: *mut dyn __AnyValueDyn<'eval> = match self {
             MemberValue::Copyable(value) => value.any_mut(),
             MemberValue::Boxed(value) => value.any_mut_ptr(),
             _ => todo!(),
@@ -103,10 +103,10 @@ impl<'temp, 'eval: 'temp> MemberValue<'eval> {
         }
     }
 
-    pub fn share_globally(&'eval self) -> EvalValue<'eval> {
+    pub fn share_globally(&'eval self) -> __EvalValue<'eval> {
         match self {
-            MemberValue::Copyable(value) => EvalValue::Copyable(*value),
-            MemberValue::Boxed(value) => EvalValue::EvalRef(__EvalRef(value.any_ref())),
+            MemberValue::Copyable(value) => __EvalValue::Copyable(*value),
+            MemberValue::Boxed(value) => __EvalValue::EvalRef(__EvalRef(value.any_ref())),
             MemberValue::GlobalPure(_) => todo!(),
             MemberValue::EvalRef(_) => todo!(),
             MemberValue::Moved => todo!(),

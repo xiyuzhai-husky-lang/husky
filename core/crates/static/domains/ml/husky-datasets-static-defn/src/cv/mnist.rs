@@ -80,7 +80,7 @@ impl Serialize for MnistDataset {
     }
 }
 
-impl HasStaticTypeInfo for MnistDataset {
+impl __HasStaticTypeInfo for MnistDataset {
     type __StaticSelf = Self;
 
     fn __static_type_name() -> Cow<'static, str> {
@@ -88,12 +88,12 @@ impl HasStaticTypeInfo for MnistDataset {
     }
 }
 
-impl<'eval> AnyValue<'eval> for MnistDataset {
+impl<'eval> __AnyValue<'eval> for MnistDataset {
     fn __to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -112,9 +112,13 @@ impl<'eval> AnyValue<'eval> for MnistDataset {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<husky_trace_protocol::VisualData>> {
+        todo!()
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
         todo!()
     }
 }

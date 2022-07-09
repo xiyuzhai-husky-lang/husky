@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_route::InternEntityRoute;
-use husky_eval_time::{compile_time, ty_route_from_static_binded};
+use husky_eval_time::{__ty_route_from_static_binded, compile_time};
 use husky_trace_protocol::*;
 use husky_visual_syntax::StaticVisualTy;
 use std::{any::TypeId, sync::Arc};
@@ -158,7 +158,7 @@ impl Serialize for BinaryImage28 {
         todo!()
     }
 }
-impl HasStaticTypeInfo for BinaryImage28 {
+impl __HasStaticTypeInfo for BinaryImage28 {
     type __StaticSelf = Self;
 
     fn __static_type_name() -> Cow<'static, str> {
@@ -166,7 +166,7 @@ impl HasStaticTypeInfo for BinaryImage28 {
     }
 }
 
-impl<'eval> AnyValue<'eval> for BinaryImage28 {
+impl<'eval> __AnyValue<'eval> for BinaryImage28 {
     fn __print_short(&self) -> String {
         "BinaryImage28 { ... }".into()
     }
@@ -175,7 +175,7 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
         todo!()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -183,18 +183,22 @@ impl<'eval> AnyValue<'eval> for BinaryImage28 {
     }
 
     fn __static_ty() -> EntityRoutePtr {
-        ty_route_from_static_binded::<Self>(BINARY_IMAGE_28_BASE_ROUTE)
+        __ty_route_from_static_binded::<Self>(BINARY_IMAGE_28_BASE_ROUTE)
     }
 
     fn __opt_visualize(
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         Ok(Some(VisualData::BinaryImage28 {
             padded_rows: self.padded_rows.clone(),
         }))
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
     }
 }

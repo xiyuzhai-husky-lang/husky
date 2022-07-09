@@ -4,8 +4,8 @@ use husky_liason_semantics::OutputLiason;
 use husky_trace_protocol::SampleId;
 use std::sync::Arc;
 use vm::{
-    specific_transfer_linkage, EvalValue, __Linkage, __OwnedValue, __SpecificRoutineLinkage,
-    __TempValue,
+    __EvalValue, __Linkage, __OwnedValue, __SpecificRoutineLinkage, __TempValue,
+    specific_transfer_linkage,
 };
 use xrng::XRng;
 
@@ -54,13 +54,13 @@ pub fn gen_sample1<'eval>(seed: u64, sample_id: SampleId) -> LabeledData<'eval> 
     let mut xrng = XRng::new(((seed + (sample_id.0 as u64)) >> 32) & ((sample_id.0 as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
-            input: EvalValue::Copyable(1.0f32.into()),
+            input: __EvalValue::Copyable(1.0f32.into()),
             label: 1.into(),
             sample_id: sample_id,
         }
     } else {
         LabeledData {
-            input: EvalValue::Copyable((-1.0f32).into()),
+            input: __EvalValue::Copyable((-1.0f32).into()),
             label: 1.into(),
             sample_id: sample_id,
         }
@@ -71,13 +71,13 @@ pub fn gen_sample2<'eval>(seed: u64, sample_id: SampleId) -> LabeledData<'eval> 
     let mut xrng = XRng::new(((seed + (sample_id.0 as u64)) >> 32) & ((sample_id.0 as u64) << 32));
     if xrng.with_probability(0.5) {
         LabeledData {
-            input: EvalValue::Copyable(1.0f32.into()),
+            input: __EvalValue::Copyable(1.0f32.into()),
             label: 1.into(),
             sample_id: sample_id,
         }
     } else {
         LabeledData {
-            input: EvalValue::Copyable((-1.0f32).into()),
+            input: __EvalValue::Copyable((-1.0f32).into()),
             label: 1.into(),
             sample_id: sample_id,
         }

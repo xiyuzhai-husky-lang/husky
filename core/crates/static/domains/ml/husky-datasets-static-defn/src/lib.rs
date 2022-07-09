@@ -15,7 +15,7 @@ use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::{borrow::Cow, sync::Arc};
 use vm::*;
-use vm::{AnyValue, AnyValueDyn, HasStaticTypeInfo};
+use vm::{__AnyValue, __AnyValueDyn, __HasStaticTypeInfo};
 use word::RootIdentifier;
 
 pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {

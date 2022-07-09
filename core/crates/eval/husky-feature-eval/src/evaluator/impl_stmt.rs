@@ -1,4 +1,4 @@
-use vm::{EvalError, EvalValue, __EvalResult};
+use vm::{EvalError, __EvalResult, __EvalValue};
 
 use crate::*;
 
@@ -8,12 +8,12 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn husky_feature_eval_stmt(
         &mut self,
         stmt: &FeatureStmt,
-    ) -> __EvalResult<EvalValue<'eval>> {
+    ) -> __EvalResult<__EvalValue<'eval>> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { .. } => Ok(EvalValue::Undefined),
+            FeatureLazyStmtVariant::Init { .. } => Ok(__EvalValue::Undefined),
             FeatureLazyStmtVariant::Assert { ref condition } => {
                 if self.satisfies(condition)? {
-                    Ok(EvalValue::Undefined)
+                    Ok(__EvalValue::Undefined)
                 } else {
                     Err(EvalError::Normal {
                         message: format!("assertion failed"),
@@ -38,7 +38,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                         return self.husky_feature_eval_lazy_block(&branch.block);
                     }
                 }
-                Ok(EvalValue::Undefined)
+                Ok(__EvalValue::Undefined)
             }
         }
     }

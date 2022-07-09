@@ -43,7 +43,7 @@ impl<'eval> Division<'eval> {
         &self,
         feature: FeaturePtr,
         sample_id: SampleId,
-        value: &EvalValue<'static>,
+        value: &__EvalValue<'static>,
     ) -> __EvalRef<'static>
     where
         'eval: 'static,

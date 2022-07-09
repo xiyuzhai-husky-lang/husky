@@ -157,7 +157,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                             .iter()
                             .map(|opd| self.husky_feature_eval_expr(opd))
                             .collect::<__EvalResult<Vec<_>>>()?;
-                        model.eval(internal.as_ref().map_err(|e| e.clone())?, &values)
+                        model.eval_dyn(internal.as_ref().map_err(|e| e.clone())?, &values)
                     }
                     _ => panic!(),
                 },
@@ -174,7 +174,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
                 let visual_data = self.visualize_feature(this);
-                Ok(EvalValue::Owned(__OwnedValue::new(visual_data?)))
+                Ok(__EvalValue::Owned(__OwnedValue::new(visual_data?)))
             }
             FeatureXmlExprVariant::Tag {
                 tag_kind,
@@ -193,7 +193,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         )
                         .collect::<__EvalResult<IdentPairDict<_>>>()?,
                 };
-                Ok(EvalValue::Owned(__OwnedValue::new(VisualData::from(
+                Ok(__EvalValue::Owned(__OwnedValue::new(VisualData::from(
                     xml_value.into(),
                 ))))
             }

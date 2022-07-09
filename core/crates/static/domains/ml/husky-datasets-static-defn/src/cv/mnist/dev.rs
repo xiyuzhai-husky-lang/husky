@@ -30,7 +30,7 @@ impl<'eval> LoadSample<'eval> for MnistDevLoader {
 
     fn load<'a>(&'a self, sample_id: SampleId) -> LabeledData<'eval> {
         let permuted_idx = self.permutation[sample_id.0] as usize;
-        let input = EvalValue::EvalPure(self.images[permuted_idx].clone());
+        let input = __EvalValue::EvalPure(self.images[permuted_idx].clone());
         let label = self.labels[permuted_idx];
         LabeledData {
             input,

@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use vm::{EvalValue, __EvalRef, __EvalResult, __OwnedValue};
+use vm::{__EvalRef, __EvalResult, __EvalValue, __OwnedValue};
 use word::CustomIdentifier;
 
 use super::*;
@@ -66,8 +66,8 @@ impl<'eval> EvalSheet<'eval> {
 unsafe fn cache_raw_eval_value<'eval>(raw: &mut EvalValueResult<'eval>) -> EvalValueResult<'eval> {
     match raw {
         Ok(value) => match value {
-            EvalValue::Copyable(value) => {
-                *raw = Ok(EvalValue::Owned(
+            __EvalValue::Copyable(value) => {
+                *raw = Ok(__EvalValue::Owned(
                     value.any_ref().__clone_into_box_dyn().into(),
                 ))
             }
@@ -81,11 +81,11 @@ unsafe fn cache_raw_eval_value<'eval>(raw: &mut EvalValueResult<'eval>) -> EvalV
 unsafe fn share_cached<'eval>(cached: &EvalValueResult<'eval>) -> EvalValueResult<'eval> {
     match cached {
         Ok(value) => Ok(match value {
-            EvalValue::Copyable(value) => panic!(),
-            EvalValue::Owned(value) => EvalValue::EvalRef(__EvalRef(&*value.any_ptr())),
-            EvalValue::EvalRef(value) => EvalValue::EvalRef(*value),
-            EvalValue::EvalPure(value) => EvalValue::EvalPure(value.clone()),
-            EvalValue::Undefined => EvalValue::Undefined,
+            __EvalValue::Copyable(value) => panic!(),
+            __EvalValue::Owned(value) => __EvalValue::EvalRef(__EvalRef(&*value.any_ptr())),
+            __EvalValue::EvalRef(value) => __EvalValue::EvalRef(*value),
+            __EvalValue::EvalPure(value) => __EvalValue::EvalPure(value.clone()),
+            __EvalValue::Undefined => __EvalValue::Undefined,
         }),
         Err(error) => Err(error.clone()),
     }

@@ -12,12 +12,12 @@ pub use sheet::*;
 
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
-use vm::{AnyValueDyn, EvalValue, VMConfig};
 use vm::{EvalValueResult, __EvalResult};
+use vm::{VMConfig, __AnyValueDyn, __EvalValue};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,
-    pub(crate) eval_input: EvalValue<'eval>,
+    pub(crate) eval_input: __EvalValue<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
     pub(crate) db: &'a dyn FeatureGenQueryGroup,
     pub(crate) vm_config: &'a VMConfig,

@@ -28,7 +28,7 @@ impl History<'static> {
         if let Some(entry) = self.entries.get(&t.instruction_id()) {
             entry.result()
         } else {
-            Ok(EvalValue::Undefined)
+            Ok(__EvalValue::Undefined)
         }
     }
 

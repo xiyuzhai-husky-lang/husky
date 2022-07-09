@@ -38,4 +38,8 @@ impl<'eval> __AnyValue<'eval> for ConvexCompoent<'eval> {
     fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent")
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
