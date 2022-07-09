@@ -1,4 +1,5 @@
 mod impl_necessary;
+mod impl_train;
 mod query;
 mod utils;
 mod variant;
@@ -29,7 +30,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use variant::*;
-use vm::{AnyValueDyn, Instruction, VMConfig};
+use vm::{Instruction, VMConfig, __AnyValueDyn};
 
 #[salsa::database(
     husky_feature_gen::FeatureGenQueryGroupStorage,

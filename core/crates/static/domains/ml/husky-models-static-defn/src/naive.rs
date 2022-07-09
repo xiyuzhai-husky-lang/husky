@@ -6,7 +6,9 @@ use husky_feature_eval::EvalFeature;
 use husky_feature_gen::{FeatureBranchIndicator, FeatureExpr};
 use husky_trace_protocol::Label;
 use static_defn::*;
-use vm::{EvalValue, EvalValueResult, Model, ModelLinkage, __EvalResult, __Linkage, __OwnedValue};
+use vm::{
+    EvalValueResult, Model, ModelLinkage, __EvalResult, __EvalValue, __Linkage, __OwnedValue,
+};
 
 static_mod! { naive = { naive_i32 } }
 
@@ -27,79 +29,51 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
     dev_src: __static_dev_src!(),
 };
 
-impl Model for NaiveI32 {
-    type Internal = HashMap<i32, HashMap<Label, usize>>;
-
-    fn train(
-        branch_indicator: Option<&dyn std::any::Any>,
-        opds: &dyn std::any::Any,
-    ) -> Self::Internal {
-        todo!()
-    }
-}
-
 #[derive(Debug)]
 struct NaiveI32;
 
-fn naive_i32_train(
-    branch_indicator: Option<&dyn std::any::Any>,
-    opds: &dyn std::any::Any,
-) -> __EvalResult {
-    let branch_indicator: Option<&FeatureBranchIndicator> =
-        branch_indicator.map(|r| r.downcast_ref().unwrap());
-    todo!();
-    let opds: &Vec<Arc<FeatureExpr>> = opds.downcast_ref().unwrap();
-    assert_eq!(opds.len(), 1);
-    let opd = &opds[0];
-    let eval_time = husky_eval_time::eval_time();
-    let session = eval_time.session();
-    let dev_division = session.dev();
-    let mut label_statics_map: HashMap<i32, HashMap<Label, usize>> = Default::default();
-    let now = Instant::now();
-    for labeled_data in dev_division.each_labeled_data() {
-        let sample_id = labeled_data.sample_id;
-        if sample_id.0 >= 1000 {
-            break;
-        }
-        let value = eval_time
-            .husky_feature_eval_expr(opd, sample_id)
-            .map_err(|e| (sample_id, e))?
-            .primitive()
-            .take_i32();
-        *label_statics_map
-            .entry(value)
-            .or_default()
-            .entry(labeled_data.label)
-            .or_default() += 1;
-    }
-    println!(
-        "{} milliseconds elapsed for evaluating first 1000 in naive train",
-        now.elapsed().as_millis(),
-    );
-    let most_likely_labels: HashMap<i32, i32> = label_statics_map
-        .into_iter()
-        .map(|(value, label_statics)| -> (i32, i32) {
-            (
-                value,
-                label_statics
-                    .into_iter()
-                    .max_by(|x, y| x.1.cmp(&y.1))
-                    .unwrap()
-                    .0
-                     .0 as i32,
-            )
-        })
-        .collect();
-    Ok(EvalValue::Owned(__OwnedValue::new(most_likely_labels)))
-}
+impl Model for NaiveI32 {
+    type Internal = HashMap<i32, i32>; // most likely labels
 
-fn naive_i32_eval<'eval>(
-    internal: &EvalValue,
-    args: Vec<EvalValue<'eval>>,
-) -> EvalValueResult<'eval> {
-    let most_likely_labels: &HashMap<i32, i32> = internal.any_ref().__downcast_ref();
-    match most_likely_labels.get(&args[0].primitive().take_i32()) {
-        Some(l) => Ok(EvalValue::Copyable((*l).into())),
-        None => Ok(EvalValue::Undefined),
+    fn train(
+        &self,
+        training_data: Vec<(Vec<__EvalValue<'static>>, Label)>,
+    ) -> __EvalResult<Self::Internal> {
+        let mut label_statics_map: HashMap<i32, HashMap<Label, usize>> = Default::default();
+        for (arguments, label) in training_data {
+            assert_eq!(arguments.len(), 1);
+            let value = arguments[0].primitive().take_i32();
+            *label_statics_map
+                .entry(value)
+                .or_default()
+                .entry(label)
+                .or_default() += 1;
+        }
+        let most_likely_labels: HashMap<i32, i32> = label_statics_map
+            .into_iter()
+            .map(|(value, label_statics)| -> (i32, i32) {
+                (
+                    value,
+                    label_statics
+                        .into_iter()
+                        .max_by(|x, y| x.1.cmp(&y.1))
+                        .unwrap()
+                        .0
+                         .0 as i32,
+                )
+            })
+            .collect();
+        Ok(most_likely_labels)
+    }
+
+    fn eval<'eval>(
+        &self,
+        most_likely_labels: &Self::Internal,
+        arguments: &[__EvalValue<'eval>],
+    ) -> EvalValueResult<'eval> {
+        match most_likely_labels.get(&arguments[0].primitive().take_i32()) {
+            Some(l) => Ok(__EvalValue::Copyable((*l).into())),
+            None => Ok(__EvalValue::Undefined),
+        }
     }
 }

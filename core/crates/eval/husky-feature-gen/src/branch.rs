@@ -17,7 +17,10 @@ pub enum FeatureBranchVariant {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureBranchIndicator {
+    parent: Option<Arc<FeatureBranchIndicator>>,
+    previous: Option<Arc<FeatureBranchIndicator>>,
     variant: FeatureBranchIndicatorVariant,
+    feature: FeaturePtr,
 }
 
 impl FeatureBranchIndicator {

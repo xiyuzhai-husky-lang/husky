@@ -38,6 +38,10 @@ impl<'eval> __AnyValue<'eval> for ConcaveComponent<'eval> {
     fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent")
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
 
 pub(crate) fn find_concave_components<'eval>(line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>) -> Vec<ConcaveComponent<'eval>> {

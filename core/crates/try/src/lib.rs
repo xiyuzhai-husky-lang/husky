@@ -12,6 +12,7 @@ mod try_ref;
 #[cfg(test)]
 mod try_salsa;
 mod try_serde;
+mod try_size;
 mod try_trait;
 
 use check_utils::*;

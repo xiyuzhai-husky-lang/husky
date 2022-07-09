@@ -51,6 +51,10 @@ impl<'eval> __AnyValue<'eval> for LineSegment<'eval> {
     fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::line_segment_sketch::LineSegment")
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
 #[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct LineSegmentSketch<'eval> {
@@ -92,6 +96,10 @@ impl<'eval> __AnyValue<'eval> for LineSegmentSketch<'eval> {
 
     fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::line_segment_sketch::LineSegmentSketch")
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
     }
 }
 pub(crate) fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {

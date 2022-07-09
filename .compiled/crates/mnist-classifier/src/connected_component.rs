@@ -37,6 +37,10 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
     fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::connected_component::ConnectedComponent")
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
 
 pub(crate) fn horizontal_extend(a: u32, x: u32) -> u32 {

@@ -5,9 +5,9 @@ use word::RootIdentifier;
 
 use super::*;
 
-impl<'a, T> HasStaticTypeInfo for CyclicSlice<'a, T>
+impl<'a, T> __HasStaticTypeInfo for CyclicSlice<'a, T>
 where
-    T: HasStaticTypeInfo,
+    T: __HasStaticTypeInfo,
 {
     type __StaticSelf = CyclicSlice<'static, T::__StaticSelf>;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
@@ -15,12 +15,12 @@ where
     }
 }
 
-impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSlice<'b, T> {
+impl<'eval, 'a: 'eval, 'b: 'eval, T: __AnyValue<'a>> __AnyValue<'eval> for CyclicSlice<'b, T> {
     fn __to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::Value::Array(self.iter().map(|elem| elem.__to_json_value()).collect())
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -55,7 +55,7 @@ impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSli
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         Ok(Some(VisualData::Group(
@@ -64,5 +64,9 @@ impl<'eval, 'a: 'eval, 'b: 'eval, T: AnyValue<'a>> AnyValue<'eval> for CyclicSli
                 .map(|(i, element)| visualize_element(i, element.__short()))
                 .collect::<__EvalResult<Vec<_>>>()?,
         )))
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
     }
 }

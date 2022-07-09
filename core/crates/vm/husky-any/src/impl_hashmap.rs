@@ -1,10 +1,10 @@
 use super::*;
 use std::collections::HashMap;
 
-impl<K, V> HasStaticTypeInfo for HashMap<K, V>
+impl<K, V> __HasStaticTypeInfo for HashMap<K, V>
 where
-    K: std::cmp::Eq + std::hash::Hash + HasStaticTypeInfo,
-    V: HasStaticTypeInfo,
+    K: std::cmp::Eq + std::hash::Hash + __HasStaticTypeInfo,
+    V: __HasStaticTypeInfo,
 {
     type __StaticSelf = HashMap<K::__StaticSelf, V::__StaticSelf>;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
@@ -12,11 +12,12 @@ where
     }
 }
 
-impl<'eval, 'a: 'eval, K: AnyValue<'a>, V: AnyValue<'a>> AnyValue<'eval> for HashMap<K, V>
+impl<'eval, 'a: 'eval, K, V> __AnyValue<'eval> for HashMap<K, V>
 where
-    K: std::cmp::Eq + std::hash::Hash,
+    K: __AnyValue<'a> + std::cmp::Eq + std::hash::Hash + 'a,
+    V: __AnyValue<'a> + 'a,
 {
-    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -29,7 +30,7 @@ where
         // serde_json::value::Value::Array(self.iter().map(|elem| elem.to_json_value()).collect())
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -44,9 +45,13 @@ where
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         todo!()
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        __EvalValue::Owned(__OwnedValue::new(self))
     }
 }

@@ -15,7 +15,7 @@ pub use block::*;
 pub use branch::{FeatureBranch, FeatureBranchIndicator, FeatureBranchVariant};
 pub use eval_id::*;
 pub use expr::*;
-pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage};
+pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
 pub use stmt::{FeatureLazyStmtVariant, FeatureStmt};
 pub use unique_allocate::{

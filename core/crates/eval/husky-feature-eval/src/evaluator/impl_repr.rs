@@ -8,14 +8,14 @@ use super::FeatureEvaluator;
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn husky_feature_eval_repr(&mut self, repr: &FeatureRepr) -> EvalValueResult<'eval> {
         let result = match repr {
-            FeatureRepr::Value { value, .. } => Ok(EvalValue::EvalRef(value.short())),
+            FeatureRepr::Value { value, .. } => Ok(__EvalValue::EvalRef(value.short())),
             FeatureRepr::Expr(expr) => self.husky_feature_eval_expr(expr),
             FeatureRepr::LazyBlock(block) => self.husky_feature_eval_lazy_block(block),
             FeatureRepr::FuncBlock(block) => self.husky_feature_eval_func_block(block),
             FeatureRepr::ProcBlock(_) => todo!(),
         };
         if let Ok(ref value) = result {
-            if value != &EvalValue::Undefined {
+            if value != &__EvalValue::Undefined {
                 should_eq!({ value.any_ref().__ty_dyn() }, repr.ty())
             }
         }

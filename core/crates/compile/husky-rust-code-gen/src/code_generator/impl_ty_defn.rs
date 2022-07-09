@@ -327,6 +327,10 @@ impl<'a> RustCodeGenerator<'a> {
     fn __static_ty() -> __EntityRoutePtr {{
         __ty_route_from_static_binded::<Self>("{base_route:?}")
     }}
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {{
+        todo!()
+    }}
 }}
 "#,
         ));

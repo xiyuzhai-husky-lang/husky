@@ -12,11 +12,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             for stmt in block.stmts.iter() {
                 let value = this.husky_feature_eval_stmt(stmt)?;
                 match value {
-                    EvalValue::Undefined => (),
+                    __EvalValue::Undefined => (),
                     _ => return Ok(value),
                 }
             }
-            Ok(EvalValue::Undefined)
+            Ok(__EvalValue::Undefined)
         })
     }
 

@@ -79,7 +79,7 @@ impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
         }
     }
 
-    pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> EvalValue<'eval> {
+    pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> __EvalValue<'eval> {
         self.values[stack_idx.raw()].eval()
     }
 
@@ -101,7 +101,7 @@ impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
         self.values.drain((self.len() - k as usize)..)
     }
 
-    pub(crate) fn eval_top(&mut self) -> EvalValue<'eval> {
+    pub(crate) fn eval_top(&mut self) -> __EvalValue<'eval> {
         self.values.last().unwrap().eval()
     }
 

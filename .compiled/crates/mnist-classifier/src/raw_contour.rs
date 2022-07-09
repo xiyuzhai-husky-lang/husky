@@ -44,6 +44,10 @@ impl<'eval> __AnyValue<'eval> for RawContour<'eval> {
     fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::raw_contour::RawContour")
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq, __Serialize)]
 pub(crate) enum Direction {
@@ -78,6 +82,10 @@ impl<'eval> __AnyValue<'eval> for Direction {
 
     fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::raw_contour::Direction")
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
     }
 }
 pub(crate) fn get_pixel_pair(row: u32, j: i32) -> u32 {
@@ -257,6 +265,10 @@ impl<'eval> __AnyValue<'eval> for StreakCache {
 
     fn __static_ty() -> __EntityRoutePtr {
         __ty_route_from_static_binded::<Self>("mnist_classifier::raw_contour::StreakCache")
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
     }
 }
 pub(crate) fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {

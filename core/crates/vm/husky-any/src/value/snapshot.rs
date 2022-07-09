@@ -3,19 +3,19 @@ use crate::*;
 #[derive(Clone)]
 pub enum StackValueSnapshot<'eval> {
     Copyable(CopyableValue),
-    EvalPure(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    EvalPure(Arc<dyn __AnyValueDyn<'eval> + 'eval>),
     EvalRef(__EvalRef<'eval>),
     Owned(__OwnedValue<'eval, 'eval>),
-    FullyOwnedRef(Arc<dyn AnyValueDyn<'eval> + 'eval>),
+    FullyOwnedRef(Arc<dyn __AnyValueDyn<'eval> + 'eval>),
     RefMut {
-        value: EvalValue<'eval>,
+        value: __EvalValue<'eval>,
         owner: VMStackIdx,
         gen: MutRefGenerator,
     },
 }
 
 impl<'eval> StackValueSnapshot<'eval> {
-    pub fn any_ref(&self) -> &(dyn AnyValueDyn<'eval> + 'eval) {
+    pub fn any_ref(&self) -> &(dyn __AnyValueDyn<'eval> + 'eval) {
         match self {
             StackValueSnapshot::Copyable(value) => value.any_ref(),
             StackValueSnapshot::EvalPure(value) => &**value,
@@ -27,12 +27,12 @@ impl<'eval> StackValueSnapshot<'eval> {
         }
     }
 
-    pub fn eval(&self) -> EvalValue<'eval> {
+    pub fn eval(&self) -> __EvalValue<'eval> {
         match self {
-            StackValueSnapshot::Copyable(copyable_value) => EvalValue::Copyable(*copyable_value),
-            StackValueSnapshot::EvalPure(value) => EvalValue::EvalPure(value.clone()),
-            StackValueSnapshot::EvalRef(value) => EvalValue::EvalRef(*value),
-            StackValueSnapshot::Owned(value) => EvalValue::Owned(value.clone()),
+            StackValueSnapshot::Copyable(copyable_value) => __EvalValue::Copyable(*copyable_value),
+            StackValueSnapshot::EvalPure(value) => __EvalValue::EvalPure(value.clone()),
+            StackValueSnapshot::EvalRef(value) => __EvalValue::EvalRef(*value),
+            StackValueSnapshot::Owned(value) => __EvalValue::Owned(value.clone()),
             StackValueSnapshot::RefMut { value, owner, gen } => value.clone(),
             StackValueSnapshot::FullyOwnedRef(_) => todo!(),
         }

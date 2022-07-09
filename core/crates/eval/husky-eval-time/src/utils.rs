@@ -1,7 +1,7 @@
 use husky_atom::*;
 use husky_entity_route::EntityRoutePtr;
 use singleton::singleton;
-use vm::HasStaticTypeInfo;
+use vm::__HasStaticTypeInfo;
 
 use crate::*;
 
@@ -14,7 +14,7 @@ pub fn eval_time() -> &'static HuskyEvalTime {
     // unsafe { &*HUSKY_EVAL_TIME_SINGLETON.unwrap() }
 }
 
-pub fn ty_route_from_static_binded<T: HasStaticTypeInfo>(text: &str) -> EntityRoutePtr {
+pub fn __ty_route_from_static_binded<T: __HasStaticTypeInfo>(text: &str) -> EntityRoutePtr {
     compile_time().ty_route_from_static(std::any::TypeId::of::<T::__StaticSelf>(), text)
 }
 

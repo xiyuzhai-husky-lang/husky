@@ -54,10 +54,11 @@ impl<'a> FeatureExprBuilder<'a> {
                     EntityDefnVariant::Function {
                         source: CallFormSource::Static(__Linkage::Model(model)),
                         ..
-                    } => model.train(
-                        self.opt_branch_indicator.map(|r| r as &dyn std::any::Any),
-                        &opds,
-                    ),
+                    } => self.db.train(model, self.opt_branch_indicator, &opds),
+                    // model.train(
+                    //     self.opt_branch_indicator.map(|r| r as &dyn std::any::Any),
+                    //     &opds,
+                    // ),
                     _ => todo!(),
                 };
                 let kind = FeatureLazyExprVariant::ModelCall {

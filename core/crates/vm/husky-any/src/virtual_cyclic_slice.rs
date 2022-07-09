@@ -26,7 +26,7 @@ impl<'eval> std::ops::DerefMut for VirtualCyclicSlice<'eval> {
     }
 }
 
-impl<'eval> HasStaticTypeInfo for VirtualCyclicSlice<'eval> {
+impl<'eval> __HasStaticTypeInfo for VirtualCyclicSlice<'eval> {
     type __StaticSelf = VirtualCyclicSlice<'static>;
 
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
@@ -34,12 +34,12 @@ impl<'eval> HasStaticTypeInfo for VirtualCyclicSlice<'eval> {
     }
 }
 
-impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
+impl<'eval, 'eval0: 'eval> __AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
     fn __to_json_value(&self) -> serde_json::value::Value {
         todo!()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -73,7 +73,7 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         Ok(Some(VisualData::Group(
@@ -82,5 +82,9 @@ impl<'eval, 'eval0: 'eval> AnyValue<'eval> for VirtualCyclicSlice<'eval0> {
                 .map(|(i, element)| visualize_element(i, element.any_ref().__short_dyn()))
                 .collect::<__EvalResult<Vec<_>>>()?,
         )))
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
     }
 }

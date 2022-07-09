@@ -2,15 +2,15 @@ use word::RootIdentifier;
 
 use super::*;
 
-impl HasStaticTypeInfo for () {
+impl __HasStaticTypeInfo for () {
     type __StaticSelf = Self;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "void".into()
     }
 }
 
-impl<'eval> AnyValue<'eval> for () {
-    fn __clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for () {
+    fn __clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -29,14 +29,14 @@ impl<'eval> AnyValue<'eval> for () {
         }
     }
 
-    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
     fn __to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -55,22 +55,26 @@ impl<'eval> AnyValue<'eval> for () {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         todo!()
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
 
-impl HasStaticTypeInfo for i32 {
+impl __HasStaticTypeInfo for i32 {
     type __StaticSelf = Self;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "i32".into()
     }
 }
 
-impl<'eval> AnyValue<'eval> for i32 {
-    fn __clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for i32 {
+    fn __clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -89,14 +93,14 @@ impl<'eval> AnyValue<'eval> for i32 {
         }
     }
 
-    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
     fn __to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -114,22 +118,26 @@ impl<'eval> AnyValue<'eval> for i32 {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         Ok(Some(VisualData::Primitive { value: self.into() }))
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
 
-impl HasStaticTypeInfo for f32 {
+impl __HasStaticTypeInfo for f32 {
     type __StaticSelf = Self;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "f32".into()
     }
 }
 
-impl<'eval> AnyValue<'eval> for f32 {
-    fn __clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for f32 {
+    fn __clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -148,14 +156,14 @@ impl<'eval> AnyValue<'eval> for f32 {
         }
     }
 
-    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
     fn __to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -174,22 +182,26 @@ impl<'eval> AnyValue<'eval> for f32 {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         Ok(Some(VisualData::Primitive { value: self.into() }))
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
 
-impl HasStaticTypeInfo for u32 {
+impl __HasStaticTypeInfo for u32 {
     type __StaticSelf = Self;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "u32".into()
     }
 }
 
-impl<'eval> AnyValue<'eval> for u32 {
-    fn __clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for u32 {
+    fn __clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -208,7 +220,7 @@ impl<'eval> AnyValue<'eval> for u32 {
         }
     }
 
-    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -219,7 +231,7 @@ impl<'eval> AnyValue<'eval> for u32 {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -234,22 +246,26 @@ impl<'eval> AnyValue<'eval> for u32 {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         Ok(Some(VisualData::Primitive { value: self.into() }))
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
 
-impl HasStaticTypeInfo for u64 {
+impl __HasStaticTypeInfo for u64 {
     type __StaticSelf = Self;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "u64".into()
     }
 }
 
-impl<'eval> AnyValue<'eval> for u64 {
-    fn __clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for u64 {
+    fn __clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -268,7 +284,7 @@ impl<'eval> AnyValue<'eval> for u64 {
         }
     }
 
-    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
 
@@ -279,7 +295,7 @@ impl<'eval> AnyValue<'eval> for u64 {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -294,22 +310,26 @@ impl<'eval> AnyValue<'eval> for u64 {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         Ok(Some(VisualData::Primitive { value: self.into() }))
     }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
 }
 
-impl HasStaticTypeInfo for bool {
+impl __HasStaticTypeInfo for bool {
     type __StaticSelf = Self;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "bool".into()
     }
 }
 
-impl<'eval> AnyValue<'eval> for bool {
-    fn __clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval> __AnyValue<'eval> for bool {
+    fn __clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -328,14 +348,14 @@ impl<'eval> AnyValue<'eval> for bool {
         }
     }
 
-    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval>> {
+    fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
     fn __to_json_value(&self) -> serde_json::value::Value {
         serde_json::value::to_value(self).unwrap()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -353,9 +373,13 @@ impl<'eval> AnyValue<'eval> for bool {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         Ok(Some(VisualData::Primitive { value: self.into() }))
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
     }
 }

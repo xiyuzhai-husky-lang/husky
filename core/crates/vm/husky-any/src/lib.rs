@@ -1,6 +1,7 @@
 mod binding;
 mod impl_cyclic_slice;
 mod impl_hashmap;
+mod impl_label;
 mod impl_primitive;
 mod impl_slice;
 mod impl_vec;
@@ -32,7 +33,7 @@ use std::{
 };
 use utils::*;
 
-pub trait HasStaticTypeInfo {
+pub trait __HasStaticTypeInfo {
     type __StaticSelf: 'static;
     fn __static_type_id() -> std::any::TypeId {
         std::any::TypeId::of::<Self::__StaticSelf>()
@@ -41,19 +42,19 @@ pub trait HasStaticTypeInfo {
 }
 
 // type level trait
-pub trait AnyValue<'eval>:
-    Debug + Send + Sync + Sized + PartialEq + Clone + RefUnwindSafe + UnwindSafe + HasStaticTypeInfo
+pub trait __AnyValue<'eval>:
+    Debug + Send + Sync + Sized + PartialEq + Clone + RefUnwindSafe + UnwindSafe + __HasStaticTypeInfo
 {
     // fn clone_shared(&self) -> Arc<dyn __AnyValueDyn<'eval>>;
 
-    fn __clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+    fn __clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
         Box::new(self.clone())
     }
 
-    fn __clone_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval> + 'eval>
+    fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval> + 'eval>
     where
         Self: 'eval,
     {
@@ -71,6 +72,8 @@ pub trait AnyValue<'eval>:
         }
     }
 
+    fn __into_eval_value(self) -> __EvalValue<'eval>;
+
     fn __take_copyable(&self) -> CopyableValue {
         p!(self);
         panic!()
@@ -80,7 +83,7 @@ pub trait AnyValue<'eval>:
     //     format!("{:?}", self)
     // }
     fn __to_json_value(&self) -> serde_json::value::Value;
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short;
     fn __static_ty() -> EntityRoutePtr;
@@ -91,7 +94,7 @@ pub trait AnyValue<'eval>:
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         Ok(None)
@@ -99,34 +102,34 @@ pub trait AnyValue<'eval>:
 }
 
 // object safe trait
-pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
+pub trait __AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
     fn __static_type_id_dyn(&self) -> std::any::TypeId;
     fn __static_type_name_dyn(&self) -> Cow<'static, str>;
     // fn clone_into_copyable_dyn<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     // where
     //     Self: 'temp;
-    fn __clone_into_box_dyn<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+    fn __clone_into_box_dyn<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp;
-    fn __clone_into_arc_dyn(&self) -> Arc<dyn AnyValueDyn<'eval> + 'eval>
+    fn __clone_into_arc_dyn(&self) -> Arc<dyn __AnyValueDyn<'eval> + 'eval>
     where
         Self: 'eval;
-    fn __equal_any(&self, other: &dyn AnyValueDyn<'eval>) -> bool;
+    fn __equal_any(&self, other: &dyn __AnyValueDyn<'eval>) -> bool;
     fn __assign<'temp>(&mut self, other: __TempValue<'temp, 'eval>);
     fn __take_copyable_dyn(&self) -> CopyableValue;
-    fn __upcast_any(&self) -> &(dyn AnyValueDyn<'eval>);
-    unsafe fn __upcast_arb_any_ref<'a>(&self) -> &'a (dyn AnyValueDyn<'eval>)
+    fn __upcast_any(&self) -> &(dyn __AnyValueDyn<'eval>);
+    unsafe fn __upcast_arb_any_ref<'a>(&self) -> &'a (dyn __AnyValueDyn<'eval>)
     where
         Self: 'a;
-    unsafe fn __upcast_arb_any_mut<'a>(&mut self) -> &'a mut (dyn AnyValueDyn<'eval>)
+    unsafe fn __upcast_arb_any_mut<'a>(&mut self) -> &'a mut (dyn __AnyValueDyn<'eval>)
     where
         Self: 'a;
     fn __print_short(&self) -> String;
-    fn __short_dyn<'shorter_eval>(&self) -> &dyn AnyValueDyn<'shorter_eval>
+    fn __short_dyn<'shorter_eval>(&self) -> &dyn __AnyValueDyn<'shorter_eval>
     where
         'eval: 'shorter_eval;
     // consume the memory pointed at to create an Arc
-    unsafe fn __take_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval> + 'eval>
+    unsafe fn __take_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval> + 'eval>
     where
         Self: 'eval;
     fn __to_json_value_dyn(&self) -> serde_json::value::Value;
@@ -135,14 +138,14 @@ pub trait AnyValueDyn<'eval>: Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>>;
 }
 
-impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
+impl<'temp, 'eval: 'temp> dyn __AnyValueDyn<'eval> + 'temp {
     #[inline]
-    pub fn __downcast_ref<'a, T: AnyValue<'eval>>(&'a self) -> &'a T {
+    pub fn __downcast_ref<'a, T: __AnyValue<'eval>>(&'a self) -> &'a T {
         if T::__static_type_id() != self.__static_type_id_dyn() {
             panic!(
                 "expect type `{}`, but got `{}` instead",
@@ -150,12 +153,12 @@ impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
                 self.__static_type_name_dyn()
             )
         }
-        let ptr: *const dyn AnyValueDyn = &*self;
+        let ptr: *const dyn __AnyValueDyn = &*self;
         let ptr: *const T = ptr as *const T;
         unsafe { &*ptr }
     }
     #[inline]
-    pub fn __downcast_copy<'a, T: AnyValue<'eval> + Copy>(&'a self) -> T {
+    pub fn __downcast_copy<'a, T: __AnyValue<'eval> + Copy>(&'a self) -> T {
         if T::__static_type_id() != self.__static_type_id_dyn() {
             panic!(
                 "expect type `{}`, but got `{}` instead",
@@ -163,13 +166,13 @@ impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
                 self.__static_type_name_dyn()
             )
         }
-        let ptr: *const dyn AnyValueDyn = &*self;
+        let ptr: *const dyn __AnyValueDyn = &*self;
         let ptr: *const T = ptr as *const T;
         unsafe { *ptr }
     }
 
     #[inline]
-    pub fn __downcast_mut<T: AnyValue<'eval>>(&mut self) -> &mut T {
+    pub fn __downcast_mut<T: __AnyValue<'eval>>(&mut self) -> &mut T {
         if T::__static_type_id() != self.__static_type_id_dyn() {
             panic!(
                 "expect type `{}`, but got `{}` instead",
@@ -177,13 +180,13 @@ impl<'temp, 'eval: 'temp> dyn AnyValueDyn<'eval> + 'temp {
                 self.__static_type_name_dyn()
             )
         }
-        let ptr: *mut dyn AnyValueDyn = &mut *self;
+        let ptr: *mut dyn __AnyValueDyn = &mut *self;
         let ptr: *mut T = ptr as *mut T;
         unsafe { &mut *ptr }
     }
 }
 
-impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
+impl<'eval, T: __AnyValue<'eval>> __AnyValueDyn<'eval> for T {
     fn __static_type_id_dyn(&self) -> std::any::TypeId {
         T::__static_type_id()
     }
@@ -192,21 +195,21 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         T::__static_type_name()
     }
 
-    fn __clone_into_box_dyn<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+    fn __clone_into_box_dyn<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
         T::__clone_into_box(self)
     }
 
-    fn __clone_into_arc_dyn(&self) -> Arc<dyn AnyValueDyn<'eval> + 'eval>
+    fn __clone_into_arc_dyn(&self) -> Arc<dyn __AnyValueDyn<'eval> + 'eval>
     where
         Self: 'eval,
     {
         T::__clone_into_arc(self)
     }
 
-    fn __equal_any(&self, other: &dyn AnyValueDyn) -> bool {
+    fn __equal_any(&self, other: &dyn __AnyValueDyn) -> bool {
         todo!()
     }
 
@@ -218,11 +221,11 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         T::__take_copyable(self)
     }
 
-    fn __upcast_any(&self) -> &dyn AnyValueDyn<'eval> {
+    fn __upcast_any(&self) -> &dyn __AnyValueDyn<'eval> {
         self
     }
 
-    unsafe fn __upcast_arb_any_ref<'a>(&self) -> &'a (dyn AnyValueDyn<'eval>)
+    unsafe fn __upcast_arb_any_ref<'a>(&self) -> &'a (dyn __AnyValueDyn<'eval>)
     where
         T: 'a,
     {
@@ -230,7 +233,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         &*ptr
     }
 
-    unsafe fn __upcast_arb_any_mut<'a>(&mut self) -> &'a mut (dyn AnyValueDyn<'eval>)
+    unsafe fn __upcast_arb_any_mut<'a>(&mut self) -> &'a mut (dyn __AnyValueDyn<'eval>)
     where
         Self: 'a,
     {
@@ -243,7 +246,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
     }
 
     // must use this for a raw pointer dropped from box
-    unsafe fn __take_into_arc(&self) -> Arc<dyn AnyValueDyn<'eval> + 'eval>
+    unsafe fn __take_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval> + 'eval>
     where
         Self: 'eval,
     {
@@ -256,7 +259,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         self.__to_json_value()
     }
 
-    fn __short_dyn<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short_dyn<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -271,7 +274,7 @@ impl<'eval, T: AnyValue<'eval>> AnyValueDyn<'eval> for T {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<VisualData>> {
         self.__opt_visualize(visualize_element)

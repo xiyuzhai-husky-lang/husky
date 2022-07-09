@@ -8,7 +8,7 @@ use super::*;
 use husky_trace_protocol::SampleId;
 use vm::*;
 
-pub trait SyntheticDataset<'eval>: AnyValueDyn<'eval> + 'eval {
+pub trait SyntheticDataset<'eval>: __AnyValueDyn<'eval> + 'eval {
     fn data_generator(&self) -> fn(seed: u64, sample_id: SampleId) -> LabeledData<'eval>;
     fn seed(&self) -> u64;
     fn dev_len(&self) -> usize {
@@ -106,7 +106,7 @@ impl<'eval> Serialize for SimpleSyntheticDataset<'eval> {
     }
 }
 
-impl<'a> HasStaticTypeInfo for SimpleSyntheticDataset<'a> {
+impl<'a> __HasStaticTypeInfo for SimpleSyntheticDataset<'a> {
     type __StaticSelf = SimpleSyntheticDataset<'static>;
 
     fn __static_type_name() -> Cow<'static, str> {
@@ -114,8 +114,8 @@ impl<'a> HasStaticTypeInfo for SimpleSyntheticDataset<'a> {
     }
 }
 
-impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
-    fn __clone_into_box<'temp>(&self) -> Box<dyn AnyValueDyn<'eval> + 'temp>
+impl<'eval, 'a: 'eval> __AnyValue<'eval> for SimpleSyntheticDataset<'a> {
+    fn __clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
     where
         Self: 'temp,
     {
@@ -126,7 +126,7 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
         todo!()
     }
 
-    fn __short<'short>(&self) -> &dyn AnyValueDyn<'short>
+    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
         'eval: 'short,
     {
@@ -145,9 +145,13 @@ impl<'eval, 'a: 'eval> AnyValue<'eval> for SimpleSyntheticDataset<'a> {
         &'eval self,
         visualize_element: &mut dyn FnMut(
             usize,
-            &'eval dyn AnyValueDyn<'eval>,
+            &'eval dyn __AnyValueDyn<'eval>,
         ) -> __EvalResult<VisualData>,
     ) -> __EvalResult<Option<husky_trace_protocol::VisualData>> {
+        todo!()
+    }
+
+    fn __into_eval_value(self) -> __EvalValue<'eval> {
         todo!()
     }
 }

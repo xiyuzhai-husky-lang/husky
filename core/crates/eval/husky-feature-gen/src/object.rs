@@ -1,5 +1,5 @@
 use super::*;
-use vm::EvalValue;
+use vm::__EvalValue;
 
 #[derive(Debug, Clone)]
 pub struct Object {
@@ -7,8 +7,8 @@ pub struct Object {
     pub field_features: Vec<Arc<FeatureLazyBlock>>,
 }
 
-impl<'eval> Into<EvalValue<'eval>> for Object {
-    fn into(self) -> EvalValue<'eval> {
+impl<'eval> Into<__EvalValue<'eval>> for Object {
+    fn into(self) -> __EvalValue<'eval> {
         todo!()
     }
 }
