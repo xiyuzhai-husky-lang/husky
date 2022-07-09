@@ -19,7 +19,7 @@ pub enum __Linkage {
     Member(&'static __MemberLinkage),
     SpecificTransfer(__SpecificRoutineLinkage),
     GenericTransfer(GenericRoutineLinkage),
-    Model(&'static ModelLinkage),
+    Model(ModelLinkage),
 }
 
 impl __Linkage {

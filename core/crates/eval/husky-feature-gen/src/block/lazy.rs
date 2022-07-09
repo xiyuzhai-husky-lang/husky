@@ -34,7 +34,8 @@ impl<'eval> FeatureLazyBlock {
         opt_this: Option<FeatureRepr>,
         lazy_stmts: &[Arc<LazyStmt>],
         externals: &[FeatureSymbol],
-        features: &FeatureInterner,
+        branch_indicator: Option<&Arc<FeatureBranchIndicator>>,
+        feature_interner: &FeatureInterner,
         ty: RangedEntityRoute,
     ) -> Arc<FeatureLazyBlock> {
         emsg_once!("generics for feature block");
@@ -42,10 +43,17 @@ impl<'eval> FeatureLazyBlock {
         let stmts: Vec<Arc<FeatureStmt>> = lazy_stmts
             .iter()
             .map(|lazy_stmt| {
-                FeatureStmt::new_from_lazy(db, opt_this.clone(), lazy_stmt, &mut symbols, features)
+                FeatureStmt::new_from_lazy(
+                    db,
+                    opt_this.clone(),
+                    lazy_stmt,
+                    &mut symbols,
+                    branch_indicator,
+                    feature_interner,
+                )
             })
             .collect();
-        let feature = Feature::block(features, &stmts);
+        let feature = Feature::block(feature_interner, &stmts);
         let file = stmts[0].file;
         let range = stmts.text_range();
         Arc::new(FeatureLazyBlock {
