@@ -25,7 +25,7 @@ pub struct Session<'eval> {
     config: Arc<Config>,
     pub(crate) dataset: Dataset<'eval>,
     pub(crate) dev: Division<'eval>,
-    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, EvalValueResult<'eval>>>,
+    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, __EvalValueResult<'eval>>>,
     val: Division<'eval>,
     test: Division<'eval>,
     validation_report: ValidationReport<'eval>,
@@ -33,7 +33,7 @@ pub struct Session<'eval> {
 
 #[derive(Debug)]
 pub struct ValidationReport<'sess> {
-    predictions: Vec<EvalValueResult<'sess>>,
+    predictions: Vec<__EvalValueResult<'sess>>,
 }
 
 impl<'eval> Default for ValidationReport<'eval> {

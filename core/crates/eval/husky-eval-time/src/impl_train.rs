@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_semantics::StoreEntityRoute;
-use husky_feature_gen::{FeatureBranchIndicator, FeatureExpr, TrainModel};
+use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr, TrainModel};
 use std::time::Instant;
 use upcast::Upcast;
 use vm::{InterpreterQueryGroup, VMConfig, __EvalResult, __EvalValue, __OwnedValue};
@@ -9,7 +9,7 @@ impl TrainModel for HuskyEvalTime {
     fn train(
         &self,
         model: vm::ModelLinkage,
-        opt_branch_indicator: Option<&Arc<FeatureBranchIndicator>>,
+        opt_branch_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         opds: &[Arc<FeatureExpr>],
     ) -> vm::__EvalResult {
         if let Some(branch_indicator) = opt_branch_indicator {

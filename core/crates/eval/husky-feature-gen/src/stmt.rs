@@ -13,6 +13,7 @@ use crate::{eval_id::FeatureEvalId, *};
 pub struct FeatureStmt {
     pub indent: fold::Indent,
     pub variant: FeatureLazyStmtVariant,
+    pub opt_branch_indicator: Option<Arc<FeatureArrivalIndicator>>,
     pub opt_feature: Option<FeaturePtr>,
     pub file: FilePtr,
     pub range: TextRange,
@@ -45,7 +46,7 @@ impl FeatureStmt {
         opt_this: Option<FeatureRepr>,
         lazy_stmt: &Arc<LazyStmt>,
         symbols: &mut Vec<FeatureSymbol>,
-        branch_indicator: Option<&Arc<FeatureBranchIndicator>>,
+        opt_branch_indicator: Option<Arc<FeatureArrivalIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         let variant = match lazy_stmt.variant {
@@ -55,7 +56,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     value.clone(),
                     &symbols,
-                    branch_indicator,
+                    opt_branch_indicator.as_ref(),
                     feature_interner,
                 );
                 symbols.push(FeatureSymbol {
@@ -85,7 +86,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     result.clone(),
                     &symbols,
-                    branch_indicator,
+                    opt_branch_indicator.as_ref(),
                     feature_interner,
                 ),
             },
@@ -103,14 +104,14 @@ impl FeatureStmt {
                 let branches: Vec<Arc<FeatureBranch>> = branches
                     .iter()
                     .map(|branch| {
-                        let indicator = FeatureBranchIndicator::new();
+                        let indicator = FeatureArrivalIndicator::new(todo!(), feature_interner);
                         Arc::new(FeatureBranch {
                             block: FeatureLazyBlock::new(
                                 db,
                                 opt_this.clone(),
                                 &branch.stmts,
                                 &symbols,
-                                Some(&indicator),
+                                Some(indicator.clone()),
                                 feature_interner,
                                 ty,
                             ),
@@ -160,6 +161,7 @@ impl FeatureStmt {
             opt_feature: variant.opt_feature(feature_interner),
             variant,
             eval_id: Default::default(),
+            opt_branch_indicator: opt_branch_indicator.map(|s| s.clone()),
         })
     }
 }

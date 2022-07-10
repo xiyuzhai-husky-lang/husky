@@ -35,7 +35,7 @@ pub trait TrainModel {
     fn train(
         &self,
         model: ModelLinkage,
-        opt_branch_indicator: Option<&Arc<FeatureBranchIndicator>>,
+        opt_branch_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         opds: &[Arc<FeatureExpr>],
     ) -> __EvalResult;
 }

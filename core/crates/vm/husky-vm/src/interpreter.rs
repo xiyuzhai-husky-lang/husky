@@ -77,7 +77,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         sheet: &InstructionSheet,
         mode: Mode,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         match self.exec_all(sheet, mode) {
             VMControl::None => {
                 panic!("no return from eval_instructions")

@@ -24,10 +24,10 @@ use std::{fmt::Write, panic::UnwindSafe};
 use word::CustomIdentifier;
 
 pub type __EvalResult<T = __EvalValue<'static>> = Result<T, EvalError>;
-pub type EvalValueResult<'eval> = Result<__EvalValue<'eval>, EvalError>;
+pub type __EvalValueResult<'eval> = Result<__EvalValue<'eval>, EvalError>;
 
 // the primary concerns are safety and stability
-// this whole vm thing will be replaced by JIT for fast evaluation purposes
+// this whole vm thing will eventually be replaced by JIT for fast evaluation purposes
 // so we don't need to worry too much about speed here
 
 pub enum __TempValue<'temp, 'eval: 'temp> {
@@ -152,6 +152,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             __EvalValue::EvalPure(value) => __TempValue::EvalPure(value),
             __EvalValue::EvalRef(value) => Self::EvalRef(value),
             __EvalValue::Undefined => todo!(),
+            __EvalValue::Unreturned => panic!(),
         })
     }
 

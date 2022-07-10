@@ -1,6 +1,8 @@
 use husky_entity_route::RangedEntityRoute;
 use vm::__EvalResult;
 
+use crate::branch::FeatureBranchIndicatorVariant;
+
 use super::*;
 
 #[derive(Debug, Clone)]
@@ -34,25 +36,38 @@ impl<'eval> FeatureLazyBlock {
         opt_this: Option<FeatureRepr>,
         lazy_stmts: &[Arc<LazyStmt>],
         externals: &[FeatureSymbol],
-        branch_indicator: Option<&Arc<FeatureBranchIndicator>>,
+        mut branch_indicator: Option<Arc<FeatureArrivalIndicator>>,
         feature_interner: &FeatureInterner,
         ty: RangedEntityRoute,
     ) -> Arc<FeatureLazyBlock> {
         emsg_once!("generics for feature block");
         let mut symbols: Vec<FeatureSymbol> = externals.into();
-        let stmts: Vec<Arc<FeatureStmt>> = lazy_stmts
-            .iter()
-            .map(|lazy_stmt| {
-                FeatureStmt::new_from_lazy(
-                    db,
-                    opt_this.clone(),
-                    lazy_stmt,
-                    &mut symbols,
-                    branch_indicator,
-                    feature_interner,
-                )
-            })
-            .collect();
+        // for checking
+        let mut finish_flag = false;
+        let mut stmts: Vec<Arc<FeatureStmt>> = vec![];
+        for lazy_stmt in lazy_stmts {
+            assert!(!finish_flag);
+            let stmt = FeatureStmt::new_from_lazy(
+                db,
+                opt_this.clone(),
+                lazy_stmt,
+                &mut symbols,
+                branch_indicator.clone(),
+                feature_interner,
+            );
+            match stmt.variant {
+                FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => (),
+                FeatureLazyStmtVariant::Return { .. }
+                | FeatureLazyStmtVariant::ReturnXml { .. } => finish_flag = true,
+                FeatureLazyStmtVariant::ConditionFlow { .. } => {
+                    branch_indicator = Some(FeatureArrivalIndicator::new(
+                        FeatureBranchIndicatorVariant::AfterStmt { stmt: stmt.clone() },
+                        feature_interner,
+                    ))
+                }
+            };
+            stmts.push(stmt)
+        }
         let feature = Feature::block(feature_interner, &stmts);
         let file = stmts[0].file;
         let range = stmts.text_range();

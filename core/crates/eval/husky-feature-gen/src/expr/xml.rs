@@ -17,7 +17,7 @@ impl FeatureXmlExpr {
         this: Option<FeatureRepr>,
         xml_expr: Arc<XmlExpr>,
         symbols: &[FeatureSymbol],
-        branch_indicator: Option<&Arc<FeatureBranchIndicator>>,
+        branch_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         let variant = match xml_expr.variant {

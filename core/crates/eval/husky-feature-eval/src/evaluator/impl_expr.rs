@@ -13,7 +13,10 @@ use word::IdentPairDict;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(crate) fn husky_feature_eval_expr(&mut self, expr: &FeatureExpr) -> EvalValueResult<'eval> {
+    pub(crate) fn husky_feature_eval_expr(
+        &mut self,
+        expr: &FeatureExpr,
+    ) -> __EvalValueResult<'eval> {
         match expr.variant {
             FeatureLazyExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
             FeatureLazyExprVariant::EnumKindLiteral { entity_route, uid } => {
@@ -169,7 +172,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn husky_feature_eval_xml_expr(
         &mut self,
         expr: &FeatureXmlExpr,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         match expr.variant {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
@@ -207,7 +210,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         output_ty: EntityRoutePtr,
         arguments: &[Arc<FeatureExpr>],
         has_this: bool,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         let db = self.db;
         let verbose = self.vm_config;
         let values = arguments
