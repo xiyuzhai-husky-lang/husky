@@ -217,7 +217,6 @@ impl HuskyDebuggerInternal {
                         } else {
                             (None, None)
                         };
-                    p!(self.trace_time.trace_stalks);
                     if needs_stalk {
                         assert!(new_trace_stalks.len() > 0);
                     }
