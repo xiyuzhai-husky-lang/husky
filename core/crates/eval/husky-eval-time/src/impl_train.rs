@@ -33,25 +33,11 @@ impl TrainModel for HuskyEvalTime {
                 .map_err(|e| (sample_id, e))?;
             training_data.push((values, labeled_data.label))
         }
-        let internal = model.train_dyn(training_data);
+        let train_result = model.train_dyn(training_data);
         println!(
             "{} milliseconds elapsed for evaluating first 1000 in naive train",
             now.elapsed().as_millis(),
         );
-        let most_likely_labels: HashMap<i32, i32> = label_statics_map
-            .into_iter()
-            .map(|(value, label_statics)| -> (i32, i32) {
-                (
-                    value,
-                    label_statics
-                        .into_iter()
-                        .max_by(|x, y| x.1.cmp(&y.1))
-                        .unwrap()
-                        .0
-                         .0 as i32,
-                )
-            })
-            .collect();
-        Ok(__EvalValue::Owned(__OwnedValue::new(most_likely_labels)))
+        train_result
     }
 }

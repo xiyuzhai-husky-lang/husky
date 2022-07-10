@@ -8,7 +8,12 @@ where
 {
     type __StaticSelf = HashMap<K::__StaticSelf, V::__StaticSelf>;
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        format!(
+            "HashMap<{}, {}>",
+            K::__static_type_name(),
+            V::__static_type_name()
+        )
+        .into()
     }
 }
 
