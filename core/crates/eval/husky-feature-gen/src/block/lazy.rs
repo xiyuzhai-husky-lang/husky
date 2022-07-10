@@ -40,7 +40,6 @@ impl<'eval> FeatureLazyBlock {
         feature_interner: &FeatureInterner,
         ty: RangedEntityRoute,
     ) -> Arc<FeatureLazyBlock> {
-        emsg_once!("generics for feature block");
         let mut symbols: Vec<FeatureSymbol> = externals.into();
         // for checking
         let mut finish_flag = false;
