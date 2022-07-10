@@ -18,10 +18,10 @@ use vm::*;
 // impl<T: Model> Model for Wrapper<T> {
 //     fn train_dyn(
 //         &self,
-//         branch_indicator: Option<&dyn std::any::Any>,
+//         opt_arrival_indicator: Option<&dyn std::any::Any>,
 //         opds: &dyn std::any::Any,
 //     ) -> __EvalResult {
-//         let branch_indicator: Option<&FeatureBranchIndicator> =
+//         let opt_arrival_indicator: Option<&FeatureBranchIndicator> =
 //             branch_indicator.map(|r| r.downcast_ref().unwrap());
 //         todo!();
 //         let opds: &Vec<Arc<FeatureExpr>> = opds.downcast_ref().unwrap();

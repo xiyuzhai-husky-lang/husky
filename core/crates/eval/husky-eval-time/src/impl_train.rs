@@ -9,10 +9,10 @@ impl TrainModel for HuskyEvalTime {
     fn train(
         &self,
         model: vm::ModelLinkage,
-        opt_branch_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         opds: &[Arc<FeatureExpr>],
     ) -> vm::__EvalResult {
-        if let Some(branch_indicator) = opt_branch_indicator {
+        if let Some(branch_indicator) = opt_arrival_indicator {
             todo!()
         }
         const MAX_SAMPLE_LEN: usize = 1000;

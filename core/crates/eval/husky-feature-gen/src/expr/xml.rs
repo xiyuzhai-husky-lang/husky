@@ -17,7 +17,7 @@ impl FeatureXmlExpr {
         this: Option<FeatureRepr>,
         xml_expr: Arc<XmlExpr>,
         symbols: &[FeatureSymbol],
-        branch_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         let variant = match xml_expr.variant {
@@ -27,7 +27,7 @@ impl FeatureXmlExpr {
                     this.clone(),
                     value_expr.clone(),
                     symbols,
-                    branch_indicator,
+                    opt_arrival_indicator,
                     feature_interner,
                 ))
             }

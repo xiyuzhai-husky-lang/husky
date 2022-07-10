@@ -13,7 +13,7 @@ struct ConnectedComponent:
 def connected_components -> []ConnectedComponent:
     find_connected_components(input)
 
-def major_connected_component -> ConnectedComponent:
+def major_connected_components -> ConnectedComponent:
     connected_components[0]
 
 proc horizontal_extend(a: b32, x: b32) -> b32:

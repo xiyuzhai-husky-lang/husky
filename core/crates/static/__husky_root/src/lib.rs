@@ -7,6 +7,7 @@ pub mod __std;
 mod __vec;
 mod clone;
 pub mod domains;
+mod etc;
 
 pub use __b32::*;
 pub use __f32::*;
@@ -15,6 +16,7 @@ pub use __std::*;
 pub use __vec::*;
 pub use clone::*;
 pub use domains::*;
+pub use etc::*;
 pub use husky_entity_route::EntityRoutePtr as __EntityRoutePtr;
 pub use husky_eval_time::__ty_route_from_static_binded;
 pub use serde::Serialize as __Serialize;
@@ -72,15 +74,15 @@ pub fn __root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::FnMut => todo!(),
         RootIdentifier::FnOnce => todo!(),
         RootIdentifier::Array => todo!(),
-        RootIdentifier::Domains => &DOMAINS_MODULE_DEFN,
+        RootIdentifier::Domains => &DOMAINS_DEFN,
         RootIdentifier::DatasetType => &husky_datasets_static_defn::DATASET_TYPE_DEFN,
-        RootIdentifier::TypeType => todo!(),
-        RootIdentifier::TraitType => todo!(),
+        RootIdentifier::TypeType => &TYPE_TYPE_DEFN,
+        RootIdentifier::TraitType => &TRAIT_TYPE_DEFN,
         RootIdentifier::CloneTrait => &CLONE_TRAIT_DEFN,
         RootIdentifier::CopyTrait => todo!(),
         RootIdentifier::PartialEqTrait => todo!(),
         RootIdentifier::EqTrait => todo!(),
-        RootIdentifier::ModuleType => todo!(),
+        RootIdentifier::ModuleType => &MODULE_TYPE_DEFN,
         RootIdentifier::Ref => panic!(),
         RootIdentifier::VisualType => todo!(),
     }

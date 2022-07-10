@@ -36,7 +36,7 @@ impl<'eval> FeatureLazyBlock {
         opt_this: Option<FeatureRepr>,
         lazy_stmts: &[Arc<LazyStmt>],
         externals: &[FeatureSymbol],
-        mut branch_indicator: Option<Arc<FeatureArrivalIndicator>>,
+        mut opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
         feature_interner: &FeatureInterner,
         ty: RangedEntityRoute,
     ) -> Arc<FeatureLazyBlock> {
@@ -51,7 +51,7 @@ impl<'eval> FeatureLazyBlock {
                 opt_this.clone(),
                 lazy_stmt,
                 &mut symbols,
-                branch_indicator.clone(),
+                opt_arrival_indicator.clone(),
                 feature_interner,
             );
             match stmt.variant {
@@ -59,7 +59,7 @@ impl<'eval> FeatureLazyBlock {
                 FeatureLazyStmtVariant::Return { .. }
                 | FeatureLazyStmtVariant::ReturnXml { .. } => finish_flag = true,
                 FeatureLazyStmtVariant::ConditionFlow { .. } => {
-                    branch_indicator = Some(FeatureArrivalIndicator::new(
+                    opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
                         FeatureBranchIndicatorVariant::AfterStmt { stmt: stmt.clone() },
                         feature_interner,
                     ))

@@ -85,7 +85,7 @@ pub enum FeatureLazyExprVariant {
         opds: Vec<Arc<FeatureExpr>>,
         has_this: bool,
         model_defn: Arc<EntityDefn>,
-        opt_branch_indicator: Option<Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
         internal: __EvalResult,
     },
     RoutineCall {
@@ -113,7 +113,7 @@ impl FeatureExpr {
         this: Option<FeatureRepr>,
         expr: Arc<LazyExpr>,
         symbols: &[FeatureSymbol],
-        opt_branch_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         interner: &FeatureInterner,
     ) -> Arc<Self> {
         FeatureExprBuilder {
@@ -121,7 +121,7 @@ impl FeatureExpr {
             symbols,
             features: interner,
             opt_this: this,
-            opt_branch_indicator,
+            opt_arrival_indicator,
         }
         .new_expr(expr)
     }
@@ -132,7 +132,7 @@ struct FeatureExprBuilder<'a> {
     symbols: &'a [FeatureSymbol],
     features: &'a FeatureInterner,
     opt_this: Option<FeatureRepr>,
-    opt_branch_indicator: Option<&'a Arc<FeatureArrivalIndicator>>,
+    opt_arrival_indicator: Option<&'a Arc<FeatureArrivalIndicator>>,
 }
 
 impl<'a> FeatureExprBuilder<'a> {
