@@ -46,7 +46,7 @@ impl FeatureXmlExpr {
                                 this.clone(),
                                 argument.clone(),
                                 symbols,
-                                todo!(),
+                                opt_arrival_indicator,
                                 feature_interner,
                             ),
                         )
