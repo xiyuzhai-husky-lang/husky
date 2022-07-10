@@ -13,7 +13,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use upcast::Upcast;
-use vm::{EvalValueResult, VMConfig, __EvalResult, __EvalValue};
+use vm::{VMConfig, __EvalResult, __EvalValue, __EvalValueResult};
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;
@@ -48,7 +48,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         repr: &FeatureRepr,
         sample_id: SampleId,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         self.evaluator(sample_id).husky_feature_eval_repr(repr)
     }
 
@@ -56,7 +56,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         repr: &FeatureRepr,
         sample_id: SampleId,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         self.evaluator(sample_id)
             .husky_feature_eval_repr_cached(repr)
     }
@@ -65,7 +65,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         block: &FeatureLazyBlock,
         sample_id: SampleId,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         self.evaluator(sample_id)
             .husky_feature_eval_lazy_block(block)
     }
@@ -82,7 +82,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         expr: &FeatureExpr,
         sample_id: SampleId,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         self.evaluator(sample_id).husky_feature_eval_expr(expr)
     }
 }

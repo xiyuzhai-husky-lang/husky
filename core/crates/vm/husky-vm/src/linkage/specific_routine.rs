@@ -20,7 +20,7 @@ impl __SpecificRoutineLinkage {
     pub fn eval<'temp, 'eval>(
         &self,
         mut arguments: Vec<__TempValue<'temp, 'eval>>,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         catch_unwind(move || self.fp.0(&mut arguments).into_eval()).map_err(|e| EvalError::Normal {
             message: format!(
                 "error: {e:?} when calling linkage with src = {}",

@@ -8,12 +8,12 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn husky_feature_eval_stmt(
         &mut self,
         stmt: &FeatureStmt,
-    ) -> __EvalResult<__EvalValue<'eval>> {
+    ) -> __EvalValueResult<'eval> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { .. } => Ok(__EvalValue::Undefined),
+            FeatureLazyStmtVariant::Init { .. } => Ok(__EvalValue::Unreturned),
             FeatureLazyStmtVariant::Assert { ref condition } => {
                 if self.satisfies(condition)? {
-                    Ok(__EvalValue::Undefined)
+                    Ok(__EvalValue::Unreturned)
                 } else {
                     Err(EvalError::Normal {
                         message: format!("assertion failed"),

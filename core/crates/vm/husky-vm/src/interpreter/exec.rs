@@ -292,7 +292,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         linkage: __Linkage,
         output_ty: EntityRoutePtr,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         match linkage {
             __Linkage::Member { .. } => todo!(),
             __Linkage::SpecificTransfer(linkage) => {

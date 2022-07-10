@@ -3,12 +3,12 @@ use std::{collections::HashMap, sync::Arc, time::Instant};
 use super::*;
 use dev_utils::__static_dev_src;
 use husky_feature_eval::EvalFeature;
-use husky_feature_gen::{FeatureBranchIndicator, FeatureExpr};
+use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr};
 use husky_trace_protocol::Label;
 use print_utils::p;
 use static_defn::*;
 use vm::{
-    EvalValueResult, Model, ModelLinkage, __EvalResult, __EvalValue, __Linkage, __OwnedValue,
+    Model, ModelLinkage, __EvalResult, __EvalValue, __EvalValueResult, __Linkage, __OwnedValue,
 };
 
 static_mod! { naive = { naive_i32 } }
@@ -70,7 +70,7 @@ impl Model for NaiveI32 {
         &self,
         most_likely_labels: &Self::Internal,
         arguments: &[__EvalValue<'eval>],
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         let argument = arguments[0].primitive().take_i32();
         match most_likely_labels.get(&argument) {
             Some(l) => Ok(__EvalValue::Copyable((l.0 as i32).into())),

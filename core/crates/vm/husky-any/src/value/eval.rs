@@ -11,6 +11,7 @@ pub enum __EvalValue<'eval> {
     EvalPure(Arc<dyn __AnyValueDyn<'eval> + 'eval>),
     EvalRef(__EvalRef<'eval>),
     Undefined,
+    Unreturned, // use for control flow
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -73,6 +74,7 @@ impl<'eval> Into<TraceTokenData> for __EvalValue<'eval> {
             __EvalValue::EvalPure(value) => fade!(value.__print_short()),
             __EvalValue::EvalRef(value) => fade!(value.__print_short()),
             __EvalValue::Undefined => fade!("undefined"),
+            __EvalValue::Unreturned => panic!(),
         }
     }
 }
@@ -103,6 +105,7 @@ impl<'eval> __EvalValue<'eval> {
             __EvalValue::EvalPure(value) => Ok(__TempValue::EvalPure(value)),
             __EvalValue::EvalRef(value) => Ok(__TempValue::EvalRef(value)),
             __EvalValue::Undefined => todo!(),
+            __EvalValue::Unreturned => panic!(),
         }
     }
 
@@ -114,6 +117,7 @@ impl<'eval> __EvalValue<'eval> {
             __EvalValue::EvalPure(value) => StackValueSnapshot::EvalPure(value.clone()),
             __EvalValue::EvalRef(value) => StackValueSnapshot::EvalRef(*value),
             __EvalValue::Undefined => todo!(),
+            __EvalValue::Unreturned => panic!(),
         }
     }
 
@@ -134,6 +138,7 @@ impl<'eval> __EvalValue<'eval> {
                     .share_globally()
             },
             __EvalValue::Undefined => todo!(),
+            __EvalValue::Unreturned => panic!(),
         }
     }
 
@@ -154,6 +159,7 @@ impl<'eval> __EvalValue<'eval> {
             __EvalValue::EvalPure(_) => self.clone(),
             __EvalValue::EvalRef(_) => todo!(),
             __EvalValue::Undefined => todo!(),
+            __EvalValue::Unreturned => panic!(),
         }
     }
 
@@ -164,6 +170,7 @@ impl<'eval> __EvalValue<'eval> {
             __EvalValue::EvalPure(value) => &**value,
             __EvalValue::EvalRef(value) => value.0,
             __EvalValue::Undefined => todo!(),
+            __EvalValue::Unreturned => panic!(),
         }
     }
 
@@ -174,6 +181,7 @@ impl<'eval> __EvalValue<'eval> {
             __EvalValue::EvalPure(value) => panic!(),
             __EvalValue::EvalRef(value) => *value,
             __EvalValue::Undefined => todo!(),
+            __EvalValue::Unreturned => panic!(),
         }
     }
 }

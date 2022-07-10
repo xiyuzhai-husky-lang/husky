@@ -4,7 +4,7 @@ use crate::{eval_id::FeatureEvalId, *};
 pub struct FeatureBranch {
     pub block: Arc<FeatureLazyBlock>,
     pub variant: FeatureBranchVariant,
-    pub indicator: Arc<FeatureBranchIndicator>,
+    pub indicator: Arc<FeatureArrivalIndicator>,
     pub(crate) eval_id: FeatureEvalId,
 }
 
@@ -16,22 +16,37 @@ pub enum FeatureBranchVariant {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FeatureBranchIndicator {
-    parent: Option<Arc<FeatureBranchIndicator>>,
-    previous: Option<Arc<FeatureBranchIndicator>>,
+pub struct FeatureArrivalIndicator {
+    parent: Option<Arc<FeatureArrivalIndicator>>,
     variant: FeatureBranchIndicatorVariant,
     feature: FeaturePtr,
 }
 
-impl FeatureBranchIndicator {
-    pub fn new() -> Arc<Self> {
+impl FeatureArrivalIndicator {
+    pub fn new(
+        variant: FeatureBranchIndicatorVariant,
+        feature_interner: &FeatureInterner,
+    ) -> Arc<Self> {
+        let feature = match variant {
+            FeatureBranchIndicatorVariant::AfterStmt { stmt } => Feature::ArrivalAfterStmt {
+                stmt: stmt.opt_feature.unwrap(),
+            },
+            FeatureBranchIndicatorVariant::AfterCondition {
+                opt_parent,
+                condition,
+            } => todo!(),
+        };
         todo!()
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureBranchIndicatorVariant {
-    If { condition: Arc<FeatureExpr> },
-    Elif { condition: Arc<FeatureExpr> },
-    Else,
+    AfterStmt {
+        stmt: Arc<FeatureStmt>,
+    },
+    AfterCondition {
+        opt_parent: Option<Arc<FeatureArrivalIndicator>>,
+        condition: Arc<FeatureExpr>,
+    },
 }

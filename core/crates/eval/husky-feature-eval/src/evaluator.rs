@@ -12,8 +12,8 @@ pub use sheet::*;
 
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
-use vm::{EvalValueResult, __EvalResult};
 use vm::{VMConfig, __AnyValueDyn, __EvalValue};
+use vm::{__EvalResult, __EvalValueResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,
@@ -28,8 +28,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn cache(
         &mut self,
         eval_key: EvalKey<'eval>,
-        compute_value: impl FnOnce(&mut Self) -> EvalValueResult<'eval>,
-    ) -> EvalValueResult<'eval> {
+        compute_value: impl FnOnce(&mut Self) -> __EvalValueResult<'eval>,
+    ) -> __EvalValueResult<'eval> {
         if let Some(value) = self.sheet.cached_value(eval_key) {
             value
         } else {

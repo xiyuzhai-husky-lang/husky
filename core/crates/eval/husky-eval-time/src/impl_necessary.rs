@@ -1,7 +1,7 @@
 use std::time::Instant;
 
 use husky_entity_semantics::StoreEntityRoute;
-use husky_feature_gen::{FeatureBranchIndicator, FeatureExpr, TrainModel};
+use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr, TrainModel};
 use upcast::Upcast;
 use vm::{InterpreterQueryGroup, VMConfig};
 

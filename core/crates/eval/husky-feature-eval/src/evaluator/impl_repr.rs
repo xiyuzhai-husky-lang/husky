@@ -6,7 +6,10 @@ use vm::*;
 use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn husky_feature_eval_repr(&mut self, repr: &FeatureRepr) -> EvalValueResult<'eval> {
+    pub(crate) fn husky_feature_eval_repr(
+        &mut self,
+        repr: &FeatureRepr,
+    ) -> __EvalValueResult<'eval> {
         let result = match repr {
             FeatureRepr::Value { value, .. } => Ok(__EvalValue::EvalRef(value.short())),
             FeatureRepr::Expr(expr) => self.husky_feature_eval_expr(expr),
@@ -25,7 +28,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn husky_feature_eval_repr_cached(
         &mut self,
         repr: &FeatureRepr,
-    ) -> EvalValueResult<'eval> {
+    ) -> __EvalValueResult<'eval> {
         let eval_key = EvalKey::Feature(repr.feature());
         if let Some(result) = self.sheet.cached_value(eval_key) {
             if let Ok(ref value) = result {
