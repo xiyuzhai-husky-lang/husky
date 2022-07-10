@@ -1,6 +1,6 @@
-.TracePin.ignored:not(:hover) {
+.TraceLineRight:not(:hover) .TracePin.ignored {
     color: transparent;
 }
-.TracePin.ignored:hover {
+.TraceLineRight:hover .TracePin.ignored {
     color: grey;
 }
