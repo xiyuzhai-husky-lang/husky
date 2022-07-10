@@ -100,7 +100,7 @@ impl LazyValueQualifiedTy {
             OutputLiason::Transfer => match self.qual {
                 LazyExprQualifier::Copyable => true,
                 LazyExprQualifier::PureRef => false,
-                LazyExprQualifier::EvalRef => todo!(),
+                LazyExprQualifier::EvalRef => true,
                 LazyExprQualifier::Transient => true,
             },
             OutputLiason::MemberAccess { .. } => todo!(),

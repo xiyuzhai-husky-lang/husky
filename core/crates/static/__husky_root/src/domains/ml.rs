@@ -3,7 +3,7 @@ use husky_models_static_defn::MODELS_DEFN;
 
 use super::*;
 
-pub static ML_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
+pub static ML_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "ml",
     items: &[&DATASETS_MODULE_DEFN, &MODELS_DEFN],
     variant: EntityStaticDefnVariant::Module,

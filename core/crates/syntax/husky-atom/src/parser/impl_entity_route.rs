@@ -234,7 +234,10 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::CloneTrait
                 | RootIdentifier::CopyTrait
                 | RootIdentifier::PartialEqTrait
-                | RootIdentifier::EqTrait => Ok(thin_vec![]),
+                | RootIdentifier::EqTrait
+                | RootIdentifier::TypeType
+                | RootIdentifier::TraitType
+                | RootIdentifier::ModuleType => Ok(thin_vec![]),
                 RootIdentifier::Mor
                 | RootIdentifier::Fp
                 | RootIdentifier::Fn
@@ -244,9 +247,6 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::Array
                 | RootIdentifier::Tuple
                 | RootIdentifier::DatasetType => self.angled_generics(),
-                RootIdentifier::TypeType => todo!(),
-                RootIdentifier::TraitType => todo!(),
-                RootIdentifier::ModuleType => todo!(),
                 RootIdentifier::Ref => todo!(),
                 RootIdentifier::VisualType => todo!(),
             },

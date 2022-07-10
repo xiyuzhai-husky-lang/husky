@@ -13,7 +13,7 @@ use crate::{eval_id::FeatureEvalId, *};
 pub struct FeatureStmt {
     pub indent: fold::Indent,
     pub variant: FeatureLazyStmtVariant,
-    pub opt_branch_indicator: Option<Arc<FeatureArrivalIndicator>>,
+    pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
     pub opt_feature: Option<FeaturePtr>,
     pub file: FilePtr,
     pub range: TextRange,
@@ -46,7 +46,7 @@ impl FeatureStmt {
         opt_this: Option<FeatureRepr>,
         lazy_stmt: &Arc<LazyStmt>,
         symbols: &mut Vec<FeatureSymbol>,
-        opt_branch_indicator: Option<Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         let variant = match lazy_stmt.variant {
@@ -56,7 +56,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     value.clone(),
                     &symbols,
-                    opt_branch_indicator.as_ref(),
+                    opt_arrival_indicator.as_ref(),
                     feature_interner,
                 );
                 symbols.push(FeatureSymbol {
@@ -86,7 +86,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     result.clone(),
                     &symbols,
-                    opt_branch_indicator.as_ref(),
+                    opt_arrival_indicator.as_ref(),
                     feature_interner,
                 ),
             },
@@ -96,7 +96,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     xml_expr.clone(),
                     &symbols,
-                    todo!(),
+                    opt_arrival_indicator.as_ref(),
                     feature_interner,
                 ),
             },
@@ -161,7 +161,7 @@ impl FeatureStmt {
             opt_feature: variant.opt_feature(feature_interner),
             variant,
             eval_id: Default::default(),
-            opt_branch_indicator: opt_branch_indicator.map(|s| s.clone()),
+            opt_arrival_indicator: opt_arrival_indicator.map(|s| s.clone()),
         })
     }
 }

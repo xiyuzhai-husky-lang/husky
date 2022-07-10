@@ -54,9 +54,9 @@ impl<'a> FeatureExprBuilder<'a> {
                     EntityDefnVariant::Function {
                         source: CallFormSource::Static(__Linkage::Model(model)),
                         ..
-                    } => self.db.train(model, self.opt_branch_indicator, &opds),
+                    } => self.db.train(model, self.opt_arrival_indicator, &opds),
                     // model.train(
-                    //     self.opt_branch_indicator.map(|r| r as &dyn std::any::Any),
+                    //     self.opt_arrival_indicator.map(|r| r as &dyn std::any::Any),
                     //     &opds,
                     // ),
                     _ => todo!(),
@@ -66,8 +66,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     has_this: false,
                     model_defn,
                     internal,
-                    opt_branch_indicator: self
-                        .opt_branch_indicator
+                    opt_arrival_indicator: self
+                        .opt_arrival_indicator
                         .map(|branch_indicator| branch_indicator.clone()),
                 };
                 (kind, feature)
@@ -104,7 +104,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     self.opt_this.clone(),
                     opds[0].clone(),
                     self.symbols,
-                    self.opt_branch_indicator,
+                    self.opt_arrival_indicator,
                     self.features,
                 )
                 .into(),
