@@ -5,6 +5,7 @@ use dev_utils::__static_dev_src;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::{FeatureBranchIndicator, FeatureExpr};
 use husky_trace_protocol::Label;
+use print_utils::p;
 use static_defn::*;
 use vm::{
     EvalValueResult, Model, ModelLinkage, __EvalResult, __EvalValue, __Linkage, __OwnedValue,
@@ -33,7 +34,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
 struct NaiveI32;
 
 impl Model for NaiveI32 {
-    type Internal = HashMap<i32, i32>; // most likely labels
+    type Internal = HashMap<i32, Label>; // most likely labels
 
     fn train(
         &self,
@@ -49,17 +50,16 @@ impl Model for NaiveI32 {
                 .entry(label)
                 .or_default() += 1;
         }
-        let most_likely_labels: HashMap<i32, i32> = label_statics_map
+        let most_likely_labels: HashMap<i32, Label> = label_statics_map
             .into_iter()
-            .map(|(value, label_statics)| -> (i32, i32) {
+            .map(|(value, label_statics)| -> (i32, Label) {
                 (
                     value,
                     label_statics
                         .into_iter()
                         .max_by(|x, y| x.1.cmp(&y.1))
                         .unwrap()
-                        .0
-                         .0 as i32,
+                        .0,
                 )
             })
             .collect();
@@ -71,9 +71,14 @@ impl Model for NaiveI32 {
         most_likely_labels: &Self::Internal,
         arguments: &[__EvalValue<'eval>],
     ) -> EvalValueResult<'eval> {
-        match most_likely_labels.get(&arguments[0].primitive().take_i32()) {
-            Some(l) => Ok(__EvalValue::Copyable((*l).into())),
-            None => Ok(__EvalValue::Undefined),
+        let argument = arguments[0].primitive().take_i32();
+        match most_likely_labels.get(&argument) {
+            Some(l) => Ok(__EvalValue::Copyable((l.0 as i32).into())),
+            None => {
+                p!(argument);
+                panic!();
+                Ok(__EvalValue::Undefined)
+            }
         }
     }
 }

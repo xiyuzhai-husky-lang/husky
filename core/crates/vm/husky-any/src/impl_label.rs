@@ -5,7 +5,7 @@ impl __HasStaticTypeInfo for Label {
     type __StaticSelf = Self;
 
     fn __static_type_name() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "Label".into()
     }
 }
 
