@@ -33,7 +33,7 @@ impl DebuggerContext {
             ws,
             trace_context: TraceContext::new(scope),
             figure_context: FigureContext::new(scope),
-            attention_context: Default::default(),
+            attention_context: AttentionContext::new(scope),
             dialog_opened: create_signal(scope, false),
             scope,
         }

@@ -34,7 +34,7 @@ impl TraceContext {
         }
         if self.is_expanded(trace_id) {
             for subtrace_id in self.subtrace_ids(attention, trace_id) {
-                if !self.for_all_expanded_traces_dfs::<F>(attention, subtrace_id, &predicate) {
+                if !self.for_all_expanded_traces_dfs::<F>(attention, *subtrace_id, &predicate) {
                     return false;
                 }
             }

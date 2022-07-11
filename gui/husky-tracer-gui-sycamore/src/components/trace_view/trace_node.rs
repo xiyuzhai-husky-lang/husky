@@ -6,6 +6,7 @@ use super::*;
 pub struct TraceNodeProps<'a> {
     trace_id: TraceId,
     attention: &'a ReadSignal<Attention>,
+    has_subtraces: &'a ReadSignal<bool>,
 }
 
 #[component]
@@ -15,13 +16,10 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let shown = trace_context.shown_read_signal(props.trace_id);
     let expanded = trace_context.expansion_read_signal(props.trace_id);
     let trace = trace_context.trace_data(props.trace_id);
-    let trace_kind = trace.kind;
     let attention = props.attention;
+    let trace_kind = trace.kind;
     let has_stalk = memo!(scope, move || attention.get().has_stalk(trace_kind));
-    let can_have_subtraces = trace.can_have_subtraces;
-    let has_subtraces = memo!(scope, move || {
-        tell_has_subtraces(trace_kind, can_have_subtraces, &attention.get())
-    });
+    let has_subtraces = props.has_subtraces;
     let toggle_expansion_handler = debuggerer_context.toggle_expansion_handler(props.trace_id);
     let activate_handler = debuggerer_context.activate_handler(props.trace_id);
     let opt_active_trace_id = &trace_context.opt_active_trace_id;
@@ -82,28 +80,5 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 (trace_lines)
             }
         }
-    }
-}
-
-fn tell_has_subtraces(
-    trace_kind: TraceKind,
-    can_have_subtraces: bool,
-    attention: &Attention,
-) -> bool {
-    match trace_kind {
-        TraceKind::Main | TraceKind::FeatureBranch | TraceKind::LoopFrame => true,
-        TraceKind::CallHead
-        | TraceKind::FeatureCallArgument
-        | TraceKind::EagerCallArgument
-        | TraceKind::FeatureStmt => false,
-        TraceKind::FuncStmt
-        | TraceKind::EagerExpr
-        | TraceKind::ProcStmt
-        | TraceKind::FuncBranch
-        | TraceKind::ProcBranch => can_have_subtraces,
-        TraceKind::FeatureExpr => match attention {
-            Attention::Specific { .. } => can_have_subtraces,
-            Attention::Generic { .. } => false,
-        },
     }
 }

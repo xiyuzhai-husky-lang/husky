@@ -42,10 +42,27 @@ impl TraceContext {
             .map(|trace_id| self.trace_data(trace_id))
     }
 
-    pub(crate) fn subtrace_ids(&self, attention: &Attention, trace_id: TraceId) -> Vec<TraceId> {
-        self.subtrace_ids_map.borrow(file!(), line!())
-            [&SubtracesKey::new(attention, self.trace_kind(trace_id), trace_id)]
-            .to_vec()
+    pub(crate) fn subtrace_ids(
+        &self,
+        attention: &Attention,
+        trace_id: TraceId,
+    ) -> &'static [TraceId] {
+        let trace_data = self.trace_data(trace_id);
+        if !trace_data.has_subtraces(attention) {
+            return &[];
+        }
+        let subtraces_key = SubtracesKey::new(attention, trace_data.kind, trace_id);
+        if let Some(subtrace_ids) = self
+            .subtrace_ids_map
+            .borrow(file!(), line!())
+            .get(&subtraces_key)
+        {
+            subtrace_ids
+        } else {
+            let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
+            log::info!("trace: {:?}", trace);
+            panic!("no subtraces for key {:?}", subtraces_key);
+        }
     }
 
     pub(crate) fn is_subtraces_cached(&self, attention: &Attention, trace_id: TraceId) -> bool {

@@ -90,11 +90,11 @@ impl HuskyTraceTime {
     }
 
     pub fn subtrace_ids(&mut self, trace_id: TraceId) -> Vec<TraceId> {
-        let key = SubtracesKey::new(
-            &self.attention,
-            self.trace(trace_id).raw_data.kind,
-            trace_id,
-        );
+        let trace = &self.trace(trace_id);
+        if !trace.raw_data.has_subtraces(&self.attention) {
+            return vec![];
+        }
+        let key = SubtracesKey::new(&self.attention, trace.raw_data.kind, trace_id);
         if let Some(subtrace_ids) = self.subtrace_ids_map.get(&key) {
             subtrace_ids.clone()
         } else {

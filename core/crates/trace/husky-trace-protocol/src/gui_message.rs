@@ -25,7 +25,7 @@ pub enum HuskyTracerGuiMessageVariant {
     Trace {
         id: TraceId,
     },
-    LockAttention {
+    SetAttention {
         attention: Attention,
         needs_figure_canvas_data: bool,
         needs_figure_control_data: bool,

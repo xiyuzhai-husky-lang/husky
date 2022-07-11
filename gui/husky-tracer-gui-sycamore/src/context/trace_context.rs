@@ -111,7 +111,7 @@ impl TraceContext {
         self.add_associated_traces(attention, trace_id, trace_listing);
         if (self.is_expanded(trace_id)) {
             for subtrace_id in self.subtrace_ids(attention, trace_id) {
-                self.update_trace_listing_dfs(attention, subtrace_id, trace_listing);
+                self.update_trace_listing_dfs(attention, *subtrace_id, trace_listing);
             }
         }
     }
