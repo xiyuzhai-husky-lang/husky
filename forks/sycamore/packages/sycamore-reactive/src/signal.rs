@@ -122,6 +122,9 @@ where
         let setter = move |x| self.set(x);
         (getter, setter)
     }
+    pub fn read(&self) -> &ReadSignal<T> {
+        &self.0
+    }
 }
 
 /// A mutable reference for modifying a [`Signal`].

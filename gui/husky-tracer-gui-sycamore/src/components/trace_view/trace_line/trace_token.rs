@@ -19,7 +19,7 @@ pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps<'a>) -> 
         if let Some(associated_trace_id) = props.data.opt_associated_trace_id {
             context
                 .trace_context
-                .shown_signal(associated_trace_id)
+                .shown_read_signal(associated_trace_id)
                 .cget()
         } else {
             false
@@ -36,12 +36,11 @@ pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps<'a>) -> 
                     ""
                 }
             ),
-            on:mousedown=move |ev:Event|{
+            on:mousedown=move |_ev:Event|{
                 if props.is_trace_active.cget() {
-                    let ev: MouseEvent = ev.dyn_into().unwrap();
                     if let Some(associated_trace_id) = props.data.opt_associated_trace_id {
                         let context = use_debugger_context(scope);
-                        context.toggle_shown(associated_trace_id)
+                        context.toggle_shown_handler(associated_trace_id)()
                     }
                 }
             }

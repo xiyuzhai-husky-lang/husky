@@ -10,21 +10,24 @@ pub struct TraceArrivalProps {
 #[component]
 #[component]
 pub(super) fn TraceArrival<'a, G: Html>(scope: Scope<'a>, props: TraceArrivalProps) -> View<G> {
-    let arrived = create_signal(scope, false);
+    let ctx = use_debugger_context(scope);
+    let trace_context = &ctx.trace_context;
+    let arrival = trace_context.arrival_read_signal(props.trace_id);
+    let trace_id = props.trace_id;
     if props.line_idx == 0 {
         view! {
             scope,
             span(
                 class={
-                    if arrived.cget() {
-                        "TraceArrival arrived"
+                    if arrival.cget() {
+                        "TraceArrival arrival"
                     } else {
                         "TraceArrival ignored"
                     }
                 },
                 on:mousedown=move |ev:Event|{
-                    ev.stop_propagation() ;
-                    arrived.set(!arrived.cget())
+                    ev.stop_propagation();
+                    ctx.toggle_arrival_handler(trace_id)()
                 }
             ) {
                 svg (

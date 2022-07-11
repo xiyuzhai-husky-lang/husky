@@ -55,6 +55,14 @@ where
         }
     }
 
+    pub fn toggle(&mut self, value: K) {
+        todo!()
+    }
+
+    pub fn to_vec(&self) -> Vec<K> {
+        self.entries.clone()
+    }
+
     pub fn insert(&mut self, value: K) {
         if self.has(value) {
             ()

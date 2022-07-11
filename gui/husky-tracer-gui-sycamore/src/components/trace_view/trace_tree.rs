@@ -9,7 +9,7 @@ pub struct TraceTreeProps {
 pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G> {
     let tracer_context = use_context::<DebuggerContext>(scope);
     let tree_context = &tracer_context.trace_context;
-    let shown = tree_context.shown_signal(props.trace_id);
+    let shown = tree_context.shown_read_signal(props.trace_id);
     let attention = tracer_context.attention_context.attention.clone();
     let attention = memo!(scope, move || attention.cget());
     let trace = tree_context.trace_data(props.trace_id);
@@ -25,7 +25,7 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
             .collect(),
     );
     let subtrace_ids = memo!(scope, {
-        let expansion = tree_context.expanded_signal(props.trace_id);
+        let expansion = tree_context.expansion_read_signal(props.trace_id);
         move || {
             if expansion.cget() {
                 tree_context
