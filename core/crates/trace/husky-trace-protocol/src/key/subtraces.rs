@@ -13,7 +13,11 @@ pub enum SubtracesKey {
 }
 
 impl SubtracesKey {
-    pub fn new(attention: &Attention, trace_kind: TraceKind, trace_id: TraceId) -> SubtracesKey {
+    pub fn new(
+        restriction: &Restriction,
+        trace_kind: TraceKind,
+        trace_id: TraceId,
+    ) -> SubtracesKey {
         match trace_kind {
             TraceKind::Main
             | TraceKind::FeatureStmt
@@ -27,12 +31,12 @@ impl SubtracesKey {
             TraceKind::FeatureCallArgument | TraceKind::CallHead | TraceKind::EagerCallArgument => {
                 SubtracesKey::Null
             }
-            TraceKind::FeatureExpr => match attention {
-                Attention::Specific { sample_id } => SubtracesKey::FeatureExprStalk {
+            TraceKind::FeatureExpr => match restriction {
+                Restriction::Specific { sample_id } => SubtracesKey::FeatureExprStalk {
                     trace_id,
                     sample_id: *sample_id,
                 },
-                Attention::Generic { .. } => SubtracesKey::Null,
+                Restriction::Generic { .. } => SubtracesKey::Null,
             },
         }
     }

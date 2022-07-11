@@ -3,11 +3,11 @@ use crate::*;
 impl TraceContext {
     pub fn for_all_expanded_traces(
         &self,
-        attention: &Attention,
+        restriction: &Restriction,
         predicate: impl Fn(&TraceData) -> bool,
     ) -> bool {
         for trace_id in self.root_trace_ids.get().iter() {
-            if !self.for_all_expanded_traces_dfs(attention, *trace_id, &predicate) {
+            if !self.for_all_expanded_traces_dfs(restriction, *trace_id, &predicate) {
                 return false;
             }
         }
@@ -16,7 +16,7 @@ impl TraceContext {
 
     fn for_all_expanded_traces_dfs<F>(
         &self,
-        attention: &Attention,
+        restriction: &Restriction,
         trace_id: TraceId,
         predicate: &F,
     ) -> bool
@@ -28,13 +28,14 @@ impl TraceContext {
             return false;
         }
         for associated_trace_id in trace_data.associated_trace_ids() {
-            if !self.for_all_expanded_traces_dfs::<F>(attention, associated_trace_id, &predicate) {
+            if !self.for_all_expanded_traces_dfs::<F>(restriction, associated_trace_id, &predicate)
+            {
                 return false;
             }
         }
         if self.is_expanded(trace_id) {
-            for subtrace_id in self.subtrace_ids(attention, trace_id) {
-                if !self.for_all_expanded_traces_dfs::<F>(attention, *subtrace_id, &predicate) {
+            for subtrace_id in self.subtrace_ids(restriction, trace_id) {
+                if !self.for_all_expanded_traces_dfs::<F>(restriction, *subtrace_id, &predicate) {
                     return false;
                 }
             }

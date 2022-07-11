@@ -1,19 +1,19 @@
-mod attention_context;
 mod figure_context;
 mod impl_init;
 mod impl_user_event;
 mod internal;
+mod restriction_context;
 mod trace_context;
 mod utils;
 
 pub(crate) use trace_context::*;
 
 use crate::{services::websocket::WebsocketService, *};
-use attention_context::*;
 use figure_context::*;
 use futures::{channel::mpsc::Sender, stream::SplitStream, SinkExt, StreamExt};
 use internal::*;
 use reqwasm::websocket::{futures::WebSocket, Message};
+use restriction_context::*;
 use std::{
     collections::HashMap,
     rc::Rc,
@@ -28,7 +28,7 @@ pub struct DebuggerContext {
     pub window_inner_width: &'static Signal<f64>,
     pub trace_context: TraceContext,
     pub figure_context: FigureContext,
-    pub attention_context: AttentionContext,
+    pub restriction_context: RestrictionContext,
     pub dialog_opened: &'static Signal<bool>,
 }
 

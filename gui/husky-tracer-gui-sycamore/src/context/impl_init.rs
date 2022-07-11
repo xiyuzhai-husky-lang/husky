@@ -27,7 +27,7 @@ impl DebuggerContext {
             assert!(init_data.figure_canvases.len() > 0);
         }
         // order matters
-        self.attention_context.init(init_data.attention.clone());
+        self.restriction_context.init(init_data.restriction.clone());
         self.figure_context.init(
             self.alloc_key_value_pairs(init_data.figure_canvases)
                 .collect(),
@@ -35,7 +35,7 @@ impl DebuggerContext {
                 .collect(),
         );
         self.trace_context.init(
-            &init_data.attention,
+            &init_data.restriction,
             init_data
                 .trace_init_data
                 .trace_nodes

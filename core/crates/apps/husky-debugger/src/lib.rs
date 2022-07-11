@@ -56,7 +56,7 @@ impl HuskyDebugger {
             config.eval_time(),
         );
         if let Some(sample_id) = config.opt_sample_id {
-            trace_time.set_attention(Attention::Specific { sample_id });
+            trace_time.set_restriction(Restriction::Specific { sample_id });
         }
         Self {
             internal: Mutex::new(HuskyDebuggerInternal {
@@ -82,7 +82,7 @@ impl HuskyDebugger {
         let internal = &mut self.internal.lock().unwrap();
         internal
             .trace_time
-            .set_attention(Attention::Specific { sample_id });
+            .set_restriction(Restriction::Specific { sample_id });
         for root_trace_id in internal.trace_time.root_traces().into_iter() {
             let now = Instant::now();
             let (_, stalk) = internal.trace_time.keyed_trace_stalk(root_trace_id);

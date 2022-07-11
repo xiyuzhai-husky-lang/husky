@@ -1,8 +1,8 @@
-mod impl_attention;
 mod impl_figure;
 mod impl_figure_control;
 mod impl_lines;
 mod impl_ops;
+mod impl_restriction;
 mod impl_subtraces;
 mod impl_trace;
 mod impl_trace_stalk;
@@ -34,7 +34,7 @@ use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
     eval_time_singleton: HuskyEvalTimeSingletonKeeper,
-    attention: Attention,
+    restriction: Restriction,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
     pub trace_stalks: HashMap<TraceStalkKey, TraceStalkData>,
@@ -60,7 +60,7 @@ impl HuskyTraceTime {
             subtrace_ids_map: Default::default(),
             figure_controls: Default::default(),
             root_trace_ids: Default::default(),
-            attention: Default::default(),
+            restriction: Default::default(),
         };
         trace_time.update();
         trace_time
@@ -91,10 +91,10 @@ impl HuskyTraceTime {
 
     pub fn subtrace_ids(&mut self, trace_id: TraceId) -> Vec<TraceId> {
         let trace = &self.trace(trace_id);
-        if !trace.raw_data.has_subtraces(&self.attention) {
+        if !trace.raw_data.has_subtraces(&self.restriction) {
             return vec![];
         }
-        let key = SubtracesKey::new(&self.attention, trace.raw_data.kind, trace_id);
+        let key = SubtracesKey::new(&self.restriction, trace.raw_data.kind, trace_id);
         if let Some(subtrace_ids) = self.subtrace_ids_map.get(&key) {
             subtrace_ids.clone()
         } else {
@@ -208,23 +208,15 @@ impl HuskyTraceTime {
         let mut figure_controls = Vec::default();
         let opt_active_trace_id = self.opt_active_trace_id;
         if let Some(active_trace_id) = opt_active_trace_id {
-            let enters = self.collect_enters();
-            let arrivals = self.collect_arrivals();
-            let pins = self.collect_pins();
             let active_trace = self.trace(active_trace_id);
-            let figure_canvas_key = FigureCanvasKey::from_trace_data(
-                &active_trace.raw_data,
-                &self.attention,
-                enters,
-                arrivals,
-                pins,
-            );
+            let figure_canvas_key =
+                FigureCanvasKey::from_trace_data(&active_trace.raw_data, &self.restriction);
             figure_canvases.push((
                 figure_canvas_key,
                 self.figure_canvas(active_trace_id).unwrap(),
             ));
             figure_controls.push((
-                FigureControlKey::from_trace_data(&active_trace.raw_data, &self.attention),
+                FigureControlKey::from_trace_data(&active_trace.raw_data, &self.restriction),
                 self.figure_control(active_trace_id),
             ));
         }
@@ -245,52 +237,10 @@ impl HuskyTraceTime {
                     .collect(),
                 root_trace_ids,
             },
-            attention: self.attention.clone(),
+            restriction: self.restriction.clone(),
             figure_canvases,
             figure_controls,
         }
-    }
-
-    fn collect_enters(&self) -> Vec<TraceId> {
-        self.trace_nodes
-            .iter()
-            .filter_map(|node| {
-                let node = node.as_ref().unwrap();
-                if node.enter {
-                    Some(node.trace.id())
-                } else {
-                    None
-                }
-            })
-            .collect()
-    }
-
-    fn collect_arrivals(&self) -> Vec<TraceId> {
-        self.trace_nodes
-            .iter()
-            .filter_map(|node| {
-                let node = node.as_ref().unwrap();
-                if node.arrival {
-                    Some(node.trace.id())
-                } else {
-                    None
-                }
-            })
-            .collect()
-    }
-
-    fn collect_pins(&self) -> Vec<TraceId> {
-        self.trace_nodes
-            .iter()
-            .filter_map(|node| {
-                let node = node.as_ref().unwrap();
-                if node.pin {
-                    Some(node.trace.id())
-                } else {
-                    None
-                }
-            })
-            .collect()
     }
 }
 

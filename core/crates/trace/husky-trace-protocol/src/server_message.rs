@@ -35,12 +35,12 @@ pub enum HuskyTracerServerMessageVariant {
     Trace {
         trace_props: TraceData,
     },
-    SetAttention {
+    SetRestriction {
         opt_figure_canvas_data: Option<FigureCanvasData>,
         opt_figure_control_data: Option<FigureControlData>,
         new_trace_stalks: Vec<(TraceStalkKey, TraceStalkData)>,
     },
-    SetAttentionWithError {
+    SetRestrictionWithError {
         sample_id: SampleId,
         error: String,
     },

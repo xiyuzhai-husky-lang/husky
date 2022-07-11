@@ -5,8 +5,8 @@ impl HuskyTraceTime {
         &self,
         expr: &Arc<FeatureExpr>,
     ) -> Result<FigureCanvasData, (SampleId, EvalError)> {
-        match self.attention {
-            Attention::Specific { sample_id } => {
+        match self.restriction {
+            Restriction::Specific { sample_id } => {
                 let value = self
                     .eval_time_singleton
                     .husky_feature_eval_expr(expr, sample_id)
@@ -17,7 +17,7 @@ impl HuskyTraceTime {
                         .unwrap(),
                 ))
             }
-            Attention::Generic { ref partitions, .. } => {
+            Restriction::Generic { ref partitions, .. } => {
                 let session = self.eval_time().session();
                 let dev_division = session.dev();
                 assert_eq!(

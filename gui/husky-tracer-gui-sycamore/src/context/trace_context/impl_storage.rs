@@ -44,14 +44,14 @@ impl TraceContext {
 
     pub(crate) fn subtrace_ids(
         &self,
-        attention: &Attention,
+        restriction: &Restriction,
         trace_id: TraceId,
     ) -> &'static [TraceId] {
         let trace_data = self.trace_data(trace_id);
-        if !trace_data.has_subtraces(attention) {
+        if !trace_data.has_subtraces(restriction) {
             return &[];
         }
-        let subtraces_key = SubtracesKey::new(attention, trace_data.kind, trace_id);
+        let subtraces_key = SubtracesKey::new(restriction, trace_data.kind, trace_id);
         if let Some(subtrace_ids) = self
             .subtrace_ids_map
             .borrow(file!(), line!())
@@ -65,11 +65,11 @@ impl TraceContext {
         }
     }
 
-    pub(crate) fn is_subtraces_cached(&self, attention: &Attention, trace_id: TraceId) -> bool {
+    pub(crate) fn is_subtraces_cached(&self, restriction: &Restriction, trace_id: TraceId) -> bool {
         self.subtrace_ids_map
             .borrow(file!(), line!())
             .contains_key(&SubtracesKey::new(
-                attention,
+                restriction,
                 self.trace_kind(trace_id),
                 trace_id,
             ))

@@ -2,28 +2,28 @@ use super::*;
 use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
 impl DebuggerContext {
-    pub(super) fn toggle_attention_kind(&'static self) {
-        self.set_attention(self.attention_context.toggled_attention_kind())
+    pub(super) fn toggle_restriction_kind(&'static self) {
+        self.set_restriction(self.restriction_context.toggled_restriction_kind())
     }
 
-    pub(crate) fn set_attention(&'static self, new_attention: Attention) {
+    pub(crate) fn set_restriction(&'static self, new_restriction: Restriction) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
         let needs_figure_canvas_data =
-            self.needs_figure_canvas_data(opt_active_trace_id, &new_attention);
+            self.needs_figure_canvas_data(opt_active_trace_id, &new_restriction);
         let needs_figure_control_data =
-            self.needs_figure_control_data(opt_active_trace_id, &new_attention);
-        let needs_stalk = self.needs_stalk(opt_active_trace_id, &new_attention);
+            self.needs_figure_control_data(opt_active_trace_id, &new_restriction);
+        let needs_stalk = self.needs_stalk(opt_active_trace_id, &new_restriction);
         let needs_response = needs_figure_control_data || needs_figure_control_data || needs_stalk;
         self.ws.send_message(
-            HuskyTracerGuiMessageVariant::SetAttention {
-                attention: new_attention.clone(),
+            HuskyTracerGuiMessageVariant::SetRestriction {
+                restriction: new_restriction.clone(),
                 needs_figure_canvas_data,
                 needs_figure_control_data,
                 needs_stalk,
             },
             if needs_response {
                 Some(Box::new(move |message| match message.variant {
-                    HuskyTracerServerMessageVariant::SetAttention {
+                    HuskyTracerServerMessageVariant::SetRestriction {
                         opt_figure_canvas_data,
                         opt_figure_control_data,
                         new_trace_stalks,
@@ -33,7 +33,7 @@ impl DebuggerContext {
                             self.figure_context.set_opt_figure_data(
                                 self.scope,
                                 &active_trace,
-                                &new_attention,
+                                &new_restriction,
                                 opt_figure_canvas_data
                                     .map(|figure_canvas_data| self.alloc_value(figure_canvas_data)),
                                 opt_figure_control_data,
@@ -44,26 +44,31 @@ impl DebuggerContext {
                                 .into_iter()
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
-                        self.attention_context.attention.set(new_attention.clone())
+                        self.restriction_context
+                            .restriction
+                            .set(new_restriction.clone())
                     }
                     _ => panic!(),
                 }))
             } else {
-                self.attention_context.attention.set(new_attention.clone());
+                self.restriction_context
+                    .restriction
+                    .set(new_restriction.clone());
                 None
             },
         );
     }
 
-    pub(super) fn set_attention_from_dialog(&'static self) {
+    pub(super) fn set_restriction_from_dialog(&'static self) {
         let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
         match sample_id_value.parse::<usize>() {
             Ok(raw) => {
-                self.set_attention(Attention::Specific {
+                self.set_restriction(Restriction::Specific {
                     sample_id: SampleId(raw),
                 });
-                let attention_dialog = get_element_by_id::<HtmlDialogElement>("attention-dialog");
-                attention_dialog.close()
+                let restriction_dialog =
+                    get_element_by_id::<HtmlDialogElement>("restriction-dialog");
+                restriction_dialog.close()
             }
             Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),
         }

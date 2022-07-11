@@ -3,46 +3,46 @@ use sycamore::render;
 use web_sys::{Event, HtmlDialogElement, HtmlFormElement, HtmlInputElement, KeyboardEvent};
 
 #[component]
-pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
+pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let debugger_context = use_debugger_context(scope);
-    let attention_context = &debugger_context.attention_context;
+    let restriction_context = &debugger_context.restriction_context;
     let generic = create_signal(scope, true);
-    let attention = attention_context.attention.clone();
-    let last_sample_id = create_signal(scope, attention.get_untracked().opt_sample_id());
-    let toggle_attention_kind_handler = debugger_context.toggle_attention_kind_handler();
-    let attention_dialog = get_element_by_id::<HtmlDialogElement>("attention-dialog");
-    let set_attention_from_dialog = debugger_context.set_attention_from_dialog_handler();
-    let attention_kind = memo!(
+    let restriction = restriction_context.restriction.clone();
+    let last_sample_id = create_signal(scope, restriction.get_untracked().opt_sample_id());
+    let toggle_restriction_kind_handler = debugger_context.toggle_restriction_kind_handler();
+    let restriction_dialog = get_element_by_id::<HtmlDialogElement>("restriction-dialog");
+    let set_restriction_from_dialog = debugger_context.set_restriction_from_dialog_handler();
+    let restriction_kind = memo!(
         scope,
-        move || match *attention.get() {
-            Attention::Specific { .. } => "SPECIFIC",
-            Attention::Generic { .. } => "GENERIC",
+        move || match *restriction.get() {
+            Restriction::Specific { .. } => "SPECIFIC",
+            Restriction::Generic { .. } => "GENERIC",
         }
         .to_string(),
-        attention
+        restriction
     );
     add_event_listener!(
-        attention_dialog,
+        restriction_dialog,
         "keydown",
         move |event: web_sys::UiEvent| {
             let event: KeyboardEvent = event.unchecked_into();
             match event.key().as_str() {
-                "Enter" => set_attention_from_dialog(),
+                "Enter" => set_restriction_from_dialog(),
                 _ => (),
             }
         }
     );
     view! {
         scope,
-        div (class="AttentionView disable-select") {
+        div (class="RestrictionView disable-select") {
             div (
-                class="AttentionKind",
-                on:click=toggle_attention_kind_handler
+                class="RestrictionKind",
+                on:click=toggle_restriction_kind_handler
             ) {
-                (attention_kind.get())
+                (restriction_kind.get())
             }
-            (match *attention.get() {
-                Attention::Specific { sample_id } => {
+            (match *restriction.get() {
+                Restriction::Specific { sample_id } => {
                     view! {
                         scope,
                         label (
@@ -54,7 +54,7 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
                             id="sample-id-value",
                             on:click={
                                 move |_| {
-                                    get_element_by_id::<HtmlDialogElement>("attention-dialog").show_modal();
+                                    get_element_by_id::<HtmlDialogElement>("restriction-dialog").show_modal();
                                     get_element_by_id::<HtmlInputElement>("sample-id-input").set_value("") ;
                                 }
                             }
@@ -63,7 +63,7 @@ pub fn AttentionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
                         }
                     }
                 },
-                Attention::Generic { .. } =>view!{scope,},
+                Restriction::Generic { .. } =>view!{scope,},
             })
         }
     }

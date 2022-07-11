@@ -34,7 +34,7 @@ impl TraceContext {
     pub(crate) fn did_toggle_show(&mut self, trace_id: TraceId) {
         todo!()
         // self.shown_stores.update(id, (shown) => !shown);
-        // self.update_trace_listing(attention);
+        // self.update_trace_listing(restriction);
     }
 
     pub(crate) fn did_activate(&self, trace_id: TraceId) {

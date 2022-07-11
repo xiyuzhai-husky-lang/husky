@@ -4,48 +4,48 @@ mod partition;
 pub use label::*;
 pub use partition::*;
 use sycamore::prelude::Signalable;
+use vec_like::VecSet;
 
 use super::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
-pub enum Attention {
+pub enum Restriction {
     Specific {
         sample_id: SampleId,
     },
     Generic {
         partitions: Vec<PartitionDefnData>,
-        constraints: Vec<Constraint>,
+        arrivals: VecSet<TraceId>,
+        enters: VecSet<TraceId>,
     },
 }
 
-impl Signalable for Attention {}
+impl Signalable for Restriction {}
 
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
-pub enum Constraint {}
-
-impl Default for Attention {
+impl Default for Restriction {
     fn default() -> Self {
-        Attention::Generic {
+        Restriction::Generic {
             partitions: vec![PartitionDefnData {
                 name: "other".into(),
                 ncol: 7,
                 variant: PartitionDefnDataVariant::Other,
             }],
-            constraints: vec![],
+            arrivals: Default::default(),
+            enters: Default::default(),
         }
     }
 }
 
-impl Attention {
+impl Restriction {
     pub fn has_stalk(&self, trace_kind: TraceKind) -> bool {
         match trace_kind {
             TraceKind::Main
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr => match self {
-                Attention::Specific { .. } => true,
-                Attention::Generic { .. } => false,
+                Restriction::Specific { .. } => true,
+                Restriction::Generic { .. } => false,
             },
             TraceKind::FeatureCallArgument
             | TraceKind::EagerCallArgument
@@ -61,8 +61,8 @@ impl Attention {
 
     pub fn opt_sample_id(&self) -> Option<SampleId> {
         match self {
-            Attention::Specific { sample_id } => Some(*sample_id),
-            Attention::Generic { .. } => None,
+            Restriction::Specific { sample_id, .. } => Some(*sample_id),
+            Restriction::Generic { .. } => None,
         }
     }
 }

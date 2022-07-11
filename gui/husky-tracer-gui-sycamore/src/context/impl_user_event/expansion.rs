@@ -10,9 +10,9 @@ impl DebuggerContext {
         if expansion.cget() {
             expansion.set(false)
         } else {
-            let attention = self.attention_context.attention.get();
+            let restriction = self.restriction_context.restriction.get();
             let trace_kind = self.trace_context.trace_kind(trace_id);
-            let key = SubtracesKey::new(&attention, trace_kind, trace_id);
+            let key = SubtracesKey::new(&restriction, trace_kind, trace_id);
             if self
                 .trace_context
                 .subtrace_ids_map

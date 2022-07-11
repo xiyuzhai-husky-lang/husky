@@ -25,8 +25,8 @@ pub enum HuskyTracerGuiMessageVariant {
     Trace {
         id: TraceId,
     },
-    SetAttention {
-        attention: Attention,
+    SetRestriction {
+        restriction: Restriction,
         needs_figure_canvas_data: bool,
         needs_figure_control_data: bool,
         needs_stalk: bool,
@@ -36,7 +36,7 @@ pub enum HuskyTracerGuiMessageVariant {
     },
     UpdateFigureControlData {
         trace_id: TraceId,
-        attention: Attention,
+        restriction: Restriction,
         figure_control_props: FigureControlData,
     },
 }

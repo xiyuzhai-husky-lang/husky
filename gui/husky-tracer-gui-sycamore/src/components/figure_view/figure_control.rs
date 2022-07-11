@@ -12,16 +12,16 @@ pub struct FigureControlProps<'a> {
 pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a>) -> View<G> {
     let tracer_context = use_context::<DebuggerContext>(scope);
     let opt_active_trace_id = &tracer_context.trace_context.opt_active_trace_id;
-    let attention = &tracer_context.attention_context.attention;
+    let restriction = &tracer_context.restriction_context.restriction;
     let opt_canvas_and_control_data = memo!(scope, move || opt_active_trace_id.cget().map(
         |active_trace_id| {
             let active_trace = tracer_context.trace_context.trace_data(active_trace_id);
             let canvas_data = tracer_context
                 .figure_context
-                .figure_canvas_data(&active_trace, &attention.get());
+                .figure_canvas_data(&active_trace, &restriction.get());
             let control_data = tracer_context
                 .figure_context
-                .figure_control_data(&active_trace, &attention.get());
+                .figure_control_data(&active_trace, &restriction.get());
             (canvas_data, control_data)
         }
     ));
