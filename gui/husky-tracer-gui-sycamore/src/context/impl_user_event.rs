@@ -1,4 +1,8 @@
+mod arrival;
 mod attention;
+mod enter;
+mod expansion;
+mod pin;
 mod shown;
 mod utils;
 
@@ -7,6 +11,10 @@ use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
 enum UserEvent {
     ToggleExpansion { trace_id: TraceId },
+    ToggleArrival { trace_id: TraceId },
+    TogglePin { trace_id: TraceId },
+    ToggleEnter { trace_id: TraceId },
+    ToggleShown { trace_id: TraceId },
     Activate { trace_id: TraceId },
     SetAttention { attention: Attention },
 }
@@ -81,11 +89,31 @@ impl DebuggerContext {
             UserEvent::ToggleExpansion { trace_id } => self.toggle_expansion(trace_id),
             UserEvent::Activate { trace_id } => self.activate(trace_id),
             UserEvent::SetAttention { attention } => self.set_attention(attention),
+            UserEvent::ToggleArrival { trace_id } => self.toggle_arrival(trace_id),
+            UserEvent::TogglePin { trace_id } => self.toggle_pin(trace_id),
+            UserEvent::ToggleEnter { trace_id } => self.toggle_enter(trace_id),
+            UserEvent::ToggleShown { trace_id } => self.toggle_shown(trace_id),
         }
     }
 
     pub fn toggle_expansion_handler(&'static self, trace_id: TraceId) -> Rc<dyn Fn()> {
         Rc::new(move || self.handle_user_event(UserEvent::ToggleExpansion { trace_id }))
+    }
+
+    pub fn toggle_shown_handler(&'static self, trace_id: TraceId) -> impl Fn() {
+        move || self.handle_user_event(UserEvent::ToggleShown { trace_id })
+    }
+
+    pub fn toggle_arrival_handler(&'static self, trace_id: TraceId) -> impl Fn() {
+        move || self.handle_user_event(UserEvent::ToggleArrival { trace_id })
+    }
+
+    pub fn toggle_pin_handler(&'static self, trace_id: TraceId) -> impl Fn() {
+        move || self.handle_user_event(UserEvent::TogglePin { trace_id })
+    }
+
+    pub fn toggle_enter_handler(&'static self, trace_id: TraceId) -> impl Fn() {
+        move || self.handle_user_event(UserEvent::ToggleEnter { trace_id })
     }
 
     pub fn activate_handler(&'static self, trace_id: TraceId) -> impl Fn(Event) {
@@ -147,54 +175,5 @@ impl DebuggerContext {
                 }
             },
         );
-    }
-
-    fn toggle_expansion(&'static self, trace_id: TraceId) {
-        let expansion = self.trace_context.expanded_signal(trace_id);
-        if expansion.cget() {
-            expansion.set(false)
-        } else {
-            let attention = self.attention_context.attention.get();
-            let trace_kind = self.trace_context.trace_kind(trace_id);
-            let key = SubtracesKey::new(&attention, trace_kind, trace_id);
-            if self
-                .trace_context
-                .subtrace_ids_map
-                .borrow(file!(), line!())
-                .contains_key(&key)
-            {
-                self.ws.send_message(
-                    HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id },
-                    None,
-                );
-                expansion.set(true)
-            } else {
-                self.ws.send_message(
-                    HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id },
-                    Some(Box::new(move |message| match message.variant {
-                        HuskyTracerServerMessageVariant::ToggleExpansion {
-                            new_traces,
-                            subtrace_ids,
-                            trace_stalks,
-                        } => {
-                            self.trace_context
-                                .receive_subtraces(key, self.alloc_value(subtrace_ids));
-                            self.trace_context.receive_traces(
-                                new_traces
-                                    .into_iter()
-                                    .map(|trace| TraceNodeState::from_data(self.scope, trace)),
-                            );
-                            self.trace_context.receive_trace_stalks(
-                                trace_stalks
-                                    .into_iter()
-                                    .map(|(k, v)| (k, self.alloc_value(v))),
-                            );
-                            expansion.set(true)
-                        }
-                        _ => panic!(),
-                    })),
-                )
-            }
-        }
     }
 }

@@ -1,13 +1,27 @@
+use vec_like::VecSet;
+
 use super::*;
 
-#[derive(Debug, Default)]
+#[derive(Debug)]
 pub struct FigureContext {
     pub(crate) figure_canvases: RefCell<HashMap<FigureCanvasKey, &'static FigureCanvasData>>,
     pub(crate) figure_controls:
         RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
+    pins: &'static Signal<VecSet<TraceId>>,
+    arrivals: &'static Signal<VecSet<TraceId>>,
+    enters: &'static Signal<VecSet<TraceId>>,
 }
-
 impl FigureContext {
+    pub(super) fn new<'a>(scope: Scope<'a>) -> Self {
+        Self {
+            figure_canvases: Default::default(),
+            figure_controls: Default::default(),
+            pins: create_static_signal(scope, Default::default()),
+            arrivals: create_static_signal(scope, Default::default()),
+            enters: create_static_signal(scope, Default::default()),
+        }
+    }
+
     pub(super) fn init(
         &self,
         figure_canvases: HashMap<FigureCanvasKey, &'static FigureCanvasData>,
@@ -30,7 +44,7 @@ impl FigureContext {
                 .figure_canvases
                 .borrow_mut(file!(), line!())
                 .insert(
-                    FigureCanvasKey::new(trace.kind, trace.id, attention),
+                    self.new_figure_canvas_key(trace, attention,),
                     figure_canvas_data
                 )
                 .is_none());
@@ -40,12 +54,27 @@ impl FigureContext {
         }
     }
 
+    pub(crate) fn new_figure_canvas_key(
+        &self,
+        trace: &TraceData,
+        attention: &Attention,
+    ) -> FigureCanvasKey {
+        FigureCanvasKey::new(
+            trace.kind,
+            trace.id,
+            attention,
+            self.enters.get().to_vec(),
+            self.arrivals.get().to_vec(),
+            self.pins.get().to_vec(),
+        )
+    }
+
     pub(crate) fn figure_canvas_data(
         &self,
         trace: &TraceData,
         attention: &Attention,
     ) -> &'static FigureCanvasData {
-        let figure_canvas_key = FigureCanvasKey::new(trace.kind, trace.id, attention);
+        let figure_canvas_key = self.new_figure_canvas_key(trace, attention);
         let figure_canvases_borrowed = self.figure_canvases.borrow(file!(), line!());
         if let Some(figure_canvas_data) = figure_canvases_borrowed.get(&figure_canvas_key) {
             figure_canvas_data
@@ -87,17 +116,7 @@ impl FigureContext {
             [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, attention)]
     }
 
-    // fn update_figure_control_props(
-    //     &mut self,
-    //     trace_id: TraceId,
-    //     updater: Updater<FigureControlData>
-    // ) {
-    //     let key = self.figure_control_key(trace);
-    //     self.figure_control_stores.update(key, updater);
-    // }
-
-    // get_figure_control_store(trace: Trace): Readable<FigureControlData> {
-    //     let key = self.figure_control_key(trace);
-    //     return self.figure_control_stores.get_store(key);
-    // }
+    pub(crate) fn did_toggle_arrival(&self, trace_id: TraceId) {
+        todo!()
+    }
 }

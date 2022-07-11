@@ -12,9 +12,8 @@ pub struct TraceNodeProps<'a> {
 pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> View<G> {
     let debuggerer_context = use_debugger_context(scope);
     let trace_context = &debuggerer_context.trace_context;
-    let shown = trace_context.shown_signal(props.trace_id);
-    let expansion = trace_context.expanded_signal(props.trace_id);
-    let expanded = memo!(scope, move || expansion.cget(), expansion);
+    let shown = trace_context.shown_read_signal(props.trace_id);
+    let expanded = trace_context.expansion_read_signal(props.trace_id);
     let trace = trace_context.trace_data(props.trace_id);
     let trace_kind = trace.kind;
     let attention = props.attention;

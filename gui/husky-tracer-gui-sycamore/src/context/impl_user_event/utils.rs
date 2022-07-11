@@ -14,7 +14,7 @@ impl DebuggerContext {
         };
         let trace = self.trace_context.trace_data(active_trace_id);
         // let attention = opt_new_attention.unwrap_or(&self.attention_context.attention.get());
-        let key = FigureCanvasKey::new(trace.kind, trace.id, attention);
+        let key = self.figure_context.new_figure_canvas_key(trace, attention);
         !self
             .figure_context
             .figure_canvases

@@ -3,19 +3,14 @@ use super::*;
 impl TraceContext {
     pub(crate) fn is_expanded(&self, trace_id: TraceId) -> bool {
         self.trace_nodes.borrow(file!(), line!())[trace_id.0]
-            .expanded
+            .expansion
             .cget()
     }
 
-    pub(crate) fn expanded_signal(&self, trace_id: TraceId) -> &'static Signal<bool> {
-        self.trace_nodes.borrow(file!(), line!())[trace_id.0].expanded
-    }
-
-    pub(crate) fn did_toggle_expansion(&mut self, trace_id: TraceId) {
-        todo!()
-        // let is_expanded: &mut bool = &mut self.expansion_stores[&trace_id].modify();
-        // *is_expanded = !*is_expanded
-        // self.update_trace_listing(attention);
+    pub(crate) fn expansion_read_signal(&self, trace_id: TraceId) -> &'static ReadSignal<bool> {
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+            .expansion
+            .read()
     }
 
     pub(crate) fn is_shown(&self, trace_id: TraceId) -> bool {
@@ -24,8 +19,16 @@ impl TraceContext {
             .cget()
     }
 
-    pub(crate) fn shown_signal(&self, trace_id: TraceId) -> &'static Signal<bool> {
-        self.trace_nodes.borrow(file!(), line!())[trace_id.0].shown
+    pub(crate) fn shown_read_signal(&self, trace_id: TraceId) -> &'static ReadSignal<bool> {
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+            .shown
+            .read()
+    }
+
+    pub(crate) fn arrival_read_signal(&self, trace_id: TraceId) -> &'static ReadSignal<bool> {
+        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+            .arrival
+            .read()
     }
 
     pub(crate) fn did_toggle_show(&mut self, trace_id: TraceId) {

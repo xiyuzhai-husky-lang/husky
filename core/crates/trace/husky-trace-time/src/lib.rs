@@ -152,6 +152,9 @@ impl HuskyTraceTime {
                 }
                 _ => true,
             },
+            arrival: false,
+            pin: false,
+            enter: false,
             trace,
         });
         trace_id
@@ -205,9 +208,17 @@ impl HuskyTraceTime {
         let mut figure_controls = Vec::default();
         let opt_active_trace_id = self.opt_active_trace_id;
         if let Some(active_trace_id) = opt_active_trace_id {
+            let enters = self.collect_enters();
+            let arrivals = self.collect_arrivals();
+            let pins = self.collect_pins();
             let active_trace = self.trace(active_trace_id);
-            let figure_canvas_key =
-                FigureCanvasKey::from_trace_data(&active_trace.raw_data, &self.attention);
+            let figure_canvas_key = FigureCanvasKey::from_trace_data(
+                &active_trace.raw_data,
+                &self.attention,
+                enters,
+                arrivals,
+                pins,
+            );
             figure_canvases.push((
                 figure_canvas_key,
                 self.figure_canvas(active_trace_id).unwrap(),
@@ -238,6 +249,48 @@ impl HuskyTraceTime {
             figure_canvases,
             figure_controls,
         }
+    }
+
+    fn collect_enters(&self) -> Vec<TraceId> {
+        self.trace_nodes
+            .iter()
+            .filter_map(|node| {
+                let node = node.as_ref().unwrap();
+                if node.enter {
+                    Some(node.trace.id())
+                } else {
+                    None
+                }
+            })
+            .collect()
+    }
+
+    fn collect_arrivals(&self) -> Vec<TraceId> {
+        self.trace_nodes
+            .iter()
+            .filter_map(|node| {
+                let node = node.as_ref().unwrap();
+                if node.arrival {
+                    Some(node.trace.id())
+                } else {
+                    None
+                }
+            })
+            .collect()
+    }
+
+    fn collect_pins(&self) -> Vec<TraceId> {
+        self.trace_nodes
+            .iter()
+            .filter_map(|node| {
+                let node = node.as_ref().unwrap();
+                if node.pin {
+                    Some(node.trace.id())
+                } else {
+                    None
+                }
+            })
+            .collect()
     }
 }
 
