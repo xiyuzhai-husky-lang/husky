@@ -5,6 +5,20 @@
 .PartitionTitle {
     width: 100%;
     background: grey;
+    display: flex;
+    justify-content: space-between;
+}
+.PartitionTitleLeft {
+    width: 50px;
+    background: yellow;
+}
+.PartitionTitleRight {
+    width: 200px;
+    background: blue;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 1px;
 }
 .PartitionSamples {
     width: 100%;
@@ -14,4 +28,11 @@
 }
 .SampleWrapper {
     border: 1px solid brown;
+}
+.PartionTitleRightControl {
+    background: white;
+    height: 80%;
+    width: auto;
+    display: flex;
+    align-items: center;
 }

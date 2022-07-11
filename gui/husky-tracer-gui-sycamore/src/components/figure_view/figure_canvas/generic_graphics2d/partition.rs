@@ -39,7 +39,77 @@ pub fn PartitionCanvas<'a, G: Html>(scope: Scope<'a>, props: PartitionCanvasProp
             div (
                 class="PartitionTitle",
                 style=title_dimension.cget().to_style(),
-            )
+            ) {
+                div (class = "PartitionTitleLeft") {
+                    button (class = "Add") {
+                        svg (
+                            stroke="currentColor",
+                            fill="currentColor",
+                            stroke-width="0",
+                            viewBox="0 0 24 24",
+                            height="1em",
+                            width="1em",
+                            xmlns="http://www.w3.org/2000/svg"
+                        ) {
+                            path (
+                                fill="none",
+                                stroke="#000",
+                                stroke-width="2",
+                                d="M12,22 L12,2 M2,12 L22,12"
+                            )
+                        }
+                    }
+                }
+                div (class = "PartitionTitleRight") {
+                    button (class = "PartionTitleRightControl PartitionClose") {
+                        "X"
+                    }
+                    button (class = "PartionTitleRightControl PartitionExpand") {
+                        svg (
+                            stroke="currentColor",
+                            fill="currentColor",
+                            stroke-width="0",
+                            viewBox="0 0 16 16",
+                            height="1em",
+                            width="1em",
+                            xmlns="http://www.w3.org/2000/svg"
+                        ) {
+                            path (
+                                fill-rule="evenodd",
+                                d="M3.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L9.293 8 3.646 2.354a.5.5 0 010-.708z",
+                                clip-rule="evenodd"
+                            )
+                            path (
+                                fill-rule="evenodd",
+                                d="M7.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L13.293 8 7.646 2.354a.5.5 0 010-.708z",
+                                clip-rule="evenodd"
+                            )
+                        }
+                    }
+                    button (class = "PartionTitleRightControl PartitionShrink") {
+                        svg (
+                            stroke="currentColor",
+                            fill="currentColor",
+                            stroke-width="0",
+                            viewBox="0 0 16 16",
+                            height="1em",
+                            width="1em",
+                            xmlns="http://www.w3.org/2000/svg"
+                        ) {
+                            path (
+                                fill-rule="evenodd",
+                                d="M8.354 1.646a.5.5 0 010 .708L2.707 8l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z",
+                                clip-rule="evenodd"
+                            )
+                            path (
+                                fill-rule="evenodd",
+                                d="M12.354 1.646a.5.5 0 010 .708L6.707 8l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z",
+                                clip-rule="evenodd"
+                            )
+                        }
+                    }
+                }
+            }
             div (
                 class="PartitionSamples",
                 style=samples_canvas_dimension.cget().to_style(),
