@@ -60,7 +60,7 @@ impl DebuggerContext {
         };
         !self
             .trace_context
-            .for_all_expanded_traces(restriction, |trace_data| {
+            .for_all_expanded_traces(Some(sample_id), |trace_data| {
                 let key = TraceStalkKey::from_trace_data(sample_id, trace_data);
                 self.trace_context
                     .trace_stalks

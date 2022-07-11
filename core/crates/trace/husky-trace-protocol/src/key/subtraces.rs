@@ -14,9 +14,9 @@ pub enum SubtracesKey {
 
 impl SubtracesKey {
     pub fn new(
-        restriction: &Restriction,
         trace_kind: TraceKind,
         trace_id: TraceId,
+        opt_sample_id: Option<SampleId>,
     ) -> SubtracesKey {
         match trace_kind {
             TraceKind::Main
@@ -31,12 +31,12 @@ impl SubtracesKey {
             TraceKind::FeatureCallArgument | TraceKind::CallHead | TraceKind::EagerCallArgument => {
                 SubtracesKey::Null
             }
-            TraceKind::FeatureExpr => match restriction {
-                Restriction::Specific { sample_id } => SubtracesKey::FeatureExprStalk {
+            TraceKind::FeatureExpr => match opt_sample_id {
+                Some(sample_id) => SubtracesKey::FeatureExprStalk {
                     trace_id,
-                    sample_id: *sample_id,
+                    sample_id,
                 },
-                Restriction::Generic { .. } => SubtracesKey::Null,
+                None => SubtracesKey::Null,
             },
         }
     }

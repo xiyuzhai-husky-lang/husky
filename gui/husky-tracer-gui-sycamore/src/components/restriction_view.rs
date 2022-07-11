@@ -7,7 +7,7 @@ pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let debugger_context = use_debugger_context(scope);
     let restriction_context = &debugger_context.restriction_context;
     let generic = create_signal(scope, true);
-    let restriction = restriction_context.restriction.clone();
+    let restriction = restriction_context.restriction;
     let last_sample_id = create_signal(scope, restriction.get_untracked().opt_sample_id());
     let toggle_restriction_kind_handler = debugger_context.toggle_restriction_kind_handler();
     let restriction_dialog = get_element_by_id::<HtmlDialogElement>("restriction-dialog");
