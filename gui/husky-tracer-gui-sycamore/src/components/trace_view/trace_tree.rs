@@ -10,7 +10,7 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
     let tracer_context = use_context::<DebuggerContext>(scope);
     let tree_context = &tracer_context.trace_context;
     let shown = tree_context.shown_read_signal(props.trace_id);
-    let restriction = tracer_context.restriction_context.restriction;
+    let opt_sample_id = tracer_context.restriction_context.opt_sample_id;
     let trace = tree_context.trace_data(props.trace_id);
     let associated_trace_trees = View::new_fragment(
         trace
@@ -23,13 +23,15 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
             })
             .collect(),
     );
-    let has_subtraces = memo!(scope, { move || trace.has_subtraces(&restriction.get()) });
+    let has_subtraces = memo!(scope, {
+        move || trace.has_subtraces(opt_sample_id.cget().is_some())
+    });
     let subtrace_ids = memo!(scope, {
         let expansion = tree_context.expansion_read_signal(props.trace_id);
         move || {
             if expansion.cget() {
                 tree_context
-                    .subtrace_ids(&restriction.get(), props.trace_id)
+                    .subtrace_ids(props.trace_id, opt_sample_id.cget())
                     .to_vec()
             } else {
                 vec![]
@@ -44,7 +46,6 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
                 div(class=format!("TraceTree {}", trace.kind.as_str())) {
                     TraceNode {
                         trace_id: props.trace_id,
-                        restriction,
                         has_subtraces
                     }
                     (associated_trace_trees)

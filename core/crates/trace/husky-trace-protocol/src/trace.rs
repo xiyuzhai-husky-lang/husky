@@ -40,7 +40,7 @@ impl TraceData {
         associated_trace_ids
     }
 
-    pub fn has_subtraces(&self, restriction: &Restriction) -> bool {
+    pub fn has_subtraces(&self, has_sample_id: bool) -> bool {
         match self.kind {
             TraceKind::Main | TraceKind::FeatureBranch | TraceKind::LoopFrame => true,
             TraceKind::CallHead
@@ -51,14 +51,8 @@ impl TraceData {
             | TraceKind::EagerExpr
             | TraceKind::ProcStmt
             | TraceKind::FuncBranch
-            | TraceKind::ProcBranch => match restriction {
-                Restriction::Specific { .. } => self.can_have_subtraces,
-                Restriction::Generic { .. } => false,
-            },
-            TraceKind::FeatureExpr => match restriction {
-                Restriction::Specific { .. } => self.can_have_subtraces,
-                Restriction::Generic { .. } => false,
-            },
+            | TraceKind::ProcBranch => self.can_have_subtraces,
+            TraceKind::FeatureExpr => has_sample_id && self.can_have_subtraces,
         }
     }
 }
@@ -96,6 +90,23 @@ impl TraceKind {
             TraceKind::EagerExpr => "EagerExpr",
             TraceKind::EagerCallArgument => "EagerCallArgument",
             TraceKind::CallHead => "CallHead",
+        }
+    }
+    pub fn can_have_stalk(self) -> bool {
+        match self {
+            TraceKind::Main
+            | TraceKind::FeatureStmt
+            | TraceKind::FeatureBranch
+            | TraceKind::FeatureExpr => true,
+            TraceKind::FeatureCallArgument
+            | TraceKind::EagerCallArgument
+            | TraceKind::FuncStmt
+            | TraceKind::ProcStmt
+            | TraceKind::ProcBranch
+            | TraceKind::FuncBranch
+            | TraceKind::LoopFrame
+            | TraceKind::EagerExpr
+            | TraceKind::CallHead => false,
         }
     }
 }

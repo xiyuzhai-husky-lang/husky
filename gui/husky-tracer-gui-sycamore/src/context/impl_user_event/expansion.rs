@@ -10,9 +10,9 @@ impl DebuggerContext {
         if expansion.cget() {
             expansion.set(false)
         } else {
-            let restriction = self.restriction_context.restriction.get();
+            let opt_sample_id = self.restriction_context.opt_sample_id;
             let trace_kind = self.trace_context.trace_kind(trace_id);
-            let key = SubtracesKey::new(&restriction, trace_kind, trace_id);
+            let key = SubtracesKey::new(trace_kind, trace_id, opt_sample_id.cget());
             if self
                 .trace_context
                 .subtrace_ids_map

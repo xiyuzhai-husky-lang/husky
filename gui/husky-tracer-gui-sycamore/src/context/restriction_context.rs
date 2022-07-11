@@ -3,13 +3,17 @@ use super::*;
 #[derive(Debug)]
 pub struct RestrictionContext {
     pub restriction: &'static Signal<Restriction>,
+    pub opt_sample_id: &'static ReadSignal<Option<SampleId>>,
     last_restriction: RefCell<Restriction>,
     restriction_locked_store: Signal<bool>,
 }
 impl RestrictionContext {
     pub(super) fn new<'a>(scope: Scope<'a>) -> Self {
+        let restriction = &create_static_signal(scope, Restriction::default());
+        let opt_sample_id = create_static_memo(scope, || restriction.get().opt_sample_id());
         Self {
-            restriction: create_static_signal(scope, Restriction::default()),
+            restriction,
+            opt_sample_id,
             last_restriction: Default::default(),
             restriction_locked_store: Default::default(),
         }
@@ -27,10 +31,6 @@ impl RestrictionContext {
     pub(super) fn did_lock_restriction(&mut self, restriction: Restriction) {
         self.restriction.set(restriction);
         self.restriction_locked_store.set(true);
-    }
-
-    pub(super) fn restriction(&self) -> Restriction {
-        return self.restriction.cget();
     }
 
     pub(super) fn toggled_restriction_kind(&self) -> Restriction {

@@ -38,27 +38,6 @@ impl Default for Restriction {
 }
 
 impl Restriction {
-    pub fn has_stalk(&self, trace_kind: TraceKind) -> bool {
-        match trace_kind {
-            TraceKind::Main
-            | TraceKind::FeatureStmt
-            | TraceKind::FeatureBranch
-            | TraceKind::FeatureExpr => match self {
-                Restriction::Specific { .. } => true,
-                Restriction::Generic { .. } => false,
-            },
-            TraceKind::FeatureCallArgument
-            | TraceKind::EagerCallArgument
-            | TraceKind::FuncStmt
-            | TraceKind::ProcStmt
-            | TraceKind::ProcBranch
-            | TraceKind::FuncBranch
-            | TraceKind::LoopFrame
-            | TraceKind::EagerExpr
-            | TraceKind::CallHead => false,
-        }
-    }
-
     pub fn opt_sample_id(&self) -> Option<SampleId> {
         match self {
             Restriction::Specific { sample_id, .. } => Some(*sample_id),

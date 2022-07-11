@@ -52,6 +52,15 @@ where
 {
     unsafe { as_static_ref(create_signal(scope, value)) }
 }
+pub(crate) fn create_static_memo<'a, T>(
+    scope: Scope<'a>,
+    f: impl FnMut() -> T + 'a,
+) -> &'static ReadSignal<T>
+where
+    T: Signalable + 'a,
+{
+    unsafe { as_static_ref(create_memo(scope, f, "create_static_memotodo".to_string())) }
+}
 
 pub(crate) unsafe fn as_static_ref<'a, T>(value: &T) -> &'static T {
     let ptr: *const T = value;

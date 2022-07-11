@@ -35,7 +35,6 @@ impl DebuggerContext {
                 .collect(),
         );
         self.trace_context.init(
-            &init_data.restriction,
             init_data
                 .trace_init_data
                 .trace_nodes
@@ -56,6 +55,7 @@ impl DebuggerContext {
                 .collect(),
             init_data.trace_init_data.root_trace_ids,
             init_data.trace_init_data.opt_active_trace_id,
+            init_data.restriction.opt_sample_id(),
         );
     }
 
