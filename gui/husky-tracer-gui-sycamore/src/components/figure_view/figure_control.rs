@@ -13,10 +13,6 @@ pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a
     let tracer_context = use_context::<DebuggerContext>(scope);
     let opt_active_trace_id = &tracer_context.trace_context.opt_active_trace_id;
     let attention = &tracer_context.attention_context.attention;
-    // let opt_data_and_control = memo!(
-    //     scope,
-    //     move || -> Option<(Rc<FigureCanvasData>, FigureControlData)> { None }
-    // );
     let opt_canvas_and_control_data = memo!(scope, move || opt_active_trace_id.cget().map(
         |active_trace_id| {
             let active_trace = tracer_context.trace_context.trace_data(active_trace_id);
