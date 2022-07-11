@@ -11,7 +11,7 @@ use sycamore_reactive::*;
 use crate::generic_node::GenericNode;
 
 /// Internal type for [`View`].
-#[derive(Clone)]
+#[derive(Clone, PartialEq)]
 pub(crate) enum ViewType<G: GenericNode> {
     /// A DOM node.
     Node(G),
@@ -23,7 +23,7 @@ pub(crate) enum ViewType<G: GenericNode> {
 }
 
 /// Represents an UI view.
-#[derive(Clone)]
+#[derive(Clone, PartialEq)]
 pub struct View<G: GenericNode> {
     pub(crate) inner: ViewType<G>,
 }

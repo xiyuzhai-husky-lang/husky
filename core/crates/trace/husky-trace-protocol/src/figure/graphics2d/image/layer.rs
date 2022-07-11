@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(tag = "kind")]
 pub enum ImageLayerData {
     Colored { pixels: Vec<Vec<(u8, u8, u8)>> },
