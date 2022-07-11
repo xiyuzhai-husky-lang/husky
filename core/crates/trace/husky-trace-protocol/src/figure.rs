@@ -9,7 +9,7 @@ pub use visual::*;
 
 use super::*;
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(tag = "kind")]
 pub enum FigureCanvasData {
     Primitive {
@@ -43,7 +43,7 @@ pub enum FigureCanvasData {
 
 impl Signalable for FigureCanvasData {}
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct MutationFigureData {
     pub name: String,
     pub before: Option<FigureCanvasData>,
@@ -257,18 +257,18 @@ impl FigureCanvasData {
     // }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, Copy)]
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum Plot2dKind {
     Scatter,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct Point2dGroup {
     pub points: Vec<Point2dData>,
     pub color: Color,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, Copy)]
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 #[serde(rename_all = "lowercase")]
 pub enum Color {
     Red,

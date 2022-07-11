@@ -3,7 +3,7 @@ use std::iter::zip;
 use sycamore::prelude::Signalable;
 use wasm_bindgen::Clamped;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct OriginalImageData {
     pub dimension: PixelDimension,
     data: Vec<u8>,

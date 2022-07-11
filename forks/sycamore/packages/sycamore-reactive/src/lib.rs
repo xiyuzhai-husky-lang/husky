@@ -142,6 +142,12 @@ pub struct ScopeDisposer<'a> {
     f: Box<dyn FnOnce() + 'a>,
 }
 
+impl<'a> PartialEq for ScopeDisposer<'a> {
+    fn eq(&self, other: &Self) -> bool {
+        false
+    }
+}
+
 impl<'a> std::fmt::Debug for ScopeDisposer<'a> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()

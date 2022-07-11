@@ -6,7 +6,7 @@ use super::*;
 pub use image::*;
 pub use shape::*;
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct Graphics2dCanvasData {
     pub image_layers: Vec<ImageLayerData>,
     pub shapes: Vec<Shape2dData>,

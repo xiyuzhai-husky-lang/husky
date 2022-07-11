@@ -89,7 +89,7 @@ pub struct Signal<T>(ReadSignal<T>)
 where
     T: Signalable;
 
-pub trait Signalable: std::fmt::Debug {}
+pub trait Signalable: std::fmt::Debug + PartialEq {}
 
 impl<T> Signal<T>
 where
@@ -115,7 +115,10 @@ where
         self.set_rc_silent(Rc::new(value));
     }
     pub fn set_rc_silent(&self, value: Rc<T>) {
-        *self.0.value.borrow_mut() = value;
+        let is_equal = **self.0.value.borrow_mut() == *value;
+        if !is_equal {
+            *self.0.value.borrow_mut() = value;
+        }
     }
     pub fn split(&self) -> (impl Fn() -> Rc<T> + Copy + '_, impl Fn(T) + Copy + '_) {
         let getter = move || self.get();
