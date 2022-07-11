@@ -3,8 +3,6 @@ mod node;
 mod stalk;
 mod token;
 
-use std::rc::Rc;
-
 pub use id::*;
 pub use node::*;
 pub use stalk::*;
@@ -40,6 +38,28 @@ impl TraceData {
             }
         }
         associated_trace_ids
+    }
+
+    pub fn has_subtraces(&self, attention: &Attention) -> bool {
+        match self.kind {
+            TraceKind::Main | TraceKind::FeatureBranch | TraceKind::LoopFrame => true,
+            TraceKind::CallHead
+            | TraceKind::FeatureCallArgument
+            | TraceKind::EagerCallArgument
+            | TraceKind::FeatureStmt => false,
+            TraceKind::FuncStmt
+            | TraceKind::EagerExpr
+            | TraceKind::ProcStmt
+            | TraceKind::FuncBranch
+            | TraceKind::ProcBranch => match attention {
+                Attention::Specific { .. } => self.can_have_subtraces,
+                Attention::Generic { .. } => false,
+            },
+            TraceKind::FeatureExpr => match attention {
+                Attention::Specific { .. } => self.can_have_subtraces,
+                Attention::Generic { .. } => false,
+            },
+        }
     }
 }
 

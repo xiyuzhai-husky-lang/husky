@@ -1,12 +1,20 @@
 use super::*;
 
-#[derive(Debug, Default)]
+#[derive(Debug)]
 pub struct AttentionContext {
-    pub attention: Rc<Signal<Attention>>,
+    pub attention: &'static Signal<Attention>,
     last_attention: RefCell<Attention>,
     attention_locked_store: Signal<bool>,
 }
 impl AttentionContext {
+    pub(super) fn new<'a>(scope: Scope<'a>) -> Self {
+        Self {
+            attention: create_static_signal(scope, Attention::default()),
+            last_attention: Default::default(),
+            attention_locked_store: Default::default(),
+        }
+    }
+
     pub(super) fn init(&self, attention: Attention) {
         self.attention_locked_store.set(true);
         self.attention.set(attention);

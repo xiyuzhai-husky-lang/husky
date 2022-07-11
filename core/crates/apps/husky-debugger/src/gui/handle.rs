@@ -185,7 +185,7 @@ impl HuskyDebuggerInternal {
                 let (_, stalk) = self.trace_time.keyed_trace_stalk(trace_id);
                 Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
-            HuskyTracerGuiMessageVariant::LockAttention {
+            HuskyTracerGuiMessageVariant::SetAttention {
                 ref attention,
                 needs_figure_canvas_data,
                 needs_figure_control_data,
@@ -199,7 +199,7 @@ impl HuskyDebuggerInternal {
                                 match self.trace_time.figure_canvas(active_trace_id) {
                                     Ok(figure_canvas) => Some(figure_canvas),
                                     Err((sample_id, error)) => return Some(
-                                        HuskyTracerServerMessageVariant::LockAttentionWithError {
+                                        HuskyTracerServerMessageVariant::SetAttentionWithError {
                                             sample_id,
                                             error: format!("{:?}", error),
                                         },
@@ -220,7 +220,7 @@ impl HuskyDebuggerInternal {
                     if needs_stalk {
                         assert!(new_trace_stalks.len() > 0);
                     }
-                    Some(HuskyTracerServerMessageVariant::LockAttention {
+                    Some(HuskyTracerServerMessageVariant::SetAttention {
                         opt_figure_canvas_data,
                         opt_figure_control_data,
                         new_trace_stalks,

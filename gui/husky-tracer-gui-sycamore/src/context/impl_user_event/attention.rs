@@ -15,7 +15,7 @@ impl DebuggerContext {
         let needs_stalk = self.needs_stalk(opt_active_trace_id, &new_attention);
         let needs_response = needs_figure_control_data || needs_figure_control_data || needs_stalk;
         self.ws.send_message(
-            HuskyTracerGuiMessageVariant::LockAttention {
+            HuskyTracerGuiMessageVariant::SetAttention {
                 attention: new_attention.clone(),
                 needs_figure_canvas_data,
                 needs_figure_control_data,
@@ -23,7 +23,7 @@ impl DebuggerContext {
             },
             if needs_response {
                 Some(Box::new(move |message| match message.variant {
-                    HuskyTracerServerMessageVariant::LockAttention {
+                    HuskyTracerServerMessageVariant::SetAttention {
                         opt_figure_canvas_data,
                         opt_figure_control_data,
                         new_trace_stalks,
