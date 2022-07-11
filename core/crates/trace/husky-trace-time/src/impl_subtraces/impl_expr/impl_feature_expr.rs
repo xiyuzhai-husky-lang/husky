@@ -34,7 +34,7 @@ impl HuskyTraceTime {
                         ),
                         this.eval_time_singleton.husky_feature_eval_expr(
                             argument,
-                            this.attention.opt_sample_id().unwrap(),
+                            this.restriction.opt_sample_id().unwrap(),
                         ),
                     )
                 },

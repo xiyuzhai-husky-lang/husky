@@ -1,4 +1,4 @@
-.AttentionView {
+.RestrictionView {
     color: rgb(254, 254, 254);
     display: flex;
     flex-direction: row;
@@ -9,7 +9,7 @@
     height: 100%;
     font-family: monospace;
 }
-.AttentionKind {
+.RestrictionKind {
     padding-left: 10px;
     padding-right: 10px;
     background: rgb(136, 0, 143);

@@ -41,7 +41,7 @@ impl HuskyTraceTime {
     ) -> Vec<TraceId> {
         let instruction_sheet: &InstructionSheet = &feature_block.instruction_sheet;
         let mut arguments = vec![];
-        let sample_id = self.attention.opt_sample_id().unwrap();
+        let sample_id = self.restriction.opt_sample_id().unwrap();
         if let Some(ref this_repr) = feature_block.opt_this {
             arguments.push(
                 self.eval_time()

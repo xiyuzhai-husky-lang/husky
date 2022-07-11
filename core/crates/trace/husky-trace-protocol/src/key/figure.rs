@@ -1,65 +1,55 @@
+use vec_like::VecSet;
+
 use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, Hash, PartialEq, Eq)]
 pub enum FigureCanvasKey {
     Null,
-    Feature {
+    Generic {
         trace_id: TraceId,
-        attention: Attention,
-        enters: Vec<TraceId>,
-        arrivals: Vec<TraceId>,
-        pins: Vec<TraceId>,
+        partitions: Vec<PartitionDefnData>,
+        arrivals: VecSet<TraceId>,
+        enters: VecSet<TraceId>,
     },
-    Eager {
+    Specific {
         trace_id: TraceId,
-        pins: Vec<TraceId>,
     },
 }
 
 impl FigureCanvasKey {
-    pub fn from_trace_data(
-        trace_data: &TraceData,
-        attention: &Attention,
-        enters: Vec<TraceId>,
-        arrivals: Vec<TraceId>,
-        pins: Vec<TraceId>,
-    ) -> FigureCanvasKey {
-        Self::new(
-            trace_data.kind,
-            trace_data.id,
-            attention,
-            enters,
-            arrivals,
-            pins,
-        )
+    pub fn from_trace_data(trace_data: &TraceData, restriction: &Restriction) -> FigureCanvasKey {
+        Self::new(trace_data.kind, trace_data.id, restriction)
     }
 
     pub fn new(
         trace_kind: TraceKind,
         trace_id: TraceId,
-        attention: &Attention,
-        enters: Vec<TraceId>,
-        arrivals: Vec<TraceId>,
-        pins: Vec<TraceId>,
+        restriction: &Restriction,
     ) -> FigureCanvasKey {
         match trace_kind {
             TraceKind::Main
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr
-            | TraceKind::FeatureCallArgument => FigureCanvasKey::Feature {
-                trace_id,
-                attention: attention.clone(),
-                enters,
-                arrivals,
-                pins,
+            | TraceKind::FeatureCallArgument => match restriction {
+                Restriction::Specific { sample_id } => todo!(),
+                Restriction::Generic {
+                    partitions,
+                    arrivals,
+                    enters,
+                } => FigureCanvasKey::Generic {
+                    trace_id,
+                    partitions: partitions.clone(),
+                    enters: enters.clone(),
+                    arrivals: arrivals.clone(),
+                },
             },
             TraceKind::FuncStmt
             | TraceKind::ProcStmt
             | TraceKind::FuncBranch
             | TraceKind::ProcBranch
             | TraceKind::EagerExpr
-            | TraceKind::LoopFrame => FigureCanvasKey::Eager { trace_id, pins },
+            | TraceKind::LoopFrame => FigureCanvasKey::Specific { trace_id },
             TraceKind::CallHead | TraceKind::EagerCallArgument => FigureCanvasKey::Null,
         }
     }

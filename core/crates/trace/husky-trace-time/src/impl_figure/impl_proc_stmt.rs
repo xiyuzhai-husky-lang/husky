@@ -124,7 +124,7 @@ impl HuskyTraceTime {
         idx: usize,
         mutation_data: &MutationData<'static>,
     ) -> MutationFigureData {
-        let sample_id = self.attention.opt_sample_id().unwrap();
+        let sample_id = self.restriction.opt_sample_id().unwrap();
         MutationFigureData {
             name: match mutation_data.kind {
                 MutationDataVariant::Exec => {

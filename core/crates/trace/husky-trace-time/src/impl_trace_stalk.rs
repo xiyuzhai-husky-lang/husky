@@ -4,7 +4,7 @@ use vm::{ControlSnapshot, History, VMControl};
 
 impl HuskyTraceTime {
     pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalkData) {
-        let sample_id = self.attention.opt_sample_id().unwrap();
+        let sample_id = self.restriction.opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         if !self.trace_stalks.contains_key(&key) {
             self.trace_stalks
@@ -87,7 +87,7 @@ impl HuskyTraceTime {
     }
 
     pub fn collect_new_trace_stalks(&mut self) -> Vec<(TraceStalkKey, TraceStalkData)> {
-        if let Some(sample_id) = self.attention.opt_sample_id() {
+        if let Some(sample_id) = self.restriction.opt_sample_id() {
             let mut trace_stalks = Vec::new();
             for root_trace_id in self.root_trace_ids.clone() {
                 self.collect_new_trace_stalks_within_trace(

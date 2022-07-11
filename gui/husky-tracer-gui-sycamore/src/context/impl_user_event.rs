@@ -1,8 +1,8 @@
 mod arrival;
-mod attention;
 mod enter;
 mod expansion;
 mod pin;
+mod restriction;
 mod shown;
 mod utils;
 
@@ -16,20 +16,20 @@ enum UserEvent {
     ToggleEnter { trace_id: TraceId },
     ToggleShown { trace_id: TraceId },
     Activate { trace_id: TraceId },
-    SetAttention { attention: Attention },
+    SetRestriction { restriction: Restriction },
 }
 
 impl UserEvent {
-    fn set_attention_from_dialog() -> Self {
+    fn set_restriction_from_dialog() -> Self {
         let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
         loop {
             match sample_id_value.parse::<usize>() {
                 Ok(raw) => {
-                    let attention_dialog =
-                        get_element_by_id::<HtmlDialogElement>("attention-dialog");
-                    attention_dialog.close();
-                    break UserEvent::SetAttention {
-                        attention: Attention::Specific {
+                    let restriction_dialog =
+                        get_element_by_id::<HtmlDialogElement>("restriction-dialog");
+                    restriction_dialog.close();
+                    break UserEvent::SetRestriction {
+                        restriction: Restriction::Specific {
                             sample_id: SampleId(raw),
                         },
                     };
@@ -39,9 +39,9 @@ impl UserEvent {
         }
     }
 
-    fn toggle_attention_kind(ctx: &'static DebuggerContext) -> Self {
-        UserEvent::SetAttention {
-            attention: ctx.attention_context.toggled_attention_kind(),
+    fn toggle_restriction_kind(ctx: &'static DebuggerContext) -> Self {
+        UserEvent::SetRestriction {
+            restriction: ctx.restriction_context.toggled_restriction_kind(),
         }
     }
 
@@ -57,7 +57,7 @@ impl UserEvent {
                 'C' => {
                     // 't'
                     log::info!("figure context is \n:{:?}", ctx.figure_context);
-                    // log::info!("fcous context is \n:{:?}", self.attention_context);
+                    // log::info!("fcous context is \n:{:?}", self.restriction_context);
                     log::info!(
                         "opt active trace id is \n:{:?}",
                         ctx.trace_context.opt_active_trace_id
@@ -88,7 +88,7 @@ impl DebuggerContext {
         match event {
             UserEvent::ToggleExpansion { trace_id } => self.toggle_expansion(trace_id),
             UserEvent::Activate { trace_id } => self.activate(trace_id),
-            UserEvent::SetAttention { attention } => self.set_attention(attention),
+            UserEvent::SetRestriction { restriction } => self.set_restriction(restriction),
             UserEvent::ToggleArrival { trace_id } => self.toggle_arrival(trace_id),
             UserEvent::TogglePin { trace_id } => self.toggle_pin(trace_id),
             UserEvent::ToggleEnter { trace_id } => self.toggle_enter(trace_id),
@@ -120,12 +120,12 @@ impl DebuggerContext {
         move |_| self.handle_user_event(UserEvent::Activate { trace_id })
     }
 
-    pub fn toggle_attention_kind_handler(&'static self) -> impl Fn(Event) {
-        move |_| self.handle_user_event(UserEvent::toggle_attention_kind(self))
+    pub fn toggle_restriction_kind_handler(&'static self) -> impl Fn(Event) {
+        move |_| self.handle_user_event(UserEvent::toggle_restriction_kind(self))
     }
 
-    pub fn set_attention_from_dialog_handler(&'static self) -> impl Fn() {
-        move || self.handle_user_event(UserEvent::set_attention_from_dialog())
+    pub fn set_restriction_from_dialog_handler(&'static self) -> impl Fn() {
+        move || self.handle_user_event(UserEvent::set_restriction_from_dialog())
     }
 
     pub fn keydown_handler(&'static self) -> impl Fn(Event) {
@@ -137,12 +137,12 @@ impl DebuggerContext {
     }
 
     fn activate(&'static self, new_active_trace_id: TraceId) {
-        let attention = self.attention_context.attention.get();
+        let restriction = self.restriction_context.restriction.get();
         let trace = self.trace_context.trace_data(new_active_trace_id);
         let needs_figure_canvas_data =
-            self.needs_figure_canvas_data(Some(new_active_trace_id), &attention);
+            self.needs_figure_canvas_data(Some(new_active_trace_id), &restriction);
         let needs_figure_control_data =
-            self.needs_figure_control_data(Some(new_active_trace_id), &attention);
+            self.needs_figure_control_data(Some(new_active_trace_id), &restriction);
         let needs_response = needs_figure_control_data || needs_figure_control_data;
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::Activate {
@@ -159,7 +159,7 @@ impl DebuggerContext {
                         self.figure_context.set_opt_figure_data(
                             self.scope,
                             &trace,
-                            &attention,
+                            &restriction,
                             opt_figure_canvas_data.map(|data| self.alloc_value(data)),
                             opt_figure_control_data,
                         );

@@ -12,7 +12,7 @@ impl HuskyTraceTime {
         range: TextRange,
     ) -> __EvalResult<VisualData> {
         let eval_time = self.eval_time();
-        let sample_id = self.attention.opt_sample_id().unwrap();
+        let sample_id = self.restriction.opt_sample_id().unwrap();
         let feature = self
             .eval_time()
             .feature_interner()

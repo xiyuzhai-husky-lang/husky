@@ -5,7 +5,7 @@ use super::*;
 #[derive(Prop)]
 pub struct TraceNodeProps<'a> {
     trace_id: TraceId,
-    attention: &'a ReadSignal<Attention>,
+    restriction: &'a ReadSignal<Restriction>,
     has_subtraces: &'a ReadSignal<bool>,
 }
 
@@ -16,9 +16,9 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let shown = trace_context.shown_read_signal(props.trace_id);
     let expanded = trace_context.expansion_read_signal(props.trace_id);
     let trace = trace_context.trace_data(props.trace_id);
-    let attention = props.attention;
+    let restriction = props.restriction;
     let trace_kind = trace.kind;
-    let has_stalk = memo!(scope, move || attention.get().has_stalk(trace_kind));
+    let has_stalk = memo!(scope, move || restriction.get().has_stalk(trace_kind));
     let has_subtraces = props.has_subtraces;
     let toggle_expansion_handler = debuggerer_context.toggle_expansion_handler(props.trace_id);
     let activate_handler = debuggerer_context.activate_handler(props.trace_id);
@@ -35,7 +35,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 let line_idx = line_data.idx;
                 let opt_extra_tokens =
                     memo!(scope, move || -> Option<&'static [TraceTokenData]> {
-                        if let Some(sample_id) = attention.get().opt_sample_id() {
+                        if let Some(sample_id) = restriction.get().opt_sample_id() {
                             if line_idx == trace_lines_len - 1 {
                                 let trace_stalk = trace_context.trace_stalk(sample_id, trace_id);
                                 Some(&trace_stalk.extra_tokens)

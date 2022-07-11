@@ -1,6 +1,7 @@
 use crate::*;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
 pub struct VecSet<K> {
     entries: Vec<K>,
 }

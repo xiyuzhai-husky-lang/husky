@@ -40,7 +40,7 @@ impl TraceData {
         associated_trace_ids
     }
 
-    pub fn has_subtraces(&self, attention: &Attention) -> bool {
+    pub fn has_subtraces(&self, restriction: &Restriction) -> bool {
         match self.kind {
             TraceKind::Main | TraceKind::FeatureBranch | TraceKind::LoopFrame => true,
             TraceKind::CallHead
@@ -51,13 +51,13 @@ impl TraceData {
             | TraceKind::EagerExpr
             | TraceKind::ProcStmt
             | TraceKind::FuncBranch
-            | TraceKind::ProcBranch => match attention {
-                Attention::Specific { .. } => self.can_have_subtraces,
-                Attention::Generic { .. } => false,
+            | TraceKind::ProcBranch => match restriction {
+                Restriction::Specific { .. } => self.can_have_subtraces,
+                Restriction::Generic { .. } => false,
             },
-            TraceKind::FeatureExpr => match attention {
-                Attention::Specific { .. } => self.can_have_subtraces,
-                Attention::Generic { .. } => false,
+            TraceKind::FeatureExpr => match restriction {
+                Restriction::Specific { .. } => self.can_have_subtraces,
+                Restriction::Generic { .. } => false,
             },
         }
     }
