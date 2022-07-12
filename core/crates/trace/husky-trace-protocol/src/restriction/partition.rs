@@ -24,7 +24,7 @@ impl PartitionDefnData {
     }
 }
 
-pub struct PartitionedSamplesCollector<T> {
+pub struct PartitionedSampler<T> {
     // suppose there are three partitions (including Other)
     // then partition_filled is 0...0111
     // the first partition is filled iff the last digit of partition_filled is 0
@@ -34,10 +34,11 @@ pub struct PartitionedSamplesCollector<T> {
     col_len: u32,
 }
 
-impl<T> PartitionedSamplesCollector<T> {
-    pub fn new(partition_defns: Vec<PartitionDefnData>) -> Self {
-        let flags: u32 = (!0u32 << partition_defns.len()) ^ (!0u32);
-        let partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, T)>)> = partition_defns
+impl<T> PartitionedSampler<T> {
+    pub fn new(restriction: &Restriction) -> Self {
+        let flags: u32 = (!0u32 << restriction.partitions.len()) ^ (!0u32);
+        let partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, T)>)> = restriction
+            .partitions
             .iter()
             .map(|partition| (partition.clone(), vec![]))
             .collect();
