@@ -12,12 +12,10 @@ impl DebuggerContext {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
         let needs_figure_canvas_data =
             self.needs_figure_canvas_data(opt_active_trace_id, &new_restriction);
-        log::info!("needs figure canvas data = {:?}", needs_figure_canvas_data);
         let needs_figure_control_data =
             self.needs_figure_control_data(opt_active_trace_id, &new_restriction);
         let needs_stalk = self.needs_stalk(opt_active_trace_id, &new_restriction);
         let needs_response = needs_figure_canvas_data || needs_figure_control_data || needs_stalk;
-        log::info!("needs response = {:?}", needs_response);
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::SetRestriction {
                 restriction: new_restriction.clone(),
