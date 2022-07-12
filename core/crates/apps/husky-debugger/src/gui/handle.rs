@@ -186,11 +186,13 @@ impl HuskyDebuggerInternal {
                 needs_figure_control_data,
                 needs_stalk,
             } => {
+                p!(restriction, needs_figure_canvas_data);
                 let new_trace_stalks = self.trace_time.set_restriction(restriction.clone());
                 if needs_figure_canvas_data || needs_figure_control_data || needs_stalk {
                     let (opt_figure_canvas_data, opt_figure_control_data) =
                         if let Some(active_trace_id) = self.trace_time.opt_active_trace_id() {
                             let opt_figure_canvas_data = if needs_figure_canvas_data {
+                                epin!();
                                 match self.trace_time.figure_canvas(active_trace_id) {
                                     Ok(figure_canvas) => Some(figure_canvas),
                                     Err((sample_id, error)) => return Some(

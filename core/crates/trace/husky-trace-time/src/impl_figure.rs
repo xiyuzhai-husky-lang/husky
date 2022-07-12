@@ -14,6 +14,7 @@ use husky_feature_eval::EvalFeature;
 use husky_feature_gen::{FeatureExpr, FeatureLazyExprVariant, FeatureLazyStmtVariant, FeatureStmt};
 use husky_text::TextQueryGroup;
 use map_collect::MapCollect;
+use print_utils::epin;
 use vm::{History, HistoryEntry, MutationData, MutationDataVariant, StackSnapshot};
 
 impl HuskyTraceTime {
@@ -22,6 +23,7 @@ impl HuskyTraceTime {
         trace_id: TraceId,
     ) -> Result<FigureCanvasData, (SampleId, EvalError)> {
         let trace = self.trace(trace_id);
+        epin!();
         Ok(match trace.variant {
             TraceVariant::Main(_) => FigureCanvasData::void(),
             TraceVariant::FeatureLazyStmt(ref stmt) => self.feature_stmt_figure(stmt)?,

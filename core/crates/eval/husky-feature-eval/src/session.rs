@@ -1,24 +1,22 @@
 mod division;
 mod tests;
 
-use husky_compile_time::HuskyCompileTime;
-use husky_eager_semantics::FuncStmt;
-use husky_package_semantics::{Config, Package};
-use trivial_iter::TrivialIter;
-use vm::{eval_fast, InterpreterQueryGroup, Mode, __EvalResult};
-use word::RootIdentifier;
+pub use division::*;
 
 use crate::*;
-
+use husky_compile_time::HuskyCompileTime;
+use husky_datasets_protocol::{Dataset, DatasetDyn};
+use husky_eager_semantics::FuncStmt;
+use husky_feature_gen::{Feature, FeaturePtr};
+use husky_package_semantics::{Config, Package};
 use std::{
     any::{Any as _, TypeId},
     ops::Index,
     sync::Arc,
 };
-
-use division::Division;
-use husky_datasets_protocol::{Dataset, DatasetDyn};
-use husky_feature_gen::{Feature, FeaturePtr};
+use trivial_iter::TrivialIter;
+use vm::{eval_fast, InterpreterQueryGroup, Mode, __EvalResult};
+use word::RootIdentifier;
 
 #[derive(Debug)]
 pub struct Session<'eval> {

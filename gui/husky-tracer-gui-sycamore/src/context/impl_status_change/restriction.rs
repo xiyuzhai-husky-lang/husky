@@ -12,6 +12,7 @@ impl DebuggerContext {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
         let needs_figure_canvas_data =
             self.needs_figure_canvas_data(opt_active_trace_id, &new_restriction);
+        log::info!("needs_figure_canvas_data: {:?}", needs_figure_canvas_data);
         let needs_figure_control_data =
             self.needs_figure_control_data(opt_active_trace_id, &new_restriction);
         let needs_stalk = self.needs_stalk(opt_active_trace_id, &new_restriction);
