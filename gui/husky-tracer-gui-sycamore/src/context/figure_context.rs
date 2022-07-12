@@ -7,7 +7,7 @@ pub struct FigureContext {
     pub(crate) figure_canvases: RefCell<HashMap<FigureCanvasKey, &'static FigureCanvasData>>,
     pub(crate) figure_controls:
         RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
-    pins: &'static Signal<VecSet<TraceId>>,
+    pub(crate) pins: &'static Signal<VecSet<TraceId>>,
 }
 impl FigureContext {
     pub(super) fn new<'a>(scope: Scope<'a>) -> Self {
@@ -22,9 +22,11 @@ impl FigureContext {
         &self,
         figure_canvases: HashMap<FigureCanvasKey, &'static FigureCanvasData>,
         figure_controls: HashMap<FigureControlKey, &'static Signal<FigureControlData>>,
+        pins: VecSet<TraceId>,
     ) {
         *self.figure_canvases.borrow_mut(file!(), line!()) = figure_canvases;
         *self.figure_controls.borrow_mut(file!(), line!()) = figure_controls;
+        self.pins.set(pins)
     }
 
     pub(super) fn set_opt_figure_data(
@@ -105,7 +107,9 @@ impl FigureContext {
             [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, restriction)]
     }
 
-    pub(crate) fn did_toggle_arrival(&self, trace_id: TraceId) {
-        todo!()
+    pub(crate) fn did_toggle_pin(&self, trace_id: TraceId) {
+        let mut new_pins = self.pins.cget();
+        new_pins.toggle(trace_id);
+        self.pins.set(new_pins);
     }
 }

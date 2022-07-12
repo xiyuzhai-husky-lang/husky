@@ -1,3 +1,4 @@
+mod activate;
 mod expansion;
 mod pin;
 mod restriction;
@@ -93,13 +94,6 @@ impl DebuggerContext {
             StatusChange::ToggleShown { trace_id } => self.toggle_shown(trace_id),
             StatusChange::Activate { trace_id } => self.activate(trace_id),
             StatusChange::SetRestriction { restriction } => self.set_restriction(restriction),
-            // self.set_restriction(restriction),
-            // StatusChange::ToggleArrival { trace_id } => {
-            //     self.update_restriction(|res| res.toggle_arrival(trace_id))
-            // }
-            // StatusChange::ToggleEnter { trace_id } => {
-            //     self.update_restriction(|res| res.toggle_enter(trace_id))
-            // }
             StatusChange::TogglePin { trace_id } => self.toggle_pin(trace_id),
         }
     }
@@ -150,46 +144,5 @@ impl DebuggerContext {
                 self.handle_status_change(event)
             }
         }
-    }
-
-    fn activate(&'static self, new_active_trace_id: TraceId) {
-        let restriction = self.restriction_context.restriction.get();
-        let trace = self.trace_context.trace_data(new_active_trace_id);
-        let needs_figure_canvas_data =
-            self.needs_figure_canvas_data(Some(new_active_trace_id), &restriction);
-        let needs_figure_control_data =
-            self.needs_figure_control_data(Some(new_active_trace_id), &restriction);
-        let needs_response = needs_figure_control_data || needs_figure_control_data;
-        self.ws.send_message(
-            HuskyTracerGuiMessageVariant::Activate {
-                trace_id: new_active_trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
-            },
-            if needs_response {
-                Some(Box::new(move |response| match response.variant {
-                    HuskyTracerServerMessageVariant::Activate {
-                        opt_figure_canvas_data,
-                        opt_figure_control_data,
-                    } => {
-                        self.figure_context.set_opt_figure_data(
-                            self.scope,
-                            &trace,
-                            &restriction,
-                            opt_figure_canvas_data.map(|data| self.alloc_value(data)),
-                            opt_figure_control_data,
-                        );
-                        self.trace_context.did_activate(new_active_trace_id);
-                    }
-                    HuskyTracerServerMessageVariant::ActivateWithError { .. } => todo!(),
-                    _ => panic!("unexpected response {:?}", response),
-                }))
-            } else {
-                {
-                    self.trace_context.did_activate(new_active_trace_id);
-                    None
-                }
-            },
-        );
     }
 }

@@ -1,26 +1,23 @@
 use super::*;
 
 impl DebuggerContext {
-    pub(super) fn toggle_pin(&'static self, trace_id: TraceId) {
-        let pins = self.figure_context.pins;
-        let trace = self.trace_context.trace_data(trace_id);
-        let pinned = pins.get().has(trace_id);
+    pub(crate) fn activate(&'static self, new_active_trace_id: TraceId) {
         let restriction = self.restriction_context.restriction.get();
+        let trace = self.trace_context.trace_data(new_active_trace_id);
         let needs_figure_canvas_data =
-            !pinned && (self.needs_figure_canvas_data(Some(trace_id), &restriction));
+            self.needs_figure_canvas_data(Some(new_active_trace_id), &restriction);
         let needs_figure_control_data =
-            !pinned && self.needs_figure_control_data(Some(trace_id), &restriction);
+            self.needs_figure_control_data(Some(new_active_trace_id), &restriction);
         let needs_response = needs_figure_control_data || needs_figure_control_data;
-
         self.ws.send_message(
-            HuskyTracerGuiMessageVariant::TogglePin {
-                trace_id,
+            HuskyTracerGuiMessageVariant::Activate {
+                trace_id: new_active_trace_id,
                 needs_figure_canvas_data,
                 needs_figure_control_data,
             },
             if needs_response {
                 Some(Box::new(move |response| match response.variant {
-                    HuskyTracerServerMessageVariant::TogglePin {
+                    HuskyTracerServerMessageVariant::Activate {
                         opt_figure_canvas_data,
                         opt_figure_control_data,
                     } => {
@@ -31,17 +28,17 @@ impl DebuggerContext {
                             opt_figure_canvas_data.map(|data| self.alloc_value(data)),
                             opt_figure_control_data,
                         );
-                        self.figure_context.did_toggle_pin(trace_id);
+                        self.trace_context.did_activate(new_active_trace_id);
                     }
-                    HuskyTracerServerMessageVariant::TogglePinWithError { .. } => todo!(),
+                    HuskyTracerServerMessageVariant::ActivateWithError { .. } => todo!(),
                     _ => panic!("unexpected response {:?}", response),
                 }))
             } else {
                 {
-                    self.figure_context.did_toggle_pin(trace_id);
+                    self.trace_context.did_activate(new_active_trace_id);
                     None
                 }
             },
-        )
+        );
     }
 }

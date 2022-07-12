@@ -56,6 +56,10 @@ where
         }
     }
 
+    pub fn clear(&mut self) {
+        self.entries.clear()
+    }
+
     pub fn toggle(&mut self, value: K) {
         if let Some(position) = self.entries.iter().position(|entry| *entry == value) {
             self.entries.remove(position);

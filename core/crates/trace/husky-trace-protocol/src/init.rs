@@ -1,3 +1,5 @@
+use vec_like::VecSet;
+
 use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -6,6 +8,7 @@ pub struct InitData {
     pub trace_init_data: TraceInitState,
     pub figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)>,
     pub figure_controls: Vec<(FigureControlKey, FigureControlData)>,
+    pub pins: VecSet<TraceId>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

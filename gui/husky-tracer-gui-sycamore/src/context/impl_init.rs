@@ -33,6 +33,7 @@ impl DebuggerContext {
                 .collect(),
             self.alloc_key_signal_pairs(init_data.figure_controls)
                 .collect(),
+            init_data.pins,
         );
         self.trace_context.init(
             init_data

@@ -12,8 +12,11 @@ impl HuskyTraceTime {
 
     fn clear(&mut self) {
         // replace this with diff, try to make the trace tree look the same across code change
+        self.restriction = Default::default();
+        self.pins.clear();
         self.trace_nodes.clear();
         self.opt_active_trace_id = None;
+        self.trace_stalks.clear();
         self.root_trace_ids.clear();
         self.subtrace_ids_map.clear();
         self.figure_controls.clear();

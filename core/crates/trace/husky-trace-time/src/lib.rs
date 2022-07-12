@@ -2,6 +2,7 @@ mod impl_figure;
 mod impl_figure_control;
 mod impl_lines;
 mod impl_ops;
+mod impl_pin;
 mod impl_restriction;
 mod impl_subtraces;
 mod impl_trace;
@@ -29,12 +30,14 @@ use sync_utils::ASafeRwLock;
 use trace::*;
 use trace_node::*;
 use upcast::Upcast;
+use vec_like::VecSet;
 use vm::*;
 use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
     eval_time_singleton: HuskyEvalTimeSingletonKeeper,
     restriction: Restriction,
+    pins: VecSet<TraceId>,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
     pub trace_stalks: HashMap<TraceStalkKey, TraceStalkData>,
@@ -61,6 +64,7 @@ impl HuskyTraceTime {
             figure_controls: Default::default(),
             root_trace_ids: Default::default(),
             restriction: Default::default(),
+            pins: Default::default(),
         };
         trace_time.update();
         trace_time
@@ -221,6 +225,7 @@ impl HuskyTraceTime {
                 self.figure_control(active_trace_id),
             ));
         }
+        let pins = self.pins.clone();
         let traces = self.all_trace_nodes();
         InitData {
             trace_init_data: TraceInitState {
@@ -241,6 +246,7 @@ impl HuskyTraceTime {
             restriction: self.restriction.clone(),
             figure_canvases,
             figure_controls,
+            pins,
         }
     }
 }

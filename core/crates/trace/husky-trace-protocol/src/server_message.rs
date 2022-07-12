@@ -24,6 +24,16 @@ pub enum HuskyTracerServerMessageVariant {
         sample_id: SampleId,
         error: String,
     },
+    TogglePin {
+        #[serde(skip_serializing_if = "Option::is_none")]
+        opt_figure_canvas_data: Option<FigureCanvasData>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        opt_figure_control_data: Option<FigureControlData>,
+    },
+    TogglePinWithError {
+        sample_id: SampleId,
+        error: String,
+    },
     ToggleExpansion {
         subtrace_ids: Vec<TraceId>,
         new_traces: Vec<TraceNodeData>,

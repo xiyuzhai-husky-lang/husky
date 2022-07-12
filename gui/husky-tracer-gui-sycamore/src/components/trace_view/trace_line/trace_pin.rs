@@ -9,7 +9,11 @@ pub struct TracePinProps {
 
 #[component]
 pub(super) fn TracePin<'a, G: Html>(scope: Scope<'a>, props: TracePinProps) -> View<G> {
-    let pinned = create_signal(scope, false);
+    let ctx = use_debugger_context(scope);
+    let figure_context = &ctx.figure_context;
+    let trace_id = props.trace_id;
+    let pins = figure_context.pins;
+    let pinned = memo!(scope, move || pins.get().has(trace_id));
     if props.line_idx == 0 {
         view! {
             scope,
@@ -23,7 +27,7 @@ pub(super) fn TracePin<'a, G: Html>(scope: Scope<'a>, props: TracePinProps) -> V
                 },
                 on:mousedown=move |ev:Event|{
                     ev.stop_propagation() ;
-                    pinned.set(!pinned.cget())
+                    ctx.toggle_pin_handler(trace_id)()
                 }
             ) {
                 svg (

@@ -22,6 +22,11 @@ pub enum HuskyTracerGuiMessageVariant {
     ToggleShow {
         trace_id: TraceId,
     },
+    TogglePin {
+        trace_id: TraceId,
+        needs_figure_canvas_data: bool,
+        needs_figure_control_data: bool,
+    },
     Trace {
         id: TraceId,
     },
