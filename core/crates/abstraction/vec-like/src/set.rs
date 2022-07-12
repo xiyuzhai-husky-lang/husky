@@ -57,7 +57,11 @@ where
     }
 
     pub fn toggle(&mut self, value: K) {
-        todo!()
+        if let Some(position) = self.entries.iter().position(|entry| *entry == value) {
+            self.entries.remove(position);
+        } else {
+            self.entries.push(value)
+        }
     }
 
     pub fn to_vec(&self) -> Vec<K> {

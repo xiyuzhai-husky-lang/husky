@@ -20,9 +20,6 @@ pub struct TraceNodeState {
     pub(super) data: &'static TraceData,
     pub(super) expansion: &'static Signal<bool>,
     pub(super) shown: &'static Signal<bool>,
-    pub(super) pin: &'static Signal<bool>,
-    pub(super) arrival: &'static Signal<bool>,
-    pub(super) enter: &'static Signal<bool>,
 }
 
 impl TraceNodeState {
@@ -31,9 +28,6 @@ impl TraceNodeState {
             data: create_static_ref(scope, node_data.trace_data),
             expansion: create_static_signal(scope, node_data.expanded),
             shown: create_static_signal(scope, node_data.shown),
-            pin: create_static_signal(scope, node_data.pin),
-            arrival: create_static_signal(scope, node_data.arrival),
-            enter: create_static_signal(scope, node_data.enter),
         }
     }
 }

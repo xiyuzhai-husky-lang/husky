@@ -14,9 +14,9 @@ pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let set_restriction_from_dialog = debugger_context.set_restriction_from_dialog_handler();
     let restriction_kind = memo!(
         scope,
-        move || match *restriction.get() {
-            Restriction::Specific { .. } => "SPECIFIC",
-            Restriction::Generic { .. } => "GENERIC",
+        move || match restriction.get().is_specific() {
+            true => "SPECIFIC",
+            false => "GENERIC",
         }
         .to_string(),
         restriction
@@ -41,30 +41,31 @@ pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
             ) {
                 (restriction_kind.get())
             }
-            (match *restriction.get() {
-                Restriction::Specific { sample_id } => {
-                    view! {
-                        scope,
-                        label (
-                            id="sample-id-name",
-                        ) {
-                            "sample id = "
-                        }
-                        label (
-                            id="sample-id-value",
-                            on:click={
-                                move |_| {
-                                    get_element_by_id::<HtmlDialogElement>("restriction-dialog").show_modal();
-                                    get_element_by_id::<HtmlInputElement>("sample-id-input").set_value("") ;
-                                }
+            ({
+                match restriction.get().opt_sample_id() {
+                    Some(sample_id)=> {
+                        view! {
+                            scope,
+                            label (
+                                id="sample-id-name",
+                            ) {
+                                "sample id = "
                             }
-                        ) {
-                            (sample_id.0)
+                            label (
+                                id="sample-id-value",
+                                on:click={
+                                    move |_| {
+                                        get_element_by_id::<HtmlDialogElement>("restriction-dialog").show_modal();
+                                        get_element_by_id::<HtmlInputElement>("sample-id-input").set_value("") ;
+                                    }
+                                }
+                            ) {
+                                (sample_id.0)
+                            }
                         }
-                    }
-                },
-                Restriction::Generic { .. } =>view!{scope,},
-            })
+                    },
+                    None=> view!{scope,},
+            }})
         }
     }
 }

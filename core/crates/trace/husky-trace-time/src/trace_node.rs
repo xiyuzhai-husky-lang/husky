@@ -16,9 +16,6 @@ impl TraceNode {
             trace_data: self.trace.raw_data.clone(),
             expanded: self.expansion,
             shown: self.shown,
-            pin: self.pin,
-            arrival: self.arrival,
-            enter: self.enter,
         }
     }
 }

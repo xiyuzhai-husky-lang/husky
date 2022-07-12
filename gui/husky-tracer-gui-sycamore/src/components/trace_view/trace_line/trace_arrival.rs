@@ -12,7 +12,12 @@ pub struct TraceArrivalProps {
 pub(super) fn TraceArrival<'a, G: Html>(scope: Scope<'a>, props: TraceArrivalProps) -> View<G> {
     let ctx = use_debugger_context(scope);
     let trace_context = &ctx.trace_context;
-    let arrival = trace_context.arrival_read_signal(props.trace_id);
+    let trace_id = props.trace_id;
+    let arrival = memo!(scope, move || ctx
+        .restriction_context
+        .restriction
+        .get()
+        .arrival(trace_id));
     let trace_id = props.trace_id;
     if props.line_idx == 0 {
         view! {

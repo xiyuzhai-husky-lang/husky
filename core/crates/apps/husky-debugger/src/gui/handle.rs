@@ -121,18 +121,16 @@ impl HuskyDebuggerInternal {
                         Some(match self.trace_time.figure_canvas(trace_id) {
                             Ok(figure_canvas_data) => figure_canvas_data,
                             Err((sample_id0, error)) => {
-                                match self.trace_time.restriction() {
-                                    Restriction::Specific { sample_id } => {
-                                        if *sample_id != sample_id0 {
-                                            return Some(
+                                let restriction = &self.trace_time.restriction();
+                                if let Some(sample_id) = restriction.opt_sample_id() {
+                                    if sample_id != sample_id0 {
+                                        return Some(
                                             HuskyTracerServerMessageVariant::ActivateWithError {
                                                 sample_id: sample_id0,
                                                 error: format!("{:?}", error),
                                             },
                                         );
-                                        }
                                     }
-                                    Restriction::Generic { .. } => (),
                                 }
                                 FigureCanvasData::EvalError {
                                     message: format!("{:?}", error),

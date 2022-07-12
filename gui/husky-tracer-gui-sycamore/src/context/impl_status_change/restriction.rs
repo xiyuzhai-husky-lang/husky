@@ -2,11 +2,13 @@ use super::*;
 use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
 impl DebuggerContext {
-    pub(super) fn toggle_restriction_kind(&'static self) {
-        self.set_restriction(self.restriction_context.toggled_restriction_kind())
-    }
+    // pub(super) fn toggle_restriction_kind(&'static self) {
+    //     let mut restriction = self.restriction_context.restriction.cget();
+    //     restriction.toggle_is_specific();
+    //     self.set_restriction(restriction)
+    // }
 
-    pub(crate) fn set_restriction(&'static self, new_restriction: Restriction) {
+    pub(super) fn set_restriction(&'static self, new_restriction: Restriction) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
         let needs_figure_canvas_data =
             self.needs_figure_canvas_data(opt_active_trace_id, &new_restriction);
@@ -59,20 +61,20 @@ impl DebuggerContext {
         );
     }
 
-    pub(super) fn set_restriction_from_dialog(&'static self) {
-        let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
-        match sample_id_value.parse::<usize>() {
-            Ok(raw) => {
-                self.set_restriction(Restriction::Specific {
-                    sample_id: SampleId(raw),
-                });
-                let restriction_dialog =
-                    get_element_by_id::<HtmlDialogElement>("restriction-dialog");
-                restriction_dialog.close()
-            }
-            Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),
-        }
-    }
+    // pub(super) fn set_restriction_from_dialog(&'static self) {
+    //     let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
+    //     match sample_id_value.parse::<usize>() {
+    //         Ok(raw) => {
+    //             let mut restriction = self.restriction_context.restriction.cget();
+    //             restriction.specific_sample_id = SampleId(raw);
+    //             self.set_restriction(restriction);
+    //             let restriction_dialog =
+    //                 get_element_by_id::<HtmlDialogElement>("restriction-dialog");
+    //             restriction_dialog.close()
+    //         }
+    //         Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),
+    //     }
+    // }
 }
 
 #[wasm_bindgen]

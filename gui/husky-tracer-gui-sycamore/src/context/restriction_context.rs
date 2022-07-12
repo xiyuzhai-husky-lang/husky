@@ -4,7 +4,6 @@ use super::*;
 pub struct RestrictionContext {
     pub restriction: &'static Signal<Restriction>,
     pub opt_sample_id: &'static ReadSignal<Option<SampleId>>,
-    last_restriction: RefCell<Restriction>,
     restriction_locked_store: Signal<bool>,
 }
 impl RestrictionContext {
@@ -14,7 +13,6 @@ impl RestrictionContext {
         Self {
             restriction,
             opt_sample_id,
-            last_restriction: Default::default(),
             restriction_locked_store: Default::default(),
         }
     }
@@ -31,23 +29,6 @@ impl RestrictionContext {
     pub(super) fn did_lock_restriction(&mut self, restriction: Restriction) {
         self.restriction.set(restriction);
         self.restriction_locked_store.set(true);
-    }
-
-    pub(super) fn toggled_restriction_kind(&self) -> Restriction {
-        let last_last_restriction = self.last_restriction.replace(self.restriction.cget());
-
-        if std::mem::discriminant(&last_last_restriction)
-            != std::mem::discriminant(&self.last_restriction.borrow(file!(), line!()))
-        {
-            last_last_restriction
-        } else {
-            match *self.last_restriction.borrow(file!(), line!()) {
-                Restriction::Specific { .. } => Restriction::default(),
-                Restriction::Generic { .. } => Restriction::Specific {
-                    sample_id: ask_for_sample_id(),
-                },
-            }
-        }
     }
 }
 
