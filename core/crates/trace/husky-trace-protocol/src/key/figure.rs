@@ -31,19 +31,18 @@ impl FigureCanvasKey {
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr
-            | TraceKind::FeatureCallArgument => match restriction {
-                Restriction::Specific { sample_id } => FigureCanvasKey::Specific { trace_id },
-                Restriction::Generic {
-                    partitions,
-                    arrivals,
-                    enters,
-                } => FigureCanvasKey::Generic {
-                    trace_id,
-                    partitions: partitions.clone(),
-                    enters: enters.clone(),
-                    arrivals: arrivals.clone(),
-                },
-            },
+            | TraceKind::FeatureCallArgument => {
+                if restriction.is_specific() {
+                    FigureCanvasKey::Specific { trace_id }
+                } else {
+                    FigureCanvasKey::Generic {
+                        trace_id,
+                        partitions: restriction.partitions().clone(),
+                        enters: restriction.enters().clone(),
+                        arrivals: restriction.arrivals().clone(),
+                    }
+                }
+            }
             TraceKind::FuncStmt
             | TraceKind::ProcStmt
             | TraceKind::FuncBranch

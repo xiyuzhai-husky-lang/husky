@@ -25,12 +25,6 @@ impl TraceContext {
             .read()
     }
 
-    pub(crate) fn arrival_read_signal(&self, trace_id: TraceId) -> &'static ReadSignal<bool> {
-        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
-            .arrival
-            .read()
-    }
-
     pub(crate) fn did_toggle_show(&mut self, trace_id: TraceId) {
         todo!()
         // self.shown_stores.update(id, (shown) => !shown);
