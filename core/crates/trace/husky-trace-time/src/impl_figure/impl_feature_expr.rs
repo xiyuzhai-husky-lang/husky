@@ -102,9 +102,10 @@ impl HuskyTraceTime {
         let mut partitioned_samples_collector = PartitionedSampler::<T>::new(restriction);
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
-            p!(restriction.arrivals());
             for trace_id in restriction.arrivals().iter() {
-                todo!()
+                if !self.is_trace_arrived(*trace_id) {
+                    continue;
+                }
             }
             for trace_id in restriction.enters().iter() {
                 todo!()
@@ -122,5 +123,30 @@ impl HuskyTraceTime {
             }
         }
         Ok(partitioned_samples_collector.finish())
+    }
+
+    fn is_trace_arrived(&self, trace_id: TraceId) -> bool {
+        let trace = self.trace(trace_id);
+        match trace.variant {
+            TraceVariant::Main(_) => todo!(),
+            TraceVariant::FeatureLazyStmt(ref stmt) => {
+                if let Some(ref arrival_indicator) = stmt.opt_arrival_indicator {
+                    todo!()
+                } else {
+                    true
+                }
+            }
+            TraceVariant::FeatureLazyBranch(_) => todo!(),
+            TraceVariant::FeatureLazyExpr(_) => todo!(),
+            TraceVariant::FeatureCallArgument { .. } => todo!(),
+            TraceVariant::FuncStmt { .. } => todo!(),
+            TraceVariant::ProcStmt { .. } => todo!(),
+            TraceVariant::ProcBranch { .. } => todo!(),
+            TraceVariant::FuncBranch { .. } => todo!(),
+            TraceVariant::LoopFrame { .. } => todo!(),
+            TraceVariant::EagerExpr { .. } => todo!(),
+            TraceVariant::EagerCallArgument { .. } => todo!(),
+            TraceVariant::CallHead { .. } => todo!(),
+        }
     }
 }
