@@ -10,8 +10,6 @@ pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let restriction = restriction_context.restriction;
     let last_sample_id = create_signal(scope, restriction.get_untracked().opt_sample_id());
     let toggle_restriction_kind_handler = debugger_context.toggle_restriction_kind_handler();
-    let restriction_dialog = get_element_by_id::<HtmlDialogElement>("restriction-dialog");
-    let set_restriction_from_dialog = debugger_context.set_restriction_from_dialog_handler();
     let restriction_kind = memo!(
         scope,
         move || match restriction.get().is_specific() {
@@ -20,17 +18,6 @@ pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
         }
         .to_string(),
         restriction
-    );
-    add_event_listener!(
-        restriction_dialog,
-        "keydown",
-        move |event: web_sys::UiEvent| {
-            let event: KeyboardEvent = event.unchecked_into();
-            match event.key().as_str() {
-                "Enter" => set_restriction_from_dialog(),
-                _ => (),
-            }
-        }
     );
     view! {
         scope,
@@ -53,12 +40,7 @@ pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
                             }
                             label (
                                 id="sample-id-value",
-                                on:click={
-                                    move |_| {
-                                        get_element_by_id::<HtmlDialogElement>("restriction-dialog").show_modal();
-                                        get_element_by_id::<HtmlInputElement>("sample-id-input").set_value("") ;
-                                    }
-                                }
+                                on:click=debugger_context.set_restriction_from_dialog_handler()
                             ) {
                                 (sample_id.0)
                             }

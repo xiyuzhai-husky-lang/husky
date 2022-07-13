@@ -17,25 +17,6 @@ enum StatusChange {
 }
 
 impl StatusChange {
-    fn set_restriction_from_dialog(ctx: &'static DebuggerContext) -> Self {
-        let sample_id_value = get_element_by_id::<HtmlInputElement>("sample-id-input").value();
-        loop {
-            match sample_id_value.parse::<usize>() {
-                Ok(raw) => {
-                    let restriction_dialog =
-                        get_element_by_id::<HtmlDialogElement>("restriction-dialog");
-                    restriction_dialog.close();
-                    // let mut restriction = ctx.restriction_context.restriction.cget();
-                    // restriction.specific_sample_id = SampleId(raw);
-                    break StatusChange::update_restriction(ctx, |res| {
-                        res.set_sample_id(SampleId(raw))
-                    });
-                }
-                Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),
-            }
-        }
-    }
-
     fn update_restriction(
         ctx: &'static DebuggerContext,
         update: impl FnOnce(&mut Restriction),
@@ -134,8 +115,31 @@ impl DebuggerContext {
         move |_| self.handle_status_change(StatusChange::toggle_restriction_is_specific(self))
     }
 
-    pub fn set_restriction_from_dialog_handler(&'static self) -> impl Fn() {
-        move || self.handle_status_change(StatusChange::set_restriction_from_dialog(self))
+    pub fn set_restriction_from_dialog_handler(&'static self) -> impl Fn(Event) {
+        move |_| {
+            let dialog = restriction_dialog();
+            sample_id_input().set_value("");
+            add_event_listener!(dialog, "keydown", move |event: web_sys::UiEvent| {
+                let event: KeyboardEvent = event.unchecked_into();
+                match event.key().as_str() {
+                    "Enter" => {
+                        let sample_id_value = sample_id_input().value();
+                        match sample_id_value.parse::<usize>() {
+                            Ok(raw) => {
+                                restriction_dialog().close();
+                                self.handle_status_change(StatusChange::update_restriction(
+                                    self,
+                                    |res| res.set_sample_id(SampleId(raw)),
+                                ))
+                            }
+                            Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),
+                        }
+                    }
+                    _ => (),
+                }
+            });
+            dialog.show_modal();
+        }
     }
 
     pub fn keydown_handler(&'static self) -> impl Fn(Event) {
@@ -143,6 +147,53 @@ impl DebuggerContext {
             if let Some(event) = StatusChange::keydown(self, ev) {
                 self.handle_status_change(event)
             }
+        }
+    }
+
+    pub fn add_partition_handler(&'static self, idx: usize) -> impl Fn(Event) {
+        move |_| {
+            partition_ncol_input().set_value("2");
+            log::info!("add_partition_handler called");
+            let dialog = new_partition_dialog();
+            assert!(!dialog.open());
+            dialog.show_modal();
+            add_event_listener!(dialog, "keydown", {
+                move |event: web_sys::UiEvent| {
+                    let event: KeyboardEvent = event.unchecked_into();
+                    match event.key().as_str() {
+                        "Enter" => {
+                            let label_str = partition_input().value();
+                            let label_raw = match label_str.parse::<usize>() {
+                                Ok(raw) => raw,
+                                Err(_) => {
+                                    alert!("`{}` is not a valid partition", label_str);
+                                    return;
+                                }
+                            };
+                            let ncol_str = partition_ncol_input().value();
+                            let ncol = match label_str.parse::<u32>() {
+                                Ok(raw) => raw,
+                                Err(_) => {
+                                    alert!("`{}` is not a valid partition", label_str);
+                                    return;
+                                }
+                            };
+                            let new_partition = PartitionDefnData {
+                                ncol,
+                                variant: PartitionDefnDataVariant::Label(Label(label_raw)),
+                            };
+                            let dialog = new_partition_dialog();
+                            dialog.close();
+                            assert!(!dialog.open());
+                            self.handle_status_change(StatusChange::update_restriction(
+                                self,
+                                |res| res.add_partition(idx, new_partition),
+                            ))
+                        }
+                        _ => (),
+                    }
+                }
+            })
         }
     }
 }
