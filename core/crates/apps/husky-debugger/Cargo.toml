@@ -27,6 +27,7 @@ text-diff = "0.4.0"
 indexmap = "1.8.1"
 lsp-types = { version = "0.93", features = ["proposed"] }
 colored = "2.0.0"
+xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 check-utils = { path = "../../utils/check" }
 dev-utils = { path = "../../utils/dev" }
 print-utils = { path = "../../utils/print" }

@@ -5,6 +5,7 @@ use std::panic::{catch_unwind, panic_any};
 use std::{collections::hash_map::DefaultHasher, hash::Hasher};
 use std::{hash::Hash, path::PathBuf};
 use wild_utils::ref_to_mut_ref;
+use xxhash_rust::xxh3::xxh3_64;
 
 pub fn handle_message(
     debugger: Arc<HuskyDebugger>,
@@ -41,9 +42,7 @@ fn save_server_history(
     e: Box<dyn std::any::Any + std::marker::Send>,
 ) {
     let value = serde_json::to_string_pretty(server_history).unwrap();
-    let mut hasher = DefaultHasher::new();
-    value.hash(&mut hasher);
-    let filename = format!("history-{}.json", hasher.finish());
+    let filename = format!("history-{}.json", xxh3_64(value.as_bytes()));
     let filename: &str = &filename;
     let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
     let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();

@@ -14,6 +14,7 @@ mod try_salsa;
 mod try_serde;
 mod try_size;
 mod try_trait;
+mod try_xxhash;
 
 use check_utils::*;
 use print_utils::*;
