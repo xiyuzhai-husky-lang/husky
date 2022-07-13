@@ -159,6 +159,7 @@ impl DebuggerContext {
             dialog.show_modal();
             add_event_listener!(dialog, "keydown", {
                 move |event: web_sys::UiEvent| {
+                    event.stop_propagation();
                     let event: KeyboardEvent = event.unchecked_into();
                     match event.key().as_str() {
                         "Enter" => {
@@ -182,9 +183,7 @@ impl DebuggerContext {
                                 ncol,
                                 variant: PartitionDefnDataVariant::Label(Label(label_raw)),
                             };
-                            let dialog = new_partition_dialog();
-                            dialog.close();
-                            assert!(!dialog.open());
+                            new_partition_dialog().close();
                             self.handle_status_change(StatusChange::update_restriction(
                                 self,
                                 |res| res.add_partition(idx, new_partition),
