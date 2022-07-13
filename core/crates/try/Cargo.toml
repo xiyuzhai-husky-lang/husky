@@ -16,3 +16,4 @@ text-diff = "0.4.0"
 check-utils = { path = "../utils/check" }
 dev-utils = { path = "../utils/dev" }
 print-utils = { path = "../utils/print" }
+xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
