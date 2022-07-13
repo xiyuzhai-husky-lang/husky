@@ -19,11 +19,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
     props: GenericGraphics2dProps<'a>,
 ) -> View<G> {
     let dimension = props.dimension;
-    let column_dimension = memo!(scope, || { dimension.cget() / (7, 1) - (0, TITLE_HEIGHT) });
-    log::info!(
-        "partitioned samples len: {}",
-        props.partitioned_samples.len()
-    );
+    let column_dimension = memo!(scope, || { dimension.cget() / (7, 1) - (2, TITLE_HEIGHT) });
     view! {
         scope,
         div (
@@ -34,7 +30,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
                 |(idx,(partition, samples))| {
                     view!{
                         scope,
-                        PartitionCanvas {
+                        PartitionContent {
                             idx,
                             column_dimension,
                             partition,
