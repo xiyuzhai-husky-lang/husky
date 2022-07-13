@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Prop)]
-pub struct PartitionCanvasProps<'a> {
+pub struct PartitionContentProps<'a> {
     idx: usize,
     column_dimension: &'a ReadSignal<PixelDimension>,
     partition: &'a PartitionDefnData,
@@ -9,7 +9,10 @@ pub struct PartitionCanvasProps<'a> {
 }
 
 #[component]
-pub fn PartitionCanvas<'a, G: Html>(scope: Scope<'a>, props: PartitionCanvasProps<'a>) -> View<G> {
+pub fn PartitionContent<'a, G: Html>(
+    scope: Scope<'a>,
+    props: PartitionContentProps<'a>,
+) -> View<G> {
     let column_dimension = props.column_dimension;
     let dimension = memo!(scope, move || {
         column_dimension.cget() * (props.partition.ncol, 1) + (0, TITLE_HEIGHT)
@@ -35,7 +38,7 @@ pub fn PartitionCanvas<'a, G: Html>(scope: Scope<'a>, props: PartitionCanvasProp
     view! {
         scope,
         div (
-            class="PartitionCanvas",
+            class="PartitionContent",
             style=dimension.cget().to_style(),
         ) {
             div (

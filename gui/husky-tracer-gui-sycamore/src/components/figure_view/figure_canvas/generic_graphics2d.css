@@ -1,0 +1,4 @@
+.GenericGraphics2dCanvas {
+    display: flex;
+    flex-direction: row;
+}

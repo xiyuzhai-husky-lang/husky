@@ -1,6 +1,8 @@
-.PartitionCanvas {
+.PartitionContent {
     display: flex;
     flex-direction: column;
+    border-left: 2px solid red;
+    border-right: 2px solid red;
 }
 .PartitionTopBar {
     height: 1.5em;
