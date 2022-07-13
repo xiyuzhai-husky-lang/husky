@@ -51,7 +51,6 @@ impl Restriction {
             is_specific: true,
             specific_sample_id,
             partitions: vec![PartitionDefnData {
-                name: "other".into(),
                 ncol: 7,
                 variant: PartitionDefnDataVariant::Other,
             }],
@@ -79,6 +78,11 @@ impl Restriction {
     pub fn toggle_is_specific(&mut self) {
         self.is_specific = !self.is_specific;
     }
+
+    pub fn add_partition(&mut self, idx: usize, new_partition: PartitionDefnData) {
+        self.partitions.last_mut().unwrap().ncol -= new_partition.ncol;
+        self.partitions.insert(idx, new_partition)
+    }
 }
 
 impl Signalable for Restriction {}
@@ -89,7 +93,6 @@ impl Default for Restriction {
             is_specific: true,
             specific_sample_id: SampleId(0),
             partitions: vec![PartitionDefnData {
-                name: "other".into(),
                 ncol: 7,
                 variant: PartitionDefnDataVariant::Other,
             }],

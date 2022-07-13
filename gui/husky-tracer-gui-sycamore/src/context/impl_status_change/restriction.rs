@@ -69,7 +69,7 @@ impl DebuggerContext {
     //             restriction.specific_sample_id = SampleId(raw);
     //             self.set_restriction(restriction);
     //             let restriction_dialog =
-    //                 get_element_by_id::<HtmlDialogElement>("restriction-dialog");
+    //                 restriction_dialog();
     //             restriction_dialog.close()
     //         }
     //         Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),

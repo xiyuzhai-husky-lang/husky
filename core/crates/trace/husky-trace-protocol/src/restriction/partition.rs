@@ -2,9 +2,18 @@ use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub struct PartitionDefnData {
-    pub name: String,
     pub ncol: u32,
     pub variant: PartitionDefnDataVariant,
+}
+
+impl std::fmt::Display for PartitionDefnData {
+    fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
+        match self.variant {
+            PartitionDefnDataVariant::Label(label) => label.0.fmt(f),
+            PartitionDefnDataVariant::LabelSet(_) => todo!(),
+            PartitionDefnDataVariant::Other => f.write_str("other"),
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]

@@ -15,6 +15,7 @@ body {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
 }
-#restriction-dialog {
+#restriction-dialog,
+#new-partition-dialog {
     border-radius: 7px;
 }

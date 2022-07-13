@@ -1,6 +1,6 @@
 use sycamore::prelude::*;
 use wasm_bindgen::{JsCast, UnwrapThrowExt};
-use web_sys::Element;
+use web_sys::{Element, HtmlDialogElement, HtmlInputElement};
 
 macro_rules! add_event_listener {
     ($element: expr, $event: expr, $closure: expr) => {{
@@ -28,6 +28,26 @@ pub(crate) fn get_element_by_id<T: wasm_bindgen::JsCast>(id: &'static str) -> T 
         .unwrap()
         .dyn_into::<T>()
         .unwrap()
+}
+
+pub(crate) fn restriction_dialog() -> HtmlDialogElement {
+    get_element_by_id::<HtmlDialogElement>("restriction-dialog")
+}
+
+pub(crate) fn new_partition_dialog() -> HtmlDialogElement {
+    get_element_by_id::<HtmlDialogElement>("new-partition-dialog")
+}
+
+pub(crate) fn partition_input() -> HtmlInputElement {
+    get_element_by_id::<HtmlInputElement>("partition-input")
+}
+
+pub(crate) fn partition_ncol_input() -> HtmlInputElement {
+    get_element_by_id::<HtmlInputElement>("partition-ncol-input")
+}
+
+pub(crate) fn sample_id_input() -> HtmlInputElement {
+    get_element_by_id::<HtmlInputElement>("sample-id-input")
 }
 
 macro_rules! alert {
