@@ -19,7 +19,7 @@ pub fn PartitionControl<'a, G: Html>(
             style=props.dimension.cget().to_style(),
         ) {
             div (class = "PartitionControlLeft") {
-                button (
+                div (
                     class = "PartitionControlLeftItem Add",
                     on:click=ctx.add_partition_handler(props.idx)
                 ) {
@@ -42,13 +42,13 @@ pub fn PartitionControl<'a, G: Html>(
                 }
             }
             div (class = "PartitionControlRight") {
-                button (
+                div (
                     class = "PartitionControlRightItem PartitionClose",
                     on:click=|_|todo!()
                 ) {
                     "X"
                 }
-                button (
+                div (
                     class = "PartitionControlRightItem PartitionExpand",
                     on:click=|_|todo!()
                 ) {
@@ -73,7 +73,7 @@ pub fn PartitionControl<'a, G: Html>(
                         )
                     }
                 }
-                button (
+                div (
                     class = "PartitionControlRightItem PartitionShrink",
                     on:click=|_|todo!()
                 ) {
