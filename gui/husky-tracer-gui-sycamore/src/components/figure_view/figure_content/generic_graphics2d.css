@@ -1,4 +1,6 @@
 .GenericGraphics2dCanvas {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    background: grey;
 }

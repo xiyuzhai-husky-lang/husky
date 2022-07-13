@@ -99,7 +99,7 @@ impl HuskyTraceTime {
         let session = self.eval_time().session();
         let dev_division = session.dev();
         let restriction = &self.restriction;
-        let mut partitioned_samples_collector = PartitionedSampler::<T>::new(restriction);
+        let mut sampler = PartitionedSampler::<T>::new(restriction);
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
             for trace_id in restriction.arrivals().iter() {
@@ -110,7 +110,7 @@ impl HuskyTraceTime {
             for trace_id in restriction.enters().iter() {
                 todo!()
             }
-            if partitioned_samples_collector
+            if sampler
                 .process(label, || {
                     let visual_data = self
                         .eval_time()
@@ -122,7 +122,7 @@ impl HuskyTraceTime {
                 break;
             }
         }
-        Ok(partitioned_samples_collector.finish())
+        Ok(sampler.finish())
     }
 
     fn is_trace_arrived(&self, trace_id: TraceId) -> bool {

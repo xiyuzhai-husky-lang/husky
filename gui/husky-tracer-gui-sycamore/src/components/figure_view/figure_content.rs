@@ -16,12 +16,12 @@ use plot2d::*;
 use primitive_value::*;
 
 #[derive(Prop)]
-pub struct FigureCanvasProps<'a> {
+pub struct FigureContentProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
 }
 
 #[component]
-pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>) -> View<G> {
+pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a>) -> View<G> {
     let tracer_context = use_context::<DebuggerContext>(scope);
     let opt_active_trace_id = &tracer_context.trace_context.opt_active_trace_id;
     let restriction = &tracer_context.restriction_context.restriction;
@@ -42,7 +42,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
         (if let Some((canvas_data, control_data)) = opt_canvas_and_control_data.cget() {
             view! {
                 scope,
-                FigureCanvasSwitch {
+                FigureContentSwitch {
                     canvas_data,
                     control_data,
                     dimension: props.dimension
@@ -58,16 +58,16 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
 }
 
 #[derive(Prop)]
-struct FigureCanvasSwitchProps<'a> {
+struct FigureContentSwitchProps<'a> {
     canvas_data: &'a FigureCanvasData,
     control_data: &'a Signal<FigureControlData>,
     dimension: &'a ReadSignal<PixelDimension>,
 }
 
 #[component]
-fn FigureCanvasSwitch<'a, G: Html>(
+fn FigureContentSwitch<'a, G: Html>(
     scope: Scope<'a>,
-    props: FigureCanvasSwitchProps<'a>,
+    props: FigureContentSwitchProps<'a>,
 ) -> View<G> {
     match props.canvas_data {
         FigureCanvasData::Primitive { value } => {

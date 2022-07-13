@@ -9,6 +9,7 @@ pub struct FigureContext {
         RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
     pub(crate) pins: &'static Signal<VecSet<TraceId>>,
 }
+
 impl FigureContext {
     pub(super) fn new<'a>(scope: Scope<'a>) -> Self {
         Self {

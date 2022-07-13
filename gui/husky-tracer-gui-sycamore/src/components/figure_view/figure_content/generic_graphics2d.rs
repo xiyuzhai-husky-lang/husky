@@ -19,7 +19,10 @@ pub fn GenericGraphics2d<'a, G: Html>(
     props: GenericGraphics2dProps<'a>,
 ) -> View<G> {
     let dimension = props.dimension;
-    let column_dimension = memo!(scope, || { dimension.cget() / (7, 1) - (2, TITLE_HEIGHT) });
+    let partitioned_samples = props.partitioned_samples;
+    let column_dimension = memo!(scope, || {
+        (dimension.cget() - (6 * 2, TITLE_HEIGHT)) / (7, 1)
+    });
     view! {
         scope,
         div (
