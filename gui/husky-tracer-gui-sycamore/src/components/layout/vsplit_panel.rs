@@ -3,32 +3,26 @@ use super::*;
 
 #[derive(Prop, Clone)]
 pub struct VSplitPanelProps<'a> {
-    width: &'a ReadSignal<u32>,
-    height: &'a ReadSignal<u32>,
+    dimension: &'a ReadSignal<PixelDimension>,
 }
 
+const LOWER_PANEL_HEIGHT: u32 = 23;
+
 impl<'a> VSplitPanelProps<'a> {
-    fn upper_panel_style(&self) -> String {
-        let upper_panel_width = self.panel_width();
-        let upper_panel_height = self.upper_panel_height();
-        format!("width: {upper_panel_width}px; height: {upper_panel_height}px")
-    }
-    fn lower_panel_style(&self) -> String {
-        let lower_panel_width = self.panel_width();
-        let lower_panel_height = self.lower_panel_height();
-        format!("width: {lower_panel_width}px; height: {lower_panel_height}px")
+    fn upper_panel_dimension(&self) -> PixelDimension {
+        let dimension = self.dimension.cget();
+        PixelDimension {
+            width: dimension.width,
+            height: dimension.height - LOWER_PANEL_HEIGHT,
+        }
     }
 
-    fn panel_width(&self) -> u32 {
-        self.width.cget()
-    }
-
-    fn upper_panel_height(&self) -> u32 {
-        self.height.cget() - self.lower_panel_height()
-    }
-
-    fn lower_panel_height(&self) -> u32 {
-        23
+    fn lower_panel_dimension(&self) -> PixelDimension {
+        let dimension = self.dimension.cget();
+        PixelDimension {
+            width: dimension.width,
+            height: LOWER_PANEL_HEIGHT,
+        }
     }
 }
 
@@ -36,21 +30,17 @@ impl<'a> VSplitPanelProps<'a> {
 pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -> View<G> {
     let context = use_context::<DebuggerContext>(scope);
     let root_trace_ids = &context.trace_context.root_trace_ids;
-    let upper_panel_style = memo!(scope, move || props.upper_panel_style(), props);
-    let upper_panel_height = memo!(scope, move || props.upper_panel_height(), props);
-    let lower_panel_style = memo!(scope, move || props.lower_panel_style(), props);
-    let lower_panel_height = memo!(scope, move || props.lower_panel_height(), props);
-    let panel_width = memo!(scope, move || props.panel_width(), props);
+    let upper_panel_dimension = memo!(scope, move || props.upper_panel_dimension(), props);
+    let lower_panel_dimension = memo!(scope, move || props.lower_panel_dimension(), props);
     view! {
         scope,
         div(class="HuskyTracerVSplitPanel") {
-            div(class="HuskyTracerVSplitPanelUpper", style=upper_panel_style) {
+            div(class="HuskyTracerVSplitPanelUpper", style=upper_panel_dimension.cget().to_style()) {
                 HSplitPanel {
-                    height: upper_panel_height,
-                    width:  panel_width,
+                    dimension: upper_panel_dimension
                 }
             }
-            div(class="HuskyTracerVSplitPanelLower", style=lower_panel_style) {
+            div(class="HuskyTracerVSplitPanelLower", style=lower_panel_dimension.cget().to_style()) {
                 RestrictionView {}
             }
         }

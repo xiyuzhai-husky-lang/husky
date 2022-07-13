@@ -15,19 +15,21 @@ pub fn PartitionContent<'a, G: Html>(
 ) -> View<G> {
     let column_dimension = props.column_dimension;
     let dimension = memo!(scope, move || {
-        column_dimension.cget() * (props.partition.ncol, 1) + (0, TITLE_HEIGHT)
+        column_dimension.cget() * (props.partition.ncol, 1)
+            + ((props.partition.ncol - 1) * 2, TITLE_HEIGHT)
     });
     let top_bar_dimension = memo!(scope, move || {
         PixelDimension {
             height: TITLE_HEIGHT,
-            width: props.partition.ncol * column_dimension.cget().width,
+            width: props.partition.ncol * column_dimension.cget().width
+                + (props.partition.ncol - 1) * 2,
         }
     });
     let samples_canvas_dimension = memo!(scope, move || {
         let column_dimension = column_dimension.cget();
         PixelDimension {
             height: column_dimension.height,
-            width: props.partition.ncol * column_dimension.width,
+            width: dimension.cget().width,
         }
     });
     let sample_wrapper_dimension =

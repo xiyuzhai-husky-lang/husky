@@ -65,17 +65,17 @@ impl<T> PartitionedSampler<T> {
         f: impl FnOnce() -> Result<(SampleId, T), E>,
     ) -> Result<bool, E> {
         for (i, (partition, samples)) in self.partitioned_samples.iter_mut().enumerate() {
-            let max_samples_len = (partition.ncol * self.col_len) as usize;
-            if samples.len() < max_samples_len {
-                if partition.contains(label) {
+            if partition.contains(label) {
+                let max_samples_len = (partition.ncol * self.col_len) as usize;
+                if samples.len() < max_samples_len {
                     samples.push(f()?);
                     if samples.len() == max_samples_len {
                         self.flags &= !(1 << i);
                     }
+                } else {
+                    assert!((self.flags & (1 << i)) == 0)
                 }
                 break;
-            } else {
-                assert!((self.flags & (1 << i)) == 0)
             }
         }
         Ok(self.flags == 0)

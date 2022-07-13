@@ -1,61 +1,54 @@
-mod figure_canvas;
+mod figure_content;
 mod figure_control;
 
 use super::*;
-use figure_canvas::*;
+use figure_content::*;
 use figure_control::*;
 
 #[derive(Prop, Clone)]
 pub struct FigureViewProps<'a> {
-    width: &'a ReadSignal<u32>,
-    height: &'a ReadSignal<u32>,
+    dimension: &'a ReadSignal<PixelDimension>,
 }
 
+const FIGURE_TOP_BAR_HEIGHT: u32 = 23;
+
 impl<'a> FigureViewProps<'a> {
-    fn canvas_dimension(&self) -> PixelDimension {
+    fn content_dimension(&self) -> PixelDimension {
+        let dimension = self.dimension.cget();
         PixelDimension {
-            width: self.width.cget() * 95 / 100 * 4 / 5,
-            height: self.height.cget() * 97 * 95 / 10000,
+            width: dimension.width - 4,
+            height: dimension.height - FIGURE_TOP_BAR_HEIGHT,
         }
     }
-    fn control_dimension(&self) -> PixelDimension {
-        let total_width = self.width.cget();
+    fn title_dimension(&self) -> PixelDimension {
+        let dimension = self.dimension.cget();
         PixelDimension {
-            width: total_width * 95 / 100 - total_width * 95 / 100 * 4 / 5,
-            height: self.height.cget() * 97 * 95 / 10000,
+            width: dimension.width,
+            height: FIGURE_TOP_BAR_HEIGHT,
         }
     }
 }
 
 #[component]
 pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> View<G> {
-    let canvas_dimension = memo!(scope, move || props.canvas_dimension(), props);
-    let control_dimension = memo!(scope, move || props.control_dimension(), props);
+    let dimension = props.dimension;
+    let content_dimension = memo!(scope, move || props.content_dimension(), props);
+    let title_dimension = memo!(scope, move || props.title_dimension(), props);
     view! {
         scope,
         div (class="FigureView disable-select") {
-            p (class="FigureTitle") {
-                "title"
+            div (
+                class="FigureTitle",
+                style=title_dimension.cget().to_style(),
+            ) {
+                label { "title" }
             }
             div (
                 class="FigureContent",
-                style="flex-direction: row"
+                style=dimension.cget().to_style(),
             ) {
-                div (
-                    class="FigureCanvasContainer",
-                    style=canvas_dimension.get().to_style(),
-                ) {
-                    FigureCanvas {
-                        dimension: canvas_dimension
-                    }
-                }
-                div (
-                    class="FigureControlContainer",
-                    style=control_dimension.get().to_style(),
-                ) {
-                    FigureControl {
-                        dimension: control_dimension
-                    }
+                FigureContent {
+                    dimension: content_dimension
                 }
             }
         }
