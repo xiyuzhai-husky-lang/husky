@@ -172,7 +172,7 @@ impl DebuggerContext {
                                 }
                             };
                             let ncol_str = partition_ncol_input().value();
-                            let ncol = match label_str.parse::<u32>() {
+                            let ncol = match ncol_str.parse::<u32>() {
                                 Ok(raw) => raw,
                                 Err(_) => {
                                     alert!("`{}` is not a valid partition", label_str);
