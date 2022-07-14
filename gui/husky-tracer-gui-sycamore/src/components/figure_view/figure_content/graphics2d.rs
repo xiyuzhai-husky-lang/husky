@@ -36,26 +36,34 @@ pub fn Graphics2dCanvas<'a, G: Html>(
     let view_box = props.svg_view_box();
     view! {
         scope,
-        div (class="Graphics2dWrapper") {
-            Image {
-                dimension: props.dimension,
-                image_layers: props.image_layers,
-            }
-            svg (
+        div (
+            class="Graphics2dWrapper",
+            style=props.dimension.get().to_style(),
+        ) {
+            div (
+                class="Graphics2d",
                 style=props.dimension.get().to_style(),
-                viewBox=view_box
             ) {
-                g (
-                    transform=transform
+                Image {
+                    dimension: props.dimension,
+                    image_layers: props.image_layers,
+                }
+                svg (
+                    style=props.dimension.get().to_style(),
+                    viewBox=view_box
                 ) {
-                    (View::new_fragment(props.shapes.iter().map(|data| {
-                        view! {
-                            scope,
-                            Shape2d {
-                                data: data.clone()
+                    g (
+                        transform=transform
+                    ) {
+                        (View::new_fragment(props.shapes.iter().map(|data| {
+                            view! {
+                                scope,
+                                Shape2d {
+                                    data: data.clone()
+                                }
                             }
-                        }
-                    }).collect()))
+                        }).collect()))
+                    }
                 }
             }
         }

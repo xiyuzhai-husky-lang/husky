@@ -44,7 +44,7 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
                 label { "title" }
             }
             div (
-                class="FigureContent",
+                class="FigureContentWrapper",
                 style=dimension.cget().to_style(),
             ) {
                 FigureContent {

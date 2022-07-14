@@ -1,7 +1,11 @@
 .Graphics2dWrapper {
-    position: relative;
+    position: absolute;
 }
-.Graphics2dWrapper svg {
+.Graphics2d {
+    position: relative;
+    background: black;
+}
+.Graphics2d svg {
     position: absolute;
     left: 0px;
     top: 0px;
