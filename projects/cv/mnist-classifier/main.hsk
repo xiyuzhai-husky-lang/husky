@@ -18,4 +18,8 @@ main:
     raw_contour0 = raw_contours[0]
     line_segment_sketch = raw_contour0.line_segment_sketch
     concave_components = line_segment_sketch.concave_components
-    naive_i32(concave_components.ilen())
+    // naive_i32(concave_components.ilen())
+    if concave_components.ilen() > 0:
+        2
+    else:
+        1
