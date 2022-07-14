@@ -14,13 +14,11 @@
     flex-direction: row;
     justify-content: center;
 }
-.FigureContent {
+.FigureContentWrapper {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
-
 .FigureView svg .red {
     fill: red;
 }

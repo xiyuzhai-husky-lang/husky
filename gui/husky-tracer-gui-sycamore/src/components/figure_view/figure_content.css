@@ -1,10 +1,6 @@
-.FigureContent {
-    width: 95%;
-    height: 97%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 .EvalErrorCanvas {
     color: red;
 }
+/* .FigureContent {
+    display: block;
+} */
