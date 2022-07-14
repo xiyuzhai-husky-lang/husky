@@ -1,11 +1,11 @@
+mod config;
 mod partition;
 mod partition_control;
 
 use super::*;
+use config::*;
 use partition::*;
 use partition_control::*;
-
-const TITLE_HEIGHT: u32 = 25;
 
 #[derive(Prop)]
 pub struct GenericGraphics2dProps<'a> {
@@ -18,16 +18,42 @@ pub fn GenericGraphics2d<'a, G: Html>(
     scope: Scope<'a>,
     props: GenericGraphics2dProps<'a>,
 ) -> View<G> {
-    let dimension = props.dimension;
     let partitioned_samples = props.partitioned_samples;
     let column_dimension = memo!(scope, || {
-        (dimension.cget() - (6 * 2, TITLE_HEIGHT)) / (7, 1)
+        let nline: u32 = partitioned_samples
+            .iter()
+            .map(|(partition, _)| partition.ncol + 1)
+            .sum();
+        let ncol: u32 = partitioned_samples
+            .iter()
+            .map(|(partition, _)| partition.ncol)
+            .sum();
+        (props.dimension.cget()
+            - (
+                nline * GENERIC_SEPARATOR_LINE_WIDTH,
+                TITLE_HEIGHT + GENERIC_BOTTOM_SPACE,
+            ))
+            / (ncol, 1)
+    });
+    let actual_dimension = memo!(scope, || {
+        let nline: u32 = partitioned_samples
+            .iter()
+            .map(|(partition, _)| partition.ncol + 1)
+            .sum();
+        let ncol: u32 = partitioned_samples
+            .iter()
+            .map(|(partition, _)| partition.ncol)
+            .sum();
+        PixelDimension {
+            width: column_dimension.cget().width * ncol + nline * GENERIC_SEPARATOR_LINE_WIDTH,
+            height: props.dimension.cget().height - GENERIC_BOTTOM_SPACE,
+        }
     });
     view! {
         scope,
         div (
             class="GenericGraphics2dCanvas",
-            style=props.dimension.cget().to_style()
+            style=actual_dimension.cget().to_style()
         ) {
             (View::new_fragment(props.partitioned_samples.iter().enumerate().map(
                 |(idx,(partition, samples))| {
