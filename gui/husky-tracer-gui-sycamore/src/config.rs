@@ -1,0 +1,1 @@
+pub static GENERIC_SEPARATOR_LINE_WIDTH: u32 = 2;

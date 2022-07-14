@@ -12,7 +12,7 @@
 }
 .PartitionControlLeft {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
     padding: 1px;
 }

@@ -16,13 +16,15 @@ pub fn PartitionContent<'a, G: Html>(
     let column_dimension = props.column_dimension;
     let dimension = memo!(scope, move || {
         column_dimension.cget() * (props.partition.ncol, 1)
-            + ((props.partition.ncol - 1) * 2, TITLE_HEIGHT)
+            + (
+                (props.partition.ncol + 1) * GENERIC_SEPARATOR_LINE_WIDTH,
+                TITLE_HEIGHT,
+            )
     });
     let top_bar_dimension = memo!(scope, move || {
         PixelDimension {
             height: TITLE_HEIGHT,
-            width: props.partition.ncol * column_dimension.cget().width
-                + (props.partition.ncol - 1) * 2,
+            width: dimension.cget().width,
         }
     });
     let samples_canvas_dimension = memo!(scope, move || {
@@ -40,7 +42,7 @@ pub fn PartitionContent<'a, G: Html>(
     view! {
         scope,
         div (
-            class="PartitionContent",
+            class=format!("PartitionContent Index{}",props.idx),
             style=dimension.cget().to_style(),
         ) {
             div (
