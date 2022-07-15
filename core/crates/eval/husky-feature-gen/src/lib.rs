@@ -103,7 +103,11 @@ pub enum Feature {
     ArrivalAfterStmtNotReturn {
         stmt: FeaturePtr,
     },
-    ArrivalAfterConditionNotSatisfied {
+    ArrivalAfterConditionNotMet {
+        opt_parent: Option<FeaturePtr>,
+        condition: FeaturePtr,
+    },
+    ArrivalIfConditionMet {
         opt_parent: Option<FeaturePtr>,
         condition: FeaturePtr,
     },

@@ -20,8 +20,8 @@ impl<'a> TraceTokenBuilder<'a> {
             None
         };
         match expr.variant {
-            FeatureLazyExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
-            FeatureLazyExprVariant::PrimitiveBinaryOpr {
+            FeatureExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
+            FeatureExprVariant::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,
                 ref ropd,
@@ -30,10 +30,10 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(special!(opr.spaced_code(), opt_associated_trace_id));
                 self.gen_feature_expr_tokens(ropd, config.subexpr())
             }
-            FeatureLazyExprVariant::Variable { varname, .. } => {
+            FeatureExprVariant::Variable { varname, .. } => {
                 self.push(ident!(varname.0, opt_associated_trace_id))
             }
-            FeatureLazyExprVariant::RoutineCall {
+            FeatureExprVariant::RoutineCall {
                 opds: ref feature_opds,
                 ..
             } => match expr.expr.variant {
@@ -69,7 +69,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 },
                 _ => panic!(""),
             },
-            FeatureLazyExprVariant::ModelCall {
+            FeatureExprVariant::ModelCall {
                 ref opds,
                 has_this,
                 ref model_defn,
@@ -99,8 +99,8 @@ impl<'a> TraceTokenBuilder<'a> {
                 },
                 _ => panic!(),
             },
-            FeatureLazyExprVariant::EnumKindLiteral { .. } => todo!(),
-            FeatureLazyExprVariant::EntityFeature { .. } => {
+            FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
+            FeatureExprVariant::EntityFeature { .. } => {
                 let text = self
                     .eval_time_singleton
                     .compile_time()
@@ -111,10 +111,10 @@ impl<'a> TraceTokenBuilder<'a> {
                     opt_associated_trace_id
                 ))
             }
-            FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureLazyExprVariant::EvalInput => self.push(keyword!("input")),
-            FeatureLazyExprVariant::ElementAccess { ref opds, .. } => {
+            FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+            FeatureExprVariant::ThisValue { ref repr } => todo!(),
+            FeatureExprVariant::EvalInput => self.push(keyword!("input")),
+            FeatureExprVariant::ElementAccess { ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
                 self.push(special!("[", opt_associated_trace_id.clone()));
                 for i in 1..opds.len() {
@@ -123,22 +123,22 @@ impl<'a> TraceTokenBuilder<'a> {
                 }
                 self.push(special!("]", opt_associated_trace_id))
             }
-            FeatureLazyExprVariant::RecordDerivedFieldAccess {
+            FeatureExprVariant::RecordDerivedFieldAccess {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_eager_field_access_tokens(config, this, field_ident),
-            FeatureLazyExprVariant::StructOriginalFieldAccess {
+            FeatureExprVariant::StructOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_eager_field_access_tokens(config, this, field_ident),
-            FeatureLazyExprVariant::RecordOriginalFieldAccess {
+            FeatureExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_eager_field_access_tokens(config, this, field_ident),
-            FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
+            FeatureExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ..

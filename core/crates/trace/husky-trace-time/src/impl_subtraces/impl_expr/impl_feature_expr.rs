@@ -9,10 +9,10 @@ impl HuskyTraceTime {
         expr: &FeatureExpr,
     ) -> Vec<TraceId> {
         match expr.variant {
-            FeatureLazyExprVariant::PrimitiveLiteral(_)
-            | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
-            | FeatureLazyExprVariant::Variable { .. } => vec![],
-            FeatureLazyExprVariant::RoutineCall {
+            FeatureExprVariant::PrimitiveLiteral(_)
+            | FeatureExprVariant::PrimitiveBinaryOpr { .. }
+            | FeatureExprVariant::Variable { .. } => vec![],
+            FeatureExprVariant::RoutineCall {
                 ref opt_instruction_sheet,
                 ref routine_defn,
                 ref opds,
@@ -37,25 +37,25 @@ impl HuskyTraceTime {
                     )
                 },
             ),
-            FeatureLazyExprVariant::EntityFeature { ref repr, .. } => {
+            FeatureExprVariant::EntityFeature { ref repr, .. } => {
                 self.feature_repr_subtraces(parent, repr)
             }
-            FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureLazyExprVariant::RecordOriginalFieldAccess {
+            FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+            FeatureExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ..
             } => todo!(),
-            FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-            FeatureLazyExprVariant::StructOriginalFieldAccess { .. } => panic!(),
-            FeatureLazyExprVariant::EnumKindLiteral { .. } => panic!(),
-            FeatureLazyExprVariant::EvalInput => panic!(),
-            FeatureLazyExprVariant::ElementAccess { ref opds, .. } => panic!(),
-            FeatureLazyExprVariant::StructDerivedLazyFieldAccess { ref repr, .. } => {
+            FeatureExprVariant::ThisValue { ref repr } => todo!(),
+            FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+            FeatureExprVariant::StructOriginalFieldAccess { .. } => panic!(),
+            FeatureExprVariant::EnumKindLiteral { .. } => panic!(),
+            FeatureExprVariant::EvalInput => panic!(),
+            FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
+            FeatureExprVariant::StructDerivedLazyFieldAccess { ref repr, .. } => {
                 self.feature_repr_subtraces(parent, repr)
             }
-            FeatureLazyExprVariant::ModelCall {
+            FeatureExprVariant::ModelCall {
                 ref opds,
                 has_this,
                 ref model_defn,

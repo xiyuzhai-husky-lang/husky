@@ -12,9 +12,6 @@ impl TrainModel for HuskyEvalTime {
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         opds: &[Arc<FeatureExpr>],
     ) -> vm::__EvalResult {
-        if let Some(branch_indicator) = opt_arrival_indicator {
-            todo!()
-        }
         const MAX_SAMPLE_LEN: usize = 1000;
         let session = self.session();
         let dev_division = session.dev();
@@ -23,6 +20,9 @@ impl TrainModel for HuskyEvalTime {
         let mut training_data: Vec<(Vec<__EvalValue>, Label)> = Vec::new();
         for labeled_data in dev_division.each_labeled_data() {
             let sample_id = labeled_data.sample_id;
+            if !self.eval_opt_arrival_indicator(opt_arrival_indicator, sample_id)? {
+                continue;
+            }
             if sample_id.0 >= MAX_SAMPLE_LEN {
                 break;
             }

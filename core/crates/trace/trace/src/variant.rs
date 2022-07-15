@@ -125,31 +125,31 @@ impl<'eval> TraceVariant<'eval> {
             | TraceVariant::Main(_)
             | TraceVariant::FeatureLazyBranch(_) => true,
             TraceVariant::FeatureLazyExpr(expr) => match expr.variant {
-                FeatureLazyExprVariant::PrimitiveLiteral(_)
-                | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
-                | FeatureLazyExprVariant::Variable { .. } => false,
-                FeatureLazyExprVariant::StructOriginalFieldAccess { .. } => todo!(),
-                FeatureLazyExprVariant::EnumKindLiteral { .. } => false,
-                FeatureLazyExprVariant::EntityFeature { .. } => true,
-                FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-                FeatureLazyExprVariant::RecordOriginalFieldAccess {
+                FeatureExprVariant::PrimitiveLiteral(_)
+                | FeatureExprVariant::PrimitiveBinaryOpr { .. }
+                | FeatureExprVariant::Variable { .. } => false,
+                FeatureExprVariant::StructOriginalFieldAccess { .. } => todo!(),
+                FeatureExprVariant::EnumKindLiteral { .. } => false,
+                FeatureExprVariant::EntityFeature { .. } => true,
+                FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+                FeatureExprVariant::RecordOriginalFieldAccess {
                     ref this,
                     field_ident,
                     ..
                 } => false,
-                FeatureLazyExprVariant::ThisValue { .. } => false,
-                FeatureLazyExprVariant::EvalInput => false,
-                FeatureLazyExprVariant::RoutineCall {
+                FeatureExprVariant::ThisValue { .. } => false,
+                FeatureExprVariant::EvalInput => false,
+                FeatureExprVariant::RoutineCall {
                     ref routine_defn, ..
                 } => !routine_defn.is_builtin(),
-                FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-                FeatureLazyExprVariant::ElementAccess { ref opds, .. } => false,
-                FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
+                FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+                FeatureExprVariant::ElementAccess { ref opds, .. } => false,
+                FeatureExprVariant::StructDerivedLazyFieldAccess {
                     ref this,
                     field_ident,
                     ref repr,
                 } => true,
-                FeatureLazyExprVariant::ModelCall {
+                FeatureExprVariant::ModelCall {
                     ref opds,
                     has_this,
                     ref model_defn,

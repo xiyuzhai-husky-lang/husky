@@ -45,3 +45,4 @@ static-defn = { path = "../../static/static-defn" }
 thin-vec = { path = "../../../../forks/thin-vec" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
 husky-compile-time = { path = "../../compile/husky-compile-time" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
