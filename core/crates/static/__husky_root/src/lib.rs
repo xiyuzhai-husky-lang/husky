@@ -53,7 +53,7 @@ use static_defn::*;
 use vm::*;
 use word::RootIdentifier;
 
-pub fn __root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
+pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
     match ident {
         RootIdentifier::Void => &VOID_TYPE_DEFN,
         RootIdentifier::I32 => &I32_TYPE_DEFN,

@@ -1,6 +1,6 @@
 mod flags;
 
-use __husky_root::__root_defn;
+use __husky_root::__resolve_root_defn;
 use husky_compile_dir::{
     get_husky_code_snapshot_dir, get_or_create_child_dir, get_rust_dir, mkdir,
 };
@@ -23,9 +23,9 @@ pub fn compile_all(dir: PathBuf) {
 
 pub fn compile_package(package_dir: PathBuf) {
     let mut compile_time = HuskyCompileTime::new(HuskyCompileTimeConfig {
-        __root_defn_resolver: __root_defn,
+        __resolve_root_defn,
         linkage_table: LinkageTableConfig {
-            report_missing_linkage: false,
+            warn_missing_linkage: false,
         },
     });
     compile_time.load_package(&package_dir);

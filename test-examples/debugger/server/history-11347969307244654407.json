@@ -1,43 +1,43 @@
 {
-  "config": {
-    "package_dir": "crates/mnist-classifier/snapshot/mnist-classifier",
-    "opt_sample_id": 23,
-    "verbose": false,
-    "report_vm": false
-  },
-  "gui_messages": [
-    {
-      "kind": "HuskyTracerGuiMessage",
-      "opt_request_id": 1,
-      "variant": {
-        "kind": "InitDataRequest"
-      }
+    "config": {
+        "package_dir": "crates/mnist-classifier/snapshot/mnist-classifier",
+        "opt_sample_id": 23,
+        "verbose": false,
+        "warn_vm": false
     },
-    {
-      "kind": "HuskyTracerGuiMessage",
-      "opt_request_id": null,
-      "variant": {
-        "kind": "SetRestriction",
-        "restriction": {
-          "is_specific": false,
-          "specific_sample_id": 0,
-          "partitions": [
-            {
-              "ncol": 7,
-              "variant": "Other"
+    "gui_messages": [
+        {
+            "kind": "HuskyTracerGuiMessage",
+            "opt_request_id": 1,
+            "variant": {
+                "kind": "InitDataRequest"
             }
-          ],
-          "arrivals": {
-            "entries": []
-          },
-          "enters": {
-            "entries": []
-          }
         },
-        "needs_figure_canvas_data": false,
-        "needs_figure_control_data": false,
-        "needs_stalk": false
-      }
-    }
-  ]
+        {
+            "kind": "HuskyTracerGuiMessage",
+            "opt_request_id": null,
+            "variant": {
+                "kind": "SetRestriction",
+                "restriction": {
+                    "is_specific": false,
+                    "specific_sample_id": 0,
+                    "partitions": [
+                        {
+                            "ncol": 7,
+                            "variant": "Other"
+                        }
+                    ],
+                    "arrivals": {
+                        "entries": []
+                    },
+                    "enters": {
+                        "entries": []
+                    }
+                },
+                "needs_figure_canvas_data": false,
+                "needs_figure_control_data": false,
+                "needs_stalk": false
+            }
+        }
+    ]
 }

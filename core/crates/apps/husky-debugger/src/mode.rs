@@ -1,5 +1,5 @@
 use crate::*;
-use __husky_root::__root_defn;
+use __husky_root::__resolve_root_defn;
 use path_utils::collect_all_package_dirs;
 use std::path::{Path, PathBuf};
 
@@ -61,7 +61,7 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
                 package_dir,
                 opt_sample_id: Some(SampleId(23)),
                 verbose: false,
-                report_missing_linkage: false,
+                warn_missing_linkage: false,
             },
             &[],
         )
