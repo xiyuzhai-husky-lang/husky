@@ -65,12 +65,12 @@ install-compiler:
 mnist-compiled:
 	cargo check
 	cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
-	cd ${HUSKY_DIR}/.compiled && cargo run -q mnist-classifier-debugger --report-vm
+	cd ${HUSKY_DIR}/.compiled && cargo run -q mnist-classifier-debugger --report-missing-linkage
 
 mnist-compiled-release:
 	cargo check
 	cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
-	cd ${HUSKY_DIR}/.compiled && cargo run -q --release mnist-classifier-debugger --report-vm
+	cd ${HUSKY_DIR}/.compiled && cargo run -q --release mnist-classifier-debugger --report-missing-linkage
 
 mnist-compiled-with-backtrace:
 	@cargo check

@@ -4,7 +4,7 @@ xflags::xflags! {
     cmd husky-debugger-flags
     {
         optional --package-dir package_dir: PathBuf
-        optional --report-vm
+        optional --report-missing-linkage
         optional -v, --verbose
         optional --sample-id sample_id: String
         optional --mode mode: String

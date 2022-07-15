@@ -1,3 +1,4 @@
+mod config;
 mod impl_arrival;
 mod impl_block;
 mod impl_cached;
@@ -8,12 +9,13 @@ mod impl_visualize;
 mod indicator;
 mod sheet;
 
-use husky_trace_protocol::SampleId;
+pub use config::*;
 pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
+use husky_trace_protocol::SampleId;
 use vm::{VMConfig, __AnyValueDyn, __EvalValue};
 use vm::{__EvalResult, __EvalValueResult};
 
@@ -22,11 +24,15 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) eval_input: __EvalValue<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
     pub(crate) db: &'a dyn FeatureGenQueryGroup,
-    pub(crate) vm_config: &'a VMConfig,
+    pub(crate) evaluator_config: &'a EvaluatorConfig,
     pub(crate) opt_static_husky_feature_eval: Option<&'a dyn EvalFeature<'static>>,
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
+    fn vm_config(&self) -> &'a VMConfig {
+        &self.evaluator_config.vm
+    }
+
     fn cache(
         &mut self,
         eval_key: EvalKey<'eval>,

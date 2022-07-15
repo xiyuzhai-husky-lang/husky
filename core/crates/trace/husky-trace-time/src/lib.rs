@@ -52,11 +52,7 @@ impl HuskyTraceTime {
         eval_time_config: HuskyEvalTimeConfig,
     ) -> Self {
         let mut trace_time = Self {
-            eval_time_singleton: HuskyEvalTime::new(
-                __root_defn,
-                init_compile_time,
-                eval_time_config,
-            ),
+            eval_time_singleton: HuskyEvalTime::new(init_compile_time, eval_time_config),
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),
@@ -248,6 +244,10 @@ impl HuskyTraceTime {
             figure_controls,
             pins,
         }
+    }
+
+    fn vm_config(&self) -> &VMConfig {
+        self.eval_time().vm_config()
     }
 }
 

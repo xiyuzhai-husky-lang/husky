@@ -1,6 +1,7 @@
 use husky_entity_semantics::DefinitionRepr;
 use husky_file::FilePtr;
 use husky_instruction_gen::new_func_instruction_sheet;
+use husky_linkage_table::ResolveLinkage;
 use vm::{__AnyValueDyn, __EvalRef, __EvalResult};
 
 use crate::*;
@@ -111,6 +112,7 @@ impl FeatureRepr {
                 },
                 opt_this,
                 ty: *ty,
+                opt_linkage: { db.compile_time().feature_eager_block_linkage(*route) },
             })),
             DefinitionRepr::ProcBlock {
                 stmts,

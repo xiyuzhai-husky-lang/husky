@@ -1,7 +1,9 @@
+mod config;
 mod form;
 mod key;
 mod table;
 
+pub use config::*;
 pub use form::*;
 pub use key::*;
 pub use table::*;
@@ -204,5 +206,14 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
                 .flatten(),
             _ => panic!(),
         }
+    }
+
+    fn feature_eager_block_linkage(
+        &self,
+        route: EntityRoutePtr,
+    ) -> Option<__SpecificRoutineLinkage> {
+        self.husky_linkage_table()
+            .feature_eager_block_linkage(self.upcast(), self.entity_uid(route))
+            .map(|linkage| linkage.specific())
     }
 }

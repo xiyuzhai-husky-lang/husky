@@ -47,16 +47,17 @@ pub struct HuskyEvalTime {
 }
 
 pub struct HuskyEvalTimeConfig {
-    pub vm_config: VMConfig,
+    pub evaluator: EvaluatorConfig,
+    pub compile_time: HuskyCompileTimeConfig,
 }
 
 impl HuskyEvalTime {
     pub fn new(
-        __root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
+        // __root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
         init_compile_time: impl FnOnce(&mut HuskyCompileTime),
         config: HuskyEvalTimeConfig,
     ) -> HuskyEvalTimeSingletonKeeper {
-        let mut compile_time = HuskyCompileTime::new(__root_defn);
+        let mut compile_time = HuskyCompileTime::new(config.compile_time.clone());
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1);
@@ -93,7 +94,7 @@ impl HuskyEvalTime {
             }
         };
         self.variant = HuskyEvalTimeVariant::Learning {
-            session: Session::new(&package, self, self.vm_config()).unwrap(),
+            session: Session::new(&package, self, &self.evaluator_config().vm).unwrap(),
         }
     }
 }

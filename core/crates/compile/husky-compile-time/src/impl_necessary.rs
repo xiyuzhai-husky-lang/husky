@@ -28,7 +28,7 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
             opt_main: self.opt_main,
-            __root_defn_resolver: self.__root_defn_resolver,
+            config: self.config.clone(),
             ty_cache: self.ty_cache.clone(),
             entity_route_menu: self.entity_route_menu.clone(),
         })
@@ -71,7 +71,7 @@ impl ResolveStaticRootDefn for HuskyCompileTime {
     fn __root_defn_resolver(
         &self,
     ) -> fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn {
-        self.__root_defn_resolver
+        self.config.__root_defn_resolver
     }
 }
 

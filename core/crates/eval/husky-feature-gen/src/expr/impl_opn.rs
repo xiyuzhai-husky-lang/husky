@@ -190,7 +190,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     field_ident: field_ident.ident,
                 });
                 (
-                    FeatureExprVariant::StructOriginalFieldAccess {
+                    FeatureExprVariant::StructOriginalField {
                         field_ident,
                         field_idx: this_ty_decl.field_idx(field_ident.ident),
                         field_binding,
@@ -228,7 +228,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                     );
                                     let feature = repr.feature();
                                     let feature_expr_kind =
-                                        FeatureExprVariant::StructDerivedLazyFieldAccess {
+                                        FeatureExprVariant::StructDerivedLazyField {
                                             this,
                                             field_ident,
                                             repr,
@@ -251,7 +251,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     .record_field_repr(this.clone().into(), field_ident.ident);
                 let feature = repr.feature();
                 (
-                    FeatureExprVariant::RecordOriginalFieldAccess {
+                    FeatureExprVariant::RecordOriginalField {
                         this,
                         field_ident,
                         repr,
@@ -286,7 +286,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                             field_ident: field_ident.ident,
                                         });
                                     let feature_expr_kind =
-                                        FeatureExprVariant::RecordDerivedFieldAccess {
+                                        FeatureExprVariant::RecordDerivedField {
                                             this,
                                             field_ident,
                                             repr,
@@ -334,7 +334,7 @@ impl<'a> FeatureExprBuilder<'a> {
     ) -> Arc<FeatureExpr> {
         match this.variant {
             FeatureExprVariant::Variable { .. } => todo!(),
-            FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
+            FeatureExprVariant::RecordOriginalField { .. } => todo!(),
             FeatureExprVariant::EntityFeature {
                 repr: ref block, ..
             } => todo!(),
@@ -353,15 +353,15 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprVariant::RoutineCall { .. }
             | FeatureExprVariant::EnumKindLiteral { .. }
             | FeatureExprVariant::PrimitiveBinaryOpr { .. }
-            | FeatureExprVariant::StructOriginalFieldAccess { .. }
+            | FeatureExprVariant::StructOriginalField { .. }
             | FeatureExprVariant::PrimitiveLiteral(_) => {
                 panic!()
             }
             FeatureExprVariant::ThisValue { ref repr } => todo!(),
             FeatureExprVariant::EvalInput => todo!(),
-            FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+            FeatureExprVariant::RecordDerivedField { .. } => todo!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
-            FeatureExprVariant::StructDerivedLazyFieldAccess {
+            FeatureExprVariant::StructDerivedLazyField {
                 ref this,
                 field_ident,
                 ref repr,

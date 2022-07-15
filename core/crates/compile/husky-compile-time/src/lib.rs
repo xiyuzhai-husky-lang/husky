@@ -1,8 +1,10 @@
+mod config;
 mod impl_diagnostics;
 mod impl_load;
 mod impl_necessary;
 pub mod utils;
 
+pub use config::*;
 pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use husky_diagnostics::DiagnosticQuery;
 pub use husky_entity_route::{EntityRoute, InternEntityRoute};
@@ -62,32 +64,37 @@ pub struct HuskyCompileTime {
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
     opt_main: Option<FilePtr>,
-    __root_defn_resolver: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
+    config: HuskyCompileTimeConfig,
 }
 
 impl HuskyCompileTime {
-    pub fn new(
-        __root_defn_resolver: fn(
-            ident: word::RootIdentifier,
-        ) -> &'static static_defn::EntityStaticDefn,
-    ) -> Self {
+    pub fn new(config: HuskyCompileTimeConfig) -> Self {
         let live_docs = Default::default();
         let entity_route_interner = husky_entity_route::new_entity_route_interner();
         let entity_route_store = Default::default();
-        let husky_linkage_table = Default::default();
+        let linkage_table = LinkageTable::new(config.linkage_table.clone());
         Self {
             storage: Default::default(),
             file_interner: husky_file::new_file_interner(),
             word_interner: word::new_word_interner(),
             entity_route_interner,
             live_docs,
-            linkage_table: husky_linkage_table,
+            linkage_table,
             entity_route_store,
             opt_main: None,
-            __root_defn_resolver,
+            config,
             ty_cache: new_ty_route_cache(),
             entity_route_menu: husky_entity_route::new_entity_route_menu(),
         }
+    }
+
+    pub fn new_default(
+        __root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
+    ) -> Self {
+        Self::new(HuskyCompileTimeConfig {
+            __root_defn_resolver: __root_defn,
+            linkage_table: Default::default(),
+        })
     }
 
     pub fn main_file(&self) -> FilePtr {

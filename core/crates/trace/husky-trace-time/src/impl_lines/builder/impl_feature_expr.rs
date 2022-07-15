@@ -123,22 +123,22 @@ impl<'a> TraceTokenBuilder<'a> {
                 }
                 self.push(special!("]", opt_associated_trace_id))
             }
-            FeatureExprVariant::RecordDerivedFieldAccess {
+            FeatureExprVariant::RecordDerivedField {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_eager_field_access_tokens(config, this, field_ident),
-            FeatureExprVariant::StructOriginalFieldAccess {
+            FeatureExprVariant::StructOriginalField {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_eager_field_access_tokens(config, this, field_ident),
-            FeatureExprVariant::RecordOriginalFieldAccess {
+            FeatureExprVariant::RecordOriginalField {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_eager_field_access_tokens(config, this, field_ident),
-            FeatureExprVariant::StructDerivedLazyFieldAccess {
+            FeatureExprVariant::StructDerivedLazyField {
                 ref this,
                 field_ident,
                 ..

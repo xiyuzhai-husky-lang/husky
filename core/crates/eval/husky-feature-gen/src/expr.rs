@@ -66,24 +66,24 @@ pub enum FeatureExprVariant {
     ThisValue {
         repr: FeatureRepr,
     },
-    StructOriginalFieldAccess {
+    StructOriginalField {
         this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
         field_idx: usize,
         field_binding: Binding,
         opt_linkage: Option<__SpecificRoutineLinkage>,
     },
-    RecordOriginalFieldAccess {
+    RecordOriginalField {
         this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
     },
-    StructDerivedLazyFieldAccess {
+    StructDerivedLazyField {
         this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
     },
-    RecordDerivedFieldAccess {
+    RecordDerivedField {
         this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
         repr: FeatureRepr,
@@ -126,10 +126,10 @@ impl FeatureExprVariant {
             FeatureExprVariant::PrimitiveBinaryOpr { .. } => "PrimitiveBinaryOpr",
             FeatureExprVariant::Variable { .. } => "Variable",
             FeatureExprVariant::ThisValue { .. } => "ThisValue",
-            FeatureExprVariant::StructOriginalFieldAccess { .. } => "StructOriginalFieldAccess",
-            FeatureExprVariant::RecordOriginalFieldAccess { .. } => "RecordOriginalFieldAccess",
-            FeatureExprVariant::StructDerivedLazyFieldAccess { .. } => "StructDerivedFieldAccess",
-            FeatureExprVariant::RecordDerivedFieldAccess { .. } => "RecordDerivedFieldAccess",
+            FeatureExprVariant::StructOriginalField { .. } => "StructOriginalFieldAccess",
+            FeatureExprVariant::RecordOriginalField { .. } => "RecordOriginalFieldAccess",
+            FeatureExprVariant::StructDerivedLazyField { .. } => "StructDerivedFieldAccess",
+            FeatureExprVariant::RecordDerivedField { .. } => "RecordDerivedFieldAccess",
             FeatureExprVariant::ElementAccess { .. } => "ElementAccess",
             FeatureExprVariant::ModelCall { .. } => "ModelCall",
             FeatureExprVariant::RoutineCall { .. } => "RoutineCall",

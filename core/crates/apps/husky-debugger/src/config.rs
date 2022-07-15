@@ -1,5 +1,8 @@
 use crate::*;
+use husky_compile_time::HuskyCompileTimeConfig;
 use husky_eval_time::HuskyEvalTimeConfig;
+use husky_feature_eval::EvaluatorConfig;
+use husky_linkage_table::LinkageTableConfig;
 use serde::{Deserialize, Serialize};
 use vm::VMConfig;
 
@@ -8,7 +11,7 @@ pub struct HuskyDebuggerConfig {
     pub package_dir: PathBuf,
     pub opt_sample_id: Option<SampleId>,
     pub verbose: bool,
-    pub report_vm: bool,
+    pub report_missing_linkage: bool,
 }
 
 impl HuskyDebuggerConfig {
@@ -24,14 +27,22 @@ impl HuskyDebuggerConfig {
                 .sample_id
                 .map(|text| SampleId(text.parse::<usize>().unwrap())),
             verbose: flags.verbose,
-            report_vm: flags.report_vm || flags.verbose,
+            report_missing_linkage: flags.report_missing_linkage || flags.verbose,
         }
     }
 
     pub fn eval_time(&self) -> HuskyEvalTimeConfig {
         HuskyEvalTimeConfig {
-            vm_config: VMConfig {
-                verbose: self.verbose,
+            evaluator: EvaluatorConfig {
+                vm: VMConfig {
+                    verbose: self.verbose,
+                },
+            },
+            compile_time: HuskyCompileTimeConfig {
+                __root_defn_resolver: todo!(),
+                linkage_table: LinkageTableConfig {
+                    report_missing_linkage: self.report_missing_linkage,
+                },
             },
         }
     }

@@ -17,7 +17,10 @@ use vm::{VMConfig, __EvalResult, __EvalValue, __EvalValueResult};
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;
-    fn vm_config(&self) -> &VMConfig;
+    fn evaluator_config(&self) -> &EvaluatorConfig;
+    fn vm_config(&self) -> &VMConfig {
+        &self.evaluator_config().vm
+    }
 
     fn evaluator<'a>(&'a self, sample_id: SampleId) -> FeatureEvaluator<'a, 'eval> {
         let dev = self.session().dev();
@@ -28,7 +31,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
             db: self.upcast(),
             eval_input,
             sheet,
-            vm_config: self.vm_config(),
+            evaluator_config: self.evaluator_config(),
             opt_static_husky_feature_eval: self.opt_static_husky_feature_eval(),
         }
     }

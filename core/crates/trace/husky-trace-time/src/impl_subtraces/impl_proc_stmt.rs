@@ -20,7 +20,7 @@ impl HuskyTraceTime {
             loop_kind,
             &body_instruction_sheet,
             stack_snapshot,
-            self.eval_time().vm_config(),
+            self.vm_config(),
         );
         frames
             .into_iter()
@@ -51,7 +51,7 @@ impl HuskyTraceTime {
             eval_time(),
             instruction_sheet,
             &loop_frame_data.stack_snapshot,
-            self.eval_time().vm_config(),
+            self.vm_config(),
         );
         let mut subtraces: Vec<_> =
             self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 2, stmts, &history);
@@ -92,7 +92,7 @@ impl HuskyTraceTime {
             self.eval_time().upcast(),
             instruction_sheet,
             stack_snapshot,
-            self.eval_time().vm_config(),
+            self.vm_config(),
         );
         self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 4, stmts, &history)
     }

@@ -7,6 +7,7 @@ use husky_compile_dir::{
 use husky_compile_time::*;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use husky_file::FilePtr;
+use husky_linkage_table::LinkageTableConfig;
 use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
 use print_utils::*;
@@ -21,7 +22,12 @@ pub fn compile_all(dir: PathBuf) {
 }
 
 pub fn compile_package(package_dir: PathBuf) {
-    let mut compile_time = HuskyCompileTime::new(__root_defn);
+    let mut compile_time = HuskyCompileTime::new(HuskyCompileTimeConfig {
+        __root_defn_resolver: __root_defn,
+        linkage_table: LinkageTableConfig {
+            report_missing_linkage: false,
+        },
+    });
     compile_time.load_package(&package_dir);
     let main_file = compile_time.unique_main_file();
     let package = compile_time.package(main_file).unwrap();

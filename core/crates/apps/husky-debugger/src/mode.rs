@@ -61,7 +61,7 @@ async fn test_all_packages_in_dir(dir: PathBuf) {
                 package_dir,
                 opt_sample_id: Some(SampleId(23)),
                 verbose: false,
-                report_vm: false,
+                report_missing_linkage: false,
             },
             &[],
         )
