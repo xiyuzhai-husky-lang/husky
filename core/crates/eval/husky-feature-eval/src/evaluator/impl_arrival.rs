@@ -28,6 +28,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             Ok(true)
         }
     }
+
     fn eval_arrival_indicator(
         &mut self,
         arrival_indicator: &Arc<FeatureArrivalIndicator>,
@@ -37,7 +38,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if !self.eval_opt_arrival_indicator_cached(stmt.opt_arrival_indicator.as_ref())? {
                     return Ok(false);
                 }
-                self.eval_feature_stmt(stmt)? == __EvalValue::Unreturned
+                self.eval_stmt(stmt)? == __EvalValue::Unreturned
             }
             FeatureBranchIndicatorVariant::AfterConditionNotMet {
                 ref opt_parent,
@@ -46,7 +47,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if !self.eval_opt_arrival_indicator_cached(opt_parent.as_ref())? {
                     return Ok(false);
                 }
-                !self.eval_feature_expr(condition)?.primitive().take_bool()
+                !self.eval_expr(condition)?.primitive().take_bool()
             }
             FeatureBranchIndicatorVariant::IfConditionMet {
                 ref opt_parent,
@@ -55,7 +56,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if !self.eval_opt_arrival_indicator_cached(opt_parent.as_ref())? {
                     return Ok(false);
                 }
-                self.eval_feature_expr(condition)?.primitive().take_bool()
+                self.eval_expr(condition)?.primitive().take_bool()
             }
         })
     }

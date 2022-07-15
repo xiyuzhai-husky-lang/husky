@@ -5,10 +5,7 @@ use crate::*;
 use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn husky_feature_eval_stmt(
-        &mut self,
-        stmt: &FeatureStmt,
-    ) -> __EvalValueResult<'eval> {
+    pub(crate) fn eval_stmt(&mut self, stmt: &FeatureStmt) -> __EvalValueResult<'eval> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { .. } => Ok(__EvalValue::Unreturned),
             FeatureLazyStmtVariant::Assert { ref condition } => {
@@ -21,10 +18,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     .into())
                 }
             }
-            FeatureLazyStmtVariant::Return { ref result } => self.eval_feature_expr(result),
-            FeatureLazyStmtVariant::ReturnXml { ref result } => {
-                self.husky_feature_eval_xml_expr(result)
-            }
+            FeatureLazyStmtVariant::Return { ref result } => self.eval_expr(result),
+            FeatureLazyStmtVariant::ReturnXml { ref result } => self.eval_xml_expr(result),
             FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => {
                 for branch in branches {
                     let execute_branch: bool = match branch.variant {
@@ -44,6 +39,6 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     }
 
     fn satisfies(&mut self, condition: &FeatureExpr) -> __EvalResult<bool> {
-        Ok(self.eval_feature_expr(condition)?.primitive().to_bool())
+        Ok(self.eval_expr(condition)?.primitive().to_bool())
     }
 }
