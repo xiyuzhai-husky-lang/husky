@@ -102,21 +102,14 @@ impl HuskyTraceTime {
         let mut sampler = PartitionedSampler::<T>::new(restriction);
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
+            let sample_id = labeled_data.sample_id;
+            let f = |e| (sample_id, e);
+            if !self
+                .all_arrived(restriction.arrivals(), sample_id)
+                .map_err(f)?
             {
-                let mut is_trace_arrived = true;
-                for trace_id in restriction.arrivals().iter() {
-                    if !self
-                        .is_trace_arrived(*trace_id, labeled_data.sample_id)
-                        .map_err(|e| (labeled_data.sample_id, e))?
-                    {
-                        is_trace_arrived = false;
-                        break;
-                    }
-                }
-                if !is_trace_arrived {
-                    continue;
-                }
-            };
+                continue;
+            }
             for trace_id in restriction.enters().iter() {
                 todo!()
             }
@@ -124,15 +117,26 @@ impl HuskyTraceTime {
                 .process(label, || {
                     let visual_data = self
                         .eval_time()
-                        .visualize_feature(expr.clone().into(), labeled_data.sample_id)?;
+                        .visualize_feature(expr.clone().into(), sample_id)?;
                     Ok((labeled_data.sample_id, map(visual_data)))
                 })
-                .map_err(|e| (labeled_data.sample_id, e))?
+                .map_err(f)?
             {
                 break;
             }
         }
         Ok(sampler.finish())
+    }
+
+    fn all_arrived(&self, arrivals: &[TraceId], sample_id: SampleId) -> __EvalResult<bool> {
+        let mut all_arrived = true;
+        for trace_id in arrivals.iter() {
+            if !self.is_trace_arrived(*trace_id, sample_id)? {
+                all_arrived = false;
+                break;
+            }
+        }
+        Ok(all_arrived)
     }
 
     fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> __EvalResult<bool> {
