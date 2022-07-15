@@ -35,7 +35,14 @@ impl FeatureArrivalIndicator {
             FeatureBranchIndicatorVariant::AfterConditionNotMet {
                 ref opt_parent,
                 ref condition,
-            } => Feature::ArrivalAfterConditionNotSatisfied {
+            } => Feature::ArrivalAfterConditionNotMet {
+                opt_parent: opt_parent.as_ref().map(|p| p.feature),
+                condition: condition.feature,
+            },
+            FeatureBranchIndicatorVariant::IfConditionMet {
+                ref opt_parent,
+                ref condition,
+            } => Feature::ArrivalIfConditionMet {
                 opt_parent: opt_parent.as_ref().map(|p| p.feature),
                 condition: condition.feature,
             },
@@ -50,6 +57,10 @@ pub enum FeatureBranchIndicatorVariant {
         stmt: Arc<FeatureStmt>,
     },
     AfterConditionNotMet {
+        opt_parent: Option<Arc<FeatureArrivalIndicator>>,
+        condition: Arc<FeatureExpr>,
+    },
+    IfConditionMet {
         opt_parent: Option<Arc<FeatureArrivalIndicator>>,
         condition: Arc<FeatureExpr>,
     },

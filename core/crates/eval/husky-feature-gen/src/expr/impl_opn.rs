@@ -15,7 +15,7 @@ impl<'a> FeatureExprBuilder<'a> {
         opn_kind: LazyOpnKind,
         opds: &[Arc<LazyExpr>],
         expr: &Arc<LazyExpr>,
-    ) -> (FeatureLazyExprVariant, FeaturePtr) {
+    ) -> (FeatureExprVariant, FeaturePtr) {
         match opn_kind {
             LazyOpnKind::Binary { opr, this } => match this {
                 EntityRoutePtr::Root(RootIdentifier::Void)
@@ -31,7 +31,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         ropd: ropd.feature,
                     });
                     (
-                        FeatureLazyExprVariant::PrimitiveBinaryOpr { opr, lopd, ropd },
+                        FeatureExprVariant::PrimitiveBinaryOpr { opr, lopd, ropd },
                         feature,
                     )
                 }
@@ -61,7 +61,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     // ),
                     _ => todo!(),
                 };
-                let kind = FeatureLazyExprVariant::ModelCall {
+                let kind = FeatureExprVariant::ModelCall {
                     opds,
                     has_this: false,
                     model_defn,
@@ -85,7 +85,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 });
                 let routine_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
                 let opt_linkage = self.db.compile_time().routine_linkage(routine.route);
-                let kind = FeatureLazyExprVariant::RoutineCall {
+                let kind = FeatureExprVariant::RoutineCall {
                     opt_linkage,
                     opds,
                     has_this: false,
@@ -130,7 +130,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     uid,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
                 });
-                let kind = FeatureLazyExprVariant::NewRecord {
+                let kind = FeatureExprVariant::NewRecord {
                     ty,
                     entity: self.db.compile_time().entity_defn(ty.route).unwrap(),
                     opds,
@@ -146,7 +146,7 @@ impl<'a> FeatureExprBuilder<'a> {
         method_route: EntityRoutePtr,
         opds: &[Arc<LazyExpr>],
         output_binding: Binding,
-    ) -> (FeatureLazyExprVariant, FeaturePtr) {
+    ) -> (FeatureExprVariant, FeaturePtr) {
         let opds = opds
             .iter()
             .map(|opd| self.new_expr(opd.clone()))
@@ -160,7 +160,7 @@ impl<'a> FeatureExprBuilder<'a> {
         let member_idx = self.db.compile_time().member_idx(method_route);
         let method_defn = this_ty_defn.method(member_idx);
         let kind = match method_defn.variant {
-            EntityDefnVariant::Method { .. } => FeatureLazyExprVariant::RoutineCall {
+            EntityDefnVariant::Method { .. } => FeatureExprVariant::RoutineCall {
                 opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
                 opt_linkage: self.db.compile_time().method_linkage(method_route),
                 opds,
@@ -177,7 +177,7 @@ impl<'a> FeatureExprBuilder<'a> {
         field_ident: RangedCustomIdentifier,
         this: FeatureRepr,
         field_binding: Binding,
-    ) -> (FeatureLazyExprVariant, FeaturePtr) {
+    ) -> (FeatureExprVariant, FeaturePtr) {
         let this_ty = this.ty();
         let this_ty_decl = self.db.compile_time().ty_decl(this_ty).unwrap();
         let field_kind = this_ty_decl.field_kind(field_ident.ident);
@@ -190,7 +190,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     field_ident: field_ident.ident,
                 });
                 (
-                    FeatureLazyExprVariant::StructOriginalFieldAccess {
+                    FeatureExprVariant::StructOriginalFieldAccess {
                         field_ident,
                         field_idx: this_ty_decl.field_idx(field_ident.ident),
                         field_binding,
@@ -228,7 +228,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                     );
                                     let feature = repr.feature();
                                     let feature_expr_kind =
-                                        FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
+                                        FeatureExprVariant::StructDerivedLazyFieldAccess {
                                             this,
                                             field_ident,
                                             repr,
@@ -251,7 +251,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     .record_field_repr(this.clone().into(), field_ident.ident);
                 let feature = repr.feature();
                 (
-                    FeatureLazyExprVariant::RecordOriginalFieldAccess {
+                    FeatureExprVariant::RecordOriginalFieldAccess {
                         this,
                         field_ident,
                         repr,
@@ -286,7 +286,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                             field_ident: field_ident.ident,
                                         });
                                     let feature_expr_kind =
-                                        FeatureLazyExprVariant::RecordDerivedFieldAccess {
+                                        FeatureExprVariant::RecordDerivedFieldAccess {
                                             this,
                                             field_ident,
                                             repr,
@@ -311,12 +311,12 @@ impl<'a> FeatureExprBuilder<'a> {
         opds: &[Arc<LazyExpr>],
         expr: &Arc<LazyExpr>,
         element_binding: Binding,
-    ) -> (FeatureLazyExprVariant, FeaturePtr) {
+    ) -> (FeatureExprVariant, FeaturePtr) {
         let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
         let feature = self.features.intern(Feature::ElementAccess {
             opds: opds.map(|opd| opd.feature),
         });
-        let feature_expr_kind = FeatureLazyExprVariant::ElementAccess {
+        let feature_expr_kind = FeatureExprVariant::ElementAccess {
             linkage: self
                 .db
                 .compile_time()
@@ -333,13 +333,13 @@ impl<'a> FeatureExprBuilder<'a> {
         field_ident: CustomIdentifier,
     ) -> Arc<FeatureExpr> {
         match this.variant {
-            FeatureLazyExprVariant::Variable { .. } => todo!(),
-            FeatureLazyExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
-            FeatureLazyExprVariant::EntityFeature {
+            FeatureExprVariant::Variable { .. } => todo!(),
+            FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
+            FeatureExprVariant::EntityFeature {
                 repr: ref block, ..
             } => todo!(),
             // self.derive_record_field_value_from_block(block, field_ident),
-            FeatureLazyExprVariant::NewRecord {
+            FeatureExprVariant::NewRecord {
                 ref entity,
                 ref opds,
                 ..
@@ -350,18 +350,18 @@ impl<'a> FeatureExprBuilder<'a> {
                 // opds[idx].clone()
                 _ => panic!(),
             },
-            FeatureLazyExprVariant::RoutineCall { .. }
-            | FeatureLazyExprVariant::EnumKindLiteral { .. }
-            | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
-            | FeatureLazyExprVariant::StructOriginalFieldAccess { .. }
-            | FeatureLazyExprVariant::PrimitiveLiteral(_) => {
+            FeatureExprVariant::RoutineCall { .. }
+            | FeatureExprVariant::EnumKindLiteral { .. }
+            | FeatureExprVariant::PrimitiveBinaryOpr { .. }
+            | FeatureExprVariant::StructOriginalFieldAccess { .. }
+            | FeatureExprVariant::PrimitiveLiteral(_) => {
                 panic!()
             }
-            FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureLazyExprVariant::EvalInput => todo!(),
-            FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-            FeatureLazyExprVariant::ElementAccess { ref opds, .. } => todo!(),
-            FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
+            FeatureExprVariant::ThisValue { ref repr } => todo!(),
+            FeatureExprVariant::EvalInput => todo!(),
+            FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+            FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
+            FeatureExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,

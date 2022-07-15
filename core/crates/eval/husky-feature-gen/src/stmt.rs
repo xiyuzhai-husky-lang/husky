@@ -161,43 +161,68 @@ impl FeatureStmt {
                     FeatureBranchVariant::Else => panic!(),
                 }
             }
+            let (variant, block_opt_arrival_indicator) = match lazy_branch.variant {
+                LazyConditionBranchVariant::If { ref condition } => {
+                    let condition = FeatureExpr::new(
+                        db,
+                        opt_this.clone(),
+                        condition.clone(),
+                        &symbols,
+                        opt_arrival_indicator.as_ref(),
+                        feature_interner,
+                    );
+                    (
+                        FeatureBranchVariant::If {
+                            condition: condition.clone(),
+                        },
+                        Some(FeatureArrivalIndicator::new(
+                            FeatureBranchIndicatorVariant::IfConditionMet {
+                                opt_parent: opt_arrival_indicator.clone(),
+                                condition,
+                            },
+                            feature_interner,
+                        )),
+                    )
+                }
+                LazyConditionBranchVariant::Elif { ref condition } => {
+                    let condition = FeatureExpr::new(
+                        db,
+                        opt_this.clone(),
+                        condition.clone(),
+                        &symbols,
+                        opt_arrival_indicator.as_ref(),
+                        feature_interner,
+                    );
+                    (
+                        FeatureBranchVariant::If {
+                            condition: condition.clone(),
+                        },
+                        Some(FeatureArrivalIndicator::new(
+                            FeatureBranchIndicatorVariant::IfConditionMet {
+                                opt_parent: opt_arrival_indicator.clone(),
+                                condition,
+                            },
+                            feature_interner,
+                        )),
+                    )
+                }
+                LazyConditionBranchVariant::Else => {
+                    (FeatureBranchVariant::Else, opt_arrival_indicator.clone())
+                }
+            };
             branches.push(Arc::new(FeatureBranch {
+                variant,
+                opt_arrival_indicator: opt_arrival_indicator.clone(),
+                eval_id: Default::default(),
                 block: FeatureLazyBlock::new(
                     db,
                     opt_this.clone(),
                     &lazy_branch.stmts,
                     &symbols,
-                    opt_arrival_indicator.clone(),
+                    block_opt_arrival_indicator,
                     feature_interner,
                     ty,
                 ),
-                variant: match lazy_branch.variant {
-                    LazyConditionBranchVariant::If { ref condition } => FeatureBranchVariant::If {
-                        condition: FeatureExpr::new(
-                            db,
-                            opt_this.clone(),
-                            condition.clone(),
-                            &symbols,
-                            opt_arrival_indicator.as_ref(),
-                            feature_interner,
-                        ),
-                    },
-                    LazyConditionBranchVariant::Elif { ref condition } => {
-                        FeatureBranchVariant::Elif {
-                            condition: FeatureExpr::new(
-                                db,
-                                opt_this.clone(),
-                                condition.clone(),
-                                &symbols,
-                                opt_arrival_indicator.as_ref(),
-                                feature_interner,
-                            ),
-                        }
-                    }
-                    LazyConditionBranchVariant::Else => FeatureBranchVariant::Else,
-                },
-                opt_arrival_indicator: opt_arrival_indicator.clone(),
-                eval_id: Default::default(),
             }))
         }
         FeatureLazyStmtVariant::ConditionFlow { branches }

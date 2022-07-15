@@ -143,12 +143,12 @@ impl HuskyTraceTime {
         let trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(_) => todo!(),
-            TraceVariant::FeatureLazyStmt(ref stmt) => {
-                self.eval_opt_arrival_indicator(stmt.opt_arrival_indicator.as_ref(), sample_id)
-            }
-            TraceVariant::FeatureLazyBranch(ref branch) => {
-                self.eval_opt_arrival_indicator(branch.opt_arrival_indicator.as_ref(), sample_id)
-            }
+            TraceVariant::FeatureLazyStmt(ref stmt) => self
+                .eval_time()
+                .eval_opt_arrival_indicator(stmt.opt_arrival_indicator.as_ref(), sample_id),
+            TraceVariant::FeatureLazyBranch(ref branch) => self
+                .eval_time()
+                .eval_opt_arrival_indicator(branch.opt_arrival_indicator.as_ref(), sample_id),
             TraceVariant::FeatureLazyExpr(_) => todo!(),
             TraceVariant::FeatureCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
@@ -160,40 +160,5 @@ impl HuskyTraceTime {
             TraceVariant::EagerCallArgument { .. } => todo!(),
             TraceVariant::CallHead { .. } => todo!(),
         }
-    }
-
-    fn eval_opt_arrival_indicator(
-        &self,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
-        sample_id: SampleId,
-    ) -> __EvalResult<bool> {
-        Ok(if let Some(ref arrival_indicator) = opt_arrival_indicator {
-            match arrival_indicator.variant {
-                FeatureBranchIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
-                    if !self.eval_opt_arrival_indicator(
-                        stmt.opt_arrival_indicator.as_ref(),
-                        sample_id,
-                    )? {
-                        return Ok(false);
-                    }
-                    self.eval_time().eval_feature_stmt(stmt, sample_id)? == __EvalValue::Unreturned
-                }
-                FeatureBranchIndicatorVariant::AfterConditionNotMet {
-                    ref opt_parent,
-                    ref condition,
-                } => {
-                    if !self.eval_opt_arrival_indicator(opt_parent.as_ref(), sample_id)? {
-                        return Ok(false);
-                    }
-                    !self
-                        .eval_time()
-                        .eval_feature_expr(condition, sample_id)?
-                        .primitive()
-                        .take_bool()
-                }
-            }
-        } else {
-            true
-        })
     }
 }

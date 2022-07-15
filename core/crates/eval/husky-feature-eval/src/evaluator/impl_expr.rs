@@ -15,12 +15,12 @@ use super::FeatureEvaluator;
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> __EvalValueResult<'eval> {
         match expr.variant {
-            FeatureLazyExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
-            FeatureLazyExprVariant::EnumKindLiteral { entity_route, uid } => {
+            FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
+            FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
                 todo!()
                 // Ok(EvalValue::Boxed(value.clone_any()))
             }
-            FeatureLazyExprVariant::PrimitiveBinaryOpr {
+            FeatureExprVariant::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,
                 ref ropd,
@@ -30,7 +30,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     self.eval_feature_expr(ropd)?.primitive(),
                 )?
                 .into()),
-            FeatureLazyExprVariant::StructOriginalFieldAccess {
+            FeatureExprVariant::StructOriginalFieldAccess {
                 ref this,
                 field_idx,
                 field_binding,
@@ -63,7 +63,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     }
                 }
             }
-            FeatureLazyExprVariant::RoutineCall {
+            FeatureExprVariant::RoutineCall {
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
@@ -79,8 +79,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 );
                 result
             }
-            FeatureLazyExprVariant::EntityFeature { ref repr, .. } => self.eval_feature_repr(repr),
-            FeatureLazyExprVariant::NewRecord {
+            FeatureExprVariant::EntityFeature { ref repr, .. } => self.eval_feature_repr(repr),
+            FeatureExprVariant::NewRecord {
                 ty,
                 ref entity,
                 ref opds,
@@ -91,24 +91,24 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 // .resolve_class_call(self.db, expr.eval_id, entity, opds)
                 // .into()),
             }
-            FeatureLazyExprVariant::Variable { ref value, .. } => self
+            FeatureExprVariant::Variable { ref value, .. } => self
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &mut Self| {
                     evaluator.eval_feature_expr(&value)
                 }),
-            FeatureLazyExprVariant::RecordOriginalFieldAccess {
+            FeatureExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
             } => self.eval_feature_repr(repr),
-            FeatureLazyExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
-            FeatureLazyExprVariant::EvalInput => Ok(self.eval_input.clone()),
-            FeatureLazyExprVariant::RecordDerivedFieldAccess {
+            FeatureExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
+            FeatureExprVariant::EvalInput => Ok(self.eval_input.clone()),
+            FeatureExprVariant::RecordDerivedFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
                 ..
             } => self.eval_feature_repr(repr),
-            FeatureLazyExprVariant::ElementAccess {
+            FeatureExprVariant::ElementAccess {
                 ref opds, linkage, ..
             } => {
                 if opds.len() > 2 {
@@ -120,7 +120,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ];
                 linkage.eval(values)
             }
-            FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
+            FeatureExprVariant::StructDerivedLazyFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
@@ -132,7 +132,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 };
                 self.cache(eval_key, |this| this.eval_feature_repr(repr))
             }
-            FeatureLazyExprVariant::ModelCall {
+            FeatureExprVariant::ModelCall {
                 ref opds,
                 has_this,
                 ref model_defn,

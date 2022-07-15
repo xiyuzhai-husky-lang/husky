@@ -24,14 +24,12 @@ pub(crate) fn expr_record_field<'eval>(
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this.variant {
-        FeatureLazyExprVariant::Variable { ref value, .. } => {
-            expr_record_field(db, value, field_ident)
-        }
-        FeatureLazyExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
-        FeatureLazyExprVariant::EntityFeature { ref repr, .. } => {
+        FeatureExprVariant::Variable { ref value, .. } => expr_record_field(db, value, field_ident),
+        FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
+        FeatureExprVariant::EntityFeature { ref repr, .. } => {
             record_field_repr(db, repr.clone(), field_ident)
         }
-        FeatureLazyExprVariant::NewRecord {
+        FeatureExprVariant::NewRecord {
             ref entity,
             ref opds,
             ..
@@ -73,21 +71,21 @@ pub(crate) fn expr_record_field<'eval>(
             }
             _ => panic!(),
         },
-        FeatureLazyExprVariant::EnumKindLiteral { .. }
-        | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
-        | FeatureLazyExprVariant::StructOriginalFieldAccess { .. }
-        | FeatureLazyExprVariant::PrimitiveLiteral(_) => {
+        FeatureExprVariant::EnumKindLiteral { .. }
+        | FeatureExprVariant::PrimitiveBinaryOpr { .. }
+        | FeatureExprVariant::StructOriginalFieldAccess { .. }
+        | FeatureExprVariant::PrimitiveLiteral(_) => {
             p!(this.variant);
             panic!()
         }
-        FeatureLazyExprVariant::ThisValue { ref repr } => {
+        FeatureExprVariant::ThisValue { ref repr } => {
             db.record_field_repr(repr.clone(), field_ident)
         }
-        FeatureLazyExprVariant::EvalInput => todo!(),
-        FeatureLazyExprVariant::RoutineCall { .. } => todo!(),
-        FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-        FeatureLazyExprVariant::ElementAccess { ref opds, .. } => todo!(),
-        FeatureLazyExprVariant::StructDerivedLazyFieldAccess {
+        FeatureExprVariant::EvalInput => todo!(),
+        FeatureExprVariant::RoutineCall { .. } => todo!(),
+        FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+        FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
+        FeatureExprVariant::StructDerivedLazyFieldAccess {
             ref this,
             field_ident,
             ref repr,

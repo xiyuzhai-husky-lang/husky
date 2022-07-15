@@ -85,4 +85,49 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     ) -> __EvalValueResult<'eval> {
         self.evaluator(sample_id).eval_feature_expr(expr)
     }
+
+    fn eval_opt_arrival_indicator(
+        &self,
+        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        sample_id: SampleId,
+    ) -> __EvalResult<bool> {
+        Ok(if let Some(ref arrival_indicator) = opt_arrival_indicator {
+            match arrival_indicator.variant {
+                FeatureBranchIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
+                    if !self.eval_opt_arrival_indicator(
+                        stmt.opt_arrival_indicator.as_ref(),
+                        sample_id,
+                    )? {
+                        return Ok(false);
+                    }
+                    self.eval_feature_stmt(stmt, sample_id)? == __EvalValue::Unreturned
+                }
+                FeatureBranchIndicatorVariant::AfterConditionNotMet {
+                    ref opt_parent,
+                    ref condition,
+                } => {
+                    if !self.eval_opt_arrival_indicator(opt_parent.as_ref(), sample_id)? {
+                        return Ok(false);
+                    }
+                    !self
+                        .eval_feature_expr(condition, sample_id)?
+                        .primitive()
+                        .take_bool()
+                }
+                FeatureBranchIndicatorVariant::IfConditionMet {
+                    ref opt_parent,
+                    ref condition,
+                } => {
+                    if !self.eval_opt_arrival_indicator(opt_parent.as_ref(), sample_id)? {
+                        return Ok(false);
+                    }
+                    self.eval_feature_expr(condition, sample_id)?
+                        .primitive()
+                        .take_bool()
+                }
+            }
+        } else {
+            true
+        })
+    }
 }

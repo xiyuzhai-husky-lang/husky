@@ -16,7 +16,7 @@ use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Clone)]
 pub struct FeatureExpr {
-    pub variant: FeatureLazyExprVariant,
+    pub variant: FeatureExprVariant,
     pub feature: FeaturePtr,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
@@ -48,7 +48,7 @@ impl<'eval> PartialEq for FeatureExpr {
 impl<'eval> Eq for FeatureExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureLazyExprVariant {
+pub enum FeatureExprVariant {
     PrimitiveLiteral(CopyableValue),
     EnumKindLiteral {
         entity_route: EntityRoutePtr,
@@ -118,26 +118,24 @@ pub enum FeatureLazyExprVariant {
     },
 }
 
-impl FeatureLazyExprVariant {
+impl FeatureExprVariant {
     pub fn kind(&self) -> &'static str {
         match self {
-            FeatureLazyExprVariant::PrimitiveLiteral(_) => "PrimitiveLiteral",
-            FeatureLazyExprVariant::EnumKindLiteral { .. } => "EnumKindLiteral",
-            FeatureLazyExprVariant::PrimitiveBinaryOpr { .. } => "PrimitiveBinaryOpr",
-            FeatureLazyExprVariant::Variable { .. } => "Variable",
-            FeatureLazyExprVariant::ThisValue { .. } => "ThisValue",
-            FeatureLazyExprVariant::StructOriginalFieldAccess { .. } => "StructOriginalFieldAccess",
-            FeatureLazyExprVariant::RecordOriginalFieldAccess { .. } => "RecordOriginalFieldAccess",
-            FeatureLazyExprVariant::StructDerivedLazyFieldAccess { .. } => {
-                "StructDerivedFieldAccess"
-            }
-            FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => "RecordDerivedFieldAccess",
-            FeatureLazyExprVariant::ElementAccess { .. } => "ElementAccess",
-            FeatureLazyExprVariant::ModelCall { .. } => "ModelCall",
-            FeatureLazyExprVariant::RoutineCall { .. } => "RoutineCall",
-            FeatureLazyExprVariant::EntityFeature { .. } => "EntityFeature",
-            FeatureLazyExprVariant::EvalInput => "EvalInput",
-            FeatureLazyExprVariant::NewRecord { .. } => "NewRecord",
+            FeatureExprVariant::PrimitiveLiteral(_) => "PrimitiveLiteral",
+            FeatureExprVariant::EnumKindLiteral { .. } => "EnumKindLiteral",
+            FeatureExprVariant::PrimitiveBinaryOpr { .. } => "PrimitiveBinaryOpr",
+            FeatureExprVariant::Variable { .. } => "Variable",
+            FeatureExprVariant::ThisValue { .. } => "ThisValue",
+            FeatureExprVariant::StructOriginalFieldAccess { .. } => "StructOriginalFieldAccess",
+            FeatureExprVariant::RecordOriginalFieldAccess { .. } => "RecordOriginalFieldAccess",
+            FeatureExprVariant::StructDerivedLazyFieldAccess { .. } => "StructDerivedFieldAccess",
+            FeatureExprVariant::RecordDerivedFieldAccess { .. } => "RecordDerivedFieldAccess",
+            FeatureExprVariant::ElementAccess { .. } => "ElementAccess",
+            FeatureExprVariant::ModelCall { .. } => "ModelCall",
+            FeatureExprVariant::RoutineCall { .. } => "RoutineCall",
+            FeatureExprVariant::EntityFeature { .. } => "EntityFeature",
+            FeatureExprVariant::EvalInput => "EvalInput",
+            FeatureExprVariant::NewRecord { .. } => "NewRecord",
         }
     }
 }
@@ -180,7 +178,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 .find_map(|symbol| {
                     if symbol.varname == varname {
                         Some((
-                            FeatureLazyExprVariant::Variable {
+                            FeatureExprVariant::Variable {
                                 varname,
                                 value: symbol.value.clone(),
                             },
@@ -193,7 +191,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 .unwrap(),
             LazyExprVariant::EntityRoute { .. } => todo!(),
             LazyExprVariant::PrimitiveLiteral(value) => (
-                FeatureLazyExprVariant::PrimitiveLiteral(value),
+                FeatureExprVariant::PrimitiveLiteral(value),
                 self.features.intern(Feature::PrimitiveLiteral(value)),
             ),
             LazyExprVariant::Bracketed(ref bracketed_expr) => {
@@ -202,14 +200,14 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
             LazyExprVariant::Lambda(_, _) => todo!(),
             LazyExprVariant::EnumLiteral { entity_route } => (
-                FeatureLazyExprVariant::EnumKindLiteral {
+                FeatureExprVariant::EnumKindLiteral {
                     entity_route,
                     uid: self.db.compile_time().entity_uid(entity_route),
                 },
                 self.features.intern(Feature::EnumLiteral(entity_route)),
             ),
             LazyExprVariant::ThisValue { .. } => (
-                FeatureLazyExprVariant::ThisValue {
+                FeatureExprVariant::ThisValue {
                     repr: self.opt_this.as_ref().unwrap().clone(),
                 },
                 self.opt_this.as_ref().unwrap().feature(),
@@ -231,7 +229,7 @@ impl<'a> FeatureExprBuilder<'a> {
                         route: entity_route,
                         uid,
                     });
-                    let kind = FeatureLazyExprVariant::EntityFeature {
+                    let kind = FeatureExprVariant::EntityFeature {
                         entity_route,
                         repr: self.db.entity_feature_repr(entity_route),
                     };
@@ -239,7 +237,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 }
                 EntityRouteKind::Input { main } => {
                     let feature = self.features.intern(Feature::Input);
-                    let kind = FeatureLazyExprVariant::EvalInput;
+                    let kind = FeatureExprVariant::EvalInput;
                     (kind, feature)
                 }
                 EntityRouteKind::Generic { ident, .. } => todo!(),

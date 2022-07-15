@@ -2,6 +2,7 @@ mod entity_feature_repr;
 mod main_feature_repr;
 
 pub use entity_feature_repr::*;
+use husky_trace_protocol::Restriction;
 pub use main_feature_repr::*;
 use vm::{InterpreterQueryGroup, ModelLinkage, __EvalResult};
 
