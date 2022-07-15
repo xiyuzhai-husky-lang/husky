@@ -18,7 +18,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
             FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
                 todo!()
-                // Ok(EvalValue::Boxed(value.clone_any()))
             }
             FeatureExprVariant::PrimitiveBinaryOpr {
                 opr,

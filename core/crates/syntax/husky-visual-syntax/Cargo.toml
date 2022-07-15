@@ -4,12 +4,3 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
-serde = { version = "1.0.106", features = ["derive"] }
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
-salsa = "0.17.0-pre.2"
-arrayvec = "0.7.2"
-check-utils = { path = "../../utils/check" }
-print-utils = { path = "../../utils/print" }
-vm = { path = "../../vm/husky-vm" }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
-husky-entity-route = { path = "../husky-entity-route" }

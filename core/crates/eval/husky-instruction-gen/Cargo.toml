@@ -28,6 +28,5 @@ infer-decl = { path = "../../infer/husky-infer-decl" }
 husky-linkage-table = { path = "../../compile/husky-linkage-table" }
 static-defn = { path = "../../static/static-defn" }
 entity-kind = { path = "../../syntax/entity-kind" }
-husky-visual-semantics = { path = "../../semantics/husky-visual-semantics" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-compile-time = { path = "../../compile/husky-compile-time" }

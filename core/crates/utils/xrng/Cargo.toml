@@ -5,7 +5,6 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.4"
-num-integer = "0.1"
 
 [lib]
 doctest = false
