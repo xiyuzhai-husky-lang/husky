@@ -5,12 +5,20 @@ use vm::__Linkage;
 
 use crate::*;
 
-#[derive(Debug, Default, Clone)]
+#[derive(Debug, Clone)]
 pub struct LinkageTable {
     linkages: ASafeRwLock<HashMap<LinkageKey, __Linkage>>,
+    config: LinkageTableConfig,
 }
 
 impl LinkageTable {
+    pub fn new(config: LinkageTableConfig) -> Self {
+        Self {
+            linkages: Default::default(),
+            config,
+        }
+    }
+
     pub fn load(
         &self,
         db: &dyn ResolveLinkage,
@@ -35,6 +43,14 @@ impl LinkageTable {
         ty_uid: EntityUid,
     ) -> Option<__Linkage> {
         self.get_linkage(db, LinkageKey::TypeCall { ty_uid })
+    }
+
+    pub(crate) fn feature_eager_block_linkage(
+        &self,
+        db: &dyn EntityDefnQueryGroup,
+        feature_uid: EntityUid,
+    ) -> Option<__Linkage> {
+        self.get_linkage(db, LinkageKey::FeatureEagerBlock { feature_uid })
     }
 
     pub(crate) fn routine_linkage(

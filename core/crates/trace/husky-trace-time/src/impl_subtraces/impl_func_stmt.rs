@@ -12,7 +12,7 @@ impl HuskyTraceTime {
             self.eval_time().upcast(),
             instruction_sheet,
             stack_snapshot,
-            self.eval_time().vm_config(),
+            self.vm_config(),
         );
         self.func_stmts_traces(parent.id(), parent.raw_data.indent + 4, stmts, &history)
     }

@@ -69,8 +69,8 @@ impl EvalFeature<'static> for HuskyEvalTime {
         }
     }
 
-    fn vm_config(&self) -> &VMConfig {
-        &self.config.vm_config
+    fn evaluator_config(&self) -> &EvaluatorConfig {
+        &self.config.evaluator
     }
 
     fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>> {

@@ -41,18 +41,18 @@ impl HuskyTraceTime {
                 self.feature_repr_subtraces(parent, repr)
             }
             FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureExprVariant::RecordOriginalFieldAccess {
+            FeatureExprVariant::RecordOriginalField {
                 ref this,
                 field_ident,
                 ..
             } => todo!(),
             FeatureExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
-            FeatureExprVariant::StructOriginalFieldAccess { .. } => panic!(),
+            FeatureExprVariant::RecordDerivedField { .. } => todo!(),
+            FeatureExprVariant::StructOriginalField { .. } => panic!(),
             FeatureExprVariant::EnumKindLiteral { .. } => panic!(),
             FeatureExprVariant::EvalInput => panic!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
-            FeatureExprVariant::StructDerivedLazyFieldAccess { ref repr, .. } => {
+            FeatureExprVariant::StructDerivedLazyField { ref repr, .. } => {
                 self.feature_repr_subtraces(parent, repr)
             }
             FeatureExprVariant::ModelCall {

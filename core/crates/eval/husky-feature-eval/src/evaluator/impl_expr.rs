@@ -29,39 +29,21 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     self.eval_expr(ropd)?.primitive(),
                 )?
                 .into()),
-            FeatureExprVariant::StructOriginalFieldAccess {
+            FeatureExprVariant::StructOriginalField {
                 ref this,
                 field_idx,
                 field_binding,
                 opt_linkage,
                 field_ident,
                 ..
-            } => {
-                if let Some(linkage) = opt_linkage {
-                    let this_value = self.eval_feature_repr(this)?;
-                    let this_value = this_value.into_stack()?;
-                    linkage.eval(vec![this_value])
-                } else {
-                    let this_value = self.eval_feature_repr(this)?;
-                    match catch_unwind(move || unsafe {
-                        this_value.field_access(field_idx, field_binding)
-                    }) {
-                        Ok(value) => Ok(value),
-                        Err(error) => {
-                            p!(
-                                field_idx,
-                                field_ident,
-                                this.ty(),
-                                expr.expr.ty(),
-                                expr.expr.file,
-                                expr.expr.range
-                            );
-                            p!(error);
-                            todo!()
-                        }
-                    }
-                }
-            }
+            } => self.eval_struct_original_field(
+                opt_linkage,
+                this,
+                field_idx,
+                field_binding,
+                field_ident,
+                expr,
+            ),
             FeatureExprVariant::RoutineCall {
                 ref opds,
                 ref opt_instruction_sheet,
@@ -94,14 +76,14 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &mut Self| {
                     evaluator.eval_expr(&value)
                 }),
-            FeatureExprVariant::RecordOriginalFieldAccess {
+            FeatureExprVariant::RecordOriginalField {
                 ref this,
                 field_ident,
                 ref repr,
             } => self.eval_feature_repr(repr),
             FeatureExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
             FeatureExprVariant::EvalInput => Ok(self.eval_input.clone()),
-            FeatureExprVariant::RecordDerivedFieldAccess {
+            FeatureExprVariant::RecordDerivedField {
                 ref this,
                 field_ident,
                 ref repr,
@@ -119,7 +101,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ];
                 linkage.eval(values)
             }
-            FeatureExprVariant::StructDerivedLazyFieldAccess {
+            FeatureExprVariant::StructDerivedLazyField {
                 ref this,
                 field_ident,
                 ref repr,
@@ -156,6 +138,40 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 },
                 _ => panic!(),
             },
+        }
+    }
+
+    fn eval_struct_original_field(
+        &mut self,
+        opt_linkage: Option<__SpecificRoutineLinkage>,
+        this: &FeatureRepr,
+        field_idx: usize,
+        field_binding: Binding,
+        field_ident: husky_text::RangedCustomIdentifier,
+        expr: &FeatureExpr,
+    ) -> __EvalValueResult<'eval> {
+        if let Some(linkage) = opt_linkage {
+            let this_value = self.eval_feature_repr(this)?;
+            let this_value = this_value.into_stack()?;
+            linkage.eval(vec![this_value])
+        } else {
+            let this_value = self.eval_feature_repr(this)?;
+            match catch_unwind(move || unsafe { this_value.field_access(field_idx, field_binding) })
+            {
+                Ok(value) => Ok(value),
+                Err(error) => {
+                    p!(
+                        field_idx,
+                        field_ident,
+                        this.ty(),
+                        expr.expr.ty(),
+                        expr.expr.file,
+                        expr.expr.range
+                    );
+                    p!(error);
+                    todo!()
+                }
+            }
         }
     }
 
@@ -199,7 +215,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         has_this: bool,
     ) -> __EvalValueResult<'eval> {
         let db = self.db;
-        let verbose = self.vm_config;
+        let vm_config = self.vm_config();
         let values = arguments
             .iter()
             .map(|expr| __TempValue::from_eval(self.eval_expr(expr)?));
@@ -211,7 +227,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             output_ty,
             values,
             [].into_iter(),
-            verbose,
+            vm_config,
         )
     }
 }

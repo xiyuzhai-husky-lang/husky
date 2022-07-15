@@ -10,7 +10,7 @@ pub fn test_all_source_files<T>(
 where
     T: TestDisplay,
 {
-    let mut compile_time = HuskyCompileTime::new(__root_defn);
+    let mut compile_time = HuskyCompileTime::new_default(__root_defn);
     compile_time.load_package(package_dir);
     for file in compile_time.all_source_files() {
         match compare_saved_data(&f(&compile_time, file), &file.with_extension(extension)) {
@@ -26,7 +26,7 @@ pub fn print_all_source_files_analysis(
     title: &str,
     f: impl Fn(&HuskyCompileTime, FilePtr) -> String,
 ) {
-    let mut compile_time = HuskyCompileTime::new(__root_defn);
+    let mut compile_time = HuskyCompileTime::new_default(__root_defn);
     compile_time.load_package(package_dir);
     for file in compile_time.all_source_files() {
         println!("{} for file: {:?}:\n", title, file);

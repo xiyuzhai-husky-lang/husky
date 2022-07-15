@@ -22,7 +22,7 @@ impl Server {
             client_comm: ClientCommunicator::new(sender),
             threadpool: ThreadPool::default(),
             event_loop_comm: EventLoopCommunicator::default(),
-            db: HuskyCompileTime::new(__root_defn),
+            db: HuskyCompileTime::new_default(__root_defn),
         }
     }
 }

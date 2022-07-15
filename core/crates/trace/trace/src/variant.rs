@@ -128,11 +128,11 @@ impl<'eval> TraceVariant<'eval> {
                 FeatureExprVariant::PrimitiveLiteral(_)
                 | FeatureExprVariant::PrimitiveBinaryOpr { .. }
                 | FeatureExprVariant::Variable { .. } => false,
-                FeatureExprVariant::StructOriginalFieldAccess { .. } => todo!(),
+                FeatureExprVariant::StructOriginalField { .. } => todo!(),
                 FeatureExprVariant::EnumKindLiteral { .. } => false,
                 FeatureExprVariant::EntityFeature { .. } => true,
                 FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-                FeatureExprVariant::RecordOriginalFieldAccess {
+                FeatureExprVariant::RecordOriginalField {
                     ref this,
                     field_ident,
                     ..
@@ -142,9 +142,9 @@ impl<'eval> TraceVariant<'eval> {
                 FeatureExprVariant::RoutineCall {
                     ref routine_defn, ..
                 } => !routine_defn.is_builtin(),
-                FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+                FeatureExprVariant::RecordDerivedField { .. } => todo!(),
                 FeatureExprVariant::ElementAccess { ref opds, .. } => false,
-                FeatureExprVariant::StructDerivedLazyFieldAccess {
+                FeatureExprVariant::StructDerivedLazyField {
                     ref this,
                     field_ident,
                     ref repr,

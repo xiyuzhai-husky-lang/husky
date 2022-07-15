@@ -38,7 +38,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             block.ty.route,
             arguments.into_iter(),
             [].into_iter(),
-            self.vm_config,
+            &self.evaluator_config.vm,
         )
     }
 }

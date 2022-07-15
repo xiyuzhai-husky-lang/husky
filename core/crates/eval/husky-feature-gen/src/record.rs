@@ -25,7 +25,7 @@ pub(crate) fn expr_record_field<'eval>(
 ) -> FeatureRepr {
     match this.variant {
         FeatureExprVariant::Variable { ref value, .. } => expr_record_field(db, value, field_ident),
-        FeatureExprVariant::RecordOriginalFieldAccess { .. } => todo!(),
+        FeatureExprVariant::RecordOriginalField { .. } => todo!(),
         FeatureExprVariant::EntityFeature { ref repr, .. } => {
             record_field_repr(db, repr.clone(), field_ident)
         }
@@ -73,7 +73,7 @@ pub(crate) fn expr_record_field<'eval>(
         },
         FeatureExprVariant::EnumKindLiteral { .. }
         | FeatureExprVariant::PrimitiveBinaryOpr { .. }
-        | FeatureExprVariant::StructOriginalFieldAccess { .. }
+        | FeatureExprVariant::StructOriginalField { .. }
         | FeatureExprVariant::PrimitiveLiteral(_) => {
             p!(this.variant);
             panic!()
@@ -83,9 +83,9 @@ pub(crate) fn expr_record_field<'eval>(
         }
         FeatureExprVariant::EvalInput => todo!(),
         FeatureExprVariant::RoutineCall { .. } => todo!(),
-        FeatureExprVariant::RecordDerivedFieldAccess { .. } => todo!(),
+        FeatureExprVariant::RecordDerivedField { .. } => todo!(),
         FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
-        FeatureExprVariant::StructDerivedLazyFieldAccess {
+        FeatureExprVariant::StructDerivedLazyField {
             ref this,
             field_ident,
             ref repr,

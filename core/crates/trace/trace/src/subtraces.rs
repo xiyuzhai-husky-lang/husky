@@ -21,8 +21,8 @@ impl<'eval> Trace {
             TraceVariant::FeatureLazyExpr(ref expr) => match expr.variant {
                 FeatureExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
                 FeatureExprVariant::EntityFeature { .. } => None,
-                FeatureExprVariant::RecordDerivedFieldAccess { .. }
-                | FeatureExprVariant::StructDerivedLazyFieldAccess { .. } => {
+                FeatureExprVariant::RecordDerivedField { .. }
+                | FeatureExprVariant::StructDerivedLazyField { .. } => {
                     Some(SubtracesContainerClass::Call)
                 }
                 _ => None,
