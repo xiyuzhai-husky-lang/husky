@@ -13,7 +13,7 @@ use word::IdentPairDict;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(crate) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> __EvalValueResult<'eval> {
+    pub(crate) fn eval_expr(&mut self, expr: &FeatureExpr) -> __EvalValueResult<'eval> {
         match expr.variant {
             FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
             FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
@@ -26,8 +26,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref ropd,
             } => Ok(opr
                 .act_on_primitives(
-                    self.eval_feature_expr(lopd)?.primitive(),
-                    self.eval_feature_expr(ropd)?.primitive(),
+                    self.eval_expr(lopd)?.primitive(),
+                    self.eval_expr(ropd)?.primitive(),
                 )?
                 .into()),
             FeatureExprVariant::StructOriginalFieldAccess {
@@ -93,7 +93,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             }
             FeatureExprVariant::Variable { ref value, .. } => self
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &mut Self| {
-                    evaluator.eval_feature_expr(&value)
+                    evaluator.eval_expr(&value)
                 }),
             FeatureExprVariant::RecordOriginalFieldAccess {
                 ref this,
@@ -115,8 +115,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     todo!()
                 }
                 let mut values = vec![
-                    self.eval_feature_expr(&opds[0])?.into_stack().unwrap(),
-                    self.eval_feature_expr(&opds[1])?.into_stack().unwrap(),
+                    self.eval_expr(&opds[0])?.into_stack().unwrap(),
+                    self.eval_expr(&opds[1])?.into_stack().unwrap(),
                 ];
                 linkage.eval(values)
             }
@@ -149,7 +149,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     CallFormSource::Static(__Linkage::Model(model)) => {
                         let values: Vec<_> = opds
                             .iter()
-                            .map(|opd| self.eval_feature_expr(opd))
+                            .map(|opd| self.eval_expr(opd))
                             .collect::<__EvalResult<Vec<_>>>()?;
                         model.eval_dyn(internal.as_ref().map_err(|e| e.clone())?, &values)
                     }
@@ -160,10 +160,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         }
     }
 
-    pub(crate) fn husky_feature_eval_xml_expr(
-        &mut self,
-        expr: &FeatureXmlExpr,
-    ) -> __EvalValueResult<'eval> {
+    pub(crate) fn eval_xml_expr(&mut self, expr: &FeatureXmlExpr) -> __EvalValueResult<'eval> {
         match expr.variant {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
@@ -180,7 +177,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .iter()
                         .map(
                             |(ident, argument)| {
-                                self.eval_feature_expr(argument)
+                                self.eval_expr(argument)
                                     .map(|v| (*ident, v.any_ref().__to_json_value_dyn()))
                             },
                             // argument.any_ref().to_json_value_dyn()
@@ -206,7 +203,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         let verbose = self.vm_config;
         let values = arguments
             .iter()
-            .map(|expr| __TempValue::from_eval(self.eval_feature_expr(expr)?));
+            .map(|expr| __TempValue::from_eval(self.eval_expr(expr)?));
         msg_once!("kwargs");
         eval_fast(
             db.upcast(),

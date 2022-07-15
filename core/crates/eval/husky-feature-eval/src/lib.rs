@@ -75,7 +75,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         stmt: &FeatureStmt,
         sample_id: SampleId,
     ) -> __EvalResult<__EvalValue<'eval>> {
-        self.evaluator(sample_id).husky_feature_eval_stmt(stmt)
+        self.evaluator(sample_id).eval_stmt(stmt)
     }
 
     fn eval_feature_expr(
@@ -83,7 +83,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         expr: &FeatureExpr,
         sample_id: SampleId,
     ) -> __EvalValueResult<'eval> {
-        self.evaluator(sample_id).eval_feature_expr(expr)
+        self.evaluator(sample_id).eval_expr(expr)
     }
 
     fn eval_opt_arrival_indicator(
