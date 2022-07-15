@@ -45,7 +45,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
         }
         let visual_feature = self.db.visual_feature_repr(this)?;
         Ok(self
-            .husky_feature_eval_repr(&visual_feature)?
+            .eval_feature_repr(&visual_feature)?
             .any_ref()
             .__downcast_ref::<VisualData>()
             .clone())

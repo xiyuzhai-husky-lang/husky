@@ -21,7 +21,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     .into())
                 }
             }
-            FeatureLazyStmtVariant::Return { ref result } => self.husky_feature_eval_expr(result),
+            FeatureLazyStmtVariant::Return { ref result } => self.eval_feature_expr(result),
             FeatureLazyStmtVariant::ReturnXml { ref result } => {
                 self.husky_feature_eval_xml_expr(result)
             }
@@ -44,9 +44,6 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     }
 
     fn satisfies(&mut self, condition: &FeatureExpr) -> __EvalResult<bool> {
-        Ok(self
-            .husky_feature_eval_expr(condition)?
-            .primitive()
-            .to_bool())
+        Ok(self.eval_feature_expr(condition)?.primitive().to_bool())
     }
 }

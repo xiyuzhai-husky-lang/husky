@@ -38,7 +38,7 @@ use vm::*;
 //                 break;
 //             }
 //             let value = eval_time
-//                 .husky_feature_eval_expr(opd, sample_id)
+//                 .eval_feature_expr(opd, sample_id)
 //                 .map_err(|e| (sample_id, e))?
 //                 .primitive()
 //                 .take_i32();

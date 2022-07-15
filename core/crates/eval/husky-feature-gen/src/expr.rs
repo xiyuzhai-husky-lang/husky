@@ -14,12 +14,23 @@ use word::RootIdentifier;
 
 use crate::{eval_id::FeatureEvalId, *};
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct FeatureExpr {
     pub variant: FeatureLazyExprVariant,
     pub feature: FeaturePtr,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
+}
+
+impl std::fmt::Debug for FeatureExpr {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("FeatureExpr")
+            .field("variant", &self.variant.kind())
+            .field("eval_id", &self.eval_id)
+            .field("file", &self.expr.file)
+            .field("range", &self.expr.range)
+            .finish()
+    }
 }
 
 impl std::hash::Hash for FeatureExpr {
@@ -105,6 +116,30 @@ pub enum FeatureLazyExprVariant {
         entity: Arc<EntityDefn>,
         opds: Vec<Arc<FeatureExpr>>,
     },
+}
+
+impl FeatureLazyExprVariant {
+    pub fn kind(&self) -> &'static str {
+        match self {
+            FeatureLazyExprVariant::PrimitiveLiteral(_) => "PrimitiveLiteral",
+            FeatureLazyExprVariant::EnumKindLiteral { .. } => "EnumKindLiteral",
+            FeatureLazyExprVariant::PrimitiveBinaryOpr { .. } => "PrimitiveBinaryOpr",
+            FeatureLazyExprVariant::Variable { .. } => "Variable",
+            FeatureLazyExprVariant::ThisValue { .. } => "ThisValue",
+            FeatureLazyExprVariant::StructOriginalFieldAccess { .. } => "StructOriginalFieldAccess",
+            FeatureLazyExprVariant::RecordOriginalFieldAccess { .. } => "RecordOriginalFieldAccess",
+            FeatureLazyExprVariant::StructDerivedLazyFieldAccess { .. } => {
+                "StructDerivedFieldAccess"
+            }
+            FeatureLazyExprVariant::RecordDerivedFieldAccess { .. } => "RecordDerivedFieldAccess",
+            FeatureLazyExprVariant::ElementAccess { .. } => "ElementAccess",
+            FeatureLazyExprVariant::ModelCall { .. } => "ModelCall",
+            FeatureLazyExprVariant::RoutineCall { .. } => "RoutineCall",
+            FeatureLazyExprVariant::EntityFeature { .. } => "EntityFeature",
+            FeatureLazyExprVariant::EvalInput => "EvalInput",
+            FeatureLazyExprVariant::NewRecord { .. } => "NewRecord",
+        }
+    }
 }
 
 impl FeatureExpr {

@@ -45,7 +45,7 @@ impl HuskyTraceTime {
         if let Some(ref this_repr) = feature_block.opt_this {
             arguments.push(
                 self.eval_time()
-                    .husky_feature_eval_repr(this_repr, sample_id)
+                    .eval_feature_repr(this_repr, sample_id)
                     .unwrap()
                     .into_stack()
                     .unwrap(),

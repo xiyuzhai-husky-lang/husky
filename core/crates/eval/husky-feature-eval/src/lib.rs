@@ -44,15 +44,15 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         self.evaluator(sample_id).visualize_feature(this)
     }
 
-    fn husky_feature_eval_repr(
+    fn eval_feature_repr(
         &self,
         repr: &FeatureRepr,
         sample_id: SampleId,
     ) -> __EvalValueResult<'eval> {
-        self.evaluator(sample_id).husky_feature_eval_repr(repr)
+        self.evaluator(sample_id).eval_feature_repr(repr)
     }
 
-    fn husky_feature_eval_repr_cached(
+    fn eval_feature_repr_cached(
         &self,
         repr: &FeatureRepr,
         sample_id: SampleId,
@@ -61,7 +61,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
             .husky_feature_eval_repr_cached(repr)
     }
 
-    fn husky_feature_eval_lazy_block(
+    fn eval_feature_lazy_block(
         &self,
         block: &FeatureLazyBlock,
         sample_id: SampleId,
@@ -70,7 +70,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
             .husky_feature_eval_lazy_block(block)
     }
 
-    fn husky_feature_eval_stmt(
+    fn eval_feature_stmt(
         &self,
         stmt: &FeatureStmt,
         sample_id: SampleId,
@@ -78,11 +78,11 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         self.evaluator(sample_id).husky_feature_eval_stmt(stmt)
     }
 
-    fn husky_feature_eval_expr(
+    fn eval_feature_expr(
         &self,
         expr: &FeatureExpr,
         sample_id: SampleId,
     ) -> __EvalValueResult<'eval> {
-        self.evaluator(sample_id).husky_feature_eval_expr(expr)
+        self.evaluator(sample_id).eval_feature_expr(expr)
     }
 }

@@ -137,28 +137,28 @@
 //         TraceVariant::Main(ref repr) => TraceStalkData {
 //             extra_tokens: vec![
 //                 fade!(" = "),
-//                 this.runtime().husky_feature_eval_repr(repr, sample_id).into(),
+//                 this.runtime().eval_feature_repr(repr, sample_id).into(),
 //             ],
 //         },
 //         TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
 //             FeatureStmtVariant::Init { varname, ref value } => TraceStalkData {
 //                 extra_tokens: vec![
 //                     fade!(" = "),
-//                     this.runtime().husky_feature_eval_expr(value, sample_id).into(),
+//                     this.runtime().eval_feature_expr(value, sample_id).into(),
 //                 ],
 //             },
 //             FeatureStmtVariant::Assert { ref condition } => TraceStalkData {
 //                 extra_tokens: vec![
 //                     fade!(" = "),
 //                     this.runtime()
-//                         .husky_feature_eval_expr(condition, sample_id)
+//                         .eval_feature_expr(condition, sample_id)
 //                         .into(),
 //                 ],
 //             },
 //             FeatureStmtVariant::Return { ref result } => TraceStalkData {
 //                 extra_tokens: vec![
 //                     fade!(" = "),
-//                     this.runtime().husky_feature_eval_expr(result, sample_id).into(),
+//                     this.runtime().eval_feature_expr(result, sample_id).into(),
 //                 ],
 //             },
 //             FeatureStmtVariant::ConditionFlow { ref branches } => panic!(),
@@ -169,7 +169,7 @@
 //         TraceVariant::FeatureExpr(ref expr) => TraceStalkData {
 //             extra_tokens: vec![
 //                 fade!(" = "),
-//                 this.runtime().husky_feature_eval_expr(expr, sample_id).into(),
+//                 this.runtime().eval_feature_expr(expr, sample_id).into(),
 //             ],
 //         },
 //         TraceVariant::FeatureCallInput { .. } => todo!(),

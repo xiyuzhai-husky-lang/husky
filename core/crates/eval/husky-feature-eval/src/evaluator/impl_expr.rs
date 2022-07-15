@@ -13,10 +13,7 @@ use word::IdentPairDict;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(crate) fn husky_feature_eval_expr(
-        &mut self,
-        expr: &FeatureExpr,
-    ) -> __EvalValueResult<'eval> {
+    pub(crate) fn eval_feature_expr(&mut self, expr: &FeatureExpr) -> __EvalValueResult<'eval> {
         match expr.variant {
             FeatureLazyExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
             FeatureLazyExprVariant::EnumKindLiteral { entity_route, uid } => {
@@ -29,8 +26,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref ropd,
             } => Ok(opr
                 .act_on_primitives(
-                    self.husky_feature_eval_expr(lopd)?.primitive(),
-                    self.husky_feature_eval_expr(ropd)?.primitive(),
+                    self.eval_feature_expr(lopd)?.primitive(),
+                    self.eval_feature_expr(ropd)?.primitive(),
                 )?
                 .into()),
             FeatureLazyExprVariant::StructOriginalFieldAccess {
@@ -42,11 +39,11 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ..
             } => {
                 if let Some(linkage) = opt_linkage {
-                    let this_value = self.husky_feature_eval_repr(this)?;
+                    let this_value = self.eval_feature_repr(this)?;
                     let this_value = this_value.into_stack()?;
                     linkage.eval(vec![this_value])
                 } else {
-                    let this_value = self.husky_feature_eval_repr(this)?;
+                    let this_value = self.eval_feature_repr(this)?;
                     match catch_unwind(move || unsafe {
                         this_value.field_access(field_idx, field_binding)
                     }) {
@@ -82,9 +79,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 );
                 result
             }
-            FeatureLazyExprVariant::EntityFeature { ref repr, .. } => {
-                self.husky_feature_eval_repr(repr)
-            }
+            FeatureLazyExprVariant::EntityFeature { ref repr, .. } => self.eval_feature_repr(repr),
             FeatureLazyExprVariant::NewRecord {
                 ty,
                 ref entity,
@@ -98,21 +93,21 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             }
             FeatureLazyExprVariant::Variable { ref value, .. } => self
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &mut Self| {
-                    evaluator.husky_feature_eval_expr(&value)
+                    evaluator.eval_feature_expr(&value)
                 }),
             FeatureLazyExprVariant::RecordOriginalFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
-            } => self.husky_feature_eval_repr(repr),
-            FeatureLazyExprVariant::ThisValue { ref repr } => self.husky_feature_eval_repr(repr),
+            } => self.eval_feature_repr(repr),
+            FeatureLazyExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
             FeatureLazyExprVariant::EvalInput => Ok(self.eval_input.clone()),
             FeatureLazyExprVariant::RecordDerivedFieldAccess {
                 ref this,
                 field_ident,
                 ref repr,
                 ..
-            } => self.husky_feature_eval_repr(repr),
+            } => self.eval_feature_repr(repr),
             FeatureLazyExprVariant::ElementAccess {
                 ref opds, linkage, ..
             } => {
@@ -120,12 +115,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     todo!()
                 }
                 let mut values = vec![
-                    self.husky_feature_eval_expr(&opds[0])?
-                        .into_stack()
-                        .unwrap(),
-                    self.husky_feature_eval_expr(&opds[1])?
-                        .into_stack()
-                        .unwrap(),
+                    self.eval_feature_expr(&opds[0])?.into_stack().unwrap(),
+                    self.eval_feature_expr(&opds[1])?.into_stack().unwrap(),
                 ];
                 linkage.eval(values)
             }
@@ -139,7 +130,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     parent,
                     field_ident: field_ident.ident,
                 };
-                self.cache(eval_key, |this| this.husky_feature_eval_repr(repr))
+                self.cache(eval_key, |this| this.eval_feature_repr(repr))
             }
             FeatureLazyExprVariant::ModelCall {
                 ref opds,
@@ -158,7 +149,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     CallFormSource::Static(__Linkage::Model(model)) => {
                         let values: Vec<_> = opds
                             .iter()
-                            .map(|opd| self.husky_feature_eval_expr(opd))
+                            .map(|opd| self.eval_feature_expr(opd))
                             .collect::<__EvalResult<Vec<_>>>()?;
                         model.eval_dyn(internal.as_ref().map_err(|e| e.clone())?, &values)
                     }
@@ -189,7 +180,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .iter()
                         .map(
                             |(ident, argument)| {
-                                self.husky_feature_eval_expr(argument)
+                                self.eval_feature_expr(argument)
                                     .map(|v| (*ident, v.any_ref().__to_json_value_dyn()))
                             },
                             // argument.any_ref().to_json_value_dyn()
@@ -215,7 +206,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         let verbose = self.vm_config;
         let values = arguments
             .iter()
-            .map(|expr| __TempValue::from_eval(self.husky_feature_eval_expr(expr)?));
+            .map(|expr| __TempValue::from_eval(self.eval_feature_expr(expr)?));
         msg_once!("kwargs");
         eval_fast(
             db.upcast(),

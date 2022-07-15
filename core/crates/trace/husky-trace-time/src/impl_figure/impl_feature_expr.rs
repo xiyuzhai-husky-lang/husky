@@ -10,7 +10,7 @@ impl HuskyTraceTime {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
             let value = self
                 .eval_time_singleton
-                .husky_feature_eval_expr(expr, sample_id)
+                .eval_feature_expr(expr, sample_id)
                 .map_err(|e| (sample_id, e))?;
             Ok(FigureCanvasData::new_specific(
                 self.eval_time()
@@ -102,11 +102,21 @@ impl HuskyTraceTime {
         let mut sampler = PartitionedSampler::<T>::new(restriction);
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
-            for trace_id in restriction.arrivals().iter() {
-                if !self.is_trace_arrived(*trace_id) {
+            {
+                let mut is_trace_arrived = true;
+                for trace_id in restriction.arrivals().iter() {
+                    if !self
+                        .is_trace_arrived(*trace_id, labeled_data.sample_id)
+                        .map_err(|e| (labeled_data.sample_id, e))?
+                    {
+                        is_trace_arrived = false;
+                        break;
+                    }
+                }
+                if !is_trace_arrived {
                     continue;
                 }
-            }
+            };
             for trace_id in restriction.enters().iter() {
                 todo!()
             }
@@ -125,18 +135,16 @@ impl HuskyTraceTime {
         Ok(sampler.finish())
     }
 
-    fn is_trace_arrived(&self, trace_id: TraceId) -> bool {
+    fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> __EvalResult<bool> {
         let trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(_) => todo!(),
             TraceVariant::FeatureLazyStmt(ref stmt) => {
-                if let Some(ref arrival_indicator) = stmt.opt_arrival_indicator {
-                    todo!()
-                } else {
-                    true
-                }
+                self.eval_opt_arrival_indicator(stmt.opt_arrival_indicator.as_ref(), sample_id)
             }
-            TraceVariant::FeatureLazyBranch(_) => todo!(),
+            TraceVariant::FeatureLazyBranch(ref branch) => {
+                self.eval_opt_arrival_indicator(branch.opt_arrival_indicator.as_ref(), sample_id)
+            }
             TraceVariant::FeatureLazyExpr(_) => todo!(),
             TraceVariant::FeatureCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
@@ -148,5 +156,40 @@ impl HuskyTraceTime {
             TraceVariant::EagerCallArgument { .. } => todo!(),
             TraceVariant::CallHead { .. } => todo!(),
         }
+    }
+
+    fn eval_opt_arrival_indicator(
+        &self,
+        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        sample_id: SampleId,
+    ) -> __EvalResult<bool> {
+        Ok(if let Some(ref arrival_indicator) = opt_arrival_indicator {
+            match arrival_indicator.variant {
+                FeatureBranchIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
+                    if !self.eval_opt_arrival_indicator(
+                        stmt.opt_arrival_indicator.as_ref(),
+                        sample_id,
+                    )? {
+                        return Ok(false);
+                    }
+                    self.eval_time().eval_feature_stmt(stmt, sample_id)? == __EvalValue::Unreturned
+                }
+                FeatureBranchIndicatorVariant::AfterConditionNotMet {
+                    ref opt_parent,
+                    ref condition,
+                } => {
+                    if !self.eval_opt_arrival_indicator(opt_parent.as_ref(), sample_id)? {
+                        return Ok(false);
+                    }
+                    !self
+                        .eval_time()
+                        .eval_feature_expr(condition, sample_id)?
+                        .primitive()
+                        .take_bool()
+                }
+            }
+        } else {
+            true
+        })
     }
 }

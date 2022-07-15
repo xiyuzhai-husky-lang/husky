@@ -4,7 +4,7 @@ use crate::{eval_id::FeatureEvalId, *};
 pub struct FeatureBranch {
     pub block: Arc<FeatureLazyBlock>,
     pub variant: FeatureBranchVariant,
-    pub indicator: Arc<FeatureArrivalIndicator>,
+    pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
     pub(crate) eval_id: FeatureEvalId,
 }
 
@@ -17,9 +17,8 @@ pub enum FeatureBranchVariant {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureArrivalIndicator {
-    parent: Option<Arc<FeatureArrivalIndicator>>,
-    variant: FeatureBranchIndicatorVariant,
-    feature: FeaturePtr,
+    pub variant: FeatureBranchIndicatorVariant,
+    pub feature: FeaturePtr,
 }
 
 impl FeatureArrivalIndicator {
@@ -27,25 +26,30 @@ impl FeatureArrivalIndicator {
         variant: FeatureBranchIndicatorVariant,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
-        let feature = match variant {
-            FeatureBranchIndicatorVariant::AfterStmt { stmt } => Feature::ArrivalAfterStmt {
-                stmt: stmt.opt_feature.unwrap(),
+        let feature = feature_interner.intern(match variant {
+            FeatureBranchIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
+                Feature::ArrivalAfterStmtNotReturn {
+                    stmt: stmt.opt_feature.unwrap(),
+                }
+            }
+            FeatureBranchIndicatorVariant::AfterConditionNotMet {
+                ref opt_parent,
+                ref condition,
+            } => Feature::ArrivalAfterConditionNotSatisfied {
+                opt_parent: opt_parent.as_ref().map(|p| p.feature),
+                condition: condition.feature,
             },
-            FeatureBranchIndicatorVariant::AfterCondition {
-                opt_parent,
-                condition,
-            } => todo!(),
-        };
-        todo!()
+        });
+        Arc::new(Self { variant, feature })
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureBranchIndicatorVariant {
-    AfterStmt {
+    AfterStmtNotReturn {
         stmt: Arc<FeatureStmt>,
     },
-    AfterCondition {
+    AfterConditionNotMet {
         opt_parent: Option<Arc<FeatureArrivalIndicator>>,
         condition: Arc<FeatureExpr>,
     },

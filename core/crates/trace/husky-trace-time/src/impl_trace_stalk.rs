@@ -20,34 +20,28 @@ impl HuskyTraceTime {
             TraceVariant::Main(ref block) => TraceStalkData {
                 extra_tokens: vec![
                     husky_trace_protocol::fade!(" = "),
-                    self.eval_time()
-                        .husky_feature_eval_repr(block, sample_id)
-                        .into(),
+                    self.eval_time().eval_feature_repr(block, sample_id).into(),
                 ],
             },
             TraceVariant::FeatureLazyStmt(ref stmt) => match stmt.variant {
                 FeatureLazyStmtVariant::Init { varname, ref value } => TraceStalkData {
                     extra_tokens: vec![
                         husky_trace_protocol::fade!(" = "),
-                        self.eval_time()
-                            .husky_feature_eval_expr(value, sample_id)
-                            .into(),
+                        self.eval_time().eval_feature_expr(value, sample_id).into(),
                     ],
                 },
                 FeatureLazyStmtVariant::Assert { ref condition } => TraceStalkData {
                     extra_tokens: vec![
                         husky_trace_protocol::fade!(" = "),
                         self.eval_time()
-                            .husky_feature_eval_expr(condition, sample_id)
+                            .eval_feature_expr(condition, sample_id)
                             .into(),
                     ],
                 },
                 FeatureLazyStmtVariant::Return { ref result } => TraceStalkData {
                     extra_tokens: vec![
                         husky_trace_protocol::fade!(" = "),
-                        self.eval_time()
-                            .husky_feature_eval_expr(result, sample_id)
-                            .into(),
+                        self.eval_time().eval_feature_expr(result, sample_id).into(),
                     ],
                 },
                 FeatureLazyStmtVariant::ConditionFlow { ref branches } => panic!(),
@@ -59,9 +53,7 @@ impl HuskyTraceTime {
             TraceVariant::FeatureLazyExpr(ref expr) => TraceStalkData {
                 extra_tokens: vec![
                     husky_trace_protocol::fade!(" = "),
-                    self.eval_time()
-                        .husky_feature_eval_expr(expr, sample_id)
-                        .into(),
+                    self.eval_time().eval_feature_expr(expr, sample_id).into(),
                 ],
             },
             TraceVariant::FeatureCallArgument {
@@ -71,7 +63,7 @@ impl HuskyTraceTime {
                 extra_tokens: vec![
                     husky_trace_protocol::fade!(" = "),
                     self.eval_time()
-                        .husky_feature_eval_expr(argument, sample_id)
+                        .eval_feature_expr(argument, sample_id)
                         .into(),
                 ],
             },

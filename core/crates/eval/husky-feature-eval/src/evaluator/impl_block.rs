@@ -26,7 +26,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     ) -> __EvalValueResult<'eval> {
         let arguments = match block.opt_this {
             Some(ref this_repr) => {
-                vec![self.husky_feature_eval_repr(this_repr)?.into_stack()]
+                vec![self.eval_feature_repr(this_repr)?.into_stack()]
             }
             None => vec![],
         };
