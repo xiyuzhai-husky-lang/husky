@@ -35,7 +35,6 @@ entity-kind = { path = "../../syntax/entity-kind" }
 defn-head = { path = "../../syntax/defn-head" }
 static-defn = { path = "../../static/static-defn" }
 husky-atom = { path = "../../syntax/husky-atom" }
-husky-visual-semantics = { path = "../husky-visual-semantics" }
 husky-visual-syntax = { path = "../../syntax/husky-visual-syntax" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 thin-vec = { path = "../../../../forks/thin-vec" }

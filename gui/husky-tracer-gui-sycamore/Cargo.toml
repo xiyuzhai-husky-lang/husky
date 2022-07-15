@@ -15,9 +15,9 @@ console_error_panic_hook = "0.1.7"
 wasm-bindgen = "0.2.80"
 libmath = "0.2.1"
 js-sys = "0.3.58"
-sycamore = { path = "../../forks/sycamore/packages/sycamore", version = "0.8.0-beta.6" }
-vec-like = { path = "../../core/crates/abstraction/vec-like", version = "0.0.0" }
-husky-trace-protocol = { path = "../../core/crates/trace/husky-trace-protocol", version = "0.0.0" }
+sycamore = { path = "../../forks/sycamore/packages/sycamore" }
+vec-like = { path = "../../core/crates/abstraction/vec-like" }
+husky-trace-protocol = { path = "../../core/crates/trace/husky-trace-protocol" }
 
 [dependencies.web-sys]
 version = "0.3.57"
