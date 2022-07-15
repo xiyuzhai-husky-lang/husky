@@ -1,0 +1,1 @@
+export HUSKY_DIR=(realpath (dirname (status --current-filename)))
