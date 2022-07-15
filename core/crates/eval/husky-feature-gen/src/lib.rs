@@ -12,7 +12,7 @@ mod unique_allocate;
 mod visual;
 
 pub use block::*;
-pub use branch::{FeatureArrivalIndicator, FeatureBranch, FeatureBranchVariant};
+pub use branch::*;
 pub use eval_id::*;
 pub use expr::*;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
@@ -100,8 +100,12 @@ pub enum Feature {
     Temp {
         uid: TempFeatureUid,
     },
-    ArrivalAfterStmt {
+    ArrivalAfterStmtNotReturn {
         stmt: FeaturePtr,
+    },
+    ArrivalAfterConditionNotSatisfied {
+        opt_parent: Option<FeaturePtr>,
+        condition: FeaturePtr,
     },
 }
 

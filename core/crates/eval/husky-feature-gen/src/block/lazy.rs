@@ -60,7 +60,7 @@ impl<'eval> FeatureLazyBlock {
                 | FeatureLazyStmtVariant::ReturnXml { .. } => finish_flag = true,
                 FeatureLazyStmtVariant::ConditionFlow { .. } => {
                     opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
-                        FeatureBranchIndicatorVariant::AfterStmt { stmt: stmt.clone() },
+                        FeatureBranchIndicatorVariant::AfterStmtNotReturn { stmt: stmt.clone() },
                         feature_interner,
                     ))
                 }

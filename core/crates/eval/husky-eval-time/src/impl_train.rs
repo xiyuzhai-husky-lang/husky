@@ -28,7 +28,7 @@ impl TrainModel for HuskyEvalTime {
             }
             let values: Vec<__EvalValue> = opds
                 .iter()
-                .map(|opd| self.husky_feature_eval_expr(opd, sample_id))
+                .map(|opd| self.eval_feature_expr(opd, sample_id))
                 .collect::<__EvalResult<Vec<_>>>()
                 .map_err(|e| (sample_id, e))?;
             training_data.push((values, labeled_data.label))

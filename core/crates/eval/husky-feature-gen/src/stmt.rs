@@ -1,5 +1,6 @@
 mod variant;
 
+use husky_entity_route::RangedEntityRoute;
 pub use variant::*;
 
 use husky_file::FilePtr;
@@ -100,55 +101,15 @@ impl FeatureStmt {
                     feature_interner,
                 ),
             },
-            LazyStmtVariant::ConditionFlow { ref branches, ty } => {
-                let branches: Vec<Arc<FeatureBranch>> = branches
-                    .iter()
-                    .map(|branch| {
-                        let indicator = FeatureArrivalIndicator::new(todo!(), feature_interner);
-                        Arc::new(FeatureBranch {
-                            block: FeatureLazyBlock::new(
-                                db,
-                                opt_this.clone(),
-                                &branch.stmts,
-                                &symbols,
-                                Some(indicator.clone()),
-                                feature_interner,
-                                ty,
-                            ),
-                            variant: match branch.variant {
-                                LazyConditionBranchVariant::If { ref condition } => {
-                                    FeatureBranchVariant::If {
-                                        condition: FeatureExpr::new(
-                                            db,
-                                            opt_this.clone(),
-                                            condition.clone(),
-                                            &symbols,
-                                            todo!(),
-                                            feature_interner,
-                                        ),
-                                    }
-                                }
-                                LazyConditionBranchVariant::Elif { ref condition } => {
-                                    FeatureBranchVariant::Elif {
-                                        condition: FeatureExpr::new(
-                                            db,
-                                            opt_this.clone(),
-                                            condition.clone(),
-                                            &symbols,
-                                            todo!(),
-                                            feature_interner,
-                                        ),
-                                    }
-                                }
-                                LazyConditionBranchVariant::Else => FeatureBranchVariant::Else,
-                            },
-                            indicator,
-                            eval_id: Default::default(),
-                        })
-                    })
-                    .collect::<Vec<_>>();
-                FeatureLazyStmtVariant::ConditionFlow { branches }
-            }
+            LazyStmtVariant::ConditionFlow { ref branches, ty } => Self::new_condition_flow(
+                branches,
+                db,
+                opt_this,
+                symbols,
+                ty,
+                opt_arrival_indicator.clone(),
+                feature_interner,
+            ),
             LazyStmtVariant::Match {
                 ref match_expr,
                 ref branches,
@@ -163,5 +124,82 @@ impl FeatureStmt {
             eval_id: Default::default(),
             opt_arrival_indicator: opt_arrival_indicator.map(|s| s.clone()),
         })
+    }
+
+    fn new_condition_flow(
+        lazy_branches: &[Arc<husky_lazy_semantics::LazyConditionBranch>],
+        db: &dyn FeatureGenQueryGroup,
+        opt_this: Option<FeatureRepr>,
+        symbols: &mut Vec<FeatureSymbol>,
+        ty: RangedEntityRoute,
+        mut opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
+        feature_interner: &interner::Interner<Feature>,
+    ) -> FeatureLazyStmtVariant {
+        let mut branches: Vec<Arc<FeatureBranch>> = vec![];
+
+        for lazy_branch in lazy_branches {
+            if let Some(last_branch) = branches.last() {
+                match last_branch.variant {
+                    FeatureBranchVariant::If { ref condition } => {
+                        opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
+                            FeatureBranchIndicatorVariant::AfterConditionNotMet {
+                                opt_parent: opt_arrival_indicator,
+                                condition: condition.clone(),
+                            },
+                            feature_interner,
+                        ));
+                    }
+                    FeatureBranchVariant::Elif { ref condition } => {
+                        opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
+                            FeatureBranchIndicatorVariant::AfterConditionNotMet {
+                                opt_parent: opt_arrival_indicator,
+                                condition: condition.clone(),
+                            },
+                            feature_interner,
+                        ));
+                    }
+                    FeatureBranchVariant::Else => panic!(),
+                }
+            }
+            branches.push(Arc::new(FeatureBranch {
+                block: FeatureLazyBlock::new(
+                    db,
+                    opt_this.clone(),
+                    &lazy_branch.stmts,
+                    &symbols,
+                    opt_arrival_indicator.clone(),
+                    feature_interner,
+                    ty,
+                ),
+                variant: match lazy_branch.variant {
+                    LazyConditionBranchVariant::If { ref condition } => FeatureBranchVariant::If {
+                        condition: FeatureExpr::new(
+                            db,
+                            opt_this.clone(),
+                            condition.clone(),
+                            &symbols,
+                            opt_arrival_indicator.as_ref(),
+                            feature_interner,
+                        ),
+                    },
+                    LazyConditionBranchVariant::Elif { ref condition } => {
+                        FeatureBranchVariant::Elif {
+                            condition: FeatureExpr::new(
+                                db,
+                                opt_this.clone(),
+                                condition.clone(),
+                                &symbols,
+                                opt_arrival_indicator.as_ref(),
+                                feature_interner,
+                            ),
+                        }
+                    }
+                    LazyConditionBranchVariant::Else => FeatureBranchVariant::Else,
+                },
+                opt_arrival_indicator: opt_arrival_indicator.clone(),
+                eval_id: Default::default(),
+            }))
+        }
+        FeatureLazyStmtVariant::ConditionFlow { branches }
     }
 }
