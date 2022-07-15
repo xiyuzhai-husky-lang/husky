@@ -27,7 +27,7 @@ async fn main() {{
             package_dir: code_snapshot_dir,
             opt_sample_id: Some(SampleId(23)),
             verbose: false,
-            report_missing_linkage: true,
+            warn_missing_linkage: true,
         }},
         LINKAGES,
     )

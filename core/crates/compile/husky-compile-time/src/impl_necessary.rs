@@ -71,7 +71,7 @@ impl ResolveStaticRootDefn for HuskyCompileTime {
     fn __root_defn_resolver(
         &self,
     ) -> fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn {
-        self.config.__root_defn_resolver
+        self.config.__resolve_root_defn
     }
 }
 
@@ -118,7 +118,7 @@ impl infer_contract::InferContractQueryGroup for HuskyCompileTime {}
 impl infer_total::InferQueryGroup for HuskyCompileTime {}
 
 impl ResolveLinkage for HuskyCompileTime {
-    fn husky_linkage_table(&self) -> &LinkageTable {
+    fn linkage_table(&self) -> &LinkageTable {
         &self.linkage_table
     }
 }

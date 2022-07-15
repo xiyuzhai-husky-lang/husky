@@ -1,4 +1,5 @@
 use crate::*;
+use __husky_root::__resolve_root_defn;
 use husky_compile_time::HuskyCompileTimeConfig;
 use husky_eval_time::HuskyEvalTimeConfig;
 use husky_feature_eval::EvaluatorConfig;
@@ -11,7 +12,7 @@ pub struct HuskyDebuggerConfig {
     pub package_dir: PathBuf,
     pub opt_sample_id: Option<SampleId>,
     pub verbose: bool,
-    pub report_missing_linkage: bool,
+    pub warn_missing_linkage: bool,
 }
 
 impl HuskyDebuggerConfig {
@@ -27,7 +28,7 @@ impl HuskyDebuggerConfig {
                 .sample_id
                 .map(|text| SampleId(text.parse::<usize>().unwrap())),
             verbose: flags.verbose,
-            report_missing_linkage: flags.report_missing_linkage || flags.verbose,
+            warn_missing_linkage: flags.warn_missing_linkage || flags.verbose,
         }
     }
 
@@ -39,9 +40,9 @@ impl HuskyDebuggerConfig {
                 },
             },
             compile_time: HuskyCompileTimeConfig {
-                __root_defn_resolver: todo!(),
+                __resolve_root_defn,
                 linkage_table: LinkageTableConfig {
-                    report_missing_linkage: self.report_missing_linkage,
+                    warn_missing_linkage: self.warn_missing_linkage,
                 },
             },
         }

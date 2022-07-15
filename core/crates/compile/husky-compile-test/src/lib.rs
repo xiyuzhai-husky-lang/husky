@@ -11,7 +11,7 @@ mod utils;
 
 pub use utils::*;
 
-use __husky_root::__root_defn;
+use __husky_root::__resolve_root_defn;
 use check_utils::*;
 use husky_compile_time::HuskyCompileTime;
 use husky_compile_time::*;

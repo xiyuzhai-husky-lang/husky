@@ -92,7 +92,7 @@ impl HuskyCompileTime {
         __root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
     ) -> Self {
         Self::new(HuskyCompileTimeConfig {
-            __root_defn_resolver: __root_defn,
+            __resolve_root_defn: __root_defn,
             linkage_table: Default::default(),
         })
     }

@@ -7,7 +7,7 @@ use word::RootIdentifier;
 
 #[test]
 fn std_scope() {
-    let mut db = HuskyCompileTime::new_default(__root_defn);
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
     utils::check_atom_kind(
         &mut db,
         "std",
@@ -20,7 +20,7 @@ fn std_scope() {
 
 #[test]
 fn core_scope() {
-    let mut db = HuskyCompileTime::new_default(__root_defn);
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
     utils::check_atom_kind(
         &mut db,
         "core",
@@ -33,7 +33,7 @@ fn core_scope() {
 
 #[test]
 fn debug_scope() {
-    let mut db = HuskyCompileTime::new_default(__root_defn);
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
     utils::check_atom_kind(
         &mut db,
         "debug",
@@ -46,7 +46,7 @@ fn debug_scope() {
 
 #[test]
 fn i32_type() {
-    let mut db = HuskyCompileTime::new_default(__root_defn);
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
     utils::check_atom_kind(
         &mut db,
         "i32",
@@ -59,7 +59,7 @@ fn i32_type() {
 
 #[test]
 fn f32_type() {
-    let mut db = HuskyCompileTime::new_default(__root_defn);
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
     utils::check_atom_kind(
         &mut db,
         "f32",
@@ -72,7 +72,7 @@ fn f32_type() {
 
 #[test]
 fn list_generics() {
-    let mut db = HuskyCompileTime::new_default(__root_defn);
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
     utils::check_atom_kind(
         &mut db,
         "Vec",
@@ -85,7 +85,7 @@ fn list_generics() {
 
 #[test]
 fn tuple_generics() {
-    let mut db = HuskyCompileTime::new_default(__root_defn);
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
     utils::check_atom_kind(
         &mut db,
         "Tuple",

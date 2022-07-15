@@ -8,7 +8,7 @@ use crate::*;
 #[derive(Debug, Clone)]
 pub struct LinkageTable {
     linkages: ASafeRwLock<HashMap<LinkageKey, __Linkage>>,
-    config: LinkageTableConfig,
+    pub(crate) config: LinkageTableConfig,
 }
 
 impl LinkageTable {
