@@ -169,7 +169,7 @@ impl<'a> Formatter<'a> {
                 ident,
                 variant_class: ref variant_kind,
             } => todo!(),
-            AstVariant::FeatureDecl { .. } => todo!(),
+            AstVariant::FeatureDefnHead { .. } => todo!(),
             AstVariant::Use { ref use_variant } => todo!(),
             AstVariant::Submodule { ident, source_file } => todo!(),
             AstVariant::CallFormDefnHead { .. } => todo!(),

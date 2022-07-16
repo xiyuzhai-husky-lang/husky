@@ -30,7 +30,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                         FeatureBranchVariant::Else => true,
                     };
                     if execute_branch {
-                        return self.husky_feature_eval_lazy_block(&branch.block);
+                        return self.eval_feature_lazy_block(&branch.block);
                     }
                 }
                 Ok(__EvalValue::Undefined)

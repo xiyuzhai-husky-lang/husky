@@ -45,7 +45,7 @@ impl<'a> EagerParser<'a> {
                 } => todo!(),
                 AstVariant::FieldDefnHead { .. } => todo!(),
                 AstVariant::CallFormDefnHead { .. } => todo!(),
-                AstVariant::FeatureDecl { .. } => todo!(),
+                AstVariant::FeatureDefnHead { .. } => todo!(),
                 AstVariant::Submodule { ident, source_file } => todo!(),
                 AstVariant::CallFormDefnHead { .. } => todo!(),
                 AstVariant::Visual => todo!(),
@@ -214,7 +214,7 @@ impl<'a> EagerParser<'a> {
                 final_boundary,
                 step,
             } => {
-                emsg_once!("todo: change frame var qual in forext");
+                msg_once!("todo: change frame var qual in forext");
                 ProcStmtVariant::Loop {
                     loop_variant: LoopVariant::ForExt {
                         frame_var,

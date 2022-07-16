@@ -18,7 +18,7 @@ pub(crate) struct EagerParser<'a> {
 
 impl<'a> EagerParser<'a> {
     pub(crate) fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FilePtr) -> Self {
-        emsg_once!("check no errors in entity_route_sheet");
+        msg_once!("check no errors in entity_route_sheet");
         let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();
         Self {
             db,

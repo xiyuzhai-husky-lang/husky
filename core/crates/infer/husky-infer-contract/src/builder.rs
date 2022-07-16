@@ -110,7 +110,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         | FieldAstKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
                         _ => (),
                     },
-                    AstVariant::FeatureDecl { .. } => self.infer_lazy_stmts(children, &arena),
+                    AstVariant::FeatureDefnHead { .. } => self.infer_lazy_stmts(children, &arena),
                     AstVariant::Submodule { .. } => (),
                     AstVariant::Stmt(_) => panic!(),
                 }

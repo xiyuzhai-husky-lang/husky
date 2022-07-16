@@ -168,9 +168,7 @@ impl<'eval> TraceVariant<'eval> {
                 ref expr,
                 ref history,
             } => match expr.variant {
-                EagerExprVariant::Variable { .. }
-                | EagerExprVariant::EntityRoute { .. }
-                | EagerExprVariant::PrimitiveLiteral(_) => false,
+                EagerExprVariant::Variable { .. } | EagerExprVariant::PrimitiveLiteral(_) => false,
                 EagerExprVariant::Bracketed(_) => todo!(),
                 EagerExprVariant::Opn {
                     ref opn_variant,

@@ -47,38 +47,15 @@ impl EntityDefnVariant {
                     FieldAstKind::StructOriginal => FieldDefnVariant::StructOriginal,
                     FieldAstKind::StructDerivedLazy { paradigm } => {
                         FieldDefnVariant::StructDerivedLazy {
-                            defn_repr: Arc::new(match paradigm {
-                                Paradigm::LazyFunctional => {
-                                    let stmts = husky_lazy_semantics::parse_lazy_stmts(
-                                        db.upcast(),
-                                        arena,
-                                        children.unwrap(),
-                                        file,
-                                        ty,
-                                    )?;
-                                    DefinitionRepr::LazyBlock { stmts, ty }
-                                }
-                                Paradigm::EagerFunctional => {
-                                    let stmts = husky_eager_semantics::parse_func_stmts(
-                                        db.upcast(),
-                                        arena,
-                                        children.unwrap(),
-                                        file,
-                                    )?;
-                                    DefinitionRepr::FuncBlock {
-                                        route: db.make_subroute(
-                                            ty_route,
-                                            ranged_ident.ident,
-                                            thin_vec![],
-                                        ),
-                                        file,
-                                        range: FuncStmt::text_range(&*stmts),
-                                        stmts,
-                                        ty,
-                                    }
-                                }
-                                Paradigm::EagerProcedural => todo!(),
-                            }),
+                            defn_repr: parse_definition_repr(
+                                db,
+                                paradigm,
+                                db.make_subroute(ty.route, ranged_ident.ident, thin_vec![]),
+                                ty,
+                                arena,
+                                children,
+                                file,
+                            )?,
                         }
                     }
                     FieldAstKind::RecordOriginal => FieldDefnVariant::RecordOriginal,
@@ -173,28 +150,4 @@ pub enum FieldDefnVariant {
     StructDerivedLazy { defn_repr: Arc<DefinitionRepr> },
     RecordOriginal,
     RecordDerived { defn_repr: Arc<DefinitionRepr> },
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum DefinitionRepr {
-    LazyExpr {
-        expr: Arc<LazyExpr>,
-    },
-    LazyBlock {
-        stmts: Arc<Vec<Arc<LazyStmt>>>,
-        ty: RangedEntityRoute,
-    },
-    FuncBlock {
-        route: EntityRoutePtr,
-        file: FilePtr,
-        range: TextRange,
-        stmts: Arc<Vec<Arc<FuncStmt>>>,
-        ty: RangedEntityRoute,
-    },
-    ProcBlock {
-        file: FilePtr,
-        range: TextRange,
-        stmts: Arc<Vec<Arc<ProcStmt>>>,
-        ty: RangedEntityRoute,
-    },
 }

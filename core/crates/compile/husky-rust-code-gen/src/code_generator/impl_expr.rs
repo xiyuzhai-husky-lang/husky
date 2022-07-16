@@ -17,7 +17,6 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(&field_ident.ident);
                 }
             },
-            EagerExprVariant::EntityRoute { route } => self.write(&format!("{:?}", route)),
             EagerExprVariant::PrimitiveLiteral(value) => self.gen_copyable_literal(value),
             EagerExprVariant::Bracketed(ref expr) => {
                 self.write("(");

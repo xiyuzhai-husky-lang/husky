@@ -79,21 +79,13 @@ macro_rules! msg_once {
         ONCE.call_once(|| {
             eprintln!(
                 "{}[message]{} {}, src: {}:{}",
-                print_utils::YELLOW,
+                print_utils::LIGHT_YELLOW,
                 print_utils::RESET,
                 $msg,
                 file!(),
                 line!()
             )
         })
-    }};
-}
-
-#[macro_export]
-macro_rules! emsg_once {
-    ($msg:expr) => {{
-        static ONCE: std::sync::Once = std::sync::Once::new();
-        ONCE.call_once(|| eprintln!("[message] {}, src: {}:{}", $msg, file!(), line!()))
     }};
 }
 

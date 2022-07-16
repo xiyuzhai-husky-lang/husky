@@ -393,7 +393,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     .collect();
                 match call_decl.output.liason {
                     OutputLiason::Transfer => {
-                        emsg_once!("handle ref");
+                        msg_once!("handle ref");
                         Ok(LazyValueQualifiedTy::new(
                             if self.db.is_copyable(call_decl.output.ty)? {
                                 LazyExprQualifier::Copyable

@@ -60,7 +60,26 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 );
                 result
             }
-            FeatureExprVariant::EntityFeature { ref repr, .. } => self.eval_feature_repr(repr),
+            FeatureExprVariant::EntityFeature {
+                entity_route,
+                ref repr,
+            } => {
+                p!(entity_route);
+                match repr {
+                    FeatureRepr::Value {
+                        value,
+                        ty,
+                        file,
+                        range,
+                        feature,
+                    } => todo!(),
+                    FeatureRepr::Expr(_) => todo!(),
+                    FeatureRepr::LazyBlock(_) => todo!(),
+                    FeatureRepr::FuncBlock(_) => todo!(),
+                    FeatureRepr::ProcBlock(_) => todo!(),
+                }
+                self.eval_feature_repr_cached(repr)
+            }
             FeatureExprVariant::NewRecord {
                 ty,
                 ref entity,
@@ -106,7 +125,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 field_ident,
                 ref repr,
             } => {
-                let parent = self.husky_feature_eval_repr_cached(this)?.eval_ref();
+                let parent = self.eval_feature_repr_cached(this)?.eval_ref();
                 let eval_key = EvalKey::StructDerivedField::<'eval> {
                     parent,
                     field_ident: field_ident.ident,

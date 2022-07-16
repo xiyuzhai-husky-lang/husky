@@ -134,7 +134,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         _ => todo!(),
                     },
                     AstVariant::Stmt(_) => (),
-                    AstVariant::FeatureDecl { ty, .. } => self.infer_lazy_call_form(
+                    AstVariant::FeatureDefnHead { ty, .. } => self.infer_lazy_call_form(
                         &arena,
                         &[],
                         children,

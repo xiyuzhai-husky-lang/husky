@@ -10,8 +10,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         let result = match repr {
             FeatureRepr::Value { value, .. } => Ok(__EvalValue::EvalRef(value.short())),
             FeatureRepr::Expr(expr) => self.eval_expr(expr),
-            FeatureRepr::LazyBlock(block) => self.husky_feature_eval_lazy_block(block),
-            FeatureRepr::FuncBlock(block) => self.husky_feature_eval_func_block(block),
+            FeatureRepr::LazyBlock(block) => self.eval_feature_lazy_block(block),
+            FeatureRepr::FuncBlock(block) => self.eval_feature_func_block(block),
             FeatureRepr::ProcBlock(_) => todo!(),
         };
         if let Ok(ref value) = result {
@@ -22,7 +22,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         result
     }
 
-    pub(crate) fn husky_feature_eval_repr_cached(
+    pub(crate) fn eval_feature_repr_cached(
         &mut self,
         repr: &FeatureRepr,
     ) -> __EvalValueResult<'eval> {

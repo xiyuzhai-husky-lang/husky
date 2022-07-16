@@ -248,7 +248,7 @@ fn opt_linkage_wrapper(
         if opt_linkage.is_none() {
             use print_utils::*;
             println!(
-                "{YELLOW}[warning] {RED}missing linkage{RESET} for {}",
+                "{YELLOW}[warning] {RED}missing linkage{RESET} for {GREEN}{}{RESET}",
                 message()
             )
         }

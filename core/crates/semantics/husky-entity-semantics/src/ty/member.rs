@@ -98,7 +98,7 @@ impl EntityDefnVariant {
                         )?,
                     ),
                 },
-                AstVariant::FeatureDecl { ident, ty } => todo!(),
+                AstVariant::FeatureDefnHead { .. } => todo!(),
                 AstVariant::Use { .. } => todo!(),
                 AstVariant::FieldDefnHead { ranged_ident, .. } => (
                     ranged_ident.ident,

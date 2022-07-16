@@ -10,7 +10,7 @@ use husky_text::{TextRange, TextRanged};
 use infer_error::{
     derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
 };
-use print_utils::{emsg_once, epin, msg_once, p};
+use print_utils::{epin, msg_once, p};
 
 use super::*;
 
@@ -497,7 +497,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
         match call_decl.output.liason {
             OutputLiason::Transfer => {
-                emsg_once!("handle ref");
+                msg_once!("handle ref");
                 Ok(EagerValueQualifiedTy::new(
                     if self.db.is_copyable(call_decl.output.ty)? {
                         EagerExprQualifier::Copyable

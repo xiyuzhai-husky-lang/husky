@@ -18,7 +18,6 @@ impl<'a> TraceTokenBuilder<'a> {
             EagerExprVariant::Variable { varname, .. } => {
                 self.push(ident!(varname.0, associated_trace_id))
             }
-            EagerExprVariant::EntityRoute { route: scope } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
             EagerExprVariant::Bracketed(ref expr) => {
                 self.push(special!("("));

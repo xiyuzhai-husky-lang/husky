@@ -4,7 +4,7 @@ use print_utils::msg_once;
 use vm::eval_fast;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn husky_feature_eval_lazy_block(
+    pub(crate) fn eval_feature_lazy_block(
         &mut self,
         block: &FeatureLazyBlock,
     ) -> __EvalValueResult<'eval> {
@@ -20,7 +20,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         })
     }
 
-    pub(crate) fn husky_feature_eval_func_block(
+    pub(crate) fn eval_feature_func_block(
         &mut self,
         block: &FeatureFuncBlock,
     ) -> __EvalValueResult<'eval> {

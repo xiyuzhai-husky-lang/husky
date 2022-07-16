@@ -26,7 +26,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                     expr.clone(),
                 ))
             }
-            EagerExprVariant::EntityRoute { route } => todo!(),
             EagerExprVariant::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
                 InstructionVariant::PushPrimitiveLiteral {
                     value,

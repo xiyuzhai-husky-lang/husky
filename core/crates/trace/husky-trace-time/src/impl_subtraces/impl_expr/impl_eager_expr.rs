@@ -17,7 +17,6 @@ impl HuskyTraceTime {
                 this_binding,
                 field_binding,
             } => todo!(),
-            EagerExprVariant::EntityRoute { route } => todo!(),
             EagerExprVariant::PrimitiveLiteral(_) => todo!(),
             EagerExprVariant::Bracketed(_) => todo!(),
             EagerExprVariant::Opn {

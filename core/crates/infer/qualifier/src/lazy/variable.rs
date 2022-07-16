@@ -25,7 +25,7 @@ impl LazyVariableQualifiedTy {
     }
 
     pub fn new(qual: LazyVariableQualifier, ty: EntityRoutePtr) -> Self {
-        emsg_once!("handle ref");
+        msg_once!("handle ref");
         Self { qual, ty }
     }
 }

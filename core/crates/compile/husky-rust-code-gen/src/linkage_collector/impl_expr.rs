@@ -7,7 +7,6 @@ impl<'a> LinkageCollector<'a> {
             EagerExprVariant::Variable { .. } => (),
             EagerExprVariant::ThisValue { .. } => (),
             EagerExprVariant::ThisField { .. } => (),
-            EagerExprVariant::EntityRoute { route } => self.insert(route),
             EagerExprVariant::PrimitiveLiteral(_) => (),
             EagerExprVariant::EnumKindLiteral(_) => self.insert(expr.ty()),
             EagerExprVariant::Bracketed(ref expr) => self.collect_from_eager_expr(expr),

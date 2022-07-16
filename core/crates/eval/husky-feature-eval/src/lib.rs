@@ -60,8 +60,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         repr: &FeatureRepr,
         sample_id: SampleId,
     ) -> __EvalValueResult<'eval> {
-        self.evaluator(sample_id)
-            .husky_feature_eval_repr_cached(repr)
+        self.evaluator(sample_id).eval_feature_repr_cached(repr)
     }
 
     fn eval_feature_lazy_block(
@@ -69,8 +68,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         block: &FeatureLazyBlock,
         sample_id: SampleId,
     ) -> __EvalValueResult<'eval> {
-        self.evaluator(sample_id)
-            .husky_feature_eval_lazy_block(block)
+        self.evaluator(sample_id).eval_feature_lazy_block(block)
     }
 
     fn eval_feature_stmt(

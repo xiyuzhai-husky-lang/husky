@@ -23,7 +23,7 @@ impl TrainModel for HuskyEvalTime {
             if !self.eval_opt_arrival_indicator(opt_arrival_indicator, sample_id)? {
                 continue;
             }
-            if sample_id.0 >= MAX_SAMPLE_LEN {
+            if training_data.len() >= MAX_SAMPLE_LEN {
                 break;
             }
             let values: Vec<__EvalValue> = opds

@@ -29,7 +29,7 @@ impl<'a> AstTransformer<'a> {
                 match token_group[2].kind {
                     HuskyTokenKind::Special(SpecialToken::LightArrow) => {
                         enter_block(self);
-                        self.parse_feature_defn_head(token_group)
+                        self.parse_feature_defn_head(paradigm, token_group)
                     }
                     HuskyTokenKind::Special(SpecialToken::LPar) => {
                         self.call_defn_head(token_group, None, enter_block)

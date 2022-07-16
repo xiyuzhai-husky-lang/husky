@@ -55,7 +55,8 @@ pub enum AstVariant {
         output_liason: OutputLiason,
         opt_this_liason: Option<ParameterLiason>,
     },
-    FeatureDecl {
+    FeatureDefnHead {
+        paradigm: Paradigm,
         ident: RangedCustomIdentifier,
         ty: RangedEntityRoute,
     },
