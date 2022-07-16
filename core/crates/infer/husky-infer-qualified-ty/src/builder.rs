@@ -134,13 +134,23 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         _ => todo!(),
                     },
                     AstVariant::Stmt(_) => (),
-                    AstVariant::FeatureDefnHead { ty, .. } => self.infer_lazy_call_form(
-                        &arena,
-                        &[],
-                        children,
-                        Some(ty.route),
-                        OutputLiason::Transfer,
-                    ),
+                    AstVariant::FeatureDefnHead { paradigm, ty, .. } => match paradigm {
+                        Paradigm::LazyFunctional => self.infer_lazy_call_form(
+                            &arena,
+                            &[],
+                            children,
+                            Some(ty.route),
+                            OutputLiason::Transfer,
+                        ),
+                        Paradigm::EagerFunctional | Paradigm::EagerProcedural => self
+                            .infer_eager_call_form(
+                                &arena,
+                                &[],
+                                children,
+                                Some(ty.route),
+                                OutputLiason::Transfer,
+                            ),
+                    },
                     AstVariant::Submodule { ident, source_file } => (),
                 }
             }
@@ -149,6 +159,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     pub(super) fn finish(self) -> Arc<QualifiedTySheet> {
         Arc::new(self.qualified_ty_sheet)
+    }
+
+    fn file(&self) -> FilePtr {
+        self.entity_route_sheet.ast_text.file
     }
 }
 
