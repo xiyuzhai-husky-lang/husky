@@ -50,7 +50,7 @@ impl LinkageTable {
         db: &dyn EntityDefnQueryGroup,
         feature_uid: EntityUid,
     ) -> Option<__Linkage> {
-        self.get_linkage(db, LinkageKey::FeatureEagerBlock { feature_uid })
+        self.get_linkage(db, LinkageKey::FeatureEagerBlock { uid: feature_uid })
     }
 
     pub(crate) fn routine_linkage(

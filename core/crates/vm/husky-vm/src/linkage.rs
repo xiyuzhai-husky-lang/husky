@@ -1,3 +1,4 @@
+mod feature_eager_block;
 mod fp;
 mod generic_transfer;
 mod member;
