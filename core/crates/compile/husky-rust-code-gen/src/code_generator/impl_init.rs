@@ -16,8 +16,8 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 "#,
         );
         let main_module = self.db.module(self.package_main).unwrap();
-        let entity_linkage_dependees = self.db.entity_linkage_dependees(main_module);
-        for entity_route in entity_linkage_dependees.iter() {
+        let entity_link_dependees = self.db.entity_link_dependees(main_module);
+        for entity_route in entity_link_dependees.iter() {
             if !entity_route.is_generic() {
                 let entity_defn = self.db.entity_defn(*entity_route).unwrap();
                 self.gen_linkage_entry(*entity_route, &entity_defn);

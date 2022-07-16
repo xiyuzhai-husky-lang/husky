@@ -52,9 +52,12 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("<'eval>")
         }
         self.write("(");
-        let needs_context: bool = todo!();
+        let needs_eval_context: bool = self.db.needs_eval_context(base_route);
+        if needs_eval_context {
+            self.write("__ctx: __EvalContext");
+        }
         for (i, parameter) in parameters.iter().enumerate() {
-            if i > 0 || needs_context {
+            if i > 0 || needs_eval_context {
                 self.write(", ");
             }
             self.write(&parameter.ranged_ident.ident);
@@ -102,8 +105,12 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("<'eval>")
         }
         self.write("(");
+        let needs_eval_context: bool = self.db.needs_eval_context(base_route);
+        if needs_eval_context {
+            self.write("__ctx: __EvalContext");
+        }
         for (i, parameter) in parameters.iter().enumerate() {
-            if i > 0 {
+            if i > 0 || needs_eval_context {
                 self.write(", ");
             }
             self.gen_parameter(parameter)

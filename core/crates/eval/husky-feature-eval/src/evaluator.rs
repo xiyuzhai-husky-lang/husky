@@ -2,6 +2,7 @@ mod config;
 mod impl_arrival;
 mod impl_block;
 mod impl_cached;
+mod impl_eval_context;
 mod impl_expr;
 mod impl_repr;
 mod impl_stmt;
