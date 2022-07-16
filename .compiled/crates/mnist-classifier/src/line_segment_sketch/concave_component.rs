@@ -42,6 +42,13 @@ impl<'eval> __AnyValue<'eval> for ConcaveComponent<'eval> {
     fn __into_eval_value(self) -> __EvalValue<'eval> {
         todo!()
     }
+
+    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    where
+        'eval: 'temp,
+    {
+        todo!()
+    }
 }
 
 pub(crate) fn find_concave_components<'eval>(line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>) -> Vec<ConcaveComponent<'eval>> {

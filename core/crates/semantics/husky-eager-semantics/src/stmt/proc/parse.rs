@@ -39,7 +39,6 @@ impl<'a> EagerParser<'a> {
                         range: stmt.range,
                         indent: item.indent,
                         instruction_id,
-                        needs_context: variant.needs_context(),
                         variant,
                     }
                 }

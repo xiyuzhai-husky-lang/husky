@@ -18,19 +18,3 @@ pub enum FuncConditionFlowBranchVariant {
     Elif { condition: Arc<EagerExpr> },
     Else,
 }
-
-impl FuncConditionFlowBranch {
-    pub fn needs_context(&self) -> bool {
-        self.variant.needs_context() || self.stmts.iter().any(|stmt| stmt.needs_context())
-    }
-}
-
-impl FuncConditionFlowBranchVariant {
-    pub fn needs_context(&self) -> bool {
-        match self {
-            FuncConditionFlowBranchVariant::If { ref condition } => condition.needs_context,
-            FuncConditionFlowBranchVariant::Elif { ref condition } => condition.needs_context,
-            FuncConditionFlowBranchVariant::Else => false,
-        }
-    }
-}

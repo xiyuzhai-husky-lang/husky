@@ -12,8 +12,7 @@ impl<'a> LinkageCollector<'a> {
             EntityDefnVariant::Module { ref module_items } => module_items
                 .iter()
                 .for_each(|item| self.collect_from_entity_defn(item)),
-            EntityDefnVariant::Feature { ty, ref defn_repr } => {
-                self.insert(ty.route);
+            EntityDefnVariant::Feature { ref defn_repr } => {
                 self.collect_from_feature_repr(defn.base_route, defn_repr)
             }
             EntityDefnVariant::Function {
@@ -56,7 +55,7 @@ impl<'a> LinkageCollector<'a> {
                 self.collect_from_func_stmts(stmts)
             }
             EntityDefnVariant::Proc {
-                spatial_parameters: ref generic_parameters,
+                ref spatial_parameters,
                 ref parameters,
                 output,
                 ref stmts,

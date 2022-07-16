@@ -12,7 +12,9 @@ where
     }
 }
 
-impl<'temp, 'eval, 'a: 'eval, T: __AnyValue<'a> + 'temp> __AnyValue<'eval> for &'temp [T] {
+impl<'b, 'eval, 'longer_eval: 'eval, T: __AnyValue<'longer_eval> + 'b> __AnyValue<'eval>
+    for &'b [T]
+{
     fn __clone_into_arc(&self) -> Arc<dyn __AnyValueDyn<'eval>> {
         panic!()
     }
@@ -55,6 +57,13 @@ impl<'temp, 'eval, 'a: 'eval, T: __AnyValue<'a> + 'temp> __AnyValue<'eval> for &
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
+
+    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    where
+        'eval: 'temp,
+    {
         todo!()
     }
 }

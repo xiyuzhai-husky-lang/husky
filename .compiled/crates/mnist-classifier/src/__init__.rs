@@ -170,6 +170,12 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         index_linkage!(Vec<raw_contour::RawContour<'eval>>)
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::connected_component::connected_components"
+        },
+        feature_eager_block_linkage!(connected_component::connected_components)
+    ),
+    (
         __StaticLinkageKey::TypeCall {
             ty: "Vec<mnist_classifier::connected_component::ConnectedComponent>"
         },
@@ -275,12 +281,6 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             opd_tys: &["Vec<mnist_classifier::connected_component::ConnectedComponent>", "i32"],
         },
         index_linkage!(Vec<connected_component::ConnectedComponent>)
-    ),
-    (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::connected_component::connected_components"
-        },
-        feature_eager_block_linkage!(connected_component::connected_components)
     ),
     (
         __StaticLinkageKey::Routine {

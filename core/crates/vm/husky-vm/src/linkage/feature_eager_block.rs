@@ -4,7 +4,7 @@ macro_rules! feature_eager_block_linkage {
         fn __wrapper<'temp, 'eval>(
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
-            $route()
+            $route().__into_temp_value()
         }
         __Linkage::SpecificTransfer(__SpecificRoutineLinkage {
             fp: __SpecificRoutineFp(__wrapper),

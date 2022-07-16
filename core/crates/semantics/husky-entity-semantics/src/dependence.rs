@@ -107,8 +107,7 @@ impl EntityDefn {
                     builder.push(item.base_route)
                 }
             }
-            EntityDefnVariant::Feature { ty, ref defn_repr } => {
-                builder.push(ty.route);
+            EntityDefnVariant::Feature { ref defn_repr } => {
                 extract_defn_repr_dependees(defn_repr, &mut builder);
             }
             EntityDefnVariant::Func {
@@ -458,7 +457,7 @@ impl EntityDefn {
             match member_defn.variant {
                 EntityDefnVariant::Main(_) => todo!(),
                 EntityDefnVariant::Module { .. } => panic!("shouldn't be here"),
-                EntityDefnVariant::Feature { ty, ref defn_repr } => todo!(),
+                EntityDefnVariant::Feature { ref defn_repr } => todo!(),
                 EntityDefnVariant::Func { .. } => todo!(),
                 EntityDefnVariant::Proc { .. } => todo!(),
                 EntityDefnVariant::Ty { .. } => todo!(),

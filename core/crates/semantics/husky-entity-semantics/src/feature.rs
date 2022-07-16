@@ -22,7 +22,6 @@ impl EntityDefnVariant {
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
         Ok(EntityDefnVariant::Feature {
-            ty,
             defn_repr: parse_definition_repr(db, paradigm, route, ty, arena, children, file)?,
         })
     }

@@ -60,6 +60,13 @@ impl<'eval> __AnyValue<'eval> for Point2d {
     fn __into_eval_value(self) -> __EvalValue<'eval> {
         todo!()
     }
+
+    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    where
+        'eval: 'temp,
+    {
+        todo!()
+    }
 }
 #[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct Vector2d {
@@ -156,6 +163,13 @@ impl<'eval> __AnyValue<'eval> for Vector2d {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
+
+    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    where
+        'eval: 'temp,
+    {
         todo!()
     }
 }

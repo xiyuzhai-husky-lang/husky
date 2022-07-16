@@ -1,11 +1,36 @@
 use fold::Indent;
 use husky_eager_semantics::{FuncStmt, ProcStmt};
 use husky_entity_route::EntityRoutePtr;
+use husky_entity_semantics::DefinitionRepr;
 use word::CustomIdentifier;
 
 use super::{impl_entity_route::EntityRouteRole, *};
 
 impl<'a> RustCodeGenerator<'a> {
+    pub(super) fn gen_feature_defn(
+        &mut self,
+        feature_route: EntityRoutePtr,
+        defn_repr: &DefinitionRepr,
+    ) {
+        match defn_repr {
+            DefinitionRepr::LazyExpr { expr } => (),
+            DefinitionRepr::LazyBlock { stmts, ty } => (),
+            DefinitionRepr::FuncBlock {
+                route,
+                file,
+                range,
+                stmts,
+                ty,
+            } => self.gen_func_defn(0, feature_route, &[], ty.route, stmts),
+            DefinitionRepr::ProcBlock {
+                file,
+                range,
+                stmts,
+                ty,
+            } => todo!(),
+        }
+    }
+
     pub(super) fn gen_proc_defn(
         &mut self,
         indent: Indent,
@@ -27,8 +52,9 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("<'eval>")
         }
         self.write("(");
+        let needs_context: bool = todo!();
         for (i, parameter) in parameters.iter().enumerate() {
-            if i > 0 {
+            if i > 0 || needs_context {
                 self.write(", ");
             }
             self.write(&parameter.ranged_ident.ident);
