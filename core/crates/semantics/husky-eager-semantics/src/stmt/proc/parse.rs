@@ -32,13 +32,17 @@ impl<'a> EagerParser<'a> {
                 AstVariant::DatasetConfigDefnHead => todo!(),
                 AstVariant::CallFormDefnHead { .. } => todo!(),
                 AstVariant::Use { .. } => todo!(),
-                AstVariant::Stmt(ref stmt) => ProcStmt {
-                    file: self.file,
-                    range: stmt.range,
-                    indent: item.indent,
-                    variant: self.parse_proc_stmt(stmt, item.opt_children, &mut iter)?,
-                    instruction_id,
-                },
+                AstVariant::Stmt(ref stmt) => {
+                    let variant = self.parse_proc_stmt(stmt, item.opt_children, &mut iter)?;
+                    ProcStmt {
+                        file: self.file,
+                        range: stmt.range,
+                        indent: item.indent,
+                        instruction_id,
+                        needs_context: variant.needs_context(),
+                        variant,
+                    }
+                }
                 AstVariant::EnumVariantDefnHead {
                     ident,
                     variant_class: ref variant_kind,

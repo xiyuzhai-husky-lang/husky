@@ -2,9 +2,9 @@ use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use husky_entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
+use husky_infer_qualified_ty::{EagerExprQualifier, EagerVariableQualifier, InferQualifiedTy};
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
 use infer_contract::{EagerContract, InferContract};
-use infer_qualifier::{EagerExprQualifier, EagerVariableQualifier, InferQualifiedTy};
 use vm::*;
 use word::{ContextualIdentifier, Identifier, RootIdentifier};
 
@@ -19,7 +19,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
 
     fn parse_eager_expr(&mut self, raw_expr_idx: RawExprIdx) -> SemanticResult<Arc<EagerExpr>> {
         let raw_expr = &self.arena()[raw_expr_idx];
-        let kind = match raw_expr.variant {
+        let variant = match raw_expr.variant {
             RawExprVariant::Variable {
                 varname,
                 init_range,
@@ -67,8 +67,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 EntityKind::Type(_) => todo!(),
                 EntityKind::Trait => todo!(),
                 EntityKind::Function { .. } => todo!(),
-                EntityKind::Feature => todo!(),
-                // EagerExprVariant::EntityFeature,
+                EntityKind::Feature => EagerExprVariant::EntityFeature { route },
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Main => panic!(),
             },
@@ -143,7 +142,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         }
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
-            variant: kind,
+            needs_context: variant.needs_context(),
+            variant,
             file: self.file(),
             instruction_id: Default::default(),
             qualified_ty: self.eager_expr_qualified_ty(raw_expr_idx).unwrap(),
@@ -250,6 +250,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 this_ty: this.ty(),
                 field_liason,
                 field_binding: field_qt.qual.binding(field_contract),
+                field_kind: field_decl.field_kind,
             },
             opds: vec![this],
         })

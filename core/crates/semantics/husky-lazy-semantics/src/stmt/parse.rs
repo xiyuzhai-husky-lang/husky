@@ -3,8 +3,8 @@ use husky_ast::*;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
+use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use infer_contract::{ContractSheet, InferContract};
-use infer_qualifier::{InferQualifiedTy, QualifiedTySheet};
 use semantics_error::*;
 use std::{iter::Peekable, sync::Arc};
 use vm::{InitKind, VMCompileResult, VMStackIdx, XmlTagKind, __EvalResult};
@@ -196,7 +196,7 @@ impl<'a> InferContract for LazyStmtParser<'a> {
 }
 
 impl<'a> InferQualifiedTy for LazyStmtParser<'a> {
-    fn qualified_ty_sheet(&self) -> &infer_qualifier::QualifiedTySheet {
+    fn qualified_ty_sheet(&self) -> &husky_infer_qualified_ty::QualifiedTySheet {
         &self.qualified_ty_sheet
     }
 }

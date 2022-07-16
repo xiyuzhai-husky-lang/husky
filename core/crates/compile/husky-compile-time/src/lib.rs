@@ -13,13 +13,13 @@ pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGrou
 pub use husky_file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use husky_infer_entity_route::*;
+pub use husky_infer_qualified_ty::*;
 pub use husky_package_semantics::PackageQueryGroup;
 pub use husky_rust_code_gen::RustCodeGenQueryGroup;
 pub use husky_token::TokenQueryGroup;
 pub use husky_token::TokenSalsaQueryGroup;
 pub use infer_contract::*;
 pub use infer_decl::*;
-pub use infer_qualifier::*;
 pub use infer_total::*;
 pub use word::InternWord;
 
@@ -47,7 +47,7 @@ use sync_utils::ASafeRwLock;
     infer_decl::DeclQueryGroupStorage,
     husky_infer_entity_route::InferEntityRouteQueryGroupStorage,
     infer_contract::InferContractQueryGroupStorage,
-    infer_qualifier::InferQualifiedTyQueryGroupStorage,
+    husky_infer_qualified_ty::InferQualifiedTyQueryGroupStorage,
     husky_entity_semantics::EntityQueryGroupStorage,
     husky_package_semantics::PackageQueryGroupStorage,
     husky_diagnostics::DiagnosticQueryGroupStorage,

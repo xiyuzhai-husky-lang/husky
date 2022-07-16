@@ -25,6 +25,7 @@ impl HuskyTraceTime {
             } => self.eager_opn_subtraces(parent, expr, history, opn_variant, opds),
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
+            EagerExprVariant::EntityFeature { .. } => todo!(),
         }
     }
 
@@ -77,6 +78,7 @@ impl HuskyTraceTime {
                 field_ident,
                 field_liason,
                 field_binding,
+                ..
             } => todo!(),
             EagerOpnVariant::MethodCall {
                 method_ident,

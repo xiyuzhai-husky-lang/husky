@@ -65,12 +65,12 @@ fn global_output_ty_from_ast(
                 let caller = &arena[opds][0];
                 match caller.variant {
                     RawExprVariant::Entity {
-                        route: scope,
+                        route,
                         kind: EntityKind::Function { .. },
                         ..
                     } => {
                         let call_decl_result: InferResult<_> =
-                            db.function_decl(scope).bind_into(caller);
+                            db.function_decl(route).bind_into(caller);
                         let dataset_type = call_decl_result?.output.ty;
                         match dataset_type.kind {
                             EntityRouteKind::Root {

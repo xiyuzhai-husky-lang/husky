@@ -6,9 +6,9 @@ use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use husky_entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
+use husky_infer_qualified_ty::{InferQualifiedTy, LazyExprQualifier};
 use husky_text::RangedCustomIdentifier;
 use infer_contract::{InferContract, LazyContract};
-use infer_qualifier::{InferQualifiedTy, LazyExprQualifier};
 use vm::*;
 use word::{CustomIdentifier, RootIdentifier};
 

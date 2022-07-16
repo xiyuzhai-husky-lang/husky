@@ -159,6 +159,7 @@ impl<'a> RustCodeGenerator<'a> {
             EagerExprVariant::EnumKindLiteral(value) => {
                 self.gen_entity_route(value, EntityRouteRole::Other)
             }
+            EagerExprVariant::EntityFeature { .. } => todo!(),
         }
     }
 

@@ -34,6 +34,7 @@ impl<'a> LinkageCollector<'a> {
                 }
             }
             EagerExprVariant::Lambda(_, _) => todo!(),
+            EagerExprVariant::EntityFeature { .. } => todo!(),
         }
     }
 }
