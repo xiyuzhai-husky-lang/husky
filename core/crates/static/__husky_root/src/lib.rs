@@ -19,7 +19,7 @@ pub use domains::*;
 pub use etc::*;
 pub use husky_entity_route::EntityRoutePtr as __EntityRoutePtr;
 pub use husky_eval_time::__ty_route_from_static_binded;
-pub use husky_feature_eval::FeatureEvaluator as __Context;
+pub use husky_feature_eval::FeatureEvaluator as __EvalContext;
 pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
 pub use static_defn::__StaticLinkageKey;

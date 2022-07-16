@@ -46,7 +46,7 @@ impl<'a> LinkageCollector<'a> {
     }
 }
 
-pub(crate) fn entity_immediate_linkage_dependees(
+pub(crate) fn entity_immediate_link_dependees(
     db: &dyn RustCodeGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> Arc<VecSet<EntityRoutePtr>> {
@@ -60,7 +60,7 @@ pub(crate) fn entity_immediate_linkage_dependees(
         };
         use husky_instantiate::Instantiable;
         let mut set: VecSet<_> = db
-            .entity_immediate_linkage_dependees(base_route(entity_route))
+            .entity_immediate_link_dependees(base_route(entity_route))
             .iter()
             .map(|entity_route| entity_route.instantiate(&ctx).take_entity_route())
             .collect();
@@ -81,14 +81,14 @@ pub(crate) fn entity_immediate_linkage_dependees(
     }
 }
 
-pub(crate) fn entity_linkage_dependees(
+pub(crate) fn entity_link_dependees(
     db: &dyn RustCodeGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> Arc<VecSet<EntityRoutePtr>> {
     if entity_route.spatial_arguments.len() > 0 {
         todo!()
     } else {
-        let mut dependees = (*db.entity_immediate_linkage_dependees(entity_route)).clone();
+        let mut dependees = (*db.entity_immediate_link_dependees(entity_route)).clone();
         visit_all(db, &mut dependees, 0);
         return Arc::new(dependees);
     }
@@ -108,7 +108,7 @@ pub(crate) fn entity_linkage_dependees(
                 EntityRouteKind::Generic { .. } => continue,
                 _ => (),
             }
-            let subroute_dependees = db.entity_immediate_linkage_dependees(subroute);
+            let subroute_dependees = db.entity_immediate_link_dependees(subroute);
             dependees.extend(&subroute_dependees)
         }
         if dependees.len() > len0 {

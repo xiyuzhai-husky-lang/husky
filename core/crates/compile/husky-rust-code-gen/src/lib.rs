@@ -2,6 +2,7 @@ mod bin_main_rs_content;
 mod cargo_toml_content;
 mod code_generator;
 mod contains_eval_ref;
+mod eval_context;
 mod init_content;
 mod lib_rs_content;
 mod linkage_collector;
@@ -12,6 +13,7 @@ use bin_main_rs_content::*;
 use cargo_toml_content::*;
 use contains_eval_ref::*;
 use defn_head::*;
+use eval_context::*;
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_file::FilePtr;
 use husky_liason_semantics::*;
@@ -36,10 +38,10 @@ pub trait RustCodeGenQueryGroup: PackageQueryGroup {
     fn entity_route_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;
     fn is_defn_static(&self, entity_route: EntityRoutePtr) -> bool;
     fn contains_spatial_parameters(&self, entity_route: EntityRoutePtr) -> bool;
-    fn entity_immediate_linkage_dependees(
+    fn entity_immediate_link_dependees(
         &self,
         entity_route: EntityRoutePtr,
     ) -> Arc<VecSet<EntityRoutePtr>>;
-    fn entity_linkage_dependees(&self, entity_route: EntityRoutePtr)
-        -> Arc<VecSet<EntityRoutePtr>>;
+    fn entity_link_dependees(&self, entity_route: EntityRoutePtr) -> Arc<VecSet<EntityRoutePtr>>;
+    fn needs_eval_context(&self, entity_route: EntityRoutePtr) -> bool;
 }
