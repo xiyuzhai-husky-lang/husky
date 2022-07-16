@@ -28,6 +28,9 @@ pub enum __StaticLinkageKey {
         this_ty: &'static str,
         field_ident: &'static str,
     },
+    FeatureEagerBlock {
+        route: &'static str,
+    },
 }
 
 pub trait ResolveStaticRootDefn {

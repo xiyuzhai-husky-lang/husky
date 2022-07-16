@@ -400,7 +400,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     }
 
     fn gen_eager_block_linkage_entries(&mut self, route: EntityRoutePtr) {
-        todo!()
+        self.write(&format!(
+            r#"
+    (
+        __StaticLinkageKey::FeatureEagerBlock {{
+            route: "{route}"
+        }},
+        feature_eager_block_linkage!("#
+        ));
+        self.gen_entity_route(route, EntityRouteRole::Decl);
+        self.write(
+            r#")
+    ),"#,
+        );
     }
 
     fn gen_index_linkage(&mut self, ty: EntityRoutePtr) {

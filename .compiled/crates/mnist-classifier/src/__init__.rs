@@ -277,21 +277,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         index_linkage!(Vec<connected_component::ConnectedComponent>)
     ),
     (
-        __StaticLinkageKey::Routine {
-            routine: "mnist_classifier::connected_component::horizontal_extend"
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::connected_component::connected_components"
         },
-        specific_transfer_linkage!({
-            fn __wrapper<'temp, 'eval>(
-                __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __TempValue<'temp, 'eval> {
-                let a: u32 = __arguments[0].downcast_copy();
-                let x: u32 = __arguments[1].downcast_copy();
-                __TempValue::Copyable(
-                    connected_component::horizontal_extend(a, x)
-                    .__take_copyable_dyn())
-            }
-            __wrapper
-        }, 2),
+        feature_eager_block_linkage!(connected_component::connected_components)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -308,6 +297,29 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             }
             __wrapper
         }, 1),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::connected_component::major_connected_component"
+        },
+        feature_eager_block_linkage!(connected_component::major_connected_component)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "mnist_classifier::connected_component::horizontal_extend"
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                let a: u32 = __arguments[0].downcast_copy();
+                let x: u32 = __arguments[1].downcast_copy();
+                __TempValue::Copyable(
+                    connected_component::horizontal_extend(a, x)
+                    .__take_copyable_dyn())
+            }
+            __wrapper
+        }, 2),
     ),
     (
         __StaticLinkageKey::Routine {

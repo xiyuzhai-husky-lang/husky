@@ -13,7 +13,7 @@ pub enum LinkageKey {
         ty_uid: EntityUid,
     },
     FeatureEagerBlock {
-        feature_uid: EntityUid,
+        uid: EntityUid,
     },
     Routine {
         routine_uid: EntityUid,
@@ -52,6 +52,9 @@ impl LinkageKey {
                 this_ty_uid: entity_uid(db, this_ty),
                 field_ident: db.custom_ident(field_ident),
             },
+            __StaticLinkageKey::FeatureEagerBlock { route } => LinkageKey::FeatureEagerBlock {
+                uid: entity_uid(db, route),
+            },
         }
     }
 
@@ -79,7 +82,7 @@ impl LinkageKey {
                 this_ty: db.entity_route_by_uid(*this_ty_uid),
                 field_ident: *field_ident,
             },
-            LinkageKey::FeatureEagerBlock { feature_uid } => todo!(),
+            LinkageKey::FeatureEagerBlock { uid: feature_uid } => todo!(),
         }
     }
 }
