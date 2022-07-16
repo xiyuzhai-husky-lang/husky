@@ -14,4 +14,4 @@ infer-error = { path = "../error" }
 infer-decl = { path = "../husky-infer-decl" }
 husky-infer-entity-route = { path = "../husky-infer-entity-route" }
 infer-contract = { path = "../husky-infer-contract" }
-infer-qualifier = { path = "../qualifier" }
+husky-infer-qualified-ty = { path = "../husky-infer-qualified-ty" }

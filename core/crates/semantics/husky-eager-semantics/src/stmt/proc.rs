@@ -23,6 +23,7 @@ pub struct ProcStmt {
     pub range: TextRange,
     pub indent: Indent,
     pub instruction_id: InstructionId,
+    pub needs_context: bool,
 }
 
 impl InstructionSource for ProcStmt {
@@ -67,6 +68,31 @@ pub enum ProcStmtVariant {
         match_expr: Arc<EagerExpr>,
         branches: Vec<Arc<ProcPatternBranch>>,
     },
+}
+
+impl ProcStmtVariant {
+    pub(crate) fn needs_context(&self) -> bool {
+        match self {
+            ProcStmtVariant::Init {
+                varname,
+                initial_value,
+                init_kind,
+            } => todo!(),
+            ProcStmtVariant::Assert { condition } => todo!(),
+            ProcStmtVariant::Execute { expr } => todo!(),
+            ProcStmtVariant::ConditionFlow { branches } => todo!(),
+            ProcStmtVariant::Loop {
+                loop_variant,
+                stmts,
+            } => todo!(),
+            ProcStmtVariant::Break => todo!(),
+            ProcStmtVariant::Return { result } => todo!(),
+            ProcStmtVariant::Match {
+                match_expr,
+                branches,
+            } => todo!(),
+        }
+    }
 }
 
 pub fn parse_impr_stmts(

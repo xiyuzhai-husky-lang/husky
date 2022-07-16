@@ -1,4 +1,5 @@
 use crate::*;
+use entity_kind::FieldKind;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use infer_decl::TyDecl;
@@ -29,6 +30,7 @@ pub enum EagerOpnVariant {
         field_ident: RangedCustomIdentifier,
         field_liason: MemberLiason,
         field_binding: Binding,
+        field_kind: FieldKind,
     },
     MethodCall {
         method_ident: RangedCustomIdentifier,
@@ -39,4 +41,26 @@ pub enum EagerOpnVariant {
     Index {
         element_binding: Binding,
     },
+}
+
+impl EagerOpnVariant {
+    pub fn needs_context(&self) -> bool {
+        match self {
+            EagerOpnVariant::Binary { .. }
+            | EagerOpnVariant::Prefix { .. }
+            | EagerOpnVariant::Suffix { .. }
+            | EagerOpnVariant::RoutineCall(_)
+            | EagerOpnVariant::TypeCall { .. }
+            | EagerOpnVariant::MethodCall { .. }
+            | EagerOpnVariant::Index { .. } => false,
+            EagerOpnVariant::FieldAccess { field_kind, .. } => match field_kind {
+                FieldKind::StructOriginal => false,
+                FieldKind::StructDefault => false,
+                FieldKind::StructDerivedEager => false,
+                FieldKind::StructDerivedLazy => true,
+                FieldKind::RecordOriginal => todo!(),
+                FieldKind::RecordDerived => todo!(),
+            },
+        }
+    }
 }

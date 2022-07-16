@@ -101,6 +101,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(ident!(field_ident.ident.0))
             }
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
+            EagerExprVariant::EntityFeature { .. } => todo!(),
         };
         if config.appended {
             self.push(fade!(" = "));

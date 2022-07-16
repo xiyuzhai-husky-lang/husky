@@ -7,7 +7,7 @@ pub use xml::*;
 use std::sync::Arc;
 
 use husky_file::FilePtr;
-use infer_qualifier::LazyValueQualifiedTy;
+use husky_infer_qualified_ty::LazyValueQualifiedTy;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 

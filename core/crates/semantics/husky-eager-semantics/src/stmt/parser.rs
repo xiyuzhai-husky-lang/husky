@@ -1,7 +1,7 @@
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
+use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use husky_text::RangedCustomIdentifier;
 use infer_contract::{ContractSheet, InferContract};
-use infer_qualifier::{InferQualifiedTy, QualifiedTySheet};
 use infer_total::InferQueryGroup;
 use vm::{VMStackIdx, __EvalResult};
 
@@ -48,7 +48,7 @@ impl<'a> InferContract for EagerParser<'a> {
 }
 
 impl<'a> InferQualifiedTy for EagerParser<'a> {
-    fn qualified_ty_sheet(&self) -> &infer_qualifier::QualifiedTySheet {
+    fn qualified_ty_sheet(&self) -> &husky_infer_qualified_ty::QualifiedTySheet {
         &self.qualified_ty_sheet
     }
 }

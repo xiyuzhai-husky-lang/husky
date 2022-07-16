@@ -111,6 +111,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 }),
                 expr.clone(),
             )),
+            EagerExprVariant::EntityFeature { .. } => todo!(),
         }
     }
 
@@ -214,6 +215,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 field_ident,
                 field_liason,
                 field_binding,
+                ..
             } => {
                 self.push_instruction(Instruction::new(
                     if let Some(linkage) = self.db.compile_time().struct_field_access_linkage(
