@@ -25,7 +25,6 @@ pub struct EagerExpr {
     pub contract: EagerContract,
     pub variant: EagerExprVariant,
     pub instruction_id: InstructionId,
-    pub needs_context: bool,
 }
 
 impl std::fmt::Debug for EagerExpr {
@@ -92,24 +91,6 @@ pub enum EagerExprVariant {
     EntityFeature {
         route: EntityRoutePtr,
     },
-}
-
-impl EagerExprVariant {
-    pub(crate) fn needs_context(&self) -> bool {
-        match self {
-            EagerExprVariant::Variable { .. } => false,
-            EagerExprVariant::ThisValue { .. } => false,
-            EagerExprVariant::ThisField { .. } => false,
-            EagerExprVariant::PrimitiveLiteral(_) => false,
-            EagerExprVariant::EnumKindLiteral(_) => false,
-            EagerExprVariant::Bracketed(bracketed_expr) => bracketed_expr.needs_context,
-            EagerExprVariant::Opn { opn_variant, opds } => {
-                opn_variant.needs_context() || opds.iter().any(|opd| opd.needs_context)
-            }
-            EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::EntityFeature { .. } => true,
-        }
-    }
 }
 
 pub fn parse_eager_expr(

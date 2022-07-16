@@ -88,7 +88,7 @@ impl HuskyTraceTime {
             ),
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Module { ref module_items } => todo!(),
-            EntityDefnVariant::Feature { ty, ref defn_repr } => todo!(),
+            EntityDefnVariant::Feature { ref defn_repr } => todo!(),
             EntityDefnVariant::Function {
                 ref spatial_parameters,
                 ref parameters,

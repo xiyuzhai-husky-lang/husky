@@ -59,4 +59,11 @@ where
     fn __into_eval_value(self) -> __EvalValue<'eval> {
         __EvalValue::Owned(__OwnedValue::new(self))
     }
+
+    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    where
+        'eval: 'temp,
+    {
+        todo!()
+    }
 }

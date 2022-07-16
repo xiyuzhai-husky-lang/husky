@@ -25,3 +25,4 @@ husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-models-static-defn = { path = "../domains/ml/husky-models-static-defn" }
 husky-datasets-static-defn = { path = "../domains/ml/husky-datasets-static-defn" }
 husky-eval-time = { path = "../../eval/husky-eval-time" }
+husky-feature-eval = { path = "../../eval/husky-feature-eval" }

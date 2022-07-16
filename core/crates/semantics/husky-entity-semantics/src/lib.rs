@@ -191,7 +191,6 @@ pub enum EntityDefnVariant {
         module_items: Avec<EntityDefn>,
     },
     Feature {
-        ty: RangedEntityRoute,
         defn_repr: Arc<DefinitionRepr>,
     },
     Function {

@@ -48,6 +48,13 @@ impl<'eval> __AnyValue<'eval> for RawContour<'eval> {
     fn __into_eval_value(self) -> __EvalValue<'eval> {
         todo!()
     }
+
+    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    where
+        'eval: 'temp,
+    {
+        todo!()
+    }
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq, __Serialize)]
 pub(crate) enum Direction {
@@ -85,6 +92,13 @@ impl<'eval> __AnyValue<'eval> for Direction {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
+
+    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    where
+        'eval: 'temp,
+    {
         todo!()
     }
 }
@@ -268,6 +282,13 @@ impl<'eval> __AnyValue<'eval> for StreakCache {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
+        todo!()
+    }
+
+    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    where
+        'eval: 'temp,
+    {
         todo!()
     }
 }

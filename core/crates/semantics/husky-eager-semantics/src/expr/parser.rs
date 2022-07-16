@@ -149,7 +149,6 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         };
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
-            needs_context: variant.needs_context(),
             variant,
             file: self.file(),
             instruction_id: Default::default(),

@@ -154,6 +154,13 @@ impl<'eval, 'a: 'eval> __AnyValue<'eval> for SimpleSyntheticDataset<'a> {
     fn __into_eval_value(self) -> __EvalValue<'eval> {
         todo!()
     }
+
+    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    where
+        'eval: 'temp,
+    {
+        todo!()
+    }
 }
 
 impl<'eval> SyntheticDataset<'eval> for SimpleSyntheticDataset<'eval> {
