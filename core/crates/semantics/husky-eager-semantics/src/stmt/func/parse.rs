@@ -66,7 +66,7 @@ impl<'a> EagerParser<'a> {
                         instruction_id: Default::default(),
                     }))
                 }
-                AstVariant::FeatureDecl { .. } => todo!(),
+                AstVariant::FeatureDefnHead { .. } => todo!(),
                 _ => panic!(),
             }
         }

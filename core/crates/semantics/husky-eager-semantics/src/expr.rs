@@ -74,9 +74,9 @@ pub enum EagerExprVariant {
         this_binding: Binding,
         field_binding: Binding,
     },
-    EntityRoute {
-        route: EntityRoutePtr,
-    },
+    // EntityRoute {
+    //     route: EntityRoutePtr,
+    // },
     PrimitiveLiteral(CopyableValue),
     EnumKindLiteral(EntityRoutePtr),
     Bracketed(Arc<EagerExpr>),

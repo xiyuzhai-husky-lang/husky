@@ -130,7 +130,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 self.infer_expr(result, opt_output_ty, arena);
             }
             RawStmtVariant::Assert(condition) => self.infer_condition(condition, arena),
-            RawStmtVariant::Break => emsg_once!("ensure break is inside a loop"),
+            RawStmtVariant::Break => msg_once!("ensure break is inside a loop"),
             RawStmtVariant::Match { match_expr, .. } => panic!("shouldn't be here"),
             RawStmtVariant::ReturnXml(ref xml_expr) => match xml_expr.variant {
                 RawXmlExprVariant::Value(raw_expr_idx) => {

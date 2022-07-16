@@ -4,6 +4,7 @@ mod feature;
 mod function;
 mod module;
 mod query;
+mod repr;
 mod subentities;
 mod trai;
 mod ty;
@@ -13,6 +14,7 @@ pub use call_form::*;
 pub use feature::*;
 pub use function::*;
 pub use query::*;
+pub use repr::*;
 pub use trai::*;
 pub use ty::*;
 pub use visual::*;
@@ -190,7 +192,7 @@ pub enum EntityDefnVariant {
     },
     Feature {
         ty: RangedEntityRoute,
-        defn_repr: DefinitionRepr,
+        defn_repr: Arc<DefinitionRepr>,
     },
     Function {
         spatial_parameters: IdentDict<SpatialParameter>,
@@ -510,9 +512,21 @@ pub(crate) fn entity_defn(
                     ident,
                     EntityDefnVariant::enum_variant(db, ident, variant_class, opt_children),
                 ),
-                AstVariant::FeatureDecl { ident, ty } => (
+                AstVariant::FeatureDefnHead {
+                    paradigm,
                     ident,
-                    EntityDefnVariant::feature(db, ty, not_none!(opt_children), arena, file)?,
+                    ty,
+                } => (
+                    ident,
+                    EntityDefnVariant::feature(
+                        db,
+                        entity_route,
+                        paradigm,
+                        ty,
+                        opt_children,
+                        arena,
+                        file,
+                    )?,
                 ),
                 AstVariant::Submodule { ident, source_file } => todo!(),
                 AstVariant::Visual => todo!(),

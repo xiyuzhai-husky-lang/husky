@@ -67,9 +67,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 EntityKind::Type(_) => todo!(),
                 EntityKind::Trait => todo!(),
                 EntityKind::Function { .. } => todo!(),
-                EntityKind::Feature => {
-                    panic!("what")
-                }
+                EntityKind::Feature => todo!(),
+                // EagerExprVariant::EntityFeature,
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Main => panic!(),
             },

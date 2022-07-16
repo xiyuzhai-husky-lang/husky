@@ -28,9 +28,7 @@ impl<'eval> Trace {
                 _ => None,
             },
             TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
-                EagerExprVariant::Variable { .. }
-                | EagerExprVariant::EntityRoute { .. }
-                | EagerExprVariant::PrimitiveLiteral(_) => None,
+                EagerExprVariant::Variable { .. } | EagerExprVariant::PrimitiveLiteral(_) => None,
                 EagerExprVariant::Opn {
                     opn_variant: ref opn_kind,
                     ref opds,

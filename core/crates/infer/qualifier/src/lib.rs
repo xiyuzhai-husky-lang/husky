@@ -15,7 +15,7 @@ use husky_liason_semantics::*;
 use husky_text::{Row, TextRange};
 use infer_contract::*;
 use infer_error::InferResult;
-use print_utils::emsg_once;
+use print_utils::msg_once;
 use vm::*;
 use word::{CustomIdentifier, Identifier};
 

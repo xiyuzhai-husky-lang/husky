@@ -2,6 +2,7 @@ use super::*;
 use avec::Avec;
 use husky_eager_semantics::ProcStmt;
 use husky_entity_route::RangedEntityRoute;
+use vm::__SpecificRoutineLinkage;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FeatureProcBlock {
@@ -12,6 +13,7 @@ pub struct FeatureProcBlock {
     pub eval_id: FeatureEvalId,
     pub ty: RangedEntityRoute,
     pub stmts: Avec<ProcStmt>,
+    pub opt_linkage: Option<__SpecificRoutineLinkage>,
 }
 
 impl<'eval> std::hash::Hash for FeatureProcBlock {

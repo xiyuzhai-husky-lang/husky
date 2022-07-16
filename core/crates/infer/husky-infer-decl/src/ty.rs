@@ -275,7 +275,7 @@ impl TyDecl {
                 AstVariant::TypeDefnHead { .. }
                 | AstVariant::MainDefn
                 | AstVariant::CallFormDefnHead { .. }
-                | AstVariant::FeatureDecl { .. }
+                | AstVariant::FeatureDefnHead { .. }
                 | AstVariant::DatasetConfigDefnHead
                 | AstVariant::Stmt(_)
                 | AstVariant::EnumVariantDefnHead { .. }

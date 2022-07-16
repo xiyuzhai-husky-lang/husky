@@ -1,6 +1,6 @@
 use husky_ast::{CasePattern, CasePatternVariant};
 use husky_entity_route::EntityRouteKind;
-use print_utils::emsg_once;
+use print_utils::msg_once;
 use semantics_error::*;
 use vec_like::{VecMap, VecPairMap};
 
@@ -36,7 +36,7 @@ impl<'a> DependeeMapBuilder<'a> {
             EntityRouteKind::Input { main } => return,
             EntityRouteKind::Package { main, ident } => todo!(),
             EntityRouteKind::Child { parent, ident } => {
-                emsg_once!("dependences on entity from external packs should be merged");
+                msg_once!("dependences on entity from external packs should be merged");
                 ()
             }
             EntityRouteKind::Generic { ident, entity_kind } => todo!(),
@@ -402,7 +402,6 @@ impl EntityDefn {
         fn extract_eager_expr_dependees(expr: &EagerExpr, builder: &mut DependeeMapBuilder) {
             match expr.variant {
                 EagerExprVariant::Variable { .. } => (),
-                EagerExprVariant::EntityRoute { route } => builder.push(route),
                 EagerExprVariant::PrimitiveLiteral(_) => (),
                 EagerExprVariant::Bracketed(ref expr) => {
                     extract_eager_expr_dependees(expr, builder)

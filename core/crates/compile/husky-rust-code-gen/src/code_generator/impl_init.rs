@@ -39,20 +39,20 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         match entity_defn.variant {
             EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Module { .. } => (),
-            EntityDefnVariant::Feature { ty, ref defn_repr } => match defn_repr {
-                DefinitionRepr::LazyExpr { expr } => (),
-                DefinitionRepr::LazyBlock { stmts, ty } => (),
+            EntityDefnVariant::Feature { ty, ref defn_repr } => match **defn_repr {
+                DefinitionRepr::LazyExpr { ref expr } => (),
+                DefinitionRepr::LazyBlock { ref stmts, ty } => (),
                 DefinitionRepr::FuncBlock {
                     route,
                     file,
                     range,
-                    stmts,
+                    ref stmts,
                     ty,
                 } => todo!(),
                 DefinitionRepr::ProcBlock {
                     file,
                     range,
-                    stmts,
+                    ref stmts,
                     ty,
                 } => todo!(),
             },

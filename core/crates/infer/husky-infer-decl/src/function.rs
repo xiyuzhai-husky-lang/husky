@@ -13,7 +13,7 @@ use husky_atom::{
 };
 use husky_implement::Implementor;
 use map_collect::MapCollect;
-use print_utils::{emsg_once, msg_once, p};
+use print_utils::{msg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticParameter};
 use word::IdentDict;
 

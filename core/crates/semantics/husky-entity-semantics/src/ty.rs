@@ -18,7 +18,7 @@ use husky_lazy_semantics::{LazyStmt, XmlExprVariant};
 use husky_text::*;
 use infer_decl::{DeclQueryGroup, MemberIdx};
 use infer_total::InferQueryGroup;
-use print_utils::{emsg_once, p};
+use print_utils::{msg_once, p};
 use semantics_error::SemanticResult;
 use std::{iter::Peekable, sync::Arc};
 use vec_like::VecMap;
@@ -44,7 +44,7 @@ impl EntityDefnVariant {
         let mut children = children.peekable();
         let mut ty_members = IdentDict::default();
         let mut trait_impls = Vec::new();
-        emsg_once!("todo");
+        msg_once!("todo");
 
         let variants = match kind {
             TyKind::Enum => Self::collect_variants(db, file, ty, &mut children)?,

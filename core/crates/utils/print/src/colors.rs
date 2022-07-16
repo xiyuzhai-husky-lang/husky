@@ -2,6 +2,7 @@ pub const RESET: &str = "\x1B[0m";
 pub const BLACK: &str = "\x1B[30m";
 pub const RED: &str = "\x1B[31m";
 pub const GREEN: &str = "\x1B[32m";
+pub const LIGHT_YELLOW: &str = "\x1B[38;2;230;200;180m";
 pub const YELLOW: &str = "\x1B[38;2;220;180;55m";
 pub const BLUE: &str = "\x1B[34m";
 pub const MAGENTA: &str = "\x1B[35m";

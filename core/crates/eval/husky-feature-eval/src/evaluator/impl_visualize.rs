@@ -20,7 +20,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
         'eval: 'static,
     {
         let visualizer = self.db.compile_time().visualizer(this.ty());
-        let this_value = self.husky_feature_eval_repr_cached(&this).unwrap();
+        let this_value = self.eval_feature_repr_cached(&this).unwrap();
         should_eq!(this_value.any_ref().__ty_dyn(), this.ty());
         if let Some(visual_data) =
             this_value

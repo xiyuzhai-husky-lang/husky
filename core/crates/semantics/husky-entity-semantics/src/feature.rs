@@ -3,6 +3,7 @@ use husky_ast::{AstIter, RawExprArena};
 use husky_lazy_semantics::LazyStmt;
 use semantics_error::SemanticResult;
 use std::sync::Arc;
+use word::Paradigm;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct MainDefn {
@@ -13,16 +14,16 @@ pub struct MainDefn {
 impl EntityDefnVariant {
     pub(crate) fn feature(
         db: &dyn EntityDefnQueryGroup,
+        route: EntityRoutePtr,
+        paradigm: Paradigm,
         ty: RangedEntityRoute,
-        children: AstIter,
+        children: Option<AstIter>,
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
-        let stmts = husky_lazy_semantics::parse_lazy_stmts(db.upcast(), arena, children, file, ty)?;
-        // let feature_block = FeatureBlock::new(db, lazy_stmts, &[], db.features());
         Ok(EntityDefnVariant::Feature {
             ty,
-            defn_repr: DefinitionRepr::LazyBlock { stmts, ty },
+            defn_repr: parse_definition_repr(db, paradigm, route, ty, arena, children, file)?,
         })
     }
 }

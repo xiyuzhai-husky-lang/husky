@@ -67,7 +67,7 @@ impl LazyValueQualifiedTy {
     }
 
     pub fn new(qual: LazyExprQualifier, ty: EntityRoutePtr) -> Self {
-        emsg_once!("handle ref");
+        msg_once!("handle ref");
         Self { qual, ty }
     }
 
