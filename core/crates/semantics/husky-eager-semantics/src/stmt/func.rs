@@ -42,6 +42,21 @@ impl FuncStmt {
             } => todo!(),
         }
     }
+
+    pub(crate) fn needs_context(&self) -> bool {
+        match self.variant {
+            FuncStmtVariant::Init {
+                ref initial_value, ..
+            } => todo!(),
+            FuncStmtVariant::Assert { ref condition } => todo!(),
+            FuncStmtVariant::Return { ref result } => todo!(),
+            FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
+            FuncStmtVariant::Match {
+                ref match_expr,
+                ref branches,
+            } => todo!(),
+        }
+    }
 }
 
 impl InstructionSource for FuncStmt {

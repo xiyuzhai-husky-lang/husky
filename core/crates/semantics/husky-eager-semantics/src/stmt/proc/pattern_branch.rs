@@ -17,3 +17,9 @@ pub enum ProcPatternBranchVariant {
     Case { pattern: CasePattern },
     Default,
 }
+
+impl ProcPatternBranch {
+    pub(crate) fn needs_context(&self) -> bool {
+        self.stmts.iter().any(|stmt| stmt.needs_context)
+    }
+}

@@ -128,16 +128,29 @@ impl EagerContract {
         db: &dyn DeclQueryGroup,
         output_ty: EntityRoutePtr,
         return_ty: EntityRoutePtr,
+        output_eval_ref: bool,
     ) -> InferResult<Self> {
-        Ok(if output_ty.kind == return_ty.kind {
-            if db.is_copyable(output_ty)? {
-                EagerContract::Pure
+        if output_eval_ref {
+            if output_ty.is_ref() {
+                todo!("warn: output ty should be dereferenced")
             } else {
-                EagerContract::Move
+                if output_ty == return_ty {
+                    Ok(EagerContract::EvalRef)
+                } else {
+                    todo!()
+                }
             }
         } else {
-            p!(output_ty, return_ty);
-            todo!()
-        })
+            Ok(if output_ty.kind == return_ty.kind {
+                if db.is_copyable(output_ty)? {
+                    EagerContract::Pure
+                } else {
+                    EagerContract::Move
+                }
+            } else {
+                p!(output_ty, return_ty);
+                todo!()
+            })
+        }
     }
 }

@@ -69,7 +69,7 @@ impl EagerExprQualifier {
                 EagerContract::Pure | EagerContract::TempRef => Binding::TempRef,
                 EagerContract::EvalRef => Binding::EvalRef,
                 EagerContract::Pass => Binding::EvalRef,
-                _ => panic!(),
+                EagerContract::Move | EagerContract::TempRefMut => panic!(),
             },
             EagerExprQualifier::TempRefMut => match contract {
                 EagerContract::Pure | EagerContract::TempRef | EagerContract::Pass => {
@@ -171,6 +171,13 @@ impl EagerValueQualifiedTy {
         Self {
             qual: EagerExprQualifier::EvalRef,
             ty,
+        }
+    }
+
+    pub(crate) fn feature_ty(ty: EntityRoutePtr) -> Self {
+        Self {
+            qual: EagerExprQualifier::EvalRef,
+            ty: ty.deref_route(),
         }
     }
 
@@ -285,7 +292,7 @@ impl EagerValueQualifiedTy {
             OutputLiason::Transfer => match self.qual {
                 EagerExprQualifier::PureRef | EagerExprQualifier::TempRef => false,
                 EagerExprQualifier::Transient | EagerExprQualifier::Copyable => true,
-                EagerExprQualifier::EvalRef => todo!(),
+                EagerExprQualifier::EvalRef => true,
                 EagerExprQualifier::TempRefMut => todo!(),
             },
             OutputLiason::MemberAccess { .. } => todo!(),

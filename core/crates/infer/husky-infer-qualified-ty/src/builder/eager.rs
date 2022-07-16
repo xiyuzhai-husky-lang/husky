@@ -296,7 +296,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Member(_) | EntityKind::Function { .. } => Ok(
                     EagerValueQualifiedTy::entity_ty(self.raw_expr_ty(raw_expr_idx)?),
                 ),
-                EntityKind::Feature => todo!(),
+                EntityKind::Feature => Ok(EagerValueQualifiedTy::feature_ty(
+                    self.raw_expr_ty(raw_expr_idx)?,
+                )),
                 EntityKind::EnumLiteral => Ok(EagerValueQualifiedTy {
                     qual: EagerExprQualifier::Copyable,
                     ty: self.raw_expr_deref_ty(raw_expr_idx)?,
@@ -487,10 +489,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             }
         };
         for opd_idx in (total_opds.start + 1)..total_opds.end {
-            let opd_contract = self.eager_expr_contract(raw_expr_idx)?;
+            let opd_contract = self.eager_expr_contract(opd_idx)?;
             if let Some(qt) = self.infer_eager_expr(arena, opd_idx) {
                 match (qt.qual, opd_contract) {
-                    (EagerExprQualifier::Copyable, EagerContract::EvalRef) => panic!(),
+                    (EagerExprQualifier::Copyable, EagerContract::EvalRef) => {
+                        panic!()
+                    }
                     _ => (),
                 }
             }

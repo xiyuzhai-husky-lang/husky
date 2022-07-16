@@ -24,6 +24,7 @@ impl<'a> LinkageCollector<'a> {
                     return;
                 }
             }
+            EntityRouteKind::Input { .. } => return,
             _ => (),
         }
         for argument in entity_route.spatial_arguments.iter() {
