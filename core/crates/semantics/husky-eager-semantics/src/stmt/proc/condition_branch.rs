@@ -18,3 +18,19 @@ pub enum ProcConditionFlowBranchVariant {
     Elif { condition: Arc<EagerExpr> },
     Else,
 }
+
+impl ProcConditionFlowBranch {
+    pub fn needs_context(&self) -> bool {
+        self.variant.needs_context() || self.stmts.iter().any(|stmt| stmt.needs_context)
+    }
+}
+
+impl ProcConditionFlowBranchVariant {
+    pub fn needs_context(&self) -> bool {
+        match self {
+            ProcConditionFlowBranchVariant::If { ref condition } => condition.needs_context,
+            ProcConditionFlowBranchVariant::Elif { ref condition } => condition.needs_context,
+            ProcConditionFlowBranchVariant::Else => false,
+        }
+    }
+}

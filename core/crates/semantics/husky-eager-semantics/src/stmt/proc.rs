@@ -73,24 +73,22 @@ pub enum ProcStmtVariant {
 impl ProcStmtVariant {
     pub(crate) fn needs_context(&self) -> bool {
         match self {
-            ProcStmtVariant::Init {
-                varname,
-                initial_value,
-                init_kind,
-            } => todo!(),
-            ProcStmtVariant::Assert { condition } => todo!(),
-            ProcStmtVariant::Execute { expr } => todo!(),
-            ProcStmtVariant::ConditionFlow { branches } => todo!(),
+            ProcStmtVariant::Init { initial_value, .. } => initial_value.needs_context,
+            ProcStmtVariant::Assert { condition } => condition.needs_context,
+            ProcStmtVariant::Execute { expr } => expr.needs_context,
+            ProcStmtVariant::ConditionFlow { branches } => {
+                branches.iter().any(|branch| branch.needs_context())
+            }
             ProcStmtVariant::Loop {
                 loop_variant,
                 stmts,
-            } => todo!(),
-            ProcStmtVariant::Break => todo!(),
-            ProcStmtVariant::Return { result } => todo!(),
+            } => loop_variant.needs_context() || stmts.iter().any(|stmt| stmt.needs_context),
+            ProcStmtVariant::Break => false,
+            ProcStmtVariant::Return { result } => result.needs_context,
             ProcStmtVariant::Match {
                 match_expr,
                 branches,
-            } => todo!(),
+            } => match_expr.needs_context || branches.iter().any(|branch| branch.needs_context()),
         }
     }
 }
