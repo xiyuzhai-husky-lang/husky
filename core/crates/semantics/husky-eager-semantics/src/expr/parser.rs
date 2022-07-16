@@ -140,13 +140,20 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             p!(self.file(), raw_expr, raw_expr_idx);
             panic!()
         }
+        let qualified_ty = match self.eager_expr_qualified_ty(raw_expr_idx) {
+            Ok(qualified_ty) => qualified_ty,
+            Err(e) => {
+                p!(raw_expr, e);
+                todo!()
+            }
+        };
         Ok(Arc::new(EagerExpr {
             range: raw_expr.range().clone(),
             needs_context: variant.needs_context(),
             variant,
             file: self.file(),
             instruction_id: Default::default(),
-            qualified_ty: self.eager_expr_qualified_ty(raw_expr_idx).unwrap(),
+            qualified_ty,
             contract: self.eager_expr_contract(raw_expr_idx).unwrap(),
         }))
     }
