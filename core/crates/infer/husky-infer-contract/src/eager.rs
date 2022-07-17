@@ -146,7 +146,11 @@ impl EagerContract {
                     todo!("warn: output ty should be dereferenced")
                 } else {
                     if output_ty == return_ty {
-                        Ok(EagerContract::EvalRef)
+                        if db.is_copyable(return_ty)? {
+                            Ok(EagerContract::Pure)
+                        } else {
+                            Ok(EagerContract::Pass)
+                        }
                     } else {
                         todo!()
                     }
