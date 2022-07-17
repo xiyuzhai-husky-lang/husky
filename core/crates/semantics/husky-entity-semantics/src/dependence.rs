@@ -244,7 +244,6 @@ impl EntityDefn {
                     route,
                     ..
                 } => {
-                    p!(route);
                     builder.push(*route);
                     extract_func_stmts_dependees(stmts, builder)
                 }

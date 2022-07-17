@@ -31,7 +31,9 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub unsafe fn some_ctx(&self) -> Option<&'a __EvalContext<'eval>> {
-        todo!()
+        let ptr: *const Self = self;
+        let ptr: *const __EvalContext<'eval> = ptr as *const __EvalContext<'eval>;
+        Some(&*ptr)
     }
 
     fn vm_config(&self) -> &'a VMConfig {

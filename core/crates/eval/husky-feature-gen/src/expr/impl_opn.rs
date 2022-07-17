@@ -208,7 +208,6 @@ impl<'a> FeatureExprBuilder<'a> {
                 let this_ty = this.ty();
                 let this_ty_defn = self.db.compile_time().entity_defn(this_ty).unwrap();
                 let lazy_field_route = make_subroute(this_ty, field_ident.ident, thin_vec![]);
-                p!(lazy_field_route);
                 let field_uid = self.db.compile_time().entity_uid(lazy_field_route);
                 match this_ty_defn.variant {
                     EntityDefnVariant::Ty { ref ty_members, .. } => {

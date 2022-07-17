@@ -107,7 +107,6 @@ pub enum FeatureExprVariant {
         routine_defn: Arc<EntityDefn>,
     },
     EntityFeature {
-        entity_route: EntityRoutePtr,
         repr: FeatureRepr,
     },
     EvalInput,
@@ -230,7 +229,6 @@ impl<'a> FeatureExprBuilder<'a> {
                         uid,
                     });
                     let kind = FeatureExprVariant::EntityFeature {
-                        entity_route,
                         repr: self.db.entity_feature_repr(entity_route),
                     };
                     (kind, feature)

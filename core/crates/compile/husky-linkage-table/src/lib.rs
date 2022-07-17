@@ -222,10 +222,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         )
     }
 
-    fn feature_eager_block_linkage(
-        &self,
-        route: EntityRoutePtr,
-    ) -> Option<__SpecificRoutineLinkage> {
+    fn feature_eager_block_linkage(&self, route: EntityRoutePtr) -> Option<__Linkage> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || {
@@ -234,7 +231,6 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
             },
             || format!("eager block for feature `{route}`"),
         )
-        .map(|linkage| linkage.specific())
     }
 }
 
