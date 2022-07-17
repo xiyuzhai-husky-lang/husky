@@ -15,6 +15,7 @@ use crate::*;
 
 pub struct Interpreter<'temp, 'eval: 'temp> {
     db: &'temp dyn InterpreterQueryGroup,
+    opt_ctx: Option<&'temp __EvalContext<'eval>>,
     stack: VMStack<'temp, 'eval>,
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
@@ -26,11 +27,13 @@ pub struct Interpreter<'temp, 'eval: 'temp> {
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn try_new(
         db: &'temp dyn InterpreterQueryGroup,
+        opt_ctx: Option<&'temp __EvalContext<'eval>>,
         argument_iter: impl Iterator<Item = __EvalResult<__TempValue<'temp, 'eval>>>,
         vm_config: &'temp VMConfig,
     ) -> __EvalResult<Interpreter<'temp, 'eval>> {
         Ok(Self {
             db,
+            opt_ctx,
             stack: VMStack::try_new(argument_iter)?,
             history: Default::default(),
             opt_snapshot_saved: None,
@@ -42,12 +45,14 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(crate) fn new(
         db: &'temp dyn InterpreterQueryGroup,
+        opt_ctx: Option<&'temp __EvalContext<'eval>>,
         argument_iter: impl Iterator<Item = __TempValue<'temp, 'eval>>,
         has_this: bool,
         vm_config: &'temp VMConfig,
     ) -> Interpreter<'temp, 'eval> {
         Self {
             db,
+            opt_ctx,
             stack: VMStack::new(argument_iter),
             history: Default::default(),
             opt_snapshot_saved: None,
@@ -59,11 +64,13 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(crate) fn from_prestack(
         db: &'temp dyn InterpreterQueryGroup,
+        opt_ctx: Option<&'temp __EvalContext<'eval>>,
         prestack: impl Into<VMStack<'temp, 'eval>>,
         vm_config: &'temp VMConfig,
     ) -> Interpreter<'temp, 'eval> {
         Self {
             db,
+            opt_ctx,
             stack: prestack.into(),
             history: Default::default(),
             opt_snapshot_saved: None,

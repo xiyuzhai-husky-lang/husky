@@ -30,7 +30,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(|values| todo!(), 2)),
+        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!(), 2)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -49,7 +49,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(|values| todo!(), 2)),
+        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!(), 2)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -64,7 +64,7 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(|values| todo!(), 1)),
+        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!(), 1)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -80,7 +80,9 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(
-            |values| { __TempValue::Copyable(values[0].take_copyable().take_i32().abs().into(),) },
+            |_, values| {
+                __TempValue::Copyable(values[0].take_copyable().take_i32().abs().into())
+            },
             1
         )),
     },

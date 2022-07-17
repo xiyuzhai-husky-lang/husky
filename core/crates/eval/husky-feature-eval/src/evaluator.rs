@@ -17,7 +17,7 @@ pub use sheet::*;
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
 use husky_trace_protocol::SampleId;
-use vm::{VMConfig, __AnyValueDyn, __EvalValue};
+use vm::{VMConfig, __AnyValueDyn, __EvalContext, __EvalValue};
 use vm::{__EvalResult, __EvalValueResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
@@ -30,6 +30,10 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
+    pub unsafe fn some_ctx(&self) -> Option<&'a __EvalContext<'eval>> {
+        todo!()
+    }
+
     fn vm_config(&self) -> &'a VMConfig {
         &self.evaluator_config.vm
     }

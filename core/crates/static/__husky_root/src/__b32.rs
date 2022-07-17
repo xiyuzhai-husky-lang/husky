@@ -50,7 +50,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(
-            |values| {
+            |_, values| {
                 __TempValue::Copyable(
                     (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
                 )
@@ -72,7 +72,9 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(
-            |values| { __TempValue::Copyable((values[0].take_copyable().take_b32().ctz()).into()) },
+            |_, values| {
+                __TempValue::Copyable((values[0].take_copyable().take_b32().ctz()).into())
+            },
             1
         )),
     },
@@ -94,7 +96,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(
-            |values| {
+            |_, values| {
                 let b = values[0].take_copyable().take_b32();
                 let i = values[1].take_copyable().take_i32();
                 let last_bits = b & ((1 << i) - 1);

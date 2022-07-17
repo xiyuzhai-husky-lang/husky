@@ -51,8 +51,11 @@ impl HuskyTraceTime {
                     .unwrap(),
             )
         }
+        let sample_id = self.restriction.opt_sample_id().unwrap();
+        let evaluator = self.eval_time().evaluator(sample_id);
         let history = exec_debug(
-            self.eval_time().upcast(),
+            self.eval_time(),
+            unsafe { evaluator.some_ctx() },
             instruction_sheet,
             arguments.into_iter(),
             self.vm_config(),
