@@ -94,8 +94,7 @@ macro_rules! should_ok {
 #[macro_export]
 macro_rules! should {
     ($result:expr) => {{
-        let result = $result;
-        match result {
+        match $result {
             true => (),
             false => {
                 panic!(
@@ -108,6 +107,15 @@ macro_rules! should {
             }
         }
     }};
+
+    ($result:expr, $($msg_fmt_args: expr),*) => {
+        match $result {
+            true => (),
+            false => {
+                panic!($($msg_fmt_args),*);
+            }
+        }
+    };
 }
 
 #[test]

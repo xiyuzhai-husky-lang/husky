@@ -51,26 +51,26 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
 }
 pub(crate) fn connected_components<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval Vec<ConnectedComponent> {
     let __feature = feature_ptr!(__ctx, "mnist_classifier::connected_component::connected_components");
-    if let Some(__value) = __opt_cached_feature(__ctx, __feature) {
-        return __value;
+    if let Some(__result) = __opt_cached_feature(__ctx, __feature) {
+        return __result.unwrap();
     }
     return __cache_feature(
         __ctx,
         __feature,
-        (find_connected_components(&__input(__ctx))).__into_eval_value()
-    );
+        Ok((find_connected_components(&__input(__ctx))).__into_eval_value())
+    ).unwrap();
 
 }
 pub(crate) fn major_connected_component<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval ConnectedComponent {
     let __feature = feature_ptr!(__ctx, "mnist_classifier::connected_component::major_connected_component");
-    if let Some(__value) = __opt_cached_feature(__ctx, __feature) {
-        return __value;
+    if let Some(__result) = __opt_cached_feature(__ctx, __feature) {
+        return __result.unwrap();
     }
     return __cache_feature(
         __ctx,
         __feature,
-        __EvalRef(&(connected_components(__ctx)[(0) as usize])
-    ).into());
+        Ok(__EvalRef(&(connected_components(__ctx)[(0) as usize])).into())
+    ).unwrap();
 
 }
 

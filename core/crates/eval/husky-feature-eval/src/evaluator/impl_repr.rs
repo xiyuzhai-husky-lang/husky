@@ -34,7 +34,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             result
         } else {
             let result = self.eval_feature_repr(repr);
-            self.sheet.cache(eval_key, result)
+            self.sheet.try_cache(eval_key, result)
         }
     }
 }
