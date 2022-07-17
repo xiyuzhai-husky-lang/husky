@@ -76,7 +76,7 @@ impl FeatureStmt {
                     opt_this.clone(),
                     condition.clone(),
                     &symbols,
-                    todo!(),
+                    opt_arrival_indicator.as_ref(),
                     feature_interner,
                 );
                 FeatureLazyStmtVariant::Assert { condition }
