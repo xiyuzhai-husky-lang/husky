@@ -42,6 +42,9 @@ test-debugger-v:
 
 test-debugger-with-backtrace:
 	RUST_BACKTRACE=1 cargo run -q --bin husky-debugger -- --package-dir $(test_examples_dir)/debugger --sample-id 23 --mode test
+
+test-debugger-with-backtrace-filtered:
+	RUST_BACKTRACE=1 cargo run -q --bin husky-debugger -- --package-dir $(test_examples_dir)/debugger --sample-id 23 --mode test 2>&1 | python scripts/filter_rust_backtrace.py
 	
 #	| python scripts/filter_rust_backtrace.py
 
