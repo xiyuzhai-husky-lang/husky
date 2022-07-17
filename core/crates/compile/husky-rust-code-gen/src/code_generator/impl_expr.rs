@@ -12,12 +12,12 @@ impl<'a> RustCodeGenerator<'a> {
                     r#"__cache_feature(
         __ctx,
         __feature,
-        ("#,
+        Ok(("#,
                 );
                 self.gen_expr(result);
                 self.write(
-                    r#").__into_eval_value()
-    );
+                    r#").__into_eval_value())
+    ).unwrap();
 "#,
                 );
             }
@@ -26,12 +26,12 @@ impl<'a> RustCodeGenerator<'a> {
                     r#"__cache_feature(
         __ctx,
         __feature,
-        __EvalRef(&("#,
+        Ok(__EvalRef(&("#,
                 );
                 self.gen_expr(result);
                 self.write(
-                    r#")
-    ).into());
+                    r#")).into())
+    ).unwrap();
 "#,
                 );
             }

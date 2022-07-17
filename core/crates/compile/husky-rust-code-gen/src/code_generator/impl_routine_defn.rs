@@ -47,8 +47,8 @@ impl<'a> RustCodeGenerator<'a> {
         self.write(&format!(
             r#" {{
     let __feature = feature_ptr!(__ctx, "{feature_route:?}");
-    if let Some(__value) = __opt_cached_feature(__ctx, __feature) {{
-        return __value;
+    if let Some(__result) = __opt_cached_feature(__ctx, __feature) {{
+        return __result.unwrap();
     }}
 "#,
         ));

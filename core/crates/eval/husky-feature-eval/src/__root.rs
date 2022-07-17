@@ -6,16 +6,22 @@ use wild_utils::wild_arb_ref;
 pub fn __cache_feature<'eval, T>(
     __ctx: &__EvalContext<'eval>,
     feature: FeaturePtr,
-    value: __EvalValue<'eval>,
-) -> &'eval T {
+    value: __EvalValueResult<'eval>,
+) -> __EvalResult<&'eval T>
+where
+    T: __AnyValue<'eval>,
+{
     let evaluator = unsafe { __evaluator(__ctx) };
-    todo!()
+    evaluator
+        .sheet
+        .cache(EvalKey::Feature(feature), value)
+        .map(|v| v.eval_ref().0.__downcast_ref())
 }
 
 pub fn __opt_cached_feature<'eval, T>(
     __ctx: &__EvalContext<'eval>,
     feature: FeaturePtr,
-) -> Option<&'eval T>
+) -> Option<__EvalResult<&'eval T>>
 where
     T: __AnyValue<'eval>,
 {
@@ -23,7 +29,7 @@ where
     evaluator
         .sheet
         .cached_value(EvalKey::Feature(feature))
-        .map(|result| result.unwrap().eval_ref().0.__downcast_ref())
+        .map(|result| result.map(|v| v.eval_ref().0.__downcast_ref()))
 }
 
 #[macro_export]
