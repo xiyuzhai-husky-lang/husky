@@ -278,7 +278,7 @@ impl EntityDefn {
                     FuncStmtVariant::Assert { ref condition } => {
                         extract_eager_expr_dependees(condition, builder)
                     }
-                    FuncStmtVariant::Return { ref result } => {
+                    FuncStmtVariant::Return { ref result, .. } => {
                         extract_eager_expr_dependees(result, builder)
                     }
                     FuncStmtVariant::ConditionFlow { ref branches } => {
@@ -310,7 +310,7 @@ impl EntityDefn {
                     ProcStmtVariant::Assert { ref condition } => {
                         extract_eager_expr_dependees(condition, builder)
                     }
-                    ProcStmtVariant::Return { ref result } => {
+                    ProcStmtVariant::Return { ref result, .. } => {
                         extract_eager_expr_dependees(result, builder)
                     }
                     ProcStmtVariant::Execute { ref expr } => {

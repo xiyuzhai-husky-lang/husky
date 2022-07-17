@@ -17,19 +17,16 @@ impl<'a> ContractSheetBuilder<'a> {
         ast_iter: AstIter,
         arena: &RawExprArena,
         output_ty: EntityRoutePtr,
-        output_eval_ref: bool,
     ) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.variant {
-                    AstVariant::Stmt(ref stmt) => {
-                        self.infer_eager_stmt(stmt, arena, output_ty, output_eval_ref)
-                    }
+                    AstVariant::Stmt(ref stmt) => self.infer_eager_stmt(stmt, arena, output_ty),
                     _ => (),
                 }
             }
             if let Some(children) = item.opt_children {
-                self.infer_eager_stmts(children, arena, output_ty, output_eval_ref)
+                self.infer_eager_stmts(children, arena, output_ty)
             }
         }
     }
@@ -39,7 +36,6 @@ impl<'a> ContractSheetBuilder<'a> {
         stmt: &RawStmt,
         arena: &RawExprArena,
         output_ty: EntityRoutePtr,
-        output_eval_ref: bool,
     ) {
         match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => match raw_loop_kind {
@@ -84,13 +80,16 @@ impl<'a> ContractSheetBuilder<'a> {
                     }
                 }
             }
-            RawStmtVariant::Return(result) => {
+            RawStmtVariant::Return {
+                result,
+                returns_feature,
+            } => {
                 if let Ok(return_ty) = self.raw_expr_ty(result) {
                     if let Ok(contract) = EagerContract::ret_contract(
                         self.db.upcast(),
                         output_ty,
                         return_ty,
-                        output_eval_ref,
+                        returns_feature,
                     ) {
                         self.infer_eager_expr(result, contract, arena);
                     }

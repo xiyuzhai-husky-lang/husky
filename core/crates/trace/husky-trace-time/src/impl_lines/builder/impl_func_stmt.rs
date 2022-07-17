@@ -15,7 +15,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(keyword!("assert "));
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::stmt())
             }
-            FuncStmtVariant::Return { ref result } => {
+            FuncStmtVariant::Return { ref result, .. } => {
                 self.eager_expr_tokens(result, history, ExprTokenConfig::stmt())
             }
             FuncStmtVariant::Match {

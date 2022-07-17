@@ -38,7 +38,10 @@ pub enum RawStmtVariant {
         varname: RangedCustomIdentifier,
         initial_value: RawExprIdx,
     },
-    Return(RawExprIdx),
+    Return {
+        result: RawExprIdx,
+        returns_feature: bool,
+    },
     ReturnXml(Arc<RawXmlExpr>),
     Assert(RawExprIdx),
     Break,

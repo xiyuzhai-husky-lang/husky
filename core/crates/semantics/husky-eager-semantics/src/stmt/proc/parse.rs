@@ -28,7 +28,7 @@ impl<'a> EagerParser<'a> {
             let instruction_id = InstructionId::default();
             stmts.push(Arc::new(match item.value.as_ref().unwrap().variant {
                 AstVariant::TypeDefnHead { .. } => todo!(),
-                AstVariant::MainDefn => todo!(),
+                AstVariant::MainDefnHead => todo!(),
                 AstVariant::DatasetConfigDefnHead => todo!(),
                 AstVariant::CallFormDefnHead { .. } => todo!(),
                 AstVariant::Use { .. } => todo!(),
@@ -95,8 +95,12 @@ impl<'a> EagerParser<'a> {
                 initial_value: self.parse_eager_expr(initial_value)?,
                 init_kind,
             }),
-            RawStmtVariant::Return(result) => Ok(ProcStmtVariant::Return {
+            RawStmtVariant::Return {
+                result,
+                returns_feature,
+            } => Ok(ProcStmtVariant::Return {
                 result: self.parse_eager_expr(result)?,
+                returns_feature,
             }),
             RawStmtVariant::Assert(condition) => Ok(ProcStmtVariant::Assert {
                 condition: self.parse_eager_expr(condition)?,

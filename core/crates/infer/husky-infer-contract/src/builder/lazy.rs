@@ -53,7 +53,7 @@ impl<'a> ContractSheetBuilder<'a> {
                         .map(|contract| self.infer_lazy_expr(initial_value, contract, arena));
                 }
             }
-            RawStmtVariant::Return(result) => {
+            RawStmtVariant::Return { result, .. } => {
                 if let Ok(ty) = self.raw_expr_ty(result) {
                     LazyContract::pure_or_pass(self.db, ty)
                         .ok()

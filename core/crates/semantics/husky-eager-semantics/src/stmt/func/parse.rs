@@ -40,8 +40,12 @@ impl<'a> EagerParser<'a> {
                             varname,
                             initial_value: self.parse_eager_expr(initial_value)?,
                         },
-                        RawStmtVariant::Return(result) => FuncStmtVariant::Return {
+                        RawStmtVariant::Return {
+                            result,
+                            returns_feature,
+                        } => FuncStmtVariant::Return {
                             result: self.parse_eager_expr(result)?,
+                            returns_feature,
                         },
                         RawStmtVariant::Assert(condition) => FuncStmtVariant::Assert {
                             condition: self.parse_eager_expr(condition)?,

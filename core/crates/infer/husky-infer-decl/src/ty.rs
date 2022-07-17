@@ -273,7 +273,7 @@ impl TyDecl {
                 },
                 AstVariant::Visual => break,
                 AstVariant::TypeDefnHead { .. }
-                | AstVariant::MainDefn
+                | AstVariant::MainDefnHead
                 | AstVariant::CallFormDefnHead { .. }
                 | AstVariant::FeatureDefnHead { .. }
                 | AstVariant::DatasetConfigDefnHead

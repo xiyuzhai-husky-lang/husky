@@ -256,7 +256,7 @@ impl<'eval> TraceVariant<'eval> {
                     ref initial_value, ..
                 } => history.contains(initial_value),
                 FuncStmtVariant::Assert { ref condition } => history.contains(condition),
-                FuncStmtVariant::Return { ref result } => history.contains(result),
+                FuncStmtVariant::Return { ref result, .. } => history.contains(result),
                 FuncStmtVariant::ConditionFlow { .. } => panic!("FuncBranch"),
                 FuncStmtVariant::Match {
                     ref match_expr,
@@ -271,7 +271,7 @@ impl<'eval> TraceVariant<'eval> {
                 ProcStmtVariant::Execute { ref expr } => history.contains(expr),
                 ProcStmtVariant::ConditionFlow { .. } => panic!("ProcBranch"),
                 ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
-                ProcStmtVariant::Return { ref result } => history.contains(result),
+                ProcStmtVariant::Return { ref result, .. } => history.contains(result),
                 ProcStmtVariant::Match {
                     ref match_expr,
                     ref branches,

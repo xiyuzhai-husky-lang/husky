@@ -11,6 +11,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let mask: domains::ml::datasets::cv::mnist::BinaryImage28 = unsafe { __arb_ref(&__arguments[0]) }.downcast_move();
@@ -36,6 +37,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref();
@@ -69,6 +71,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::OwnedEval(__OwnedValue::new(
@@ -85,6 +88,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<raw_contour::RawContour<'eval>> = __arguments[0].downcast_temp_ref();
@@ -102,6 +106,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<raw_contour::RawContour<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -120,6 +125,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<raw_contour::RawContour<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -149,6 +155,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<raw_contour::RawContour<'eval>> = __arguments[0].downcast_eval_ref();
@@ -182,6 +189,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::OwnedEval(__OwnedValue::new(
@@ -198,6 +206,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<connected_component::ConnectedComponent> = __arguments[0].downcast_temp_ref();
@@ -215,6 +224,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<connected_component::ConnectedComponent> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -233,6 +243,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<connected_component::ConnectedComponent> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -262,6 +273,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<connected_component::ConnectedComponent> = __arguments[0].downcast_eval_ref();
@@ -288,6 +300,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let img: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref();
@@ -310,6 +323,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let a: u32 = __arguments[0].downcast_copy();
@@ -327,6 +341,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<connected_component::ConnectedComponent> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -346,6 +361,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let x: f32 = __arguments[0].downcast_copy();
@@ -379,6 +395,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::OwnedEval(__OwnedValue::new(
@@ -395,6 +412,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref();
@@ -412,6 +430,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -430,6 +449,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -459,6 +479,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<geom2d::Point2d> = __arguments[0].downcast_eval_ref();
@@ -486,6 +507,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let contour: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
@@ -519,6 +541,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let row: u32 = __arguments[0].downcast_copy();
@@ -538,6 +561,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let row: u32 = __arguments[0].downcast_copy();
@@ -557,6 +581,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let row: u32 = __arguments[0].downcast_copy();
@@ -576,6 +601,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let row_above: u32 = __arguments[0].downcast_copy();
@@ -596,6 +622,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let inward: raw_contour::Direction = __arguments[0].downcast_copy();
@@ -615,6 +642,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let row_above: u32 = __arguments[0].downcast_copy();
@@ -636,6 +664,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let prev1: i32 = __arguments[0].downcast_copy();
@@ -669,6 +698,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let points: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref();
@@ -686,6 +716,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref();
@@ -703,6 +734,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref();
@@ -726,6 +758,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let i: i32 = __arguments[0].downcast_copy();
@@ -744,6 +777,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -762,6 +796,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -779,6 +814,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<raw_contour::RawContour<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -798,6 +834,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let x: f32 = __arguments[0].downcast_copy();
@@ -831,6 +868,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref();
@@ -864,6 +902,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let points: __std::slice::CyclicSlice<'eval, geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_move();
@@ -928,6 +967,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref();
@@ -945,6 +985,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::OwnedEval(__OwnedValue::new(
@@ -961,6 +1002,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_temp_ref();
@@ -978,6 +1020,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -996,6 +1039,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -1025,6 +1069,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_eval_ref();
@@ -1051,6 +1096,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_temp_ref();
@@ -1068,6 +1114,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let line_segment_sketch: &line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_temp_ref();
@@ -1085,6 +1132,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_eval_ref();
@@ -1104,6 +1152,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -1123,6 +1172,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref();
@@ -1155,6 +1205,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &line_segment_sketch::LineSegment<'eval> = __arguments[0].downcast_temp_ref();
@@ -1172,6 +1223,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref();
@@ -1190,6 +1242,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &raw_contour::RawContour<'eval> = __arguments[0].downcast_temp_ref();
@@ -1209,6 +1262,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref();
@@ -1254,6 +1308,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
@@ -1274,6 +1329,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::OwnedEval(__OwnedValue::new(
@@ -1290,6 +1346,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_temp_ref();
@@ -1307,6 +1364,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -1325,6 +1383,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -1354,6 +1413,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_eval_ref();
@@ -1381,6 +1441,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
@@ -1400,6 +1461,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let u: &geom2d::Vector2d = __arguments[0].downcast_temp_ref();
@@ -1419,6 +1481,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let u: &geom2d::Vector2d = __arguments[0].downcast_temp_ref();
@@ -1437,6 +1500,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
@@ -1455,6 +1519,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref();
@@ -1472,6 +1537,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
@@ -1491,6 +1557,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref();
@@ -1514,6 +1581,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref();
@@ -1532,6 +1600,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &geom2d::Point2d = __arguments[0].downcast_temp_ref();
@@ -1550,6 +1619,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -1567,6 +1637,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
@@ -1591,6 +1662,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let __this: &'eval Vec<geom2d::Point2d> = __arguments[0].downcast_eval_ref();

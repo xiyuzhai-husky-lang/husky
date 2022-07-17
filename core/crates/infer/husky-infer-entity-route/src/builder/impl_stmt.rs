@@ -126,7 +126,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         .is_none())
                 }
             }
-            RawStmtVariant::Return(result) => {
+            RawStmtVariant::Return { result, .. } => {
                 self.infer_expr(result, opt_output_ty, arena);
             }
             RawStmtVariant::Assert(condition) => self.infer_condition(condition, arena),

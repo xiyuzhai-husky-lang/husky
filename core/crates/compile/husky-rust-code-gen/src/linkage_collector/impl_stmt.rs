@@ -17,7 +17,7 @@ impl<'a> LinkageCollector<'a> {
                 FuncStmtVariant::Assert { ref condition } => {
                     self.collect_from_eager_expr(condition)
                 }
-                FuncStmtVariant::Return { ref result } => self.collect_from_eager_expr(result),
+                FuncStmtVariant::Return { ref result, .. } => self.collect_from_eager_expr(result),
                 FuncStmtVariant::ConditionFlow { ref branches } => {
                     for branch in branches {
                         match branch.variant {
@@ -96,7 +96,7 @@ impl<'a> LinkageCollector<'a> {
                     self.collect_from_proc_stmts(stmts)
                 }
                 ProcStmtVariant::Break => (),
-                ProcStmtVariant::Return { ref result } => self.collect_from_eager_expr(result),
+                ProcStmtVariant::Return { ref result, .. } => self.collect_from_eager_expr(result),
                 ProcStmtVariant::Match {
                     ref match_expr,
                     ref branches,

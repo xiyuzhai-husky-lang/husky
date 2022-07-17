@@ -110,9 +110,12 @@ impl<'a> Formatter<'a> {
                     todo!()
                 }
             }
-            AstVariant::MainDefn => {
+            AstVariant::MainDefnHead => {
                 enter_block(self);
-                self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
+                self.context.set(AstContext::Stmt {
+                    paradigm: Paradigm::LazyFunctional,
+                    returns_feature: true,
+                });
                 self.write("main:")
             }
             AstVariant::CallFormDefnHead {
@@ -123,7 +126,10 @@ impl<'a> Formatter<'a> {
                 ..
             } => {
                 enter_block(self);
-                self.context.set((paradigm).into());
+                self.context.set(AstContext::Stmt {
+                    paradigm,
+                    returns_feature: false,
+                });
                 self.write(match paradigm {
                     Paradigm::EagerProcedural => "proc ",
                     Paradigm::EagerFunctional => "func ",
@@ -230,15 +236,27 @@ impl<'a> Formatter<'a> {
                 self.write(" = ");
                 self.fmt_expr(&self.arena[initial_value]);
             }
-            RawStmtVariant::Return(expr) => {
+            RawStmtVariant::Return { result, .. } => {
                 match self.context.value() {
-                    AstContext::Stmt(Paradigm::EagerFunctional)
-                    | AstContext::Stmt(Paradigm::LazyFunctional)
-                    | AstContext::Stmt(Paradigm::LazyFunctional) => (),
-                    AstContext::Stmt(Paradigm::EagerProcedural) => self.write("return "),
+                    AstContext::Stmt {
+                        paradigm: Paradigm::EagerFunctional,
+                        returns_feature,
+                    }
+                    | AstContext::Stmt {
+                        paradigm: Paradigm::LazyFunctional,
+                        returns_feature,
+                    }
+                    | AstContext::Stmt {
+                        paradigm: Paradigm::LazyFunctional,
+                        returns_feature,
+                    } => (),
+                    AstContext::Stmt {
+                        paradigm: Paradigm::EagerProcedural,
+                        ..
+                    } => self.write("return "),
                     _ => panic!(),
                 }
-                self.fmt_expr(&self.arena[expr]);
+                self.fmt_expr(&self.arena[result]);
             }
             RawStmtVariant::Assert(expr) => {
                 self.write("assert ");
