@@ -8,14 +8,32 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_feature_return(&mut self, result: &EagerExpr) {
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
-                self.write("__cache_feature(__ctx, __feature, (");
+                self.write(
+                    r#"__cache_feature(
+        __ctx,
+        __feature,
+        ("#,
+                );
                 self.gen_expr(result);
-                self.write(").__into_eval_value())");
+                self.write(
+                    r#").__into_eval_value()
+    );
+"#,
+                );
             }
             EagerExprQualifier::EvalRef => {
-                self.write("__cache_feature(__ctx, __feature, __EvalRef(&(");
+                self.write(
+                    r#"__cache_feature(
+        __ctx,
+        __feature,
+        __EvalRef(&("#,
+                );
                 self.gen_expr(result);
-                self.write(")).into())");
+                self.write(
+                    r#")
+    ).into());
+"#,
+                );
             }
             EagerExprQualifier::PureRef
             | EagerExprQualifier::TempRef

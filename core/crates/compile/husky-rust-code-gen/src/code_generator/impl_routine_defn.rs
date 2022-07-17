@@ -34,21 +34,21 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_feature_func_block_defn(
         &mut self,
         indent: Indent,
-        base_route: EntityRoutePtr,
+        feature_route: EntityRoutePtr,
         output: EntityRoutePtr,
         stmts: &[Arc<FuncStmt>],
     ) {
         self.indent(indent);
         self.write("pub(crate) fn ");
-        let ident = base_route.ident();
+        let ident = feature_route.ident();
         self.write(&ident);
         self.write("<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval ");
         self.gen_entity_route(output.deref_route(), EntityRouteRole::Decl);
-        self.write(
-            r#" {
-        let __feature = todo!();
+        self.write(&format!(
+            r#" {{
+    let __feature = feature_ptr!(__ctx, "{feature_route:?}");
 "#,
-        );
+        ));
         self.gen_func_stmts(stmts);
         self.indent(indent);
         self.write("}\n");
