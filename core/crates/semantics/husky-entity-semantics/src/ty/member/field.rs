@@ -1,3 +1,5 @@
+use husky_entity_route::make_subroute;
+
 use super::*;
 
 impl EntityDefnVariant {
@@ -40,7 +42,7 @@ impl EntityDefnVariant {
             AstVariant::FieldDefnHead {
                 liason,
                 ranged_ident,
-                ty,
+                field_ty,
                 field_ast_kind: field_kind,
             } => {
                 let field_variant = match field_kind {
@@ -50,8 +52,8 @@ impl EntityDefnVariant {
                             defn_repr: parse_definition_repr(
                                 db,
                                 paradigm,
-                                db.make_subroute(ty.route, ranged_ident.ident, thin_vec![]),
-                                ty,
+                                make_subroute(ty_route, ranged_ident.ident, thin_vec![]),
+                                field_ty,
                                 arena,
                                 children,
                                 file,
@@ -66,9 +68,9 @@ impl EntityDefnVariant {
                                 arena,
                                 children.unwrap(),
                                 file,
-                                ty,
+                                field_ty,
                             )?,
-                            ty,
+                            ty: field_ty,
                         }),
                     },
                     FieldAstKind::StructDefault { default } => FieldDefnVariant::StructDefault {
@@ -81,7 +83,7 @@ impl EntityDefnVariant {
                     }
                 };
                 Ok(Self::TyField {
-                    ty: ty.route,
+                    ty: field_ty.route,
                     liason,
                     field_variant,
                     opt_linkage: None,
