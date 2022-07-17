@@ -50,12 +50,22 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
     }
 }
 pub(crate) fn connected_components<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval Vec<ConnectedComponent> {
-        let __feature = todo!();
-    return __cache_feature(__ctx, __feature, (find_connected_components(&__input(__ctx))).__into_eval_value())
+    let __feature = feature_ptr!(__ctx, "mnist_classifier::connected_component::connected_components");
+    return __cache_feature(
+        __ctx,
+        __feature,
+        (find_connected_components(&__input(__ctx))).__into_eval_value()
+    );
+
 }
 pub(crate) fn major_connected_component<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval ConnectedComponent {
-        let __feature = todo!();
-    return __cache_feature(__ctx, __feature, __EvalRef(&(connected_components(__ctx)[(0) as usize])).into())
+    let __feature = feature_ptr!(__ctx, "mnist_classifier::connected_component::major_connected_component");
+    return __cache_feature(
+        __ctx,
+        __feature,
+        __EvalRef(&(connected_components(__ctx)[(0) as usize])
+    ).into());
+
 }
 
 pub(crate) fn horizontal_extend(a: u32, x: u32) -> u32 {
