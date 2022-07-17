@@ -217,7 +217,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     EagerContract::Pass => panic!(),
                     _ => {
                         throw!(
-                            format!("can't bind this to a ref"),
+                            format!("can't bind output to a ref"),
                             arena[raw_expr_idx].range
                         )
                     }
