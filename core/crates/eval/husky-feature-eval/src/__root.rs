@@ -1,12 +1,29 @@
 use crate::*;
-use vm::{__EvalContext, __EvalValue};
+use husky_ast::AstQueryGroup;
+use vm::{__AnyValue, __EvalContext, __EvalValue};
+use wild_utils::wild_arb_ref;
 
 pub fn __cache_feature<'eval, T>(
     __ctx: &__EvalContext<'eval>,
     feature: FeaturePtr,
     value: __EvalValue<'eval>,
 ) -> &'eval T {
+    let evaluator = unsafe { __evaluator(__ctx) };
     todo!()
+}
+
+pub fn __opt_cached_feature<'eval, T>(
+    __ctx: &__EvalContext<'eval>,
+    feature: FeaturePtr,
+) -> Option<&'eval T>
+where
+    T: __AnyValue<'eval>,
+{
+    let evaluator = unsafe { __evaluator(__ctx) };
+    evaluator
+        .sheet
+        .cached_value(EvalKey::Feature(feature))
+        .map(|result| result.unwrap().eval_ref().0.__downcast_ref())
 }
 
 #[macro_export]
@@ -29,5 +46,21 @@ pub fn __get_feature_ptr<'eval>(
     __ctx: &__EvalContext<'eval>,
     feature_route_text: &str,
 ) -> FeaturePtr {
-    todo!()
+    use husky_entity_semantics::EntityDefnQueryGroup;
+    let evaluator = unsafe { __evaluator(__ctx) };
+    let route = evaluator
+        .db
+        .compile_time()
+        .parse_route_from_text(feature_route_text);
+    let uid = evaluator.db.compile_time().entity_uid(route);
+    evaluator
+        .db
+        .feature_interner()
+        .intern(Feature::EntityFeature { route, uid })
+}
+
+pub unsafe fn __evaluator<'a, 'eval: 'a>(
+    __ctx: &'a __EvalContext<'eval>,
+) -> &'a FeatureEvaluator<'a, 'eval> {
+    wild_arb_ref(__ctx)
 }

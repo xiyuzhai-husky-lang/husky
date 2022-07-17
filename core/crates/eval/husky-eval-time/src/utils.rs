@@ -17,11 +17,13 @@ pub fn eval_time() -> &'static HuskyEvalTime {
 pub fn __ty_route_from_static_binded<T: __HasStaticTypeInfo>(text: &str) -> EntityRoutePtr {
     compile_time().ty_route_from_static(std::any::TypeId::of::<T::__StaticSelf>(), text)
 }
+pub fn __parse_route_from_text(text: &str) -> EntityRoutePtr {
+    compile_time().parse_route_from_text(text)
+}
 
 pub fn compile_time() -> &'static HuskyCompileTime {
     eval_time().compile_time()
 }
-
 // pub struct HuskyEvalTimeSingletonKeeper(Box<HuskyEvalTime>);
 
 // impl std::ops::Deref for HuskyEvalTimeSingletonKeeper {

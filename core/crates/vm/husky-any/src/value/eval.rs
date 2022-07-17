@@ -1,6 +1,6 @@
 use crate::*;
 use print_utils::msg_once;
-use std::sync::Arc;
+use std::{any::Any, sync::Arc};
 use word::CustomIdentifier;
 
 // EvalValue lives on its own, i.e. not depending on stack context

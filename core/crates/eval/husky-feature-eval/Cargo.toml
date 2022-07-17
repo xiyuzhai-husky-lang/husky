@@ -42,3 +42,4 @@ husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 static-defn = { path = "../../static/static-defn" }
 husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-protocol" }
 husky-feature-gen = { path = "../husky-feature-gen" }
+wild-utils = { path = "../../utils/wild" }

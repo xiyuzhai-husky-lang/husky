@@ -24,6 +24,7 @@ pub use husky_feature_gen::FeaturePtr as __FeaturePtr;
 pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
 pub use static_defn::__StaticLinkageKey;
+pub use std::sync::Arc as __Arc;
 pub use vm::{
     __AnyValue, __AnyValueDyn, __EvalContext, __EvalRef, __EvalValue, __HasStaticTypeInfo,
     __TempValue,
