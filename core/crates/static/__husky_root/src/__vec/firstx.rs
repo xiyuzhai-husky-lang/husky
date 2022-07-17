@@ -26,12 +26,14 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
 };
 
 fn generic_vec_first_copy<'temp, 'eval>(
+    opt_ctx: Option<&__EvalContext<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     todo!()
 }
 
 fn generic_vec_first_eval_ref<'temp, 'eval>(
+    opt_ctx: Option<&__EvalContext<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_temp_ref();
@@ -39,6 +41,7 @@ fn generic_vec_first_eval_ref<'temp, 'eval>(
 }
 
 fn generic_vec_first_temp_ref<'temp, 'eval>(
+    opt_ctx: Option<&__EvalContext<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_temp_ref();
@@ -46,6 +49,7 @@ fn generic_vec_first_temp_ref<'temp, 'eval>(
 }
 
 fn generic_vec_first_mut<'temp, 'eval>(
+    opt_ctx: Option<&__EvalContext<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let (generic_vec, stack_idx, gen): (&mut VirtualVec<'eval>, _, _) =
@@ -54,6 +58,7 @@ fn generic_vec_first_mut<'temp, 'eval>(
 }
 
 fn generic_vec_first_move<'temp, 'eval>(
+    opt_ctx: Option<&__EvalContext<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     todo!()

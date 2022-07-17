@@ -8,8 +8,11 @@ impl HuskyTraceTime {
         stack_snapshot: &StackSnapshot<'static>,
         parent: &Trace,
     ) -> Vec<TraceId> {
+        let sample_id = self.restriction.opt_sample_id().unwrap();
+        let evaluator = self.eval_time().evaluator(sample_id);
         let history = exec_debug(
-            self.eval_time().upcast(),
+            self.eval_time(),
+            unsafe { evaluator.some_ctx() },
             instruction_sheet,
             stack_snapshot,
             self.vm_config(),

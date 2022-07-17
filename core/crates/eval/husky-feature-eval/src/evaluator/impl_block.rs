@@ -33,6 +33,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         msg_once!("kwargs");
         eval_fast(
             self.db.upcast(),
+            unsafe { self.some_ctx() },
             Some(&block.instruction_sheet),
             None,
             block.ty.route,

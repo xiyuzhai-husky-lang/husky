@@ -25,7 +25,7 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(
-            |_| __TempValue::OwnedEval(__OwnedValue::new(dataset1())),
+            |_, _| __TempValue::OwnedEval(__OwnedValue::new(dataset1())),
             0
         )
         .into(),
@@ -42,7 +42,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(
-            |_| __TempValue::OwnedEval(__OwnedValue::new(dataset2())),
+            |_, _| __TempValue::OwnedEval(__OwnedValue::new(dataset2())),
             0
         )
         .into(),

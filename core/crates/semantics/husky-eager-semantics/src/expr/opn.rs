@@ -42,25 +42,3 @@ pub enum EagerOpnVariant {
         element_binding: Binding,
     },
 }
-
-impl EagerOpnVariant {
-    pub fn needs_context(&self) -> bool {
-        match self {
-            EagerOpnVariant::Binary { .. }
-            | EagerOpnVariant::Prefix { .. }
-            | EagerOpnVariant::Suffix { .. }
-            | EagerOpnVariant::RoutineCall(_)
-            | EagerOpnVariant::TypeCall { .. }
-            | EagerOpnVariant::MethodCall { .. }
-            | EagerOpnVariant::Index { .. } => false,
-            EagerOpnVariant::FieldAccess { field_kind, .. } => match field_kind {
-                FieldKind::StructOriginal => false,
-                FieldKind::StructDefault => false,
-                FieldKind::StructDerivedEager => false,
-                FieldKind::StructDerivedLazy => true,
-                FieldKind::RecordOriginal => todo!(),
-                FieldKind::RecordDerived => todo!(),
-            },
-        }
-    }
-}

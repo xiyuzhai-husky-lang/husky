@@ -118,7 +118,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     self.eval_expr(&opds[0])?.into_stack().unwrap(),
                     self.eval_expr(&opds[1])?.into_stack().unwrap(),
                 ];
-                linkage.eval(values)
+                linkage.eval(unsafe { self.some_ctx() }, values)
             }
             FeatureExprVariant::StructDerivedLazyField {
                 ref this,
@@ -172,7 +172,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
             let this_value = this_value.into_stack()?;
-            linkage.eval(vec![this_value])
+            linkage.eval(unsafe { self.some_ctx() }, vec![this_value])
         } else {
             let this_value = self.eval_feature_repr(this)?;
             match catch_unwind(move || unsafe { this_value.field_access(field_idx, field_binding) })
@@ -234,6 +234,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         has_this: bool,
     ) -> __EvalValueResult<'eval> {
         let db = self.db;
+        let opt_ctx = unsafe { self.some_ctx() };
         let vm_config = self.vm_config();
         let values = arguments
             .iter()
@@ -241,6 +242,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         msg_once!("kwargs");
         eval_fast(
             db.upcast(),
+            opt_ctx,
             opt_instrns,
             opt_linkage,
             output_ty,

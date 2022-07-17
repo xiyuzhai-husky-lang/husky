@@ -39,10 +39,12 @@ impl<'a> RustCodeGenerator<'a> {
         output: EntityRoutePtr,
         stmts: &[Arc<ProcStmt>],
     ) {
-        let needs_eval_ref = self.db.entity_route_kind_contains_eval_ref(base_route.kind)
-            && !self
-                .db
-                .entity_route_kind_contains_eval_ref(base_route.parent().kind);
+        let needs_eval_context: bool = self.db.needs_eval_context(base_route);
+        let needs_eval_ref = needs_eval_context
+            || self.db.entity_route_kind_contains_eval_ref(base_route.kind)
+                && !self
+                    .db
+                    .entity_route_kind_contains_eval_ref(base_route.parent().kind);
         self.write("\n");
         self.indent(indent);
         self.write("pub(crate) fn ");
@@ -52,9 +54,8 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("<'eval>")
         }
         self.write("(");
-        let needs_eval_context: bool = self.db.needs_eval_context(base_route);
         if needs_eval_context {
-            self.write("__ctx: __EvalContext");
+            self.write("__ctx: &__EvalContext<'eval>");
         }
         for (i, parameter) in parameters.iter().enumerate() {
             if i > 0 || needs_eval_context {
@@ -93,10 +94,12 @@ impl<'a> RustCodeGenerator<'a> {
         output: EntityRoutePtr,
         stmts: &[Arc<FuncStmt>],
     ) {
-        let needs_eval_ref = self.db.entity_route_kind_contains_eval_ref(base_route.kind)
-            && !self
-                .db
-                .entity_route_kind_contains_eval_ref(base_route.parent().kind);
+        let needs_eval_context: bool = self.db.needs_eval_context(base_route);
+        let needs_eval_ref = needs_eval_context
+            || self.db.entity_route_kind_contains_eval_ref(base_route.kind)
+                && !self
+                    .db
+                    .entity_route_kind_contains_eval_ref(base_route.parent().kind);
         self.indent(indent);
         self.write("pub(crate) fn ");
         let ident = base_route.ident();
@@ -105,9 +108,8 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("<'eval>")
         }
         self.write("(");
-        let needs_eval_context: bool = self.db.needs_eval_context(base_route);
         if needs_eval_context {
-            self.write("__ctx: __EvalContext");
+            self.write("__ctx: &__EvalContext<'eval>");
         }
         for (i, parameter) in parameters.iter().enumerate() {
             if i > 0 || needs_eval_context {

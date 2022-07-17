@@ -298,7 +298,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             __Linkage::SpecificTransfer(linkage) => {
                 let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                linkage.eval(arguments)
+                linkage.eval(self.opt_ctx, arguments)
             }
             __Linkage::GenericTransfer(__Linkage) => {
                 let mut arguments = self.stack.drain(__Linkage.nargs).collect::<Vec<_>>();

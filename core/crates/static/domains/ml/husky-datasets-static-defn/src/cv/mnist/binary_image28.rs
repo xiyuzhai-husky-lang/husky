@@ -39,14 +39,14 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
                             copy_access: index_copy_fp!(BinaryImage28),
-                            eval_ref_access: __SpecificRoutineFp(|values| -> __TempValue {
+                            eval_ref_access: __SpecificRoutineFp(|_, values| -> __TempValue {
                                 todo!()
                             }),
-                            temp_ref_access: __SpecificRoutineFp(|values| -> __TempValue {
+                            temp_ref_access: __SpecificRoutineFp(|_, values| -> __TempValue {
                                 todo!()
                             }),
-                            move_access: __SpecificRoutineFp(|_| todo!()),
-                            temp_mut_access: __SpecificRoutineFp(|values| {
+                            move_access: __SpecificRoutineFp(|_, _| todo!()),
+                            temp_mut_access: __SpecificRoutineFp(|_, values| {
                                 let index_value: usize = values[1]
                                     .take_copyable()
                                     .take_i32()
@@ -85,7 +85,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: BINARY_IMAGE_28_BASE_ROUTE,
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(
-            |_values| { __TempValue::OwnedEval(__OwnedValue::new(BinaryImage28::default(),)) },
+            |_, _values| { __TempValue::OwnedEval(__OwnedValue::new(BinaryImage28::default(),)) },
             0
         )
         .into(),

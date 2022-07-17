@@ -38,7 +38,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
-                            copy_access: __SpecificRoutineFp(|values| -> __TempValue {
+                            copy_access: __SpecificRoutineFp(|_, values| -> __TempValue {
                                 let this_value: &BinaryGrid28 = values[0].downcast_temp_ref();
                                 let index_value: usize = values[1]
                                     .take_copyable()
@@ -51,13 +51,13 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                                     .__take_copyable()
                                     .into()
                             }),
-                            eval_ref_access: __SpecificRoutineFp(|values| -> __TempValue {
+                            eval_ref_access: __SpecificRoutineFp(|_, values| -> __TempValue {
                                 todo!()
                             }),
-                            temp_ref_access: __SpecificRoutineFp(|values| -> __TempValue {
+                            temp_ref_access: __SpecificRoutineFp(|_, values| -> __TempValue {
                                 todo!()
                             }),
-                            move_access: __SpecificRoutineFp(|_| todo!()),
+                            move_access: __SpecificRoutineFp(|_, _| todo!()),
                             temp_mut_access: index_temp_mut_fp!(BinaryGrid28),
                             nargs: 2,
                             dev_src: __static_dev_src!(),
@@ -84,7 +84,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(
-            |_values| { __TempValue::OwnedEval(__OwnedValue::new(BinaryGrid28::default(),)) },
+            |_, _values| { __TempValue::OwnedEval(__OwnedValue::new(BinaryGrid28::default(),)) },
             0
         )
         .into(),

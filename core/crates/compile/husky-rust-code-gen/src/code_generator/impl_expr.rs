@@ -160,7 +160,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(value, EntityRouteRole::Other)
             }
             EagerExprVariant::EntityFeature { route } => {
-                self.write("__ctx.eval_entity_feature(");
+                self.write("__eval_entity_feature(__ctx, ");
                 self.gen_entity_route(route, EntityRouteRole::Caller);
                 self.write(")")
             }

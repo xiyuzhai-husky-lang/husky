@@ -15,7 +15,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 _ => (),
             }
         }
-        let output = f.call(arguments)?;
+        let output = f.call(self.opt_ctx, arguments)?;
         msg_once!("ugly");
         if output_ty.kind
             != (EntityRouteKind::Root {
@@ -53,8 +53,13 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         nargs: u8,
         has_this: bool,
     ) -> __EvalResult<()> {
-        let mut interpreter =
-            Interpreter::new(self.db, self.stack.drain(nargs), has_this, self.vm_config);
+        let mut interpreter = Interpreter::new(
+            self.db,
+            self.opt_ctx,
+            self.stack.drain(nargs),
+            has_this,
+            self.vm_config,
+        );
         self.stack.push(
             interpreter
                 .eval_instructions(sheet, Mode::Fast)?

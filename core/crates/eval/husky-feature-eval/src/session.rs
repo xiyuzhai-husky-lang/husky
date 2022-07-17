@@ -51,6 +51,7 @@ impl<'eval> Session<'eval> {
         let config = package.config.clone();
         let dataset: Dataset = eval_fast(
             db.upcast(),
+            None,
             Some(&db.dataset_config_instruction_sheet(package.main_defn.file)),
             None,
             RootIdentifier::DatasetType.into(),

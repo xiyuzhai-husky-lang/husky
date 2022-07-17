@@ -52,8 +52,11 @@ impl HuskyTraceTime {
                     Err(_) => return subtraces,
                 }
             }
+            let sample_id = self.restriction.opt_sample_id().unwrap();
+            let evaluator = self.eval_time().evaluator(sample_id);
             let history = exec_debug(
-                self.eval_time().upcast(),
+                self.eval_time(),
+                unsafe { evaluator.some_ctx() },
                 instruction_sheet,
                 func_input_values
                     .into_iter()

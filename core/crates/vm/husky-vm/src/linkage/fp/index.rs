@@ -2,6 +2,7 @@
 macro_rules! index_copy_fp {
     ($Type: ty) => {{
         fn __wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&__EvalContext>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let this_value: &$Type = values[0].downcast_temp_ref();
@@ -20,6 +21,7 @@ macro_rules! index_copy_fp {
 macro_rules! index_eval_ref_fp {
     ($Type: ty) => {{
         fn __wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&__EvalContext>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let this_value: &'eval $Type = values[0].downcast_eval_ref();
@@ -37,14 +39,14 @@ macro_rules! index_eval_ref_fp {
 #[macro_export]
 macro_rules! index_temp_ref_fp {
     ($Type: ty) => {{
-        __SpecificRoutineFp(|values| -> __TempValue { todo!("temp ref") })
+        __SpecificRoutineFp(|_, values| -> __TempValue { todo!("temp ref") })
     }};
 }
 
 #[macro_export]
 macro_rules! index_move_fp {
     ($Type: ty) => {{
-        __SpecificRoutineFp(|values| -> __TempValue { todo!("move") })
+        __SpecificRoutineFp(|_, values| -> __TempValue { todo!("move") })
     }};
 }
 
@@ -52,6 +54,7 @@ macro_rules! index_move_fp {
 macro_rules! index_temp_mut_fp {
     ($Type: ty) => {{
         fn __wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&__EvalContext>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let index_value: usize = values[1]
