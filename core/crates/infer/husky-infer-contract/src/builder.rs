@@ -51,7 +51,7 @@ impl<'a> ContractSheetBuilder<'a> {
             match ast.variant {
                 AstVariant::FieldDefnHead {
                     liason,
-                    ty,
+                    field_ty: ty,
                     field_ast_kind,
                     ..
                 } => match field_ast_kind {
@@ -99,7 +99,9 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstVariant::Visual => self.infer_lazy_stmts(children, &arena),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
-                        field_ast_kind, ty, ..
+                        field_ast_kind,
+                        field_ty: ty,
+                        ..
                     } => match field_ast_kind {
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,

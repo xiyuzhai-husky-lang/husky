@@ -53,7 +53,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 AstVariant::FieldDefnHead {
                     liason,
                     ranged_ident,
-                    ty,
+                    field_ty: ty,
                     field_ast_kind: field_kind,
                 } => match field_kind {
                     FieldAstKind::StructDefault { default } => {
@@ -107,7 +107,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
                         field_ast_kind: field_kind,
-                        ty,
+                        field_ty: ty,
                         ..
                     } => match field_kind {
                         FieldAstKind::StructOriginal => (),

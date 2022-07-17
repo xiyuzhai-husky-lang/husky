@@ -52,7 +52,7 @@ impl FieldDecl {
             AstVariant::FieldDefnHead {
                 liason,
                 ranged_ident,
-                ty,
+                field_ty: ty,
                 field_ast_kind,
             } => Arc::new(Self {
                 ident: ranged_ident.ident,

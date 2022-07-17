@@ -77,6 +77,11 @@ mnist-compiled-with-backtrace:
 	@RUST_BACKTRACE=1 cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
 	@cd ${HUSKY_DIR}/.compiled&& RUST_BACKTRACE=1 cargo run -q mnist-classifier-debugger
 
+mnist-compiled-with-backtrace-filtered:
+	@cargo check
+	@RUST_BACKTRACE=1 cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier 2>&1 | python ${HUSKY_DIR}/core/scripts/filter_rust_backtrace.py
+	@cd ${HUSKY_DIR}/.compiled&& RUST_BACKTRACE=1 cargo run -q mnist-classifier-debugger 2>&1 | python ${HUSKY_DIR}/core/scripts/filter_rust_backtrace.py
+
 print-mnist:
 	cargo run -q --bin husky-analyzer-printer print-qualified-tys $(projects_dir)/cv/mnist-classifier
 

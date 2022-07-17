@@ -44,7 +44,7 @@ impl<'a> AstTransformer<'a> {
             Ok(AstVariant::FieldDefnHead {
                 ranged_ident: ident,
                 liason: MemberLiason::Immutable,
-                ty,
+                field_ty: ty,
                 field_ast_kind: FieldAstKind::RecordOriginal,
             })
         } else {
@@ -69,7 +69,7 @@ impl<'a> AstTransformer<'a> {
         let ty = husky_atom::parse_route(self, &token_group[3..])?;
         Ok(AstVariant::FieldDefnHead {
             ranged_ident: ident,
-            ty,
+            field_ty: ty,
             field_ast_kind: FieldAstKind::RecordDerived,
             liason: MemberLiason::Immutable,
         })
