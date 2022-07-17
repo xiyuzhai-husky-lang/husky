@@ -430,7 +430,7 @@ impl EntityDefn {
                 EagerExprVariant::ThisValue { .. } => builder.push(expr.ty()),
                 EagerExprVariant::ThisField { this_ty, .. } => builder.push(this_ty),
                 EagerExprVariant::EnumKindLiteral(_) => builder.push(expr.ty()),
-                EagerExprVariant::EntityFeature { .. } => todo!(),
+                EagerExprVariant::EntityFeature { route } => builder.push(route),
             }
         }
 

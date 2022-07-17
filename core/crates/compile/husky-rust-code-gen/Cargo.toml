@@ -31,3 +31,4 @@ husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-linkage-table = { path = "../husky-linkage-table" }
 husky-instantiate = { path = "../../infer/husky-instantiate" }
+husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
