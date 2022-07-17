@@ -7,8 +7,8 @@
 98:23..98:24	Lex Error: expect indentated lines after `:`
 111:23..111:24	Lex Error: expect indentated lines after `:`
 21:62..21:65	Ast Error: expect ranged_ty
-22:5..22:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
-23:5..23:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `func` instead
+22:5..22:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `stmt` instead
+23:5..23:8	Ast Error: `let` statement requires env to be `proc` or `test`, but got `stmt` instead
 35:19..35:35	Ast Error: expect `:`
 36:13..36:20	Ast Error: can't put case outside a match context
 38:13..38:20	Ast Error: can't put case outside a match context

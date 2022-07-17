@@ -21,15 +21,15 @@ eager variable:
 
 lazy expr:
     11:9..11:13    mask                   EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    14:31..14:36   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    14:5..14:37    find_connected_components(input)   Transient Vec<mnist_classifier007::connected_component::ConnectedComponent>
-    17:5..17:25    connected_components   EvalRef Vec<mnist_classifier007::connected_component::ConnectedComponent>
-    17:26..17:27   0                      Copyable i32
-    17:5..17:28    connected_components[0]   EvalRef mnist_classifier007::connected_component::ConnectedComponent
 
 eager expr:
     8:27..8:31     this                   EvalRef      mnist_classifier007::connected_component::ConnectedComponent
     8:9..8:32      find_raw_contours(this)   Transient    Vec<mnist_classifier007::raw_contour::RawContour>
+    14:31..14:36   input                  EvalRef      domains::ml::datasets::cv::mnist::BinaryImage28
+    14:5..14:37    find_connected_components(input)   Transient    Vec<mnist_classifier007::connected_component::ConnectedComponent>
+    17:5..17:25    connected_components   EvalRef      Vec<mnist_classifier007::connected_component::ConnectedComponent>
+    17:26..17:27   0                      Copyable     i32
+    17:5..17:28    connected_components[0]   EvalRef      mnist_classifier007::connected_component::ConnectedComponent
     20:23..20:24   x                      Copyable     b32
     20:28..20:29   1                      Copyable     i32
     20:23..20:29   x << 1                 Copyable     b32
@@ -189,8 +189,3 @@ eager expr:
 
 lazy expr:
     11:9..11:13    mask                   EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    14:31..14:36   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    14:5..14:37    find_connected_components(input)   Transient Vec<mnist_classifier007::connected_component::ConnectedComponent>
-    17:5..17:25    connected_components   EvalRef Vec<mnist_classifier007::connected_component::ConnectedComponent>
-    17:26..17:27   0                      Copyable i32
-    17:5..17:28    connected_components[0]   EvalRef mnist_classifier007::connected_component::ConnectedComponent

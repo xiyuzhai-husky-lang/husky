@@ -70,7 +70,7 @@ impl std::fmt::Display for AstContext {
         f.write_str(match self {
             AstContext::Package(_) => "package",
             AstContext::Module(_) => "module",
-            AstContext::Stmt { .. } => todo!(),
+            AstContext::Stmt { .. } => "stmt",
             AstContext::Visual => "visual",
             AstContext::Struct { .. } => "struct",
             AstContext::Enum(_) => "enum",
