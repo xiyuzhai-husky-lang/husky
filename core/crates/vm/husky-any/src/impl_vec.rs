@@ -59,8 +59,11 @@ impl<'eval, 'a: 'eval, T: __AnyValue<'a>> __AnyValue<'eval> for Vec<T> {
         )))
     }
 
-    fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+    fn __into_eval_value(self) -> __EvalValue<'eval>
+    where
+        Self: 'eval,
+    {
+        __EvalValue::Owned(__OwnedValue::new(self))
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>

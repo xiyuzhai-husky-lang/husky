@@ -22,7 +22,7 @@ use vm::{__EvalResult, __EvalValueResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,
-    pub(crate) eval_input: __EvalValue<'eval>,
+    pub eval_input: __EvalValue<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
     pub(crate) db: &'a dyn FeatureGenQueryGroup,
     pub(crate) evaluator_config: &'a EvaluatorConfig,

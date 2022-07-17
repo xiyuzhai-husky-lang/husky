@@ -76,7 +76,9 @@ pub trait __AnyValue<'eval>:
     where
         'eval: 'temp;
 
-    fn __into_eval_value(self) -> __EvalValue<'eval>;
+    fn __into_eval_value(self) -> __EvalValue<'eval>
+    where
+        Self: 'eval;
 
     fn __take_copyable(&self) -> CopyableValue {
         p!(self);

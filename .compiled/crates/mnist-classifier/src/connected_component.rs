@@ -51,6 +51,9 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
 }
 pub(crate) fn connected_components<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval Vec<ConnectedComponent> {
     let __feature = feature_ptr!(__ctx, "mnist_classifier::connected_component::connected_components");
+    if let Some(__value) = __opt_cached_feature(__ctx, __feature) {
+        return __value;
+    }
     return __cache_feature(
         __ctx,
         __feature,
@@ -60,6 +63,9 @@ pub(crate) fn connected_components<'eval>(__ctx: &__EvalContext<'eval>) -> &'eva
 }
 pub(crate) fn major_connected_component<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval ConnectedComponent {
     let __feature = feature_ptr!(__ctx, "mnist_classifier::connected_component::major_connected_component");
+    if let Some(__value) = __opt_cached_feature(__ctx, __feature) {
+        return __value;
+    }
     return __cache_feature(
         __ctx,
         __feature,
