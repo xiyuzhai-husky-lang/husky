@@ -93,9 +93,12 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::DeFault => {
                     enter_block(self);
                     match self.context() {
-                        AstContext::Match { paradigm, .. } => self.context.set(AstContext::Stmt {
+                        AstContext::Match {
                             paradigm,
-                            return_kind: todo!(),
+                            return_kind,
+                        } => self.context.set(AstContext::Stmt {
+                            paradigm,
+                            return_kind,
                         }),
                         _ => {
                             return err!(
