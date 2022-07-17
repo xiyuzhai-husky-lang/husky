@@ -46,7 +46,12 @@ impl std::fmt::Display for SubrouteTable {
         f.write_str("[")?;
         self.entries
             .iter()
-            .map(|entry| f.write_fmt(format_args!("{:?},", entry)))
+            .map(|entry| {
+                f.write_fmt(format_args!(
+                    "{},",
+                    entry.ident.map(|ident| ident.ident.as_str()).unwrap_or("_")
+                ))
+            })
             .collect::<std::fmt::Result>()?;
         f.write_str("]")?;
         Ok(())

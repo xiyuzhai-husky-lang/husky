@@ -157,7 +157,7 @@ impl<'a> Formatter<'a> {
             AstVariant::FieldDefnHead {
                 liason,
                 ranged_ident,
-                ty,
+                field_ty: ty,
                 field_ast_kind: field_kind,
             } => {
                 match liason {

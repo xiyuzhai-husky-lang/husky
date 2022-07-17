@@ -100,7 +100,7 @@ impl<'a> AstTransformer<'a> {
         Ok(AstVariant::FieldDefnHead {
             liason: field_liason,
             ranged_ident: ident,
-            ty,
+            field_ty: ty,
             field_ast_kind: field_kind,
         })
     }
@@ -141,7 +141,7 @@ impl<'a> AstTransformer<'a> {
         Ok(AstVariant::FieldDefnHead {
             liason: MemberLiason::Derived,
             ranged_ident: ident,
-            ty,
+            field_ty: ty,
             field_ast_kind: FieldAstKind::StructDerivedLazy { paradigm },
         })
     }
