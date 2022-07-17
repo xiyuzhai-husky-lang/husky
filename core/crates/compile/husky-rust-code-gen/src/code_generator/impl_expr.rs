@@ -1,9 +1,28 @@
 use super::{impl_entity_route::EntityRouteRole, *};
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
+use husky_infer_qualified_ty::EagerExprQualifier;
 use vm::*;
 use word::RootIdentifier;
 
 impl<'a> RustCodeGenerator<'a> {
+    pub(super) fn gen_feature_return(&mut self, result: &EagerExpr) {
+        match result.qualified_ty.qual {
+            EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
+                self.write("__cache_feature(__ctx, __feature, (");
+                self.gen_expr(result);
+                self.write(").__into_eval_value())");
+            }
+            EagerExprQualifier::EvalRef => {
+                self.write("__cache_feature(__ctx, __feature, __EvalRef(&(");
+                self.gen_expr(result);
+                self.write(")).into())");
+            }
+            EagerExprQualifier::PureRef
+            | EagerExprQualifier::TempRef
+            | EagerExprQualifier::TempRefMut => panic!(),
+        }
+    }
+
     pub(super) fn gen_expr(&mut self, expr: &EagerExpr) {
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => self.write(&varname),
@@ -160,9 +179,8 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(value, EntityRouteRole::Other)
             }
             EagerExprVariant::EntityFeature { route } => {
-                self.write("__eval_entity_feature(__ctx, ");
                 self.gen_entity_route(route, EntityRouteRole::Caller);
-                self.write(")")
+                self.write("(__ctx)")
             }
         }
     }

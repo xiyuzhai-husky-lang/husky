@@ -49,11 +49,13 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
         todo!()
     }
 }
-pub(crate) fn connected_components<'eval>(__ctx: &__EvalContext<'eval>) -> Vec<ConnectedComponent> {
-    return find_connected_components(&__eval_entity_feature(__ctx, __input))
+pub(crate) fn connected_components<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval Vec<ConnectedComponent> {
+        let __feature = todo!();
+    return __cache_feature(__ctx, __feature, (find_connected_components(&__input(__ctx))).__into_eval_value())
 }
-pub(crate) fn major_connected_component<'eval>(__ctx: &__EvalContext<'eval>) -> ConnectedComponent {
-    return __eval_entity_feature(__ctx, connected_components)[(0) as usize]
+pub(crate) fn major_connected_component<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval ConnectedComponent {
+        let __feature = todo!();
+    return __cache_feature(__ctx, __feature, __EvalRef(&(connected_components(__ctx)[(0) as usize])).into())
 }
 
 pub(crate) fn horizontal_extend(a: u32, x: u32) -> u32 {

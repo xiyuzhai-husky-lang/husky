@@ -256,29 +256,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 }
                 InstructionVariant::PatternMatch { ref branches } => {
                     self.exec_pattern_matching(sheet, ins, branches, mode)
-                } // InstructionVariant::NewXmlFromValue { ty } => {
-                  //     let visual_props = self.db.visualize(ty, self.stack.pop().any_temp_ref());
-                  //     self.stack
-                  //         .push(__TempValue::OwnedEval(OwnedValue::new(visual_props)));
-                  //     VMControl::None
-                  // }
-                  // InstructionVariant::NewXmlFromTag {
-                  //     tag_kind,
-                  //     ref props,
-                  //     n_child_expr,
-                  // } => {
-                  //     if n_child_expr > 0 {
-                  //         todo!()
-                  //     }
-                  //     let arguments = self.stack.drain(props.len().try_into().unwrap());
-
-                  //     match mode {
-                  //         Mode::Fast => (),
-                  //         Mode::TrackMutation => todo!(),
-                  //         Mode::TrackHistory => todo!(),
-                  //     }
-                  //     VMControl::None
-                  // }
+                }
+                InstructionVariant::EntityFeature { feature_uid } => todo!(),
             };
             match control {
                 VMControl::None => (),

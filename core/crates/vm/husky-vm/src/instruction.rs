@@ -117,6 +117,9 @@ pub enum InstructionVariant {
     PatternMatch {
         branches: Avec<VMPatternBranch>,
     },
+    EntityFeature {
+        feature_uid: EntityUid,
+    },
 }
 //     NewXmlFromTag {
 //         tag_kind: XmlTagKind,

@@ -6,6 +6,7 @@ use husky_eager_semantics::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
 };
 use husky_entity_route::EntityRoutePtr;
+use husky_infer_qualified_ty::EagerExprQualifier;
 use vm::{BoundaryKind, InitKind};
 use word::RootIdentifier;
 
@@ -47,10 +48,10 @@ impl<'a> RustCodeGenerator<'a> {
                 ref result,
                 returns_feature,
             } => {
+                self.write("return ");
                 if returns_feature {
-                    todo!()
+                    self.gen_feature_return(result)
                 } else {
-                    self.write("return ");
                     self.gen_expr(result)
                 }
             }

@@ -1,8 +1,10 @@
-use vm::__EvalContext;
+use crate::*;
+use vm::{__EvalContext, __EvalValue};
 
-pub fn __eval_entity_feature<'eval, T>(
+pub fn __cache_feature<'eval, T>(
     __ctx: &__EvalContext<'eval>,
-    f: fn(__ctx: &__EvalContext<'eval>) -> T,
+    feature: FeaturePtr,
+    value: __EvalValue<'eval>,
 ) -> &'eval T {
     todo!()
 }

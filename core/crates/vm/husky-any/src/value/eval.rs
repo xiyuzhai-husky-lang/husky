@@ -17,6 +17,12 @@ pub enum __EvalValue<'eval> {
 #[derive(Debug, Clone, Copy)]
 pub struct __EvalRef<'eval>(pub &'eval (dyn __AnyValueDyn<'eval> + 'eval));
 
+impl<'eval> From<__EvalRef<'eval>> for __EvalValue<'eval> {
+    fn from(ref_value: __EvalRef<'eval>) -> Self {
+        Self::EvalRef(ref_value)
+    }
+}
+
 impl<'eval1, 'eval2: 'eval1> __EvalRef<'eval2> {
     pub fn short(&self) -> __EvalRef<'eval1> {
         __EvalRef(self.0.__short_dyn())
