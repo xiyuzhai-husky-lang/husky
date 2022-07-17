@@ -53,8 +53,10 @@ impl<'a> AstTransformer<'a> {
         ) {
             self.update_struct_item_context(StructItemContext::DefaultField, token_group)?;
             enter_block(self);
-            self.context
-                .set(AstContext::Stmt(Paradigm::EagerFunctional));
+            self.context.set(AstContext::Stmt {
+                paradigm: Paradigm::EagerFunctional,
+                returns_feature: false,
+            });
             self.opt_this_liason.set(Some(ParameterLiason::Pure));
             if token_stream.empty() {
                 return err!(
@@ -74,8 +76,10 @@ impl<'a> AstTransformer<'a> {
         ) {
             self.update_struct_item_context(StructItemContext::DerivedEagerField, token_group)?;
             enter_block(self);
-            self.context
-                .set(AstContext::Stmt(Paradigm::EagerFunctional));
+            self.context.set(AstContext::Stmt {
+                paradigm: Paradigm::EagerFunctional,
+                returns_feature: false,
+            });
             self.opt_this_liason.set(Some(ParameterLiason::Pure));
             if token_stream.empty() {
                 return err!(
@@ -113,7 +117,10 @@ impl<'a> AstTransformer<'a> {
             HuskyTokenKind::Keyword(Keyword::Paradigm(paradigm)) => paradigm,
             _ => todo!(),
         };
-        self.context.set(AstContext::Stmt(paradigm));
+        self.context.set(AstContext::Stmt {
+            paradigm,
+            returns_feature: true,
+        });
         self.opt_this_liason.set(Some(ParameterLiason::EvalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);
         match token_group[2].kind {

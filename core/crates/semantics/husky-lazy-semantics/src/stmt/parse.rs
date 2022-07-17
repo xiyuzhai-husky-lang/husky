@@ -69,7 +69,7 @@ impl<'a> LazyStmtParser<'a> {
                                 value: initial_value,
                             }
                         }
-                        RawStmtVariant::Return(result) => LazyStmtVariant::Return {
+                        RawStmtVariant::Return { result, .. } => LazyStmtVariant::Return {
                             result: self.parse_lazy_expr(result)?,
                         },
                         RawStmtVariant::Assert(condition) => LazyStmtVariant::Assert {

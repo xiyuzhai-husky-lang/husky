@@ -59,7 +59,10 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         enter_block(self);
-        self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
+        self.context.set(AstContext::Stmt {
+            paradigm: Paradigm::LazyFunctional,
+            returns_feature: true,
+        });
         self.opt_this_liason.set(Some(ParameterLiason::Pure));
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);
         msg_once!("field contract");

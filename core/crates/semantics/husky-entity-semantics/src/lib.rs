@@ -408,7 +408,7 @@ pub(crate) fn main_defn(
     let ast_text = this.ast_text(main_file).unwrap();
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref().unwrap().variant {
-            AstVariant::MainDefn => {
+            AstVariant::MainDefnHead => {
                 let ty = RangedEntityRoute {
                     route: this.global_output_ty(main_file).unwrap(),
                     range: Default::default(),
@@ -501,7 +501,9 @@ pub(crate) fn entity_defn(
                 },
                 AstVariant::FieldDefnHead { .. } => return Ok(db.member_defn(entity_route)),
                 AstVariant::Use { .. } => todo!(),
-                AstVariant::MainDefn | AstVariant::DatasetConfigDefnHead | AstVariant::Stmt(_) => {
+                AstVariant::MainDefnHead
+                | AstVariant::DatasetConfigDefnHead
+                | AstVariant::Stmt(_) => {
                     panic!()
                 }
                 AstVariant::EnumVariantDefnHead {

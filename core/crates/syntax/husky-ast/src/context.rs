@@ -12,8 +12,14 @@ use word::Paradigm;
 pub enum AstContext {
     Package(FilePtr),
     Module(EntityRoutePtr),
-    Stmt(Paradigm),
-    Match(Paradigm),
+    Stmt {
+        paradigm: Paradigm,
+        returns_feature: bool,
+    },
+    Match {
+        paradigm: Paradigm,
+        returns_feature: bool,
+    },
     Visual,
     Struct {
         opt_base_ty: Option<EntityRoutePtr>,
@@ -42,14 +48,16 @@ impl AstContext {
             _ => return None,
         })
     }
-}
 
-impl From<Paradigm> for AstContext {
-    fn from(paradigm: Paradigm) -> Self {
-        match paradigm {
-            Paradigm::EagerProcedural => AstContext::Stmt(Paradigm::EagerProcedural),
-            Paradigm::EagerFunctional => AstContext::Stmt(Paradigm::EagerFunctional),
-            Paradigm::LazyFunctional => AstContext::Stmt(Paradigm::LazyFunctional),
+    pub fn returns_feature(&self) -> bool {
+        match self {
+            AstContext::Stmt {
+                returns_feature, ..
+            } => *returns_feature,
+            AstContext::Match {
+                returns_feature, ..
+            } => *returns_feature,
+            _ => panic!(),
         }
     }
 }
@@ -59,14 +67,12 @@ impl std::fmt::Display for AstContext {
         f.write_str(match self {
             AstContext::Package(_) => "package",
             AstContext::Module(_) => "module",
-            AstContext::Stmt(Paradigm::LazyFunctional) => "def",
-            AstContext::Stmt(Paradigm::EagerFunctional) => "func",
-            AstContext::Stmt(Paradigm::EagerProcedural) => "proc",
+            AstContext::Stmt { .. } => todo!(),
             AstContext::Visual => "visual",
             AstContext::Struct { .. } => "struct",
             AstContext::Enum(_) => "enum",
             AstContext::Record => "record",
-            AstContext::Match(_) => todo!(),
+            AstContext::Match { .. } => todo!(),
         })
     }
 }

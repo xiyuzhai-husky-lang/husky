@@ -151,8 +151,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         .unwrap()
                 }
             }
-            RawStmtVariant::Return(expr) => {
-                match (opt_output_ty, self.infer_eager_expr(arena, expr)) {
+            RawStmtVariant::Return { result, .. } => {
+                match (opt_output_ty, self.infer_eager_expr(arena, result)) {
                     (Some(output_ty), Some(qualified_ty)) => {
                         if !qualified_ty.is_implicitly_castable_to_output(
                             self.db,

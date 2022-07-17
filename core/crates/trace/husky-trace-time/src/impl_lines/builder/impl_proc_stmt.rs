@@ -41,7 +41,7 @@ impl<'a> TraceTokenBuilder<'a> {
                     _ => panic!(),
                 }
             }
-            ProcStmtVariant::Return { ref result } => {
+            ProcStmtVariant::Return { ref result, .. } => {
                 self.push(keyword!("return "));
                 self.eager_expr_tokens(result, history, ExprTokenConfig::stmt())
             }

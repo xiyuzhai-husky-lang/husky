@@ -89,15 +89,12 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstVariant::TypeDefnHead { .. } | AstVariant::EnumVariantDefnHead { .. } => {
                         self.infer_all(children)
                     }
-                    AstVariant::MainDefn => self.infer_lazy_stmts(children, &arena),
-                    AstVariant::DatasetConfigDefnHead => self.infer_eager_stmts(
-                        children,
-                        &arena,
-                        RootIdentifier::DatasetType.into(),
-                        false,
-                    ),
+                    AstVariant::MainDefnHead => self.infer_lazy_stmts(children, &arena),
+                    AstVariant::DatasetConfigDefnHead => {
+                        self.infer_eager_stmts(children, &arena, RootIdentifier::DatasetType.into())
+                    }
                     AstVariant::CallFormDefnHead { output_ty, .. } => {
-                        self.infer_eager_stmts(children, &arena, output_ty.route, false)
+                        self.infer_eager_stmts(children, &arena, output_ty.route)
                     }
                     AstVariant::Visual => self.infer_lazy_stmts(children, &arena),
                     AstVariant::Use { .. } => (),
@@ -106,7 +103,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     } => match field_ast_kind {
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
-                        } => self.infer_eager_stmts(children, &arena, ty.route, true),
+                        } => self.infer_eager_stmts(children, &arena, ty.route),
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::LazyFunctional,
                         }
@@ -116,7 +113,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstVariant::FeatureDefnHead { paradigm, ty, .. } => match paradigm {
                         Paradigm::LazyFunctional => self.infer_lazy_stmts(children, &arena),
                         Paradigm::EagerFunctional | Paradigm::EagerProcedural => {
-                            self.infer_eager_stmts(children, &arena, ty.route, true)
+                            self.infer_eager_stmts(children, &arena, ty.route)
                         }
                     },
                     AstVariant::Submodule { .. } => (),

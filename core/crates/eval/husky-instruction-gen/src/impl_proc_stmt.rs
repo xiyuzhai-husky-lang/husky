@@ -25,7 +25,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_eager_expr(condition, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(InstructionVariant::Assert, stmt))
             }
-            ProcStmtVariant::Return { ref result } => {
+            ProcStmtVariant::Return { ref result, .. } => {
                 self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(
                     InstructionVariant::Return {

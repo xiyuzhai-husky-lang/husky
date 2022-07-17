@@ -50,7 +50,7 @@ impl EntityDefnVariant {
                     kind,
                     ref spatial_parameters,
                 } => todo!(),
-                AstVariant::MainDefn => todo!(),
+                AstVariant::MainDefnHead => todo!(),
                 AstVariant::CallFormDefnHead {
                     opt_this_liason,
                     paradigm,

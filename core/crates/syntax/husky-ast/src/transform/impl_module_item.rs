@@ -36,7 +36,10 @@ impl<'a> AstTransformer<'a> {
                     }
                     _ => {
                         enter_block(self);
-                        self.context.set(AstContext::Stmt(paradigm));
+                        self.context.set(AstContext::Stmt {
+                            paradigm,
+                            returns_feature: false,
+                        });
                         return err!(format!("expect `->` or `(`"), token_group[2].range);
                     }
                 }
@@ -52,8 +55,10 @@ impl<'a> AstTransformer<'a> {
                 enter_block(self);
                 Ok(match cfg {
                     ConfigKeyword::Context => {
-                        self.context
-                            .set(AstContext::Stmt(Paradigm::EagerFunctional));
+                        self.context.set(AstContext::Stmt {
+                            paradigm: Paradigm::EagerFunctional,
+                            returns_feature: false,
+                        });
                         self.use_all(RootIdentifier::Domains.into(), token_group[0].text_range())?;
                         AstVariant::DatasetConfigDefnHead
                     }
@@ -61,8 +66,11 @@ impl<'a> AstTransformer<'a> {
             }
             Keyword::Main => {
                 enter_block(self);
-                self.context.set(AstContext::Stmt(Paradigm::LazyFunctional));
-                Ok(AstVariant::MainDefn)
+                self.context.set(AstContext::Stmt {
+                    paradigm: Paradigm::LazyFunctional,
+                    returns_feature: true,
+                });
+                Ok(AstVariant::MainDefnHead)
             }
             Keyword::Visual => todo!(),
             Keyword::Liason(_) => todo!(),

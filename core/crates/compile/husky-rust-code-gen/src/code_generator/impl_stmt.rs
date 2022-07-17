@@ -43,9 +43,16 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_expr(condition);
                 self.write(");");
             }
-            FuncStmtVariant::Return { ref result } => {
-                self.write("return ");
-                self.gen_expr(result)
+            FuncStmtVariant::Return {
+                ref result,
+                returns_feature,
+            } => {
+                if returns_feature {
+                    todo!()
+                } else {
+                    self.write("return ");
+                    self.gen_expr(result)
+                }
             }
             FuncStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_func_condition_flow(stmt.indent, branches)
@@ -86,10 +93,17 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_expr(expr);
                 self.write(";");
             }
-            ProcStmtVariant::Return { ref result } => {
-                self.write("return ");
-                self.gen_binding(result);
-                self.gen_expr(result);
+            ProcStmtVariant::Return {
+                ref result,
+                returns_feature,
+            } => {
+                if returns_feature {
+                    todo!()
+                } else {
+                    self.write("return ");
+                    self.gen_binding(result);
+                    self.gen_expr(result);
+                }
             }
             ProcStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_proc_condition_flow(stmt.indent, branches)

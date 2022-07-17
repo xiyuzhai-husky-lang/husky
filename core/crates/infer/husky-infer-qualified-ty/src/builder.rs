@@ -71,7 +71,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     AstVariant::TypeDefnHead { .. } | AstVariant::EnumVariantDefnHead { .. } => {
                         self.infer_ast(children, arena)
                     }
-                    AstVariant::MainDefn => self.infer_lazy_call_form(
+                    AstVariant::MainDefnHead => self.infer_lazy_call_form(
                         &arena,
                         &[],
                         children,

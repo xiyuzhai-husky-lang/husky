@@ -12,9 +12,9 @@ fn eval_input_ty_from_ast(
 ) -> InferResult<EntityRoutePtr> {
     match ast.variant {
         AstVariant::Stmt(RawStmt {
-            variant: RawStmtVariant::Return(idx),
+            variant: RawStmtVariant::Return { result, .. },
             ..
-        }) => match arena[idx].variant {
+        }) => match arena[result].variant {
             RawExprVariant::Opn {
                 opn_variant: RawOpnVariant::List(ListOpr::Call),
                 ref opds,
@@ -55,9 +55,9 @@ fn global_output_ty_from_ast(
 ) -> InferResult<EntityRoutePtr> {
     match ast.variant {
         AstVariant::Stmt(RawStmt {
-            variant: RawStmtVariant::Return(idx),
+            variant: RawStmtVariant::Return { result, .. },
             ..
-        }) => match arena[idx].variant {
+        }) => match arena[result].variant {
             RawExprVariant::Opn {
                 opn_variant: RawOpnVariant::List(ListOpr::Call),
                 ref opds,

@@ -45,7 +45,7 @@ pub enum AstVariant {
         kind: TyKind,
         spatial_parameters: IdentDict<SpatialParameter>,
     },
-    MainDefn,
+    MainDefnHead,
     CallFormDefnHead {
         ident: RangedCustomIdentifier,
         paradigm: Paradigm,

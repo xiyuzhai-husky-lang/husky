@@ -307,6 +307,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             r#"
         specific_transfer_linkage!({{
             fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {{"#
         ));

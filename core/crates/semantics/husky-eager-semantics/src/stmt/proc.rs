@@ -62,6 +62,7 @@ pub enum ProcStmtVariant {
     Break,
     Return {
         result: Arc<EagerExpr>,
+        returns_feature: bool,
     },
     Match {
         match_expr: Arc<EagerExpr>,

@@ -26,7 +26,7 @@ impl HuskyTraceTime {
                     FigureCanvasData::void()
                 }
             }
-            ProcStmtVariant::Return { ref result } => self.eager_expr_figure(result, history),
+            ProcStmtVariant::Return { ref result, .. } => self.eager_expr_figure(result, history),
             ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
             ProcStmtVariant::Loop {
                 ref loop_variant,

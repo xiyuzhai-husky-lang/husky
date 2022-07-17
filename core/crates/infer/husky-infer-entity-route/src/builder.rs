@@ -74,7 +74,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     AstVariant::TypeDefnHead { .. } | AstVariant::EnumVariantDefnHead { .. } => {
                         self.infer_all(children)
                     }
-                    AstVariant::MainDefn => {
+                    AstVariant::MainDefnHead => {
                         let opt_output_ty = self.db.global_output_ty(self.main_file).ok();
                         self.infer_function(&[], opt_output_ty, children, &arena)
                     }
