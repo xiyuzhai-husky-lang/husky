@@ -9,16 +9,23 @@ use thin_vec::thin_vec;
 use word::Paradigm;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum ReturnKind {
+    Normal,
+    Feature,
+    LazyField,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AstContext {
     Package(FilePtr),
     Module(EntityRoutePtr),
     Stmt {
         paradigm: Paradigm,
-        returns_feature: bool,
+        return_kind: ReturnKind,
     },
     Match {
         paradigm: Paradigm,
-        returns_feature: bool,
+        return_kind: ReturnKind,
     },
     Visual,
     Struct {
@@ -49,14 +56,10 @@ impl AstContext {
         })
     }
 
-    pub fn returns_feature(&self) -> bool {
+    pub fn return_kind(&self) -> ReturnKind {
         match self {
-            AstContext::Stmt {
-                returns_feature, ..
-            } => *returns_feature,
-            AstContext::Match {
-                returns_feature, ..
-            } => *returns_feature,
+            AstContext::Stmt { return_kind, .. } => *return_kind,
+            AstContext::Match { return_kind, .. } => *return_kind,
             _ => panic!(),
         }
     }

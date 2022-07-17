@@ -132,11 +132,7 @@ impl<'eval> TraceVariant<'eval> {
                 FeatureExprVariant::EnumKindLiteral { .. } => false,
                 FeatureExprVariant::EntityFeature { .. } => true,
                 FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-                FeatureExprVariant::RecordOriginalField {
-                    ref this,
-                    field_ident,
-                    ..
-                } => false,
+                FeatureExprVariant::RecordOriginalField { .. } => false,
                 FeatureExprVariant::ThisValue { .. } => false,
                 FeatureExprVariant::EvalInput => false,
                 FeatureExprVariant::RoutineCall {
@@ -147,6 +143,7 @@ impl<'eval> TraceVariant<'eval> {
                 FeatureExprVariant::StructDerivedLazyField {
                     ref this,
                     field_ident,
+                    field_uid,
                     ref repr,
                 } => true,
                 FeatureExprVariant::ModelCall {

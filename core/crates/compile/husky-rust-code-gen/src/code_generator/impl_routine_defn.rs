@@ -21,7 +21,7 @@ impl<'a> RustCodeGenerator<'a> {
                 range,
                 stmts,
                 ty,
-            } => self.gen_feature_func_block_defn(0, feature_route, ty.route, stmts),
+            } => self.gen_feature_func_block_defn(feature_route, ty.route, stmts),
             DefinitionRepr::ProcBlock {
                 file,
                 range,
@@ -33,12 +33,10 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(super) fn gen_feature_func_block_defn(
         &mut self,
-        indent: Indent,
         feature_route: EntityRoutePtr,
         output: EntityRoutePtr,
         stmts: &[Arc<FuncStmt>],
     ) {
-        self.indent(indent);
         self.write("pub(crate) fn ");
         let ident = feature_route.ident();
         self.write(&ident);
@@ -53,7 +51,6 @@ impl<'a> RustCodeGenerator<'a> {
 "#,
         ));
         self.gen_func_stmts(stmts);
-        self.indent(indent);
         self.write("}\n");
     }
 

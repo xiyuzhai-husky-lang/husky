@@ -45,7 +45,7 @@ impl LinkageKey {
                     .map(|opd_uid| entity_uid(db, opd_uid))
                     .collect(),
             },
-            __StaticLinkageKey::StructFieldAccess {
+            __StaticLinkageKey::StructEagerField {
                 this_ty,
                 field_ident,
             } => LinkageKey::StructFieldAccess {

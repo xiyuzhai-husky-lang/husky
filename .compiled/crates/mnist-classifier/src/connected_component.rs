@@ -9,6 +9,19 @@ impl ConnectedComponent {
     pub(crate) fn __call__(mask: domains::ml::datasets::cv::mnist::BinaryImage28) -> Self {
         Self { mask }
     }
+pub(crate) fn raw_contours<'eval>(&'eval self, __ctx: &__EvalContext<'eval>) -> &'eval Vec<crate::raw_contour::RawContour<'eval>> {
+    let __uid = entity_uid!(__ctx, "mnist_classifier::connected_component::ConnectedComponent::raw_contours");
+    if let Some(__result) = __opt_cached_lazy_field(__ctx, self, __uid) {
+        return __result.unwrap();
+    }
+        return __cache_lazy_field(
+        __ctx,
+        self,
+        __uid,
+        Ok((crate::raw_contour::find_raw_contours(self)).__into_eval_value())
+    ).unwrap();
+
+    }
 }
 
 impl __HasStaticTypeInfo for ConnectedComponent {
@@ -39,7 +52,7 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Owned(__OwnedValue::new(self))
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>

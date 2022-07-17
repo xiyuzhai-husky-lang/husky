@@ -2,6 +2,7 @@ mod impl_condition_flow;
 mod impl_loop;
 mod impl_match_pattern;
 
+use husky_ast::ReturnKind;
 use husky_eager_semantics::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
 };
@@ -46,14 +47,18 @@ impl<'a> RustCodeGenerator<'a> {
             }
             FuncStmtVariant::Return {
                 ref result,
-                returns_feature,
+                return_kind,
             } => {
                 self.write("return ");
-                if returns_feature {
-                    self.gen_feature_return(result)
-                } else {
-                    self.gen_expr(result)
+                match return_kind {
+                    ReturnKind::Normal => {
+                        self.gen_binding(result);
+                        self.gen_expr(result)
+                    }
+                    ReturnKind::Feature => self.gen_feature_return(result),
+                    ReturnKind::LazyField => self.gen_lazy_field_return(result),
                 }
+                self.write(";\n");
             }
             FuncStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_func_condition_flow(stmt.indent, branches)
@@ -96,16 +101,16 @@ impl<'a> RustCodeGenerator<'a> {
             }
             ProcStmtVariant::Return {
                 ref result,
-                returns_feature,
-            } => {
-                if returns_feature {
-                    todo!()
-                } else {
+                return_kind,
+            } => match return_kind {
+                ReturnKind::Normal => {
                     self.write("return ");
                     self.gen_binding(result);
                     self.gen_expr(result);
                 }
-            }
+                ReturnKind::Feature => todo!(),
+                ReturnKind::LazyField => todo!(),
+            },
             ProcStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_proc_condition_flow(stmt.indent, branches)
             }

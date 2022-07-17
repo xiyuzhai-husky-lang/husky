@@ -88,6 +88,7 @@ pub(crate) fn expr_record_field<'eval>(
         FeatureExprVariant::StructDerivedLazyField {
             ref this,
             field_ident,
+            field_uid,
             ref repr,
         } => todo!(),
         _ => todo!(),

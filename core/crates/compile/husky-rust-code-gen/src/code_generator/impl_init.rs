@@ -174,18 +174,18 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                         self.write("\n    (\n");
                         let field_ident = member.ident.as_str();
                         self.write(&format!(
-                            r#"        __StaticLinkageKey::StructFieldAccess {{
+                            r#"        __StaticLinkageKey::StructEagerField {{
             this_ty: "{entity_route}",
             field_ident: "{field_ident}",
         }},
         {}!("#,
                             match liason {
-                                MemberLiason::Immutable => "field_linkage",
+                                MemberLiason::Immutable => "eager_field_linkage",
                                 MemberLiason::Mutable => {
                                     if ty.is_ref() {
                                         todo!()
                                     } else {
-                                        "mut_field_linkage"
+                                        "eager_mut_field_linkage"
                                     }
                                 }
                                 MemberLiason::Derived => todo!(),
@@ -196,7 +196,40 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                         self.write(field_ident);
                         self.write(")\n    ),");
                     }
-                    FieldDefnVariant::StructDerivedLazy { defn_repr } => (),
+                    FieldDefnVariant::StructDerivedLazy { ref defn_repr } => match **defn_repr {
+                        DefinitionRepr::LazyExpr { .. } => (),
+                        DefinitionRepr::LazyBlock { .. } => (),
+                        DefinitionRepr::FuncBlock {
+                            route,
+                            file,
+                            range,
+                            ref stmts,
+                            ty,
+                        } => {
+                            let field_ident = member.ident.as_str();
+                            self.write(&format!(
+                                r#"
+    (
+        __StaticLinkageKey::FeatureEagerBlock {{
+            route: "{route}",
+        }},
+        lazy_field_linkage!("#,
+                            ));
+                            self.gen_entity_route(entity_route, EntityRouteRole::Decl);
+                            self.write(", ");
+                            self.write(field_ident);
+                            self.write(
+                                r#")
+    ),"#,
+                            );
+                        }
+                        DefinitionRepr::ProcBlock {
+                            file,
+                            range,
+                            ref stmts,
+                            ty,
+                        } => todo!(),
+                    },
                     FieldDefnVariant::RecordOriginal | FieldDefnVariant::RecordDerived { .. } => {
                         panic!()
                     }

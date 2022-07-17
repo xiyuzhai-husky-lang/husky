@@ -81,11 +81,13 @@ pub enum FeatureExprVariant {
     StructDerivedLazyField {
         this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
+        field_uid: EntityUid,
         repr: FeatureRepr,
     },
     RecordDerivedField {
         this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
+        field_uid: EntityUid,
         repr: FeatureRepr,
     },
     ElementAccess {

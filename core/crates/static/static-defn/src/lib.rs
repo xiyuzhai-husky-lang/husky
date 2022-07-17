@@ -24,7 +24,7 @@ pub enum __StaticLinkageKey {
     Index {
         opd_tys: &'static [&'static str],
     },
-    StructFieldAccess {
+    StructEagerField {
         this_ty: &'static str,
         field_ident: &'static str,
     },

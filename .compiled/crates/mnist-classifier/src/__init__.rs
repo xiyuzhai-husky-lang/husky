@@ -24,11 +24,17 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::connected_component::ConnectedComponent",
             field_ident: "mask",
         },
-        field_linkage!(connected_component::ConnectedComponent, mask)
+        eager_field_linkage!(connected_component::ConnectedComponent, mask)
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::connected_component::ConnectedComponent::raw_contours",
+        },
+        lazy_field_linkage!(connected_component::ConnectedComponent, raw_contours)
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -51,18 +57,24 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::raw_contour::RawContour",
             field_ident: "cc",
         },
-        field_linkage!(raw_contour::RawContour<'eval>, cc)
+        eager_field_linkage!(raw_contour::RawContour<'eval>, cc)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::raw_contour::RawContour",
             field_ident: "points",
         },
-        field_linkage!(raw_contour::RawContour<'eval>, points)
+        eager_field_linkage!(raw_contour::RawContour<'eval>, points)
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::raw_contour::RawContour::line_segment_sketch",
+        },
+        lazy_field_linkage!(raw_contour::RawContour<'eval>, line_segment_sketch)
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -375,18 +387,18 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::geom2d::Point2d",
             field_ident: "x",
         },
-        field_linkage!(geom2d::Point2d, x)
+        eager_field_linkage!(geom2d::Point2d, x)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::geom2d::Point2d",
             field_ident: "y",
         },
-        field_linkage!(geom2d::Point2d, y)
+        eager_field_linkage!(geom2d::Point2d, y)
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -521,18 +533,24 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch",
             field_ident: "contour",
         },
-        field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, contour)
+        eager_field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, contour)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch",
             field_ident: "line_segments",
         },
-        field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, line_segments)
+        eager_field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, line_segments)
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::line_segment_sketch::LineSegmentSketch::concave_components",
+        },
+        lazy_field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, concave_components)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -678,18 +696,18 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::raw_contour::StreakCache",
             field_ident: "prev1",
         },
-        field_linkage!(raw_contour::StreakCache, prev1)
+        eager_field_linkage!(raw_contour::StreakCache, prev1)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::raw_contour::StreakCache",
             field_ident: "prev2",
         },
-        field_linkage!(raw_contour::StreakCache, prev2)
+        eager_field_linkage!(raw_contour::StreakCache, prev2)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -848,18 +866,18 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::geom2d::Vector2d",
             field_ident: "x",
         },
-        field_linkage!(geom2d::Vector2d, x)
+        eager_field_linkage!(geom2d::Vector2d, x)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::geom2d::Vector2d",
             field_ident: "y",
         },
-        field_linkage!(geom2d::Vector2d, y)
+        eager_field_linkage!(geom2d::Vector2d, y)
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -882,18 +900,18 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
             field_ident: "line_segment_sketch",
         },
-        field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, line_segment_sketch)
+        eager_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, line_segment_sketch)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
             field_ident: "line_segments",
         },
-        field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, line_segments)
+        eager_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, line_segments)
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -915,39 +933,39 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegment",
             field_ident: "points",
         },
-        field_linkage!(line_segment_sketch::LineSegment<'eval>, points)
+        eager_field_linkage!(line_segment_sketch::LineSegment<'eval>, points)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegment",
             field_ident: "start",
         },
-        field_linkage!(line_segment_sketch::LineSegment<'eval>, start)
+        eager_field_linkage!(line_segment_sketch::LineSegment<'eval>, start)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegment",
             field_ident: "end",
         },
-        field_linkage!(line_segment_sketch::LineSegment<'eval>, end)
+        eager_field_linkage!(line_segment_sketch::LineSegment<'eval>, end)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>",
             field_ident: "start",
         },
-        mut_field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, start)
+        eager_mut_field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, start)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>",
             field_ident: "end",
         },
-        mut_field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, end)
+        eager_mut_field_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, end)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1186,18 +1204,18 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent",
             field_ident: "line_segment_sketch",
         },
-        field_linkage!(line_segment_sketch::convex_component::ConvexCompoent<'eval>, line_segment_sketch)
+        eager_field_linkage!(line_segment_sketch::convex_component::ConvexCompoent<'eval>, line_segment_sketch)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent",
             field_ident: "line_segments",
         },
-        field_linkage!(line_segment_sketch::convex_component::ConvexCompoent<'eval>, line_segments)
+        eager_field_linkage!(line_segment_sketch::convex_component::ConvexCompoent<'eval>, line_segments)
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1276,18 +1294,18 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>",
             field_ident: "start",
         },
-        mut_field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, start)
+        eager_mut_field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, start)
     ),
     (
-        __StaticLinkageKey::StructFieldAccess {
+        __StaticLinkageKey::StructEagerField {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>",
             field_ident: "end",
         },
-        mut_field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, end)
+        eager_mut_field_linkage!(__std::slice::CyclicSlice<'eval, geom2d::Point2d>, end)
     ),
     (
         __StaticLinkageKey::Routine {

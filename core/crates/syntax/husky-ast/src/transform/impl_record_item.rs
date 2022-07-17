@@ -61,7 +61,7 @@ impl<'a> AstTransformer<'a> {
         enter_block(self);
         self.context.set(AstContext::Stmt {
             paradigm: Paradigm::LazyFunctional,
-            returns_feature: true,
+            return_kind: ReturnKind::LazyField,
         });
         self.opt_this_liason.set(Some(ParameterLiason::Pure));
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);

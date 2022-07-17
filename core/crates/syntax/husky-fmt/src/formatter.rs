@@ -5,7 +5,7 @@ use entity_kind::TyKind;
 use fold::LocalValue;
 use husky_ast::{
     Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant, RawStmtVariant,
-    StructItemContext,
+    ReturnKind, StructItemContext,
 };
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
@@ -114,7 +114,7 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
-                    returns_feature: true,
+                    return_kind: ReturnKind::Feature,
                 });
                 self.write("main:")
             }
@@ -128,7 +128,7 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm,
-                    returns_feature: false,
+                    return_kind: ReturnKind::Normal,
                 });
                 self.write(match paradigm {
                     Paradigm::EagerProcedural => "proc ",
@@ -240,15 +240,15 @@ impl<'a> Formatter<'a> {
                 match self.context.value() {
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerFunctional,
-                        returns_feature,
+                        return_kind,
                     }
                     | AstContext::Stmt {
                         paradigm: Paradigm::LazyFunctional,
-                        returns_feature,
+                        return_kind,
                     }
                     | AstContext::Stmt {
                         paradigm: Paradigm::LazyFunctional,
-                        returns_feature,
+                        return_kind,
                     } => (),
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerProcedural,

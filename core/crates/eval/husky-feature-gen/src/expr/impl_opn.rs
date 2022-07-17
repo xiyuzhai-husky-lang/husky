@@ -227,6 +227,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                         FeatureExprVariant::StructDerivedLazyField {
                                             this,
                                             field_ident,
+                                            field_uid,
                                             repr,
                                         };
                                     (feature_expr_kind, feature)
@@ -285,6 +286,7 @@ impl<'a> FeatureExprBuilder<'a> {
                                         FeatureExprVariant::RecordDerivedField {
                                             this,
                                             field_ident,
+                                            field_uid,
                                             repr,
                                         };
                                     (feature_expr_kind, feature)
@@ -360,6 +362,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureExprVariant::StructDerivedLazyField {
                 ref this,
                 field_ident,
+                field_uid,
                 ref repr,
             } => todo!(),
             _ => todo!(),

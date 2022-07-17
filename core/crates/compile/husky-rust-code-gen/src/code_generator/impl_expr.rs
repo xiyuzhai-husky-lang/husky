@@ -5,42 +5,6 @@ use vm::*;
 use word::RootIdentifier;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_feature_return(&mut self, result: &EagerExpr) {
-        match result.qualified_ty.qual {
-            EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
-                self.write(
-                    r#"__cache_feature(
-        __ctx,
-        __feature,
-        Ok(("#,
-                );
-                self.gen_expr(result);
-                self.write(
-                    r#").__into_eval_value())
-    ).unwrap();
-"#,
-                );
-            }
-            EagerExprQualifier::EvalRef => {
-                self.write(
-                    r#"__cache_feature(
-        __ctx,
-        __feature,
-        Ok(__EvalRef(&("#,
-                );
-                self.gen_expr(result);
-                self.write(
-                    r#")).into())
-    ).unwrap();
-"#,
-                );
-            }
-            EagerExprQualifier::PureRef
-            | EagerExprQualifier::TempRef
-            | EagerExprQualifier::TempRefMut => panic!(),
-        }
-    }
-
     pub(super) fn gen_expr(&mut self, expr: &EagerExpr) {
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => self.write(&varname),
@@ -200,6 +164,76 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(route, EntityRouteRole::Caller);
                 self.write("(__ctx)")
             }
+        }
+    }
+
+    pub(super) fn gen_feature_return(&mut self, result: &EagerExpr) {
+        match result.qualified_ty.qual {
+            EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
+                self.write(
+                    r#"__cache_feature(
+        __ctx,
+        __feature,
+        Ok(("#,
+                );
+                self.gen_expr(result);
+                self.write(
+                    r#").__into_eval_value())
+    ).unwrap()"#,
+                );
+            }
+            EagerExprQualifier::EvalRef => {
+                self.write(
+                    r#"__cache_feature(
+        __ctx,
+        __feature,
+        Ok(__EvalRef(&("#,
+                );
+                self.gen_expr(result);
+                self.write(
+                    r#")).into())
+    ).unwrap()"#,
+                );
+            }
+            EagerExprQualifier::PureRef
+            | EagerExprQualifier::TempRef
+            | EagerExprQualifier::TempRefMut => panic!(),
+        }
+    }
+
+    pub(super) fn gen_lazy_field_return(&mut self, result: &EagerExpr) {
+        match result.qualified_ty.qual {
+            EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
+                self.write(
+                    r#"__cache_lazy_field(
+        __ctx,
+        self,
+        __uid,
+        Ok(("#,
+                );
+                self.gen_expr(result);
+                self.write(
+                    r#").__into_eval_value())
+    ).unwrap()"#,
+                );
+            }
+            EagerExprQualifier::EvalRef => {
+                self.write(
+                    r#"__cache_lazy_field(
+        __ctx,
+        self,
+        __uid,
+        Ok(__EvalRef(&("#,
+                );
+                self.gen_expr(result);
+                self.write(
+                    r#")).into())
+    ).unwrap()"#,
+                );
+            }
+            EagerExprQualifier::PureRef
+            | EagerExprQualifier::TempRef
+            | EagerExprQualifier::TempRefMut => panic!(),
         }
     }
 

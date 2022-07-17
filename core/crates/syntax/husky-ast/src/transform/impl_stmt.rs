@@ -62,10 +62,10 @@ impl<'a> AstTransformer<'a> {
                     match self.context() {
                         AstContext::Stmt {
                             paradigm,
-                            returns_feature,
+                            return_kind,
                         } => self.context.set(AstContext::Match {
                             paradigm,
-                            returns_feature,
+                            return_kind,
                         }),
                         _ => todo!("can't put match here"),
                     }
@@ -76,10 +76,10 @@ impl<'a> AstTransformer<'a> {
                     match self.context() {
                         AstContext::Match {
                             paradigm,
-                            returns_feature,
+                            return_kind,
                         } => self.context.set(AstContext::Stmt {
                             paradigm,
-                            returns_feature,
+                            return_kind,
                         }),
                         _ => {
                             return err!(
@@ -95,7 +95,7 @@ impl<'a> AstTransformer<'a> {
                     match self.context() {
                         AstContext::Match { paradigm, .. } => self.context.set(AstContext::Stmt {
                             paradigm,
-                            returns_feature: todo!(),
+                            return_kind: todo!(),
                         }),
                         _ => {
                             return err!(
@@ -124,7 +124,7 @@ impl<'a> AstTransformer<'a> {
                     must_be!(token_group.len() >= 2, "expect some tokens after", kw_range);
                     RawStmtVariant::Return {
                         result: self.parse_expr(&token_group[1..])?,
-                        returns_feature: self.context().returns_feature(),
+                        return_kind: self.context().return_kind(),
                     }
                 }
                 StmtKeyword::Assert => {
@@ -179,7 +179,7 @@ impl<'a> AstTransformer<'a> {
                             range: token_group.text_range(),
                             variant: RawStmtVariant::Return {
                                 result: self.parse_expr(token_group)?,
-                                returns_feature: self.context().returns_feature(),
+                                return_kind: self.context().return_kind(),
                             },
                         }
                     }
@@ -219,7 +219,7 @@ impl<'a> AstTransformer<'a> {
             InitKind::Let | InitKind::Var => match self.context() {
                 AstContext::Stmt {
                     paradigm: Paradigm::EagerProcedural,
-                    returns_feature,
+                    return_kind,
                 } => (),
                 _ => err!(
                     format!(

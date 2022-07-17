@@ -43,7 +43,7 @@ macro_rules! method_elem_linkage {
     }};
 }
 #[macro_export]
-macro_rules! field_linkage {
+macro_rules! eager_field_linkage {
     ($Type: ty, $field: ident) => {{
         __Linkage::Member(&__MemberLinkage {
             copy_access: field_copy_fp!($Type, $field),
@@ -56,9 +56,22 @@ macro_rules! field_linkage {
         })
     }};
 }
+#[macro_export]
+macro_rules! lazy_field_linkage {
+    ($Type: ty, $field: ident) => {{
+        fn __wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&__EvalContext<'eval>>,
+            values: &mut [__TempValue<'temp, 'eval>],
+        ) -> __TempValue<'temp, 'eval> {
+            let this_value: &'eval $Type = values[0].downcast_eval_ref();
+            __TempValue::EvalRef(__EvalRef(this_value.$field(__opt_ctx.unwrap())))
+        }
+        specific_transfer_linkage!(__wrapper, 1)
+    }};
+}
 
 #[macro_export]
-macro_rules! mut_field_linkage {
+macro_rules! eager_mut_field_linkage {
     ($Type: ty, $field: ident) => {{
         __Linkage::Member(&__MemberLinkage {
             copy_access: field_copy_fp!($Type, $field),

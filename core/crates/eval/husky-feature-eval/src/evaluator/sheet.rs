@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use check_utils::should;
-use vm::{__EvalRef, __EvalResult, __EvalValue, __OwnedValue};
+use vm::{EntityUid, __EvalRef, __EvalResult, __EvalValue, __OwnedValue};
 use word::CustomIdentifier;
 
 use super::*;
@@ -16,7 +16,7 @@ pub enum EvalKey<'eval> {
     Feature(FeaturePtr),
     StructDerivedField {
         parent: __EvalRef<'eval>,
-        field_ident: CustomIdentifier,
+        field_uid: EntityUid,
     },
 }
 
