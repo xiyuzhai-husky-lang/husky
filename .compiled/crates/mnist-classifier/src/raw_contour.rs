@@ -10,11 +10,25 @@ impl<'eval> RawContour<'eval> {
     pub(crate) fn __call__(cc: &'eval crate::connected_component::ConnectedComponent, points: Vec<crate::geom2d::Point2d>) -> Self {
         Self { cc, points }
     }
+pub(crate) fn line_segment_sketch(&'eval self, __ctx: &__EvalContext<'eval>) -> &'eval crate::line_segment_sketch::LineSegmentSketch<'eval> {
+    let __uid = entity_uid!(__ctx, "mnist_classifier::raw_contour::RawContour::line_segment_sketch");
+    if let Some(__result) = __opt_cached_lazy_field(__ctx, self, __uid) {
+        return __result.unwrap();
+    }
+        return __cache_lazy_field(
+        __ctx,
+        self,
+        __uid,
+        Ok((crate::line_segment_sketch::LineSegmentSketch::new(self, 1.2f32)).__into_eval_value())
+    ).unwrap();
+
+    }
     pub(crate) fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
         let ct_start = &self.points[(start.rem_euclid(N)) as usize];
         let ct_end = &self.points[(end.rem_euclid(N)) as usize];
-        return ct_start.to(&ct_end)
+        return ct_start.to(&ct_end);
+
     }
 }
 
@@ -46,7 +60,7 @@ impl<'eval> __AnyValue<'eval> for RawContour<'eval> {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Owned(__OwnedValue::new(self))
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
@@ -103,13 +117,16 @@ impl<'eval> __AnyValue<'eval> for Direction {
     }
 }
 pub(crate) fn get_pixel_pair(row: u32, j: i32) -> u32 {
-    return (row >> (j - 1)) & 3u32
+    return (row >> (j - 1)) & 3u32;
+
 }
 pub(crate) fn get_pixel_to_the_left(row: u32, j: i32) -> u32 {
-    return (row >> j) & 1u32
+    return (row >> j) & 1u32;
+
 }
 pub(crate) fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
-    return (row >> (j - 1)) & 1u32
+    return (row >> (j - 1)) & 1u32;
+
 }
 pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
@@ -118,27 +135,33 @@ pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Di
         0 => {
             match pixel_pair_below {
                 1 | 3 => {
-                    return Direction::LEFT
+                    return Direction::LEFT;
+
                 }
                 2 => {
-                    return Direction::UP
+                    return Direction::UP;
+
                 }
                 _ => panic!(),
             }
         }
         1 => {
-            return Direction::DOWN
+            return Direction::DOWN;
+
         }
         2 => {
             match pixel_pair_below {
                 0 => {
-                    return Direction::RIGHT
+                    return Direction::RIGHT;
+
                 }
                 1 | 3 => {
-                    return Direction::LEFT
+                    return Direction::LEFT;
+
                 }
                 2 => {
-                    return Direction::UP
+                    return Direction::UP;
+
                 }
                 _ => panic!(),
             }
@@ -146,10 +169,12 @@ pub(crate) fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Di
         3 => {
             match pixel_pair_below {
                 0 | 1 => {
-                    return Direction::RIGHT
+                    return Direction::RIGHT;
+
                 }
                 2 => {
-                    return Direction::UP
+                    return Direction::UP;
+
                 }
                 _ => panic!(),
             }
@@ -161,10 +186,12 @@ pub(crate) fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
     let raw_angle_change = (((outward as i32) - (inward as i32)) as u32).last_bits(2);
     match raw_angle_change {
         0 | 1 | 2 => {
-            return raw_angle_change as i32
+            return raw_angle_change as i32;
+
         }
         3 => {
-            return -1
+            return -1;
+
         }
         _ => panic!(),
     }
@@ -176,10 +203,12 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         0 => {
             match pixel_pair_below {
                 1 => {
-                    return Direction::DOWN
+                    return Direction::DOWN;
+
                 }
                 2 | 3 => {
-                    return Direction::LEFT
+                    return Direction::LEFT;
+
                 }
                 _ => panic!(),
             }
@@ -187,24 +216,29 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         1 => {
             match pixel_pair_below {
                 0 => {
-                    return Direction::RIGHT
+                    return Direction::RIGHT;
+
                 }
                 1 => {
-                    return Direction::DOWN
+                    return Direction::DOWN;
+
                 }
                 2 => {
                     match inward_direction {
                         Direction::DOWN => {
-                            return Direction::LEFT
+                            return Direction::LEFT;
+
                         }
                         Direction::UP => {
-                            return Direction::RIGHT
+                            return Direction::RIGHT;
+
                         }
                         _ => panic!(),
                     }
                 }
                 3 => {
-                    return Direction::LEFT
+                    return Direction::LEFT;
+
                 }
                 _ => panic!(),
             }
@@ -212,15 +246,18 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         2 => {
             match pixel_pair_below {
                 0 | 2 | 3 => {
-                    return Direction::UP
+                    return Direction::UP;
+
                 }
                 1 => {
                     match inward_direction {
                         Direction::LEFT => {
-                            return Direction::UP
+                            return Direction::UP;
+
                         }
                         Direction::RIGHT => {
-                            return Direction::DOWN
+                            return Direction::DOWN;
+
                         }
                         _ => panic!(),
                     }
@@ -231,10 +268,12 @@ pub(crate) fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inwa
         3 => {
             match pixel_pair_below {
                 0 | 2 => {
-                    return Direction::RIGHT
+                    return Direction::RIGHT;
+
                 }
                 1 => {
-                    return Direction::DOWN
+                    return Direction::DOWN;
+
                 }
                 _ => panic!(),
             }
@@ -282,7 +321,7 @@ impl<'eval> __AnyValue<'eval> for StreakCache {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Owned(__OwnedValue::new(self))
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
@@ -296,7 +335,8 @@ pub(crate) fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> 
     let N = points.ilen();
     let p0 = &points[(N - 2) as usize];
     let p2 = &points[(N - 1) as usize];
-    return crate::geom2d::Point2d::__call__((p0.x + p2.x) / 2f32, (p0.y + p2.y) / 2f32)
+    return crate::geom2d::Point2d::__call__((p0.x + p2.x) / 2f32, (p0.y + p2.y) / 2f32);
+
 }
 
 pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::ConnectedComponent) -> Vec<RawContour<'eval>> {

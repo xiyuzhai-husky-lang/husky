@@ -1,5 +1,5 @@
 use husky_entity_semantics::{
-    CallFormSource, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
+    CallFormSource, DefinitionRepr, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
 };
 use infer_decl::FieldDecl;
 use word::CustomIdentifier;
@@ -106,7 +106,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.gen_struct_call(ty_members);
         let mut start_flag = true;
         for ty_member in ty_members {
-            self.gen_ty_member_impl(ty_member, &mut start_flag)
+            self.gen_ty_member_impl(ty_contains_eval_ref, ty_member, &mut start_flag)
         }
 
         self.write("}\n");
@@ -205,7 +205,12 @@ impl<'a> RustCodeGenerator<'a> {
         self.write("    }\n");
     }
 
-    fn gen_ty_member_impl(&mut self, ty_member: &EntityDefn, start_flag: &mut bool) {
+    fn gen_ty_member_impl(
+        &mut self,
+        ty_contains_eval_ref: bool,
+        ty_member: &EntityDefn,
+        start_flag: &mut bool,
+    ) {
         match ty_member.variant {
             EntityDefnVariant::Method {
                 spatial_parameters: ref generic_parameters,
@@ -261,6 +266,55 @@ impl<'a> RustCodeGenerator<'a> {
                 ref stmts,
             } => self.gen_proc_defn(4, ty_member.base_route, parameters, output.route, stmts),
             EntityDefnVariant::Function { .. } => todo!(),
+            EntityDefnVariant::TyField {
+                ty,
+                ref field_variant,
+                liason,
+                opt_linkage,
+            } => match field_variant {
+                FieldDefnVariant::StructOriginal
+                | FieldDefnVariant::StructDefault { .. }
+                | FieldDefnVariant::StructDerivedEager { .. } => (),
+                FieldDefnVariant::StructDerivedLazy { defn_repr } => match **defn_repr {
+                    DefinitionRepr::LazyExpr { ref expr } => todo!(),
+                    DefinitionRepr::LazyBlock { ref stmts, ty } => todo!(),
+                    DefinitionRepr::FuncBlock {
+                        route,
+                        file,
+                        range,
+                        ref stmts,
+                        ty,
+                    } => {
+                        self.write("pub(crate) fn ");
+                        let ident = ty_member.ident;
+                        self.write(&ident);
+                        if !ty_contains_eval_ref {
+                            self.write("<'eval>")
+                        }
+                        self.write("(&'eval self, __ctx: &__EvalContext<'eval>) -> &'eval ");
+                        self.gen_entity_route(ty.route.deref_route(), EntityRouteRole::Decl);
+                        let route = ty_member.base_route;
+                        self.write(&format!(
+                            r#" {{
+    let __uid = entity_uid!(__ctx, "{route:?}");
+    if let Some(__result) = __opt_cached_lazy_field(__ctx, self, __uid) {{
+        return __result.unwrap();
+    }}
+"#,
+                        ));
+                        self.gen_func_stmts(stmts);
+                        self.write("    }\n");
+                    }
+                    DefinitionRepr::ProcBlock {
+                        file,
+                        range,
+                        ref stmts,
+                        ty,
+                    } => todo!(),
+                },
+                FieldDefnVariant::RecordOriginal => (),
+                FieldDefnVariant::RecordDerived { defn_repr } => (),
+            },
             _ => (),
         }
     }
@@ -308,6 +362,11 @@ impl<'a> RustCodeGenerator<'a> {
         if ty_contains_eval_ref {
             self.write("<'eval>")
         }
+        let into_eval_value_impl = if self.db.is_copyable(base_route).unwrap() {
+            "todo!()"
+        } else {
+            "__EvalValue::Owned(__OwnedValue::new(self))"
+        };
         self.write(&format!(
             r#" {{
     fn __print_short(&self) -> String {{
@@ -329,7 +388,7 @@ impl<'a> RustCodeGenerator<'a> {
     }}
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {{
-        todo!()
+        {into_eval_value_impl}
     }}
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>

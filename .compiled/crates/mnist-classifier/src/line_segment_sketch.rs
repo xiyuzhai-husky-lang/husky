@@ -18,10 +18,12 @@ impl<'eval> LineSegment<'eval> {
     }
     pub(crate) fn new(ct: &'eval crate::raw_contour::RawContour<'eval>, from: i32, to: i32) -> LineSegment<'eval> {
         assert!(from <= to);
-        return LineSegment::__call__(ct.points.cyclic_slice(from, to + 1))
+        return LineSegment::__call__(ct.points.cyclic_slice(from, to + 1));
+
     }
     pub(crate) fn displacement(&self) -> crate::geom2d::Vector2d {
-        return self.start.to(&self.end)
+        return self.start.to(&self.end);
+
     }
 }
 
@@ -53,7 +55,7 @@ impl<'eval> __AnyValue<'eval> for LineSegment<'eval> {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Owned(__OwnedValue::new(self))
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
@@ -73,8 +75,22 @@ impl<'eval> LineSegmentSketch<'eval> {
     pub(crate) fn __call__(contour: &'eval crate::raw_contour::RawContour<'eval>, line_segments: Vec<LineSegment<'eval>>) -> Self {
         Self { contour, line_segments }
     }
+pub(crate) fn concave_components(&'eval self, __ctx: &__EvalContext<'eval>) -> &'eval Vec<concave_component::ConcaveComponent<'eval>> {
+    let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::LineSegmentSketch::concave_components");
+    if let Some(__result) = __opt_cached_lazy_field(__ctx, self, __uid) {
+        return __result.unwrap();
+    }
+        return __cache_lazy_field(
+        __ctx,
+        self,
+        __uid,
+        Ok((concave_component::find_concave_components(self)).__into_eval_value())
+    ).unwrap();
+
+    }
     pub(crate) fn new(ct: &'eval crate::raw_contour::RawContour<'eval>, r: f32) -> LineSegmentSketch<'eval> {
-        return LineSegmentSketch::__call__(ct, find_line_segments(ct, r))
+        return LineSegmentSketch::__call__(ct, find_line_segments(ct, r));
+
     }
 }
 
@@ -106,7 +122,7 @@ impl<'eval> __AnyValue<'eval> for LineSegmentSketch<'eval> {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Owned(__OwnedValue::new(self))
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
@@ -122,7 +138,8 @@ pub(crate) fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Ve
     let dr = r * L / (L * L - r * r).sqrt();
     let dx = dr * u.y / L;
     let dy = -dr * u.x / L;
-    return crate::geom2d::Vector2d::__call__(u.x + dx, u.y + dy)
+    return crate::geom2d::Vector2d::__call__(u.x + dx, u.y + dy);
+
 }
 pub(crate) fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
     let L = (u.x * u.x + u.y * u.y).sqrt();
@@ -130,7 +147,8 @@ pub(crate) fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vec
     let dr = r * L / (L * L - r * r).sqrt();
     let dx = -dr * u.y / L;
     let dy = dr * u.x / L;
-    return crate::geom2d::Vector2d::__call__(u.x + dx, u.y + dy)
+    return crate::geom2d::Vector2d::__call__(u.x + dx, u.y + dy);
+
 }
 
 pub(crate) fn extend_end<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>, start: i32, r: f32) -> i32 {

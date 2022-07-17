@@ -39,7 +39,7 @@ impl Intern for WordPtr {
 pub fn new_word_interner() -> Arc<WordInternerSingletonKeeper> {
     Arc::new(
         WordInterner::new(&[
-            ConfigKeyword::Context.into(),
+            ConfigKeyword::Task.into(),
             Keyword::Use.into(),
             Keyword::Mod.into(),
             Keyword::Main.into(),

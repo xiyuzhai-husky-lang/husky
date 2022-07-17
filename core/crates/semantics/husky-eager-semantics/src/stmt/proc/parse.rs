@@ -97,10 +97,10 @@ impl<'a> EagerParser<'a> {
             }),
             RawStmtVariant::Return {
                 result,
-                returns_feature,
+                return_kind,
             } => Ok(ProcStmtVariant::Return {
                 result: self.parse_eager_expr(result)?,
-                returns_feature,
+                return_kind,
             }),
             RawStmtVariant::Assert(condition) => Ok(ProcStmtVariant::Assert {
                 condition: self.parse_eager_expr(condition)?,

@@ -10,7 +10,7 @@ impl<'a> AstTransformer<'a> {
     ) -> AstResult<AstVariant> {
         self.context.set(AstContext::Stmt {
             paradigm,
-            returns_feature: true,
+            return_kind: ReturnKind::Feature,
         });
         expect_head!(token_group);
         expect_at_least!(token_group, token_group.text_range(), 5);

@@ -17,7 +17,7 @@ impl<'a> AstTransformer<'a> {
         enter_block(self);
         self.context.set(AstContext::Stmt {
             paradigm,
-            returns_feature: false,
+            return_kind: ReturnKind::Normal,
         });
         let mut parser = AtomParser::new(self, &mut token_stream);
         let ranged_ident = get!(parser, custom_ident);

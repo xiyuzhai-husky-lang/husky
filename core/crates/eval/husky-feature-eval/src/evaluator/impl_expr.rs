@@ -83,12 +83,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             } => self.eval_feature_repr(repr),
             FeatureExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
             FeatureExprVariant::EvalInput => Ok(self.eval_input.clone()),
-            FeatureExprVariant::RecordDerivedField {
-                ref this,
-                field_ident,
-                ref repr,
-                ..
-            } => self.eval_feature_repr(repr),
+            FeatureExprVariant::RecordDerivedField { ref repr, .. } => self.eval_feature_repr(repr),
             FeatureExprVariant::ElementAccess {
                 ref opds, linkage, ..
             } => {
@@ -104,13 +99,11 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureExprVariant::StructDerivedLazyField {
                 ref this,
                 field_ident,
+                field_uid,
                 ref repr,
             } => {
                 let parent = self.eval_feature_repr_cached(this)?.eval_ref();
-                let eval_key = EvalKey::StructDerivedField::<'eval> {
-                    parent,
-                    field_ident: field_ident.ident,
-                };
+                let eval_key = EvalKey::StructDerivedField::<'eval> { parent, field_uid };
                 self.cache(eval_key, |this| this.eval_feature_repr(repr))
             }
             FeatureExprVariant::ModelCall {

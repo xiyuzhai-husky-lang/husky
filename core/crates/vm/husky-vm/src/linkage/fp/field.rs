@@ -2,7 +2,7 @@
 macro_rules! field_copy_fp {
     ($Type: ty, $field: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext>,
+            __opt_ctx: Option<&__EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let value: &$Type = values[0].downcast_temp_ref();
@@ -16,7 +16,7 @@ macro_rules! field_copy_fp {
 macro_rules! field_eval_ref_fp {
     ($Type: ty, $field: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext>,
+            __opt_ctx: Option<&__EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let value: &'eval $Type = values[0].downcast_eval_ref();
@@ -29,7 +29,7 @@ macro_rules! field_eval_ref_fp {
 macro_rules! field_temp_ref_fp {
     ($Type: ty, $field: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext>,
+            __opt_ctx: Option<&__EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let value: &$Type = values[0].downcast_temp_ref();
@@ -43,7 +43,7 @@ macro_rules! field_temp_ref_fp {
 macro_rules! field_temp_mut_fp {
     ($Type: ty, $field: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext>,
+            __opt_ctx: Option<&__EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let (value, stack_idx, gen): (&mut $Type, _, _) = values[0].downcast_mut_full();
@@ -61,7 +61,7 @@ macro_rules! field_temp_mut_fp {
 macro_rules! field_temp_mut_invalid_fp {
     ($Type: ty, $field: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext>,
+            __opt_ctx: Option<&__EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             panic!("field_temp_mut_invalid_fp")
@@ -74,7 +74,7 @@ macro_rules! field_temp_mut_invalid_fp {
 macro_rules! field_move_fp {
     ($Type: ty, $field: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext>,
+            __opt_ctx: Option<&__EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             todo!("field_move_fp")
