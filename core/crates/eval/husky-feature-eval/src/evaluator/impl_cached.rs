@@ -23,7 +23,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             result
         } else {
             let result = f(self);
-            self.sheet.try_cache(eval_key, result)
+            self.sheet.cache(eval_key, result)
         }
     }
 }

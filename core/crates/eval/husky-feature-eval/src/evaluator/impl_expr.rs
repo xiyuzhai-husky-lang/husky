@@ -60,26 +60,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 );
                 result
             }
-            FeatureExprVariant::EntityFeature {
-                entity_route,
-                ref repr,
-            } => {
-                p!(entity_route);
-                match repr {
-                    FeatureRepr::Value {
-                        value,
-                        ty,
-                        file,
-                        range,
-                        feature,
-                    } => todo!(),
-                    FeatureRepr::Expr(_) => todo!(),
-                    FeatureRepr::LazyBlock(_) => todo!(),
-                    FeatureRepr::FuncBlock(_) => todo!(),
-                    FeatureRepr::ProcBlock(_) => todo!(),
-                }
-                self.eval_feature_repr_cached(repr)
-            }
+            FeatureExprVariant::EntityFeature { ref repr } => self.eval_feature_repr_cached(repr),
             FeatureExprVariant::NewRecord {
                 ty,
                 ref entity,

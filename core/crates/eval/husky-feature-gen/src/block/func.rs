@@ -13,7 +13,7 @@ pub struct FeatureFuncBlock {
     pub stmts: Avec<FuncStmt>,
     pub ty: RangedEntityRoute,
     pub instruction_sheet: Arc<InstructionSheet>,
-    pub opt_linkage: Option<__SpecificRoutineLinkage>,
+    pub opt_linkage: Option<__Linkage>,
 }
 
 impl<'eval> std::hash::Hash for FeatureFuncBlock {

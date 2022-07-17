@@ -2,7 +2,7 @@ use husky_entity_semantics::DefinitionRepr;
 use husky_file::FilePtr;
 use husky_instruction_gen::new_func_instruction_sheet;
 use husky_linkage_table::ResolveLinkage;
-use vm::{__AnyValueDyn, __EvalRef, __EvalResult};
+use vm::{__AnyValueDyn, __EvalRef, __EvalResult, __SpecificRoutineLinkage};
 
 use crate::*;
 

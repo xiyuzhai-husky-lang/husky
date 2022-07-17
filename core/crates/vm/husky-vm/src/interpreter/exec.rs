@@ -257,7 +257,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::PatternMatch { ref branches } => {
                     self.exec_pattern_matching(sheet, ins, branches, mode)
                 }
-                InstructionVariant::EntityFeature { feature_uid } => todo!(),
+                InstructionVariant::EntityFeature { feature_uid } => {
+                    p!(ins.src.file(), ins.src.text_range());
+                    todo!()
+                }
             };
             match control {
                 VMControl::None => (),
