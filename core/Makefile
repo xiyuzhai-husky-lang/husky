@@ -1,14 +1,14 @@
 projects_dir=${HUSKY_DIR}/projects
 examples_dir=${HUSKY_DIR}/examples
-test_examples_dir=${HUSKY_DIR}/test-examples
+test_examples_dir=${HUSKY_DIR}/tests
 temp_dir=${HUSKY_DIR}/examples/good/input
 
 
-test-examples:
+tests:
 	cargo run --bin husky-compiler $(examples_dir)/good
 	cargo run --bin husky-debugger $(examples_dir) --sample-id 1 --mode test
 
-test-examples-with-backtrace:
+tests-with-backtrace:
 	RUST_BACKTRACE=1 cargo run --bin husky-debugger $(examples_dir) --sample-id 1 --mode test 2>&1 | python scripts/filter_rust_backtrace.py
 
 cargo-test:
