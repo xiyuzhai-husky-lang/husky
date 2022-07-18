@@ -94,7 +94,7 @@ impl<'a> TraceTokenBuilder<'a> {
                         method_route,
                         output_binding,
                     } => todo!(),
-                    LazyOpnKind::ElementAccess { element_binding } => todo!(),
+                    LazyOpnKind::Index { element_binding } => todo!(),
                     _ => panic!(),
                 },
                 _ => panic!(),

@@ -14,6 +14,7 @@ pub enum LazyOpnKind {
     FunctionModelCall(RangedEntityRoute),
     FunctionRoutineCall(RangedEntityRoute),
     StructCall(RangedEntityRoute),
+    NewVecFromList,
     RecordCall(RangedEntityRoute),
     FieldAccess {
         field_ident: RangedCustomIdentifier,
@@ -24,7 +25,7 @@ pub enum LazyOpnKind {
         method_route: EntityRoutePtr,
         output_binding: Binding,
     },
-    ElementAccess {
+    Index {
         element_binding: Binding,
     },
 }

@@ -19,12 +19,12 @@ use word::RootIdentifier;
 pub trait InferEntityRoute {
     fn decl_db(&self) -> &dyn DeclQueryGroup;
     fn entity_route_sheet(&self) -> &EntityRouteSheet;
-    fn raw_expr_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        self.entity_route_sheet().expr_ty_result(raw_expr_idx)
+    fn raw_expr_ty(&self, idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+        self.entity_route_sheet().expr_ty_result(idx)
     }
-    fn raw_expr_intrinsic_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+    fn raw_expr_intrinsic_ty(&self, idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         self.entity_route_sheet()
-            .expr_ty_result(raw_expr_idx)
+            .expr_ty_result(idx)
             .map(|ty| ty.intrinsic())
     }
 

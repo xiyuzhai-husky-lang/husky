@@ -115,7 +115,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 method_route,
                 output_binding,
             } => self.compile_method_call(method_ident, method_route, opds, output_binding),
-            LazyOpnKind::ElementAccess { element_binding } => {
+            LazyOpnKind::Index { element_binding } => {
                 self.compile_element_access(opds, expr, element_binding)
             }
             LazyOpnKind::StructCall(_) => todo!(),
@@ -137,6 +137,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 (kind, feature)
             }
+            LazyOpnKind::NewVecFromList => todo!(),
         }
     }
 
