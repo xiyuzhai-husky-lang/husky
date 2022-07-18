@@ -26,7 +26,7 @@ proc f3() -> i32:
         a += 1
     return a
 
-context:
+task:
     ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:

@@ -3,7 +3,7 @@ use crate::A
 enum A:
     Haha
 
-context:
+task:
     ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:

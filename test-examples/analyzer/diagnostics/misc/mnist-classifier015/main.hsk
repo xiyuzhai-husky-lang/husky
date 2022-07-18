@@ -4,7 +4,7 @@ mod raw_contour
 use domains::ml::datasets::cv::mnist::BinaryImage28
 use connected_components::find_connected_components
 
-context:
+task:
     ml::datasets::cv::mnist::new_binary_dataset()
 
 main:

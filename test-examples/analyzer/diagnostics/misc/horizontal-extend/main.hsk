@@ -1,4 +1,4 @@
-context:
+task:
     ml::datasets::cv::mnist::new_binary_dataset()
 
 

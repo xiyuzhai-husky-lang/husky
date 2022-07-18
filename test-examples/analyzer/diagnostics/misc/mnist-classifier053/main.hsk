@@ -8,7 +8,7 @@ use connected_component::connected_components
 use raw_contour::find_raw_contours
 use line_segment_sketch::find_line_segments
 
-context:
+task:
     ml::datasets::cv::mnist::new_binary_dataset()
 
 main:
