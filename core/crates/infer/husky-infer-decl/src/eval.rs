@@ -79,7 +79,7 @@ fn eval_output_ty_from_ast(
                             } => match dataset_type.spatial_arguments[1] {
                                 SpatialArgument::Const(_) => todo!(),
                                 SpatialArgument::EntityRoute(label_ty) => {
-                                    Ok(db.make_option(label_ty.into()))
+                                    Ok(db.option(label_ty.into()))
                                 }
                             },
                             _ => panic!(),

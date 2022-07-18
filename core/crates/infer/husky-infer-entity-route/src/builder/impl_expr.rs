@@ -392,9 +392,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         range: TextRange,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
+        msg_once!("expectation");
         match opr {
             ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => todo!(),
+            ListOpr::NewVec => self.infer_new_vec_from_list(opds, arena, range),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.infer_call(opds, arena, range),
             ListOpr::Index => self.infer_index(arena, opds, range),
@@ -408,6 +409,24 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 raw_expr_idx,
             ),
         }
+    }
+
+    fn infer_new_vec_from_list(
+        &mut self,
+        opds: &RawExprRange,
+        arena: &RawExprArena,
+        range: TextRange,
+    ) -> InferResult<EntityRoutePtr> {
+        msg_once!("expectation");
+        if opds.start == opds.end {
+            panic!()
+        }
+        let opt_first_elem_ty = self.infer_expr(opds.start, None, arena);
+        let elem_ty = derived_not_none!(opt_first_elem_ty)?;
+        for opd in (opds.start + 1)..opds.end {
+            self.infer_expr(opd, Some(elem_ty), arena);
+        }
+        Ok(self.db.vec(elem_ty))
     }
 
     fn infer_call(
