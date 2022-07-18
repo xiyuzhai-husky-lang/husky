@@ -3,7 +3,7 @@ use word::{Decorator, Identifier, Keyword, WordOpr, WordPtr};
 
 pub use crate::*;
 
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum HuskyTokenKind {
     Decorator(Decorator),
     Keyword(Keyword),
@@ -13,6 +13,21 @@ pub enum HuskyTokenKind {
     PrimitiveLiteral(CopyableValue),
     Unrecognized(char),
     IllFormedLiteral(CopyableValue),
+}
+
+impl HuskyTokenKind {
+    pub fn left_convexity(self) -> Option<Convexity> {
+        match self {
+            HuskyTokenKind::Decorator(_) => todo!(),
+            HuskyTokenKind::Keyword(_) => todo!(),
+            HuskyTokenKind::Identifier(_) => todo!(),
+            HuskyTokenKind::Special(_) => todo!(),
+            HuskyTokenKind::WordOpr(_) => todo!(),
+            HuskyTokenKind::PrimitiveLiteral(_) => Some(Convexity::Convex),
+            HuskyTokenKind::Unrecognized(_) => None,
+            HuskyTokenKind::IllFormedLiteral(_) => Some(Convexity::Convex),
+        }
+    }
 }
 
 impl From<SpecialToken> for HuskyTokenKind {

@@ -56,6 +56,14 @@ impl<'a> TokenStream<'a> {
         }
     }
 
+    pub fn peek(&self) -> Option<&'a HuskyToken> {
+        if self.next < self.tokens.len() {
+            Some(&self.tokens[self.next])
+        } else {
+            None
+        }
+    }
+
     pub fn next_range(&self) -> TextRange {
         if self.next < self.tokens.len() {
             self.tokens[self.next].range

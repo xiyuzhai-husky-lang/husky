@@ -95,7 +95,7 @@ impl From<HuskyAtom> for RawExpr {
     fn from(atom: HuskyAtom) -> Self {
         Self {
             range: atom.text_range(),
-            variant: match atom.kind {
+            variant: match atom.variant {
                 AtomVariant::Variable {
                     varname,
                     init_range: init_row,
@@ -138,7 +138,7 @@ impl From<HuskyAtom> for RawExpr {
                     init_range,
                 },
                 _ => {
-                    p!(atom.kind);
+                    p!(atom.variant);
                     panic!()
                 }
             },

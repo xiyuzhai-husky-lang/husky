@@ -1,7 +1,5 @@
 use vm::*;
 
-use crate::convexity::Convexity;
-
 use super::*;
 
 impl<'a, 'b> AtomParser<'a, 'b> {

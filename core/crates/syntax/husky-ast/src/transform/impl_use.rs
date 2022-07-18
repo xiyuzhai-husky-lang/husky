@@ -30,7 +30,7 @@ impl<'a> AstTransformer<'a> {
                 "expect one entity route, but get multiple tokens instead",
                 token_group[1..(token_group.len() - 2)].text_range()
             );
-            let parent = match atoms[0].kind {
+            let parent = match atoms[0].variant {
                 AtomVariant::EntityRoute { route, .. } => {
                     if route.spatial_arguments.len() != 0 {
                         todo!("expect no generics")
@@ -49,7 +49,7 @@ impl<'a> AstTransformer<'a> {
             let route = if atoms.len() != 1 {
                 todo!("expect one atom for entity route")
             } else {
-                match atoms[0].kind {
+                match atoms[0].variant {
                     AtomVariant::EntityRoute { route, .. } => {
                         if route.spatial_arguments.len() != 0 {
                             todo!("expect no generics")

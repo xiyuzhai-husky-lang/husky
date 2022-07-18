@@ -15,7 +15,7 @@ impl<'a> AstTransformer<'a> {
         let mut stack = ExprStack::new(&mut self.arena);
         while let Some(atom) = atom_iter.next() {
             let atom_text_start = atom.text_start();
-            match atom.kind {
+            match atom.variant {
                 AtomVariant::Variable { .. }
                 | AtomVariant::ThisValue { .. }
                 | AtomVariant::ThisField { .. }
