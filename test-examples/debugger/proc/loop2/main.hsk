@@ -5,7 +5,7 @@ proc for_loop4() -> i32:
         b += i
     return b
 
-context:
+task:
     ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:

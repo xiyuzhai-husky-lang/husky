@@ -1,6 +1,6 @@
 use domains::ml::datasets::cv::mnist::BinaryImage28
 
-context:
+task:
     ml::datasets::cv::mnist::new_binary_dataset()
 
 proc find_connected_components(binary_image: BinaryImage28) -> i32:

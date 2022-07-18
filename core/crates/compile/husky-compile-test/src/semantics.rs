@@ -9,7 +9,7 @@ fn no_error_single_file() {
 struct A:
     a: i32
 
-context:
+task:
     ml::datasets::synthetic::trivial::real1d::dataset1()
 
 main:

@@ -74,7 +74,7 @@ pub enum ConfigKeyword {
 impl ConfigKeyword {
     pub fn as_str(&self) -> &'static str {
         match self {
-            ConfigKeyword::Task => "context",
+            ConfigKeyword::Task => "task",
         }
     }
 }
