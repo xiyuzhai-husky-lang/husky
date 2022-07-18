@@ -358,7 +358,7 @@ impl<'a> AstTransformer<'a> {
                 RawOpnVariant::Prefix(_)
                 | RawOpnVariant::Suffix(_)
                 | RawOpnVariant::List(_)
-                | RawOpnVariant::FieldAccess(_) => {
+                | RawOpnVariant::Field(_) => {
                     todo!()
                 }
             },

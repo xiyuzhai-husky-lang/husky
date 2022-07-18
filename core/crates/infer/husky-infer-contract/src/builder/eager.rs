@@ -156,7 +156,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawOpnVariant::List(opr) => {
                 self.infer_eager_list_opn(raw_expr_idx, opr, opds, contract)
             }
-            RawOpnVariant::FieldAccess(field_ident) => {
+            RawOpnVariant::Field(field_ident) => {
                 self.infer_eager_field_access(raw_expr_idx, *field_ident, opds.start, contract)
             }
         }

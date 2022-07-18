@@ -308,7 +308,7 @@ impl<'a> Formatter<'a> {
                     ListOpr::StructInit => todo!(),
                     ListOpr::MethodCall { .. } => todo!(),
                 },
-                RawOpnVariant::FieldAccess(_) => todo!(),
+                RawOpnVariant::Field(_) => todo!(),
             },
             RawExprVariant::Entity { .. } => todo!(),
             RawExprVariant::Lambda(ref inputs, expr) => {
