@@ -95,6 +95,7 @@ pub trait AtomContext {
                 RootIdentifier::EqTrait => todo!(),
                 RootIdentifier::ModuleType => todo!(),
                 RootIdentifier::Ref => todo!(),
+                RootIdentifier::Option => todo!(),
                 RootIdentifier::VisualType => todo!(),
             }),
         };

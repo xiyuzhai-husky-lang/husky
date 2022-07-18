@@ -3,10 +3,17 @@ use crate::*;
 use husky_atom::AtomVariant;
 
 #[test]
-fn list_type() {
+fn option_type() {
     let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
-    let atoms = utils::get_atoms_in_line(&mut db, "Vec<i32>");
-    should_eq!(atoms.len(), 1);
+    should_eq!(utils::get_atoms_in_line(&mut db, "?i32").len(), 1);
+    should_eq!(utils::get_atoms_in_line(&mut db, "Option<i32>").len(), 1);
+}
+
+#[test]
+fn vec_type() {
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
+    should_eq!(utils::get_atoms_in_line(&mut db, "[]i32").len(), 1);
+    should_eq!(utils::get_atoms_in_line(&mut db, "Vec<i32>").len(), 1);
 }
 
 #[test]

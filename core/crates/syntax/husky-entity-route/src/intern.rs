@@ -210,7 +210,7 @@ impl Deref for EntityRoutePtr {
                 CloneTrait,
                 CopyTrait,
                 PartialEqTrait,
-                EqTrait, Ref
+                EqTrait, Ref, Option
             ),
             EntityRoutePtr::Custom(scope) => scope,
             EntityRoutePtr::ThisType => THIS_TYPE_ROUTE,

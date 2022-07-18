@@ -261,6 +261,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 '!' => self.pass_two(SpecialToken::DoubleExclamation),
                 _ => (1, SpecialToken::Exclamation),
             },
+            '?' => (1, SpecialToken::QuestionMark),
             c => {
                 return Some(HuskyToken::new(
                     self.line_index,

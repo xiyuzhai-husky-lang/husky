@@ -209,6 +209,7 @@ impl<'a> RustCodeGenerator<'a> {
                 RootIdentifier::EqTrait => todo!(),
                 RootIdentifier::ModuleType => todo!(),
                 RootIdentifier::Ref => todo!(),
+                RootIdentifier::Option => todo!(),
                 RootIdentifier::VisualType => todo!(),
             },
             EntityRoutePtr::Custom(_) => panic!(),
