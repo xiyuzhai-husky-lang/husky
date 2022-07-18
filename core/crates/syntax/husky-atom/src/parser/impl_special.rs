@@ -1,5 +1,7 @@
 use vm::*;
 
+use crate::convexity::Convexity;
+
 use super::*;
 
 impl<'a, 'b> AtomParser<'a, 'b> {
@@ -138,6 +140,10 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 };
                 self.stack.push(HuskyAtom::new(range, atom_variant))
             }
+            SpecialToken::QuestionMark => match self.stack.convexity() {
+                Convexity::Convex => todo!(),
+                Convexity::Concave => todo!(),
+            },
             _ => {
                 self.token_stream.text_range(text_start);
                 self.stack.push(token.into())

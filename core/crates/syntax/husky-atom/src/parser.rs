@@ -13,6 +13,7 @@ use check_utils::should;
 use husky_entity_route::{
     EntityKind, EntityRoute, EntityRouteKind, RangedEntityRoute, SpatialArgument,
 };
+use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_file::URange;
 use husky_text::TextRange;
 use husky_token::{
@@ -31,6 +32,10 @@ pub struct AtomParser<'a, 'b> {
 }
 
 impl<'a, 'b> AtomParser<'a, 'b> {
+    fn db(&self) -> &dyn EntitySyntaxQueryGroup {
+        self.atom_context.entity_syntax_db()
+    }
+
     pub fn new(
         symbol_context: &'a mut dyn AtomContext,
         token_stream: &'a mut TokenStream<'b>,
@@ -50,7 +55,6 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     self.push(kind, text_start)?;
                 }
             }
-
             let text_start = self.token_stream.text_start();
             if let Some(token) = self.token_stream.next() {
                 match token.kind {

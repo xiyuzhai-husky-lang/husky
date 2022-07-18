@@ -91,6 +91,7 @@ pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::EqTrait => todo!(),
         RootIdentifier::ModuleType => &MODULE_TYPE_DEFN,
         RootIdentifier::Ref => panic!(),
+        RootIdentifier::Option => panic!(),
         RootIdentifier::VisualType => todo!(),
     }
     .into()

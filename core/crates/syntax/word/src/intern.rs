@@ -97,6 +97,7 @@ pub fn new_word_interner() -> Arc<WordInternerSingletonKeeper> {
             RootIdentifier::TraitType.into(),
             RootIdentifier::ModuleType.into(),
             RootIdentifier::Ref.into(),
+            RootIdentifier::Option.into(),
             ContextualIdentifier::Crate.into(),
             ContextualIdentifier::Input.into(),
             ContextualIdentifier::ThisValue.into(),

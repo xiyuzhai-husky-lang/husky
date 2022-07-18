@@ -3,7 +3,7 @@ use super::*;
 use entity_kind::TyKind;
 use husky_entity_route::{entity_route_menu, make_subroute, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
-use husky_token::SemanticTokenKind;
+use husky_token::{is_special, special_token, SemanticTokenKind};
 use thin_vec::{thin_vec, ThinVec};
 
 /// parse atoms from left to right
@@ -12,7 +12,7 @@ use thin_vec::{thin_vec, ThinVec};
 impl<'a, 'b> AtomParser<'a, 'b> {
     pub(crate) fn symbol(&mut self) -> AtomResult<Option<AtomVariant>> {
         Ok(if let Some(token) = self.token_stream.next() {
-            if token.kind == SpecialToken::LBox.into() {
+            if is_special!(token, "[") {
                 self.atom_context
                     .push_abs_semantic_token(AbsSemanticToken::new(
                         SemanticTokenKind::Special,
@@ -22,13 +22,20 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     route: self.symbolic_ty()?,
                     kind: EntityKind::Type(TyKind::Other),
                 })
-            } else if token.kind == SpecialToken::Ambersand.into() {
+            } else if is_special!(token, "&") {
                 let ty = get!(self, ty?);
                 Some(AtomVariant::EntityRoute {
-                    route: self.atom_context.entity_syntax_db().make_route(
-                        EntityRoutePtr::Root(RootIdentifier::Ref),
-                        thin_vec![ty.into()],
-                    ),
+                    route: self
+                        .db()
+                        .make_route(RootIdentifier::Ref.into(), thin_vec![ty.into()]),
+                    kind: EntityKind::Type(TyKind::Other),
+                })
+            } else if is_special!(token, "?") {
+                let ty = get!(self, ty?);
+                Some(AtomVariant::EntityRoute {
+                    route: self
+                        .db()
+                        .make_route(RootIdentifier::Option.into(), thin_vec![ty.into()]),
                     kind: EntityKind::Type(TyKind::Other),
                 })
             } else if let HuskyTokenKind::Identifier(ident) = token.kind {
@@ -246,8 +253,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 RootIdentifier::Vec
                 | RootIdentifier::Array
                 | RootIdentifier::Tuple
-                | RootIdentifier::DatasetType => self.angled_generics(),
-                RootIdentifier::Ref => todo!(),
+                | RootIdentifier::DatasetType
+                | RootIdentifier::Ref
+                | RootIdentifier::Option => self.angled_generics(),
                 RootIdentifier::VisualType => todo!(),
             },
             _ => {

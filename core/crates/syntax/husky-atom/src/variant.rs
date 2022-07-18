@@ -118,6 +118,7 @@ impl From<SpecialToken> for AtomVariant {
             SpecialToken::XmlKet => todo!(),
             SpecialToken::DeriveAssign => todo!(),
             SpecialToken::At => todo!(),
+            SpecialToken::QuestionMark => todo!(),
         }
     }
 }

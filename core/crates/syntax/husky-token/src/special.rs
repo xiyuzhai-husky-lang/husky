@@ -48,6 +48,7 @@ pub enum SpecialToken {
     Semicolon,         // ;
     XmlKet,            // />
     At,                // @
+    QuestionMark,      // ?
 }
 
 impl SpecialToken {
@@ -99,6 +100,7 @@ impl SpecialToken {
             SpecialToken::Semicolon => ";",
             SpecialToken::XmlKet => "/>",
             SpecialToken::At => "@",
+            SpecialToken::QuestionMark => "?",
         }
     }
 
@@ -111,4 +113,153 @@ impl SpecialToken {
             _ => None,
         }
     }
+}
+
+#[macro_export]
+macro_rules! special_token {
+    ("<=") => {{
+        SpecialToken::Leq
+    }};
+    (">") => {{
+        SpecialToken::RAngle
+    }};
+    (">=") => {{
+        SpecialToken::Geq
+    }};
+    ("!=") => {{
+        SpecialToken::Neq
+    }};
+    ("?=") => {{
+        SpecialToken::DeriveAssign
+    }};
+    ("==") => {{
+        SpecialToken::Eq
+    }};
+    ("<<") => {{
+        SpecialToken::Shl
+    }};
+    (">>") => {{
+        SpecialToken::Shr
+    }};
+    ("{") => {{
+        SpecialToken::LCurl
+    }};
+    ("}") => {{
+        SpecialToken::RCurl
+    }};
+    ("[") => {{
+        SpecialToken::LBox
+    }};
+    ("]") => {{
+        SpecialToken::RBox
+    }};
+    ("(") => {{
+        SpecialToken::LPar
+    }};
+    (")") => {{
+        SpecialToken::RPar
+    }};
+    ("+") => {{
+        SpecialToken::Add
+    }};
+    ("-") => {{
+        SpecialToken::SubOrMinus
+    }};
+    ("*") => {{
+        SpecialToken::Star
+    }};
+    ("/") => {{
+        SpecialToken::Div
+    }};
+    ("**") => {{
+        SpecialToken::Power
+    }};
+    ("&&") => {{
+        SpecialToken::And
+    }};
+    ("||") => {{
+        SpecialToken::DoubleVertical
+    }};
+    ("~") => {{
+        SpecialToken::BitNot
+    }};
+    ("%") => {{
+        SpecialToken::Modulo
+    }};
+    (".") => {{
+        SpecialToken::MemberAccess
+    }};
+    ("->") => {{
+        SpecialToken::LightArrow
+    }};
+    (")") => {{
+        SpecialToken::HeavyArrow
+    }};
+    ("::") => {{
+        SpecialToken::DoubleColon
+    }};
+    (":") => {{
+        SpecialToken::Colon
+    }};
+    (",") => {{
+        SpecialToken::Comma
+    }};
+    ("&") => {{
+        SpecialToken::Ambersand
+    }};
+    ("++") => {{
+        SpecialToken::Incr
+    }};
+    ("--") => {{
+        SpecialToken::Decr
+    }};
+    ("|") => {{
+        SpecialToken::Vertical
+    }};
+    ("=") => {{
+        SpecialToken::Assign
+    }};
+    ("+=") => {{
+        SpecialToken::AddAssign
+    }};
+    ("-=") => {{
+        SpecialToken::SubAssign
+    }};
+    ("*=") => {{
+        SpecialToken::MulAssign
+    }};
+    ("/=") => {{
+        SpecialToken::DivAssign
+    }};
+    ("!") => {{
+        SpecialToken::Exclamation
+    }};
+    ("|=") => {{
+        SpecialToken::BitOrAssign
+    }};
+    ("&=") => {{
+        SpecialToken::BitAndAssign
+    }};
+    ("!!") => {{
+        SpecialToken::DoubleExclamation
+    }};
+    (";") => {{
+        SpecialToken::Semicolon
+    }};
+    ("/>") => {{
+        SpecialToken::XmlKet
+    }};
+    ("@") => {{
+        SpecialToken::At
+    }};
+    ("?") => {{
+        SpecialToken::QuestionMark
+    }};
+}
+
+#[macro_export]
+macro_rules! is_special {
+    ($token: expr, $s: tt) => {{
+        $token.kind == special_token!($s).into()
+    }};
 }

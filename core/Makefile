@@ -14,6 +14,9 @@ test-examples-with-backtrace:
 cargo-test:
 	cargo test -- --test-threads=1
 
+cargo-test-backtraced:
+	RUST_BACKTRACE=1 cargo test -- --test-threads=1
+
 test-analyzer:
 	cargo run -q --bin husky-analyzer-tester test-diagnostics $(test_examples_dir)/analyzer/diagnostics \
 	&& cargo run -q --bin husky-analyzer-tester test-folding-ranges $(test_examples_dir)/analyzer/folding-ranges \

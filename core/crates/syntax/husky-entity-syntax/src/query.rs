@@ -118,7 +118,8 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::CopyTrait
             | RootIdentifier::PartialEqTrait
             | RootIdentifier::EqTrait => EntityKind::Trait,
-            RootIdentifier::Ref => todo!(),
+            RootIdentifier::Ref => EntityKind::Type(TyKind::Other),
+            RootIdentifier::Option => EntityKind::Type(TyKind::Other),
             RootIdentifier::VisualType => todo!(),
         },
         EntityRouteKind::Package { .. } => EntityKind::Module,
