@@ -32,12 +32,10 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                         file: this.file(),
                         range: this.text_range(),
                         ty: elem.__ty_dyn(),
-                        feature: self.db.feature_interner().intern(
-                            Feature::ElementAccessConstIndex {
-                                this: this.feature(),
-                                index,
-                            },
-                        ),
+                        feature: self.db.feature_interner().intern(Feature::IndexFixed {
+                            this: this.feature(),
+                            index,
+                        }),
                     })
                 })?
         {

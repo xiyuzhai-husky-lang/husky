@@ -160,6 +160,7 @@ impl<'eval> TraceVariant<'eval> {
                     },
                     _ => todo!(),
                 },
+                FeatureExprVariant::NewVecFromList => todo!(),
             },
             TraceVariant::EagerExpr {
                 ref expr,

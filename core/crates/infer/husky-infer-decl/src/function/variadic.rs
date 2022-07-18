@@ -12,3 +12,13 @@ impl VariadicTemplateDecl {
         }
     }
 }
+
+impl Instantiable for VariadicTemplateDecl {
+    type Target = Self;
+
+    fn instantiate(&self, ctx: &InstantiationContext) -> Self::Target {
+        match self {
+            VariadicTemplateDecl::None => VariadicTemplateDecl::None,
+        }
+    }
+}

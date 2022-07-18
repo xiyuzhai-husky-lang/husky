@@ -131,6 +131,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 },
                 _ => panic!(),
             },
+            FeatureExprVariant::NewVecFromList => todo!(),
         }
     }
 

@@ -47,7 +47,7 @@ impl FunctionDecl {
             keyword_parameters: self
                 .primary_parameters
                 .map(|parameter| parameter.instantiate(ctx)),
-            variadic_template: todo!(),
+            variadic_template: self.variadic_template.instantiate(ctx),
         })
     }
 

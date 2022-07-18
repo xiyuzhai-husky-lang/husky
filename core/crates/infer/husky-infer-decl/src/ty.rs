@@ -8,7 +8,7 @@ use std::iter::Peekable;
 use check_utils::{should, should_eq};
 use entity_kind::{EnumVariantKind, FieldKind};
 use husky_liason_semantics::OutputLiason;
-use print_utils::p;
+use print_utils::{msg_once, p};
 pub use trait_impl::*;
 pub use vec::*;
 
@@ -153,11 +153,12 @@ impl TyDecl {
                         TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => break,
                     }
                 }
+                msg_once!("variadics");
                 Some(Arc::new(FunctionDecl {
                     route: ty,
                     spatial_parameters: generic_parameters.clone(),
                     primary_parameters,
-                    variadic_template: todo!(),
+                    variadic_template: VariadicTemplateDecl::None,
                     keyword_parameters,
                     output: OutputDecl {
                         ty,
