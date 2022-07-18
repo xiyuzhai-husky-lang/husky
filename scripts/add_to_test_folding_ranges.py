@@ -9,9 +9,7 @@ assert os.getcwd() == husky_dir
 mnist_dir = os.path.join(husky_dir, "projects/cv/mnist-classifier")
 assert os.path.exists(mnist_dir)
 
-folding_ranges_misc_dir = os.path.join(
-    husky_dir, "test-examples/analyzer/folding-ranges/misc"
-)
+folding_ranges_misc_dir = os.path.join(husky_dir, "tests/analyzer/folding-ranges/misc")
 assert os.path.exists(folding_ranges_misc_dir)
 
 mnist_dir_pattern = "mnist-classifier"
@@ -26,9 +24,7 @@ for entry in os.listdir(folding_ranges_misc_dir):
 
 new_idx = largest_idx + 1
 
-save_dir = "./test-examples/analyzer/folding-ranges/misc/mnist-classifier{:03d}".format(
-    new_idx
-)
+save_dir = "./tests/analyzer/folding-ranges/misc/mnist-classifier{:03d}".format(new_idx)
 
 while True:
     answer = input(

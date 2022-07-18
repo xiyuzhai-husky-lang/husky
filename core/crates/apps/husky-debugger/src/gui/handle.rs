@@ -46,7 +46,7 @@ fn save_server_history(
     let filename: &str = &filename;
     let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
     let husky_dir: PathBuf = std::env::var("HUSKY_DIR").unwrap().into();
-    let filepath: PathBuf = husky_dir.join(format!("test-examples/debugger/server/{filename}"));
+    let filepath: PathBuf = husky_dir.join(format!("tests/debugger/server/{filename}"));
     io_utils::diff_write(&filepath, &value);
     println!("{}", "server history saved".red())
 }
