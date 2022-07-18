@@ -355,15 +355,21 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn lazy_new_vec_from_list(
         &mut self,
-        raw_expr_idx: RawExprIdx,
-        total_opds: RawExprRange,
+        idx: RawExprIdx,
+        elements: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
-        todo!()
+        for element in elements {
+            self.infer_lazy_expr(element);
+        }
+        Ok(LazyValueQualifiedTy::new(
+            LazyExprQualifier::Transient,
+            self.raw_expr_ty(idx)?,
+        ))
     }
 
     fn lazy_call(
         &mut self,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
         match self.arena[total_opds.start].variant {

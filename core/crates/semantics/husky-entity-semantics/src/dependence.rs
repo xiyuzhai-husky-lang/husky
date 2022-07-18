@@ -378,7 +378,8 @@ impl EntityDefn {
                         LazyOpnKind::FunctionRoutineCall(routine) => builder.push(routine.route),
                         LazyOpnKind::StructCall(ty) => builder.push(ty.route),
                         LazyOpnKind::RecordCall(ty) => builder.push(ty.route),
-                        LazyOpnKind::ElementAccess { .. } => (),
+                        LazyOpnKind::Index { .. } => (),
+                        LazyOpnKind::NewVecFromList => todo!(),
                     }
                     for opd in opds {
                         extract_lazy_expr_dependees(opd, builder)
