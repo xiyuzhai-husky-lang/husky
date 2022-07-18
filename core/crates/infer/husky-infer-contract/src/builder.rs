@@ -39,17 +39,7 @@ impl<'a> ContractSheetBuilder<'a> {
         })
     }
 
-    fn expr(&self, raw_expr_idx: RawExprIdx) -> &'a RawExpr {
-        &self.arena[raw_expr_idx]
-    }
-
     pub(crate) fn infer_all(&mut self, ast_iter: AstIter) {
-        let arena = self
-            .contract_sheet
-            .entity_route_sheet
-            .ast_text
-            .arena
-            .clone();
         for item in ast_iter {
             let ast = match item.value.as_ref() {
                 Ok(ast) => ast,
@@ -74,7 +64,7 @@ impl<'a> ContractSheetBuilder<'a> {
                                     MemberLiason::Derived => panic!(),
                                 },
                             };
-                            self.infer_eager_expr(default, contract, &arena)
+                            self.infer_eager_expr(default, contract)
                         }
                     }
                     FieldAstKind::StructDerivedEager { derivation } => {
@@ -84,7 +74,7 @@ impl<'a> ContractSheetBuilder<'a> {
                                 true => EagerContract::Pure,
                                 false => EagerContract::Move,
                             };
-                            self.infer_eager_expr(derivation, contract, &arena)
+                            self.infer_eager_expr(derivation, contract)
                         }
                     }
                     _ => (),
@@ -96,14 +86,14 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstVariant::TypeDefnHead { .. } | AstVariant::EnumVariantDefnHead { .. } => {
                         self.infer_all(children)
                     }
-                    AstVariant::MainDefnHead => self.infer_lazy_stmts(children, &arena),
+                    AstVariant::MainDefnHead => self.infer_lazy_stmts(children),
                     AstVariant::DatasetConfigDefnHead => {
-                        self.infer_eager_stmts(children, &arena, RootIdentifier::DatasetType.into())
+                        self.infer_eager_stmts(children, RootIdentifier::DatasetType.into())
                     }
                     AstVariant::CallFormDefnHead { output_ty, .. } => {
-                        self.infer_eager_stmts(children, &arena, output_ty.route)
+                        self.infer_eager_stmts(children, output_ty.route)
                     }
-                    AstVariant::Visual => self.infer_lazy_stmts(children, &arena),
+                    AstVariant::Visual => self.infer_lazy_stmts(children),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
                         field_ast_kind,
@@ -112,17 +102,17 @@ impl<'a> ContractSheetBuilder<'a> {
                     } => match field_ast_kind {
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
-                        } => self.infer_eager_stmts(children, &arena, ty.route),
+                        } => self.infer_eager_stmts(children, ty.route),
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::LazyFunctional,
                         }
-                        | FieldAstKind::RecordDerived => self.infer_lazy_stmts(children, &arena),
+                        | FieldAstKind::RecordDerived => self.infer_lazy_stmts(children),
                         _ => (),
                     },
                     AstVariant::FeatureDefnHead { paradigm, ty, .. } => match paradigm {
-                        Paradigm::LazyFunctional => self.infer_lazy_stmts(children, &arena),
+                        Paradigm::LazyFunctional => self.infer_lazy_stmts(children),
                         Paradigm::EagerFunctional | Paradigm::EagerProcedural => {
-                            self.infer_eager_stmts(children, &arena, ty.route)
+                            self.infer_eager_stmts(children, ty.route)
                         }
                     },
                     AstVariant::Submodule { .. } => (),
