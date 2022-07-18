@@ -148,6 +148,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 field_ident,
                 opt_associated_trace_id,
             ),
+            FeatureExprVariant::NewVecFromList => todo!(),
         }
     }
 

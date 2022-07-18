@@ -137,7 +137,19 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 (kind, feature)
             }
-            LazyOpnKind::NewVecFromList => todo!(),
+            LazyOpnKind::NewVecFromList => {
+                let ty = expr.ty();
+                let uid = self.db.compile_time().entity_uid(ty);
+                let elements = opds
+                    .iter()
+                    .map(|opd| self.new_expr(opd.clone()))
+                    .collect::<Vec<_>>();
+                let feature = self.features.intern(Feature::NewVecFromList {
+                    elements: elements.iter().map(|elem| elem.feature).collect(),
+                });
+                let kind = FeatureExprVariant::NewVecFromList;
+                (kind, feature)
+            }
         }
     }
 
@@ -312,7 +324,7 @@ impl<'a> FeatureExprBuilder<'a> {
         element_binding: Binding,
     ) -> (FeatureExprVariant, FeaturePtr) {
         let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
-        let feature = self.features.intern(Feature::ElementAccess {
+        let feature = self.features.intern(Feature::Index {
             opds: opds.map(|opd| opd.feature),
         });
         let feature_expr_kind = FeatureExprVariant::ElementAccess {

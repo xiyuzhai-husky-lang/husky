@@ -66,14 +66,14 @@ pub enum Feature {
         this: FeaturePtr,
         field_ident: CustomIdentifier,
     },
-    ElementAccess {
+    Index {
         opds: Vec<FeaturePtr>,
     },
-    ElementAccessConstIndex {
+    IndexFixed {
         this: FeaturePtr,
         index: usize,
     },
-    CyclicElementAccessConstIndex {
+    CyclicIndexFixed {
         this: FeaturePtr,
         index: i32,
     },
@@ -110,6 +110,9 @@ pub enum Feature {
     ArrivalIfConditionMet {
         opt_parent: Option<FeaturePtr>,
         condition: FeaturePtr,
+    },
+    NewVecFromList {
+        elements: Vec<FeaturePtr>,
     },
 }
 
