@@ -15,14 +15,13 @@ use super::*;
 impl<'a> QualifiedTySheetBuilder<'a> {
     pub(super) fn infer_lazy_call_form(
         &mut self,
-        arena: &RawExprArena,
         inputs: &[Parameter],
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
         output_liason: OutputLiason,
     ) {
         self.add_lazy_inputs(inputs);
-        self.infer_lazy_stmts(arena, ast_iter, opt_output_ty, output_liason)
+        self.infer_lazy_stmts(ast_iter, opt_output_ty, output_liason)
     }
 
     fn add_lazy_inputs(&mut self, inputs: &[Parameter]) {
@@ -47,7 +46,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn infer_lazy_stmts(
         &mut self,
-        arena: &RawExprArena,
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
         output_liason: OutputLiason,
@@ -56,20 +54,19 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             if let Ok(ref value) = item.value {
                 match value.variant {
                     AstVariant::Stmt(ref stmt) => {
-                        self.infer_lazy_stmt(arena, stmt, opt_output_ty, output_liason)
+                        self.infer_lazy_stmt(stmt, opt_output_ty, output_liason)
                     }
                     _ => (),
                 }
             }
             if let Some(children) = item.opt_children {
-                self.infer_lazy_stmts(arena, children, opt_output_ty, output_liason)
+                self.infer_lazy_stmts(children, opt_output_ty, output_liason)
             }
         }
     }
 
     fn infer_lazy_stmt(
         &mut self,
-        arena: &RawExprArena,
         stmt: &RawStmt,
         opt_output_ty: Option<EntityRoutePtr>,
         output_liason: OutputLiason,
@@ -80,10 +77,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 condition_branch_kind,
             } => match condition_branch_kind {
                 RawConditionBranchKind::If { condition } => {
-                    self.infer_lazy_expr(arena, condition);
+                    self.infer_lazy_expr(condition);
                 }
                 RawConditionBranchKind::Elif { condition } => {
-                    self.infer_lazy_expr(arena, condition);
+                    self.infer_lazy_expr(condition);
                 }
                 RawConditionBranchKind::Else => (),
             },
@@ -101,7 +98,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 varname,
                 initial_value,
             } => {
-                if let Some(qt) = self.infer_lazy_expr(arena, initial_value) {
+                if let Some(qt) = self.infer_lazy_expr(initial_value) {
                     self.qualified_ty_sheet
                         .lazy_variable_qualified_tys
                         .insert_new((
@@ -111,7 +108,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
             }
             RawStmtVariant::Return { result, .. } => {
-                match (opt_output_ty, self.infer_lazy_expr(arena, result)) {
+                match (opt_output_ty, self.infer_lazy_expr(result)) {
                     (Some(output_ty), Some(qualified_ty)) => {
                         if !qualified_ty.is_implicitly_convertible_to_output(
                             self.db,
@@ -125,19 +122,19 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
             }
             RawStmtVariant::Assert(condition) => {
-                self.infer_lazy_expr(arena, condition);
+                self.infer_lazy_expr(condition);
             }
             RawStmtVariant::Break => todo!(),
             RawStmtVariant::Match { match_expr, .. } => {
-                self.infer_lazy_expr(arena, match_expr);
+                self.infer_lazy_expr(match_expr);
             }
             RawStmtVariant::ReturnXml(ref xml_expr) => match xml_expr.variant {
                 RawXmlExprVariant::Value(raw_expr_idx) => {
-                    self.infer_lazy_expr(arena, raw_expr_idx);
+                    self.infer_lazy_expr(raw_expr_idx);
                 }
                 RawXmlExprVariant::Tag { ident, ref props } => {
                     props.iter().for_each(|(_, argument)| {
-                        self.infer_lazy_expr(arena, *argument);
+                        self.infer_lazy_expr(*argument);
                     })
                 }
             },
@@ -152,12 +149,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    fn infer_lazy_expr(
-        &mut self,
-        arena: &RawExprArena,
-        raw_expr_idx: RawExprIdx,
-    ) -> Option<LazyValueQualifiedTy> {
-        let qualified_qualified_ty_result = self.lazy_expr(arena, raw_expr_idx);
+    fn infer_lazy_expr(&mut self, raw_expr_idx: RawExprIdx) -> Option<LazyValueQualifiedTy> {
+        let qualified_qualified_ty_result = self.lazy_expr(raw_expr_idx);
         let opt_qualified_ty = qualified_qualified_ty_result
             .as_ref()
             .map(|qualified_ty| *qualified_ty)
@@ -168,12 +161,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opt_qualified_ty
     }
 
-    fn lazy_expr(
-        &mut self,
-        arena: &RawExprArena,
-        raw_expr_idx: RawExprIdx,
-    ) -> InferResult<LazyValueQualifiedTy> {
-        let raw_expr = &arena[raw_expr_idx];
+    fn lazy_expr(&mut self, raw_expr_idx: RawExprIdx) -> InferResult<LazyValueQualifiedTy> {
+        let raw_expr = &self.arena[raw_expr_idx];
         let ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
         match raw_expr.variant {
             RawExprVariant::Variable {
@@ -229,12 +218,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.raw_expr_intrinsic_ty(raw_expr_idx).unwrap(),
             )),
             RawExprVariant::Bracketed(bracketed_expr) => {
-                derived_not_none!(self.infer_lazy_expr(arena, bracketed_expr))
+                derived_not_none!(self.infer_lazy_expr(bracketed_expr))
             }
             RawExprVariant::Opn {
                 opn_variant: ref opr,
                 ref opds,
-            } => self.lazy_opn(arena, raw_expr_idx, opr, opds.clone()),
+            } => self.lazy_opn(raw_expr_idx, opr, opds.clone()),
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::ThisField {
                 opt_this_ty,
@@ -252,7 +241,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     field_liason,
                     field_contract,
                     is_field_copyable,
-                    arena[raw_expr_idx].range,
+                    self.arena[raw_expr_idx].range,
                 )?;
                 let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
                     this_liason,
@@ -271,32 +260,28 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn lazy_opn(
         &mut self,
-        arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         opr: &RawOpnVariant,
         opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
         match opr {
-            RawOpnVariant::Binary(binary_opr) => self.lazy_binary(arena, raw_expr_idx, opds),
-            RawOpnVariant::Prefix(prefix_opr) => self.lazy_prefix(arena, raw_expr_idx, opds),
-            RawOpnVariant::Suffix(suffix_opr) => {
-                self.lazy_suffix(arena, raw_expr_idx, *suffix_opr, opds)
-            }
-            RawOpnVariant::List(list_opr) => self.lazy_list(arena, raw_expr_idx, list_opr, opds),
+            RawOpnVariant::Binary(binary_opr) => self.lazy_binary(raw_expr_idx, opds),
+            RawOpnVariant::Prefix(prefix_opr) => self.lazy_prefix(raw_expr_idx, opds),
+            RawOpnVariant::Suffix(suffix_opr) => self.lazy_suffix(raw_expr_idx, *suffix_opr, opds),
+            RawOpnVariant::List(list_opr) => self.lazy_list(raw_expr_idx, list_opr, opds),
             RawOpnVariant::Field(field_ident) => {
-                self.lazy_field_access(arena, raw_expr_idx, *field_ident, opds)
+                self.lazy_field_access(raw_expr_idx, *field_ident, opds)
             }
         }
     }
 
     fn lazy_binary(
         &mut self,
-        arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
-        self.infer_lazy_expr(arena, opds.start);
-        self.infer_lazy_expr(arena, opds.start + 1);
+        self.infer_lazy_expr(opds.start);
+        self.infer_lazy_expr(opds.start + 1);
         Ok(LazyValueQualifiedTy::new(
             LazyExprQualifier::Transient,
             self.raw_expr_intrinsic_ty(raw_expr_idx)?,
@@ -305,11 +290,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn lazy_prefix(
         &mut self,
-        arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
-        self.infer_lazy_expr(arena, opds.start);
+        self.infer_lazy_expr(opds.start);
         Ok(LazyValueQualifiedTy::new(
             LazyExprQualifier::Transient,
             self.raw_expr_intrinsic_ty(raw_expr_idx)?,
@@ -318,12 +302,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn lazy_suffix(
         &mut self,
-        arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         opr: SuffixOpr,
         opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
-        let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
+        let this_qt = derived_not_none!(self.infer_lazy_expr(opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         match opr {
             SuffixOpr::Incr | SuffixOpr::Decr => {
@@ -335,12 +318,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn lazy_field_access(
         &mut self,
-        arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         field_ident: RangedCustomIdentifier,
         opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
-        let this_qt = derived_not_none!(self.infer_lazy_expr(arena, opds.start))?;
+        let this_qt = derived_not_none!(self.infer_lazy_expr(opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let field_contract = self.lazy_expr_contract(raw_expr_idx)?;
@@ -354,31 +336,25 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn lazy_list(
         &mut self,
-        arena: &RawExprArena,
         idx: RawExprIdx,
         list_opr: &ListOpr,
         opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
         match list_opr {
             ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => self.lazy_new_vec_from_list(arena, idx, opds),
+            ListOpr::NewVec => self.lazy_new_vec_from_list(idx, opds),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.lazy_call(arena, idx, opds),
-            ListOpr::Index | ListOpr::ModuloIndex => self.lazy_element_access(arena, idx, opds),
+            ListOpr::Call => self.lazy_call(idx, opds),
+            ListOpr::Index | ListOpr::ModuloIndex => self.lazy_element_access(idx, opds),
             ListOpr::StructInit => todo!(),
-            ListOpr::MethodCall { ranged_ident, .. } => self.lazy_method_call(
-                arena,
-                opds.start,
-                *ranged_ident,
-                (opds.start + 1)..opds.end,
-                idx,
-            ),
+            ListOpr::MethodCall { ranged_ident, .. } => {
+                self.lazy_method_call(opds.start, *ranged_ident, (opds.start + 1)..opds.end, idx)
+            }
         }
     }
 
     fn lazy_new_vec_from_list(
         &mut self,
-        arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
@@ -387,16 +363,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn lazy_call(
         &mut self,
-        arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
-        match arena[total_opds.start].variant {
+        match self.arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
                 let call_decl = derived_unwrap!(self.db.function_decl(route));
                 let opt_opd_qualified_tys: Vec<_> = ((total_opds.start + 1)..total_opds.end)
                     .into_iter()
-                    .map(|opd_idx| self.infer_lazy_expr(arena, opd_idx))
+                    .map(|opd_idx| self.infer_lazy_expr(opd_idx))
                     .collect();
                 match call_decl.output.liason {
                     OutputLiason::Transfer => {
@@ -421,7 +396,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 throw_derived!("a primitive literal can't be a caller")
             }
             _ => {
-                p!(arena[total_opds.start].variant);
+                p!(self.arena[total_opds.start].variant);
                 todo!()
             }
         }
@@ -429,14 +404,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn lazy_element_access(
         &mut self,
-        arena: &RawExprArena,
         raw_expr_idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
-        let this_qt = derived_not_none!(self.infer_lazy_expr(arena, total_opds.start))?;
+        let this_qt = derived_not_none!(self.infer_lazy_expr(total_opds.start))?;
         let this_contract = self.lazy_expr_contract(total_opds.start)?;
         for opd in (total_opds.start + 1)..total_opds.end {
-            self.infer_lazy_expr(arena, opd);
+            self.infer_lazy_expr(opd);
         }
         let element_ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
         let element_contract = self.lazy_expr_contract(raw_expr_idx)?;
@@ -450,16 +424,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn lazy_method_call(
         &mut self,
-        arena: &RawExprArena,
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<LazyValueQualifiedTy> {
         let method_decl = self.method_decl(raw_expr_idx)?;
-        self.infer_lazy_expr(arena, this);
+        self.infer_lazy_expr(this);
         for input in inputs {
-            self.infer_lazy_expr(arena, input);
+            self.infer_lazy_expr(input);
         }
         let qual = match method_decl.output.liason {
             OutputLiason::Transfer => {
