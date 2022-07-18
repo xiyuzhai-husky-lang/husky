@@ -182,7 +182,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
             },
-            RawOpnVariant::FieldAccess(field_ident) => {
+            RawOpnVariant::Field(field_ident) => {
                 self.parse_field_access(*field_ident, opds, raw_expr_idx)
             }
         }

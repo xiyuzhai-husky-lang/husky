@@ -123,32 +123,23 @@ impl<'a> ContractSheetBuilder<'a> {
         opds: &RawExprRange,
         contract: LazyContract,
         range: TextRange,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
-            RawOpnVariant::Binary(opr) => {
-                self.infer_lazy_binary_opn(*opr, opds, contract, raw_expr_idx)
-            }
+            RawOpnVariant::Binary(opr) => self.infer_lazy_binary_opn(idx, *opr, opds, contract),
             RawOpnVariant::Prefix(opr) => self.infer_lazy_prefix_opn(*opr, opds.start, contract),
-            RawOpnVariant::Suffix(opr) => {
-                self.infer_lazy_suffix(*opr, opds.start, contract, raw_expr_idx)
-            }
-            RawOpnVariant::FieldAccess(field_ident) => {
-                self.infer_lazy_field_access(*field_ident, opds.start, contract)
-            }
-            RawOpnVariant::List(opr) => {
-                self.infer_lazy_list_opn(opr, opds, contract, range, raw_expr_idx)
-            }
+            RawOpnVariant::Suffix(opr) => self.lazy_suffix(idx, *opr, opds.start, contract),
+            RawOpnVariant::Field(ident) => self.infer_lazy_field(*ident, opds.start, contract),
+            RawOpnVariant::List(opr) => self.infer_lazy_list_opn(idx, opr, opds, contract),
         }
     }
 
     fn infer_lazy_binary_opn(
         &mut self,
+        idx: RawExprIdx,
         opr: BinaryOpr,
         opds: &RawExprRange,
         contract: LazyContract,
-
-        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let lopd = opds.start;
         let ropd = opds.start + 1;
@@ -166,7 +157,7 @@ impl<'a> ContractSheetBuilder<'a> {
             BinaryOpr::Assign(opr) => {
                 throw!(
                     format!("mutation not allowed in lazy functional context"),
-                    self.arena[raw_expr_idx].range
+                    self.arena[idx].range
                 )
             }
         }
@@ -182,13 +173,12 @@ impl<'a> ContractSheetBuilder<'a> {
         todo!()
     }
 
-    fn infer_lazy_suffix(
+    fn lazy_suffix(
         &mut self,
+        raw_expr_idx: RawExprIdx,
         opr: SuffixOpr,
         opd: RawExprIdx,
         contract: LazyContract,
-
-        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
             SuffixOpr::Incr | SuffixOpr::Decr => throw!(
@@ -202,7 +192,7 @@ impl<'a> ContractSheetBuilder<'a> {
         }
     }
 
-    fn infer_lazy_field_access(
+    fn infer_lazy_field(
         &mut self,
         field_ident: RangedCustomIdentifier,
         opd: RawExprIdx,
@@ -222,52 +212,51 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_lazy_list_opn(
         &mut self,
+        idx: RawExprIdx,
         opr: &ListOpr,
         opds: &RawExprRange,
         contract: LazyContract,
-
-        range: TextRange,
-        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
             ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => {
-                self.infer_lazy_new_vec_from_list(opds, contract, range, raw_expr_idx)
-            }
+            ListOpr::NewVec => self.infer_lazy_new_vec_from_list(idx, opds.clone(), contract),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_lazy_call(opds, contract, range, raw_expr_idx),
-            ListOpr::Index => self.infer_lazy_element_access(opds, contract, raw_expr_idx),
+            ListOpr::Call => self.infer_lazy_call(idx, opds, contract),
+            ListOpr::Index => self.infer_lazy_element_access(opds, contract, idx),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
             ListOpr::MethodCall { ranged_ident, .. } => self.lazy_method_call(
+                idx,
                 opds.start,
                 *ranged_ident,
                 (opds.start + 1)..(opds.end),
                 contract,
-                raw_expr_idx,
             ),
         }
     }
 
     fn infer_lazy_new_vec_from_list(
         &mut self,
-        total_opds: &RawExprRange,
+        idx: RawExprIdx,
+        elements: RawExprRange,
         contract: LazyContract,
-
-        range: TextRange,
-        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        p!(contract);
-        todo!()
+        let element_ty = self.raw_expr_ty(elements.start)?;
+        let element_contract = match self.db.is_copyable(element_ty)? {
+            true => LazyContract::Pure,
+            false => LazyContract::Move,
+        };
+        for element in elements {
+            self.infer_lazy_expr(element, element_contract)
+        }
+        Ok(())
     }
 
     fn infer_lazy_call(
         &mut self,
+        raw_expr_idx: RawExprIdx,
         total_opds: &RawExprRange,
         contract: LazyContract,
-
-        range: TextRange,
-        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
         let call_expr = &self.arena[total_opds.start];
         let call_decl = match call_expr.variant {
@@ -293,13 +282,13 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn lazy_method_call(
         &mut self,
+        idx: RawExprIdx,
         this: RawExprIdx,
         ranged_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
         contract: LazyContract,
-        raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        let method_decl = self.method_decl(raw_expr_idx)?;
+        let method_decl = self.method_decl(idx)?;
         let this_contract = LazyContract::parameter_lazy_contract(
             method_decl.this_liason,
             method_decl.output.liason,

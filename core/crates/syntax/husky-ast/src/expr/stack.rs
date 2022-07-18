@@ -340,7 +340,7 @@ impl<'a> ExprStack<'a> {
     fn synthesize_field_access(&mut self, field_ident: RangedCustomIdentifier, end: TextPosition) {
         let range = (self.exprs.last().unwrap().range.start..end).into();
         self.synthesize_opr(
-            RawOpnVariant::FieldAccess(field_ident),
+            RawOpnVariant::Field(field_ident),
             Default::default(),
             1,
             range,

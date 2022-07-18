@@ -151,7 +151,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawOpnVariant::List(opr) => {
                 self.list_opn_ty_result(opr, opds, arena, range, raw_expr_idx)
             }
-            RawOpnVariant::FieldAccess(field_ident) => {
+            RawOpnVariant::Field(field_ident) => {
                 self.infer_field_access(*field_ident, opds.start, arena, range)
             }
         }

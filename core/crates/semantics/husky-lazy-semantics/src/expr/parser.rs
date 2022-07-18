@@ -164,7 +164,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     raw_expr_idx,
                 ),
             },
-            RawOpnVariant::FieldAccess(field_ident) => {
+            RawOpnVariant::Field(field_ident) => {
                 self.parse_field_access(*field_ident, opds.start, raw_expr_idx)
             }
         }

@@ -283,7 +283,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.lazy_suffix(arena, raw_expr_idx, *suffix_opr, opds)
             }
             RawOpnVariant::List(list_opr) => self.lazy_list(arena, raw_expr_idx, list_opr, opds),
-            RawOpnVariant::FieldAccess(field_ident) => {
+            RawOpnVariant::Field(field_ident) => {
                 self.lazy_field_access(arena, raw_expr_idx, *field_ident, opds)
             }
         }
@@ -355,27 +355,34 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn lazy_list(
         &mut self,
         arena: &RawExprArena,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
         list_opr: &ListOpr,
         opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
         match list_opr {
             ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => todo!(),
+            ListOpr::NewVec => self.lazy_new_vec_from_list(arena, idx, opds),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.lazy_call(arena, raw_expr_idx, opds),
-            ListOpr::Index | ListOpr::ModuloIndex => {
-                self.lazy_element_access(arena, raw_expr_idx, opds)
-            }
+            ListOpr::Call => self.lazy_call(arena, idx, opds),
+            ListOpr::Index | ListOpr::ModuloIndex => self.lazy_element_access(arena, idx, opds),
             ListOpr::StructInit => todo!(),
             ListOpr::MethodCall { ranged_ident, .. } => self.lazy_method_call(
                 arena,
                 opds.start,
                 *ranged_ident,
                 (opds.start + 1)..opds.end,
-                raw_expr_idx,
+                idx,
             ),
         }
+    }
+
+    fn lazy_new_vec_from_list(
+        &mut self,
+        arena: &RawExprArena,
+        raw_expr_idx: RawExprIdx,
+        total_opds: RawExprRange,
+    ) -> InferResult<LazyValueQualifiedTy> {
+        todo!()
     }
 
     fn lazy_call(

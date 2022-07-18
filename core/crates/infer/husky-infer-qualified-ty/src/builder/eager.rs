@@ -343,7 +343,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.eager_suffix(arena, raw_expr_idx, *suffix_opr, opds)
             }
             RawOpnVariant::List(list_opr) => self.eager_list(arena, raw_expr_idx, list_opr, opds),
-            RawOpnVariant::FieldAccess(field_ident) => {
+            RawOpnVariant::Field(field_ident) => {
                 self.eager_field_access(arena, raw_expr_idx, *field_ident, opds)
             }
         }
