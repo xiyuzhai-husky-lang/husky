@@ -15,6 +15,7 @@ use crate::*;
 
 pub(crate) struct QualifiedTySheetBuilder<'a> {
     db: &'a dyn InferQualifiedTyQueryGroup,
+    arena: &'a RawExprArena,
     contract_sheet: Arc<ContractSheet>,
     entity_route_sheet: Arc<EntityRouteSheet>,
     qualified_ty_sheet: QualifiedTySheet,
@@ -24,11 +25,13 @@ pub(crate) struct QualifiedTySheetBuilder<'a> {
 impl<'a> QualifiedTySheetBuilder<'a> {
     pub(super) fn new(
         db: &'a dyn InferQualifiedTyQueryGroup,
+        arena: &'a RawExprArena,
         file: FilePtr,
     ) -> EntitySyntaxResult<Self> {
         let contract_sheet = db.contract_sheet(file)?;
         Ok(Self {
             db,
+            arena,
             entity_route_sheet: contract_sheet.entity_route_sheet.clone(),
             qualified_ty_sheet: QualifiedTySheet::new(contract_sheet.clone()),
             contract_sheet,
@@ -72,7 +75,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         self.infer_ast(children, arena)
                     }
                     AstVariant::MainDefnHead => self.infer_lazy_call_form(
-                        &arena,
                         &[],
                         children,
                         self.db.eval_output_ty(self.main_file).ok(),
@@ -97,13 +99,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         Some(output_ty.route),
                         output_liason,
                     ),
-                    AstVariant::Visual => self.infer_lazy_call_form(
-                        &arena,
-                        &[],
-                        children,
-                        None,
-                        OutputLiason::Transfer,
-                    ),
+                    AstVariant::Visual => {
+                        self.infer_lazy_call_form(&[], children, None, OutputLiason::Transfer)
+                    }
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
                         field_ast_kind: field_kind,
@@ -125,7 +123,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             paradigm: Paradigm::LazyFunctional,
                         }
                         | FieldAstKind::RecordDerived => self.infer_lazy_call_form(
-                            &arena,
                             &[],
                             children,
                             Some(ty.route),
@@ -136,7 +133,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     AstVariant::Stmt(_) => (),
                     AstVariant::FeatureDefnHead { paradigm, ty, .. } => match paradigm {
                         Paradigm::LazyFunctional => self.infer_lazy_call_form(
-                            &arena,
                             &[],
                             children,
                             Some(ty.route),

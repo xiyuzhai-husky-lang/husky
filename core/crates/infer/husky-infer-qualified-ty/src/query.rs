@@ -14,7 +14,8 @@ fn qualified_ty_sheet(
     db: &dyn InferQualifiedTyQueryGroup,
     file: FilePtr,
 ) -> EntitySyntaxResultArc<QualifiedTySheet> {
-    let mut builder = QualifiedTySheetBuilder::new(db, file)?;
+    let ast_text = db.ast_text(file)?;
+    let mut builder = QualifiedTySheetBuilder::new(db, &ast_text.arena, file)?;
     builder.infer_all();
     Ok(builder.finish())
 }
