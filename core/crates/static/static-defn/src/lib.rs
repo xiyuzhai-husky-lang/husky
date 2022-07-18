@@ -46,10 +46,16 @@ pub struct EntityStaticDefn {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+pub enum StaticVariadicTemplateDefn {
+    None,
+}
+
+#[derive(Debug, PartialEq, Eq)]
 pub enum EntityStaticDefnVariant {
     Function {
         spatial_parameters: &'static [StaticSpatialParameter],
         parameters: &'static [StaticParameter],
+        variadic_template: StaticVariadicTemplateDefn,
         output_ty: &'static str,
         output_liason: OutputLiason,
         linkage: __Linkage,

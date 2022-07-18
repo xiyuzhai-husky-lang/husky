@@ -1,9 +1,10 @@
 mod output;
 mod parameter;
+mod variadic;
 
-use husky_instantiate::InstantiationContext;
 pub use output::*;
 pub use parameter::*;
+pub use variadic::*;
 
 use defn_head::*;
 use fold::LocalStack;
@@ -12,6 +13,7 @@ use husky_atom::{
     AtomContext, AtomContextStandalone,
 };
 use husky_implement::Implementor;
+use husky_instantiate::InstantiationContext;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticParameter};
@@ -19,11 +21,12 @@ use word::IdentDict;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct FunctionDecl {
     pub route: EntityRoutePtr,
     pub spatial_parameters: IdentDict<SpatialParameter>,
     pub primary_parameters: IdentDict<ParameterDecl>,
+    pub variadic_template: VariadicTemplateDecl,
     pub keyword_parameters: IdentDict<ParameterDecl>,
     pub output: OutputDecl,
 }
@@ -44,10 +47,12 @@ impl FunctionDecl {
             keyword_parameters: self
                 .primary_parameters
                 .map(|parameter| parameter.instantiate(ctx)),
+            variadic_template: todo!(),
         })
     }
 
     pub(crate) fn from_ast(route: EntityRoutePtr, ast: &Ast) -> Arc<Self> {
+        msg_once!("variadics");
         match ast.variant {
             AstVariant::CallFormDefnHead {
                 ident,
@@ -69,6 +74,7 @@ impl FunctionDecl {
                     liason: output_liason,
                 },
                 keyword_parameters: Default::default(),
+                variadic_template: VariadicTemplateDecl::None,
             }),
             _ => todo!(),
         }
@@ -136,7 +142,8 @@ pub(crate) fn routine_decl_from_static(
             ref parameters,
             output_ty,
             output_liason,
-            linkage: ref function_defn_variant,
+            ref linkage,
+            ref variadic_template,
         } => {
             let generic_parameters = db.generic_parameters_from_static(spatial_parameters);
             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
@@ -164,6 +171,7 @@ pub(crate) fn routine_decl_from_static(
                     ty: output_ty,
                 },
                 keyword_parameters: Default::default(),
+                variadic_template: VariadicTemplateDecl::from_static(variadic_template),
             })
         }
         _ => panic!(),

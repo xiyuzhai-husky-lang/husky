@@ -290,6 +290,7 @@ impl EntityDefnVariant {
                 output_ty,
                 output_liason,
                 linkage,
+                ref variadic_template,
             } => EntityDefnVariant::Function {
                 spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                     SpatialParameter::from_static(

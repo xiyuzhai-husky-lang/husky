@@ -22,6 +22,7 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[],
+        variadic_template: StaticVariadicTemplateDefn::None,
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(
@@ -39,6 +40,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[],
+        variadic_template: StaticVariadicTemplateDefn::None,
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(
