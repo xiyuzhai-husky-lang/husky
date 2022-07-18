@@ -81,6 +81,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[],
+        variadic_template: StaticVariadicTemplateDefn::None,
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(

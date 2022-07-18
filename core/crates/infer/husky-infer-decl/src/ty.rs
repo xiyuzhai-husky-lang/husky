@@ -157,6 +157,7 @@ impl TyDecl {
                     route: ty,
                     spatial_parameters: generic_parameters.clone(),
                     primary_parameters,
+                    variadic_template: todo!(),
                     keyword_parameters,
                     output: OutputDecl {
                         ty,

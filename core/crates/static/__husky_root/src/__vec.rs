@@ -136,6 +136,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[],
+        variadic_template: StaticVariadicTemplateDefn::None,
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
         linkage: generic_routine_linkage!(generic_vec_type_call, 0).into(),
