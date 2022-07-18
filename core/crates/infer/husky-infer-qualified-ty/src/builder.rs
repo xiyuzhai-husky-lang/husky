@@ -75,7 +75,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         &arena,
                         &[],
                         children,
-                        self.db.global_output_ty(self.main_file).ok(),
+                        self.db.eval_output_ty(self.main_file).ok(),
                         OutputLiason::Transfer,
                     ),
                     AstVariant::DatasetConfigDefnHead => self.infer_eager_call_form(

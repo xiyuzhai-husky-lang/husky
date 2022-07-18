@@ -301,13 +301,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 )),
                 EntityKind::EnumLiteral => Ok(EagerValueQualifiedTy {
                     qual: EagerExprQualifier::Copyable,
-                    ty: self.raw_expr_deref_ty(raw_expr_idx)?,
+                    ty: self.raw_expr_intrinsic_ty(raw_expr_idx)?,
                 }),
                 EntityKind::Main => panic!(),
             },
             RawExprVariant::CopyableLiteral(_) => Ok(EagerValueQualifiedTy {
                 qual: EagerExprQualifier::Copyable,
-                ty: self.raw_expr_deref_ty(raw_expr_idx)?,
+                ty: self.raw_expr_intrinsic_ty(raw_expr_idx)?,
             }),
             RawExprVariant::Bracketed(expr) => {
                 derived_not_none!(self.infer_eager_expr(arena, expr))
@@ -370,7 +370,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             },
         }
         self.infer_eager_expr(arena, opds.start + 1);
-        let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
+        let ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
         Ok(EagerValueQualifiedTy::new(
             if self.db.is_copyable(ty)? {
                 EagerExprQualifier::Copyable
@@ -388,10 +388,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<EagerValueQualifiedTy> {
         self.infer_eager_expr(arena, opds.start);
-        let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
+        let ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
         Ok(EagerValueQualifiedTy::new(
             EagerExprQualifier::transitive(self.db.is_copyable(ty)?),
-            self.raw_expr_deref_ty(raw_expr_idx)?,
+            self.raw_expr_intrinsic_ty(raw_expr_idx)?,
         ))
     }
 
@@ -526,7 +526,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_eager_expr(arena, opd);
         }
-        let element_ty = self.raw_expr_deref_ty(raw_expr_idx)?;
+        let element_ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
         let element_contract = self.eager_expr_contract(raw_expr_idx)?;
         msg_once!("todo: other member liason");
         EagerValueQualifiedTy::member_eager_qualified_ty(

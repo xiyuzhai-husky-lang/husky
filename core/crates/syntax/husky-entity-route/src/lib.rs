@@ -42,7 +42,32 @@ impl TextRanged for RangedEntityRoute {
 impl std::fmt::Debug for EntityRoute {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.kind {
-            EntityRouteKind::Root { ident } => f.write_str(&ident)?,
+            EntityRouteKind::Root { ident } => match ident {
+                RootIdentifier::Vec => {
+                    f.write_str("[]");
+                    return self.spatial_arguments[0].take_entity_route().fmt(f);
+                }
+                RootIdentifier::Array => todo!(),
+                RootIdentifier::Option => {
+                    f.write_str("?");
+                    return self.spatial_arguments[0].take_entity_route().fmt(f);
+                }
+                RootIdentifier::Tuple => {
+                    f.write_str("(");
+                    for (i, spatial_argument) in self.spatial_arguments.iter().enumerate() {
+                        if i > 0 {
+                            f.write_str(", ")?
+                        }
+                        spatial_argument.take_entity_route().fmt(f)?
+                    }
+                    return f.write_str(")");
+                }
+                RootIdentifier::Ref => {
+                    f.write_str("&");
+                    return self.spatial_arguments[0].take_entity_route().fmt(f);
+                }
+                _ => f.write_str(&ident)?,
+            },
             EntityRouteKind::Package { ident, .. } => f.write_str(&ident)?,
             EntityRouteKind::Child { parent, ident } => {
                 parent.fmt(f)?;

@@ -1,7 +1,7 @@
 
 eager variable:
     line_segment_sketch  11:30..11:49  EvalRef      mnist_classifier007::line_segment_sketch::LineSegmentSketch
-    concave_components  12:9..12:27  OwnedMut     Vec<mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent>
+    concave_components  12:9..12:27  OwnedMut     []mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent
     L           13:9..13:10  Copyable     i32
     start       14:9..14:14  CopyableMut  i32
     end         15:9..15:12  CopyableMut  i32
@@ -11,9 +11,9 @@ lazy expr:
     9:9..9:22      line_segments          EvalRef std::slice::CyclicSlice<mnist_classifier007::line_segment_sketch::LineSegment>
 
 eager expr:
-    12:30..12:50   []ConcaveComponent()   Transient    Vec<mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent>
+    12:30..12:50   []ConcaveComponent()   Transient    []mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent
     13:13..13:32   line_segment_sketch    PureRef      mnist_classifier007::line_segment_sketch::LineSegmentSketch
-    13:13..13:33   line_segment_sketch.   PureRef      Vec<mnist_classifier007::line_segment_sketch::LineSegment>
+    13:13..13:33   line_segment_sketch.   PureRef      []mnist_classifier007::line_segment_sketch::LineSegment
     13:13..13:53   line_segment_sketch.line_segments.ilen()   Copyable     i32
     14:17..14:18   0                      Copyable     i32
     15:15..15:16   1                      Copyable     i32
@@ -52,12 +52,12 @@ eager expr:
     22:18..22:27   start + 1              Copyable     i32
     22:12..22:27   end > start + 1        Copyable     bool
     25:17..25:36   line_segment_sketch    EvalRef      mnist_classifier007::line_segment_sketch::LineSegmentSketch
-    25:17..25:37   line_segment_sketch.   EvalRef      Vec<mnist_classifier007::line_segment_sketch::LineSegment>
+    25:17..25:37   line_segment_sketch.   EvalRef      []mnist_classifier007::line_segment_sketch::LineSegment
     25:64..25:69   start                  Copyable     i32
     25:71..25:74   end                    Copyable     i32
     24:17..24:36   line_segment_sketch    EvalRef      mnist_classifier007::line_segment_sketch::LineSegmentSketch
     25:17..25:75   line_segment_sketch.line_segments.cyclic_slice(start, end)   Transient    std::slice::CyclicSlice<mnist_classifier007::line_segment_sketch::LineSegment>
-    23:13..23:31   concave_components     RefMut       Vec<mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent>
+    23:13..23:31   concave_components     RefMut       []mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent
     23:37..25:76   ConcaveComponent(                line_segment_sketch,                line_segment_sketch.line_segments.cyclic_slice(start, end))   Transient    mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent
     23:13..26:14   concave_components.push(ConcaveComponent(                line_segment_sketch,                line_segment_sketch.line_segments.cyclic_slice(start, end))            )   Copyable     void
     27:9..27:14    start                  RefMut       i32
@@ -68,7 +68,7 @@ eager expr:
     28:9..28:12    end                    RefMut       i32
     28:15..28:24   start + 1              Copyable     i32
     28:9..28:24    end = start + 1        Copyable     void
-    29:12..29:30   concave_components     Transient    Vec<mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent>
+    29:12..29:30   concave_components     Transient    []mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent
 
 lazy expr:
     9:9..9:22      line_segments          EvalRef std::slice::CyclicSlice<mnist_classifier007::line_segment_sketch::LineSegment>

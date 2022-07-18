@@ -174,7 +174,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<LazyValueQualifiedTy> {
         let raw_expr = &arena[raw_expr_idx];
-        let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
+        let ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
         match raw_expr.variant {
             RawExprVariant::Variable {
                 varname,
@@ -226,7 +226,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             },
             RawExprVariant::CopyableLiteral(_) => Ok(LazyValueQualifiedTy::new(
                 LazyExprQualifier::Copyable,
-                self.raw_expr_deref_ty(raw_expr_idx).unwrap(),
+                self.raw_expr_intrinsic_ty(raw_expr_idx).unwrap(),
             )),
             RawExprVariant::Bracketed(bracketed_expr) => {
                 derived_not_none!(self.infer_lazy_expr(arena, bracketed_expr))
@@ -299,7 +299,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         self.infer_lazy_expr(arena, opds.start + 1);
         Ok(LazyValueQualifiedTy::new(
             LazyExprQualifier::Transient,
-            self.raw_expr_deref_ty(raw_expr_idx)?,
+            self.raw_expr_intrinsic_ty(raw_expr_idx)?,
         ))
     }
 
@@ -312,7 +312,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         self.infer_lazy_expr(arena, opds.start);
         Ok(LazyValueQualifiedTy::new(
             LazyExprQualifier::Transient,
-            self.raw_expr_deref_ty(raw_expr_idx)?,
+            self.raw_expr_intrinsic_ty(raw_expr_idx)?,
         ))
     }
 
@@ -431,7 +431,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_lazy_expr(arena, opd);
         }
-        let element_ty = self.raw_expr_deref_ty(raw_expr_idx)?;
+        let element_ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
         let element_contract = self.lazy_expr_contract(raw_expr_idx)?;
         LazyValueQualifiedTy::member_lazy_qualified_ty(
             self.db,

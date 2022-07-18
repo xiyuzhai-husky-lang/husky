@@ -208,7 +208,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let lopd = opds.start;
         let ropd = opds.start + 1;
-        let lopd_ty = self.raw_expr_deref_ty(opds.start)?;
+        let lopd_ty = self.raw_expr_intrinsic_ty(opds.start)?;
         let is_lopd_copyable = self.db.is_copyable(lopd_ty)?;
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => {

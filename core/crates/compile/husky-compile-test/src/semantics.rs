@@ -20,7 +20,11 @@ main:
 "#
         .into(),
     );
-
+    let all_diagnostics = db.all_diagnostics();
+    if all_diagnostics.len() > 0 {
+        p!(all_diagnostics);
+        panic!("diagnostic errors")
+    }
     let main_file_id = db.intern_file("haha/main.hsk".into());
     let _pack = db.package(main_file_id).unwrap();
 }
