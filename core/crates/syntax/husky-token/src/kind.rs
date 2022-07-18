@@ -20,7 +20,7 @@ impl HuskyTokenKind {
         match self {
             HuskyTokenKind::Decorator(_) => todo!(),
             HuskyTokenKind::Keyword(_) => todo!(),
-            HuskyTokenKind::Identifier(_) => todo!(),
+            HuskyTokenKind::Identifier(_) => Some(Convexity::Convex),
             HuskyTokenKind::Special(_) => todo!(),
             HuskyTokenKind::WordOpr(_) => todo!(),
             HuskyTokenKind::PrimitiveLiteral(_) => Some(Convexity::Convex),
