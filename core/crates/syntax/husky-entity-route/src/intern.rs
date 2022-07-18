@@ -281,12 +281,16 @@ pub trait InternEntityRoute {
         })
     }
 
-    fn make_option(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+    fn option(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
         self.make_route(RootIdentifier::Option.into(), thin_vec![ty.into()])
     }
 
-    fn make_ref(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+    fn reference(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
         self.make_route(RootIdentifier::Ref.into(), thin_vec![ty.into()])
+    }
+
+    fn vec(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+        self.make_route(RootIdentifier::Vec.into(), thin_vec![ty.into()])
     }
 
     fn make_subroute(

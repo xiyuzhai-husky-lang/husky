@@ -1,7 +1,7 @@
 mod eager;
 mod lazy;
 
-use husky_ast::{AstIter, AstVariant, FieldAstKind};
+use husky_ast::{AstIter, AstVariant, FieldAstKind, RawExpr, RawExprArena};
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
@@ -12,6 +12,7 @@ use crate::*;
 
 pub struct ContractSheetBuilder<'a> {
     db: &'a dyn InferContractSalsaQueryGroup,
+    arena: &'a RawExprArena,
     contract_sheet: ContractSheet,
 }
 
@@ -28,12 +29,18 @@ impl<'a> InferEntityRoute for ContractSheetBuilder<'a> {
 impl<'a> ContractSheetBuilder<'a> {
     pub(crate) fn new(
         db: &'a dyn InferContractSalsaQueryGroup,
+        arena: &'a RawExprArena,
         file: FilePtr,
     ) -> EntitySyntaxResult<Self> {
         Ok(Self {
             db,
+            arena,
             contract_sheet: ContractSheet::new(db.entity_route_sheet(file)?),
         })
+    }
+
+    fn expr(&self, raw_expr_idx: RawExprIdx) -> &'a RawExpr {
+        &self.arena[raw_expr_idx]
     }
 
     pub(crate) fn infer_all(&mut self, ast_iter: AstIter) {

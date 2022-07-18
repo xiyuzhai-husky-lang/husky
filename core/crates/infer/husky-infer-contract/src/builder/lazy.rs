@@ -246,7 +246,9 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         match opr {
             ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => todo!(),
+            ListOpr::NewVec => {
+                self.infer_lazy_new_vec_from_list(opds, contract, arena, range, raw_expr_idx)
+            }
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.infer_lazy_call(opds, contract, arena, range, raw_expr_idx),
             ListOpr::Index => self.infer_lazy_element_access(arena, opds, contract, raw_expr_idx),
@@ -263,6 +265,18 @@ impl<'a> ContractSheetBuilder<'a> {
         }
     }
 
+    fn infer_lazy_new_vec_from_list(
+        &mut self,
+        total_opds: &RawExprRange,
+        contract: LazyContract,
+        arena: &RawExprArena,
+        range: TextRange,
+        raw_expr_idx: RawExprIdx,
+    ) -> InferResult<()> {
+        p!(contract);
+        todo!()
+    }
+
     fn infer_lazy_call(
         &mut self,
         total_opds: &RawExprRange,
@@ -271,7 +285,7 @@ impl<'a> ContractSheetBuilder<'a> {
         range: TextRange,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        let call_expr = &arena[total_opds.start];
+        let call_expr = self.expr(total_opds.start);
         let call_decl = match call_expr.variant {
             RawExprVariant::Entity { route, .. } => {
                 derived_unwrap!(self.db.function_decl(route))
@@ -286,7 +300,7 @@ impl<'a> ContractSheetBuilder<'a> {
             let argument_contract = LazyContract::parameter_lazy_contract(
                 parameter.liason,
                 call_decl.output.liason,
-                arena[argument].range,
+                self.expr(argument).range,
             )?;
             self.infer_lazy_expr(argument, argument_contract, arena)
         }
