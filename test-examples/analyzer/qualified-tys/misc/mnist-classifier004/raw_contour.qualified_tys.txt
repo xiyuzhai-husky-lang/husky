@@ -25,12 +25,12 @@ eager variable:
     inward_direction  76:5..76:21  Copyable     mnist_classifier004::raw_contour::Direction
     pixel_pair_above  78:5..78:21  Copyable     b32
     pixel_pair_below  79:5..79:21  Copyable     b32
-    points      123:31..123:37  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
+    points      123:31..123:37  PureRef      []mnist_classifier004::geom2d::Point2d
     N           124:5..124:6  Copyable     i32
     p0          125:5..125:7  PureRef      mnist_classifier004::geom2d::Point2d
     p2          126:5..126:7  PureRef      mnist_classifier004::geom2d::Point2d
     cc          132:24..132:26  PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
-    result      133:9..133:15  OwnedMut     Vec<mnist_classifier004::raw_contour::RawContour>
+    result      133:9..133:15  OwnedMut     []mnist_classifier004::raw_contour::RawContour
     boundary_unsearched  134:9..134:28  OwnedMut     domains::ml::datasets::cv::mnist::BinaryGrid28
     i           135:14..135:15  Copyable     i32
     r_ur        136:13..136:17  Copyable     b32
@@ -38,7 +38,7 @@ eager variable:
     r_ul        138:13..138:17  Copyable     b32
     r_dl        139:13..139:17  Copyable     b32
     k           141:14..141:15  Copyable     i32
-    contour     143:17..143:24  OwnedMut     Vec<mnist_classifier004::geom2d::Point2d>
+    contour     143:17..143:24  OwnedMut     []mnist_classifier004::geom2d::Point2d
     i           144:17..144:18  CopyableMut  i32
     j           145:17..145:18  CopyableMut  i32
     row_above   147:17..147:26  CopyableMut  b32
@@ -58,22 +58,22 @@ eager variable:
 
 lazy expr:
     15:26..15:30   this                   EvalRef mnist_classifier004::raw_contour::RawContour
-    15:26..15:31   this.                  EvalRef Vec<mnist_classifier004::geom2d::Point2d>
+    15:26..15:31   this.                  EvalRef []mnist_classifier004::geom2d::Point2d
 
 eager expr:
     9:13..9:17     this                   PureRef      mnist_classifier004::raw_contour::RawContour
-    9:13..9:18     this.                  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
+    9:13..9:18     this.                  PureRef      []mnist_classifier004::geom2d::Point2d
     9:13..9:31     this.points.ilen()     Copyable     i32
     10:20..10:24   this                   PureRef      mnist_classifier004::raw_contour::RawContour
     10:32..10:37   start                  Copyable     i32
     10:38..10:39   N                      Copyable     i32
-    10:20..10:25   this.                  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
+    10:20..10:25   this.                  PureRef      []mnist_classifier004::geom2d::Point2d
     10:32..10:39   start%N                Copyable     i32
     10:20..10:40   this.points[start%N]   PureRef      mnist_classifier004::geom2d::Point2d
     11:18..11:22   this                   PureRef      mnist_classifier004::raw_contour::RawContour
     11:30..11:33   end                    Copyable     i32
     11:34..11:35   N                      Copyable     i32
-    11:18..11:23   this.                  PureRef      Vec<mnist_classifier004::geom2d::Point2d>
+    11:18..11:23   this.                  PureRef      []mnist_classifier004::geom2d::Point2d
     11:30..11:35   end%N                  Copyable     i32
     11:18..11:36   this.points[end%N]     PureRef      mnist_classifier004::geom2d::Point2d
     12:9..12:17    ct_start               PureRef      mnist_classifier004::geom2d::Point2d
@@ -162,16 +162,16 @@ eager expr:
     112:19..112:35 pixel_pair_below       Copyable     b32
     114:21..114:37 Direction::RIGHT       Copyable     mnist_classifier004::raw_contour::Direction
     116:21..116:36 Direction::DOWN        Copyable     mnist_classifier004::raw_contour::Direction
-    124:9..124:15  points                 PureRef      Vec<mnist_classifier004::geom2d::Point2d>
+    124:9..124:15  points                 PureRef      []mnist_classifier004::geom2d::Point2d
     124:9..124:22  points.ilen()          Copyable     i32
     125:17..125:18 N                      Copyable     i32
     125:19..125:20 2                      Copyable     i32
-    125:10..125:16 points                 PureRef      Vec<mnist_classifier004::geom2d::Point2d>
+    125:10..125:16 points                 PureRef      []mnist_classifier004::geom2d::Point2d
     125:17..125:20 N-2                    Copyable     i32
     125:10..125:21 points[N-2]            PureRef      mnist_classifier004::geom2d::Point2d
     126:17..126:18 N                      Copyable     i32
     126:19..126:20 1                      Copyable     i32
-    126:10..126:16 points                 PureRef      Vec<mnist_classifier004::geom2d::Point2d>
+    126:10..126:16 points                 PureRef      []mnist_classifier004::geom2d::Point2d
     126:17..126:20 N-1                    Copyable     i32
     126:10..126:21 points[N-1]            PureRef      mnist_classifier004::geom2d::Point2d
     128:10..128:12 p0                     PureRef      mnist_classifier004::geom2d::Point2d
@@ -191,7 +191,7 @@ eager expr:
     128:10..128:28 p0.x + p2.x) / 2.0     Copyable     f32
     129:10..129:28 p0.y + p2.y) / 2.0     Copyable     f32
     127:5..130:6   Point2d(        (p0.x + p2.x) / 2.0,         (p0.y + p2.y) / 2.0,    )   Transient    mnist_classifier004::geom2d::Point2d
-    133:18..133:32 []RawContour()         Transient    Vec<mnist_classifier004::raw_contour::RawContour>
+    133:18..133:32 []RawContour()         Transient    []mnist_classifier004::raw_contour::RawContour
     134:31..134:45 BinaryGrid28()         Transient    domains::ml::datasets::cv::mnist::BinaryGrid28
     135:9..135:10  1                      Copyable     i32
     135:19..135:21 29                     Copyable     i32
@@ -237,7 +237,7 @@ eager expr:
     142:15..142:34 boundary_unsearched    PureRef      domains::ml::datasets::cv::mnist::BinaryGrid28
     142:35..142:36 k                      Copyable     i32
     142:15..142:37 boundary_unsearched[k]   Copyable     b32
-    143:27..143:38 []Point2d()            Transient    Vec<mnist_classifier004::geom2d::Point2d>
+    143:27..143:38 []Point2d()            Transient    []mnist_classifier004::geom2d::Point2d
     144:21..144:22 k                      Copyable     i32
     145:21..145:40 boundary_unsearched    PureRef      domains::ml::datasets::cv::mnist::BinaryGrid28
     145:41..145:42 k                      Copyable     i32
@@ -319,14 +319,14 @@ eager expr:
     171:24..171:124prev_angle_change1 == -1 and prev_angle_change2 == -1 and current_streak == 1 and prev_streak1 != -1   Copyable     bool
     171:129..171:146prev_streak2 == 1      Copyable     bool
     171:24..171:146prev_angle_change1 == -1 and prev_angle_change2 == -1 and current_streak == 1 and prev_streak1 != -1 and prev_streak2 == 1   Copyable     bool
-    172:25..172:32 contour                RefMut       Vec<mnist_classifier004::geom2d::Point2d>
-    172:68..172:75 contour                PureRef      Vec<mnist_classifier004::geom2d::Point2d>
+    172:25..172:32 contour                RefMut       []mnist_classifier004::geom2d::Point2d
+    172:68..172:75 contour                PureRef      []mnist_classifier004::geom2d::Point2d
     172:25..172:40 contour.lastx()        RefMut       mnist_classifier004::geom2d::Point2d
     172:43..172:76 get_concave_middle_point(contour)   Transient    mnist_classifier004::geom2d::Point2d
     172:25..172:76 contour.lastx() = get_concave_middle_point(contour)   Copyable     void
     173:62..173:63 i                      Copyable     i32
     173:65..173:66 j                      Copyable     i32
-    173:25..173:32 contour                RefMut       Vec<mnist_classifier004::geom2d::Point2d>
+    173:25..173:32 contour                RefMut       []mnist_classifier004::geom2d::Point2d
     173:38..173:67 Point2d::from_i_shift28(i, j)   Transient    mnist_classifier004::geom2d::Point2d
     173:25..173:68 contour.push(Point2d::from_i_shift28(i, j))   Copyable     void
     174:25..174:37 prev_streak2           RefMut       i32
@@ -346,7 +346,7 @@ eager expr:
     176:26..176:71 prev_angle_change1 == -1 and prev_streak1 > 0   Copyable     bool
     176:76..176:93 prev_streak1 == 1      Copyable     bool
     176:26..176:93 prev_angle_change1 == -1 and prev_streak1 > 0 and prev_streak1 == 1   Copyable     bool
-    177:25..177:32 contour                RefMut       Vec<mnist_classifier004::geom2d::Point2d>
+    177:25..177:32 contour                RefMut       []mnist_classifier004::geom2d::Point2d
     177:67..177:68 i                      Copyable     i32
     177:70..177:71 j                      Copyable     i32
     177:25..177:40 contour.lastx()        RefMut       mnist_classifier004::geom2d::Point2d
@@ -373,7 +373,7 @@ eager expr:
     180:26..180:95 prev_angle_change1 == -1 and prev_streak1 > 0 and current_streak == 1   Copyable     bool
     180:100..180:116prev_streak1 > 1       Copyable     bool
     180:26..180:116prev_angle_change1 == -1 and prev_streak1 > 0 and current_streak == 1 and prev_streak1 > 1   Copyable     bool
-    181:25..181:32 contour                RefMut       Vec<mnist_classifier004::geom2d::Point2d>
+    181:25..181:32 contour                RefMut       []mnist_classifier004::geom2d::Point2d
     181:67..181:68 i                      Copyable     i32
     181:70..181:71 j                      Copyable     i32
     181:25..181:40 contour.lastx()        RefMut       mnist_classifier004::geom2d::Point2d
@@ -387,7 +387,7 @@ eager expr:
     183:25..183:42 prev_streak1 = -1      Copyable     void
     185:62..185:63 i                      Copyable     i32
     185:65..185:66 j                      Copyable     i32
-    185:25..185:32 contour                RefMut       Vec<mnist_classifier004::geom2d::Point2d>
+    185:25..185:32 contour                RefMut       []mnist_classifier004::geom2d::Point2d
     185:38..185:67 Point2d::from_i_shift28(i, j)   Transient    mnist_classifier004::geom2d::Point2d
     185:25..185:68 contour.push(Point2d::from_i_shift28(i, j))   Copyable     void
     186:25..186:37 prev_streak2           RefMut       i32
@@ -463,14 +463,14 @@ eager expr:
     213:16..213:64 prev_angle_change1 == -1 and current_streak == 1   Copyable     bool
     213:69..213:85 prev_streak1 > 0       Copyable     bool
     213:16..213:85 prev_angle_change1 == -1 and current_streak == 1 and prev_streak1 > 0   Copyable     bool
-    214:17..214:24 contour                RefMut       Vec<mnist_classifier004::geom2d::Point2d>
+    214:17..214:24 contour                RefMut       []mnist_classifier004::geom2d::Point2d
     214:17..214:31 contour.popx()         Transient    mnist_classifier004::geom2d::Point2d
-    215:36..215:43 contour                Transient    Vec<mnist_classifier004::geom2d::Point2d>
-    215:13..215:19 result                 RefMut       Vec<mnist_classifier004::raw_contour::RawContour>
+    215:36..215:43 contour                Transient    []mnist_classifier004::geom2d::Point2d
+    215:13..215:19 result                 RefMut       []mnist_classifier004::raw_contour::RawContour
     215:25..215:44 RawContour(contour)    Transient    mnist_classifier004::raw_contour::RawContour
     215:13..215:45 result.push(RawContour(contour))   Copyable     void
-    216:12..216:18 result                 Transient    Vec<mnist_classifier004::raw_contour::RawContour>
+    216:12..216:18 result                 Transient    []mnist_classifier004::raw_contour::RawContour
 
 lazy expr:
     15:26..15:30   this                   EvalRef mnist_classifier004::raw_contour::RawContour
-    15:26..15:31   this.                  EvalRef Vec<mnist_classifier004::geom2d::Point2d>
+    15:26..15:31   this.                  EvalRef []mnist_classifier004::geom2d::Point2d

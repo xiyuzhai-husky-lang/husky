@@ -80,6 +80,15 @@ impl EntityRoutePtr {
         format!("{:?}", self)
     }
 
+    pub fn intrinsic(self) -> EntityRoutePtr {
+        match self.kind {
+            EntityRouteKind::Root {
+                ident: RootIdentifier::Ref | RootIdentifier::Option,
+            } => self.spatial_arguments[0].take_entity_route().intrinsic(),
+            _ => self,
+        }
+    }
+
     pub fn deref_route(self) -> EntityRoutePtr {
         match self.kind {
             EntityRouteKind::Root {
@@ -270,6 +279,14 @@ pub trait InternEntityRoute {
             temporal_arguments: Default::default(),
             spatial_arguments: generics,
         })
+    }
+
+    fn make_option(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+        self.make_route(RootIdentifier::Option.into(), thin_vec![ty.into()])
+    }
+
+    fn make_ref(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+        self.make_route(RootIdentifier::Ref.into(), thin_vec![ty.into()])
     }
 
     fn make_subroute(

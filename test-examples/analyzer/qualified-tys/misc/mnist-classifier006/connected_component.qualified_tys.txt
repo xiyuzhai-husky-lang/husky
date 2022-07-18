@@ -5,7 +5,7 @@ eager variable:
     y           17:9..17:10  CopyableMut  b32
     z           18:9..18:10  CopyableMut  b32
     img         24:32..24:35  PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
-    result      25:9..25:15  OwnedMut     Vec<mnist_classifier006::connected_component::ConnectedComponent>
+    result      25:9..25:15  OwnedMut     []mnist_classifier006::connected_component::ConnectedComponent
     unsearched  26:9..26:19  OwnedMut     domains::ml::datasets::cv::mnist::BinaryImage28
     j           27:9..27:10  Copyable     i32
     a           29:17..29:18  Copyable     b32
@@ -22,11 +22,11 @@ eager variable:
 lazy expr:
     11:9..11:13    mask                   EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     14:31..14:36   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    14:5..14:37    find_connected_components(input)   Transient Vec<mnist_classifier006::connected_component::ConnectedComponent>
+    14:5..14:37    find_connected_components(input)   Transient []mnist_classifier006::connected_component::ConnectedComponent
 
 eager expr:
     8:27..8:31     this                   EvalRef      mnist_classifier006::connected_component::ConnectedComponent
-    8:9..8:32      find_raw_contours(this)   Transient    Vec<mnist_classifier006::raw_contour::RawContour>
+    8:9..8:32      find_raw_contours(this)   Transient    []mnist_classifier006::raw_contour::RawContour
     17:23..17:24   x                      Copyable     b32
     17:28..17:29   1                      Copyable     i32
     17:23..17:29   x << 1                 Copyable     b32
@@ -78,7 +78,7 @@ eager expr:
     21:13..21:42   a & (y | (y << 1) | (y >> 1))   Copyable     b32
     21:9..21:42    z = a & (y | (y << 1) | (y >> 1))   Copyable     void
     22:12..22:13   y                      Copyable     b32
-    25:18..25:40   []ConnectedComponent()   Transient    Vec<mnist_classifier006::connected_component::ConnectedComponent>
+    25:18..25:40   []ConnectedComponent()   Transient    []mnist_classifier006::connected_component::ConnectedComponent
     26:22..26:25   img                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     26:22..26:33   img.clone()            Transient    domains::ml::datasets::cv::mnist::BinaryImage28
     27:13..27:15   30                     Copyable     i32
@@ -179,12 +179,12 @@ eager expr:
     52:35..52:44   ~mask[k])              Copyable     b32
     52:17..52:44   unsearched[k] &= (~mask[k])   Copyable     void
     53:44..53:48   mask                   Transient    domains::ml::datasets::cv::mnist::BinaryImage28
-    53:13..53:19   result                 RefMut       Vec<mnist_classifier006::connected_component::ConnectedComponent>
+    53:13..53:19   result                 RefMut       []mnist_classifier006::connected_component::ConnectedComponent
     53:25..53:49   ConnectedComponent(mask)   Transient    mnist_classifier006::connected_component::ConnectedComponent
     53:13..53:50   result.push(ConnectedComponent(mask))   Copyable     void
-    54:12..54:18   result                 Transient    Vec<mnist_classifier006::connected_component::ConnectedComponent>
+    54:12..54:18   result                 Transient    []mnist_classifier006::connected_component::ConnectedComponent
 
 lazy expr:
     11:9..11:13    mask                   EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     14:31..14:36   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    14:5..14:37    find_connected_components(input)   Transient Vec<mnist_classifier006::connected_component::ConnectedComponent>
+    14:5..14:37    find_connected_components(input)   Transient []mnist_classifier006::connected_component::ConnectedComponent

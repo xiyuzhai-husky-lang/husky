@@ -28,7 +28,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             Ok(_) => (),
             Err(e) => global_errors.push(e),
         }
-        match db.global_output_ty(main_file) {
+        match db.eval_output_ty(main_file) {
             Ok(_) => (),
             Err(e) => global_errors.push(e),
         }
@@ -75,7 +75,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         self.infer_all(children)
                     }
                     AstVariant::MainDefnHead => {
-                        let opt_output_ty = self.db.global_output_ty(self.main_file).ok();
+                        let opt_output_ty = self.db.eval_output_ty(self.main_file).ok();
                         self.infer_function(&[], opt_output_ty, children, &arena)
                     }
                     AstVariant::DatasetConfigDefnHead => self.infer_function(

@@ -5,7 +5,7 @@ eager variable:
     y           8:9..8:10  Copyable     b32
     z           9:9..9:10  CopyableMut  b32
     img         15:32..15:35  PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
-    result      16:9..16:15  OwnedMut     Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    result      16:9..16:15  OwnedMut     []domains::ml::datasets::cv::mnist::BinaryImage28
     unsearched  17:9..17:19  OwnedMut     domains::ml::datasets::cv::mnist::BinaryImage28
     j           18:9..18:10  Copyable     i32
     a           20:17..20:18  Copyable     b32
@@ -23,8 +23,8 @@ lazy expr:
     34:11..34:13   12                     Copyable i32
     34:9..34:14    a[12]                  Copyable b32
     35:35..35:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    35:9..35:41    find_connected_components(input)   Transient Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
-    36:5..36:6     d                      PureRef Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    35:9..35:41    find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
+    36:5..36:6     d                      PureRef []domains::ml::datasets::cv::mnist::BinaryImage28
     36:5..36:13    d.ilen()               Copyable i32
 
 eager expr:
@@ -79,7 +79,7 @@ eager expr:
     12:13..12:42   a & (y | (y << 1) | (y >> 1))   Copyable     b32
     12:9..12:42    z = a & (y | (y << 1) | (y >> 1))   Copyable     void
     13:12..13:13   y                      Copyable     b32
-    16:18..16:35   []BinaryImage28()      Transient    Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    16:18..16:35   []BinaryImage28()      Transient    []domains::ml::datasets::cv::mnist::BinaryImage28
     17:22..17:25   img                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     17:22..17:33   img.clone()            Transient    domains::ml::datasets::cv::mnist::BinaryImage28
     18:13..18:15   30                     Copyable     i32
@@ -113,10 +113,10 @@ eager expr:
     26:17..26:30   unsearched[k]          RefMut       b32
     26:35..26:44   ~mask[k])              Copyable     b32
     26:17..26:44   unsearched[k] &= (~mask[k])   Copyable     void
-    27:13..27:19   result                 RefMut       Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    27:13..27:19   result                 RefMut       []domains::ml::datasets::cv::mnist::BinaryImage28
     27:25..27:29   mask                   Transient    domains::ml::datasets::cv::mnist::BinaryImage28
     27:13..27:30   result.push(mask)      Copyable     void
-    28:12..28:18   result                 Transient    Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    28:12..28:18   result                 Transient    []domains::ml::datasets::cv::mnist::BinaryImage28
 
 lazy expr:
     32:9..32:14    input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
@@ -127,6 +127,6 @@ lazy expr:
     34:11..34:13   12                     Copyable i32
     34:9..34:14    a[12]                  Copyable b32
     35:35..35:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    35:9..35:41    find_connected_components(input)   Transient Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
-    36:5..36:6     d                      PureRef Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    35:9..35:41    find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
+    36:5..36:6     d                      PureRef []domains::ml::datasets::cv::mnist::BinaryImage28
     36:5..36:13    d.ilen()               Copyable i32

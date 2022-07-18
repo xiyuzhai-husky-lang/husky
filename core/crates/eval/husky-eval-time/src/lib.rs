@@ -78,12 +78,10 @@ impl HuskyEvalTime {
 
     fn init(&mut self) {
         let compile_time = &self.compile_time;
-        for module in compile_time.all_modules() {
-            let diagnostics_reserve = compile_time.diagnostics_reserve(module);
-            if diagnostics_reserve.len() > 0 {
-                p!(diagnostics_reserve.data());
-                panic!("diagnostic errors")
-            }
+        let all_diagnostics = compile_time.all_diagnostics();
+        if all_diagnostics.len() > 0 {
+            p!(all_diagnostics);
+            panic!("diagnostic errors")
         }
         let package = match compile_time.package(self.package_main) {
             Ok(package) => package,

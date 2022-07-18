@@ -1,6 +1,6 @@
 use arena::map::ArenaMap;
 use fold::FoldableStorage;
-use husky_ast::RawExprMap;
+use husky_ast::{RawExprArena, RawExprMap};
 use husky_infer_entity_route::EntityRouteSheet;
 use infer_error::*;
 use std::{collections::HashMap, sync::Arc};
@@ -15,11 +15,15 @@ pub struct ContractSheet {
 }
 
 impl ContractSheet {
-    pub(crate) fn new(ty_sheet: Arc<EntityRouteSheet>) -> Self {
+    fn arena(&self) -> &RawExprArena {
+        &self.entity_route_sheet.ast_text.arena
+    }
+
+    pub(crate) fn new(entity_route_sheet: Arc<EntityRouteSheet>) -> Self {
         Self {
-            lazy_expr_contract_results: ArenaMap::new(&ty_sheet.ast_text.arena),
-            eager_expr_contract_results: ArenaMap::new(&ty_sheet.ast_text.arena),
-            entity_route_sheet: ty_sheet,
+            lazy_expr_contract_results: ArenaMap::new(&entity_route_sheet.ast_text.arena),
+            eager_expr_contract_results: ArenaMap::new(&entity_route_sheet.ast_text.arena),
+            entity_route_sheet,
         }
     }
 

@@ -22,14 +22,14 @@ pub trait InferEntityRoute {
     fn raw_expr_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         self.entity_route_sheet().expr_ty_result(raw_expr_idx)
     }
-    fn raw_expr_deref_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+    fn raw_expr_intrinsic_ty(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         self.entity_route_sheet()
             .expr_ty_result(raw_expr_idx)
-            .map(|ty| ty.deref_route())
+            .map(|ty| ty.intrinsic())
     }
 
     fn raw_expr_deref_ty_decl(&self, raw_expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
-        let ty = self.raw_expr_deref_ty(raw_expr_idx)?;
+        let ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
         Ok(derived_unwrap!(self.decl_db().ty_decl(ty)))
     }
 

@@ -23,8 +23,8 @@ fn is_implicitly_castable(
     dst_ty: EntityRoutePtr,
 ) -> bool {
     // deref
-    let src_ty = src_ty.deref_route();
-    let dst_ty = dst_ty.deref_route();
+    let src_ty = src_ty.intrinsic();
+    let dst_ty = dst_ty.intrinsic();
     if src_ty == dst_ty {
         return true;
     }

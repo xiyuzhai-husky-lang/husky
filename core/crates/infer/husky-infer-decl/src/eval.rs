@@ -1,5 +1,6 @@
 use husky_file::FilePtr;
 use husky_text::{BindTextRangeInto, TextRange};
+use thin_vec::thin_vec;
 use vm::*;
 use word::RootIdentifier;
 
@@ -48,7 +49,7 @@ fn eval_input_ty_from_ast(
     }
 }
 
-fn global_output_ty_from_ast(
+fn eval_output_ty_from_ast(
     db: &dyn DeclQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
@@ -77,7 +78,9 @@ fn global_output_ty_from_ast(
                                 ident: RootIdentifier::DatasetType,
                             } => match dataset_type.spatial_arguments[1] {
                                 SpatialArgument::Const(_) => todo!(),
-                                SpatialArgument::EntityRoute(output_ty) => Ok(output_ty),
+                                SpatialArgument::EntityRoute(label_ty) => {
+                                    Ok(db.make_option(label_ty.into()))
+                                }
                             },
                             _ => panic!(),
                         }
@@ -118,7 +121,7 @@ pub(crate) fn eval_input_ty(
     )
 }
 
-pub(crate) fn global_output_ty(
+pub(crate) fn eval_output_ty(
     db: &dyn DeclQueryGroup,
     main_file: FilePtr,
 ) -> InferResult<EntityRoutePtr> {
@@ -126,7 +129,7 @@ pub(crate) fn global_output_ty(
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.variant {
             AstVariant::DatasetConfigDefnHead => {
-                return global_output_ty_from_ast(
+                return eval_output_ty_from_ast(
                     db,
                     &ast_text.arena,
                     derived_not_none!(item.opt_children)?

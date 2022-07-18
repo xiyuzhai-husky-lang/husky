@@ -417,7 +417,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         opds: RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
-        let element_ty = self.raw_expr_deref_ty(raw_expr_idx).unwrap();
+        let element_ty = self.raw_expr_intrinsic_ty(raw_expr_idx).unwrap();
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::ElementAccess {
                 element_binding: {

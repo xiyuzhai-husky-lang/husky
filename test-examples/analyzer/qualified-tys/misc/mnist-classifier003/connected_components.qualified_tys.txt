@@ -5,7 +5,7 @@ eager variable:
     y           4:9..4:10  CopyableMut  b32
     z           5:9..5:10  CopyableMut  b32
     img         11:32..11:35  PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
-    result      12:9..12:15  OwnedMut     Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    result      12:9..12:15  OwnedMut     []domains::ml::datasets::cv::mnist::BinaryImage28
     unsearched  13:9..13:19  OwnedMut     domains::ml::datasets::cv::mnist::BinaryImage28
     j           14:9..14:10  Copyable     i32
     a           16:17..16:18  Copyable     b32
@@ -73,7 +73,7 @@ eager expr:
     8:13..8:42     a & (y | (y << 1) | (y >> 1))   Copyable     b32
     8:9..8:42      z = a & (y | (y << 1) | (y >> 1))   Copyable     void
     9:12..9:13     y                      Copyable     b32
-    12:18..12:35   []BinaryImage28()      Transient    Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    12:18..12:35   []BinaryImage28()      Transient    []domains::ml::datasets::cv::mnist::BinaryImage28
     13:22..13:25   img                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     13:22..13:33   img.clone()            Transient    domains::ml::datasets::cv::mnist::BinaryImage28
     14:13..14:15   30                     Copyable     i32
@@ -173,9 +173,9 @@ eager expr:
     39:17..39:30   unsearched[k]          RefMut       b32
     39:35..39:44   ~mask[k])              Copyable     b32
     39:17..39:44   unsearched[k] &= (~mask[k])   Copyable     void
-    40:13..40:19   result                 RefMut       Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    40:13..40:19   result                 RefMut       []domains::ml::datasets::cv::mnist::BinaryImage28
     40:25..40:29   mask                   Transient    domains::ml::datasets::cv::mnist::BinaryImage28
     40:13..40:30   result.push(mask)      Copyable     void
-    41:12..41:18   result                 Transient    Vec<domains::ml::datasets::cv::mnist::BinaryImage28>
+    41:12..41:18   result                 Transient    []domains::ml::datasets::cv::mnist::BinaryImage28
 
 lazy expr:
