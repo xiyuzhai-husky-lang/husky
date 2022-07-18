@@ -41,12 +41,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     pub(super) fn infer_all(&mut self) {
         use fold::FoldableStorage;
-        let arena = self.entity_route_sheet.ast_text.arena.clone();
         let ast_text = self.entity_route_sheet.ast_text.clone();
-        self.infer_ast(ast_text.folded_results.iter(), &arena)
+        self.infer_ast(ast_text.folded_results.iter())
     }
 
-    pub(super) fn infer_ast(&mut self, ast_iter: AstIter, arena: &RawExprArena) {
+    pub(super) fn infer_ast(&mut self, ast_iter: AstIter) {
         for item in ast_iter {
             let ast = match item.value.as_ref() {
                 Ok(ast) => ast,
@@ -60,10 +59,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     field_ast_kind: field_kind,
                 } => match field_kind {
                     FieldAstKind::StructDefault { default } => {
-                        self.infer_eager_expr(arena, default);
+                        self.infer_eager_expr(default);
                     }
                     FieldAstKind::StructDerivedEager { derivation } => {
-                        self.infer_eager_expr(arena, derivation);
+                        self.infer_eager_expr(derivation);
                     }
                     _ => (),
                 },
@@ -72,7 +71,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             if let Some(children) = item.opt_children {
                 match ast.variant {
                     AstVariant::TypeDefnHead { .. } | AstVariant::EnumVariantDefnHead { .. } => {
-                        self.infer_ast(children, arena)
+                        self.infer_ast(children)
                     }
                     AstVariant::MainDefnHead => self.infer_lazy_call_form(
                         &[],
@@ -81,7 +80,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         OutputLiason::Transfer,
                     ),
                     AstVariant::DatasetConfigDefnHead => self.infer_eager_call_form(
-                        &arena,
                         &[],
                         children,
                         Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
@@ -93,7 +91,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         output_liason,
                         ..
                     } => self.infer_eager_call_form(
-                        &arena,
                         parameters,
                         children,
                         Some(output_ty.route),
@@ -113,7 +110,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
                         } => self.infer_eager_call_form(
-                            &arena,
                             &[],
                             children,
                             Some(ty.route),
@@ -140,7 +136,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         ),
                         Paradigm::EagerFunctional | Paradigm::EagerProcedural => self
                             .infer_eager_call_form(
-                                &arena,
                                 &[],
                                 children,
                                 Some(ty.route),
