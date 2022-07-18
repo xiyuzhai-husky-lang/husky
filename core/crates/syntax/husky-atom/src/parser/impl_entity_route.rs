@@ -18,8 +18,32 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         SemanticTokenKind::Special,
                         token.range,
                     ));
+                let route = if try_eat!(self, SpecialToken::RBox) {
+                    self.vec_ty()?
+                } else if try_eat!(self, SpecialToken::Modulo) {
+                    eat!(self, token_kind, SpecialToken::RBox.into());
+                    let element = self.generic()?;
+                    entity_route_menu().std_slice_cyclic_slice.call([element])
+                } else if let Some(size) = try_get!(self, usize_literal) {
+                    if !try_eat!(self, special, SpecialToken::RBox) {
+                        return Ok(None);
+                    }
+                    if let Some(token) = self.token_stream.peek() {
+                        match token.left_convexity() {
+                            Some(Convexity::Convex) => EntityRoute::array(self.generic()?, size),
+                            _ => return Ok(None),
+                        }
+                    } else {
+                        return Ok(None);
+                    }
+                } else {
+                    return Ok(None);
+                };
                 Some(AtomVariant::EntityRoute {
-                    route: self.symbolic_ty()?,
+                    route: self
+                        .atom_context
+                        .entity_syntax_db()
+                        .intern_entity_route(route),
                     kind: EntityKind::Type(TyKind::Other),
                 })
             } else if is_special!(token, "&") {
@@ -125,31 +149,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         })
     }
 
-    fn symbolic_ty(&mut self) -> AtomResult<EntityRoutePtr> {
-        let route = if try_eat!(self, SpecialToken::RBox) {
-            self.vec_ty()
-        } else if try_eat!(self, SpecialToken::Modulo) {
-            eat!(self, token_kind, SpecialToken::RBox.into());
-            let element = self.generic()?;
-            Ok(entity_route_menu().std_slice_cyclic_slice.call([element]))
-        } else {
-            self.array_ty()
-        }?;
-        Ok(self
-            .atom_context
-            .entity_syntax_db()
-            .intern_entity_route(route))
-    }
-
     fn vec_ty(&mut self) -> AtomResult<EntityRoute> {
         Ok(EntityRoute::vec(self.generic()?))
-    }
-
-    fn array_ty(&mut self) -> AtomResult<EntityRoute> {
-        let size = get!(self, usize_literal);
-        eat!(self, special, SpecialToken::RBox);
-        let element = self.generic()?;
-        Ok(EntityRoute::array(element, size))
     }
 
     fn normal_route(&mut self, route: EntityRoutePtr) -> AtomResult<AtomVariant> {

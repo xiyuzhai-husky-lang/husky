@@ -43,7 +43,7 @@ impl<'a> MatchPatternParser<'a> {
     pub fn parse(mut self) -> AstResult<CasePattern> {
         let mut pattern = self.parse_simple_pattern()?.unwrap();
         while let Some(separator) = self.atom_iter.next() {
-            match separator.kind {
+            match separator.variant {
                 AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::BitOr)) => {
                     if let Some(new_pattern) = self.parse_simple_pattern()? {
                         pattern = pattern.or(new_pattern)?
@@ -59,7 +59,7 @@ impl<'a> MatchPatternParser<'a> {
 
     fn parse_simple_pattern(&mut self) -> AstResult<Option<CasePattern>> {
         Ok(if let Some(atom) = self.atom_iter.next() {
-            Some(match atom.kind {
+            Some(match atom.variant {
                 AtomVariant::EntityRoute { route, kind } => match kind {
                     EntityKind::EnumLiteral => CasePattern::enum_literal(route, atom.range),
                     _ => err!(format!("expect enum literal"), atom.range)?,

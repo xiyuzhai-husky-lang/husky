@@ -3,7 +3,7 @@ use thin_vec::{thin_vec, ThinVec};
 use vm::*;
 use word::RootIdentifier;
 
-use crate::{context::AtomContext, convexity::Convexity, *};
+use crate::{context::AtomContext, *};
 
 #[derive(Debug)]
 pub(crate) struct AtomStack {
@@ -24,7 +24,7 @@ impl AtomStack {
 
     pub(crate) fn convexity(&self) -> Convexity {
         if let Some(atom) = self.atoms.last() {
-            convexity::right_side_convexity(&atom.kind)
+            atom.variant.right_side_convexity()
         } else {
             Convexity::Concave
         }
@@ -42,7 +42,10 @@ impl AtomStack {
 // push
 impl AtomStack {
     pub(crate) fn push(&mut self, atom: HuskyAtom) -> AtomResult<()> {
-        if convexity::compatible(self.convexity(), convexity::left_side_convexity(&atom.kind)) {
+        if self
+            .convexity()
+            .compatible_with(atom.variant.left_convexity())
+        {
             self.atoms.push(atom);
             Ok(())
         } else {
@@ -70,7 +73,7 @@ impl AtomStack {
             (
                 Bracket::Par,
                 Some(HuskyAtom {
-                    kind:
+                    variant:
                         AtomVariant::EntityRoute {
                             kind: EntityKind::Type(_),
                             ..
@@ -116,7 +119,7 @@ impl AtomStack {
             ListStartAttr::None => Ok(word::default_func_type()),
             ListStartAttr::Attach => {
                 let last_atom = self.atoms.pop().unwrap();
-                match last_atom.kind {
+                match last_atom.variant {
                     AtomVariant::EntityRoute {
                         route: EntityRoutePtr::Root(ident),
                         ..
@@ -148,7 +151,7 @@ impl AtomStack {
         tail: &mut TextRange,
     ) -> AtomResult<(ListStartAttr, ThinVec<SpatialArgument>)> {
         let mut types = thin_vec![];
-        match self.pop(tail)?.kind {
+        match self.pop(tail)?.variant {
             AtomVariant::ListStart(Bracket::Par, attr) => return Ok((attr, thin_vec![])),
             AtomVariant::EntityRoute {
                 route: scope,
@@ -157,7 +160,7 @@ impl AtomStack {
             _ => err!("left parenthesis or type", *tail)?,
         };
         loop {
-            match self.pop(tail)?.kind {
+            match self.pop(tail)?.variant {
                 AtomVariant::ListStart(Bracket::Par, attr) => {
                     types.reverse();
                     return Ok((attr, types));
@@ -165,7 +168,7 @@ impl AtomStack {
                 AtomVariant::ListItem => (),
                 _ => err!("left parenthesis or comma", *tail)?,
             }
-            match self.pop(tail)?.kind {
+            match self.pop(tail)?.variant {
                 AtomVariant::EntityRoute {
                     route: scope,
                     kind: EntityKind::Type(_),

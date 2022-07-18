@@ -1,3 +1,4 @@
+mod convexity;
 mod error;
 mod kind;
 mod line_token_iter;
@@ -11,6 +12,7 @@ mod tests;
 mod tokenized_text;
 mod utils;
 
+pub use convexity::*;
 pub use error::*;
 pub use kind::HuskyTokenKind;
 pub use query::*;
@@ -29,12 +31,6 @@ pub struct HuskyToken {
     pub kind: HuskyTokenKind,
 }
 
-impl std::fmt::Debug for HuskyToken {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("Token {{{:?}, {:?}}}", self.kind, self.range))
-    }
-}
-
 impl HuskyToken {
     pub fn new(i: usize, start: usize, end: usize, kind: HuskyTokenKind) -> HuskyToken {
         HuskyToken {
@@ -46,11 +42,21 @@ impl HuskyToken {
     pub fn ranged_custom_ident(&self) -> Option<RangedCustomIdentifier> {
         match self.kind {
             HuskyTokenKind::Identifier(Identifier::Custom(ident)) => Some(RangedCustomIdentifier {
-                ident: ident,
+                ident,
                 range: self.range,
             }),
             _ => todo!(),
         }
+    }
+
+    pub fn left_convexity(&self) -> Option<Convexity> {
+        self.kind.left_convexity()
+    }
+}
+
+impl std::fmt::Debug for HuskyToken {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("Token {{{:?}, {:?}}}", self.kind, self.range))
     }
 }
 

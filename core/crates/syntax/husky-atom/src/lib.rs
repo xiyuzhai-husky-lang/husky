@@ -17,6 +17,7 @@ use husky_entity_route::EntityRoutePtr;
 use husky_liason_semantics::*;
 use husky_text::TextRange;
 use husky_text::TextRanged;
+use husky_token::Convexity;
 use husky_token::{HuskyToken, HuskyTokenKind};
 use word::Identifier;
 use word::RootIdentifier;
@@ -24,12 +25,15 @@ use word::RootIdentifier;
 #[derive(Clone, PartialEq, Eq)]
 pub struct HuskyAtom {
     pub range: TextRange,
-    pub kind: AtomVariant,
+    pub variant: AtomVariant,
 }
 
 impl HuskyAtom {
     pub fn new(range: TextRange, kind: AtomVariant) -> HuskyAtom {
-        HuskyAtom { range, kind }
+        HuskyAtom {
+            range,
+            variant: kind,
+        }
     }
 }
 
@@ -43,7 +47,7 @@ impl std::fmt::Debug for HuskyAtom {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!(
             "Atom{{range: {:?}, kind: {:?}}}",
-            &self.range, &self.kind
+            &self.range, &self.variant
         ))
     }
 }

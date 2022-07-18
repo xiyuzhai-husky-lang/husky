@@ -194,7 +194,7 @@ pub trait AtomContext {
             p!(result);
             err!("too many atoms", result[1..].text_range())?
         } else {
-            match result[0].kind {
+            match result[0].variant {
                 AtomVariant::EntityRoute { route: scope, .. } => Ok(scope),
                 // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
                 _ => err!(

@@ -8,7 +8,7 @@ use husky_atom::{
 pub(super) fn check_atom_kind(db: &mut HuskyCompileTime, line: &'static str, kind: AtomVariant) {
     let atoms = get_atoms_in_line(db, line);
     let atom = &atoms[0];
-    should_eq!(atom.kind, kind);
+    should_eq!(atom.variant, kind);
 }
 
 pub(super) fn get_atoms_in_line(db: &mut HuskyCompileTime, line: &'static str) -> Vec<HuskyAtom> {
