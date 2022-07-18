@@ -1,9 +1,9 @@
+use super::FeatureEvaluator;
 use crate::*;
-use check_utils::should_eq;
+use check_utils::{should, should_eq};
+use husky_compile_time::*;
 use print_utils::{epin, p};
 use vm::*;
-
-use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn eval_feature_repr(&mut self, repr: &FeatureRepr) -> __EvalValueResult<'eval> {
@@ -16,7 +16,10 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         };
         if let Ok(ref value) = result {
             if value != &__EvalValue::Undefined && value != &__EvalValue::Unreturned {
-                should_eq!({ value.any_ref().__ty_dyn() }, repr.ty())
+                should!(self
+                    .db
+                    .compile_time()
+                    .is_implicitly_castable(value.any_ref().__ty_dyn(), repr.ty()))
             }
         }
         result
