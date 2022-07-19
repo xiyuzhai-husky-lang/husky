@@ -23,8 +23,7 @@ impl<'a> ImplementationContext<'a> {
         }
     }
 
-    pub fn spatial_argument(&self, ident0: CustomIdentifier) -> SpatialArgument {
-        p!(self.member_impls, ident0);
+    pub fn opt_spatial_argument(&self, ident0: CustomIdentifier) -> Option<SpatialArgument> {
         self.member_impls
             .iter()
             .find_map(|(ident, generic_argument)| {
@@ -34,7 +33,10 @@ impl<'a> ImplementationContext<'a> {
                     None
                 }
             })
-            .unwrap()
+    }
+
+    pub fn spatial_argument(&self, ident: CustomIdentifier) -> SpatialArgument {
+        self.opt_spatial_argument(ident).unwrap()
     }
 }
 
@@ -53,15 +55,15 @@ pub trait Implementable {
 }
 
 impl Implementable for EntityRoutePtr {
-    type Target = Self;
+    type Target = SpatialArgument;
 
-    fn implement(&self, implementor: &ImplementationContext) -> Self::Target {
-        let (kind, mut generic_arguments) = match self.kind {
+    fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
+        let (kind, mut spatial_arguments) = match self.kind {
             EntityRouteKind::Root { ident } => todo!(),
             EntityRouteKind::Package { main, ident } => todo!(),
             EntityRouteKind::Child { parent, ident } => match parent.kind {
                 EntityRouteKind::ThisType => {
-                    let route = implementor.spatial_argument(ident).take_entity_route();
+                    let route = ctx.spatial_argument(ident).take_entity_route();
                     (route.kind, route.spatial_arguments.clone())
                 }
                 _ => {
@@ -71,24 +73,33 @@ impl Implementable for EntityRoutePtr {
             },
             EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic { ident, entity_kind } => todo!(),
-            EntityRouteKind::ThisType => (
-                implementor.this_ty.kind,
-                implementor.this_ty.spatial_arguments.clone(),
-            ),
-            EntityRouteKind::TypeAsTraitMember {
-                ty: parent,
-                trai,
-                ident,
-            } => todo!(),
+            EntityRouteKind::ThisType => (ctx.this_ty.kind, ctx.this_ty.spatial_arguments.clone()),
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => match ty.kind {
+                EntityRouteKind::ThisType => {
+                    if let Some(spatial_argument) = ctx.opt_spatial_argument(ident) {
+                        match spatial_argument {
+                            SpatialArgument::EntityRoute(_) => todo!(),
+                            SpatialArgument::Const(_) => todo!(),
+                        }
+                    } else {
+                        (self.kind, thin_vec![])
+                    }
+                    // (route.kind, route.spatial_arguments.clone())
+                }
+                _ => {
+                    p!(ty);
+                    todo!()
+                }
+            },
         };
-        for generic_argument in self.spatial_arguments.iter() {
-            generic_arguments.push(generic_argument.implement(implementor))
+        for spatial_argument in self.spatial_arguments.iter() {
+            spatial_arguments.push(spatial_argument.implement(ctx))
         }
-        implementor.db.intern_entity_route(EntityRoute {
+        SpatialArgument::EntityRoute(ctx.db.intern_entity_route(EntityRoute {
             kind,
             temporal_arguments: thin_vec![],
-            spatial_arguments: generic_arguments,
-        })
+            spatial_arguments,
+        }))
     }
 }
 
@@ -98,9 +109,7 @@ impl Implementable for SpatialArgument {
     fn implement(&self, implementor: &ImplementationContext) -> Self::Target {
         match self {
             SpatialArgument::Const(value) => SpatialArgument::Const(*value),
-            SpatialArgument::EntityRoute(entity_route) => {
-                SpatialArgument::EntityRoute(entity_route.implement(implementor))
-            }
+            SpatialArgument::EntityRoute(entity_route) => entity_route.implement(implementor),
         }
     }
 }

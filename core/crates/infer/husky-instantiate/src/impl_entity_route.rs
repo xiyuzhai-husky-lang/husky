@@ -36,11 +36,14 @@ impl Instantiable for EntityRoutePtr {
                         }
                     }
                     EntityRouteKind::ThisType => (EntityRouteKind::ThisType, thin_vec![]),
-                    EntityRouteKind::TypeAsTraitMember {
-                        ty: parent,
-                        trai,
-                        ident,
-                    } => todo!(),
+                    EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => (
+                        EntityRouteKind::TypeAsTraitMember {
+                            ty: ty.instantiate(ctx).take_entity_route(),
+                            trai: trai.instantiate(ctx).take_entity_route(),
+                            ident,
+                        },
+                        thin_vec![],
+                    ),
                 };
                 // convention: A<B,C> = A<B><C>
                 generics.extend(self.spatial_arguments.instantiate(ctx));

@@ -78,7 +78,13 @@ impl TyDecl {
                 });
                 let ty_members: IdentDict<_> = type_members
                     .iter()
-                    .map(|member| TyMemberDecl::from_static(&mut symbol_context, todo!(), member))
+                    .map(|member| {
+                        TyMemberDecl::from_static(
+                            &mut symbol_context,
+                            db.subroute(this_ty, db.intern_word(member.name).custom(), thin_vec![]),
+                            member,
+                        )
+                    })
                     .collect();
                 let variants: IdentDict<_> = variants.map(|static_decl| {
                     EnumVariantDecl::from_static(db, static_decl, &mut symbol_context)
@@ -165,7 +171,11 @@ impl TyDecl {
                         liason: OutputLiason::Transfer,
                     },
                     opt_this_liason: None,
-                    is_lazy: todo!(),
+                    is_lazy: match kind {
+                        TyKind::Record => true,
+                        TyKind::Struct => false,
+                        _ => panic!(),
+                    },
                 }))
             }
             TyKind::Primitive => todo!(),

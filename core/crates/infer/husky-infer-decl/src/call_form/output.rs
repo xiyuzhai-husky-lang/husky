@@ -27,7 +27,7 @@ impl Implementable for OutputDecl {
     fn implement(&self, implementor: &ImplementationContext) -> Self::Target {
         Self {
             liason: self.liason,
-            ty: self.ty.implement(implementor),
+            ty: self.ty.implement(implementor).take_entity_route(),
         }
     }
 }
