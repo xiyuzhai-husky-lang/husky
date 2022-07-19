@@ -1,7 +1,6 @@
 import * as vscode from "vscode";
 import * as lc from "vscode-languageclient/node";
 import * as lsp_ext from "./ext/lsp_ext";
-import { DebuggerSingleton } from "./ext/DebuggerPanel";
 import { server_executable } from "./config";
 
 let client: lc.LanguageClient;
@@ -9,17 +8,17 @@ let client: lc.LanguageClient;
 export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand("husky_analyzer.sayHello", () => {
-            DebuggerSingleton.createOrShow(context.extensionUri);
+            // DebuggerSingleton.createOrShow(context.extensionUri);
         })
     );
 
     context.subscriptions.push(
         vscode.commands.registerCommand("husky_analyzer.refresh", () => {
-            DebuggerSingleton.kill();
-            DebuggerSingleton.createOrShow(context.extensionUri);
-            vscode.commands.executeCommand(
-                "workbench.action.webview.openDeveloperTools"
-            );
+            // DebuggerSingleton.kill();
+            // DebuggerSingleton.createOrShow(context.extensionUri);
+            // vscode.commands.executeCommand(
+            //     "workbench.action.webview.openDeveloperTools"
+            // );
         })
     );
 
