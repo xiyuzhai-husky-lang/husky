@@ -1,0 +1,62 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: a02007ef4bd7ac40023b8330eaec8eefb2008f462820845b43dbb83ba7b89ad2
+
+name:           helloworld
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/helloworld#readme>
+homepage:       https://github.com/githubuser/helloworld#readme
+bug-reports:    https://github.com/githubuser/helloworld/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2022 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/helloworld
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_helloworld
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable helloworld-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_helloworld
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , helloworld
+  default-language: Haskell2010
+
+test-suite helloworld-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_helloworld
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , helloworld
+  default-language: Haskell2010
