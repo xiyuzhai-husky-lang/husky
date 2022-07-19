@@ -62,7 +62,7 @@ impl HuskyTraceTime {
                 ref internal,
                 ..
             } => todo!(),
-            FeatureExprVariant::NewVecFromList => todo!(),
+            FeatureExprVariant::NewVecFromList { .. } => todo!(),
         }
     }
 }

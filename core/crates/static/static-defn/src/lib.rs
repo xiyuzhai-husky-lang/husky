@@ -48,6 +48,7 @@ pub struct EntityStaticDefn {
 #[derive(Debug, PartialEq, Eq)]
 pub enum StaticVariadicTemplateDefn {
     None,
+    SingleTyped { ty: &'static str },
 }
 
 #[derive(Debug, PartialEq, Eq)]

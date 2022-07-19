@@ -78,7 +78,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::TypeCall {
-            ty: "Vec<mnist_classifier::raw_contour::RawContour>"
+            ty: "[]mnist_classifier::raw_contour::RawContour"
         },
 
         specific_transfer_linkage!({
@@ -96,7 +96,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::raw_contour::RawContour>::ilen"
+            routine: "[]mnist_classifier::raw_contour::RawContour::ilen"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -114,7 +114,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::raw_contour::RawContour>::push"
+            routine: "[]mnist_classifier::raw_contour::RawContour::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -133,7 +133,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::raw_contour::RawContour>::popx"
+            routine: "[]mnist_classifier::raw_contour::RawContour::popx"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -151,19 +151,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::raw_contour::RawContour>::firstx"
+            routine: "[]mnist_classifier::raw_contour::RawContour::firstx"
         },
         method_elem_linkage!(Vec<raw_contour::RawContour<'eval>>, firstx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::raw_contour::RawContour>::lastx"
+            routine: "[]mnist_classifier::raw_contour::RawContour::lastx"
         },
         method_elem_linkage!(Vec<raw_contour::RawContour<'eval>>, lastx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::raw_contour::RawContour>::cyclic_slice"
+            routine: "[]mnist_classifier::raw_contour::RawContour::cyclic_slice"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -184,7 +184,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     (
 
         __StaticLinkageKey::Index {
-            opd_tys: &["Vec<mnist_classifier::raw_contour::RawContour>", "i32"],
+            opd_tys: &["[]mnist_classifier::raw_contour::RawContour", "i32"],
         },
         index_linkage!(Vec<raw_contour::RawContour<'eval>>)
     ),
@@ -196,7 +196,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::TypeCall {
-            ty: "Vec<mnist_classifier::connected_component::ConnectedComponent>"
+            ty: "[]mnist_classifier::connected_component::ConnectedComponent"
         },
 
         specific_transfer_linkage!({
@@ -214,7 +214,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::ilen"
+            routine: "[]mnist_classifier::connected_component::ConnectedComponent::ilen"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -232,7 +232,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::push"
+            routine: "[]mnist_classifier::connected_component::ConnectedComponent::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -251,7 +251,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::popx"
+            routine: "[]mnist_classifier::connected_component::ConnectedComponent::popx"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -269,19 +269,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::firstx"
+            routine: "[]mnist_classifier::connected_component::ConnectedComponent::firstx"
         },
         method_elem_linkage!(Vec<connected_component::ConnectedComponent>, firstx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::lastx"
+            routine: "[]mnist_classifier::connected_component::ConnectedComponent::lastx"
         },
         method_elem_linkage!(Vec<connected_component::ConnectedComponent>, lastx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::cyclic_slice"
+            routine: "[]mnist_classifier::connected_component::ConnectedComponent::cyclic_slice"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -302,7 +302,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     (
 
         __StaticLinkageKey::Index {
-            opd_tys: &["Vec<mnist_classifier::connected_component::ConnectedComponent>", "i32"],
+            opd_tys: &["[]mnist_classifier::connected_component::ConnectedComponent", "i32"],
         },
         index_linkage!(Vec<connected_component::ConnectedComponent>)
     ),
@@ -349,7 +349,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::connected_component::ConnectedComponent>::push"
+            routine: "[]mnist_classifier::connected_component::ConnectedComponent::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -402,7 +402,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::TypeCall {
-            ty: "Vec<mnist_classifier::geom2d::Point2d>"
+            ty: "[]mnist_classifier::geom2d::Point2d"
         },
 
         specific_transfer_linkage!({
@@ -420,7 +420,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::ilen"
+            routine: "[]mnist_classifier::geom2d::Point2d::ilen"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -438,7 +438,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::push"
+            routine: "[]mnist_classifier::geom2d::Point2d::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -457,7 +457,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::popx"
+            routine: "[]mnist_classifier::geom2d::Point2d::popx"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -475,19 +475,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::firstx"
+            routine: "[]mnist_classifier::geom2d::Point2d::firstx"
         },
         method_elem_linkage!(Vec<geom2d::Point2d>, firstx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::lastx"
+            routine: "[]mnist_classifier::geom2d::Point2d::lastx"
         },
         method_elem_linkage!(Vec<geom2d::Point2d>, lastx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice"
+            routine: "[]mnist_classifier::geom2d::Point2d::cyclic_slice"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -508,7 +508,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     (
 
         __StaticLinkageKey::Index {
-            opd_tys: &["Vec<mnist_classifier::geom2d::Point2d>", "i32"],
+            opd_tys: &["[]mnist_classifier::geom2d::Point2d", "i32"],
         },
         index_linkage!(Vec<geom2d::Point2d>)
     ),
@@ -730,7 +730,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::ilen"
+            routine: "[]mnist_classifier::geom2d::Point2d::ilen"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -765,7 +765,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::lastx"
+            routine: "[]mnist_classifier::geom2d::Point2d::lastx"
         },
         method_elem_linkage!(Vec<geom2d::Point2d>, lastx)
     ),
@@ -791,7 +791,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::push"
+            routine: "[]mnist_classifier::geom2d::Point2d::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -810,7 +810,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::popx"
+            routine: "[]mnist_classifier::geom2d::Point2d::popx"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -828,7 +828,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::raw_contour::RawContour>::push"
+            routine: "[]mnist_classifier::raw_contour::RawContour::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -998,7 +998,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::TypeCall {
-            ty: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>"
+            ty: "[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent"
         },
 
         specific_transfer_linkage!({
@@ -1016,7 +1016,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen"
+            routine: "[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::ilen"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1034,7 +1034,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::push"
+            routine: "[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1053,7 +1053,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::popx"
+            routine: "[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::popx"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1071,19 +1071,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::firstx"
+            routine: "[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::firstx"
         },
         method_elem_linkage!(Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>, firstx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::lastx"
+            routine: "[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::lastx"
         },
         method_elem_linkage!(Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>, lastx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::cyclic_slice"
+            routine: "[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::cyclic_slice"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1104,13 +1104,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     (
 
         __StaticLinkageKey::Index {
-            opd_tys: &["Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>", "i32"],
+            opd_tys: &["[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent", "i32"],
         },
         index_linkage!(Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::ilen"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::ilen"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1146,7 +1146,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::cyclic_slice"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::cyclic_slice"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1166,7 +1166,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::push"
+            routine: "[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1342,7 +1342,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::TypeCall {
-            ty: "Vec<mnist_classifier::line_segment_sketch::LineSegment>"
+            ty: "[]mnist_classifier::line_segment_sketch::LineSegment"
         },
 
         specific_transfer_linkage!({
@@ -1360,7 +1360,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::ilen"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::ilen"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1378,7 +1378,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::push"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1397,7 +1397,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::popx"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::popx"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1415,19 +1415,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::firstx"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::firstx"
         },
         method_elem_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>, firstx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::lastx"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::lastx"
         },
         method_elem_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>, lastx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::cyclic_slice"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::cyclic_slice"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1448,7 +1448,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     (
 
         __StaticLinkageKey::Index {
-            opd_tys: &["Vec<mnist_classifier::line_segment_sketch::LineSegment>", "i32"],
+            opd_tys: &["[]mnist_classifier::line_segment_sketch::LineSegment", "i32"],
         },
         index_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>)
     ),
@@ -1589,7 +1589,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::lastx"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::lastx"
         },
         method_elem_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>, lastx)
     ),
@@ -1633,7 +1633,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::popx"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::popx"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1651,7 +1651,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::push"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::push"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -1670,13 +1670,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::firstx"
+            routine: "[]mnist_classifier::line_segment_sketch::LineSegment::firstx"
         },
         method_elem_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>, firstx)
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice"
+            routine: "[]mnist_classifier::geom2d::Point2d::cyclic_slice"
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(

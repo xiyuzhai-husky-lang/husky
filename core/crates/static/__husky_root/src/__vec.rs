@@ -15,7 +15,7 @@ use check_utils::should_eq;
 pub trait __VecX<T> {
     fn ilen(&self) -> i32;
 
-    fn __call__() -> Self;
+    fn __call__(__variadics: Vec<T>) -> Self;
 
     fn cyclic_slice<'a>(&'a self, start: i32, end: i32) -> CyclicSlice<'a, T>;
 
@@ -35,8 +35,8 @@ impl<T> __VecX<T> for Vec<T> {
         self.len() as i32
     }
 
-    fn __call__() -> Self {
-        Default::default()
+    fn __call__(__variadics: Vec<T>) -> Self {
+        __variadics
     }
 
     fn cyclic_slice<'a>(&'a self, start: i32, end: i32) -> CyclicSlice<'a, T> {
@@ -136,7 +136,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[],
-        variadic_template: StaticVariadicTemplateDefn::None,
+        variadic_template: StaticVariadicTemplateDefn::SingleTyped { ty: "E" },
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
         linkage: generic_routine_linkage!(generic_vec_type_call, 0).into(),
@@ -148,14 +148,18 @@ pub(crate) fn generic_vec_type_call<'temp, 'eval>(
     ty: EntityRoutePtr,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
-    __TempValue::OwnedEval(__OwnedValue::new(VirtualVec::new(ty)))
+    let mut data = vec![];
+    for value in values {
+        data.push(value.move_into_member())
+    }
+    __TempValue::OwnedEval(__OwnedValue::new(VirtualVec::new(ty, data)))
 }
 
 fn generic_vec_push<'temp, 'eval>(
     opt_ctx: Option<&__EvalContext<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
-    let element = values[1].into_member();
+    let element = values[1].move_into_member();
     let generic_vec: &mut VirtualVec<'eval> = values[0].downcast_mut();
     generic_vec.push(element);
     __TempValue::Copyable(().into())

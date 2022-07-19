@@ -16,7 +16,7 @@ impl<'temp, 'eval: 'temp> VirtualStruct<'eval> {
     ) -> Self {
         let mut fields = IdentPairDict::<MemberValue<'eval>>::default();
         for (ident, mut argument) in std::iter::zip(field_liasons.iter(), arguments) {
-            fields.insert_new((*ident, argument.into_member()));
+            fields.insert_new((*ident, argument.move_into_member()));
         }
         VirtualStruct { ty, fields }
     }

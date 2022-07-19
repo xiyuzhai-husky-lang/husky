@@ -117,7 +117,9 @@ pub enum FeatureExprVariant {
         entity: Arc<EntityDefn>,
         opds: Vec<Arc<FeatureExpr>>,
     },
-    NewVecFromList,
+    NewVecFromList {
+        linkage: __Linkage,
+    },
 }
 
 impl FeatureExprVariant {
@@ -138,7 +140,7 @@ impl FeatureExprVariant {
             FeatureExprVariant::EntityFeature { .. } => "EntityFeature",
             FeatureExprVariant::EvalInput => "EvalInput",
             FeatureExprVariant::NewRecord { .. } => "NewRecord",
-            FeatureExprVariant::NewVecFromList => "NewVecFromList",
+            FeatureExprVariant::NewVecFromList { .. } => "NewVecFromList",
         }
     }
 }
