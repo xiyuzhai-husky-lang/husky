@@ -390,7 +390,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         }
         msg_once!("keyword parameters");
         match decl.variadic_template {
-            VariadicTemplate::None => todo!(),
+            VariadicTemplate::None => (),
             VariadicTemplate::SingleTyped { ty } => todo!(),
         }
         if self.db.is_copyable(decl.output.ty).unwrap() {

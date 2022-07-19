@@ -17,6 +17,7 @@ use husky_instantiate::InstantiationContext;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticParameter};
+use vec_like::VecMapEntry;
 use word::IdentDict;
 
 use crate::*;
@@ -149,7 +150,7 @@ impl Implementable for CallFormDecl {
 
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         Arc::new(Self {
-            base_route: self.base_route.implement(ctx),
+            base_route: self.base_route.implement(ctx).take_entity_route(),
             opt_this_liason: self.opt_this_liason,
             primary_parameters: self
                 .primary_parameters
@@ -205,8 +206,38 @@ pub(crate) fn call_form_decl(
         }
         EntityLocus::Module { file: file_id } => todo!(),
         EntityLocus::Input { .. } => todo!(),
-        EntityLocus::StaticTypeMember => todo!(),
-        EntityLocus::StaticTypeAsTraitMember => todo!(),
+        EntityLocus::StaticTypeMember => match route.kind {
+            EntityRouteKind::Root { ident } => todo!(),
+            EntityRouteKind::Package { main, ident } => todo!(),
+            EntityRouteKind::Child { parent, ident } => {
+                let ty_decl = derived_unwrap!(db.ty_decl(parent));
+                match derived_not_none!(ty_decl
+                    .ty_members
+                    .iter()
+                    .find(|member| member.key() == ident))?
+                {
+                    TyMemberDecl::Field(_) => todo!(),
+                    TyMemberDecl::Method(method) => Ok(method.clone()),
+                    TyMemberDecl::Call(_) => todo!(),
+                }
+            }
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => todo!(),
+            EntityRouteKind::Input { main } => todo!(),
+            EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+            EntityRouteKind::ThisType => todo!(),
+        },
+        EntityLocus::StaticTypeAsTraitMember => match route.kind {
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                let ty_decl = derived_unwrap!(db.ty_decl(ty));
+                match derived_not_none!(ty_decl.trai_member_impl(trai, ident))? {
+                    TraitMemberImplDecl::Method(method) => Ok(method.clone()),
+                    TraitMemberImplDecl::AssociatedType { ident, ty } => todo!(),
+                    TraitMemberImplDecl::Call {} => todo!(),
+                    TraitMemberImplDecl::AssociatedConstSize {} => todo!(),
+                }
+            }
+            _ => todo!(),
+        },
     };
 }
 

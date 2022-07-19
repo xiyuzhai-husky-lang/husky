@@ -38,9 +38,9 @@ impl Implementable for VariadicTemplate {
 
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         match self {
-            VariadicTemplate::None => todo!(),
+            VariadicTemplate::None => VariadicTemplate::None,
             VariadicTemplate::SingleTyped { ty } => VariadicTemplate::SingleTyped {
-                ty: ty.implement(ctx),
+                ty: ty.implement(ctx).take_entity_route(),
             },
         }
     }
