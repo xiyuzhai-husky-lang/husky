@@ -98,7 +98,7 @@ pub(crate) fn horizontal_extend(a: u32, x: u32) -> u32 {
 }
 
 pub(crate) fn find_connected_components(img: &domains::ml::datasets::cv::mnist::BinaryImage28) -> Vec<ConnectedComponent> {
-    let mut result = Vec::<ConnectedComponent>::__call__();
+    let mut result = Vec::<ConnectedComponent>::__call__(vec![]);
     let mut unsearched = img.clone();
     for j in 0..30 {
         while unsearched[(j) as usize] != 0 {

@@ -239,7 +239,7 @@ pub(crate) fn extend_start<'eval>(ct: &'eval crate::raw_contour::RawContour<'eva
 }
 
 pub(crate) fn find_line_segments<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>, r: f32) -> Vec<LineSegment<'eval>> {
-    let mut line_segments = Vec::<LineSegment>::__call__();
+    let mut line_segments = Vec::<LineSegment>::__call__(vec![]);
     let mut start = 0;
     let mut end = 1;
     let mut max_end = ct.points.ilen();

@@ -1,6 +1,7 @@
 use super::{impl_entity_route::EntityRouteRole, *};
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_infer_qualified_ty::EagerExprQualifier;
+use infer_decl::VariadicTemplate;
 use vm::*;
 use word::RootIdentifier;
 
@@ -83,12 +84,29 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_arguments(opds);
                     self.write(")");
                 }
-                EagerOpnVariant::TypeCall { ranged_ty, .. } => {
+                EagerOpnVariant::TypeCall {
+                    ranged_ty,
+                    ref ty_decl,
+                    ..
+                } => {
                     self.gen_entity_route(ranged_ty.route, EntityRouteRole::Caller);
                     self.write("::");
                     self.write("__call__(");
                     self.gen_arguments(opds);
-                    msg_once!("keyword arguments and variadics");
+                    msg_once!("keyword arguments and more on variadics");
+                    let type_call_decl = &ty_decl.opt_type_call.as_ref().unwrap();
+                    match type_call_decl.variadic_template {
+                        VariadicTemplate::None => (),
+                        VariadicTemplate::SingleTyped { ty } => {
+                            if type_call_decl.primary_parameters.len()
+                                + type_call_decl.keyword_parameters.len()
+                                > 0
+                            {
+                                self.write(", ")
+                            }
+                            self.write("vec![]")
+                        }
+                    }
                     self.write(")");
                 }
                 EagerOpnVariant::FieldAccess { field_ident, .. } => {

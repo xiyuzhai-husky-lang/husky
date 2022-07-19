@@ -20,7 +20,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -53,7 +53,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -86,12 +86,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
+                let __variadics = todo!();
                 __TempValue::OwnedEval(__OwnedValue::new(
-                    Vec::<raw_contour::RawContour>::__call__()
+                    Vec::<raw_contour::RawContour>::__call__(__variadics)
                     ))
             }
             __wrapper
-        }, 0),
+        }),
 
     ),
     (
@@ -109,7 +110,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -128,7 +129,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -146,7 +147,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -178,7 +179,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
     (
@@ -204,12 +205,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
+                let __variadics = todo!();
                 __TempValue::OwnedEval(__OwnedValue::new(
-                    Vec::<connected_component::ConnectedComponent>::__call__()
+                    Vec::<connected_component::ConnectedComponent>::__call__(__variadics)
                     ))
             }
             __wrapper
-        }, 0),
+        }),
 
     ),
     (
@@ -227,7 +229,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -246,7 +248,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -264,7 +266,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -296,7 +298,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
     (
@@ -321,7 +323,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
@@ -345,7 +347,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -363,7 +365,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -383,7 +385,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -410,12 +412,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
+                let __variadics = todo!();
                 __TempValue::OwnedEval(__OwnedValue::new(
-                    Vec::<geom2d::Point2d>::__call__()
+                    Vec::<geom2d::Point2d>::__call__(__variadics)
                     ))
             }
             __wrapper
-        }, 0),
+        }),
 
     ),
     (
@@ -433,7 +436,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -452,7 +455,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -470,7 +473,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -502,7 +505,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
     (
@@ -529,7 +532,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -569,7 +572,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -589,7 +592,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -609,7 +612,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -630,7 +633,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
     (
@@ -650,7 +653,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -672,7 +675,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 4),
+        }),
 
     ),
     (
@@ -692,7 +695,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -725,7 +728,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -743,7 +746,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -761,7 +764,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -786,7 +789,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -805,7 +808,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -823,7 +826,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -842,7 +845,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -862,7 +865,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -896,7 +899,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -929,7 +932,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -994,7 +997,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -1006,12 +1009,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
+                let __variadics = todo!();
                 __TempValue::OwnedEval(__OwnedValue::new(
-                    Vec::<line_segment_sketch::concave_component::ConcaveComponent>::__call__()
+                    Vec::<line_segment_sketch::concave_component::ConcaveComponent>::__call__(__variadics)
                     ))
             }
             __wrapper
-        }, 0),
+        }),
 
     ),
     (
@@ -1029,7 +1033,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -1048,7 +1052,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1066,7 +1070,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -1098,7 +1102,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
     (
@@ -1123,7 +1127,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -1142,7 +1146,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1161,7 +1165,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
     (
@@ -1180,7 +1184,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1200,7 +1204,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1232,7 +1236,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -1251,7 +1255,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1271,7 +1275,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
     (
@@ -1290,7 +1294,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1337,7 +1341,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
     (
@@ -1350,12 +1354,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 __opt_ctx: Option<&__EvalContext<'eval>>,
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
+                let __variadics = todo!();
                 __TempValue::OwnedEval(__OwnedValue::new(
-                    Vec::<line_segment_sketch::LineSegment>::__call__()
+                    Vec::<line_segment_sketch::LineSegment>::__call__(__variadics)
                     ))
             }
             __wrapper
-        }, 0),
+        }),
 
     ),
     (
@@ -1373,7 +1378,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -1392,7 +1397,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1410,7 +1415,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -1442,7 +1447,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
     (
@@ -1469,7 +1474,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1489,7 +1494,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1509,7 +1514,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1529,7 +1534,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 3),
+        }),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1546,7 +1551,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -1567,7 +1572,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 4),
+        }),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1585,7 +1590,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1609,7 +1614,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1628,7 +1633,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1646,7 +1651,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 1),
+        }),
 
     ),
     (
@@ -1665,7 +1670,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }, 2),
+        }),
 
     ),
     (
@@ -1691,7 +1696,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }, 3),
+        }),
 
     ),
 ];
