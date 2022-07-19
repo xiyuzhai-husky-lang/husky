@@ -340,7 +340,7 @@ pub(crate) fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> 
 }
 
 pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::ConnectedComponent) -> Vec<RawContour<'eval>> {
-    let mut result = Vec::<RawContour>::__call__();
+    let mut result = Vec::<RawContour>::__call__(vec![]);
     let mut boundary_unsearched = domains::ml::datasets::cv::mnist::BinaryGrid28::__call__();
     for i in 1..(29 + 1) {
         let r_ur = cc.mask[(i - 1) as usize];
@@ -351,7 +351,7 @@ pub(crate) fn find_raw_contours<'eval>(cc: &'eval crate::connected_component::Co
     }
     for k in 1..(29 + 1) {
         while boundary_unsearched[(k) as usize] != 0 {
-            let mut contour = Vec::<crate::geom2d::Point2d>::__call__();
+            let mut contour = Vec::<crate::geom2d::Point2d>::__call__(vec![]);
             let mut i = k;
             let mut j = boundary_unsearched[(k) as usize].ctz();
             let mut row_above = cc.mask[(i - 1) as usize];

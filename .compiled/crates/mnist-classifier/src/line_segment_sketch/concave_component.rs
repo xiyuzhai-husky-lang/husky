@@ -52,7 +52,7 @@ impl<'eval> __AnyValue<'eval> for ConcaveComponent<'eval> {
 }
 
 pub(crate) fn find_concave_components<'eval>(line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>) -> Vec<ConcaveComponent<'eval>> {
-    let mut concave_components = Vec::<ConcaveComponent>::__call__();
+    let mut concave_components = Vec::<ConcaveComponent>::__call__(vec![]);
     let L = line_segment_sketch.line_segments.ilen();
     let mut start = 0;
     let mut end = 1;

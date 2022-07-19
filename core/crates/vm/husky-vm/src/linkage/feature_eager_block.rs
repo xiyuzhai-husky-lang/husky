@@ -9,7 +9,6 @@ macro_rules! feature_eager_block_linkage {
         }
         __Linkage::SpecificTransfer(__SpecificRoutineLinkage {
             fp: __SpecificRoutineFp(__wrapper),
-            nargs: 0,
             dev_src: __static_dev_src!(),
         })
     }};

@@ -330,8 +330,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         gen_caller: impl FnOnce(&mut Self),
         decl: &CallFormDecl,
     ) {
-        let base = if opt_this.is_some() { 1 } else { 0 };
-        let nargs = decl.primary_parameters.len() + base;
+        let base = opt_this.map(|_| 1).unwrap_or(0);
         self.write(&format!(
             r#"
         specific_transfer_linkage!({{
@@ -391,7 +390,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         msg_once!("keyword parameters");
         match decl.variadic_template {
             VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { ty } => todo!(),
+            VariadicTemplate::SingleTyped { ty } => {
+                let start = decl.primary_parameters.len() + decl.keyword_parameters.len();
+                self.write(
+                    r#"
+                let __variadics = todo!();"#,
+                );
+            }
         }
         if self.db.is_copyable(decl.output.ty).unwrap() {
             self.write(
@@ -414,6 +419,15 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             }
             self.write(&parameter.ident)
         }
+        match decl.variadic_template {
+            VariadicTemplate::None => (),
+            VariadicTemplate::SingleTyped { .. } => {
+                if decl.primary_parameters.len() > 0 || decl.keyword_parameters.len() > 0 {
+                    self.write(", ")
+                }
+                self.write("__variadics")
+            }
+        }
         if self.db.is_copyable(decl.output.ty).unwrap() {
             self.write(
                 r#")
@@ -429,7 +443,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             r#"
             }}
             __wrapper
-        }}, {nargs}),
+        }}),
 "#
         ));
     }
@@ -458,7 +472,6 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             opd_tys: &["{ty:?}", "i32"],
         }},"#,
         ));
-        let nargs = 2;
         self.write(&format!(
             r#"
         index_linkage!("#
