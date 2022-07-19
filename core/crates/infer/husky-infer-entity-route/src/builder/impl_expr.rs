@@ -5,7 +5,7 @@ use dev_utils::dev_src;
 use husky_ast::RawExprRange;
 use husky_entity_route::entity_route_menu;
 use husky_text::*;
-use infer_decl::{MethodKind, TraitMemberImplDecl};
+use infer_decl::TraitMemberImplDecl;
 use thin_vec::{thin_vec, ThinVec};
 use vm::*;
 
@@ -119,7 +119,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     RootIdentifier::Fp
                 }
                 .into();
-                let decl = self.db.function_decl(entity_route)?;
+                let decl = self.db.call_form_decl(entity_route)?;
                 msg_once!("handle temporal/spatial parameters");
                 let spatial_arguments = decl
                     .primary_parameters
@@ -439,7 +439,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         match caller.variant {
             RawExprVariant::Entity { route, kind, .. } => {
                 let call_decl_result: InferResult<_> =
-                    self.db.function_decl(route).bind_into(caller);
+                    self.db.call_form_decl(route).bind_into(caller);
                 let call_decl = call_decl_result?;
                 if call_decl.primary_parameters.len() != total_opds.end - total_opds.start - 1 {
                     self.entity_route_sheet.extra_errors.push(InferError {
@@ -492,44 +492,34 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         let this_deref_ty = derived_not_none!(self.infer_expr(this, None, arena))?.deref_route();
         let this_deref_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
-        let method_decl = this_deref_ty_decl.method(method_ident, &self.trait_uses)?;
-        if method_decl.parameters.len() != parameters.end - parameters.start {
+        let call_form_decl = this_deref_ty_decl.method(method_ident, &self.trait_uses)?;
+        if call_form_decl.primary_parameters.len() != parameters.end - parameters.start {
             self.entity_route_sheet.extra_errors.push(error!(
                 format!(
                     "expect {} parameters, but got {}",
-                    method_decl.parameters.len(),
+                    call_form_decl.primary_parameters.len(),
                     parameters.end - parameters.start
                 ),
                 arena[raw_expr_idx].range
             ));
         }
-        for (argument, parameter) in zip(parameters.into_iter(), method_decl.parameters.iter()) {
+        for (argument, parameter) in zip(
+            parameters.into_iter(),
+            call_form_decl.primary_parameters.iter(),
+        ) {
             self.infer_expr(argument, Some(parameter.ty), arena);
         }
-        let spatial_arguments = if method_decl.spatial_parameters.len() > 0 {
-            todo!()
-        } else {
-            thin_vec![]
-        };
+        let spatial_arguments: ThinVec<SpatialArgument> =
+            if call_form_decl.spatial_parameters.len() > 0 {
+                todo!()
+            } else {
+                thin_vec![]
+            };
         self.entity_route_sheet.call_routes.insert_new(
             raw_expr_idx,
-            Ok(self.db.intern_entity_route(EntityRoute {
-                kind: match method_decl.kind {
-                    MethodKind::Type => EntityRouteKind::Child {
-                        parent: this_deref_ty,
-                        ident: method_decl.ident,
-                    },
-                    MethodKind::Trait { trai } => EntityRouteKind::TypeAsTraitMember {
-                        ty: this_deref_ty,
-                        ident: method_decl.ident,
-                        trai,
-                    },
-                },
-                temporal_arguments: thin_vec![],
-                spatial_arguments,
-            })),
+            Ok(self.db.make_route(call_form_decl.base_route, thin_vec![])),
         );
-        Ok(method_decl.output.ty)
+        Ok(call_form_decl.output.ty)
     }
 
     fn infer_index(

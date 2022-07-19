@@ -1,7 +1,7 @@
 use husky_entity_route::entity_route_menu;
 use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
-use infer_decl::{OutputDecl, ParameterDecl};
+use infer_decl::{CallFormDecl, OutputDecl, ParameterDecl, VariadicTemplate};
 
 use super::*;
 
@@ -73,13 +73,12 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 "#,
                     entity_route
                 ));
-                let function_decl = self.db.function_decl(entity_route).unwrap();
+                let call_form_decl = self.db.call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
-                    &function_decl.primary_parameters,
-                    &function_decl.output,
+                    &call_form_decl,
                 );
                 self.write("\n    ),");
             }
@@ -91,13 +90,12 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         }},"#,
                     entity_route
                 ));
-                let function_decl = self.db.function_decl(entity_route).unwrap();
+                let call_form_decl = self.db.call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
-                    &function_decl.primary_parameters,
-                    &function_decl.output,
+                    &call_form_decl,
                 );
                 self.write("    ),");
             }
@@ -146,7 +144,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 "#,
                 entity_route
             ));
-            let function_decl = self.db.function_decl(entity_route).unwrap();
+            let call_form_decl = self.db.call_form_decl(entity_route).unwrap();
             msg_once!("keyword parameters");
             self.gen_specific_routine_linkage(
                 None,
@@ -154,8 +152,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     this.gen_entity_route(entity_route, EntityRouteRole::Caller);
                     this.write("::__call__")
                 },
-                &function_decl.primary_parameters,
-                &function_decl.output,
+                &call_form_decl,
             );
             self.write("\n    ),");
         }
@@ -284,8 +281,9 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             routine: "{entity_route}"
         }},"#,
                 ));
-                let method_decl = self.db.method_decl(entity_route).unwrap();
-                match method_decl.this_liason {
+                let call_form_decl = self.db.call_form_decl(entity_route).unwrap();
+                let this_liason = call_form_decl.this_liason();
+                match this_liason {
                     ParameterLiason::MemberAccess => {
                         self.write(&format!(
                             r#"
@@ -296,12 +294,11 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                         self.write(&format!(", {method_name})"))
                     }
                     _ => self.gen_specific_routine_linkage(
-                        Some((method_decl.this_liason, entity_route.parent())),
+                        Some((this_liason, entity_route.parent())),
                         |this| {
                             this.write(&format!("__this.{}", entity_route.ident().as_str()));
                         },
-                        &method_decl.parameters,
-                        &method_decl.output,
+                        &call_form_decl,
                     ),
                 }
             }
@@ -331,11 +328,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         &mut self,
         opt_this: Option<(ParameterLiason, EntityRoutePtr)>,
         gen_caller: impl FnOnce(&mut Self),
-        parameters: &[ParameterDecl],
-        output: &OutputDecl,
+        decl: &CallFormDecl,
     ) {
         let base = if opt_this.is_some() { 1 } else { 0 };
-        let nargs = parameters.len() + base;
+        let nargs = decl.primary_parameters.len() + base;
         self.write(&format!(
             r#"
         specific_transfer_linkage!({{
@@ -389,10 +385,15 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 }
             }
         }
-        for (i, parameter) in parameters.iter().enumerate() {
+        for (i, parameter) in decl.primary_parameters.iter().enumerate() {
             self.gen_parameter_downcast(i + base, parameter)
         }
-        if self.db.is_copyable(output.ty).unwrap() {
+        msg_once!("keyword parameters");
+        match decl.variadic_template {
+            VariadicTemplate::None => todo!(),
+            VariadicTemplate::SingleTyped { ty } => todo!(),
+        }
+        if self.db.is_copyable(decl.output.ty).unwrap() {
             self.write(
                 r#"
                 __TempValue::Copyable(
@@ -407,13 +408,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         }
         gen_caller(self);
         self.write("(");
-        for (i, parameter) in parameters.iter().enumerate() {
+        for (i, parameter) in decl.primary_parameters.iter().enumerate() {
             if i > 0 {
                 self.write(", ")
             }
             self.write(&parameter.ident)
         }
-        if self.db.is_copyable(output.ty).unwrap() {
+        if self.db.is_copyable(decl.output.ty).unwrap() {
             self.write(
                 r#")
                     .__take_copyable_dyn())"#,

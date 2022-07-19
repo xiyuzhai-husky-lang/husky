@@ -1,8 +1,8 @@
 mod field;
-mod method;
+// mod method;
 
 pub use field::*;
-pub use method::*;
+// pub use method::*;
 
 use fold::LocalStack;
 use husky_atom::{context::Symbol, AtomContext};
@@ -17,11 +17,11 @@ pub enum MemberDecl {
     AssociatedType,
     AssociatedCall,
     TypeField(Arc<FieldDecl>),
-    TypeMethod(Arc<MethodDecl>),
-    TypeAssociatedCall(Arc<FunctionDecl>),
+    TypeMethod(Arc<CallFormDecl>),
+    TypeAssociatedCall(Arc<CallFormDecl>),
     TraitMethodImpl {
         trait_route: EntityRoutePtr,
-        method: Arc<MethodDecl>,
+        method: Arc<CallFormDecl>,
     },
     TraitAssociatedTypeImpl {
         ident: CustomIdentifier,
@@ -48,11 +48,11 @@ impl MemberDecl {
             MemberDecl::AssociatedType => todo!(),
             MemberDecl::AssociatedCall => todo!(),
             MemberDecl::TypeField(field) => field.ident,
-            MemberDecl::TypeMethod(method) => method.ident,
-            MemberDecl::TraitMethodImpl { method, .. } => method.ident,
+            MemberDecl::TypeMethod(method) => method.base_route.ident().custom(),
+            MemberDecl::TraitMethodImpl { method, .. } => method.base_route.ident().custom(),
             MemberDecl::TraitAssociatedTypeImpl { ident, .. } => *ident,
             MemberDecl::TraitAssociatedConstSizeImpl { ident, .. } => *ident,
-            MemberDecl::TypeAssociatedCall(call) => call.route.ident().custom(),
+            MemberDecl::TypeAssociatedCall(call) => call.base_route.ident().custom(),
         }
     }
 }
@@ -83,7 +83,7 @@ impl From<&TyMemberDecl> for MemberDecl {
     fn from(decl: &TyMemberDecl) -> Self {
         match decl {
             TyMemberDecl::Field(field_decl) => MemberDecl::TypeField(field_decl.clone()),
-            TyMemberDecl::Method(method_decl) => MemberDecl::TypeMethod(method_decl.clone()),
+            TyMemberDecl::Method(call_form_decl) => MemberDecl::TypeMethod(call_form_decl.clone()),
             TyMemberDecl::Call(call_decl) => MemberDecl::TypeAssociatedCall(call_decl.clone()),
         }
     }
@@ -92,8 +92,8 @@ impl From<&TyMemberDecl> for MemberDecl {
 #[derive(Debug, PartialEq, Eq)]
 pub enum TyMemberDecl {
     Field(Arc<FieldDecl>),
-    Method(Arc<MethodDecl>),
-    Call(Arc<FunctionDecl>),
+    Method(Arc<CallFormDecl>),
+    Call(Arc<CallFormDecl>),
 }
 
 impl TyMemberDecl {
@@ -102,22 +102,22 @@ impl TyMemberDecl {
             TyMemberDecl::Field(field_decl) => {
                 TyMemberDecl::Field(field_decl.instantiate(instantiator))
             }
-            TyMemberDecl::Method(method_decl) => {
-                TyMemberDecl::Method(method_decl.instantiate(instantiator))
+            TyMemberDecl::Method(call_form_decl) => {
+                TyMemberDecl::Method(call_form_decl.instantiate(instantiator))
             }
             TyMemberDecl::Call(_) => todo!(),
         }
     }
 
     pub(crate) fn from_static(
-        db: &dyn DeclQueryGroup,
-        static_defn: &EntityStaticDefn,
         symbol_context: &mut dyn AtomContext,
+        route: EntityRoutePtr,
+        static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
-            EntityStaticDefnVariant::Method { .. } => {
-                TyMemberDecl::Method(MethodDecl::from_static(symbol_context, static_defn))
-            }
+            EntityStaticDefnVariant::Method { .. } => TyMemberDecl::Method(
+                CallFormDecl::from_static(route, symbol_context, static_defn),
+            ),
             EntityStaticDefnVariant::TyField { .. } => {
                 TyMemberDecl::Field(FieldDecl::from_static(symbol_context, static_defn))
             }
@@ -129,9 +129,9 @@ impl TyMemberDecl {
 impl VecMapEntry<CustomIdentifier> for TyMemberDecl {
     fn key(&self) -> CustomIdentifier {
         match self {
-            TyMemberDecl::Method(method_decl) => method_decl.ident,
+            TyMemberDecl::Method(call_form_decl) => call_form_decl.base_route.ident().custom(),
             TyMemberDecl::Field(field_decl) => field_decl.ident,
-            TyMemberDecl::Call(call_decl) => call_decl.route.ident().custom(),
+            TyMemberDecl::Call(call_decl) => call_decl.base_route.ident().custom(),
         }
     }
 }

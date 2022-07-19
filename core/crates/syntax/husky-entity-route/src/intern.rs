@@ -270,10 +270,10 @@ pub trait InternEntityRoute {
     fn make_route(
         &self,
         route: EntityRoutePtr,
-        generic_arguments: ThinVec<SpatialArgument>,
+        spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoutePtr {
         let mut generics = route.spatial_arguments.clone();
-        generics.extend(generic_arguments);
+        generics.extend(spatial_arguments);
         self.intern_entity_route(EntityRoute {
             kind: route.kind,
             temporal_arguments: Default::default(),

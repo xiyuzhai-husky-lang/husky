@@ -88,6 +88,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write("::");
                     self.write("__call__(");
                     self.gen_arguments(opds);
+                    msg_once!("keyword arguments and variadics");
                     self.write(")");
                 }
                 EagerOpnVariant::FieldAccess { field_ident, .. } => {
@@ -101,8 +102,8 @@ impl<'a> RustCodeGenerator<'a> {
                     output_binding,
                     ..
                 } => {
-                    let method_decl = self.db.method_decl(*method_route).unwrap();
-                    match method_decl.output.liason {
+                    let call_form_decl = self.db.call_form_decl(*method_route).unwrap();
+                    match call_form_decl.output.liason {
                         OutputLiason::Transfer => {
                             self.gen_expr(&opds[0]);
                             self.write(".");

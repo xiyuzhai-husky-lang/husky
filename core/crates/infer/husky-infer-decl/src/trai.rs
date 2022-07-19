@@ -5,7 +5,7 @@ use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext, AtomContextStandalone,
 };
-use husky_implement::Implementor;
+use husky_implement::{Implementable, ImplementationContext};
 use husky_instantiate::{Instantiable, InstantiationContext};
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
@@ -21,7 +21,7 @@ pub struct TraitDecl {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TraitMemberDecl {
-    Method(Arc<MethodDecl>),
+    Method(Arc<CallFormDecl>),
     Type {
         ident: CustomIdentifier,
         traits: Vec<EntityRoutePtr>,
@@ -32,17 +32,20 @@ pub enum TraitMemberDecl {
 
 impl TraitMemberDecl {
     pub fn from_static(
-        db: &dyn DeclQueryGroup,
-        static_member_defn: &EntityStaticDefn,
         symbol_context: &mut dyn AtomContext,
+        route: EntityRoutePtr,
+        static_member_defn: &EntityStaticDefn,
     ) -> Self {
         match static_member_defn.variant {
-            EntityStaticDefnVariant::Method { .. } => {
-                TraitMemberDecl::Method(MethodDecl::from_static(symbol_context, static_member_defn))
-            }
+            EntityStaticDefnVariant::Method { .. } => TraitMemberDecl::Method(
+                CallFormDecl::from_static(route, symbol_context, static_member_defn),
+            ),
             EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => {
                 TraitMemberDecl::Type {
-                    ident: db.intern_word(static_member_defn.name).custom(),
+                    ident: symbol_context
+                        .entity_syntax_db()
+                        .intern_word(static_member_defn.name)
+                        .custom(),
                     traits: traits.map(|trai| symbol_context.parse_entity_route(trai).unwrap()),
                 }
             }
@@ -54,11 +57,11 @@ impl TraitMemberDecl {
     pub fn implement(
         &self,
         db: &dyn DeclQueryGroup,
-        implementor: &Implementor,
+        implementor: &ImplementationContext,
     ) -> TraitMemberImplDecl {
         match self {
-            TraitMemberDecl::Method(method_decl) => {
-                TraitMemberImplDecl::Method(method_decl.implement(&implementor))
+            TraitMemberDecl::Method(call_form_decl) => {
+                TraitMemberImplDecl::Method(call_form_decl.implement(&implementor))
             }
             TraitMemberDecl::Type { ident, traits } => {
                 if traits.len() > 0 {
@@ -78,8 +81,8 @@ impl Instantiable for TraitMemberDecl {
 
     fn instantiate(&self, ctx: &InstantiationContext) -> Self {
         match self {
-            TraitMemberDecl::Method(method_decl) => {
-                TraitMemberDecl::Method(method_decl.instantiate(ctx))
+            TraitMemberDecl::Method(call_form_decl) => {
+                TraitMemberDecl::Method(call_form_decl.instantiate(ctx))
             }
             TraitMemberDecl::Type { ident, traits } => TraitMemberDecl::Type {
                 ident: *ident,
@@ -94,7 +97,7 @@ impl Instantiable for TraitMemberDecl {
 impl VecMapEntry<CustomIdentifier> for TraitMemberDecl {
     fn key(&self) -> CustomIdentifier {
         match self {
-            TraitMemberDecl::Method(method_decl) => method_decl.ident,
+            TraitMemberDecl::Method(call_form_decl) => call_form_decl.ident(),
             TraitMemberDecl::Type { ident, .. } => *ident,
             TraitMemberDecl::ConstSize(_) => todo!(),
             TraitMemberDecl::Call {} => todo!(),
@@ -152,7 +155,9 @@ impl TraitDecl {
                     generic_parameters,
                     members: members
                         .iter()
-                        .map(|member| TraitMemberDecl::from_static(db, member, &mut symbol_context))
+                        .map(|member| {
+                            TraitMemberDecl::from_static(&mut symbol_context, todo!(), member)
+                        })
                         .collect(),
                 })
             }

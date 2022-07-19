@@ -47,7 +47,7 @@ impl ParameterDecl {
         }
     }
 
-    pub fn implement(&self, implementor: &Implementor) -> Self {
+    pub fn implement(&self, implementor: &ImplementationContext) -> Self {
         todo!()
     }
 }

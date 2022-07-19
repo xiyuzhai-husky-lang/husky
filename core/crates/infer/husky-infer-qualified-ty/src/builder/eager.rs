@@ -436,7 +436,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<EagerValueQualifiedTy> {
         let call_decl = match self.arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
-                derived_unwrap!(self.db.function_decl(route))
+                derived_unwrap!(self.db.call_form_decl(route))
             }
             RawExprVariant::Opn {
                 opn_variant: ref opr,
@@ -507,15 +507,15 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         inputs: RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<EagerValueQualifiedTy> {
-        let method_decl = self.method_decl(raw_expr_idx)?;
+        let call_form_decl = self.call_form_decl(raw_expr_idx)?;
         let this_qt = derived_not_none!(self.infer_eager_expr(this))?;
         let this_contract = self.eager_expr_contract(this)?;
         for input in inputs {
             self.infer_eager_expr(input);
         }
-        let is_element_copyable = self.db.is_copyable(method_decl.output.ty)?;
+        let is_element_copyable = self.db.is_copyable(call_form_decl.output.ty)?;
         let output_contract = self.eager_expr_contract(raw_expr_idx)?;
-        let qual = match method_decl.output.liason {
+        let qual = match call_form_decl.output.liason {
             OutputLiason::Transfer => {
                 if is_element_copyable {
                     EagerExprQualifier::Copyable
@@ -530,6 +530,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 is_element_copyable,
             ),
         };
-        Ok(EagerValueQualifiedTy::new(qual, method_decl.output.ty))
+        Ok(EagerValueQualifiedTy::new(qual, call_form_decl.output.ty))
     }
 }
