@@ -30,7 +30,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             }
             None => vec![],
         };
-        let nargs = arguments.len() as u8;
+        let nargs = arguments.len().try_into().unwrap();
         msg_once!("kwargs");
         eval_fast(
             self.db.upcast(),

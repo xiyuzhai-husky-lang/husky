@@ -196,7 +196,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             self.push_instruction(Instruction::new(
                                 InstructionVariant::CallSpecificRoutine {
                                     output_ty: expr.ty(),
-                                    nargs: opds.len() as u8,
+                                    nargs: opds.len().try_into().unwrap(),
                                     linkage,
                                 },
                                 expr.clone(),
@@ -209,7 +209,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     self.push_instruction(Instruction::new(
                         InstructionVariant::CallInterpreted {
                             routine_uid: self.db.compile_time().entity_uid(routine.route),
-                            nargs: opds.len() as u8,
+                            nargs: opds.len().try_into().unwrap(),
                             has_this: false,
                             output_ty: expr.ty(),
                         },
@@ -263,7 +263,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         method_ident.ident,
                         expr.ty(),
                         *opt_output_binding,
-                        opds.len() as u8,
+                        opds.len().try_into().unwrap(),
                     ),
                     expr.clone(),
                 ))
@@ -316,14 +316,14 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 __Linkage::SpecificTransfer(linkage) => {
                                     InstructionVariant::CallSpecificRoutine {
                                         output_ty: expr.ty(),
-                                        nargs: opds.len() as u8,
+                                        nargs: opds.len().try_into().unwrap(),
                                         linkage,
                                     }
                                 }
                                 __Linkage::GenericTransfer(linkage) => {
                                     InstructionVariant::CallGenericRoutine {
                                         output_ty: ranged_ty.route,
-                                        nargs: opds.len() as u8,
+                                        nargs: opds.len().try_into().unwrap(),
                                         linkage,
                                     }
                                 }
@@ -349,6 +349,31 @@ impl<'a> InstructionSheetBuilder<'a> {
                 };
                 self.push_instruction(Instruction::new(instruction_variant, expr.clone()))
             }
+            EagerOpnVariant::NewVecFromList => {
+                let output_ty = expr.ty();
+                let linkage = self.db.compile_time().type_call_linkage(output_ty).unwrap();
+                self.push_instruction(Instruction::new(
+                    match linkage {
+                        __Linkage::Member(_) => todo!(),
+                        __Linkage::SpecificTransfer(linkage) => {
+                            InstructionVariant::CallSpecificRoutine {
+                                linkage,
+                                nargs: opds.len().try_into().unwrap(),
+                                output_ty,
+                            }
+                        }
+                        __Linkage::GenericTransfer(linkage) => {
+                            InstructionVariant::CallGenericRoutine {
+                                linkage,
+                                nargs: opds.len().try_into().unwrap(),
+                                output_ty,
+                            }
+                        }
+                        __Linkage::Model(_) => todo!(),
+                    },
+                    expr.clone(),
+                ))
+            }
         }
     }
 
@@ -361,7 +386,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         self.push_instruction(Instruction::new(
             InstructionVariant::CallSpecificRoutine {
                 output_ty: expr.ty(),
-                nargs: opds.len() as u8,
+                nargs: opds.len().try_into().unwrap(),
                 linkage: self
                     .db
                     .compile_time()

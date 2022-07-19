@@ -418,7 +418,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<EagerValueQualifiedTy> {
         match list_opr {
             ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => todo!(),
+            ListOpr::NewVec => self.eager_new_vec_from_list(idx, opds),
             ListOpr::NewDict => todo!(),
             ListOpr::Call => self.eager_call(idx, opds),
             ListOpr::Index | ListOpr::ModuloIndex => self.eager_element_access(idx, opds),
@@ -427,6 +427,20 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.eager_method_call(opds.start, *ranged_ident, (opds.start + 1)..opds.end, idx)
             }
         }
+    }
+
+    fn eager_new_vec_from_list(
+        &mut self,
+        idx: RawExprIdx,
+        elements: RawExprRange,
+    ) -> InferResult<EagerValueQualifiedTy> {
+        for element in elements {
+            self.infer_eager_expr(element);
+        }
+        Ok(EagerValueQualifiedTy::new(
+            EagerExprQualifier::Transient,
+            self.raw_expr_ty(idx)?,
+        ))
     }
 
     fn eager_call(

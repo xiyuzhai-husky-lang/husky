@@ -161,7 +161,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         &mut self,
         opr: &RawOpnVariant,
         opds: &RawExprRange,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
         match opr {
             RawOpnVariant::Binary(opr) => self.parse_binary_opr(*opr, opds),
@@ -169,23 +169,36 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(*opr, opds),
             RawOpnVariant::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
-                ListOpr::NewVec => todo!(),
+                ListOpr::NewVec => self.parse_new_vec_from_list(idx, opds.clone()),
                 ListOpr::NewDict => todo!(),
-                ListOpr::Call => self.parse_function_call(opds.clone(), raw_expr_idx),
+                ListOpr::Call => self.parse_function_call(opds.clone(), idx),
                 ListOpr::MethodCall { ranged_ident, .. } => self.parse_method_call(
                     opds.start,
                     (opds.start + 1)..opds.end,
                     *ranged_ident,
-                    raw_expr_idx,
+                    idx,
                 ),
-                ListOpr::Index => self.parse_element_access(opds.clone(), raw_expr_idx),
+                ListOpr::Index => self.parse_element_access(opds.clone(), idx),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
             },
-            RawOpnVariant::Field(field_ident) => {
-                self.parse_field_access(*field_ident, opds, raw_expr_idx)
-            }
+            RawOpnVariant::Field(field_ident) => self.parse_field_access(*field_ident, opds, idx),
         }
+    }
+
+    fn parse_new_vec_from_list(
+        &mut self,
+        idx: RawExprIdx,
+        opds: RawExprRange,
+    ) -> SemanticResult<EagerExprVariant> {
+        let elements: Vec<_> = opds
+            .map(|raw| self.parse_eager_expr(raw))
+            .collect::<SemanticResult<_>>()?;
+        let opn_variant = EagerOpnVariant::NewVecFromList;
+        Ok(EagerExprVariant::Opn {
+            opn_variant,
+            opds: elements,
+        })
     }
 
     fn parse_binary_opr(

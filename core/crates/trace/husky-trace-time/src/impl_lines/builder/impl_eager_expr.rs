@@ -94,6 +94,7 @@ impl<'a> TraceTokenBuilder<'a> {
                     }
                     self.push(special!(")"));
                 }
+                EagerOpnVariant::NewVecFromList => todo!(),
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::ThisValue { .. } => self.push(ident!("this")),

@@ -1,5 +1,6 @@
 #![allow(dead_code, warnings)]
 #![feature(unboxed_closures)]
+mod try_as;
 #[cfg(test)] // this crate is for trying stuffs
 mod try_atomic;
 mod try_control_flow;

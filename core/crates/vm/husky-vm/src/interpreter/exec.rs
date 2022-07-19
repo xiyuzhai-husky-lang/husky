@@ -159,7 +159,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     result.into()
                 }
                 InstructionVariant::NewVirtualStruct { ty, ref fields } => {
-                    let value_result = self.new_virtual_struct(ty, fields);
+                    self.new_virtual_struct(ty, fields);
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {

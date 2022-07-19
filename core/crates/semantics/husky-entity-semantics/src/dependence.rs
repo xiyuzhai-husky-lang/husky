@@ -407,11 +407,11 @@ impl EntityDefn {
                     extract_eager_expr_dependees(expr, builder)
                 }
                 EagerExprVariant::Opn {
-                    opn_variant: ref opn_kind,
+                    ref opn_variant,
                     ref opds,
                     ..
                 } => {
-                    match opn_kind {
+                    match opn_variant {
                         EagerOpnVariant::Binary { .. }
                         | EagerOpnVariant::Prefix { .. }
                         | EagerOpnVariant::Suffix { .. }
@@ -422,6 +422,7 @@ impl EntityDefn {
                         EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                             builder.push(ranged_ty.route)
                         }
+                        EagerOpnVariant::NewVecFromList => (),
                     }
                     for opd in opds {
                         extract_eager_expr_dependees(opd, builder)
