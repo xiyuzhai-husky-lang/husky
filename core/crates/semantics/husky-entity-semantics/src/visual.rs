@@ -15,6 +15,7 @@ pub enum VisualTy {
     Region2d,
     Image2d,
     Graphics2d,
+    Plot2d,
     Dataset,
 }
 
@@ -105,13 +106,14 @@ impl VisualTy {
                 VisualTy::Bool => todo!(),
                 VisualTy::B32 => todo!(),
                 VisualTy::B64 => todo!(),
-                VisualTy::I32 => todo!(),
+                VisualTy::I32 => VisualTy::Plot2d,
                 VisualTy::F32 => todo!(),
                 VisualTy::Point2d | VisualTy::Shape2d => VisualTy::Shape2d,
                 VisualTy::Region2d => VisualTy::Region2d,
                 VisualTy::Image2d => VisualTy::Image2d,
                 VisualTy::Graphics2d => todo!(),
                 VisualTy::Dataset => todo!(),
+                VisualTy::Plot2d => todo!(),
             },
             StaticVisualTy::Dataset => todo!(),
         }
