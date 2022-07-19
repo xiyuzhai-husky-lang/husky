@@ -6,9 +6,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn call_specific_routine(
         &mut self,
         f: __SpecificRoutineLinkage,
+        nargs: u8,
         output_ty: EntityRoutePtr,
     ) -> __EvalResult<()> {
-        let mut arguments = self.stack.drain(f.nargs).collect::<Vec<_>>();
+        let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
         for argument in arguments.iter() {
             match argument {
                 __TempValue::Moved => panic!(),
@@ -38,10 +39,11 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     }
     pub(super) fn call_generic_transfer(
         &mut self,
-        output_ty: EntityRoutePtr,
         f: GenericRoutineLinkage,
+        nargs: u8,
+        output_ty: EntityRoutePtr,
     ) -> __EvalResult<()> {
-        let mut parameters = self.stack.drain(f.nargs).collect::<Vec<_>>();
+        let mut parameters = self.stack.drain(nargs).collect::<Vec<_>>();
         let result = (f.call)(output_ty, &mut parameters);
         self.stack.push(result.into());
         Ok(())

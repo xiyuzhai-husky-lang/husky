@@ -226,6 +226,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             output_ty,
             values,
             [].into_iter(),
+            arguments.len() as u8,
             vm_config,
         )
     }

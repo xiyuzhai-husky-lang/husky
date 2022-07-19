@@ -49,14 +49,11 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(
-            |_, values| {
-                __TempValue::Copyable(
-                    (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
-                )
-            },
-            1
-        )),
+        opt_linkage: Some(specific_transfer_linkage!(|_, values| {
+            __TempValue::Copyable(
+                (values[0].take_copyable().take_b32().leading_zeros() as i32).into(),
+            )
+        })),
     },
     dev_src: __static_dev_src!(),
 };
@@ -71,12 +68,9 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(
-            |_, values| {
-                __TempValue::Copyable((values[0].take_copyable().take_b32().ctz()).into())
-            },
-            1
-        )),
+        opt_linkage: Some(specific_transfer_linkage!(|_, values| {
+            __TempValue::Copyable((values[0].take_copyable().take_b32().ctz()).into())
+        })),
     },
     dev_src: __static_dev_src!(),
 };
@@ -95,15 +89,12 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(
-            |_, values| {
-                let b = values[0].take_copyable().take_b32();
-                let i = values[1].take_copyable().take_i32();
-                let last_bits = b & ((1 << i) - 1);
-                __TempValue::Copyable(last_bits.into())
-            },
-            2
-        )),
+        opt_linkage: Some(specific_transfer_linkage!(|_, values| {
+            let b = values[0].take_copyable().take_b32();
+            let i = values[1].take_copyable().take_i32();
+            let last_bits = b & ((1 << i) - 1);
+            __TempValue::Copyable(last_bits.into())
+        })),
     },
     dev_src: __static_dev_src!(),
 };

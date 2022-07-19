@@ -8,16 +8,15 @@ pub struct GenericRoutineLinkage {
         ty: EntityRoutePtr,
         &mut [__TempValue<'temp, 'eval>],
     ) -> __TempValue<'temp, 'eval>,
-    pub nargs: u8,
+    // pub nargs: u8,
     pub dev_src: &'static __StaticDevSource,
 }
 
 #[macro_export]
 macro_rules! generic_routine_linkage {
-    ($fp: expr, $nargs: expr) => {{
+    ($fp: expr) => {{
         GenericRoutineLinkage {
             call: $fp,
-            nargs: $nargs,
             dev_src: &dev_utils::__static_dev_src!(),
         }
     }};
