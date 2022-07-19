@@ -282,10 +282,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 should_eq!(self.stack.len(), 0);
                 linkage.eval(self.opt_ctx, arguments)
             }
-            __Linkage::GenericTransfer(__Linkage) => {
-                let mut arguments = self.stack.drain(__Linkage.nargs).collect::<Vec<_>>();
+            __Linkage::GenericTransfer(linkage) => {
+                let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                Ok((__Linkage.call)(output_ty, &mut arguments).into_eval())
+                Ok((linkage.call)(output_ty, &mut arguments).into_eval())
             }
             __Linkage::Model(_) => todo!(),
         }

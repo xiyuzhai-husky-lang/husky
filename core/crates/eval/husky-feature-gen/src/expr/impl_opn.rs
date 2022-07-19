@@ -148,6 +148,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     elements: elements.iter().map(|elem| elem.feature).collect(),
                 });
                 let kind = FeatureExprVariant::NewVecFromList {
+                    elements,
                     linkage: self.db.compile_time().type_call_linkage(ty).unwrap(),
                 };
                 (kind, feature)

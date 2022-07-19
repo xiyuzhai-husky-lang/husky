@@ -131,7 +131,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 },
                 _ => panic!(),
             },
-            FeatureExprVariant::NewVecFromList { .. } => todo!(),
+            FeatureExprVariant::NewVecFromList {
+                ref elements,
+                linkage,
+            } => self.eval_routine_call(None, Some(linkage), expr.expr.ty(), elements, false),
         }
     }
 
