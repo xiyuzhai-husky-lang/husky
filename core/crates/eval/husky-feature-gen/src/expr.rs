@@ -118,6 +118,7 @@ pub enum FeatureExprVariant {
         opds: Vec<Arc<FeatureExpr>>,
     },
     NewVecFromList {
+        elements: Vec<Arc<FeatureExpr>>,
         linkage: __Linkage,
     },
 }
