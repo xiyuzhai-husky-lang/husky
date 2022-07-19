@@ -261,10 +261,7 @@ impl TyDecl {
                         Paradigm::LazyFunctional => todo!(),
                     },
                     None => throw_query_derived!(members.insert_new(TyMemberDecl::Call(
-                        CallFormDecl::from_ast(
-                            db.make_subroute(this_ty, ident.ident, thin_vec![]),
-                            ast,
-                        )
+                        CallFormDecl::from_ast(db.subroute(this_ty, ident.ident, thin_vec![]), ast,)
                     ))),
                 },
                 AstVariant::Use { .. } => todo!(),

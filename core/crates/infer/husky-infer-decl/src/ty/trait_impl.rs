@@ -1,3 +1,4 @@
+use crate::*;
 use entity_kind::{FieldKind, MemberKind};
 use husky_atom::{
     context::{AtomContextKind, Symbol},
@@ -6,8 +7,7 @@ use husky_atom::{
 use husky_implement::ImplementationContext;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
-
-use crate::*;
+use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitImplDecl {
@@ -77,9 +77,12 @@ impl TraitImplDecl {
                 trait_route: clone_trait,
                 this_ty,
                 member_impls: vec![TraitMemberImplDecl::Method(Arc::new(CallFormDecl {
-                    base_route: todo!(),
-                    // ident: db.intern_word("clone").custom(),
-                    // kind: MethodKind::Trait { trai: clone_trait },
+                    base_route: db.ty_as_trai_subroute(
+                        this_ty,
+                        clone_trait,
+                        db.intern_word("clone").custom(),
+                        thin_vec![],
+                    ),
                     opt_this_liason: Some(ParameterLiason::Pure),
                     primary_parameters: Default::default(),
                     output: OutputDecl {
@@ -88,8 +91,8 @@ impl TraitImplDecl {
                     },
                     spatial_parameters: Default::default(),
                     is_lazy: false,
-                    variadic_template: todo!(),
-                    keyword_parameters: todo!(),
+                    variadic_template: VariadicTemplate::None,
+                    keyword_parameters: Default::default(),
                 }))],
             }))
         }

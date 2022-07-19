@@ -66,7 +66,7 @@ impl CallFormDecl {
     }
 
     pub fn from_static(
-        route: EntityRoutePtr,
+        base_route: EntityRoutePtr,
         symbol_context: &mut dyn AtomContext,
         defn: &EntityStaticDefn,
     ) -> Arc<Self> {
@@ -82,7 +82,7 @@ impl CallFormDecl {
             } => {
                 let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
                 Arc::new(Self {
-                    base_route: route,
+                    base_route,
                     opt_this_liason: Some(this_liason),
                     primary_parameters: parameters
                         .map(|input| ParameterDecl::from_static(symbol_context, input)),
@@ -97,8 +97,8 @@ impl CallFormDecl {
                         )
                     }),
                     is_lazy: false,
-                    variadic_template: todo!(),
-                    keyword_parameters: todo!(),
+                    variadic_template: VariadicTemplate::None,
+                    keyword_parameters: Default::default(),
                 })
             }
             _ => panic!(""),

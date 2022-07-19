@@ -51,7 +51,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 Some(AtomVariant::EntityRoute {
                     route: self
                         .db()
-                        .make_route(RootIdentifier::Ref.into(), thin_vec![ty.into()]),
+                        .route_call(RootIdentifier::Ref.into(), thin_vec![ty.into()]),
                     kind: EntityKind::Type(TyKind::Other),
                 })
             } else if is_special!(token, "?") {
@@ -59,7 +59,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 Some(AtomVariant::EntityRoute {
                     route: self
                         .db()
-                        .make_route(RootIdentifier::Option.into(), thin_vec![ty.into()]),
+                        .route_call(RootIdentifier::Option.into(), thin_vec![ty.into()]),
                     kind: EntityKind::Type(TyKind::Other),
                 })
             } else if let HuskyTokenKind::Identifier(ident) = token.kind {
@@ -158,7 +158,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         let mut route = self
             .atom_context
             .entity_syntax_db()
-            .make_route(route, generic_arguments);
+            .route_call(route, generic_arguments);
         while try_eat!(self, SpecialToken::DoubleColon) {
             let ranged_ident = get!(self, custom_ident);
             let new_route = make_subroute(route, ranged_ident.ident, Default::default());

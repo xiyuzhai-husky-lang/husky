@@ -126,7 +126,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     .iter()
                     .map(|parameter| parameter.ty.into())
                     .collect();
-                self.db.make_route(base_route, spatial_arguments)
+                self.db.route_call(base_route, spatial_arguments)
             }
             EntityKind::Feature => self.db.feature_decl(entity_route)?.ty,
             EntityKind::Member(_) => todo!(),
@@ -517,7 +517,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             };
         self.entity_route_sheet.call_routes.insert_new(
             raw_expr_idx,
-            Ok(self.db.make_route(call_form_decl.base_route, thin_vec![])),
+            Ok(self.db.route_call(call_form_decl.base_route, thin_vec![])),
         );
         Ok(call_form_decl.output.ty)
     }

@@ -53,8 +53,7 @@ struct B {}
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
     let subroute_table = db.subroute_table(package).ok().unwrap();
-    let husky_lord_route =
-        db.make_subroute(package, db.intern_word("husky_lord").custom(), thin_vec![]);
+    let husky_lord_route = db.subroute(package, db.intern_word("husky_lord").custom(), thin_vec![]);
     should_eq!(
         db.entity_locus(husky_lord_route).unwrap(),
         EntityLocus::Module {

@@ -267,7 +267,7 @@ pub trait InternEntityRoute {
         self.scope_interner().intern(scope)
     }
 
-    fn make_route(
+    fn route_call(
         &self,
         route: EntityRoutePtr,
         spatial_arguments: ThinVec<SpatialArgument>,
@@ -281,19 +281,7 @@ pub trait InternEntityRoute {
         })
     }
 
-    fn option(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
-        self.make_route(RootIdentifier::Option.into(), thin_vec![ty.into()])
-    }
-
-    fn reference(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
-        self.make_route(RootIdentifier::Ref.into(), thin_vec![ty.into()])
-    }
-
-    fn vec(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
-        self.make_route(RootIdentifier::Vec.into(), thin_vec![ty.into()])
-    }
-
-    fn make_subroute(
+    fn subroute(
         &self,
         parent: EntityRoutePtr,
         ident: CustomIdentifier,
@@ -304,6 +292,32 @@ pub trait InternEntityRoute {
             temporal_arguments: Default::default(),
             spatial_arguments,
         })
+    }
+
+    fn ty_as_trai_subroute(
+        &self,
+        ty: EntityRoutePtr,
+        trai: EntityRoutePtr,
+        ident: CustomIdentifier,
+        spatial_arguments: ThinVec<SpatialArgument>,
+    ) -> EntityRoutePtr {
+        self.intern_entity_route(EntityRoute {
+            kind: EntityRouteKind::TypeAsTraitMember { ty, trai, ident },
+            temporal_arguments: Default::default(),
+            spatial_arguments,
+        })
+    }
+
+    fn option(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+        self.route_call(RootIdentifier::Option.into(), thin_vec![ty.into()])
+    }
+
+    fn reference(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+        self.route_call(RootIdentifier::Ref.into(), thin_vec![ty.into()])
+    }
+
+    fn vec(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+        self.route_call(RootIdentifier::Vec.into(), thin_vec![ty.into()])
     }
 }
 

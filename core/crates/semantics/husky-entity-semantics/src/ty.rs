@@ -241,7 +241,7 @@ impl EntityDefnVariant {
                                 EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
                             },
                         },
-                        db.make_subroute(ty_route, ident.ident, thin_vec![]),
+                        db.subroute(ty_route, ident.ident, thin_vec![]),
                         file,
                         ast.range,
                     ));
