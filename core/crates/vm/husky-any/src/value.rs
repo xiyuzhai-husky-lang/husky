@@ -203,7 +203,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
         }
     }
 
-    pub fn into_member(&mut self) -> MemberValue<'eval> {
+    pub fn move_into_member(&mut self) -> MemberValue<'eval> {
         match self {
             __TempValue::Copyable(primitive_value) => MemberValue::Copyable(*primitive_value),
             __TempValue::OwnedEval(boxed_value) => {

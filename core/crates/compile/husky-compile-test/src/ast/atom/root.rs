@@ -71,7 +71,7 @@ fn f32_type() {
 }
 
 #[test]
-fn list_generics() {
+fn vec_generics() {
     let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
     utils::check_atom_kind(
         &mut db,

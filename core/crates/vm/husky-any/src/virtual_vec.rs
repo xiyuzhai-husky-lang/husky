@@ -14,7 +14,7 @@ pub struct VirtualVec<'eval> {
 }
 
 impl<'eval> VirtualVec<'eval> {
-    pub fn new(ty: EntityRoutePtr) -> Self {
+    pub fn new(ty: EntityRoutePtr, data: Vec<MemberValue<'eval>>) -> Self {
         Self { ty, data: vec![] }
     }
 }

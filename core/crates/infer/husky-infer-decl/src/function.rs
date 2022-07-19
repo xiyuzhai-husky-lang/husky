@@ -171,7 +171,10 @@ pub(crate) fn routine_decl_from_static(
                     ty: output_ty,
                 },
                 keyword_parameters: Default::default(),
-                variadic_template: VariadicTemplateDecl::from_static(variadic_template),
+                variadic_template: VariadicTemplateDecl::from_static(
+                    &mut symbol_context,
+                    variadic_template,
+                ),
             })
         }
         _ => panic!(),
