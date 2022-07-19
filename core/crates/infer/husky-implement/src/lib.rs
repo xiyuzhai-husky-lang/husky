@@ -23,7 +23,8 @@ impl<'a> ImplementationContext<'a> {
         }
     }
 
-    pub fn generic_argument(&self, ident0: CustomIdentifier) -> SpatialArgument {
+    pub fn spatial_argument(&self, ident0: CustomIdentifier) -> SpatialArgument {
+        p!(self.member_impls, ident0);
         self.member_impls
             .iter()
             .find_map(|(ident, generic_argument)| {
@@ -60,10 +61,13 @@ impl Implementable for EntityRoutePtr {
             EntityRouteKind::Package { main, ident } => todo!(),
             EntityRouteKind::Child { parent, ident } => match parent.kind {
                 EntityRouteKind::ThisType => {
-                    let ty = implementor.generic_argument(ident).take_entity_route();
-                    (ty.kind, ty.spatial_arguments.clone())
+                    let route = implementor.spatial_argument(ident).take_entity_route();
+                    (route.kind, route.spatial_arguments.clone())
                 }
-                _ => todo!(),
+                _ => {
+                    p!(parent);
+                    todo!()
+                }
             },
             EntityRouteKind::Input { main } => todo!(),
             EntityRouteKind::Generic { ident, entity_kind } => todo!(),

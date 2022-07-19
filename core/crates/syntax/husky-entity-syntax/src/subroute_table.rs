@@ -175,7 +175,7 @@ impl SubrouteTable {
         self.entries.iter().filter_map(move |entry| {
             entry
                 .ident
-                .map(|ident| db.make_subroute(parent_route, ident.ident, thin_vec![]))
+                .map(|ident| db.subroute(parent_route, ident.ident, thin_vec![]))
         })
     }
 
@@ -190,7 +190,7 @@ impl SubrouteTable {
                 EntityKind::Module => None,
                 _ => entry
                     .ident
-                    .map(|ident| db.make_subroute(parent_route, ident.ident, thin_vec![])),
+                    .map(|ident| db.subroute(parent_route, ident.ident, thin_vec![])),
             })
     }
 
@@ -255,7 +255,7 @@ impl SubrouteTable {
                                 MemberKind::Method { is_lazy: false }
                             }
                             EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => {
-                                todo!()
+                                MemberKind::TraitAssociatedType
                             }
                             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
                             _ => panic!(),

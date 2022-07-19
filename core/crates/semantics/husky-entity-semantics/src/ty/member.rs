@@ -125,7 +125,7 @@ impl EntityDefnVariant {
                 .insert_new(EntityDefn::new(
                     ident.into(),
                     variant,
-                    db.make_subroute(ty_route, ident, thin_vec![]),
+                    db.subroute(ty_route, ident, thin_vec![]),
                     file,
                     ast.range,
                 ))

@@ -130,11 +130,9 @@ fn entity_kind_from_entity_route_kind(
         EntityRouteKind::Input { .. } => EntityKind::Feature,
         EntityRouteKind::Generic { entity_kind, .. } => entity_kind,
         EntityRouteKind::ThisType => EntityKind::Type(TyKind::Other),
-        EntityRouteKind::TypeAsTraitMember {
-            ty: parent,
-            trai,
-            ident,
-        } => todo!(),
+        EntityRouteKind::TypeAsTraitMember { .. } => {
+            EntityKind::Member(MemberKind::TraitAssociatedAny)
+        }
     })
 }
 

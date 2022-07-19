@@ -75,7 +75,7 @@ impl<'a> AstTransformer<'a> {
                 if let Some(entry_ident) = entry.ident {
                     symbols.push(Symbol {
                         init_ident: entry_ident,
-                        kind: SymbolKind::EntityRoute(db.make_subroute(
+                        kind: SymbolKind::EntityRoute(db.subroute(
                             module,
                             entry_ident.ident,
                             Default::default(),

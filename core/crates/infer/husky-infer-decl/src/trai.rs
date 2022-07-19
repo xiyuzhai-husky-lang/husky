@@ -67,7 +67,7 @@ impl TraitMemberDecl {
                 if traits.len() > 0 {
                     todo!("verify traits are satisfied")
                 }
-                let ty = implementor.generic_argument(*ident).take_entity_route();
+                let ty = implementor.spatial_argument(*ident).take_entity_route();
                 TraitMemberImplDecl::AssociatedType { ident: *ident, ty }
             }
             TraitMemberDecl::ConstSize(_) => todo!(),
@@ -156,7 +156,16 @@ impl TraitDecl {
                     members: members
                         .iter()
                         .map(|member| {
-                            TraitMemberDecl::from_static(&mut symbol_context, todo!(), member)
+                            TraitMemberDecl::from_static(
+                                &mut symbol_context,
+                                db.ty_as_trai_subroute(
+                                    EntityRoutePtr::ThisType,
+                                    trai,
+                                    db.intern_word(member.name).custom(),
+                                    thin_vec![],
+                                ),
+                                member,
+                            )
                         })
                         .collect(),
                 })

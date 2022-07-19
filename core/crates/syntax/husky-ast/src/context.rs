@@ -43,13 +43,9 @@ impl AstContext {
         ident: CustomIdentifier,
     ) -> Option<EntityRoutePtr> {
         Some(match self {
-            AstContext::Package(main) => {
-                db.make_subroute(db.module(main).unwrap(), ident, thin_vec![])
-            }
-            AstContext::Module(route) => db.make_subroute(route, ident, thin_vec![]),
-            AstContext::Struct { opt_base_ty, .. } => {
-                db.make_subroute(opt_base_ty?, ident, thin_vec![])
-            }
+            AstContext::Package(main) => db.subroute(db.module(main).unwrap(), ident, thin_vec![]),
+            AstContext::Module(route) => db.subroute(route, ident, thin_vec![]),
+            AstContext::Struct { opt_base_ty, .. } => db.subroute(opt_base_ty?, ident, thin_vec![]),
             AstContext::Enum(_) => todo!(),
             AstContext::Record => todo!(),
             _ => return None,

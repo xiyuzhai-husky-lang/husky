@@ -38,7 +38,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
             __Linkage
         } else {
             let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
-            let std_ops_index_trai = self.make_route(
+            let std_ops_index_trai = self.route_call(
                 entity_route_menu().std_ops_index_trai,
                 thin_vec![SpatialArgument::EntityRoute(opd_tys[1])],
             );
