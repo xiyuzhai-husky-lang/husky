@@ -77,6 +77,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         ) {
                             InstructionVariant::CallSpecificRoutine {
                                 output_ty: expr.ty(),
+                                nargs: 1,
                                 linkage,
                             }
                         } else {
@@ -195,6 +196,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             self.push_instruction(Instruction::new(
                                 InstructionVariant::CallSpecificRoutine {
                                     output_ty: expr.ty(),
+                                    nargs: opds.len() as u8,
                                     linkage,
                                 },
                                 expr.clone(),
@@ -229,8 +231,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                         *field_binding,
                     ) {
                         InstructionVariant::CallSpecificRoutine {
-                            output_ty: expr.ty(),
                             linkage,
+                            nargs: 1,
+                            output_ty: expr.ty(),
                         }
                     } else {
                         let this_ty_decl = self.db.compile_time().ty_decl(*this_ty).unwrap();
@@ -260,6 +263,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         method_ident.ident,
                         expr.ty(),
                         *opt_output_binding,
+                        opds.len() as u8,
                     ),
                     expr.clone(),
                 ))
@@ -312,12 +316,14 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 __Linkage::SpecificTransfer(linkage) => {
                                     InstructionVariant::CallSpecificRoutine {
                                         output_ty: expr.ty(),
+                                        nargs: opds.len() as u8,
                                         linkage,
                                     }
                                 }
                                 __Linkage::GenericTransfer(linkage) => {
                                     InstructionVariant::CallGenericRoutine {
                                         output_ty: ranged_ty.route,
+                                        nargs: opds.len() as u8,
                                         linkage,
                                     }
                                 }
@@ -355,6 +361,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         self.push_instruction(Instruction::new(
             InstructionVariant::CallSpecificRoutine {
                 output_ty: expr.ty(),
+                nargs: opds.len() as u8,
                 linkage: self
                     .db
                     .compile_time()
@@ -373,19 +380,26 @@ impl<'a> InstructionSheetBuilder<'a> {
         method_ident: CustomIdentifier,
         output_ty: EntityRoutePtr,
         output_binding: Binding,
+        nargs: u8,
     ) -> InstructionVariant {
         if let Some(linkage) = self.db.compile_time().method_linkage(method_route) {
             match linkage {
                 __Linkage::Member { .. } => InstructionVariant::CallSpecificRoutine {
-                    output_ty,
                     linkage: linkage.bind(output_binding),
+                    nargs,
+                    output_ty,
                 },
-                __Linkage::SpecificTransfer(linkage) => {
-                    InstructionVariant::CallSpecificRoutine { output_ty, linkage }
-                }
-                __Linkage::GenericTransfer(linkage) => {
-                    InstructionVariant::CallGenericRoutine { output_ty, linkage }
-                }
+                __Linkage::SpecificTransfer(linkage) => InstructionVariant::CallSpecificRoutine {
+                    output_ty,
+                    nargs,
+
+                    linkage,
+                },
+                __Linkage::GenericTransfer(linkage) => InstructionVariant::CallGenericRoutine {
+                    linkage,
+                    output_ty,
+                    nargs,
+                },
                 __Linkage::Model(_) => todo!(),
             }
         } else {

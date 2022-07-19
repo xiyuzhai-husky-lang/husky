@@ -50,11 +50,12 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
     output_ty: EntityRoutePtr,
     args: impl Iterator<Item = __EvalResult<__TempValue<'temp, 'eval>>>, // including this value
     kwargs: impl Iterator<Item = (CustomIdentifier, __EvalResult<__TempValue<'temp, 'eval>>)>,
+    nargs: u8,
     vm_config: &'temp VMConfig,
 ) -> __EvalValueResult<'eval> {
     let mut interpreter = Interpreter::try_new(db, opt_ctx, args, vm_config)?;
-    if let Some(__Linkage) = opt_linkage {
-        interpreter.eval_linkage(__Linkage, output_ty)
+    if let Some(linkage) = opt_linkage {
+        interpreter.eval_linkage(linkage, nargs, output_ty)
     } else {
         interpreter.eval_instructions(opt_instrn_sheet.as_ref().unwrap(), Mode::Fast)
     }

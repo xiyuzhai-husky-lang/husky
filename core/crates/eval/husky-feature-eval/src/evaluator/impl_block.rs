@@ -30,6 +30,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             }
             None => vec![],
         };
+        let nargs = arguments.len() as u8;
         msg_once!("kwargs");
         eval_fast(
             self.db.upcast(),
@@ -39,6 +40,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             block.ty.route,
             arguments.into_iter(),
             [].into_iter(),
+            nargs,
             &self.evaluator_config.vm,
         )
     }

@@ -85,10 +85,9 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: BINARY_IMAGE_28_BASE_ROUTE,
         output_liason: OutputLiason::Transfer,
-        linkage: specific_transfer_linkage!(
-            |_, _values| { __TempValue::OwnedEval(__OwnedValue::new(BinaryImage28::default(),)) },
-            0
-        )
+        linkage: specific_transfer_linkage!(|_, _values| {
+            __TempValue::OwnedEval(__OwnedValue::new(BinaryImage28::default()))
+        })
         .into(),
     },
     dev_src: __static_dev_src!(),

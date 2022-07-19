@@ -95,9 +95,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 }
                 InstructionVariant::CallSpecificRoutine {
                     linkage,
-                    output_ty: ty,
+                    nargs,
+                    output_ty,
                 } => {
-                    let control = self.call_specific_routine(linkage, ty).into();
+                    let control = self.call_specific_routine(linkage, nargs, output_ty).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -113,10 +114,11 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     control
                 }
                 InstructionVariant::CallGenericRoutine {
+                    linkage,
+                    nargs,
                     output_ty,
-                    linkage: __Linkage,
                 } => {
-                    let control = self.call_generic_transfer(output_ty, __Linkage).into();
+                    let control = self.call_generic_transfer(linkage, nargs, output_ty).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -273,17 +275,18 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn eval_linkage(
         &mut self,
         linkage: __Linkage,
+        nargs: u8,
         output_ty: EntityRoutePtr,
     ) -> __EvalValueResult<'eval> {
         match linkage {
             __Linkage::Member { .. } => todo!(),
             __Linkage::SpecificTransfer(linkage) => {
-                let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
+                let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
                 linkage.eval(self.opt_ctx, arguments)
             }
             __Linkage::GenericTransfer(linkage) => {
-                let mut arguments = self.stack.drain(linkage.nargs).collect::<Vec<_>>();
+                let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
                 Ok((linkage.call)(output_ty, &mut arguments).into_eval())
             }

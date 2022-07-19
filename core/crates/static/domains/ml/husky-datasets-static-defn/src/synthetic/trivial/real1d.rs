@@ -25,10 +25,9 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: specific_transfer_linkage!(
-            |_, _| __TempValue::OwnedEval(__OwnedValue::new(dataset1())),
-            0
-        )
+        linkage: specific_transfer_linkage!(|_, _| __TempValue::OwnedEval(__OwnedValue::new(
+            dataset1()
+        )))
         .into(),
     },
     dev_src: dev_utils::__static_dev_src!(),
@@ -43,10 +42,9 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: specific_transfer_linkage!(
-            |_, _| __TempValue::OwnedEval(__OwnedValue::new(dataset2())),
-            0
-        )
+        linkage: specific_transfer_linkage!(|_, _| __TempValue::OwnedEval(__OwnedValue::new(
+            dataset2()
+        )))
         .into(),
     },
     dev_src: dev_utils::__static_dev_src!(),

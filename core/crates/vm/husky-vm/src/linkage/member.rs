@@ -22,7 +22,6 @@ impl __MemberLinkage {
                 Binding::Move => self.move_access,
                 Binding::Copy => self.copy_access,
             },
-            nargs: self.nargs,
             dev_src: self.dev_src,
         }
     }

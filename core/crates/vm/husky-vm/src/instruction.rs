@@ -79,12 +79,14 @@ pub enum InstructionVariant {
         field_binding: Binding,
     },
     CallGenericRoutine {
-        output_ty: EntityRoutePtr,
         linkage: GenericRoutineLinkage,
+        nargs: u8,
+        output_ty: EntityRoutePtr,
     },
     CallSpecificRoutine {
-        output_ty: EntityRoutePtr,
         linkage: __SpecificRoutineLinkage,
+        nargs: u8,
+        output_ty: EntityRoutePtr,
     },
     CallInterpreted {
         routine_uid: EntityUid,

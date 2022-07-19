@@ -57,6 +57,7 @@ impl<'eval> Session<'eval> {
             RootIdentifier::DatasetType.into(),
             [].into_iter(),
             [].into_iter(),
+            0,
             vm_config,
         )?
         .owned()?
