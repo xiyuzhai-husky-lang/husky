@@ -280,29 +280,46 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_eager_list_opn(
         &mut self,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
         opr: &ListOpr,
         opds: &RawExprRange,
         contract: EagerContract,
     ) -> InferResult<()> {
         match opr {
             ListOpr::TupleInit => {
-                p!(self.arena[raw_expr_idx].range);
+                p!(self.arena[idx].range);
                 todo!()
             }
-            ListOpr::NewVec => todo!(),
+            ListOpr::NewVec => self.infer_eager_new_vec_from_list(idx, opds.clone(), contract),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_eager_call(raw_expr_idx, opds, contract),
-            ListOpr::Index => self.eager_index(raw_expr_idx, opds, contract),
+            ListOpr::Call => self.infer_eager_call(idx, opds, contract),
+            ListOpr::Index => self.eager_index(idx, opds, contract),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
-            ListOpr::MethodCall { .. } => self.eager_method_call(
+            ListOpr::MethodCall { .. } => self.infer_eager_method_call(
                 opds.start,
                 (opds.start + 1)..(opds.end),
                 contract,
-                raw_expr_idx,
+                idx,
             ),
         }
+    }
+
+    fn infer_eager_new_vec_from_list(
+        &mut self,
+        idx: arena::ArenaIdx<RawExpr>,
+        elements: RawExprRange,
+        contract: EagerContract,
+    ) -> Result<(), infer_error::InferError> {
+        let element_ty = self.raw_expr_ty(elements.start)?;
+        let element_contract = match self.db.is_copyable(element_ty)? {
+            true => EagerContract::Pure,
+            false => EagerContract::Move,
+        };
+        for element in elements {
+            self.infer_eager_expr(element, element_contract)
+        }
+        Ok(())
     }
 
     fn infer_eager_call(
@@ -337,7 +354,7 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn eager_method_call(
+    fn infer_eager_method_call(
         &mut self,
         this: RawExprIdx,
         parameters: RawExprRange,

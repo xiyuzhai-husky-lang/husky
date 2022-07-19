@@ -48,6 +48,7 @@ impl<'eval> Trace {
                         Some(SubtracesContainerClass::Call)
                     }
                     EagerOpnVariant::TypeCall { .. } => todo!(),
+                    EagerOpnVariant::NewVecFromList => todo!(),
                 },
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::Bracketed(_) => panic!(),

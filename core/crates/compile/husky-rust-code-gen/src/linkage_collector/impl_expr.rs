@@ -31,6 +31,7 @@ impl<'a> LinkageCollector<'a> {
                         _ => self.insert(*method_route),
                     },
                     EagerOpnVariant::Index { .. } => (),
+                    EagerOpnVariant::NewVecFromList => todo!(),
                 }
             }
             EagerExprVariant::Lambda(_, _) => todo!(),

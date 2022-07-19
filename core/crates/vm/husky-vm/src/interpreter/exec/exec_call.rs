@@ -69,4 +69,13 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         );
         Ok(())
     }
+
+    pub(super) fn call_linkage(
+        &mut self,
+        linkage: __Linkage,
+        nargs: u8,
+        output_ty: EntityRoutePtr,
+    ) -> __EvalResult<()> {
+        todo!()
+    }
 }
