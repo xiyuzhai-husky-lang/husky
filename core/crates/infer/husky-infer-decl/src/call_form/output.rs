@@ -24,7 +24,7 @@ impl Instantiable for OutputDecl {
 impl Implementable for OutputDecl {
     type Target = Self;
 
-    fn implement(&self, implementor: &Implementor) -> Self::Target {
+    fn implement(&self, implementor: &ImplementationContext) -> Self::Target {
         Self {
             liason: self.liason,
             ty: self.ty.implement(implementor),

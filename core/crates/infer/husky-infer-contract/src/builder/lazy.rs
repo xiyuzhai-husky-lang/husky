@@ -261,7 +261,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_expr = &self.arena[total_opds.start];
         let call_decl = match call_expr.variant {
             RawExprVariant::Entity { route, .. } => {
-                derived_unwrap!(self.db.function_decl(route))
+                derived_unwrap!(self.db.call_form_decl(route))
             }
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
             _ => todo!(),
@@ -288,17 +288,19 @@ impl<'a> ContractSheetBuilder<'a> {
         inputs: RawExprRange,
         contract: LazyContract,
     ) -> InferResult<()> {
-        let method_decl = self.method_decl(idx)?;
+        let call_form_decl = self.call_form_decl(idx)?;
         let this_contract = LazyContract::parameter_lazy_contract(
-            method_decl.this_liason,
-            method_decl.output.liason,
+            call_form_decl.this_liason(),
+            call_form_decl.output.liason,
             self.arena[this].range,
         )?;
         self.infer_lazy_expr(this, this_contract);
-        for (argument, parameter) in zip(inputs.into_iter(), method_decl.parameters.iter()) {
+        for (argument, parameter) in
+            zip(inputs.into_iter(), call_form_decl.primary_parameters.iter())
+        {
             let argument_contract = LazyContract::parameter_lazy_contract(
                 parameter.liason,
-                method_decl.output.liason,
+                call_form_decl.output.liason,
                 self.arena[argument].range,
             )?;
             self.infer_lazy_expr(argument, argument_contract)

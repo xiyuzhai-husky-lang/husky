@@ -23,7 +23,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
             liason: ParameterLiason::Pure,
             ty: "i32",
         }],
-        variadic_template: StaticVariadicTemplateDefn::None,
+        variadic_template: StaticVariadicTemplate::None,
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
         linkage: __Linkage::Model(ModelLinkage(&NaiveI32)),

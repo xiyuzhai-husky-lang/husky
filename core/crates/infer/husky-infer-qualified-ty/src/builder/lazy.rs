@@ -374,7 +374,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<LazyValueQualifiedTy> {
         match self.arena[total_opds.start].variant {
             RawExprVariant::Entity { route, .. } => {
-                let call_decl = derived_unwrap!(self.db.function_decl(route));
+                let call_decl = derived_unwrap!(self.db.call_form_decl(route));
                 let opt_opd_qualified_tys: Vec<_> = ((total_opds.start + 1)..total_opds.end)
                     .into_iter()
                     .map(|opd_idx| self.infer_lazy_expr(opd_idx))
@@ -435,14 +435,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         inputs: RawExprRange,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<LazyValueQualifiedTy> {
-        let method_decl = self.method_decl(raw_expr_idx)?;
+        let call_form_decl = self.call_form_decl(raw_expr_idx)?;
         self.infer_lazy_expr(this);
         for input in inputs {
             self.infer_lazy_expr(input);
         }
-        let qual = match method_decl.output.liason {
+        let qual = match call_form_decl.output.liason {
             OutputLiason::Transfer => {
-                if self.db.is_copyable(method_decl.output.ty)? {
+                if self.db.is_copyable(call_form_decl.output.ty)? {
                     LazyExprQualifier::Copyable
                 } else {
                     LazyExprQualifier::Transient
@@ -450,6 +450,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             }
             OutputLiason::MemberAccess { .. } => todo!(),
         };
-        Ok(LazyValueQualifiedTy::new(qual, method_decl.output.ty))
+        Ok(LazyValueQualifiedTy::new(qual, call_form_decl.output.ty))
     }
 }

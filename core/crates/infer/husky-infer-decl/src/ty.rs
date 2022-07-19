@@ -38,7 +38,7 @@ pub struct TyDecl {
     pub kind: TyKind,
     pub trait_impls: Vec<Arc<TraitImplDecl>>,
     pub members: Vec<MemberDecl>,
-    pub opt_type_call: Option<Arc<FunctionDecl>>,
+    pub opt_type_call: Option<Arc<CallFormDecl>>,
 }
 
 impl TyDecl {
@@ -78,7 +78,7 @@ impl TyDecl {
                 });
                 let ty_members: IdentDict<_> = type_members
                     .iter()
-                    .map(|member| TyMemberDecl::from_static(db, member, &mut symbol_context))
+                    .map(|member| TyMemberDecl::from_static(&mut symbol_context, todo!(), member))
                     .collect();
                 let variants: IdentDict<_> = variants.map(|static_decl| {
                     EnumVariantDecl::from_static(db, static_decl, &mut symbol_context)
@@ -154,16 +154,18 @@ impl TyDecl {
                     }
                 }
                 msg_once!("variadics");
-                Some(Arc::new(FunctionDecl {
-                    route: ty,
+                Some(Arc::new(CallFormDecl {
+                    base_route: ty,
                     spatial_parameters: generic_parameters.clone(),
                     primary_parameters,
-                    variadic_template: VariadicTemplateDecl::None,
+                    variadic_template: VariadicTemplate::None,
                     keyword_parameters,
                     output: OutputDecl {
                         ty,
                         liason: OutputLiason::Transfer,
                     },
+                    opt_this_liason: None,
+                    is_lazy: todo!(),
                 }))
             }
             TyKind::Primitive => todo!(),
@@ -251,12 +253,15 @@ impl TyDecl {
                     Some(_) => match paradigm {
                         Paradigm::EagerProcedural => todo!(),
                         Paradigm::EagerFunctional => throw_query_derived!(members.insert_new(
-                            TyMemberDecl::Method(MethodDecl::from_ast(ast, MethodKind::Type,))
+                            TyMemberDecl::Method(CallFormDecl::from_ast(
+                                make_subroute(this_ty, ident.ident, thin_vec![]),
+                                ast,
+                            ))
                         )),
                         Paradigm::LazyFunctional => todo!(),
                     },
                     None => throw_query_derived!(members.insert_new(TyMemberDecl::Call(
-                        FunctionDecl::from_ast(
+                        CallFormDecl::from_ast(
                             db.make_subroute(this_ty, ident.ident, thin_vec![]),
                             ast,
                         )
@@ -308,7 +313,7 @@ impl TyDecl {
         variants: IdentDict<EnumVariantDecl>,
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDecl>>,
-        opt_type_call: Option<Arc<FunctionDecl>>,
+        opt_type_call: Option<Arc<CallFormDecl>>,
     ) -> Arc<Self> {
         let members = MemberDecl::collect_all(db, &ty_members, &trait_impls);
         Arc::new(Self {
@@ -399,7 +404,7 @@ impl TyDecl {
         &self,
         ranged_ident: RangedCustomIdentifier,
         trait_uses: &[EntityRouteKind],
-    ) -> InferResult<&Arc<MethodDecl>> {
+    ) -> InferResult<&Arc<CallFormDecl>> {
         // the rule is:
         // first look in the type members,
         // then look in the trait members,
@@ -418,7 +423,7 @@ impl TyDecl {
                 TyMemberDecl::Call(_) => todo!(),
             }
         }
-        let matched_methods: Vec<&Arc<MethodDecl>> = self
+        let matched_methods: Vec<&Arc<CallFormDecl>> = self
             .members
             .iter()
             .enumerate()
@@ -589,11 +594,11 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteKind]
     }
 }
 
-pub(crate) fn method_decl_from_static(
+pub(crate) fn call_form_decl_from_static(
     db: &dyn DeclQueryGroup,
     mut symbols: Vec<Symbol>,
     static_defn: &EntityStaticDefn,
-) -> Arc<MethodDecl> {
+) -> Arc<CallFormDecl> {
     match static_defn.variant {
         EntityStaticDefnVariant::Method {
             this_liason,
@@ -614,24 +619,25 @@ pub(crate) fn method_decl_from_static(
                 symbols: symbols.into(),
                 kind: AtomContextKind::Normal,
             };
-            let parameters = parameters.map(|parameter| ParameterDecl {
+            let primary_parameters = parameters.map(|parameter| ParameterDecl {
                 ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),
                 liason: parameter.liason,
                 ident: db.custom_ident(parameter.name),
             });
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
-            Arc::new(MethodDecl {
+            Arc::new(CallFormDecl {
                 spatial_parameters: generic_parameters,
-                parameters,
+                primary_parameters,
                 output: OutputDecl {
                     liason: output_liason,
                     ty: output_ty,
                 },
-                this_liason,
-                ident: db.intern_word(static_defn.name).custom(),
-                kind: MethodKind::Type,
+                opt_this_liason: Some(this_liason),
                 is_lazy: false,
+                base_route: todo!(),
+                variadic_template: todo!(),
+                keyword_parameters: todo!(),
             })
         }
         _ => panic!(""),

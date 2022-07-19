@@ -12,7 +12,7 @@ use vec_like::VecMapEntry;
 use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct MethodDecl {
+pub struct CallFormDecl {
     pub ident: CustomIdentifier,
     pub this_liason: ParameterLiason,
     pub parameters: Vec<ParameterDecl>,
@@ -55,13 +55,13 @@ impl MethodKind {
     }
 }
 
-impl VecMapEntry<CustomIdentifier> for MethodDecl {
+impl VecMapEntry<CustomIdentifier> for CallFormDecl {
     fn key(&self) -> CustomIdentifier {
         self.ident
     }
 }
 
-impl MethodDecl {
+impl CallFormDecl {
     pub fn nargs(&self) -> u8 {
         (self.parameters.len() + 1).try_into().unwrap()
     }
@@ -81,57 +81,6 @@ impl MethodDecl {
             is_lazy: self.is_lazy,
         })
     }
-
-    pub fn implement(&self, implementor: &Implementor) -> Arc<Self> {
-        Arc::new(Self {
-            ident: self.ident,
-            this_liason: self.this_liason,
-            parameters: self.parameters.map(|input| input.implement(implementor)),
-            output: self.output.implement(implementor),
-            spatial_parameters: self.spatial_parameters.clone(),
-            kind: self.kind,
-            is_lazy: self.is_lazy,
-        })
-    }
-
-    pub fn from_static(symbol_context: &mut dyn AtomContext, defn: &EntityStaticDefn) -> Arc<Self> {
-        match defn.variant {
-            EntityStaticDefnVariant::Method {
-                this_liason: this_contract,
-                parameters: inputs,
-                output_ty,
-                output_liason,
-                spatial_parameters,
-                method_static_defn_kind: method_kind,
-                ..
-            } => {
-                let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
-                Arc::new(Self {
-                    ident: symbol_context
-                        .entity_syntax_db()
-                        .intern_word(defn.name)
-                        .custom(),
-                    this_liason: this_contract,
-                    parameters: inputs
-                        .map(|input| ParameterDecl::from_static(symbol_context, input)),
-                    output: OutputDecl {
-                        liason: output_liason,
-                        ty: output_ty,
-                    },
-                    spatial_parameters: spatial_parameters.map(|static_generic_placeholder| {
-                        SpatialParameter::from_static(
-                            symbol_context.entity_syntax_db(),
-                            static_generic_placeholder,
-                        )
-                    }),
-                    kind: MethodKind::from_static(symbol_context, method_kind),
-                    is_lazy: false,
-                })
-            }
-            _ => panic!(""),
-        }
-    }
-
     pub fn from_ast(ast: &Ast, kind: MethodKind) -> Arc<Self> {
         match ast.variant {
             AstVariant::CallFormDefnHead {
@@ -142,7 +91,7 @@ impl MethodDecl {
                 output_ty,
                 output_liason,
                 opt_this_liason,
-            } => Arc::new(MethodDecl {
+            } => Arc::new(CallFormDecl {
                 ident: ident.ident,
                 parameters: parameters.map(|input_placeholder| input_placeholder.into()),
                 output: OutputDecl {
@@ -159,10 +108,10 @@ impl MethodDecl {
     }
 }
 
-pub(crate) fn method_decl(
+pub(crate) fn call_form_decl(
     db: &dyn DeclQueryGroup,
     route: EntityRoutePtr,
-) -> InferResultArc<MethodDecl> {
+) -> InferResultArc<CallFormDecl> {
     match route.kind {
         EntityRouteKind::Root { ident } => todo!(),
         EntityRouteKind::Package { main, ident } => todo!(),

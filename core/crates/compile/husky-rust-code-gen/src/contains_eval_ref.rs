@@ -52,27 +52,27 @@ pub(super) fn entity_route_kind_contains_eval_ref(
         }
         EntityKind::Trait => todo!(),
         EntityKind::Member(_) => {
-            let method_decl = db.method_decl(base_route).unwrap();
+            let call_form_decl = db.call_form_decl(base_route).unwrap();
             if db.entity_route_contains_eval_ref(base_route.parent()) {
                 return true;
             }
-            for parameter in method_decl.parameters.iter() {
+            for parameter in call_form_decl.primary_parameters.iter() {
                 if db.entity_route_contains_eval_ref(parameter.ty) {
                     return true;
                 }
             }
-            if db.entity_route_contains_eval_ref(method_decl.output.ty) {
+            if db.entity_route_contains_eval_ref(call_form_decl.output.ty) {
                 return true;
             }
         }
         EntityKind::Function { requires_lazy } => {
-            let function_decl = db.function_decl(base_route).unwrap();
-            for parameter in function_decl.primary_parameters.iter() {
+            let call_form_decl = db.call_form_decl(base_route).unwrap();
+            for parameter in call_form_decl.primary_parameters.iter() {
                 if db.entity_route_contains_eval_ref(parameter.ty) {
                     return true;
                 }
             }
-            for parameter in function_decl.keyword_parameters.iter() {
+            for parameter in call_form_decl.keyword_parameters.iter() {
                 match parameter.liason {
                     ParameterLiason::EvalRef => return true,
                     ParameterLiason::TempRef => todo!(),
@@ -83,7 +83,7 @@ pub(super) fn entity_route_kind_contains_eval_ref(
                     return true;
                 }
             }
-            if db.entity_route_contains_eval_ref(function_decl.output.ty) {
+            if db.entity_route_contains_eval_ref(call_form_decl.output.ty) {
                 return true;
             }
         }

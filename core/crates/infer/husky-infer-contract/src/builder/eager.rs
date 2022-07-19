@@ -314,7 +314,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_expr = &self.arena[total_opds.start];
         let call_decl = match call_expr.variant {
             RawExprVariant::Entity { route, .. } => {
-                derived_unwrap!(self.db.function_decl(route))
+                derived_unwrap!(self.db.call_form_decl(route))
             }
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
             RawExprVariant::Lambda(_, _) => todo!(),
@@ -344,18 +344,21 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
         raw_expr_idx: RawExprIdx,
     ) -> InferResult<()> {
-        let method_decl = self.method_decl(raw_expr_idx)?;
+        let call_form_decl = self.call_form_decl(raw_expr_idx)?;
         let this_contract = EagerContract::method_call_this_eager_contract(
-            method_decl.this_liason,
-            method_decl.output.liason,
+            call_form_decl.opt_this_liason.unwrap(),
+            call_form_decl.output.liason,
             contract,
         );
         self.infer_eager_expr(this, this_contract);
-        for (argument, parameter) in zip(parameters.into_iter(), method_decl.parameters.iter()) {
+        for (argument, parameter) in zip(
+            parameters.into_iter(),
+            call_form_decl.primary_parameters.iter(),
+        ) {
             let argument_contract = EagerContract::argument_eager_contract(
                 parameter.ty,
                 parameter.liason,
-                method_decl.output.liason,
+                call_form_decl.output.liason,
                 self.arena[argument].range,
             );
             self.infer_eager_expr(argument, argument_contract)

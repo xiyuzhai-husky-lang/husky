@@ -3,7 +3,7 @@ use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext,
 };
-use husky_implement::Implementor;
+use husky_implement::ImplementationContext;
 use map_collect::MapCollect;
 use print_utils::{msg_once, p};
 
@@ -76,17 +76,20 @@ impl TraitImplDecl {
             trait_impl_decls.push(Arc::new(TraitImplDecl {
                 trait_route: clone_trait,
                 this_ty,
-                member_impls: vec![TraitMemberImplDecl::Method(Arc::new(MethodDecl {
-                    ident: db.intern_word("clone").custom(),
-                    this_liason: ParameterLiason::Pure,
-                    parameters: vec![],
+                member_impls: vec![TraitMemberImplDecl::Method(Arc::new(CallFormDecl {
+                    base_route: todo!(),
+                    // ident: db.intern_word("clone").custom(),
+                    // kind: MethodKind::Trait { trai: clone_trait },
+                    opt_this_liason: Some(ParameterLiason::Pure),
+                    primary_parameters: Default::default(),
                     output: OutputDecl {
                         liason: OutputLiason::Transfer,
                         ty: this_ty,
                     },
                     spatial_parameters: Default::default(),
-                    kind: MethodKind::Trait { trai: clone_trait },
                     is_lazy: false,
+                    variadic_template: todo!(),
+                    keyword_parameters: todo!(),
                 }))],
             }))
         }
@@ -178,7 +181,7 @@ fn derive_is_clonable(
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TraitMemberImplDecl {
-    Method(Arc<MethodDecl>),
+    Method(Arc<CallFormDecl>),
     AssociatedType {
         ident: CustomIdentifier,
         ty: EntityRoutePtr,
@@ -190,7 +193,7 @@ pub enum TraitMemberImplDecl {
 impl TraitMemberImplDecl {
     pub fn ident(&self) -> CustomIdentifier {
         match self {
-            TraitMemberImplDecl::Method(method_decl) => method_decl.ident,
+            TraitMemberImplDecl::Method(call_form_decl) => call_form_decl.ident(),
             TraitMemberImplDecl::AssociatedType { ident, .. } => *ident,
             TraitMemberImplDecl::Call {} => todo!(),
             TraitMemberImplDecl::AssociatedConstSize {} => todo!(),
@@ -199,8 +202,8 @@ impl TraitMemberImplDecl {
 
     pub fn kind(&self) -> MemberKind {
         match self {
-            TraitMemberImplDecl::Method(method_decl) => MemberKind::Method {
-                is_lazy: method_decl.is_lazy,
+            TraitMemberImplDecl::Method(call_form_decl) => MemberKind::Method {
+                is_lazy: call_form_decl.is_lazy,
             },
             TraitMemberImplDecl::AssociatedType { .. } => MemberKind::TraitAssociatedType,
             TraitMemberImplDecl::Call {} => todo!(),
@@ -242,14 +245,14 @@ impl TraitMemberImplDecl {
         // let member_impl_context: Vec<_> =
         //     member_impls.map(|member_impl| (member_impl.ident(), member_impl.generic_argument()));
         let this_ty = symbol_context.opt_this_ty().unwrap();
-        let implementor = Implementor::new(db.upcast(), this_ty, &member_symbol_impls);
+        let implementor = ImplementationContext::new(db.upcast(), this_ty, &member_symbol_impls);
 
         trait_decl
             .members
             .map(|trait_member_decl| trait_member_decl.implement(db, &implementor))
         //     match trait_member_decl {
-        //     TraitMemberDecl::Method(method_decl) => {
-        //         TraitMemberImplDecl::Method(method_decl.implement(&implementor))
+        //     TraitMemberDecl::Method(call_form_decl) => {
+        //         TraitMemberImplDecl::Method(call_form_decl.implement(&implementor))
         //     }
         //     TraitMemberDecl::Type { ident, traits } => {
         //         TraitMemberImplDecl::AssociatedType { ident: (), ty: () }
@@ -261,8 +264,8 @@ impl TraitMemberImplDecl {
 
     pub fn instantiate(&self, ctx: &InstantiationContext) -> Self {
         match self {
-            TraitMemberImplDecl::Method(method_decl) => {
-                TraitMemberImplDecl::Method(method_decl.instantiate(ctx))
+            TraitMemberImplDecl::Method(call_form_decl) => {
+                TraitMemberImplDecl::Method(call_form_decl.instantiate(ctx))
             }
             TraitMemberImplDecl::AssociatedType { ident, ty } => {
                 TraitMemberImplDecl::AssociatedType {
