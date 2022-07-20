@@ -6,7 +6,6 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct __SpecificRoutineLinkage {
     pub fp: __SpecificRoutineFp,
-    // pub nargs: u8,
     pub dev_src: __StaticDevSource,
 }
 

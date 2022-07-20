@@ -161,6 +161,10 @@ impl<'eval> TraceVariant<'eval> {
                     _ => todo!(),
                 },
                 FeatureExprVariant::NewVecFromList { .. } => false,
+                FeatureExprVariant::CustomBinaryOpr {
+                    ref opt_instruction_sheet,
+                    ..
+                } => opt_instruction_sheet.is_some(),
             },
             TraceVariant::EagerExpr {
                 ref expr,

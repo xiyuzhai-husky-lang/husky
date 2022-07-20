@@ -1,4 +1,5 @@
 #![feature(const_trait_impl)]
+pub mod __root;
 mod config;
 mod context;
 mod control;

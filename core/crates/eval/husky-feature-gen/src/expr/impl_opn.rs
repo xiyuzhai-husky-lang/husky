@@ -6,8 +6,8 @@ use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
-use vm::__Linkage;
-use vm::{Binding, ModelLinkage, __EvalResult};
+use vm::{Binding, ModelLinkage, __EvalResult, __root::__NEQ_LINKAGE};
+use vm::{__Linkage, __root::__EQ_LINKAGE};
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
@@ -17,26 +17,11 @@ impl<'a> FeatureExprBuilder<'a> {
         expr: &Arc<LazyExpr>,
     ) -> (FeatureExprVariant, FeaturePtr) {
         match opn_kind {
-            LazyOpnKind::Binary { opr, this } => match this {
-                EntityRoutePtr::Root(RootIdentifier::Void)
-                | EntityRoutePtr::Root(RootIdentifier::I32)
-                | EntityRoutePtr::Root(RootIdentifier::F32)
-                | EntityRoutePtr::Root(RootIdentifier::B32)
-                | EntityRoutePtr::Root(RootIdentifier::B64) => {
-                    let lopd = self.new_expr(opds[0].clone());
-                    let ropd = self.new_expr(opds[1].clone());
-                    let feature = self.features.intern(Feature::PrimitiveBinaryOpr {
-                        opr,
-                        lopd: lopd.feature,
-                        ropd: ropd.feature,
-                    });
-                    (
-                        FeatureExprVariant::PrimitiveBinaryOpr { opr, lopd, ropd },
-                        feature,
-                    )
-                }
-                _ => todo!(),
-            },
+            LazyOpnKind::Binary { opr, this } => {
+                let lopd = self.new_expr(opds[0].clone());
+                let ropd = self.new_expr(opds[1].clone());
+                self.compile_binary_opn(this, lopd, opr, ropd)
+            }
             LazyOpnKind::Prefix(_) => todo!(),
             LazyOpnKind::FunctionModelCall(routine) => {
                 let uid = self.db.compile_time().entity_uid(routine.route);
@@ -154,6 +139,77 @@ impl<'a> FeatureExprBuilder<'a> {
                 (kind, feature)
             }
         }
+    }
+
+    fn compile_binary_opn(
+        &self,
+        this: EntityRoutePtr,
+        lopd: Arc<FeatureExpr>,
+        opr: PureBinaryOpr,
+        ropd: Arc<FeatureExpr>,
+    ) -> (FeatureExprVariant, interner::InternedPtr<Feature>) {
+        match this {
+            EntityRoutePtr::Root(RootIdentifier::Void)
+            | EntityRoutePtr::Root(RootIdentifier::I32)
+            | EntityRoutePtr::Root(RootIdentifier::F32)
+            | EntityRoutePtr::Root(RootIdentifier::B32)
+            | EntityRoutePtr::Root(RootIdentifier::B64) => {
+                let feature = self.features.intern(Feature::PrimitiveBinaryOpr {
+                    opr,
+                    lopd: lopd.feature,
+                    ropd: ropd.feature,
+                });
+                (
+                    FeatureExprVariant::PrimitiveBinaryOpr { opr, lopd, ropd },
+                    feature,
+                )
+            }
+            _ => self.compile_custom_binary_opn(this, lopd, opr, ropd),
+        }
+    }
+
+    fn compile_custom_binary_opn(
+        &self,
+        this: EntityRoutePtr,
+        lopd: Arc<FeatureExpr>,
+        opr: PureBinaryOpr,
+        ropd: Arc<FeatureExpr>,
+    ) -> (FeatureExprVariant, interner::InternedPtr<Feature>) {
+        let (opt_instruction_sheet, opt_linkage) = match opr {
+            PureBinaryOpr::Eq => (None, Some(__EQ_LINKAGE)),
+            PureBinaryOpr::Neq => (None, Some(__NEQ_LINKAGE)),
+            PureBinaryOpr::Add => todo!(),
+            PureBinaryOpr::And => todo!(),
+            PureBinaryOpr::BitAnd => todo!(),
+            PureBinaryOpr::BitOr => todo!(),
+            PureBinaryOpr::BitXor => todo!(),
+            PureBinaryOpr::Div => todo!(),
+            PureBinaryOpr::Geq => todo!(),
+            PureBinaryOpr::Greater => todo!(),
+            PureBinaryOpr::Leq => todo!(),
+            PureBinaryOpr::Less => todo!(),
+            PureBinaryOpr::Mul => todo!(),
+            PureBinaryOpr::RemEuclid => todo!(),
+            PureBinaryOpr::Or => todo!(),
+            PureBinaryOpr::Power => todo!(),
+            PureBinaryOpr::Shl => todo!(),
+            PureBinaryOpr::Shr => todo!(),
+            PureBinaryOpr::Sub => todo!(),
+        };
+        let feature = self.features.intern(Feature::PrimitiveBinaryOpr {
+            opr,
+            lopd: lopd.feature,
+            ropd: ropd.feature,
+        });
+        (
+            FeatureExprVariant::CustomBinaryOpr {
+                opr,
+                opds: vec![lopd, ropd],
+                opt_instruction_sheet,
+                opt_linkage,
+            },
+            feature,
+        )
     }
 
     fn compile_method_call(

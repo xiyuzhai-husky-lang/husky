@@ -213,42 +213,44 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         ropd_ty: EntityRoutePtr,
     ) -> SemanticResult<EntityRoutePtr> {
         match lopd_ty {
-            EntityRoutePtr::Root(lopd_builtin_ty) => match ropd_ty {
-                EntityRoutePtr::Root(ropd_builtin_ty) => self.infer_builtin_pure_binary_opr_type(
+            EntityRoutePtr::Root(lopd_root_ty) => match ropd_ty {
+                EntityRoutePtr::Root(ropd_root_ty) => self.infer_root_pure_binary_opr_type(
                     pure_binary_opr,
-                    lopd_builtin_ty,
-                    ropd_builtin_ty,
+                    lopd_root_ty,
+                    ropd_root_ty,
                 ),
                 EntityRoutePtr::Custom(_) => todo!(),
                 EntityRoutePtr::ThisType => todo!(),
             },
-            EntityRoutePtr::Custom(lopd_custom_ty) => todo!(),
+            EntityRoutePtr::Custom(_) => {
+                self.infer_custom_pure_binary_opr_type(pure_binary_opr, lopd_ty, ropd_ty)
+            }
             EntityRoutePtr::ThisType => todo!(),
         }
     }
 
-    fn infer_builtin_pure_binary_opr_type(
+    fn infer_root_pure_binary_opr_type(
         &self,
         pure_binary_opr: PureBinaryOpr,
-        lopd_builtin_ty: RootIdentifier,
-        ropd_builtin_ty: RootIdentifier,
+        lopd_root_ty: RootIdentifier,
+        ropd_root_ty: RootIdentifier,
     ) -> SemanticResult<EntityRoutePtr> {
         Ok(match pure_binary_opr {
             PureBinaryOpr::Less
             | PureBinaryOpr::Leq
             | PureBinaryOpr::Greater
             | PureBinaryOpr::Geq => {
-                if lopd_builtin_ty != ropd_builtin_ty {
+                if lopd_root_ty != ropd_root_ty {
                     err!("expect use of \"<, <=, >, >=\" on same types")
                 }
-                match lopd_builtin_ty {
+                match lopd_root_ty {
                     RootIdentifier::I32 | RootIdentifier::F32 => (),
                     _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32"),
                 }
                 RootIdentifier::Bool
             }
             PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
-                if lopd_builtin_ty != ropd_builtin_ty {
+                if lopd_root_ty != ropd_root_ty {
                     err!("expect use of \"!=\" on same types")
                 }
                 RootIdentifier::Bool
@@ -260,14 +262,14 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             | PureBinaryOpr::Mul
             | PureBinaryOpr::Div
             | PureBinaryOpr::Power => {
-                if lopd_builtin_ty != ropd_builtin_ty {
+                if lopd_root_ty != ropd_root_ty {
                     err!("expect use of \"+, -, *, /, **\" on same types")
                 }
-                match lopd_builtin_ty {
+                match lopd_root_ty {
                     RootIdentifier::I32 | RootIdentifier::F32 => (),
                     _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32"),
                 }
-                lopd_builtin_ty
+                lopd_root_ty
             }
             PureBinaryOpr::And => todo!(),
             PureBinaryOpr::BitAnd => todo!(),
@@ -277,6 +279,40 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             PureBinaryOpr::RemEuclid => todo!(),
         }
         .into())
+    }
+
+    fn infer_custom_pure_binary_opr_type(
+        &self,
+        pure_binary_opr: PureBinaryOpr,
+        lopd_ty: EntityRoutePtr,
+        ropd_ty: EntityRoutePtr,
+    ) -> SemanticResult<EntityRoutePtr> {
+        match pure_binary_opr {
+            PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
+                if lopd_ty.deref_route() == ropd_ty.deref_route() {
+                    Ok(RootIdentifier::Bool.into())
+                } else {
+                    todo!()
+                }
+            }
+            PureBinaryOpr::Add => todo!(),
+            PureBinaryOpr::And => todo!(),
+            PureBinaryOpr::BitAnd => todo!(),
+            PureBinaryOpr::BitOr => todo!(),
+            PureBinaryOpr::BitXor => todo!(),
+            PureBinaryOpr::Div => todo!(),
+            PureBinaryOpr::Geq => todo!(),
+            PureBinaryOpr::Greater => todo!(),
+            PureBinaryOpr::Leq => todo!(),
+            PureBinaryOpr::Less => todo!(),
+            PureBinaryOpr::Mul => todo!(),
+            PureBinaryOpr::RemEuclid => todo!(),
+            PureBinaryOpr::Or => todo!(),
+            PureBinaryOpr::Power => todo!(),
+            PureBinaryOpr::Shl => todo!(),
+            PureBinaryOpr::Shr => todo!(),
+            PureBinaryOpr::Sub => todo!(),
+        }
     }
 
     fn parse_suffix_opr(

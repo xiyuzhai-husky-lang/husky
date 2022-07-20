@@ -54,6 +54,11 @@ pub enum Feature {
         lopd: FeaturePtr,
         ropd: FeaturePtr,
     },
+    CustomBinaryOpr {
+        opr: PureBinaryOpr,
+        lopd: FeaturePtr,
+        ropd: FeaturePtr,
+    },
     FunctionCall {
         func: EntityRoutePtr,
         uid: EntityUid,

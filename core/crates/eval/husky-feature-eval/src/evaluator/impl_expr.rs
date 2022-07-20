@@ -52,11 +52,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ..
             } => {
                 let result = self.eval_routine_call(
-                    opt_instruction_sheet.as_ref().map(|r| &**r),
+                    opt_instruction_sheet,
                     opt_linkage,
                     expr.expr.ty(),
                     opds,
-                    has_this,
                 );
                 result
             }
@@ -134,7 +133,13 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureExprVariant::NewVecFromList {
                 ref elements,
                 linkage,
-            } => self.eval_routine_call(None, Some(linkage), expr.expr.ty(), elements, false),
+            } => self.eval_routine_call(&None, Some(linkage), expr.expr.ty(), elements),
+            FeatureExprVariant::CustomBinaryOpr {
+                opr,
+                ref opds,
+                ref opt_instruction_sheet,
+                opt_linkage,
+            } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, expr.expr.ty(), opds),
         }
     }
 
@@ -205,11 +210,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
 
     fn eval_routine_call(
         &mut self,
-        opt_instrns: Option<&InstructionSheet>,
+        opt_instrns: &Option<Arc<InstructionSheet>>,
         opt_linkage: Option<__Linkage>,
         output_ty: EntityRoutePtr,
         arguments: &[Arc<FeatureExpr>],
-        has_this: bool,
     ) -> __EvalValueResult<'eval> {
         let db = self.db;
         let opt_ctx = unsafe { self.some_ctx() };
@@ -221,7 +225,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         eval_fast(
             db.upcast(),
             opt_ctx,
-            opt_instrns,
+            opt_instrns.as_ref().map(|v| &**v),
             opt_linkage,
             output_ty,
             values,

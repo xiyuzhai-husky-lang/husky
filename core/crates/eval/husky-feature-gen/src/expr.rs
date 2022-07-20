@@ -59,6 +59,12 @@ pub enum FeatureExprVariant {
         lopd: Arc<FeatureExpr>,
         ropd: Arc<FeatureExpr>,
     },
+    CustomBinaryOpr {
+        opr: PureBinaryOpr,
+        opds: Vec<Arc<FeatureExpr>>,
+        opt_linkage: Option<__Linkage>,
+        opt_instruction_sheet: Option<Arc<InstructionSheet>>,
+    },
     Variable {
         varname: CustomIdentifier,
         value: Arc<FeatureExpr>,
@@ -142,6 +148,7 @@ impl FeatureExprVariant {
             FeatureExprVariant::EvalInput => "EvalInput",
             FeatureExprVariant::NewRecord { .. } => "NewRecord",
             FeatureExprVariant::NewVecFromList { .. } => "NewVecFromList",
+            FeatureExprVariant::CustomBinaryOpr { .. } => "CustomBinaryOpr",
         }
     }
 }
