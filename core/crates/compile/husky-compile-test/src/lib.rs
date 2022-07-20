@@ -18,7 +18,7 @@ use husky_compile_time::*;
 use husky_entity_route::EntityRoute;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityRouteStore;
-use husky_entity_syntax::EntityLocus;
+use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
 use print_utils::*;

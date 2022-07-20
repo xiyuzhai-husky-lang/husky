@@ -184,6 +184,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(route, EntityRouteRole::Caller);
                 self.write("(__ctx)")
             }
+            EagerExprVariant::EntityFp { route } => todo!(),
         }
     }
 

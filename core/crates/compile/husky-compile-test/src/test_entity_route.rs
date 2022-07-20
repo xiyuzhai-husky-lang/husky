@@ -55,8 +55,8 @@ struct B {}
     let subroute_table = db.subroute_table(package).ok().unwrap();
     let husky_lord_route = db.subroute(package, db.intern_word("husky_lord").custom(), thin_vec![]);
     should_eq!(
-        db.entity_locus(husky_lord_route).unwrap(),
-        EntityLocus::Module {
+        db.entity_source(husky_lord_route).unwrap(),
+        EntitySource::Module {
             file: husky_lord_file
         }
     );

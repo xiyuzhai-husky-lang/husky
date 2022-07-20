@@ -31,7 +31,7 @@ use husky_atom::{
 use husky_eager_semantics::*;
 use husky_entity_route::{EntityRoute, EntityRouteKind};
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
-use husky_entity_syntax::EntityLocus;
+use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
 use husky_lazy_semantics::parse_lazy_stmts;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
@@ -438,9 +438,9 @@ pub(crate) fn entity_defn(
     db: &dyn EntityDefnQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> SemanticResultArc<EntityDefn> {
-    let source = db.entity_locus(entity_route).unwrap();
+    let source = db.entity_source(entity_route).unwrap();
     match source {
-        EntityLocus::StaticModuleItem(static_defn) => Ok(EntityDefn::from_static(
+        EntitySource::StaticModuleItem(static_defn) => Ok(EntityDefn::from_static(
             &mut AtomContextStandalone {
                 opt_package_main: None,
                 db: db.upcast(),
@@ -452,8 +452,8 @@ pub(crate) fn entity_defn(
             entity_route,
             static_defn,
         )),
-        EntityLocus::WithinBuiltinModule => todo!(),
-        EntityLocus::WithinModule {
+        EntitySource::WithinBuiltinModule => todo!(),
+        EntitySource::WithinModule {
             file,
             token_group_index,
         } => {
@@ -541,9 +541,9 @@ pub(crate) fn entity_defn(
                 ast.range,
             ))
         }
-        EntityLocus::Module { file } => module_defn(db, entity_route, file),
-        EntityLocus::Input { .. } => todo!(),
-        EntityLocus::StaticTypeMember => match entity_route.kind {
+        EntitySource::Module { file } => module_defn(db, entity_route, file),
+        EntitySource::Input { .. } => todo!(),
+        EntitySource::StaticTypeMember(_) => match entity_route.kind {
             EntityRouteKind::Child { parent: ty, ident } => {
                 let ty_defn = db.entity_defn(ty).unwrap();
                 match ty_defn.variant {
@@ -553,7 +553,7 @@ pub(crate) fn entity_defn(
             }
             _ => panic!(),
         },
-        EntityLocus::StaticTypeAsTraitMember => match entity_route.kind {
+        EntitySource::StaticTypeAsTraitMember => match entity_route.kind {
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => match trai {
                 EntityRoutePtr::Root(RootIdentifier::CloneTrait) => {
                     msg_once!("this is a temporary ugly solution");
@@ -573,6 +573,7 @@ pub(crate) fn entity_defn(
             },
             _ => panic!(),
         },
+        EntitySource::StaticTraitMember(_) => todo!(),
     }
 }
 

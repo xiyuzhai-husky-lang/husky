@@ -11,11 +11,11 @@ pub(crate) fn feature_decl(
     db: &dyn DeclQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> InferResultArc<FeatureDecl> {
-    let source = db.entity_locus(entity_route)?;
+    let source = db.entity_source(entity_route)?;
     match source {
-        EntityLocus::StaticModuleItem(data) => todo!(),
-        EntityLocus::WithinBuiltinModule => todo!(),
-        EntityLocus::WithinModule {
+        EntitySource::StaticModuleItem(data) => todo!(),
+        EntitySource::WithinBuiltinModule => todo!(),
+        EntitySource::WithinModule {
             file,
             token_group_index,
         } => {
@@ -33,11 +33,12 @@ pub(crate) fn feature_decl(
                 _ => todo!(),
             }
         }
-        EntityLocus::Module { file } => todo!(),
-        EntityLocus::Input { main } => Ok(Arc::new(FeatureDecl {
+        EntitySource::Module { file } => todo!(),
+        EntitySource::Input { main } => Ok(Arc::new(FeatureDecl {
             ty: db.eval_input_ty(main)?,
         })),
-        EntityLocus::StaticTypeMember => todo!(),
-        EntityLocus::StaticTypeAsTraitMember => todo!(),
+        EntitySource::StaticTypeMember(_) => todo!(),
+        EntitySource::StaticTraitMember(_) => todo!(),
+        EntitySource::StaticTypeAsTraitMember => todo!(),
     }
 }

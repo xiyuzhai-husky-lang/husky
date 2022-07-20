@@ -88,6 +88,9 @@ pub enum EagerExprVariant {
         Vec<(CustomIdentifier, Option<EntityRoutePtr>)>,
         Box<EagerExpr>,
     ),
+    EntityFp {
+        route: EntityRoutePtr,
+    },
     EntityFeature {
         route: EntityRoutePtr,
     },

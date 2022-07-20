@@ -103,6 +103,7 @@ impl<'a> TraceTokenBuilder<'a> {
             }
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
             EagerExprVariant::EntityFeature { .. } => todo!(),
+            EagerExprVariant::EntityFp { route } => todo!(),
         };
         if config.appended {
             self.push(fade!(" = "));

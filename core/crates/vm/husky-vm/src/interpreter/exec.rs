@@ -263,6 +263,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     p!(ins.src.file(), ins.src.text_range());
                     todo!()
                 }
+                InstructionVariant::EntityFp { .. } => todo!(),
             };
             match control {
                 VMControl::None => (),

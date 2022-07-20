@@ -80,7 +80,7 @@ fn entity_instruction_sheet(
                 )),
                 CallFormSource::Proc { stmts } => todo!(),
                 CallFormSource::Lazy { stmts } => todo!(),
-                CallFormSource::Static(_) => todo!(),
+                CallFormSource::Static(_) => None,
             }
         }
         EntityDefnVariant::Trait { .. } => todo!(),

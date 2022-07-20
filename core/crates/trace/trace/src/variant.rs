@@ -192,6 +192,7 @@ impl<'eval> TraceVariant<'eval> {
                 | EagerExprVariant::ThisField { .. }
                 | EagerExprVariant::EnumKindLiteral(_) => false,
                 EagerExprVariant::EntityFeature { .. } => todo!(),
+                EagerExprVariant::EntityFp { route } => todo!(),
             },
             TraceVariant::CallHead { .. } => false,
             TraceVariant::ProcBranch {
