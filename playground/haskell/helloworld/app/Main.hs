@@ -1,6 +1,19 @@
 module Main where
 
-import Lib
+import           Lib
 
 main :: IO ()
-main = someFunc
+main = putStrLn myhtml
+
+myhtml = wrapHtml "Hello, world!"
+
+wrapHtml content = "<html><body>" <> content <> "</body></html>"
+
+el :: String -> String -> String
+el tag content = "<" <> tag <> ">" <> content <> "</" <> tag <> ">"
+
+html_ :: String -> String
+html_ = el "html"
+
+body_ :: String -> String
+body_ = el "body"
