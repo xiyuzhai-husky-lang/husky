@@ -17,3 +17,7 @@ html_ = el "html"
 
 body_ :: String -> String
 body_ = el "body"
+
+four = (\num1 num2 -> num1 + num2 + 1) 1 2
+
+newtype Html = Html String
