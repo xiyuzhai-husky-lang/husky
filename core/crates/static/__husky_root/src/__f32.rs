@@ -55,7 +55,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
             let this = values[0].take_copyable().take_f32();
             let other = values[0].take_copyable().take_f32();
             __TempValue::Copyable(this.min(other).into())
-        })),
+        }, some f32::min)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -78,7 +78,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
             let this = values[0].take_copyable().take_f32();
             let other = values[0].take_copyable().take_f32();
             __TempValue::Copyable(this.max(other).into())
-        })),
+        }, some f32::max)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -96,7 +96,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             let f = values[0].take_copyable().take_f32();
             __TempValue::Copyable(f.sgnx().into())
-        })),
+        }, some f32::sgnx)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -113,7 +113,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             __TempValue::Copyable(values[0].take_copyable().take_f32().abs().into())
-        })),
+        }, some f32::abs)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -130,7 +130,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             __TempValue::Copyable(values[0].take_copyable().take_f32().sqrt().into())
-        })),
+        }, some f32::sqrt)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -147,7 +147,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             __TempValue::Copyable(values[0].take_copyable().take_f32().cos().into())
-        })),
+        }, some f32::cos)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -164,7 +164,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             __TempValue::Copyable(values[0].take_copyable().take_f32().sin().into())
-        })),
+        }, some f32::sin)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -181,7 +181,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             __TempValue::Copyable(values[0].take_copyable().take_f32().tan().into())
-        })),
+        }, some f32::tan)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -198,7 +198,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             __TempValue::Copyable(values[0].take_copyable().take_f32().acos().into())
-        })),
+        }, some f32::acos)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -215,7 +215,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             __TempValue::Copyable(values[0].take_copyable().take_f32().asin().into())
-        })),
+        }, some f32::asin)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -232,7 +232,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             __TempValue::Copyable(values[0].take_copyable().take_f32().atan().into())
-        })),
+        }, some f32::atan)),
     },
     dev_src: __static_dev_src!(),
 };

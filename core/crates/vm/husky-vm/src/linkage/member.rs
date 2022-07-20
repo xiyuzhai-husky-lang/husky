@@ -23,6 +23,7 @@ impl __MemberLinkage {
                 Binding::Copy => self.copy_access,
             },
             dev_src: self.dev_src,
+            opt_raw_fp: None,
         }
     }
 }
