@@ -53,28 +53,11 @@ pub enum __TempValue<'temp, 'eval: 'temp> {
 
 pub type MutRefGenerator = ();
 
-impl<'temp, 'eval> UnwindSafe for __TempValue<'temp, 'eval> {}
-
-impl<'temp, 'eval: 'temp> std::fmt::Debug for __TempValue<'temp, 'eval> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple(match self {
-            __TempValue::Copyable(arg0) => "OwnedEval",
-            __TempValue::OwnedEval(arg0) => "OwnedEval",
-            __TempValue::OwnedTemp(arg0) => "OwnedTemp",
-            __TempValue::EvalPure(arg0) => "EvalPure",
-            __TempValue::EvalRef(arg0) => "EvalRef",
-            __TempValue::TempRefEval(value) => "TempRefEval",
-            __TempValue::TempRefTemp(value) => "TempRefTemp",
-            __TempValue::TempRefMutEval { value, .. } => "CopyableMutOrTempRefMutEval",
-            __TempValue::TempRefMutTemp { value, owner, gen } => "TempRefMutTemp",
-            __TempValue::Moved => "Moved",
-        })
-        .field(&self.any_ref().__print_short())
-        .finish()
-    }
-}
-
 impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
+    pub fn owned_eval<T: __AnyValueDyn<'eval> + 'eval>(value: T) -> Self {
+        __TempValue::OwnedEval(__OwnedValue::new(value))
+    }
+
     pub fn ty(&self) -> EntityRoutePtr {
         self.any_ref().__ty_dyn()
     }
@@ -123,6 +106,27 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
             }
         }
         result
+    }
+}
+
+impl<'temp, 'eval> UnwindSafe for __TempValue<'temp, 'eval> {}
+
+impl<'temp, 'eval: 'temp> std::fmt::Debug for __TempValue<'temp, 'eval> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple(match self {
+            __TempValue::Copyable(arg0) => "OwnedEval",
+            __TempValue::OwnedEval(arg0) => "OwnedEval",
+            __TempValue::OwnedTemp(arg0) => "OwnedTemp",
+            __TempValue::EvalPure(arg0) => "EvalPure",
+            __TempValue::EvalRef(arg0) => "EvalRef",
+            __TempValue::TempRefEval(value) => "TempRefEval",
+            __TempValue::TempRefTemp(value) => "TempRefTemp",
+            __TempValue::TempRefMutEval { value, .. } => "CopyableMutOrTempRefMutEval",
+            __TempValue::TempRefMutTemp { value, owner, gen } => "TempRefMutTemp",
+            __TempValue::Moved => "Moved",
+        })
+        .field(&self.any_ref().__print_short())
+        .finish()
     }
 }
 

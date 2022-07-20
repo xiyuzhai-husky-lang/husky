@@ -122,7 +122,7 @@ pub enum InstructionVariant {
     EntityFeature {
         feature_uid: EntityUid,
     },
-    EntityFp {
+    PushEntityFp {
         opt_linkage: Option<__Linkage>,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
