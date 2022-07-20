@@ -170,8 +170,8 @@ pub(crate) fn call_form_decl(
     db: &dyn DeclQueryGroup,
     route: EntityRoutePtr,
 ) -> InferQueryResultArc<CallFormDecl> {
-    let locus = db.entity_source(route)?;
-    return match locus {
+    let source = db.entity_source(route)?;
+    return match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Function { .. } => {
                 routine_decl_from_static(db, vec![], route, static_defn)

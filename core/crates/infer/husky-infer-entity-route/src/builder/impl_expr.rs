@@ -437,50 +437,34 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         let caller = &arena[total_opds.start];
-        match caller.variant {
-            RawExprVariant::Entity { route, kind, .. } => {
-                let call_decl_result: InferResult<_> =
-                    self.db.call_form_decl(route).bind_into(caller);
-                let call_decl = call_decl_result?;
-                if call_decl.primary_parameters.len() != total_opds.end - total_opds.start - 1 {
-                    self.entity_route_sheet.extra_errors.push(InferError {
-                        variant: InferErrorVariant::Original {
-                            message: format!(
-                                "expect {} arguments, but get {} arguments",
-                                call_decl.primary_parameters.len(),
-                                total_opds.end - total_opds.start - 1
-                            ),
-                            range,
-                        },
-                        dev_src: dev_src!(),
-                    })
-                }
-                for (argument, parameter) in zip(
-                    ((total_opds.start + 1)..total_opds.end).into_iter(),
-                    call_decl.primary_parameters.iter(),
-                ) {
-                    self.infer_expr(argument, Some(parameter.ty), arena);
-                }
-                Ok(call_decl.output.ty)
-            }
-            RawExprVariant::Unrecognized(_) => {
-                throw!("unrecognized caller", caller.range)
-            }
-            RawExprVariant::CopyableLiteral(_) | RawExprVariant::FrameVariable { .. } => {
-                throw!("a primitive literal can't be a caller", caller.range)
-            }
-            RawExprVariant::Bracketed(_)
-            | RawExprVariant::Opn { .. }
-            | RawExprVariant::ThisValue { .. }
-            | RawExprVariant::Variable { .. } => {
-                throw!("todo: value as caller", caller.range)
-            }
-            RawExprVariant::Lambda(_, _) => {
-                p!(range);
-                todo!()
-            }
-            RawExprVariant::ThisField { .. } => todo!(),
+        let call_decl_result: InferResult<_> = self
+            .db
+            .call_form_decl(match caller.variant {
+                RawExprVariant::Entity { route, .. } => route,
+                _ => derived_not_none!(self.infer_expr(total_opds.start, None, arena))?,
+            })
+            .bind_into(caller);
+        let call_decl = call_decl_result?;
+        if call_decl.primary_parameters.len() != total_opds.end - total_opds.start - 1 {
+            self.entity_route_sheet.extra_errors.push(InferError {
+                variant: InferErrorVariant::Original {
+                    message: format!(
+                        "expect {} arguments, but get {} arguments",
+                        call_decl.primary_parameters.len(),
+                        total_opds.end - total_opds.start - 1
+                    ),
+                    range,
+                },
+                dev_src: dev_src!(),
+            })
         }
+        for (argument, parameter) in zip(
+            ((total_opds.start + 1)..total_opds.end).into_iter(),
+            call_decl.primary_parameters.iter(),
+        ) {
+            self.infer_expr(argument, Some(parameter.ty), arena);
+        }
+        Ok(call_decl.output.ty)
     }
 
     fn infer_method_call(
