@@ -25,7 +25,7 @@ pub trait EntitySyntaxSalsaQueryGroup:
 
     fn entity_kind(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityKind>;
 
-    fn entity_locus(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityLocus>;
+    fn entity_source(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntitySource>;
 }
 
 fn subroute_table(
@@ -40,11 +40,11 @@ fn subroute_table(
         | EntityKind::Main
         | EntityKind::Member(_) => Ok(Arc::new(SubrouteTable::new(entity_route, entity_kind))),
         EntityKind::Module | EntityKind::Type(_) | EntityKind::Trait => {
-            Ok(Arc::new(match db.entity_locus(entity_route)? {
-                EntityLocus::StaticModuleItem(data) => {
+            Ok(Arc::new(match db.entity_source(entity_route)? {
+                EntitySource::StaticModuleItem(data) => {
                     SubrouteTable::from_static(db, entity_route, entity_kind, data)
                 }
-                EntityLocus::WithinModule {
+                EntitySource::WithinModule {
                     file,
                     token_group_index,
                 } => {
@@ -56,14 +56,15 @@ fn subroute_table(
                         SubrouteTable::new(entity_route, entity_kind)
                     }
                 }
-                EntityLocus::Module { file: file_id } => {
+                EntitySource::Module { file: file_id } => {
                     let text = db.tokenized_text(file_id)?;
                     SubrouteTable::parse(db, file_id, entity_route, entity_kind, text.iter())
                 }
-                EntityLocus::WithinBuiltinModule => todo!(),
-                EntityLocus::Input { .. } => todo!(),
-                EntityLocus::StaticTypeMember => todo!(),
-                EntityLocus::StaticTypeAsTraitMember => todo!(),
+                EntitySource::WithinBuiltinModule => todo!(),
+                EntitySource::Input { .. } => todo!(),
+                EntitySource::StaticTypeMember(_) => todo!(),
+                EntitySource::StaticTraitMember(_) => todo!(),
+                EntitySource::StaticTypeAsTraitMember => todo!(),
             }))
         }
     }
@@ -136,18 +137,18 @@ fn entity_kind_from_entity_route_kind(
     })
 }
 
-fn entity_locus(
+fn entity_source(
     db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route: EntityRoutePtr,
-) -> EntitySyntaxResult<EntityLocus> {
+) -> EntitySyntaxResult<EntitySource> {
     match entity_route.kind {
-        EntityRouteKind::Root { ident } => Ok(EntityLocus::StaticModuleItem(db
+        EntityRouteKind::Root { ident } => Ok(EntitySource::StaticModuleItem(db
             .__root_defn_resolver()(
             ident
         ))),
-        EntityRouteKind::Package { main, .. } => Ok(EntityLocus::Module { file: main }),
-        EntityRouteKind::Child { parent, ident } => db.subroute_table(parent)?.entity_locus(ident),
-        EntityRouteKind::Input { main } => Ok(EntityLocus::Input { main }),
+        EntityRouteKind::Package { main, .. } => Ok(EntitySource::Module { file: main }),
+        EntityRouteKind::Child { parent, ident } => db.subroute_table(parent)?.entity_source(ident),
+        EntityRouteKind::Input { main } => Ok(EntitySource::Input { main }),
         EntityRouteKind::Generic { .. } => {
             p!(entity_route);
             todo!()
@@ -157,27 +158,28 @@ fn entity_locus(
             EntityRoutePtr::Root(root_ident) => match root_ident {
                 RootIdentifier::CloneTrait => {
                     msg_once!("ad hoc");
-                    Ok(EntityLocus::StaticTypeAsTraitMember)
-                    // db.entity_locus(EntityRoutePtr::Root(RootIdentifier::CloneTrait))
+                    Ok(EntitySource::StaticTypeAsTraitMember)
+                    // db.entity_source(EntityRoutePtr::Root(RootIdentifier::CloneTrait))
                 }
                 _ => todo!(),
             },
             EntityRoutePtr::Custom(_) => todo!(),
             EntityRoutePtr::ThisType => {
-                let ty_source = db.entity_locus(ty).unwrap();
+                let ty_source = db.entity_source(ty).unwrap();
                 match ty_source {
-                    EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
+                    EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
                         EntityStaticDefnVariant::Ty { .. } => {
-                            Ok(EntityLocus::StaticTypeAsTraitMember)
+                            Ok(EntitySource::StaticTypeAsTraitMember)
                         }
                         _ => panic!(),
                     },
-                    EntityLocus::WithinBuiltinModule => todo!(),
-                    EntityLocus::WithinModule { .. } => todo!(),
-                    EntityLocus::Module { .. } => todo!(),
-                    EntityLocus::Input { .. } => todo!(),
-                    EntityLocus::StaticTypeMember => todo!(),
-                    EntityLocus::StaticTypeAsTraitMember => todo!(),
+                    EntitySource::WithinBuiltinModule => todo!(),
+                    EntitySource::WithinModule { .. } => todo!(),
+                    EntitySource::Module { .. } => todo!(),
+                    EntitySource::Input { .. } => todo!(),
+                    EntitySource::StaticTypeMember(_) => todo!(),
+                    EntitySource::StaticTraitMember(_) => todo!(),
+                    EntitySource::StaticTypeAsTraitMember => todo!(),
                 }
             }
         },
@@ -326,14 +328,15 @@ pub trait EntitySyntaxQueryGroup:
     }
 
     fn module_file(&self, module: EntityRoutePtr) -> EntitySyntaxResult<FilePtr> {
-        Ok(match self.entity_locus(module)? {
-            EntityLocus::StaticModuleItem(_) => panic!(),
-            EntityLocus::WithinModule { file, .. } => file,
-            EntityLocus::Module { file } => file,
-            EntityLocus::WithinBuiltinModule => todo!(),
-            EntityLocus::Input { .. } => todo!(),
-            EntityLocus::StaticTypeMember => todo!(),
-            EntityLocus::StaticTypeAsTraitMember => todo!(),
+        Ok(match self.entity_source(module)? {
+            EntitySource::StaticModuleItem(_) => panic!(),
+            EntitySource::WithinModule { file, .. } => file,
+            EntitySource::Module { file } => file,
+            EntitySource::WithinBuiltinModule => todo!(),
+            EntitySource::Input { .. } => todo!(),
+            EntitySource::StaticTypeMember(_) => todo!(),
+            EntitySource::StaticTraitMember(_) => todo!(),
+            EntitySource::StaticTypeAsTraitMember => todo!(),
         })
     }
 

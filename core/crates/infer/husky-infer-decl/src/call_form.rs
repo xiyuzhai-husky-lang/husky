@@ -170,9 +170,9 @@ pub(crate) fn call_form_decl(
     db: &dyn DeclQueryGroup,
     route: EntityRoutePtr,
 ) -> InferQueryResultArc<CallFormDecl> {
-    let locus = db.entity_locus(route)?;
+    let locus = db.entity_source(route)?;
     return match locus {
-        EntityLocus::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
+        EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Function { .. } => {
                 routine_decl_from_static(db, vec![], route, static_defn)
             }
@@ -182,8 +182,8 @@ pub(crate) fn call_form_decl(
             },
             _ => panic!(),
         }),
-        EntityLocus::WithinBuiltinModule => todo!(),
-        EntityLocus::WithinModule {
+        EntitySource::WithinBuiltinModule => todo!(),
+        EntitySource::WithinModule {
             file,
             token_group_index,
         } => {
@@ -204,9 +204,9 @@ pub(crate) fn call_form_decl(
                 _ => panic!(),
             }
         }
-        EntityLocus::Module { file: file_id } => todo!(),
-        EntityLocus::Input { .. } => todo!(),
-        EntityLocus::StaticTypeMember => match route.kind {
+        EntitySource::Module { file: file_id } => todo!(),
+        EntitySource::Input { .. } => todo!(),
+        EntitySource::StaticTypeMember(_) => match route.kind {
             EntityRouteKind::Root { ident } => todo!(),
             EntityRouteKind::Package { main, ident } => todo!(),
             EntityRouteKind::Child { parent, ident } => {
@@ -226,7 +226,8 @@ pub(crate) fn call_form_decl(
             EntityRouteKind::Generic { ident, entity_kind } => todo!(),
             EntityRouteKind::ThisType => todo!(),
         },
-        EntityLocus::StaticTypeAsTraitMember => match route.kind {
+        EntitySource::StaticTraitMember(_) => todo!(),
+        EntitySource::StaticTypeAsTraitMember => match route.kind {
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
                 let ty_decl = derived_unwrap!(db.ty_decl(ty));
                 match derived_not_none!(ty_decl.trai_member_impl(trai, ident))? {

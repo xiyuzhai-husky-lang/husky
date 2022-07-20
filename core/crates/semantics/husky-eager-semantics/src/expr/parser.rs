@@ -17,8 +17,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
     fn arena(&self) -> &'a RawExprArena;
     fn file(&self) -> FilePtr;
 
-    fn parse_eager_expr(&mut self, raw_expr_idx: RawExprIdx) -> SemanticResult<Arc<EagerExpr>> {
-        let raw_expr = &self.arena()[raw_expr_idx];
+    fn parse_eager_expr(&mut self, idx: RawExprIdx) -> SemanticResult<Arc<EagerExpr>> {
+        let raw_expr = &self.arena()[idx];
         let variant = match raw_expr.variant {
             RawExprVariant::Variable {
                 varname,
@@ -28,10 +28,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     .eager_variable_qualified_ty(varname.into(), init_range)
                     .unwrap();
 
-                let contract = match self.eager_expr_contract(raw_expr_idx) {
+                let contract = match self.eager_expr_contract(idx) {
                     Ok(contract) => contract,
                     Err(_) => {
-                        p!(self.file(), raw_expr_idx, raw_expr);
+                        p!(self.file(), idx, raw_expr);
                         panic!("what's the contract?");
                     }
                 };
@@ -66,9 +66,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 },
                 EntityKind::Type(_) => todo!(),
                 EntityKind::Trait => todo!(),
-                EntityKind::Function { .. } => todo!(),
+                EntityKind::Function { .. } | EntityKind::Member(_) => {
+                    EagerExprVariant::EntityFp { route }
+                }
                 EntityKind::Feature => EagerExprVariant::EntityFeature { route },
-                EntityKind::Member(_) => todo!(),
                 EntityKind::Main => panic!(),
             },
             RawExprVariant::CopyableLiteral(value) => EagerExprVariant::PrimitiveLiteral(value),
@@ -79,14 +80,14 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 opn_variant: ref opr,
                 ref opds,
                 ..
-            } => self.parse_opn(opr, opds, raw_expr_idx)?,
+            } => self.parse_opn(opr, opds, idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::ThisValue {
                 opt_this_ty,
                 opt_this_liason,
             } => EagerExprVariant::ThisValue {
                 binding: {
-                    let this_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
+                    let this_contract = self.eager_expr_contract(idx).unwrap();
                     let this_qual = EagerExprQualifier::parameter_use_eager_qualifier(
                         self.decl_db(),
                         opt_this_ty.unwrap(),
@@ -105,8 +106,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 field_liason,
                 opt_field_ty,
             } => {
-                let field_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
-                let field_qt = self.eager_expr_qualified_ty(raw_expr_idx).unwrap();
+                let field_contract = self.eager_expr_contract(idx).unwrap();
+                let field_qt = self.eager_expr_qualified_ty(idx).unwrap();
                 let is_field_copyable = self
                     .decl_db()
                     .is_copyable(opt_field_ty.unwrap().route)
@@ -115,7 +116,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     field_liason,
                     field_contract,
                     is_field_copyable,
-                    self.arena()[raw_expr_idx].range,
+                    self.arena()[idx].range,
                 )?;
                 let this_qual = EagerExprQualifier::parameter_use_eager_qualifier(
                     self.decl_db(),
@@ -135,12 +136,12 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 }
             }
         };
-        if let Err(e) = self.raw_expr_intrinsic_ty(raw_expr_idx) {
+        if let Err(e) = self.raw_expr_intrinsic_ty(idx) {
             p!(self.contract_sheet());
-            p!(self.file(), raw_expr, raw_expr_idx);
+            p!(self.file(), raw_expr, idx);
             panic!()
         }
-        let qualified_ty = match self.eager_expr_qualified_ty(raw_expr_idx) {
+        let qualified_ty = match self.eager_expr_qualified_ty(idx) {
             Ok(qualified_ty) => qualified_ty,
             Err(e) => {
                 p!(raw_expr, e);
@@ -153,7 +154,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             file: self.file(),
             instruction_id: Default::default(),
             qualified_ty,
-            contract: self.eager_expr_contract(raw_expr_idx).unwrap(),
+            contract: self.eager_expr_contract(idx).unwrap(),
         }))
     }
 

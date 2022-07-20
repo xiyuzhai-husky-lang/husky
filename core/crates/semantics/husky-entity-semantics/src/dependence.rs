@@ -198,7 +198,7 @@ impl EntityDefn {
                         CallFormSource::Lazy { stmts } => {
                             extract_lazy_stmts_dependees(stmts, &mut builder)
                         }
-                        CallFormSource::Static(_) => todo!(),
+                        CallFormSource::Static(_) => (),
                     }
                 }
             }
@@ -433,6 +433,7 @@ impl EntityDefn {
                 EagerExprVariant::ThisField { this_ty, .. } => builder.push(this_ty),
                 EagerExprVariant::EnumKindLiteral(_) => builder.push(expr.ty()),
                 EagerExprVariant::EntityFeature { route } => builder.push(route),
+                EagerExprVariant::EntityFp { route } => builder.push(route),
             }
         }
 

@@ -14,7 +14,7 @@ use husky_entity_route::{
     entity_route_menu, EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument,
 };
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
-use husky_entity_syntax::EntityLocus;
+use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
 use map_collect::MapCollect;
 use print_utils::p;
@@ -179,19 +179,23 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
     fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<__Linkage> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
-            || match self.entity_locus(routine).unwrap() {
-                EntityLocus::StaticModuleItem(static_defn) => match static_defn.variant {
+            || match self.entity_source(routine).unwrap() {
+                EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
                     EntityStaticDefnVariant::Function { linkage, .. } => Some(linkage),
                     _ => todo!(),
                 },
-                EntityLocus::WithinBuiltinModule => todo!(),
-                EntityLocus::WithinModule { .. } => self
+                EntitySource::StaticTypeMember(static_defn) => match static_defn.variant {
+                    EntityStaticDefnVariant::Method { opt_linkage, .. } => opt_linkage,
+                    _ => todo!(),
+                },
+                EntitySource::StaticTraitMember(_) => todo!(),
+                EntitySource::StaticTypeAsTraitMember => todo!(),
+                EntitySource::WithinBuiltinModule => todo!(),
+                EntitySource::WithinModule { .. } => self
                     .linkage_table()
                     .routine_linkage(self.upcast(), self.entity_uid(routine)),
-                EntityLocus::Module { file } => todo!(),
-                EntityLocus::Input { main } => todo!(),
-                EntityLocus::StaticTypeMember => todo!(),
-                EntityLocus::StaticTypeAsTraitMember => todo!(),
+                EntitySource::Module { file } => todo!(),
+                EntitySource::Input { main } => todo!(),
             },
             || format!("routine {routine}"),
         )

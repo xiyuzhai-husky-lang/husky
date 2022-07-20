@@ -36,6 +36,7 @@ impl<'a> LinkageCollector<'a> {
             }
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EntityFeature { route } => self.insert(route),
+            EagerExprVariant::EntityFp { route } => todo!(),
         }
     }
 }
