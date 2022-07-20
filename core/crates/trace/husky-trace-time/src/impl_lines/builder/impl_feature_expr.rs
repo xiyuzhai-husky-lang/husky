@@ -30,6 +30,11 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(special!(opr.spaced_code(), opt_assoc_id));
                 self.gen_feature_expr_tokens(ropd, config.subexpr())
             }
+            FeatureExprVariant::CustomBinaryOpr { opr, ref opds, .. } => {
+                self.gen_feature_expr_tokens(&opds[0], config.subexpr());
+                self.push(special!(opr.spaced_code(), opt_assoc_id));
+                self.gen_feature_expr_tokens(&opds[1], config.subexpr())
+            }
             FeatureExprVariant::Variable { varname, .. } => {
                 self.push(ident!(varname.0, opt_assoc_id))
             }

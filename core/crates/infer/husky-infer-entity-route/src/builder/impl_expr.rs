@@ -169,11 +169,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let ropd_ty = derived_not_none!(self.infer_expr(ropd, None, arena))?;
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => match lopd_ty {
-                EntityRoutePtr::Root(lopd_builtin_ty) => match ropd_ty {
-                    EntityRoutePtr::Root(ropd_builtin_ty) => self.builtin_pure_binary_opn(
+                EntityRoutePtr::Root(lopd_root_ty) => match ropd_ty {
+                    EntityRoutePtr::Root(ropd_root_ty) => self.root_pure_binary_opn(
                         pure_binary_opr,
-                        lopd_builtin_ty,
-                        ropd_builtin_ty,
+                        lopd_root_ty,
+                        ropd_root_ty,
                         range,
                     ),
                     EntityRoutePtr::Custom(_) => {
@@ -208,7 +208,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         }
     }
 
-    fn builtin_pure_binary_opn(
+    fn root_pure_binary_opn(
         &self,
         pure_binary_opr: PureBinaryOpr,
         lopd_builtin_ty: RootIdentifier,

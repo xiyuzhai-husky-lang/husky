@@ -1,20 +1,22 @@
 #![feature(const_trait_impl)]
 #![feature(const_convert)]
 mod __b32;
+mod __clone;
+mod __eq;
 mod __f32;
 mod __i32;
 pub mod __std;
 mod __vec;
-mod clone;
 pub mod domains;
 mod etc;
 
 pub use __b32::*;
+pub use __clone::*;
+pub use __eq::*;
 pub use __f32::*;
 pub use __i32::*;
 pub use __std::*;
 pub use __vec::*;
-pub use clone::*;
 pub use domains::*;
 pub use etc::*;
 pub use husky_entity_route::EntityRoutePtr as __EntityRoutePtr;

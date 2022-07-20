@@ -1,0 +1,17 @@
+{
+  "config": {
+    "package_dir": "/home/xiyuzhai/Documents/husky/tests/debugger/traits/test-eq",
+    "opt_sample_id": 23,
+    "verbose": false,
+    "warn_missing_linkage": false
+  },
+  "gui_messages": [
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 1,
+      "variant": {
+        "kind": "InitDataRequest"
+      }
+    }
+  ]
+}

@@ -215,8 +215,9 @@ impl<'eval, T: __AnyValue<'eval>> __AnyValueDyn<'eval> for T {
         T::__clone_into_arc(self)
     }
 
-    fn __equal_any(&self, other: &dyn __AnyValueDyn) -> bool {
-        todo!()
+    fn __equal_any(&self, other: &dyn __AnyValueDyn<'eval>) -> bool {
+        let other: &T = other.__downcast_ref();
+        self == other
     }
 
     fn __assign<'temp>(&mut self, other: __TempValue<'temp, 'eval>) {
