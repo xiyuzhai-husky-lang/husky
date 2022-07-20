@@ -3,7 +3,7 @@ task:
 
 func try_fp() -> i32:
     f1 = i32::sgn
-    1
+    f1(1)
 
 main:
     try_fp()

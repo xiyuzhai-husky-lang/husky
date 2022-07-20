@@ -448,22 +448,17 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<EagerValueQualifiedTy> {
-        let call_decl = match self.arena[total_opds.start].variant {
-            RawExprVariant::Entity { route, .. } => {
-                derived_unwrap!(self.db.call_form_decl(route))
-            }
-            RawExprVariant::Opn {
-                opn_variant: ref opr,
-                ref opds,
-            } => todo!(),
-            RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
-            RawExprVariant::CopyableLiteral(_) => {
-                throw_derived!("a primitive literal can't be a caller")
-            }
-            _ => {
-                throw_derived!("todo: value as caller")
-            }
-        };
+        let call_decl =
+            derived_unwrap!(self
+                .db
+                .call_form_decl(match self.arena[total_opds.start].variant {
+                    RawExprVariant::Entity { route, .. } => {
+                        route
+                    }
+                    _ => {
+                        self.raw_expr_ty(total_opds.start)?
+                    }
+                }));
         for opd_idx in (total_opds.start + 1)..total_opds.end {
             let opd_contract = self.eager_expr_contract(opd_idx)?;
             if let Some(qt) = self.infer_eager_expr(opd_idx) {
