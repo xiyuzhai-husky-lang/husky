@@ -63,6 +63,19 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
+                InstructionVariant::PushEntityFp { opt_linkage, .. } => {
+                    self.stack
+                        .push(__TempValue::owned_eval(__CallFormValue { opt_linkage }));
+                    if mode == Mode::TrackHistory {
+                        self.history.write(
+                            ins,
+                            HistoryEntry::PureExpr {
+                                result: Ok(self.stack.eval_top()),
+                            },
+                        )
+                    }
+                    VMControl::None
+                }
                 InstructionVariant::PushPrimitiveLiteral { value, explicit } => {
                     self.stack.push(value.into());
                     match mode {
@@ -263,7 +276,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     p!(ins.src.file(), ins.src.text_range());
                     todo!()
                 }
-                InstructionVariant::EntityFp { .. } => todo!(),
             };
             match control {
                 VMControl::None => (),

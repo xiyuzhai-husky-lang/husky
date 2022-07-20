@@ -122,7 +122,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 expr.clone(),
             )),
             EagerExprVariant::EntityFp { route } => self.push_instruction(Instruction::new(
-                InstructionVariant::EntityFp {
+                InstructionVariant::PushEntityFp {
                     opt_linkage: self.db.compile_time().routine_linkage(route),
                     opt_instruction_sheet: self.db.entity_instruction_sheet(route),
                 },
