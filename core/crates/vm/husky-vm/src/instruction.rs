@@ -152,8 +152,8 @@ impl std::fmt::Display for InitKind {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum OprOpn {
-    PureBinary(PureBinaryOpr),
-    BinaryAssign(Option<PureBinaryOpr>),
+    RootPureBinary(PureBinaryOpr),
+    RootBinaryAssign(Option<PureBinaryOpr>),
     Prefix(PrefixOpr),
     Cast(CastOpn),
     Incr,

@@ -3,7 +3,11 @@ task:
 
 func try_vec() -> i32:
     a = [1, 2, 3, 4, 5, 6, 7]
-    a.ilen()
+    b = [1, 2, 3, 4, 5]
+    c = [1, 2, 3, 4, 5]
+    assert b == c
+    assert a != b
+    1
 
 main:
     a = [1, 2, 3, 4, 5, 6, 7]
@@ -11,4 +15,4 @@ main:
     c = [1, 2, 3, 4, 5]
     assert b == c
     assert a != b
-    1
+    try_vec()
