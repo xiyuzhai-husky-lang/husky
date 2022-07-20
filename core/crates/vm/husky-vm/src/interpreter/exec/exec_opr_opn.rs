@@ -11,7 +11,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         ins: &Instruction,
     ) -> __EvalResult<()> {
         match opn {
-            OprOpn::PureBinary(pure_binary_opr) => {
+            OprOpn::RootPureBinary(pure_binary_opr) => {
                 let ropd = self.stack.pop();
                 let lopd = self.stack.pop();
                 let output = pure_binary_opr
@@ -28,7 +28,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 self.stack.push(output.into());
                 Ok(())
             }
-            OprOpn::BinaryAssign(opt_binary_opr) => {
+            OprOpn::RootBinaryAssign(opt_binary_opr) => {
                 let ropd = self.stack.pop();
                 let mut lopd = self.stack.pop();
                 match debug_flag {

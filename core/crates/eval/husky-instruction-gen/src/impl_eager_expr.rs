@@ -4,7 +4,10 @@ use husky_ast::FieldAstKind;
 use husky_linkage_table::ResolveLinkage;
 use infer_decl::TyDecl;
 use map_collect::MapCollect;
-use vm::*;
+use vm::{
+    __root::{__EQ_LINKAGE, __NEQ_LINKAGE},
+    *,
+};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_eager_expr(
@@ -133,16 +136,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
         match opn_variant {
             EagerOpnVariant::Binary { opr, this_ty } => {
-                let ins_kind = InstructionVariant::OprOpn {
-                    opn: match opr {
-                        BinaryOpr::Pure(pure_binary_opr) => OprOpn::PureBinary(*pure_binary_opr),
-                        BinaryOpr::Assign(opt_binary_opr) => OprOpn::BinaryAssign(*opt_binary_opr),
-                    },
-                    this_ty: *this_ty,
-                    this_range: opds[0].range,
-                };
-                let instruction = Instruction::new(ins_kind, expr.clone());
-                self.push_instruction(instruction)
+                self.compile_binary_opn(*opr, this_ty, opds, expr)
             }
             EagerOpnVariant::Prefix { opr, this_ty } => {
                 let instruction = Instruction::new(
@@ -374,6 +368,68 @@ impl<'a> InstructionSheetBuilder<'a> {
                     expr.clone(),
                 ))
             }
+        }
+    }
+
+    fn compile_binary_opn(
+        &mut self,
+        opr: BinaryOpr,
+        this_ty: &EntityRoutePtr,
+        opds: &[Arc<EagerExpr>],
+        expr: &Arc<EagerExpr>,
+    ) {
+        match opds[0].ty() {
+            EntityRoutePtr::Root(_) => {
+                let ins_kind = InstructionVariant::OprOpn {
+                    opn: match opr {
+                        BinaryOpr::Pure(pure_binary_opr) => OprOpn::RootPureBinary(pure_binary_opr),
+                        BinaryOpr::Assign(opt_binary_opr) => {
+                            OprOpn::RootBinaryAssign(opt_binary_opr)
+                        }
+                    },
+                    this_ty: *this_ty,
+                    this_range: opds[0].range,
+                };
+                let instruction = Instruction::new(ins_kind, expr.clone());
+                self.push_instruction(instruction)
+            }
+            EntityRoutePtr::Custom(_) => {
+                let ins_kind = match opr {
+                    BinaryOpr::Pure(pure_binary_opr) => match pure_binary_opr {
+                        PureBinaryOpr::Add => todo!(),
+                        PureBinaryOpr::And => todo!(),
+                        PureBinaryOpr::BitAnd => todo!(),
+                        PureBinaryOpr::BitOr => todo!(),
+                        PureBinaryOpr::BitXor => todo!(),
+                        PureBinaryOpr::Div => todo!(),
+                        PureBinaryOpr::Eq => InstructionVariant::CallSpecificRoutine {
+                            linkage: __EQ_LINKAGE.specific(),
+                            nargs: 2,
+                            output_ty: expr.ty(),
+                        },
+                        PureBinaryOpr::Geq => todo!(),
+                        PureBinaryOpr::Greater => todo!(),
+                        PureBinaryOpr::Leq => todo!(),
+                        PureBinaryOpr::Less => todo!(),
+                        PureBinaryOpr::Mul => todo!(),
+                        PureBinaryOpr::Neq => InstructionVariant::CallSpecificRoutine {
+                            linkage: __NEQ_LINKAGE.specific(),
+                            nargs: 2,
+                            output_ty: expr.ty(),
+                        },
+                        PureBinaryOpr::RemEuclid => todo!(),
+                        PureBinaryOpr::Or => todo!(),
+                        PureBinaryOpr::Power => todo!(),
+                        PureBinaryOpr::Shl => todo!(),
+                        PureBinaryOpr::Shr => todo!(),
+                        PureBinaryOpr::Sub => todo!(),
+                    },
+                    BinaryOpr::Assign(opt_binary_opr) => todo!(),
+                };
+                let instruction = Instruction::new(ins_kind, expr.clone());
+                self.push_instruction(instruction)
+            }
+            EntityRoutePtr::ThisType => todo!(),
         }
     }
 
