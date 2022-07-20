@@ -110,26 +110,27 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             },
             EntityKind::Type(_) => RootIdentifier::TypeType.into(),
             EntityKind::Trait => RootIdentifier::TraitType.into(),
-            EntityKind::Function {
-                requires_lazy: is_lazy,
-            } => {
-                let base_route: EntityRoutePtr = if is_lazy {
+            EntityKind::Function { .. } | EntityKind::Member(_) => {
+                let decl = self.db.call_form_decl(entity_route)?;
+                let base_route: EntityRoutePtr = if decl.is_lazy {
                     RootIdentifier::Mor
                 } else {
                     RootIdentifier::Fp
                 }
                 .into();
-                let decl = self.db.call_form_decl(entity_route)?;
                 msg_once!("handle temporal/spatial parameters");
-                let spatial_arguments = decl
+                let mut spatial_arguments: ThinVec<SpatialArgument> = decl
                     .primary_parameters
                     .iter()
                     .map(|parameter| parameter.ty.into())
                     .collect();
+                if let Some(this) = decl.opt_this_liason {
+                    spatial_arguments
+                        .insert(0, SpatialArgument::EntityRoute(entity_route.parent()));
+                }
                 self.db.route_call(base_route, spatial_arguments)
             }
             EntityKind::Feature => self.db.feature_decl(entity_route)?.ty,
-            EntityKind::Member(_) => todo!(),
             EntityKind::Main => panic!(),
         })
     }
