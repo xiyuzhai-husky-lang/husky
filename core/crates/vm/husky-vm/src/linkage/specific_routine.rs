@@ -7,7 +7,11 @@ use super::*;
 pub struct __SpecificRoutineLinkage {
     pub fp: __SpecificRoutineFp,
     pub dev_src: __StaticDevSource,
+    pub opt_raw_fp: Option<*const ()>,
 }
+
+unsafe impl Sync for __SpecificRoutineLinkage {}
+unsafe impl Send for __SpecificRoutineLinkage {}
 
 impl __SpecificRoutineLinkage {
     pub fn call<'temp, 'eval>(
@@ -35,10 +39,18 @@ impl __SpecificRoutineLinkage {
 
 #[macro_export]
 macro_rules! specific_transfer_linkage {
-    ($fp: expr) => {{
+    ($fp: expr, some $raw_fp: expr) => {{
         __Linkage::SpecificTransfer(__SpecificRoutineLinkage {
             fp: __SpecificRoutineFp($fp),
             dev_src: __static_dev_src!(),
+            opt_raw_fp: Some($raw_fp as *const ()),
+        })
+    }};
+    ($fp: expr, none) => {{
+        __Linkage::SpecificTransfer(__SpecificRoutineLinkage {
+            fp: __SpecificRoutineFp($fp),
+            dev_src: __static_dev_src!(),
+            opt_raw_fp: None,
         })
     }};
 }

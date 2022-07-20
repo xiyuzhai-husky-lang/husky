@@ -15,7 +15,8 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                 spatial_parameters: &[],
                 method_static_defn_kind: MethodStaticDefnKind::TraitMethod,
                 opt_linkage: Some(specific_transfer_linkage!(
-                    |_, values| values[0].clone_into_stack()
+                    |_, values| values[0].clone_into_stack(),
+                    none
                 )),
                 output_liason: OutputLiason::Transfer,
             },

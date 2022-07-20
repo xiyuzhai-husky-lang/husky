@@ -1,5 +1,15 @@
 use super::*;
 
+pub trait __I32X {
+    fn sgn(self) -> i32;
+}
+
+impl __I32X for i32 {
+    fn sgn(self) -> i32 {
+        todo!()
+    }
+}
+
 pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "i32",
     items: &[],
@@ -30,7 +40,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!())),
+        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!(), some i32::min)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -49,7 +59,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!())),
+        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!(), some i32::max)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -64,7 +74,7 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!())),
+        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!(), some i32::sgn)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -81,7 +91,7 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(specific_transfer_linkage!(|_, values| {
             __TempValue::Copyable(values[0].take_copyable().take_i32().abs().into())
-        })),
+        }, some i32::abs)),
     },
     dev_src: __static_dev_src!(),
 };

@@ -87,7 +87,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         linkage: specific_transfer_linkage!(|_, _values| {
             __TempValue::OwnedEval(__OwnedValue::new(BinaryImage28::default()))
-        })
+        }, some BinaryImage28::__call__)
         .into(),
     },
     dev_src: __static_dev_src!(),
