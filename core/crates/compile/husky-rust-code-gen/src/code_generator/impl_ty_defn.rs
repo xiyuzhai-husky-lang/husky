@@ -277,7 +277,7 @@ impl<'a> RustCodeGenerator<'a> {
                 | FieldDefnVariant::StructDerivedEager { .. } => (),
                 FieldDefnVariant::StructDerivedLazy { defn_repr } => match **defn_repr {
                     DefinitionRepr::LazyExpr { ref expr } => todo!(),
-                    DefinitionRepr::LazyBlock { ref stmts, ty } => todo!(),
+                    DefinitionRepr::LazyBlock { ref stmts, ty } => (),
                     DefinitionRepr::FuncBlock {
                         route,
                         file,
