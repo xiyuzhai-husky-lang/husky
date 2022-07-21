@@ -20,16 +20,16 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write("for ");
                     self.write(&frame_var.ident);
                     self.write(" in ");
-                    self.gen_range_start(initial_boundary);
+                    self.gen_range_start(indent, initial_boundary);
                     self.write("..");
-                    self.gen_range_end(final_boundary);
+                    self.gen_range_end(indent, final_boundary);
                 } else if step.0 == -1 {
                     self.write("for ");
                     self.write(&frame_var.ident);
                     self.write(" in ");
-                    self.gen_range_start(final_boundary);
+                    self.gen_range_start(indent, final_boundary);
                     self.write("..");
-                    self.gen_range_end(initial_boundary);
+                    self.gen_range_end(indent, initial_boundary);
                 } else {
                     todo!()
                 }
@@ -52,7 +52,7 @@ impl<'a> RustCodeGenerator<'a> {
                     BoundaryKind::LowerClosed => " >= ",
                 });
                 if let Some(bound) = &final_boundary.opt_bound {
-                    self.gen_expr(bound)
+                    self.gen_expr(indent, bound)
                 } else {
                     self.write("0")
                 }
@@ -75,7 +75,7 @@ impl<'a> RustCodeGenerator<'a> {
             }
             LoopVariant::While { condition } => {
                 self.write("while ");
-                self.gen_condition(condition);
+                self.gen_condition(indent, condition);
                 self.write(" {\n");
                 self.gen_proc_stmts(body_stmts);
                 self.indent(indent);
@@ -86,7 +86,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_proc_stmts(body_stmts);
                 self.indent(indent);
                 self.write("    if !(");
-                self.gen_condition(condition);
+                self.gen_condition(indent, condition);
                 self.write(") {\n");
                 self.indent(indent);
                 self.write("        break;\n");

@@ -16,11 +16,11 @@ impl<'a> RustCodeGenerator<'a> {
             match branch.variant {
                 ProcConditionFlowBranchVariant::If { ref condition } => {
                     self.write("if ");
-                    self.gen_condition(condition);
+                    self.gen_condition(indent + 4, condition);
                 }
                 ProcConditionFlowBranchVariant::Elif { ref condition } => {
                     self.write(" else if ");
-                    self.gen_condition(condition);
+                    self.gen_condition(indent + 4, condition);
                 }
                 ProcConditionFlowBranchVariant::Else => {
                     self.write(" else");
@@ -43,11 +43,11 @@ impl<'a> RustCodeGenerator<'a> {
             match branch.variant {
                 FuncConditionFlowBranchVariant::If { ref condition } => {
                     self.write("if ");
-                    self.gen_condition(condition);
+                    self.gen_condition(indent, condition);
                 }
                 FuncConditionFlowBranchVariant::Elif { ref condition } => {
                     self.write(" else if ");
-                    self.gen_condition(condition);
+                    self.gen_condition(indent, condition);
                 }
                 FuncConditionFlowBranchVariant::Else => {
                     self.write(" else");

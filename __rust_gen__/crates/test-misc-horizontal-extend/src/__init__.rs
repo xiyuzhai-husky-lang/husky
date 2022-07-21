@@ -17,9 +17,8 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 let x: u32 = __arguments[1].downcast_copy();
                 __TempValue::Copyable(
                     horizontal_extend(a, x)
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
-        }, some horizontal_extend),
-    ),
+        }, some horizontal_extend),    ),
 ];

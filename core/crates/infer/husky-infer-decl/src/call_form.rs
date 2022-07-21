@@ -139,7 +139,7 @@ impl Instantiable for CallFormDecl {
                 .map(|parameter| parameter.instantiate(ctx)),
             output: self.output.instantiate(ctx),
             keyword_parameters: self
-                .primary_parameters
+                .keyword_parameters
                 .map(|parameter| parameter.instantiate(ctx)),
             variadic_template: self.variadic_template.instantiate(ctx),
             is_lazy: self.is_lazy,

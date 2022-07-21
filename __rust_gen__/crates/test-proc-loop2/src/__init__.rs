@@ -15,9 +15,8 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::Copyable(
                     for_loop4()
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
-        }, some for_loop4),
-    ),
+        }, some for_loop4),    ),
 ];

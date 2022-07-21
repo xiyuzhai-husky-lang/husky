@@ -1,4 +1,5 @@
 use super::{impl_entity_route::EntityRouteRole, *};
+use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_infer_qualified_ty::EagerExprQualifier;
 use infer_decl::VariadicTemplate;
@@ -6,7 +7,7 @@ use vm::*;
 use word::RootIdentifier;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_expr(&mut self, expr: &EagerExpr) {
+    pub(super) fn gen_expr(&mut self, indent: Indent, expr: &EagerExpr) {
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => self.write(&varname),
             EagerExprVariant::ThisValue { .. } => self.write("self"),
@@ -22,7 +23,7 @@ impl<'a> RustCodeGenerator<'a> {
             EagerExprVariant::PrimitiveLiteral(value) => self.gen_copyable_literal(value),
             EagerExprVariant::Bracketed(ref expr) => {
                 self.write("(");
-                self.gen_expr(expr);
+                self.gen_expr(indent, expr);
                 self.write(")")
             }
             EagerExprVariant::Opn {
@@ -44,17 +45,17 @@ impl<'a> RustCodeGenerator<'a> {
                             _ => self.write("*"),
                         },
                     }
-                    self.gen_expr(&opds[0]);
+                    self.gen_expr(indent, &opds[0]);
                     match opr {
                         BinaryOpr::Pure(PureBinaryOpr::RemEuclid) => {
                             self.write(".rem_euclid(");
-                            self.gen_expr(&opds[1]);
+                            self.gen_expr(indent, &opds[1]);
                             self.write(")")
                         }
                         BinaryOpr::Assign(Some(PureBinaryOpr::RemEuclid)) => todo!(),
                         _ => {
                             self.write(opr.spaced_code());
-                            self.gen_expr(&opds[1]);
+                            self.gen_expr(indent, &opds[1]);
                         }
                     }
                 }
@@ -62,27 +63,27 @@ impl<'a> RustCodeGenerator<'a> {
                     PrefixOpr::Not => match opds[0].ty() {
                         EntityRoutePtr::Root(RootIdentifier::Bool) => {
                             self.write("!");
-                            self.gen_expr(&opds[0]);
+                            self.gen_expr(indent, &opds[0]);
                         }
                         _ => {
                             self.write("(0 == ");
-                            self.gen_expr(&opds[0]);
+                            self.gen_expr(indent, &opds[0]);
                             self.write(")");
                         }
                     },
                     _ => {
                         self.write(&opr.rust_code());
-                        self.gen_expr(&opds[0]);
+                        self.gen_expr(indent, &opds[0]);
                     }
                 },
                 EagerOpnVariant::Suffix { opr, .. } => {
-                    self.gen_expr(&opds[0]);
+                    self.gen_expr(indent, &opds[0]);
                     self.gen_suffix_opr(*opr)
                 }
                 EagerOpnVariant::RoutineCall(routine) => {
                     self.gen_entity_route(routine.route, EntityRouteRole::Caller);
                     self.write("(");
-                    self.gen_arguments(opds);
+                    self.gen_arguments(indent, opds);
                     self.write(")");
                 }
                 EagerOpnVariant::TypeCall {
@@ -90,28 +91,10 @@ impl<'a> RustCodeGenerator<'a> {
                     ref ty_decl,
                     ..
                 } => {
-                    self.gen_entity_route(ranged_ty.route, EntityRouteRole::Caller);
-                    self.write("::");
-                    self.write("__call__(");
-                    self.gen_arguments(opds);
-                    msg_once!("keyword arguments and more on variadics");
-                    let type_call_decl = &ty_decl.opt_type_call.as_ref().unwrap();
-                    match type_call_decl.variadic_template {
-                        VariadicTemplate::None => (),
-                        VariadicTemplate::SingleTyped { ty } => {
-                            if type_call_decl.primary_parameters.len()
-                                + type_call_decl.keyword_parameters.len()
-                                > 0
-                            {
-                                self.write(", ")
-                            }
-                            self.write("vec![]")
-                        }
-                    }
-                    self.write(")");
+                    self.gen_type_call_opn(indent, ranged_ty, opds, ty_decl);
                 }
                 EagerOpnVariant::Field { field_ident, .. } => {
-                    self.gen_expr(&opds[0]);
+                    self.gen_expr(indent, &opds[0]);
                     self.write(".");
                     self.write(&field_ident.ident)
                 }
@@ -124,38 +107,38 @@ impl<'a> RustCodeGenerator<'a> {
                     let call_form_decl = self.db.entity_call_form_decl(*method_route).unwrap();
                     match call_form_decl.output.liason {
                         OutputLiason::Transfer => {
-                            self.gen_expr(&opds[0]);
+                            self.gen_expr(indent, &opds[0]);
                             self.write(".");
                             self.write(&method_ident.ident);
                             self.write("(");
-                            self.gen_arguments(&opds[1..]);
+                            self.gen_arguments(indent, &opds[1..]);
                             self.write(")");
                         }
                         OutputLiason::MemberAccess { .. } => match output_binding {
                             Binding::EvalRef | Binding::TempRef => {
-                                self.gen_expr(&opds[0]);
+                                self.gen_expr(indent, &opds[0]);
                                 self.write(".");
                                 self.write(&method_ident.ident);
                                 self.write("(");
-                                self.gen_arguments(&opds[1..]);
+                                self.gen_arguments(indent, &opds[1..]);
                                 self.write(")");
                             }
                             Binding::Copy => {
                                 self.write("*");
-                                self.gen_expr(&opds[0]);
+                                self.gen_expr(indent, &opds[0]);
                                 self.write(".");
                                 self.write(&method_ident.ident);
                                 self.write("(");
-                                self.gen_arguments(&opds[1..]);
+                                self.gen_arguments(indent, &opds[1..]);
                                 self.write(")");
                             }
                             Binding::TempRefMut => {
-                                self.gen_expr(&opds[0]);
+                                self.gen_expr(indent, &opds[0]);
                                 self.write(".");
                                 self.write(&method_ident.ident);
                                 self.write("_mut");
                                 self.write("(");
-                                self.gen_arguments(&opds[1..]);
+                                self.gen_arguments(indent, &opds[1..]);
                                 self.write(")");
                             }
                             Binding::Move => todo!(),
@@ -163,13 +146,13 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                 }
                 EagerOpnVariant::Index { .. } => {
-                    self.gen_expr(&opds[0]);
+                    self.gen_expr(indent, &opds[0]);
                     self.write("[");
                     if opds.len() > 2 {
                         todo!()
                     } else {
                         self.write("(");
-                        self.gen_expr(&opds[1]);
+                        self.gen_expr(indent, &opds[1]);
                         self.write(")");
                         self.write(" as usize")
                     }
@@ -190,7 +173,56 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    pub(super) fn gen_feature_return(&mut self, result: &EagerExpr) {
+    fn gen_type_call_opn(
+        &mut self,
+        indent: Indent,
+        ranged_ty: &husky_entity_route::RangedEntityRoute,
+        opds: &Vec<Arc<EagerExpr>>,
+        ty_decl: &Arc<infer_decl::TyDecl>,
+    ) {
+        let type_call = ty_decl.opt_type_call.as_ref().unwrap();
+        let needs_wrapping = type_call.keyword_parameters.len() > 0;
+        if needs_wrapping {
+            self.write("{\n");
+            self.indent(indent + 8);
+        }
+        for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
+            self.write("let ");
+            self.write(&parameter.ident);
+            self.write(" = todo!();");
+            self.newline_indented(indent + 8);
+        }
+        self.gen_entity_route(ranged_ty.route, EntityRouteRole::Caller);
+        self.write("::");
+        self.write("__call__(");
+        self.gen_arguments(indent, opds);
+        for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
+            if i + type_call.primary_parameters.len() > 0 {
+                self.write(", ")
+            }
+            self.write(&parameter.ident)
+        }
+        msg_once!("keyword arguments and more on variadics");
+        let type_call_decl = &ty_decl.opt_type_call.as_ref().unwrap();
+        match type_call_decl.variadic_template {
+            VariadicTemplate::None => (),
+            VariadicTemplate::SingleTyped { ty } => {
+                if type_call_decl.primary_parameters.len() + type_call_decl.keyword_parameters.len()
+                    > 0
+                {
+                    self.write(", ")
+                }
+                self.write("vec![]")
+            }
+        }
+        self.write(")");
+        if needs_wrapping {
+            self.newline_indented(indent + 4);
+            self.write("}");
+        }
+    }
+
+    pub(super) fn gen_feature_return(&mut self, indent: Indent, result: &EagerExpr) {
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
@@ -199,7 +231,7 @@ impl<'a> RustCodeGenerator<'a> {
         __feature,
         Ok(("#,
                 );
-                self.gen_expr(result);
+                self.gen_expr(indent, result);
                 self.write(
                     r#").__into_eval_value())
     ).unwrap()"#,
@@ -212,7 +244,7 @@ impl<'a> RustCodeGenerator<'a> {
         __feature,
         Ok(__EvalRef(&("#,
                 );
-                self.gen_expr(result);
+                self.gen_expr(indent, result);
                 self.write(
                     r#")).into())
     ).unwrap()"#,
@@ -224,7 +256,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    pub(super) fn gen_lazy_field_return(&mut self, result: &EagerExpr) {
+    pub(super) fn gen_lazy_field_return(&mut self, indent: Indent, result: &EagerExpr) {
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
@@ -234,7 +266,7 @@ impl<'a> RustCodeGenerator<'a> {
         __uid,
         Ok(("#,
                 );
-                self.gen_expr(result);
+                self.gen_expr(indent, result);
                 self.write(
                     r#").__into_eval_value())
     ).unwrap()"#,
@@ -248,7 +280,7 @@ impl<'a> RustCodeGenerator<'a> {
         __uid,
         Ok(__EvalRef(&("#,
                 );
-                self.gen_expr(result);
+                self.gen_expr(indent, result);
                 self.write(
                     r#")).into())
     ).unwrap()"#,
@@ -260,13 +292,13 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_arguments(&mut self, exprs: &[Arc<EagerExpr>]) {
+    fn gen_arguments(&mut self, indent: Indent, exprs: &[Arc<EagerExpr>]) {
         for (i, expr) in exprs.iter().enumerate() {
             if i > 0 {
                 self.write(", ");
             }
             self.gen_binding(expr);
-            self.gen_expr(expr)
+            self.gen_expr(indent, expr)
         }
     }
 
