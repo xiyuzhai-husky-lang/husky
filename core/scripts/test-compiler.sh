@@ -17,7 +17,7 @@ cargo run -q \
 cd $RUST_GEN_CACHE_DIR && cargo fmt
 DIFF=$(diff -r $RUST_GEN_CACHE_DIR/crates/tests $RUST_GEN_DIR/crates/tests)
 if [ -n "$DIFF" ]; then
-    rsync -r $RUST_GEN_CACHE_DIR/crates/tests/ $RUST_GEN_DIR/crates/tests
+    rsync -a $RUST_GEN_CACHE_DIR/crates/tests/ $RUST_GEN_DIR/crates/tests
 fi
 /bin/rm -rf $RUST_GEN_CACHE_DIR
 cd $RUST_GEN_DIR
