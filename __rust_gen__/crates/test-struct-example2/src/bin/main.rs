@@ -1,12 +1,11 @@
-use husky_debugger::*;
 use __husky_root::__main_utils::*;
-use test_struct_example2::__init__::LINKAGES;
 use husky_compile_time::*;
+use husky_debugger::*;
+use test_struct_example2::__init__::LINKAGES;
 
 #[tokio::main]
 async fn main() {
-    let code_snapshot_dir =
-        "crates/test-struct-example2/snapshot/test-struct-example2".into();
+    let code_snapshot_dir = "crates/test-struct-example2/snapshot/test-struct-example2".into();
     HuskyDebugger::new(
         HuskyDebuggerConfig {
             package_dir: code_snapshot_dir,

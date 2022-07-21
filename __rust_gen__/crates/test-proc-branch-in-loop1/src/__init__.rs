@@ -1,12 +1,10 @@
-
 use crate::*;
 use __husky_root::__init_utils::*;
 
-pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
-
+pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
         __StaticLinkageKey::Routine {
-            routine: "test_proc_branch_in_loop1::f1"
+            routine: "test_proc_branch_in_loop1::f1",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -18,10 +16,11 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 .__take_copyable_dyn())
             }
             __wrapper
-        }, some f1),    ),
+        }, some f1),
+    ),
     (
         __StaticLinkageKey::Routine {
-            routine: "test_proc_branch_in_loop1::f2"
+            routine: "test_proc_branch_in_loop1::f2",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -33,10 +32,11 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 .__take_copyable_dyn())
             }
             __wrapper
-        }, some f2),    ),
+        }, some f2),
+    ),
     (
         __StaticLinkageKey::Routine {
-            routine: "test_proc_branch_in_loop1::f3"
+            routine: "test_proc_branch_in_loop1::f3",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -48,5 +48,6 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 .__take_copyable_dyn())
             }
             __wrapper
-        }, some f3),    ),
+        }, some f3),
+    ),
 ];

@@ -3,12 +3,22 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, __Serialize)]
 pub(crate) struct ConvexCompoent<'eval> {
     pub(crate) line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>,
-    pub(crate) line_segments: __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegment<'eval>>,
+    pub(crate) line_segments:
+        __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegment<'eval>>,
 }
 
 impl<'eval> ConvexCompoent<'eval> {
-    pub(crate) fn __call__(line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>, line_segments: __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegment<'eval>>) -> Self {
-        Self { line_segment_sketch, line_segments }
+    pub(crate) fn __call__(
+        line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>,
+        line_segments: __std::slice::CyclicSlice<
+            'eval,
+            crate::line_segment_sketch::LineSegment<'eval>,
+        >,
+    ) -> Self {
+        Self {
+            line_segment_sketch,
+            line_segments,
+        }
     }
 }
 
@@ -31,12 +41,15 @@ impl<'eval> __AnyValue<'eval> for ConvexCompoent<'eval> {
 
     fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
-        'eval: 'short {
+        'eval: 'short,
+    {
         self
     }
 
     fn __static_ty() -> __EntityRoutePtr {
-        __ty_route_from_static_binded::<Self>("mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent")
+        __ty_route_from_static_binded::<Self>(
+            "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent",
+        )
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {

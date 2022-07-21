@@ -2,15 +2,15 @@
 pub mod __init__;
 use __husky_root::*;
 
-
 // ad hoc
-fn __input<'a, 'eval:'a>(__ctx: &'a __EvalContext<'eval>) -> &'a domains::ml::datasets::cv::mnist::BinaryImage28 {
+fn __input<'a, 'eval: 'a>(
+    __ctx: &'a __EvalContext<'eval>,
+) -> &'a domains::ml::datasets::cv::mnist::BinaryImage28 {
     unsafe { __evaluator(__ctx) }
         .eval_input
         .any_ref()
         .__downcast_ref()
 }
-
 
 pub(crate) fn f1() -> i32 {
     let mut a = 0;
@@ -20,7 +20,7 @@ pub(crate) fn f1() -> i32 {
             break;
         }
     }
-    return a
+    return a;
 }
 
 pub(crate) fn f2() -> i32 {
@@ -32,7 +32,7 @@ pub(crate) fn f2() -> i32 {
         }
         a += 1;
     }
-    return a
+    return a;
 }
 
 pub(crate) fn f3() -> i32 {
@@ -47,5 +47,5 @@ pub(crate) fn f3() -> i32 {
         }
         a += 1;
     }
-    return a
+    return a;
 }

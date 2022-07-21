@@ -1,12 +1,11 @@
-use husky_debugger::*;
 use __husky_root::__main_utils::*;
-use mnist_classifier::__init__::LINKAGES;
 use husky_compile_time::*;
+use husky_debugger::*;
+use mnist_classifier::__init__::LINKAGES;
 
 #[tokio::main]
 async fn main() {
-    let code_snapshot_dir =
-        "crates/mnist-classifier/snapshot/mnist-classifier".into();
+    let code_snapshot_dir = "crates/mnist-classifier/snapshot/mnist-classifier".into();
     HuskyDebugger::new(
         HuskyDebuggerConfig {
             package_dir: code_snapshot_dir,

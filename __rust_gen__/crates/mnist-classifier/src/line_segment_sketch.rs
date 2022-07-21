@@ -11,19 +11,23 @@ pub(crate) struct LineSegment<'eval> {
 }
 
 impl<'eval> LineSegment<'eval> {
-    pub(crate) fn __call__(points: __std::slice::CyclicSlice<'eval, crate::geom2d::Point2d>) -> Self {
+    pub(crate) fn __call__(
+        points: __std::slice::CyclicSlice<'eval, crate::geom2d::Point2d>,
+    ) -> Self {
         let start = points.firstx().clone();
         let end = points.lastx().clone();
         Self { points, start, end }
     }
-    pub(crate) fn new(ct: &'eval crate::raw_contour::RawContour<'eval>, from: i32, to: i32) -> LineSegment<'eval> {
+    pub(crate) fn new(
+        ct: &'eval crate::raw_contour::RawContour<'eval>,
+        from: i32,
+        to: i32,
+    ) -> LineSegment<'eval> {
         assert!(from <= to);
         return LineSegment::__call__(ct.points.cyclic_slice(from, to + 1));
-
     }
     pub(crate) fn displacement(&self) -> crate::geom2d::Vector2d {
         return self.start.to(&self.end);
-
     }
 }
 
@@ -46,7 +50,8 @@ impl<'eval> __AnyValue<'eval> for LineSegment<'eval> {
 
     fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
-        'eval: 'short {
+        'eval: 'short,
+    {
         self
     }
 
@@ -72,25 +77,39 @@ pub(crate) struct LineSegmentSketch<'eval> {
 }
 
 impl<'eval> LineSegmentSketch<'eval> {
-    pub(crate) fn __call__(contour: &'eval crate::raw_contour::RawContour<'eval>, line_segments: Vec<LineSegment<'eval>>) -> Self {
-        Self { contour, line_segments }
+    pub(crate) fn __call__(
+        contour: &'eval crate::raw_contour::RawContour<'eval>,
+        line_segments: Vec<LineSegment<'eval>>,
+    ) -> Self {
+        Self {
+            contour,
+            line_segments,
+        }
     }
-pub(crate) fn concave_components(&'eval self, __ctx: &__EvalContext<'eval>) -> &'eval Vec<concave_component::ConcaveComponent<'eval>> {
-    let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::LineSegmentSketch::concave_components");
-    if let Some(__result) = __opt_cached_lazy_field(__ctx, self, __uid) {
-        return __result.unwrap();
-    }
+    pub(crate) fn concave_components(
+        &'eval self,
+        __ctx: &__EvalContext<'eval>,
+    ) -> &'eval Vec<concave_component::ConcaveComponent<'eval>> {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::line_segment_sketch::LineSegmentSketch::concave_components"
+        );
+        if let Some(__result) = __opt_cached_lazy_field(__ctx, self, __uid) {
+            return __result.unwrap();
+        }
         return __cache_lazy_field(
-        __ctx,
-        self,
-        __uid,
-        Ok((concave_component::find_concave_components(self)).__into_eval_value())
-    ).unwrap();
-
+            __ctx,
+            self,
+            __uid,
+            Ok((concave_component::find_concave_components(self)).__into_eval_value()),
+        )
+        .unwrap();
     }
-    pub(crate) fn new(ct: &'eval crate::raw_contour::RawContour<'eval>, r: f32) -> LineSegmentSketch<'eval> {
+    pub(crate) fn new(
+        ct: &'eval crate::raw_contour::RawContour<'eval>,
+        r: f32,
+    ) -> LineSegmentSketch<'eval> {
         return LineSegmentSketch::__call__(ct, find_line_segments(ct, r));
-
     }
 }
 
@@ -113,12 +132,15 @@ impl<'eval> __AnyValue<'eval> for LineSegmentSketch<'eval> {
 
     fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
-        'eval: 'short {
+        'eval: 'short,
+    {
         self
     }
 
     fn __static_ty() -> __EntityRoutePtr {
-        __ty_route_from_static_binded::<Self>("mnist_classifier::line_segment_sketch::LineSegmentSketch")
+        __ty_route_from_static_binded::<Self>(
+            "mnist_classifier::line_segment_sketch::LineSegmentSketch",
+        )
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
@@ -139,7 +161,6 @@ pub(crate) fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Ve
     let dx = dr * u.y / L;
     let dy = -dr * u.x / L;
     return crate::geom2d::Vector2d::__call__(u.x + dx, u.y + dy);
-
 }
 pub(crate) fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
     let L = (u.x * u.x + u.y * u.y).sqrt();
@@ -148,10 +169,13 @@ pub(crate) fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vec
     let dx = -dr * u.y / L;
     let dy = dr * u.x / L;
     return crate::geom2d::Vector2d::__call__(u.x + dx, u.y + dy);
-
 }
 
-pub(crate) fn extend_end<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>, start: i32, r: f32) -> i32 {
+pub(crate) fn extend_end<'eval>(
+    ct: &'eval crate::raw_contour::RawContour<'eval>,
+    start: i32,
+    r: f32,
+) -> i32 {
     let mut end = start;
     let mut dp = ct.displacement(start, end + 1);
     let N = ct.points.ilen();
@@ -161,12 +185,15 @@ pub(crate) fn extend_end<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>
         dp = ct.displacement(start, end + 1);
     }
     if dp.norm() < r {
-        return end
+        return end;
     }
     let mut right_bound = go_right(&dp, r);
     let mut left_bound = go_left(&dp, r);
     let mut r_max = 0f32;
-    while end <= max_end && right_bound.rotation_direction_to(&dp) >= 0 && dp.rotation_direction_to(&left_bound) >= 0 {
+    while end <= max_end
+        && right_bound.rotation_direction_to(&dp) >= 0
+        && dp.rotation_direction_to(&left_bound) >= 0
+    {
         let dp_norm = dp.norm();
         if dp_norm < r_max - r {
             break;
@@ -187,10 +214,15 @@ pub(crate) fn extend_end<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>
         dp = ct.displacement(start, end + 1);
     }
     assert!(end > start);
-    return end
+    return end;
 }
 
-pub(crate) fn extend_start<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>, start0: i32, end: i32, r: f32) -> i32 {
+pub(crate) fn extend_start<'eval>(
+    ct: &'eval crate::raw_contour::RawContour<'eval>,
+    start0: i32,
+    end: i32,
+    r: f32,
+) -> i32 {
     let mut start = end;
     let mut dp0 = ct.displacement(end, start - 1);
     let min_start = end - ct.points.ilen();
@@ -199,7 +231,7 @@ pub(crate) fn extend_start<'eval>(ct: &'eval crate::raw_contour::RawContour<'eva
         dp0 = ct.displacement(end, start - 1);
     }
     if dp0.norm() < r {
-        return start.min(start0)
+        return start.min(start0);
     }
     let mut right_bound = go_right(&dp0, r);
     let mut left_bound = go_left(&dp0, r);
@@ -223,7 +255,10 @@ pub(crate) fn extend_start<'eval>(ct: &'eval crate::raw_contour::RawContour<'eva
             }
         }
         if right_bound.rotation_direction_to(&left_bound) >= 0 {
-            if start <= start0 && !(right_bound.rotation_direction_to(&dp) >= 0 && dp.rotation_direction_to(&left_bound) >= 0) {
+            if start <= start0
+                && !(right_bound.rotation_direction_to(&dp) >= 0
+                    && dp.rotation_direction_to(&left_bound) >= 0)
+            {
                 break;
             }
             start -= 1;
@@ -232,13 +267,16 @@ pub(crate) fn extend_start<'eval>(ct: &'eval crate::raw_contour::RawContour<'eva
         }
     }
     if start <= start0 {
-        return start
+        return start;
     } else {
-        return start0
+        return start0;
     }
 }
 
-pub(crate) fn find_line_segments<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>, r: f32) -> Vec<LineSegment<'eval>> {
+pub(crate) fn find_line_segments<'eval>(
+    ct: &'eval crate::raw_contour::RawContour<'eval>,
+    r: f32,
+) -> Vec<LineSegment<'eval>> {
     let mut line_segments = Vec::<LineSegment>::__call__(vec![]);
     let mut start = 0;
     let mut end = 1;
@@ -250,9 +288,12 @@ pub(crate) fn find_line_segments<'eval>(ct: &'eval crate::raw_contour::RawContou
         if line_segments.ilen() > 0 {
             let dp_extend_end = ls_extend_end.displacement();
             let dp_previous = line_segments.lastx().displacement();
-            if dp_extend_end.cross(&dp_previous).abs() < 0.01f32 && dp_extend_end.dot(&dp_previous) > 0f32 {
+            if dp_extend_end.cross(&dp_previous).abs() < 0.01f32
+                && dp_extend_end.dot(&dp_previous) > 0f32
+            {
                 let N = ct.points.ilen();
-                *line_segments.lastx_mut() = LineSegment::new(ct, line_segments.lastx().points.start, end);
+                *line_segments.lastx_mut() =
+                    LineSegment::new(ct, line_segments.lastx().points.start, end);
                 extend_start_flag = false;
             }
         }
@@ -264,7 +305,11 @@ pub(crate) fn find_line_segments<'eval>(ct: &'eval crate::raw_contour::RawContou
                 let dp_last = ls_last.displacement();
                 let dp = ls.displacement();
                 let dp1 = ls_last.start.to(&ls.end);
-                if dp.cross(&dp_last).abs() < 0.001f32 && dp.dot(&dp_last) > 0f32 && dp.cross(&dp1).abs() < 0.001f32 && dp.dot(&dp1) > 0f32 {
+                if dp.cross(&dp_last).abs() < 0.001f32
+                    && dp.dot(&dp_last) > 0f32
+                    && dp.cross(&dp1).abs() < 0.001f32
+                    && dp.dot(&dp1) > 0f32
+                {
                     let ls_last = line_segments.popx();
                     ls = LineSegment::new(ct, ls_last.points.start, ls.points.end);
                 }
@@ -281,7 +326,11 @@ pub(crate) fn find_line_segments<'eval>(ct: &'eval crate::raw_contour::RawContou
     let last_line_segment = &line_segments.lastx();
     if last_line_segment.points.end >= first_line_segment_points_end + N {
         let last_line_segment = line_segments.popx();
-        *line_segments.firstx_mut() = LineSegment::new(ct, last_line_segment.points.start - N, line_segments.firstx().points.end - 1);
+        *line_segments.firstx_mut() = LineSegment::new(
+            ct,
+            last_line_segment.points.start - N,
+            line_segments.firstx().points.end - 1,
+        );
     }
-    return line_segments
+    return line_segments;
 }
