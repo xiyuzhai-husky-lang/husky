@@ -279,7 +279,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 let ty_defn = self.db.compile_time().entity_defn(ranged_ty.route).unwrap();
                 let instruction_variant = match ty_defn.variant {
                     EntityDefnVariant::Ty {
-                        kind,
+                        ty_kind: kind,
                         ref ty_members,
                         ..
                     } => {

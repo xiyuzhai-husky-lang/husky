@@ -28,7 +28,7 @@ impl<'a> RustCodeGenerator<'a> {
                 EntityDefnVariant::Ty {
                     ref ty_members,
                     ref variants,
-                    kind,
+                    ty_kind: kind,
                     ref trait_impls,
                     ref members,
                     ..

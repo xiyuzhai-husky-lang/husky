@@ -105,15 +105,16 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 spatial_parameters: ref generic_parameters,
                 ref ty_members,
                 ref variants,
-                kind,
+                ty_kind,
                 ref trait_impls,
                 ref members,
                 ref opt_type_call,
                 ref opt_visual_stmts,
                 ..
-            } => {
-                self.gen_ty_linkage_entries(opt_type_call, entity_route, members);
-            }
+            } => match ty_kind {
+                TyKind::Record => (),
+                _ => self.gen_ty_linkage_entries(opt_type_call, entity_route, members),
+            },
             EntityDefnVariant::Trait {
                 spatial_parameters: ref generic_parameters,
                 ref members,
