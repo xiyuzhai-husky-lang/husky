@@ -78,6 +78,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 self.gen_specific_routine_linkage(
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
+                    |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
                     &call_form_decl,
                 );
                 self.write("\n    ),");
@@ -94,6 +95,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
                     None,
+                    |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
                     &call_form_decl,
                 );
@@ -148,6 +150,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             msg_once!("keyword parameters");
             self.gen_specific_routine_linkage(
                 None,
+                |this| {
+                    this.gen_entity_route(entity_route, EntityRouteRole::Caller);
+                    this.write("::__call__")
+                },
                 |this| {
                     this.gen_entity_route(entity_route, EntityRouteRole::Caller);
                     this.write("::__call__")
@@ -296,6 +302,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                         |this| {
                             this.write(&format!("__this.{}", entity_route.ident().as_str()));
                         },
+                        |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
                         &call_form_decl,
                     ),
                 }
@@ -326,6 +333,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         &mut self,
         opt_this: Option<(ParameterLiason, EntityRoutePtr)>,
         gen_caller: impl FnOnce(&mut Self),
+        gen_call_route: impl FnOnce(&mut Self),
         decl: &CallFormDecl,
     ) {
         let base = opt_this.map(|_| 1).unwrap_or(0);
@@ -441,9 +449,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             r#"
             }}
             __wrapper
-        }}),
-"#
+        }}, some "#
         ));
+        gen_call_route(self);
+        self.write(
+            r#"),
+"#,
+        );
     }
 
     fn gen_eager_block_linkage_entries(&mut self, route: EntityRoutePtr) {

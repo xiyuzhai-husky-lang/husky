@@ -66,7 +66,7 @@ macro_rules! lazy_field_linkage {
             let this_value: &'eval $Type = values[0].downcast_eval_ref();
             __TempValue::EvalRef(__EvalRef(this_value.$field(__opt_ctx.unwrap())))
         }
-        specific_transfer_linkage!(__wrapper)
+        specific_transfer_linkage!(__wrapper, none)
     }};
 }
 

@@ -20,7 +20,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some connected_component::ConnectedComponent::__call__),
 
     ),
     (
@@ -53,7 +53,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some raw_contour::RawContour::__call__),
 
     ),
     (
@@ -92,7 +92,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<raw_contour::RawContour>::__call__),
 
     ),
     (
@@ -110,7 +110,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<raw_contour::RawContour>::ilen),
 
     ),
     (
@@ -129,7 +129,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<raw_contour::RawContour>::push),
 
     ),
     (
@@ -147,7 +147,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<raw_contour::RawContour>::popx),
 
     ),
     (
@@ -179,7 +179,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<raw_contour::RawContour>::cyclic_slice),
 
     ),
     (
@@ -211,7 +211,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<connected_component::ConnectedComponent>::__call__),
 
     ),
     (
@@ -229,7 +229,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<connected_component::ConnectedComponent>::ilen),
 
     ),
     (
@@ -248,7 +248,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<connected_component::ConnectedComponent>::push),
 
     ),
     (
@@ -266,7 +266,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<connected_component::ConnectedComponent>::popx),
 
     ),
     (
@@ -298,7 +298,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<connected_component::ConnectedComponent>::cyclic_slice),
 
     ),
     (
@@ -323,7 +323,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some connected_component::find_connected_components),
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
@@ -347,7 +347,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some connected_component::horizontal_extend),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -365,7 +365,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<connected_component::ConnectedComponent>::push),
 
     ),
     (
@@ -385,7 +385,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some geom2d::Point2d::__call__),
 
     ),
     (
@@ -418,7 +418,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<geom2d::Point2d>::__call__),
 
     ),
     (
@@ -436,7 +436,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<geom2d::Point2d>::ilen),
 
     ),
     (
@@ -455,7 +455,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<geom2d::Point2d>::push),
 
     ),
     (
@@ -473,7 +473,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<geom2d::Point2d>::popx),
 
     ),
     (
@@ -505,7 +505,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<geom2d::Point2d>::cyclic_slice),
 
     ),
     (
@@ -532,7 +532,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::LineSegmentSketch::__call__),
 
     ),
     (
@@ -572,7 +572,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some raw_contour::get_pixel_pair),
 
     ),
     (
@@ -592,7 +592,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some raw_contour::get_pixel_to_the_left),
 
     ),
     (
@@ -612,7 +612,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some raw_contour::get_pixel_to_the_right),
 
     ),
     (
@@ -633,7 +633,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some raw_contour::get_inward_direction),
 
     ),
     (
@@ -653,7 +653,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some raw_contour::get_angle_change),
 
     ),
     (
@@ -675,7 +675,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some raw_contour::get_outward_direction),
 
     ),
     (
@@ -695,7 +695,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some raw_contour::StreakCache::__call__),
 
     ),
     (
@@ -728,7 +728,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some raw_contour::get_concave_middle_point),
 
     ),
     (
@@ -746,7 +746,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<geom2d::Point2d>::ilen),
 
     ),
     (
@@ -764,7 +764,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some raw_contour::find_raw_contours),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -789,7 +789,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some geom2d::Point2d::from_i_shift28),
 
     ),
     (
@@ -808,7 +808,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<geom2d::Point2d>::push),
 
     ),
     (
@@ -826,7 +826,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<geom2d::Point2d>::popx),
 
     ),
     (
@@ -845,7 +845,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<raw_contour::RawContour>::push),
 
     ),
     (
@@ -865,7 +865,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some geom2d::Vector2d::__call__),
 
     ),
     (
@@ -899,7 +899,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::concave_component::ConcaveComponent::__call__),
 
     ),
     (
@@ -932,7 +932,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::LineSegment::__call__),
 
     ),
     (
@@ -997,7 +997,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::concave_component::find_concave_components),
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -1015,7 +1015,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::concave_component::ConcaveComponent>::__call__),
 
     ),
     (
@@ -1033,7 +1033,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::concave_component::ConcaveComponent>::ilen),
 
     ),
     (
@@ -1052,7 +1052,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::concave_component::ConcaveComponent>::push),
 
     ),
     (
@@ -1070,7 +1070,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::concave_component::ConcaveComponent>::popx),
 
     ),
     (
@@ -1102,7 +1102,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::concave_component::ConcaveComponent>::cyclic_slice),
 
     ),
     (
@@ -1127,7 +1127,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::LineSegment>::ilen),
 
     ),
     (
@@ -1146,7 +1146,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::convexity::is_convex),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1165,7 +1165,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::LineSegment>::cyclic_slice),
 
     ),
     (
@@ -1184,7 +1184,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::concave_component::ConcaveComponent>::push),
 
     ),
     (
@@ -1204,7 +1204,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::convex_component::ConvexCompoent::__call__),
 
     ),
     (
@@ -1236,7 +1236,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::LineSegment::displacement),
 
     ),
     (
@@ -1255,7 +1255,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some geom2d::Vector2d::rotation_direction_to),
 
     ),
     (
@@ -1275,7 +1275,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some raw_contour::RawContour::displacement),
 
     ),
     (
@@ -1294,7 +1294,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some geom2d::Vector2d::cross),
 
     ),
     (
@@ -1341,7 +1341,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::LineSegment::new),
 
     ),
     (
@@ -1360,7 +1360,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::LineSegment>::__call__),
 
     ),
     (
@@ -1378,7 +1378,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::LineSegment>::ilen),
 
     ),
     (
@@ -1397,7 +1397,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::LineSegment>::push),
 
     ),
     (
@@ -1415,7 +1415,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::LineSegment>::popx),
 
     ),
     (
@@ -1447,7 +1447,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::LineSegment>::cyclic_slice),
 
     ),
     (
@@ -1474,7 +1474,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::LineSegmentSketch::new),
 
     ),
     (
@@ -1494,7 +1494,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::go_right),
 
     ),
     (
@@ -1514,7 +1514,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::go_left),
 
     ),
     (
@@ -1534,7 +1534,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::extend_end),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1551,7 +1551,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some geom2d::Vector2d::norm),
 
     ),
     (
@@ -1572,7 +1572,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::extend_start),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1590,7 +1590,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some line_segment_sketch::find_line_segments),
     ),
     (
         __StaticLinkageKey::Routine {
@@ -1614,7 +1614,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some geom2d::Vector2d::dot),
 
     ),
     (
@@ -1633,7 +1633,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some geom2d::Point2d::to),
 
     ),
     (
@@ -1651,7 +1651,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::LineSegment>::popx),
 
     ),
     (
@@ -1670,7 +1670,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     .__take_copyable_dyn())
             }
             __wrapper
-        }),
+        }, some Vec::<line_segment_sketch::LineSegment>::push),
 
     ),
     (
@@ -1696,7 +1696,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                     ))
             }
             __wrapper
-        }),
+        }, some Vec::<geom2d::Point2d>::cyclic_slice),
 
     ),
 ];

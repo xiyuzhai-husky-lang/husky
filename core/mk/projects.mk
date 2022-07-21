@@ -13,7 +13,7 @@ mnist-release:
 mnist-compiled:
 	cargo check
 	cargo run -q --bin husky-compiler $(projects_dir)/cv/mnist-classifier
-	cd ${HUSKY_DIR}/.compiled && cargo run -q mnist-classifier-debugger --warn-missing-linkage
+	cd ${HUSKY_DIR}/.compiled && cargo run -q --bin mnist-classifier-debugger -- --warn-missing-linkage
 
 mnist-compiled-release:
 	cargo check
