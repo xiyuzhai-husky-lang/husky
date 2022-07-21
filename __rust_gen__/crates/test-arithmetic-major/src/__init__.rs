@@ -18,11 +18,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 let y: i32 = __arguments[1].downcast_copy();
                 __TempValue::Copyable(
                     add(x, y)
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
         }, some add),
-
     ),
     (
         __StaticLinkageKey::Routine {
@@ -35,11 +34,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::Copyable(
                     bitor_assign()
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
-        }, some bitor_assign),
-    ),
+        }, some bitor_assign),    ),
     (
         __StaticLinkageKey::Routine {
             routine: "test_arithmetic_major::bitand_assign"
@@ -51,9 +49,8 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::Copyable(
                     bitand_assign()
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
-        }, some bitand_assign),
-    ),
+        }, some bitand_assign),    ),
 ];

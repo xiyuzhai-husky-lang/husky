@@ -2,6 +2,7 @@ mod impl_condition_flow;
 mod impl_loop;
 mod impl_match_pattern;
 
+use fold::Indent;
 use husky_ast::ReturnKind;
 use husky_eager_semantics::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
@@ -37,12 +38,12 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(&varname.ident);
                 self.write(" = ");
                 self.gen_binding(initial_value);
-                self.gen_expr(initial_value);
+                self.gen_expr(stmt.indent, initial_value);
                 self.write(";");
             }
             FuncStmtVariant::Assert { ref condition } => {
                 self.write("assert!(");
-                self.gen_expr(condition);
+                self.gen_expr(stmt.indent, condition);
                 self.write(");");
             }
             FuncStmtVariant::Return {
@@ -53,10 +54,10 @@ impl<'a> RustCodeGenerator<'a> {
                 match return_kind {
                     ReturnKind::Normal => {
                         self.gen_binding(result);
-                        self.gen_expr(result)
+                        self.gen_expr(stmt.indent, result)
                     }
-                    ReturnKind::Feature => self.gen_feature_return(result),
-                    ReturnKind::LazyField => self.gen_lazy_field_return(result),
+                    ReturnKind::Feature => self.gen_feature_return(stmt.indent, result),
+                    ReturnKind::LazyField => self.gen_lazy_field_return(stmt.indent, result),
                 }
                 self.write(";\n");
             }
@@ -87,16 +88,16 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(&varname.ident);
                 self.write(" = ");
                 self.gen_binding(initial_value);
-                self.gen_expr(initial_value);
+                self.gen_expr(stmt.indent, initial_value);
                 self.write(";");
             }
             ProcStmtVariant::Assert { ref condition } => {
                 self.write("assert!(");
-                self.gen_expr(condition);
+                self.gen_expr(stmt.indent, condition);
                 self.write(");");
             }
             ProcStmtVariant::Execute { ref expr } => {
-                self.gen_expr(expr);
+                self.gen_expr(stmt.indent, expr);
                 self.write(";");
             }
             ProcStmtVariant::Return {
@@ -106,7 +107,7 @@ impl<'a> RustCodeGenerator<'a> {
                 ReturnKind::Normal => {
                     self.write("return ");
                     self.gen_binding(result);
-                    self.gen_expr(result);
+                    self.gen_expr(stmt.indent, result);
                 }
                 ReturnKind::Feature => todo!(),
                 ReturnKind::LazyField => todo!(),
@@ -129,18 +130,18 @@ impl<'a> RustCodeGenerator<'a> {
         self.newline();
     }
 
-    fn gen_range_start(&mut self, boundary: &Boundary) {
+    fn gen_range_start(&mut self, indent: Indent, boundary: &Boundary) {
         if let Some(bound) = &boundary.opt_bound {
             match boundary.kind {
                 BoundaryKind::UpperOpen => todo!(),
                 BoundaryKind::UpperClosed => todo!(),
                 BoundaryKind::LowerOpen => {
                     self.write("(");
-                    self.gen_expr(bound);
+                    self.gen_expr(indent, bound);
                     self.write(" + 1");
                     self.write(")");
                 }
-                BoundaryKind::LowerClosed => self.gen_expr(bound),
+                BoundaryKind::LowerClosed => self.gen_expr(indent, bound),
             }
         } else {
             match boundary.kind {
@@ -152,13 +153,13 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_range_end(&mut self, boundary: &Boundary) {
+    fn gen_range_end(&mut self, indent: Indent, boundary: &Boundary) {
         if let Some(bound) = &boundary.opt_bound {
             match boundary.kind {
-                BoundaryKind::UpperOpen => self.gen_expr(bound),
+                BoundaryKind::UpperOpen => self.gen_expr(indent, bound),
                 BoundaryKind::UpperClosed => {
                     self.write("(");
-                    self.gen_expr(bound);
+                    self.gen_expr(indent, bound);
                     self.write(" + 1)");
                 }
                 BoundaryKind::LowerOpen => todo!(),
@@ -174,7 +175,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_condition(&mut self, condition: &EagerExpr) {
+    fn gen_condition(&mut self, indent: Indent, condition: &EagerExpr) {
         match condition.ty() {
             EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
                 RootIdentifier::Void => todo!(),
@@ -182,10 +183,10 @@ impl<'a> RustCodeGenerator<'a> {
                 | RootIdentifier::F32
                 | RootIdentifier::B32
                 | RootIdentifier::B64 => {
-                    self.gen_expr(condition);
+                    self.gen_expr(indent, condition);
                     self.write(" != 0");
                 }
-                RootIdentifier::Bool => self.gen_expr(condition),
+                RootIdentifier::Bool => self.gen_expr(indent, condition),
                 RootIdentifier::True
                 | RootIdentifier::False
                 | RootIdentifier::Vec

@@ -17,11 +17,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 let x: i32 = __arguments[0].downcast_copy();
                 __TempValue::OwnedEval(__OwnedValue::new(
                     A::__call__(x)
-                    ))
+                ))
             }
             __wrapper
         }, some A::__call__),
-
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -44,11 +43,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 let a: A = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
                 __TempValue::OwnedEval(__OwnedValue::new(
                     B::__call__(x, a)
-                    ))
+                ))
             }
             __wrapper
         }, some B::__call__),
-
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -84,10 +82,9 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 let x: &'eval i32 = __arguments[0].downcast_eval_ref();
                 __TempValue::Copyable(
                     take_copyable_eval_ref(x)
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
         }, some take_copyable_eval_ref),
-
     ),
 ];

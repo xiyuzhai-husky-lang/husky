@@ -148,7 +148,6 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 entity_route
             ));
             let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
-            msg_once!("keyword parameters");
             self.gen_specific_routine_linkage(
                 None,
                 |this| {
@@ -337,7 +336,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         gen_call_route: impl FnOnce(&mut Self),
         decl: &CallFormDecl,
     ) {
-        let base = opt_this.map(|_| 1).unwrap_or(0);
+        let argidx_base = opt_this.map(|_| 1).unwrap_or(0);
         self.write(&format!(
             r#"
         specific_transfer_linkage!({{
@@ -392,9 +391,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             }
         }
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
-            self.gen_parameter_downcast(i + base, parameter)
+            self.gen_parameter_downcast(i + argidx_base, parameter)
         }
-        msg_once!("keyword parameters");
+        msg_once!("keyword parameter overrides");
+        for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
+            let parameter_name = parameter.ident;
+            let parameter_ty = parameter.ty;
+            self.write(&format!(
+                r#"
+                let {parameter_name}: "#
+            ));
+            self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
+            self.write(&format!(" = todo!();"))
+        }
         match decl.variadic_template {
             VariadicTemplate::None => (),
             VariadicTemplate::SingleTyped { ty } => {
@@ -426,6 +435,15 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             }
             self.write(&parameter.ident)
         }
+        for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
+            if i + decl.primary_parameters.len() > 0 {
+                self.write(", ");
+                if i == 0 {
+                    self.write("/* keyword arguments */ ");
+                }
+            }
+            self.write(&parameter.ident)
+        }
         match decl.variadic_template {
             VariadicTemplate::None => (),
             VariadicTemplate::SingleTyped { .. } => {
@@ -438,12 +456,12 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         if self.db.is_copyable(decl.output.ty).unwrap() {
             self.write(
                 r#")
-                    .__take_copyable_dyn())"#,
+                .__take_copyable_dyn())"#,
             );
         } else {
             self.write(
                 r#")
-                    ))"#,
+                ))"#,
             );
         }
         self.write(&format!(
@@ -453,10 +471,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         }}, some "#
         ));
         gen_call_route(self);
-        self.write(
-            r#"),
-"#,
-        );
+        self.write(r#"),"#);
     }
 
     fn gen_eager_block_linkage_entries(&mut self, route: EntityRoutePtr) {

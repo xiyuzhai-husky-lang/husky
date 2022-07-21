@@ -15,11 +15,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::Copyable(
                     f1()
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
-        }, some f1),
-    ),
+        }, some f1),    ),
     (
         __StaticLinkageKey::Routine {
             routine: "test_proc_branch_in_loop1::f2"
@@ -31,11 +30,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::Copyable(
                     f2()
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
-        }, some f2),
-    ),
+        }, some f2),    ),
     (
         __StaticLinkageKey::Routine {
             routine: "test_proc_branch_in_loop1::f3"
@@ -47,9 +45,8 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::Copyable(
                     f3()
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
-        }, some f3),
-    ),
+        }, some f3),    ),
 ];

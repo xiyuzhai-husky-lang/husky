@@ -16,9 +16,8 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 let binary_image: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref();
                 __TempValue::Copyable(
                     find_connected_components(binary_image)
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
-        }, some find_connected_components),
-    ),
+        }, some find_connected_components),    ),
 ];

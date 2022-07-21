@@ -13,7 +13,7 @@ impl<'a> RustCodeGenerator<'a> {
         ref branches: &[Arc<FuncPatternBranch>],
     ) {
         self.write("match ");
-        self.gen_expr(match_expr);
+        self.gen_expr(indent, match_expr);
         self.write(" {");
         self.newline();
         let mut has_default = false;
@@ -49,7 +49,7 @@ impl<'a> RustCodeGenerator<'a> {
         ref branches: &[Arc<ProcPatternBranch>],
     ) {
         self.write("match ");
-        self.gen_expr(match_expr);
+        self.gen_expr(indent, match_expr);
         self.write(" {");
         self.newline();
         let mut has_default = false;

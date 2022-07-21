@@ -15,13 +15,13 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 __arguments: &mut [__TempValue<'temp, 'eval>],
             ) -> __TempValue<'temp, 'eval> {
                 let x: i32 = __arguments[0].downcast_copy();
+                let y: i32 = todo!();
                 __TempValue::OwnedEval(__OwnedValue::new(
-                    A::__call__(x)
-                    ))
+                    A::__call__(x, /* keyword arguments */ y)
+                ))
             }
             __wrapper
         }, some A::__call__),
-
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -61,11 +61,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::OwnedEval(__OwnedValue::new(
                     f1()
-                    ))
+                ))
             }
             __wrapper
-        }, some f1),
-    ),
+        }, some f1),    ),
     (
         __StaticLinkageKey::Routine {
             routine: "test_struct_example2::f3"
@@ -77,11 +76,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::Copyable(
                     f3()
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
-        }, some f3),
-    ),
+        }, some f3),    ),
     (
         __StaticLinkageKey::Routine {
             routine: "test_struct_example2::A::get_x"
@@ -94,11 +92,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 let __this: &A = __arguments[0].downcast_temp_ref();
                 __TempValue::Copyable(
                     __this.get_x()
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
         }, some A::get_x),
-
     ),
     (
         __StaticLinkageKey::Routine {
@@ -112,10 +109,9 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             ) -> __TempValue<'temp, 'eval> {
                 __TempValue::Copyable(
                     g1()
-                    .__take_copyable_dyn())
+                .__take_copyable_dyn())
             }
             __wrapper
         }, some g1),
-
     ),
 ];
