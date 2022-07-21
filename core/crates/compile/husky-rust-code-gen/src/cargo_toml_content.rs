@@ -1,17 +1,20 @@
+use std::path::Path;
+
 use word::snake_to_dash;
 
 use crate::*;
 
-pub(crate) fn cargo_toml_content(
+pub fn cargo_toml_content(
     db: &dyn RustCodeGenQueryGroup,
     main_file: FilePtr,
-) -> Arc<String> {
+    rel_husky_dir: &Path,
+) -> String {
     let package = db.package(main_file).unwrap();
     let package_ident = package.ident;
     let dashed_package_ident = snake_to_dash(&package_ident);
     msg_once!("ad hoc");
-    let husky_dir_rel = "../../..";
-    Arc::new(format!(
+    let rel_husky_dir = rel_husky_dir.display();
+    format!(
         r#"[package]
 name = "{dashed_package_ident}"
 version = "0.0.0"
@@ -22,16 +25,16 @@ rust-version = "1.56"
 
 [dependencies]
 tokio = {{ version = "1.19.2", features = ["full"] }}
-husky-debugger = {{ path = "{husky_dir_rel}/core/crates/apps/husky-debugger" }}
-husky-compile-time = {{ path = "{husky_dir_rel}/core/crates/compile/husky-compile-time" }}
+husky-debugger = {{ path = "{rel_husky_dir}/core/crates/apps/husky-debugger" }}
+husky-compile-time = {{ path = "{rel_husky_dir}/core/crates/compile/husky-compile-time" }}
 serde = {{ version = "1.0.106", features = ["derive"] }}
 serde_json = {{ version = "1.0.48", features = ["preserve_order"] }}
-__husky_root = {{ path = "{husky_dir_rel}/core/crates/static/__husky_root" }}
+__husky_root = {{ path = "{rel_husky_dir}/core/crates/static/__husky_root" }}
 
 
 [[bin]]
 name = "{dashed_package_ident}-debugger"
 path = "src/bin/main.rs"
 "#
-    ))
+    )
 }

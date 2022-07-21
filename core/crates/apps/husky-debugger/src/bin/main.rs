@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 use husky_debugger::*;
 
 #[tokio::main]
@@ -7,6 +9,7 @@ async fn main() {
         todo!()
     } else {
         let mode: Mode = flags.mode.into();
-        mode.run(flags.package_dir.unwrap().into()).await
+        let package_dir: PathBuf = flags.package_dir.unwrap().into();
+        mode.run(&package_dir).await
     }
 }

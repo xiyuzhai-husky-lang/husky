@@ -26,7 +26,7 @@ pub fn print_all() {
     let mode = AnalyzerPrinterMode::from_flags(&flags);
     let dir = flags.dir;
     print_all_packages_in_dir(
-        dir,
+        &dir,
         match mode {
             AnalyzerPrinterMode::PrintDiagnostics => print_diagnostics,
             AnalyzerPrinterMode::PrintFoldingRanges => print_folding_ranges,
@@ -36,9 +36,9 @@ pub fn print_all() {
     )
 }
 
-pub fn print_all_packages_in_dir(dir: PathBuf, f: impl Fn(&Path)) {
+pub fn print_all_packages_in_dir(dir: &Path, f: impl Fn(&Path)) {
     if !dir.is_dir() {
-        panic!("{:?} is not a directory", &dir)
+        panic!("{:?} is not a directory", dir)
     }
     let package_paths = collect_all_package_dirs(dir);
     println!(

@@ -12,9 +12,9 @@ pub enum TestResult {
     Failed,
 }
 
-pub fn test_all_packages_in_dir(dir: PathBuf, f: impl Fn(&Path) -> TestResult) {
+pub fn test_all_packages_in_dir(dir: &Path, f: impl Fn(&Path) -> TestResult) {
     if !dir.is_dir() {
-        panic!("{:?} is not a directory", &dir)
+        panic!("{:?} is not a directory", dir)
     }
     let package_paths = collect_all_package_dirs(dir);
     println!(

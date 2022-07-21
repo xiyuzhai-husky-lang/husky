@@ -27,18 +27,18 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
     path.extension().map(|s| s.to_string_lossy()) == Some(extension.into())
 }
 
-pub fn collect_all_package_dirs(dir: PathBuf) -> Vec<PathBuf> {
+pub fn collect_all_package_dirs(dir: &Path) -> Vec<PathBuf> {
     assert!(dir.is_dir());
     let main_path = dir.join("main.hsk");
     if main_path.exists() {
-        return vec![dir];
+        return vec![dir.to_path_buf()];
     } else {
         let mut pack_paths = vec![];
         for entry in std::fs::read_dir(dir).unwrap() {
             let entry = entry.unwrap();
             let subpath = entry.path();
             if subpath.is_dir() {
-                pack_paths.extend(collect_all_package_dirs(subpath))
+                pack_paths.extend(collect_all_package_dirs(&subpath))
             }
         }
         pack_paths

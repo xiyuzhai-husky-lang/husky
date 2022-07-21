@@ -9,8 +9,9 @@ mod linkage_collector;
 mod mod_rs_content;
 mod utils;
 
+pub use cargo_toml_content::*;
+
 use bin_main_rs_content::*;
-use cargo_toml_content::*;
 use contains_eval_ref::*;
 use defn_head::*;
 use eval_context::*;
@@ -29,7 +30,6 @@ use vec_like::VecSet;
 
 #[salsa::query_group(RustGenQueryStorage)]
 pub trait RustCodeGenQueryGroup: PackageQueryGroup {
-    fn cargo_toml_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_lib_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_init_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_bin_main_rs_content(&self, main_file: FilePtr) -> Arc<String>;
