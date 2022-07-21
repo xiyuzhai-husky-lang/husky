@@ -227,9 +227,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                             ty,
                         } => todo!(),
                     },
-                    FieldDefnVariant::RecordOriginal | FieldDefnVariant::RecordDerived { .. } => {
-                        panic!()
-                    }
+                    FieldDefnVariant::RecordOriginal | FieldDefnVariant::RecordDerived { .. } => (),
                 },
                 _ => {
                     if is_defn_static {

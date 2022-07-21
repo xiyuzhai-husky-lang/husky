@@ -34,7 +34,6 @@ pub fn mkdir(dir: &Path) {
 pub fn get_husky_code_snapshot_dir(package: &Package) -> PathBuf {
     let rust_dir = get_rust_dir(package);
     assert!(rust_dir.exists());
-    let snapshot_dir = rust_dir.join("snapshot");
-    assert!(snapshot_dir.exists());
+    let snapshot_dir = get_or_create_child_dir(&rust_dir, "snapshot");
     get_or_create_child_dir(&snapshot_dir, &snake_to_dash(&package.ident))
 }

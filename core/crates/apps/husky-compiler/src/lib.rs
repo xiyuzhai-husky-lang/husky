@@ -1,4 +1,4 @@
-mod flags;
+pub mod flags;
 
 use __husky_root::__resolve_root_defn;
 use husky_compile_dir::{
