@@ -1,14 +1,11 @@
-
 use crate::*;
 use __husky_root::__init_utils::*;
 
-pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
-
+pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
         __StaticLinkageKey::Routine {
-            routine: "test_arithmetic_major::add"
+            routine: "test_arithmetic_major::add",
         },
-
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __opt_ctx: Option<&__EvalContext<'eval>>,
@@ -25,7 +22,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "test_arithmetic_major::bitor_assign"
+            routine: "test_arithmetic_major::bitor_assign",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -37,10 +34,11 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 .__take_copyable_dyn())
             }
             __wrapper
-        }, some bitor_assign),    ),
+        }, some bitor_assign),
+    ),
     (
         __StaticLinkageKey::Routine {
-            routine: "test_arithmetic_major::bitand_assign"
+            routine: "test_arithmetic_major::bitand_assign",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -52,5 +50,6 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 .__take_copyable_dyn())
             }
             __wrapper
-        }, some bitand_assign),    ),
+        }, some bitand_assign),
+    ),
 ];

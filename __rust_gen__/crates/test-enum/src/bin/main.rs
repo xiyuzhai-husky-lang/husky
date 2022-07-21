@@ -1,12 +1,11 @@
-use husky_debugger::*;
 use __husky_root::__main_utils::*;
-use test_enum::__init__::LINKAGES;
 use husky_compile_time::*;
+use husky_debugger::*;
+use test_enum::__init__::LINKAGES;
 
 #[tokio::main]
 async fn main() {
-    let code_snapshot_dir =
-        "crates/test-enum/snapshot/test-enum".into();
+    let code_snapshot_dir = "crates/test-enum/snapshot/test-enum".into();
     HuskyDebugger::new(
         HuskyDebuggerConfig {
             package_dir: code_snapshot_dir,

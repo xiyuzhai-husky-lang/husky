@@ -1,12 +1,10 @@
-
 use crate::*;
 use __husky_root::__init_utils::*;
 
-pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
-
+pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
         __StaticLinkageKey::Routine {
-            routine: "test_vec::f"
+            routine: "test_vec::f",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -18,12 +16,10 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 .__take_copyable_dyn())
             }
             __wrapper
-        }, some f),    ),
+        }, some f),
+    ),
     (
-        __StaticLinkageKey::TypeCall {
-            ty: "[]i32"
-        },
-
+        __StaticLinkageKey::TypeCall { ty: "[]i32" },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __opt_ctx: Option<&__EvalContext<'eval>>,
@@ -39,7 +35,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<i32>::ilen"
+            routine: "Vec<i32>::ilen",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -56,7 +52,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<i32>::push"
+            routine: "Vec<i32>::push",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -74,7 +70,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<i32>::popx"
+            routine: "Vec<i32>::popx",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -91,19 +87,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<i32>::firstx"
+            routine: "Vec<i32>::firstx",
         },
-        method_elem_linkage!(Vec<i32>, firstx)
+        method_elem_linkage!(Vec<i32>, firstx),
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<i32>::lastx"
+            routine: "Vec<i32>::lastx",
         },
-        method_elem_linkage!(Vec<i32>, lastx)
+        method_elem_linkage!(Vec<i32>, lastx),
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<i32>::cyclic_slice"
+            routine: "Vec<i32>::cyclic_slice",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -121,15 +117,14 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         }, some Vec::<i32>::cyclic_slice),
     ),
     (
-
         __StaticLinkageKey::Index {
             opd_tys: &["[]i32", "i32"],
         },
-        index_linkage!(Vec<i32>)
+        index_linkage!(Vec<i32>),
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<i32>::push"
+            routine: "Vec<i32>::push",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -147,7 +142,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<i32>::ilen"
+            routine: "Vec<i32>::ilen",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -164,7 +159,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "test_vec::change_element"
+            routine: "test_vec::change_element",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -176,5 +171,6 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 .__take_copyable_dyn())
             }
             __wrapper
-        }, some change_element),    ),
+        }, some change_element),
+    ),
 ];

@@ -1,12 +1,11 @@
-use husky_debugger::*;
 use __husky_root::__main_utils::*;
-use test_vec::__init__::LINKAGES;
 use husky_compile_time::*;
+use husky_debugger::*;
+use test_vec::__init__::LINKAGES;
 
 #[tokio::main]
 async fn main() {
-    let code_snapshot_dir =
-        "crates/test-vec/snapshot/test-vec".into();
+    let code_snapshot_dir = "crates/test-vec/snapshot/test-vec".into();
     HuskyDebugger::new(
         HuskyDebuggerConfig {
             package_dir: code_snapshot_dir,

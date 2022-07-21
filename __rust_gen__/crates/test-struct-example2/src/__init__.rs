@@ -1,14 +1,11 @@
-
 use crate::*;
 use __husky_root::__init_utils::*;
 
-pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
-
+pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
         __StaticLinkageKey::TypeCall {
-            ty: "test_struct_example2::A"
+            ty: "test_struct_example2::A",
         },
-
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __opt_ctx: Option<&__EvalContext<'eval>>,
@@ -28,31 +25,31 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             this_ty: "test_struct_example2::A",
             field_ident: "x",
         },
-        eager_field_linkage!(A, x)
+        eager_field_linkage!(A, x),
     ),
     (
         __StaticLinkageKey::StructEagerField {
             this_ty: "test_struct_example2::A",
             field_ident: "y",
         },
-        eager_field_linkage!(A, y)
+        eager_field_linkage!(A, y),
     ),
     (
         __StaticLinkageKey::StructEagerField {
             this_ty: "test_struct_example2::A",
             field_ident: "z",
         },
-        eager_field_linkage!(A, z)
+        eager_field_linkage!(A, z),
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
             route: "test_struct_example2::A::w",
         },
-        lazy_field_linkage!(A, w)
+        lazy_field_linkage!(A, w),
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "test_struct_example2::f1"
+            routine: "test_struct_example2::f1",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -64,10 +61,11 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 ))
             }
             __wrapper
-        }, some f1),    ),
+        }, some f1),
+    ),
     (
         __StaticLinkageKey::Routine {
-            routine: "test_struct_example2::f3"
+            routine: "test_struct_example2::f3",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -79,10 +77,11 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 .__take_copyable_dyn())
             }
             __wrapper
-        }, some f3),    ),
+        }, some f3),
+    ),
     (
         __StaticLinkageKey::Routine {
-            routine: "test_struct_example2::A::get_x"
+            routine: "test_struct_example2::A::get_x",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -99,9 +98,8 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "test_struct_example2::g1"
+            routine: "test_struct_example2::g1",
         },
-
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
                 __opt_ctx: Option<&__EvalContext<'eval>>,

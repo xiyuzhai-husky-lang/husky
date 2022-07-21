@@ -2,9 +2,10 @@
 pub mod __init__;
 use __husky_root::*;
 
-
 // ad hoc
-fn __input<'a, 'eval:'a>(__ctx: &'a __EvalContext<'eval>) -> &'a domains::ml::datasets::cv::mnist::BinaryImage28 {
+fn __input<'a, 'eval: 'a>(
+    __ctx: &'a __EvalContext<'eval>,
+) -> &'a domains::ml::datasets::cv::mnist::BinaryImage28 {
     unsafe { __evaluator(__ctx) }
         .eval_input
         .any_ref()
@@ -41,7 +42,8 @@ impl<'eval> __AnyValue<'eval> for A {
 
     fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
-        'eval: 'short {
+        'eval: 'short,
+    {
         self
     }
 
@@ -74,7 +76,6 @@ impl B {
     }
     pub(crate) fn clone_a(&self) -> A {
         return self.a.clone();
-
     }
 }
 
@@ -97,7 +98,8 @@ impl<'eval> __AnyValue<'eval> for B {
 
     fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
-        'eval: 'short {
+        'eval: 'short,
+    {
         self
     }
 
@@ -118,5 +120,4 @@ impl<'eval> __AnyValue<'eval> for B {
 }
 pub(crate) fn take_copyable_eval_ref<'eval>(x: &'eval i32) -> i32 {
     return 1;
-
 }

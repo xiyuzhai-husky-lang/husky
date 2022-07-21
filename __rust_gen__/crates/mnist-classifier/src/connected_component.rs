@@ -9,18 +9,24 @@ impl ConnectedComponent {
     pub(crate) fn __call__(mask: domains::ml::datasets::cv::mnist::BinaryImage28) -> Self {
         Self { mask }
     }
-pub(crate) fn raw_contours<'eval>(&'eval self, __ctx: &__EvalContext<'eval>) -> &'eval Vec<crate::raw_contour::RawContour<'eval>> {
-    let __uid = entity_uid!(__ctx, "mnist_classifier::connected_component::ConnectedComponent::raw_contours");
-    if let Some(__result) = __opt_cached_lazy_field(__ctx, self, __uid) {
-        return __result.unwrap();
-    }
+    pub(crate) fn raw_contours<'eval>(
+        &'eval self,
+        __ctx: &__EvalContext<'eval>,
+    ) -> &'eval Vec<crate::raw_contour::RawContour<'eval>> {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::connected_component::ConnectedComponent::raw_contours"
+        );
+        if let Some(__result) = __opt_cached_lazy_field(__ctx, self, __uid) {
+            return __result.unwrap();
+        }
         return __cache_lazy_field(
-        __ctx,
-        self,
-        __uid,
-        Ok((crate::raw_contour::find_raw_contours(self)).__into_eval_value())
-    ).unwrap();
-
+            __ctx,
+            self,
+            __uid,
+            Ok((crate::raw_contour::find_raw_contours(self)).__into_eval_value()),
+        )
+        .unwrap();
     }
 }
 
@@ -43,12 +49,15 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
 
     fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
     where
-        'eval: 'short {
+        'eval: 'short,
+    {
         self
     }
 
     fn __static_ty() -> __EntityRoutePtr {
-        __ty_route_from_static_binded::<Self>("mnist_classifier::connected_component::ConnectedComponent")
+        __ty_route_from_static_binded::<Self>(
+            "mnist_classifier::connected_component::ConnectedComponent",
+        )
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
@@ -62,29 +71,39 @@ impl<'eval> __AnyValue<'eval> for ConnectedComponent {
         todo!()
     }
 }
-pub(crate) fn connected_components<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval Vec<ConnectedComponent> {
-    let __feature = feature_ptr!(__ctx, "mnist_classifier::connected_component::connected_components");
+pub(crate) fn connected_components<'eval>(
+    __ctx: &__EvalContext<'eval>,
+) -> &'eval Vec<ConnectedComponent> {
+    let __feature = feature_ptr!(
+        __ctx,
+        "mnist_classifier::connected_component::connected_components"
+    );
     if let Some(__result) = __opt_cached_feature(__ctx, __feature) {
         return __result.unwrap();
     }
     return __cache_feature(
         __ctx,
         __feature,
-        Ok((find_connected_components(&__input(__ctx))).__into_eval_value())
-    ).unwrap();
-
+        Ok((find_connected_components(&__input(__ctx))).__into_eval_value()),
+    )
+    .unwrap();
 }
-pub(crate) fn major_connected_component<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval ConnectedComponent {
-    let __feature = feature_ptr!(__ctx, "mnist_classifier::connected_component::major_connected_component");
+pub(crate) fn major_connected_component<'eval>(
+    __ctx: &__EvalContext<'eval>,
+) -> &'eval ConnectedComponent {
+    let __feature = feature_ptr!(
+        __ctx,
+        "mnist_classifier::connected_component::major_connected_component"
+    );
     if let Some(__result) = __opt_cached_feature(__ctx, __feature) {
         return __result.unwrap();
     }
     return __cache_feature(
         __ctx,
         __feature,
-        Ok(__EvalRef(&(connected_components(__ctx)[(0) as usize])).into())
-    ).unwrap();
-
+        Ok(__EvalRef(&(connected_components(__ctx)[(0) as usize])).into()),
+    )
+    .unwrap();
 }
 
 pub(crate) fn horizontal_extend(a: u32, x: u32) -> u32 {
@@ -94,10 +113,12 @@ pub(crate) fn horizontal_extend(a: u32, x: u32) -> u32 {
         y = z;
         z = a & (y | (y << 1) | (y >> 1));
     }
-    return y
+    return y;
 }
 
-pub(crate) fn find_connected_components(img: &domains::ml::datasets::cv::mnist::BinaryImage28) -> Vec<ConnectedComponent> {
+pub(crate) fn find_connected_components(
+    img: &domains::ml::datasets::cv::mnist::BinaryImage28,
+) -> Vec<ConnectedComponent> {
     let mut result = Vec::<ConnectedComponent>::__call__(vec![]);
     let mut unsearched = img.clone();
     for j in 0..30 {
@@ -112,7 +133,8 @@ pub(crate) fn find_connected_components(img: &domains::ml::datasets::cv::mnist::
                 let mut i = j;
                 while i < 30 - 1 {
                     let old_row = mask[(i + 1) as usize];
-                    let new_row = old_row | horizontal_extend(img[(i + 1) as usize], mask[(i) as usize]);
+                    let new_row =
+                        old_row | horizontal_extend(img[(i + 1) as usize], mask[(i) as usize]);
                     if (0 == new_row) {
                         break;
                     }
@@ -124,7 +146,8 @@ pub(crate) fn find_connected_components(img: &domains::ml::datasets::cv::mnist::
                 }
                 while i >= j {
                     let old_row = mask[(i) as usize];
-                    let new_row = old_row | horizontal_extend(img[(i) as usize], mask[(i + 1) as usize]);
+                    let new_row =
+                        old_row | horizontal_extend(img[(i) as usize], mask[(i + 1) as usize]);
                     if old_row != new_row {
                         flag = false;
                         mask[(i) as usize] = new_row;
@@ -138,5 +161,5 @@ pub(crate) fn find_connected_components(img: &domains::ml::datasets::cv::mnist::
             result.push(ConnectedComponent::__call__(mask));
         }
     }
-    return result
+    return result;
 }
