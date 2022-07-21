@@ -170,49 +170,10 @@ impl Implementable for CallFormDecl {
     }
 }
 
-pub(crate) fn call_form_decl(
+pub(crate) fn entity_call_form_decl(
     db: &dyn DeclQueryGroup,
     route: EntityRoutePtr,
 ) -> InferQueryResultArc<CallFormDecl> {
-    match route.kind {
-        EntityRouteKind::Root {
-            ident: RootIdentifier::Fp,
-        } => {
-            msg_once!("much more todo");
-            let nargs = route.spatial_arguments.len() - 1;
-            return Ok(Arc::new(CallFormDecl {
-                opt_base_route: None,
-                opt_this_liason: None,
-                spatial_parameters: Default::default(),
-                primary_parameters: route.spatial_arguments[0..nargs]
-                    .iter()
-                    .enumerate()
-                    .map(|(i, spatial_argument)| ParameterDecl {
-                        liason: ParameterLiason::Pure,
-                        ty: spatial_argument.take_entity_route(),
-                        ident: db.intern_word(&format!("arg{}", i)).custom(),
-                    })
-                    .collect(),
-                variadic_template: Default::default(),
-                keyword_parameters: Default::default(),
-                output: OutputDecl {
-                    liason: OutputLiason::Transfer,
-                    ty: route.spatial_arguments.last().unwrap().take_entity_route(),
-                },
-                is_lazy: false,
-            }));
-        }
-        EntityRouteKind::Root {
-            ident: RootIdentifier::Fn,
-        } => todo!(),
-        EntityRouteKind::Root {
-            ident: RootIdentifier::FnMut,
-        } => todo!(),
-        EntityRouteKind::Root {
-            ident: RootIdentifier::FnOnce,
-        } => todo!(),
-        _ => (),
-    }
     let source = db.entity_source(route)?;
     return match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
@@ -283,6 +244,53 @@ pub(crate) fn call_form_decl(
             _ => todo!(),
         },
     };
+}
+
+pub(crate) fn value_call_form_decl(
+    db: &dyn DeclQueryGroup,
+    ty: EntityRoutePtr,
+) -> InferQueryResultArc<CallFormDecl> {
+    match ty.kind {
+        EntityRouteKind::Root {
+            ident: RootIdentifier::Fp,
+        } => {
+            msg_once!("much more todo");
+            let nargs = ty.spatial_arguments.len() - 1;
+            return Ok(Arc::new(CallFormDecl {
+                opt_base_route: None,
+                opt_this_liason: None,
+                spatial_parameters: Default::default(),
+                primary_parameters: ty.spatial_arguments[0..nargs]
+                    .iter()
+                    .enumerate()
+                    .map(|(i, spatial_argument)| ParameterDecl {
+                        liason: ParameterLiason::Pure,
+                        ty: spatial_argument.take_entity_route(),
+                        ident: db.intern_word(&format!("arg{}", i)).custom(),
+                    })
+                    .collect(),
+                variadic_template: Default::default(),
+                keyword_parameters: Default::default(),
+                output: OutputDecl {
+                    liason: OutputLiason::Transfer,
+                    ty: ty.spatial_arguments.last().unwrap().take_entity_route(),
+                },
+                is_lazy: false,
+            }));
+        }
+        EntityRouteKind::Root {
+            ident: RootIdentifier::Fn,
+        } => todo!(),
+        EntityRouteKind::Root {
+            ident: RootIdentifier::FnMut,
+        } => todo!(),
+        EntityRouteKind::Root {
+            ident: RootIdentifier::FnOnce,
+        } => todo!(),
+        _ => Err(query_error!(format!(
+            "a value of type `{ty:?}` can not be called"
+        ))),
+    }
 }
 
 pub(crate) fn routine_decl_from_static(

@@ -500,7 +500,11 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
         } else {
             let method_uid = self.db.compile_time().entity_uid(method_route);
-            let call_form_decl = self.db.compile_time().call_form_decl(method_route).unwrap();
+            let call_form_decl = self
+                .db
+                .compile_time()
+                .entity_call_form_decl(method_route)
+                .unwrap();
             InstructionVariant::CallInterpreted {
                 routine_uid: method_uid,
                 nargs: (call_form_decl.primary_parameters.len() + 1)

@@ -52,7 +52,7 @@ pub(super) fn entity_route_kind_contains_eval_ref(
         }
         EntityKind::Trait => todo!(),
         EntityKind::Member(_) => {
-            let call_form_decl = db.call_form_decl(base_route).unwrap();
+            let call_form_decl = db.entity_call_form_decl(base_route).unwrap();
             if db.entity_route_contains_eval_ref(base_route.parent()) {
                 return true;
             }
@@ -66,7 +66,7 @@ pub(super) fn entity_route_kind_contains_eval_ref(
             }
         }
         EntityKind::Function { requires_lazy } => {
-            let call_form_decl = db.call_form_decl(base_route).unwrap();
+            let call_form_decl = db.entity_call_form_decl(base_route).unwrap();
             for parameter in call_form_decl.primary_parameters.iter() {
                 if db.entity_route_contains_eval_ref(parameter.ty) {
                     return true;

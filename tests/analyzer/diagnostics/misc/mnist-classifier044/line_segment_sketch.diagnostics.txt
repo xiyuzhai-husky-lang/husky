@@ -14,5 +14,5 @@
 27:42..27:43	Ast Error: expect `:`
 29:12..29:15	Ast Error: expect `:`
 49:42..49:43	Ast Error: expect `:`
-30:21..30:29	Infer Error: unrecognized caller
-31:20..31:27	Infer Error: unrecognized caller
+30:21..30:29	Infer Error: Unrecognized identifier `go_right`
+31:20..31:27	Infer Error: Unrecognized identifier `go_left`

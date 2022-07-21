@@ -1,6 +1,6 @@
 133:27..133:39	Infer Error: expect 1 arguments, but get 0 arguments
 55:61..55:67	Infer Error: no method named `bitmod` for type `i32`
-124:31..124:43	Infer Error: unrecognized caller
+124:31..124:43	Infer Error: Unrecognized identifier `BinaryGrid28`
 162:33..162:38	Infer Error: no method named `lastx` for type `mnist_classifier028::raw_contour::RawContour`
 163:33..163:37	Infer Error: no method named `push` for type `mnist_classifier028::raw_contour::RawContour`
 167:33..167:38	Infer Error: no method named `lastx` for type `mnist_classifier028::raw_contour::RawContour`

@@ -445,20 +445,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn eager_call(
         &mut self,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<EagerValueQualifiedTy> {
-        let call_decl =
-            derived_unwrap!(self
-                .db
-                .call_form_decl(match self.arena[total_opds.start].variant {
-                    RawExprVariant::Entity { route, .. } => {
-                        route
-                    }
-                    _ => {
-                        self.raw_expr_ty(total_opds.start)?
-                    }
-                }));
+        let call_decl = self.call_form_decl(idx)?;
         self.infer_eager_expr(total_opds.start);
         for opd_idx in (total_opds.start + 1)..total_opds.end {
             let opd_contract = self.eager_expr_contract(opd_idx)?;

@@ -120,7 +120,7 @@ impl<'a> RustCodeGenerator<'a> {
                     output_binding,
                     ..
                 } => {
-                    let call_form_decl = self.db.call_form_decl(*method_route).unwrap();
+                    let call_form_decl = self.db.entity_call_form_decl(*method_route).unwrap();
                     match call_form_decl.output.liason {
                         OutputLiason::Transfer => {
                             self.gen_expr(&opds[0]);

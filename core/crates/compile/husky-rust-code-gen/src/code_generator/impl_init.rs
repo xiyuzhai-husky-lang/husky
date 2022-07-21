@@ -73,7 +73,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 "#,
                     entity_route
                 ));
-                let call_form_decl = self.db.call_form_decl(entity_route).unwrap();
+                let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
                     None,
@@ -90,7 +90,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         }},"#,
                     entity_route
                 ));
-                let call_form_decl = self.db.call_form_decl(entity_route).unwrap();
+                let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
                     None,
@@ -144,7 +144,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 "#,
                 entity_route
             ));
-            let call_form_decl = self.db.call_form_decl(entity_route).unwrap();
+            let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
             msg_once!("keyword parameters");
             self.gen_specific_routine_linkage(
                 None,
@@ -279,7 +279,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             routine: "{entity_route}"
         }},"#,
                 ));
-                let call_form_decl = self.db.call_form_decl(entity_route).unwrap();
+                let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 let this_liason = call_form_decl.this_liason();
                 match this_liason {
                     ParameterLiason::MemberAccess => {

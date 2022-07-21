@@ -73,6 +73,7 @@ eager expr:
     8:13..8:42     a & (y | (y << 1) | (y >> 1))   Copyable     b32
     8:9..8:42      z = a & (y | (y << 1) | (y >> 1))   Copyable     void
     9:12..9:13     y                      Copyable     b32
+    12:18..12:33   []BinaryImage28        EvalRef      Type
     12:18..12:35   []BinaryImage28()      Transient    []domains::ml::datasets::cv::mnist::BinaryImage28
     13:22..13:25   img                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     13:22..13:33   img.clone()            Transient    domains::ml::datasets::cv::mnist::BinaryImage28
@@ -85,11 +86,13 @@ eager expr:
     16:21..16:34   unsearched[j]          Copyable     b32
     17:25..17:26   a                      Copyable     b32
     17:25..17:32   a.ctz()                Copyable     i32
+    18:24..18:37   BinaryImage28          EvalRef      Type
     18:24..18:39   BinaryImage28()        Transient    domains::ml::datasets::cv::mnist::BinaryImage28
     19:13..19:17   mask                   RefMut       domains::ml::datasets::cv::mnist::BinaryImage28
     19:18..19:19   j                      Copyable     i32
     19:44..19:48   1b32                   Copyable     b32
     19:52..19:57   shift                  Copyable     i32
+    19:23..19:40   horizontal_extend      InferError: failed to infer expr ty
     19:41..19:42   a                      Copyable     b32
     19:44..19:57   1b32 << shift          Copyable     b32
     19:13..19:20   mask[j]                RefMut       b32
@@ -116,6 +119,7 @@ eager expr:
     26:67..26:72   i + 1                  Copyable     i32
     26:75..26:79   mask                   PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     26:80..26:81   i                      Copyable     i32
+    26:45..26:62   horizontal_extend      InferError: failed to infer expr ty
     26:63..26:73   img[i + 1]             Copyable     b32
     26:75..26:82   mask[i]                Copyable     b32
     26:35..26:42   old_row                Copyable     b32
@@ -146,6 +150,7 @@ eager expr:
     34:80..34:81   1                      Copyable     i32
     34:71..34:75   mask                   PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     34:76..34:81   i + 1                  Copyable     i32
+    34:45..34:62   horizontal_extend      InferError: failed to infer expr ty
     34:63..34:69   img[i]                 Copyable     b32
     34:71..34:82   mask[i + 1]            Copyable     b32
     34:35..34:42   old_row                Copyable     b32

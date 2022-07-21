@@ -308,11 +308,11 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 })
             }
             RawExprVariant::Entity {
-                route: scope,
+                route,
                 kind: EntityKind::Type(_),
                 ..
             } => {
-                let signature = derived_unwrap!(self.decl_db().call_form_decl(scope));
+                let signature = derived_unwrap!(self.decl_db().entity_call_form_decl(route));
                 let arguments: Vec<_> = input_opd_idx_range
                     .enumerate()
                     .map(|(i, raw)| self.parse_eager_expr(raw))
@@ -320,10 +320,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 Ok(EagerExprVariant::Opn {
                     opn_variant: EagerOpnVariant::TypeCall {
                         ranged_ty: RangedEntityRoute {
-                            route: scope,
+                            route,
                             range: call.range(),
                         },
-                        ty_decl: derived_unwrap!(self.decl_db().ty_decl(scope)),
+                        ty_decl: derived_unwrap!(self.decl_db().ty_decl(route)),
                     },
                     opds: arguments,
                 })
@@ -345,13 +345,13 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         this: RawExprIdx,
         arguments: RawExprRange,
         method_ident: RangedCustomIdentifier,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
         let this = self.parse_eager_expr(this)?;
         let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
         let output_binding = {
-            let output_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
-            let output_qt = self.eager_expr_qualified_ty(raw_expr_idx).unwrap();
+            let output_contract = self.eager_expr_contract(idx).unwrap();
+            let output_qt = self.eager_expr_qualified_ty(idx).unwrap();
             output_qt.qual.binding(output_contract)
         };
         let opds = {
@@ -366,7 +366,11 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             opn_variant: EagerOpnVariant::MethodCall {
                 method_ident,
                 this_ty_decl,
-                method_route: self.entity_route_sheet().call_route(raw_expr_idx).unwrap(),
+                method_route: self
+                    .entity_route_sheet()
+                    .opt_call_route(idx)
+                    .unwrap()
+                    .unwrap(),
                 output_binding,
             },
             opds,
