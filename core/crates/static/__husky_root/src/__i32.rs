@@ -6,7 +6,13 @@ pub trait __I32X {
 
 impl __I32X for i32 {
     fn sgn(self) -> i32 {
-        todo!()
+        if self > 0 {
+            1
+        } else if self == 0 {
+            0
+        } else {
+            -1
+        }
     }
 }
 
@@ -74,7 +80,9 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(specific_transfer_linkage!(|_, values| todo!(), some i32::sgn)),
+        opt_linkage: Some(
+            specific_transfer_linkage!(|_, values| __TempValue::Copyable(values[0].take_copyable().take_i32().sgn().into()), some i32::sgn),
+        ),
     },
     dev_src: __static_dev_src!(),
 };

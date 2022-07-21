@@ -266,6 +266,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
             _ => todo!(),
         };
+        self.infer_lazy_expr(total_opds.start, LazyContract::Pure);
         for (argument, parameter) in zip(
             ((total_opds.start + 1)..total_opds.end).into_iter(),
             call_decl.primary_parameters.iter(),

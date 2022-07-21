@@ -324,12 +324,12 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_eager_call(
         &mut self,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
         total_opds: &RawExprRange,
         contract: EagerContract,
     ) -> InferResult<()> {
         let call_expr = &self.arena[total_opds.start];
-        let call_decl = self.call_form_decl(total_opds.start).unwrap();
+        let call_decl = self.call_form_decl(idx).unwrap();
         // match call_expr.variant {
         //     RawExprVariant::Entity { route, .. } => {
         //         derived_unwrap!(self.db.call_form_decl(route))
@@ -339,6 +339,8 @@ impl<'a> ContractSheetBuilder<'a> {
         //         todo!()
         //     }
         // };
+        msg_once!("other contracts on call form");
+        self.infer_eager_expr(total_opds.start, EagerContract::Pure);
         for (argument, parameter) in zip(
             ((total_opds.start + 1)..total_opds.end).into_iter(),
             call_decl.primary_parameters.iter(),
