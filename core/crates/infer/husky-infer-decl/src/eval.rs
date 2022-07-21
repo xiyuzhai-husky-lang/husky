@@ -28,7 +28,7 @@ fn eval_input_ty_from_ast(
                         ..
                     } => {
                         let signature_result: InferResult<_> =
-                            db.call_form_decl(route).bind_into(caller);
+                            db.entity_call_form_decl(route).bind_into(caller);
                         let dataset_type = signature_result?.output.ty;
                         match dataset_type.kind {
                             EntityRouteKind::Root {
@@ -71,7 +71,7 @@ fn eval_output_ty_from_ast(
                         ..
                     } => {
                         let call_decl_result: InferResult<_> =
-                            db.call_form_decl(route).bind_into(caller);
+                            db.entity_call_form_decl(route).bind_into(caller);
                         let dataset_type = call_decl_result?.output.ty;
                         match dataset_type.kind {
                             EntityRouteKind::Root {

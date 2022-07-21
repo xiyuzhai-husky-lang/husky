@@ -1,7 +1,7 @@
 125:29..125:56	Infer Error: expect 1 arguments, but get 3 arguments
 125:41..125:43	Infer Error: expect std::slice::CyclicSlice<mnist_classifier051::geom2d::Point2d> but get mnist_classifier051::raw_contour::RawContour instead
-133:41..133:57	Infer Error: unrecognized caller
-137:22..137:38	Infer Error: unrecognized caller
-159:34..159:50	Infer Error: unrecognized caller
+133:41..133:57	Infer Error: Unrecognized identifier `get_line_segment`
+137:22..137:38	Infer Error: Unrecognized identifier `get_line_segment`
+159:34..159:50	Infer Error: Unrecognized identifier `get_line_segment`
 125:41..125:43	Infer Error: can't move from ref
 125:41..125:43	Infer Error: can't move from ref

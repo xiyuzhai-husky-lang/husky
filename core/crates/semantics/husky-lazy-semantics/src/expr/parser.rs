@@ -456,7 +456,11 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::MethodCall {
                 method_ident,
-                method_route: self.entity_route_sheet().call_route(raw_expr_idx).unwrap(),
+                method_route: self
+                    .entity_route_sheet()
+                    .opt_call_route(raw_expr_idx)
+                    .unwrap()
+                    .unwrap(),
                 output_binding,
             },
             opds,

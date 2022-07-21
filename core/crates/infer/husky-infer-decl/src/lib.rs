@@ -32,7 +32,11 @@ use word::{CustomIdentifier, RootIdentifier};
 
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
-    fn call_form_decl(&self, call_route: EntityRoutePtr) -> InferQueryResultArc<CallFormDecl>;
+    fn entity_call_form_decl(
+        &self,
+        call_route: EntityRoutePtr,
+    ) -> InferQueryResultArc<CallFormDecl>;
+    fn value_call_form_decl(&self, ty: EntityRoutePtr) -> InferQueryResultArc<CallFormDecl>;
     fn ty_decl(&self, ty: EntityRoutePtr) -> InferQueryResultArc<TyDecl>;
     fn trait_decl(&self, trai: EntityRoutePtr) -> InferResultArc<TraitDecl>;
     fn feature_decl(&self, feature_entity: EntityRoutePtr) -> InferResultArc<FeatureDecl>;

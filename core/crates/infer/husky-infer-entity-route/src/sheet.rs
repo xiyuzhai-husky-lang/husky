@@ -64,11 +64,11 @@ impl EntityRouteSheet {
         }
     }
 
-    pub fn call_route(&self, idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        match derived_not_none!(self.call_routes.get(idx))? {
+    pub fn opt_call_route(&self, idx: RawExprIdx) -> Option<InferResult<EntityRoutePtr>> {
+        Some(match self.call_routes.get(idx)? {
             Ok(call_route) => Ok(*call_route),
             Err(e) => Err(e.derived()),
-        }
+        })
     }
 
     pub fn original_errors(&self) -> Vec<&InferError> {

@@ -106,7 +106,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             EntityKind::Type(_) => RootIdentifier::TypeType.into(),
             EntityKind::Trait => RootIdentifier::TraitType.into(),
             EntityKind::Function { .. } | EntityKind::Member(_) => {
-                let decl = self.db.call_form_decl(entity_route)?;
+                let decl = self.db.entity_call_form_decl(entity_route)?;
                 let base_route: EntityRoutePtr = if decl.is_lazy {
                     RootIdentifier::Mor
                 } else {
@@ -414,15 +414,18 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         let caller = &self.arena[total_opds.start];
-        let call_route_result = match caller.variant {
-            RawExprVariant::Entity { route, .. } => Ok(route),
-            _ => derived_not_none!(self.infer_expr(total_opds.start, None,)),
-        };
-        self.entity_route_sheet
-            .call_routes
-            .insert_new(idx, call_route_result.clone());
-        let call_decl_result: InferResult<_> =
-            self.db.call_form_decl(call_route_result?).bind_into(caller);
+        let call_decl_result: InferResult<_> = match caller.variant {
+            RawExprVariant::Entity { route, .. } => {
+                self.entity_route_sheet
+                    .call_routes
+                    .insert_new(idx, Ok(route));
+                self.db.entity_call_form_decl(route)
+            }
+            _ => self
+                .db
+                .value_call_form_decl(derived_not_none!(self.infer_expr(total_opds.start, None,))?),
+        }
+        .bind_into(caller);
         let call_decl = call_decl_result?;
         if call_decl.primary_parameters.len() != total_opds.end - total_opds.start - 1 {
             self.entity_route_sheet.extra_errors.push(InferError {
@@ -478,9 +481,14 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             } else {
                 thin_vec![]
             };
-        self.entity_route_sheet
-            .call_routes
-            .insert_new(idx, Ok(call_form_decl.opt_base_route.unwrap()));
+        msg_once!("spatial_arguments");
+        self.entity_route_sheet.call_routes.insert_new(
+            idx,
+            Ok(self.db.route_call(
+                call_form_decl.opt_base_route.unwrap(),
+                thin_vec![], // spatial_arguments
+            )),
+        );
         Ok(call_form_decl.output.ty)
     }
 

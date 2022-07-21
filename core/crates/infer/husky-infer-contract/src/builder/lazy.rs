@@ -254,26 +254,20 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_lazy_call(
         &mut self,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
         total_opds: &RawExprRange,
         contract: LazyContract,
     ) -> InferResult<()> {
         let call_expr = &self.arena[total_opds.start];
-        let call_decl = match call_expr.variant {
-            RawExprVariant::Entity { route, .. } => {
-                derived_unwrap!(self.db.call_form_decl(route))
-            }
-            RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
-            _ => todo!(),
-        };
+        let call_form_decl = self.call_form_decl(idx).unwrap();
         self.infer_lazy_expr(total_opds.start, LazyContract::Pure);
         for (argument, parameter) in zip(
             ((total_opds.start + 1)..total_opds.end).into_iter(),
-            call_decl.primary_parameters.iter(),
+            call_form_decl.primary_parameters.iter(),
         ) {
             let argument_contract = LazyContract::parameter_lazy_contract(
                 parameter.liason,
-                call_decl.output.liason,
+                call_form_decl.output.liason,
                 self.arena[argument].range,
             )?;
             self.infer_lazy_expr(argument, argument_contract)

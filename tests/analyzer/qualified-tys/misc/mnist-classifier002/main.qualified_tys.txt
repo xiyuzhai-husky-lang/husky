@@ -22,12 +22,14 @@ lazy expr:
     34:9..34:10    a                      PureRef domains::ml::datasets::cv::mnist::BinaryImage28
     34:11..34:13   12                     Copyable i32
     34:9..34:14    a[12]                  Copyable b32
+    35:9..35:34    find_connected_components   InferError: failed to infer expr ty
     35:35..35:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     35:9..35:41    find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
     36:5..36:6     d                      PureRef []domains::ml::datasets::cv::mnist::BinaryImage28
     36:5..36:13    d.ilen()               Copyable i32
 
 eager expr:
+    4:5..4:48      ml::datasets::cv::mnist::new_binary_dataset   InferError: failed to infer expr ty
     4:5..4:50      ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>
     8:23..8:24     x                      Copyable     b32
     8:28..8:29     1                      Copyable     i32
@@ -79,6 +81,7 @@ eager expr:
     12:13..12:42   a & (y | (y << 1) | (y >> 1))   Copyable     b32
     12:9..12:42    z = a & (y | (y << 1) | (y >> 1))   Copyable     void
     13:12..13:13   y                      Copyable     b32
+    16:18..16:33   []BinaryImage28        EvalRef      Type
     16:18..16:35   []BinaryImage28()      Transient    []domains::ml::datasets::cv::mnist::BinaryImage28
     17:22..17:25   img                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     17:22..17:33   img.clone()            Transient    domains::ml::datasets::cv::mnist::BinaryImage28
@@ -91,11 +94,13 @@ eager expr:
     20:21..20:34   unsearched[j]          Copyable     b32
     21:25..21:26   a                      Copyable     b32
     21:25..21:32   a.ctz()                Copyable     i32
+    22:24..22:37   BinaryImage28          EvalRef      Type
     22:24..22:39   BinaryImage28()        Transient    domains::ml::datasets::cv::mnist::BinaryImage28
     23:13..23:17   mask                   RefMut       domains::ml::datasets::cv::mnist::BinaryImage28
     23:18..23:19   j                      Copyable     i32
     23:44..23:48   1b32                   Copyable     b32
     23:52..23:57   shift                  Copyable     i32
+    23:23..23:40   horizontal_extend      InferError: failed to infer expr ty
     23:41..23:42   a                      Copyable     b32
     23:44..23:57   1b32 << shift          Copyable     b32
     23:13..23:20   mask[j]                RefMut       b32
@@ -126,6 +131,7 @@ lazy expr:
     34:9..34:10    a                      PureRef domains::ml::datasets::cv::mnist::BinaryImage28
     34:11..34:13   12                     Copyable i32
     34:9..34:14    a[12]                  Copyable b32
+    35:9..35:34    find_connected_components   InferError: failed to infer expr ty
     35:35..35:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     35:9..35:41    find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
     36:5..36:6     d                      PureRef []domains::ml::datasets::cv::mnist::BinaryImage28

@@ -14,6 +14,7 @@ use husky_file::FilePtr;
 use infer_decl::{CallFormDecl, DeclQueryGroup, TyDecl};
 use infer_error::*;
 use print_utils::*;
+use vm::RawOpnVariant;
 use word::RootIdentifier;
 
 pub trait InferEntityRoute {
@@ -28,18 +29,24 @@ pub trait InferEntityRoute {
             .map(|ty| ty.intrinsic())
     }
 
-    fn raw_expr_deref_ty_decl(&self, raw_expr_idx: RawExprIdx) -> InferResultArc<TyDecl> {
-        let ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
+    fn raw_expr_deref_ty_decl(&self, idx: RawExprIdx) -> InferResultArc<TyDecl> {
+        let ty = self.raw_expr_intrinsic_ty(idx)?;
         Ok(derived_unwrap!(self.decl_db().ty_decl(ty)))
     }
 
-    fn call_route_result(&self, raw_expr_idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        self.entity_route_sheet().call_route(raw_expr_idx)
-    }
+    // fn call_route_result(&self, idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+    //     self.entity_route_sheet().call_route(idx)
+    // }
 
-    fn call_form_decl(&self, raw_expr_idx: RawExprIdx) -> InferResultArc<CallFormDecl> {
-        Ok(derived_unwrap!(self
-            .decl_db()
-            .call_form_decl(self.call_route_result(raw_expr_idx)?)))
+    fn call_form_decl(&self, idx: RawExprIdx) -> InferResultArc<CallFormDecl> {
+        if let Some(call_route_result) = self.entity_route_sheet().opt_call_route(idx) {
+            Ok(derived_unwrap!(self
+                .decl_db()
+                .entity_call_form_decl(call_route_result?)))
+        } else {
+            Ok(derived_unwrap!(self
+                .decl_db()
+                .value_call_form_decl(self.raw_expr_ty(idx)?)))
+        }
     }
 }
