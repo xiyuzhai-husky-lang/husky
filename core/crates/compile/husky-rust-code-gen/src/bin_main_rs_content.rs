@@ -1,9 +1,6 @@
-use std::path::Path;
-
-use husky_compile_dir::get_husky_code_snapshot_dir;
-use word::snake_to_dash;
-
 use crate::*;
+use std::path::Path;
+use word::snake_to_dash;
 
 pub(crate) fn rust_bin_main_rs_content(
     db: &dyn RustCodeGenQueryGroup,

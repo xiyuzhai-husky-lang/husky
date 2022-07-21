@@ -45,6 +45,4 @@ test-debugger-with-backtrace-filtered:
 # compiler
 
 test-compiler:
-	@cargo check
-	cargo run -q --bin husky-compiler $(tests_dir)/compiler
-	cd ${HUSKY_DIR}/__rust_gen__ && cargo check && cargo fmt
+	bash scripts/test-compiler.sh

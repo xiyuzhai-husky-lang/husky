@@ -1,4 +1,5 @@
 mod config;
+mod impl_code_gen;
 mod impl_diagnostics;
 mod impl_load;
 mod impl_necessary;

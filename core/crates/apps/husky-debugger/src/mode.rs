@@ -10,9 +10,9 @@ pub enum Mode {
 }
 
 impl Mode {
-    pub async fn run(&self, dir: PathBuf) {
+    pub async fn run(&self, dir: &Path) {
         match self {
-            Mode::Run => run(&dir).await,
+            Mode::Run => run(dir).await,
             Mode::Test => test_all_packages_in_dir(dir).await,
         }
     }
@@ -39,7 +39,7 @@ async fn run(package_dir: &Path) {
         .expect("")
 }
 
-async fn test_all_packages_in_dir(dir: PathBuf) {
+async fn test_all_packages_in_dir(dir: &Path) {
     assert!(dir.is_dir());
     let package_dirs = collect_all_package_dirs(dir);
     println!(

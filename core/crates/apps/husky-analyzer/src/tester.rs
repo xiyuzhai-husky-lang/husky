@@ -25,7 +25,7 @@ pub fn test_all() {
     let mode = AnalyzerTesterMode::from_flags(&flags);
     let dir = flags.dir;
     test_all_packages_in_dir(
-        dir,
+        &dir,
         match mode {
             AnalyzerTesterMode::TestDiagnostics => test_diagnostics,
             AnalyzerTesterMode::TestFoldingRanges => test_folding_ranges,

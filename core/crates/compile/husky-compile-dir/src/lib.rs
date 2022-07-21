@@ -6,15 +6,6 @@ use std::{
 };
 use word::snake_to_dash;
 
-pub fn get_rust_dir(pack: &Package) -> PathBuf {
-    let husky_dir = env::var("HUSKY_DIR").unwrap();
-    let rust_gen_root = format!("{husky_dir}/__rust_gen__/crates");
-    let dashed_name = snake_to_dash(&pack.ident);
-    let rust_dir: PathBuf = [rust_gen_root, dashed_name].iter().collect();
-    mkdir(&rust_dir);
-    rust_dir
-}
-
 pub fn get_or_create_child_dir(parent_dir: &Path, dirname: &str) -> PathBuf {
     let child_dir = parent_dir.join(dirname);
     mkdir(&child_dir);
@@ -29,11 +20,4 @@ pub fn mkdir(dir: &Path) {
             panic!()
         }
     }
-}
-
-pub fn get_husky_code_snapshot_dir(package: &Package) -> PathBuf {
-    let rust_dir = get_rust_dir(package);
-    assert!(rust_dir.exists());
-    let snapshot_dir = get_or_create_child_dir(&rust_dir, "snapshot");
-    get_or_create_child_dir(&snapshot_dir, &snake_to_dash(&package.ident))
 }

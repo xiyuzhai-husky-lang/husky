@@ -16,3 +16,5 @@ _outdated
 .vscode
 .metals
 *.swp
+
+__rust_gen_cache__
