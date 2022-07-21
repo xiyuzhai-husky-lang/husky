@@ -265,7 +265,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         let field_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
         let field_qt = self.eager_expr_qualified_ty(raw_expr_idx).unwrap();
         Ok(EagerExprVariant::Opn {
-            opn_variant: EagerOpnVariant::FieldAccess {
+            opn_variant: EagerOpnVariant::Field {
                 field_ident,
                 this_ty: this.ty(),
                 field_liason,

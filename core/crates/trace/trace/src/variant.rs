@@ -179,7 +179,7 @@ impl<'eval> TraceVariant<'eval> {
                 } => match opn_variant {
                     EagerOpnVariant::RoutineCall(ranged_route) => !ranged_route.route.is_builtin(),
                     EagerOpnVariant::TypeCall { ranged_ty, .. } => !ranged_ty.route.is_builtin(),
-                    EagerOpnVariant::FieldAccess { .. } => false,
+                    EagerOpnVariant::Field { .. } => false,
                     EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }
                     | EagerOpnVariant::Suffix { .. }

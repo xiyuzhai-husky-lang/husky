@@ -23,7 +23,7 @@ impl<'a> LinkageCollector<'a> {
                     EagerOpnVariant::Suffix { .. } => (),
                     EagerOpnVariant::RoutineCall(routine) => self.insert(routine.route),
                     EagerOpnVariant::TypeCall { ranged_ty, .. } => self.insert(ranged_ty.route),
-                    EagerOpnVariant::FieldAccess { .. } => (),
+                    EagerOpnVariant::Field { .. } => (),
                     EagerOpnVariant::MethodCall { method_route, .. } => match method_route.kind {
                         EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
                             self.insert(*method_route)

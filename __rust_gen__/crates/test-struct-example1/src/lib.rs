@@ -95,7 +95,7 @@ pub(crate) fn f1() -> A {
 
 pub(crate) fn f2() -> A {
     let mut a = A::__call__(2);
-    *a.x = 1;
+    a.x = 1;
     return a
 }
 
