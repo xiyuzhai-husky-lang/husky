@@ -414,7 +414,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 ref opds,
                 ..
             } => match entity.variant {
-                EntityDefnVariant::Ty { kind, .. } => todo!(),
+                EntityDefnVariant::Ty { ty_kind: kind, .. } => todo!(),
                 // p!(field_ident, ty.fields);
                 // let idx = ty.fields.position(field_ident).unwrap();
                 // opds[idx].clone()

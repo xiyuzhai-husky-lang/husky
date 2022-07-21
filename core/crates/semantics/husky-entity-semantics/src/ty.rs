@@ -146,7 +146,7 @@ impl EntityDefnVariant {
             spatial_parameters: generic_parameters,
             ty_members,
             variants,
-            kind,
+            ty_kind: kind,
             trait_impls,
             members,
             opt_type_call,

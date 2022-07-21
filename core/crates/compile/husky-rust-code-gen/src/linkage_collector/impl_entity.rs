@@ -69,7 +69,7 @@ impl<'a> LinkageCollector<'a> {
                 spatial_parameters: ref generic_parameters,
                 ref ty_members,
                 ref variants,
-                kind,
+                ty_kind: kind,
                 ref trait_impls,
                 ref members,
                 ref opt_type_call,

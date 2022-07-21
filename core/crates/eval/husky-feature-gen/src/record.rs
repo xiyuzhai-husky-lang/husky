@@ -35,7 +35,7 @@ pub(crate) fn expr_record_field<'eval>(
             ..
         } => match entity.variant {
             EntityDefnVariant::Ty {
-                kind,
+                ty_kind: kind,
                 ty_members: ref type_members,
                 ref variants,
                 ref trait_impls,

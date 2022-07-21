@@ -224,7 +224,7 @@ pub enum EntityDefnVariant {
         spatial_parameters: IdentDict<SpatialParameter>,
         ty_members: IdentDict<Arc<EntityDefn>>,
         variants: IdentDict<Arc<EntityDefn>>,
-        kind: TyKind,
+        ty_kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDefn>>,
         members: Avec<EntityDefn>,
         opt_type_call: Option<Arc<TypeCallDefn>>,

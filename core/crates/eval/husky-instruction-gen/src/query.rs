@@ -103,7 +103,7 @@ fn method_opt_instruction_sheet(
         EntityDefnVariant::Ty {
             ty_members: ref type_members,
             ref variants,
-            kind,
+            ty_kind: kind,
             ref trait_impls,
             ref members,
             ..
