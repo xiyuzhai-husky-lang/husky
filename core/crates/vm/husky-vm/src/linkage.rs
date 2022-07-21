@@ -24,7 +24,7 @@ pub enum __Linkage {
 }
 
 impl __Linkage {
-    pub fn specific(self) -> __SpecificRoutineLinkage {
+    pub const fn specific(self) -> __SpecificRoutineLinkage {
         match self {
             __Linkage::SpecificTransfer(linkage) => linkage,
             __Linkage::Member(_) => panic!(),
@@ -33,7 +33,7 @@ impl __Linkage {
         }
     }
 
-    pub fn requires_lazy(&self) -> bool {
+    pub const fn requires_lazy(&self) -> bool {
         match self {
             __Linkage::Model(_) => true,
             __Linkage::Member { .. } => false,

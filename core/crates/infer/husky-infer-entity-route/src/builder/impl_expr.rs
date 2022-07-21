@@ -142,7 +142,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawOpnVariant::Binary(opr) => self.binary_opn(*opr, opds.start, opds.start + 1, range),
             RawOpnVariant::Prefix(opr) => self.infer_prefix(*opr, opds.start),
             RawOpnVariant::Suffix(opr) => self.infer_suffix(*opr, opds.start, range),
-            RawOpnVariant::List(opr) => self.list_opn_ty_result(opr, opds, range, idx),
+            RawOpnVariant::List(opr) => self.list_opn_ty_result(idx, opr, opds, range),
             RawOpnVariant::Field(field_ident) => {
                 self.infer_field_access(*field_ident, opds.start, range)
             }
@@ -370,26 +370,23 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn list_opn_ty_result(
         &mut self,
+        idx: RawExprIdx,
         opr: &ListOpr,
         opds: &RawExprRange,
         range: TextRange,
-        raw_expr_idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         msg_once!("expectation");
         match opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => self.infer_new_vec_from_list(opds, range),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_call(opds, range),
+            ListOpr::Call => self.infer_call(idx, opds, range),
             ListOpr::Index => self.infer_index(opds, range),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
-            ListOpr::MethodCall { ranged_ident, .. } => self.infer_method_call(
-                opds.start,
-                *ranged_ident,
-                (opds.start + 1)..opds.end,
-                raw_expr_idx,
-            ),
+            ListOpr::MethodCall { ranged_ident, .. } => {
+                self.infer_method_call(opds.start, *ranged_ident, (opds.start + 1)..opds.end, idx)
+            }
         }
     }
 
@@ -412,6 +409,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_call(
         &mut self,
+        idx: RawExprIdx,
         total_opds: &RawExprRange,
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
@@ -422,7 +420,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         };
         self.entity_route_sheet
             .call_routes
-            .insert_new(total_opds.start, call_route_result.clone());
+            .insert_new(idx, call_route_result.clone());
         let call_decl_result: InferResult<_> =
             self.db.call_form_decl(call_route_result?).bind_into(caller);
         let call_decl = call_decl_result?;
@@ -453,7 +451,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
         parameters: RawExprRange,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let this_deref_ty = derived_not_none!(self.infer_expr(this, None))?.deref_route();
         let this_deref_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
@@ -465,7 +463,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     call_form_decl.primary_parameters.len(),
                     parameters.end - parameters.start
                 ),
-                self.arena[raw_expr_idx].range
+                self.arena[idx].range
             ));
         }
         for (argument, parameter) in zip(
@@ -482,7 +480,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             };
         self.entity_route_sheet
             .call_routes
-            .insert_new(raw_expr_idx, Ok(call_form_decl.opt_base_route.unwrap()));
+            .insert_new(idx, Ok(call_form_decl.opt_base_route.unwrap()));
         Ok(call_form_decl.output.ty)
     }
 

@@ -372,39 +372,25 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
-        match self.arena[total_opds.start].variant {
-            RawExprVariant::Entity { route, .. } => {
-                let call_decl = derived_unwrap!(self.db.call_form_decl(route));
-                let opt_opd_qualified_tys: Vec<_> = ((total_opds.start + 1)..total_opds.end)
-                    .into_iter()
-                    .map(|opd_idx| self.infer_lazy_expr(opd_idx))
-                    .collect();
-                match call_decl.output.liason {
-                    OutputLiason::Transfer => {
-                        msg_once!("handle ref");
-                        Ok(LazyValueQualifiedTy::new(
-                            if self.db.is_copyable(call_decl.output.ty)? {
-                                LazyExprQualifier::Copyable
-                            } else {
-                                LazyExprQualifier::Transient
-                            },
-                            call_decl.output.ty,
-                        ))
-                    }
-                    OutputLiason::MemberAccess { .. } => todo!(),
-                }
+        let call_decl = self.call_form_decl(idx).unwrap();
+        self.infer_lazy_expr(total_opds.start);
+        let opt_opd_qualified_tys: Vec<_> = ((total_opds.start + 1)..total_opds.end)
+            .into_iter()
+            .map(|opd_idx| self.infer_lazy_expr(opd_idx))
+            .collect();
+        match call_decl.output.liason {
+            OutputLiason::Transfer => {
+                msg_once!("handle ref");
+                Ok(LazyValueQualifiedTy::new(
+                    if self.db.is_copyable(call_decl.output.ty)? {
+                        LazyExprQualifier::Copyable
+                    } else {
+                        LazyExprQualifier::Transient
+                    },
+                    call_decl.output.ty,
+                ))
             }
-            RawExprVariant::Opn {
-                opn_variant: ref opr,
-                ref opds,
-            } => todo!(),
-            RawExprVariant::CopyableLiteral(_) => {
-                throw_derived!("a primitive literal can't be a caller")
-            }
-            _ => {
-                p!(self.arena[total_opds.start].variant);
-                todo!()
-            }
+            OutputLiason::MemberAccess { .. } => todo!(),
         }
     }
 

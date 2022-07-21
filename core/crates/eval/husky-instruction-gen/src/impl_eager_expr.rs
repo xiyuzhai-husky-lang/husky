@@ -5,7 +5,7 @@ use husky_linkage_table::ResolveLinkage;
 use infer_decl::TyDecl;
 use map_collect::MapCollect;
 use vm::{
-    __root::{__EQ_LINKAGE, __NEQ_LINKAGE},
+    __root::{__EQ_LINKAGE, __NEQ_LINKAGE, __VALUE_CALL_LINKAGE},
     *,
 };
 
@@ -375,7 +375,14 @@ impl<'a> InstructionSheetBuilder<'a> {
                     expr.clone(),
                 ))
             }
-            EagerOpnVariant::ValueCall => todo!(),
+            EagerOpnVariant::ValueCall => self.push_instruction(Instruction::new(
+                InstructionVariant::CallSpecificRoutine {
+                    linkage: __VALUE_CALL_LINKAGE.specific(),
+                    nargs: opds.len().try_into().unwrap(),
+                    output_ty: expr.ty(),
+                },
+                expr.clone(),
+            )),
         }
     }
 

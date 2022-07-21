@@ -459,6 +459,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         self.raw_expr_ty(total_opds.start)?
                     }
                 }));
+        self.infer_eager_expr(total_opds.start);
         for opd_idx in (total_opds.start + 1)..total_opds.end {
             let opd_contract = self.eager_expr_contract(opd_idx)?;
             if let Some(qt) = self.infer_eager_expr(opd_idx) {
