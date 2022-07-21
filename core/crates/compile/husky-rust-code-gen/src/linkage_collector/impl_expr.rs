@@ -32,6 +32,7 @@ impl<'a> LinkageCollector<'a> {
                     },
                     EagerOpnVariant::Index { .. } => (),
                     EagerOpnVariant::NewVecFromList => todo!(),
+                    EagerOpnVariant::ValueCall => todo!(),
                 }
             }
             EagerExprVariant::Lambda(_, _) => todo!(),

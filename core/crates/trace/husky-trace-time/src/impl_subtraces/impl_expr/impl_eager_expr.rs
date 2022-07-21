@@ -119,6 +119,7 @@ impl HuskyTraceTime {
             }
             EagerOpnVariant::Index { element_binding } => todo!(),
             EagerOpnVariant::NewVecFromList => todo!(),
+            EagerOpnVariant::ValueCall => todo!(),
         }
     }
 }

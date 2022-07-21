@@ -9,6 +9,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         arena: &RawExprArena,
     ) {
         self.add_inputs(inputs);
-        self.infer_stmts(ast_iter.clone(), opt_output_ty, arena);
+        self.infer_stmts(ast_iter.clone(), opt_output_ty);
     }
 }
