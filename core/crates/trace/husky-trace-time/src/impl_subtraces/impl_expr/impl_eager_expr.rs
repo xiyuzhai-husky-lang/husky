@@ -74,7 +74,7 @@ impl HuskyTraceTime {
                 )
             }
             EagerOpnVariant::TypeCall { ranged_ty, ty_decl } => todo!(),
-            EagerOpnVariant::FieldAccess {
+            EagerOpnVariant::Field {
                 this_ty,
                 field_ident,
                 field_liason,

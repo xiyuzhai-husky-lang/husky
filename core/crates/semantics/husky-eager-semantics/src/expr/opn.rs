@@ -27,7 +27,7 @@ pub enum EagerOpnVariant {
         ty_decl: Arc<TyDecl>,
     },
     NewVecFromList,
-    FieldAccess {
+    Field {
         this_ty: EntityRoutePtr,
         field_ident: RangedCustomIdentifier,
         field_liason: MemberLiason,

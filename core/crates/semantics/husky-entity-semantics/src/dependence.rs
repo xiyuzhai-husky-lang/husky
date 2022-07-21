@@ -415,7 +415,7 @@ impl EntityDefn {
                         EagerOpnVariant::Binary { .. }
                         | EagerOpnVariant::Prefix { .. }
                         | EagerOpnVariant::Suffix { .. }
-                        | EagerOpnVariant::FieldAccess { .. }
+                        | EagerOpnVariant::Field { .. }
                         | EagerOpnVariant::MethodCall { .. }
                         | EagerOpnVariant::Index { .. } => (),
                         EagerOpnVariant::RoutineCall(routine) => builder.push(routine.route),

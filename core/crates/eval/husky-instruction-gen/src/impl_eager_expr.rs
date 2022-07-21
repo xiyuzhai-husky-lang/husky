@@ -218,7 +218,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     ))
                 }
             }
-            EagerOpnVariant::FieldAccess {
+            EagerOpnVariant::Field {
                 this_ty,
                 field_ident,
                 field_liason,

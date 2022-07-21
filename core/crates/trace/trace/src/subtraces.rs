@@ -34,7 +34,7 @@ impl<'eval> Trace {
                     ref opds,
                     ..
                 } => match opn_variant {
-                    EagerOpnVariant::FieldAccess { .. } | EagerOpnVariant::Index { .. } => None,
+                    EagerOpnVariant::Field { .. } | EagerOpnVariant::Index { .. } => None,
                     EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }
                     | EagerOpnVariant::Suffix { .. } => {

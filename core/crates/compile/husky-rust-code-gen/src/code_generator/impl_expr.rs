@@ -37,7 +37,8 @@ impl<'a> RustCodeGenerator<'a> {
                             EagerExprVariant::Opn {
                                 ref opn_variant, ..
                             } => match opn_variant {
-                                EagerOpnVariant::Index { element_binding } => (),
+                                EagerOpnVariant::Index { .. } => (),
+                                EagerOpnVariant::Field { .. } => (),
                                 _ => self.write("*"),
                             },
                             _ => self.write("*"),
@@ -109,7 +110,7 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                     self.write(")");
                 }
-                EagerOpnVariant::FieldAccess { field_ident, .. } => {
+                EagerOpnVariant::Field { field_ident, .. } => {
                     self.gen_expr(&opds[0]);
                     self.write(".");
                     self.write(&field_ident.ident)
