@@ -175,6 +175,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write("]");
                 }
                 EagerOpnVariant::NewVecFromList => todo!(),
+                EagerOpnVariant::ValueCall => todo!(),
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EnumKindLiteral(value) => {

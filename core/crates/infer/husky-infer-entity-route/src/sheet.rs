@@ -19,7 +19,7 @@ pub(crate) fn entity_route_sheet(
     file: FilePtr,
 ) -> EntitySyntaxResultArc<EntityRouteSheet> {
     let ast_text = db.ast_text(file)?;
-    let mut ty_sheet_builder = EntityRouteSheetBuilder::new(db, ast_text.clone());
+    let mut ty_sheet_builder = EntityRouteSheetBuilder::new(db, &ast_text.arena, ast_text.clone());
     ty_sheet_builder.infer_all(ast_text.folded_results.iter());
     Ok(Arc::new(ty_sheet_builder.finish()))
 }

@@ -423,6 +423,7 @@ impl EntityDefn {
                             builder.push(ranged_ty.route)
                         }
                         EagerOpnVariant::NewVecFromList => (),
+                        EagerOpnVariant::ValueCall => (),
                     }
                     for opd in opds {
                         extract_eager_expr_dependees(opd, builder)

@@ -285,7 +285,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         let input_opd_idx_range = (opds.start + 1)..opds.end;
         match call.variant {
             RawExprVariant::Entity {
-                route: scope,
+                route,
                 kind:
                     EntityKind::Function {
                         requires_lazy: is_lazy,
@@ -301,7 +301,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     .collect::<SemanticResult<_>>()?;
                 Ok(EagerExprVariant::Opn {
                     opn_variant: EagerOpnVariant::RoutineCall(RangedEntityRoute {
-                        route: scope,
+                        route,
                         range: call.range(),
                     }),
                     opds: arguments,
@@ -328,7 +328,15 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     opds: arguments,
                 })
             }
-            _ => todo!(),
+            RawExprVariant::Entity {
+                route: scope, kind, ..
+            } => todo!(),
+            _ => Ok(EagerExprVariant::Opn {
+                opn_variant: EagerOpnVariant::ValueCall,
+                opds: opds
+                    .map(|raw| self.parse_eager_expr(raw))
+                    .collect::<SemanticResult<_>>()?,
+            }),
         }
     }
 

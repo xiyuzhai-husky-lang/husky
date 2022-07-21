@@ -21,6 +21,7 @@ pub enum EagerOpnVariant {
         opr: SuffixOpr,
     },
     RoutineCall(RangedEntityRoute),
+    ValueCall,
     TypeCall {
         ranged_ty: RangedEntityRoute,
         ty_decl: Arc<TyDecl>,

@@ -24,7 +24,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CallFormDecl {
-    pub base_route: EntityRoutePtr,
+    pub opt_base_route: Option<EntityRoutePtr>,
     pub opt_this_liason: Option<ParameterLiason>,
     pub spatial_parameters: IdentDict<SpatialParameter>,
     pub primary_parameters: IdentDict<ParameterDecl>,
@@ -47,7 +47,7 @@ impl CallFormDecl {
                 output_liason,
                 opt_this_liason,
             } => Arc::new(CallFormDecl {
-                base_route: route,
+                opt_base_route: Some(route),
                 opt_this_liason,
                 spatial_parameters: generic_parameters.clone(),
                 primary_parameters: parameters
@@ -83,7 +83,7 @@ impl CallFormDecl {
             } => {
                 let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
                 Arc::new(Self {
-                    base_route,
+                    opt_base_route: Some(base_route),
                     opt_this_liason: Some(this_liason),
                     primary_parameters: parameters
                         .map(|input| ParameterDecl::from_static(symbol_context, input)),
@@ -107,7 +107,7 @@ impl CallFormDecl {
     }
 
     pub fn ident(&self) -> CustomIdentifier {
-        self.base_route.ident().custom()
+        self.opt_base_route.unwrap().ident().custom()
     }
 
     pub fn nargs(&self) -> u8 {
@@ -125,7 +125,9 @@ impl Instantiable for CallFormDecl {
 
     fn instantiate(&self, ctx: &InstantiationContext) -> Self::Target {
         Arc::new(Self {
-            base_route: self.base_route.instantiate(ctx).take_entity_route(),
+            opt_base_route: self
+                .opt_base_route
+                .map(|route| route.instantiate(ctx).take_entity_route()),
             opt_this_liason: self.opt_this_liason,
             spatial_parameters: self
                 .spatial_parameters
@@ -150,7 +152,9 @@ impl Implementable for CallFormDecl {
 
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         Arc::new(Self {
-            base_route: self.base_route.implement(ctx).take_entity_route(),
+            opt_base_route: self
+                .opt_base_route
+                .map(|route| route.implement(ctx).take_entity_route()),
             opt_this_liason: self.opt_this_liason,
             primary_parameters: self
                 .primary_parameters
@@ -170,6 +174,45 @@ pub(crate) fn call_form_decl(
     db: &dyn DeclQueryGroup,
     route: EntityRoutePtr,
 ) -> InferQueryResultArc<CallFormDecl> {
+    match route.kind {
+        EntityRouteKind::Root {
+            ident: RootIdentifier::Fp,
+        } => {
+            msg_once!("much more todo");
+            let nargs = route.spatial_arguments.len() - 1;
+            return Ok(Arc::new(CallFormDecl {
+                opt_base_route: None,
+                opt_this_liason: None,
+                spatial_parameters: Default::default(),
+                primary_parameters: route.spatial_arguments[0..nargs]
+                    .iter()
+                    .enumerate()
+                    .map(|(i, spatial_argument)| ParameterDecl {
+                        liason: ParameterLiason::Pure,
+                        ty: spatial_argument.take_entity_route(),
+                        ident: db.intern_word(&format!("arg{}", i)).custom(),
+                    })
+                    .collect(),
+                variadic_template: Default::default(),
+                keyword_parameters: Default::default(),
+                output: OutputDecl {
+                    liason: OutputLiason::Transfer,
+                    ty: route.spatial_arguments.last().unwrap().take_entity_route(),
+                },
+                is_lazy: false,
+            }));
+        }
+        EntityRouteKind::Root {
+            ident: RootIdentifier::Fn,
+        } => todo!(),
+        EntityRouteKind::Root {
+            ident: RootIdentifier::FnMut,
+        } => todo!(),
+        EntityRouteKind::Root {
+            ident: RootIdentifier::FnOnce,
+        } => todo!(),
+        _ => (),
+    }
     let source = db.entity_source(route)?;
     return match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
@@ -275,7 +318,7 @@ pub(crate) fn routine_decl_from_static(
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             msg_once!("todo: keyword parameters");
             Arc::new(CallFormDecl {
-                base_route: route,
+                opt_base_route: Some(route),
                 spatial_parameters: generic_parameters,
                 primary_parameters: parameters,
                 output: OutputDecl {

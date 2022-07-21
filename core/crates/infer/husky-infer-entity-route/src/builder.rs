@@ -11,6 +11,7 @@ use std::sync::Arc;
 
 pub struct EntityRouteSheetBuilder<'a> {
     db: &'a dyn InferEntityRouteQueryGroup,
+    arena: &'a RawExprArena,
     main_file: FilePtr,
     entity_route_sheet: EntityRouteSheet,
     trait_uses: LocalStack<EntityRouteKind>,
@@ -21,7 +22,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         self.entity_route_sheet.ast_text.file
     }
 
-    pub(super) fn new(db: &'a dyn InferEntityRouteQueryGroup, ast_text: Arc<AstText>) -> Self {
+    pub(super) fn new(
+        db: &'a dyn InferEntityRouteQueryGroup,
+        arena: &'a RawExprArena,
+        ast_text: Arc<AstText>,
+    ) -> Self {
         let main_file = db.main_file(ast_text.file).unwrap();
         let mut global_errors = Vec::new();
         match db.eval_input_ty(main_file) {
@@ -34,6 +39,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         }
         Self {
             db,
+            arena,
             main_file,
             entity_route_sheet: EntityRouteSheet::new(ast_text, global_errors),
             trait_uses: LocalStack::new(),
@@ -60,10 +66,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     field_ast_kind: field_kind,
                 } => match field_kind {
                     FieldAstKind::StructDefault { default } => {
-                        self.infer_expr(default, Some(ty.route), &arena);
+                        self.infer_expr(default, Some(ty.route));
                     }
                     FieldAstKind::StructDerivedEager { derivation } => {
-                        self.infer_expr(derivation, Some(ty.route), &arena);
+                        self.infer_expr(derivation, Some(ty.route));
                     }
                     _ => (),
                 },
@@ -76,20 +82,17 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     }
                     AstVariant::MainDefnHead => {
                         let opt_output_ty = self.db.eval_output_ty(self.main_file).ok();
-                        self.infer_function(&[], opt_output_ty, children, &arena)
+                        self.infer_function(&[], opt_output_ty, children)
                     }
-                    AstVariant::DatasetConfigDefnHead => self.infer_function(
-                        &[],
-                        Some(RootIdentifier::DatasetType.into()),
-                        children,
-                        &arena,
-                    ),
+                    AstVariant::DatasetConfigDefnHead => {
+                        self.infer_function(&[], Some(RootIdentifier::DatasetType.into()), children)
+                    }
                     AstVariant::CallFormDefnHead {
                         ref parameters,
                         output_ty,
                         ..
-                    } => self.infer_function(parameters, Some(output_ty.route), children, &arena),
-                    AstVariant::Visual => self.infer_function(&[], None, children, &arena),
+                    } => self.infer_function(parameters, Some(output_ty.route), children),
+                    AstVariant::Visual => self.infer_function(&[], None, children),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
                         field_ast_kind: field_kind,
@@ -99,14 +102,14 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         FieldAstKind::StructOriginal => (),
                         FieldAstKind::RecordOriginal => (),
                         FieldAstKind::StructDerivedLazy { .. } | FieldAstKind::RecordDerived => {
-                            self.infer_function(&[], Some(ty.route), children, &arena)
+                            self.infer_function(&[], Some(ty.route), children)
                         }
                         FieldAstKind::StructDefault { .. } => todo!(),
                         FieldAstKind::StructDerivedEager { .. } => todo!(),
                     },
                     AstVariant::Stmt(_) => todo!(),
                     AstVariant::FeatureDefnHead { ty, .. } => {
-                        self.infer_function(&[], Some(ty.route), children, &arena)
+                        self.infer_function(&[], Some(ty.route), children)
                     }
                     AstVariant::Submodule { ident, source_file } => (),
                 }

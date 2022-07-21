@@ -329,16 +329,16 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
     ) -> InferResult<()> {
         let call_expr = &self.arena[total_opds.start];
-        let call_decl = match call_expr.variant {
-            RawExprVariant::Entity { route, .. } => {
-                derived_unwrap!(self.db.call_form_decl(route))
-            }
-            RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized caller"),
-            RawExprVariant::Lambda(_, _) => todo!(),
-            _ => {
-                todo!()
-            }
-        };
+        let call_decl = self.call_form_decl(total_opds.start).unwrap();
+        // match call_expr.variant {
+        //     RawExprVariant::Entity { route, .. } => {
+        //         derived_unwrap!(self.db.call_form_decl(route))
+        //     }
+        //     _ => {
+        //         msg_once!("supports more than pure functions");
+        //         todo!()
+        //     }
+        // };
         for (argument, parameter) in zip(
             ((total_opds.start + 1)..total_opds.end).into_iter(),
             call_decl.primary_parameters.iter(),

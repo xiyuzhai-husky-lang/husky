@@ -6,9 +6,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         inputs: &[Parameter],
         opt_output_ty: Option<EntityRoutePtr>,
         ast_iter: AstIter,
-        arena: &RawExprArena,
     ) {
         self.add_inputs(inputs);
-        self.infer_stmts(ast_iter.clone(), opt_output_ty, arena)
+        self.infer_stmts(ast_iter.clone(), opt_output_ty)
     }
 }

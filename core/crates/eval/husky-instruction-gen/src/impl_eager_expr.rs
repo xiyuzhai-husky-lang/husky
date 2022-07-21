@@ -375,6 +375,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     expr.clone(),
                 ))
             }
+            EagerOpnVariant::ValueCall => todo!(),
         }
     }
 

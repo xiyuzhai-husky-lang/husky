@@ -6,6 +6,12 @@ pub enum VariadicTemplate {
     SingleTyped { ty: EntityRoutePtr },
 }
 
+impl Default for VariadicTemplate {
+    fn default() -> Self {
+        VariadicTemplate::None
+    }
+}
+
 impl VariadicTemplate {
     pub(crate) fn from_static(
         ctx: &mut dyn AtomContext,

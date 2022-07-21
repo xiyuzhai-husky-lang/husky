@@ -48,11 +48,11 @@ impl MemberDecl {
             MemberDecl::AssociatedType => todo!(),
             MemberDecl::AssociatedCall => todo!(),
             MemberDecl::TypeField(field) => field.ident,
-            MemberDecl::TypeMethod(method) => method.base_route.ident().custom(),
-            MemberDecl::TraitMethodImpl { method, .. } => method.base_route.ident().custom(),
+            MemberDecl::TypeMethod(method) => method.ident(),
+            MemberDecl::TraitMethodImpl { method, .. } => method.ident(),
             MemberDecl::TraitAssociatedTypeImpl { ident, .. } => *ident,
             MemberDecl::TraitAssociatedConstSizeImpl { ident, .. } => *ident,
-            MemberDecl::TypeAssociatedCall(call) => call.base_route.ident().custom(),
+            MemberDecl::TypeAssociatedCall(call) => call.ident(),
         }
     }
 }
@@ -129,9 +129,9 @@ impl TyMemberDecl {
 impl VecMapEntry<CustomIdentifier> for TyMemberDecl {
     fn key(&self) -> CustomIdentifier {
         match self {
-            TyMemberDecl::Method(call_form_decl) => call_form_decl.base_route.ident().custom(),
+            TyMemberDecl::Method(call_form_decl) => call_form_decl.ident(),
             TyMemberDecl::Field(field_decl) => field_decl.ident,
-            TyMemberDecl::Call(call_decl) => call_decl.base_route.ident().custom(),
+            TyMemberDecl::Call(call_decl) => call_decl.ident(),
         }
     }
 }

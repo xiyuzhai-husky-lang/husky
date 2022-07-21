@@ -186,6 +186,7 @@ impl<'eval> TraceVariant<'eval> {
                     | EagerOpnVariant::MethodCall { .. } => !opds[0].ty().is_builtin(),
                     EagerOpnVariant::Index { .. } => false,
                     EagerOpnVariant::NewVecFromList => todo!(),
+                    EagerOpnVariant::ValueCall => todo!(),
                 },
                 EagerExprVariant::Lambda(_, _)
                 | EagerExprVariant::ThisValue { .. }

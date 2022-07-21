@@ -161,7 +161,7 @@ impl TyDecl {
                 }
                 msg_once!("variadics");
                 Some(Arc::new(CallFormDecl {
-                    base_route: ty,
+                    opt_base_route: Some(ty),
                     spatial_parameters: generic_parameters.clone(),
                     primary_parameters,
                     variadic_template: VariadicTemplate::None,
@@ -643,7 +643,7 @@ pub(crate) fn call_form_decl_from_static(
                 },
                 opt_this_liason: Some(this_liason),
                 is_lazy: false,
-                base_route: todo!(),
+                opt_base_route: todo!(),
                 variadic_template: todo!(),
                 keyword_parameters: todo!(),
             })

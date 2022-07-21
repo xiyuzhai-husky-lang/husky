@@ -30,10 +30,10 @@ impl<'eval> Trace {
             TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
                 EagerExprVariant::Variable { .. } | EagerExprVariant::PrimitiveLiteral(_) => None,
                 EagerExprVariant::Opn {
-                    opn_variant: ref opn_kind,
+                    ref opn_variant,
                     ref opds,
                     ..
-                } => match opn_kind {
+                } => match opn_variant {
                     EagerOpnVariant::FieldAccess { .. } | EagerOpnVariant::Index { .. } => None,
                     EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }
@@ -49,6 +49,7 @@ impl<'eval> Trace {
                     }
                     EagerOpnVariant::TypeCall { .. } => todo!(),
                     EagerOpnVariant::NewVecFromList => todo!(),
+                    EagerOpnVariant::ValueCall => todo!(),
                 },
                 EagerExprVariant::Lambda(_, _) => todo!(),
                 EagerExprVariant::Bracketed(_) => panic!(),
