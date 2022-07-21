@@ -35,6 +35,14 @@ impl Parameter {
         }
     }
 
+    pub fn liason(&self) -> ParameterLiason {
+        self.ranged_liason.liason
+    }
+
+    pub fn ty(&self) -> EntityRoutePtr {
+        self.ranged_ty.route
+    }
+
     pub fn from_member(
         ranged_ident: RangedCustomIdentifier,
         liason: MemberLiason,

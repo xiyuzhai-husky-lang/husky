@@ -63,11 +63,11 @@ impl<'a> RustCodeGenerator<'a> {
         stmts: &[Arc<ProcStmt>],
     ) {
         let needs_eval_context: bool = self.db.needs_eval_context(base_route);
-        let needs_eval_ref = needs_eval_context
-            || self.db.entity_route_kind_contains_eval_ref(base_route.kind)
-                && !self
-                    .db
-                    .entity_route_kind_contains_eval_ref(base_route.parent().kind);
+        let needs_eval_ref = (needs_eval_context
+            || self.db.entity_route_kind_contains_eval_ref(base_route.kind))
+            && !self
+                .db
+                .entity_route_kind_contains_eval_ref(base_route.parent().kind);
         self.write("\n");
         self.indent(indent);
         self.write("pub(crate) fn ");

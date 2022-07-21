@@ -68,18 +68,12 @@ pub(super) fn entity_route_kind_contains_eval_ref(
         EntityKind::Function { requires_lazy } => {
             let call_form_decl = db.entity_call_form_decl(base_route).unwrap();
             for parameter in call_form_decl.primary_parameters.iter() {
-                if db.entity_route_contains_eval_ref(parameter.ty) {
+                if parameter_contains_eval_ref(db, parameter) {
                     return true;
                 }
             }
             for parameter in call_form_decl.keyword_parameters.iter() {
-                match parameter.liason {
-                    ParameterLiason::EvalRef => return true,
-                    ParameterLiason::TempRef => todo!(),
-                    ParameterLiason::TempRefMut => todo!(),
-                    _ => (),
-                }
-                if db.entity_route_contains_eval_ref(parameter.ty) {
+                if parameter_contains_eval_ref(db, parameter) {
                     return true;
                 }
             }
@@ -92,6 +86,17 @@ pub(super) fn entity_route_kind_contains_eval_ref(
         EntityKind::Main => todo!(),
     }
     false
+}
+
+fn parameter_contains_eval_ref(
+    db: &dyn RustCodeGenQueryGroup,
+    parameter: &infer_decl::ParameterDecl,
+) -> bool {
+    match parameter.liason {
+        ParameterLiason::EvalRef => return true,
+        _ => (),
+    }
+    db.entity_route_contains_eval_ref(parameter.ty)
 }
 
 pub(super) fn entity_route_contains_eval_ref(

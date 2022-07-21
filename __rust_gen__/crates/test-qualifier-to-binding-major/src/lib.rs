@@ -116,7 +116,7 @@ impl<'eval> __AnyValue<'eval> for B {
         todo!()
     }
 }
-pub(crate) fn take_copyable_eval_ref(x: &'eval i32) -> i32 {
+pub(crate) fn take_copyable_eval_ref<'eval>(x: &'eval i32) -> i32 {
     return 1;
 
 }
