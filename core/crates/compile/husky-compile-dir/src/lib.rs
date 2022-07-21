@@ -8,9 +8,9 @@ use word::snake_to_dash;
 
 pub fn get_rust_dir(pack: &Package) -> PathBuf {
     let husky_dir = env::var("HUSKY_DIR").unwrap();
-    let rust_root = format!("{husky_dir}/.compiled/crates");
+    let rust_gen_root = format!("{husky_dir}/__rust_gen__/crates");
     let dashed_name = snake_to_dash(&pack.ident);
-    let rust_dir: PathBuf = [rust_root, dashed_name].iter().collect();
+    let rust_dir: PathBuf = [rust_gen_root, dashed_name].iter().collect();
     mkdir(&rust_dir);
     rust_dir
 }
