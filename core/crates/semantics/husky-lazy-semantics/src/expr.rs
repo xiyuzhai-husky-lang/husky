@@ -51,10 +51,6 @@ pub enum LazyExprVariant {
         varname: CustomIdentifier,
         binding: Binding,
     },
-    EntityRoute {
-        route: EntityRoutePtr,
-        compiled: (),
-    },
     PrimitiveLiteral(CopyableValue),
     EnumLiteral {
         entity_route: EntityRoutePtr,

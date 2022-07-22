@@ -20,6 +20,7 @@ word = { path = "../../syntax/word" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 vm = { path = "../../vm/husky-vm" }
 husky-compile-dir = { path = "../husky-compile-dir" }

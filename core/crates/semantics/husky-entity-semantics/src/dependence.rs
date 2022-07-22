@@ -144,7 +144,6 @@ impl EntityDefn {
                     extract_enum_variant_dependees(enum_variant, &mut builder)
                 });
             }
-            EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Builtin => (),
             EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
                 EnumVariantDefnVariant::Constant => (),
@@ -365,14 +364,13 @@ impl EntityDefn {
         fn extract_lazy_expr_dependees(expr: &LazyExpr, builder: &mut DependeeMapBuilder) {
             match expr.variant {
                 LazyExprVariant::Variable { .. } | LazyExprVariant::PrimitiveLiteral(_) => (),
-                LazyExprVariant::EntityRoute { route: scope, .. } => builder.push(scope),
                 LazyExprVariant::EnumLiteral { .. } => todo!(),
                 LazyExprVariant::Bracketed(_) => todo!(),
                 LazyExprVariant::Opn { opn_kind, ref opds } => {
                     match opn_kind {
                         LazyOpnKind::Binary { .. }
                         | LazyOpnKind::Prefix(_)
-                        | LazyOpnKind::FieldAccess { .. }
+                        | LazyOpnKind::Field { .. }
                         | LazyOpnKind::MethodCall { .. } => (),
                         LazyOpnKind::FunctionModelCall(routine) => builder.push(routine.route),
                         LazyOpnKind::FunctionRoutineCall(routine) => builder.push(routine.route),
@@ -459,7 +457,6 @@ impl EntityDefn {
 
         fn extract_member_dependees(member_defn: &EntityDefn, builder: &mut DependeeMapBuilder) {
             match member_defn.variant {
-                EntityDefnVariant::Main(_) => todo!(),
                 EntityDefnVariant::Module { .. } => panic!("shouldn't be here"),
                 EntityDefnVariant::Feature { ref defn_repr } => todo!(),
                 EntityDefnVariant::Func { .. } => todo!(),

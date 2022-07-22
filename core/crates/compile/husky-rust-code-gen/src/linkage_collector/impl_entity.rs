@@ -8,12 +8,19 @@ use husky_entity_semantics::{
 impl<'a> LinkageCollector<'a> {
     pub(crate) fn collect_from_entity_defn(&mut self, defn: &EntityDefn) {
         match defn.variant {
-            EntityDefnVariant::Main(_) => todo!(),
-            EntityDefnVariant::Module { ref module_items } => module_items
-                .iter()
-                .for_each(|item| self.collect_from_entity_defn(item)),
+            EntityDefnVariant::Module {
+                ref module_items,
+                ref opt_main_defn,
+            } => {
+                if let Some(main_defn) = opt_main_defn {
+                    self.collect_from_feature_repr(None, &main_defn.defn_repr)
+                }
+                module_items
+                    .iter()
+                    .for_each(|item| self.collect_from_entity_defn(item))
+            }
             EntityDefnVariant::Feature { ref defn_repr } => {
-                self.collect_from_feature_repr(defn.base_route, defn_repr)
+                self.collect_from_feature_repr(Some(defn.base_route), defn_repr)
             }
             EntityDefnVariant::Function {
                 ref spatial_parameters,
@@ -142,12 +149,16 @@ impl<'a> LinkageCollector<'a> {
 
     fn collect_from_feature_repr(
         &mut self,
-        feature_route: EntityRoutePtr,
+        opt_feature_route: Option<EntityRoutePtr>,
         feature_repr: &DefinitionRepr,
     ) {
         match feature_repr {
-            DefinitionRepr::LazyExpr { expr } => (),
-            DefinitionRepr::LazyBlock { stmts, ty } => (),
+            DefinitionRepr::LazyExpr { expr } => todo!(),
+            DefinitionRepr::LazyBlock { stmts, ty } => {
+                opt_feature_route.map(|feature_route| self.insert(feature_route));
+                self.insert(ty.route);
+                self.collect_from_lazy_stmts(stmts)
+            }
             DefinitionRepr::FuncBlock {
                 route,
                 file,
@@ -155,7 +166,7 @@ impl<'a> LinkageCollector<'a> {
                 stmts,
                 ty,
             } => {
-                self.insert(feature_route);
+                opt_feature_route.map(|feature_route| self.insert(feature_route));
                 self.insert(ty.route);
                 self.collect_from_func_stmts(stmts)
             }
@@ -165,7 +176,7 @@ impl<'a> LinkageCollector<'a> {
                 stmts,
                 ty,
             } => {
-                self.insert(feature_route);
+                opt_feature_route.map(|feature_route| self.insert(feature_route));
                 self.insert(ty.route);
                 self.collect_from_proc_stmts(stmts)
             }

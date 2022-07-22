@@ -145,7 +145,6 @@ impl EntityDefn {
 
     pub fn spatial_parameters(&self) -> &[SpatialParameter] {
         match self.variant {
-            EntityDefnVariant::Main(_) => panic!(),
             EntityDefnVariant::Module { .. } => panic!(),
             EntityDefnVariant::Feature { .. } => panic!(),
             EntityDefnVariant::Function {
@@ -186,9 +185,9 @@ impl EntityDefn {
 
 #[derive(PartialEq, Eq)]
 pub enum EntityDefnVariant {
-    Main(MainDefn),
     Module {
         module_items: Avec<EntityDefn>,
+        opt_main_defn: Option<Arc<MainDefn>>,
     },
     Feature {
         defn_repr: Arc<DefinitionRepr>,
@@ -258,7 +257,6 @@ pub enum EntityDefnVariant {
 impl std::fmt::Debug for EntityDefnVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Main(_) => f.write_str("Main { ... }"),
             Self::Module { .. } => f.write_str("Module { ... }"),
             Self::Feature { .. } => f.write_str("Feature { ... }"),
             Self::Function { .. } => f.write_str("Function { ... }"),

@@ -342,7 +342,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         let field_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
         let field_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
         Ok(LazyExprVariant::Opn {
-            opn_kind: LazyOpnKind::FieldAccess {
+            opn_kind: LazyOpnKind::Field {
                 field_ident,
                 field_binding: field_qt.qual.binding(field_contract),
             },
