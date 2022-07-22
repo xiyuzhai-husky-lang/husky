@@ -118,6 +118,18 @@ macro_rules! should {
     };
 }
 
+#[macro_export]
+macro_rules! should_satisfy {
+    ($target: expr, $condition: expr) => {{
+        if !$condition($target) {
+            panic!(
+                "expect for {:?} to satisfy {}, but failed",
+                $target,
+                stringify!($condition)
+            );
+        }
+    }};
+}
 #[test]
 fn test_repeat_less_than() {
     for _ in 0..1 {

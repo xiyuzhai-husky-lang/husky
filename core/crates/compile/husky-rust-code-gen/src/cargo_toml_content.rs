@@ -31,6 +31,9 @@ serde = {{ version = "1.0.106", features = ["derive"] }}
 serde_json = {{ version = "1.0.48", features = ["preserve_order"] }}
 __husky_root = {{ path = "{rel_husky_dir}/core/crates/static/__husky_root" }}
 
+[dev-dependencies]
+tokio-test = "*"
+
 
 [[bin]]
 name = "{dashed_package_ident}-debugger"

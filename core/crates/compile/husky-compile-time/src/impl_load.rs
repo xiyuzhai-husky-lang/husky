@@ -17,7 +17,7 @@ impl HuskyCompileTime {
     }
 
     fn load_dir(&mut self, dir: &Path) {
-        should!(dir.is_dir());
+        should_satisfy!(dir, |dir: &Path| dir.is_dir());
         for maybe_entry in fs::read_dir(dir).unwrap() {
             let path = maybe_entry.expect("what").path();
             if path.is_dir() {

@@ -147,6 +147,6 @@ fn notify_change(new_data_text: &str, old_data_text: &str, save_path: &Path) -> 
         fs::write(save_path, format!("{}", new_data_text)).expect("Error writing");
         TestResult::Success
     } else {
-        TestResult::Failed
+        TestResult::Failure
     }
 }

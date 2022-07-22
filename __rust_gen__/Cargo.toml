@@ -1,9 +1,8 @@
 [workspace]
-members = ["crates/tests/*", "crates/projects/*"]
+members = ["crates/tests/*"]
 
 [profile.dev]
-opt-level = 1
-panic = "unwind"
+opt-level = 0
 
 [profile.release]
 opt-level = 3

@@ -17,6 +17,7 @@ pub struct CompilerInstance {
     src: PathBuf,
     dst: PathBuf,
     rel_husky_dir: PathBuf,
+    rel_crate_dir: PathBuf,
 }
 
 impl CompilerInstance {
@@ -26,6 +27,7 @@ impl CompilerInstance {
             src: flags.src,
             dst: flags.dst,
             rel_husky_dir: flags.rel_husky_dir,
+            rel_crate_dir: flags.rel_crate_dir,
         }
     }
 
@@ -88,7 +90,7 @@ impl CompilerInstance {
         // bin/main.rs
         diff_write(
             &bin_dir.join("main.rs"),
-            &compile_time.rust_bin_main_rs_content(main_file),
+            &compile_time.rust_bin_main_rs_content(main_file, self.rel_crate_dir.clone()),
         );
     }
 

@@ -9,7 +9,7 @@ use path_utils::collect_all_package_dirs;
 #[derive(Debug)]
 pub enum TestResult {
     Success,
-    Failed,
+    Failure,
 }
 
 pub fn test_all_packages_in_dir(dir: &Path, f: impl Fn(&Path) -> TestResult) {
@@ -35,7 +35,7 @@ pub fn test_all_packages_in_dir(dir: &Path, f: impl Fn(&Path) -> TestResult) {
         );
         match f(&package_path) {
             TestResult::Success => (),
-            TestResult::Failed => packages_failed.push(package_path),
+            TestResult::Failure => packages_failed.push(package_path),
         }
     }
 }
