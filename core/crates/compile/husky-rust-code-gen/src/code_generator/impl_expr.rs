@@ -3,7 +3,7 @@ use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_entity_semantics::FieldDefnVariant;
 use husky_infer_qualified_ty::EagerExprQualifier;
-use infer_decl::VariadicTemplate;
+use infer_decl::{CallFormDecl, VariadicTemplate};
 use vm::*;
 use word::RootIdentifier;
 
@@ -17,7 +17,8 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write("self.");
                     self.write(&field_ident.ident);
                 }
-                RustCodeGenContext::StructDerivedEager => {
+                RustCodeGenContext::ThisFieldWithPrefix { prefix } => {
+                    self.write(prefix);
                     self.write(&field_ident.ident);
                 }
             },
@@ -173,7 +174,6 @@ impl<'a> RustCodeGenerator<'a> {
             EagerExprVariant::EntityFp { route } => todo!(),
         }
     }
-
     fn gen_type_call_opn(
         &mut self,
         indent: Indent,
@@ -182,11 +182,25 @@ impl<'a> RustCodeGenerator<'a> {
         ty_decl: &Arc<infer_decl::TyDecl>,
     ) {
         let type_call = ty_decl.opt_type_call.as_ref().unwrap();
-        let needs_wrapping = type_call.keyword_parameters.len() > 0;
-        if needs_wrapping {
-            self.write("{\n");
-            self.indent(indent + 8);
-        }
+        self.exec_within_context(
+            RustCodeGenContext::ThisFieldWithPrefix { prefix: "__this_" },
+            |this| {
+                if type_call.keyword_parameters.len() > 0 {
+                    this.gen_type_call_opn_with_keyword_parameters(indent, ty, opds, type_call)
+                } else {
+                    this.gen_type_call_opn_without_keyword_parameters(indent, ty, opds, type_call)
+                }
+            },
+        )
+    }
+
+    fn gen_type_call_opn_without_keyword_parameters(
+        &mut self,
+        indent: Indent,
+        ty: EntityRoutePtr,
+        opds: &Vec<Arc<EagerExpr>>,
+        type_call: &CallFormDecl,
+    ) {
         let ty_defn = self.db.entity_defn(ty).unwrap();
         let ty_members = match ty_defn.variant {
             EntityDefnVariant::Ty {
@@ -202,53 +216,112 @@ impl<'a> RustCodeGenerator<'a> {
             } => ty_members,
             _ => panic!(),
         };
-        for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
-            self.write("let __keyword_");
-            self.write(&parameter.ident);
-            match ty_members.data()[type_call.primary_parameters.len() + i].variant {
-                EntityDefnVariant::TyField {
-                    ty,
-                    ref field_variant,
-                    liason,
-                    opt_linkage,
-                } => match field_variant {
-                    FieldDefnVariant::StructDefault { default } => todo!(),
-                    _ => panic!(),
-                },
-                _ => panic!(),
-            }
-            self.write(" = todo!();");
-            self.newline_indented(indent + 8);
-        }
         self.gen_entity_route(ty, EntityRouteRole::Caller);
         self.write("::");
         self.write("__call__(");
         self.gen_arguments(indent, opds);
-        for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
-            if i + type_call.primary_parameters.len() > 0 {
-                self.write(", ")
-            }
-            self.write("__keyword_");
-            self.write(&parameter.ident)
-        }
-        msg_once!("keyword arguments and more on variadics");
-        let type_call_decl = &ty_decl.opt_type_call.as_ref().unwrap();
-        match type_call_decl.variadic_template {
+        msg_once!("variadics");
+        match type_call.variadic_template {
             VariadicTemplate::None => (),
             VariadicTemplate::SingleTyped { ty } => {
-                if type_call_decl.primary_parameters.len() + type_call_decl.keyword_parameters.len()
-                    > 0
-                {
+                if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
                     self.write(", ")
                 }
                 self.write("vec![]")
             }
         }
         self.write(")");
-        if needs_wrapping {
-            self.newline_indented(indent + 4);
-            self.write("}");
+    }
+
+    fn gen_type_call_opn_with_keyword_parameters(
+        &mut self,
+        indent: Indent,
+        ty: EntityRoutePtr,
+        opds: &Vec<Arc<EagerExpr>>,
+        type_call: &CallFormDecl,
+    ) {
+        self.write("{\n");
+        self.indent(indent + 8);
+        let ty_defn = self.db.entity_defn(ty).unwrap();
+        let ty_members = match ty_defn.variant {
+            EntityDefnVariant::Ty {
+                ref spatial_parameters,
+                ref ty_members,
+                ref variants,
+                ty_kind,
+                ref trait_impls,
+                ref members,
+                ref opt_type_call,
+                opt_static_visual_ty,
+                ref opt_visual_stmts,
+            } => ty_members,
+            _ => panic!(),
+        };
+        for (i, (parameter, expr)) in
+            std::iter::zip(type_call.primary_parameters.iter(), opds.iter()).enumerate()
+        {
+            self.write("let __this_");
+            self.write(&parameter.ident);
+            self.write(": ");
+            self.gen_entity_route(parameter.ty, EntityRouteRole::Decl);
+            self.write(" = ");
+            self.gen_binding(expr);
+            self.gen_expr(indent, expr);
+            self.write(";");
+            self.newline_indented(indent + 8);
         }
+        for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
+            self.write("let __this_");
+            self.write(&parameter.ident);
+            match ty_members.data()[type_call.primary_parameters.len() + i].variant {
+                EntityDefnVariant::TyField {
+                    ty,
+                    ref field_variant,
+                    ..
+                } => match field_variant {
+                    FieldDefnVariant::StructDefault { default } => {
+                        self.write(": ");
+                        self.gen_entity_route(parameter.ty, EntityRouteRole::Decl);
+                        self.write(" = ");
+                        self.gen_expr(indent + 4, default);
+                        self.write(";");
+                    }
+                    _ => panic!(),
+                },
+                _ => panic!(),
+            }
+            self.newline_indented(indent + 8);
+        }
+        self.gen_entity_route(ty, EntityRouteRole::Caller);
+        self.write("::");
+        self.write("__call__(");
+        for (i, parameter) in type_call.primary_parameters.iter().enumerate() {
+            if i > 0 {
+                self.write(", ")
+            }
+            self.write("__this_");
+            self.write(&parameter.ident)
+        }
+        for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
+            if i + type_call.primary_parameters.len() > 0 {
+                self.write(", ")
+            }
+            self.write("__this_");
+            self.write(&parameter.ident)
+        }
+        msg_once!("keyword arguments and more on variadics");
+        match type_call.variadic_template {
+            VariadicTemplate::None => (),
+            VariadicTemplate::SingleTyped { ty } => {
+                if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
+                    self.write(", ")
+                }
+                self.write("vec![]")
+            }
+        }
+        self.write(")");
+        self.newline_indented(indent + 4);
+        self.write("}");
     }
 
     pub(super) fn gen_feature_return(&mut self, indent: Indent, result: &EagerExpr) {

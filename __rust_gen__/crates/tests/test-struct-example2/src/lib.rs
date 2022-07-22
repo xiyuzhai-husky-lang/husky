@@ -88,22 +88,25 @@ impl<'eval> __AnyValue<'eval> for A {
 
 pub(crate) fn f1() -> A {
     return {
-        let y = todo!();
-        A::__call__(1, y)
+        let __this_x: i32 = 1;
+        let __this_y: i32 = __this_x + 1;
+        A::__call__(__this_x, __this_y)
     };
 }
 
 pub(crate) fn f3() -> () {
     let a = {
-        let y = todo!();
-        A::__call__(2, y)
+        let __this_x: i32 = 2;
+        let __this_y: i32 = __this_x + 1;
+        A::__call__(__this_x, __this_y)
     };
     assert!(a.get_x() == 2);
 }
 pub(crate) fn g1() -> i32 {
     let a = {
-        let y = todo!();
-        A::__call__(2, y)
+        let __this_x: i32 = 2;
+        let __this_y: i32 = __this_x + 1;
+        A::__call__(__this_x, __this_y)
     };
     return a.x;
 }
