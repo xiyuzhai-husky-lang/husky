@@ -14,6 +14,7 @@ xrng = { path = "../../utils/xrng" }
 dev-utils = { path = "../../utils/dev" }
 wild-utils = { path = "../../utils/wild" }
 check-utils = { path = "../../utils/check" }
+print-utils = { path = "../../utils/print" }
 test-utils = { path = "../../utils/test" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 word = { path = "../../syntax/word" }

@@ -1,5 +1,6 @@
 #![feature(const_trait_impl)]
 #![feature(const_convert)]
+#![feature(panic_info_message)]
 mod __b32;
 mod __clone;
 mod __eq;
