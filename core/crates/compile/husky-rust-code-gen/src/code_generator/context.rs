@@ -1,4 +1,4 @@
 pub enum RustCodeGenContext {
     Normal,
-    StructDerivedEager,
+    ThisFieldWithPrefix { prefix: &'static str },
 }

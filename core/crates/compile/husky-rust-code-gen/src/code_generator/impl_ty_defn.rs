@@ -103,7 +103,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("<'eval>")
         }
         self.write(" {\n");
-        self.gen_struct_call(ty_members);
+        self.gen_struct_type_call(ty_members);
         let mut start_flag = true;
         for ty_member in ty_members {
             self.gen_ty_member_impl(ty_contains_eval_ref, ty_member, &mut start_flag)
@@ -120,7 +120,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_struct_call(&mut self, ty_members: &[Arc<EntityDefn>]) {
+    fn gen_struct_type_call(&mut self, ty_members: &[Arc<EntityDefn>]) {
         self.write("    pub(crate) fn __call__(");
         for (i, ty_member) in ty_members.iter().enumerate() {
             match ty_member.variant {
@@ -162,9 +162,10 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write("let ");
                         self.write(&ty_member.ident);
                         self.write(" = ");
-                        self.exec_within_context(RustCodeGenContext::StructDerivedEager, |this| {
-                            this.gen_expr(8, derivation)
-                        });
+                        self.exec_within_context(
+                            RustCodeGenContext::ThisFieldWithPrefix { prefix: "" },
+                            |this| this.gen_expr(8, derivation),
+                        );
                         self.write(";");
                         self.newline();
                     }
