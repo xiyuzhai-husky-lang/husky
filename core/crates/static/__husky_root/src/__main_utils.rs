@@ -7,8 +7,9 @@ use print_utils::*;
 pub fn __serve_on_error_init() {
     std::panic::set_hook(Box::new(|panic_info| {
         if let Some(location) = panic_info.location() {
+            let trimmed_file = trim(location.file());
             println!(
-                "{RED}panic at '{}'{RESET}, {GREEN}{}:{YELLOW}{}:{}{RESET}",
+                "{RED}panic at '{}'{RESET}, {GREEN}{}/{}:{YELLOW}{}:{}{RESET}",
                 if let Some(message) = panic_info.message() {
                     format!("{}", message)
                 } else if let Some(payload) = panic_info.payload().downcast_ref::<&'static str>() {
@@ -16,7 +17,8 @@ pub fn __serve_on_error_init() {
                 } else {
                     "".to_owned()
                 },
-                location.file(),
+                std::env::var("CARGO_MANIFEST_DIR").unwrap(),
+                trimmed_file,
                 location.line(),
                 location.column(),
             );
@@ -24,4 +26,8 @@ pub fn __serve_on_error_init() {
             println!("panic at '' but can't get location information...");
         }
     }));
+}
+
+fn trim(path: &str) -> &str {
+    path.split_at(path.find("src/").unwrap()).1
 }

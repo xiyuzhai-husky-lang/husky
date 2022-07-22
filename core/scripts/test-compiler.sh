@@ -27,4 +27,5 @@ fi
 /bin/rm -rf $RUST_GEN_CACHE_DIR
 cd $RUST_GEN_DIR
 cargo check
-cargo test -j 1 -- --nocapture
+cargo build
+cargo test -- --nocapture
