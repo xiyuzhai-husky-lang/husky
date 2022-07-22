@@ -71,7 +71,7 @@ impl HuskyDebugger {
     pub async fn serve_on_error(self, addr: impl ToSocketAddrs, sample_id: SampleId) -> TestResult {
         if self.has_root_error(sample_id).await {
             self.serve(addr).await.unwrap();
-            TestResult::Failed
+            TestResult::Failure
         } else {
             TestResult::Success
         }

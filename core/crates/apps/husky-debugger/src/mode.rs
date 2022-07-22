@@ -69,7 +69,7 @@ async fn test_all_packages_in_dir(dir: &Path) {
         .await
         {
             TestResult::Success => finalize_success(),
-            TestResult::Failed => finalize_failure(),
+            TestResult::Failure => finalize_failure(),
         }
     }
 }

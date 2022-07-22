@@ -6,11 +6,11 @@ use test_proc_branch_in_loop1::__init__::LINKAGES;
 #[tokio::main]
 async fn main() {
     let code_snapshot_dir =
-        "crates/test-proc-branch-in-loop1/snapshot/test-proc-branch-in-loop1".into();
+        "crates/tests/test-proc-branch-in-loop1/snapshot/test-proc-branch-in-loop1".into();
     HuskyDebugger::new(
         HuskyDebuggerConfig {
             package_dir: code_snapshot_dir,
-            opt_sample_id: Some(SampleId(23)),
+            opt_sample_id: Some(__SampleId(23)),
             verbose: false,
             warn_missing_linkage: true,
         },
@@ -19,4 +19,25 @@ async fn main() {
     .serve("localhost:51617")
     .await
     .expect("")
+}
+
+#[test]
+fn serve_on_error() {
+    let code_snapshot_dir = "snapshot/test-proc-branch-in-loop1".into();
+    let sample_id = __SampleId(23);
+    match tokio_test::block_on(
+        HuskyDebugger::new(
+            HuskyDebuggerConfig {
+                package_dir: code_snapshot_dir,
+                opt_sample_id: Some(sample_id),
+                verbose: false,
+                warn_missing_linkage: true,
+            },
+            LINKAGES,
+        )
+        .serve_on_error("localhost:51617", sample_id),
+    ) {
+        __TestResult::Success => (),
+        __TestResult::Failure => panic!(),
+    }
 }

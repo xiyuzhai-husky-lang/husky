@@ -9,10 +9,12 @@ edition = "2021"
 rand = "0.8.5"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
+futures = { version = "0.3.21", features = ["executor"] }
 xrng = { path = "../../utils/xrng" }
 dev-utils = { path = "../../utils/dev" }
 wild-utils = { path = "../../utils/wild" }
 check-utils = { path = "../../utils/check" }
+test-utils = { path = "../../utils/test" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 word = { path = "../../syntax/word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }

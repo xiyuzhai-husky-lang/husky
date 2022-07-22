@@ -24,7 +24,11 @@ use lib_rs_content::*;
 use linkage_collector::*;
 use mod_rs_content::*;
 use print_utils::*;
-use std::{collections::HashSet, sync::Arc};
+use std::{
+    collections::HashSet,
+    path::{Path, PathBuf},
+    sync::Arc,
+};
 use utils::*;
 use vec_like::VecSet;
 
@@ -32,8 +36,8 @@ use vec_like::VecSet;
 pub trait RustCodeGenQueryGroup: PackageQueryGroup {
     fn rust_lib_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_init_rs_content(&self, main_file: FilePtr) -> Arc<String>;
-    fn rust_bin_main_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: EntityRoutePtr) -> Arc<String>;
+    fn rust_bin_main_rs_content(&self, main_file: FilePtr, rel_crate_dir: PathBuf) -> Arc<String>;
     fn entity_route_kind_contains_eval_ref(&self, entity_route_kind: EntityRouteKind) -> bool;
     fn entity_route_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;
     fn is_defn_static(&self, entity_route: EntityRoutePtr) -> bool;

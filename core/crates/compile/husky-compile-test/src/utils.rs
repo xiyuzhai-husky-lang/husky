@@ -15,7 +15,7 @@ where
     for file in compile_time.all_source_files() {
         match compare_saved_data(&f(&compile_time, file), &file.with_extension(extension)) {
             TestResult::Success => (),
-            TestResult::Failed => return TestResult::Failed,
+            TestResult::Failure => return TestResult::Failure,
         }
     }
     TestResult::Success
