@@ -37,6 +37,7 @@ async fn main() {{
 
 #[test]
 fn serve_on_error() {{
+    __serve_on_error_init();
     let code_snapshot_dir =
         "snapshot/{dashed_package_ident}".into();
     let sample_id = __SampleId(23);
