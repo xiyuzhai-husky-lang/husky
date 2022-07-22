@@ -132,7 +132,7 @@ impl<'eval> __AnyValue<'eval> for i32 {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Copyable(self.into())
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
@@ -203,7 +203,7 @@ impl<'eval> __AnyValue<'eval> for f32 {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Copyable(self.into())
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
@@ -274,7 +274,7 @@ impl<'eval> __AnyValue<'eval> for u32 {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Copyable(self.into())
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
@@ -345,7 +345,7 @@ impl<'eval> __AnyValue<'eval> for u64 {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Copyable(self.into())
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
@@ -415,7 +415,7 @@ impl<'eval> __AnyValue<'eval> for bool {
     }
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
+        __EvalValue::Copyable(self.into())
     }
 
     fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
