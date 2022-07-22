@@ -45,4 +45,7 @@ test-debugger-with-backtrace-filtered:
 # compiler
 
 test-compiler:
-	bash scripts/test-compiler.sh
+	scripts/test-compiler.sh
+
+test-compiler-backtraced:
+	RUST_BACKTRACE=1 scripts/test-compiler.sh

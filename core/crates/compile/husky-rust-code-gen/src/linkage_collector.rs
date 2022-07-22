@@ -33,7 +33,7 @@ impl<'a> LinkageCollector<'a> {
                 SpatialArgument::EntityRoute(route) => self.insert(*route),
             }
         }
-        self.linkages.insert(entity_route.deref_route())
+        self.linkages.insert(entity_route.intrinsic())
     }
 
     fn produce_from_entity_defn(

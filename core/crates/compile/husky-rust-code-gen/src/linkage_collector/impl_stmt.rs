@@ -6,8 +6,38 @@ use husky_eager_semantics::{
     ProcStmtVariant,
 };
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant, FieldDefnVariant};
+use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
 
 impl<'a> LinkageCollector<'a> {
+    pub(crate) fn collect_from_lazy_stmts(&mut self, stmts: &[Arc<LazyStmt>]) {
+        for stmt in stmts {
+            match stmt.variant {
+                LazyStmtVariant::Init { ref value, .. } => self.collect_from_lazy_expr(value),
+                LazyStmtVariant::Assert { ref condition } => self.collect_from_lazy_expr(condition),
+                LazyStmtVariant::Return { ref result } => self.collect_from_lazy_expr(result),
+                LazyStmtVariant::ReturnXml { ref xml_expr } => (),
+                LazyStmtVariant::ConditionFlow { ref branches, ty } => {
+                    for branch in branches {
+                        match branch.variant {
+                            LazyConditionBranchVariant::If { ref condition } => {
+                                self.collect_from_lazy_expr(condition)
+                            }
+                            LazyConditionBranchVariant::Elif { ref condition } => {
+                                self.collect_from_lazy_expr(condition)
+                            }
+                            LazyConditionBranchVariant::Else => (),
+                        }
+                        self.collect_from_lazy_stmts(&branch.stmts)
+                    }
+                }
+                LazyStmtVariant::Match {
+                    ref match_expr,
+                    ref branches,
+                } => todo!(),
+            }
+        }
+    }
+
     pub(crate) fn collect_from_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
         for stmt in stmts {
             match stmt.variant {

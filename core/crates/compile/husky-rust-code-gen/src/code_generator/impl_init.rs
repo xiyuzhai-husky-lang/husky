@@ -33,7 +33,6 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             return;
         }
         match entity_defn.variant {
-            EntityDefnVariant::Main(_) => todo!(),
             EntityDefnVariant::Module { .. } => (),
             EntityDefnVariant::Feature { ref defn_repr } => match **defn_repr {
                 DefinitionRepr::LazyExpr { ref expr } => (),

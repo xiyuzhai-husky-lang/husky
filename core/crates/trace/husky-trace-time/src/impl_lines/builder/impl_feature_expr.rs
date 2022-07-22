@@ -90,7 +90,7 @@ impl<'a> TraceTokenBuilder<'a> {
                     ),
                     LazyOpnKind::StructCall(_) => todo!(),
                     LazyOpnKind::RecordCall(_) => todo!(),
-                    LazyOpnKind::FieldAccess {
+                    LazyOpnKind::Field {
                         field_ident,
                         field_binding,
                     } => todo!(),

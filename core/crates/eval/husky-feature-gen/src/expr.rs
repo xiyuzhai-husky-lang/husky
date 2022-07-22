@@ -202,7 +202,6 @@ impl<'a> FeatureExprBuilder<'a> {
                     }
                 })
                 .unwrap(),
-            LazyExprVariant::EntityRoute { .. } => todo!(),
             LazyExprVariant::PrimitiveLiteral(value) => (
                 FeatureExprVariant::PrimitiveLiteral(value),
                 self.features.intern(Feature::PrimitiveLiteral(value)),

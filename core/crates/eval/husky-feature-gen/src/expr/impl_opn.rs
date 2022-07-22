@@ -79,7 +79,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 };
                 (kind, feature)
             }
-            LazyOpnKind::FieldAccess {
+            LazyOpnKind::Field {
                 field_ident,
                 field_binding,
             } => self.compile_field_access(

@@ -4,7 +4,6 @@ impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_mod_rs_content(&mut self, subentities: &[Arc<EntityDefn>]) {
         for entity in subentities.iter() {
             match entity.variant {
-                EntityDefnVariant::Main(_) => panic!(),
                 EntityDefnVariant::Module { .. } => {
                     self.write("pub(crate) mod ");
                     self.write(&entity.ident);

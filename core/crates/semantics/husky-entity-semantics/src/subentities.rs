@@ -4,8 +4,9 @@ use avec::Avec;
 impl EntityDefnVariant {
     pub fn subentities(&self) -> Avec<EntityDefn> {
         match self {
-            EntityDefnVariant::Main(_) => todo!(),
-            EntityDefnVariant::Module { ref module_items } => module_items.clone(),
+            EntityDefnVariant::Module {
+                ref module_items, ..
+            } => module_items.clone(),
             EntityDefnVariant::Feature { .. }
             | EntityDefnVariant::TyField { .. }
             | EntityDefnVariant::Func { .. }

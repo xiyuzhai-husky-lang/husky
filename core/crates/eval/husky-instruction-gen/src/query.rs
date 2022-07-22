@@ -54,7 +54,6 @@ fn entity_instruction_sheet(
             false, // has_this
         )),
         EntityDefnVariant::Ty { .. } => todo!(),
-        EntityDefnVariant::Main(_) => todo!(),
         EntityDefnVariant::Builtin => {
             p!(route.ident());
             todo!()
