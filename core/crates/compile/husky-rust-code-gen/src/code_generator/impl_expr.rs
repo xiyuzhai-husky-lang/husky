@@ -1,6 +1,7 @@
 use super::{impl_entity_route::EntityRouteRole, *};
 use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
+use husky_entity_semantics::FieldDefnVariant;
 use husky_infer_qualified_ty::EagerExprQualifier;
 use infer_decl::VariadicTemplate;
 use vm::*;
@@ -91,7 +92,7 @@ impl<'a> RustCodeGenerator<'a> {
                     ref ty_decl,
                     ..
                 } => {
-                    self.gen_type_call_opn(indent, ranged_ty, opds, ty_decl);
+                    self.gen_type_call_opn(indent, ranged_ty.route, opds, ty_decl);
                 }
                 EagerOpnVariant::Field { field_ident, .. } => {
                     self.gen_expr(indent, &opds[0]);
@@ -176,7 +177,7 @@ impl<'a> RustCodeGenerator<'a> {
     fn gen_type_call_opn(
         &mut self,
         indent: Indent,
-        ranged_ty: &husky_entity_route::RangedEntityRoute,
+        ty: EntityRoutePtr,
         opds: &Vec<Arc<EagerExpr>>,
         ty_decl: &Arc<infer_decl::TyDecl>,
     ) {
@@ -186,13 +187,40 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("{\n");
             self.indent(indent + 8);
         }
+        let ty_defn = self.db.entity_defn(ty).unwrap();
+        let ty_members = match ty_defn.variant {
+            EntityDefnVariant::Ty {
+                ref spatial_parameters,
+                ref ty_members,
+                ref variants,
+                ty_kind,
+                ref trait_impls,
+                ref members,
+                ref opt_type_call,
+                opt_static_visual_ty,
+                ref opt_visual_stmts,
+            } => ty_members,
+            _ => panic!(),
+        };
         for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
-            self.write("let ");
+            self.write("let __keyword_");
             self.write(&parameter.ident);
+            match ty_members.data()[type_call.primary_parameters.len() + i].variant {
+                EntityDefnVariant::TyField {
+                    ty,
+                    ref field_variant,
+                    liason,
+                    opt_linkage,
+                } => match field_variant {
+                    FieldDefnVariant::StructDefault { default } => todo!(),
+                    _ => panic!(),
+                },
+                _ => panic!(),
+            }
             self.write(" = todo!();");
             self.newline_indented(indent + 8);
         }
-        self.gen_entity_route(ranged_ty.route, EntityRouteRole::Caller);
+        self.gen_entity_route(ty, EntityRouteRole::Caller);
         self.write("::");
         self.write("__call__(");
         self.gen_arguments(indent, opds);
@@ -200,6 +228,7 @@ impl<'a> RustCodeGenerator<'a> {
             if i + type_call.primary_parameters.len() > 0 {
                 self.write(", ")
             }
+            self.write("__keyword_");
             self.write(&parameter.ident)
         }
         msg_once!("keyword arguments and more on variadics");
