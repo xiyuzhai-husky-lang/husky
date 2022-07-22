@@ -8,7 +8,7 @@ pub fn __serve_on_error_init() {
     std::panic::set_hook(Box::new(|panic_info| {
         if let Some(location) = panic_info.location() {
             println!(
-                "panic at '{}', {GREEN}{}:{YELLOW}{}:{}{RESET}",
+                "{RED}panic at '{}'{RESET}, {GREEN}{}:{YELLOW}{}:{}{RESET}",
                 if let Some(message) = panic_info.message() {
                     format!("{}", message)
                 } else if let Some(payload) = panic_info.payload().downcast_ref::<&'static str>() {
