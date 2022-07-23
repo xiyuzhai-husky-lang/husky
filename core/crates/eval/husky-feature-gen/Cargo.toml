@@ -16,15 +16,15 @@ bimap = "0.6.1"
 itertools = "^0.10.3"
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../utils/check" }
-dev-utils = { path = "../../utils/dev" }
-print-utils = { path = "../../utils/print" }
-sync-utils = { path = "../../utils/sync" }
-upcast = { path = "../../abstraction/upcast" }
-avec = { path = "../../abstraction/avec" }
-fold = { path = "../../abstraction/fold" }
-map-collect = { path = "../../abstraction/map-collect" }
-interner = { path = "../../abstraction/interner" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+sync-utils = { path = "../../../../common-rs/utils/sync" }
+upcast = { path = "../../../../common-rs/abstraction/upcast" }
+avec = { path = "../../../../common-rs/abstraction/avec" }
+fold = { path = "../../../../common-rs/abstraction/fold" }
+map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
+interner = { path = "../../../../common-rs/abstraction/interner" }
 husky-text = { path = "../../syntax/husky-text" }
 vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }

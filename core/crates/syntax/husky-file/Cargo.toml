@@ -16,11 +16,11 @@ itertools = "^0.10.3"
 lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
 salsa = "0.17.0-pre.2"
-interner = { path = "../../abstraction/interner" }
-singleton = { path = "../../abstraction/singleton" }
-dev-utils = { path = "../../utils/dev" }
-sync-utils = { path = "../../utils/sync" }
-check-utils = { path = "../../utils/check" }
-print-utils = { path = "../../utils/print" }
-path-utils = { path = "../../utils/path" }
+interner = { path = "../../../../common-rs/abstraction/interner" }
+singleton = { path = "../../../../common-rs/abstraction/singleton" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+sync-utils = { path = "../../../../common-rs/utils/sync" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+path-utils = { path = "../../../../common-rs/utils/path" }
 word = { path = "../word" }

@@ -10,13 +10,13 @@ rand = "0.8.5"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 futures = { version = "0.3.21", features = ["executor"] }
-xrng = { path = "../../utils/xrng" }
-dev-utils = { path = "../../utils/dev" }
-wild-utils = { path = "../../utils/wild" }
-check-utils = { path = "../../utils/check" }
-print-utils = { path = "../../utils/print" }
-test-utils = { path = "../../utils/test" }
-cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+xrng = { path = "../../../../common-rs/utils/xrng" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+wild-utils = { path = "../../../../common-rs/utils/wild" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+test-utils = { path = "../../../../common-rs/utils/test" }
+cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 word = { path = "../../syntax/word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 vm = { path = "../../vm/husky-vm" }

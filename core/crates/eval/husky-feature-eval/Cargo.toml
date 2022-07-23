@@ -14,17 +14,17 @@ tokio = { version = "1.19.2", features = ["sync"] }
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
-cyclic-slice = { path = "../../abstraction/cyclic-slice" }
-json-map = { path = "../../abstraction/json-map" }
-check-utils = { path = "../../utils/check" }
-dev-utils = { path = "../../utils/dev" }
-print-utils = { path = "../../utils/print" }
-interner = { path = "../../abstraction/interner" }
-fold = { path = "../../abstraction/fold" }
-upcast = { path = "../../abstraction/upcast" }
-map-collect = { path = "../../abstraction/map-collect" }
-arena = { path = "../../abstraction/arena" }
-json-result = { path = "../../abstraction/json-result" }
+cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
+json-map = { path = "../../../../common-rs/abstraction/json-map" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+interner = { path = "../../../../common-rs/abstraction/interner" }
+fold = { path = "../../../../common-rs/abstraction/fold" }
+upcast = { path = "../../../../common-rs/abstraction/upcast" }
+map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
+arena = { path = "../../../../common-rs/abstraction/arena" }
+json-result = { path = "../../../../common-rs/abstraction/json-result" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 word = { path = "../../syntax/word" }
@@ -32,7 +32,7 @@ husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-compile-time = { path = "../../compile/husky-compile-time" }
 vm = { path = "../../vm/husky-vm" }
-trivial-iter = { path = "../../abstraction/trivial-iter" }
+trivial-iter = { path = "../../../../common-rs/abstraction/trivial-iter" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
@@ -42,4 +42,4 @@ husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 static-defn = { path = "../../static/static-defn" }
 husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-protocol" }
 husky-feature-gen = { path = "../husky-feature-gen" }
-wild-utils = { path = "../../utils/wild" }
+wild-utils = { path = "../../../../common-rs/utils/wild" }

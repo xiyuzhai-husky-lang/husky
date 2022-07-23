@@ -12,14 +12,14 @@ bimap = "0.6.1"
 itertools = "^0.10.3"
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../utils/check" }
-print-utils = { path = "../../utils/print" }
-dev-utils = { path = "../../utils/dev" }
-fold = { path = "../../abstraction/fold" }
-upcast = { path = "../../abstraction/upcast" }
-arena = { path = "../../abstraction/arena" }
-vec-like = { path = "../../abstraction/vec-like" }
-interner = { path = "../../abstraction/interner" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+fold = { path = "../../../../common-rs/abstraction/fold" }
+upcast = { path = "../../../../common-rs/abstraction/upcast" }
+arena = { path = "../../../../common-rs/abstraction/arena" }
+vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
+interner = { path = "../../../../common-rs/abstraction/interner" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-ast = { path = "../../syntax/husky-ast" }

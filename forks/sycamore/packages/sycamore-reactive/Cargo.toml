@@ -18,7 +18,7 @@ indexmap = "1.8.0"
 serde = { version = "1.0.136", optional = true }
 slotmap = "1.0.6"
 smallvec = { version = "1.8.0", features = ["const_generics"] }
-vec-like = { path = "../../../../core/crates/abstraction/vec-like" }
+vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 
 [features]
 default = []

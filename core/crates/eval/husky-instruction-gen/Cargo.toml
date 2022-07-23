@@ -11,11 +11,11 @@ doctest = false
 
 [dependencies]
 salsa = "0.17.0-pre.2"
-print-utils = { path = "../../utils/print" }
-check-utils = { path = "../../utils/check" }
-fold = { path = "../../abstraction/fold" }
-map-collect = { path = "../../abstraction/map-collect" }
-avec = { path = "../../abstraction/avec" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+fold = { path = "../../../../common-rs/abstraction/fold" }
+map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
+avec = { path = "../../../../common-rs/abstraction/avec" }
 husky-file = { path = "../../syntax/husky-file" }
 word = { path = "../../syntax/word" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }

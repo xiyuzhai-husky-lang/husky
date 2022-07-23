@@ -1,7 +1,5 @@
 [workspace]
 members = [
-    "crates/utils/*",
-    "crates/abstraction/*",
     "crates/syntax/*",
     "crates/infer/*",
     "crates/semantics/*",

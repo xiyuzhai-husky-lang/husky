@@ -9,13 +9,13 @@ description = "Generic LSP server scaffold."
 [dependencies]
 salsa = "0.17.0-pre.2"
 lazy_format = "1.10.0"
-path-utils = { path = "../../utils/path" }
-print-utils = { path = "../../utils/print" }
-check-utils = { path = "../../utils/check" }
-interner = { path = "../../abstraction/interner" }
-upcast = { path = "../../abstraction/upcast" }
-vec-like = { path = "../../abstraction/vec-like" }
-fold = { path = "../../abstraction/fold" }
+path-utils = { path = "../../../../common-rs/utils/path" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+interner = { path = "../../../../common-rs/abstraction/interner" }
+upcast = { path = "../../../../common-rs/abstraction/upcast" }
+vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
+fold = { path = "../../../../common-rs/abstraction/fold" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
 word = { path = "../word" }
