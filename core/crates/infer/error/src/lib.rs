@@ -209,12 +209,12 @@ macro_rules! derived {
 #[macro_export]
 macro_rules! derived_unwrap {
     ($result: expr) => {{
-        $result.or(Err(infer_error::InferError {
+        $result.map_err(|e| infer_error::InferError {
             variant: infer_error::InferErrorVariant::Derived {
-                message: "expect ok".to_string(),
+                message: format!("expect ok but got {e:?} instead"),
             },
             dev_src: dev_utils::dev_src!(),
-        }))?
+        })?
     }};
 }
 

@@ -153,15 +153,15 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => self.parse_new_vec_from_list(idx, opds.clone()),
                 ListOpr::NewDict => todo!(),
-                ListOpr::Call => self.parse_function_call(idx, opds),
+                ListOpr::FunctionCall => self.parse_function_call(idx, opds),
                 ListOpr::Index => self.parse_element_access(idx, opds.clone()),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
                 ListOpr::MethodCall { ranged_ident, .. } => self.parse_method_call(
+                    idx,
                     opds.start,
                     (opds.start + 1)..opds.end,
                     *ranged_ident,
-                    idx,
                 ),
             },
             RawOpnVariant::Field(field_ident) => {
@@ -437,15 +437,15 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
 
     fn parse_method_call(
         &mut self,
-        this: RawExprIdx,
+        idx: RawExprIdx,
+        this_idx: RawExprIdx,
         inputs: RawExprRange,
         method_ident: RangedCustomIdentifier,
-        raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
-        let this = self.parse_lazy_expr(this)?;
+        let this = self.parse_lazy_expr(this_idx)?;
         let output_binding = {
-            let output_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
-            let output_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
+            let output_contract = self.lazy_expr_contract(idx).unwrap();
+            let output_qt = self.lazy_expr_qualified_ty(idx).unwrap();
             output_qt.qual.binding(output_contract)
         };
         let inputs = inputs
@@ -458,7 +458,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 method_ident,
                 method_route: self
                     .entity_route_sheet()
-                    .opt_call_route(raw_expr_idx)
+                    .opt_method_call_route(this_idx)
                     .unwrap()
                     .unwrap(),
                 output_binding,

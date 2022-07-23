@@ -380,7 +380,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => self.infer_new_vec_from_list(opds, range),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_call(idx, opds, range),
+            ListOpr::FunctionCall => self.infer_function_call(idx, opds, range),
             ListOpr::Index => self.infer_index(opds, range),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
@@ -407,33 +407,33 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         Ok(self.db.vec(elem_ty))
     }
 
-    fn infer_call(
+    fn infer_function_call(
         &mut self,
         idx: RawExprIdx,
-        total_opds: &RawExprRange,
+        all_opds: &RawExprRange,
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
-        let caller = &self.arena[total_opds.start];
+        let caller = &self.arena[all_opds.start];
         let call_decl_result: InferResult<_> = match caller.variant {
             RawExprVariant::Entity { route, .. } => {
                 self.entity_route_sheet
-                    .call_routes
-                    .insert_new(idx, Ok(route));
+                    .function_call_routes
+                    .insert_new(all_opds.start, Ok(route));
                 self.db.entity_call_form_decl(route)
             }
             _ => self
                 .db
-                .value_call_form_decl(derived_not_none!(self.infer_expr(total_opds.start, None,))?),
+                .value_call_form_decl(derived_not_none!(self.infer_expr(all_opds.start, None,))?),
         }
         .bind_into(caller);
         let call_decl = call_decl_result?;
-        if call_decl.primary_parameters.len() != total_opds.end - total_opds.start - 1 {
+        if call_decl.primary_parameters.len() != all_opds.end - all_opds.start - 1 {
             self.entity_route_sheet.extra_errors.push(InferError {
                 variant: InferErrorVariant::Original {
                     message: format!(
                         "expect {} arguments, but get {} arguments",
                         call_decl.primary_parameters.len(),
-                        total_opds.end - total_opds.start - 1
+                        all_opds.end - all_opds.start - 1
                     ),
                     range,
                 },
@@ -441,7 +441,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             })
         }
         for (argument, parameter) in zip(
-            ((total_opds.start + 1)..total_opds.end).into_iter(),
+            ((all_opds.start + 1)..all_opds.end).into_iter(),
             call_decl.primary_parameters.iter(),
         ) {
             self.infer_expr(argument, Some(parameter.ty));
@@ -482,8 +482,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 thin_vec![]
             };
         msg_once!("spatial_arguments");
-        self.entity_route_sheet.call_routes.insert_new(
-            idx,
+        self.entity_route_sheet.method_call_routes.insert_new(
+            this,
             Ok(self.db.route_call(
                 call_form_decl.opt_base_route.unwrap(),
                 thin_vec![], // spatial_arguments

@@ -302,7 +302,7 @@ impl<'a> Formatter<'a> {
                     ListOpr::TupleInit => todo!(),
                     ListOpr::NewVec => todo!(),
                     ListOpr::NewDict => todo!(),
-                    ListOpr::Call => todo!(),
+                    ListOpr::FunctionCall => todo!(),
                     ListOpr::Index => todo!(),
                     ListOpr::ModuloIndex => todo!(),
                     ListOpr::StructInit => todo!(),

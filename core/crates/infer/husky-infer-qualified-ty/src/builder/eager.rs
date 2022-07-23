@@ -420,7 +420,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => self.eager_new_vec_from_list(idx, opds),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.eager_call(idx, opds),
+            ListOpr::FunctionCall => self.eager_function_call(idx, opds),
             ListOpr::Index | ListOpr::ModuloIndex => self.eager_element_access(idx, opds),
             ListOpr::StructInit => todo!(),
             ListOpr::MethodCall { ranged_ident, .. } => {
@@ -443,12 +443,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         ))
     }
 
-    fn eager_call(
+    fn eager_function_call(
         &mut self,
         idx: RawExprIdx,
         total_opds: RawExprRange,
     ) -> InferResult<EagerValueQualifiedTy> {
-        let call_decl = self.call_form_decl(idx)?;
+        let call_decl = self.function_call_form_decl(total_opds.start)?;
         self.infer_eager_expr(total_opds.start);
         for opd_idx in (total_opds.start + 1)..total_opds.end {
             let opd_contract = self.eager_expr_contract(opd_idx)?;
@@ -505,16 +505,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
     ) -> InferResult<EagerValueQualifiedTy> {
-        let call_form_decl = self.call_form_decl(raw_expr_idx)?;
+        let call_form_decl = self.method_call_form_decl(this)?;
         let this_qt = derived_not_none!(self.infer_eager_expr(this))?;
         let this_contract = self.eager_expr_contract(this)?;
         for input in inputs {
             self.infer_eager_expr(input);
         }
         let is_element_copyable = self.db.is_copyable(call_form_decl.output.ty)?;
-        let output_contract = self.eager_expr_contract(raw_expr_idx)?;
+        let output_contract = self.eager_expr_contract(idx)?;
         let qual = match call_form_decl.output.liason {
             OutputLiason::Transfer => {
                 if is_element_copyable {

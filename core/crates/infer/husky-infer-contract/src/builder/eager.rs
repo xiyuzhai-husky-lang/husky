@@ -3,8 +3,8 @@ use std::iter::zip;
 use husky_ast::*;
 
 use husky_entity_route::EntityRoutePtr;
-use husky_text::RangedCustomIdentifier;
 use husky_text::TextRange;
+use husky_text::{RangedCustomIdentifier, TextPosition};
 use infer_error::*;
 use vm::*;
 
@@ -107,8 +107,8 @@ impl<'a> ContractSheetBuilder<'a> {
         self.infer_eager_expr(condition, EagerContract::Pure)
     }
 
-    pub(super) fn infer_eager_expr(&mut self, raw_expr_idx: RawExprIdx, contract: EagerContract) {
-        let raw_expr = &self.arena[raw_expr_idx];
+    pub(super) fn infer_eager_expr(&mut self, idx: RawExprIdx, contract: EagerContract) {
+        let raw_expr = &self.arena[idx];
         let infer_result = match raw_expr.variant {
             RawExprVariant::Variable { .. } => Ok(()),
             RawExprVariant::FrameVariable { .. }
@@ -124,11 +124,11 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::Opn {
                 opn_variant: ref opr,
                 ref opds,
-            } => self.infer_eager_opn(raw_expr_idx, opr, opds, contract),
+            } => self.infer_eager_opn(idx, opr, opds, contract),
             RawExprVariant::Lambda(_, _) => todo!(),
         };
         self.contract_sheet.eager_expr_contract_results.insert_new(
-            raw_expr_idx,
+            idx,
             match infer_result {
                 Ok(_) => Ok(contract),
                 Err(e) => Err(e),
@@ -292,7 +292,7 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             ListOpr::NewVec => self.infer_eager_new_vec_from_list(idx, opds.clone(), contract),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_eager_call(idx, opds, contract),
+            ListOpr::FunctionCall => self.infer_eager_function_call(idx, opds, contract),
             ListOpr::Index => self.eager_index(idx, opds, contract),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
@@ -322,18 +322,18 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn infer_eager_call(
+    fn infer_eager_function_call(
         &mut self,
         idx: RawExprIdx,
-        total_opds: &RawExprRange,
+        all_opds: &RawExprRange,
         contract: EagerContract,
     ) -> InferResult<()> {
-        let call_expr = &self.arena[total_opds.start];
-        let call_decl = derived_unwrap!(self.call_form_decl(idx));
+        let call_expr = &self.arena[all_opds.start];
+        let call_decl = derived_unwrap!(self.function_call_form_decl(all_opds.start));
         msg_once!("other contracts on call form");
-        self.infer_eager_expr(total_opds.start, EagerContract::Pure);
+        self.infer_eager_expr(all_opds.start, EagerContract::Pure);
         for (argument, parameter) in zip(
-            ((total_opds.start + 1)..total_opds.end).into_iter(),
+            ((all_opds.start + 1)..all_opds.end).into_iter(),
             call_decl.primary_parameters.iter(),
         ) {
             let argument_contract = EagerContract::argument_eager_contract(
@@ -352,9 +352,9 @@ impl<'a> ContractSheetBuilder<'a> {
         this: RawExprIdx,
         parameters: RawExprRange,
         contract: EagerContract,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
     ) -> InferResult<()> {
-        let call_form_decl = self.call_form_decl(raw_expr_idx)?;
+        let call_form_decl = self.method_call_form_decl(this)?;
         let this_contract = EagerContract::method_call_this_eager_contract(
             call_form_decl.opt_this_liason.unwrap(),
             call_form_decl.output.liason,

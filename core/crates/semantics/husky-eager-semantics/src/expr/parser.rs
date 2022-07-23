@@ -32,6 +32,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     Ok(contract) => contract,
                     Err(_) => {
                         p!(self.file(), idx, raw_expr);
+                        p!(self.contract_sheet().eager_expr_contract_results);
                         panic!("what's the contract?");
                     }
                 };
@@ -172,7 +173,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => self.parse_new_vec_from_list(idx, opds.clone()),
                 ListOpr::NewDict => todo!(),
-                ListOpr::Call => self.parse_function_call(opds.clone(), idx),
+                ListOpr::FunctionCall => self.parse_function_call(opds.clone(), idx),
                 ListOpr::MethodCall { ranged_ident, .. } => self.parse_method_call(
                     opds.start,
                     (opds.start + 1)..opds.end,
@@ -342,12 +343,12 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
 
     fn parse_method_call(
         &mut self,
-        this: RawExprIdx,
+        this_idx: RawExprIdx,
         arguments: RawExprRange,
         method_ident: RangedCustomIdentifier,
         idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
-        let this = self.parse_eager_expr(this)?;
+        let this = self.parse_eager_expr(this_idx)?;
         let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
         let output_binding = {
             let output_contract = self.eager_expr_contract(idx).unwrap();
@@ -368,7 +369,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 this_ty_decl,
                 method_route: self
                     .entity_route_sheet()
-                    .opt_call_route(idx)
+                    .opt_method_call_route(this_idx)
                     .unwrap()
                     .unwrap(),
                 output_binding,

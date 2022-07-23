@@ -8,7 +8,7 @@ pub enum ListOpr {
     TupleInit,
     NewVec,
     NewDict,
-    Call,
+    FunctionCall,
     Index,
     ModuloIndex,
     StructInit,

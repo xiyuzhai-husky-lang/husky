@@ -5,7 +5,7 @@ use test_utils::{TestDisplay, TestDisplayConfig};
 #[derive(
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
 )]
-pub struct Column(pub(crate) u32);
+pub struct Column(pub(crate) u32); // raw is 0 based
 
 impl TestDisplay for Column {
     fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {

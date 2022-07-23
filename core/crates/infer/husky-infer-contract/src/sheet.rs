@@ -10,8 +10,8 @@ use crate::{builder::ContractSheetBuilder, *};
 #[derive(Debug, PartialEq, Eq)]
 pub struct ContractSheet {
     pub entity_route_sheet: Arc<EntityRouteSheet>,
-    pub(crate) lazy_expr_contract_results: RawExprMap<InferResult<LazyContract>>,
-    pub(crate) eager_expr_contract_results: RawExprMap<InferResult<EagerContract>>,
+    pub lazy_expr_contract_results: RawExprMap<InferResult<LazyContract>>,
+    pub eager_expr_contract_results: RawExprMap<InferResult<EagerContract>>,
 }
 
 impl ContractSheet {

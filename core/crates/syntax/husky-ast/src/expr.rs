@@ -55,7 +55,7 @@ impl RawExpr {
                 Bracket::Angle => todo!(),
             },
             ListStartAttr::Attach => match bracket {
-                Bracket::Par => ListOpr::Call,
+                Bracket::Par => ListOpr::FunctionCall,
                 Bracket::Box => match end_attr {
                     ListEndAttr::None => {
                         if arena::len(&opds) < 2 {

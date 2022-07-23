@@ -221,10 +221,10 @@ impl<'a> ContractSheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => self.infer_lazy_new_vec_from_list(idx, opds.clone(), contract),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.infer_lazy_call(idx, opds, contract),
-            ListOpr::Index => self.infer_lazy_element_access(opds, contract, idx),
+            ListOpr::Index => self.infer_lazy_index(opds, contract, idx),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
+            ListOpr::FunctionCall => self.infer_lazy_function_call(idx, opds, contract),
             ListOpr::MethodCall { ranged_ident, .. } => self.lazy_method_call(
                 idx,
                 opds.start,
@@ -252,17 +252,17 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn infer_lazy_call(
+    fn infer_lazy_function_call(
         &mut self,
         idx: RawExprIdx,
-        total_opds: &RawExprRange,
+        all_opds: &RawExprRange,
         contract: LazyContract,
     ) -> InferResult<()> {
-        let call_expr = &self.arena[total_opds.start];
-        let call_form_decl = self.call_form_decl(idx).unwrap();
-        self.infer_lazy_expr(total_opds.start, LazyContract::Pure);
+        let call_expr = &self.arena[all_opds.start];
+        let call_form_decl = self.function_call_form_decl(all_opds.start).unwrap();
+        self.infer_lazy_expr(all_opds.start, LazyContract::Pure);
         for (argument, parameter) in zip(
-            ((total_opds.start + 1)..total_opds.end).into_iter(),
+            ((all_opds.start + 1)..all_opds.end).into_iter(),
             call_form_decl.primary_parameters.iter(),
         ) {
             let argument_contract = LazyContract::parameter_lazy_contract(
@@ -283,7 +283,7 @@ impl<'a> ContractSheetBuilder<'a> {
         inputs: RawExprRange,
         contract: LazyContract,
     ) -> InferResult<()> {
-        let call_form_decl = self.call_form_decl(idx)?;
+        let call_form_decl = self.method_call_form_decl(this)?;
         let this_contract = LazyContract::parameter_lazy_contract(
             call_form_decl.this_liason(),
             call_form_decl.output.liason,
@@ -303,7 +303,7 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn infer_lazy_element_access(
+    fn infer_lazy_index(
         &mut self,
 
         total_opds: &RawExprRange,

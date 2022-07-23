@@ -28,7 +28,8 @@ pub(crate) fn entity_route_sheet(
 pub struct EntityRouteSheet {
     pub ast_text: Arc<AstText>,
     pub(crate) expr_tys: RawExprMap<InferResult<EntityRoutePtr>>,
-    pub(crate) call_routes: RawExprMap<InferResult<EntityRoutePtr>>,
+    pub(crate) function_call_routes: RawExprMap<InferResult<EntityRoutePtr>>, // keys are function idx
+    pub(crate) method_call_routes: RawExprMap<InferResult<EntityRoutePtr>>,   // keys are this idx
     pub(crate) variable_tys: HashMap<(CustomIdentifier, TextRange), EntityRoutePtr>,
     pub(crate) extra_errors: Vec<InferError>,
 }
@@ -41,7 +42,8 @@ impl EntityRouteSheet {
     pub(crate) fn new(ast_text: Arc<AstText>, extra_errors: Vec<InferError>) -> Self {
         Self {
             expr_tys: ArenaMap::new(&ast_text.arena),
-            call_routes: ArenaMap::new(&ast_text.arena),
+            function_call_routes: ArenaMap::new(&ast_text.arena),
+            method_call_routes: ArenaMap::new(&ast_text.arena),
             variable_tys: Default::default(),
             ast_text,
             extra_errors,
@@ -64,8 +66,21 @@ impl EntityRouteSheet {
         }
     }
 
-    pub fn opt_call_route(&self, idx: RawExprIdx) -> Option<InferResult<EntityRoutePtr>> {
-        Some(match self.call_routes.get(idx)? {
+    pub fn opt_function_call_route(
+        &self,
+        function_idx: RawExprIdx,
+    ) -> Option<InferResult<EntityRoutePtr>> {
+        Some(match self.function_call_routes.get(function_idx)? {
+            Ok(call_route) => Ok(*call_route),
+            Err(e) => Err(e.derived()),
+        })
+    }
+
+    pub fn opt_method_call_route(
+        &self,
+        this_idx: RawExprIdx,
+    ) -> Option<InferResult<EntityRoutePtr>> {
+        Some(match self.method_call_routes.get(this_idx)? {
             Ok(call_route) => Ok(*call_route),
             Err(e) => Err(e.derived()),
         })
