@@ -129,7 +129,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "vec_major::try_vec",
+            routine: "test_new_vec::try_vec",
         },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
