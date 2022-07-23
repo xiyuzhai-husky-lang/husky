@@ -1,11 +1,11 @@
 use __husky_root::__main_utils::*;
-use fp_major::__init__::LINKAGES;
 use husky_compile_time::*;
 use husky_debugger::*;
+use test_fp_major::__init__::LINKAGES;
 
 #[tokio::main]
 async fn main() {
-    let code_snapshot_dir = "crates/tests/fp-major/snapshot/fp-major".into();
+    let code_snapshot_dir = "crates/tests/test-fp-major/snapshot/test-fp-major".into();
     HuskyDebugger::new(
         HuskyDebuggerConfig {
             package_dir: code_snapshot_dir,
@@ -23,7 +23,7 @@ async fn main() {
 #[test]
 fn serve_on_error() {
     __serve_on_error_init();
-    let code_snapshot_dir = "snapshot/fp-major".into();
+    let code_snapshot_dir = "snapshot/test-fp-major".into();
     let sample_id = __SampleId(23);
     match tokio_test::block_on(
         HuskyDebugger::new(
