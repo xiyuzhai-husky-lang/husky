@@ -11,12 +11,12 @@ pub use error::{DebuggerError, DebuggerResult};
 pub use flags::HuskyDebuggerFlags;
 pub use mode::Mode;
 
-use __husky_root::__StaticLinkageKey;
 use avec::Avec;
 use futures::executor::ThreadPool;
 use gui::handle_query;
 use husky_compile_time::HuskyCompileTime;
 use husky_file::FilePtr;
+use husky_root::__StaticLinkageKey;
 use husky_trace_protocol::*;
 use husky_trace_time::HuskyTraceTime;
 use internal::HuskyDebuggerInternal;

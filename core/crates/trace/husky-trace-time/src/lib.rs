@@ -9,7 +9,6 @@ mod impl_trace;
 mod impl_trace_stalk;
 mod trace_node;
 
-use __husky_root::__resolve_root_defn;
 use avec::Avec;
 use defn_head::Parameter;
 use husky_compile_time::*;
@@ -19,6 +18,7 @@ use husky_eval_time::*;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
 use husky_file::FilePtr;
+use husky_root::__resolve_root_defn;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_trace_protocol::*;
 use impl_lines::*;

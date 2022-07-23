@@ -5,7 +5,7 @@ impl<'a> RustCodeGenerator<'a> {
         let package = self.package();
         self.write("#![allow(warnings)]\n");
         self.write("pub mod __init__;\n");
-        self.write("use __husky_root::*;\n\n");
+        self.write("use __husky::*;\n\n");
         self.write(
             r#"
 // ad hoc

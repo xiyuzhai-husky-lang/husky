@@ -34,4 +34,4 @@ husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-eval-time = { path = "../../eval/husky-eval-time" }
 trace = { path = "../trace" }
 husky-feature-gen = { path = "../../eval/husky-feature-gen" }
-__husky_root = { path = "../../static/__husky_root" }
+husky-root = { path = "../../static/husky-root" }

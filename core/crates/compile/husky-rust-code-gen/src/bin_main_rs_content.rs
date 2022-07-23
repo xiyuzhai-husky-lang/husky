@@ -12,10 +12,8 @@ pub(crate) fn rust_bin_main_rs_content(
     let dashed_package_ident = snake_to_dash(package.ident.as_str());
     let rel_crate_dir = rel_crate_dir.display();
     Arc::new(format!(
-        r#"use husky_debugger::*;
-use __husky_root::__main_utils::*;
+        r#"use __husky::__main_utils::*;
 use {package_ident}::__init__::LINKAGES;
-use husky_compile_time::*;
 
 #[tokio::main]
 async fn main() {{

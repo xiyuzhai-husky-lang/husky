@@ -1,9 +1,9 @@
 use crate::*;
-use __husky_root::__resolve_root_defn;
 use husky_compile_time::HuskyCompileTimeConfig;
 use husky_eval_time::HuskyEvalTimeConfig;
 use husky_feature_eval::EvaluatorConfig;
 use husky_linkage_table::LinkageTableConfig;
+use husky_root::__resolve_root_defn;
 use serde::{Deserialize, Serialize};
 use vm::VMConfig;
 

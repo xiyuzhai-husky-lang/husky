@@ -1,6 +1,4 @@
-use __husky_root::__main_utils::*;
-use husky_compile_time::*;
-use husky_debugger::*;
+use __husky::__main_utils::*;
 use test_proc_branch_in_loop1::__init__::LINKAGES;
 
 #[tokio::main]

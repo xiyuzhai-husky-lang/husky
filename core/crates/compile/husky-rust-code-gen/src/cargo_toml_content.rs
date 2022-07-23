@@ -25,11 +25,9 @@ rust-version = "1.56"
 
 [dependencies]
 tokio = {{ version = "1.19.2", features = ["full"] }}
-husky-debugger = {{ path = "{rel_husky_dir}/core/crates/apps/husky-debugger" }}
-husky-compile-time = {{ path = "{rel_husky_dir}/core/crates/compile/husky-compile-time" }}
 serde = {{ version = "1.0.106", features = ["derive"] }}
 serde_json = {{ version = "1.0.48", features = ["preserve_order"] }}
-__husky_root = {{ path = "{rel_husky_dir}/core/crates/static/__husky_root" }}
+__husky = {{ path = "{rel_husky_dir}/core/crates/static/__husky" }}
 
 [dev-dependencies]
 tokio-test = "*"
