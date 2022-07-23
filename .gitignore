@@ -17,4 +17,5 @@ _outdated
 .metals
 *.swp
 
+__rust_gen__
 __rust_gen_cache__
