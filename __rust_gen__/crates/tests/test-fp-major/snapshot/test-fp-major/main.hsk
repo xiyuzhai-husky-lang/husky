@@ -1,9 +1,0 @@
-task:
-    ml::datasets::synthetic::trivial::real1d::dataset1()
-
-func try_fp() -> i32:
-    f1 = i32::sgn
-    f1(1)
-
-main:
-    try_fp()
