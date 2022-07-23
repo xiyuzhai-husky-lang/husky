@@ -3,10 +3,10 @@ pub(crate) mod event_loop_comm;
 
 use crossbeam_channel::Sender;
 
-use __husky_root::__resolve_root_defn;
 use client_comm::ClientCommunicator;
 use event_loop_comm::EventLoopCommunicator;
 use husky_compile_time::HuskyCompileTime;
+use husky_root::__resolve_root_defn;
 use threadpool::ThreadPool;
 
 pub(crate) struct Server {

@@ -1,6 +1,6 @@
 #![allow(warnings)]
 pub mod __init__;
-use __husky_root::*;
+use __husky::*;
 
 // ad hoc
 fn __input<'a, 'eval: 'a>(

@@ -25,5 +25,5 @@ semantics-error = { path = "../../semantics/error" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-linkage-table = { path = "../../compile/husky-linkage-table" }
-__husky_root = { path = "../../static/__husky_root" }
+husky-root = { path = "../../static/husky-root" }
 word = { path = "../../syntax/word" }

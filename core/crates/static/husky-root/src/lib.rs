@@ -6,8 +6,6 @@ mod __clone;
 mod __eq;
 mod __f32;
 mod __i32;
-pub mod __init_utils;
-pub mod __main_utils;
 pub mod __std;
 mod __vec;
 pub mod domains;
@@ -35,7 +33,6 @@ pub use vm::{
     __OwnedValue, __TempValue,
 };
 
-use __init_utils::*;
 use dev_utils::__StaticDevSource;
 use dev_utils::{__static_dev_src, dev_src};
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};

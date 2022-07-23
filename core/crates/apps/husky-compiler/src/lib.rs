@@ -1,12 +1,12 @@
 mod dir;
 pub mod flags;
 
-use __husky_root::__resolve_root_defn;
 use husky_compile_dir::{get_or_create_child_dir, mkdir};
 use husky_compile_time::*;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTableConfig;
+use husky_root::__resolve_root_defn;
 use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
 use print_utils::*;

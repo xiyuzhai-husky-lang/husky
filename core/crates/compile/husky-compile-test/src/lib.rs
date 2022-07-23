@@ -11,7 +11,6 @@ mod utils;
 
 pub use utils::*;
 
-use __husky_root::__resolve_root_defn;
 use check_utils::*;
 use husky_compile_time::HuskyCompileTime;
 use husky_compile_time::*;
@@ -21,6 +20,7 @@ use husky_entity_semantics::EntityRouteStore;
 use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
+use husky_root::__resolve_root_defn;
 use print_utils::*;
 use std::path::Path;
 use std::{fmt, sync::Arc};

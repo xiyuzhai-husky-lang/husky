@@ -41,4 +41,4 @@ husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
 husky-token = { path = "../../syntax/husky-token" }
-__husky_root = { path = "../../static/__husky_root" }
+husky-root = { path = "../../static/husky-root" }
