@@ -344,9 +344,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => self.lazy_new_vec_from_list(idx, opds),
             ListOpr::NewDict => todo!(),
-            ListOpr::Call => self.lazy_call(idx, opds),
             ListOpr::Index | ListOpr::ModuloIndex => self.lazy_element_access(idx, opds),
             ListOpr::StructInit => todo!(),
+            ListOpr::FunctionCall => self.lazy_function_call(idx, opds),
             ListOpr::MethodCall { ranged_ident, .. } => {
                 self.lazy_method_call(opds.start, *ranged_ident, (opds.start + 1)..opds.end, idx)
             }
@@ -367,14 +367,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         ))
     }
 
-    fn lazy_call(
+    fn lazy_function_call(
         &mut self,
         idx: RawExprIdx,
-        total_opds: RawExprRange,
+        all_opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
-        let call_decl = self.call_form_decl(idx).unwrap();
-        self.infer_lazy_expr(total_opds.start);
-        let opt_opd_qualified_tys: Vec<_> = ((total_opds.start + 1)..total_opds.end)
+        let call_decl = self.function_call_form_decl(all_opds.start).unwrap();
+        self.infer_lazy_expr(all_opds.start);
+        let opt_opd_qualified_tys: Vec<_> = ((all_opds.start + 1)..all_opds.end)
             .into_iter()
             .map(|opd_idx| self.infer_lazy_expr(opd_idx))
             .collect();
@@ -419,9 +419,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
     ) -> InferResult<LazyValueQualifiedTy> {
-        let call_form_decl = self.call_form_decl(raw_expr_idx)?;
+        let call_form_decl = self.method_call_form_decl(this)?;
         self.infer_lazy_expr(this);
         for input in inputs {
             self.infer_lazy_expr(input);

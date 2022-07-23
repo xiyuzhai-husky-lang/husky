@@ -3,7 +3,7 @@ use std::fmt::Write;
 use test_utils::{TestDisplay, TestDisplayConfig};
 
 #[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize)]
-pub struct Row(pub u32);
+pub struct Row(pub u32); // raw is 0 based
 
 impl TestDisplay for Row {
     fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
