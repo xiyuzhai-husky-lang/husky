@@ -1,11 +1,11 @@
 use __husky_root::__main_utils::*;
 use husky_compile_time::*;
 use husky_debugger::*;
-use vec_major::__init__::LINKAGES;
+use test_new_vec::__init__::LINKAGES;
 
 #[tokio::main]
 async fn main() {
-    let code_snapshot_dir = "crates/tests/vec-major/snapshot/vec-major".into();
+    let code_snapshot_dir = "crates/tests/test-new-vec/snapshot/test-new-vec".into();
     HuskyDebugger::new(
         HuskyDebuggerConfig {
             package_dir: code_snapshot_dir,
@@ -23,7 +23,7 @@ async fn main() {
 #[test]
 fn serve_on_error() {
     __serve_on_error_init();
-    let code_snapshot_dir = "snapshot/vec-major".into();
+    let code_snapshot_dir = "snapshot/test-new-vec".into();
     let sample_id = __SampleId(23);
     match tokio_test::block_on(
         HuskyDebugger::new(
