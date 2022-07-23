@@ -14,7 +14,7 @@ impl ItemToFold<()> for Indent {
 
 #[test]
 fn fold_items1() {
-    use check_utils::*;
+    use husky_check_utils::*;
     let items: Vec<Indent> = vec![0, 4, 0].into();
     let fold_items: FoldableList<()> = items.into();
     should_eq!(fold_items.nodes[1].folding_end, FoldingEnd::Elder(2));
@@ -22,7 +22,7 @@ fn fold_items1() {
 
 #[test]
 fn fold_items2() {
-    use check_utils::*;
+    use husky_check_utils::*;
     let items: Vec<Indent> = vec![0, 4, 0, 4, 4].into();
     let fold_items: FoldableList<()> = items.into();
     should!(fold_items
@@ -67,7 +67,7 @@ impl<'a> Transformer<(), FoldableList<()>, ()> for TrivialTransformer {
 
 #[test]
 fn transform() {
-    use check_utils::*;
+    use husky_check_utils::*;
     let items: Vec<Indent> = vec![0, 4, 0, 4, 4].into();
     let fold_inputs: Arc<FoldableList<()>> = Arc::new(items.into());
     let mut transformer = TrivialTransformer {

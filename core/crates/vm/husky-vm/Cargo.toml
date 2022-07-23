@@ -9,10 +9,10 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 arrayvec = "0.7.2"
 indexmap = "1.8.1"
 colored = "2.0.0"
-check-utils = { path = "../../../../common-rs/utils/check" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-path-utils = { path = "../../../../common-rs/utils/path" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+path-utils = { path = "../../../../common-rs/utils/husky-path-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 avec = { path = "../../../../common-rs/abstraction/avec" }

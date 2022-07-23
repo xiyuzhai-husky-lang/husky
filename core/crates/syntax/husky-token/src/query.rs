@@ -1,6 +1,6 @@
 use crate::{line_token_iter::LineTokenIter, *};
 
-use dev_utils::dev_src;
+use husky_dev_utils::dev_src;
 use husky_file::{FileError, FileErrorKind, FileResultArc};
 #[salsa::query_group(TokenQueryGroupStorage)]
 pub trait TokenSalsaQueryGroup: husky_file::FileQueryGroup + word::InternWord {

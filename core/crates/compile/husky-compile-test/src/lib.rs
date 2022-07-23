@@ -11,7 +11,7 @@ mod utils;
 
 pub use utils::*;
 
-use check_utils::*;
+use husky_check_utils::*;
 use husky_compile_time::HuskyCompileTime;
 use husky_compile_time::*;
 use husky_entity_route::EntityRoute;
@@ -20,11 +20,11 @@ use husky_entity_semantics::EntityRouteStore;
 use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
+use husky_print_utils::*;
 use husky_root::__resolve_root_defn;
-use print_utils::*;
+use husky_test_utils::{compare_saved_data, TestDisplay, TestResult};
 use std::path::Path;
 use std::{fmt, sync::Arc};
 use sync_utils::ASafeRwLock;
-use test_utils::{compare_saved_data, TestDisplay, TestResult};
 use thin_vec::{thin_vec, ThinVec};
 use word::RootIdentifier;

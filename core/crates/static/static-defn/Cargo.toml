@@ -12,10 +12,10 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 word = { path = "../../syntax/word" }
 vm = { path = "../../vm/husky-vm" }
-check-utils = { path = "../../../../common-rs/utils/check" }
-print-utils = { path = "../../../../common-rs/utils/print" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 entity-kind = { path = "../../syntax/entity-kind" }
 husky-visual-syntax = { path = "../../syntax/husky-visual-syntax" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }

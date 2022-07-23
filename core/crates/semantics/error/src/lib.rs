@@ -1,4 +1,4 @@
-use dev_utils::{dev_src, DevSource};
+use husky_dev_utils::{dev_src, DevSource};
 use husky_entity_syntax::EntitySyntaxError;
 use infer_error::InferError;
 use std::sync::Arc;
@@ -51,7 +51,7 @@ macro_rules! err {
             variant: SemanticErrorVariant::Original {
                 message: $msg.into(),
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })?
     }};
 }
@@ -63,7 +63,7 @@ macro_rules! not_none {
             variant: SemanticErrorVariant::Derived {
                 message: "not none".into(),
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })?
     }};
 }
@@ -75,7 +75,7 @@ macro_rules! derived_unwrap {
             variant: SemanticErrorVariant::Derived {
                 message: format!("{:?}", e),
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })?
     }};
 }

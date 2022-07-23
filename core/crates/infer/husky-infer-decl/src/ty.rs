@@ -5,10 +5,10 @@ mod vec;
 
 use std::iter::Peekable;
 
-use check_utils::{should, should_eq};
 use entity_kind::{EnumVariantKind, FieldKind};
+use husky_check_utils::{should, should_eq};
 use husky_liason_semantics::OutputLiason;
-use print_utils::{msg_once, p};
+use husky_print_utils::{msg_once, p};
 pub use trait_impl::*;
 pub use vec::*;
 

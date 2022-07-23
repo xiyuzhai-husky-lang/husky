@@ -14,8 +14,8 @@ use husky_atom::{
 };
 use husky_implement::{Implementable, ImplementationContext};
 use husky_instantiate::InstantiationContext;
+use husky_print_utils::{msg_once, p};
 use map_collect::MapCollect;
-use print_utils::{msg_once, p};
 use static_defn::{EntityStaticDefnVariant, StaticParameter};
 use vec_like::VecMapEntry;
 use word::IdentDict;

@@ -5,8 +5,8 @@ use husky_atom::{
     AtomContext,
 };
 use husky_implement::ImplementationContext;
+use husky_print_utils::{msg_once, p};
 use map_collect::MapCollect;
-use print_utils::{msg_once, p};
 use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq)]

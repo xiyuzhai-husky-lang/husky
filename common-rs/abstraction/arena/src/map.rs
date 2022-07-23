@@ -1,6 +1,6 @@
-use check_utils::should;
+use husky_check_utils::should;
+use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use std::marker::PhantomData;
-use test_utils::{TestDisplay, TestDisplayConfig};
 
 use crate::*;
 

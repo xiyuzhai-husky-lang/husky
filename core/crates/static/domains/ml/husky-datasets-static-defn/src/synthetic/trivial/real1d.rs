@@ -13,7 +13,7 @@ pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "real1d",
     items: &[DATASET1_MODULE_DEFN, DATASET2_SCOPE_DATA],
     variant: EntityStaticDefnVariant::Module,
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
 
 pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
@@ -31,7 +31,7 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         )
         .into(),
     },
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
 
 pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
@@ -49,7 +49,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         some   dataset2)
         .into(),
     },
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
 
 pub fn gen_sample1<'eval>(seed: u64, sample_id: SampleId) -> LabeledData<'eval> {

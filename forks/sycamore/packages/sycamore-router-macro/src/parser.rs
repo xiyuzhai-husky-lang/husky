@@ -103,7 +103,7 @@ mod tests {
     #[test]
     fn static_route() {
         check(
-            "/my/static/path",
+            "/my/static/husky-path-utils",
             expect![[r#"
                 (
                     "",
@@ -166,7 +166,7 @@ mod tests {
     #[test]
     fn route_with_no_leading_slash() {
         check(
-            "my/static/path",
+            "my/static/husky-path-utils",
             expect![[r#"
                 (
                     "",

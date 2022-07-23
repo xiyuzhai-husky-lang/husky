@@ -1,6 +1,6 @@
 use crate::*;
-use check_utils::should;
-use print_utils::epin;
+use husky_check_utils::should;
+use husky_print_utils::epin;
 use singleton::singleton;
 use std::{
     collections::HashMap,

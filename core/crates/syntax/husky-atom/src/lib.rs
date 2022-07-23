@@ -7,9 +7,9 @@ mod variant;
 
 pub use context::*;
 pub use error::*;
+use husky_print_utils::p;
 pub use parser::AtomParser;
 pub use parser::*;
-use print_utils::p;
 pub use variant::{AtomVariant, LambdaHead};
 
 use entity_kind::*;

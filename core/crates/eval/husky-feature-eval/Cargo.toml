@@ -16,9 +16,9 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
 cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 json-map = { path = "../../../../common-rs/abstraction/json-map" }
-check-utils = { path = "../../../../common-rs/utils/check" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-print-utils = { path = "../../../../common-rs/utils/print" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 interner = { path = "../../../../common-rs/abstraction/interner" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 upcast = { path = "../../../../common-rs/abstraction/upcast" }
@@ -42,4 +42,4 @@ husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 static-defn = { path = "../../static/static-defn" }
 husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-protocol" }
 husky-feature-gen = { path = "../husky-feature-gen" }
-wild-utils = { path = "../../../../common-rs/utils/wild" }
+wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }

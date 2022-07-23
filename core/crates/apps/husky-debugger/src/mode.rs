@@ -44,16 +44,16 @@ async fn test_all_packages_in_dir(dir: &Path) {
     let package_dirs = collect_all_package_dirs(dir);
     println!(
         "\n{}Running{} tests on {} example packages:",
-        print_utils::CYAN,
-        print_utils::RESET,
+        husky_print_utils::CYAN,
+        husky_print_utils::RESET,
         package_dirs.len()
     );
 
     for package_dir in package_dirs {
         println!(
             "\n{}test{} {}",
-            print_utils::CYAN,
-            print_utils::RESET,
+            husky_print_utils::CYAN,
+            husky_print_utils::RESET,
             package_dir.as_os_str().to_str().unwrap(),
         );
         match HuskyDebugger::new(
@@ -77,19 +77,19 @@ async fn test_all_packages_in_dir(dir: &Path) {
 fn finalize_success() {
     println!(
         "    {}result{}: {}success{}",
-        print_utils::CYAN,
-        print_utils::RESET,
-        print_utils::GREEN,
-        print_utils::RESET,
+        husky_print_utils::CYAN,
+        husky_print_utils::RESET,
+        husky_print_utils::GREEN,
+        husky_print_utils::RESET,
     )
 }
 
 fn finalize_failure() {
     println!(
         "    {}result{}: {}failure{}",
-        print_utils::CYAN,
-        print_utils::RESET,
-        print_utils::RED,
-        print_utils::RESET,
+        husky_print_utils::CYAN,
+        husky_print_utils::RESET,
+        husky_print_utils::RED,
+        husky_print_utils::RESET,
     )
 }

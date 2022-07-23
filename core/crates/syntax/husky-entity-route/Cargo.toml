@@ -11,8 +11,8 @@ salsa = "0.17.0-pre.2"
 paste = "1.0"
 singleton = { path = "../../../../common-rs/abstraction/singleton" }
 interner = { path = "../../../../common-rs/abstraction/interner" }
-check-utils = { path = "../../../../common-rs/utils/check" }
-print-utils = { path = "../../../../common-rs/utils/print" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }

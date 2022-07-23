@@ -18,7 +18,7 @@ pub use snapshot::*;
 pub use xml::*;
 
 use crate::*;
-use print_utils::{msg_once, p, ps};
+use husky_print_utils::{msg_once, p, ps};
 use std::sync::Arc;
 use std::{fmt::Write, panic::UnwindSafe};
 use word::CustomIdentifier;

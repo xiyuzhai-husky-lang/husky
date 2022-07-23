@@ -22,8 +22,8 @@ impl TestDisplay for InferError {
             true => write!(
                 result,
                 "{}InferError{}: {}",
-                print_utils::RED,
-                print_utils::RESET,
+                husky_print_utils::RED,
+                husky_print_utils::RESET,
                 message
             )
             .unwrap(),
@@ -139,7 +139,7 @@ macro_rules! error {
                 message: $msg.into(),
                 range: $range,
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         }
     }};
 }
@@ -152,7 +152,7 @@ macro_rules! throw {
                 message: $msg.into(),
                 range: $range,
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })?
     }};
 }
@@ -164,7 +164,7 @@ macro_rules! throw_derived {
             variant: infer_error::InferErrorVariant::Derived {
                 message: $msg.into(),
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })?
     }};
 }
@@ -177,7 +177,7 @@ macro_rules! ok_or {
                 message: $msg.into(),
                 range: $range,
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })
     }};
 }
@@ -189,7 +189,7 @@ macro_rules! derived_not_none {
             variant: infer_error::InferErrorVariant::Derived {
                 message: "expect not none".to_string(),
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })
     }};
 }
@@ -201,7 +201,7 @@ macro_rules! derived {
             variant: infer_error::InferErrorVariant::Derived {
                 message: $message.into(),
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         }
     }};
 }
@@ -213,12 +213,12 @@ macro_rules! derived_unwrap {
             variant: infer_error::InferErrorVariant::Derived {
                 message: format!("expect ok but got {e:?} instead"),
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })?
     }};
 }
 
-use dev_utils::*;
+use husky_dev_utils::*;
 use husky_entity_syntax::EntitySyntaxError;
+use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use husky_text::{BindTextRangeFrom, TextRange};
-use test_utils::{TestDisplay, TestDisplayConfig};

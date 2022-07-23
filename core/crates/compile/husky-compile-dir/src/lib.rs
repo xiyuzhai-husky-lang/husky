@@ -1,5 +1,5 @@
 use husky_package_semantics::Package;
-use print_utils::p;
+use husky_print_utils::p;
 use std::{
     env,
     path::{Path, PathBuf},

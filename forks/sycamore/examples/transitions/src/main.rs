@@ -3,7 +3,7 @@ use rand::Rng;
 use sycamore::prelude::*;
 use sycamore::suspense::{use_transition, Suspense};
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum Tab {
     One,
     Two,

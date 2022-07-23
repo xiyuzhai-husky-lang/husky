@@ -12,10 +12,10 @@ pub use sheet::*;
 use husky_ast::RawExprIdx;
 use husky_entity_route::EntityRoutePtr;
 use husky_liason_semantics::*;
+use husky_print_utils::msg_once;
 use husky_text::{Row, TextRange};
 use infer_contract::*;
 use infer_error::InferResult;
-use print_utils::msg_once;
 use vm::*;
 use word::{CustomIdentifier, Identifier};
 

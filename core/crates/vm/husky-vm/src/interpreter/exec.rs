@@ -6,11 +6,11 @@ mod exec_opr_opn;
 mod exec_pattern_match;
 
 use crate::{history::HistoryEntry, *};
-use check_utils::{should, should_eq};
 use colored::Colorize;
+use husky_check_utils::{should, should_eq};
 use husky_entity_route::EntityRouteKind;
+use husky_print_utils::{msg_once, p, ps};
 use path_utils::get_relative_path;
-use print_utils::{msg_once, p, ps};
 use std::iter::zip;
 use word::RootIdentifier;
 

@@ -10,7 +10,7 @@ use husky_visual_syntax::StaticVisualTy;
 pub use lastx::*;
 
 use super::*;
-use check_utils::should_eq;
+use husky_check_utils::should_eq;
 
 pub trait __VecX<T> {
     fn ilen(&self) -> i32;
@@ -127,7 +127,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Group,
         opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
     },
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
 
 static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {

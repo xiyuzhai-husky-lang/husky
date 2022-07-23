@@ -3,8 +3,8 @@ pub mod utils;
 
 pub use function::*;
 
-use dev_utils::__StaticDevSource;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
+use husky_dev_utils::__StaticDevSource;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualTy;
 use vm::{__Linkage, __SpecificRoutineLinkage};
@@ -136,7 +136,7 @@ pub struct StaticTraitImplDefn {
 macro_rules! associated_type_impl {
     ($name: expr, $ty: expr) => {
         EntityStaticDefn {
-            dev_src: dev_utils::__static_dev_src!(),
+            dev_src: husky_dev_utils::__static_dev_src!(),
             name: $name,
             items: &[],
             variant: EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: $ty },

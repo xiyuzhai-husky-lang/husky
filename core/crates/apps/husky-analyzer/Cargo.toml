@@ -30,11 +30,11 @@ tracing = "0.1"
 itertools = "^0.10.3"
 lsp-server = "0.5.2"
 salsa = "0.17.0-pre.2"
-error-utils = { path = "../../../../common-rs/utils/error" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-path-utils = { path = "../../../../common-rs/utils/path" }
-test-utils = { path = "../../../../common-rs/utils/test" }
-check-utils = { path = "../../../../common-rs/utils/check" }
+error-utils = { path = "../../../../common-rs/utils/husky-error-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+path-utils = { path = "../../../../common-rs/utils/husky-path-utils" }
+husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-compile-time = { path = "../../compile/husky-compile-time" }
 husky-compile-test = { path = "../../compile/husky-compile-test" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }

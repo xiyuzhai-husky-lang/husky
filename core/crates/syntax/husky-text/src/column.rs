@@ -1,6 +1,6 @@
+use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
-use test_utils::{TestDisplay, TestDisplayConfig};
 
 #[derive(
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
@@ -13,9 +13,9 @@ impl TestDisplay for Column {
             write!(
                 result,
                 "{}col {: <4}{}",
-                print_utils::YELLOW,
+                husky_print_utils::YELLOW,
                 self.0 + 1,
-                print_utils::RESET
+                husky_print_utils::RESET
             )
             .unwrap();
         } else {

@@ -1,6 +1,6 @@
 use husky_ast::{CasePattern, CasePatternVariant};
 use husky_entity_route::EntityRouteKind;
-use print_utils::msg_once;
+use husky_print_utils::msg_once;
 use semantics_error::*;
 use vec_like::{VecMap, VecPairMap};
 

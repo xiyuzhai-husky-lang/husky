@@ -24,13 +24,13 @@ pub use infer_decl::*;
 pub use infer_total::*;
 pub use word::InternWord;
 
-use check_utils::*;
+use husky_check_utils::*;
 use husky_entity_route::{new_ty_route_cache, EntityRoutePtr};
 use husky_entity_semantics::EntityRouteStore;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
+use husky_print_utils::*;
 use indexmap::IndexMap;
-use print_utils::*;
 use std::{
     collections::HashMap,
     fmt,

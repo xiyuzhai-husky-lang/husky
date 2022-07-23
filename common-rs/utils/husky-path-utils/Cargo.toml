@@ -8,5 +8,5 @@ doctest = false
 
 [dependencies]
 pathdiff = "0.2.1"
-print-utils = { path = "../print" }
-check-utils = { path = "../check" }
+husky-print-utils = { path = "../husky-print-utils" }
+husky-check-utils = { path = "../husky-check-utils" }

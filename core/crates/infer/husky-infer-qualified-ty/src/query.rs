@@ -2,8 +2,8 @@ use crate::{builder::QualifiedTySheetBuilder, *};
 use husky_entity_syntax::EntitySyntaxResultArc;
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRouteQueryGroup;
+use husky_print_utils::p;
 use infer_contract::InferContractQueryGroup;
-use print_utils::p;
 
 #[salsa::query_group(InferQualifiedTyQueryGroupStorage)]
 pub trait InferQualifiedTyQueryGroup: InferEntityRouteQueryGroup + InferContractQueryGroup {

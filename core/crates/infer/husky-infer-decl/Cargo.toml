@@ -12,9 +12,9 @@ bimap = "0.6.1"
 itertools = "^0.10.3"
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../../../common-rs/utils/check" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-print-utils = { path = "../../../../common-rs/utils/print" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 arena = { path = "../../../../common-rs/abstraction/arena" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
@@ -27,7 +27,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 word = { path = "../../syntax/word" }
-infer-error = { path = "../../infer/error" }
+infer-error = { path = "../error" }
 entity-kind = { path = "../../syntax/entity-kind" }
 husky-instantiate = { path = "../husky-instantiate" }
 husky-implement = { path = "../husky-implement" }

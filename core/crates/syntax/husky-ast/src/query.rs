@@ -4,12 +4,12 @@ use fold::Transformer;
 use fold::{FoldableList, FoldableStorage};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use husky_file::FilePtr;
+use husky_test_utils::TestDisplayConfig;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_token::AbsSemanticToken;
 use lsp_types::FoldingRange;
 use std::{collections::HashMap, sync::Arc};
 use std::{fmt::Write, sync::Mutex};
-use test_utils::TestDisplayConfig;
 use upcast::Upcast;
 
 #[salsa::query_group(AstQueryGroupStorage)]
@@ -108,15 +108,15 @@ impl ArenaKeyQuery<RawExpr> for AstText {
         let expr = &self.arena[raw_expr_idx];
         let range = expr.range();
         if config.colored {
-            result.push_str(print_utils::GREEN);
+            result.push_str(husky_print_utils::GREEN);
         }
         write!(result, "{: <15?}", range).unwrap();
         if config.colored {
-            result.push_str(print_utils::CYAN);
+            result.push_str(husky_print_utils::CYAN);
         }
         write!(result, "{: <20}", self.text.ranged(range)).unwrap();
         if config.colored {
-            result.push_str(print_utils::RESET);
+            result.push_str(husky_print_utils::RESET);
         }
     }
 }

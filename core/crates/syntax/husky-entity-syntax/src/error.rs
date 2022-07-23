@@ -1,4 +1,4 @@
-use dev_utils::{dev_src, DevSource};
+use husky_dev_utils::{dev_src, DevSource};
 use husky_file::FileError;
 use husky_text::TextRange;
 use std::fmt::Write;
@@ -25,7 +25,7 @@ impl std::fmt::Display for EntitySyntaxError {
 }
 
 impl TestDisplay for EntitySyntaxError {
-    fn write_inherent(&self, config: test_utils::TestDisplayConfig, result: &mut String) {
+    fn write_inherent(&self, config: husky_test_utils::TestDisplayConfig, result: &mut String) {
         if config.colored {
             todo!()
         } else {
@@ -98,6 +98,6 @@ macro_rules! query_not_none {
         }
     }};
 }
+use husky_test_utils::TestDisplay;
 use husky_token::LexError;
 pub(crate) use query_not_none;
-use test_utils::TestDisplay;

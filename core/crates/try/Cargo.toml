@@ -11,11 +11,11 @@ rand = "0.8.4"
 serde = { version = "1.0.106", features = ["derive"] }
 rayon = "1.5.1"
 text-diff = "0.4.0"
-check-utils = { path = "../../../common-rs/utils/check" }
-print-utils = { path = "../../../common-rs/utils/print" }
+husky-check-utils = { path = "../../../common-rs/utils/husky-check-utils" }
+husky-print-utils = { path = "../../../common-rs/utils/husky-print-utils" }
 xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 
 [dev-dependencies]
 salsa = "0.17.0-pre.2"
-dev-utils = { path = "../../../common-rs/utils/dev" }
+husky-dev-utils = { path = "../../../common-rs/utils/husky-dev-utils" }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }

@@ -11,9 +11,9 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
 json-map = { path = "../../../../common-rs/abstraction/json-map" }
 singleton = { path = "../../../../common-rs/abstraction/singleton" }
-check-utils = { path = "../../../../common-rs/utils/check" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-print-utils = { path = "../../../../common-rs/utils/print" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 interner = { path = "../../../../common-rs/abstraction/interner" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 upcast = { path = "../../../../common-rs/abstraction/upcast" }

@@ -2,12 +2,12 @@ use std::sync::Arc;
 
 use arena::map::{ArenaKeyQuery, ArenaMap};
 use husky_ast::RawExprMap;
+use husky_print_utils::{p, ps};
+use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use husky_text::{Row, TextRange};
 use infer_contract::ContractSheet;
 use infer_error::{derived_not_none, InferError, InferErrorVariant};
-use print_utils::{p, ps};
 use std::fmt::Write;
-use test_utils::{TestDisplay, TestDisplayConfig};
 use vec_like::VecPairMap;
 use word::{CustomIdentifier, Identifier};
 
@@ -142,9 +142,9 @@ macro_rules! write_field_name {
             write!(
                 $result,
                 "\n{}{}:\n{}",
-                print_utils::MAGENTA,
+                husky_print_utils::MAGENTA,
                 $name,
-                print_utils::RESET
+                husky_print_utils::RESET
             )
             .unwrap()
         } else {

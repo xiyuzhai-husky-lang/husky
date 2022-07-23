@@ -3,8 +3,8 @@ use crate::*;
 use husky_entity_route::RangedEntityRoute;
 use husky_feature_eval::EvalFeature;
 use husky_lazy_semantics::{LazyExprVariant, LazyOpnKind};
+use husky_print_utils::epin;
 use husky_text::RangedCustomIdentifier;
-use print_utils::epin;
 use vm::InterpreterQueryGroup;
 use word::CustomIdentifier;
 

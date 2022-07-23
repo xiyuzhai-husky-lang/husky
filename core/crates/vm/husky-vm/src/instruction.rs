@@ -5,10 +5,10 @@ mod pattern_match;
 mod sheet;
 
 pub use condition_flow::*;
+use husky_print_utils::p;
 pub use id::{InstructionId, InstructionSource};
 pub use opn::*;
 pub use pattern_match::*;
-use print_utils::p;
 pub use sheet::InstructionSheet;
 
 use crate::*;

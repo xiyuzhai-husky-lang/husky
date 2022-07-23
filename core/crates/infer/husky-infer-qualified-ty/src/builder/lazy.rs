@@ -1,14 +1,14 @@
-use check_utils::should;
 use defn_head::Parameter;
 use entity_kind::EntityKind;
 use husky_ast::*;
+use husky_check_utils::should;
+use husky_print_utils::p;
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRanged;
 use infer_error::derived;
 use infer_error::derived_not_none;
 use infer_error::derived_unwrap;
 use infer_error::throw_derived;
-use print_utils::p;
 
 use super::*;
 

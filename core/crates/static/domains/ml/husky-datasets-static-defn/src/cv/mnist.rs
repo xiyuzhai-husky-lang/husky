@@ -13,8 +13,8 @@ use husky_liason_semantics::OutputLiason;
 use super::*;
 use crate::*;
 use dev::*;
-use dev_utils::__static_dev_src;
 use entity_kind::{RoutineKind, TyKind};
+use husky_dev_utils::__static_dev_src;
 use load::*;
 use test::*;
 use val::*;
@@ -29,7 +29,7 @@ pub static MNIST_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         &BINARY_GRID_28_TYPE_DEFN,
     ],
     variant: EntityStaticDefnVariant::Module,
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
 
 pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
@@ -47,7 +47,7 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn 
         )
         .into(),
     },
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
 
 pub fn new_binary_dataset<'eval>() -> Dataset<'eval> {

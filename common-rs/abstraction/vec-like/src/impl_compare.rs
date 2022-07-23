@@ -1,5 +1,5 @@
 use crate::*;
-use test_utils::{TestDisplay, TestDisplayConfig};
+use husky_test_utils::{TestDisplay, TestDisplayConfig};
 
 impl<K, V> TestDisplay for VecMap<K, V>
 where

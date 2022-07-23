@@ -5,7 +5,7 @@ mod impl_func_stmt;
 mod impl_proc_stmt;
 
 use super::*;
-use check_utils::should_eq;
+use husky_check_utils::should_eq;
 
 impl HuskyTraceTime {
     pub fn gen_subtraces(&mut self, trace_id: TraceId) -> Vec<TraceId> {

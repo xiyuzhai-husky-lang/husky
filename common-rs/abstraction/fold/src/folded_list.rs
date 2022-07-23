@@ -1,6 +1,6 @@
 use std::{fmt::Debug, marker::PhantomData};
 
-use check_utils::should_eq;
+use husky_check_utils::should_eq;
 
 use crate::*;
 

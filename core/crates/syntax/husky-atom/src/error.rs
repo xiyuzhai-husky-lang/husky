@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use dev_utils::DevSource;
+use husky_dev_utils::DevSource;
 use husky_file::FileError;
 use husky_text::TextRange;
 
@@ -23,7 +23,7 @@ macro_rules! error {
                 message: $message.into(),
                 range: $range,
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         }
     }};
 }
@@ -36,7 +36,7 @@ macro_rules! err {
                 message: $message.into(),
                 range: $range,
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })
     }};
 }
@@ -46,7 +46,7 @@ macro_rules! derived_err {
     () => {{
         Err(AtomError {
             variant: AtomErrorVariant::Derived,
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })
     }};
 }
@@ -62,7 +62,7 @@ impl From<husky_entity_syntax::ModuleFromFileError> for AtomError {
     fn from(_: husky_entity_syntax::ModuleFromFileError) -> Self {
         Self {
             variant: AtomErrorVariant::Derived,
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         }
     }
 }

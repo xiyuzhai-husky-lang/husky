@@ -213,7 +213,7 @@ mod tests {
     #[test]
     fn static_path_single_segment() {
         check(
-            "/path",
+            "/husky-path-utils",
             RoutePath::new(vec![Param("path".to_string())]),
             Some(Vec::new()),
         );
@@ -222,7 +222,7 @@ mod tests {
     #[test]
     fn static_path_multiple_segments() {
         check(
-            "/my/static/path",
+            "/my/static/husky-path-utils",
             RoutePath::new(vec![
                 Param("my".to_string()),
                 Param("static".to_string()),
@@ -234,9 +234,9 @@ mod tests {
 
     #[test]
     fn do_not_match_if_leftover_segments() {
-        check("/path", RoutePath::new(vec![]), None);
+        check("/husky-path-utils", RoutePath::new(vec![]), None);
         check(
-            "/my/static/path",
+            "/my/static/husky-path-utils",
             RoutePath::new(vec![Param("my".to_string()), Param("static".to_string())]),
             None,
         );

@@ -18,17 +18,17 @@ pub use stmt::*;
 pub use transform::*;
 pub use xml::*;
 
-use check_utils::*;
 use defn_head::*;
-use dev_utils::*;
 use entity_kind::*;
 use error::*;
 use husky_atom::*;
+use husky_check_utils::*;
+use husky_dev_utils::*;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_file::FilePtr;
 use husky_liason_semantics::*;
+use husky_print_utils::*;
 use husky_text::*;
-use print_utils::*;
 use vm::InitKind;
 use word::{CustomIdentifier, IdentDict, Identifier, Paradigm, StmtKeyword};
 

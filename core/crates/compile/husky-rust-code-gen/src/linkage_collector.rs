@@ -1,5 +1,5 @@
 use crate::*;
-use check_utils::should;
+use husky_check_utils::should;
 use husky_entity_route::{base_route, entity_route_menu, make_route, SpatialArgument};
 use husky_instantiate::InstantiationContext;
 use husky_linkage_table::LinkageKey;

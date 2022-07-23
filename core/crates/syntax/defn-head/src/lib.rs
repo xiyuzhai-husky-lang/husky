@@ -1,6 +1,6 @@
 mod spatial;
 
-use check_utils::should;
+use husky_check_utils::should;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason, RangedParameterLiason};
 pub use spatial::*;
 use std::sync::Arc;

@@ -5,9 +5,9 @@ use std::{
     sync::Arc,
 };
 
+use husky_print_utils::p;
 use husky_token::{AbsSemanticToken, SemanticTokenKind};
 use lsp_types::SemanticToken;
-use print_utils::p;
 
 use crate::lsp_ext;
 

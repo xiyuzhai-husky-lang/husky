@@ -10,7 +10,7 @@ use husky_ast::{
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
-use print_utils::msg_once;
+use husky_print_utils::msg_once;
 use vm::*;
 use word::{Paradigm, RootIdentifier, WordInterner};
 

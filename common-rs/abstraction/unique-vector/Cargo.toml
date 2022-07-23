@@ -11,7 +11,7 @@ doctest = false
 [dependencies]
 
 [dev-dependencies]
-check-utils = { path = "../../utils/check" }
-print-utils = { path = "../../utils/print" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 # stdx = { path = "../../stdx" }
 # common = { path = "../../common" }

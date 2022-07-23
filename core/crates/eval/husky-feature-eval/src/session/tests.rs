@@ -1,4 +1,4 @@
-use print_utils::test_print;
+use husky_print_utils::test_print;
 
 use crate::*;
 

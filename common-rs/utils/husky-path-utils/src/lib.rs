@@ -1,8 +1,8 @@
 mod module_tree;
 mod rel;
 
+use husky_print_utils::p;
 pub use module_tree::*;
-use print_utils::p;
 pub use rel::*;
 
 use std::path::{Path, PathBuf};

@@ -8,9 +8,9 @@ mod trai;
 mod ty;
 
 pub use call_form::*;
+use husky_print_utils::p;
 pub use input::*;
 pub use member::*;
-use print_utils::p;
 pub use trai::*;
 pub use ty::*;
 

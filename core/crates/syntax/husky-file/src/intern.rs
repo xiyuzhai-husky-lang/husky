@@ -30,7 +30,7 @@ singleton! { FileInterner }
 
 #[test]
 fn test_intern_file() {
-    use check_utils::*;
+    use husky_check_utils::*;
     let interner = new_file_interner();
     let path = &*interner.intern("haha".into());
     let path1: PathBuf = "haha".into();

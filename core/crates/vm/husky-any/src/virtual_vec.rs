@@ -1,7 +1,7 @@
 use std::borrow::Cow;
 
 use husky_entity_route::EntityRoutePtr;
-use print_utils::{msg_once, p};
+use husky_print_utils::{msg_once, p};
 use serde::Serialize;
 use word::{CustomIdentifier, IdentPairDict};
 

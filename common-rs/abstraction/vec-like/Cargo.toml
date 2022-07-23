@@ -10,6 +10,6 @@ doctest = false
 
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
-test-utils = { path = "../../utils/test" }
+husky-test-utils = { path = "../../utils/husky-test-utils" }
 # stdx = { path = "../../stdx" }
 # common = { path = "../../common" }

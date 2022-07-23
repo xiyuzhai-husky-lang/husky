@@ -1,5 +1,5 @@
 use crate::*;
-use print_utils::msg_once;
+use husky_print_utils::msg_once;
 use std::{any::Any, sync::Arc};
 use word::CustomIdentifier;
 

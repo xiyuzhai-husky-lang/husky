@@ -90,7 +90,7 @@ macro_rules! query_error {
         InferQueryError {
             message: $msg,
             kind: InferQueryErrorKind::Original,
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         }
     }};
 }
@@ -101,7 +101,7 @@ macro_rules! query_derived_not_none {
         $opt_value.ok_or(infer_error::InferQueryError {
             kind: infer_error::InferQueryErrorKind::Derived,
             message: "expect not none".to_string(),
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })
     }};
 }
@@ -112,7 +112,7 @@ macro_rules! throw_query_derived {
         $result.map_err(|_| infer_error::InferQueryError {
             kind: infer_error::InferQueryErrorKind::Derived,
             message: "expect ok".to_string(),
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })?
     }};
 }

@@ -3,11 +3,11 @@ mod bind_into;
 
 pub use bind_from::*;
 pub use bind_into::*;
-use test_utils::TestDisplay;
+use husky_test_utils::TestDisplay;
 
 use crate::*;
-use dev_utils::__StaticDevSource;
-use print_utils::*;
+use husky_dev_utils::__StaticDevSource;
+use husky_print_utils::*;
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 use word::CustomIdentifier;
@@ -19,7 +19,7 @@ pub struct TextRange {
 }
 
 impl TestDisplay for TextRange {
-    fn write_inherent(&self, config: test_utils::TestDisplayConfig, result: &mut String) {
+    fn write_inherent(&self, config: husky_test_utils::TestDisplayConfig, result: &mut String) {
         if config.colored {
             write!(result, "{GREEN}{:?}{RESET}", self).unwrap()
         } else {

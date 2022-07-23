@@ -1,9 +1,9 @@
 pub use futures::executor::block_on as __block_on;
 pub use husky_debugger::{HuskyDebugger, HuskyDebuggerConfig};
+pub use husky_test_utils::TestResult as __TestResult;
 pub use husky_trace_protocol::SampleId as __SampleId;
-pub use test_utils::TestResult as __TestResult;
 
-use print_utils::*;
+use husky_print_utils::*;
 
 pub fn __serve_on_error_init() {
     std::panic::set_hook(Box::new(|panic_info| {

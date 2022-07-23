@@ -33,9 +33,9 @@ pub use vm::{
     __OwnedValue, __TempValue,
 };
 
-use dev_utils::__StaticDevSource;
-use dev_utils::{__static_dev_src, dev_src};
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
+use husky_dev_utils::__StaticDevSource;
+use husky_dev_utils::{__static_dev_src, dev_src};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualTy;
 use static_defn::StaticParameter;

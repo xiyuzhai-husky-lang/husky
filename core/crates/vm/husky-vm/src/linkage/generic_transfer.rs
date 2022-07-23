@@ -17,7 +17,7 @@ macro_rules! generic_routine_linkage {
     ($fp: expr) => {{
         GenericRoutineLinkage {
             call: $fp,
-            dev_src: &dev_utils::__static_dev_src!(),
+            dev_src: &husky_dev_utils::__static_dev_src!(),
         }
     }};
 }

@@ -50,7 +50,7 @@ macro_rules! error {
                 range: $range,
                 message: $message.into(),
             },
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         }
     }};
 }
@@ -77,7 +77,7 @@ macro_rules! derived_not_none {
     ($opt_value: expr) => {{
         $opt_value.ok_or(AstError {
             variant: AstErrorVariant::Derived,
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         })
     }};
 }

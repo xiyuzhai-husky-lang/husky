@@ -1,8 +1,8 @@
 use std::iter::zip;
 
 use super::*;
-use dev_utils::dev_src;
 use husky_ast::RawExprRange;
+use husky_dev_utils::dev_src;
 use husky_entity_route::entity_route_menu;
 use husky_text::*;
 use infer_decl::TraitMemberImplDecl;

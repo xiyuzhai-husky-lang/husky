@@ -1,6 +1,6 @@
 use husky_eager_semantics::ProcStmtVariant;
 use husky_feature_gen::FeatureLazyStmtVariant;
-use print_utils::msg_once;
+use husky_print_utils::msg_once;
 use serde::{Deserialize, Serialize};
 use trace::*;
 use vm::{HistoryEntry, LoopFrameData, MutationData};

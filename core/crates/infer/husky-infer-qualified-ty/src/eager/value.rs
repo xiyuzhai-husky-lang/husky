@@ -35,12 +35,12 @@ impl TestDisplay for EagerValueQualifiedTy {
             write!(
                 result,
                 "{}{: <12?}{} {}{:?}{}",
-                print_utils::PINK,
+                husky_print_utils::PINK,
                 self.qual,
-                print_utils::RESET,
-                print_utils::GREEN,
+                husky_print_utils::RESET,
+                husky_print_utils::GREEN,
                 self.ty,
-                print_utils::RESET,
+                husky_print_utils::RESET,
             )
             .unwrap()
         } else {

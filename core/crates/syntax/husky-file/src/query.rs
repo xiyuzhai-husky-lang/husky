@@ -4,11 +4,11 @@ use std::{
 };
 
 use crate::*;
-use check_utils::should_eq;
+use husky_check_utils::should_eq;
+use husky_print_utils::{msg_once, p};
 use indexmap::IndexMap;
 use itertools::Itertools;
 use path_utils::{parent_module_path, submodule_path};
-use print_utils::{msg_once, p};
 use sync_utils::{ASafeRwLock, SafeRwLock};
 use word::CustomIdentifier;
 

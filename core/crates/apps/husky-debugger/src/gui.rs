@@ -35,8 +35,8 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<Hu
     );
     println!(
         "{}husky:{} query connection established.",
-        print_utils::CYAN,
-        print_utils::RESET
+        husky_print_utils::CYAN,
+        husky_print_utils::RESET
     );
     let config = &debugger.config;
     let mut gui_messages = Vec::new();
@@ -62,8 +62,8 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, debugger: Arc<Hu
                 if message.is_close() {
                     println!(
                         "{}husky:{} query connection closed.",
-                        print_utils::CYAN,
-                        print_utils::RESET
+                        husky_print_utils::CYAN,
+                        husky_print_utils::RESET
                     );
                 } else {
                     eprintln!("nontext message received: {:?}", message);

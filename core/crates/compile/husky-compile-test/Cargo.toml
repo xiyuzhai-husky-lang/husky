@@ -11,11 +11,11 @@ itertools = "0.10.0"
 arrayvec = "0.7"
 indexmap = "1.7"
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../../../common-rs/utils/check" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-sync-utils = { path = "../../../../common-rs/utils/sync" }
-test-utils = { path = "../../../../common-rs/utils/test" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+sync-utils = { path = "../../../../common-rs/utils/husky-sync-utils" }
+husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
 upcast = { path = "../../../../common-rs/abstraction/upcast" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 vm = { path = "../../vm/husky-vm" }

@@ -1,5 +1,5 @@
 use crate::*;
-use check_utils::*;
+use husky_check_utils::*;
 use std::marker::PhantomData;
 
 #[derive(Clone)]

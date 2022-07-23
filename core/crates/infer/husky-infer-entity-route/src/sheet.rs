@@ -5,9 +5,9 @@ use std::{collections::HashMap, sync::Arc};
 
 use arena::map::ArenaMap;
 use builder::EntityRouteSheetBuilder;
-use dev_utils::dev_src;
 use fold::FoldableStorage;
 use husky_ast::{AstText, RawExpr};
+use husky_dev_utils::dev_src;
 use husky_text::{Row, TextRange};
 use infer_decl::MemberIdx;
 use word::CustomIdentifier;

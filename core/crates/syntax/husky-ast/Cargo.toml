@@ -9,11 +9,11 @@ description = "Generic LSP server scaffold."
 [dependencies]
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../../../common-rs/utils/check" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-wild-utils = { path = "../../../../common-rs/utils/wild" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-test-utils = { path = "../../../../common-rs/utils/test" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
 interner = { path = "../../../../common-rs/abstraction/interner" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }

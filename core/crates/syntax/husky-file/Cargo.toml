@@ -18,9 +18,9 @@ indexmap = "1.8.1"
 salsa = "0.17.0-pre.2"
 interner = { path = "../../../../common-rs/abstraction/interner" }
 singleton = { path = "../../../../common-rs/abstraction/singleton" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-sync-utils = { path = "../../../../common-rs/utils/sync" }
-check-utils = { path = "../../../../common-rs/utils/check" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-path-utils = { path = "../../../../common-rs/utils/path" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+sync-utils = { path = "../../../../common-rs/utils/husky-sync-utils" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+path-utils = { path = "../../../../common-rs/utils/husky-path-utils" }
 word = { path = "../word" }

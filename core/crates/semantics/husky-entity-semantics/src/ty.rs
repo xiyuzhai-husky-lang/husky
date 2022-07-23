@@ -1,7 +1,7 @@
 mod member;
 mod type_call;
 
-use check_utils::should;
+use husky_check_utils::should;
 pub use member::*;
 pub use type_call::*;
 
@@ -15,10 +15,10 @@ use husky_eager_semantics::{FuncStmt, ProcStmt};
 use husky_entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr};
 use husky_file::FilePtr;
 use husky_lazy_semantics::{LazyStmt, XmlExprVariant};
+use husky_print_utils::{msg_once, p};
 use husky_text::*;
 use infer_decl::{DeclQueryGroup, MemberIdx};
 use infer_total::InferQueryGroup;
-use print_utils::{msg_once, p};
 use semantics_error::SemanticResult;
 use std::{iter::Peekable, sync::Arc};
 use vec_like::VecMap;

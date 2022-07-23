@@ -1,7 +1,7 @@
 use std::path::{Path, PathBuf};
 
+use husky_print_utils::p;
 use path_utils::collect_all_package_dirs;
-use print_utils::p;
 mod flags;
 mod mode;
 mod print_diagnostics;
@@ -43,8 +43,8 @@ pub fn print_all_packages_in_dir(dir: &Path, f: impl Fn(&Path)) {
     let package_paths = collect_all_package_dirs(dir);
     println!(
         "\n{}Printing{} analysis on {} packages:",
-        print_utils::CYAN,
-        print_utils::RESET,
+        husky_print_utils::CYAN,
+        husky_print_utils::RESET,
         package_paths.len()
     );
 
@@ -53,8 +53,8 @@ pub fn print_all_packages_in_dir(dir: &Path, f: impl Fn(&Path)) {
     for package_path in package_paths {
         println!(
             "\n{}analyze{} {}:\n",
-            print_utils::CYAN,
-            print_utils::RESET,
+            husky_print_utils::CYAN,
+            husky_print_utils::RESET,
             package_path.as_os_str().to_str().unwrap(),
         );
         f(&package_path)

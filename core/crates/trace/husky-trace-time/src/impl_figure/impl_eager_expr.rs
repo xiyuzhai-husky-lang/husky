@@ -1,4 +1,4 @@
-use check_utils::should_eq;
+use husky_check_utils::should_eq;
 
 use super::*;
 

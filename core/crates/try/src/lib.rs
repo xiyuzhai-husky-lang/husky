@@ -18,5 +18,5 @@ mod try_size;
 mod try_trait;
 mod try_xxhash;
 
-use check_utils::*;
-use print_utils::*;
+use husky_check_utils::*;
+use husky_print_utils::*;

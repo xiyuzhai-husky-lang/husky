@@ -11,9 +11,9 @@ use husky_eager_semantics::*;
 use husky_entity_semantics::*;
 use husky_feature_gen::*;
 use husky_file::FilePtr;
+use husky_print_utils::p;
 use husky_text::{HuskyText, TextRange};
 use husky_trace_protocol::*;
-use print_utils::p;
 use serde::{ser::SerializeStruct, Serialize};
 use std::{borrow::Cow, sync::Arc};
 
