@@ -8,7 +8,7 @@ pub fn test_all_source_files<T>(
     f: impl Fn(&HuskyCompileTime, FilePtr) -> T,
 ) -> TestResult
 where
-    T: TestDisplay,
+    T: HuskyDisplay,
 {
     let mut compile_time = HuskyCompileTime::new_default(__resolve_root_defn);
     compile_time.load_package(package_dir);

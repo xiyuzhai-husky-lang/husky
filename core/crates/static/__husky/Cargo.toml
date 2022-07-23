@@ -6,7 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 futures = { version = "0.3.21", features = ["executor"] }
-husky-debugger = { path = "../../apps/husky-debugger" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
@@ -17,4 +16,3 @@ husky-root = { path = "../husky-root" }
 vm = { path = "../../vm/husky-vm" }
 
 [lib]
-crate-type = ["dylib", "rlib"]

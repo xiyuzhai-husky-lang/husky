@@ -11,4 +11,4 @@ doctest = false
 [dependencies]
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-test-utils = { path = "../../utils/husky-test-utils" }
+husky-display-utils = { path = "../../utils/husky-display-utils" }

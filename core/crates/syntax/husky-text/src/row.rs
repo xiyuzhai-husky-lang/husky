@@ -1,12 +1,12 @@
-use husky_test_utils::{TestDisplay, TestDisplayConfig};
+use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 
 #[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize)]
 pub struct Row(pub u32); // raw is 0 based
 
-impl TestDisplay for Row {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for Row {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
                 result,

@@ -12,8 +12,8 @@ pub struct InferError {
     pub dev_src: DevSource,
 }
 
-impl TestDisplay for InferError {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for InferError {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         let message = match self.variant {
             InferErrorVariant::Derived { ref message } => message,
             InferErrorVariant::Original { ref message, range } => message,
@@ -219,6 +219,6 @@ macro_rules! derived_unwrap {
 }
 
 use husky_dev_utils::*;
+use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_entity_syntax::EntitySyntaxError;
-use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use husky_text::{BindTextRangeFrom, TextRange};

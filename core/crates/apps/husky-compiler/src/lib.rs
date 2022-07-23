@@ -1,7 +1,7 @@
 mod dir;
 pub mod flags;
 
-use husky_compile_dir::{get_or_create_child_dir, mkdir};
+use husky_compile_dir::{getx_child_dir, mkdir};
 use husky_compile_time::*;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use husky_file::FilePtr;
@@ -14,25 +14,21 @@ use std::path::{Path, PathBuf};
 use word::snake_to_dash;
 
 pub struct CompilerInstance {
-    src: PathBuf,
-    dst: PathBuf,
-    rel_husky_dir: PathBuf,
-    rel_crate_dir: PathBuf,
+    packages_dir: PathBuf,
+    husky_dir: String,
 }
 
 impl CompilerInstance {
     pub fn from_env() -> Self {
         let flags = flags::HuskyCompilerFlags::from_env().expect("invalid arguments");
         Self {
-            src: flags.src,
-            dst: flags.dst,
-            rel_husky_dir: flags.rel_husky_dir,
-            rel_crate_dir: flags.rel_crate_dir,
+            packages_dir: flags.packages_dir,
+            husky_dir: std::env::var("HUSKY_DIR").expect("env not set"),
         }
     }
 
     pub fn compile_all(&self) {
-        let pack_dirs = collect_all_package_dirs(&self.src);
+        let pack_dirs = collect_all_package_dirs(&self.packages_dir);
         for pack_dir in pack_dirs {
             self.compile_package(pack_dir);
         }
@@ -48,10 +44,9 @@ impl CompilerInstance {
         compile_time.load_package(&package_dir);
         let main_file = compile_time.unique_main_file();
         let package = compile_time.package(main_file).unwrap();
-        let rust_dir = self.get_rust_dir(&package);
-        let husky_code_snapshot_dir = self.get_husky_code_snapshot_dir(&package);
-        let src_dir = get_or_create_child_dir(&rust_dir, "src");
-        let bin_dir = get_or_create_child_dir(&src_dir, "bin");
+        let rust_dir = self.getx_rust_gen_cache_dir(&package);
+        let husky_code_snapshot_dir = self.getx_husky_code_snapshot_dir(&package);
+        let src_dir = getx_child_dir(&rust_dir, "src");
 
         self.save_husky_code_snapshot(
             &compile_time,
@@ -59,10 +54,44 @@ impl CompilerInstance {
             main_file,
         );
 
+        let cargo_config_path = getx_child_dir(&rust_dir, ".cargo").join("config.toml");
+        diff_write(
+            &cargo_config_path,
+            r#"
+            # Add the contents of this file to `config.toml` to enable "fast build" configuration. Please read the notes below.
+# NOTE: For maximum performance, build using a nightly compiler
+# If you are using rust stable, remove the "-Zshare-generics=y" below.
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = ["-Awarnings", "-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y"]
+
+# NOTE: you must manually install https://github.com/michaeleisel/zld on mac. you can easily do this with the "brew" package manager:
+# `brew install michaeleisel/zld/zld`
+[target.x86_64-apple-darwin]
+rustflags = ["-C", "link-arg=-fuse-ld=/usr/local/bin/zld", "-Zshare-generics=y"]
+
+[target.aarch64-apple-darwin]
+rustflags = [
+    "-C",
+    "link-arg=-fuse-ld=/opt/homebrew/bin/zld",
+    "-Zshare-generics=y"
+]
+
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"
+rustflags = ["-Zshare-generics=n"]
+
+# Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'
+# In most cases the gains are negligible, but if you are on macos and have slow compile times you should see significant gains.
+[profile.dev]
+debug = 1
+"#,
+        );
+
         // Cargo.toml
         diff_write(
             &rust_dir.join("Cargo.toml"),
-            &compile_time.cargo_toml_content(main_file, &self.rel_husky_dir),
+            &compile_time.cargo_toml_content(main_file, &self.husky_dir),
         );
 
         // lib.rs
@@ -86,12 +115,6 @@ impl CompilerInstance {
                 module,
             )
         }
-
-        // bin/main.rs
-        diff_write(
-            &bin_dir.join("main.rs"),
-            &compile_time.rust_bin_main_rs_content(main_file, self.rel_crate_dir.clone()),
-        );
     }
 
     fn compile_maybe_module(

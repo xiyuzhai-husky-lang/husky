@@ -11,6 +11,7 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+husky-display-utils = { path = "../../../../common-rs/utils/husky-display-utils" }
 husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
 reserve = { path = "../../../../common-rs/abstraction/reserve" }
 husky-file = { path = "../../syntax/husky-file" }

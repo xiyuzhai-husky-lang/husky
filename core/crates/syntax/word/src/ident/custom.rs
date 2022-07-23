@@ -10,8 +10,8 @@ impl From<CustomIdentifier> for Identifier {
     }
 }
 
-impl TestDisplay for CustomIdentifier {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for CustomIdentifier {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
                 result,

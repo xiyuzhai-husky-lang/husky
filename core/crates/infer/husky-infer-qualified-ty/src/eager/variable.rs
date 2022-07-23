@@ -18,8 +18,8 @@ pub enum EagerVariableQualifier {
     TempRefMut,
 }
 
-impl TestDisplay for EagerVariableQualifiedTy {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for EagerVariableQualifiedTy {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
                 result,

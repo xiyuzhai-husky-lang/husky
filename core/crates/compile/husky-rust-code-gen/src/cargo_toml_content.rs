@@ -7,13 +7,12 @@ use crate::*;
 pub fn cargo_toml_content(
     db: &dyn RustCodeGenQueryGroup,
     main_file: FilePtr,
-    rel_husky_dir: &Path,
+    husky_dir: &str,
 ) -> String {
     let package = db.package(main_file).unwrap();
     let package_ident = package.ident;
     let dashed_package_ident = snake_to_dash(&package_ident);
     msg_once!("ad hoc");
-    let rel_husky_dir = rel_husky_dir.display();
     format!(
         r#"[package]
 name = "{dashed_package_ident}"
@@ -27,15 +26,10 @@ rust-version = "1.56"
 tokio = {{ version = "1.19.2", features = ["full"] }}
 serde = {{ version = "1.0.106", features = ["derive"] }}
 serde_json = {{ version = "1.0.48", features = ["preserve_order"] }}
-__husky = {{ path = "{rel_husky_dir}/core/crates/static/__husky" }}
+__husky = {{ path = "{husky_dir}/core/crates/static/__husky" }}
 
 [dev-dependencies]
 tokio-test = "*"
-
-
-[[bin]]
-name = "{dashed_package_ident}-debugger"
-path = "src/bin/main.rs"
 "#
     )
 }

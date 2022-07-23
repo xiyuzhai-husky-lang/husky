@@ -16,6 +16,7 @@ husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 sync-utils = { path = "../../../../common-rs/utils/husky-sync-utils" }
 husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
+husky-display-utils = { path = "../../../../common-rs/utils/husky-display-utils" }
 upcast = { path = "../../../../common-rs/abstraction/upcast" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 vm = { path = "../../vm/husky-vm" }

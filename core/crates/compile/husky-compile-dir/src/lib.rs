@@ -6,7 +6,7 @@ use std::{
 };
 use word::snake_to_dash;
 
-pub fn get_or_create_child_dir(parent_dir: &Path, dirname: &str) -> PathBuf {
+pub fn getx_child_dir(parent_dir: &Path, dirname: &str) -> PathBuf {
     let child_dir = parent_dir.join(dirname);
     mkdir(&child_dir);
     child_dir

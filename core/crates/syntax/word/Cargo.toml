@@ -11,7 +11,7 @@ doctest = false
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
 singleton = { path = "../../../../common-rs/abstraction/singleton" }
-husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
+husky-display-utils = { path = "../../../../common-rs/utils/husky-display-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 interner = { path = "../../../../common-rs/abstraction/interner" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
-husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }

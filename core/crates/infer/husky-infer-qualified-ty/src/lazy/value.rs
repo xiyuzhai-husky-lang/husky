@@ -8,8 +8,8 @@ pub struct LazyValueQualifiedTy {
     pub ty: EntityRoutePtr,
 }
 
-impl TestDisplay for LazyValueQualifiedTy {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for LazyValueQualifiedTy {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         write!(result, "{: <12?} {:?}", self.qual, self.ty).unwrap()
     }
 }

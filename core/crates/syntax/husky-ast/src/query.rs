@@ -2,9 +2,9 @@ use crate::*;
 use arena::map::ArenaKeyQuery;
 use fold::Transformer;
 use fold::{FoldableList, FoldableStorage};
+use husky_display_utils::HuskyDisplayConfig;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use husky_file::FilePtr;
-use husky_test_utils::TestDisplayConfig;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_token::AbsSemanticToken;
 use lsp_types::FoldingRange;
@@ -104,7 +104,7 @@ impl AstText {
 }
 
 impl ArenaKeyQuery<RawExpr> for AstText {
-    fn write_key(&self, config: TestDisplayConfig, raw_expr_idx: RawExprIdx, result: &mut String) {
+    fn write_key(&self, config: HuskyDisplayConfig, raw_expr_idx: RawExprIdx, result: &mut String) {
         let expr = &self.arena[raw_expr_idx];
         let range = expr.range();
         if config.colored {

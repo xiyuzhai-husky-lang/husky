@@ -14,6 +14,7 @@ husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
+husky-display-utils = { path = "../../../../common-rs/utils/husky-display-utils" }
 interner = { path = "../../../../common-rs/abstraction/interner" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }

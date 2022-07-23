@@ -1,5 +1,5 @@
 use husky_check_utils::should;
-use husky_test_utils::{TestDisplay, TestDisplayConfig};
+use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use std::marker::PhantomData;
 
 use crate::*;
@@ -20,12 +20,12 @@ where
 }
 
 pub trait ArenaKeyQuery<T> {
-    fn write_key(&self, config: TestDisplayConfig, raw_idx: ArenaIdx<T>, result: &mut String);
+    fn write_key(&self, config: HuskyDisplayConfig, raw_idx: ArenaIdx<T>, result: &mut String);
 
-    fn write_map_inherently<V: TestDisplay>(
+    fn write_map_inherently<V: HuskyDisplay>(
         &self,
         map: &ArenaMap<T, V>,
-        config: TestDisplayConfig,
+        config: HuskyDisplayConfig,
         result: &mut String,
     ) {
         for (raw_idx, v) in map.iter() {
