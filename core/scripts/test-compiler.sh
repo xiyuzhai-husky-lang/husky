@@ -20,9 +20,9 @@ cargo run -q \
     --rel-husky-dir "../../../.." \
     --rel-crate-dir "crates/tests"
 cd $RUST_GEN_CACHE_DIR && cargo fmt
-DIFF_RESULT=$(diff -qr $RUST_GEN_CACHE_DIR/crates/tests $RUST_GEN_DIR/crates/tests >/dev/null && echo same || echo different)
+DIFF_RESULT=$(diff -r $RUST_GEN_CACHE_DIR/crates/tests $RUST_GEN_DIR/crates/tests >difference && echo same || echo different)
 if [ $DIFF_RESULT = "different" ]; then
-    rsync -a $RUST_GEN_CACHE_DIR/crates/tests/ $RUST_GEN_DIR/crates/tests
+    rsync -a --delete $RUST_GEN_CACHE_DIR/crates/tests/ $RUST_GEN_DIR/crates/tests
 fi
 /bin/rm -rf $RUST_GEN_CACHE_DIR
 cd $RUST_GEN_DIR
