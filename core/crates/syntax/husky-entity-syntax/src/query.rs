@@ -1,12 +1,12 @@
 use crate::*;
-use check_utils::{should, should_eq};
-use dev_utils::dev_src;
 use entity_kind::{MemberKind, TyKind};
+use husky_check_utils::{should, should_eq};
+use husky_dev_utils::dev_src;
 use husky_entity_route::*;
 use husky_file::{FileError, FileErrorKind, FilePtr};
+use husky_print_utils::{epin, msg_once, p};
 use husky_text::TextRange;
 use path_utils::*;
-use print_utils::{epin, msg_once, p};
 use static_defn::*;
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;

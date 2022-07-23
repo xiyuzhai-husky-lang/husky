@@ -1,10 +1,10 @@
 [package]
-name = "test-utils"
+name = "husky-test-utils"
 version = "0.0.0"
 edition = "2021"
 
 [dependencies]
 lsp-types = { version = "0.93", features = ["proposed"] }
 text-diff = "0.4.0"
-path-utils = { path = "../path" }
-print-utils = { path = "../print" }
+path-utils = { path = "../husky-path-utils" }
+husky-print-utils = { path = "../husky-print-utils" }

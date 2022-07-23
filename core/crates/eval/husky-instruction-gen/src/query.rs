@@ -1,6 +1,6 @@
 use crate::*;
-use check_utils::should_eq;
 use entity_kind::TyKind;
+use husky_check_utils::should_eq;
 use husky_compile_time::AskCompileTime;
 use husky_file::FilePtr;
 use husky_linkage_table::ResolveLinkage;

@@ -10,7 +10,7 @@ macro_rules! vm_compile_error {
     ($message: expr) => {
         VMCompileError {
             message: $message.into(),
-            dev_src: dev_utils::dev_src!(),
+            dev_src: husky_dev_utils::dev_src!(),
         }
     };
 }

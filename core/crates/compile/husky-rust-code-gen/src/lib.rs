@@ -19,11 +19,11 @@ use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_file::FilePtr;
 use husky_liason_semantics::*;
 use husky_package_semantics::PackageQueryGroup;
+use husky_print_utils::*;
 use init_content::*;
 use lib_rs_content::*;
 use linkage_collector::*;
 use mod_rs_content::*;
-use print_utils::*;
 use std::{
     collections::HashSet,
     path::{Path, PathBuf},

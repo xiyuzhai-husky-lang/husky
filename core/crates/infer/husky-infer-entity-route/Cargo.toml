@@ -12,9 +12,9 @@ bimap = "0.6.1"
 itertools = "^0.10.3"
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../../../common-rs/utils/check" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 upcast = { path = "../../../../common-rs/abstraction/upcast" }
 arena = { path = "../../../../common-rs/abstraction/arena" }

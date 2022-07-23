@@ -16,13 +16,14 @@ use futures::executor::ThreadPool;
 use gui::handle_query;
 use husky_compile_time::HuskyCompileTime;
 use husky_file::FilePtr;
+use husky_print_utils::*;
 use husky_root::__StaticLinkageKey;
+use husky_test_utils::TestResult;
 use husky_trace_protocol::*;
 use husky_trace_time::HuskyTraceTime;
 use internal::HuskyDebuggerInternal;
 use json_result::JsonResult;
 use notif::handle_notif;
-use print_utils::*;
 use std::{
     collections::HashMap,
     convert::Infallible,
@@ -31,7 +32,6 @@ use std::{
     sync::Arc,
 };
 use std::{sync::Mutex, time::Instant};
-use test_utils::TestResult;
 use vm::__Linkage;
 use warp::Filter;
 
@@ -109,8 +109,8 @@ impl HuskyDebugger {
         let addr = addr.to_socket_addrs().unwrap().next().unwrap();
         println!(
             "{}husky{}: serve on {:?}",
-            print_utils::CYAN,
-            print_utils::RESET,
+            husky_print_utils::CYAN,
+            husky_print_utils::RESET,
             addr
         );
         let notif = warp::path!("notif")

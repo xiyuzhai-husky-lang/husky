@@ -12,8 +12,8 @@ pub use model::*;
 pub use specific_routine::*;
 
 use crate::*;
-use check_utils::should;
-use dev_utils::{DevSource, __StaticDevSource};
+use husky_check_utils::should;
+use husky_dev_utils::{DevSource, __StaticDevSource};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum __Linkage {

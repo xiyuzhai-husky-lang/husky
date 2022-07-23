@@ -1,4 +1,4 @@
-use print_utils::p;
+use husky_print_utils::p;
 
 use super::flags::HuskyAnalyzerTester;
 

@@ -1,6 +1,6 @@
+use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
-use test_utils::{TestDisplay, TestDisplayConfig};
 
 use crate::*;
 
@@ -16,9 +16,9 @@ impl TestDisplay for TextPosition {
             write!(
                 result,
                 "{}pos {: <4?}{}",
-                print_utils::YELLOW,
+                husky_print_utils::YELLOW,
                 self,
-                print_utils::RESET
+                husky_print_utils::RESET
             )
             .unwrap();
         } else {

@@ -30,7 +30,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Group,
         opt_type_call: None,
     },
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
 
 pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDefn {

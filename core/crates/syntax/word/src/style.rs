@@ -1,4 +1,4 @@
-use print_utils::p;
+use husky_print_utils::p;
 
 pub fn dash_to_snake(dash_name: &str) -> String {
     if dash_name.len() == 0 {

@@ -1,8 +1,8 @@
 use crate::*;
 use arrayvec::ArrayVec;
-use check_utils::should_eq;
+use husky_check_utils::should_eq;
+use husky_print_utils::{msg_once, p};
 use map_collect::MapCollect;
-use print_utils::{msg_once, p};
 use std::{fmt::Write, ops::Add};
 use word::CustomIdentifier;
 
@@ -181,9 +181,9 @@ impl VariableStack {
                 result,
                 "        #{: <3} {}{: <10}{} ",
                 i,
-                print_utils::CYAN,
+                husky_print_utils::CYAN,
                 ident.as_str(),
-                print_utils::RESET,
+                husky_print_utils::RESET,
             );
             if i + shift < vm_stack.values.len() {
                 write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
@@ -197,9 +197,9 @@ impl VariableStack {
                 result,
                 "        #{: <3} {}{: <10}{} ",
                 i,
-                print_utils::RED,
+                husky_print_utils::RED,
                 "$",
-                print_utils::RESET,
+                husky_print_utils::RESET,
             )
             .unwrap();
             write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()

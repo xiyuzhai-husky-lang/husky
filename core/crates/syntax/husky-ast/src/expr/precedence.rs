@@ -23,7 +23,7 @@ pub enum Precedence {
 #[cfg(test)]
 #[test]
 fn test_precedence_order() {
-    use check_utils::should;
+    use husky_check_utils::should;
 
     should!(Precedence::Power < Precedence::Prefix);
 }

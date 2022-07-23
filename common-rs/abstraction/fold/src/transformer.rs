@@ -22,7 +22,7 @@ where
         Input: 'a,
     {
         while let Some(item) = iter.next() {
-            use check_utils::*;
+            use husky_check_utils::*;
             while self.foldable_outputs_mut().nodes.len() < item.idx {
                 let indent = self.foldable_inputs().indent(item.idx);
                 let misplaced = self.misplaced();

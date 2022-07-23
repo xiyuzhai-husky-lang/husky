@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use check_utils::should;
+use husky_check_utils::should;
 use vm::{EntityUid, __EvalRef, __EvalResult, __EvalValue, __OwnedValue};
 use word::CustomIdentifier;
 

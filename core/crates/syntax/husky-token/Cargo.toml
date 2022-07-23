@@ -11,10 +11,10 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../../../common-rs/utils/check" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-wild-utils = { path = "../../../../common-rs/utils/wild" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }

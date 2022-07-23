@@ -1,4 +1,4 @@
-use dev_utils::DevSource;
+use husky_dev_utils::DevSource;
 
 use crate::*;
 

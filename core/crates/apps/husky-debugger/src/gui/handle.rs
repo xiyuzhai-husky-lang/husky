@@ -1,6 +1,6 @@
 use super::*;
-use check_utils::should_eq;
 use colored::Colorize;
+use husky_check_utils::should_eq;
 use std::panic::{catch_unwind, panic_any};
 use std::{collections::hash_map::DefaultHasher, hash::Hasher};
 use std::{hash::Hash, path::PathBuf};

@@ -8,18 +8,18 @@ pub use kind::DiagnosticKind;
 pub use query::{DiagnosticQuery, DiagnosticQueryGroupStorage};
 pub use severity::DiagnosticSeverity;
 
-use dev_utils::DevSource;
 use husky_ast::{AstError, AstErrorVariant};
+use husky_dev_utils::DevSource;
 use husky_entity_syntax::{EntitySyntaxError, EntitySyntaxErrorKind};
+use husky_print_utils::p;
+use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use husky_text::TextRange;
 use husky_token::LexError;
 use infer_error::{InferError, InferErrorVariant};
-use print_utils::p;
 use semantics_error::{SemanticError, SemanticErrorVariant};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 use std::sync::Arc;
-use test_utils::{TestDisplay, TestDisplayConfig};
 
 use collect::collect_diagnostics;
 

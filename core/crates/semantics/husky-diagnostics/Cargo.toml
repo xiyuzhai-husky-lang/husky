@@ -8,10 +8,10 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
-check-utils = { path = "../../../../common-rs/utils/check" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-test-utils = { path = "../../../../common-rs/utils/test" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
 reserve = { path = "../../../../common-rs/abstraction/reserve" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }

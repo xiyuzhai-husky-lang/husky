@@ -7,12 +7,12 @@ mod test_semantic_tokens;
 
 pub use mode::*;
 
-use print_utils::p;
+use husky_print_utils::p;
+use husky_test_utils::test_all_packages_in_dir;
 use test_diagnostics::test_diagnostics;
 use test_folding_ranges::test_folding_ranges;
 use test_qualified_tys::test_qualified_tys;
 use test_semantic_tokens::test_semantic_tokens;
-use test_utils::test_all_packages_in_dir;
 
 pub fn test_all() {
     let flags = match flags::HuskyAnalyzerTester::from_env() {

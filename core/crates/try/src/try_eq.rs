@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use check_utils::should;
+use husky_check_utils::should;
 
 #[test]
 fn test_eq() {

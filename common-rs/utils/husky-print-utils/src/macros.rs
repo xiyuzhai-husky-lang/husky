@@ -6,12 +6,12 @@ macro_rules! test_print {
 -------------------------------------------------------------------
 {}{}:{}{}:{}
 {}"#,
-        print_utils::GREEN,
+        husky_print_utils::GREEN,
         file!(),
-        print_utils::YELLOW,
+        husky_print_utils::YELLOW,
         line!(),
-        print_utils::RESET,
-        print_utils::show!($($v),*),
+        husky_print_utils::RESET,
+        husky_print_utils::show!($($v),*),
     )};
 }
 #[macro_export]
@@ -21,12 +21,12 @@ macro_rules! p {
 -------------------------------------------------------------------
 {}{}:{}{}:{}
 {}"#,
-        print_utils::GREEN,
+        husky_print_utils::GREEN,
         file!(),
-        print_utils::YELLOW,
+        husky_print_utils::YELLOW,
         line!(),
-        print_utils::RESET,
-        print_utils::show!($($v),*),
+        husky_print_utils::RESET,
+        husky_print_utils::show!($($v),*),
     )};
 }
 
@@ -38,11 +38,11 @@ macro_rules! ps {
 -------------------------------------------------------------------
 {}{}:{}{}:{}
 {}"#,
-            print_utils::GREEN,
+            husky_print_utils::GREEN,
             file!(),
-            print_utils::YELLOW,
+            husky_print_utils::YELLOW,
             line!(),
-            print_utils::RESET,
+            husky_print_utils::RESET,
             $s,
         )
     };
@@ -53,7 +53,7 @@ macro_rules! ep {
   ($($v:expr),*) => {eprintln!("src: {}:{}\n  {}\n",
   file!(),
   line!(),
-  print_utils::eshow!($($v),*))};
+  husky_print_utils::eshow!($($v),*))};
 }
 
 #[macro_export]
@@ -61,13 +61,13 @@ macro_rules! esp {
   ($($v:expr),*) => {eprintln!("src: {}:{}\n  {}\n",
   file!(),
   line!(),
-  print_utils::esimple_show!($($v),*))};
+  husky_print_utils::esimple_show!($($v),*))};
 }
 
 #[macro_export]
 macro_rules! ep_once {
   ($($v:expr),*) => {common::do_once(||eprintln!("{}\n\t\tsrc: {}:{}",
-  print_utils::eshow!($($v),*),
+  husky_print_utils::eshow!($($v),*),
   file!(),
   line!()))};
 }
@@ -79,8 +79,8 @@ macro_rules! msg_once {
         ONCE.call_once(|| {
             eprintln!(
                 "{}[message]{} {}, src: {}:{}",
-                print_utils::LIGHT_YELLOW,
-                print_utils::RESET,
+                husky_print_utils::LIGHT_YELLOW,
+                husky_print_utils::RESET,
                 $msg,
                 file!(),
                 line!()

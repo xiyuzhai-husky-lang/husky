@@ -11,7 +11,7 @@ use crate::*;
 use husky_ast::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
+use husky_print_utils::*;
 use husky_text::TextRange;
-use print_utils::*;
 use semantics_error::{err, not_none};
 use word::{CustomIdentifier, RootIdentifier};

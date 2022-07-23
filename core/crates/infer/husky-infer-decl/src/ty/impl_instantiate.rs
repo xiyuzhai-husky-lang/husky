@@ -1,6 +1,6 @@
 use super::*;
-use check_utils::should_eq;
-use print_utils::msg_once;
+use husky_check_utils::should_eq;
+use husky_print_utils::msg_once;
 
 impl TyDecl {
     pub fn instantiate(

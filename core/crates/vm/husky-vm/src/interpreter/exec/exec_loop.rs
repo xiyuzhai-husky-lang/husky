@@ -1,4 +1,4 @@
-use print_utils::{epin, p};
+use husky_print_utils::{epin, p};
 
 use crate::*;
 

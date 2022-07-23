@@ -1,7 +1,7 @@
 use crate::*;
 use avec::Avec;
-use check_utils::should;
-use print_utils::p;
+use husky_check_utils::should;
+use husky_print_utils::p;
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn exec_pattern_matching(

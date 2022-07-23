@@ -3,9 +3,9 @@
 pub mod cv;
 pub mod synthetic;
 
-use dev_utils::*;
 use entity_kind::TyKind;
 use husky_datasets_protocol::*;
+use husky_dev_utils::*;
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_liason_semantics::*;
 use husky_trace_protocol::VisualData;
@@ -22,7 +22,7 @@ pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "datasets",
     items: &[&synthetic::SYNTHETIC_MODULE_DEFN, &cv::CV_MOD_DEFN],
     variant: EntityStaticDefnVariant::Module,
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
 
 pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -47,5 +47,5 @@ pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Dataset,
         opt_type_call: None,
     },
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };

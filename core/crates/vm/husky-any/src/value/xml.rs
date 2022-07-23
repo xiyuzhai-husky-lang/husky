@@ -1,6 +1,6 @@
 use crate::*;
-use check_utils::should_eq;
-use print_utils::msg_once;
+use husky_check_utils::should_eq;
+use husky_print_utils::msg_once;
 use serde::Serialize;
 use serde_json::value::Value;
 use word::{CustomIdentifier, IdentPairDict};

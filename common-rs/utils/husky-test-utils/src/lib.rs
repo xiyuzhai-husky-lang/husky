@@ -19,8 +19,8 @@ pub fn test_all_packages_in_dir(dir: &Path, f: impl Fn(&Path) -> TestResult) {
     let package_paths = collect_all_package_dirs(dir);
     println!(
         "\n{}Running{} tests on {} example packages:",
-        print_utils::CYAN,
-        print_utils::RESET,
+        husky_print_utils::CYAN,
+        husky_print_utils::RESET,
         package_paths.len()
     );
 
@@ -29,8 +29,8 @@ pub fn test_all_packages_in_dir(dir: &Path, f: impl Fn(&Path) -> TestResult) {
     for package_path in package_paths {
         println!(
             "\n{}test{} {}",
-            print_utils::CYAN,
-            print_utils::RESET,
+            husky_print_utils::CYAN,
+            husky_print_utils::RESET,
             package_path.as_os_str().to_str().unwrap(),
         );
         match f(&package_path) {

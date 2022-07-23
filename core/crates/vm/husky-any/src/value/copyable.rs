@@ -296,7 +296,7 @@ impl Eq for CopyableValue {}
 
 #[test]
 fn compare_floats() {
-    use check_utils::*;
+    use husky_check_utils::*;
     let a = f64::NAN;
     should_eq!(a == a, false);
     should_eq!(a.to_bits() == a.to_bits(), true);

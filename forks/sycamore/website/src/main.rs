@@ -17,7 +17,7 @@ use sycamore_router::{HistoryIntegration, Route, Router};
 const LATEST_MAJOR_VERSION: &str = "v0.7";
 const NEXT_VERSION: &str = "next";
 
-#[derive(Debug, Route)]
+#[derive(Debug, Route, PartialEq, Eq)]
 enum Routes {
     #[to("/")]
     Index,

@@ -21,7 +21,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             member_impls: &[
                 associated_type_impl!("Output", "b32"),
                 EntityStaticDefn {
-                    dev_src: dev_utils::__static_dev_src!(),
+                    dev_src: husky_dev_utils::__static_dev_src!(),
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
@@ -73,7 +73,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Image2d,
         opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DEFN),
     },
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
 
 pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {

@@ -16,9 +16,9 @@ impl TestDisplay for CustomIdentifier {
             write!(
                 result,
                 "{}{: <10}{}",
-                print_utils::CYAN,
+                husky_print_utils::CYAN,
                 self.as_str(),
-                print_utils::RESET
+                husky_print_utils::RESET
             )
             .unwrap();
         } else {

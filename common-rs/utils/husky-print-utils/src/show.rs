@@ -2,11 +2,11 @@ use std::fmt::*;
 #[macro_export]
 macro_rules! show {
     ($a:expr)=>{format!("{}{}{} = {:#?}",
-    print_utils::PINK,stringify!($a),
-    print_utils::RESET,
+    husky_print_utils::PINK,stringify!($a),
+    husky_print_utils::RESET,
     $a)};
    ($a:expr ,$($as:expr),*) => {
-    format!("{}, {}", (print_utils::show!($a)), (print_utils::show!($($as),*)))
+    format!("{}, {}", (husky_print_utils::show!($a)), (husky_print_utils::show!($($as),*)))
   };
 }
 
@@ -16,7 +16,7 @@ macro_rules! eshow {
     stringify!($a),
     $a)};
    ($a:expr, $($as:expr),*) => {
-    format!("{}, {}", (print_utils::eshow!($a)), (print_utils::eshow!($($as),*)))
+    format!("{}, {}", (husky_print_utils::eshow!($a)), (husky_print_utils::eshow!($($as),*)))
   };
 }
 
@@ -26,7 +26,7 @@ macro_rules! esimple_show {
     stringify!($a),
     $a)};
    ($a:expr, $($as:expr),*) => {
-    format!("{}, {}", (print_utils::show!($a)), (print_utils::show!($($as),*)))
+    format!("{}, {}", (husky_print_utils::show!($a)), (husky_print_utils::show!($($as),*)))
   };
 }
 

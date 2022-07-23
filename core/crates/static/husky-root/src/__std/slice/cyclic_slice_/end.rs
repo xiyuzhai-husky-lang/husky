@@ -9,5 +9,5 @@ pub static STD_SLICE_CYCLIC_SLICE_END_DEFN: EntityStaticDefn = EntityStaticDefn 
         ty: "i32",
         linkage: eager_field_linkage!(VirtualCyclicSlice<'eval>, end),
     },
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };

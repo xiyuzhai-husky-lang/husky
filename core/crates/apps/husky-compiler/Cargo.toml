@@ -11,9 +11,9 @@ path = "src/bin/main.rs"
 xflags = "0.2.4"
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
-path-utils = { path = "../../../../common-rs/utils/path" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-io-utils = { path = "../../../../common-rs/utils/io" }
+path-utils = { path = "../../../../common-rs/utils/husky-path-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+io-utils = { path = "../../../../common-rs/utils/husky-io-utils" }
 reserve = { path = "../../../../common-rs/abstraction/reserve" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }

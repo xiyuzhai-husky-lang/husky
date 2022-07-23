@@ -117,11 +117,11 @@ fn notify_change(new_data_text: &str, old_data_text: &str, save_path: &Path) -> 
     // ask whether to update the old
     println!(
         "{}Change in saved data{} for file {}{}{},",
-        print_utils::MAGENTA,
-        print_utils::RESET,
-        print_utils::GREEN,
+        husky_print_utils::MAGENTA,
+        husky_print_utils::RESET,
+        husky_print_utils::GREEN,
         save_path.as_os_str().to_str().unwrap(),
-        print_utils::RESET,
+        husky_print_utils::RESET,
     );
     print_diff(old_data_text, new_data_text, "\n");
     let accept: bool = loop {

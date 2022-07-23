@@ -5,15 +5,15 @@ mod sheet;
 pub use query::*;
 pub use sheet::*;
 
-use check_utils::*;
 use defn_head::*;
 use husky_ast::*;
+use husky_check_utils::*;
 use husky_entity_route::*;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use husky_file::FilePtr;
+use husky_print_utils::*;
 use infer_decl::{CallFormDecl, DeclQueryGroup, TyDecl};
 use infer_error::*;
-use print_utils::*;
 use vm::{ListOpr, RawOpnVariant};
 use word::RootIdentifier;
 

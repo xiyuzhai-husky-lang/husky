@@ -8,16 +8,16 @@ pub use form::*;
 pub use key::*;
 pub use table::*;
 
-use check_utils::*;
 use colored::Colorize;
+use husky_check_utils::*;
 use husky_entity_route::{
     entity_route_menu, EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument,
 };
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
 use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
+use husky_print_utils::p;
 use map_collect::MapCollect;
-use print_utils::p;
 use static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
@@ -246,7 +246,7 @@ fn opt_linkage_wrapper(
     let opt_linkage = f();
     if config.warn_missing_linkage {
         if opt_linkage.is_none() {
-            use print_utils::*;
+            use husky_print_utils::*;
             println!(
                 "{YELLOW}[warning] {RED}missing linkage{RESET} for {GREEN}{}{RESET}",
                 message()

@@ -6,10 +6,10 @@ use husky_compile_time::*;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTableConfig;
+use husky_print_utils::*;
 use husky_root::__resolve_root_defn;
 use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
-use print_utils::*;
 use std::path::{Path, PathBuf};
 use word::snake_to_dash;
 

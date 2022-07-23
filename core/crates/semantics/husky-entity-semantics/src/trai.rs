@@ -1,7 +1,7 @@
 use crate::EntityDefn;
 use crate::*;
-use dev_utils::DevSource;
 use husky_atom::AtomContext;
+use husky_dev_utils::DevSource;
 use husky_entity_route::{make_route, make_type_as_trait_member_route};
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, MethodStaticDefnKind, StaticTraitImplDefn};

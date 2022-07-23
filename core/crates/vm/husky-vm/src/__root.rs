@@ -1,5 +1,5 @@
 use crate::*;
-use dev_utils::*;
+use husky_dev_utils::*;
 
 pub static __EQ_LINKAGE: __Linkage = specific_transfer_linkage!(
     |_, __values| {

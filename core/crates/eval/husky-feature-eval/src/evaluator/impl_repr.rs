@@ -1,8 +1,8 @@
 use super::FeatureEvaluator;
 use crate::*;
-use check_utils::{should, should_eq};
+use husky_check_utils::{should, should_eq};
 use husky_compile_time::*;
-use print_utils::{epin, p};
+use husky_print_utils::{epin, p};
 use vm::*;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {

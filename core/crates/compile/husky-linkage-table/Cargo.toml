@@ -14,10 +14,10 @@ map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
 upcast = { path = "../../../../common-rs/abstraction/upcast" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
-sync-utils = { path = "../../../../common-rs/utils/sync" }
+sync-utils = { path = "../../../../common-rs/utils/husky-sync-utils" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-check-utils = { path = "../../../../common-rs/utils/check" }
-print-utils = { path = "../../../../common-rs/utils/print" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 word = { path = "../../syntax/word" }
 static-defn = { path = "../../static/static-defn" }
 thin-vec = { path = "../../../../forks/thin-vec" }

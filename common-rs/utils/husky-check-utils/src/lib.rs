@@ -24,21 +24,21 @@ macro_rules! should_eq {
                         r#"{}{}:{}{}{}
     {}{}{} (which is {:?}){}
         != {}{}{} (which is {:?}){}"#,
-                        print_utils::GREEN,
+                        husky_print_utils::GREEN,
                         file!(),
-                        print_utils::YELLOW,
+                        husky_print_utils::YELLOW,
                         line!(),
-                        print_utils::RESET,
-                        print_utils::CYAN,
+                        husky_print_utils::RESET,
+                        husky_print_utils::CYAN,
                         stringify!($a),
-                        print_utils::YELLOW,
+                        husky_print_utils::YELLOW,
                         &*left_val,
-                        print_utils::RED,
-                        print_utils::CYAN,
+                        husky_print_utils::RED,
+                        husky_print_utils::CYAN,
                         stringify!($b),
-                        print_utils::YELLOW,
+                        husky_print_utils::YELLOW,
                         &*right_val,
-                        print_utils::RESET,
+                        husky_print_utils::RESET,
                     );
                     panic!("");
                 }
@@ -54,21 +54,21 @@ macro_rules! should_eq {
                         r#"{}{}:{}{}{}
     {}{}{} (which is {:?}){}
         != {}{}{} (which is {:?}){}"#,
-                        print_utils::GREEN,
+                        husky_print_utils::GREEN,
                         file!(),
-                        print_utils::YELLOW,
+                        husky_print_utils::YELLOW,
                         line!(),
-                        print_utils::RESET,
-                        print_utils::CYAN,
+                        husky_print_utils::RESET,
+                        husky_print_utils::CYAN,
                         stringify!($a),
-                        print_utils::YELLOW,
+                        husky_print_utils::YELLOW,
                         &*left_val,
-                        print_utils::RED,
-                        print_utils::CYAN,
+                        husky_print_utils::RED,
+                        husky_print_utils::CYAN,
                         stringify!($b),
-                        print_utils::YELLOW,
+                        husky_print_utils::YELLOW,
                         &*right_val,
-                        print_utils::RESET,
+                        husky_print_utils::RESET,
                     );
                     panic!($($msg_fmt_args),*);
                 }
@@ -99,9 +99,9 @@ macro_rules! should {
             false => {
                 panic!(
                     "{}{}{}:{} should be true, but failed",
-                    print_utils::GREEN,
+                    husky_print_utils::GREEN,
                     file!(),
-                    print_utils::RESET,
+                    husky_print_utils::RESET,
                     line!()
                 );
             }

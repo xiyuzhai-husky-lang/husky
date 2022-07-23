@@ -1,12 +1,12 @@
 use super::FeatureEvaluator;
 use crate::*;
-use check_utils::should_eq;
 use cyclic_slice::CyclicSlice;
+use husky_check_utils::should_eq;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_feature_gen::*;
 use husky_lazy_semantics::LazyStmt;
+use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
-use print_utils::{epin, msg_once, p};
 use std::{iter::zip, sync::Arc};
 use vm::*;
 use word::IdentPairDict;

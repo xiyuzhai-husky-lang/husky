@@ -4,9 +4,9 @@ use std::collections::HashMap;
 
 use crate::*;
 
-use check_utils::should;
 pub use entry::HistoryEntry;
-use print_utils::p;
+use husky_check_utils::should;
+use husky_print_utils::p;
 
 #[derive(Debug, Default)]
 pub struct History<'eval> {

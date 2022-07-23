@@ -58,7 +58,7 @@ route will cause a compile error.
 The simplest routes are static routes. We already have the `"/"` and `"/about"` routes in our above
 example which are both static.
 
-Static routes can also be nested, e.g. `"/my/nested/path"`.
+Static routes can also be nested, e.g. `"/my/nested/husky-path-utils"`.
 
 #### Dynamic parameters
 

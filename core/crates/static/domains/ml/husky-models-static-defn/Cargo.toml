@@ -9,12 +9,12 @@ edition = "2021"
 rand = "0.8.5"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-xrng = { path = "../../../../../../common-rs/utils/xrng" }
+xrng = { path = "../../../../../../common-rs/utils/husky-rng-utils" }
 word = { path = "../../../../syntax/word" }
 husky-entity-route = { path = "../../../../syntax/husky-entity-route" }
 vm = { path = "../../../../vm/husky-vm" }
-print-utils = { path = "../../../../../../common-rs/utils/print" }
-dev-utils = { path = "../../../../../../common-rs/utils/dev" }
+husky-print-utils = { path = "../../../../../../common-rs/utils/husky-print-utils" }
+husky-dev-utils = { path = "../../../../../../common-rs/utils/husky-dev-utils" }
 husky-visual-syntax = { path = "../../../../syntax/husky-visual-syntax" }
 entity-kind = { path = "../../../../syntax/entity-kind" }
 static-defn = { path = "../../../static-defn" }

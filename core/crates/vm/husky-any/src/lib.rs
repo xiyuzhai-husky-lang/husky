@@ -22,7 +22,7 @@ pub use virtual_struct::*;
 pub use virtual_vec::*;
 
 use husky_entity_route::EntityRoutePtr;
-use print_utils::p;
+use husky_print_utils::p;
 use serde::Serialize;
 use std::{
     any::TypeId,

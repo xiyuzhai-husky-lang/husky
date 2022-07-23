@@ -7,11 +7,11 @@ edition = "2021"
 salsa = "0.17.0-pre.2"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-check-utils = { path = "../../../../common-rs/utils/check" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-sync-utils = { path = "../../../../common-rs/utils/sync" }
-wild-utils = { path = "../../../../common-rs/utils/wild" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+sync-utils = { path = "../../../../common-rs/utils/husky-sync-utils" }
+wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 upcast = { path = "../../../../common-rs/abstraction/upcast" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }

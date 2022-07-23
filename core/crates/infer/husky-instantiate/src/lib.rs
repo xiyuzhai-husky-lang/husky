@@ -9,12 +9,12 @@ mod impl_vec_set;
 
 pub use context::*;
 
-use check_utils::should_eq;
 use defn_head::{GenericPlaceholderVariant, SpatialParameter};
+use husky_check_utils::should_eq;
 use husky_entity_route::*;
 use husky_entity_syntax::*;
+use husky_print_utils::p;
 use map_collect::MapCollect;
-use print_utils::p;
 use thin_vec::{thin_vec, ThinVec};
 use word::CustomIdentifier;
 

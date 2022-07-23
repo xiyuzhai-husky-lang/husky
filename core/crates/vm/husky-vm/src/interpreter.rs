@@ -5,9 +5,9 @@ use std::collections::HashMap;
 
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
+use husky_print_utils::{p, ps};
 use husky_text::TextRange;
 use indexmap::IndexMap;
-use print_utils::{p, ps};
 pub use query::InterpreterQueryGroup;
 use word::{CustomIdentifier, Identifier};
 

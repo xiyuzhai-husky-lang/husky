@@ -7,10 +7,10 @@ mod local_value;
 mod tests;
 mod transformer;
 
-use check_utils::should;
 pub use executor::Executor;
 pub use fold_iter::{FoldIterItem, FoldableIter};
 pub use folded_list::{FoldIdx, FoldableList, FoldedNode, FoldingEnd, ItemToFold};
+use husky_check_utils::should;
 pub use local_stack::LocalStack;
 pub use local_value::LocalValue;
 pub use transformer::Transformer;

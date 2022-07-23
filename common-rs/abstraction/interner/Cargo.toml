@@ -7,5 +7,5 @@ edition = "2021"
 doctest = false
 
 [dependencies]
-sync-utils = { path = "../../utils/sync" }
-print-utils = { path = "../../utils/print" }
+sync-utils = { path = "../../utils/husky-sync-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }

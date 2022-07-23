@@ -36,7 +36,7 @@ impl std::fmt::Debug for DevSource {
 #[macro_export]
 macro_rules! dev_src {
     () => {
-        dev_utils::DevSource {
+        husky_dev_utils::DevSource {
             file: file!().to_string(),
             line: line!(),
         }

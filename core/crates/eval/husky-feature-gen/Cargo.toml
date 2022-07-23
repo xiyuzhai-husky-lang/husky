@@ -16,10 +16,10 @@ bimap = "0.6.1"
 itertools = "^0.10.3"
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../../../common-rs/utils/check" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-print-utils = { path = "../../../../common-rs/utils/print" }
-sync-utils = { path = "../../../../common-rs/utils/sync" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+sync-utils = { path = "../../../../common-rs/utils/husky-sync-utils" }
 upcast = { path = "../../../../common-rs/abstraction/upcast" }
 avec = { path = "../../../../common-rs/abstraction/avec" }
 fold = { path = "../../../../common-rs/abstraction/fold" }

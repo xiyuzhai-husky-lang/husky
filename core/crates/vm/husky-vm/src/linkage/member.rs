@@ -1,5 +1,5 @@
 use super::*;
-use dev_utils::__StaticDevSource;
+use husky_dev_utils::__StaticDevSource;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct __MemberLinkage {

@@ -7,10 +7,10 @@ pub use custom::*;
 pub use root::*;
 
 use core::hash::Hash;
+use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use serde::Serialize;
 use std::fmt::Write;
 use std::{borrow::Borrow, ops::Deref};
-use test_utils::{TestDisplay, TestDisplayConfig};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
@@ -25,9 +25,9 @@ impl TestDisplay for Identifier {
             write!(
                 result,
                 "{}{: <10}{}",
-                print_utils::CYAN,
+                husky_print_utils::CYAN,
                 self.as_str(),
-                print_utils::RESET
+                husky_print_utils::RESET
             )
             .unwrap();
         } else {

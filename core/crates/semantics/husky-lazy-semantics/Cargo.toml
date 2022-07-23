@@ -7,9 +7,9 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-check-utils = { path = "../../../../common-rs/utils/check" }
-dev-utils = { path = "../../../../common-rs/utils/dev" }
-print-utils = { path = "../../../../common-rs/utils/print" }
+husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 word = { path = "../../syntax/word" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 unique-vector = { path = "../../../../common-rs/abstraction/unique-vector" }

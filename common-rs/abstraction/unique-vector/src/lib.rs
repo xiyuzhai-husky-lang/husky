@@ -78,7 +78,7 @@ where
 
 #[test]
 fn test_uniq() {
-    use check_utils::should_eq;
+    use husky_check_utils::should_eq;
     let a: UniqVec<i32> = [1, 2, 3, 1, 2, 3, 1, 3].into_iter().into();
     should_eq!(a.len(), 3);
 }

@@ -9,5 +9,5 @@ pub static CV_MOD_DEFN: &EntityStaticDefn = &EntityStaticDefn {
     name: "cv",
     items: &[MNIST_SCOPE_DATA],
     variant: EntityStaticDefnVariant::Module,
-    dev_src: dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::__static_dev_src!(),
 };
