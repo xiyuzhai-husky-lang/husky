@@ -9,17 +9,17 @@ description = "Generic LSP server scaffold."
 [dependencies]
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../utils/check" }
-print-utils = { path = "../../utils/print" }
-wild-utils = { path = "../../utils/wild" }
-dev-utils = { path = "../../utils/dev" }
-test-utils = { path = "../../utils/test" }
-interner = { path = "../../abstraction/interner" }
-fold = { path = "../../abstraction/fold" }
-vec-like = { path = "../../abstraction/vec-like" }
-upcast = { path = "../../abstraction/upcast" }
-arena = { path = "../../abstraction/arena" }
-map-collect = { path = "../../abstraction/map-collect" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+wild-utils = { path = "../../../../common-rs/utils/wild" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+test-utils = { path = "../../../../common-rs/utils/test" }
+interner = { path = "../../../../common-rs/abstraction/interner" }
+fold = { path = "../../../../common-rs/abstraction/fold" }
+vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
+upcast = { path = "../../../../common-rs/abstraction/upcast" }
+arena = { path = "../../../../common-rs/abstraction/arena" }
+map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
 word = { path = "../word" }

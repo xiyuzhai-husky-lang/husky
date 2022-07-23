@@ -8,21 +8,21 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 salsa = "0.17.0-pre.2"
-check-utils = { path = "../../utils/check" }
-dev-utils = { path = "../../utils/dev" }
-print-utils = { path = "../../utils/print" }
-upcast = { path = "../../abstraction/upcast" }
-vec-like = { path = "../../abstraction/vec-like" }
-avec = { path = "../../abstraction/avec" }
-map-collect = { path = "../../abstraction/map-collect" }
-sync-utils = { path = "../../utils/sync" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+upcast = { path = "../../../../common-rs/abstraction/upcast" }
+vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
+avec = { path = "../../../../common-rs/abstraction/avec" }
+map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
+sync-utils = { path = "../../../../common-rs/utils/sync" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 word = { path = "../../syntax/word" }
-fold = { path = "../../abstraction/fold" }
+fold = { path = "../../../../common-rs/abstraction/fold" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 semantics-error = { path = "../../semantics/error" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }

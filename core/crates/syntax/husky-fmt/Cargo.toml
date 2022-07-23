@@ -8,10 +8,10 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 salsa = "0.17.0-pre.2"
-interner = { path = "../../abstraction/interner" }
-fold = { path = "../../abstraction/fold" }
-arena = { path = "../../abstraction/arena" }
-print-utils = { path = "../../utils/print" }
+interner = { path = "../../../../common-rs/abstraction/interner" }
+fold = { path = "../../../../common-rs/abstraction/fold" }
+arena = { path = "../../../../common-rs/abstraction/arena" }
+print-utils = { path = "../../../../common-rs/utils/print" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
 word = { path = "../word" }

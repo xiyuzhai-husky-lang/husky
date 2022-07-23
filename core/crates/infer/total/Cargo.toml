@@ -7,9 +7,9 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-check-utils = { path = "../../utils/check" }
-dev-utils = { path = "../../utils/dev" }
-print-utils = { path = "../../utils/print" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+print-utils = { path = "../../../../common-rs/utils/print" }
 infer-error = { path = "../error" }
 infer-decl = { path = "../husky-infer-decl" }
 husky-infer-entity-route = { path = "../husky-infer-entity-route" }

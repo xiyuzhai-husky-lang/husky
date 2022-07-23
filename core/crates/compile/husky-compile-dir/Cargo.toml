@@ -7,6 +7,6 @@ edition = "2021"
 rust-version = "1.56"
 
 [dependencies]
-print-utils = { path = "../../utils/print" }
+print-utils = { path = "../../../../common-rs/utils/print" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 word = { path = "../../syntax/word" }

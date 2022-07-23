@@ -10,8 +10,8 @@ doctest = false
 
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
-singleton = { path = "../../abstraction/singleton" }
-test-utils = { path = "../../utils/test" }
-interner = { path = "../../abstraction/interner" }
-vec-like = { path = "../../abstraction/vec-like" }
-print-utils = { path = "../../utils/print" }
+singleton = { path = "../../../../common-rs/abstraction/singleton" }
+test-utils = { path = "../../../../common-rs/utils/test" }
+interner = { path = "../../../../common-rs/abstraction/interner" }
+vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
+print-utils = { path = "../../../../common-rs/utils/print" }

@@ -7,11 +7,11 @@ edition = "2021"
 [dependencies]
 futures = { version = "0.3.21", features = ["executor"] }
 husky-debugger = { path = "../../apps/husky-debugger" }
-dev-utils = { path = "../../utils/dev" }
-wild-utils = { path = "../../utils/wild" }
-check-utils = { path = "../../utils/check" }
-print-utils = { path = "../../utils/print" }
-test-utils = { path = "../../utils/test" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+wild-utils = { path = "../../../../common-rs/utils/wild" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+test-utils = { path = "../../../../common-rs/utils/test" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-root = { path = "../husky-root" }
 vm = { path = "../../vm/husky-vm" }

@@ -8,13 +8,13 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 salsa = "0.17.0-pre.2"
-print-utils = { path = "../../utils/print" }
-check-utils = { path = "../../utils/check" }
-test-utils = { path = "../../utils/test" }
-dev-utils = { path = "../../utils/dev" }
-fold = { path = "../../abstraction/fold" }
-arena = { path = "../../abstraction/arena" }
-vec-like = { path = "../../abstraction/vec-like" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+test-utils = { path = "../../../../common-rs/utils/test" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+fold = { path = "../../../../common-rs/abstraction/fold" }
+arena = { path = "../../../../common-rs/abstraction/arena" }
+vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 vm = { path = "../../vm/husky-vm" }
 infer-error = { path = "../error" }
 husky-ast = { path = "../../syntax/husky-ast" }

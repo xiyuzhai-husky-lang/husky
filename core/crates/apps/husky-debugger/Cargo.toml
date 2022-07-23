@@ -26,16 +26,16 @@ indexmap = "1.8.1"
 lsp-types = { version = "0.93", features = ["proposed"] }
 colored = "2.0.0"
 xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
-check-utils = { path = "../../utils/check" }
-dev-utils = { path = "../../utils/dev" }
-print-utils = { path = "../../utils/print" }
-path-utils = { path = "../../utils/path" }
-test-utils = { path = "../../utils/test" }
-wild-utils = { path = "../../utils/wild" }
-io-utils = { path = "../../utils/io" }
-map-collect = { path = "../../abstraction/map-collect" }
-json-result = { path = "../../abstraction/json-result" }
-avec = { path = "../../abstraction/avec" }
+check-utils = { path = "../../../../common-rs/utils/check" }
+dev-utils = { path = "../../../../common-rs/utils/dev" }
+print-utils = { path = "../../../../common-rs/utils/print" }
+path-utils = { path = "../../../../common-rs/utils/path" }
+test-utils = { path = "../../../../common-rs/utils/test" }
+wild-utils = { path = "../../../../common-rs/utils/wild" }
+io-utils = { path = "../../../../common-rs/utils/io" }
+map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
+json-result = { path = "../../../../common-rs/abstraction/json-result" }
+avec = { path = "../../../../common-rs/abstraction/avec" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
