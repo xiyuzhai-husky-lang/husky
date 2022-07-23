@@ -160,7 +160,16 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                     self.write("]");
                 }
-                EagerOpnVariant::NewVecFromList => todo!(),
+                EagerOpnVariant::NewVecFromList => {
+                    self.write("vec![");
+                    for (i, opd) in opds.iter().enumerate() {
+                        if i > 0 {
+                            self.write(", ")
+                        }
+                        self.gen_expr(indent, opd)
+                    }
+                    self.write("]")
+                }
                 EagerOpnVariant::ValueCall => todo!(),
             },
             EagerExprVariant::Lambda(_, _) => todo!(),

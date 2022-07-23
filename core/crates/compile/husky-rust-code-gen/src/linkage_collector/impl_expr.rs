@@ -32,7 +32,7 @@ impl<'a> LinkageCollector<'a> {
                         _ => self.insert(*method_route),
                     },
                     EagerOpnVariant::Index { .. } => (),
-                    EagerOpnVariant::NewVecFromList => todo!(),
+                    EagerOpnVariant::NewVecFromList => self.insert(expr.ty()),
                     EagerOpnVariant::ValueCall => todo!(),
                 }
             }
@@ -62,7 +62,7 @@ impl<'a> LinkageCollector<'a> {
                         self.insert(ranged_route.route)
                     }
                     LazyOpnKind::StructCall(_) => todo!(),
-                    LazyOpnKind::NewVecFromList => todo!(),
+                    LazyOpnKind::NewVecFromList => self.insert(expr.ty()),
                     LazyOpnKind::RecordCall(ranged_route) => self.insert(ranged_route.route),
                     LazyOpnKind::Field { .. } => (),
                     LazyOpnKind::MethodCall { method_route, .. } => self.insert(method_route),

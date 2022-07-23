@@ -406,11 +406,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         match decl.variadic_template {
             VariadicTemplate::None => (),
             VariadicTemplate::SingleTyped { ty } => {
-                let start = decl.primary_parameters.len() + decl.keyword_parameters.len();
-                self.write(
+                let variadic_start = decl.variadic_start();
+                let move_or_copy = match self.db.is_copyable(ty).unwrap() {
+                    true => "copy",
+                    false => "move",
+                };
+                self.write(&format!(
                     r#"
-                let __variadics = todo!();"#,
-                );
+                let __variadics = 
+                    __arguments[{variadic_start}..]
+                        .iter_mut()
+                        .map(|v|v.downcast_{move_or_copy}())
+                        .collect();"#,
+                ));
             }
         }
         if self.db.is_copyable(decl.output.ty).unwrap() {

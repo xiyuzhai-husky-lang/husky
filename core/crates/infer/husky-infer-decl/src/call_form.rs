@@ -118,6 +118,10 @@ impl CallFormDecl {
     pub fn this_liason(&self) -> ParameterLiason {
         self.opt_this_liason.unwrap()
     }
+
+    pub fn variadic_start(&self) -> usize {
+        self.primary_parameters.len() + self.keyword_parameters.len()
+    }
 }
 
 impl Instantiable for CallFormDecl {
