@@ -466,7 +466,7 @@ impl<'temp, 'eval: 'temp> __TempValue<'temp, 'eval> {
     pub fn downcast_move<T: __AnyValue<'eval>>(&mut self) -> T {
         match std::mem::replace(self, __TempValue::Moved) {
             __TempValue::Moved => panic!(),
-            __TempValue::Copyable(_) => todo!(),
+            __TempValue::Copyable(_) => panic!(),
             __TempValue::OwnedEval(owned_value) => owned_value.downcast_move().unwrap(),
             __TempValue::OwnedTemp(_) => todo!(),
             __TempValue::EvalPure(_) => todo!(),

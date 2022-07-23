@@ -3,38 +3,6 @@ use __husky_root::__init_utils::*;
 
 pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
-        __StaticLinkageKey::Routine {
-            routine: "test_vec::f",
-        },
-        specific_transfer_linkage!({
-            fn __wrapper<'temp, 'eval>(
-                __opt_ctx: Option<&__EvalContext<'eval>>,
-                __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __TempValue<'temp, 'eval> {
-                __TempValue::Copyable(
-                    f()
-                .__take_copyable_dyn())
-            }
-            __wrapper
-        }, some f),
-    ),
-    (
-        __StaticLinkageKey::Routine {
-            routine: "test_vec::change_element",
-        },
-        specific_transfer_linkage!({
-            fn __wrapper<'temp, 'eval>(
-                __opt_ctx: Option<&__EvalContext<'eval>>,
-                __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __TempValue<'temp, 'eval> {
-                __TempValue::Copyable(
-                    change_element()
-                .__take_copyable_dyn())
-            }
-            __wrapper
-        }, some change_element),
-    ),
-    (
         __StaticLinkageKey::TypeCall { ty: "[]i32" },
         specific_transfer_linkage!({
             fn __wrapper<'temp, 'eval>(
@@ -144,24 +112,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine {
-            routine: "Vec<i32>::push",
-        },
-        specific_transfer_linkage!({
-            fn __wrapper<'temp, 'eval>(
-                __opt_ctx: Option<&__EvalContext<'eval>>,
-                __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __TempValue<'temp, 'eval> {
-                let __this: &mut Vec<i32> = unsafe { __arb_ref(&__arguments[0]) }.downcast_mut();
-                let element: i32 = unsafe { __arb_ref(&__arguments[1]) }.downcast_move();
-                __TempValue::Copyable(
-                    __this.push(element)
-                .__take_copyable_dyn())
-            }
-            __wrapper
-        }, some Vec::<i32>::push),
-    ),
-    (
-        __StaticLinkageKey::Routine {
             routine: "Vec<i32>::ilen",
         },
         specific_transfer_linkage!({
@@ -176,5 +126,21 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             }
             __wrapper
         }, some Vec::<i32>::ilen),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            routine: "vec_major::try_vec",
+        },
+        specific_transfer_linkage!({
+            fn __wrapper<'temp, 'eval>(
+                __opt_ctx: Option<&__EvalContext<'eval>>,
+                __arguments: &mut [__TempValue<'temp, 'eval>],
+            ) -> __TempValue<'temp, 'eval> {
+                __TempValue::Copyable(
+                    try_vec()
+                .__take_copyable_dyn())
+            }
+            __wrapper
+        }, some try_vec),
     ),
 ];
