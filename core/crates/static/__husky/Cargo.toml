@@ -15,3 +15,6 @@ test-utils = { path = "../../utils/test" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-root = { path = "../husky-root" }
 vm = { path = "../../vm/husky-vm" }
+
+[lib]
+crate-type = ["dylib", "rlib"]
