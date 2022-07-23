@@ -5,7 +5,7 @@ pub use cfg::*;
 use husky_file::FilePtr;
 pub use query::{PackageQueryGroup, PackageQueryGroupStorage};
 
-use std::sync::Arc;
+use std::{path::PathBuf, sync::Arc};
 
 use husky_entity_semantics::*;
 use word::CustomIdentifier;
@@ -16,4 +16,10 @@ pub struct Package {
     pub subentities: Arc<Vec<Arc<EntityDefn>>>,
     pub main_defn: Arc<MainDefn>,
     pub config: Arc<Config>,
+}
+
+impl Package {
+    pub fn dir(&self) -> PathBuf {
+        self.main_defn.file.parent().unwrap().to_owned()
+    }
 }

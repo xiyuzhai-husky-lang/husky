@@ -1,6 +1,6 @@
 use text_diff::print_diff;
 
-use crate::TestResult;
+use husky_test_utils::TestResult;
 use std::fmt::Write;
 use std::io::Write as _;
 use std::{
@@ -12,12 +12,12 @@ use std::{
 };
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
-pub struct TestDisplayConfig {
+pub struct HuskyDisplayConfig {
     pub colored: bool,
     pub indent: u8,
 }
 
-impl TestDisplayConfig {
+impl HuskyDisplayConfig {
     pub fn indented(&self) -> Self {
         Self {
             colored: self.colored,
@@ -26,17 +26,17 @@ impl TestDisplayConfig {
     }
 }
 
-pub trait TestDisplay: std::fmt::Debug + PartialEq {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String);
-    fn print_inherent(&self, config: TestDisplayConfig) -> String {
+pub trait HuskyDisplay: std::fmt::Debug + PartialEq {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String);
+    fn print_inherent(&self, config: HuskyDisplayConfig) -> String {
         let mut result = String::new();
         self.write_inherent(config, &mut result);
         result
     }
 }
 
-impl<T: TestDisplay> TestDisplay for Option<T> {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl<T: HuskyDisplay> HuskyDisplay for Option<T> {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         match self {
             Some(value) => value.write_inherent(config, result),
             None => (),
@@ -44,14 +44,14 @@ impl<T: TestDisplay> TestDisplay for Option<T> {
     }
 }
 
-impl<T: TestDisplay> TestDisplay for Arc<T> {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl<T: HuskyDisplay> HuskyDisplay for Arc<T> {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         (**self).write_inherent(config, result)
     }
 }
 
-impl<T: TestDisplay> TestDisplay for Vec<T> {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl<T: HuskyDisplay> HuskyDisplay for Vec<T> {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         for t in self.iter() {
             t.write_inherent(config, result);
             result.push_str("\n");
@@ -59,20 +59,20 @@ impl<T: TestDisplay> TestDisplay for Vec<T> {
     }
 }
 
-impl<T: TestDisplay, S: TestDisplay> TestDisplay for (T, S) {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl<T: HuskyDisplay, S: HuskyDisplay> HuskyDisplay for (T, S) {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         self.0.write_inherent(config, result);
         result.push_str("  ");
         self.1.write_inherent(config, result);
     }
 }
 
-impl<T, E> TestDisplay for Result<T, E>
+impl<T, E> HuskyDisplay for Result<T, E>
 where
-    T: TestDisplay,
-    E: TestDisplay,
+    T: HuskyDisplay,
+    E: HuskyDisplay,
 {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         match self {
             Ok(v) => v.write_inherent(config, result),
             Err(e) => e.write_inherent(config, result),
@@ -80,23 +80,23 @@ where
     }
 }
 
-impl TestDisplay for lsp_types::SemanticToken {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
-        write!(result, "{:?}", self).unwrap();
-    }
-}
+// impl HuskyDisplay for lsp_types::SemanticToken {
+//     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
+//         write!(result, "{:?}", self).unwrap();
+//     }
+// }
 
-impl TestDisplay for lsp_types::FoldingRange {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
-        write!(result, "{:?}", self).unwrap();
-    }
-}
+// impl HuskyDisplay for lsp_types::FoldingRange {
+//     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
+//         write!(result, "{:?}", self).unwrap();
+//     }
+// }
 
 pub fn compare_saved_data<T>(new_data: &T, saved_data_path: &Path) -> TestResult
 where
-    T: TestDisplay,
+    T: HuskyDisplay,
 {
-    let new_data_text = new_data.print_inherent(TestDisplayConfig {
+    let new_data_text = new_data.print_inherent(HuskyDisplayConfig {
         colored: false,
         indent: 0,
     });

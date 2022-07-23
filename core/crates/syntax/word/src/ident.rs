@@ -7,7 +7,7 @@ pub use custom::*;
 pub use root::*;
 
 use core::hash::Hash;
-use husky_test_utils::{TestDisplay, TestDisplayConfig};
+use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use serde::Serialize;
 use std::fmt::Write;
 use std::{borrow::Borrow, ops::Deref};
@@ -19,8 +19,8 @@ pub enum Identifier {
     Contextual(ContextualIdentifier),
 }
 
-impl TestDisplay for Identifier {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for Identifier {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
                 result,

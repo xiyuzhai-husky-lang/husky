@@ -29,8 +29,8 @@ impl std::fmt::Debug for EagerExprQualifier {
     }
 }
 
-impl TestDisplay for EagerValueQualifiedTy {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for EagerValueQualifiedTy {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
                 result,

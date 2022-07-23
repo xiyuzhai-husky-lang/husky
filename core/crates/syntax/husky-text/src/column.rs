@@ -1,4 +1,4 @@
-use husky_test_utils::{TestDisplay, TestDisplayConfig};
+use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 
@@ -7,8 +7,8 @@ use std::fmt::Write;
 )]
 pub struct Column(pub(crate) u32); // raw is 0 based
 
-impl TestDisplay for Column {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for Column {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
                 result,

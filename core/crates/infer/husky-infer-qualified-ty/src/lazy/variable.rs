@@ -6,8 +6,8 @@ pub struct LazyVariableQualifiedTy {
     pub ty: EntityRoutePtr,
 }
 
-impl TestDisplay for LazyVariableQualifiedTy {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for LazyVariableQualifiedTy {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         write!(result, "{: <12?} {:?}", self.qual, self.ty).unwrap()
     }
 }

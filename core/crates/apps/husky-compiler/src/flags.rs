@@ -2,10 +2,6 @@ use std::path::PathBuf;
 
 xflags::xflags! {
     cmd husky-compiler-flags
-    {
-        required --src src: PathBuf
-        required --dst src: PathBuf
-        required --rel-husky-dir rel_husky_dir: PathBuf
-        required --rel-crate-dir rel_crate_dir: PathBuf
+    required packages_dir: PathBuf {
     }
 }

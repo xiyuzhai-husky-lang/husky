@@ -11,6 +11,7 @@ salsa = "0.17.0-pre.2"
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
+husky-display-utils = { path = "../../../../common-rs/utils/husky-display-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 arena = { path = "../../../../common-rs/abstraction/arena" }

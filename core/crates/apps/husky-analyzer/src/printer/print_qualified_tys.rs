@@ -1,6 +1,6 @@
 use crate::*;
 use husky_compile_time::*;
-use husky_test_utils::{TestDisplay, TestDisplayConfig};
+use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use std::path::Path;
 
 pub fn print_qualified_tys(package_dir: &Path) {
@@ -8,7 +8,7 @@ pub fn print_qualified_tys(package_dir: &Path) {
         compile_time
             .qualified_ty_sheet(file)
             .unwrap()
-            .print_inherent(TestDisplayConfig {
+            .print_inherent(HuskyDisplayConfig {
                 colored: true,
                 indent: 4,
             })

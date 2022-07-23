@@ -1,7 +1,3 @@
-mod compare;
-
-pub use compare::*;
-
 use std::path::{Path, PathBuf};
 
 use path_utils::collect_all_package_dirs;

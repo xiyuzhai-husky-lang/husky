@@ -34,6 +34,7 @@ error-utils = { path = "../../../../common-rs/utils/husky-error-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 path-utils = { path = "../../../../common-rs/utils/husky-path-utils" }
 husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
+husky-display-utils = { path = "../../../../common-rs/utils/husky-display-utils" }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-compile-time = { path = "../../compile/husky-compile-time" }
 husky-compile-test = { path = "../../compile/husky-compile-test" }

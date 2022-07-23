@@ -10,9 +10,9 @@ pub use severity::DiagnosticSeverity;
 
 use husky_ast::{AstError, AstErrorVariant};
 use husky_dev_utils::DevSource;
+use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_entity_syntax::{EntitySyntaxError, EntitySyntaxErrorKind};
 use husky_print_utils::p;
-use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use husky_text::TextRange;
 use husky_token::LexError;
 use infer_error::{InferError, InferErrorVariant};
@@ -31,8 +31,8 @@ pub struct Diagnostic {
     dev_src: DevSource,
 }
 
-impl TestDisplay for Diagnostic {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for Diagnostic {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         write!(result, "{:?}\t{}", self.range, self.message).unwrap()
     }
 }
@@ -89,7 +89,7 @@ impl From<EntitySyntaxError> for Diagnostic {
             },
             message: format!(
                 "Entity Route Error: {}",
-                &e.print_inherent(TestDisplayConfig {
+                &e.print_inherent(HuskyDisplayConfig {
                     colored: false,
                     indent: 0
                 })
@@ -109,7 +109,7 @@ impl From<&EntitySyntaxError> for Diagnostic {
             },
             message: format!(
                 "Entity Route Error: {}",
-                &e.print_inherent(TestDisplayConfig {
+                &e.print_inherent(HuskyDisplayConfig {
                     colored: false,
                     indent: 0
                 })

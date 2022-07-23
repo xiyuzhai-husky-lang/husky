@@ -3,7 +3,7 @@ mod bind_into;
 
 pub use bind_from::*;
 pub use bind_into::*;
-use husky_test_utils::TestDisplay;
+use husky_display_utils::HuskyDisplay;
 
 use crate::*;
 use husky_dev_utils::__StaticDevSource;
@@ -18,8 +18,8 @@ pub struct TextRange {
     pub end: TextPosition,
 }
 
-impl TestDisplay for TextRange {
-    fn write_inherent(&self, config: husky_test_utils::TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for TextRange {
+    fn write_inherent(&self, config: husky_display_utils::HuskyDisplayConfig, result: &mut String) {
         if config.colored {
             write!(result, "{GREEN}{:?}{RESET}", self).unwrap()
         } else {

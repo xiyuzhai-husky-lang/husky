@@ -1,4 +1,3 @@
-mod bin_main_rs_content;
 mod cargo_toml_content;
 mod code_generator;
 mod contains_eval_ref;
@@ -11,7 +10,6 @@ mod utils;
 
 pub use cargo_toml_content::*;
 
-use bin_main_rs_content::*;
 use contains_eval_ref::*;
 use defn_head::*;
 use eval_context::*;
@@ -37,7 +35,6 @@ pub trait RustCodeGenQueryGroup: PackageQueryGroup {
     fn rust_lib_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_init_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: EntityRoutePtr) -> Arc<String>;
-    fn rust_bin_main_rs_content(&self, main_file: FilePtr, rel_crate_dir: PathBuf) -> Arc<String>;
     fn entity_route_kind_contains_eval_ref(&self, entity_route_kind: EntityRouteKind) -> bool;
     fn entity_route_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;
     fn is_defn_static(&self, entity_route: EntityRoutePtr) -> bool;

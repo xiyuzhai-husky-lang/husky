@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use arena::map::{ArenaKeyQuery, ArenaMap};
 use husky_ast::RawExprMap;
+use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_print_utils::{p, ps};
-use husky_test_utils::{TestDisplay, TestDisplayConfig};
 use husky_text::{Row, TextRange};
 use infer_contract::ContractSheet;
 use infer_error::{derived_not_none, InferError, InferErrorVariant};
@@ -153,8 +153,8 @@ macro_rules! write_field_name {
     };
 }
 
-impl TestDisplay for QualifiedTySheet {
-    fn write_inherent(&self, config: TestDisplayConfig, result: &mut String) {
+impl HuskyDisplay for QualifiedTySheet {
+    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         let ast_text = &self.contract_sheet.entity_route_sheet.ast_text;
         write_field_name!(result, "eager variable", config);
         self.eager_variable_qualified_tys

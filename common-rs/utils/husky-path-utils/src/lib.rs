@@ -1,6 +1,7 @@
 mod module_tree;
 mod rel;
 
+use husky_check_utils::should_satisfy;
 use husky_print_utils::p;
 pub use module_tree::*;
 pub use rel::*;
@@ -28,7 +29,7 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
 }
 
 pub fn collect_all_package_dirs(dir: &Path) -> Vec<PathBuf> {
-    assert!(dir.is_dir());
+    should_satisfy!(dir, |dir: &Path| dir.is_dir());
     let main_path = dir.join("main.hsk");
     if main_path.exists() {
         return vec![dir.to_path_buf()];

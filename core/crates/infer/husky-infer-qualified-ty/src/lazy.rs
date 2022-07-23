@@ -5,7 +5,7 @@ pub use value::*;
 pub use variable::*;
 
 use crate::*;
-use husky_test_utils::{TestDisplay, TestDisplayConfig};
+use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use infer_error::derived;
 use std::fmt::Write;
 use word::RootIdentifier;
