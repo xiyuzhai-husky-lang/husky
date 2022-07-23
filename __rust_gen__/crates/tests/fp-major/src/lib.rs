@@ -1,0 +1,18 @@
+#![allow(warnings)]
+pub mod __init__;
+use __husky_root::*;
+
+// ad hoc
+fn __input<'a, 'eval: 'a>(
+    __ctx: &'a __EvalContext<'eval>,
+) -> &'a domains::ml::datasets::cv::mnist::BinaryImage28 {
+    unsafe { __evaluator(__ctx) }
+        .eval_input
+        .any_ref()
+        .__downcast_ref()
+}
+
+pub(crate) fn try_fp() -> i32 {
+    let f1 = &i32::sgn;
+    return f1(1);
+}
