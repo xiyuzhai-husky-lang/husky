@@ -33,12 +33,12 @@ impl<'a> LinkageCollector<'a> {
                     },
                     EagerOpnVariant::Index { .. } => (),
                     EagerOpnVariant::NewVecFromList => self.insert(expr.ty()),
-                    EagerOpnVariant::ValueCall => todo!(),
+                    EagerOpnVariant::ValueCall => (),
                 }
             }
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EntityFeature { route } => self.insert(route),
-            EagerExprVariant::EntityFp { route } => todo!(),
+            EagerExprVariant::EntityFp { route } => self.insert(route),
         }
     }
 

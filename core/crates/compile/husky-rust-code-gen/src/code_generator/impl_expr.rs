@@ -170,7 +170,18 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                     self.write("]")
                 }
-                EagerOpnVariant::ValueCall => todo!(),
+                EagerOpnVariant::ValueCall => {
+                    for (i, opd) in opds.iter().enumerate() {
+                        if i > 1 {
+                            self.write(", ")
+                        }
+                        self.gen_expr(indent, opd);
+                        if i == 0 {
+                            self.write("(")
+                        }
+                    }
+                    self.write(")")
+                }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EnumKindLiteral(value) => {
@@ -180,7 +191,9 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(route, EntityRouteRole::Caller);
                 self.write("(__ctx)")
             }
-            EagerExprVariant::EntityFp { route } => todo!(),
+            EagerExprVariant::EntityFp { route } => {
+                self.gen_entity_route(route, EntityRouteRole::Caller)
+            }
         }
     }
     fn gen_type_call_opn(
