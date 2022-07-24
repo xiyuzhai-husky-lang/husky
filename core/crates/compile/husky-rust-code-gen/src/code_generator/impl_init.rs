@@ -421,8 +421,8 @@ pub static LINKAGES : &[(&'static str, __Linkage)]= &[
         self.write(&format!(
             r#"
                     __Register {{
-                        data_kind: todo!(),
                         proto: todo!(),
+                        data_kind: todo!(),
                         data: "#
         ));
         // if self.db.is_copyable(decl.output.ty).unwrap() {

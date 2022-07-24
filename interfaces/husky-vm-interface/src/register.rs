@@ -6,9 +6,9 @@ pub struct __RegisterPrototype {
 }
 
 pub struct __Register {
+    pub proto: &'static __RegisterPrototype,
     pub data_kind: __RegisterDataKind,
     pub data: u64,
-    pub proto: &'static __RegisterPrototype,
 }
 
 impl __Register {
