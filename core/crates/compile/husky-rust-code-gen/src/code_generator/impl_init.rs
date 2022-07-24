@@ -11,7 +11,11 @@ impl<'a> RustCodeGenerator<'a> {
             r#"use crate::*;
 use __husky::init::*;
 
-pub static LINKAGES : &[(__LinkageKind, &'static str, __Linkage)]= &["#,
+pub extern "C" fn gen_linkages() -> &'static [(__LinkageKind, &'static str, __Linkage)] {
+    LINKAGES
+}
+
+pub static LINKAGES: &[(__LinkageKind, &'static str, __Linkage)] = &["#,
         );
         let main_module = self.db.module(self.package_main).unwrap();
         let entity_link_dependees = self.db.entity_link_dependees(main_module);
@@ -23,7 +27,8 @@ pub static LINKAGES : &[(__LinkageKind, &'static str, __Linkage)]= &["#,
         }
         self.write(
             r#"
-];"#,
+];
+"#,
         );
     }
 
@@ -472,8 +477,8 @@ pub static LINKAGES : &[(__LinkageKind, &'static str, __Linkage)]= &["#,
         ));
         gen_call_route(self);
         self.write(
-            r#" as *const ())
-        }"#,
+            r#" as *const ()),
+        },"#,
         );
     }
 
