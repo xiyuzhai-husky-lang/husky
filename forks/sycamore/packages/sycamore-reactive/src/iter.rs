@@ -5,6 +5,7 @@ use std::mem;
 use std::rc::Rc;
 
 use ahash::AHashMap;
+use husky_signal::Signalable;
 
 use crate::*;
 

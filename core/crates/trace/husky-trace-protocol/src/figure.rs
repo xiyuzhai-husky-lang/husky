@@ -4,7 +4,7 @@ mod visual;
 
 pub use control::*;
 pub use graphics2d::*;
-use sycamore::prelude::Signalable;
+use husky_signal::Signalable;
 pub use visual::*;
 
 use super::*;

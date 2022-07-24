@@ -3,7 +3,8 @@
 use std::fmt;
 use std::hash::Hash;
 
-use sycamore_reactive::{Scope, Signalable};
+use husky_signal::Signalable;
+use sycamore_reactive::Scope;
 
 /// Represents an element.
 pub trait SycamoreElement {

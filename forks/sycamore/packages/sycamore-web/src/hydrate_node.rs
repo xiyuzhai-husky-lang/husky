@@ -3,6 +3,7 @@
 use std::fmt;
 use std::hash::{Hash, Hasher};
 
+use husky_signal::Signalable;
 use sycamore_core::generic_node::{GenericNode, SycamoreElement};
 use sycamore_core::hydrate::{hydration_completed, with_hydration_context};
 use sycamore_core::render::insert;

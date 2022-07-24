@@ -2,6 +2,8 @@
 
 use std::cell::Cell;
 
+use husky_signal::Signalable;
+
 use crate::*;
 
 pub fn create_memo<'a, U: 'a>(

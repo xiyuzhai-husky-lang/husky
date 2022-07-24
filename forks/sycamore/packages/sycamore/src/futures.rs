@@ -14,6 +14,7 @@
 
 use std::future::Future;
 
+use husky_signal::Signalable;
 // Re-export `sycamore-futures` crate.
 pub use sycamore_futures::*;
 // Re-export `wasm_bindgen_futures` crate.

@@ -2,6 +2,7 @@ use std::cell::RefCell;
 use std::marker::PhantomData;
 use std::rc::Rc;
 
+use husky_signal::Signalable;
 use sycamore::prelude::*;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
@@ -353,7 +354,7 @@ mod tests {
 
     #[test]
     fn static_router() {
-        #[derive(Debug, Route)]
+        #[derive(Debug, Route, PartialEq, Eq)]
         enum Routes {
             #[to("/")]
             Home,

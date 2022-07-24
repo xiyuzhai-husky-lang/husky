@@ -7,6 +7,7 @@ use std::hash::{Hash, Hasher};
 use std::iter::FromIterator;
 use std::rc::{Rc, Weak};
 
+use husky_signal::Signalable;
 use indexmap::map::IndexMap;
 use once_cell::sync::Lazy;
 use sycamore_core::generic_node::{GenericNode, SycamoreElement};
