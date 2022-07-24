@@ -18,7 +18,7 @@ pub use sheet::*;
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
 use husky_trace_protocol::SampleId;
-use vm::{EntityUid, VMConfig, __AnyValueDyn, __EvalContext, __EvalRef, __EvalValue};
+use vm::{EntityUid, EvalContextDeprecated, VMConfig, __AnyValueDyn, __EvalRef, __EvalValue};
 use vm::{__EvalResult, __EvalValueResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
@@ -30,7 +30,7 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) opt_static_husky_feature_eval: Option<&'a dyn EvalFeature<'static>>,
 }
 
-impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
+impl<'a, 'eval: 'a> EvalContextDeprecated<'eval> for FeatureEvaluator<'a, 'eval> {
     fn entity_uid(&self, entity_route_text: &str) -> vm::EntityUid {
         use husky_entity_semantics::EntityDefnQueryGroup;
         let route = self
@@ -99,7 +99,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub unsafe fn some_ctx(&'a self) -> Option<&'a dyn __EvalContext<'eval>> {
+    pub unsafe fn some_ctx(&'a self) -> Option<&'a dyn EvalContextDeprecated<'eval>> {
         Some(self)
     }
 

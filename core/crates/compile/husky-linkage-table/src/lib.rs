@@ -23,14 +23,14 @@ use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
-use vm::{Binding, EntityUid, __Linkage};
+use vm::{Binding, EntityUid, LinkageDeprecated};
 use vm::{__EvalResult, __EvalValue, __OwnedValue, __SpecificRoutineLinkage, __TempValue};
 use word::{CustomIdentifier, RootIdentifier};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup> {
     fn linkage_table(&self) -> &LinkageTable;
 
-    fn element_access_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {
+    fn element_access_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> LinkageDeprecated {
         if let Some(__Linkage) = self
             .linkage_table()
             .element_access(self.upcast(), opd_tys.map(|ty| self.entity_uid(*ty)))
@@ -91,7 +91,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         }
     }
 
-    fn method_linkage(&self, method_route: EntityRoutePtr) -> Option<__Linkage> {
+    fn method_linkage(&self, method_route: EntityRoutePtr) -> Option<LinkageDeprecated> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || {
@@ -176,7 +176,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         )
     }
 
-    fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<__Linkage> {
+    fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<LinkageDeprecated> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || match self.entity_source(routine).unwrap() {
@@ -201,7 +201,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         )
     }
 
-    fn type_call_linkage(&self, ty: EntityRoutePtr) -> Option<__Linkage> {
+    fn type_call_linkage(&self, ty: EntityRoutePtr) -> Option<LinkageDeprecated> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || {
@@ -226,7 +226,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         )
     }
 
-    fn feature_eager_block_linkage(&self, route: EntityRoutePtr) -> Option<__Linkage> {
+    fn feature_eager_block_linkage(&self, route: EntityRoutePtr) -> Option<LinkageDeprecated> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || {
@@ -240,9 +240,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
 
 fn opt_linkage_wrapper(
     config: &LinkageTableConfig,
-    f: impl FnOnce() -> Option<__Linkage>,
+    f: impl FnOnce() -> Option<LinkageDeprecated>,
     message: impl FnOnce() -> String,
-) -> Option<__Linkage> {
+) -> Option<LinkageDeprecated> {
     let opt_linkage = f();
     if config.warn_missing_linkage {
         if opt_linkage.is_none() {

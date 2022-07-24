@@ -7,7 +7,7 @@ use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_dev_utils::__StaticDevSource;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualTy;
-use vm::{__Linkage, __SpecificRoutineLinkage};
+use vm::{LinkageDeprecated, __SpecificRoutineLinkage};
 use word::RootIdentifier;
 
 pub trait ResolveStaticRootDefn {
@@ -36,7 +36,7 @@ pub enum EntityStaticDefnVariant {
         variadic_template: StaticVariadicTemplate,
         output_ty: &'static str,
         output_liason: OutputLiason,
-        linkage: __Linkage,
+        linkage: LinkageDeprecated,
     },
     Ty {
         base_route: &'static str,
@@ -58,7 +58,7 @@ pub enum EntityStaticDefnVariant {
         field_kind: FieldKind,
         liason: MemberLiason,
         ty: &'static str,
-        linkage: __Linkage,
+        linkage: LinkageDeprecated,
     },
     Method {
         this_liason: ParameterLiason,
@@ -67,7 +67,7 @@ pub enum EntityStaticDefnVariant {
         output_liason: OutputLiason,
         spatial_parameters: &'static [StaticSpatialParameter],
         method_static_defn_kind: MethodStaticDefnKind,
-        opt_linkage: Option<__Linkage>,
+        opt_linkage: Option<LinkageDeprecated>,
     },
     TraitAssociatedType {
         trai: &'static str,

@@ -8,10 +8,6 @@ edition = "2021"
 cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
-husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
-husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
-husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
-vm = { path = "../../vm/husky-vm" }
+husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface" }
 
 [lib]

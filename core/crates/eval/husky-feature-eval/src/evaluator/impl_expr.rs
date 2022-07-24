@@ -6,7 +6,7 @@ use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
-use vm::__Linkage;
+use vm::LinkageDeprecated;
 use vm::*;
 use word::IdentPairDict;
 
@@ -119,7 +119,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     ref source,
                 } => match source {
                     CallFormSource::Lazy { stmts } => todo!(),
-                    CallFormSource::Static(__Linkage::Model(model)) => {
+                    CallFormSource::Static(LinkageDeprecated::Model(model)) => {
                         let values: Vec<_> = opds
                             .iter()
                             .map(|opd| self.eval_expr(opd))
@@ -211,7 +211,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     fn eval_routine_call(
         &mut self,
         opt_instrns: &Option<Arc<InstructionSheet>>,
-        opt_linkage: Option<__Linkage>,
+        opt_linkage: Option<LinkageDeprecated>,
         output_ty: EntityRoutePtr,
         arguments: &[Arc<FeatureExpr>],
     ) -> __EvalValueResult<'eval> {

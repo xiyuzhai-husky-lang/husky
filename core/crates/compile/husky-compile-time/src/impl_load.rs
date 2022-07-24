@@ -1,6 +1,6 @@
 use __husky::init::__StaticLinkageKey;
 use husky_linkage_table::LinkageKey;
-use vm::__Linkage;
+use vm::LinkageDeprecated;
 
 use crate::*;
 use std::{fs, path::Path};
@@ -35,7 +35,7 @@ impl HuskyCompileTime {
         self.load_dir(&module_dir);
     }
 
-    pub fn load_linkages(&self, linkages: &[(__StaticLinkageKey, __Linkage)]) {
+    pub fn load_linkages(&self, linkages: &[(__StaticLinkageKey, LinkageDeprecated)]) {
         self.linkage_table.load(self, linkages)
     }
 }

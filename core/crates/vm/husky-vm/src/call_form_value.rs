@@ -3,7 +3,7 @@ use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct __CallFormValue {
-    pub opt_linkage: Option<__Linkage>,
+    pub opt_linkage: Option<LinkageDeprecated>,
 }
 
 impl __HasStaticTypeInfo for __CallFormValue {

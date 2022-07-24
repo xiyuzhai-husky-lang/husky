@@ -287,23 +287,23 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(crate) fn eval_linkage(
         &mut self,
-        linkage: __Linkage,
+        linkage: LinkageDeprecated,
         nargs: u8,
         output_ty: EntityRoutePtr,
     ) -> __EvalValueResult<'eval> {
         match linkage {
-            __Linkage::Member { .. } => todo!(),
-            __Linkage::SpecificTransfer(linkage) => {
+            LinkageDeprecated::Member { .. } => todo!(),
+            LinkageDeprecated::SpecificTransfer(linkage) => {
                 let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
                 linkage.eval(self.opt_ctx, arguments)
             }
-            __Linkage::GenericTransfer(linkage) => {
+            LinkageDeprecated::GenericTransfer(linkage) => {
                 let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
                 Ok((linkage.call)(output_ty, &mut arguments).into_eval())
             }
-            __Linkage::Model(_) => todo!(),
+            LinkageDeprecated::Model(_) => todo!(),
         }
     }
 }

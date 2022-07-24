@@ -243,7 +243,7 @@ pub enum EntityDefnVariant {
         ty: EntityRoutePtr,
         field_variant: FieldDefnVariant,
         liason: MemberLiason,
-        opt_linkage: Option<__Linkage>,
+        opt_linkage: Option<LinkageDeprecated>,
     },
     TraitAssociatedTypeImpl {
         trai: EntityRoutePtr,

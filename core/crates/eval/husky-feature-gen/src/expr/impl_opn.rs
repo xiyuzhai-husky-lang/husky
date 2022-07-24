@@ -7,7 +7,7 @@ use husky_linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
 use vm::{Binding, ModelLinkage, __EvalResult, __root::__NEQ_LINKAGE};
-use vm::{__Linkage, __root::__EQ_LINKAGE};
+use vm::{LinkageDeprecated, __root::__EQ_LINKAGE};
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
@@ -37,7 +37,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 let model_defn = self.db.compile_time().entity_defn(routine.route).unwrap();
                 let internal = match model_defn.variant {
                     EntityDefnVariant::Function {
-                        source: CallFormSource::Static(__Linkage::Model(model)),
+                        source: CallFormSource::Static(LinkageDeprecated::Model(model)),
                         ..
                     } => self.db.train(model, self.opt_arrival_indicator, &opds),
                     // model.train(

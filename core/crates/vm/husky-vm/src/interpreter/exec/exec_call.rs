@@ -72,7 +72,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(super) fn call_linkage(
         &mut self,
-        linkage: __Linkage,
+        linkage: LinkageDeprecated,
         nargs: u8,
         output_ty: EntityRoutePtr,
     ) -> __EvalResult<()> {

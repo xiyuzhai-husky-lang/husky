@@ -6,7 +6,8 @@ use husky_print_utils::p;
 use husky_trace_protocol::Label;
 use static_defn::*;
 use vm::{
-    Model, ModelLinkage, __EvalResult, __EvalValue, __EvalValueResult, __Linkage, __OwnedValue,
+    LinkageDeprecated, Model, ModelLinkage, __EvalResult, __EvalValue, __EvalValueResult,
+    __OwnedValue,
 };
 
 static_mod! { naive = { naive_i32 } }
@@ -24,7 +25,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        linkage: __Linkage::Model(ModelLinkage(&NaiveI32)),
+        linkage: LinkageDeprecated::Model(ModelLinkage(&NaiveI32)),
     },
     dev_src: __static_dev_src!(),
 };

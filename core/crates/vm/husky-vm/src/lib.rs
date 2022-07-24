@@ -47,9 +47,9 @@ use word::CustomIdentifier;
 
 pub fn eval_fast<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
-    opt_ctx: Option<&'temp dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&'temp dyn EvalContextDeprecated<'eval>>,
     opt_instrn_sheet: Option<&InstructionSheet>,
-    opt_linkage: Option<__Linkage>,
+    opt_linkage: Option<LinkageDeprecated>,
     output_ty: EntityRoutePtr,
     args: impl Iterator<Item = __EvalResult<__TempValue<'temp, 'eval>>>, // including this value
     kwargs: impl Iterator<Item = (CustomIdentifier, __EvalResult<__TempValue<'temp, 'eval>>)>,
@@ -66,7 +66,7 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
 
 pub fn exec_debug<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
-    opt_ctx: Option<&'temp dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&'temp dyn EvalContextDeprecated<'eval>>,
     sheet: &InstructionSheet,
     stack: VMStack<'temp, 'eval>,
     vm_config: &'temp VMConfig,
@@ -78,7 +78,7 @@ pub fn exec_debug<'temp, 'eval: 'temp>(
 
 pub fn exec_loop_debug<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     loop_kind: VMLoopKind,
     sheet: &InstructionSheet,
     stack_snapshot: &StackSnapshot<'eval>,
