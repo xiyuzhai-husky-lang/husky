@@ -47,7 +47,7 @@ use word::CustomIdentifier;
 
 pub fn eval_fast<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
-    opt_ctx: Option<&'temp __EvalContext<'eval>>,
+    opt_ctx: Option<&'temp dyn __EvalContext<'eval>>,
     opt_instrn_sheet: Option<&InstructionSheet>,
     opt_linkage: Option<__Linkage>,
     output_ty: EntityRoutePtr,
@@ -66,25 +66,25 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
 
 pub fn exec_debug<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
-    opt_ctx: Option<&'temp __EvalContext<'eval>>,
+    opt_ctx: Option<&'temp dyn __EvalContext<'eval>>,
     sheet: &InstructionSheet,
-    prestack: impl Into<VMStack<'temp, 'eval>>,
+    stack: VMStack<'temp, 'eval>,
     vm_config: &'temp VMConfig,
 ) -> Arc<History<'eval>> {
-    let mut interpreter = Interpreter::from_prestack(db, opt_ctx, prestack, vm_config);
+    let mut interpreter = Interpreter::from_stack(db, opt_ctx, stack, vm_config);
     interpreter.exec_all(sheet, Mode::TrackHistory);
     Arc::new(interpreter.history)
 }
 
 pub fn exec_loop_debug<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
-    opt_ctx: Option<&__EvalContext<'eval>>,
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     loop_kind: VMLoopKind,
     sheet: &InstructionSheet,
     stack_snapshot: &StackSnapshot<'eval>,
     vm_config: &'temp VMConfig,
 ) -> Vec<LoopFrameData<'eval>> {
-    let mut interpreter = Interpreter::from_prestack(db, opt_ctx, stack_snapshot, vm_config);
+    let mut interpreter = Interpreter::from_stack(db, opt_ctx, stack_snapshot.into(), vm_config);
     interpreter.exec_loop_tracking_frame(loop_kind, &sheet);
     interpreter.frames
 }

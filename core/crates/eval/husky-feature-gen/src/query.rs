@@ -14,7 +14,10 @@ use husky_instruction_gen::InstructionGenQueryGroup;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::*;
 use semantics_error::SemanticResult;
-use std::marker::PhantomData;
+use std::{
+    marker::PhantomData,
+    panic::{RefUnwindSafe, UnwindSafe},
+};
 use upcast::Upcast;
 
 #[salsa::query_group(FeatureGenQueryGroupStorage)]
@@ -23,8 +26,9 @@ pub trait FeatureGenQueryGroup:
     + Upcast<dyn InstructionGenQueryGroup>
     + InstructionGenQueryGroup
     + Upcast<dyn InterpreterQueryGroup>
-    + AskCompileTime
     + TrainModel
+    + RefUnwindSafe
+    + UnwindSafe
 {
     fn main_feature_repr(&'eval self, main_file: husky_file::FilePtr) -> FeatureRepr;
     fn entity_feature_repr(&self, entity_route: EntityRoutePtr) -> FeatureRepr;

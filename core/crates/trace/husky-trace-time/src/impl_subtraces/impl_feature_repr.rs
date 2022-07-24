@@ -1,3 +1,5 @@
+use husky_feature_eval::FeatureEvaluator;
+
 use crate::*;
 
 use std::sync::Arc;
@@ -52,12 +54,14 @@ impl HuskyTraceTime {
             )
         }
         let sample_id = self.restriction.opt_sample_id().unwrap();
-        let evaluator = self.eval_time().evaluator(sample_id);
+        let eval_time = self.eval_time();
+        let evaluator: FeatureEvaluator<'_, 'static> = eval_time.evaluator(sample_id);
+        let stack = arguments.into_iter().into();
         let history = exec_debug(
             self.eval_time(),
-            unsafe { evaluator.some_ctx() },
+            Some(&evaluator),
             instruction_sheet,
-            arguments.into_iter(),
+            stack,
             self.vm_config(),
         );
         let mut subtraces = vec![];

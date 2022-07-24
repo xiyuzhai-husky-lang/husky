@@ -1,6 +1,5 @@
 use super::*;
 use husky_entity_route::InternEntityRoute;
-use husky_eval_time::{__ty_route_from_static_binded, compile_time};
 use husky_trace_protocol::*;
 use husky_visual_syntax::StaticVisualTy;
 use std::{any::TypeId, sync::Arc};
@@ -183,7 +182,8 @@ impl<'eval> __AnyValue<'eval> for BinaryImage28 {
     }
 
     fn __static_ty() -> EntityRoutePtr {
-        __ty_route_from_static_binded::<Self>(BINARY_IMAGE_28_BASE_ROUTE)
+        todo!()
+        // __ty_route_from_static_binded::<Self>(BINARY_IMAGE_28_BASE_ROUTE)
     }
 
     fn __opt_visualize(

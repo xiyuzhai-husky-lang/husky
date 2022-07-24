@@ -56,7 +56,7 @@ impl HuskyTraceTime {
             eval_time(),
             unsafe { evaluator.some_ctx() },
             instruction_sheet,
-            &loop_frame_data.stack_snapshot,
+            (&loop_frame_data.stack_snapshot).into(),
             self.vm_config(),
         );
         let mut subtraces: Vec<_> =
@@ -100,7 +100,7 @@ impl HuskyTraceTime {
             self.eval_time().upcast(),
             unsafe { evaluator.some_ctx() },
             instruction_sheet,
-            stack_snapshot,
+            stack_snapshot.into(),
             self.vm_config(),
         );
         self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 4, stmts, &history)

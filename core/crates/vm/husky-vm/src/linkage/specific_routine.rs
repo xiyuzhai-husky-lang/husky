@@ -16,14 +16,14 @@ unsafe impl Send for __SpecificRoutineLinkage {}
 impl __SpecificRoutineLinkage {
     pub fn call<'temp, 'eval>(
         &self,
-        opt_ctx: Option<&__EvalContext<'eval>>,
+        opt_ctx: Option<&dyn __EvalContext<'eval>>,
         mut arguments: Vec<__TempValue<'temp, 'eval>>,
     ) -> __EvalResult<__TempValue<'temp, 'eval>> {
         catch_unwind(move || self.fp.0(opt_ctx, &mut arguments)).map_err(|_| todo!())
     }
     pub fn eval<'temp, 'eval>(
         &self,
-        opt_ctx: Option<&__EvalContext<'eval>>,
+        opt_ctx: Option<&dyn __EvalContext<'eval>>,
         mut arguments: Vec<__TempValue<'temp, 'eval>>,
     ) -> __EvalValueResult<'eval> {
         catch_unwind(move || self.fp.0(opt_ctx, &mut arguments).into_eval()).map_err(|e| {

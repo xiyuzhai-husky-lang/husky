@@ -2,7 +2,7 @@
 macro_rules! method_elem_copy_fp {
     ($Type: ty, $method_name: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext<'eval>>,
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let this_value: &$Type = values[0].downcast_temp_ref();
@@ -16,7 +16,7 @@ macro_rules! method_elem_copy_fp {
 macro_rules! method_elem_eval_ref_fp {
     ($Type: ty, $method_name: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext<'eval>>,
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let this_value: &'eval $Type = values[0].downcast_eval_ref();
@@ -30,7 +30,7 @@ macro_rules! method_elem_eval_ref_fp {
 macro_rules! method_elem_temp_ref_fp {
     ($Type: ty, $method_name: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext<'eval>>,
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let this_value: &$Type = values[0].downcast_temp_ref();
@@ -51,7 +51,7 @@ macro_rules! method_elem_move_fp {
 macro_rules! method_elem_temp_mut_fp {
     ($Type: ty, $method_name: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext<'eval>>,
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let (this_value, owner, _): (&mut $Type, _, _) = values[0].downcast_mut_full();

@@ -292,7 +292,7 @@ impl<'a> RustCodeGenerator<'a> {
                         if !ty_contains_eval_ref {
                             self.write("<'eval>")
                         }
-                        self.write("(&'eval self, __ctx: &__EvalContext<'eval>) -> &'eval ");
+                        self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
                         self.gen_entity_route(ty.route.deref_route(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
                         self.write(&format!(
@@ -385,7 +385,8 @@ impl<'a> RustCodeGenerator<'a> {
     }}
 
     fn __static_ty() -> __EntityRoutePtr {{
-        __ty_route_from_static_binded::<Self>("{base_route:?}")
+        todo!()
+        // __ty_route_from_static_binded::<Self>("{base_route:?}")
     }}
 
     fn __into_eval_value(self) -> __EvalValue<'eval> {{
