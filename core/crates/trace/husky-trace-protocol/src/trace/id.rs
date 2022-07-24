@@ -1,5 +1,5 @@
 use super::*;
-use sycamore::prelude::Signalable;
+use husky_signal::Signalable;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Copy, PartialEq, Eq, Hash)]
 pub struct TraceId(pub usize);

@@ -1,9 +1,9 @@
 mod label;
 mod partition;
 
+use husky_signal::Signalable;
 pub use label::*;
 pub use partition::*;
-use sycamore::prelude::Signalable;
 use vec_like::VecSet;
 
 use super::*;

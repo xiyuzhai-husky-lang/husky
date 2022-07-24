@@ -1,4 +1,4 @@
-use sycamore::prelude::Signalable;
+use husky_signal::Signalable;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct PixelDimension {

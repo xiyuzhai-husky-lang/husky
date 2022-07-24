@@ -1,4 +1,4 @@
-use sycamore::prelude::Signalable;
+use husky_signal::Signalable;
 
 use super::*;
 
