@@ -10,7 +10,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.write(
             r#"
 use crate::*;
-use __husky::__init_utils::*;
+use __husky::init::*;
 
 pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
 "#,

@@ -1,5 +1,6 @@
 mod linkage;
 
+pub use crate::{root::*, *};
 pub use husky_dev_utils::__StaticDevSource;
 pub use husky_dev_utils::__static_dev_src;
 pub use linkage::__StaticLinkageKey;
