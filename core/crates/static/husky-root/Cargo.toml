@@ -9,10 +9,8 @@ edition = "2021"
 rand = "0.8.5"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-futures = { version = "0.3.21", features = ["executor"] }
 xrng = { path = "../../../../common-rs/utils/husky-rng-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
-wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }

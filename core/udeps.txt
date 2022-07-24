@@ -1,0 +1,15 @@
+unused dependencies:
+`husky-instruction-gen v0.0.0 (/home/xiyuzhai/Documents/husky/core/crates/eval/husky-instruction-gen)`
+└─── dependencies
+     └─── "husky-compile-dir"
+`husky-lazy-semantics v0.0.0 (/home/xiyuzhai/Documents/husky/core/crates/semantics/husky-lazy-semantics)`
+└─── dependencies
+     └─── "unique-vector"
+`husky-package-semantics v0.0.0 (/home/xiyuzhai/Documents/husky/core/crates/semantics/husky-package-semantics)`
+└─── dependencies
+     └─── "unique-vector"
+Note: These dependencies might be used by other targets.
+      To find dependencies that are not used by any target, enable `--all-targets`.
+Note: They might be false-positive.
+      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.
+      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.

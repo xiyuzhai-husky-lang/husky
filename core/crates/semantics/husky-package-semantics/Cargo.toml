@@ -13,7 +13,6 @@ husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 word = { path = "../../syntax/word" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
-unique-vector = { path = "../../../../common-rs/abstraction/unique-vector" }
 vm = { path = "../../vm/husky-vm" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }

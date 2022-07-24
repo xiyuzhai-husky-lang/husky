@@ -17,5 +17,4 @@ husky-file = { path = "../../syntax/husky-file" }
 word = { path = "../../syntax/word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
-defn-head = { path = "../../syntax/defn-head" }
 thin-vec = { path = "../../../../forks/thin-vec" }
