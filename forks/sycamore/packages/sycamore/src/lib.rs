@@ -79,6 +79,7 @@ pub use web::{render, render_get_scope, render_to, render_to_static};
 /// use sycamore::prelude::*;
 /// ```
 pub mod prelude {
+    pub use husky_signal::Signalable;
     pub use sycamore_macro::*;
 
     pub use crate::component::Children;

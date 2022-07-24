@@ -7,6 +7,8 @@ use std::iter::FromIterator;
 use std::marker::PhantomData;
 use std::rc::Rc;
 
+use husky_signal::Signalable;
+
 use crate::component::component_scope;
 use crate::generic_node::GenericNode;
 use crate::noderef_signal::NodeRefSignal;

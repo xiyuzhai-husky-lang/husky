@@ -4,6 +4,7 @@ use std::cell::Cell;
 use std::fmt;
 use std::hash::{Hash, Hasher};
 
+use husky_signal::Signalable;
 use js_sys::Array;
 use sycamore_core::generic_node::{GenericNode, SycamoreElement};
 use sycamore_core::render::insert;

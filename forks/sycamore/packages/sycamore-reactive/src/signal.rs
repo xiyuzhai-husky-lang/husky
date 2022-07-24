@@ -1,12 +1,12 @@
 //! Signals - The building blocks of reactivity.
 
 mod read_signal;
-mod signalable;
 
 use std::fmt::{Debug, Display, Formatter};
 use std::hash::Hash;
 use std::ops::{AddAssign, Deref, DerefMut, DivAssign, MulAssign, SubAssign};
 
+use husky_signal::Signalable;
 pub use read_signal::*;
 
 use crate::effect::EFFECTS;
@@ -83,13 +83,15 @@ impl SignalEmitter {
     }
 }
 
+impl<T> Signalable for Signal<T> where T: Signalable {}
+impl<T> Signalable for RcSignal<T> where T: Signalable {}
+impl<'a> Signalable for ScopeDisposer<'a> {}
+
 #[derive(Default)]
 /// Reactive state that can be updated and subscribed to.
 pub struct Signal<T>(ReadSignal<T>)
 where
     T: Signalable;
-
-pub trait Signalable: std::fmt::Debug + PartialEq {}
 
 impl<T> Signal<T>
 where

@@ -4,6 +4,7 @@ pub mod html;
 pub mod portal;
 
 /* Re-export sycamore-web */
+use husky_signal::Signalable;
 pub use sycamore_web::*;
 
 #[allow(unused_imports)]
@@ -81,6 +82,8 @@ pub fn NoHydrate<'a, G: Html>(cx: Scope<'a>, props: NoHydrateProps<'a, G>) -> Vi
 where
     G: Signalable,
 {
+    use husky_signal::Signalable;
+
     use crate::utils::{hydrate, render};
 
     let node_ref = create_node_ref_signal(cx);

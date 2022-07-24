@@ -3,6 +3,8 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
+use husky_signal::Signalable;
+
 use crate::reactive::*;
 
 /// Type returned by `create_raf` and `create_raf_loop`.

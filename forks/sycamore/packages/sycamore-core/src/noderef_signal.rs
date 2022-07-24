@@ -4,6 +4,7 @@ use std::any::Any;
 use std::fmt;
 use std::rc::Rc;
 
+use husky_signal::Signalable;
 use sycamore_reactive::*;
 
 use crate::generic_node::GenericNode;
