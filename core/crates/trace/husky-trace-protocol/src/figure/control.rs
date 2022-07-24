@@ -1,7 +1,7 @@
 use std::{convert::Infallible, ops::FromResidual};
 
 use super::*;
-use sycamore::prelude::Signalable;
+use husky_signal::Signalable;
 
 #[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub struct FigureControlData {

@@ -1,6 +1,6 @@
 use super::*;
+use husky_signal::Signalable;
 use std::iter::zip;
-use sycamore::prelude::Signalable;
 use wasm_bindgen::Clamped;
 
 #[derive(Debug, Clone, PartialEq)]
