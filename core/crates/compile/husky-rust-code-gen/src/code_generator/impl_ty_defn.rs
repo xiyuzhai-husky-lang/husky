@@ -393,7 +393,7 @@ impl<'a> RustCodeGenerator<'a> {
         {into_eval_value_impl}
     }}
 
-    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
+    fn __into_temp_value<'temp>(self) -> __Register
     where
         'eval: 'temp,
     {{
