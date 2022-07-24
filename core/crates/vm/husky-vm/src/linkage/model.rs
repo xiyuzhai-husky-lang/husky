@@ -28,7 +28,7 @@ pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
         &self,
         internal: &__EvalValue<'static>,
         arguments: &[__EvalValue<'eval>],
-    ) -> __EvalValueResult<'eval>;
+    ) -> __VMResult<__Register>;
 }
 
 pub trait Model:
@@ -40,7 +40,7 @@ pub trait Model:
         &self,
         internal: &Self::Internal,
         arguments: &[__EvalValue<'eval>],
-    ) -> __EvalValueResult<'eval>;
+    ) -> __VMResult<__Register>;
 }
 
 impl<T: Model> ModelDyn for T {
@@ -52,7 +52,7 @@ impl<T: Model> ModelDyn for T {
         &self,
         internal: &__EvalValue<'static>,
         arguments: &[__EvalValue<'eval>],
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register> {
         let internal: &T::Internal = internal.any_ref().__downcast_ref();
         self.eval(internal, arguments)
     }

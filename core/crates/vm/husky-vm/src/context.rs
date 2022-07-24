@@ -11,22 +11,22 @@ pub trait EvalContextDeprecated<'eval>: RefUnwindSafe + UnwindSafe {
         &self,
         this: &'eval dyn __AnyValueDyn<'eval>,
         uid: EntityUid,
-    ) -> Option<__EvalValueResult<'eval>>;
+    ) -> Option<__VMResult<__Register>>;
 
     fn cache_feature(
         &self,
         feature: *const (),
-        value: __EvalValueResult<'eval>,
-    ) -> __EvalValueResult<'eval>;
+        value: __VMResult<__Register>,
+    ) -> __VMResult<__Register>;
 
-    fn opt_cached_feature(&self, feature: *const ()) -> Option<__EvalValueResult<'eval>>;
+    fn opt_cached_feature(&self, feature: *const ()) -> Option<__VMResult<__Register>>;
 
     fn cache_lazy_field(
         &self,
         this: &'eval dyn __AnyValueDyn<'eval>,
         uid: EntityUid,
-        value: __EvalValueResult<'eval>,
-    ) -> __EvalValueResult<'eval>;
+        value: __VMResult<__Register>,
+    ) -> __VMResult<__Register>;
 
     fn get_feature_ptr(&self, feature_route_text: &str) -> *const ();
 }

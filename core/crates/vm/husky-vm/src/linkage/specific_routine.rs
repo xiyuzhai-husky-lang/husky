@@ -25,7 +25,7 @@ impl __SpecificRoutineLinkage {
         &self,
         opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
         mut arguments: Vec<__TempValue<'temp, 'eval>>,
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register> {
         catch_unwind(move || self.fp.0(opt_ctx, &mut arguments).into_eval()).map_err(|e| {
             EvalError::Normal {
                 message: format!(

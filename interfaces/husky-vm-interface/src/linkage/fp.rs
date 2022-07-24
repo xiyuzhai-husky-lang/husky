@@ -10,6 +10,16 @@ pub struct __LinkageFp {
         for<'eval> unsafe fn(Option<&dyn __EvalContext<'eval>>, &mut [__Register]) -> __Register,
     pub opt_fp: Option<*const ()>,
 }
+impl __LinkageFp {
+    pub fn eval<'eval>(
+        self,
+        opt_ctx: Option<&dyn __EvalContext<'eval>>,
+        arguments: &mut [__Register],
+    ) -> __VMResult<__Register> {
+        todo!()
+    }
+}
+
 impl std::fmt::Debug for __LinkageFp {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("__LinkageFp")

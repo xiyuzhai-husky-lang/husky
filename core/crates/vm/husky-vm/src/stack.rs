@@ -101,9 +101,9 @@ impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
         self.values.drain((self.len() - k as usize)..)
     }
 
-    pub(crate) fn eval_top(&mut self) -> __EvalValue<'eval> {
-        self.values.last().unwrap().eval()
-    }
+    // pub(crate) fn eval_top(&mut self) -> __EvalValue<'eval> {
+    //     self.values.last().unwrap().eval()
+    // }
 
     pub(crate) fn truncate(&mut self, len: usize) {
         self.values.truncate(len)
