@@ -11,13 +11,14 @@ mod indicator;
 mod sheet;
 
 pub use config::*;
+use husky_ast::AstQueryGroup;
 pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
 use husky_trace_protocol::SampleId;
-use vm::{VMConfig, __AnyValueDyn, __EvalContext, __EvalValue};
+use vm::{EntityUid, VMConfig, __AnyValueDyn, __EvalContext, __EvalRef, __EvalValue};
 use vm::{__EvalResult, __EvalValueResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
@@ -29,11 +30,77 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) opt_static_husky_feature_eval: Option<&'a dyn EvalFeature<'static>>,
 }
 
+impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
+    fn entity_uid(&self, entity_route_text: &str) -> vm::EntityUid {
+        use husky_entity_semantics::EntityDefnQueryGroup;
+        let route = self
+            .db
+            .compile_time()
+            .parse_route_from_text(entity_route_text);
+        self.db.compile_time().entity_uid(route)
+    }
+
+    fn opt_cached_lazy_field(
+        &self,
+        this: &'eval dyn __AnyValueDyn<'eval>,
+        uid: EntityUid,
+    ) -> Option<__EvalValueResult<'eval>> {
+        self.sheet.cached_value(EvalKey::StructDerivedField {
+            parent: __EvalRef(this),
+            field_uid: uid,
+        })
+    }
+
+    fn opt_cached_feature(&self, feature: *const ()) -> Option<__EvalValueResult<'eval>> {
+        self.sheet
+            .cached_value(EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }))
+    }
+
+    fn cache_feature(
+        &self,
+        feature: *const (),
+        value: __EvalValueResult<'eval>,
+    ) -> __EvalValueResult<'eval> {
+        self.sheet.cache(
+            EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }),
+            value,
+        )
+    }
+
+    fn cache_lazy_field(
+        &self,
+        this: &'eval dyn __AnyValueDyn<'eval>,
+        uid: EntityUid,
+        value: __EvalValueResult<'eval>,
+    ) -> __EvalValueResult<'eval> {
+        self.sheet.cache(
+            EvalKey::StructDerivedField {
+                parent: __EvalRef(this),
+                field_uid: uid,
+            },
+            value,
+        )
+    }
+
+    fn get_feature_ptr(&self, feature_route_text: &str) -> *const () {
+        use husky_entity_semantics::EntityDefnQueryGroup;
+        let route = self
+            .db
+            .compile_time()
+            .parse_route_from_text(feature_route_text);
+        let uid = self.db.compile_time().entity_uid(route);
+        unsafe {
+            self.db
+                .feature_interner()
+                .intern(Feature::EntityFeature { route, uid })
+                .to_raw()
+        }
+    }
+}
+
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub unsafe fn some_ctx(&self) -> Option<&'a __EvalContext<'eval>> {
-        let ptr: *const Self = self;
-        let ptr: *const __EvalContext<'eval> = ptr as *const __EvalContext<'eval>;
-        Some(&*ptr)
+    pub unsafe fn some_ctx(&'a self) -> Option<&'a dyn __EvalContext<'eval>> {
+        Some(self)
     }
 
     fn vm_config(&self) -> &'a VMConfig {

@@ -23,6 +23,17 @@ where
     target: &'static T,
 }
 
+impl<T> InternedPtr<T> {
+    pub unsafe fn from_raw(raw: *const ()) -> InternedPtr<T> {
+        let raw = raw as *const T;
+        let target: &'static T = &*raw;
+        Self { target }
+    }
+    pub unsafe fn to_raw(self) -> *const () {
+        self.target as *const T as *const ()
+    }
+}
+
 impl<T: 'static + ?Sized> PartialEq for InternedPtr<T> {
     fn eq(&self, other: &Self) -> bool {
         (self.target as *const T) == (other.target as *const T)

@@ -216,19 +216,19 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         arguments: &[Arc<FeatureExpr>],
     ) -> __EvalValueResult<'eval> {
         let db = self.db;
-        let opt_ctx = unsafe { self.some_ctx() };
         let vm_config = self.vm_config();
         let values = arguments
             .iter()
-            .map(|expr| __TempValue::from_eval(self.eval_expr(expr)?));
+            .map(|expr| __TempValue::from_eval(self.eval_expr(expr)?))
+            .collect::<Vec<_>>();
         msg_once!("kwargs");
         eval_fast(
             db.upcast(),
-            opt_ctx,
+            Some(self),
             opt_instrns.as_ref().map(|v| &**v),
             opt_linkage,
             output_ty,
-            values,
+            values.into_iter(),
             [].into_iter(),
             arguments.len().try_into().unwrap(),
             vm_config,

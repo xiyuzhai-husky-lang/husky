@@ -60,7 +60,8 @@ impl HuskyTraceTime {
                 instruction_sheet,
                 func_input_values
                     .into_iter()
-                    .map(|value| value.into_stack().unwrap()),
+                    .map(|value| value.into_stack().unwrap())
+                    .into(),
                 self.vm_config(),
             );
             match routine_defn.variant {

@@ -1,5 +1,4 @@
 use super::*;
-use husky_eval_time::__ty_route_from_static_binded;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
 use husky_trace_protocol::*;
 use husky_visual_syntax::StaticVisualTy;
@@ -171,7 +170,8 @@ impl<'eval> __AnyValue<'eval> for BinaryGrid28 {
     }
 
     fn __static_ty() -> EntityRoutePtr {
-        __ty_route_from_static_binded::<Self>(BINARY_GRID_28_BASE_ROUTE)
+        todo!()
+        // __ty_route_from_static_binded::<Self>(BINARY_GRID_28_BASE_ROUTE)
     }
 
     fn __opt_visualize(

@@ -40,7 +40,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.write("pub(crate) fn ");
         let ident = feature_route.ident();
         self.write(&ident);
-        self.write("<'eval>(__ctx: &__EvalContext<'eval>) -> &'eval ");
+        self.write("<'eval>(__ctx: &dyn __EvalContext<'eval>) -> &'eval ");
         self.gen_entity_route(output.deref_route(), EntityRouteRole::Decl);
         self.write(&format!(
             r#" {{
@@ -78,7 +78,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
         self.write("(");
         if needs_eval_context {
-            self.write("__ctx: &__EvalContext<'eval>");
+            self.write("__ctx: &dyn __EvalContext<'eval>");
         }
         for (i, parameter) in parameters.iter().enumerate() {
             if i > 0 || needs_eval_context {
@@ -132,7 +132,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
         self.write("(");
         if needs_eval_context {
-            self.write("__ctx: &__EvalContext<'eval>");
+            self.write("__ctx: &dyn __EvalContext<'eval>");
         }
         for (i, parameter) in parameters.iter().enumerate() {
             if i > 0 || needs_eval_context {

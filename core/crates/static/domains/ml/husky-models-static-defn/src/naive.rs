@@ -2,8 +2,6 @@ use std::{collections::HashMap, sync::Arc, time::Instant};
 
 use super::*;
 use husky_dev_utils::__static_dev_src;
-use husky_feature_eval::EvalFeature;
-use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr};
 use husky_print_utils::p;
 use husky_trace_protocol::Label;
 use static_defn::*;

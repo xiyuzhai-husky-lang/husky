@@ -20,5 +20,4 @@ entity-kind = { path = "../../../../syntax/entity-kind" }
 static-defn = { path = "../../../static-defn" }
 husky-liason-semantics = { path = "../../../../semantics/husky-liason-semantics" }
 husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
-husky-eval-time = { path = "../../../../eval/husky-eval-time" }
 husky-datasets-protocol = { path = "../husky-datasets-protocol" }

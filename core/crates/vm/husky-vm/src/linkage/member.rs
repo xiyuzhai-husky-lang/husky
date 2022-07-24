@@ -60,7 +60,7 @@ macro_rules! eager_field_linkage {
 macro_rules! lazy_field_linkage {
     ($Type: ty, $field: ident) => {{
         fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&__EvalContext<'eval>>,
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__TempValue<'temp, 'eval>],
         ) -> __TempValue<'temp, 'eval> {
             let this_value: &'eval $Type = values[0].downcast_eval_ref();
