@@ -22,10 +22,10 @@ pub enum StaticGenericPlaceholderVariant {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum FunctionStaticDefnVariant {
-    Model(ModelLinkage),
-    GenericTransfer(GenericRoutineLinkage),
+    Model(__ModelLinkage),
+    GenericTransfer(GenericLinkageFp),
     Routine {
-        __Linkage: __SpecificRoutineLinkage,
+        __Linkage: __LinkageFp,
         routine_kind: RoutineKind,
     },
 }

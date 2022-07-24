@@ -32,7 +32,7 @@ use std::{
     sync::Arc,
 };
 use std::{sync::Mutex, time::Instant};
-use vm::LinkageDeprecated;
+use vm::__Linkage;
 use warp::Filter;
 
 pub struct HuskyDebugger {
@@ -46,10 +46,7 @@ impl HuskyDebugger {
         let mut config = HuskyDebuggerConfig::from_env();
         HuskyDebugger::new(config, &[])
     }
-    pub fn new(
-        config: HuskyDebuggerConfig,
-        linkages: &[(__StaticLinkageKey, LinkageDeprecated)],
-    ) -> Self {
+    pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
         let package_dir: &Path = &config.package_dir;
         let mut trace_time = HuskyTraceTime::new(
             |compile_time| {

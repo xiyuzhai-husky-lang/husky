@@ -7,7 +7,7 @@ use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
-use vm::LinkageDeprecated;
+use vm::__Linkage;
 use vm::*;
 use word::IdentPairDict;
 
@@ -17,8 +17,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(super) fn eval_cached(
         &mut self,
         eval_key: EvalKey<'eval>,
-        f: impl FnOnce(&mut Self) -> __EvalValueResult<'eval>,
-    ) -> __EvalValueResult<'eval> {
+        f: impl FnOnce(&mut Self) -> __VMResult<__Register<'eval>>,
+    ) -> __VMResult<__Register<'eval>> {
         if let Some(result) = self.sheet.cached_value(eval_key) {
             result
         } else {

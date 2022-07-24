@@ -29,8 +29,8 @@ use husky_print_utils::*;
 use husky_text::*;
 use std::sync::Arc;
 use temp::*;
-use vm::{CopyableValue, PureBinaryOpr};
 use vm::{EntityUid, XmlTagKind};
+use vm::{PrimitiveValueData, PureBinaryOpr};
 use word::{CustomIdentifier, IdentPairDict};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -43,7 +43,7 @@ pub struct FeatureSymbol {
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub enum Feature {
     Input,
-    PrimitiveLiteral(CopyableValue),
+    PrimitiveLiteral(PrimitiveValueData),
     EnumLiteral(EntityRoutePtr),
     Assert {
         condition: FeaturePtr,

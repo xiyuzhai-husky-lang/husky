@@ -70,7 +70,7 @@ pub enum InstructionVariant {
         varname: Identifier,
     },
     PushPrimitiveLiteral {
-        value: CopyableValue,
+        value: EnumKindValue,
         explicit: bool,
     },
     PushEnumKindLiteral(EnumKindValue),
@@ -78,8 +78,13 @@ pub enum InstructionVariant {
         field_idx: u8,
         field_binding: Binding,
     },
-    CallRoutine {
+    CallSpecificRoutine {
         linkage_fp: __LinkageFp,
+        nargs: u8,
+        output_ty: EntityRoutePtr,
+    },
+    CallGenericRoutine {
+        linkage_fp: GenericLinkageFp,
         nargs: u8,
         output_ty: EntityRoutePtr,
     },
@@ -161,53 +166,56 @@ pub enum OprOpn {
 
 pub fn binary_assign<'temp, 'eval>(
     opt_binary_opr: Option<PureBinaryOpr>,
-    lopd: &mut __TempValue<'temp, 'eval>,
-    ropd: __TempValue<'temp, 'eval>,
-) -> __EvalResult<()> {
-    match lopd {
-        __TempValue::TempRefMutEval { ref mut value, .. } => {
-            value.__assign(if let Some(binary_opr) = opt_binary_opr {
-                let lopd_value = value.__take_copyable_dyn();
-                binary_opr
-                    .act_on_primitives(lopd_value, ropd.take_copyable())?
-                    .into()
-            } else {
-                ropd
-            });
-        }
-        _ => panic!(),
-    }
+    lopd: &mut __Register<'eval>,
+    ropd: __Register<'eval>,
+) -> __VMResult<()> {
+    todo!();
+    // match lopd {
+    //     __TempValue::TempRefMutEval { ref mut value, .. } => {
+    //         value.__assign(if let Some(binary_opr) = opt_binary_opr {
+    //             let lopd_value = value.__take_copyable_dyn();
+    //             binary_opr
+    //                 .act_on_primitives(lopd_value, ropd.__take_primitive__())?
+    //                 .into()
+    //         } else {
+    //             ropd
+    //         });
+    //     }
+    //     _ => panic!(),
+    // }
     Ok(())
 }
 
-pub fn incr<'temp, 'eval>(opd: &mut __TempValue<'temp, 'eval>) {
-    let opd_primitive = opd.take_copyable();
-    match opd {
-        __TempValue::TempRefMutEval { value, owner, gen } => {
-            value.__assign(__TempValue::Copyable(match opd_primitive {
-                CopyableValue::I32(i) => (i + 1).into(),
-                CopyableValue::F32(_) => todo!(),
-                _ => panic!(),
-            }))
-        }
+pub fn incr<'temp, 'eval>(opd: &mut __Register<'eval>) {
+    todo!()
+    // let opd_primitive = opd.__take_primitive__();
+    // match opd {
+    //     __TempValue::TempRefMutEval { value, owner, gen } => {
+    //         value.__assign(__TempValue::Copyable(match opd_primitive {
+    //             PrimitiveValueData::I32(i) => (i + 1).into(),
+    //             PrimitiveValueData::F32(_) => todo!(),
+    //             _ => panic!(),
+    //         }))
+    //     }
 
-        _ => panic!(),
-    }
+    //     _ => panic!(),
+    // }
 }
 
-pub fn decr<'temp, 'eval>(opd: &mut __TempValue<'temp, 'eval>) {
-    let opd_primitive = opd.take_copyable();
-    match opd {
-        __TempValue::TempRefMutEval { value, owner, gen } => {
-            value.__assign(__TempValue::Copyable(match opd_primitive {
-                CopyableValue::I32(i) => (i - 1).into(),
-                CopyableValue::F32(_) => todo!(),
-                _ => panic!(),
-            }))
-        }
+pub fn decr<'temp, 'eval>(opd: &mut __Register<'eval>) {
+    todo!()
+    // let opd_primitive = opd.__take_primitive__();
+    // match opd {
+    //     __TempValue::TempRefMutEval { value, owner, gen } => {
+    //         value.__assign(__TempValue::Copyable(match opd_primitive {
+    //             PrimitiveValueData::I32(i) => (i - 1).into(),
+    //             PrimitiveValueData::F32(_) => todo!(),
+    //             _ => panic!(),
+    //         }))
+    //     }
 
-        _ => panic!(),
-    }
+    //     _ => panic!(),
+    // }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -218,59 +226,12 @@ pub enum CastOpn {
 }
 
 impl CastOpn {
-    pub fn act_on<'temp, 'eval>(self, opd: __TempValue<'temp, 'eval>) -> __TempValue<'temp, 'eval> {
-        match self {
-            CastOpn::AsI32 => __TempValue::Copyable(cast_as_i32(opd).into()),
-            CastOpn::AsB32 => __TempValue::Copyable(cast_as_b32(opd).into()),
-            CastOpn::AsF32 => __TempValue::Copyable(cast_as_f32(opd).into()),
-        }
-    }
-}
-
-fn cast_as_i32<'temp, 'eval>(opd: __TempValue<'temp, 'eval>) -> i32 {
-    match opd {
-        __TempValue::Moved => todo!(),
-        __TempValue::Copyable(value) => match value {
-            CopyableValue::I32(i) => i,
-            CopyableValue::B32(b) => b as i32,
-            CopyableValue::Bool(b) => b as i32,
-            CopyableValue::EnumKind(enum_kind) => enum_kind.kind_idx as i32,
-            _ => panic!(),
-        },
-        __TempValue::EvalRef(_) => todo!(),
-        __TempValue::TempRefMutEval { value, owner, gen } => todo!(),
-        _ => panic!(),
-    }
-}
-
-fn cast_as_b32<'temp, 'eval>(opd: __TempValue<'temp, 'eval>) -> u32 {
-    match opd {
-        __TempValue::Copyable(value) => match value {
-            CopyableValue::I32(i) => i as u32,
-            CopyableValue::B32(b) => b,
-            CopyableValue::EnumKind(enum_kind) => enum_kind.kind_idx as u32,
-            _ => panic!(),
-        },
-        __TempValue::Moved => todo!(),
-        __TempValue::OwnedEval(_) => todo!(),
-        __TempValue::EvalRef(_) => todo!(),
-        __TempValue::TempRefEval(value) => todo!(),
-        __TempValue::TempRefMutEval { value, owner, gen } => todo!(),
-        _ => panic!(),
-    }
-}
-
-fn cast_as_f32<'temp, 'eval>(opd: __TempValue<'temp, 'eval>) -> f32 {
-    match opd {
-        __TempValue::Moved => todo!(),
-        __TempValue::Copyable(value) => match value {
-            CopyableValue::I32(i) => i as f32,
-            CopyableValue::F32(f) => f,
-            _ => panic!(),
-        },
-        __TempValue::EvalRef(_) => todo!(),
-        __TempValue::TempRefEval(value) => todo!(),
-        __TempValue::TempRefMutEval { value, owner, gen } => todo!(),
-        _ => panic!(),
+    pub fn act_on<'temp, 'eval>(self, opd: __Register<'eval>) -> __Register<'eval> {
+        todo!()
+        // match self {
+        //     CastOpn::AsI32 => __TempValue::Copyable(cast_as_i32(opd).into()),
+        //     CastOpn::AsB32 => __TempValue::Copyable(cast_as_b32(opd).into()),
+        //     CastOpn::AsF32 => __TempValue::Copyable(cast_as_f32(opd).into()),
+        // }
     }
 }

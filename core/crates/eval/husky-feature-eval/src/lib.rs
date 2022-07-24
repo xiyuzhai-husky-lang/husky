@@ -14,7 +14,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use upcast::Upcast;
-use vm::{VMConfig, __EvalResult, __EvalValue, __EvalValueResult};
+use vm::{VMConfig, __EvalValue, __EvalValueResult, __VMResult};
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;
@@ -41,7 +41,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     // Some(self) otherwise
     fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>>;
 
-    fn visualize_feature(&self, this: FeatureRepr, sample_id: SampleId) -> __EvalResult<VisualData>
+    fn visualize_feature(&self, this: FeatureRepr, sample_id: SampleId) -> __VMResult<VisualData>
     where
         'eval: 'static,
     {
@@ -52,7 +52,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         repr: &FeatureRepr,
         sample_id: SampleId,
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register<'eval>> {
         self.evaluator(sample_id).eval_feature_repr(repr)
     }
 
@@ -60,7 +60,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         repr: &FeatureRepr,
         sample_id: SampleId,
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register<'eval>> {
         self.evaluator(sample_id).eval_feature_repr_cached(repr)
     }
 
@@ -68,7 +68,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         block: &FeatureLazyBlock,
         sample_id: SampleId,
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register<'eval>> {
         self.evaluator(sample_id).eval_feature_lazy_block(block)
     }
 
@@ -76,7 +76,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         stmt: &FeatureStmt,
         sample_id: SampleId,
-    ) -> __EvalResult<__EvalValue<'eval>> {
+    ) -> __VMResult<__Register<'eval>> {
         self.evaluator(sample_id).eval_stmt(stmt)
     }
 
@@ -84,7 +84,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         expr: &FeatureExpr,
         sample_id: SampleId,
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register<'eval>> {
         self.evaluator(sample_id).eval_expr(expr)
     }
 
@@ -92,7 +92,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         &self,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         sample_id: SampleId,
-    ) -> __EvalResult<bool> {
+    ) -> __VMResult<bool> {
         Ok(if let Some(ref arrival_indicator) = opt_arrival_indicator {
             match arrival_indicator.variant {
                 FeatureBranchIndicatorVariant::AfterStmtNotReturn { ref stmt } => {

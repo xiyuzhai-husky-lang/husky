@@ -52,7 +52,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         exec_before_each_frame: impl Fn(&mut Self),
         exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl<'eval>),
         mode: Mode,
-    ) -> __EvalResult<VMControl<'eval>> {
+    ) -> __VMResult<VMControl<'eval>> {
         let control = match loop_kind {
             VMLoopKind::For {
                 initial_boundary_kind,
@@ -61,7 +61,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 ..
             } => {
                 let final_bound_shifted = {
-                    let final_bound = self.stack.pop().take_copyable().take_i32();
+                    let final_bound = self.stack.pop().primitive().take_i32();
                     match final_boundary_kind {
                         BoundaryKind::UpperOpen => final_bound - 1,
                         BoundaryKind::UpperClosed => final_bound,
@@ -70,7 +70,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                 };
                 let initial_bound_shifted = {
-                    let initial_bound = self.stack.pop().take_copyable().take_i32();
+                    let initial_bound = self.stack.pop().primitive().take_i32();
                     match initial_boundary_kind {
                         BoundaryKind::UpperOpen => initial_bound - 1,
                         BoundaryKind::UpperClosed => initial_bound,
@@ -83,7 +83,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 let stack_len = self.stack.len();
                 for i in 0..n {
                     let frame_var = step.frame_var(initial_bound_shifted, i);
-                    self.stack.push(__TempValue::Copyable(frame_var.into()));
+                    self.stack.push(unsafe { frame_var.__to_register__() });
                     exec_before_each_frame(self);
                     let frame_control = self.exec_all(body, mode);
                     exec_after_each_frame(self, frame_var, &frame_control);
@@ -112,9 +112,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 step,
                 ..
             } => {
-                let initial_value = self.stack.value(frame_varidx).take_copyable().take_i32();
+                let initial_value = self.stack.value(frame_varidx).primitive().take_i32();
                 let final_bound_shifted = {
-                    let final_bound = self.stack.pop().take_copyable().take_i32();
+                    let final_bound = self.stack.pop().primitive().take_i32();
                     match final_boundary_kind {
                         BoundaryKind::UpperOpen => final_bound - 1,
                         BoundaryKind::UpperClosed => final_bound,
@@ -130,7 +130,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     let frame_control = self.exec_all(body, mode);
                     exec_after_each_frame(
                         self,
-                        self.stack.value(frame_varidx).take_copyable().take_i32(),
+                        self.stack.value(frame_varidx).primitive().take_i32(),
                         &frame_control,
                     );
                     self.stack.truncate(stack_len);

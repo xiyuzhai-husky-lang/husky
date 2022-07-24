@@ -8,7 +8,7 @@ use super::*;
 use husky_trace_protocol::SampleId;
 use vm::*;
 
-pub trait SyntheticDataset<'eval>: __AnyValueDyn<'eval> + 'eval {
+pub trait SyntheticDataset<'eval>: __RegistrableDyn + 'eval {
     fn data_generator(&self) -> fn(seed: u64, sample_id: SampleId) -> LabeledData<'eval>;
     fn seed(&self) -> u64;
     fn dev_len(&self) -> usize {
@@ -106,59 +106,16 @@ impl<'eval> Serialize for SimpleSyntheticDataset<'eval> {
     }
 }
 
-impl<'a> __HasStaticTypeInfo for SimpleSyntheticDataset<'a> {
+impl<'a> __StaticInfo for SimpleSyntheticDataset<'a> {
     type __StaticSelf = SimpleSyntheticDataset<'static>;
 
-    fn __static_type_name() -> Cow<'static, str> {
+    fn __static_type_name__() -> Cow<'static, str> {
         todo!()
     }
 }
 
-impl<'eval, 'a: 'eval> __AnyValue<'eval> for SimpleSyntheticDataset<'a> {
-    fn __clone_into_box<'temp>(&self) -> Box<dyn __AnyValueDyn<'eval> + 'temp>
-    where
-        Self: 'temp,
-    {
-        Box::new(self.clone())
-    }
-
-    fn __to_json_value(&self) -> serde_json::value::Value {
-        todo!()
-    }
-
-    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
-    where
-        'eval: 'short,
-    {
-        self
-    }
-
-    fn __static_ty() -> EntityRoutePtr {
-        todo!()
-    }
-
-    fn __print_short(&self) -> String {
-        todo!()
-    }
-
-    fn __opt_visualize(
-        &'eval self,
-        visualize_element: &mut dyn FnMut(
-            usize,
-            &'eval dyn __AnyValueDyn<'eval>,
-        ) -> __EvalResult<VisualData>,
-    ) -> __EvalResult<Option<husky_trace_protocol::VisualData>> {
-        todo!()
-    }
-
-    fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
-    }
-
-    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
-    where
-        'eval: 'temp,
-    {
+impl<'a> __Registrable for SimpleSyntheticDataset<'a> {
+    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         todo!()
     }
 }

@@ -9,23 +9,23 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         opn: OprOpn,
         debug_flag: Mode,
         ins: &Instruction,
-    ) -> __EvalResult<()> {
+    ) -> __VMResult<()> {
         match opn {
             OprOpn::RootPureBinary(pure_binary_opr) => {
                 let ropd = self.stack.pop();
                 let lopd = self.stack.pop();
-                let output = pure_binary_opr
-                    .act_on_primitives(lopd.take_copyable(), ropd.take_copyable())?;
+                let output =
+                    pure_binary_opr.act_on_primitives(lopd.primitive(), ropd.primitive())?;
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
                     Mode::TrackHistory => self.history.write(
                         ins,
                         HistoryEntry::PureExpr {
-                            result: Ok(output.into()),
+                            result: Ok(output.to_register()),
                         },
                     ),
                 }
-                self.stack.push(output.into());
+                self.stack.push(output.to_register());
                 Ok(())
             }
             OprOpn::RootBinaryAssign(opt_binary_opr) => {
@@ -36,9 +36,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         binary_assign(opt_binary_opr, &mut lopd, ropd);
                     }
                     Mode::TrackHistory => {
-                        let before = lopd.eval();
+                        let before = lopd.__eval__();
                         binary_assign(opt_binary_opr, &mut lopd, ropd);
-                        let after = lopd.eval();
+                        let after = lopd.__eval__();
                         match ins.variant {
                             InstructionVariant::OprOpn {
                                 this_ty,
@@ -70,7 +70,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     Mode::TrackHistory => self.history.write(
                         ins,
                         HistoryEntry::PureExpr {
-                            result: Ok(output.eval()),
+                            result: Ok(output.__eval__()),
                         },
                     ),
                 }
@@ -78,17 +78,17 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 Ok(())
             }
             OprOpn::Prefix(prefix_opr) => {
-                let output = prefix_opr.act_on_primitive(self.stack.pop().take_copyable());
+                let output = prefix_opr.act_on_primitive(self.stack.pop().primitive());
                 match debug_flag {
                     Mode::Fast | Mode::TrackMutation => (),
                     Mode::TrackHistory => self.history.write(
                         ins,
                         HistoryEntry::PureExpr {
-                            result: Ok(output.into()),
+                            result: Ok(output.to_register()),
                         },
                     ),
                 }
-                self.stack.push(output.into());
+                self.stack.push(output.to_register());
                 Ok(())
             }
             OprOpn::Incr => {
@@ -98,9 +98,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         incr(&mut opd);
                     }
                     Mode::TrackHistory => {
-                        let before = opd.eval();
+                        let before = opd.__eval__();
                         incr(&mut opd);
-                        let after = opd.eval();
+                        let after = opd.__eval__();
                         match ins.variant {
                             InstructionVariant::OprOpn {
                                 this_ty,
@@ -132,9 +132,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         decr(&mut opd);
                     }
                     Mode::TrackHistory => {
-                        let before = opd.eval();
+                        let before = opd.__eval__();
                         decr(&mut opd);
-                        let after = opd.eval();
+                        let after = opd.__eval__();
                         match ins.variant {
                             InstructionVariant::OprOpn {
                                 this_ty,

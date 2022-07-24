@@ -17,6 +17,16 @@ pub enum __Linkage {
     Model(__ModelLinkage),
 }
 
+impl __Linkage {
+    pub fn requires_lazy(&self) -> bool {
+        match self {
+            __Linkage::Transfer(_) => false,
+            __Linkage::Member(_) => false,
+            __Linkage::Model(_) => true,
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy)]
 pub enum __StaticLinkageKey {
     VecConstructor {
@@ -26,7 +36,7 @@ pub enum __StaticLinkageKey {
         ty: &'static str,
     },
     Routine {
-        routine: &'static str,
+        route: &'static str,
     },
     Index {
         opd_tys: &'static [&'static str],

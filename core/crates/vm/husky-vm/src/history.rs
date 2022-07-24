@@ -24,11 +24,11 @@ impl<'eval> History<'eval> {
 }
 
 impl History<'static> {
-    pub fn value_result<T: InstructionSource>(&self, t: &T) -> __EvalResult {
+    pub fn register_result<T: InstructionSource>(&self, t: &T) -> __VMResult<__Register<'static>> {
         if let Some(entry) = self.entries.get(&t.instruction_id()) {
             entry.result()
         } else {
-            Ok(__EvalValue::Undefined)
+            Ok(__Register::new_undefined())
         }
     }
 

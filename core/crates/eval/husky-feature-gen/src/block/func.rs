@@ -1,7 +1,7 @@
 use super::*;
 use avec::Avec;
 use husky_entity_route::RangedEntityRoute;
-use vm::{InstructionSheet, LinkageDeprecated, __SpecificRoutineLinkage};
+use vm::{InstructionSheet, __Linkage, __LinkageFp};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FeatureFuncBlock {
@@ -13,7 +13,7 @@ pub struct FeatureFuncBlock {
     pub stmts: Avec<FuncStmt>,
     pub ty: RangedEntityRoute,
     pub instruction_sheet: Arc<InstructionSheet>,
-    pub opt_linkage: Option<LinkageDeprecated>,
+    pub opt_linkage: Option<__Linkage>,
 }
 
 impl<'eval> std::hash::Hash for FeatureFuncBlock {

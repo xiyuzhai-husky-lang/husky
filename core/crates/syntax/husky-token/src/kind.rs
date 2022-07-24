@@ -1,4 +1,3 @@
-use vm::CopyableValue;
 use word::{Decorator, Identifier, Keyword, WordOpr, WordPtr};
 
 pub use crate::*;
@@ -10,9 +9,9 @@ pub enum HuskyTokenKind {
     Identifier(Identifier),
     Special(SpecialToken),
     WordOpr(WordOpr),
-    PrimitiveLiteral(CopyableValue),
+    PrimitiveLiteral(PrimitiveValueData),
     Unrecognized(char),
-    IllFormedLiteral(CopyableValue),
+    IllFormedLiteral(PrimitiveValueData),
 }
 
 impl HuskyTokenKind {

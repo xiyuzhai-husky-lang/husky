@@ -312,19 +312,19 @@ impl<'a> ExprStack<'a> {
             if let RawExprVariant::CopyableLiteral(lit) = self.exprs.last().unwrap().variant {
                 self.exprs.pop();
                 match lit {
-                    CopyableValue::I32(i) => self.exprs.push(RawExpr {
+                    PrimitiveValueData::I32(i) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::CopyableLiteral(CopyableValue::I32(-i)),
+                        variant: RawExprVariant::CopyableLiteral(PrimitiveValueData::I32(-i)),
                     }),
-                    CopyableValue::F32(f) => self.exprs.push(RawExpr {
+                    PrimitiveValueData::F32(f) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::CopyableLiteral(CopyableValue::F32(-f)),
+                        variant: RawExprVariant::CopyableLiteral(PrimitiveValueData::F32(-f)),
                     }),
-                    CopyableValue::Void(_)
-                    | CopyableValue::B32(_)
-                    | CopyableValue::Bool(_)
-                    | CopyableValue::B64(_) => todo!(),
-                    CopyableValue::EnumKind(_) => todo!(),
+                    PrimitiveValueData::Void(_)
+                    | PrimitiveValueData::B32(_)
+                    | PrimitiveValueData::Bool(_)
+                    | PrimitiveValueData::B64(_) => todo!(),
+                    PrimitiveValueData::EnumKind(_) => todo!(),
                 }
                 return;
             }

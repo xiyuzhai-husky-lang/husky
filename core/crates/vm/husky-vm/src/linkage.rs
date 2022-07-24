@@ -1,77 +1,69 @@
-mod feature_eager_block;
-mod fp;
 mod generic_transfer;
-mod member;
-mod model;
-mod specific_routine;
 
-pub use fp::*;
 pub use generic_transfer::*;
-pub use member::*;
-pub use model::*;
-pub use specific_routine::*;
 
 use crate::*;
 use husky_check_utils::should;
 use husky_dev_utils::{DevSource, __StaticDevSource};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum __Linkage {
+pub enum __VirtualLinkage {
     Member(&'static __MemberLinkage),
-    SpecificTransfer(__SpecificRoutineLinkage),
-    GenericTransfer(GenericRoutineLinkage),
-    Model(ModelLinkage),
+    SpecificTransfer(__LinkageFp),
+    GenericTransfer(GenericLinkageFp),
+    Model(__ModelLinkage),
 }
 
-impl __Linkage {
-    pub const fn specific(self) -> __SpecificRoutineLinkage {
+impl __VirtualLinkage {
+    pub const fn specific(self) -> __LinkageFp {
         match self {
-            __Linkage::SpecificTransfer(linkage) => linkage,
-            __Linkage::Member(_) => panic!(),
-            __Linkage::GenericTransfer(_) => panic!(),
-            __Linkage::Model(_) => panic!(),
+            __VirtualLinkage::SpecificTransfer(linkage) => linkage,
+            __VirtualLinkage::Member(_) => panic!(),
+            __VirtualLinkage::GenericTransfer(_) => panic!(),
+            __VirtualLinkage::Model(_) => panic!(),
         }
     }
 
     pub const fn requires_lazy(&self) -> bool {
         match self {
-            __Linkage::Model(_) => true,
-            __Linkage::Member { .. } => false,
-            __Linkage::SpecificTransfer(_) => false,
-            __Linkage::GenericTransfer(_) => false,
+            __VirtualLinkage::Model(_) => true,
+            __VirtualLinkage::Member { .. } => false,
+            __VirtualLinkage::SpecificTransfer(_) => false,
+            __VirtualLinkage::GenericTransfer(_) => false,
         }
     }
 
-    pub fn bind(&self, binding: Binding) -> __SpecificRoutineLinkage {
+    pub fn bind(&self, binding: Binding) -> __LinkageFp {
         match self {
-            __Linkage::Member(__Linkage) => __Linkage.bind(binding),
-            __Linkage::SpecificTransfer(__Linkage) => *__Linkage,
-            __Linkage::Model(_) => todo!(),
-            __Linkage::GenericTransfer(_) => todo!(),
+            __VirtualLinkage::Member(__Linkage) => todo!(),
+            // __Linkage.bind(binding),
+            __VirtualLinkage::SpecificTransfer(__Linkage) => *__Linkage,
+            __VirtualLinkage::Model(_) => todo!(),
+            __VirtualLinkage::GenericTransfer(_) => todo!(),
         }
     }
 
-    pub fn opt_bind(&self, opt_binding: Option<Binding>) -> __SpecificRoutineLinkage {
+    pub fn opt_bind(&self, opt_binding: Option<Binding>) -> __LinkageFp {
         match opt_binding {
             Some(binding) => self.bind(binding),
             None => match self {
-                __Linkage::Member { .. } => panic!(),
-                __Linkage::SpecificTransfer(__Linkage) => *__Linkage,
-                __Linkage::Model(_) => todo!(),
-                __Linkage::GenericTransfer(_) => todo!(),
+                __VirtualLinkage::Member { .. } => panic!(),
+                __VirtualLinkage::SpecificTransfer(__Linkage) => *__Linkage,
+                __VirtualLinkage::Model(_) => todo!(),
+                __VirtualLinkage::GenericTransfer(_) => todo!(),
             },
         }
     }
 }
 
-impl const From<__SpecificRoutineLinkage> for __Linkage {
-    fn from(__Linkage: __SpecificRoutineLinkage) -> Self {
-        __Linkage::SpecificTransfer(__Linkage)
+impl const From<__LinkageFp> for __VirtualLinkage {
+    fn from(__Linkage: __LinkageFp) -> Self {
+        __VirtualLinkage::SpecificTransfer(__Linkage)
     }
 }
 
-impl const From<GenericRoutineLinkage> for __Linkage {
-    fn from(__Linkage: GenericRoutineLinkage) -> Self {
-        __Linkage::GenericTransfer(__Linkage)
+impl const From<GenericLinkageFp> for __VirtualLinkage {
+    fn from(__Linkage: GenericLinkageFp) -> Self {
+        __VirtualLinkage::GenericTransfer(__Linkage)
     }
 }

@@ -75,9 +75,9 @@ pub enum PureBinaryOpr {
 impl PureBinaryOpr {
     pub fn act_on_primitives(
         &self,
-        lopd: CopyableValue,
-        ropd: CopyableValue,
-    ) -> __EvalResult<CopyableValue> {
+        lopd: PrimitiveValueData,
+        ropd: PrimitiveValueData,
+    ) -> __VMResult<PrimitiveValueData> {
         macro_rules! no_such_opn {
             () => {{
                 todo!()
@@ -86,112 +86,109 @@ impl PureBinaryOpr {
 
         Ok(match self {
             PureBinaryOpr::Add => match lopd {
-                CopyableValue::I32(a) => (a + ropd.take_i32()).into(),
-                CopyableValue::F32(a) => (a + ropd.take_f32()).into(),
+                PrimitiveValueData::I32(a) => (a + ropd.take_i32()).into(),
+                PrimitiveValueData::F32(a) => (a + ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::And => match lopd {
-                CopyableValue::Bool(a) => (a && ropd.take_bool()).into(),
+                PrimitiveValueData::Bool(a) => (a && ropd.take_bool()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::BitAnd => match lopd {
-                CopyableValue::B32(a) => (a & ropd.take_b32()).into(),
-                CopyableValue::B64(a) => (a & ropd.take_b64()).into(),
+                PrimitiveValueData::B32(a) => (a & ropd.take_b32()).into(),
+                PrimitiveValueData::B64(a) => (a & ropd.take_b64()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::BitOr => match lopd {
-                CopyableValue::B32(a) => (a | ropd.take_b32()).into(),
-                CopyableValue::B64(a) => (a | ropd.take_b64()).into(),
+                PrimitiveValueData::B32(a) => (a | ropd.take_b32()).into(),
+                PrimitiveValueData::B64(a) => (a | ropd.take_b64()).into(),
                 _ => {
                     p!(lopd);
                     no_such_opn!()
                 }
             },
             PureBinaryOpr::BitXor => match lopd {
-                CopyableValue::B32(a) => (a ^ ropd.take_b32()).into(),
-                CopyableValue::B64(a) => (a ^ ropd.take_b64()).into(),
+                PrimitiveValueData::B32(a) => (a ^ ropd.take_b32()).into(),
+                PrimitiveValueData::B64(a) => (a ^ ropd.take_b64()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Div => match lopd {
-                CopyableValue::I32(a) => (a / ropd.take_i32()).into(),
-                CopyableValue::F32(a) => (a / ropd.take_f32()).into(),
+                PrimitiveValueData::I32(a) => (a / ropd.take_i32()).into(),
+                PrimitiveValueData::F32(a) => (a / ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Eq => match lopd {
-                CopyableValue::I32(i) => (i == ropd.take_i32()).into(),
-                CopyableValue::F32(f) => (f == ropd.take_f32()).into(),
-                CopyableValue::B32(b) => (b == ropd.take_b32()).into(),
-                CopyableValue::B64(b) => (b == ropd.take_b64()).into(),
-                CopyableValue::Bool(b) => (b == ropd.take_bool()).into(),
-                CopyableValue::Void(_) => true.into(),
-                CopyableValue::EnumKind(enum_kind) => {
-                    (enum_kind.route == ropd.take_enum_kind().route).into()
-                }
+                PrimitiveValueData::I32(i) => (i == ropd.take_i32()).into(),
+                PrimitiveValueData::F32(f) => (f == ropd.take_f32()).into(),
+                PrimitiveValueData::B32(b) => (b == ropd.take_b32()).into(),
+                PrimitiveValueData::B64(b) => (b == ropd.take_b64()).into(),
+                PrimitiveValueData::Bool(b) => (b == ropd.take_bool()).into(),
+                PrimitiveValueData::Void(_) => true.into(),
             },
             PureBinaryOpr::Geq => match lopd {
-                CopyableValue::I32(a) => (a >= ropd.take_i32()).into(),
-                CopyableValue::F32(a) => (a >= ropd.take_f32()).into(),
+                PrimitiveValueData::I32(a) => (a >= ropd.take_i32()).into(),
+                PrimitiveValueData::F32(a) => (a >= ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Greater => match lopd {
-                CopyableValue::I32(a) => (a > ropd.take_i32()).into(),
-                CopyableValue::F32(a) => (a > ropd.take_f32()).into(),
+                PrimitiveValueData::I32(a) => (a > ropd.take_i32()).into(),
+                PrimitiveValueData::F32(a) => (a > ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Leq => match lopd {
-                CopyableValue::I32(a) => (a <= ropd.take_i32()).into(),
-                CopyableValue::F32(a) => (a <= ropd.take_f32()).into(),
+                PrimitiveValueData::I32(a) => (a <= ropd.take_i32()).into(),
+                PrimitiveValueData::F32(a) => (a <= ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Less => match lopd {
-                CopyableValue::I32(a) => (a < ropd.take_i32()).into(),
-                CopyableValue::F32(a) => (a < ropd.take_f32()).into(),
+                PrimitiveValueData::I32(a) => (a < ropd.take_i32()).into(),
+                PrimitiveValueData::F32(a) => (a < ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Mul => match lopd {
-                CopyableValue::I32(a) => (a * ropd.take_i32()).into(),
-                CopyableValue::F32(a) => (a * ropd.take_f32()).into(),
+                PrimitiveValueData::I32(a) => (a * ropd.take_i32()).into(),
+                PrimitiveValueData::F32(a) => (a * ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Neq => match lopd {
-                CopyableValue::I32(a) => (a != ropd.take_i32()).into(),
-                CopyableValue::F32(f) => (f != ropd.take_f32()).into(),
-                CopyableValue::B32(b) => (b != ropd.take_b32()).into(),
-                CopyableValue::B64(b) => (b != ropd.take_b64()).into(),
-                CopyableValue::Bool(b) => (b != ropd.take_bool()).into(),
-                CopyableValue::Void(_) => false.into(),
+                PrimitiveValueData::I32(a) => (a != ropd.take_i32()).into(),
+                PrimitiveValueData::F32(f) => (f != ropd.take_f32()).into(),
+                PrimitiveValueData::B32(b) => (b != ropd.take_b32()).into(),
+                PrimitiveValueData::B64(b) => (b != ropd.take_b64()).into(),
+                PrimitiveValueData::Bool(b) => (b != ropd.take_bool()).into(),
+                PrimitiveValueData::Void(_) => false.into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Or => match lopd {
-                CopyableValue::Bool(a) => (a || ropd.take_bool()).into(),
+                PrimitiveValueData::Bool(a) => (a || ropd.take_bool()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Power => match lopd {
-                CopyableValue::I32(a) => (a.pow(
+                PrimitiveValueData::I32(a) => (a.pow(
                     ropd.take_i32()
                         .try_into()
                         .map_err(|_| vm_runtime_error!("expect positive power"))?,
                 ))
                 .into(),
-                CopyableValue::F32(_) => todo!(),
+                PrimitiveValueData::F32(_) => todo!(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::RemEuclid => match lopd {
-                CopyableValue::I32(a) => a.rem_euclid(ropd.take_i32()).into(),
-                CopyableValue::F32(a) => a.rem_euclid(ropd.take_f32()).into(),
+                PrimitiveValueData::I32(a) => a.rem_euclid(ropd.take_i32()).into(),
+                PrimitiveValueData::F32(a) => a.rem_euclid(ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Shl => match lopd {
-                CopyableValue::B32(a) => (a << ropd.take_i32()).into(),
+                PrimitiveValueData::B32(a) => (a << ropd.take_i32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Shr => match lopd {
-                CopyableValue::B32(a) => (a >> ropd.take_i32()).into(),
+                PrimitiveValueData::B32(a) => (a >> ropd.take_i32()).into(),
                 _ => no_such_opn!(),
             },
             PureBinaryOpr::Sub => match lopd {
-                CopyableValue::I32(a) => (a - ropd.take_i32()).into(),
-                CopyableValue::F32(a) => (a - ropd.take_f32()).into(),
+                PrimitiveValueData::I32(a) => (a - ropd.take_i32()).into(),
+                PrimitiveValueData::F32(a) => (a - ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
         })

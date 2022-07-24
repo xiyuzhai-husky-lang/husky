@@ -436,26 +436,26 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_copyable_literal(&mut self, v: CopyableValue) {
+    fn gen_copyable_literal(&mut self, v: PrimitiveValueData) {
         match v {
-            CopyableValue::I32(i) => {
+            PrimitiveValueData::I32(i) => {
                 self.result.push_str(&i.to_string());
             }
-            CopyableValue::F32(f) => {
+            PrimitiveValueData::F32(f) => {
                 self.result.push_str(&f.to_string());
                 self.write("f32")
             }
-            CopyableValue::B32(b) => {
+            PrimitiveValueData::B32(b) => {
                 self.result.push_str(&b.to_string());
                 self.write("u32")
             }
-            CopyableValue::B64(b) => {
+            PrimitiveValueData::B64(b) => {
                 self.result.push_str(&b.to_string());
                 self.write("u64")
             }
-            CopyableValue::Bool(b) => self.result.push_str(&b.to_string()),
-            CopyableValue::Void(_) => self.result.push_str("()"),
-            CopyableValue::EnumKind(_) => todo!(),
+            PrimitiveValueData::Bool(b) => self.result.push_str(&b.to_string()),
+            PrimitiveValueData::Void(_) => self.result.push_str("()"),
+            PrimitiveValueData::EnumKind(_) => todo!(),
         }
     }
 

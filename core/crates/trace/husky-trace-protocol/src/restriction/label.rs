@@ -8,3 +8,17 @@ impl From<u8> for Label {
         Self(v as usize)
     }
 }
+
+impl __StaticInfo for Label {
+    type __StaticSelf = Self;
+
+    fn __static_type_name__() -> std::borrow::Cow<'static, str> {
+        "Label".into()
+    }
+}
+
+impl __Registrable for Label {
+    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
+        todo!()
+    }
+}

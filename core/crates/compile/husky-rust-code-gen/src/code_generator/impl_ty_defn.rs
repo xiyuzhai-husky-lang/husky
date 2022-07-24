@@ -370,7 +370,7 @@ impl<'a> RustCodeGenerator<'a> {
         };
         self.write(&format!(
             r#" {{
-    unsafe fn __to_register(self) -> __Register {{
+    unsafe fn __to_register(self) -> __Register<'eval> {{
         todo!()
     }}
 }}

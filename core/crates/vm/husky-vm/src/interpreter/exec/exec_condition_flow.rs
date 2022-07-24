@@ -18,7 +18,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 Some((i, b)) => {
                     let enter: bool = if let Some(ref condition) = b.opt_condition_sheet {
                         self.exec_all(condition, mode); // compute condition
-                        self.stack.pop().to_bool()
+                        self.stack.pop().__to_bool__()
                     } else {
                         true
                     };

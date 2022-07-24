@@ -16,30 +16,28 @@ impl Into<RawOpnVariant> for PrefixOpr {
 }
 
 impl PrefixOpr {
-    pub fn act_on_primitive(&self, opd: CopyableValue) -> CopyableValue {
+    pub fn act_on_primitive(&self, opd: PrimitiveValueData) -> PrimitiveValueData {
         match self {
             PrefixOpr::Minus => match opd {
-                CopyableValue::I32(i) => (-i).into(),
-                CopyableValue::F32(f) => (-f).into(),
-                CopyableValue::B32(_) => todo!(),
-                CopyableValue::B64(_) => todo!(),
-                CopyableValue::Bool(_) => todo!(),
-                CopyableValue::Void(_) => panic!(),
-                CopyableValue::EnumKind(_) => panic!(),
+                PrimitiveValueData::I32(i) => (-i).into(),
+                PrimitiveValueData::F32(f) => (-f).into(),
+                PrimitiveValueData::B32(_) => todo!(),
+                PrimitiveValueData::B64(_) => todo!(),
+                PrimitiveValueData::Bool(_) => todo!(),
+                PrimitiveValueData::Void(_) => panic!(),
             },
             PrefixOpr::Not => match opd {
-                CopyableValue::I32(i) => i == 0,
-                CopyableValue::F32(f) => f == 0.,
-                CopyableValue::B32(b) => b == 0,
-                CopyableValue::B64(b) => b == 0,
-                CopyableValue::Bool(b) => !b,
-                CopyableValue::Void(_) => panic!(),
-                CopyableValue::EnumKind(_) => panic!(),
+                PrimitiveValueData::I32(i) => i == 0,
+                PrimitiveValueData::F32(f) => f == 0.,
+                PrimitiveValueData::B32(b) => b == 0,
+                PrimitiveValueData::B64(b) => b == 0,
+                PrimitiveValueData::Bool(b) => !b,
+                PrimitiveValueData::Void(_) => panic!(),
             }
             .into(),
             PrefixOpr::BitNot => match opd {
-                CopyableValue::B32(b) => (!b).into(),
-                CopyableValue::B64(b) => (!b).into(),
+                PrimitiveValueData::B32(b) => (!b).into(),
+                PrimitiveValueData::B64(b) => (!b).into(),
                 _ => panic!(),
             },
             PrefixOpr::Shared => todo!(),

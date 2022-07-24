@@ -65,8 +65,8 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(
-            transfer_linkage!(|_, values| __TempValue::Copyable(values[0].take_copyable().take_i32().sgn().into()), some i32::sgn),
-        ),
+            transfer_linkage!(|_, values| 
+                values[0].primitive().take_i32().sgn().to_register(), some i32::sgn)), 
     },
     dev_src: __static_dev_src!(),
 };
@@ -82,7 +82,7 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-            __TempValue::Copyable(values[0].take_copyable().take_i32().abs().into())
+            values[0].__take_primitive__().take_i32().abs().to_register()
         }, some i32::abs)),
     },
     dev_src: __static_dev_src!(),

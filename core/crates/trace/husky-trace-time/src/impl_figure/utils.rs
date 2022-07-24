@@ -10,7 +10,7 @@ impl HuskyTraceTime {
         ty: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
-    ) -> __EvalResult<VisualData> {
+    ) -> __VMResult<VisualData> {
         let eval_time = self.eval_time();
         let sample_id = self.restriction.opt_sample_id().unwrap();
         let feature = self

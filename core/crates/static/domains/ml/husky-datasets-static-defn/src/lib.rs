@@ -14,8 +14,8 @@ use serde::Serialize;
 use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::{borrow::Cow, sync::Arc};
+use vm::__StaticInfo;
 use vm::*;
-use vm::{__AnyValue, __AnyValueDyn, __HasStaticTypeInfo};
 use word::RootIdentifier;
 
 pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {

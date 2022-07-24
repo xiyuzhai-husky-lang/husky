@@ -3,11 +3,9 @@ use husky_entity_route::EntityRoutePtr;
 
 /// GenericTypeCallLinkage
 #[derive(Clone, Copy)]
-pub struct GenericRoutineLinkage {
-    pub call: for<'temp, 'eval> fn(
-        ty: EntityRoutePtr,
-        &mut [__TempValue<'temp, 'eval>],
-    ) -> __TempValue<'temp, 'eval>,
+pub struct GenericLinkageFp {
+    pub call:
+        for<'temp, 'eval> fn(ty: EntityRoutePtr, &mut [__Register<'eval>]) -> __Register<'eval>,
     // pub nargs: u8,
     pub dev_src: &'static __StaticDevSource,
 }
@@ -22,7 +20,7 @@ macro_rules! generic_routine_linkage {
     }};
 }
 
-impl std::fmt::Debug for GenericRoutineLinkage {
+impl std::fmt::Debug for GenericLinkageFp {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         f.write_str("GenericTypeCallFp(")?;
         (self.call as usize).fmt(f)?;
@@ -30,16 +28,16 @@ impl std::fmt::Debug for GenericRoutineLinkage {
     }
 }
 
-impl std::hash::Hash for GenericRoutineLinkage {
+impl std::hash::Hash for GenericLinkageFp {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         (self.call as usize).hash(state);
     }
 }
 
-impl PartialEq for GenericRoutineLinkage {
+impl PartialEq for GenericLinkageFp {
     fn eq(&self, other: &Self) -> bool {
         (self.call as usize) == (other.call as usize)
     }
 }
 
-impl Eq for GenericRoutineLinkage {}
+impl Eq for GenericLinkageFp {}

@@ -42,7 +42,7 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn 
         output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(
-            |_, _| __TempValue::OwnedEval(__OwnedValue::new(new_binary_dataset())),
+            |_, _|  __Register::new_box(new_binary_dataset()) ,
             some new_binary_dataset
         )
         .into(),
@@ -81,52 +81,16 @@ impl Serialize for MnistDataset {
     }
 }
 
-impl __HasStaticTypeInfo for MnistDataset {
+impl __StaticInfo for MnistDataset {
     type __StaticSelf = Self;
 
-    fn __static_type_name() -> Cow<'static, str> {
+    fn __static_type_name__() -> Cow<'static, str> {
         todo!()
     }
 }
 
-impl<'eval> __AnyValue<'eval> for MnistDataset {
-    fn __to_json_value(&self) -> serde_json::value::Value {
-        todo!()
-    }
-
-    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
-    where
-        'eval: 'short,
-    {
-        todo!()
-    }
-
-    fn __static_ty() -> EntityRoutePtr {
-        todo!()
-    }
-
-    fn __print_short(&self) -> String {
-        todo!()
-    }
-
-    fn __opt_visualize(
-        &'eval self,
-        visualize_element: &mut dyn FnMut(
-            usize,
-            &'eval dyn __AnyValueDyn<'eval>,
-        ) -> __EvalResult<VisualData>,
-    ) -> __EvalResult<Option<husky_trace_protocol::VisualData>> {
-        todo!()
-    }
-
-    fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
-    }
-
-    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
-    where
-        'eval: 'temp,
-    {
+impl __Registrable for MnistDataset {
+    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         todo!()
     }
 }

@@ -6,7 +6,10 @@ use husky_print_utils::{epin, p};
 use vm::*;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_feature_repr(&mut self, repr: &FeatureRepr) -> __EvalValueResult<'eval> {
+    pub(crate) fn eval_feature_repr(
+        &mut self,
+        repr: &FeatureRepr,
+    ) -> __VMResult<__Register<'eval>> {
         let result = match repr {
             FeatureRepr::Value { value, .. } => Ok(__EvalValue::EvalRef(value.short())),
             FeatureRepr::Expr(expr) => self.eval_expr(expr),
@@ -19,7 +22,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 should!(self
                     .db
                     .compile_time()
-                    .is_implicitly_castable(value.any_ref().__ty_dyn(), repr.ty()))
+                    .is_implicitly_castable(value.__ty__(), repr.ty()))
             }
         }
         result
@@ -28,11 +31,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn eval_feature_repr_cached(
         &mut self,
         repr: &FeatureRepr,
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register<'eval>> {
         let eval_key = EvalKey::Feature(repr.feature());
         if let Some(result) = self.sheet.cached_value(eval_key) {
             if let Ok(ref value) = result {
-                should_eq!(value.any_ref().__ty_dyn(), repr.ty())
+                should_eq!(value.__ty__(), repr.ty())
             }
             result
         } else {

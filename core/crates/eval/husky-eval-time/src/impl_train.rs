@@ -3,7 +3,7 @@ use husky_entity_semantics::StoreEntityRoute;
 use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr, TrainModel};
 use std::time::Instant;
 use upcast::Upcast;
-use vm::{InterpreterQueryGroup, VMConfig, __EvalResult, __EvalValue, __OwnedValue};
+use vm::{InterpreterQueryGroup, VMConfig, __EvalValue, __OwnedValue, __VMResult};
 
 impl TrainModel for HuskyEvalTime {
     fn train(
@@ -11,7 +11,7 @@ impl TrainModel for HuskyEvalTime {
         model: vm::ModelLinkage,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         opds: &[Arc<FeatureExpr>],
-    ) -> vm::__EvalResult {
+    ) -> vm::__VMResult {
         const MAX_SAMPLE_LEN: usize = 1000;
         let session = self.session();
         let dev_division = session.dev();
@@ -29,7 +29,7 @@ impl TrainModel for HuskyEvalTime {
             let values: Vec<__EvalValue> = opds
                 .iter()
                 .map(|opd| self.eval_feature_expr(opd, sample_id))
-                .collect::<__EvalResult<Vec<_>>>()
+                .collect::<__VMResult<Vec<_>>>()
                 .map_err(|e| (sample_id, e))?;
             training_data.push((values, labeled_data.label))
         }

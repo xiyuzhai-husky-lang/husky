@@ -24,5 +24,6 @@ husky-text = { path = "../../syntax/husky-text" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-vm-runtime-error = { path = "../husky-vm-runtime-error" }
+husky-vm-register-method = { path = "../husky-vm-register-method" }
 thin-vec = { path = "../../../../forks/thin-vec" }
 husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface" }

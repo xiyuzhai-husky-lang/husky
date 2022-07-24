@@ -4,11 +4,9 @@ use super::*;
 use husky_dev_utils::__static_dev_src;
 use husky_print_utils::p;
 use husky_trace_protocol::Label;
+use husky_vm_register_method::VMRegisterMethod;
 use static_defn::*;
-use vm::{
-    LinkageDeprecated, Model, ModelLinkage, __EvalResult, __EvalValue, __EvalValueResult,
-    __OwnedValue,
-};
+use vm::{Model, __Linkage, __ModelLinkage, __Register, __RegistrableSafe, __VMResult};
 
 static_mod! { naive = { naive_i32 } }
 
@@ -25,7 +23,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
-        linkage: LinkageDeprecated::Model(ModelLinkage(&NaiveI32)),
+        linkage: __Linkage::Model(__ModelLinkage(&NaiveI32)),
     },
     dev_src: __static_dev_src!(),
 };
@@ -36,14 +34,15 @@ struct NaiveI32;
 impl Model for NaiveI32 {
     type Internal = HashMap<i32, Label>; // most likely labels
 
-    fn train(
+    fn train<'eval>(
         &self,
-        training_data: Vec<(Vec<__EvalValue<'static>>, Label)>,
-    ) -> __EvalResult<Self::Internal> {
+        training_data: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
+    ) -> __VMResult<Self::Internal> {
         let mut label_statics_map: HashMap<i32, HashMap<Label, usize>> = Default::default();
-        for (arguments, label) in training_data {
+        for (arguments, mut label) in training_data {
             assert_eq!(arguments.len(), 1);
             let value = arguments[0].primitive().take_i32();
+            let label = unsafe { label.downcast::<Label>() };
             *label_statics_map
                 .entry(value)
                 .or_default()
@@ -69,15 +68,15 @@ impl Model for NaiveI32 {
     fn eval<'eval>(
         &self,
         most_likely_labels: &Self::Internal,
-        arguments: &[__EvalValue<'eval>],
-    ) -> __EvalValueResult<'eval> {
+        arguments: &[__Register<'eval>],
+    ) -> __VMResult<__Register<'eval>> {
         let argument = arguments[0].primitive().take_i32();
         match most_likely_labels.get(&argument) {
-            Some(l) => Ok(__EvalValue::Copyable((l.0 as i32).into())),
+            Some(l) => Ok(l.to_register()),
             None => {
                 p!(argument);
                 panic!();
-                Ok(__EvalValue::Undefined)
+                Ok(__Register::new_undefined())
             }
         }
     }

@@ -7,7 +7,7 @@ use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use infer_contract::{ContractSheet, InferContract};
 use semantics_error::*;
 use std::{iter::Peekable, sync::Arc};
-use vm::{InitKind, VMCompileResult, VMStackIdx, XmlTagKind, __EvalResult};
+use vm::{InitKind, VMCompileResult, VMStackIdx, XmlTagKind, __VMResult};
 use word::{CustomIdentifier, IdentPairDict};
 
 pub(super) struct LazyStmtParser<'a> {

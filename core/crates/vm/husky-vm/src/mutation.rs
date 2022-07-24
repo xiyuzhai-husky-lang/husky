@@ -13,8 +13,8 @@ pub struct MutationData<'eval> {
     pub range: TextRange,
     pub kind: MutationDataVariant,
     pub ty: EntityRoutePtr,
-    pub before: Option<__EvalValue<'eval>>,
-    pub after: __EvalValue<'eval>,
+    pub before: Option<__Register<'eval>>,
+    pub after: __Register<'eval>,
 }
 
 #[derive(Debug)]

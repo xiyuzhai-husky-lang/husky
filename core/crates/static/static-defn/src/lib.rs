@@ -8,7 +8,7 @@ use husky_dev_utils::__StaticDevSource;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualTy;
 use husky_vm_interface::__Linkage;
-use vm::{LinkageDeprecated, __SpecificRoutineLinkage};
+use vm::__LinkageFp;
 use word::RootIdentifier;
 
 pub trait ResolveStaticRootDefn {
@@ -47,7 +47,7 @@ pub enum EntityStaticDefnVariant {
         variadic_template: StaticVariadicTemplate,
         output_ty: &'static str,
         output_liason: OutputLiason,
-        linkage: LinkageDeprecated,
+        linkage: __Linkage,
     },
     Ty {
         base_route: &'static str,
@@ -69,7 +69,7 @@ pub enum EntityStaticDefnVariant {
         field_kind: FieldKind,
         liason: MemberLiason,
         ty: &'static str,
-        linkage: LinkageDeprecated,
+        linkage: __Linkage,
     },
     Method {
         this_liason: ParameterLiason,
@@ -93,11 +93,8 @@ pub enum EntityStaticDefnVariant {
 impl EntityStaticDefnVariant {
     pub fn entity_kind(&self) -> EntityKind {
         match self {
-            EntityStaticDefnVariant::Function {
-                linkage: ref __Linkage,
-                ..
-            } => EntityKind::Function {
-                requires_lazy: __Linkage.requires_lazy(),
+            EntityStaticDefnVariant::Function { ref linkage, .. } => EntityKind::Function {
+                requires_lazy: linkage.requires_lazy(),
             },
             EntityStaticDefnVariant::Ty { kind, .. } => EntityKind::Type(*kind),
             EntityStaticDefnVariant::Module => EntityKind::Module,

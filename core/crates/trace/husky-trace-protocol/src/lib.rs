@@ -19,4 +19,5 @@ pub use server_message::*;
 pub use trace::*;
 pub use value::*;
 
+use husky_vm_interface::{__Register, __Registrable, __StaticInfo};
 use serde::*;

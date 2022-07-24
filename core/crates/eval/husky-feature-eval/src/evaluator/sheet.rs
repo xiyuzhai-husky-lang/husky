@@ -1,14 +1,14 @@
 use std::collections::HashMap;
 
 use husky_check_utils::should;
-use vm::{EntityUid, __EvalRef, __EvalResult, __EvalValue, __OwnedValue};
+use vm::{EntityUid, __EvalRef, __EvalValue, __OwnedValue, __Register, __VMResult};
 use word::CustomIdentifier;
 
 use super::*;
 
 #[derive(Default, Debug)]
 pub struct EvalSheet<'eval> {
-    values: Mutex<HashMap<EvalKey<'eval>, __EvalValueResult<'eval>>>,
+    values: Mutex<HashMap<EvalKey<'eval>, __VMResult<__Register<'eval>>>>,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
@@ -28,7 +28,7 @@ impl<'eval> EvalSheet<'eval> {
     pub(crate) fn cached_value(
         &self,
         eval_key: EvalKey<'eval>,
-    ) -> Option<__EvalValueResult<'eval>> {
+    ) -> Option<__VMResult<__Register<'eval>>> {
         self.values
             .lock()
             .unwrap()
@@ -39,8 +39,8 @@ impl<'eval> EvalSheet<'eval> {
     pub(crate) fn try_cache(
         &self,
         eval_key: EvalKey<'eval>,
-        mut value: __EvalValueResult<'eval>,
-    ) -> __EvalValueResult<'eval> {
+        mut value: __VMResult<__Register<'eval>>,
+    ) -> __VMResult<__Register<'eval>> {
         let mut values = self.values.lock().unwrap();
         if !values.contains_key(&eval_key) {
             let result = unsafe { cache_raw_eval_value(&mut value) };
@@ -54,8 +54,8 @@ impl<'eval> EvalSheet<'eval> {
     pub(crate) fn cache(
         &self,
         eval_key: EvalKey<'eval>,
-        mut value: __EvalValueResult<'eval>,
-    ) -> __EvalValueResult<'eval> {
+        mut value: __VMResult<__Register<'eval>>,
+    ) -> __VMResult<__Register<'eval>> {
         let result = unsafe { cache_raw_eval_value(&mut value) };
         should!(
             self.values
@@ -70,8 +70,8 @@ impl<'eval> EvalSheet<'eval> {
 }
 
 unsafe fn cache_raw_eval_value<'eval>(
-    raw: &mut __EvalValueResult<'eval>,
-) -> __EvalValueResult<'eval> {
+    raw: &mut __VMResult<__Register<'eval>>,
+) -> __VMResult<__Register<'eval>> {
     match raw {
         Ok(value) => match value {
             __EvalValue::Copyable(value) => {
@@ -86,7 +86,9 @@ unsafe fn cache_raw_eval_value<'eval>(
     share_cached(raw)
 }
 
-unsafe fn share_cached<'eval>(cached: &__EvalValueResult<'eval>) -> __EvalValueResult<'eval> {
+unsafe fn share_cached<'eval>(
+    cached: &__VMResult<__Register<'eval>>,
+) -> __VMResult<__Register<'eval>> {
     match cached {
         Ok(value) => Ok(match value {
             __EvalValue::Copyable(value) => panic!(),

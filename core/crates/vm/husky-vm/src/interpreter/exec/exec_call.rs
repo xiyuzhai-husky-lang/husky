@@ -5,18 +5,19 @@ use super::*;
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn call_specific_routine(
         &mut self,
-        f: __SpecificRoutineLinkage,
+        f: __LinkageFp,
         nargs: u8,
         output_ty: EntityRoutePtr,
-    ) -> __EvalResult<()> {
+    ) -> __VMResult<()> {
         let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
         for argument in arguments.iter() {
-            match argument {
-                __TempValue::Moved => panic!(),
-                _ => (),
-            }
+            todo!()
+            // match argument {
+            //     __TempValue::Moved => panic!(),
+            //     _ => (),
+            // }
         }
-        let output = f.call(self.opt_ctx, arguments)?;
+        let output = f.eval(self.opt_ctx, &mut arguments)?;
         msg_once!("ugly");
         if output_ty.kind
             != (EntityRouteKind::Root {
@@ -24,14 +25,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             })
         {
             should_eq!(
-                output.ty(),
+                output.__ty__(),
                 output_ty,
                 r#"
-    linkage source: {:?}
     output:
         {output:?}
-"#,
-                f.dev_src
+"#
             );
         }
         self.stack.push(output.into());
@@ -39,10 +38,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     }
     pub(super) fn call_generic_transfer(
         &mut self,
-        f: GenericRoutineLinkage,
+        f: GenericLinkageFp,
         nargs: u8,
         output_ty: EntityRoutePtr,
-    ) -> __EvalResult<()> {
+    ) -> __VMResult<()> {
         let mut parameters = self.stack.drain(nargs).collect::<Vec<_>>();
         let result = (f.call)(output_ty, &mut parameters);
         self.stack.push(result.into());
@@ -54,7 +53,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         sheet: &InstructionSheet,
         nargs: u8,
         has_this: bool,
-    ) -> __EvalResult<()> {
+    ) -> __VMResult<()> {
         let mut interpreter = Interpreter::new(
             self.db,
             self.opt_ctx,
@@ -65,7 +64,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         self.stack.push(
             interpreter
                 .eval_instructions(sheet, Mode::Fast)?
-                .into_stack()?,
+                .__stack__(),
         );
         Ok(())
     }
@@ -75,7 +74,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         linkage: __Linkage,
         nargs: u8,
         output_ty: EntityRoutePtr,
-    ) -> __EvalResult<()> {
+    ) -> __VMResult<()> {
         todo!()
     }
 }
