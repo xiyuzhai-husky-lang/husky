@@ -9,15 +9,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(LinkageDeprecated::Member(&__MemberLinkage {
-            copy_access: __SpecificRoutineFp(generic_vec_first_copy),
-            eval_ref_access: __SpecificRoutineFp(generic_vec_first_eval_ref),
-            temp_ref_access: __SpecificRoutineFp(generic_vec_first_temp_ref),
-            temp_mut_access: __SpecificRoutineFp(generic_vec_first_mut),
-            move_access: __SpecificRoutineFp(generic_vec_first_move),
-            nargs: 1,
-            dev_src: __static_dev_src!(),
-        })),
+        opt_linkage: Some(LinkageDeprecated::Member(todo!())),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },

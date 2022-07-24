@@ -19,3 +19,4 @@ husky-visual-syntax = { path = "../../syntax/husky-visual-syntax" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface" }

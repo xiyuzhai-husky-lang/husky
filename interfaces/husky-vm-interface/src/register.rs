@@ -6,7 +6,9 @@ pub struct __Register {
 }
 
 pub trait __StaticInfo {
-    type StaticSelf: __Registrable + 'static;
+    type __StaticSelf: __Registrable + 'static;
+
+    fn __static_type_name() -> std::borrow::Cow<'static, str>;
 }
 
 pub trait __Registrable: __StaticInfo {
@@ -32,7 +34,7 @@ impl __Register {
     where
         T: Copy,
     {
-        let data = value as *const () as *mut T::StaticSelf;
+        let data = value as *const () as *mut T::__StaticSelf;
         __Register {
             data_kind: __RegisterDataKind::Value,
             data,
@@ -41,10 +43,19 @@ impl __Register {
 
     pub unsafe fn new_box<'a, T: __Registrable + 'a>(value: T) -> __Register {
         let data: *mut T = Box::<T>::into_raw(Box::new(value));
-        let data = data as *mut T::StaticSelf;
+        let data = data as *mut T::__StaticSelf;
         __Register {
             data_kind: __RegisterDataKind::Box,
             data,
+        }
+    }
+
+    pub unsafe fn new_eval_ref<'eval, T: __Registrable + 'eval>(value: &'eval T) -> __Register {
+        let ptr: *const T = value;
+        let ptr = ptr as *mut T::__StaticSelf;
+        __Register {
+            data_kind: __RegisterDataKind::EvalRef,
+            data: ptr,
         }
     }
 
@@ -63,15 +74,15 @@ impl __Register {
         // }
     }
 
-    pub unsafe fn downcast_ref<T>() {
+    pub unsafe fn downcast<T>(&mut self) -> T {
         todo!()
     }
 
-    pub unsafe fn downcast_move<T>() {
+    pub unsafe fn downcast_eval_ref<'eval, T: 'eval>(&self) -> &'eval T {
         todo!()
     }
 
-    pub unsafe fn downcast_copy<T>() {
+    pub unsafe fn downcast_temp_ref<T>(&self) -> &T {
         todo!()
     }
 }

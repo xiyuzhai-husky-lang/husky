@@ -1,3 +1,3 @@
-pub struct VMError {}
+pub struct __VMError {}
 
-pub type VMResult<T> = Result<T, VMError>;
+pub type __VMResult<T> = Result<T, __VMError>;

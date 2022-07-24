@@ -7,6 +7,6 @@ macro_rules! feature_eager_block_linkage {
         ) -> __TempValue<'temp, 'eval> {
             __EvalRef($route(__opt_ctx.unwrap())).into()
         }
-        specific_transfer_linkage!(__wrapper, some $route)
+        transfer_linkage!(__wrapper, some $route)
     }};
 }
