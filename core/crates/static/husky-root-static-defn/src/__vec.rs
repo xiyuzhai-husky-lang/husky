@@ -94,7 +94,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+                        opt_linkage: Some(LinkageDeprecated::Member(&__MemberLinkage {
                             copy_access: __SpecificRoutineFp(generic_vec_element_copy_access),
                             eval_ref_access: __SpecificRoutineFp(
                                 generic_vec_element_eval_ref_access,
@@ -156,7 +156,7 @@ pub(crate) fn generic_vec_type_call<'temp, 'eval>(
 }
 
 fn generic_vec_push<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let element = values[1].move_into_member();
@@ -166,7 +166,7 @@ fn generic_vec_push<'temp, 'eval>(
 }
 
 fn generic_vec_pop<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let generic_vec: &mut VirtualVec<'eval> = values[0].downcast_mut();
@@ -174,14 +174,14 @@ fn generic_vec_pop<'temp, 'eval>(
 }
 
 pub(crate) fn generic_vec_element_move_access<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     todo!()
 }
 
 pub(crate) fn generic_vec_element_copy_access<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let this_value: &VirtualVec<'eval> = values[0].downcast_temp_ref();
@@ -196,7 +196,7 @@ pub(crate) fn generic_vec_element_copy_access<'temp, 'eval>(
 }
 
 pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let this_value: &VirtualVec<'eval> = values[0].downcast_temp_ref();
@@ -213,7 +213,7 @@ pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
 }
 
 pub(crate) fn generic_vec_element_temp_ref_access<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let this_value: &VirtualVec<'eval> = values[0].downcast_temp_ref();
@@ -225,7 +225,7 @@ pub(crate) fn generic_vec_element_temp_ref_access<'temp, 'eval>(
 }
 
 pub(crate) fn generic_vec_element_borrow_mut_access<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let i: usize = match values[1] {
@@ -256,7 +256,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
 };
 
 fn generic_vec_len<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_temp_ref();

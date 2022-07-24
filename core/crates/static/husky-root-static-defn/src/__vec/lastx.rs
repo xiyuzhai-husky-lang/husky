@@ -9,7 +9,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+        opt_linkage: Some(LinkageDeprecated::Member(&__MemberLinkage {
             copy_access: __SpecificRoutineFp(generic_vec_lastx_copy),
             eval_ref_access: __SpecificRoutineFp(generic_vec_lastx_eval_ref),
             temp_ref_access: __SpecificRoutineFp(generic_vec_lastx_temp_ref),
@@ -26,14 +26,14 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
 };
 
 fn generic_vec_lastx_copy<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     todo!()
 }
 
 fn generic_vec_lastx_eval_ref<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_temp_ref();
@@ -41,7 +41,7 @@ fn generic_vec_lastx_eval_ref<'temp, 'eval>(
 }
 
 fn generic_vec_lastx_temp_ref<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let generic_vec: &VirtualVec<'eval> = values[0].downcast_temp_ref();
@@ -49,7 +49,7 @@ fn generic_vec_lastx_temp_ref<'temp, 'eval>(
 }
 
 fn generic_vec_lastx_mut<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     let (generic_vec, stack_idx, gen): (&mut VirtualVec<'eval>, _, _) =
@@ -58,7 +58,7 @@ fn generic_vec_lastx_mut<'temp, 'eval>(
 }
 
 fn generic_vec_lastx_move<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
     values: &mut [__TempValue<'temp, 'eval>],
 ) -> __TempValue<'temp, 'eval> {
     todo!()

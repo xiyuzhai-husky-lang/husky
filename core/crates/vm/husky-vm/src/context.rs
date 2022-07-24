@@ -4,7 +4,7 @@ use std::{
     panic::{RefUnwindSafe, UnwindSafe},
 };
 
-pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
+pub trait EvalContextDeprecated<'eval>: RefUnwindSafe + UnwindSafe {
     fn entity_uid(&self, entity_route_text: &str) -> EntityUid;
 
     fn opt_cached_lazy_field(

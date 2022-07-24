@@ -7,7 +7,7 @@ use super::*;
 #[derive(Clone, Copy)]
 pub struct __SpecificRoutineFp(
     pub  for<'temp, 'eval> fn(
-        Option<&dyn __EvalContext<'eval>>,
+        Option<&dyn EvalContextDeprecated<'eval>>,
         &mut [__TempValue<'temp, 'eval>],
     ) -> __TempValue<'temp, 'eval>,
 );
@@ -37,7 +37,7 @@ impl Eq for __SpecificRoutineFp {}
 #[derive(Clone, Copy)]
 pub struct __ContextualSpecificRoutineFp(
     pub  for<'temp, 'eval> fn(
-        __ctx: &dyn __EvalContext<'eval>,
+        __ctx: &dyn EvalContextDeprecated<'eval>,
         &mut [__TempValue<'temp, 'eval>],
     ) -> __TempValue<'temp, 'eval>,
 );

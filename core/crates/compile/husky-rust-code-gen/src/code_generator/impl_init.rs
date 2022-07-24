@@ -12,7 +12,7 @@ impl<'a> RustCodeGenerator<'a> {
 use crate::*;
 use __husky::init::*;
 
-pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
+pub static LINKAGES : &[(&'static str, __LinkageFp)]= &[
 "#,
         );
         let main_module = self.db.module(self.package_main).unwrap();
@@ -65,13 +65,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 ref stmts,
             } => {
                 self.write("\n    (\n");
-                self.write(&format!(
-                    r#"        __StaticLinkageKey::Routine {{
-            routine: "{}"
-        }},
-"#,
-                    entity_route
-                ));
+                self.write(&format!(r#""{}","#, entity_route));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
@@ -84,12 +78,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             }
             EntityDefnVariant::Proc { .. } => {
                 self.write("\n    (\n");
-                self.write(&format!(
-                    r#"        __StaticLinkageKey::Routine {{
-            routine: "{}"
-        }},"#,
-                    entity_route
-                ));
+                self.write(&format!(r#""{}","#, entity_route));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
@@ -279,11 +268,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         self.write("\n    (\n");
         match method_defn_kind {
             MethodDefnKind::TypeMethod { .. } => {
-                self.write(&format!(
-                    r#"        __StaticLinkageKey::Routine {{
-            routine: "{entity_route}"
-        }},"#,
-                ));
+                self.write(&format!(r#""{entity_route}","#,));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 let this_liason = call_form_decl.this_liason();
                 match this_liason {
@@ -338,18 +323,19 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         let argidx_base = opt_this.map(|_| 1).unwrap_or(0);
         self.write(&format!(
             r#"
-        specific_transfer_linkage!({{
-            fn __wrapper<'temp, 'eval>(
-                __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                __arguments: &mut [__TempValue<'temp, 'eval>],
-            ) -> __TempValue<'temp, 'eval> {{"#
+        __Linkage {{
+            wrapper: {{
+                fn __wrapper<'temp, 'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__TempValue<'temp, 'eval>],
+                ) -> __TempValue<'temp, 'eval> {{"#
         ));
         if let Some((this_liason, this_ty)) = opt_this {
             match this_liason {
                 ParameterLiason::Pure => {
                     self.write(&format!(
                         r#"
-                let __this: "#
+                    let __this: "#
                     ));
                     if self.db.is_copyable(this_ty).unwrap() {
                         todo!()
@@ -365,7 +351,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 ParameterLiason::EvalRef => {
                     self.write(&format!(
                         r#"
-                let __this: "#
+                    let __this: "#
                     ));
                     if self.db.is_copyable(this_ty).unwrap() {
                         todo!()
@@ -379,7 +365,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 ParameterLiason::TempRefMut => {
                     self.write(&format!(
                         r#"
-                let __this: "#
+                    let __this: "#
                     ));
                     self.write("&mut ");
                     self.gen_entity_route(this_ty, EntityRouteRole::Decl);
@@ -398,7 +384,7 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
             let parameter_ty = parameter.ty;
             self.write(&format!(
                 r#"
-                let {parameter_name}: "#
+                    let {parameter_name}: "#
             ));
             self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
             self.write(&format!(" = todo!();"))
@@ -413,25 +399,25 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
                 };
                 self.write(&format!(
                     r#"
-                let __variadics = 
-                    __arguments[{variadic_start}..]
-                        .iter_mut()
-                        .map(|v|v.downcast_{move_or_copy}())
-                        .collect();"#,
+                    let __variadics = 
+                        __arguments[{variadic_start}..]
+                            .iter_mut()
+                            .map(|v|v.downcast_{move_or_copy}())
+                            .collect();"#,
                 ));
             }
         }
         if self.db.is_copyable(decl.output.ty).unwrap() {
             self.write(
                 r#"
-                __TempValue::Copyable(
-                    "#,
+                    __TempValue::Copyable(
+                        "#,
             );
         } else {
             self.write(
                 r#"
-                __TempValue::OwnedEval(__OwnedValue::new(
-                    "#,
+                    __TempValue::OwnedEval(__OwnedValue::new(
+                        "#,
             );
         }
         gen_caller(self);
@@ -473,12 +459,16 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         }
         self.write(&format!(
             r#"
-            }}
-            __wrapper
-        }}, some "#
+                }}
+                __wrapper
+            }},
+            raw: "#
         ));
         gen_call_route(self);
-        self.write(r#"),"#);
+        self.write(
+            r#"
+        }"#,
+        );
     }
 
     fn gen_eager_block_linkage_entries(&mut self, route: EntityRoutePtr) {
@@ -492,8 +482,8 @@ pub static LINKAGES : &[(__StaticLinkageKey, __Linkage)]= &[
         ));
         self.gen_entity_route(route, EntityRouteRole::Caller);
         self.write(
-            r#")
-    ),"#,
+            r#"
+        },"#,
         );
     }
 

@@ -123,7 +123,7 @@ pub enum InstructionVariant {
         feature_uid: EntityUid,
     },
     PushEntityFp {
-        opt_linkage: Option<__Linkage>,
+        opt_linkage: Option<LinkageDeprecated>,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
 }

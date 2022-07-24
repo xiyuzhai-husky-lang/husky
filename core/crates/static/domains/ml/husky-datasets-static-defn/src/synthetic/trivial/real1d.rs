@@ -4,7 +4,7 @@ use husky_liason_semantics::OutputLiason;
 use husky_trace_protocol::SampleId;
 use std::sync::Arc;
 use vm::{
-    __EvalValue, __Linkage, __OwnedValue, __SpecificRoutineLinkage, __TempValue,
+    LinkageDeprecated, __EvalValue, __OwnedValue, __SpecificRoutineLinkage, __TempValue,
     specific_transfer_linkage,
 };
 use xrng::XRng;

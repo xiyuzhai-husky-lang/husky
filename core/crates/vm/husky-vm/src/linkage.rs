@@ -16,38 +16,38 @@ use husky_check_utils::should;
 use husky_dev_utils::{DevSource, __StaticDevSource};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum __Linkage {
+pub enum LinkageDeprecated {
     Member(&'static __MemberLinkage),
     SpecificTransfer(__SpecificRoutineLinkage),
     GenericTransfer(GenericRoutineLinkage),
     Model(ModelLinkage),
 }
 
-impl __Linkage {
+impl LinkageDeprecated {
     pub const fn specific(self) -> __SpecificRoutineLinkage {
         match self {
-            __Linkage::SpecificTransfer(linkage) => linkage,
-            __Linkage::Member(_) => panic!(),
-            __Linkage::GenericTransfer(_) => panic!(),
-            __Linkage::Model(_) => panic!(),
+            LinkageDeprecated::SpecificTransfer(linkage) => linkage,
+            LinkageDeprecated::Member(_) => panic!(),
+            LinkageDeprecated::GenericTransfer(_) => panic!(),
+            LinkageDeprecated::Model(_) => panic!(),
         }
     }
 
     pub const fn requires_lazy(&self) -> bool {
         match self {
-            __Linkage::Model(_) => true,
-            __Linkage::Member { .. } => false,
-            __Linkage::SpecificTransfer(_) => false,
-            __Linkage::GenericTransfer(_) => false,
+            LinkageDeprecated::Model(_) => true,
+            LinkageDeprecated::Member { .. } => false,
+            LinkageDeprecated::SpecificTransfer(_) => false,
+            LinkageDeprecated::GenericTransfer(_) => false,
         }
     }
 
     pub fn bind(&self, binding: Binding) -> __SpecificRoutineLinkage {
         match self {
-            __Linkage::Member(__Linkage) => __Linkage.bind(binding),
-            __Linkage::SpecificTransfer(__Linkage) => *__Linkage,
-            __Linkage::Model(_) => todo!(),
-            __Linkage::GenericTransfer(_) => todo!(),
+            LinkageDeprecated::Member(__Linkage) => __Linkage.bind(binding),
+            LinkageDeprecated::SpecificTransfer(__Linkage) => *__Linkage,
+            LinkageDeprecated::Model(_) => todo!(),
+            LinkageDeprecated::GenericTransfer(_) => todo!(),
         }
     }
 
@@ -55,23 +55,23 @@ impl __Linkage {
         match opt_binding {
             Some(binding) => self.bind(binding),
             None => match self {
-                __Linkage::Member { .. } => panic!(),
-                __Linkage::SpecificTransfer(__Linkage) => *__Linkage,
-                __Linkage::Model(_) => todo!(),
-                __Linkage::GenericTransfer(_) => todo!(),
+                LinkageDeprecated::Member { .. } => panic!(),
+                LinkageDeprecated::SpecificTransfer(__Linkage) => *__Linkage,
+                LinkageDeprecated::Model(_) => todo!(),
+                LinkageDeprecated::GenericTransfer(_) => todo!(),
             },
         }
     }
 }
 
-impl const From<__SpecificRoutineLinkage> for __Linkage {
+impl const From<__SpecificRoutineLinkage> for LinkageDeprecated {
     fn from(__Linkage: __SpecificRoutineLinkage) -> Self {
-        __Linkage::SpecificTransfer(__Linkage)
+        LinkageDeprecated::SpecificTransfer(__Linkage)
     }
 }
 
-impl const From<GenericRoutineLinkage> for __Linkage {
+impl const From<GenericRoutineLinkage> for LinkageDeprecated {
     fn from(__Linkage: GenericRoutineLinkage) -> Self {
-        __Linkage::GenericTransfer(__Linkage)
+        LinkageDeprecated::GenericTransfer(__Linkage)
     }
 }

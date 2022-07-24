@@ -1,7 +1,7 @@
 mod impl_opn;
 mod xml;
 
-use vm::__Linkage;
+use vm::LinkageDeprecated;
 pub use xml::*;
 
 use husky_entity_route::EntityRouteKind;
@@ -62,7 +62,7 @@ pub enum FeatureExprVariant {
     CustomBinaryOpr {
         opr: PureBinaryOpr,
         opds: Vec<Arc<FeatureExpr>>,
-        opt_linkage: Option<__Linkage>,
+        opt_linkage: Option<LinkageDeprecated>,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
     Variable {
@@ -111,7 +111,7 @@ pub enum FeatureExprVariant {
         opds: Vec<Arc<FeatureExpr>>,
         has_this: bool,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
-        opt_linkage: Option<__Linkage>,
+        opt_linkage: Option<LinkageDeprecated>,
         routine_defn: Arc<EntityDefn>,
     },
     EntityFeature {
@@ -125,7 +125,7 @@ pub enum FeatureExprVariant {
     },
     NewVecFromList {
         elements: Vec<Arc<FeatureExpr>>,
-        linkage: __Linkage,
+        linkage: LinkageDeprecated,
     },
 }
 

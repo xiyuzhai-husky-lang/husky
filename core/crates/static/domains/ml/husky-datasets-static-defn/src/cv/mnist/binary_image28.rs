@@ -36,7 +36,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+                        opt_linkage: Some(LinkageDeprecated::Member(&__MemberLinkage {
                             copy_access: index_copy_fp!(BinaryImage28),
                             eval_ref_access: __SpecificRoutineFp(|_, values| -> __TempValue {
                                 todo!()

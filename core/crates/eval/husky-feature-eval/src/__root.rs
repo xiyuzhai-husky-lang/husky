@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::AstQueryGroup;
 pub use vm::EntityUid as __EntityUid;
-use vm::{__AnyValue, __AnyValueDyn, __EvalContext, __EvalRef, __EvalValue};
+use vm::{EvalContextDeprecated, __AnyValue, __AnyValueDyn, __EvalRef, __EvalValue};
 use wild_utils::wild_arb_ref;
 
 #[macro_export]

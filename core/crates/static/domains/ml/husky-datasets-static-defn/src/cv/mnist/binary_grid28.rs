@@ -36,7 +36,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+                        opt_linkage: Some(LinkageDeprecated::Member(&__MemberLinkage {
                             copy_access: __SpecificRoutineFp(|_, values| -> __TempValue {
                                 let this_value: &BinaryGrid28 = values[0].downcast_temp_ref();
                                 let index_value: usize = values[1]
