@@ -6,22 +6,22 @@ pub struct __RegisterPrototype {
 }
 
 pub struct __Register {
-    pub qual: __RegisterRawKind,
-    pub raw: u64,
+    pub data_kind: __RegisterDataKind,
+    pub data: u64,
     pub proto: &'static __RegisterPrototype,
 }
 
 impl __Register {
     pub unsafe fn copy(&self) -> Self {
         Self {
-            qual: self.qual,
-            raw: match self.qual {
-                __RegisterRawKind::Data => todo!(),
-                __RegisterRawKind::Box => todo!(),
-                __RegisterRawKind::EvalRef => todo!(),
-                __RegisterRawKind::TempRef => todo!(),
-                __RegisterRawKind::TempMut => todo!(),
-                __RegisterRawKind::Moved => todo!(),
+            data_kind: self.data_kind,
+            data: match self.data_kind {
+                __RegisterDataKind::Data => todo!(),
+                __RegisterDataKind::Box => todo!(),
+                __RegisterDataKind::EvalRef => todo!(),
+                __RegisterDataKind::TempRef => todo!(),
+                __RegisterDataKind::TempMut => todo!(),
+                __RegisterDataKind::Moved => todo!(),
             },
             proto: self.proto,
         }
@@ -41,7 +41,7 @@ impl __Register {
 }
 
 #[derive(Debug, Clone, Copy)]
-pub enum __RegisterRawKind {
+pub enum __RegisterDataKind {
     Data,
     Box,
     EvalRef,
@@ -52,8 +52,8 @@ pub enum __RegisterRawKind {
 
 impl Drop for __Register {
     fn drop(&mut self) {
-        match self.qual {
-            __RegisterRawKind::Box => unsafe { (self.proto.drop_handler)(self.raw) },
+        match self.data_kind {
+            __RegisterDataKind::Box => unsafe { (self.proto.drop_handler)(self.data) },
             _ => (),
         }
     }

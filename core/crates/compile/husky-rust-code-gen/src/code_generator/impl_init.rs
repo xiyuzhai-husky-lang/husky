@@ -12,7 +12,7 @@ impl<'a> RustCodeGenerator<'a> {
 use crate::*;
 use __husky::init::*;
 
-pub static LINKAGES : &[(&'static str, __LinkageFp)]= &[
+pub static LINKAGES : &[(&'static str, __Linkage)]= &[
 "#,
         );
         let main_module = self.db.module(self.package_main).unwrap();
@@ -65,7 +65,11 @@ pub static LINKAGES : &[(&'static str, __LinkageFp)]= &[
                 ref stmts,
             } => {
                 self.write("\n    (\n");
-                self.write(&format!(r#""{}","#, entity_route));
+                self.write(&format!(
+                    r#"
+        "{}","#,
+                    entity_route
+                ));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
@@ -78,7 +82,11 @@ pub static LINKAGES : &[(&'static str, __LinkageFp)]= &[
             }
             EntityDefnVariant::Proc { .. } => {
                 self.write("\n    (\n");
-                self.write(&format!(r#""{}","#, entity_route));
+                self.write(&format!(
+                    r#"
+        "{}","#,
+                    entity_route
+                ));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
@@ -268,7 +276,10 @@ pub static LINKAGES : &[(&'static str, __LinkageFp)]= &[
         self.write("\n    (\n");
         match method_defn_kind {
             MethodDefnKind::TypeMethod { .. } => {
-                self.write(&format!(r#""{entity_route}","#,));
+                self.write(&format!(
+                    r#"
+        "{entity_route}","#,
+                ));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 let this_liason = call_form_decl.this_liason();
                 match this_liason {
@@ -325,10 +336,10 @@ pub static LINKAGES : &[(&'static str, __LinkageFp)]= &[
             r#"
         __Linkage {{
             wrapper: {{
-                fn __wrapper<'temp, 'eval>(
+                unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                    __arguments: &mut [__TempValue<'temp, 'eval>],
-                ) -> __TempValue<'temp, 'eval> {{"#
+                    __arguments: &mut [__Register],
+                ) -> __Register {{"#
         ));
         if let Some((this_liason, this_ty)) = opt_this {
             match this_liason {
@@ -407,19 +418,26 @@ pub static LINKAGES : &[(&'static str, __LinkageFp)]= &[
                 ));
             }
         }
-        if self.db.is_copyable(decl.output.ty).unwrap() {
-            self.write(
-                r#"
-                    __TempValue::Copyable(
-                        "#,
-            );
-        } else {
-            self.write(
-                r#"
-                    __TempValue::OwnedEval(__OwnedValue::new(
-                        "#,
-            );
-        }
+        self.write(&format!(
+            r#"
+                    __Register {{
+                        data_kind: todo!(),
+                        proto: todo!(),
+                        data: "#
+        ));
+        // if self.db.is_copyable(decl.output.ty).unwrap() {
+        //     self.write(
+        //         r#"
+        //             __Register::Copyable(
+        //                 "#,
+        //     );
+        // } else {
+        //     self.write(
+        //         r#"
+        //             __Register::OwnedEval(__OwnedValue::new(
+        //                 "#,
+        //     );
+        // }
         gen_caller(self);
         self.write("(");
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
@@ -446,27 +464,28 @@ pub static LINKAGES : &[(&'static str, __LinkageFp)]= &[
                 self.write("__variadics")
             }
         }
-        if self.db.is_copyable(decl.output.ty).unwrap() {
-            self.write(
-                r#")
-                .__take_copyable_dyn())"#,
-            );
-        } else {
-            self.write(
-                r#")
-                ))"#,
-            );
-        }
+        // if self.db.is_copyable(decl.output.ty).unwrap() {
+        //     self.write(
+        //         r#")
+        //         .__take_copyable_dyn())"#,
+        //     );
+        // } else {
+        //     self.write(
+        //         r#")
+        //         ))"#,
+        //     );
+        // }
         self.write(&format!(
-            r#"
+            r#")
+                    }}
                 }}
                 __wrapper
             }},
-            raw: "#
+            opt_fp: Some("#
         ));
         gen_call_route(self);
         self.write(
-            r#"
+            r#" as *const ())
         }"#,
         );
     }

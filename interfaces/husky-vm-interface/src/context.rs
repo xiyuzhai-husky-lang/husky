@@ -1,1 +1,1 @@
-pub trait __EvalContext {}
+pub trait __EvalContext<'eval> {}
