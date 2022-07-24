@@ -19,7 +19,7 @@ use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
 use husky_file::FilePtr;
 use husky_print_utils::p;
-use husky_root::__resolve_root_defn;
+use husky_root_static_defn::__resolve_root_defn;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_trace_protocol::*;
 use impl_lines::*;

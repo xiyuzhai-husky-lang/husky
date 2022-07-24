@@ -22,7 +22,7 @@ use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
 use husky_print_utils::*;
-use husky_root::__resolve_root_defn;
+use husky_root_static_defn::__resolve_root_defn;
 use husky_test_utils::TestResult;
 use std::path::Path;
 use std::{fmt, sync::Arc};

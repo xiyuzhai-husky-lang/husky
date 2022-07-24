@@ -47,6 +47,6 @@ husky-compile-time = { path = "../../compile/husky-compile-time" }
 trace = { path = "../../trace/trace" }
 husky-trace-time = { path = "../../trace/husky-trace-time" }
 husky-feature-eval = { path = "../../eval/husky-feature-eval" }
-husky-root = { path = "../../static/husky-root" }
+husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
 vm = { path = "../../vm/husky-vm" }
 husky-linkage-table = { path = "../../compile/husky-linkage-table" }

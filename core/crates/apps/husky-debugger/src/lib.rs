@@ -17,7 +17,7 @@ use gui::handle_query;
 use husky_compile_time::HuskyCompileTime;
 use husky_file::FilePtr;
 use husky_print_utils::*;
-use husky_root::__StaticLinkageKey;
+use husky_root_static_defn::__StaticLinkageKey;
 use husky_test_utils::TestResult;
 use husky_trace_protocol::*;
 use husky_trace_time::HuskyTraceTime;
