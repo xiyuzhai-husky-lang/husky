@@ -1,7 +1,7 @@
 use crate::*;
+use __husky::init::__StaticLinkageKey;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use smallvec::SmallVec;
-use static_defn::__StaticLinkageKey;
 use upcast::Upcast;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

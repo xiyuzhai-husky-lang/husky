@@ -1,2 +1,2 @@
-pub mod __init_utils;
+pub mod init;
 pub mod root;

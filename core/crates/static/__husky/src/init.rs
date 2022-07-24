@@ -1,5 +1,8 @@
+mod linkage;
+
 pub use husky_dev_utils::__StaticDevSource;
 pub use husky_dev_utils::__static_dev_src;
+pub use linkage::__StaticLinkageKey;
 pub use vm::{
     __ContextualSpecificRoutineFp, __EvalResult, __Linkage, __MemberLinkage, __OwnedValue,
     __SpecificRoutineFp, __SpecificRoutineLinkage, eager_field_linkage, eager_mut_field_linkage,

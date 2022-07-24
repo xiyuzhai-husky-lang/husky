@@ -15,7 +15,7 @@ pub use __b32::*;
 pub use __clone::*;
 pub use __eq::*;
 pub use __f32::*;
-pub use __husky::root::*;
+pub use __husky::{init::*, root::*};
 pub use __i32::*;
 pub use __std::*;
 pub use __vec::*;
@@ -24,7 +24,6 @@ pub use etc::*;
 pub use husky_entity_route::EntityRoutePtr as __EntityRoutePtr;
 pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
-pub use static_defn::__StaticLinkageKey;
 pub use std::sync::Arc as __Arc;
 pub use vm::{
     __AnyValue, __AnyValueDyn, __EvalContext, __EvalRef, __EvalValue, __HasStaticTypeInfo,

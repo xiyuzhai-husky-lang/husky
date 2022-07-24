@@ -1,5 +1,5 @@
+use __husky::init::__StaticLinkageKey;
 use smallvec::SmallVec;
-use static_defn::__StaticLinkageKey;
 use upcast::Upcast;
 use vm::__Linkage;
 
