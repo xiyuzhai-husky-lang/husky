@@ -5,6 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }

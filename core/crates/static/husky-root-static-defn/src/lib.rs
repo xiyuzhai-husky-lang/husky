@@ -25,10 +25,6 @@ pub use husky_entity_route::EntityRoutePtr as __EntityRoutePtr;
 pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
 pub use std::sync::Arc as __Arc;
-pub use vm::{
-    __AnyValue, __AnyValueDyn, __EvalContext, __EvalRef, __EvalValue, __HasStaticTypeInfo,
-    __OwnedValue, __TempValue,
-};
 
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_dev_utils::__StaticDevSource;
