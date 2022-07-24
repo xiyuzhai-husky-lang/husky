@@ -15,6 +15,7 @@ pub use __b32::*;
 pub use __clone::*;
 pub use __eq::*;
 pub use __f32::*;
+pub use __husky::root::*;
 pub use __i32::*;
 pub use __std::*;
 pub use __vec::*;

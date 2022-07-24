@@ -11,7 +11,6 @@ husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-test-utils = { path = "../../../../common-rs/utils/husky-test-utils" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
-husky-root-static-defn = { path = "../husky-root-static-defn" }
 vm = { path = "../../vm/husky-vm" }
 
 [lib]
