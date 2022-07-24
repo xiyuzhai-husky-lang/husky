@@ -290,7 +290,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         linkage: __Linkage,
         nargs: u8,
         output_ty: EntityRoutePtr,
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register> {
         match linkage {
             __Linkage::Member { .. } => todo!(),
             __Linkage::Transfer(linkage) => {

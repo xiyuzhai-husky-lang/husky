@@ -24,7 +24,6 @@ use std::{fmt::Write, panic::UnwindSafe};
 use word::CustomIdentifier;
 
 pub type __EvalResult<T = __EvalValue<'static>> = Result<T, EvalError>;
-pub type __EvalValueResult<'eval> = Result<__EvalValue<'eval>, EvalError>;
 
 // the primary concerns are safety and stability
 // this whole vm thing will eventually be replaced by JIT for fast evaluation purposes
