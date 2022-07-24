@@ -1,5 +1,5 @@
+use __husky::init::__StaticLinkageKey;
 use husky_linkage_table::LinkageKey;
-use static_defn::__StaticLinkageKey;
 use vm::__Linkage;
 
 use crate::*;
