@@ -8,7 +8,6 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 rustc-hash = "1.1.0"
-bimap = "0.6.1"
 itertools = "^0.10.3"
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"

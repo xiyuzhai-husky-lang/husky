@@ -6,17 +6,13 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-arrayvec = "0.7.2"
 indexmap = "1.8.1"
-colored = "2.0.0"
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 path-utils = { path = "../../../../common-rs/utils/husky-path-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
-avec = { path = "../../../../common-rs/abstraction/avec" }
-map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
 word = { path = "../../syntax/word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-text = { path = "../../syntax/husky-text" }

@@ -15,7 +15,6 @@ interner = { path = "../../../../common-rs/abstraction/interner" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
-arena = { path = "../../../../common-rs/abstraction/arena" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
 word = { path = "../word" }
