@@ -129,7 +129,7 @@ impl HuskyTraceTime {
         Ok(sampler.finish())
     }
 
-    fn all_arrived(&self, arrivals: &[TraceId], sample_id: SampleId) -> __EvalResult<bool> {
+    fn all_arrived(&self, arrivals: &[TraceId], sample_id: SampleId) -> __VMResult<bool> {
         let mut all_arrived = true;
         for trace_id in arrivals.iter() {
             if !self.is_trace_arrived(*trace_id, sample_id)? {
@@ -140,7 +140,7 @@ impl HuskyTraceTime {
         Ok(all_arrived)
     }
 
-    fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> __EvalResult<bool> {
+    fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
         let trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(_) => todo!(),

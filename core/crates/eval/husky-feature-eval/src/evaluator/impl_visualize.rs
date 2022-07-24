@@ -12,16 +12,16 @@ use vm::*;
 use word::IdentPairDict;
 
 impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
-    pub fn visualize_feature(&mut self, this: FeatureRepr) -> __EvalResult<VisualData> {
+    pub fn visualize_feature(&mut self, this: FeatureRepr) -> __VMResult<VisualData> {
         self.as_static().visualize_static(this)
     }
-    pub fn visualize_static(&mut self, this: FeatureRepr) -> __EvalResult<VisualData>
+    pub fn visualize_static(&mut self, this: FeatureRepr) -> __VMResult<VisualData>
     where
         'eval: 'static,
     {
         let visualizer = self.db.compile_time().visualizer(this.ty());
         let this_value = self.eval_feature_repr_cached(&this).unwrap();
-        should_eq!(this_value.any_ref().__ty_dyn(), this.ty());
+        should_eq!(this_value.__ty__(), this.ty());
         if let Some(visual_data) =
             this_value
                 .eval_ref()
@@ -85,6 +85,6 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
 //                     ),
 //                 })
 //             })
-//             .collect::<__EvalResult<_>>()?,
+//             .collect::<__VMResult<_>>()?,
 //     )
 // }

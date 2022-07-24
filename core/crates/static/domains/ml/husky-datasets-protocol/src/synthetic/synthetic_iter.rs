@@ -3,14 +3,12 @@ use std::{
     time::{SystemTime, UNIX_EPOCH},
 };
 
-use vm::__AnyValueDyn;
-
 use super::*;
 
 pub struct SyntheticSampleIter<'a, 'eval: 'a> {
     dataset: &'a dyn SyntheticDataset<'eval>,
     seed: u64,
-    current: MaybeUninit<__OwnedValue<'eval, 'eval>>,
+    current: MaybeUninit<__Register<'eval>>,
     next_idx: usize,
 }
 

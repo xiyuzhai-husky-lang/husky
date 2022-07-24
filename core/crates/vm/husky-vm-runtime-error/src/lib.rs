@@ -44,8 +44,8 @@ impl Into<FigureCanvasData> for EvalError {
 #[macro_export]
 macro_rules! vm_runtime_error {
     ($message: expr) => {
-        EvalError::Normal {
+        __VMError(Arc::new(EvalError::Normal {
             message: $message.into(),
-        }
+        }))
     };
 }

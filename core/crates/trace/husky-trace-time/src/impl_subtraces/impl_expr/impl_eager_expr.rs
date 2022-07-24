@@ -68,7 +68,7 @@ impl HuskyTraceTime {
                                     history: history.clone(),
                                 },
                             ),
-                            history.value_result(argument),
+                            history.register_result(argument),
                         )
                     },
                 )
@@ -112,7 +112,7 @@ impl HuskyTraceTime {
                                     history: history.clone(),
                                 },
                             ),
-                            history.value_result(argument),
+                            history.register_result(argument),
                         )
                     },
                 )

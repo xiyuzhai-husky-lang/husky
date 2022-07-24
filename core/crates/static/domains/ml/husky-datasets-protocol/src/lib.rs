@@ -15,7 +15,7 @@ use std::{borrow::Cow, sync::Arc};
 use vm::*;
 use word::RootIdentifier;
 
-pub trait DatasetDyn<'eval>: __AnyValueDyn<'eval> + std::fmt::Debug + Send + Sync + 'eval {
+pub trait DatasetDyn<'eval>: __RegistrableDyn + std::fmt::Debug + Send + Sync + 'eval {
     fn dev_loader(&self) -> DataLoader<'eval>;
     fn val_loader(&self) -> DataLoader<'eval>;
     fn test_loader(&self) -> DataLoader<'eval>;
@@ -49,7 +49,8 @@ impl<'eval> Dataset<'eval> {
 
 impl<'eval> PartialEq for Dataset<'eval> {
     fn eq(&self, other: &Self) -> bool {
-        self.0.__equal_any(other.0.__upcast_any())
+        todo!()
+        // self.0.__eq__(other.0.__upcast_any())
     }
 }
 
@@ -61,52 +62,16 @@ impl<'eval> Serialize for Dataset<'eval> {
         todo!()
     }
 }
-impl<'a> __HasStaticTypeInfo for Dataset<'a> {
+impl<'a> __StaticInfo for Dataset<'a> {
     type __StaticSelf = Dataset<'static>;
 
-    fn __static_type_name() -> Cow<'static, str> {
+    fn __static_type_name__() -> Cow<'static, str> {
         todo!()
     }
 }
 
-impl<'eval, 'a: 'eval> __AnyValue<'eval> for Dataset<'a> {
-    fn __to_json_value(&self) -> serde_json::value::Value {
-        todo!()
-    }
-
-    fn __short<'short>(&self) -> &dyn __AnyValueDyn<'short>
-    where
-        'eval: 'short,
-    {
-        self
-    }
-
-    fn __static_ty() -> EntityRoutePtr {
-        RootIdentifier::DatasetType.into()
-    }
-
-    fn __print_short(&self) -> String {
-        todo!()
-    }
-
-    fn __opt_visualize(
-        &'eval self,
-        visualize_element: &mut dyn FnMut(
-            usize,
-            &'eval dyn __AnyValueDyn<'eval>,
-        ) -> __EvalResult<VisualData>,
-    ) -> __EvalResult<Option<husky_trace_protocol::VisualData>> {
-        todo!()
-    }
-
-    fn __into_eval_value(self) -> __EvalValue<'eval> {
-        todo!()
-    }
-
-    fn __into_temp_value<'temp>(self) -> __TempValue<'temp, 'eval>
-    where
-        'eval: 'temp,
-    {
+impl<'a> __Registrable for Dataset<'a> {
+    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         todo!()
     }
 }

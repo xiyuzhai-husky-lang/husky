@@ -108,7 +108,7 @@ impl<'a> TraceTokenBuilder<'a> {
         };
         if config.appended {
             self.push(fade!(" = "));
-            self.push(history.value_result(expr).into())
+            self.push(history.register_result(expr).into())
         }
     }
 

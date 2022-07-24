@@ -18,19 +18,19 @@ pub use sheet::*;
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
 use husky_trace_protocol::SampleId;
-use vm::{EntityUid, EvalContextDeprecated, VMConfig, __AnyValueDyn, __EvalRef, __EvalValue};
-use vm::{__EvalResult, __EvalValueResult};
+use vm::{EntityUid, VMConfig, __AnyValueDyn, __EvalContext, __EvalRef, __EvalValue, __Register};
+use vm::{__EvalValueResult, __VMResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,
-    pub eval_input: __EvalValue<'eval>,
+    pub eval_input: __Register<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
     pub(crate) db: &'a dyn FeatureGenQueryGroup,
     pub(crate) evaluator_config: &'a EvaluatorConfig,
     pub(crate) opt_static_husky_feature_eval: Option<&'a dyn EvalFeature<'static>>,
 }
 
-impl<'a, 'eval: 'a> EvalContextDeprecated<'eval> for FeatureEvaluator<'a, 'eval> {
+impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     fn entity_uid(&self, entity_route_text: &str) -> vm::EntityUid {
         use husky_entity_semantics::EntityDefnQueryGroup;
         let route = self
@@ -42,16 +42,16 @@ impl<'a, 'eval: 'a> EvalContextDeprecated<'eval> for FeatureEvaluator<'a, 'eval>
 
     fn opt_cached_lazy_field(
         &self,
-        this: &'eval dyn __AnyValueDyn<'eval>,
+        this: &'eval dyn __RegistrableDyn,
         uid: EntityUid,
-    ) -> Option<__EvalValueResult<'eval>> {
+    ) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet.cached_value(EvalKey::StructDerivedField {
             parent: __EvalRef(this),
             field_uid: uid,
         })
     }
 
-    fn opt_cached_feature(&self, feature: *const ()) -> Option<__EvalValueResult<'eval>> {
+    fn opt_cached_feature(&self, feature: *const ()) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet
             .cached_value(EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }))
     }
@@ -59,8 +59,8 @@ impl<'a, 'eval: 'a> EvalContextDeprecated<'eval> for FeatureEvaluator<'a, 'eval>
     fn cache_feature(
         &self,
         feature: *const (),
-        value: __EvalValueResult<'eval>,
-    ) -> __EvalValueResult<'eval> {
+        value: __VMResult<__Register<'eval>>,
+    ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
             EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }),
             value,
@@ -69,10 +69,10 @@ impl<'a, 'eval: 'a> EvalContextDeprecated<'eval> for FeatureEvaluator<'a, 'eval>
 
     fn cache_lazy_field(
         &self,
-        this: &'eval dyn __AnyValueDyn<'eval>,
+        this: &'eval dyn __RegistrableDyn,
         uid: EntityUid,
-        value: __EvalValueResult<'eval>,
-    ) -> __EvalValueResult<'eval> {
+        value: __VMResult<__Register<'eval>>,
+    ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
             EvalKey::StructDerivedField {
                 parent: __EvalRef(this),
@@ -99,7 +99,7 @@ impl<'a, 'eval: 'a> EvalContextDeprecated<'eval> for FeatureEvaluator<'a, 'eval>
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub unsafe fn some_ctx(&'a self) -> Option<&'a dyn EvalContextDeprecated<'eval>> {
+    pub unsafe fn some_ctx(&'a self) -> Option<&'a dyn __EvalContext<'eval>> {
         Some(self)
     }
 
@@ -110,8 +110,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn cache(
         &mut self,
         eval_key: EvalKey<'eval>,
-        compute_value: impl FnOnce(&mut Self) -> __EvalValueResult<'eval>,
-    ) -> __EvalValueResult<'eval> {
+        compute_value: impl FnOnce(&mut Self) -> __VMResult<__Register<'eval>>,
+    ) -> __VMResult<__Register<'eval>> {
         if let Some(value) = self.sheet.cached_value(eval_key) {
             value
         } else {

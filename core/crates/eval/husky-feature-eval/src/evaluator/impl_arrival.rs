@@ -6,7 +6,7 @@ use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
-use vm::LinkageDeprecated;
+use vm::__Linkage;
 use vm::*;
 use word::IdentPairDict;
 
@@ -16,7 +16,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn eval_opt_arrival_indicator_cached(
         &mut self,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
-    ) -> __EvalResult<bool> {
+    ) -> __VMResult<bool> {
         if let Some(arrival_indicator) = opt_arrival_indicator {
             self.eval_cached(EvalKey::Feature(arrival_indicator.feature), |this| {
                 Ok(__EvalValue::Copyable(
@@ -32,7 +32,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     fn eval_arrival_indicator(
         &mut self,
         arrival_indicator: &Arc<FeatureArrivalIndicator>,
-    ) -> __EvalResult<bool> {
+    ) -> __VMResult<bool> {
         Ok(match arrival_indicator.variant {
             FeatureBranchIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
                 if !self.eval_opt_arrival_indicator_cached(stmt.opt_arrival_indicator.as_ref())? {

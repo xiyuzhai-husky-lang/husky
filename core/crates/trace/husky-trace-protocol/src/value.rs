@@ -10,6 +10,72 @@ pub enum PrimitiveValueData {
     Void(()),
 }
 
+impl PrimitiveValueData {
+    pub fn take_i32(self) -> i32 {
+        if let PrimitiveValueData::I32(i) = self {
+            i
+        } else {
+            panic!("expect I32, but get {:?} instead", self)
+        }
+    }
+
+    pub fn take_f32(self) -> f32 {
+        if let PrimitiveValueData::F32(f) = self {
+            f
+        } else {
+            panic!()
+        }
+    }
+
+    pub fn take_b32(self) -> u32 {
+        if let PrimitiveValueData::B32(b) = self {
+            b
+        } else {
+            panic!()
+        }
+    }
+
+    pub fn take_b64(self) -> u64 {
+        if let PrimitiveValueData::B64(b) = self {
+            b
+        } else {
+            panic!()
+        }
+    }
+
+    pub fn take_bool(self) -> bool {
+        if let PrimitiveValueData::Bool(b) = self {
+            b
+        } else {
+            panic!()
+        }
+    }
+
+    pub fn to_bool(&self) -> bool {
+        match self {
+            PrimitiveValueData::I32(value) => *value != 0i32,
+            PrimitiveValueData::F32(value) => *value != 0.0f32,
+            PrimitiveValueData::B32(value) => *value != 0u32,
+            PrimitiveValueData::B64(value) => *value != 0u64,
+            PrimitiveValueData::Bool(value) => *value,
+            PrimitiveValueData::Void(_) => panic!(),
+        }
+    }
+
+    pub fn to_register<'eval>(self) -> __Register<'eval> {
+        unsafe {
+            match self {
+                PrimitiveValueData::I32(value) => value.__to_register__(),
+                PrimitiveValueData::F32(value) => value.__to_register__(),
+                PrimitiveValueData::B32(value) => value.__to_register__(),
+                PrimitiveValueData::B64(value) => value.__to_register__(),
+                PrimitiveValueData::Bool(value) => value.__to_register__(),
+                PrimitiveValueData::Void(value) => value.__to_register__(),
+            }
+        }
+    }
+}
+
 impl From<()> for PrimitiveValueData {
     fn from(_: ()) -> Self {
         Self::Void(())

@@ -6,14 +6,14 @@ use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
-use vm::LinkageDeprecated;
+use vm::__Linkage;
 use vm::*;
 use word::IdentPairDict;
 
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(crate) fn eval_expr(&mut self, expr: &FeatureExpr) -> __EvalValueResult<'eval> {
+    pub(crate) fn eval_expr(&mut self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
         match expr.variant {
             FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
             FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
@@ -90,10 +90,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     todo!()
                 }
                 let mut values = vec![
-                    self.eval_expr(&opds[0])?.into_stack().unwrap(),
+                    self.eval_expr(&opds[0])?,
                     self.eval_expr(&opds[1])?.into_stack().unwrap(),
                 ];
-                linkage.eval(unsafe { self.some_ctx() }, values)
+                linkage.eval(unsafe { self.some_ctx() }, &mut values)
             }
             FeatureExprVariant::StructDerivedLazyField {
                 ref this,
@@ -119,11 +119,11 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     ref source,
                 } => match source {
                     CallFormSource::Lazy { stmts } => todo!(),
-                    CallFormSource::Static(LinkageDeprecated::Model(model)) => {
+                    CallFormSource::Static(__Linkage::Model(model)) => {
                         let values: Vec<_> = opds
                             .iter()
                             .map(|opd| self.eval_expr(opd))
-                            .collect::<__EvalResult<Vec<_>>>()?;
+                            .collect::<__VMResult<Vec<_>>>()?;
                         model.eval_dyn(internal.as_ref().map_err(|e| e.clone())?, &values)
                     }
                     _ => panic!(),
@@ -145,17 +145,17 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
 
     fn eval_struct_original_field(
         &mut self,
-        opt_linkage: Option<__SpecificRoutineLinkage>,
+        opt_linkage: Option<__LinkageFp>,
         this: &FeatureRepr,
         field_idx: usize,
         field_binding: Binding,
         field_ident: husky_text::RangedCustomIdentifier,
         expr: &FeatureExpr,
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register<'eval>> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
             let this_value = this_value.into_stack()?;
-            linkage.eval(unsafe { self.some_ctx() }, vec![this_value])
+            linkage.eval(unsafe { self.some_ctx() }, &mut vec![this_value])
         } else {
             let this_value = self.eval_feature_repr(this)?;
             match catch_unwind(move || unsafe { this_value.field_access(field_idx, field_binding) })
@@ -177,7 +177,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         }
     }
 
-    pub(crate) fn eval_xml_expr(&mut self, expr: &FeatureXmlExpr) -> __EvalValueResult<'eval> {
+    pub(crate) fn eval_xml_expr(&mut self, expr: &FeatureXmlExpr) -> __VMResult<__Register<'eval>> {
         match expr.variant {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
@@ -199,7 +199,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                             },
                             // argument.any_ref().to_json_value_dyn()
                         )
-                        .collect::<__EvalResult<IdentPairDict<_>>>()?,
+                        .collect::<__VMResult<IdentPairDict<_>>>()?,
                 };
                 Ok(__EvalValue::Owned(__OwnedValue::new(VisualData::from(
                     xml_value.into(),
@@ -211,10 +211,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     fn eval_routine_call(
         &mut self,
         opt_instrns: &Option<Arc<InstructionSheet>>,
-        opt_linkage: Option<LinkageDeprecated>,
+        opt_linkage: Option<__Linkage>,
         output_ty: EntityRoutePtr,
         arguments: &[Arc<FeatureExpr>],
-    ) -> __EvalValueResult<'eval> {
+    ) -> __VMResult<__Register<'eval>> {
         let db = self.db;
         let vm_config = self.vm_config();
         let values = arguments

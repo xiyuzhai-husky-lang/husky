@@ -81,7 +81,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             InstructionVariant::CallSpecificRoutine {
                                 output_ty: expr.ty(),
                                 nargs: 1,
-                                linkage,
+                                linkage_fp: linkage,
                             }
                         } else {
                             let this_ty_decl = self.db.compile_time().ty_decl(this_ty).unwrap();
@@ -192,19 +192,19 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::RoutineCall(routine) => {
                 if let Some(__Linkage) = self.db.compile_time().routine_linkage(routine.route) {
                     match __Linkage {
-                        LinkageDeprecated::Member { .. } => todo!(),
-                        LinkageDeprecated::SpecificTransfer(linkage) => {
+                        __Linkage::Member { .. } => todo!(),
+                        __Linkage::SpecificTransfer(linkage) => {
                             self.push_instruction(Instruction::new(
                                 InstructionVariant::CallSpecificRoutine {
                                     output_ty: expr.ty(),
                                     nargs: opds.len().try_into().unwrap(),
-                                    linkage,
+                                    linkage_fp: linkage,
                                 },
                                 expr.clone(),
                             ))
                         }
-                        LinkageDeprecated::GenericTransfer(_) => todo!(),
-                        LinkageDeprecated::Model(_) => todo!(),
+                        __Linkage::GenericTransfer(_) => todo!(),
+                        __Linkage::Model(_) => todo!(),
                     }
                 } else {
                     self.push_instruction(Instruction::new(
@@ -232,7 +232,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         *field_binding,
                     ) {
                         InstructionVariant::CallSpecificRoutine {
-                            linkage,
+                            linkage_fp: linkage,
                             nargs: 1,
                             output_ty: expr.ty(),
                         }
@@ -314,22 +314,22 @@ impl<'a> InstructionSheetBuilder<'a> {
                             self.db.compile_time().type_call_linkage(ranged_ty.route)
                         {
                             match __Linkage {
-                                LinkageDeprecated::SpecificTransfer(linkage) => {
+                                __Linkage::SpecificTransfer(linkage) => {
                                     InstructionVariant::CallSpecificRoutine {
                                         output_ty: expr.ty(),
                                         nargs: opds.len().try_into().unwrap(),
-                                        linkage,
+                                        linkage_fp: linkage,
                                     }
                                 }
-                                LinkageDeprecated::GenericTransfer(linkage) => {
+                                __Linkage::GenericTransfer(linkage) => {
                                     InstructionVariant::CallGenericRoutine {
                                         output_ty: ranged_ty.route,
                                         nargs: opds.len().try_into().unwrap(),
-                                        linkage,
+                                        linkage_fp: linkage,
                                     }
                                 }
-                                LinkageDeprecated::Member(_) => todo!(),
-                                LinkageDeprecated::Model(_) => todo!(),
+                                __Linkage::Member(_) => todo!(),
+                                __Linkage::Model(_) => todo!(),
                             }
                         } else {
                             match kind {
@@ -355,29 +355,29 @@ impl<'a> InstructionSheetBuilder<'a> {
                 let linkage = self.db.compile_time().type_call_linkage(output_ty).unwrap();
                 self.push_instruction(Instruction::new(
                     match linkage {
-                        LinkageDeprecated::Member(_) => todo!(),
-                        LinkageDeprecated::SpecificTransfer(linkage) => {
+                        __Linkage::Member(_) => todo!(),
+                        __Linkage::SpecificTransfer(linkage) => {
                             InstructionVariant::CallSpecificRoutine {
-                                linkage,
+                                linkage_fp: linkage,
                                 nargs: opds.len().try_into().unwrap(),
                                 output_ty,
                             }
                         }
-                        LinkageDeprecated::GenericTransfer(linkage) => {
+                        __Linkage::GenericTransfer(linkage) => {
                             InstructionVariant::CallGenericRoutine {
-                                linkage,
+                                linkage_fp: linkage,
                                 nargs: opds.len().try_into().unwrap(),
                                 output_ty,
                             }
                         }
-                        LinkageDeprecated::Model(_) => todo!(),
+                        __Linkage::Model(_) => todo!(),
                     },
                     expr.clone(),
                 ))
             }
             EagerOpnVariant::ValueCall => self.push_instruction(Instruction::new(
                 InstructionVariant::CallSpecificRoutine {
-                    linkage: __VALUE_CALL_LINKAGE.specific(),
+                    linkage_fp: __VALUE_CALL_LINKAGE.specific(),
                     nargs: opds.len().try_into().unwrap(),
                     output_ty: expr.ty(),
                 },
@@ -418,7 +418,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::BitXor => todo!(),
                         PureBinaryOpr::Div => todo!(),
                         PureBinaryOpr::Eq => InstructionVariant::CallSpecificRoutine {
-                            linkage: __EQ_LINKAGE.specific(),
+                            linkage_fp: __EQ_LINKAGE.specific(),
                             nargs: 2,
                             output_ty: expr.ty(),
                         },
@@ -428,7 +428,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::Less => todo!(),
                         PureBinaryOpr::Mul => todo!(),
                         PureBinaryOpr::Neq => InstructionVariant::CallSpecificRoutine {
-                            linkage: __NEQ_LINKAGE.specific(),
+                            linkage_fp: __NEQ_LINKAGE.specific(),
                             nargs: 2,
                             output_ty: expr.ty(),
                         },
@@ -458,7 +458,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             InstructionVariant::CallSpecificRoutine {
                 output_ty: expr.ty(),
                 nargs: opds.len().try_into().unwrap(),
-                linkage: self
+                linkage_fp: self
                     .db
                     .compile_time()
                     .element_access_linkage(opds.map(|opd| opd.ty()))
@@ -480,27 +480,23 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) -> InstructionVariant {
         if let Some(linkage) = self.db.compile_time().method_linkage(method_route) {
             match linkage {
-                LinkageDeprecated::Member { .. } => InstructionVariant::CallSpecificRoutine {
-                    linkage: linkage.bind(output_binding),
+                __Linkage::Member { .. } => InstructionVariant::CallSpecificRoutine {
+                    linkage_fp: linkage.bind(output_binding),
                     nargs,
                     output_ty,
                 },
-                LinkageDeprecated::SpecificTransfer(linkage) => {
-                    InstructionVariant::CallSpecificRoutine {
-                        output_ty,
-                        nargs,
+                __Linkage::SpecificTransfer(linkage) => InstructionVariant::CallSpecificRoutine {
+                    output_ty,
+                    nargs,
 
-                        linkage,
-                    }
-                }
-                LinkageDeprecated::GenericTransfer(linkage) => {
-                    InstructionVariant::CallGenericRoutine {
-                        linkage,
-                        output_ty,
-                        nargs,
-                    }
-                }
-                LinkageDeprecated::Model(_) => todo!(),
+                    linkage_fp: linkage,
+                },
+                __Linkage::GenericTransfer(linkage) => InstructionVariant::CallGenericRoutine {
+                    linkage_fp: linkage,
+                    output_ty,
+                    nargs,
+                },
+                __Linkage::Model(_) => todo!(),
             }
         } else {
             let method_uid = self.db.compile_time().entity_uid(method_route);

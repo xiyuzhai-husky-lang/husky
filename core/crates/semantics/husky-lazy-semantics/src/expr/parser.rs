@@ -51,10 +51,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 EntityKind::Module => todo!(),
                 EntityKind::EnumLiteral => match entity_route {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
-                        LazyExprVariant::PrimitiveLiteral(CopyableValue::Bool(true))
+                        LazyExprVariant::PrimitiveLiteral(PrimitiveValueData::Bool(true))
                     }
                     EntityRoutePtr::Root(RootIdentifier::False) => {
-                        LazyExprVariant::PrimitiveLiteral(CopyableValue::Bool(false))
+                        LazyExprVariant::PrimitiveLiteral(PrimitiveValueData::Bool(false))
                     }
                     EntityRoutePtr::Custom(scope_ref) => {
                         LazyExprVariant::EnumLiteral { entity_route }

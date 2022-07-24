@@ -22,9 +22,9 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
         output_ty: "[%]E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(LinkageDeprecated::GenericTransfer(
-            generic_routine_linkage!(generic_cyclic_slice),
-        )),
+        opt_linkage: Some(__Linkage::GenericTransfer(generic_routine_linkage!(
+            generic_cyclic_slice
+        ))),
         output_liason: OutputLiason::Transfer,
         // bug if output_liason is OutputLiason::MemberAccess
     },
@@ -33,13 +33,13 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
 
 fn generic_cyclic_slice<'temp, 'eval>(
     ty: EntityRoutePtr,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
-    let this: &'eval VirtualVec<'eval> = values[0].downcast_eval_ref();
-    let start = values[1].take_copyable().take_i32();
-    let end = values[2].take_copyable().take_i32();
-    __TempValue::OwnedEval(__OwnedValue::new(VirtualCyclicSlice {
-        data: CyclicSlice::<'eval, MemberValue<'eval>> {
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
+    let this: &'eval VirtualVec = values[0].downcast_eval_ref();
+    let start = values[1].__take_primitive__().take_i32();
+    let end = values[2].__take_primitive__().take_i32();
+    (__Register::new_box(VirtualCyclicSlice {
+        data: CyclicSlice::<'eval, __Registrable> {
             start,
             end,
             total: this.as_slice(),

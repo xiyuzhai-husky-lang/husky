@@ -352,8 +352,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             wrapper: {{
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                    __arguments: &mut [__Register],
-                ) -> __Register {{"#
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {{"#
         ));
         if let Some((this_liason, this_ty)) = opt_this {
             match this_liason {

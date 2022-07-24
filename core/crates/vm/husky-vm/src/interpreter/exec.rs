@@ -51,21 +51,19 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             }
                             _ => (),
                         },
-                        Mode::TrackHistory => {
-                            should_eq!(ty, value.any_ref().__ty_dyn());
-                            self.history.write(
-                                ins,
-                                HistoryEntry::PureExpr {
-                                    result: Ok(value.eval()),
-                                },
-                            )
-                        }
+                        Mode::TrackHistory => self.history.write(
+                            ins,
+                            HistoryEntry::PureExpr {
+                                result: Ok(value.__eval__()),
+                            },
+                        ),
                     }
                     VMControl::None
                 }
                 InstructionVariant::PushEntityFp { opt_linkage, .. } => {
-                    self.stack
-                        .push(__TempValue::owned_eval(__CallFormValue { opt_linkage }));
+                    self.stack.push(
+                        todo!(), // __TempValue::owned_eval(__CallFormValue { opt_linkage })
+                    );
                     if mode == Mode::TrackHistory {
                         self.history.write(
                             ins,
@@ -77,7 +75,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::PushPrimitiveLiteral { value, explicit } => {
-                    self.stack.push(value.into());
+                    self.stack.push(unsafe { value.__to_register__() });
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
@@ -94,7 +92,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::PushEnumKindLiteral(entity_kind) => {
-                    self.stack.push(__TempValue::Copyable(entity_kind.into()));
+                    self.stack.push(
+                        todo!(), // __TempValue::Copyable(entity_kind.into())
+                    );
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -107,7 +107,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::CallSpecificRoutine {
-                    linkage,
+                    linkage_fp: linkage,
                     nargs,
                     output_ty,
                 } => {
@@ -127,7 +127,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     control
                 }
                 InstructionVariant::CallGenericRoutine {
-                    linkage,
+                    linkage_fp: linkage,
                     nargs,
                     output_ty,
                 } => {
@@ -172,12 +172,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     result.into()
                 }
                 InstructionVariant::NewVirtualStruct { ty, ref fields } => {
-                    self.new_virtual_struct(ty, fields);
+                    self.push_new_virtual_struct(ty, fields);
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
                             let output = self.stack.eval_top();
-                            should_eq!(output.any_ref().__ty_dyn(), ty);
+                            should_eq!(output.__ty__(), ty);
                             self.history
                                 .write(ins, HistoryEntry::PureExpr { result: Ok(output) })
                         }
@@ -185,14 +185,14 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::Return { output_ty } => {
-                    let return_value = self.stack.pop().into_eval();
+                    let return_value = self.stack.pop().__eval__();
                     msg_once!("ugly");
                     if output_ty.kind
                         != (EntityRouteKind::Root {
                             ident: RootIdentifier::DatasetType,
                         })
                     {
-                        should_eq!(output_ty, return_value.any_ref().__ty_dyn());
+                        should_eq!(output_ty, return_value.__ty__());
                     }
                     VMControl::Return(return_value)
                 }
@@ -225,7 +225,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     control
                 }
                 InstructionVariant::BreakIfFalse => {
-                    let control = if !self.stack.pop().take_copyable().to_bool() {
+                    let control = if !self.stack.pop().primitive().to_bool() {
                         VMControl::Break
                     } else {
                         VMControl::None
@@ -237,8 +237,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     field_binding,
                 } => {
                     let this = self.stack.pop();
-                    self.stack
-                        .push(this.field(field_idx as usize, field_binding));
+                    self.stack.push(todo!());
+                    // this.field(field_idx as usize, field_binding));
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -251,11 +251,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::Assert => {
-                    let is_condition_satisfied = self.stack.pop().take_copyable().to_bool();
+                    let is_condition_satisfied = self.stack.pop().primitive().to_bool();
                     if !is_condition_satisfied {
-                        VMControl::Err(EvalError::Normal {
-                            message: format!("assert failure"),
-                        })
+                        VMControl::Err(vm_runtime_error!(format!("assert failure")))
                     } else {
                         VMControl::None
                     }
@@ -290,13 +288,13 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         linkage: __Linkage,
         nargs: u8,
         output_ty: EntityRoutePtr,
-    ) -> __VMResult<__Register> {
+    ) -> __VMResult<__Register<'eval>> {
         match linkage {
             __Linkage::Member { .. } => todo!(),
             __Linkage::Transfer(linkage) => {
                 let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                linkage.eval(self.opt_ctx, arguments)
+                linkage.eval(self.opt_ctx, &mut arguments)
             }
             __Linkage::Model(_) => todo!(),
         }

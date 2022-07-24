@@ -8,11 +8,11 @@ use word::CustomIdentifier;
 
 pub const STACK_SIZE: usize = 255;
 
-pub struct VMStack<'temp, 'eval: 'temp> {
-    values: ArrayVec<__TempValue<'temp, 'eval>, STACK_SIZE>,
+pub struct VMStack<'eval> {
+    values: ArrayVec<__Register<'eval>, STACK_SIZE>,
 }
 
-impl<'temp, 'eval> std::fmt::Debug for VMStack<'temp, 'eval> {
+impl<'eval> std::fmt::Debug for VMStack<'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("VMStack")
             .field("values", &self.values)
@@ -20,18 +20,16 @@ impl<'temp, 'eval> std::fmt::Debug for VMStack<'temp, 'eval> {
     }
 }
 
-impl<'temp, 'eval: 'temp, T: Iterator<Item = __TempValue<'temp, 'eval>>> From<T>
-    for VMStack<'temp, 'eval>
-{
+impl<'eval, T: Iterator<Item = __Register<'eval>>> From<T> for VMStack<'eval> {
     fn from(t: T) -> Self {
         Self::new(t)
     }
 }
 
-impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
+impl<'eval> VMStack<'eval> {
     pub(crate) fn try_new(
-        argument_iter: impl Iterator<Item = __EvalResult<__TempValue<'temp, 'eval>>>,
-    ) -> __EvalResult<Self> {
+        argument_iter: impl Iterator<Item = __VMResult<__Register<'eval>>>,
+    ) -> __VMResult<Self> {
         let mut values = ArrayVec::new();
         for result in argument_iter {
             values.push(result?)
@@ -39,7 +37,7 @@ impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
         Ok(Self { values })
     }
 
-    pub(crate) fn new(argument_iter: impl Iterator<Item = __TempValue<'temp, 'eval>>) -> Self {
+    pub(crate) fn new(argument_iter: impl Iterator<Item = __Register<'eval>>) -> Self {
         let mut values = ArrayVec::new();
         for value in argument_iter {
             values.push(value)
@@ -47,11 +45,11 @@ impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
         Self { values }
     }
 
-    pub(crate) fn value(&self, idx: VMStackIdx) -> &__TempValue<'temp, 'eval> {
+    pub(crate) fn value(&self, idx: VMStackIdx) -> &__Register<'eval> {
         &self.values[idx.raw()]
     }
 
-    pub(crate) fn value_mut(&mut self, idx: VMStackIdx) -> &mut __TempValue<'temp, 'eval> {
+    pub(crate) fn value_mut(&mut self, idx: VMStackIdx) -> &mut __Register<'eval> {
         &mut self.values[idx.raw()]
     }
 
@@ -59,10 +57,10 @@ impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
         &mut self,
         stack_idx: VMStackIdx,
         binding: Binding,
-    ) -> &mut __TempValue<'temp, 'eval> {
+    ) -> &mut __Register<'eval> {
         unsafe {
             let value = &mut self.values[stack_idx.raw()];
-            let stack_value = value.bind(binding, stack_idx);
+            let stack_value = value.__bind__(binding);
             self.push(stack_value);
         }
         self.values.last_mut().unwrap()
@@ -74,36 +72,33 @@ impl<'temp, 'eval: 'temp> VMStack<'temp, 'eval> {
             values: self
                 .values
                 .iter_mut()
-                .map(|value| value.snapshot())
+                .map(|value| value.__snapshot__())
                 .collect(),
         }
     }
 
-    pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> __EvalValue<'eval> {
-        self.values[stack_idx.raw()].eval()
+    pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> __Register<'eval> {
+        self.values[stack_idx.raw()].__eval__()
     }
 
     pub(crate) fn len(&self) -> usize {
         self.values.len()
     }
 
-    pub(crate) fn push(&mut self, value: __TempValue<'temp, 'eval>) {
+    pub(crate) fn push(&mut self, value: __Register<'eval>) {
         self.values.push(value);
     }
-    pub(crate) fn pop(&mut self) -> __TempValue<'temp, 'eval> {
+    pub(crate) fn pop(&mut self) -> __Register<'eval> {
         self.values.pop().unwrap()
     }
 
-    pub(crate) fn drain<'a>(
-        &'a mut self,
-        k: u8,
-    ) -> impl Iterator<Item = __TempValue<'temp, 'eval>> + 'a {
+    pub(crate) fn drain<'a>(&'a mut self, k: u8) -> impl Iterator<Item = __Register<'eval>> + 'a {
         self.values.drain((self.len() - k as usize)..)
     }
 
-    // pub(crate) fn eval_top(&mut self) -> __EvalValue<'eval> {
-    //     self.values.last().unwrap().eval()
-    // }
+    pub(crate) fn eval_top(&mut self) -> __Register<'eval> {
+        self.values.last().unwrap().__eval__()
+    }
 
     pub(crate) fn truncate(&mut self, len: usize) {
         self.values.truncate(len)
@@ -171,7 +166,7 @@ impl VariableStack {
             write!(
                 result,
                 "        this: {}\n",
-                vm_stack.values[0].print_short()
+                vm_stack.values[0].__print_short__()
             );
         }
         write!(result, "    variables:\n");
@@ -186,7 +181,7 @@ impl VariableStack {
                 husky_print_utils::RESET,
             );
             if i + shift < vm_stack.values.len() {
-                write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
+                write!(result, "{}\n", vm_stack.values[i + shift].__print_short__()).unwrap()
             } else {
                 write!(result, "uninitialized\n").unwrap()
             }
@@ -202,7 +197,7 @@ impl VariableStack {
                 husky_print_utils::RESET,
             )
             .unwrap();
-            write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
+            write!(result, "{}\n", vm_stack.values[i + shift].__print_short__()).unwrap()
         }
         result.push('\n');
         result

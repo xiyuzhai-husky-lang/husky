@@ -7,8 +7,8 @@ pub struct Object {
     pub field_features: Vec<Arc<FeatureLazyBlock>>,
 }
 
-impl<'eval> Into<__EvalValue<'eval>> for Object {
-    fn into(self) -> __EvalValue<'eval> {
+impl<'eval> Into<__Register<'eval>> for Object {
+    fn into(self) -> __Register<'eval> {
         todo!()
     }
 }

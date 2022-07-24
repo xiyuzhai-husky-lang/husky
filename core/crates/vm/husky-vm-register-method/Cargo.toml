@@ -1,0 +1,10 @@
+[package]
+name = "husky-vm-register-method"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }

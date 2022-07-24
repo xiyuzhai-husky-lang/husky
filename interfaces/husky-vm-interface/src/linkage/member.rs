@@ -23,9 +23,9 @@ macro_rules! method_elem_linkage {
 }
 #[macro_export]
 macro_rules! eager_field_linkage {
-    ($Type: ty, $field: ident) => {{
+    ($Type: ty, $FieldTy: ty, $field: ident, $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_access: field_copy_fp!($Type, $field),
+            copy_access: field_copy_fp!($Type, $FieldTy, field, $copy_kind),
             eval_ref_access: field_eval_ref_fp!($Type, $field),
             temp_ref_access: field_temp_ref_fp!($Type, $field),
             temp_mut_access: field_temp_mut_invalid_fp!($Type, $field),
@@ -36,9 +36,9 @@ macro_rules! eager_field_linkage {
 #[macro_export]
 macro_rules! lazy_field_linkage {
     ($Type: ty, $field: ident) => {{
-        fn __wrapper<'temp, 'eval>(
+        fn __wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-            values: &mut [__Register],
+            values: &mut [__Register<'eval>],
         ) -> __Register {
             let this_value: &'eval $Type = values[0].downcast_eval_ref();
             __Register::new_eval_ref(this_value.$field(__opt_ctx.unwrap()))
@@ -62,9 +62,9 @@ macro_rules! eager_mut_field_linkage {
 
 #[macro_export]
 macro_rules! index_linkage {
-    ($Type: ty) => {{
+    ($Type: ty, $ElementType: ty, $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_access: index_copy_fp!($Type),
+            copy_access: index_copy_fp!($Type, $ElementType, $copy_kind),
             eval_ref_access: index_eval_ref_fp!($Type),
             temp_ref_access: index_temp_ref_fp!($Type),
             temp_mut_access: index_temp_mut_fp!($Type),

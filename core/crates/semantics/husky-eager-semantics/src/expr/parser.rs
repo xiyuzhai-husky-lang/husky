@@ -57,10 +57,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 EntityKind::Module => todo!(),
                 EntityKind::EnumLiteral => match route {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
-                        EagerExprVariant::PrimitiveLiteral(CopyableValue::Bool(true))
+                        EagerExprVariant::PrimitiveLiteral(PrimitiveValueData::Bool(true))
                     }
                     EntityRoutePtr::Root(RootIdentifier::False) => {
-                        EagerExprVariant::PrimitiveLiteral(CopyableValue::Bool(false))
+                        EagerExprVariant::PrimitiveLiteral(PrimitiveValueData::Bool(false))
                     }
                     EntityRoutePtr::Custom(_) => EagerExprVariant::EnumKindLiteral(route),
                     _ => todo!(),

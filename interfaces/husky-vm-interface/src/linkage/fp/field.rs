@@ -1,84 +1,98 @@
 #[macro_export]
 macro_rules! field_copy_fp {
-    ($Type: ty, $field: ident) => {{
-        fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
+    ($Type: ty, $FieldType: ty, $field: ident, $copy_kind: tt) => {{
+        unsafe fn wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
             let value: &$Type = values[0].downcast_temp_ref();
-            value.$field.__take_copyable().into()
+            register_new_copyable!(value.$field, $FieldType, $copy_kind)
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+        }
     }};
 }
 
 #[macro_export]
 macro_rules! field_eval_ref_fp {
     ($Type: ty, $field: ident) => {{
-        fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
+        unsafe fn wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
             let value: &'eval $Type = values[0].downcast_eval_ref();
-            __EvalRef(value.$field.__upcast_any()).into()
+            __Register::new_eval_ref(&value.$field)
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+        }
     }};
 }
 #[macro_export]
 macro_rules! field_temp_ref_fp {
     ($Type: ty, $field: ident) => {{
-        fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
+        unsafe fn wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
             let value: &$Type = values[0].downcast_temp_ref();
-            __TempValue::TempRefEval(unsafe { value.$field.__upcast_arb_any_ref() })
+            __Register::new_temp_ref(&value.$field)
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+        }
     }};
 }
 
 #[macro_export]
 macro_rules! field_temp_mut_fp {
     ($Type: ty, $field: ident) => {{
-        fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
+        unsafe fn wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
             let (value, stack_idx, gen): (&mut $Type, _, _) = values[0].downcast_mut_full();
-            __TempValue::TempRefMutEval {
-                value: unsafe { value.$field.__upcast_arb_any_mut() },
-                owner: stack_idx,
-                gen: (),
-            }
+            __Register::new_temp_mut(&mut value.$field)
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+        }
     }};
 }
 
 #[macro_export]
 macro_rules! field_temp_mut_invalid_fp {
     ($Type: ty, $field: ident) => {{
-        fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
+        unsafe fn wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
             panic!("field_temp_mut_invalid_fp")
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+        }
     }};
 }
 
 #[macro_export]
 macro_rules! field_move_fp {
     ($Type: ty, $field: ident) => {{
-        fn __wrapper<'temp, 'eval>(
-            __opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
+        fn wrapper<'temp, 'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
             todo!("field_move_fp")
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+        }
     }};
 }

@@ -1,56 +1,56 @@
 #[macro_export]
 macro_rules! method_elem_copy_fp {
     ($Type: ty, $method_name: ident) => {{
-        fn __wrapper<'temp, 'eval>(
+        fn __wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
             let this_value: &$Type = values[0].downcast_temp_ref();
             todo!()
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp(__wrapper)
     }};
 }
 
 #[macro_export]
 macro_rules! method_elem_eval_ref_fp {
     ($Type: ty, $method_name: ident) => {{
-        fn __wrapper<'temp, 'eval>(
+        fn __wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
             let this_value: &'eval $Type = values[0].downcast_eval_ref();
             __TempValue::EvalRef(__EvalRef(this_value.$method_name()))
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp(__wrapper)
     }};
 }
 
 #[macro_export]
 macro_rules! method_elem_temp_ref_fp {
     ($Type: ty, $method_name: ident) => {{
-        fn __wrapper<'temp, 'eval>(
+        fn __wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
             let this_value: &$Type = values[0].downcast_temp_ref();
             __TempValue::TempRefEval(unsafe { this_value.$method_name().__upcast_arb_any_ref() })
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp(__wrapper)
     }};
 }
 
 #[macro_export]
 macro_rules! method_elem_move_fp {
     ($Type: ty, $method_name: ident) => {{
-        __SpecificRoutineFp(|_, values| -> __TempValue { todo!("move") })
+        __LinkageFp(|_, values| -> __TempValue { todo!("move") })
     }};
 }
 
 #[macro_export]
 macro_rules! method_elem_temp_mut_fp {
     ($Type: ty, $method_name: ident) => {{
-        fn __wrapper<'temp, 'eval>(
+        fn __wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register {
@@ -62,6 +62,6 @@ macro_rules! method_elem_temp_mut_fp {
             //     gen: (),
             // })
         }
-        __SpecificRoutineFp(__wrapper)
+        __LinkageFp(__wrapper)
     }};
 }

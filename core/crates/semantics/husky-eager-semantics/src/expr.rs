@@ -14,7 +14,7 @@ use std::sync::Arc;
 use husky_entity_route::EntityRoutePtr;
 use husky_text::{RangedCustomIdentifier, TextRange};
 use semantics_error::SemanticResultArc;
-use vm::{Binding, CopyableValue, InstructionId, InstructionSource, __SpecificRoutineLinkage};
+use vm::{Binding, InstructionId, InstructionSource, PrimitiveValueData, __LinkageFp};
 use word::CustomIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]
@@ -77,7 +77,7 @@ pub enum EagerExprVariant {
     // EntityRoute {
     //     route: EntityRoutePtr,
     // },
-    PrimitiveLiteral(CopyableValue),
+    PrimitiveLiteral(PrimitiveValueData),
     EnumKindLiteral(EntityRoutePtr),
     Bracketed(Arc<EagerExpr>),
     Opn {

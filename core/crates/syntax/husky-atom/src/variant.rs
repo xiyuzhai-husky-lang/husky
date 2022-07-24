@@ -3,7 +3,7 @@ use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_text::*;
 use husky_token::SpecialToken;
 use vm::{
-    BinaryOpr, Bracket, CopyableValue, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr,
+    BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PrimitiveValueData, PureBinaryOpr,
     SuffixOpr,
 };
 use word::{CustomIdentifier, WordOpr};
@@ -34,7 +34,7 @@ pub enum AtomVariant {
         field_liason: MemberLiason,
     },
     Unrecognized(CustomIdentifier),
-    PrimitiveLiteral(CopyableValue),
+    PrimitiveLiteral(PrimitiveValueData),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
@@ -133,20 +133,20 @@ impl From<WordOpr> for AtomVariant {
     }
 }
 
-impl From<CopyableValue> for AtomVariant {
-    fn from(lit: CopyableValue) -> Self {
+impl From<PrimitiveValueData> for AtomVariant {
+    fn from(lit: PrimitiveValueData) -> Self {
         Self::PrimitiveLiteral(lit)
     }
 }
 
 impl From<i32> for AtomVariant {
     fn from(i: i32) -> Self {
-        CopyableValue::I32(i).into()
+        PrimitiveValueData::I32(i).into()
     }
 }
 
 impl From<f32> for AtomVariant {
     fn from(f: f32) -> Self {
-        CopyableValue::F32(f).into()
+        PrimitiveValueData::F32(f).into()
     }
 }

@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_route::EntityRoutePtr;
 use map_collect::MapCollect;
-use vm::{CopyableValue, VMCasePattern};
+use vm::{PrimitiveValueData, VMCasePattern};
 use word::RootIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -38,13 +38,13 @@ impl TextRanged for CasePattern {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum CasePatternVariant {
-    PrimitiveLiteral(CopyableValue),
+    PrimitiveLiteral(PrimitiveValueData),
     OneOf { patterns: Vec<CasePattern> },
     EnumLiteral(EntityRoutePtr),
 }
 
 impl CasePattern {
-    pub fn primitive_literal(value: CopyableValue, range: TextRange) -> Self {
+    pub fn primitive_literal(value: PrimitiveValueData, range: TextRange) -> Self {
         Self {
             ty: value.ty().into(),
             variant: CasePatternVariant::PrimitiveLiteral(value),

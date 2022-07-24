@@ -42,7 +42,7 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(LinkageDeprecated::Member(todo!())),
+        opt_linkage: Some(__Linkage::Member(todo!())),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },
@@ -51,39 +51,39 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
 };
 
 fn generic_cyclic_slice_first_copy<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     todo!()
 }
 
 fn generic_cyclic_slice_first_eval_ref<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     let generic_cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_temp_ref();
     generic_cyclic_slice.first().unwrap().bind_eval_ref()
 }
 
 fn generic_cyclic_slice_first_temp_ref<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     let generic_cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_temp_ref();
     generic_cyclic_slice.first().unwrap().bind_temp_ref()
 }
 
 fn generic_cyclic_slice_first_mut<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     todo!("deprecated")
 }
 
 fn generic_cyclic_slice_first_move<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     todo!()
 }
 
@@ -96,7 +96,7 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(LinkageDeprecated::Member(todo!())),
+        opt_linkage: Some(__Linkage::Member(todo!())),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },
@@ -105,38 +105,38 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
 };
 
 fn generic_cyclic_slice_last_copy<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     todo!()
 }
 
 fn generic_cyclic_slice_last_eval_ref<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     let generic_cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_temp_ref();
     generic_cyclic_slice.last().unwrap().bind_eval_ref()
 }
 
 fn generic_cyclic_slice_last_temp_ref<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     let generic_cyclic_slice: &VirtualCyclicSlice<'eval> = values[0].downcast_temp_ref();
     generic_cyclic_slice.last().unwrap().bind_temp_ref()
 }
 
 fn generic_cyclic_slice_last_mut<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     todo!("deprecated")
 }
 
 fn generic_cyclic_slice_last_move<'temp, 'eval>(
-    opt_ctx: Option<&dyn EvalContextDeprecated<'eval>>,
-    values: &mut [__TempValue<'temp, 'eval>],
-) -> __TempValue<'temp, 'eval> {
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    values: &mut [__Register<'eval>],
+) -> __Register<'eval> {
     todo!()
 }

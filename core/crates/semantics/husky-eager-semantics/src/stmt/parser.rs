@@ -3,7 +3,7 @@ use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use husky_text::RangedCustomIdentifier;
 use infer_contract::{ContractSheet, InferContract};
 use infer_total::InferQueryGroup;
-use vm::{VMStackIdx, __EvalResult};
+use vm::{VMStackIdx, __VMResult};
 
 use super::*;
 

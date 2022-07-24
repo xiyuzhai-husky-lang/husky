@@ -15,7 +15,7 @@ use std::{
     sync::Arc,
 };
 use trivial_iter::TrivialIter;
-use vm::{eval_fast, InterpreterQueryGroup, Mode, __EvalResult};
+use vm::{eval_fast, InterpreterQueryGroup, Mode, __VMResult};
 use word::RootIdentifier;
 
 #[derive(Debug)]
@@ -23,7 +23,7 @@ pub struct Session<'eval> {
     config: Arc<Config>,
     pub(crate) dataset: Dataset<'eval>,
     pub(crate) dev: Division<'eval>,
-    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, __EvalValueResult<'eval>>>,
+    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, __VMResult<__Register<'eval>>>>,
     val: Division<'eval>,
     test: Division<'eval>,
     validation_report: ValidationReport<'eval>,
@@ -47,7 +47,7 @@ impl<'eval> Session<'eval> {
         package: &Package,
         db: &dyn FeatureGenQueryGroup,
         vm_config: &VMConfig,
-    ) -> __EvalResult<Self> {
+    ) -> __VMResult<Self> {
         let config = package.config.clone();
         let dataset: Dataset = eval_fast(
             db.upcast(),

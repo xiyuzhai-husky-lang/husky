@@ -1,13 +1,13 @@
 use __husky::init::__StaticLinkageKey;
 use smallvec::SmallVec;
 use upcast::Upcast;
-use vm::LinkageDeprecated;
+use vm::__Linkage;
 
 use crate::*;
 
 #[derive(Debug, Clone)]
 pub struct LinkageTable {
-    linkages: ASafeRwLock<HashMap<LinkageKey, LinkageDeprecated>>,
+    linkages: ASafeRwLock<HashMap<LinkageKey, __Linkage>>,
     pub(crate) config: LinkageTableConfig,
 }
 
@@ -22,9 +22,9 @@ impl LinkageTable {
     pub fn load(
         &self,
         db: &dyn ResolveLinkage,
-        static_linkages: &[(__StaticLinkageKey, LinkageDeprecated)],
+        static_linkages: &[(__StaticLinkageKey, __Linkage)],
     ) {
-        let new_linkages: HashMap<LinkageKey, LinkageDeprecated> = static_linkages
+        let new_linkages: HashMap<LinkageKey, __Linkage> = static_linkages
             .iter()
             .map(|(static_key, linkage)| {
                 let key = LinkageKey::from_static(db, *static_key);
@@ -41,7 +41,7 @@ impl LinkageTable {
         &self,
         db: &dyn EntityDefnQueryGroup,
         ty_uid: EntityUid,
-    ) -> Option<LinkageDeprecated> {
+    ) -> Option<__Linkage> {
         self.get_linkage(db, LinkageKey::TypeCall { ty_uid })
     }
 
@@ -49,7 +49,7 @@ impl LinkageTable {
         &self,
         db: &dyn EntityDefnQueryGroup,
         feature_uid: EntityUid,
-    ) -> Option<LinkageDeprecated> {
+    ) -> Option<__Linkage> {
         self.get_linkage(db, LinkageKey::FeatureEagerBlock { uid: feature_uid })
     }
 
@@ -57,7 +57,7 @@ impl LinkageTable {
         &self,
         db: &dyn EntityDefnQueryGroup,
         routine_uid: EntityUid,
-    ) -> Option<LinkageDeprecated> {
+    ) -> Option<__Linkage> {
         self.get_linkage(db, LinkageKey::Routine { routine_uid })
     }
 
@@ -67,7 +67,7 @@ impl LinkageTable {
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,
         field_binding: Binding,
-    ) -> Option<LinkageDeprecated> {
+    ) -> Option<__Linkage> {
         self.get_linkage(
             db,
             LinkageKey::StructFieldAccess {
@@ -81,15 +81,11 @@ impl LinkageTable {
         &self,
         db: &dyn EntityDefnQueryGroup,
         opd_uids: SmallVec<[EntityUid; 2]>,
-    ) -> Option<LinkageDeprecated> {
+    ) -> Option<__Linkage> {
         self.get_linkage(db, LinkageKey::ElementAccess { opd_uids })
     }
 
-    fn get_linkage(
-        &self,
-        db: &dyn EntityDefnQueryGroup,
-        key: LinkageKey,
-    ) -> Option<LinkageDeprecated> {
+    fn get_linkage(&self, db: &dyn EntityDefnQueryGroup, key: LinkageKey) -> Option<__Linkage> {
         self.linkages
             .read(|entries| entries.get(&key).map(|linkage_source| *linkage_source))
     }

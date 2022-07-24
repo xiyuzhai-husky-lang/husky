@@ -22,36 +22,45 @@ impl PartialEq for __ModelLinkage {
 impl Eq for __ModelLinkage {}
 
 pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
-    fn train_dyn(&self, opds: Vec<(Vec<__Register>, __Register)>) -> __VMResult<__Register>;
+    fn train_dyn<'eval>(
+        &self,
+        opds: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
+    ) -> __VMResult<__Register<'eval>>;
     fn eval_dyn<'eval>(
         &self,
-        internal: &__Register,
-        arguments: &[__Register],
-    ) -> __VMResult<__Register>;
+        internal: &__Register<'eval>,
+        arguments: &[__Register<'eval>],
+    ) -> __VMResult<__Register<'eval>>;
 }
 
 pub trait Model:
     std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + Sized + 'static
 {
     type Internal: __Registrable;
-    fn train(&self, opds: Vec<(Vec<__Register>, __Register)>) -> __VMResult<__Register>;
+    fn train<'eval>(
+        &self,
+        opds: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
+    ) -> __VMResult<Self::Internal>;
     fn eval<'eval>(
         &self,
         internal: &Self::Internal,
-        arguments: &[__Register],
-    ) -> __VMResult<__Register>;
+        arguments: &[__Register<'eval>],
+    ) -> __VMResult<__Register<'eval>>;
 }
 
 impl<T: Model> ModelDyn for T {
-    fn train_dyn(&self, opds: Vec<(Vec<__Register>, __Register)>) -> __VMResult<__Register> {
-        Ok(self.train(opds)?)
+    fn train_dyn<'eval>(
+        &self,
+        opds: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
+    ) -> __VMResult<__Register<'eval>> {
+        Ok(self.train(opds)?.to_register())
     }
 
     fn eval_dyn<'eval>(
         &self,
-        internal: &__Register,
-        arguments: &[__Register],
-    ) -> __VMResult<__Register> {
+        internal: &__Register<'eval>,
+        arguments: &[__Register<'eval>],
+    ) -> __VMResult<__Register<'eval>> {
         let internal: &T::Internal = unsafe { internal.downcast_temp_ref() };
         self.eval(internal, arguments)
     }

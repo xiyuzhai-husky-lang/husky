@@ -1,7 +1,7 @@
 mod impl_opn;
 mod xml;
 
-use vm::LinkageDeprecated;
+use vm::__Linkage;
 pub use xml::*;
 
 use husky_entity_route::EntityRouteKind;
@@ -9,7 +9,7 @@ use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
 use std::sync::Arc;
-use vm::{Binding, InstructionSheet, __EvalResult, __EvalValue, __SpecificRoutineLinkage};
+use vm::{Binding, InstructionSheet, __EvalValue, __LinkageFp, __VMResult};
 use word::RootIdentifier;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -49,7 +49,7 @@ impl<'eval> Eq for FeatureExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureExprVariant {
-    PrimitiveLiteral(CopyableValue),
+    PrimitiveLiteral(PrimitiveValueData),
     EnumKindLiteral {
         entity_route: EntityRoutePtr,
         uid: EntityUid,
@@ -62,7 +62,7 @@ pub enum FeatureExprVariant {
     CustomBinaryOpr {
         opr: PureBinaryOpr,
         opds: Vec<Arc<FeatureExpr>>,
-        opt_linkage: Option<LinkageDeprecated>,
+        opt_linkage: Option<__Linkage>,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
     Variable {
@@ -77,7 +77,7 @@ pub enum FeatureExprVariant {
         field_ident: RangedCustomIdentifier,
         field_idx: usize,
         field_binding: Binding,
-        opt_linkage: Option<__SpecificRoutineLinkage>,
+        opt_linkage: Option<__LinkageFp>,
     },
     RecordOriginalField {
         this: FeatureRepr,
@@ -98,20 +98,20 @@ pub enum FeatureExprVariant {
     },
     ElementAccess {
         opds: Vec<Arc<FeatureExpr>>,
-        linkage: __SpecificRoutineLinkage,
+        linkage: __LinkageFp,
     },
     ModelCall {
         opds: Vec<Arc<FeatureExpr>>,
         has_this: bool,
         model_defn: Arc<EntityDefn>,
         opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
-        internal: __EvalResult,
+        internal: __VMResult,
     },
     RoutineCall {
         opds: Vec<Arc<FeatureExpr>>,
         has_this: bool,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
-        opt_linkage: Option<LinkageDeprecated>,
+        opt_linkage: Option<__Linkage>,
         routine_defn: Arc<EntityDefn>,
     },
     EntityFeature {
@@ -125,7 +125,7 @@ pub enum FeatureExprVariant {
     },
     NewVecFromList {
         elements: Vec<Arc<FeatureExpr>>,
-        linkage: LinkageDeprecated,
+        linkage: __Linkage,
     },
 }
 
