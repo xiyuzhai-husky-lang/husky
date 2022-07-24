@@ -8,12 +8,10 @@ use super::*;
 impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_init_content(&mut self) {
         self.write(
-            r#"
-use crate::*;
+            r#"use crate::*;
 use __husky::init::*;
 
-pub static LINKAGES : &[(&'static str, __Linkage)]= &[
-"#,
+pub static LINKAGES : &[(__LinkageKind, &'static str, __Linkage)]= &["#,
         );
         let main_module = self.db.module(self.package_main).unwrap();
         let entity_link_dependees = self.db.entity_link_dependees(main_module);
@@ -23,7 +21,10 @@ pub static LINKAGES : &[(&'static str, __Linkage)]= &[
                 self.gen_linkage_entry(*entity_route, &entity_defn);
             }
         }
-        self.write("\n];");
+        self.write(
+            r#"
+];"#,
+        );
     }
 
     fn gen_linkage_entry(&mut self, entity_route: EntityRoutePtr, entity_defn: &EntityDefn) {
@@ -64,7 +65,11 @@ pub static LINKAGES : &[(&'static str, __Linkage)]= &[
                 output,
                 ref stmts,
             } => {
-                self.write("\n    (\n");
+                self.write(
+                    r#"
+    (
+        __LinkageKind::Transfer,"#,
+                );
                 self.write(&format!(
                     r#"
         "{}","#,
@@ -78,10 +83,17 @@ pub static LINKAGES : &[(&'static str, __Linkage)]= &[
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
                     &call_form_decl,
                 );
-                self.write("\n    ),");
+                self.write(
+                    r#"
+    ),"#,
+                );
             }
             EntityDefnVariant::Proc { .. } => {
-                self.write("\n    (\n");
+                self.write(
+                    r#"
+    (
+        __LinkageKind::Transfer,"#,
+                );
                 self.write(&format!(
                     r#"
         "{}","#,
@@ -95,7 +107,10 @@ pub static LINKAGES : &[(&'static str, __Linkage)]= &[
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
                     &call_form_decl,
                 );
-                self.write("    ),");
+                self.write(
+                    r#"
+    ),"#,
+                );
             }
             EntityDefnVariant::Ty {
                 spatial_parameters: ref generic_parameters,
@@ -420,24 +435,8 @@ pub static LINKAGES : &[(&'static str, __Linkage)]= &[
         }
         self.write(&format!(
             r#"
-                    __Register {{
-                        proto: todo!(),
-                        data_kind: todo!(),
-                        data: "#
+                    "#
         ));
-        // if self.db.is_copyable(decl.output.ty).unwrap() {
-        //     self.write(
-        //         r#"
-        //             __Register::Copyable(
-        //                 "#,
-        //     );
-        // } else {
-        //     self.write(
-        //         r#"
-        //             __Register::OwnedEval(__OwnedValue::new(
-        //                 "#,
-        //     );
-        // }
         gen_caller(self);
         self.write("(");
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
@@ -464,20 +463,8 @@ pub static LINKAGES : &[(&'static str, __Linkage)]= &[
                 self.write("__variadics")
             }
         }
-        // if self.db.is_copyable(decl.output.ty).unwrap() {
-        //     self.write(
-        //         r#")
-        //         .__take_copyable_dyn())"#,
-        //     );
-        // } else {
-        //     self.write(
-        //         r#")
-        //         ))"#,
-        //     );
-        // }
         self.write(&format!(
-            r#")
-                    }}
+            r#").__to_register()
                 }}
                 __wrapper
             }},

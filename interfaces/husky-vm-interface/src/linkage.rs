@@ -8,3 +8,7 @@ pub struct __Linkage {
 
 unsafe impl Send for __Linkage {}
 unsafe impl Sync for __Linkage {}
+
+pub enum __LinkageKind {
+    Transfer,
+}
