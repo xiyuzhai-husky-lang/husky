@@ -7,6 +7,7 @@ use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_dev_utils::__StaticDevSource;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualTy;
+use husky_vm_interface::__Linkage;
 use vm::{LinkageDeprecated, __SpecificRoutineLinkage};
 use word::RootIdentifier;
 
@@ -14,7 +15,7 @@ pub trait ResolveStaticRootDefn {
     fn __root_defn_resolver(&self) -> fn(ident: RootIdentifier) -> &'static EntityStaticDefn;
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub struct EntityStaticDefn {
     pub name: &'static str,
     pub items: &'static [&'static EntityStaticDefn],
@@ -22,13 +23,23 @@ pub struct EntityStaticDefn {
     pub dev_src: __StaticDevSource,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+impl std::fmt::Debug for EntityStaticDefn {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("EntityStaticDefn")
+            .field("name", &self.name)
+            .field("items", &self.items)
+            .field("dev_src", &self.dev_src)
+            .finish()
+    }
+}
+
+#[derive(PartialEq, Eq)]
 pub enum StaticVariadicTemplate {
     None,
     SingleTyped { ty: &'static str },
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub enum EntityStaticDefnVariant {
     Function {
         spatial_parameters: &'static [StaticSpatialParameter],
@@ -67,7 +78,7 @@ pub enum EntityStaticDefnVariant {
         output_liason: OutputLiason,
         spatial_parameters: &'static [StaticSpatialParameter],
         method_static_defn_kind: MethodStaticDefnKind,
-        opt_linkage: Option<LinkageDeprecated>,
+        opt_linkage: Option<__Linkage>,
     },
     TraitAssociatedType {
         trai: &'static str,
@@ -102,7 +113,7 @@ impl EntityStaticDefnVariant {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub struct StaticTraitImplDefn {
     pub trai: &'static str,
     pub member_impls: &'static [EntityStaticDefn],

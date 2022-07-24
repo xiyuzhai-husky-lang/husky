@@ -36,32 +36,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(LinkageDeprecated::Member(&__MemberLinkage {
-                            copy_access: index_copy_fp!(BinaryImage28),
-                            eval_ref_access: __SpecificRoutineFp(|_, values| -> __TempValue {
-                                todo!()
-                            }),
-                            temp_ref_access: __SpecificRoutineFp(|_, values| -> __TempValue {
-                                todo!()
-                            }),
-                            move_access: __SpecificRoutineFp(|_, _| todo!()),
-                            temp_mut_access: __SpecificRoutineFp(|_, values| {
-                                let index_value: usize = values[1]
-                                    .take_copyable()
-                                    .take_i32()
-                                    .try_into()
-                                    .expect("todo");
-                                let (this_value, owner, _): (&mut BinaryImage28, _, _) =
-                                    values[0].downcast_mut_full();
-                                __TempValue::TempRefMutEval {
-                                    value: &mut this_value[index_value],
-                                    owner,
-                                    gen: (),
-                                }
-                            }),
-                            nargs: 2,
-                            dev_src: __static_dev_src!(),
-                        })),
+                        opt_linkage: Some(index_linkage!()),
                     },
                 },
             ],
@@ -84,7 +59,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: BINARY_IMAGE_28_BASE_ROUTE,
         output_liason: OutputLiason::Transfer,
-        linkage: specific_transfer_linkage!(|_, _values| {
+        linkage: transfer_linkage!(|_, _values| {
             __TempValue::OwnedEval(__OwnedValue::new(BinaryImage28::default()))
         }, some BinaryImage28::__call__)
         .into(),

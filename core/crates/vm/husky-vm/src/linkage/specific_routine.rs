@@ -38,16 +38,16 @@ impl __SpecificRoutineLinkage {
 }
 
 #[macro_export]
-macro_rules! specific_transfer_linkage {
+macro_rules! transfer_linkage {
     ($fp: expr, some $raw_fp: expr) => {{
-        LinkageDeprecated::SpecificTransfer(__SpecificRoutineLinkage {
+        __Linkage::SpecificTransfer(__SpecificRoutineLinkage {
             fp: __SpecificRoutineFp($fp),
             dev_src: __static_dev_src!(),
             opt_raw_fp: Some($raw_fp as *const ()),
         })
     }};
     ($fp: expr, none) => {{
-        LinkageDeprecated::SpecificTransfer(__SpecificRoutineLinkage {
+        __Linkage::SpecificTransfer(__SpecificRoutineLinkage {
             fp: __SpecificRoutineFp($fp),
             dev_src: __static_dev_src!(),
             opt_raw_fp: None,

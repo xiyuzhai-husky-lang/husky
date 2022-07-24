@@ -78,13 +78,8 @@ pub enum InstructionVariant {
         field_idx: u8,
         field_binding: Binding,
     },
-    CallGenericRoutine {
-        linkage: GenericRoutineLinkage,
-        nargs: u8,
-        output_ty: EntityRoutePtr,
-    },
-    CallSpecificRoutine {
-        linkage: __SpecificRoutineLinkage,
+    CallRoutine {
+        linkage_fp: __LinkageFp,
         nargs: u8,
         output_ty: EntityRoutePtr,
     },
@@ -123,7 +118,7 @@ pub enum InstructionVariant {
         feature_uid: EntityUid,
     },
     PushEntityFp {
-        opt_linkage: Option<LinkageDeprecated>,
+        opt_linkage: Option<__Linkage>,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
 }

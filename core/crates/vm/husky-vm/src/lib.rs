@@ -10,7 +10,6 @@ mod frame;
 mod history;
 mod instruction;
 mod interpreter;
-mod linkage;
 mod loop_kind;
 mod mode;
 mod mutation;
@@ -28,10 +27,10 @@ pub use frame::{FrameKind, LoopFrameData};
 pub use history::{History, HistoryEntry};
 pub use husky_any::*;
 use husky_print_utils::p;
+pub use husky_vm_interface::*;
 pub use husky_vm_runtime_error::*;
 pub use instruction::*;
 pub use interpreter::{Interpreter, InterpreterQueryGroup};
-pub use linkage::*;
 pub use loop_kind::{BoundaryKind, LoopStep, VMLoopKind};
 pub use mode::Mode;
 pub use mutation::*;
@@ -49,7 +48,7 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,
     opt_ctx: Option<&'temp dyn EvalContextDeprecated<'eval>>,
     opt_instrn_sheet: Option<&InstructionSheet>,
-    opt_linkage: Option<LinkageDeprecated>,
+    opt_linkage: Option<__Linkage>,
     output_ty: EntityRoutePtr,
     args: impl Iterator<Item = __EvalResult<__TempValue<'temp, 'eval>>>, // including this value
     kwargs: impl Iterator<Item = (CustomIdentifier, __EvalResult<__TempValue<'temp, 'eval>>)>,

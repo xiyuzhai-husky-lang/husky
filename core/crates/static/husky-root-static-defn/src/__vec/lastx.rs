@@ -9,15 +9,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(LinkageDeprecated::Member(&__MemberLinkage {
-            copy_access: __SpecificRoutineFp(generic_vec_lastx_copy),
-            eval_ref_access: __SpecificRoutineFp(generic_vec_lastx_eval_ref),
-            temp_ref_access: __SpecificRoutineFp(generic_vec_lastx_temp_ref),
-            temp_mut_access: __SpecificRoutineFp(generic_vec_lastx_mut),
-            move_access: __SpecificRoutineFp(generic_vec_lastx_move),
-            nargs: 1,
-            dev_src: __static_dev_src!(),
-        })),
+        opt_linkage: Some(LinkageDeprecated::Member(todo!())),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },

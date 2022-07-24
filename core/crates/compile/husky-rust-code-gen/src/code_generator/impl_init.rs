@@ -11,11 +11,11 @@ impl<'a> RustCodeGenerator<'a> {
             r#"use crate::*;
 use __husky::init::*;
 
-pub extern "C" fn gen_linkages() -> &'static [(__LinkageKind, &'static str, __Linkage)] {
+pub extern "C" fn gen_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
     LINKAGES
 }
 
-pub static LINKAGES: &[(__LinkageKind, &'static str, __Linkage)] = &["#,
+pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
         let main_module = self.db.module(self.package_main).unwrap();
         let entity_link_dependees = self.db.entity_link_dependees(main_module);
@@ -70,15 +70,12 @@ pub static LINKAGES: &[(__LinkageKind, &'static str, __Linkage)] = &["#,
                 output,
                 ref stmts,
             } => {
-                self.write(
-                    r#"
-    (
-        __LinkageKind::Transfer,"#,
-                );
                 self.write(&format!(
                     r#"
-        "{}","#,
-                    entity_route
+    (
+        __StaticLinkageKey::Routine {{
+            route: "{entity_route}",
+        }},"#,
                 ));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
@@ -94,15 +91,12 @@ pub static LINKAGES: &[(__LinkageKind, &'static str, __Linkage)] = &["#,
                 );
             }
             EntityDefnVariant::Proc { .. } => {
-                self.write(
-                    r#"
-    (
-        __LinkageKind::Transfer,"#,
-                );
                 self.write(&format!(
                     r#"
-        "{}","#,
-                    entity_route
+    (
+        __StaticLinkageKey::Routine {{
+            route: "{entity_route}",
+        }},"#,
                 ));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
@@ -354,7 +348,7 @@ pub static LINKAGES: &[(__LinkageKind, &'static str, __Linkage)] = &["#,
         let argidx_base = opt_this.map(|_| 1).unwrap_or(0);
         self.write(&format!(
             r#"
-        __Linkage {{
+        __Linkage::Transfer(__LinkageFp {{
             wrapper: {{
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
@@ -478,7 +472,7 @@ pub static LINKAGES: &[(__LinkageKind, &'static str, __Linkage)] = &["#,
         gen_call_route(self);
         self.write(
             r#" as *const ()),
-        },"#,
+        }),"#,
         );
     }
 
@@ -546,7 +540,7 @@ pub static LINKAGES: &[(__LinkageKind, &'static str, __Linkage)] = &["#,
                 let {parameter_name}: "#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
-        self.write(&format!(" = __arguments[{i}].downcast_copy();"))
+        self.write(&format!(" = __arguments[{i}].downcast();"))
     }
 
     fn gen_parameter_downcast_move(&mut self, i: usize, parameter: &ParameterDecl) {
@@ -558,7 +552,7 @@ pub static LINKAGES: &[(__LinkageKind, &'static str, __Linkage)] = &["#,
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
         self.write(&format!(
-            " = unsafe {{ __arb_ref(&__arguments[{i}]) }}.downcast_move();"
+            " = unsafe {{ __arb_ref(&__arguments[{i}]) }}.downcast();"
         ))
     }
 

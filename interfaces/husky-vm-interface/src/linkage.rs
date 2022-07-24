@@ -1,14 +1,41 @@
+mod fp;
+mod member;
+mod model;
+mod transfer;
+
+pub use fp::*;
+pub use member::*;
+pub use model::*;
+pub use transfer::*;
+
 use crate::*;
 
-pub struct __Linkage {
-    pub wrapper:
-        for<'eval> unsafe fn(Option<&dyn __EvalContext<'eval>>, &mut [__Register]) -> __Register,
-    pub opt_fp: Option<*const ()>,
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum __Linkage {
+    Transfer(__LinkageFp),
+    Member(&'static __MemberLinkage),
+    Model(__ModelLinkage),
 }
 
-unsafe impl Send for __Linkage {}
-unsafe impl Sync for __Linkage {}
-
-pub enum __LinkageKind {
-    Transfer,
+#[derive(Debug, Clone, Copy)]
+pub enum __StaticLinkageKey {
+    VecConstructor {
+        element_ty: &'static str,
+    },
+    TypeCall {
+        ty: &'static str,
+    },
+    Routine {
+        routine: &'static str,
+    },
+    Index {
+        opd_tys: &'static [&'static str],
+    },
+    StructEagerField {
+        this_ty: &'static str,
+        field_ident: &'static str,
+    },
+    FeatureEagerBlock {
+        route: &'static str,
+    },
 }

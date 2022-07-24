@@ -48,6 +48,7 @@ impl LinkageKey {
             __StaticLinkageKey::StructEagerField {
                 this_ty,
                 field_ident,
+                ..
             } => LinkageKey::StructFieldAccess {
                 this_ty_uid: entity_uid(db, this_ty),
                 field_ident: db.custom_ident(field_ident),

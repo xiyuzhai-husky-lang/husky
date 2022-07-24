@@ -5,7 +5,7 @@ use husky_trace_protocol::SampleId;
 use std::sync::Arc;
 use vm::{
     LinkageDeprecated, __EvalValue, __OwnedValue, __SpecificRoutineLinkage, __TempValue,
-    specific_transfer_linkage,
+    transfer_linkage,
 };
 use xrng::XRng;
 
@@ -25,7 +25,7 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: specific_transfer_linkage!(
+        linkage: transfer_linkage!(
             |_, _| __TempValue::OwnedEval(__OwnedValue::new(dataset1())),
          some   dataset1
         )
@@ -43,7 +43,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: specific_transfer_linkage!(|_, _| __TempValue::OwnedEval(__OwnedValue::new(
+        linkage: transfer_linkage!(|_, _| __TempValue::OwnedEval(__OwnedValue::new(
             dataset2()
         )),
         some   dataset2)
