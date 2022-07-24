@@ -6,7 +6,7 @@ use crossbeam_channel::Sender;
 use client_comm::ClientCommunicator;
 use event_loop_comm::EventLoopCommunicator;
 use husky_compile_time::HuskyCompileTime;
-use husky_root::__resolve_root_defn;
+use husky_root_static_defn::__resolve_root_defn;
 use threadpool::ThreadPool;
 
 pub(crate) struct Server {
