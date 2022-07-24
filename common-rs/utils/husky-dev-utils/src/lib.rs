@@ -1,12 +1,10 @@
-use serde::{Deserialize, Serialize};
-
-#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
+#[derive(PartialEq, Eq, Clone)]
 pub struct DevSource {
     pub file: String,
     pub line: u32,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Serialize, Deserialize, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct __StaticDevSource {
     pub file: &'static str,
     pub line: u32,

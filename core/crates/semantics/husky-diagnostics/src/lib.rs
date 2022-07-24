@@ -23,7 +23,7 @@ use std::sync::Arc;
 
 use collect::collect_diagnostics;
 
-#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Diagnostic {
     severity: DiagnosticSeverity,
     range: TextRange,
