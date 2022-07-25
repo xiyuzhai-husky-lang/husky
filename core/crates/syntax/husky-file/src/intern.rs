@@ -3,9 +3,9 @@ use std::{
     sync::Arc,
 };
 
+use husky_word::CustomIdentifier;
 use interner::Interner;
 use singleton::singleton;
-use word::CustomIdentifier;
 
 pub type FileInterner = Interner<Path, PathBuf>;
 pub type FilePtr = interner::InternedPtr<Path>;

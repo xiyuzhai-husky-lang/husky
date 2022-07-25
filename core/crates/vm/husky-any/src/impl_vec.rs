@@ -1,8 +1,8 @@
 use super::*;
 use husky_entity_route::make_route;
 use husky_print_utils::msg_once;
+use husky_word::RootIdentifier;
 use thin_vec::thin_vec;
-use word::RootIdentifier;
 
 impl<'a, T> __StaticInfo for Vec<T>
 where

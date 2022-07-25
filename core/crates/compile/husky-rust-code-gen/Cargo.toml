@@ -16,7 +16,8 @@ fold = { path = "../../../../common-rs/abstraction/fold" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-file = { path = "../../syntax/husky-file" }
-word = { path = "../../syntax/word" }
+husky-token = { path = "../../syntax/husky-token" }
+husky-word = { path = "../../syntax/husky-word" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
@@ -32,3 +33,4 @@ husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-linkage-table = { path = "../husky-linkage-table" }
 husky-instantiate = { path = "../../infer/husky-instantiate" }
 husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
+husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }

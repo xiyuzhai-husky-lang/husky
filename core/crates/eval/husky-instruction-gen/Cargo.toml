@@ -17,7 +17,7 @@ fold = { path = "../../../../common-rs/abstraction/fold" }
 map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
 avec = { path = "../../../../common-rs/abstraction/avec" }
 husky-file = { path = "../../syntax/husky-file" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }

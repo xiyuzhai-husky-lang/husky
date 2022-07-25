@@ -10,10 +10,10 @@ use husky_file::FilePtr;
 use husky_print_utils::p;
 use husky_text::{RangedCustomIdentifier, TextRange, TextRanged};
 use husky_token::{HuskyToken, HuskyTokenKind, SpecialToken, TokenGroupIter};
+use husky_word::Identifier;
+use husky_word::{CustomIdentifier, Decorator, Keyword};
 use static_defn::*;
 use thin_vec::thin_vec;
-use word::Identifier;
-use word::{CustomIdentifier, Decorator, Keyword};
 
 pub fn tell_entity_kind(keyword: Keyword, third_token: &HuskyToken) -> Option<EntityKind> {
     match keyword {

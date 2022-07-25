@@ -2,7 +2,6 @@ mod convexity;
 mod error;
 mod kind;
 mod line_token_iter;
-mod primitive_literal;
 mod query;
 mod scanner;
 mod semantic_token;
@@ -16,16 +15,16 @@ mod utils;
 pub use convexity::*;
 pub use error::*;
 pub use kind::HuskyTokenKind;
-pub use primitive_literal::*;
 pub use query::*;
 pub use semantic_token::*;
 pub use special::SpecialToken;
 pub use stream::*;
 pub use tokenized_text::{TokenGroupIter, TokenizedText};
 
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::{RangedCustomIdentifier, TextIndent, TextRange, TextRanged};
+use husky_word::Identifier;
 use scanner::TokenScanner;
-use word::Identifier;
 
 #[derive(PartialEq, Eq)]
 pub struct HuskyToken {

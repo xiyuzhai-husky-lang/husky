@@ -14,8 +14,7 @@ arena = { path = "../../../../common-rs/abstraction/arena" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
-word = { path = "../word" }
-husky-token = { path = "../husky-token" }
+husky-word = { path = "../husky-word" }
 husky-entity-route = { path = "../husky-entity-route" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
 husky-ast = { path = "../husky-ast" }
@@ -23,3 +22,4 @@ vm = { path = "../../vm/husky-vm" }
 entity-kind = { path = "../entity-kind" }
 defn-head = { path = "../defn-head" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }

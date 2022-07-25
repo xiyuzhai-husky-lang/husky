@@ -4,6 +4,7 @@ mod impl_cyclic_slice;
 mod impl_hashmap;
 mod impl_primitive;
 
+#[derive(Hash)]
 pub struct __Register<'eval> {
     pub data_kind: __RegisterDataKind,
     pub opt_data: Option<*mut dyn __RegistrableDyn>,
@@ -51,6 +52,7 @@ impl<'eval> PartialEq for __Register<'eval> {
         // self.data_kind == other.data_kind && self.opt_data == other.opt_data
     }
 }
+impl<'eval> Eq for __Register<'eval> {}
 
 pub trait __StaticInfo {
     type __StaticSelf: __StaticInfo<__StaticSelf = Self::__StaticSelf> + __Registrable + 'static;
@@ -184,7 +186,7 @@ impl<'eval> __Register<'eval> {
     }
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, Hash)]
 pub enum __RegisterDataKind {
     Value,
     Box,

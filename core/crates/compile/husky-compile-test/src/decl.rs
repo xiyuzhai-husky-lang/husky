@@ -1,7 +1,7 @@
 use husky_entity_route::entity_route_menu;
 use husky_entity_route::SpatialArgument;
+use husky_word::RootIdentifier;
 use thin_vec::{thin_vec, ThinVec};
-use word::RootIdentifier;
 
 use crate::*;
 

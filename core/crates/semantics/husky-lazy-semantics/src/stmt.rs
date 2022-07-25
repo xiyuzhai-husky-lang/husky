@@ -13,7 +13,7 @@ use parse::LazyStmtParser;
 
 use husky_file::FilePtr;
 use husky_text::*;
-use word::CustomIdentifier;
+use husky_word::CustomIdentifier;
 
 use super::*;
 use crate::*;

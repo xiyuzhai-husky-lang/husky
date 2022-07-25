@@ -18,7 +18,7 @@ husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
-word = { path = "../word" }
+husky-word = { path = "../husky-word" }
 vm = { path = "../../vm/husky-vm" }
 entity-kind = { path = "../entity-kind" }
-ordered-float = "3.0.0"
+husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }

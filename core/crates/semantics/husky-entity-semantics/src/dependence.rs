@@ -291,7 +291,7 @@ impl EntityDefn {
                     } => {
                         extract_eager_expr_dependees(match_expr, builder);
                         for branch in branches {
-                            extract_func_pattern_branch_dependees(branch, builder)
+                            extract_func_stmts_dependees(&branch.stmts, builder)
                         }
                     }
                 }
@@ -354,7 +354,7 @@ impl EntityDefn {
                     } => {
                         extract_eager_expr_dependees(match_expr, builder);
                         for branch in branches {
-                            extract_proc_pattern_branch_dependees(branch, builder)
+                            extract_proc_stmts_dependees(&branch.stmts, builder)
                         }
                     }
                 }
@@ -517,19 +517,6 @@ impl EntityDefn {
             extract_proc_stmts_dependees(&branch.stmts, builder)
         }
 
-        fn extract_proc_pattern_branch_dependees(
-            branch: &ProcPatternBranch,
-            builder: &mut DependeeMapBuilder,
-        ) {
-            match branch.variant {
-                ProcPatternBranchVariant::Case { ref pattern } => {
-                    extract_case_pattern_dependees(pattern, builder)
-                }
-                ProcPatternBranchVariant::Default => (),
-            }
-            extract_proc_stmts_dependees(&branch.stmts, builder)
-        }
-
         fn extract_func_condition_branch_dependees(
             branch: &FuncConditionFlowBranch,
             builder: &mut DependeeMapBuilder,
@@ -544,26 +531,6 @@ impl EntityDefn {
                 FuncConditionFlowBranchVariant::Else => todo!(),
             }
             extract_func_stmts_dependees(&branch.stmts, builder)
-        }
-
-        fn extract_func_pattern_branch_dependees(
-            branch: &FuncPatternBranch,
-            builder: &mut DependeeMapBuilder,
-        ) {
-            match branch.variant {
-                FuncPatternBranchVariant::Case { ref pattern } => {
-                    extract_case_pattern_dependees(pattern, builder)
-                }
-                FuncPatternBranchVariant::Default => todo!(),
-            }
-            extract_func_stmts_dependees(&branch.stmts, builder)
-        }
-
-        fn extract_case_pattern_dependees(
-            pattern: &RawCasePattern,
-            builder: &mut DependeeMapBuilder,
-        ) {
-            builder.push(pattern.ty)
         }
     }
 }

@@ -2,7 +2,7 @@ use super::*;
 use crate::*;
 use entity_kind::TyKind;
 use husky_token::*;
-use word::*;
+use husky_word::*;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_ty_defn(

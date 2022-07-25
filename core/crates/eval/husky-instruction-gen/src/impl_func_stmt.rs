@@ -125,7 +125,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 .map(|branch| {
                     Arc::new(match branch.variant {
                         FuncPatternBranchVariant::Case { ref pattern } => VMPatternBranch {
-                            opt_pattern: Some(pattern.compile()),
+                            opt_pattern: Some(todo!()),
                             body: {
                                 let mut body_sheet = self.subsheet_builder();
                                 body_sheet.compile_func_stmts(&branch.stmts);

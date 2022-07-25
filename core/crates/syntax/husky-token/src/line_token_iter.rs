@@ -1,7 +1,7 @@
 use std::str::FromStr;
 
 use husky_text::CharIter;
-use word::WordInterner;
+use husky_word::WordInterner;
 
 use crate::*;
 
@@ -161,7 +161,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         }
     }
 
-    fn take_buffer_word(&mut self) -> word::WordPtr {
+    fn take_buffer_word(&mut self) -> husky_word::WordPtr {
         let word = self.word_interner.intern(std::mem::take(&mut self.buffer));
         self.buffer.clear();
         word

@@ -171,7 +171,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             self.compile_eager_expr(bound, self.sheet.variable_stack.next_stack_idx())
         } else {
             self.push_instruction(Instruction::new(
-                InstructionVariant::PushPrimitiveLiteral {
+                InstructionVariant::PushPrimitiveValue {
                     value: 0i32.into(),
                     explicit: false,
                 },
@@ -251,7 +251,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 .map(|branch| {
                     Arc::new(match branch.variant {
                         ProcPatternBranchVariant::Case { ref pattern } => VMPatternBranch {
-                            opt_pattern: Some(pattern.compile()),
+                            opt_pattern: Some(todo!()),
                             body: {
                                 let mut body_sheet = self.subsheet_builder();
                                 body_sheet.compile_proc_stmts(&branch.stmts);

@@ -1,7 +1,7 @@
 use std::iter::Peekable;
 
-use vm::{InitKind, XmlTagKind};
-use word::IdentPairDict;
+use husky_word::IdentPairDict;
+use vm::InitKind;
 
 use super::parser::EagerParser;
 use super::*;
@@ -162,7 +162,7 @@ impl<'a> EagerParser<'a> {
                         }) => Ok(Arc::new(match pattern_branch_variant {
                             RawPatternBranchVariant::Case { pattern } => FuncPatternBranch {
                                 variant: FuncPatternBranchVariant::Case {
-                                    pattern: pattern.clone(),
+                                    pattern: self.parse_func_pattern(pattern)?,
                                 },
                                 stmts: self.parse_func_stmts(item.opt_children.clone().unwrap())?,
                             },
@@ -176,5 +176,12 @@ impl<'a> EagerParser<'a> {
                 })
                 .collect::<SemanticResult<Vec<_>>>()?,
         })
+    }
+
+    fn parse_func_pattern(
+        &mut self,
+        raw_pattern: &RawCasePattern,
+    ) -> SemanticResult<FuncCasePattern> {
+        todo!()
     }
 }

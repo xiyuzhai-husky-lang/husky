@@ -17,7 +17,7 @@ cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 avec = { path = "../../../../common-rs/abstraction/avec" }
 map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }
 husky-any = { path = "../husky-any" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-text = { path = "../../syntax/husky-text" }
@@ -27,3 +27,5 @@ husky-vm-runtime-error = { path = "../husky-vm-runtime-error" }
 husky-vm-register-method = { path = "../husky-vm-register-method" }
 thin-vec = { path = "../../../../forks/thin-vec" }
 husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface" }
+husky-vm-binding = { path = "../husky-vm-binding" }
+husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }

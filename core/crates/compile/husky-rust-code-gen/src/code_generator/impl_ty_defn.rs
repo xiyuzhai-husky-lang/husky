@@ -1,8 +1,8 @@
 use husky_entity_semantics::{
     CallFormSource, DefinitionRepr, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
 };
+use husky_word::CustomIdentifier;
 use infer_decl::FieldDecl;
-use word::CustomIdentifier;
 
 use super::*;
 
@@ -366,7 +366,7 @@ impl<'a> RustCodeGenerator<'a> {
         let into_eval_value_impl = if self.db.is_copyable(base_route).unwrap() {
             "todo!()"
         } else {
-            "__EvalValue::Owned(__OwnedValue::new(self))"
+            "__Register::Owned(__OwnedValue::new(self))"
         };
         self.write(&format!(
             r#" {{

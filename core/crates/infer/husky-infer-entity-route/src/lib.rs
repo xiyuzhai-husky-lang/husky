@@ -12,10 +12,10 @@ use husky_entity_route::*;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use husky_file::FilePtr;
 use husky_print_utils::*;
+use husky_word::RootIdentifier;
 use infer_decl::{CallFormDecl, DeclQueryGroup, TyDecl};
 use infer_error::*;
 use vm::{ListOpr, RawOpnVariant};
-use word::RootIdentifier;
 
 pub trait InferEntityRoute {
     fn decl_db(&self) -> &dyn DeclQueryGroup;

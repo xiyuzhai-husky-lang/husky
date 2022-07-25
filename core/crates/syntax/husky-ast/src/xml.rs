@@ -1,5 +1,5 @@
 use crate::*;
-use word::IdentPairDict;
+use husky_word::IdentPairDict;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RawXmlExpr {

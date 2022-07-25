@@ -1,9 +1,9 @@
 use crate::*;
 use husky_entity_route::EntityRoutePtr;
-use husky_token::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_word::RootIdentifier;
 use map_collect::MapCollect;
 use vm::{PrimitiveValueData, VMCasePattern};
-use word::RootIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum MatchLiason {
@@ -23,9 +23,9 @@ impl RawCasePattern {
                 todo!()
                 // VMCasePattern::Primitive(primitive_value_from_literal(self.ty, value))
             }
-            RawCasePatternVariant::OneOf { ref patterns } => {
-                VMCasePattern::OneOf(patterns.map(|pattern| pattern.compile()))
-            }
+            RawCasePatternVariant::OneOf {
+                subpatterns: ref patterns,
+            } => VMCasePattern::OneOf(patterns.map(|pattern| pattern.compile())),
             RawCasePatternVariant::EnumLiteral(entity_route) => {
                 VMCasePattern::EnumKindLiteral(entity_route)
             }
@@ -42,7 +42,7 @@ impl TextRanged for RawCasePattern {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawCasePatternVariant {
     PrimitiveValue(PrimitiveLiteralData),
-    OneOf { patterns: Vec<RawCasePattern> },
+    OneOf { subpatterns: Vec<RawCasePattern> },
     EnumLiteral(EntityRoutePtr),
 }
 
@@ -67,13 +67,17 @@ impl RawCasePattern {
             RawCasePatternVariant::PrimitiveValue(_) | RawCasePatternVariant::EnumLiteral(_) => {
                 vec![self, new_pattern]
             }
-            RawCasePatternVariant::OneOf { mut patterns } => {
+            RawCasePatternVariant::OneOf {
+                subpatterns: mut patterns,
+            } => {
                 patterns.push(new_pattern);
                 patterns
             }
         };
         Ok(RawCasePattern {
-            variant: RawCasePatternVariant::OneOf { patterns },
+            variant: RawCasePatternVariant::OneOf {
+                subpatterns: patterns,
+            },
             range,
         })
     }

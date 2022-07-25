@@ -17,7 +17,7 @@ vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
-word = { path = "../word" }
+husky-word = { path = "../husky-word" }
 husky-token = { path = "../husky-token" }
 husky-entity-route = { path = "../husky-entity-route" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
@@ -27,3 +27,4 @@ static-defn = { path = "../../static/static-defn" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 defn-head = { path = "../defn-head" }
 thin-vec = { path = "../../../../forks/thin-vec" }
+husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }

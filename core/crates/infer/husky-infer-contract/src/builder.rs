@@ -5,8 +5,8 @@ use husky_ast::{AstIter, AstVariant, FieldAstKind, RawExpr, RawExprArena};
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
+use husky_word::{Paradigm, RootIdentifier};
 use infer_decl::DeclQueryGroup;
-use word::{Paradigm, RootIdentifier};
 
 use crate::*;
 

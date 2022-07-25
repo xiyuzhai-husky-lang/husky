@@ -1,9 +1,9 @@
 use crate::*;
 use husky_check_utils::should;
 use husky_entity_route::{RangedEntityRoute, SpatialArgument};
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::RangedCustomIdentifier;
 use husky_text::{TextPosition, TextRange};
-use husky_token::PrimitiveLiteralData;
 use thin_vec::ThinVec;
 use vm::*;
 

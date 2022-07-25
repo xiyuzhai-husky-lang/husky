@@ -36,8 +36,8 @@ impl LinkageKey {
             __StaticLinkageKey::TypeCall { ty } => LinkageKey::TypeCall {
                 ty_uid: entity_uid(db, ty),
             },
-            __StaticLinkageKey::Routine { routine } => LinkageKey::Routine {
-                routine_uid: entity_uid(db, routine),
+            __StaticLinkageKey::Routine { route } => LinkageKey::Routine {
+                routine_uid: entity_uid(db, route),
             },
             __StaticLinkageKey::Index { opd_tys: opd_uids } => LinkageKey::ElementAccess {
                 opd_uids: opd_uids

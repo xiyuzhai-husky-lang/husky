@@ -1,9 +1,9 @@
 use crate::*;
 use husky_print_utils::epin;
+use husky_word::{intern_word, RootIdentifier};
 use singleton::singleton;
 use std::sync::Arc;
 use thin_vec::thin_vec;
-use word::{intern_word, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EntityRouteMenu {

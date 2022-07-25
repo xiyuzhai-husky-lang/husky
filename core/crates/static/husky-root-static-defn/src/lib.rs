@@ -32,10 +32,10 @@ use husky_dev_utils::{__static_dev_src, dev_src};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualTy;
 use husky_vm_register_method::VMRegisterMethodX;
+use husky_word::RootIdentifier;
 use static_defn::StaticParameter;
 use static_defn::*;
 use vm::*;
-use word::RootIdentifier;
 
 pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
     match ident {

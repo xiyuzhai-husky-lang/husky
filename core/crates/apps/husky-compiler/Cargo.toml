@@ -26,4 +26,4 @@ husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-linkage-table = { path = "../../compile/husky-linkage-table" }
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }

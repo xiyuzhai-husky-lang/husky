@@ -286,7 +286,7 @@ impl<'a> EagerParser<'a> {
                         }) => Ok(Arc::new(match pattern_branch_variant {
                             RawPatternBranchVariant::Case { pattern } => ProcPatternBranch {
                                 variant: ProcPatternBranchVariant::Case {
-                                    pattern: pattern.clone(),
+                                    pattern: self.parse_proc_pattern(pattern)?,
                                 },
                                 stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
                                 range,
@@ -304,5 +304,12 @@ impl<'a> EagerParser<'a> {
                 })
                 .collect::<SemanticResult<Vec<_>>>()?,
         })
+    }
+
+    fn parse_proc_pattern(
+        &mut self,
+        raw_pattern: &RawCasePattern,
+    ) -> SemanticResult<ProcCasePattern> {
+        todo!()
     }
 }

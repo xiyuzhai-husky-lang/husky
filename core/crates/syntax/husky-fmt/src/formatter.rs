@@ -10,10 +10,10 @@ use husky_ast::{
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_print_utils::msg_once;
-use husky_token::PrimitiveLiteralData;
+use husky_word::{Paradigm, RootIdentifier, WordInterner};
 use vm::*;
-use word::{Paradigm, RootIdentifier, WordInterner};
 
 pub struct Formatter<'a> {
     db: &'a dyn EntitySyntaxQueryGroup,
@@ -184,7 +184,7 @@ impl<'a> Formatter<'a> {
         }
     }
 
-    fn fmt_ident(&mut self, ident: word::Identifier) {
+    fn fmt_ident(&mut self, ident: husky_word::Identifier) {
         self.result.add_assign(&ident)
     }
 

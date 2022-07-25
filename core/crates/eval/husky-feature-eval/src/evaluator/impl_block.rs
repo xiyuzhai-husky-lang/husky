@@ -12,11 +12,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             for stmt in block.stmts.iter() {
                 let value = this.eval_stmt(stmt)?;
                 match value {
-                    __EvalValue::Unreturned => (),
+                    __Register::Unreturned => (),
                     _ => return Ok(value),
                 }
             }
-            Ok(__EvalValue::Undefined)
+            Ok(__Register::Undefined)
         })
     }
 

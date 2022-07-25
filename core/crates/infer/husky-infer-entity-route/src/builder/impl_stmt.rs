@@ -146,20 +146,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             },
                         ..
                     }) => {
-                        if let Some(match_expr_ty) = opt_match_expr_ty {
-                            if match_expr_ty != pattern.ty {
-                                self.entity_route_sheet.extra_errors.push(InferError {
-                                    variant: InferErrorVariant::Original {
-                                        message: format!(
-                                            "match expression is of type `{:?}` but case pattern is of type `{:?}` instead",
-                                            match_expr_ty, pattern.ty
-                                        ),
-                                        range: pattern.range,
-                                    },
-                                    dev_src: dev_src!(),
-                                })
-                            }
-                        }
+                        opt_match_expr_ty
+                            .map(|match_expr_ty| self.infer_pattern(match_expr_ty, pattern));
                     }
                     AstVariant::Stmt(RawStmt {
                         variant:
@@ -178,6 +166,32 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 self.infer_stmts(children, opt_output_ty)
             }
         }
+    }
+
+    fn infer_pattern(&mut self, expectation: EntityRoutePtr, pattern: &RawCasePattern) {
+        match pattern.variant {
+            RawCasePatternVariant::PrimitiveValue(_) => todo!(),
+            RawCasePatternVariant::OneOf { ref subpatterns } => {
+                for subpattern in subpatterns {
+                    self.infer_pattern(expectation, subpattern)
+                }
+            }
+            RawCasePatternVariant::EnumLiteral(_) => todo!(),
+        }
+        // if let Some(match_expr_ty) = opt_match_expr_ty {
+        //     if match_expr_ty != pattern.ty {
+        //         self.entity_route_sheet.extra_errors.push(InferError {
+        //      variant: InferErrorVariant::Original {
+        //          message: format!(
+        //              "match expression is of type `{:?}` but case pattern is of type `{:?}` instead",
+        //              match_expr_ty, pattern.ty
+        //          ),
+        //          range: pattern.range,
+        //      },
+        //      dev_src: dev_src!(),
+        //  })
+        //     }
+        // }
     }
 
     fn infer_loop_bound(&mut self, boundary: RawBoundary) {

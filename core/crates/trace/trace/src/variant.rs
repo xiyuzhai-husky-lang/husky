@@ -1,9 +1,6 @@
 use husky_feature_gen::*;
-use vm::{
-    History, HistoryEntry, InstructionSheet, LoopFrameData, StackValueSnapshot, VMConditionBranch,
-    VMControl,
-};
-use word::CustomIdentifier;
+use husky_word::CustomIdentifier;
+use vm::{History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch, VMControl};
 
 use crate::*;
 

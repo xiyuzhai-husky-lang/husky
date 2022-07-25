@@ -6,9 +6,9 @@ use husky_atom::{
 };
 use husky_entity_route::*;
 use husky_text::RangedCustomIdentifier;
+use husky_word::IdentDict;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
-use word::IdentDict;
 
 impl<'a> dyn DeclQueryGroup + 'a {
     // pub fn parse_entity(

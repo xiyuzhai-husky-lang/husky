@@ -1,5 +1,5 @@
 use super::*;
-use vm::__EvalValue;
+use vm::__Register;
 
 #[derive(Debug, Clone)]
 pub struct Object {

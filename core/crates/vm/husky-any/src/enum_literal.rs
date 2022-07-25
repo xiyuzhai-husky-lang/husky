@@ -3,8 +3,8 @@ use husky_entity_route::EntityRoutePtr;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct EnumKindValue {
-    kind_idx: u8,
-    route: EntityRoutePtr,
+    pub kind_idx: u8,
+    pub route: EntityRoutePtr,
 }
 
 impl __StaticInfo for EnumKindValue {

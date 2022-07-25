@@ -1,5 +1,5 @@
+use husky_word::{CustomIdentifier, IdentDict};
 use vec_like::VecMap;
-use word::{CustomIdentifier, IdentDict};
 
 use crate::*;
 

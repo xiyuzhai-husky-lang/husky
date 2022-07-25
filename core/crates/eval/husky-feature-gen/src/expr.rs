@@ -1,16 +1,16 @@
 mod impl_opn;
 mod xml;
 
-use vm::__Linkage;
+use vm::{__Linkage, __Register};
 pub use xml::*;
 
 use husky_entity_route::EntityRouteKind;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
+use husky_word::RootIdentifier;
 use std::sync::Arc;
-use vm::{Binding, InstructionSheet, __EvalValue, __LinkageFp, __VMResult};
-use word::RootIdentifier;
+use vm::{Binding, InstructionSheet, __LinkageFp, __VMResult};
 
 use crate::{eval_id::FeatureEvalId, *};
 
@@ -105,7 +105,7 @@ pub enum FeatureExprVariant {
         has_this: bool,
         model_defn: Arc<EntityDefn>,
         opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
-        internal: __VMResult,
+        internal: __VMResult<__Register<'static>>,
     },
     RoutineCall {
         opds: Vec<Arc<FeatureExpr>>,
@@ -203,8 +203,8 @@ impl<'a> FeatureExprBuilder<'a> {
                 })
                 .unwrap(),
             LazyExprVariant::PrimitiveLiteral(value) => (
-                FeatureExprVariant::PrimitiveLiteral(value),
-                self.features.intern(Feature::PrimitiveLiteral(value)),
+                FeatureExprVariant::PrimitiveLiteral(todo!()),
+                self.features.intern(Feature::PrimitiveLiteral(todo!())),
             ),
             LazyExprVariant::Bracketed(ref bracketed_expr) => {
                 return self.new_expr(bracketed_expr.clone())

@@ -1,7 +1,7 @@
 use std::borrow::Cow;
 
 use husky_entity_route::RangedEntityRoute;
-use word::RootIdentifier;
+use husky_word::RootIdentifier;
 
 use super::*;
 

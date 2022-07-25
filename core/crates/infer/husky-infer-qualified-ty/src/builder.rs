@@ -7,9 +7,9 @@ use husky_ast::*;
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
+use husky_word::{Paradigm, RootIdentifier};
 use infer_contract::{ContractSheet, InferContract};
 use infer_decl::DeclQueryGroup;
-use word::{Paradigm, RootIdentifier};
 
 use crate::*;
 

@@ -14,7 +14,7 @@ upcast = { path = "../../../../common-rs/abstraction/upcast" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 husky-file = { path = "../../syntax/husky-file" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 thin-vec = { path = "../../../../forks/thin-vec" }

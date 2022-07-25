@@ -5,6 +5,7 @@ mod pattern_match;
 mod sheet;
 
 pub use condition_flow::*;
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_print_utils::p;
 pub use id::{InstructionId, InstructionSource};
 pub use opn::*;
@@ -16,8 +17,8 @@ use avec::Avec;
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_text::TextRange;
+use husky_word::{CustomIdentifier, IdentPairDict, Identifier};
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
-use word::{CustomIdentifier, IdentPairDict, Identifier};
 
 #[derive(Debug)]
 pub struct Instruction {
@@ -69,8 +70,8 @@ pub enum InstructionVariant {
         ty: EntityRoutePtr,
         varname: Identifier,
     },
-    PushPrimitiveLiteral {
-        value: EnumKindValue,
+    PushPrimitiveValue {
+        value: PrimitiveValueData,
         explicit: bool,
     },
     PushEnumKindLiteral(EnumKindValue),

@@ -15,7 +15,7 @@ vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 husky-file = { path = "../../syntax/husky-file" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 defn-head = { path = "../../syntax/defn-head" }

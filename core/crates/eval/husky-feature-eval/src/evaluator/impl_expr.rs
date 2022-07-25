@@ -5,10 +5,10 @@ use husky_feature_gen::*;
 use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
+use husky_word::IdentPairDict;
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
 use vm::__Linkage;
 use vm::*;
-use word::IdentPairDict;
 
 use super::FeatureEvaluator;
 
@@ -182,7 +182,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
                 let visual_data = self.visualize_feature(this);
-                Ok(__EvalValue::Owned(__OwnedValue::new(visual_data?)))
+                Ok(__Register::Owned(__OwnedValue::new(visual_data?)))
             }
             FeatureXmlExprVariant::Tag {
                 tag_kind,
@@ -201,7 +201,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         )
                         .collect::<__VMResult<IdentPairDict<_>>>()?,
                 };
-                Ok(__EvalValue::Owned(__OwnedValue::new(VisualData::from(
+                Ok(__Register::Owned(__OwnedValue::new(VisualData::from(
                     xml_value.into(),
                 ))))
             }

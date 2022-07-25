@@ -8,10 +8,10 @@ use husky_file::FilePtr;
 use husky_linkage_table::LinkageTableConfig;
 use husky_print_utils::*;
 use husky_root_static_defn::__resolve_root_defn;
+use husky_word::snake_to_dash;
 use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
 use std::path::{Path, PathBuf};
-use word::snake_to_dash;
 
 pub struct CompilerInstance {
     packages_dir: PathBuf,

@@ -1,9 +1,10 @@
 use crate::*;
 use husky_file::FilePtr;
 use husky_text::TextRange;
+use husky_word::{IdentDict, IdentPairDict};
+use husky_xml_syntax::XmlTagKind;
 use std::sync::Arc;
-use vm::{InstructionId, InstructionSource, XmlTagKind};
-use word::{IdentDict, IdentPairDict};
+use vm::{InstructionId, InstructionSource};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct XmlExpr {

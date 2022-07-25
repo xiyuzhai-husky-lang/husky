@@ -1,4 +1,4 @@
-use word::CustomIdentifier;
+use husky_word::CustomIdentifier;
 
 use crate::*;
 

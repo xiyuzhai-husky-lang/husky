@@ -1,7 +1,7 @@
 use super::*;
+use husky_word::{CustomIdentifier, IdentPairDict};
 use serde::Serialize;
 use std::{borrow::Cow, fmt::Write};
-use word::{CustomIdentifier, IdentPairDict};
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct VirtualStruct<'eval> {

@@ -1,4 +1,4 @@
-use word::Paradigm;
+use husky_word::Paradigm;
 
 use super::*;
 

@@ -3,7 +3,7 @@ use std::sync::atomic::AtomicUsize;
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_text::TextRange;
-use word::Identifier;
+use husky_word::Identifier;
 
 use crate::*;
 

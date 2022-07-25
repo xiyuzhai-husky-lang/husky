@@ -22,4 +22,4 @@ sync-utils = { path = "../../../../common-rs/utils/husky-sync-utils" }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 path-utils = { path = "../../../../common-rs/utils/husky-path-utils" }
-word = { path = "../word" }
+husky-word = { path = "../husky-word" }

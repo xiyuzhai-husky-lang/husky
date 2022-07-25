@@ -15,10 +15,10 @@ use husky_atom::{
 use husky_implement::{Implementable, ImplementationContext};
 use husky_instantiate::InstantiationContext;
 use husky_print_utils::{msg_once, p};
+use husky_word::IdentDict;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefnVariant, StaticParameter};
 use vec_like::VecMapEntry;
-use word::IdentDict;
 
 use crate::*;
 

@@ -1,8 +1,8 @@
 use std::collections::HashMap;
 
 use husky_check_utils::should;
-use vm::{EntityUid, __EvalRef, __EvalValue, __OwnedValue, __Register, __VMResult};
-use word::CustomIdentifier;
+use husky_word::CustomIdentifier;
+use vm::{EntityUid, __EvalRef, __OwnedValue, __Register, __Register, __VMResult};
 
 use super::*;
 
@@ -74,8 +74,8 @@ unsafe fn cache_raw_eval_value<'eval>(
 ) -> __VMResult<__Register<'eval>> {
     match raw {
         Ok(value) => match value {
-            __EvalValue::Copyable(value) => {
-                *raw = Ok(__EvalValue::Owned(
+            __Register::Copyable(value) => {
+                *raw = Ok(__Register::Owned(
                     value.any_ref().__clone_into_box_dyn().into(),
                 ))
             }
@@ -91,12 +91,12 @@ unsafe fn share_cached<'eval>(
 ) -> __VMResult<__Register<'eval>> {
     match cached {
         Ok(value) => Ok(match value {
-            __EvalValue::Copyable(value) => panic!(),
-            __EvalValue::Owned(value) => __EvalValue::EvalRef(__EvalRef(&*value.any_ptr())),
-            __EvalValue::EvalRef(value) => __EvalValue::EvalRef(*value),
-            __EvalValue::EvalPure(value) => __EvalValue::EvalPure(value.clone()),
-            __EvalValue::Undefined => __EvalValue::Undefined,
-            __EvalValue::Unreturned => __EvalValue::Unreturned,
+            __Register::Copyable(value) => panic!(),
+            __Register::Owned(value) => __Register::EvalRef(__EvalRef(&*value.any_ptr())),
+            __Register::EvalRef(value) => __Register::EvalRef(*value),
+            __Register::EvalPure(value) => __Register::EvalPure(value.clone()),
+            __Register::Undefined => __Register::Undefined,
+            __Register::Unreturned => __Register::Unreturned,
         }),
         Err(error) => Err(error.clone()),
     }

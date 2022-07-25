@@ -2,9 +2,9 @@ use entity_kind::TyKind;
 use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_text::RangedCustomIdentifier;
+use husky_word::CustomIdentifier;
 use static_defn::StaticSpatialParameter;
 use vec_like::VecMapEntry;
-use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SpatialParameter {

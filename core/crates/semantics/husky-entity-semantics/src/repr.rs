@@ -1,5 +1,5 @@
 use husky_ast::{AstIter, RawExprArena};
-use word::Paradigm;
+use husky_word::Paradigm;
 
 use super::*;
 

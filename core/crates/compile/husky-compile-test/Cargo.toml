@@ -20,7 +20,7 @@ upcast = { path = "../../../../common-rs/abstraction/upcast" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }
 husky-token = { path = "../../syntax/husky-token" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }

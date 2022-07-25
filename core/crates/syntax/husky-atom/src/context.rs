@@ -13,11 +13,11 @@ use husky_file::FilePtr;
 use husky_print_utils::p;
 use husky_text::*;
 use husky_token::AbsSemanticToken;
+use husky_word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 use map_collect::MapCollect;
 use static_defn::{StaticParameter, StaticSpatialParameter};
 use std::borrow::Cow;
 use thin_vec::{thin_vec, ThinVec};
-use word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
 
 #[derive(Clone, Copy)]
 pub enum AtomContextKind<'a> {

@@ -18,8 +18,8 @@ pub use sheet::*;
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
 use husky_trace_protocol::SampleId;
-use vm::{EntityUid, VMConfig, __AnyValueDyn, __EvalContext, __EvalRef, __EvalValue, __Register};
-use vm::{__EvalValueResult, __VMResult};
+use vm::{EntityUid, VMConfig, __EvalContext, __Register};
+use vm::{__RegistrableDyn, __VMResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,

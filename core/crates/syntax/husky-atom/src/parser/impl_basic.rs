@@ -1,6 +1,6 @@
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::RangedCustomIdentifier;
-use husky_token::PrimitiveLiteralData;
-use word::{Keyword, LiasonKeyword, Paradigm};
+use husky_word::{Keyword, LiasonKeyword, Paradigm};
 
 use super::*;
 

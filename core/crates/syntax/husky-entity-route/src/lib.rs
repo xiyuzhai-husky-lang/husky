@@ -18,8 +18,8 @@ pub use menu::{entity_route_menu, new_entity_route_menu, EntityRouteMenuSingleto
 
 use husky_file::FilePtr;
 use husky_text::{TextRange, TextRanged};
+use husky_word::{CustomIdentifier, Identifier, RootIdentifier};
 use thin_vec::{thin_vec, ThinVec};
-use word::{CustomIdentifier, Identifier, RootIdentifier};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct EntityRoute {
@@ -197,7 +197,7 @@ impl EntityRoute {
     }
 
     pub fn default_func_type(args: ThinVec<SpatialArgument>) -> Self {
-        EntityRoute::new_root(word::default_func_type(), args)
+        EntityRoute::new_root(husky_word::default_func_type(), args)
     }
 
     pub fn is_builtin(&self) -> bool {

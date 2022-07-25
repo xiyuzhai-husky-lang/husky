@@ -6,7 +6,7 @@ use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
-use vm::{Binding, ModelLinkage, __VMResult, __root::__NEQ_LINKAGE};
+use vm::{Binding, __ModelLinkage, __VMResult, __root::__NEQ_LINKAGE};
 use vm::{__Linkage, __root::__EQ_LINKAGE};
 
 impl<'a> FeatureExprBuilder<'a> {

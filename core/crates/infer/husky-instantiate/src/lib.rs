@@ -14,9 +14,9 @@ use husky_check_utils::should_eq;
 use husky_entity_route::*;
 use husky_entity_syntax::*;
 use husky_print_utils::p;
+use husky_word::CustomIdentifier;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
-use word::CustomIdentifier;
 
 pub trait Instantiable {
     type Target;

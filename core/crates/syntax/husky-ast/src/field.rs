@@ -1,5 +1,5 @@
 use crate::*;
-use word::Paradigm;
+use husky_word::Paradigm;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FieldAstKind {

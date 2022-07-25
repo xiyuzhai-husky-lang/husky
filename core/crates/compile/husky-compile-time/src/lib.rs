@@ -19,10 +19,10 @@ pub use husky_package_semantics::PackageQueryGroup;
 pub use husky_rust_code_gen::RustCodeGenQueryGroup;
 pub use husky_token::TokenQueryGroup;
 pub use husky_token::TokenSalsaQueryGroup;
+pub use husky_word::InternWord;
 pub use infer_contract::*;
 pub use infer_decl::*;
 pub use infer_total::*;
-pub use word::InternWord;
 
 use husky_check_utils::*;
 use husky_entity_route::{new_ty_route_cache, EntityRoutePtr};
@@ -58,7 +58,7 @@ pub struct HuskyCompileTime {
     storage: salsa::Storage<HuskyCompileTime>,
     file_interner: Arc<husky_file::FileInternerSingletonKeeper>,
     ty_cache: Arc<husky_entity_route::TyRouteCacheSingletonKeeper>,
-    word_interner: Arc<word::WordInternerSingletonKeeper>,
+    word_interner: Arc<husky_word::WordInternerSingletonKeeper>,
     entity_route_interner: Arc<husky_entity_route::EntityRouteInternerSingletonKeeper>,
     entity_route_menu: Arc<husky_entity_route::EntityRouteMenuSingletonKeeper>,
     live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
@@ -77,7 +77,7 @@ impl HuskyCompileTime {
         Self {
             storage: Default::default(),
             file_interner: husky_file::new_file_interner(),
-            word_interner: word::new_word_interner(),
+            word_interner: husky_word::new_word_interner(),
             entity_route_interner,
             live_docs,
             linkage_table,
@@ -90,7 +90,9 @@ impl HuskyCompileTime {
     }
 
     pub fn new_default(
-        __root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
+        __root_defn: fn(
+            ident: husky_word::RootIdentifier,
+        ) -> &'static static_defn::EntityStaticDefn,
     ) -> Self {
         Self::new(HuskyCompileTimeConfig {
             __resolve_root_defn: __root_defn,

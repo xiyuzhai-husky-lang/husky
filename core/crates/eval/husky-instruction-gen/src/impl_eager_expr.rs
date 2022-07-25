@@ -30,8 +30,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ))
             }
             EagerExprVariant::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
-                InstructionVariant::PushPrimitiveLiteral {
-                    value,
+                InstructionVariant::PushPrimitiveValue {
+                    value: todo!(),
                     explicit: true,
                 },
                 expr.clone(),
@@ -193,17 +193,14 @@ impl<'a> InstructionSheetBuilder<'a> {
                 if let Some(__Linkage) = self.db.compile_time().routine_linkage(routine.route) {
                     match __Linkage {
                         __Linkage::Member { .. } => todo!(),
-                        __Linkage::SpecificTransfer(linkage) => {
-                            self.push_instruction(Instruction::new(
-                                InstructionVariant::CallRoutine {
-                                    output_ty: expr.ty(),
-                                    nargs: opds.len().try_into().unwrap(),
-                                    linkage_fp: linkage,
-                                },
-                                expr.clone(),
-                            ))
-                        }
-                        __Linkage::GenericTransfer(_) => todo!(),
+                        __Linkage::Transfer(linkage) => self.push_instruction(Instruction::new(
+                            InstructionVariant::CallRoutine {
+                                output_ty: expr.ty(),
+                                nargs: opds.len().try_into().unwrap(),
+                                linkage_fp: linkage,
+                            },
+                            expr.clone(),
+                        )),
                         __Linkage::Model(_) => todo!(),
                     }
                 } else {
@@ -314,20 +311,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                             self.db.compile_time().type_call_linkage(ranged_ty.route)
                         {
                             match __Linkage {
-                                __Linkage::SpecificTransfer(linkage) => {
-                                    InstructionVariant::CallRoutine {
-                                        output_ty: expr.ty(),
-                                        nargs: opds.len().try_into().unwrap(),
-                                        linkage_fp: linkage,
-                                    }
-                                }
-                                __Linkage::GenericTransfer(linkage) => {
-                                    InstructionVariant::CallGenericRoutine {
-                                        output_ty: ranged_ty.route,
-                                        nargs: opds.len().try_into().unwrap(),
-                                        linkage_fp: linkage,
-                                    }
-                                }
+                                __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
+                                    output_ty: expr.ty(),
+                                    nargs: opds.len().try_into().unwrap(),
+                                    linkage_fp: linkage,
+                                },
                                 __Linkage::Member(_) => todo!(),
                                 __Linkage::Model(_) => todo!(),
                             }
@@ -356,18 +344,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(Instruction::new(
                     match linkage {
                         __Linkage::Member(_) => todo!(),
-                        __Linkage::SpecificTransfer(linkage) => InstructionVariant::CallRoutine {
+                        __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
                             linkage_fp: linkage,
                             nargs: opds.len().try_into().unwrap(),
                             output_ty,
                         },
-                        __Linkage::GenericTransfer(linkage) => {
-                            InstructionVariant::CallGenericRoutine {
-                                linkage_fp: linkage,
-                                nargs: opds.len().try_into().unwrap(),
-                                output_ty,
-                            }
-                        }
                         __Linkage::Model(_) => todo!(),
                     },
                     expr.clone(),
@@ -375,7 +356,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerOpnVariant::ValueCall => self.push_instruction(Instruction::new(
                 InstructionVariant::CallRoutine {
-                    linkage_fp: __VALUE_CALL_LINKAGE.specific(),
+                    linkage_fp: __VALUE_CALL_LINKAGE.transfer(),
                     nargs: opds.len().try_into().unwrap(),
                     output_ty: expr.ty(),
                 },
@@ -416,7 +397,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::BitXor => todo!(),
                         PureBinaryOpr::Div => todo!(),
                         PureBinaryOpr::Eq => InstructionVariant::CallRoutine {
-                            linkage_fp: __EQ_LINKAGE.specific(),
+                            linkage_fp: __EQ_LINKAGE.transfer(),
                             nargs: 2,
                             output_ty: expr.ty(),
                         },
@@ -426,7 +407,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::Less => todo!(),
                         PureBinaryOpr::Mul => todo!(),
                         PureBinaryOpr::Neq => InstructionVariant::CallRoutine {
-                            linkage_fp: __NEQ_LINKAGE.specific(),
+                            linkage_fp: __NEQ_LINKAGE.transfer(),
                             nargs: 2,
                             output_ty: expr.ty(),
                         },
@@ -483,16 +464,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                     nargs,
                     output_ty,
                 },
-                __Linkage::SpecificTransfer(linkage) => InstructionVariant::CallRoutine {
+                __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
                     output_ty,
                     nargs,
 
                     linkage_fp: linkage,
-                },
-                __Linkage::GenericTransfer(linkage) => InstructionVariant::CallGenericRoutine {
-                    linkage_fp: linkage,
-                    output_ty,
-                    nargs,
                 },
                 __Linkage::Model(_) => todo!(),
             }

@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_token::HuskyTokenKind;
-use word::{Identifier, Keyword};
+use husky_word::{Identifier, Keyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EntityRouteAliasTable {

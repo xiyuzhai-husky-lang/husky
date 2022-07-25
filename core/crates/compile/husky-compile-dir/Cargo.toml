@@ -9,4 +9,4 @@ rust-version = "1.56"
 [dependencies]
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }

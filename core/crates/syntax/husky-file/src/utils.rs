@@ -2,7 +2,7 @@ use std::path::{Path, PathBuf};
 
 use husky_check_utils::should_eq;
 use husky_print_utils::p;
-use word::CustomIdentifier;
+use husky_word::CustomIdentifier;
 
 use crate::line_map::LineMap;
 

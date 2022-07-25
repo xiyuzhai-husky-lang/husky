@@ -9,6 +9,15 @@ pub struct FuncPatternBranch {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum FuncPatternBranchVariant {
-    Case { pattern: RawCasePattern },
+    Case { pattern: FuncCasePattern },
     Default,
 }
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct FuncCasePattern {
+    pub ty: EntityRoutePtr,
+    pub variant: FuncCasePatternVariant,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum FuncCasePatternVariant {}

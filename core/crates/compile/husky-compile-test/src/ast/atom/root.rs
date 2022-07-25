@@ -3,7 +3,7 @@ use crate::*;
 use entity_kind::TyKind;
 use husky_atom::*;
 use husky_entity_route::EntityKind;
-use word::RootIdentifier;
+use husky_word::RootIdentifier;
 
 #[test]
 fn std_scope() {

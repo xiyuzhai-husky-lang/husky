@@ -13,10 +13,10 @@ use husky_eager_semantics::*;
 use husky_entity_route::*;
 use husky_entity_semantics::*;
 use husky_print_utils::*;
+use husky_word::*;
 use infer_decl::DeclQueryGroup;
 use std::sync::Arc;
 use vm::{Instruction, InstructionSheet};
-use word::*;
 
 pub fn new_visual_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,

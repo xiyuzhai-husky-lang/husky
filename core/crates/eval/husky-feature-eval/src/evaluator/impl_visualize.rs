@@ -7,9 +7,9 @@ use husky_feature_gen::*;
 use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
+use husky_word::IdentPairDict;
 use std::{iter::zip, sync::Arc};
 use vm::*;
-use word::IdentPairDict;
 
 impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
     pub fn visualize_feature(&mut self, this: FeatureRepr) -> __VMResult<VisualData> {

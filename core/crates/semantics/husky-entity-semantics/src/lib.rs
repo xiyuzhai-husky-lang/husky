@@ -39,6 +39,7 @@ use husky_liason_semantics::*;
 use husky_print_utils::{msg_once, p};
 use husky_text::*;
 use husky_visual_syntax::StaticVisualTy;
+use husky_word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 use map_collect::MapCollect;
 use module::module_defn;
 use semantics_error::*;
@@ -48,7 +49,6 @@ use std::sync::Arc;
 use thin_vec::{thin_vec, ThinVec};
 use vec_like::VecMapEntry;
 use vm::*;
-use word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
 pub struct EntityDefnUid {

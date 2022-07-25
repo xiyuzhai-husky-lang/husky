@@ -1,8 +1,8 @@
 use husky_entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
 use husky_entity_syntax::EntitySyntaxSalsaQueryGroup;
 use husky_print_utils::p;
+use husky_word::CustomIdentifier;
 use thin_vec::thin_vec;
-use word::CustomIdentifier;
 
 pub struct ImplementationContext<'a> {
     db: &'a dyn EntitySyntaxSalsaQueryGroup,

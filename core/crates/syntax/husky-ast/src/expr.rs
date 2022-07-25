@@ -3,8 +3,8 @@ mod precedence;
 mod stack;
 mod variant;
 
+pub use husky_word::Keyword;
 pub use variant::*;
-pub use word::Keyword;
 
 use crate::*;
 use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};

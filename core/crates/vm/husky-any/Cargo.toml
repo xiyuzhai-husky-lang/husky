@@ -13,7 +13,7 @@ path-utils = { path = "../../../../common-rs/utils/husky-path-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }

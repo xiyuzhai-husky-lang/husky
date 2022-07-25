@@ -25,10 +25,10 @@ use husky_entity_syntax::*;
 use husky_file::FilePtr;
 use husky_instantiate::*;
 use husky_liason_semantics::*;
+use husky_word::{CustomIdentifier, RootIdentifier};
 use infer_error::*;
 use static_defn::*;
 use std::sync::Arc;
-use word::{CustomIdentifier, RootIdentifier};
 
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
