@@ -80,12 +80,6 @@ where
     }
 }
 
-// impl HuskyDisplay for lsp_types::SemanticToken {
-//     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
-//         write!(result, "{:?}", self).unwrap();
-//     }
-// }
-
 // impl HuskyDisplay for lsp_types::FoldingRange {
 //     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
 //         write!(result, "{:?}", self).unwrap();

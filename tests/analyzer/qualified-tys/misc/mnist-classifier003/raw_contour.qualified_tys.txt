@@ -94,10 +94,7 @@ eager expr:
     48:19..48:35   pixel_pair_below       Copyable     b32
     50:21..50:37   Direction::RIGHT       Copyable     mnist_classifier003::raw_contour::Direction
     52:21..52:34   Direction::UP          Copyable     mnist_classifier003::raw_contour::Direction
-    55:25..55:70   (outward as i32) - (inward as i32)).bitmod(2)   InferError: InferError:
-src: crates/infer/husky-infer-decl/src/ty.rs:474
-kind:
-Original { message: "no method named `bitmod` for type `i32`", range: 55:61..55:67 }
+    55:25..55:70   (outward as i32) - (inward as i32)).bitmod(2)   InferError: expect not none
     56:11..56:27   raw_angle_change       InferError: expect not none
     58:13..58:29   raw_angle_change       InferError: expect not none
     60:14..60:15   1                      Copyable     i32
@@ -163,7 +160,10 @@ Original { message: "no method named `bitmod` for type `i32`", range: 55:61..55:
     117:5..120:6   Point2d(        (p0.x + p2.x) / 2.0,         (p0.y + p2.y) / 2.0,    )   Transient    mnist_classifier003::geom2d::Point2d
     123:18..123:30 []RawContour           EvalRef      Type
     123:18..123:32 []RawContour()         Transient    []mnist_classifier003::raw_contour::RawContour
-    124:31..124:45 BinaryGrid28()         InferError: expect not none
+    124:31..124:45 BinaryGrid28()         InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+kind:
+Original { message: "Unrecognized identifier `BinaryGrid28`", range: 124:31..124:43 }
     125:9..125:10  1                      Copyable     i32
     125:19..125:21 29                     Copyable     i32
     126:23..126:24 i                      Copyable     i32
@@ -259,7 +259,10 @@ Original { message: "no method named `bitmod` for type `i32`", range: 55:61..55:
     162:43..162:76 get_concave_middle_point(contour)   Transient    mnist_classifier003::geom2d::Point2d
     162:25..162:76 contour.lastx() = get_concave_middle_point(contour)   Copyable     void
     163:25..163:32 contour                RefMut       []mnist_classifier003::geom2d::Point2d
-    163:38..163:59 Point2dFromIJ28(i, j)   InferError: expect not none
+    163:38..163:59 Point2dFromIJ28(i, j)   InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+kind:
+Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 163:38..163:53 }
     163:25..163:60 contour.push(Point2dFromIJ28(i, j))   Copyable     void
     164:25..164:37 prev_streak2           RefMut       i32
     164:41..164:42 1                      Copyable     i32
@@ -280,7 +283,10 @@ Original { message: "no method named `bitmod` for type `i32`", range: 55:61..55:
     166:26..166:93 prev_angle_change1 == -1 and prev_streak1 > 0 and prev_streak1 == 1   Copyable     bool
     167:25..167:32 contour                RefMut       []mnist_classifier003::geom2d::Point2d
     167:25..167:40 contour.lastx()        RefMut       mnist_classifier003::geom2d::Point2d
-    167:43..167:64 Point2dFromIJ28(i, j)   InferError: expect not none
+    167:43..167:64 Point2dFromIJ28(i, j)   InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+kind:
+Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 167:43..167:58 }
     167:25..167:64 contour.lastx() = Point2dFromIJ28(i, j)   InferError: expect not none
     168:25..168:37 prev_streak2           RefMut       i32
     168:40..168:52 prev_streak1           Copyable     i32
@@ -305,7 +311,10 @@ Original { message: "no method named `bitmod` for type `i32`", range: 55:61..55:
     170:26..170:116prev_angle_change1 == -1 and prev_streak1 > 0 and current_streak == 1 and prev_streak1 > 1   Copyable     bool
     171:25..171:32 contour                RefMut       []mnist_classifier003::geom2d::Point2d
     171:25..171:40 contour.lastx()        RefMut       mnist_classifier003::geom2d::Point2d
-    171:43..171:64 Point2dFromIJ28(i, j)   InferError: expect not none
+    171:43..171:64 Point2dFromIJ28(i, j)   InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+kind:
+Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 171:43..171:58 }
     171:25..171:64 contour.lastx() = Point2dFromIJ28(i, j)   InferError: expect not none
     172:25..172:37 prev_streak2           RefMut       i32
     172:41..172:42 1                      Copyable     i32
@@ -314,7 +323,10 @@ Original { message: "no method named `bitmod` for type `i32`", range: 55:61..55:
     173:41..173:42 1                      Copyable     i32
     173:25..173:42 prev_streak1 = -1      Copyable     void
     175:25..175:32 contour                RefMut       []mnist_classifier003::geom2d::Point2d
-    175:38..175:59 Point2dFromIJ28(i, j)   InferError: expect not none
+    175:38..175:59 Point2dFromIJ28(i, j)   InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+kind:
+Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 175:38..175:53 }
     175:25..175:60 contour.push(Point2dFromIJ28(i, j))   Copyable     void
     176:25..176:37 prev_streak2           RefMut       i32
     176:40..176:52 prev_streak1           Copyable     i32
@@ -383,10 +395,7 @@ Original { message: "no method named `bitmod` for type `i32`", range: 55:61..55:
     203:16..203:64 prev_angle_change1 == -1 and current_streak == 1   Copyable     bool
     203:69..203:85 prev_streak1 > 0       Copyable     bool
     203:16..203:85 prev_angle_change1 == -1 and current_streak == 1 and prev_streak1 > 0   Copyable     bool
-    204:17..204:35 contour.pop_back()     InferError: InferError:
-src: crates/infer/husky-infer-decl/src/ty.rs:474
-kind:
-Original { message: "no method named `pop_back` for type `[]mnist_classifier003::geom2d::Point2d`", range: 204:25..204:33 }
+    204:17..204:35 contour.pop_back()     InferError: expect not none
     205:13..205:19 result                 RefMut       []mnist_classifier003::raw_contour::RawContour
     205:25..205:32 contour                Transient    []mnist_classifier003::geom2d::Point2d
     205:13..205:33 result.push(contour)   Copyable     void

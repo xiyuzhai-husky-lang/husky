@@ -23,6 +23,7 @@ pub struct SemanticTokenWrapper(SemanticToken);
 
 impl HuskyDisplay for SemanticTokenWrapper {
     fn write_inherent(&self, config: husky_display_utils::HuskyDisplayConfig, result: &mut String) {
-        todo!()
+        use std::fmt::Write;
+        write!(result, "{:?}", self.0).unwrap();
     }
 }
