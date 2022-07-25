@@ -65,7 +65,7 @@ pub trait __StaticInfo {
         std::any::TypeId::of::<Self::__StaticSelf>()
     }
 
-    fn __static_type_name__() -> std::borrow::Cow<'static, str>;
+    fn __static_type_name() -> std::borrow::Cow<'static, str>;
 }
 
 pub trait __Registrable:
@@ -136,7 +136,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn new_moved() -> __Register<'eval> {
+    pub fn new_moved() -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Moved,
             opt_data: None,
@@ -185,9 +185,24 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast<T>(&mut self) -> T
     where
-        T: 'eval,
+        T: __Registrable + 'eval,
     {
-        todo!()
+        match self.data_kind {
+            __RegisterDataKind::Value => todo!(),
+            __RegisterDataKind::Box => {
+                let this = std::mem::replace(self, __Register::new_moved());
+                let data = this.opt_data.unwrap() as *mut T;
+                let data = unsafe { Box::from_raw(data) };
+                println!("{}", T::__static_type_name());
+                *data
+            }
+            __RegisterDataKind::EvalRef => todo!(),
+            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+        }
     }
 
     pub unsafe fn downcast_temp<T>(&mut self) -> T {

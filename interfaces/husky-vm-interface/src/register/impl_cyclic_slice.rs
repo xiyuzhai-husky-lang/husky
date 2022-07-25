@@ -7,8 +7,8 @@ where
     T: __StaticInfo,
 {
     type __StaticSelf = CyclicSlice<'static, T::__StaticSelf>;
-    fn __static_type_name__() -> std::borrow::Cow<'static, str> {
-        format!("CyclicSlice<{}>", T::__static_type_name__()).into()
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+        format!("CyclicSlice<{}>", T::__static_type_name()).into()
     }
 }
 

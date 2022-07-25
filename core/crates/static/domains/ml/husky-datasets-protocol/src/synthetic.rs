@@ -109,7 +109,7 @@ impl<'eval> Serialize for SimpleSyntheticDataset<'eval> {
 impl<'a> __StaticInfo for SimpleSyntheticDataset<'a> {
     type __StaticSelf = SimpleSyntheticDataset<'static>;
 
-    fn __static_type_name__() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         todo!()
     }
 }

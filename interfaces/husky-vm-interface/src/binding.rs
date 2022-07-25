@@ -18,6 +18,19 @@ impl<'eval> __Register<'eval> {
         todo!()
     }
 
+    pub fn into_eval(self) -> __Register<'eval> {
+        match self.data_kind {
+            __RegisterDataKind::Value
+            | __RegisterDataKind::Box
+            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::Undefined => self,
+            __RegisterDataKind::TempRef => panic!(),
+            __RegisterDataKind::TempMut => panic!(),
+            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::Unreturned => panic!(),
+        }
+    }
+
     pub fn primitive(&self) -> PrimitiveValueData {
         todo!()
     }

@@ -35,7 +35,7 @@ impl<'eval> std::ops::DerefMut for VirtualVec<'eval> {
 impl<'eval> __StaticInfo for VirtualVec<'eval> {
     type __StaticSelf = VirtualVec<'static>;
 
-    fn __static_type_name__() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         "[]Any".into()
     }
 }

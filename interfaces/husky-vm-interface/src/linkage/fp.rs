@@ -2,6 +2,8 @@ mod field;
 mod index;
 mod method_elem;
 
+use std::panic::catch_unwind;
+
 use super::*;
 
 #[derive(Clone, Copy)]
@@ -12,13 +14,40 @@ pub struct __LinkageFp {
     ) -> __Register<'eval>,
     pub opt_fp: Option<*const ()>,
 }
+
+#[cfg(feature = "extra")]
 impl __LinkageFp {
     pub fn eval<'eval>(
         self,
         opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        arguments: &mut [__Register],
+        mut arguments: Vec<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
-        todo!()
+        catch_unwind(move || unsafe { (self.wrapper)(opt_ctx, &mut arguments).into_eval() })
+            .map_err(|e| {
+                todo!()
+                // EvalError::Normal {
+                //     message: format!(
+                //         "error: {e:?} when calling linkage with src = {}",
+                //         self.dev_src
+                //     ),
+                // }
+            })
+    }
+
+    pub fn call<'eval>(
+        self,
+        opt_ctx: Option<&dyn __EvalContext<'eval>>,
+        mut arguments: Vec<__Register<'eval>>,
+    ) -> __VMResult<__Register<'eval>> {
+        catch_unwind(move || unsafe { (self.wrapper)(opt_ctx, &mut arguments) }).map_err(|e| {
+            todo!()
+            // EvalError::Normal {
+            //     message: format!(
+            //         "error: {e:?} when calling linkage with src = {}",
+            //         self.dev_src
+            //     ),
+            // }
+        })
     }
 }
 

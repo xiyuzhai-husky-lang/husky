@@ -9,7 +9,7 @@ pub struct __CallFormValue {
 impl __StaticInfo for __CallFormValue {
     type __StaticSelf = Self;
 
-    fn __static_type_name__() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         todo!()
     }
 }
