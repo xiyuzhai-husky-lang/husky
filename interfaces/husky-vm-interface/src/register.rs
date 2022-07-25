@@ -1,4 +1,7 @@
-use std::marker::PhantomData;
+use std::{
+    marker::PhantomData,
+    panic::{RefUnwindSafe, UnwindSafe},
+};
 
 mod impl_cyclic_slice;
 mod impl_hashmap;
@@ -40,6 +43,7 @@ impl<'eval> Clone for __Register<'eval> {
                 __RegisterDataKind::TempMut => panic!(),
                 __RegisterDataKind::Moved => panic!(),
                 __RegisterDataKind::Undefined => todo!(),
+                __RegisterDataKind::Unreturned => panic!(),
             },
             phantom: PhantomData,
         }
@@ -64,7 +68,9 @@ pub trait __StaticInfo {
     fn __static_type_name__() -> std::borrow::Cow<'static, str>;
 }
 
-pub trait __Registrable: __StaticInfo + std::fmt::Debug + Send + Sync {
+pub trait __Registrable:
+    __StaticInfo + std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe
+{
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval>;
 }
 
@@ -78,7 +84,7 @@ where
     }
 }
 
-pub trait __RegistrableDyn: std::fmt::Debug + Send + Sync {
+pub trait __RegistrableDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
     unsafe fn drop_dyn(&mut self);
 }
 
@@ -146,6 +152,14 @@ impl<'eval> __Register<'eval> {
         }
     }
 
+    pub fn new_unreturned() -> __Register<'eval> {
+        __Register {
+            data_kind: __RegisterDataKind::Unreturned,
+            opt_data: None,
+            phantom: PhantomData,
+        }
+    }
+
     pub unsafe fn new_undefined_with_message() -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
@@ -169,7 +183,14 @@ impl<'eval> __Register<'eval> {
         // }
     }
 
-    pub unsafe fn downcast<T>(&mut self) -> T {
+    pub fn downcast<T>(&mut self) -> T
+    where
+        T: 'eval,
+    {
+        todo!()
+    }
+
+    pub unsafe fn downcast_temp<T>(&mut self) -> T {
         todo!()
     }
 
@@ -195,6 +216,7 @@ pub enum __RegisterDataKind {
     TempMut,
     Moved,
     Undefined,
+    Unreturned,
 }
 
 impl<'eval> Drop for __Register<'eval> {

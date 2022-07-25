@@ -22,13 +22,16 @@ impl HuskyTraceTime {
                 .eval_feature_repr(&main_feature_repr, sample_id0)
             {
                 Ok(_) => (),
-                Err(e) => match e {
-                    EvalError::FromBatch { sample_id, .. } => {
-                        todo!()
-                        // self.set_restriction_raw(Restriction::Specific { sample_id })
-                    }
-                    EvalError::Normal { .. } => (),
-                },
+                Err(e) => {
+                    todo!()
+                    //      match e {
+                    //     EvalError::FromBatch { sample_id, .. } => {
+                    //         todo!()
+                    //         // self.set_restriction_raw(Restriction::Specific { sample_id })
+                    //     }
+                    //     EvalError::Normal { .. } => (),
+                    // }
+                }
             }
             self.collect_new_trace_stalks()
         } else {

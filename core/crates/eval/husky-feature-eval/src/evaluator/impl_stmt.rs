@@ -7,16 +7,17 @@ use super::FeatureEvaluator;
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn eval_stmt(&mut self, stmt: &FeatureStmt) -> __VMResult<__Register<'eval>> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { .. } => Ok(__Register::Unreturned),
+            FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned()),
             FeatureLazyStmtVariant::Assert { ref condition } => {
-                if self.satisfies(condition)? {
-                    Ok(__Register::Unreturned)
-                } else {
-                    Err(EvalError::Normal {
-                        message: format!("assertion failed"),
-                    }
-                    .into())
-                }
+                todo!()
+                // if self.satisfies(condition)? {
+                //     Ok(__Register::Unreturned)
+                // } else {
+                //     Err(EvalError::Normal {
+                //         message: format!("assertion failed"),
+                //     }
+                //     .into())
+                // }
             }
             FeatureLazyStmtVariant::Return { ref result } => self.eval_expr(result),
             FeatureLazyStmtVariant::ReturnXml { ref result } => self.eval_xml_expr(result),
@@ -33,7 +34,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                         return self.eval_feature_lazy_block(&branch.block);
                     }
                 }
-                Ok(__Register::Undefined)
+                Ok(__Register::new_unreturned())
             }
         }
     }

@@ -14,3 +14,9 @@ pub enum PrimitiveLiteralData {
     B64(u64),
     Bool(bool),
 }
+
+impl Into<String> for PrimitiveLiteralData {
+    fn into(self) -> String {
+        todo!()
+    }
+}

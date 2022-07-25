@@ -8,16 +8,17 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         &mut self,
         block: &FeatureLazyBlock,
     ) -> __VMResult<__Register<'eval>> {
-        self.cache(EvalKey::Feature(block.feature), |this: &mut Self| {
-            for stmt in block.stmts.iter() {
-                let value = this.eval_stmt(stmt)?;
-                match value {
-                    __Register::Unreturned => (),
-                    _ => return Ok(value),
-                }
-            }
-            Ok(__Register::Undefined)
-        })
+        todo!()
+        // self.cache(EvalKey::Feature(block.feature), |this: &mut Self| {
+        //     for stmt in block.stmts.iter() {
+        //         let value = this.eval_stmt(stmt)?;
+        //         match value {
+        //             __Register::Unreturned => (),
+        //             _ => return Ok(value),
+        //         }
+        //     }
+        //     Ok(__Register::Undefined)
+        // })
     }
 
     pub(crate) fn eval_feature_func_block(
@@ -26,22 +27,23 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     ) -> __VMResult<__Register<'eval>> {
         let arguments = match block.opt_this {
             Some(ref this_repr) => {
-                vec![self.eval_feature_repr(this_repr)?.into_stack()]
+                vec![self.eval_feature_repr(this_repr)?.stack()]
             }
             None => vec![],
         };
-        let nargs = arguments.len().try_into().unwrap();
+        let nargs: u8 = arguments.len().try_into().unwrap();
         msg_once!("kwargs");
-        eval_fast(
-            self.db.upcast(),
-            unsafe { self.some_ctx() },
-            Some(&block.instruction_sheet),
-            block.opt_linkage,
-            block.ty.route,
-            arguments.into_iter(),
-            [].into_iter(),
-            nargs,
-            &self.evaluator_config.vm,
-        )
+        todo!()
+        // eval_fast(
+        //     self.db.upcast(),
+        //     unsafe { self.some_ctx() },
+        //     Some(&block.instruction_sheet),
+        //     block.opt_linkage,
+        //     block.ty.route,
+        //     arguments.into_iter(),
+        //     [].into_iter(),
+        //     nargs,
+        //     &self.evaluator_config.vm,
+        // )
     }
 }

@@ -3,7 +3,7 @@ use husky_entity_semantics::StoreEntityRoute;
 use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr, TrainModel};
 use std::time::Instant;
 use upcast::Upcast;
-use vm::{InterpreterQueryGroup, VMConfig, __OwnedValue, __Register, __VMResult};
+use vm::{InterpreterQueryGroup, VMConfig, __Register, __VMResult};
 
 impl TrainModel for HuskyEvalTime {
     fn train(
@@ -11,7 +11,7 @@ impl TrainModel for HuskyEvalTime {
         model: vm::__ModelLinkage,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         opds: &[Arc<FeatureExpr>],
-    ) -> vm::__VMResult {
+    ) -> vm::__VMResult<__Register<'static>> {
         const MAX_SAMPLE_LEN: usize = 1000;
         let session = self.session();
         let dev_division = session.dev();
@@ -30,14 +30,18 @@ impl TrainModel for HuskyEvalTime {
                 .iter()
                 .map(|opd| self.eval_feature_expr(opd, sample_id))
                 .collect::<__VMResult<Vec<_>>>()
-                .map_err(|e| (sample_id, e))?;
+                .map_err(|e| {
+                    todo!()
+                    // (sample_id, e)
+                })?;
             training_data.push((values, labeled_data.label))
         }
-        let train_result = model.train_dyn(training_data);
-        println!(
-            "{} milliseconds elapsed for evaluating first 1000 in naive train",
-            now.elapsed().as_millis(),
-        );
-        train_result
+        todo!()
+        // let train_result = model.train_dyn(training_data);
+        // println!(
+        //     "{} milliseconds elapsed for evaluating first 1000 in naive train",
+        //     now.elapsed().as_millis(),
+        // );
+        // train_result
     }
 }

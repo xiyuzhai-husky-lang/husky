@@ -48,7 +48,7 @@ impl EntityRouteStore {
         self.internal.write(|internal: &mut Vec<EntityRoutePtr>| {
             let raw = internal.len();
             internal.push(entity_route);
-            EntityUid { raw }
+            unsafe { EntityUid::from_raw(raw) }
         })
     }
 

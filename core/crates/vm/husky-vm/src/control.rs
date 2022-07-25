@@ -30,7 +30,7 @@ impl<'eval> VMControl<'eval> {
     pub(crate) fn snapshot(&self) -> ControlSnapshot<'eval> {
         match self {
             VMControl::None => ControlSnapshot::None,
-            VMControl::Return(value) => ControlSnapshot::Return(value.__snapshot__()),
+            VMControl::Return(value) => ControlSnapshot::Return(value.snapshot()),
             VMControl::Break => ControlSnapshot::Break,
             VMControl::Err(e) => ControlSnapshot::Err(e.clone()),
         }

@@ -10,22 +10,23 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         &mut self,
         repr: &FeatureRepr,
     ) -> __VMResult<__Register<'eval>> {
-        let result = match repr {
-            FeatureRepr::Value { value, .. } => Ok(__Register::EvalRef(value.short())),
-            FeatureRepr::Expr(expr) => self.eval_expr(expr),
-            FeatureRepr::LazyBlock(block) => self.eval_feature_lazy_block(block),
-            FeatureRepr::FuncBlock(block) => self.eval_feature_func_block(block),
-            FeatureRepr::ProcBlock(_) => todo!(),
-        };
-        if let Ok(ref value) = result {
-            if value != &__Register::Undefined && value != &__Register::Unreturned {
-                should!(self
-                    .db
-                    .compile_time()
-                    .is_implicitly_castable(value.__ty__(), repr.ty()))
-            }
-        }
-        result
+        todo!()
+        // let result = match repr {
+        //     FeatureRepr::Value { value, .. } => Ok(__Register::EvalRef(value.short())),
+        //     FeatureRepr::Expr(expr) => self.eval_expr(expr),
+        //     FeatureRepr::LazyBlock(block) => self.eval_feature_lazy_block(block),
+        //     FeatureRepr::FuncBlock(block) => self.eval_feature_func_block(block),
+        //     FeatureRepr::ProcBlock(_) => todo!(),
+        // };
+        // if let Ok(ref value) = result {
+        //     if value != &__Register::Undefined && value != &__Register::Unreturned {
+        //         should!(self
+        //             .db
+        //             .compile_time()
+        //             .is_implicitly_castable(value.ty(), repr.ty()))
+        //     }
+        // }
+        // result
     }
 
     pub(crate) fn eval_feature_repr_cached(
@@ -35,7 +36,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         let eval_key = EvalKey::Feature(repr.feature());
         if let Some(result) = self.sheet.cached_value(eval_key) {
             if let Ok(ref value) = result {
-                should_eq!(value.__ty__(), repr.ty())
+                should_eq!(value.ty(), repr.ty())
             }
             result
         } else {

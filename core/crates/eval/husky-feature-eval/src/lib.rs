@@ -8,13 +8,14 @@ use husky_trace_protocol::{SampleId, VisualData};
 pub use session::*;
 
 use husky_feature_gen::*;
+use husky_vm_register_method::VMRegisterMethodX;
 use std::{
     borrow::Cow,
     collections::HashMap,
     sync::{Arc, Mutex},
 };
 use upcast::Upcast;
-use vm::{VMConfig, __Register, __RegisterResult, __VMResult};
+use vm::{VMConfig, __Register, __VMResult};
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;
@@ -102,7 +103,8 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
                     )? {
                         return Ok(false);
                     }
-                    self.eval_feature_stmt(stmt, sample_id)? == __Register::Unreturned
+                    self.eval_feature_stmt(stmt, sample_id)? == todo!()
+                    // __Register::Unreturned
                 }
                 FeatureBranchIndicatorVariant::AfterConditionNotMet {
                     ref opt_parent,

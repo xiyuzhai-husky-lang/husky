@@ -31,7 +31,7 @@ pub struct Session<'eval> {
 
 #[derive(Debug)]
 pub struct ValidationReport<'sess> {
-    predictions: Vec<__RegisterResult<'sess>>,
+    predictions: Vec<__VMResult<__Register<'sess>>>,
 }
 
 impl<'eval> Default for ValidationReport<'eval> {
@@ -49,19 +49,20 @@ impl<'eval> Session<'eval> {
         vm_config: &VMConfig,
     ) -> __VMResult<Self> {
         let config = package.config.clone();
-        let dataset: Dataset = eval_fast(
-            db.upcast(),
-            None,
-            Some(&db.dataset_config_instruction_sheet(package.main_defn.file)),
-            None,
-            RootIdentifier::DatasetType.into(),
-            [].into_iter(),
-            [].into_iter(),
-            0,
-            vm_config,
-        )?
-        .owned()?
-        .downcast_move()?;
+        let dataset: Dataset = unsafe {
+            eval_fast(
+                db.upcast(),
+                None,
+                Some(&db.dataset_config_instruction_sheet(package.main_defn.file)),
+                None,
+                RootIdentifier::DatasetType.into(),
+                [].into_iter(),
+                [].into_iter(),
+                0,
+                vm_config,
+            )?
+            .downcast()
+        };
         Ok(Self {
             dev: Division::new(dataset.dev_loader()),
             val: Division::new(dataset.val_loader()),

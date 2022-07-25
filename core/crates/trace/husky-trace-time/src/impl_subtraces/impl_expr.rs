@@ -18,7 +18,7 @@ impl HuskyTraceTime {
             &mut Self,
             &A,
             &'static str,
-        ) -> (TraceId, __VMResult<__Register<'eval>>),
+        ) -> (TraceId, __VMResult<__Register<'static>>),
     ) -> Vec<TraceId> {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
             // let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
@@ -64,7 +64,7 @@ impl HuskyTraceTime {
                 instruction_sheet,
                 func_input_values
                     .into_iter()
-                    .map(|value| value.into_stack().unwrap())
+                    .map(|value| value.stack())
                     .into(),
                 self.vm_config(),
             );

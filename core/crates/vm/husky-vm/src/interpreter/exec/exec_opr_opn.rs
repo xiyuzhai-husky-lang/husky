@@ -36,9 +36,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         binary_assign(opt_binary_opr, &mut lopd, ropd);
                     }
                     Mode::TrackHistory => {
-                        let before = lopd.__eval__();
+                        let before = lopd.eval();
                         binary_assign(opt_binary_opr, &mut lopd, ropd);
-                        let after = lopd.__eval__();
+                        let after = lopd.eval();
                         match ins.variant {
                             InstructionVariant::OprOpn {
                                 this_ty,
@@ -70,7 +70,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     Mode::TrackHistory => self.history.write(
                         ins,
                         HistoryEntry::PureExpr {
-                            result: Ok(output.__eval__()),
+                            result: Ok(output.eval()),
                         },
                     ),
                 }
@@ -98,9 +98,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         incr(&mut opd);
                     }
                     Mode::TrackHistory => {
-                        let before = opd.__eval__();
+                        let before = opd.eval();
                         incr(&mut opd);
-                        let after = opd.__eval__();
+                        let after = opd.eval();
                         match ins.variant {
                             InstructionVariant::OprOpn {
                                 this_ty,
@@ -132,9 +132,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         decr(&mut opd);
                     }
                     Mode::TrackHistory => {
-                        let before = opd.__eval__();
+                        let before = opd.eval();
                         decr(&mut opd);
-                        let after = opd.__eval__();
+                        let after = opd.eval();
                         match ins.variant {
                             InstructionVariant::OprOpn {
                                 this_ty,

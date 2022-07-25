@@ -1,6 +1,5 @@
 use husky_datasets_protocol::{DataLoader, LabeledData};
 use husky_feature_gen::*;
-use vm::__EvalRef;
 
 use crate::*;
 
@@ -44,13 +43,14 @@ impl<'eval> Division<'eval> {
         feature: FeaturePtr,
         sample_id: SampleId,
         value: &__Register<'static>,
-    ) -> __EvalRef<'static>
+    ) -> __Register<'static>
     where
         'eval: 'static,
     {
-        self.sheets[sample_id.0]
-            .cache(EvalKey::Feature(feature), Ok(value.clone()))
-            .unwrap()
-            .eval_ref()
+        todo!()
+        // self.sheets[sample_id.0]
+        //     .cache(EvalKey::Feature(feature), Ok(value.clone()))
+        //     .unwrap()
+        //     .eval_ref()
     }
 }

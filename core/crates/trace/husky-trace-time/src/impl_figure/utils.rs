@@ -39,7 +39,10 @@ impl HuskyTraceTime {
             ControlSnapshot::None => FigureCanvasData::void(),
             ControlSnapshot::Return(_) => todo!(),
             ControlSnapshot::Break => todo!(),
-            ControlSnapshot::Err(e) => e.clone().into(),
+            ControlSnapshot::Err(e) => {
+                todo!()
+                // e.clone().into()
+            }
         }
     }
 }

@@ -72,13 +72,13 @@ impl<'eval> VMStack<'eval> {
             values: self
                 .values
                 .iter_mut()
-                .map(|value| value.__snapshot__())
+                .map(|value| value.snapshot())
                 .collect(),
         }
     }
 
     pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> __Register<'eval> {
-        self.values[stack_idx.raw()].__eval__()
+        self.values[stack_idx.raw()].eval()
     }
 
     pub(crate) fn len(&self) -> usize {
@@ -97,7 +97,7 @@ impl<'eval> VMStack<'eval> {
     }
 
     pub(crate) fn eval_top(&mut self) -> __Register<'eval> {
-        self.values.last().unwrap().__eval__()
+        self.values.last().unwrap().eval()
     }
 
     pub(crate) fn truncate(&mut self, len: usize) {

@@ -20,7 +20,10 @@ impl<'a> TraceTokenBuilder<'a> {
             None
         };
         match expr.variant {
-            FeatureExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
+            FeatureExprVariant::PrimitiveLiteral(_) => match expr.expr.variant {
+                LazyExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
+                _ => panic!(),
+            },
             FeatureExprVariant::PrimitiveBinaryOpr {
                 opr,
                 ref lopd,

@@ -1,4 +1,5 @@
 use husky_signal::Signalable;
+use husky_vm_interface::__VMError;
 
 use super::*;
 
@@ -50,6 +51,18 @@ impl TraceTokenKind {
             TraceTokenKind::Fade => "fade",
             TraceTokenKind::Error => "error",
         }
+    }
+}
+
+impl From<__VMError> for TraceTokenData {
+    fn from(_: __VMError) -> Self {
+        todo!()
+    }
+}
+
+impl<'eval> From<__Register<'eval>> for TraceTokenData {
+    fn from(_: __Register<'eval>) -> Self {
+        todo!()
     }
 }
 
