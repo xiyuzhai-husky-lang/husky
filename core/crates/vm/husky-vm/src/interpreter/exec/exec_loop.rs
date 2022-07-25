@@ -61,7 +61,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 ..
             } => {
                 let final_bound_shifted = {
-                    let final_bound = self.stack.pop().primitive().take_i32();
+                    let final_bound = self.stack.pop().downcast_value::<i32>();
                     match final_boundary_kind {
                         BoundaryKind::UpperOpen => final_bound - 1,
                         BoundaryKind::UpperClosed => final_bound,
@@ -70,7 +70,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                 };
                 let initial_bound_shifted = {
-                    let initial_bound = self.stack.pop().primitive().take_i32();
+                    let initial_bound = self.stack.pop().downcast_value::<i32>();
                     match initial_boundary_kind {
                         BoundaryKind::UpperOpen => initial_bound - 1,
                         BoundaryKind::UpperClosed => initial_bound,
@@ -112,9 +112,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 step,
                 ..
             } => {
-                let initial_value = self.stack.value(frame_varidx).primitive().take_i32();
+                let initial_value = self.stack.value(frame_varidx).downcast_value::<i32>();
                 let final_bound_shifted = {
-                    let final_bound = self.stack.pop().primitive().take_i32();
+                    let final_bound = self.stack.pop().downcast_value::<i32>();
                     match final_boundary_kind {
                         BoundaryKind::UpperOpen => final_bound - 1,
                         BoundaryKind::UpperClosed => final_bound,
@@ -130,7 +130,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     let frame_control = self.exec_all(body, mode);
                     exec_after_each_frame(
                         self,
-                        self.stack.value(frame_varidx).primitive().take_i32(),
+                        self.stack.value(frame_varidx).downcast_value::<i32>(),
                         &frame_control,
                     );
                     self.stack.truncate(stack_len);

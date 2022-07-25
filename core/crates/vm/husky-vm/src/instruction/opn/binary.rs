@@ -1,4 +1,4 @@
-use husky_print_utils::p;
+use husky_print_utils::{msg_once, p};
 
 use super::*;
 
@@ -78,6 +78,7 @@ impl PureBinaryOpr {
         lopd: PrimitiveValueData,
         ropd: PrimitiveValueData,
     ) -> __VMResult<PrimitiveValueData> {
+        msg_once!("deprecated");
         macro_rules! no_such_opn {
             () => {{
                 todo!()

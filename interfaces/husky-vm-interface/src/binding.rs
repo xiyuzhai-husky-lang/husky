@@ -32,8 +32,9 @@ impl<'eval> __Register<'eval> {
     }
 
     pub fn primitive(&self) -> PrimitiveValueData {
-        todo!()
+        unsafe { (*self.opt_data.unwrap()).primitive(self.data_kind) }
     }
+
     pub fn bind_copy(&self) -> __Register<'eval> {
         todo!()
     }

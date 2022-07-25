@@ -177,7 +177,7 @@ unsafe fn generic_vec_index_copy<'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let this_value: &VirtualVec = values[0].downcast_temp_ref();
-    let i: usize = values[1].primitive().take_i32() as usize;
+    let i: usize = values[1].downcast_value::<i32>() as usize;
     if i >= this_value.len() {
         todo!()
     }
@@ -189,7 +189,7 @@ unsafe fn generic_vec_index_eval_ref<'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let this_value: &'eval VirtualVec = values[0].downcast_eval_ref();
-    let i: usize = values[1].primitive().take_i32() as usize;
+    let i: usize = values[1].downcast_value::<i32>() as usize;
     this_value[i].bind_eval_ref()
     // match values[0] {
     //     __TempValue::EvalRef(_) => __TempValue::EvalRef(__EvalRef(unsafe { &*any_ptr })),
@@ -203,7 +203,7 @@ unsafe fn generic_vec_index_temp_ref<'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let this_value: &VirtualVec = values[0].downcast_temp_ref();
-    let i: usize = values[1].primitive().take_i32() as usize;
+    let i: usize = values[1].downcast_value::<i32>() as usize;
     this_value[i].bind_temp_ref()
 }
 
@@ -211,7 +211,7 @@ unsafe fn generic_vec_index_temp_mut<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let i: usize = values[1].primitive().take_i32() as usize;
+    let i: usize = values[1].downcast_value::<i32>() as usize;
     let this_value: &mut VirtualVec = values[0].downcast_temp_mut();
     if i >= this_value.len() {
         todo!()

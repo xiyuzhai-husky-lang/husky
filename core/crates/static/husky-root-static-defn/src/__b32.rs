@@ -69,8 +69,8 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-            let b = values[0].primitive().take_b32();
-            let i = values[1].primitive().take_i32();
+            let b = values[0].downcast_value::<u32>();
+            let i = values[1].downcast_value::<i32>();
             let last_bits = b & ((1 << i) - 1);
             last_bits.to_register()
         }, some u32::last_bits)),
