@@ -165,7 +165,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::Return { output_ty } => {
-                    let return_value = self.stack.pop().eval();
+                    let return_value = self.stack.pop().into_eval();
                     msg_once!("ugly");
                     if output_ty.kind
                         != (EntityRouteKind::Root {
@@ -272,9 +272,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         match linkage {
             __Linkage::Member { .. } => todo!(),
             __Linkage::Transfer(linkage) => {
-                let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
+                let arguments = self.stack.drain(nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                linkage.eval(self.opt_ctx, &mut arguments)
+                linkage.eval(self.opt_ctx, arguments)
             }
             __Linkage::Model(_) => todo!(),
         }

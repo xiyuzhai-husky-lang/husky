@@ -124,7 +124,7 @@ impl Serialize for BinaryGrid28 {
 impl __StaticInfo for BinaryGrid28 {
     type __StaticSelf = Self;
 
-    fn __static_type_name__() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         todo!()
     }
 }

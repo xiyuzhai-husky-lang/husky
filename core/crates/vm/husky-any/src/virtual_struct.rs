@@ -76,7 +76,7 @@ impl<'eval> Serialize for VirtualStruct<'eval> {
 impl<'eval> __StaticInfo for VirtualStruct<'eval> {
     type __StaticSelf = VirtualStruct<'static>;
 
-    fn __static_type_name__() -> Cow<'static, str> {
+    fn __static_type_name() -> Cow<'static, str> {
         "AnyStruct".into()
     }
 }

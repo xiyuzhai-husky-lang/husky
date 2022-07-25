@@ -3,7 +3,7 @@ use crate::*;
 impl __StaticInfo for i32 {
     type __StaticSelf = Self;
 
-    fn __static_type_name__() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "i32".into()
     }
 }
@@ -16,7 +16,7 @@ impl __Registrable for i32 {
 
 impl __StaticInfo for () {
     type __StaticSelf = Self;
-    fn __static_type_name__() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "void".into()
     }
 }
@@ -29,7 +29,7 @@ impl __Registrable for () {
 
 impl __StaticInfo for f32 {
     type __StaticSelf = Self;
-    fn __static_type_name__() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "f32".into()
     }
 }
@@ -42,7 +42,7 @@ impl __Registrable for f32 {
 
 impl __StaticInfo for u32 {
     type __StaticSelf = Self;
-    fn __static_type_name__() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "u32".into()
     }
 }
@@ -55,7 +55,7 @@ impl __Registrable for u32 {
 
 impl __StaticInfo for u64 {
     type __StaticSelf = Self;
-    fn __static_type_name__() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "u64".into()
     }
 }
@@ -68,7 +68,7 @@ impl __Registrable for u64 {
 
 impl __StaticInfo for bool {
     type __StaticSelf = Self;
-    fn __static_type_name__() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "bool".into()
     }
 }

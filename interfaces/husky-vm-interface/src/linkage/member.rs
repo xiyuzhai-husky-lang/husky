@@ -9,6 +9,22 @@ pub struct __MemberLinkage {
     pub move_fp: __LinkageFp,
 }
 
+#[cfg(feature = "binding")]
+use husky_vm_binding::Binding;
+
+#[cfg(feature = "binding")]
+impl __MemberLinkage {
+    pub fn bind(&self, binding: Binding) -> __LinkageFp {
+        match binding {
+            Binding::EvalRef => self.eval_ref_fp,
+            Binding::TempRef => self.temp_ref_fp,
+            Binding::TempRefMut => self.temp_mut_fp,
+            Binding::Move => self.move_fp,
+            Binding::Copy => self.copy_fp,
+        }
+    }
+}
+
 #[macro_export]
 macro_rules! method_elem_linkage {
     ($Type: ty, $method_name: ident) => {{

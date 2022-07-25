@@ -28,7 +28,7 @@ impl<'eval> std::ops::DerefMut for GenericCyclicSlice<'eval> {
 impl<'eval> __StaticInfo for GenericCyclicSlice<'eval> {
     type __StaticSelf = GenericCyclicSlice<'static>;
 
-    fn __static_type_name__() -> std::borrow::Cow<'static, str> {
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
         "CyclicSlice<Any>".into()
     }
 }

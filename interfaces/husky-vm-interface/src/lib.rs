@@ -4,6 +4,8 @@ mod error;
 mod layout;
 mod linkage;
 mod register;
+#[cfg(test)]
+mod tests;
 
 pub use context::*;
 pub use error::*;

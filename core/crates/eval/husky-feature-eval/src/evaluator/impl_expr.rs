@@ -90,8 +90,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if opds.len() > 2 {
                     todo!()
                 }
-                let mut values = vec![self.eval_expr(&opds[0])?, self.eval_expr(&opds[1])?.stack()];
-                linkage.eval(unsafe { self.some_ctx() }, &mut values)
+                let values = vec![self.eval_expr(&opds[0])?, self.eval_expr(&opds[1])?.stack()];
+                linkage.eval(unsafe { self.some_ctx() }, values)
             }
             FeatureExprVariant::StructDerivedLazyField {
                 ref this,
@@ -153,7 +153,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
             let this_value = this_value.stack();
-            linkage.eval(unsafe { self.some_ctx() }, &mut vec![this_value])
+            linkage.eval(unsafe { self.some_ctx() }, vec![this_value])
         } else {
             let this_value = self.eval_feature_repr(this)?;
             match catch_unwind(move || unsafe {

@@ -17,7 +17,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             //     _ => (),
             // }
         }
-        let output = f.eval(self.opt_ctx, &mut arguments)?;
+        let output = f.eval(self.opt_ctx, arguments)?;
         msg_once!("ugly");
         if output_ty.kind
             != (EntityRouteKind::Root {
