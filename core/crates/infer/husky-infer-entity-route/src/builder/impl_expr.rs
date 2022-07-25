@@ -5,6 +5,7 @@ use husky_ast::RawExprRange;
 use husky_dev_utils::dev_src;
 use husky_entity_route::entity_route_menu;
 use husky_text::*;
+use husky_token::PrimitiveLiteralData;
 use infer_decl::TraitMemberImplDecl;
 use thin_vec::{thin_vec, ThinVec};
 use vm::*;
@@ -49,7 +50,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 dev_src: dev_src!(),
             }),
             RawExprVariant::Entity { route, kind } => self.infer_entity(route, kind),
-            RawExprVariant::CopyableLiteral(value) => Ok(value.ty().into()),
+            RawExprVariant::PrimitiveLiteral(value) => {
+                self.infer_primitive_literal(expectation, value)
+            }
             RawExprVariant::Bracketed(expr) => {
                 derived_not_none!(self.infer_expr(expr, expectation))
             }
@@ -129,6 +132,14 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             EntityKind::Feature => self.db.feature_decl(entity_route)?.ty,
             EntityKind::Main => panic!(),
         })
+    }
+
+    fn infer_primitive_literal(
+        &mut self,
+        expectation: Option<EntityRoutePtr>,
+        value: PrimitiveLiteralData,
+    ) -> InferResult<EntityRoutePtr> {
+        todo!()
     }
 
     fn infer_opn(

@@ -2,12 +2,12 @@ use crate::*;
 use husky_dev_utils::*;
 
 pub static __EQ_LINKAGE: __Linkage = transfer_linkage!(
-    |_, __values| unsafe { (__values[0].__eq__(&__values[1])).__to_register__() },
+    |_, __values| unsafe { (__values[0] == __values[1]).__to_register__() },
     none
 );
 
 pub static __NEQ_LINKAGE: __Linkage = transfer_linkage!(
-    |_, __values| unsafe { (!__values[0].__eq__(&__values[1])).__to_register__() },
+    |_, __values| unsafe { (__values[0] != __values[1]).__to_register__() },
     none
 );
 

@@ -106,32 +106,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::CallSpecificRoutine {
+                InstructionVariant::CallRoutine {
                     linkage_fp: linkage,
                     nargs,
                     output_ty,
                 } => {
                     let control = self.call_specific_routine(linkage, nargs, output_ty).into();
-                    match mode {
-                        Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                result: match control {
-                                    VMControl::Err(ref e) => Err(e.clone().into()),
-                                    _ => Ok(self.stack.eval_top()),
-                                },
-                            },
-                        ),
-                    }
-                    control
-                }
-                InstructionVariant::CallGenericRoutine {
-                    linkage_fp: linkage,
-                    nargs,
-                    output_ty,
-                } => {
-                    let control = self.call_generic_transfer(linkage, nargs, output_ty).into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -177,7 +157,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
                             let output = self.stack.eval_top();
-                            should_eq!(output.__ty__(), ty);
+                            should_eq!(output.ty(), ty);
                             self.history
                                 .write(ins, HistoryEntry::PureExpr { result: Ok(output) })
                         }
@@ -192,7 +172,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             ident: RootIdentifier::DatasetType,
                         })
                     {
-                        should_eq!(output_ty, return_value.__ty__());
+                        should_eq!(output_ty, return_value.ty());
                     }
                     VMControl::Return(return_value)
                 }

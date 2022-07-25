@@ -78,7 +78,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             field_ident.ident,
                             field_binding,
                         ) {
-                            InstructionVariant::CallSpecificRoutine {
+                            InstructionVariant::CallRoutine {
                                 output_ty: expr.ty(),
                                 nargs: 1,
                                 linkage_fp: linkage,
@@ -195,7 +195,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         __Linkage::Member { .. } => todo!(),
                         __Linkage::SpecificTransfer(linkage) => {
                             self.push_instruction(Instruction::new(
-                                InstructionVariant::CallSpecificRoutine {
+                                InstructionVariant::CallRoutine {
                                     output_ty: expr.ty(),
                                     nargs: opds.len().try_into().unwrap(),
                                     linkage_fp: linkage,
@@ -231,7 +231,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         field_ident.ident,
                         *field_binding,
                     ) {
-                        InstructionVariant::CallSpecificRoutine {
+                        InstructionVariant::CallRoutine {
                             linkage_fp: linkage,
                             nargs: 1,
                             output_ty: expr.ty(),
@@ -315,7 +315,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         {
                             match __Linkage {
                                 __Linkage::SpecificTransfer(linkage) => {
-                                    InstructionVariant::CallSpecificRoutine {
+                                    InstructionVariant::CallRoutine {
                                         output_ty: expr.ty(),
                                         nargs: opds.len().try_into().unwrap(),
                                         linkage_fp: linkage,
@@ -356,13 +356,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(Instruction::new(
                     match linkage {
                         __Linkage::Member(_) => todo!(),
-                        __Linkage::SpecificTransfer(linkage) => {
-                            InstructionVariant::CallSpecificRoutine {
-                                linkage_fp: linkage,
-                                nargs: opds.len().try_into().unwrap(),
-                                output_ty,
-                            }
-                        }
+                        __Linkage::SpecificTransfer(linkage) => InstructionVariant::CallRoutine {
+                            linkage_fp: linkage,
+                            nargs: opds.len().try_into().unwrap(),
+                            output_ty,
+                        },
                         __Linkage::GenericTransfer(linkage) => {
                             InstructionVariant::CallGenericRoutine {
                                 linkage_fp: linkage,
@@ -376,7 +374,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ))
             }
             EagerOpnVariant::ValueCall => self.push_instruction(Instruction::new(
-                InstructionVariant::CallSpecificRoutine {
+                InstructionVariant::CallRoutine {
                     linkage_fp: __VALUE_CALL_LINKAGE.specific(),
                     nargs: opds.len().try_into().unwrap(),
                     output_ty: expr.ty(),
@@ -417,7 +415,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::BitOr => todo!(),
                         PureBinaryOpr::BitXor => todo!(),
                         PureBinaryOpr::Div => todo!(),
-                        PureBinaryOpr::Eq => InstructionVariant::CallSpecificRoutine {
+                        PureBinaryOpr::Eq => InstructionVariant::CallRoutine {
                             linkage_fp: __EQ_LINKAGE.specific(),
                             nargs: 2,
                             output_ty: expr.ty(),
@@ -427,7 +425,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::Leq => todo!(),
                         PureBinaryOpr::Less => todo!(),
                         PureBinaryOpr::Mul => todo!(),
-                        PureBinaryOpr::Neq => InstructionVariant::CallSpecificRoutine {
+                        PureBinaryOpr::Neq => InstructionVariant::CallRoutine {
                             linkage_fp: __NEQ_LINKAGE.specific(),
                             nargs: 2,
                             output_ty: expr.ty(),
@@ -455,7 +453,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         element_binding: Binding,
     ) {
         self.push_instruction(Instruction::new(
-            InstructionVariant::CallSpecificRoutine {
+            InstructionVariant::CallRoutine {
                 output_ty: expr.ty(),
                 nargs: opds.len().try_into().unwrap(),
                 linkage_fp: self
@@ -480,12 +478,12 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) -> InstructionVariant {
         if let Some(linkage) = self.db.compile_time().method_linkage(method_route) {
             match linkage {
-                __Linkage::Member { .. } => InstructionVariant::CallSpecificRoutine {
+                __Linkage::Member { .. } => InstructionVariant::CallRoutine {
                     linkage_fp: linkage.bind(output_binding),
                     nargs,
                     output_ty,
                 },
-                __Linkage::SpecificTransfer(linkage) => InstructionVariant::CallSpecificRoutine {
+                __Linkage::SpecificTransfer(linkage) => InstructionVariant::CallRoutine {
                     output_ty,
                     nargs,
 

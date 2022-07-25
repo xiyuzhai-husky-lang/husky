@@ -23,7 +23,6 @@ pub enum StaticGenericPlaceholderVariant {
 #[derive(Debug, PartialEq, Eq)]
 pub enum FunctionStaticDefnVariant {
     Model(__ModelLinkage),
-    GenericTransfer(GenericLinkageFp),
     Routine {
         __Linkage: __LinkageFp,
         routine_kind: RoutineKind,
@@ -34,7 +33,6 @@ impl FunctionStaticDefnVariant {
     pub fn requires_lazy(&self) -> bool {
         match self {
             FunctionStaticDefnVariant::Model(_) => true,
-            FunctionStaticDefnVariant::GenericTransfer(_) => false,
             FunctionStaticDefnVariant::Routine { .. } => false,
         }
     }

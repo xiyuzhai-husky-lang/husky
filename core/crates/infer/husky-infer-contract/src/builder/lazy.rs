@@ -79,11 +79,11 @@ impl<'a> ContractSheetBuilder<'a> {
         self.infer_lazy_expr(condition, LazyContract::Pure)
     }
 
-    fn infer_lazy_pattern(&mut self, pattern: &CasePattern) {
+    fn infer_lazy_pattern(&mut self, pattern: &RawCasePattern) {
         match pattern.variant {
-            CasePatternVariant::PrimitiveLiteral(_) => (),
-            CasePatternVariant::OneOf { .. } => (),
-            CasePatternVariant::EnumLiteral(_) => (),
+            RawCasePatternVariant::PrimitiveValue(_) => (),
+            RawCasePatternVariant::OneOf { .. } => (),
+            RawCasePatternVariant::EnumLiteral(_) => (),
         }
     }
 
@@ -92,7 +92,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::Variable { .. }
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }
-            | RawExprVariant::CopyableLiteral(_)
+            | RawExprVariant::PrimitiveLiteral(_)
             | RawExprVariant::ThisValue { .. }
             | RawExprVariant::ThisField { .. } => Ok(()),
             RawExprVariant::Bracketed(bracketed_expr) => {

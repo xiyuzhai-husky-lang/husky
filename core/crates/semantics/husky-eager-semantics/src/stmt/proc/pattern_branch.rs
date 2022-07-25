@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::CasePattern;
+use husky_ast::RawCasePattern;
 use husky_file::FilePtr;
 use husky_text::TextRange;
 use std::sync::Arc;
@@ -14,6 +14,6 @@ pub struct ProcPatternBranch {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ProcPatternBranchVariant {
-    Case { pattern: CasePattern },
+    Case { pattern: ProcCasePattern },
     Default,
 }

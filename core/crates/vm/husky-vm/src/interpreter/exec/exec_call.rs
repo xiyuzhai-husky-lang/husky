@@ -25,7 +25,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             })
         {
             should_eq!(
-                output.__ty__(),
+                output.ty(),
                 output_ty,
                 r#"
     output:
@@ -34,17 +34,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             );
         }
         self.stack.push(output.into());
-        Ok(())
-    }
-    pub(super) fn call_generic_transfer(
-        &mut self,
-        f: GenericLinkageFp,
-        nargs: u8,
-        output_ty: EntityRoutePtr,
-    ) -> __VMResult<()> {
-        let mut parameters = self.stack.drain(nargs).collect::<Vec<_>>();
-        let result = (f.call)(output_ty, &mut parameters);
-        self.stack.push(result.into());
         Ok(())
     }
 

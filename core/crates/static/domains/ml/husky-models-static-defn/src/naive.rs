@@ -4,7 +4,7 @@ use super::*;
 use husky_dev_utils::__static_dev_src;
 use husky_print_utils::p;
 use husky_trace_protocol::Label;
-use husky_vm_register_method::VMRegisterMethod;
+use husky_vm_register_method::VMRegisterMethodX;
 use static_defn::*;
 use vm::{Model, __Linkage, __ModelLinkage, __Register, __RegistrableSafe, __VMResult};
 

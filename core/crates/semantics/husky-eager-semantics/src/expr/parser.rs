@@ -73,7 +73,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 EntityKind::Feature => EagerExprVariant::EntityFeature { route },
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::CopyableLiteral(value) => EagerExprVariant::PrimitiveLiteral(value),
+            RawExprVariant::PrimitiveLiteral(value) => EagerExprVariant::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(expr) => {
                 EagerExprVariant::Bracketed(self.parse_eager_expr(expr)?)
             }

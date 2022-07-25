@@ -1,4 +1,4 @@
-use husky_ast::{CasePattern, CasePatternVariant};
+use husky_ast::{RawCasePattern, RawCasePatternVariant};
 use husky_entity_route::EntityRouteKind;
 use husky_print_utils::msg_once;
 use semantics_error::*;
@@ -559,7 +559,10 @@ impl EntityDefn {
             extract_func_stmts_dependees(&branch.stmts, builder)
         }
 
-        fn extract_case_pattern_dependees(pattern: &CasePattern, builder: &mut DependeeMapBuilder) {
+        fn extract_case_pattern_dependees(
+            pattern: &RawCasePattern,
+            builder: &mut DependeeMapBuilder,
+        ) {
             builder.push(pattern.ty)
         }
     }

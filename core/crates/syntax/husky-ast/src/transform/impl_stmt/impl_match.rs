@@ -40,7 +40,7 @@ impl<'a> MatchPatternParser<'a> {
         }
     }
 
-    pub fn parse(mut self) -> AstResult<CasePattern> {
+    pub fn parse(mut self) -> AstResult<RawCasePattern> {
         let mut pattern = self.parse_simple_pattern()?.unwrap();
         while let Some(separator) = self.atom_iter.next() {
             match separator.variant {
@@ -57,15 +57,15 @@ impl<'a> MatchPatternParser<'a> {
         Ok(pattern)
     }
 
-    fn parse_simple_pattern(&mut self) -> AstResult<Option<CasePattern>> {
+    fn parse_simple_pattern(&mut self) -> AstResult<Option<RawCasePattern>> {
         Ok(if let Some(atom) = self.atom_iter.next() {
             Some(match atom.variant {
                 AtomVariant::EntityRoute { route, kind } => match kind {
-                    EntityKind::EnumLiteral => CasePattern::enum_literal(route, atom.range),
+                    EntityKind::EnumLiteral => RawCasePattern::enum_literal(route, atom.range),
                     _ => err!(format!("expect enum literal"), atom.range)?,
                 },
                 AtomVariant::PrimitiveLiteral(value) => {
-                    CasePattern::primitive_literal(value, atom.range)
+                    RawCasePattern::primitive_literal(value, atom.range)
                 }
                 _ => err!(format!("expect pattern"), atom.range)?,
             })

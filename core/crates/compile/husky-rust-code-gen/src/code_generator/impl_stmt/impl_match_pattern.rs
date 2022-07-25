@@ -1,5 +1,5 @@
 use super::*;
-use husky_ast::{CasePattern, CasePatternVariant};
+use husky_ast::{RawCasePattern, RawCasePatternVariant};
 use husky_eager_semantics::{
     FuncPatternBranch, FuncPatternBranchVariant, ProcPatternBranch, ProcPatternBranchVariant,
 };
@@ -78,13 +78,13 @@ impl<'a> RustCodeGenerator<'a> {
         self.write("}");
     }
 
-    fn gen_case_pattern(&mut self, pattern: &CasePattern) {
+    fn gen_case_pattern(&mut self, pattern: &RawCasePattern) {
         match pattern.variant {
-            CasePatternVariant::PrimitiveLiteral(v) => {
+            RawCasePatternVariant::PrimitiveValue(v) => {
                 let v: String = v.into();
                 self.write(&(v))
             }
-            CasePatternVariant::OneOf { ref patterns } => {
+            RawCasePatternVariant::OneOf { ref patterns } => {
                 for (i, pattern) in patterns.iter().enumerate() {
                     if i > 0 {
                         self.write(" | ");
@@ -92,7 +92,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_case_pattern(pattern)
                 }
             }
-            CasePatternVariant::EnumLiteral(entity_route) => {
+            RawCasePatternVariant::EnumLiteral(entity_route) => {
                 self.gen_entity_route(entity_route, EntityRouteRole::Other)
             }
         }

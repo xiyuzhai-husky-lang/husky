@@ -89,11 +89,11 @@ impl<'a> ContractSheetBuilder<'a> {
         }
     }
 
-    fn infer_eager_pattern(&mut self, pattern: &CasePattern) {
+    fn infer_eager_pattern(&mut self, pattern: &RawCasePattern) {
         match pattern.variant {
-            CasePatternVariant::PrimitiveLiteral(_) => (),
-            CasePatternVariant::OneOf { .. } => (),
-            CasePatternVariant::EnumLiteral(_) => (),
+            RawCasePatternVariant::PrimitiveValue(_) => (),
+            RawCasePatternVariant::OneOf { .. } => (),
+            RawCasePatternVariant::EnumLiteral(_) => (),
         }
     }
 
@@ -114,7 +114,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::FrameVariable { .. }
             | RawExprVariant::Unrecognized(_)
             | RawExprVariant::Entity { .. }
-            | RawExprVariant::CopyableLiteral(_)
+            | RawExprVariant::PrimitiveLiteral(_)
             | RawExprVariant::ThisValue { .. }
             | RawExprVariant::ThisField { .. } => Ok(()),
             RawExprVariant::Bracketed(expr) => {

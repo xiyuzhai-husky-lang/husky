@@ -38,3 +38,25 @@ impl PartialEq for __LinkageFp {
 impl Eq for __LinkageFp {}
 unsafe impl Send for __LinkageFp {}
 unsafe impl Sync for __LinkageFp {}
+
+#[macro_export]
+macro_rules! linkage_fp {
+    ($wrapper: expr, some $raw_fp: expr) => {{
+        __LinkageFp {
+            wrapper: $wrapper,
+            opt_fp: Some($raw_fp as *const ()),
+        }
+    }};
+    ($wrapper: expr, none) => {{
+        __LinkageFp {
+            wrapper: $wrapper,
+            opt_fp: None,
+        }
+    }};
+    ($wrapper: expr) => {{
+        __LinkageFp {
+            wrapper: $wrapper,
+            opt_fp: None,
+        }
+    }};
+}

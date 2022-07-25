@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_route::EntityRoutePtr;
+use husky_token::PrimitiveLiteralData;
 use map_collect::MapCollect;
 use vm::{PrimitiveValueData, VMCasePattern};
 use word::RootIdentifier;
@@ -10,81 +11,77 @@ pub enum MatchLiason {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct CasePattern {
-    pub ty: EntityRoutePtr,
+pub struct RawCasePattern {
     pub range: TextRange,
-    pub variant: CasePatternVariant,
+    pub variant: RawCasePatternVariant,
 }
 
-impl CasePattern {
+impl RawCasePattern {
     pub fn compile(&self) -> VMCasePattern {
         match self.variant {
-            CasePatternVariant::PrimitiveLiteral(value) => VMCasePattern::Primitive(value),
-            CasePatternVariant::OneOf { ref patterns } => {
+            RawCasePatternVariant::PrimitiveValue(value) => {
+                todo!()
+                // VMCasePattern::Primitive(primitive_value_from_literal(self.ty, value))
+            }
+            RawCasePatternVariant::OneOf { ref patterns } => {
                 VMCasePattern::OneOf(patterns.map(|pattern| pattern.compile()))
             }
-            CasePatternVariant::EnumLiteral(entity_route) => {
+            RawCasePatternVariant::EnumLiteral(entity_route) => {
                 VMCasePattern::EnumKindLiteral(entity_route)
             }
         }
     }
 }
 
-impl TextRanged for CasePattern {
+impl TextRanged for RawCasePattern {
     fn text_range(&self) -> TextRange {
         self.range
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum CasePatternVariant {
-    PrimitiveLiteral(PrimitiveValueData),
-    OneOf { patterns: Vec<CasePattern> },
+pub enum RawCasePatternVariant {
+    PrimitiveValue(PrimitiveLiteralData),
+    OneOf { patterns: Vec<RawCasePattern> },
     EnumLiteral(EntityRoutePtr),
 }
 
-impl CasePattern {
-    pub fn primitive_literal(value: PrimitiveValueData, range: TextRange) -> Self {
+impl RawCasePattern {
+    pub fn primitive_literal(value: PrimitiveLiteralData, range: TextRange) -> Self {
         Self {
-            ty: value.ty().into(),
-            variant: CasePatternVariant::PrimitiveLiteral(value),
+            variant: RawCasePatternVariant::PrimitiveValue(value),
             range,
         }
     }
 
     pub fn enum_literal(value: EntityRoutePtr, range: TextRange) -> Self {
         Self {
-            ty: value.parent(),
-            variant: CasePatternVariant::EnumLiteral(value),
+            variant: RawCasePatternVariant::EnumLiteral(value),
             range,
         }
     }
 
-    pub fn or(self, new_pattern: CasePattern) -> AstResult<Self> {
+    pub fn or(self, new_pattern: RawCasePattern) -> AstResult<Self> {
         let range = self.text_range_to(&new_pattern);
-        if self.ty != new_pattern.ty {
-            return err!(
-                format!(
-                    "can't combine patterns of different types `{:?}` and `{:?}`",
-                    self.ty, new_pattern.ty
-                ),
-                range
-            );
-        }
-        let ty = self.ty;
         let patterns = match self.variant {
-            CasePatternVariant::PrimitiveLiteral(_) | CasePatternVariant::EnumLiteral(_) => {
+            RawCasePatternVariant::PrimitiveValue(_) | RawCasePatternVariant::EnumLiteral(_) => {
                 vec![self, new_pattern]
             }
-            CasePatternVariant::OneOf { mut patterns } => {
+            RawCasePatternVariant::OneOf { mut patterns } => {
                 patterns.push(new_pattern);
                 patterns
             }
         };
-        Ok(CasePattern {
-            ty,
-            variant: CasePatternVariant::OneOf { patterns },
+        Ok(RawCasePattern {
+            variant: RawCasePatternVariant::OneOf { patterns },
             range,
         })
     }
+}
+
+fn primitive_value_from_literal(
+    ty: EntityRoutePtr,
+    value: PrimitiveLiteralData,
+) -> PrimitiveValueData {
+    todo!()
 }

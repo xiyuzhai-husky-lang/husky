@@ -31,6 +31,7 @@ use husky_dev_utils::__StaticDevSource;
 use husky_dev_utils::{__static_dev_src, dev_src};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualTy;
+use husky_vm_register_method::VMRegisterMethodX;
 use static_defn::StaticParameter;
 use static_defn::*;
 use vm::*;

@@ -11,6 +11,7 @@ use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
 use husky_print_utils::msg_once;
+use husky_token::PrimitiveLiteralData;
 use vm::*;
 use word::{Paradigm, RootIdentifier, WordInterner};
 
@@ -272,14 +273,18 @@ impl<'a> Formatter<'a> {
         match expr.variant {
             RawExprVariant::Variable { varname, .. } => self.write(&varname),
             RawExprVariant::Unrecognized(varname) => self.write(&varname),
-            RawExprVariant::CopyableLiteral(literal) => match literal {
-                PrimitiveValueData::I32(i) => self.write(&i.to_string()),
-                PrimitiveValueData::F32(f) => self.write(&f.to_string()),
-                PrimitiveValueData::Void(_) => todo!(),
-                PrimitiveValueData::B32(_) => todo!(),
-                PrimitiveValueData::Bool(_) => todo!(),
-                PrimitiveValueData::B64(_) => todo!(),
-                PrimitiveValueData::EnumKind(_) => todo!(),
+            RawExprVariant::PrimitiveLiteral(literal) => match literal {
+                PrimitiveLiteralData::Integer(i) => self.write(&i.to_string()),
+                PrimitiveLiteralData::I32(i) => self.write(&i.to_string()),
+                PrimitiveLiteralData::Float(f) => self.write(&f.to_string()),
+                PrimitiveLiteralData::F32(f) => self.write(&f.to_string()),
+                PrimitiveLiteralData::Void => todo!(),
+                PrimitiveLiteralData::I64(_) => todo!(),
+                PrimitiveLiteralData::F64(_) => todo!(),
+                PrimitiveLiteralData::Bits(_) => todo!(),
+                PrimitiveLiteralData::B32(_) => todo!(),
+                PrimitiveLiteralData::B64(_) => todo!(),
+                PrimitiveLiteralData::Bool(_) => todo!(),
             },
             RawExprVariant::Bracketed(raw_expr_idx) => {
                 self.write("(");

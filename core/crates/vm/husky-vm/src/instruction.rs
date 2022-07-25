@@ -78,13 +78,8 @@ pub enum InstructionVariant {
         field_idx: u8,
         field_binding: Binding,
     },
-    CallSpecificRoutine {
+    CallRoutine {
         linkage_fp: __LinkageFp,
-        nargs: u8,
-        output_ty: EntityRoutePtr,
-    },
-    CallGenericRoutine {
-        linkage_fp: GenericLinkageFp,
         nargs: u8,
         output_ty: EntityRoutePtr,
     },
@@ -175,7 +170,7 @@ pub fn binary_assign<'temp, 'eval>(
     //         value.__assign(if let Some(binary_opr) = opt_binary_opr {
     //             let lopd_value = value.__take_copyable_dyn();
     //             binary_opr
-    //                 .act_on_primitives(lopd_value, ropd.__take_primitive__())?
+    //                 .act_on_primitives(lopd_value, ropd.primitive())?
     //                 .into()
     //         } else {
     //             ropd
@@ -188,7 +183,7 @@ pub fn binary_assign<'temp, 'eval>(
 
 pub fn incr<'temp, 'eval>(opd: &mut __Register<'eval>) {
     todo!()
-    // let opd_primitive = opd.__take_primitive__();
+    // let opd_primitive = opd.primitive();
     // match opd {
     //     __TempValue::TempRefMutEval { value, owner, gen } => {
     //         value.__assign(__TempValue::Copyable(match opd_primitive {
@@ -204,7 +199,7 @@ pub fn incr<'temp, 'eval>(opd: &mut __Register<'eval>) {
 
 pub fn decr<'temp, 'eval>(opd: &mut __Register<'eval>) {
     todo!()
-    // let opd_primitive = opd.__take_primitive__();
+    // let opd_primitive = opd.primitive();
     // match opd {
     //     __TempValue::TempRefMutEval { value, owner, gen } => {
     //         value.__assign(__TempValue::Copyable(match opd_primitive {

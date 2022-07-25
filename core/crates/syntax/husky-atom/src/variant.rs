@@ -1,11 +1,8 @@
 use super::*;
 use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_text::*;
-use husky_token::SpecialToken;
-use vm::{
-    BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PrimitiveValueData, PureBinaryOpr,
-    SuffixOpr,
-};
+use husky_token::{PrimitiveLiteralData, SpecialToken};
+use vm::{BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr, SuffixOpr};
 use word::{CustomIdentifier, WordOpr};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -34,7 +31,7 @@ pub enum AtomVariant {
         field_liason: MemberLiason,
     },
     Unrecognized(CustomIdentifier),
-    PrimitiveLiteral(PrimitiveValueData),
+    PrimitiveLiteral(PrimitiveLiteralData),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(SuffixOpr),
@@ -133,20 +130,20 @@ impl From<WordOpr> for AtomVariant {
     }
 }
 
-impl From<PrimitiveValueData> for AtomVariant {
-    fn from(lit: PrimitiveValueData) -> Self {
+impl From<PrimitiveLiteralData> for AtomVariant {
+    fn from(lit: PrimitiveLiteralData) -> Self {
         Self::PrimitiveLiteral(lit)
     }
 }
 
-impl From<i32> for AtomVariant {
-    fn from(i: i32) -> Self {
-        PrimitiveValueData::I32(i).into()
-    }
-}
+// impl From<i32> for AtomVariant {
+//     fn from(i: i32) -> Self {
+//         PrimitiveLiteralData::I32(i).into()
+//     }
+// }
 
-impl From<f32> for AtomVariant {
-    fn from(f: f32) -> Self {
-        PrimitiveValueData::F32(f).into()
-    }
-}
+// impl From<f32> for AtomVariant {
+//     fn from(f: f32) -> Self {
+//         PrimitiveValueData::F32(f).into()
+//     }
+// }

@@ -1,17 +1,16 @@
+pub use crate::*;
 use word::{Decorator, Identifier, Keyword, WordOpr, WordPtr};
 
-pub use crate::*;
-
-#[derive(Debug, PartialEq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum HuskyTokenKind {
     Decorator(Decorator),
     Keyword(Keyword),
     Identifier(Identifier),
     Special(SpecialToken),
     WordOpr(WordOpr),
-    PrimitiveLiteral(PrimitiveValueData),
+    PrimitiveLiteral(PrimitiveLiteralData),
     Unrecognized(char),
-    IllFormedLiteral(PrimitiveValueData),
+    IllFormedLiteral(PrimitiveLiteralData),
 }
 
 impl HuskyTokenKind {
@@ -39,7 +38,6 @@ impl std::hash::Hash for HuskyTokenKind {
         core::mem::discriminant(self).hash(state);
     }
 }
-impl Eq for HuskyTokenKind {}
 impl From<WordPtr> for HuskyTokenKind {
     fn from(word: WordPtr) -> Self {
         match word {

@@ -1,3 +1,5 @@
+use std::str::FromStr;
+
 use husky_text::CharIter;
 use word::WordInterner;
 
@@ -74,7 +76,9 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     self.line_index,
                     j_start,
                     j_start + len,
-                    HuskyTokenKind::PrimitiveLiteral(self.take_buffer_f32().into()),
+                    HuskyTokenKind::PrimitiveLiteral(PrimitiveLiteralData::Float(
+                        self.take_buffer::<f64>().into(),
+                    )),
                 )
             }
             'b' => {
@@ -86,16 +90,21 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         if self.peek_char() != '2' {
                             (
                                 self.buffer.len() + 2,
-                                HuskyTokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
+                                HuskyTokenKind::IllFormedLiteral(PrimitiveLiteralData::Bits(
+                                    self.take_buffer::<u64>().into(),
+                                )),
                             )
                         } else {
+                            // b32
                             self.ignore_char();
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
                                 (
                                     self.buffer.len() + 3,
-                                    HuskyTokenKind::PrimitiveLiteral(self.take_buffer_b32().into()),
+                                    HuskyTokenKind::PrimitiveLiteral(PrimitiveLiteralData::B32(
+                                        self.take_buffer::<u32>().into(),
+                                    )),
                                 )
                             }
                         }
@@ -109,7 +118,9 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     }
                     _ => (
                         self.buffer.len() + 1,
-                        HuskyTokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
+                        HuskyTokenKind::IllFormedLiteral(PrimitiveLiteralData::B64(
+                            self.take_buffer::<u64>(),
+                        )),
                     ),
                 };
                 HuskyToken::new(self.line_index, j_start, j_start + token_len, kind)
@@ -130,16 +141,20 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         self.line_index,
                         j_start,
                         j_start + token_len,
-                        HuskyTokenKind::IllFormedLiteral(self.take_buffer_b64().into()),
+                        HuskyTokenKind::IllFormedLiteral(PrimitiveLiteralData::B64(
+                            self.take_buffer::<u64>().into(),
+                        )),
                     )
                 } else {
-                    // i32
+                    // integer
                     let len = self.buffer.len();
                     HuskyToken::new(
                         self.line_index,
                         j_start,
                         j_start + len,
-                        HuskyTokenKind::PrimitiveLiteral(self.take_buffer_i32().into()),
+                        HuskyTokenKind::PrimitiveLiteral(PrimitiveLiteralData::Integer(
+                            self.take_buffer::<i32>().into(),
+                        )),
                     )
                 }
             }
@@ -151,21 +166,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         self.buffer.clear();
         word
     }
-
-    fn take_buffer_i32(&mut self) -> i32 {
-        std::mem::take(&mut self.buffer).parse::<i32>().unwrap()
-    }
-
-    fn take_buffer_f32(&mut self) -> f32 {
-        std::mem::take(&mut self.buffer).parse::<f32>().unwrap()
-    }
-
-    fn take_buffer_b32(&mut self) -> u32 {
-        std::mem::take(&mut self.buffer).parse::<u32>().unwrap()
-    }
-
-    fn take_buffer_b64(&mut self) -> u64 {
-        std::mem::take(&mut self.buffer).parse::<u64>().unwrap()
+    fn take_buffer<T>(&mut self) -> T
+    where
+        T: FromStr,
+        <T as FromStr>::Err: std::fmt::Debug,
+    {
+        std::mem::take(&mut self.buffer).parse::<T>().unwrap()
     }
 
     fn peek_char(&mut self) -> char {

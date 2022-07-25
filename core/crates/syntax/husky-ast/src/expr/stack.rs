@@ -3,6 +3,7 @@ use husky_check_utils::should;
 use husky_entity_route::{RangedEntityRoute, SpatialArgument};
 use husky_text::RangedCustomIdentifier;
 use husky_text::{TextPosition, TextRange};
+use husky_token::PrimitiveLiteralData;
 use thin_vec::ThinVec;
 use vm::*;
 
@@ -309,22 +310,26 @@ impl<'a> ExprStack<'a> {
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
         let range = (start..self.exprs.last().unwrap().range.end).into();
         if prefix == PrefixOpr::Minus {
-            if let RawExprVariant::CopyableLiteral(lit) = self.exprs.last().unwrap().variant {
+            if let RawExprVariant::PrimitiveLiteral(lit) = self.exprs.last().unwrap().variant {
                 self.exprs.pop();
                 match lit {
-                    PrimitiveValueData::I32(i) => self.exprs.push(RawExpr {
+                    PrimitiveLiteralData::I32(i) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::CopyableLiteral(PrimitiveValueData::I32(-i)),
+                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveLiteralData::I32(-i)),
                     }),
-                    PrimitiveValueData::F32(f) => self.exprs.push(RawExpr {
+                    PrimitiveLiteralData::F32(f) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::CopyableLiteral(PrimitiveValueData::F32(-f)),
+                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveLiteralData::F32(-f)),
                     }),
-                    PrimitiveValueData::Void(_)
-                    | PrimitiveValueData::B32(_)
-                    | PrimitiveValueData::Bool(_)
-                    | PrimitiveValueData::B64(_) => todo!(),
-                    PrimitiveValueData::EnumKind(_) => todo!(),
+                    PrimitiveLiteralData::Void
+                    | PrimitiveLiteralData::B32(_)
+                    | PrimitiveLiteralData::Bool(_)
+                    | PrimitiveLiteralData::B64(_) => todo!(),
+                    PrimitiveLiteralData::Integer(_) => todo!(),
+                    PrimitiveLiteralData::I64(_) => todo!(),
+                    PrimitiveLiteralData::Float(_) => todo!(),
+                    PrimitiveLiteralData::F64(_) => todo!(),
+                    PrimitiveLiteralData::Bits(_) => todo!(),
                 }
                 return;
             }
