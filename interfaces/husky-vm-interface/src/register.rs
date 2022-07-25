@@ -1,6 +1,3 @@
-mod impl_cyclic_slice;
-mod impl_hashmap;
-mod impl_primitive;
 mod registrable;
 mod registrable_dyn;
 mod registrable_safe;
@@ -20,7 +17,7 @@ use std::{
 pub struct __Register<'eval> {
     pub data_kind: __RegisterDataKind,
     pub opt_data: Option<*mut dyn __RegistrableDyn>,
-    phantom: PhantomData<&'eval ()>,
+    pub phantom: PhantomData<&'eval ()>,
 }
 
 unsafe impl<'eval> Send for __Register<'eval> {}
@@ -37,7 +34,7 @@ impl<'eval> Clone for __Register<'eval> {
         Self {
             data_kind: self.data_kind,
             opt_data: match self.data_kind {
-                __RegisterDataKind::Value => self.opt_data,
+                __RegisterDataKind::PrimitiveValue => self.opt_data,
                 __RegisterDataKind::Box => todo!(),
                 __RegisterDataKind::EvalRef => self.opt_data,
                 __RegisterDataKind::TempRef => self.opt_data,
@@ -75,7 +72,7 @@ impl<'eval> __Register<'eval> {
         T: Copy,
     {
         __Register {
-            data_kind: __RegisterDataKind::Value,
+            data_kind: __RegisterDataKind::PrimitiveValue,
             opt_data: Some(value as *const () as *mut T::__StaticSelf as *mut dyn __RegistrableDyn),
             phantom: PhantomData,
         }
@@ -174,7 +171,7 @@ impl<'eval> __Register<'eval> {
         T: __Registrable + 'eval,
     {
         match self.data_kind {
-            __RegisterDataKind::Value => todo!(),
+            __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box => unsafe { *Box::from_raw(self.move_into_raw() as *mut T) },
             __RegisterDataKind::EvalRef => todo!(),
             __RegisterDataKind::TempRef => todo!(),
@@ -210,7 +207,7 @@ impl<'eval> __Register<'eval> {
 
 #[derive(Debug, Clone, Copy, Hash)]
 pub enum __RegisterDataKind {
-    Value,
+    PrimitiveValue,
     Box,
     EvalRef,
     TempRef,

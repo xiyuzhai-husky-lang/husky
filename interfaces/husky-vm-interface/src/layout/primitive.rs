@@ -14,6 +14,20 @@ pub enum PrimitiveValueData {
     Void(()),
 }
 
+impl PrimitiveValueData {
+    pub fn into_box_register<'eval>(self) -> __Register<'eval> {
+        match self {
+            PrimitiveValueData::I32(value) => __Register::new_box(value),
+            PrimitiveValueData::I64(value) => __Register::new_box(value),
+            PrimitiveValueData::F32(value) => __Register::new_box(value),
+            PrimitiveValueData::B32(value) => __Register::new_box(value),
+            PrimitiveValueData::B64(value) => __Register::new_box(value),
+            PrimitiveValueData::Bool(value) => __Register::new_box(value),
+            PrimitiveValueData::Void(value) => __Register::new_box(value),
+        }
+    }
+}
+
 impl PartialEq for PrimitiveValueData {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {

@@ -1,3 +1,7 @@
+mod impl_cyclic_slice;
+mod impl_hashmap;
+mod impl_primitive;
+
 use super::*;
 
 pub trait __Registrable:
