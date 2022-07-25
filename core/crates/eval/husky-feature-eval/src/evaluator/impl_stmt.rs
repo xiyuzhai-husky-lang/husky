@@ -40,6 +40,6 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     }
 
     fn satisfies(&mut self, condition: &FeatureExpr) -> __VMResult<bool> {
-        Ok(self.eval_expr(condition)?.primitive().to_bool())
+        Ok(self.eval_expr(condition)?.to_bool())
     }
 }

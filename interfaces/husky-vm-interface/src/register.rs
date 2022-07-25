@@ -1,11 +1,19 @@
+mod impl_cyclic_slice;
+mod impl_hashmap;
+mod impl_primitive;
+mod registrable;
+mod registrable_dyn;
+mod registrable_safe;
+
+pub use registrable::*;
+pub use registrable_dyn::*;
+pub use registrable_safe::*;
+
+use crate::*;
 use std::{
     marker::PhantomData,
     panic::{RefUnwindSafe, UnwindSafe},
 };
-
-mod impl_cyclic_slice;
-mod impl_hashmap;
-mod impl_primitive;
 
 #[derive(Hash)]
 #[repr(C)]
@@ -23,14 +31,6 @@ impl<'eval> std::fmt::Debug for __Register<'eval> {
         todo!()
     }
 }
-
-pub trait __RegistrableSafe<'eval>: __Registrable + 'eval + Sized {
-    fn to_register(self) -> __Register<'eval> {
-        unsafe { self.__to_register__() }
-    }
-}
-
-impl<'eval, T> __RegistrableSafe<'eval> for T where T: __Registrable + 'eval {}
 
 impl<'eval> Clone for __Register<'eval> {
     fn clone(&self) -> Self {
@@ -67,36 +67,6 @@ pub trait __StaticInfo {
     }
 
     fn __static_type_name() -> std::borrow::Cow<'static, str>;
-}
-
-pub trait __Registrable:
-    __StaticInfo + std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe
-{
-    unsafe fn __to_register__<'eval>(self) -> __Register<'eval>;
-}
-
-impl<T> __RegistrableDyn for T
-where
-    T: __Registrable,
-{
-    unsafe fn drop_dyn(&mut self) {
-        let ptr: *mut T = self;
-        drop(Box::from_raw(ptr));
-    }
-
-    fn static_type_name(&self) -> std::borrow::Cow<'static, str> {
-        T::__static_type_name()
-    }
-
-    fn fmt_debug(&self) -> String {
-        format!("{:?}", self)
-    }
-}
-
-pub trait __RegistrableDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
-    unsafe fn drop_dyn(&mut self);
-    fn static_type_name(&self) -> std::borrow::Cow<'static, str>;
-    fn fmt_debug(&self) -> String;
 }
 
 impl<'eval> __Register<'eval> {
@@ -213,6 +183,12 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::Undefined => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
+    }
+    pub fn downcast_value<T>(&self) -> T
+    where
+        T: __Registrable + 'eval,
+    {
+        todo!()
     }
 
     pub unsafe fn downcast_temp<T>(&mut self) -> T {

@@ -34,8 +34,8 @@ unsafe fn generic_cyclic_slice<'temp, 'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let this: &'eval VirtualVec = values[0].downcast_eval_ref();
-    let start = values[1].primitive().take_i32();
-    let end = values[2].primitive().take_i32();
+    let start = values[1].downcast_value::<i32>();
+    let end = values[2].downcast_value::<i32>();
     (__Register::new_box(GenericCyclicSlice {
         data: CyclicSlice::<'eval, __Register<'eval>> {
             start,

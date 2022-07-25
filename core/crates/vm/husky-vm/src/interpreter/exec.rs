@@ -205,7 +205,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     control
                 }
                 InstructionVariant::BreakIfFalse => {
-                    let control = if !self.stack.pop().primitive().to_bool() {
+                    let control = if !self.stack.pop().to_bool() {
                         VMControl::Break
                     } else {
                         VMControl::None
@@ -231,7 +231,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::Assert => {
-                    let is_condition_satisfied = self.stack.pop().primitive().to_bool();
+                    let is_condition_satisfied = self.stack.pop().to_bool();
                     if !is_condition_satisfied {
                         VMControl::Err(vm_runtime_error!(format!("assert failure")))
                     } else {

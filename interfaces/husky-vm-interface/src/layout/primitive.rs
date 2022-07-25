@@ -29,11 +29,13 @@ impl PartialEq for PrimitiveValueData {
 }
 impl std::hash::Hash for PrimitiveValueData {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        core::mem::discriminant(self).hash(state);
         match self {
-            PrimitiveValueData::I32(_) => todo!(),
+            PrimitiveValueData::I32(i) => i.hash(state),
             PrimitiveValueData::I64(_) => todo!(),
-            PrimitiveValueData::F32(f) => (*f as u64).hash(state),
+            PrimitiveValueData::F32(f) => {
+                assert!(!f.is_nan());
+                (*f as u64).hash(state)
+            }
             PrimitiveValueData::B32(_) => todo!(),
             PrimitiveValueData::B64(_) => todo!(),
             PrimitiveValueData::Bool(_) => todo!(),

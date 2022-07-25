@@ -1,24 +1,23 @@
 use super::*;
 use crate::*;
 use husky_print_utils::msg_once;
-use vm::eval_fast;
+use vm::{__RegisterDataKind, eval_fast};
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn eval_feature_lazy_block(
         &mut self,
         block: &FeatureLazyBlock,
     ) -> __VMResult<__Register<'eval>> {
-        todo!()
-        // self.cache(EvalKey::Feature(block.feature), |this: &mut Self| {
-        //     for stmt in block.stmts.iter() {
-        //         let value = this.eval_stmt(stmt)?;
-        //         match value {
-        //             __Register::Unreturned => (),
-        //             _ => return Ok(value),
-        //         }
-        //     }
-        //     Ok(__Register::Undefined)
-        // })
+        self.cache(EvalKey::Feature(block.feature), |this: &mut Self| {
+            for stmt in block.stmts.iter() {
+                let value = this.eval_stmt(stmt)?;
+                match value.data_kind {
+                    __RegisterDataKind::Unreturned => (),
+                    _ => return Ok(value),
+                }
+            }
+            Ok(__Register::new_undefined())
+        })
     }
 
     pub(crate) fn eval_feature_func_block(
