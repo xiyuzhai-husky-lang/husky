@@ -1,5 +1,6 @@
 use husky_ast::{RawBoundary, RawLoopKind};
 use husky_dev_utils::dev_src;
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::TextRanged;
 
 use super::*;
@@ -169,15 +170,28 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     }
 
     fn infer_pattern(&mut self, expectation: EntityRoutePtr, pattern: &RawCasePattern) {
-        match pattern.variant {
-            RawCasePatternVariant::PrimitiveValue(_) => todo!(),
+        let ty = match pattern.variant {
+            RawCasePatternVariant::PrimitiveValue(value) => match value {
+                PrimitiveLiteralData::Void => todo!(),
+                PrimitiveLiteralData::Integer(_) => todo!(),
+                PrimitiveLiteralData::I32(_) => todo!(),
+                PrimitiveLiteralData::I64(_) => todo!(),
+                PrimitiveLiteralData::Float(_) => todo!(),
+                PrimitiveLiteralData::F32(_) => todo!(),
+                PrimitiveLiteralData::F64(_) => todo!(),
+                PrimitiveLiteralData::Bits(_) => todo!(),
+                PrimitiveLiteralData::B32(_) => todo!(),
+                PrimitiveLiteralData::B64(_) => todo!(),
+                PrimitiveLiteralData::Bool(_) => todo!(),
+            },
             RawCasePatternVariant::OneOf { ref subpatterns } => {
                 for subpattern in subpatterns {
                     self.infer_pattern(expectation, subpattern)
                 }
             }
             RawCasePatternVariant::EnumLiteral(_) => todo!(),
-        }
+        };
+        todo!()
         // if let Some(match_expr_ty) = opt_match_expr_ty {
         //     if match_expr_ty != pattern.ty {
         //         self.entity_route_sheet.extra_errors.push(InferError {
