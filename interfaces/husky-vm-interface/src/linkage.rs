@@ -11,6 +11,7 @@ pub use transfer::*;
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(C)]
 pub enum __Linkage {
     Transfer(__LinkageFp),
     Member(&'static __MemberLinkage),

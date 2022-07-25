@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
+#[repr(C)]
 pub struct __MemberLinkage {
     pub copy_fp: __LinkageFp,
     pub eval_ref_fp: __LinkageFp,

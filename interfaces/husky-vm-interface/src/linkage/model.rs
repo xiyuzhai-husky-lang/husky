@@ -2,6 +2,7 @@ use super::*;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 
 #[derive(Debug, Clone, Copy)]
+#[repr(C)]
 pub struct __ModelLinkage(pub &'static dyn ModelDyn);
 
 impl std::ops::Deref for __ModelLinkage {
