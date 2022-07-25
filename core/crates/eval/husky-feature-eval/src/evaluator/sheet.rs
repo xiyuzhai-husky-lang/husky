@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use husky_check_utils::should;
 use husky_word::CustomIdentifier;
-use vm::{EntityUid, __Register, __VMResult};
+use vm::{EntityUid, __Register, __RegisterDataKind, __VMResult};
 
 use super::*;
 
@@ -47,7 +47,7 @@ impl<'eval> EvalSheet<'eval> {
             assert!(values.insert(eval_key, value).is_none());
             result
         } else {
-            value
+            unsafe { share_cached(&values[&eval_key]) }
         }
     }
 
@@ -72,36 +72,41 @@ impl<'eval> EvalSheet<'eval> {
 unsafe fn cache_raw_eval_value<'eval>(
     raw: &mut __VMResult<__Register<'eval>>,
 ) -> __VMResult<__Register<'eval>> {
-    todo!()
-    // match raw {
-    //     Ok(value) => match value {
-    //         __Register::Copyable(value) => {
-    //             *raw = Ok(__Register::Owned(
-    //                 value.any_ref().__clone_into_box_dyn().into(),
-    //             ))
-    //         }
-    //         _ => (),
-    //     },
-    //     Err(error) => (),
-    // }
-    // share_cached(raw)
+    match raw {
+        Ok(value) => match value.data_kind {
+            __RegisterDataKind::PrimitiveValue => *raw = Ok(value.primitive().into_box_register()),
+            _ => (),
+        },
+        Err(error) => (),
+    }
+    share_cached(raw)
 }
 
 unsafe fn share_cached<'eval>(
     cached: &__VMResult<__Register<'eval>>,
 ) -> __VMResult<__Register<'eval>> {
-    todo!()
-    // match cached {
-    //     Ok(value) => Ok(match value {
-    //         __Register::Copyable(value) => panic!(),
-    //         __Register::Owned(value) => __Register::EvalRef(__EvalRef(&*value.any_ptr())),
-    //         __Register::EvalRef(value) => __Register::EvalRef(*value),
-    //         __Register::EvalPure(value) => __Register::EvalPure(value.clone()),
-    //         __Register::Undefined => __Register::Undefined,
-    //         __Register::Unreturned => __Register::Unreturned,
-    //     }),
-    //     Err(error) => Err(error.clone()),
-    // }
+    match cached {
+        Ok(value) => Ok(match value.data_kind {
+            __RegisterDataKind::PrimitiveValue => panic!(),
+            __RegisterDataKind::Box | __RegisterDataKind::EvalRef => __Register {
+                data_kind: __RegisterDataKind::EvalRef,
+                opt_data: value.opt_data,
+                phantom: std::marker::PhantomData,
+            },
+            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+            // __Register::Copyable(value) => panic!(),
+            // __Register::Owned(value) => __Register::EvalRef(__EvalRef(&*value.any_ptr())),
+            // __Register::EvalRef(value) => __Register::EvalRef(*value),
+            // __Register::EvalPure(value) => __Register::EvalPure(value.clone()),
+            // __Register::Undefined => __Register::Undefined,
+            // __Register::Unreturned => __Register::Unreturned,
+        }),
+        Err(error) => Err(error.clone()),
+    }
 }
 
 pub trait HasFeatureSheet<'cache> {

@@ -20,7 +20,7 @@ impl<'eval> __Register<'eval> {
 
     pub fn into_eval(self) -> __Register<'eval> {
         match self.data_kind {
-            __RegisterDataKind::Value
+            __RegisterDataKind::PrimitiveValue
             | __RegisterDataKind::Box
             | __RegisterDataKind::EvalRef
             | __RegisterDataKind::Undefined => self,
