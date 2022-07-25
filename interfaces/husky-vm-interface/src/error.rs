@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
+#[repr(C)]
 pub struct __VMError {}
 
 impl std::fmt::Display for __VMError {
