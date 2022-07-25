@@ -172,11 +172,13 @@ impl<'a> InstructionSheetBuilder<'a> {
                         opn: match ty.route {
                             EntityRoutePtr::Root(ty_ident) => match ty_ident {
                                 RootIdentifier::Void => todo!(),
-                                RootIdentifier::I32 => OprOpn::Cast(CastOpn::AsI32),
-                                RootIdentifier::F32 => OprOpn::Cast(CastOpn::AsF32),
-                                RootIdentifier::B32 => OprOpn::Cast(CastOpn::AsB32),
-                                RootIdentifier::B64 => todo!(),
                                 RootIdentifier::Bool => todo!(),
+                                RootIdentifier::B32 => OprOpn::Cast(CastOpn::AsB32),
+                                RootIdentifier::B64 => OprOpn::Cast(CastOpn::AsB64),
+                                RootIdentifier::I32 => OprOpn::Cast(CastOpn::AsI32),
+                                RootIdentifier::I64 => OprOpn::Cast(CastOpn::AsI64),
+                                RootIdentifier::F32 => OprOpn::Cast(CastOpn::AsF32),
+                                RootIdentifier::F64 => OprOpn::Cast(CastOpn::AsF64),
                                 _ => todo!(),
                             },
                             EntityRoutePtr::Custom(_) => todo!(),

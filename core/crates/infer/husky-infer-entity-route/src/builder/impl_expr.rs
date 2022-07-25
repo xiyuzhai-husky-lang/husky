@@ -141,8 +141,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             PrimitiveLiteralData::Void => todo!(),
             PrimitiveLiteralData::Integer(_) => {
                 if let Some(expectation) = expectation {
-                    match expectation.intrinsic() {
-                        EntityRoutePtr::Root(RootIdentifier::I32) => RootIdentifier::I32.into(),
+                    let intrinsic = expectation.intrinsic();
+                    match intrinsic {
+                        EntityRoutePtr::Root(RootIdentifier::I64) => intrinsic,
                         _ => RootIdentifier::I32.into(),
                     }
                 } else {
@@ -154,7 +155,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             PrimitiveLiteralData::I64(_) => todo!(),
             PrimitiveLiteralData::Float(_) => {
                 if let Some(expectation) = expectation {
-                    todo!()
+                    let intrinsic = expectation.intrinsic();
+                    match intrinsic {
+                        EntityRoutePtr::Root(RootIdentifier::F64) => intrinsic,
+                        _ => RootIdentifier::F32.into(),
+                    }
                 } else {
                     // the default float type is f32
                     RootIdentifier::F32.into()

@@ -231,6 +231,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::I32
                 | RootIdentifier::I64
                 | RootIdentifier::F32
+                | RootIdentifier::F64
                 | RootIdentifier::B32
                 | RootIdentifier::B64
                 | RootIdentifier::Bool

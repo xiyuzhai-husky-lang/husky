@@ -43,6 +43,7 @@ pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::I32 => &I32_TYPE_DEFN,
         RootIdentifier::I64 => todo!(),
         RootIdentifier::F32 => &F32_TYPE_DEFN,
+        RootIdentifier::F64 => todo!(),
         RootIdentifier::B32 => &B32_TYPE_DEFN,
         RootIdentifier::B64 => &B64_TYPE_DEFN,
         RootIdentifier::Bool => &BOOL_TYPE_DEFN,
