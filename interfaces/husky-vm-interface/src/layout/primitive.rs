@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub enum PrimitiveValueData {
     I32(i32),
+    I64(i64),
     F32(f32),
     B32(u32),
     B64(u64),
@@ -31,7 +32,8 @@ impl std::hash::Hash for PrimitiveValueData {
         core::mem::discriminant(self).hash(state);
         match self {
             PrimitiveValueData::I32(_) => todo!(),
-            PrimitiveValueData::F32(_) => todo!(),
+            PrimitiveValueData::I64(_) => todo!(),
+            PrimitiveValueData::F32(f) => (*f as u64).hash(state),
             PrimitiveValueData::B32(_) => todo!(),
             PrimitiveValueData::B64(_) => todo!(),
             PrimitiveValueData::Bool(_) => todo!(),
@@ -85,6 +87,7 @@ impl PrimitiveValueData {
     pub fn to_bool(&self) -> bool {
         match self {
             PrimitiveValueData::I32(value) => *value != 0i32,
+            PrimitiveValueData::I64(value) => *value != 0i64,
             PrimitiveValueData::F32(value) => *value != 0.0f32,
             PrimitiveValueData::B32(value) => *value != 0u32,
             PrimitiveValueData::B64(value) => *value != 0u64,
@@ -97,6 +100,7 @@ impl PrimitiveValueData {
         unsafe {
             match self {
                 PrimitiveValueData::I32(value) => value.__to_register__(),
+                PrimitiveValueData::I64(value) => todo!(),
                 PrimitiveValueData::F32(value) => value.__to_register__(),
                 PrimitiveValueData::B32(value) => value.__to_register__(),
                 PrimitiveValueData::B64(value) => value.__to_register__(),
@@ -122,6 +126,18 @@ impl From<i32> for PrimitiveValueData {
 impl From<&i32> for PrimitiveValueData {
     fn from(value: &i32) -> Self {
         Self::I32(*value)
+    }
+}
+
+impl From<i64> for PrimitiveValueData {
+    fn from(value: i64) -> Self {
+        Self::I64(value)
+    }
+}
+
+impl From<&i64> for PrimitiveValueData {
+    fn from(value: &i64) -> Self {
+        Self::I64(*value)
     }
 }
 
