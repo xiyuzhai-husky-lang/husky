@@ -1,6 +1,7 @@
 mod impl_opn;
 mod xml;
 
+use husky_primitive_literal_semantics::convert_literal_to_value;
 use vm::{__Linkage, __Register};
 pub use xml::*;
 
@@ -202,10 +203,13 @@ impl<'a> FeatureExprBuilder<'a> {
                     }
                 })
                 .unwrap(),
-            LazyExprVariant::PrimitiveLiteral(value) => (
-                FeatureExprVariant::PrimitiveLiteral(todo!()),
-                self.features.intern(Feature::PrimitiveLiteral(todo!())),
-            ),
+            LazyExprVariant::PrimitiveLiteral(data) => {
+                let value = convert_literal_to_value(data, expr.ty());
+                (
+                    FeatureExprVariant::PrimitiveLiteral(value),
+                    self.features.intern(Feature::PrimitiveLiteral(value)),
+                )
+            }
             LazyExprVariant::Bracketed(ref bracketed_expr) => {
                 return self.new_expr(bracketed_expr.clone())
             }

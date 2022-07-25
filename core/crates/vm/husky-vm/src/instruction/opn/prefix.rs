@@ -20,6 +20,7 @@ impl PrefixOpr {
         match self {
             PrefixOpr::Minus => match opd {
                 PrimitiveValueData::I32(i) => (-i).into(),
+                PrimitiveValueData::I64(i) => (-i).into(),
                 PrimitiveValueData::F32(f) => (-f).into(),
                 PrimitiveValueData::B32(_) => todo!(),
                 PrimitiveValueData::B64(_) => todo!(),
@@ -28,6 +29,7 @@ impl PrefixOpr {
             },
             PrefixOpr::Not => match opd {
                 PrimitiveValueData::I32(i) => i == 0,
+                PrimitiveValueData::I64(i) => i == 0,
                 PrimitiveValueData::F32(f) => f == 0.,
                 PrimitiveValueData::B32(b) => b == 0,
                 PrimitiveValueData::B64(b) => b == 0,

@@ -117,14 +117,7 @@ impl PureBinaryOpr {
                 PrimitiveValueData::F32(a) => (a / ropd.take_f32()).into(),
                 _ => no_such_opn!(),
             },
-            PureBinaryOpr::Eq => match lopd {
-                PrimitiveValueData::I32(i) => (i == ropd.take_i32()).into(),
-                PrimitiveValueData::F32(f) => (f == ropd.take_f32()).into(),
-                PrimitiveValueData::B32(b) => (b == ropd.take_b32()).into(),
-                PrimitiveValueData::B64(b) => (b == ropd.take_b64()).into(),
-                PrimitiveValueData::Bool(b) => (b == ropd.take_bool()).into(),
-                PrimitiveValueData::Void(_) => true.into(),
-            },
+            PureBinaryOpr::Eq => (lopd == ropd).into(),
             PureBinaryOpr::Geq => match lopd {
                 PrimitiveValueData::I32(a) => (a >= ropd.take_i32()).into(),
                 PrimitiveValueData::F32(a) => (a >= ropd.take_f32()).into(),

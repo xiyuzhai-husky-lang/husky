@@ -8,6 +8,7 @@ mod impl_hashmap;
 mod impl_primitive;
 
 #[derive(Hash)]
+#[repr(C)]
 pub struct __Register<'eval> {
     pub data_kind: __RegisterDataKind,
     pub opt_data: Option<*mut dyn __RegistrableDyn>,
