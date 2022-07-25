@@ -58,6 +58,19 @@ fn i32_type() {
 }
 
 #[test]
+fn i64_type() {
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
+    utils::check_atom_kind(
+        &mut db,
+        "i64",
+        AtomVariant::EntityRoute {
+            route: RootIdentifier::I64.into(),
+            kind: EntityKind::Type(TyKind::Primitive),
+        },
+    );
+}
+
+#[test]
 fn f32_type() {
     let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
     utils::check_atom_kind(
@@ -65,6 +78,19 @@ fn f32_type() {
         "f32",
         AtomVariant::EntityRoute {
             route: RootIdentifier::F32.into(),
+            kind: EntityKind::Type(TyKind::Primitive),
+        },
+    );
+}
+
+#[test]
+fn f64_type() {
+    let mut db = HuskyCompileTime::new_default(__resolve_root_defn);
+    utils::check_atom_kind(
+        &mut db,
+        "f64",
+        AtomVariant::EntityRoute {
+            route: RootIdentifier::F64.into(),
             kind: EntityKind::Type(TyKind::Primitive),
         },
     );

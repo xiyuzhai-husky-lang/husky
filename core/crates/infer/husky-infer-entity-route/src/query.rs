@@ -32,13 +32,17 @@ fn is_implicitly_castable(
         EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
             RootIdentifier::Void => false,
             RootIdentifier::I32 => false,
+            RootIdentifier::I64 => false,
             RootIdentifier::F32 => false,
+            RootIdentifier::F64 => false,
             RootIdentifier::B32 => false,
             RootIdentifier::B64 => false,
             RootIdentifier::Bool => match src_ty {
                 EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
                     RootIdentifier::I32
+                    | RootIdentifier::I64
                     | RootIdentifier::F32
+                    | RootIdentifier::F64
                     | RootIdentifier::B32
                     | RootIdentifier::B64
                     | RootIdentifier::Bool => true,
@@ -126,11 +130,14 @@ fn are_different_root_tys_explicity_castable(
     match (src_ty, dst_ty) {
         (RootIdentifier::I32, RootIdentifier::I64)
         | (RootIdentifier::I32, RootIdentifier::F32)
+        | (RootIdentifier::I32, RootIdentifier::F64)
         | (RootIdentifier::I32, RootIdentifier::Bool)
         | (RootIdentifier::I32, RootIdentifier::B32)
         | (RootIdentifier::I32, RootIdentifier::B64)
         | (RootIdentifier::I64, RootIdentifier::B64)
+        | (RootIdentifier::I64, RootIdentifier::F64)
         | (RootIdentifier::B32, RootIdentifier::I32)
+        | (RootIdentifier::B32, RootIdentifier::I64)
         | (RootIdentifier::B32, RootIdentifier::B64) => true,
         (RootIdentifier::B32, _) => false,
         (RootIdentifier::B64, _) => false,

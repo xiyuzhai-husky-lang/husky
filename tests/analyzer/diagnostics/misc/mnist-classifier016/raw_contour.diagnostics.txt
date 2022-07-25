@@ -1,28 +1,3 @@
-25:14..25:15	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-27:23..27:27	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-29:22..29:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-31:14..31:15	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-33:14..33:15	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-35:22..35:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-37:23..37:27	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-39:22..39:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-41:14..41:15	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-43:23..43:27	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-45:22..45:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-65:14..65:15	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-67:22..67:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-69:23..69:27	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-73:14..73:15	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-75:22..75:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-77:22..77:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-79:22..79:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-87:22..87:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-89:14..89:15	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-91:27..91:31	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-93:22..93:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-101:14..101:15	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-103:23..103:27	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
-105:22..105:23	Infer Error: match expression is of type `b32` but case pattern is of type `i32` instead
 49:33..49:39	Infer Error: no method named `to_i32` for type `mnist_classifier016::raw_contour::Direction`
 72:21..72:26	Infer Error: Unrecognized identifier `panic`
 86:29..86:34	Infer Error: Unrecognized identifier `panic`

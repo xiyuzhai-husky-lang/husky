@@ -152,6 +152,7 @@ impl<'a> FeatureExprBuilder<'a> {
             EntityRoutePtr::Root(RootIdentifier::Void)
             | EntityRoutePtr::Root(RootIdentifier::I32)
             | EntityRoutePtr::Root(RootIdentifier::F32)
+            | EntityRoutePtr::Root(RootIdentifier::F64)
             | EntityRoutePtr::Root(RootIdentifier::B32)
             | EntityRoutePtr::Root(RootIdentifier::B64) => {
                 let feature = self.features.intern(Feature::PrimitiveBinaryOpr {

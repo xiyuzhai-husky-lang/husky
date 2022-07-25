@@ -170,28 +170,41 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     }
 
     fn infer_pattern(&mut self, expectation: EntityRoutePtr, pattern: &RawCasePattern) {
-        let ty = match pattern.variant {
+        // in pattern matching, we don't use expectation.intrinsic
+        // because there is no implicit conversion
+        let ty: EntityRoutePtr = match pattern.variant {
             RawCasePatternVariant::PrimitiveValue(value) => match value {
                 PrimitiveLiteralData::Void => todo!(),
-                PrimitiveLiteralData::Integer(_) => todo!(),
-                PrimitiveLiteralData::I32(_) => todo!(),
-                PrimitiveLiteralData::I64(_) => todo!(),
+                PrimitiveLiteralData::Integer(_) => match expectation {
+                    EntityRoutePtr::Root(
+                        RootIdentifier::I32
+                        | RootIdentifier::I64
+                        | RootIdentifier::B32
+                        | RootIdentifier::B64,
+                    ) => return,
+                    _ => RootIdentifier::I32.into(),
+                },
+                PrimitiveLiteralData::I32(_) => RootIdentifier::I32.into(),
+                PrimitiveLiteralData::I64(_) => RootIdentifier::I64.into(),
                 PrimitiveLiteralData::Float(_) => todo!(),
-                PrimitiveLiteralData::F32(_) => todo!(),
-                PrimitiveLiteralData::F64(_) => todo!(),
+                PrimitiveLiteralData::F32(_) => RootIdentifier::F32.into(),
+                PrimitiveLiteralData::F64(_) => RootIdentifier::F64.into(),
                 PrimitiveLiteralData::Bits(_) => todo!(),
-                PrimitiveLiteralData::B32(_) => todo!(),
-                PrimitiveLiteralData::B64(_) => todo!(),
+                PrimitiveLiteralData::B32(_) => RootIdentifier::B32.into(),
+                PrimitiveLiteralData::B64(_) => RootIdentifier::B64.into(),
                 PrimitiveLiteralData::Bool(_) => todo!(),
             },
             RawCasePatternVariant::OneOf { ref subpatterns } => {
                 for subpattern in subpatterns {
                     self.infer_pattern(expectation, subpattern)
                 }
+                return;
             }
-            RawCasePatternVariant::EnumLiteral(_) => todo!(),
+            RawCasePatternVariant::EnumLiteral(value) => value.parent(),
         };
-        todo!()
+        if ty != expectation {
+            todo!()
+        }
         // if let Some(match_expr_ty) = opt_match_expr_ty {
         //     if match_expr_ty != pattern.ty {
         //         self.entity_route_sheet.extra_errors.push(InferError {

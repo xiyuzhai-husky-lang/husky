@@ -96,6 +96,7 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::I32
             | RootIdentifier::I64
             | RootIdentifier::F32
+            | RootIdentifier::F64
             | RootIdentifier::B32
             | RootIdentifier::B64
             | RootIdentifier::Bool => EntityKind::Type(TyKind::Primitive),

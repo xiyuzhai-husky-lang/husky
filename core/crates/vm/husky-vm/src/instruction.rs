@@ -217,8 +217,11 @@ pub fn decr<'temp, 'eval>(opd: &mut __Register<'eval>) {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum CastOpn {
     AsI32,
+    AsI64,
     AsB32,
+    AsB64,
     AsF32,
+    AsF64,
 }
 
 impl CastOpn {

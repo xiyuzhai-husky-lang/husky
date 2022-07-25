@@ -55,7 +55,9 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
         EntityRouteKind::Root { ident } => Ok(match ident {
             RootIdentifier::Void
             | RootIdentifier::I32
+            | RootIdentifier::I64
             | RootIdentifier::F32
+            | RootIdentifier::F64
             | RootIdentifier::B32
             | RootIdentifier::B64
             | RootIdentifier::Bool
