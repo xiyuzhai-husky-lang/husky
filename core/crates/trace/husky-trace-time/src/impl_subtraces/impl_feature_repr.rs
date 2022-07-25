@@ -49,8 +49,7 @@ impl HuskyTraceTime {
                 self.eval_time()
                     .eval_feature_repr(this_repr, sample_id)
                     .unwrap()
-                    .into_stack()
-                    .unwrap(),
+                    .stack(),
             )
         }
         let sample_id = self.restriction.opt_sample_id().unwrap();

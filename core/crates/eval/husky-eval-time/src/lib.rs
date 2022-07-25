@@ -30,7 +30,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use variant::*;
-use vm::{Instruction, VMConfig, __AnyValueDyn};
+use vm::{Instruction, VMConfig};
 
 #[salsa::database(
     husky_feature_gen::FeatureGenQueryGroupStorage,

@@ -139,7 +139,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             varname: *varname,
                         },
                         ty: *ty,
-                        before: Some(snapshot[stack_idx].__eval__()),
+                        before: Some(snapshot[stack_idx].eval()),
                         after: self.stack.eval(stack_idx),
                     })
                 } else {

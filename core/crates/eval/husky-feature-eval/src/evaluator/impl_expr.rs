@@ -6,6 +6,7 @@ use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
 use husky_word::IdentPairDict;
+use husky_xml_syntax::XmlValue;
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
 use vm::__Linkage;
 use vm::*;
@@ -15,7 +16,7 @@ use super::FeatureEvaluator;
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn eval_expr(&mut self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
         match expr.variant {
-            FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.into()),
+            FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.to_register()),
             FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
                 todo!()
             }
@@ -28,7 +29,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     self.eval_expr(lopd)?.primitive(),
                     self.eval_expr(ropd)?.primitive(),
                 )?
-                .into()),
+                .to_register()),
             FeatureExprVariant::StructOriginalField {
                 ref this,
                 field_idx,
@@ -89,10 +90,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if opds.len() > 2 {
                     todo!()
                 }
-                let mut values = vec![
-                    self.eval_expr(&opds[0])?,
-                    self.eval_expr(&opds[1])?.into_stack().unwrap(),
-                ];
+                let mut values = vec![self.eval_expr(&opds[0])?, self.eval_expr(&opds[1])?.stack()];
                 linkage.eval(unsafe { self.some_ctx() }, &mut values)
             }
             FeatureExprVariant::StructDerivedLazyField {
@@ -101,8 +99,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 field_uid,
                 ref repr,
             } => {
-                let parent = self.eval_feature_repr_cached(this)?.eval_ref();
-                let eval_key = EvalKey::StructDerivedField::<'eval> { parent, field_uid };
+                let parent = self.eval_feature_repr_cached(this)?.opt_data.unwrap();
+                let eval_key = EvalKey::StructDerivedField { parent, field_uid };
                 self.cache(eval_key, |this| this.eval_feature_repr(repr))
             }
             FeatureExprVariant::ModelCall {
@@ -154,12 +152,14 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     ) -> __VMResult<__Register<'eval>> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
-            let this_value = this_value.into_stack()?;
+            let this_value = this_value.stack();
             linkage.eval(unsafe { self.some_ctx() }, &mut vec![this_value])
         } else {
             let this_value = self.eval_feature_repr(this)?;
-            match catch_unwind(move || unsafe { this_value.field_access(field_idx, field_binding) })
-            {
+            match catch_unwind(move || unsafe {
+                todo!()
+                // this_value.field_access(field_idx, field_binding)
+            }) {
                 Ok(value) => Ok(value),
                 Err(error) => {
                     p!(
@@ -182,7 +182,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
                 let visual_data = self.visualize_feature(this);
-                Ok(__Register::Owned(__OwnedValue::new(visual_data?)))
+                todo!()
+                // Ok(__Register::Owned(__OwnedValue::new(visual_data?)))
             }
             FeatureXmlExprVariant::Tag {
                 tag_kind,
@@ -194,16 +195,16 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .iter()
                         .map(
                             |(ident, argument)| {
-                                self.eval_expr(argument)
-                                    .map(|v| (*ident, v.any_ref().__to_json_value_dyn()))
+                                self.eval_expr(argument).map(|v| (*ident, v.json_value()))
                             },
                             // argument.any_ref().to_json_value_dyn()
                         )
                         .collect::<__VMResult<IdentPairDict<_>>>()?,
                 };
-                Ok(__Register::Owned(__OwnedValue::new(VisualData::from(
-                    xml_value.into(),
-                ))))
+                todo!()
+                // Ok(__Register::Owned(__OwnedValue::new(VisualData::from(
+                //     xml_value.into(),
+                // ))))
             }
         }
     }
@@ -219,7 +220,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         let vm_config = self.vm_config();
         let values = arguments
             .iter()
-            .map(|expr| __TempValue::from_eval(self.eval_expr(expr)?))
+            .map(|expr| {
+                todo!()
+                // __TempValue::from_eval(self.eval_expr(expr)?)
+            })
             .collect::<Vec<_>>();
         msg_once!("kwargs");
         eval_fast(

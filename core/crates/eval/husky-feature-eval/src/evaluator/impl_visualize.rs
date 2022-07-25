@@ -21,32 +21,33 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
     {
         let visualizer = self.db.compile_time().visualizer(this.ty());
         let this_value = self.eval_feature_repr_cached(&this).unwrap();
-        should_eq!(this_value.__ty__(), this.ty());
-        if let Some(visual_data) =
-            this_value
-                .eval_ref()
-                .0
-                .__opt_visualize_dyn(&mut |index, elem| {
-                    self.visualize_feature(FeatureRepr::Value {
-                        value: __EvalRef(elem),
-                        file: this.file(),
-                        range: this.text_range(),
-                        ty: elem.__ty_dyn(),
-                        feature: self.db.feature_interner().intern(Feature::IndexFixed {
-                            this: this.feature(),
-                            index,
-                        }),
-                    })
-                })?
-        {
-            return Ok(visual_data);
-        }
-        let visual_feature = self.db.visual_feature_repr(this)?;
-        Ok(self
-            .eval_feature_repr(&visual_feature)?
-            .any_ref()
-            .__downcast_ref::<VisualData>()
-            .clone())
+        should_eq!(this_value.ty(), this.ty());
+        todo!()
+        // if let Some(visual_data) =
+        //     this_value
+        //         .eval_ref()
+        //         .0
+        //         .__opt_visualize_dyn(&mut |index, elem| {
+        //             self.visualize_feature(FeatureRepr::Value {
+        //                 value: __EvalRef(elem),
+        //                 file: this.file(),
+        //                 range: this.text_range(),
+        //                 ty: elem.__ty_dyn(),
+        //                 feature: self.db.feature_interner().intern(Feature::IndexFixed {
+        //                     this: this.feature(),
+        //                     index,
+        //                 }),
+        //             })
+        //         })?
+        // {
+        //     return Ok(visual_data);
+        // }
+        // let visual_feature = self.db.visual_feature_repr(this)?;
+        // Ok(self
+        //     .eval_feature_repr(&visual_feature)?
+        //     .any_ref()
+        //     .__downcast_ref::<VisualData>()
+        //     .clone())
     }
 }
 

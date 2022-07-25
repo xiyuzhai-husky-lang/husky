@@ -1,4 +1,5 @@
 use husky_check_utils::should_eq;
+use husky_vm_register_method::VMRegisterMethodX;
 
 use super::*;
 
@@ -12,7 +13,7 @@ impl HuskyTraceTime {
             match entry {
                 HistoryEntry::PureExpr { result } => match result {
                     Ok(output) => {
-                        should_eq!(output.__ty__(), expr.ty());
+                        should_eq!(output.ty(), expr.ty());
                         FigureCanvasData::new_specific(
                             self.visualize_temp_value(output, expr.ty(), expr.file, expr.range)
                                 .unwrap(),

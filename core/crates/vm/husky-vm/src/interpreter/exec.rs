@@ -54,7 +54,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                result: Ok(value.__eval__()),
+                                result: Ok(value.eval()),
                             },
                         ),
                     }
@@ -165,7 +165,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::Return { output_ty } => {
-                    let return_value = self.stack.pop().__eval__();
+                    let return_value = self.stack.pop().eval();
                     msg_once!("ugly");
                     if output_ty.kind
                         != (EntityRouteKind::Root {

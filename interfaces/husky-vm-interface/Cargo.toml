@@ -12,3 +12,4 @@ husky-vm-binding = { path = "../../core/crates/vm/husky-vm-binding", optional = 
 [features]
 serde_support = ["dep:serde"]
 binding = ["dep:husky-vm-binding"]
+extra = ["binding"]

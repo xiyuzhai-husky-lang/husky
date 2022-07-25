@@ -50,11 +50,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             has_this,
             self.vm_config,
         );
-        self.stack.push(
-            interpreter
-                .eval_instructions(sheet, Mode::Fast)?
-                .__stack__(),
-        );
+        self.stack
+            .push(interpreter.eval_instructions(sheet, Mode::Fast)?.stack());
         Ok(())
     }
 

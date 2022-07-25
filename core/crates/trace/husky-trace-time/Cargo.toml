@@ -35,3 +35,4 @@ husky-eval-time = { path = "../../eval/husky-eval-time" }
 trace = { path = "../trace" }
 husky-feature-gen = { path = "../../eval/husky-feature-gen" }
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
+husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }

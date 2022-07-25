@@ -11,7 +11,10 @@ impl HuskyTraceTime {
             let value = self
                 .eval_time_singleton
                 .eval_feature_expr(expr, sample_id)
-                .map_err(|e| (sample_id, e))?;
+                .map_err(|e| {
+                    todo!()
+                    // (sample_id, e)
+                })?;
             Ok(FigureCanvasData::new_specific(
                 self.eval_time()
                     .visualize_feature(FeatureRepr::Expr(expr.clone()), sample_id)
@@ -104,7 +107,10 @@ impl HuskyTraceTime {
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
             let sample_id = labeled_data.sample_id;
-            let f = |e| (sample_id, e);
+            let f = |e| {
+                todo!()
+                //  (sample_id, e)
+            };
             if !self
                 .all_arrived(restriction.arrivals(), sample_id)
                 .map_err(f)?
