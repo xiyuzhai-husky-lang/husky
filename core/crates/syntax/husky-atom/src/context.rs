@@ -68,6 +68,7 @@ pub trait AtomContext {
             kind: EntityKind::Type(match ident {
                 RootIdentifier::Void
                 | RootIdentifier::I32
+                | RootIdentifier::I64
                 | RootIdentifier::F32
                 | RootIdentifier::B32
                 | RootIdentifier::B64

@@ -229,6 +229,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             EntityRouteKind::Root { ident } => match ident {
                 RootIdentifier::Void
                 | RootIdentifier::I32
+                | RootIdentifier::I64
                 | RootIdentifier::F32
                 | RootIdentifier::B32
                 | RootIdentifier::B64

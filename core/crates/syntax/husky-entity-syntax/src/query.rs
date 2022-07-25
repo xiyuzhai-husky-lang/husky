@@ -94,6 +94,7 @@ fn entity_kind_from_entity_route_kind(
         EntityRouteKind::Root { ident } => match ident {
             RootIdentifier::Void
             | RootIdentifier::I32
+            | RootIdentifier::I64
             | RootIdentifier::F32
             | RootIdentifier::B32
             | RootIdentifier::B64

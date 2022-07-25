@@ -4,6 +4,7 @@ use super::*;
 pub enum RootIdentifier {
     Void,
     I32,
+    I64,
     F32,
     B32,
     B64,
@@ -54,6 +55,7 @@ impl RootIdentifier {
         match self {
             RootIdentifier::Void => "void",
             RootIdentifier::I32 => "i32",
+            RootIdentifier::I64 => "i64",
             RootIdentifier::F32 => "f32",
             RootIdentifier::B32 => "b32",
             RootIdentifier::B64 => "b64",

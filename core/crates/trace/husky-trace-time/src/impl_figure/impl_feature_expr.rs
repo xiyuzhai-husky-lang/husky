@@ -53,7 +53,7 @@ impl HuskyTraceTime {
             VisualTy::Bool => todo!(),
             VisualTy::B32 => todo!(),
             VisualTy::B64 => todo!(),
-            VisualTy::I32 => {
+            VisualTy::Integer => {
                 let ref this = self;
                 Ok(FigureCanvasData::GenericI32 {
                     partitioned_samples: this.feature_expr_partitioned_samples(
@@ -70,7 +70,7 @@ impl HuskyTraceTime {
                     )?,
                 })
             }
-            VisualTy::F32 => Ok(FigureCanvasData::GenericF32 {
+            VisualTy::Float => Ok(FigureCanvasData::GenericF32 {
                 partitioned_samples: self.feature_expr_partitioned_samples(
                     expr,
                     |visual_data| match visual_data {

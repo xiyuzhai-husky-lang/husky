@@ -35,41 +35,39 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Variable {
                 varname,
                 init_range,
-            } => {
-                derived_not_none!(self
-                    .entity_route_sheet
-                    .variable_tys
-                    .get(&(varname, init_range))
-                    .map(|route| *route))
-            }
+            } => derived_not_none!(self
+                .entity_route_sheet
+                .variable_tys
+                .get(&(varname, init_range))
+                .map(|route| *route))?,
             RawExprVariant::Unrecognized(ident) => Err(InferError {
                 variant: InferErrorVariant::Original {
                     message: format!("Unrecognized identifier `{}`", &ident),
                     range: self.arena[raw_expr_idx].range,
                 },
                 dev_src: dev_src!(),
-            }),
-            RawExprVariant::Entity { route, kind } => self.infer_entity(route, kind),
+            })?,
+            RawExprVariant::Entity { route, kind } => self.infer_entity(route, kind)?,
             RawExprVariant::PrimitiveLiteral(value) => {
                 self.infer_primitive_literal(expectation, value)
             }
             RawExprVariant::Bracketed(expr) => {
-                derived_not_none!(self.infer_expr(expr, expectation))
+                derived_not_none!(self.infer_expr(expr, expectation))?
             }
             RawExprVariant::Opn {
                 opn_variant: ref opr,
                 ref opds,
-            } => self.infer_opn(opr, opds, raw_expr_idx),
+            } => self.infer_opn(opr, opds, raw_expr_idx)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::ThisValue {
                 opt_this_ty: opt_ty,
                 ..
-            } => derived_not_none!(opt_ty),
-            RawExprVariant::FrameVariable { .. } => Ok(entity_route_menu().i32_ty),
+            } => derived_not_none!(opt_ty)?,
+            RawExprVariant::FrameVariable { .. } => entity_route_menu().i32_ty,
             RawExprVariant::ThisField { opt_field_ty, .. } => {
-                Ok(derived_not_none!(opt_field_ty)?.route)
+                derived_not_none!(opt_field_ty)?.route
             }
-        }?;
+        };
         if let Some(expected_ty) = expectation {
             if !self.db.is_implicitly_castable(ty, expected_ty) {
                 throw!(
@@ -138,8 +136,46 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         &mut self,
         expectation: Option<EntityRoutePtr>,
         value: PrimitiveLiteralData,
-    ) -> InferResult<EntityRoutePtr> {
-        todo!()
+    ) -> EntityRoutePtr {
+        match value {
+            PrimitiveLiteralData::Void => todo!(),
+            PrimitiveLiteralData::Integer(_) => {
+                if let Some(expectation) = expectation {
+                    match expectation.intrinsic() {
+                        EntityRoutePtr::Root(RootIdentifier::I32) => RootIdentifier::I32.into(),
+                        _ => RootIdentifier::I32.into(),
+                    }
+                } else {
+                    // the default integer type is i32
+                    RootIdentifier::I32.into()
+                }
+            }
+            PrimitiveLiteralData::I32(_) => todo!(),
+            PrimitiveLiteralData::I64(_) => todo!(),
+            PrimitiveLiteralData::Float(_) => {
+                if let Some(expectation) = expectation {
+                    todo!()
+                } else {
+                    // the default float type is f32
+                    RootIdentifier::F32.into()
+                }
+            }
+            PrimitiveLiteralData::F32(_) => todo!(),
+            PrimitiveLiteralData::F64(_) => todo!(),
+            PrimitiveLiteralData::Bits(_) => todo!(),
+            PrimitiveLiteralData::B32(_) => {
+                if let Some(expectation) = expectation {
+                    match expectation.intrinsic() {
+                        EntityRoutePtr::Root(RootIdentifier::B32) => (),
+                        _ => todo!(),
+                    }
+                }
+                // the default float type is f32
+                RootIdentifier::B32.into()
+            }
+            PrimitiveLiteralData::B64(_) => todo!(),
+            PrimitiveLiteralData::Bool(_) => todo!(),
+        }
     }
 
     fn infer_opn(
@@ -301,6 +337,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             }
             PureBinaryOpr::RemEuclid => match (lopd_builtin_ty, ropd_builtin_ty) {
                 (RootIdentifier::I32, RootIdentifier::I32) => RootIdentifier::I32,
+                (RootIdentifier::I64, RootIdentifier::I64) => RootIdentifier::I64,
                 (RootIdentifier::F32, RootIdentifier::F32) => RootIdentifier::F32,
                 _ => {
                     throw!("expect use of rem euclid \"%\" on i32 or f32", range)

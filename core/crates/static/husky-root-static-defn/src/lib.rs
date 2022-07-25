@@ -41,6 +41,7 @@ pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
     match ident {
         RootIdentifier::Void => &VOID_TYPE_DEFN,
         RootIdentifier::I32 => &I32_TYPE_DEFN,
+        RootIdentifier::I64 => todo!(),
         RootIdentifier::F32 => &F32_TYPE_DEFN,
         RootIdentifier::B32 => &B32_TYPE_DEFN,
         RootIdentifier::B64 => &B64_TYPE_DEFN,
