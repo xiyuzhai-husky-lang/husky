@@ -82,10 +82,20 @@ where
         let ptr: *mut T = self;
         drop(Box::from_raw(ptr));
     }
+
+    fn static_type_name(&self) -> std::borrow::Cow<'static, str> {
+        T::__static_type_name()
+    }
+
+    fn fmt_debug(&self) -> String {
+        format!("{:?}", self)
+    }
 }
 
 pub trait __RegistrableDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
     unsafe fn drop_dyn(&mut self);
+    fn static_type_name(&self) -> std::borrow::Cow<'static, str>;
+    fn fmt_debug(&self) -> String;
 }
 
 impl<'eval> __Register<'eval> {
@@ -183,19 +193,18 @@ impl<'eval> __Register<'eval> {
         // }
     }
 
+    unsafe fn move_into_raw(&mut self) -> *mut dyn __RegistrableDyn {
+        self.data_kind = __RegisterDataKind::Moved;
+        std::mem::take(&mut self.opt_data).unwrap()
+    }
+
     pub fn downcast<T>(&mut self) -> T
     where
         T: __Registrable + 'eval,
     {
         match self.data_kind {
             __RegisterDataKind::Value => todo!(),
-            __RegisterDataKind::Box => {
-                let this = std::mem::replace(self, __Register::new_moved());
-                let data = this.opt_data.unwrap() as *mut T;
-                let data = unsafe { Box::from_raw(data) };
-                println!("{}", T::__static_type_name());
-                *data
-            }
+            __RegisterDataKind::Box => unsafe { *Box::from_raw(self.move_into_raw() as *mut T) },
             __RegisterDataKind::EvalRef => todo!(),
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
@@ -239,7 +248,7 @@ impl<'eval> Drop for __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::Box | __RegisterDataKind::Undefined => unsafe {
                 // when undefined, opt_data might hold a message
-                (*self.opt_data.unwrap()).drop_dyn()
+                (*std::mem::take(&mut self.opt_data).unwrap()).drop_dyn()
             },
             _ => (),
         }
