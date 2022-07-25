@@ -2,37 +2,39 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct __MemberLinkage {
-    pub copy_access: __LinkageFp,
-    pub eval_ref_access: __LinkageFp,
-    pub temp_ref_access: __LinkageFp,
-    pub temp_mut_access: __LinkageFp,
-    pub move_access: __LinkageFp,
+    pub copy_fp: __LinkageFp,
+    pub eval_ref_fp: __LinkageFp,
+    pub temp_ref_fp: __LinkageFp,
+    pub temp_mut_fp: __LinkageFp,
+    pub move_fp: __LinkageFp,
 }
 
 #[macro_export]
 macro_rules! method_elem_linkage {
     ($Type: ty, $method_name: ident) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_access: method_elem_copy_fp!($Type, $method_name),
-            eval_ref_access: method_elem_eval_ref_fp!($Type, $method_name),
-            temp_ref_access: method_elem_temp_ref_fp!($Type, $method_name),
-            temp_mut_access: method_elem_temp_mut_fp!($Type, $method_name),
-            move_access: method_elem_move_fp!($Type, $method_name),
+            copy_fp: method_elem_copy_fp!($Type, $method_name),
+            eval_ref_fp: method_elem_eval_ref_fp!($Type, $method_name),
+            temp_ref_fp: method_elem_temp_ref_fp!($Type, $method_name),
+            temp_mut_fp: method_elem_temp_mut_fp!($Type, $method_name),
+            move_fp: method_elem_move_fp!($Type, $method_name),
         })
     }};
 }
+
 #[macro_export]
 macro_rules! eager_field_linkage {
     ($Type: ty, $FieldTy: ty, $field: ident, $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_access: field_copy_fp!($Type, $FieldTy, field, $copy_kind),
-            eval_ref_access: field_eval_ref_fp!($Type, $field),
-            temp_ref_access: field_temp_ref_fp!($Type, $field),
-            temp_mut_access: field_temp_mut_invalid_fp!($Type, $field),
-            move_access: field_move_fp!($Type, $field),
+            copy_fp: field_copy_fp!($Type, $FieldTy, $field, $copy_kind),
+            eval_ref_fp: field_eval_ref_fp!($Type, $field),
+            temp_ref_fp: field_temp_ref_fp!($Type, $field),
+            temp_mut_fp: field_temp_mut_invalid_fp!($Type, $field),
+            move_fp: field_move_fp!($Type, $field),
         })
     }};
 }
+
 #[macro_export]
 macro_rules! lazy_field_linkage {
     ($Type: ty, $field: ident) => {{
@@ -51,11 +53,11 @@ macro_rules! lazy_field_linkage {
 macro_rules! eager_mut_field_linkage {
     ($Type: ty, $field: ident) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_access: field_copy_fp!($Type, $field),
-            eval_ref_access: field_eval_ref_fp!($Type, $field),
-            temp_ref_access: field_temp_ref_fp!($Type, $field),
-            temp_mut_access: field_temp_mut_fp!($Type, $field),
-            move_access: field_move_fp!($Type, $field),
+            copy_fp: field_copy_fp!($Type, $field),
+            eval_ref_fp: field_eval_ref_fp!($Type, $field),
+            temp_ref_fp: field_temp_ref_fp!($Type, $field),
+            temp_mut_fp: field_temp_mut_fp!($Type, $field),
+            move_fp: field_move_fp!($Type, $field),
         })
     }};
 }
@@ -64,11 +66,11 @@ macro_rules! eager_mut_field_linkage {
 macro_rules! index_linkage {
     ($Type: ty, $ElementType: ty, $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_access: index_copy_fp!($Type, $ElementType, $copy_kind),
-            eval_ref_access: index_eval_ref_fp!($Type),
-            temp_ref_access: index_temp_ref_fp!($Type),
-            temp_mut_access: index_temp_mut_fp!($Type),
-            move_access: index_move_fp!($Type),
+            copy_fp: index_copy_fp!($Type, $ElementType, $copy_kind),
+            eval_ref_fp: index_eval_ref_fp!($Type),
+            temp_ref_fp: index_temp_ref_fp!($Type),
+            temp_mut_fp: index_temp_mut_fp!($Type),
+            move_fp: index_move_fp!($Type),
         })
     }};
 }

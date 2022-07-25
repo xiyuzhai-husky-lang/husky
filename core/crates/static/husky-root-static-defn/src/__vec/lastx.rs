@@ -9,7 +9,13 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::Member(todo!())),
+        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+            copy_fp: linkage_fp!(generic_vec_lastx_copy),
+            eval_ref_fp: linkage_fp!(generic_vec_lastx_eval_ref),
+            temp_ref_fp: linkage_fp!(generic_vec_lastx_temp_ref),
+            temp_mut_fp: linkage_fp!(generic_vec_lastx_temp_mut),
+            move_fp: linkage_fp!(generic_vec_lastx_move),
+        })),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },
@@ -17,22 +23,22 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     dev_src: __static_dev_src!(),
 };
 
-fn generic_vec_lastx_copy<'temp, 'eval>(
+fn generic_vec_lastx_copy<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     todo!()
 }
 
-fn generic_vec_lastx_eval_ref<'temp, 'eval>(
+unsafe fn generic_vec_lastx_eval_ref<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let generic_vec: &VirtualVec = values[0].downcast_temp_ref();
+    let generic_vec: &'eval VirtualVec = values[0].downcast_eval_ref();
     generic_vec.last().unwrap().bind_eval_ref()
 }
 
-fn generic_vec_lastx_temp_ref<'temp, 'eval>(
+unsafe fn generic_vec_lastx_temp_ref<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
@@ -40,15 +46,15 @@ fn generic_vec_lastx_temp_ref<'temp, 'eval>(
     generic_vec.last().unwrap().bind_temp_ref()
 }
 
-fn generic_vec_lastx_mut<'temp, 'eval>(
+unsafe fn generic_vec_lastx_temp_mut<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let (generic_vec, stack_idx, gen): (&mut VirtualVec, _, _) = values[0].downcast_mut_full();
-    generic_vec.last_mut().unwrap().bind_mut(stack_idx)
+    let generic_vec: &mut VirtualVec = values[0].downcast_temp_mut();
+    generic_vec.last_mut().unwrap().bind_temp_mut()
 }
 
-fn generic_vec_lastx_move<'temp, 'eval>(
+fn generic_vec_lastx_move<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {

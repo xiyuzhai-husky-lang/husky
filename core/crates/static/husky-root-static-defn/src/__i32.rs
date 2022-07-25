@@ -82,7 +82,7 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-            values[0].__take_primitive__().take_i32().abs().to_register()
+            values[0].primitive().take_i32().abs().to_register()
         }, some i32::abs)),
     },
     dev_src: __static_dev_src!(),

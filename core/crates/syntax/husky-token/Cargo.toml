@@ -21,3 +21,4 @@ husky-text = { path = "../husky-text" }
 word = { path = "../word" }
 vm = { path = "../../vm/husky-vm" }
 entity-kind = { path = "../entity-kind" }
+ordered-float = "3.0.0"

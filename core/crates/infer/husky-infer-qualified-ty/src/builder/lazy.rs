@@ -141,11 +141,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    fn infer_lazy_case_pattern(&mut self, pattern: &CasePattern) {
+    fn infer_lazy_case_pattern(&mut self, pattern: &RawCasePattern) {
         match pattern.variant {
-            CasePatternVariant::PrimitiveLiteral(_) => (),
-            CasePatternVariant::OneOf { ref patterns } => (),
-            CasePatternVariant::EnumLiteral(_) => (),
+            RawCasePatternVariant::PrimitiveValue(_) => (),
+            RawCasePatternVariant::OneOf { ref patterns } => (),
+            RawCasePatternVariant::EnumLiteral(_) => (),
         }
     }
 
@@ -213,7 +213,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::CopyableLiteral(_) => Ok(LazyValueQualifiedTy::new(
+            RawExprVariant::PrimitiveLiteral(_) => Ok(LazyValueQualifiedTy::new(
                 LazyExprQualifier::Copyable,
                 self.raw_expr_intrinsic_ty(raw_expr_idx).unwrap(),
             )),

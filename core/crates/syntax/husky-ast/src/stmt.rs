@@ -66,6 +66,6 @@ pub enum RawConditionBranchKind {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawPatternBranchVariant {
-    Case { pattern: CasePattern },
+    Case { pattern: RawCasePattern },
     Default,
 }

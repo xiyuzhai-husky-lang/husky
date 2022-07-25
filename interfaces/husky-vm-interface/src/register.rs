@@ -152,7 +152,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn copy(&self) -> Self {
+    pub unsafe fn __copy__(&self) -> Self {
         todo!()
         // Self {
         //     data_kind: self.data_kind,

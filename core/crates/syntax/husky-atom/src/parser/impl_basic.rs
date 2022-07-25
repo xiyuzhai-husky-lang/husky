@@ -1,5 +1,5 @@
 use husky_text::RangedCustomIdentifier;
-use vm::PrimitiveValueData;
+use husky_token::PrimitiveLiteralData;
 use word::{Keyword, LiasonKeyword, Paradigm};
 
 use super::*;
@@ -23,14 +23,28 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     pub fn usize_literal(&mut self) -> Option<usize> {
         if let Some(HuskyToken {
-            kind: HuskyTokenKind::PrimitiveLiteral(PrimitiveValueData::I32(i)),
+            kind: HuskyTokenKind::PrimitiveLiteral(data),
             ..
         }) = self.token_stream.next()
         {
-            if *i < 0 {
-                None
-            } else {
-                Some(*i as usize)
+            match data {
+                PrimitiveLiteralData::Void => todo!(),
+                PrimitiveLiteralData::I32(i) => {
+                    if *i < 0 {
+                        None
+                    } else {
+                        Some(*i as usize)
+                    }
+                }
+                PrimitiveLiteralData::Integer(_) => todo!(),
+                PrimitiveLiteralData::I64(_) => todo!(),
+                PrimitiveLiteralData::Float(_) => todo!(),
+                PrimitiveLiteralData::F32(_) => todo!(),
+                PrimitiveLiteralData::F64(_) => todo!(),
+                PrimitiveLiteralData::Bits(_) => todo!(),
+                PrimitiveLiteralData::B32(_) => todo!(),
+                PrimitiveLiteralData::B64(_) => todo!(),
+                PrimitiveLiteralData::Bool(_) => todo!(),
             }
         } else {
             None

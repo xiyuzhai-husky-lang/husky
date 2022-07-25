@@ -94,7 +94,13 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(__Linkage::Member(todo!())),
+                        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+                            copy_fp: linkage_fp!(generic_vec_index_copy),
+                            eval_ref_fp: linkage_fp!(generic_vec_index_eval_ref),
+                            temp_ref_fp: linkage_fp!(generic_vec_index_temp_ref),
+                            temp_mut_fp: linkage_fp!(generic_vec_index_temp_mut),
+                            move_fp: linkage_fp!(generic_vec_index_move),
+                        })),
                     },
                 },
             ],
@@ -125,48 +131,48 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::SingleTyped { ty: "E" },
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
-        linkage: generic_routine_linkage!(generic_vec_type_call).into(),
+        linkage: transfer_linkage!(generic_vec_type_call, none),
     },
     dev_src: __static_dev_src!(),
 };
 
-pub(crate) fn generic_vec_type_call<'temp, 'eval>(
-    ty: EntityRoutePtr,
+fn generic_vec_type_call<'eval>(
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let mut data = vec![];
     for value in values {
-        data.push(value.move_into_member())
+        data.push(value.bind_move())
     }
-    (__Register::new_box(VirtualVec::new(ty, data)))
+    (__Register::new_box(VirtualVec::new(data)))
 }
 
-fn generic_vec_push<'temp, 'eval>(
+unsafe fn generic_vec_push<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let element = values[1].move_into_member();
-    let generic_vec: &mut VirtualVec = values[0].downcast_mut();
+    let element = values[1].bind_move();
+    let generic_vec: &mut VirtualVec = values[0].downcast_temp_mut();
     generic_vec.push(element);
     ().to_register()
 }
 
-fn generic_vec_pop<'temp, 'eval>(
+unsafe fn generic_vec_pop<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let generic_vec: &mut VirtualVec = values[0].downcast_mut();
-    generic_vec.pop().unwrap().into_stack()
+    let generic_vec: &mut VirtualVec = values[0].downcast_temp_mut();
+    generic_vec.pop().unwrap()
 }
 
-pub(crate) fn generic_vec_element_move_access<'temp, 'eval>(
+fn generic_vec_index_move<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     todo!()
 }
 
-pub(crate) fn generic_vec_element_copy_access<'temp, 'eval>(
+unsafe fn generic_vec_index_copy<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
@@ -175,17 +181,16 @@ pub(crate) fn generic_vec_element_copy_access<'temp, 'eval>(
     if i >= this_value.len() {
         todo!()
     }
-    this_value[i].copy_into_stack()
+    this_value[i].bind_copy()
 }
 
-pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
+unsafe fn generic_vec_index_eval_ref<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let this_value: &VirtualVec = values[0].downcast_temp_ref();
+    let this_value: &'eval VirtualVec = values[0].downcast_eval_ref();
     let i: usize = values[1].primitive().take_i32() as usize;
-    let any_ptr: *const (dyn __RegistrableDyn + 'eval) = this_value[i].any_ref();
-    todo!()
+    this_value[i].bind_eval_ref()
     // match values[0] {
     //     __TempValue::EvalRef(_) => __TempValue::EvalRef(__EvalRef(unsafe { &*any_ptr })),
     //     __TempValue::TempRefEval(_) => __TempValue::TempRefEval(unsafe { &*any_ptr }),
@@ -193,7 +198,7 @@ pub(crate) fn generic_vec_element_eval_ref_access<'temp, 'eval>(
     // }
 }
 
-pub(crate) fn generic_vec_element_temp_ref_access<'temp, 'eval>(
+unsafe fn generic_vec_index_temp_ref<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
@@ -202,16 +207,16 @@ pub(crate) fn generic_vec_element_temp_ref_access<'temp, 'eval>(
     this_value[i].bind_temp_ref()
 }
 
-pub(crate) fn generic_vec_element_borrow_mut_access<'temp, 'eval>(
+unsafe fn generic_vec_index_temp_mut<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let i: usize = values[1].primitive().take_i32() as usize;
-    let (this_value, stack_idx, gen): (&mut VirtualVec, _, _) = values[0].downcast_mut_full();
+    let this_value: &mut VirtualVec = values[0].downcast_temp_mut();
     if i >= this_value.len() {
         todo!()
     }
-    this_value[i].bind_mut(stack_idx)
+    this_value[i].bind_temp_mut()
 }
 
 pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
@@ -229,7 +234,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
     dev_src: __static_dev_src!(),
 };
 
-fn generic_vec_len<'temp, 'eval>(
+unsafe fn generic_vec_len<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {

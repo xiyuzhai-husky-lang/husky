@@ -60,7 +60,7 @@ impl<'eval> VMStack<'eval> {
     ) -> &mut __Register<'eval> {
         unsafe {
             let value = &mut self.values[stack_idx.raw()];
-            let stack_value = value.__bind__(binding);
+            let stack_value = value.bind(binding);
             self.push(stack_value);
         }
         self.values.last_mut().unwrap()
@@ -166,7 +166,7 @@ impl VariableStack {
             write!(
                 result,
                 "        this: {}\n",
-                vm_stack.values[0].__print_short__()
+                vm_stack.values[0].print_short()
             );
         }
         write!(result, "    variables:\n");
@@ -181,7 +181,7 @@ impl VariableStack {
                 husky_print_utils::RESET,
             );
             if i + shift < vm_stack.values.len() {
-                write!(result, "{}\n", vm_stack.values[i + shift].__print_short__()).unwrap()
+                write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
             } else {
                 write!(result, "uninitialized\n").unwrap()
             }
@@ -197,7 +197,7 @@ impl VariableStack {
                 husky_print_utils::RESET,
             )
             .unwrap();
-            write!(result, "{}\n", vm_stack.values[i + shift].__print_short__()).unwrap()
+            write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
         }
         result.push('\n');
         result

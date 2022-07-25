@@ -9,13 +9,12 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct VirtualVec<'eval> {
-    ty: EntityRoutePtr,
     data: Vec<__Register<'eval>>,
 }
 
 impl<'eval> VirtualVec<'eval> {
-    pub fn new(ty: EntityRoutePtr, data: Vec<__Register<'eval>>) -> Self {
-        Self { ty, data }
+    pub fn new(data: Vec<__Register<'eval>>) -> Self {
+        Self { data }
     }
 }
 

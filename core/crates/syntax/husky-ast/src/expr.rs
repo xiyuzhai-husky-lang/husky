@@ -104,7 +104,7 @@ impl From<HuskyAtom> for RawExpr {
                     init_range: init_row,
                 },
                 AtomVariant::PrimitiveLiteral(literal) => {
-                    RawExprVariant::CopyableLiteral(literal.clone())
+                    RawExprVariant::PrimitiveLiteral(literal.clone())
                 }
                 AtomVariant::EntityRoute { route: scope, kind } => {
                     RawExprVariant::Entity { route: scope, kind }

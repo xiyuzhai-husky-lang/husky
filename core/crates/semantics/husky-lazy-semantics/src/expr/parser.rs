@@ -68,7 +68,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 EntityKind::Member(_) => todo!(),
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::CopyableLiteral(value) => LazyExprVariant::PrimitiveLiteral(value),
+            RawExprVariant::PrimitiveLiteral(value) => LazyExprVariant::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(bracketed_expr) => {
                 LazyExprVariant::Bracketed(self.parse_lazy_expr(bracketed_expr)?)
             }
@@ -422,7 +422,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             }
             RawExprVariant::Variable { .. } => todo!(),
             RawExprVariant::Unrecognized(_) => panic!(),
-            RawExprVariant::CopyableLiteral(_) => todo!(),
+            RawExprVariant::PrimitiveLiteral(_) => todo!(),
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { .. } => todo!(),
             RawExprVariant::Lambda(_, _) => todo!(),

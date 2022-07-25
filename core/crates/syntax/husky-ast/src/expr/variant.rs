@@ -3,6 +3,7 @@ use husky_entity_route::SpatialArgument;
 use husky_entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use husky_text::Row;
+use husky_token::PrimitiveLiteralData;
 use vm::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -31,7 +32,7 @@ pub enum RawExprVariant {
         route: EntityRoutePtr,
         kind: EntityKind,
     },
-    CopyableLiteral(PrimitiveValueData),
+    PrimitiveLiteral(PrimitiveLiteralData),
     Bracketed(RawExprIdx),
     Opn {
         opn_variant: RawOpnVariant,

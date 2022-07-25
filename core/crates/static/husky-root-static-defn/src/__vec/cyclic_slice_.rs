@@ -22,28 +22,25 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
         output_ty: "[%]E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::GenericTransfer(generic_routine_linkage!(
-            generic_cyclic_slice
-        ))),
+        opt_linkage: Some(transfer_linkage!(generic_cyclic_slice, none)),
         output_liason: OutputLiason::Transfer,
         // bug if output_liason is OutputLiason::MemberAccess
     },
     dev_src: __static_dev_src!(),
 };
 
-fn generic_cyclic_slice<'temp, 'eval>(
-    ty: EntityRoutePtr,
+unsafe fn generic_cyclic_slice<'temp, 'eval>(
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let this: &'eval VirtualVec = values[0].downcast_eval_ref();
-    let start = values[1].__take_primitive__().take_i32();
-    let end = values[2].__take_primitive__().take_i32();
-    (__Register::new_box(VirtualCyclicSlice {
-        data: CyclicSlice::<'eval, __Registrable> {
+    let start = values[1].primitive().take_i32();
+    let end = values[2].primitive().take_i32();
+    (__Register::new_box(GenericCyclicSlice {
+        data: CyclicSlice::<'eval, __Register<'eval>> {
             start,
             end,
             total: this.as_slice(),
         },
-        ty,
     }))
 }

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::CasePattern;
+use husky_ast::RawCasePattern;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FuncPatternBranch {
@@ -9,6 +9,6 @@ pub struct FuncPatternBranch {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum FuncPatternBranchVariant {
-    Case { pattern: CasePattern },
+    Case { pattern: RawCasePattern },
     Default,
 }
