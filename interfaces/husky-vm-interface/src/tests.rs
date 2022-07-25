@@ -13,12 +13,19 @@ impl __StaticInfo for A {
 
 impl __Registrable for A {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        todo!()
+        __Register::new_box(self)
     }
 }
 
 #[test]
-fn downcast_works() {
+fn downcast_works1() {
+    let a = A {};
+    let mut ra = unsafe { a.__to_register__() };
+    let b: A = ra.downcast();
+}
+
+#[test]
+fn downcast_works2() {
     let a = A {};
     let mut ra = __Register::new_box(a);
     let b: A = ra.downcast();
