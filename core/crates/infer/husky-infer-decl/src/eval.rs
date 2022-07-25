@@ -1,8 +1,8 @@
 use husky_file::FilePtr;
 use husky_text::{BindTextRangeInto, TextRange};
+use husky_word::RootIdentifier;
 use thin_vec::thin_vec;
 use vm::*;
-use word::RootIdentifier;
 
 use crate::*;
 

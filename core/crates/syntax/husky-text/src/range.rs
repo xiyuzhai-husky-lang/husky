@@ -8,9 +8,9 @@ use husky_display_utils::HuskyDisplay;
 use crate::*;
 use husky_dev_utils::__StaticDevSource;
 use husky_print_utils::*;
+use husky_word::CustomIdentifier;
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
-use word::CustomIdentifier;
 
 #[derive(Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TextRange {

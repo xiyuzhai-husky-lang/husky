@@ -2,6 +2,7 @@ mod opn;
 mod parser;
 mod xml;
 
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
 pub use xml::*;
 
 use std::sync::Arc;
@@ -13,8 +14,8 @@ pub(crate) use parser::LazyExprParser;
 
 use husky_entity_route::{EntityRoute, EntityRoutePtr, RangedEntityRoute};
 use husky_text::{RangedCustomIdentifier, TextRange};
+use husky_word::{CustomIdentifier, Identifier};
 use vm::*;
-use word::{CustomIdentifier, Identifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LazyExpr {
@@ -51,7 +52,7 @@ pub enum LazyExprVariant {
         varname: CustomIdentifier,
         binding: Binding,
     },
-    PrimitiveLiteral(PrimitiveValueData),
+    PrimitiveLiteral(PrimitiveLiteralData),
     EnumLiteral {
         entity_route: EntityRoutePtr,
     },

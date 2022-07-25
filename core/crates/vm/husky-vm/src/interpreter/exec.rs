@@ -10,9 +10,9 @@ use colored::Colorize;
 use husky_check_utils::{should, should_eq};
 use husky_entity_route::EntityRouteKind;
 use husky_print_utils::{msg_once, p, ps};
+use husky_word::RootIdentifier;
 use path_utils::get_relative_path;
 use std::iter::zip;
-use word::RootIdentifier;
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
@@ -74,8 +74,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::PushPrimitiveLiteral { value, explicit } => {
-                    self.stack.push(unsafe { value.__to_register__() });
+                InstructionVariant::PushPrimitiveValue { value, explicit } => {
+                    self.stack.push(unsafe { value.to_register() });
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {

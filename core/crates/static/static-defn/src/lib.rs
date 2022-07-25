@@ -8,8 +8,8 @@ use husky_dev_utils::__StaticDevSource;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualTy;
 use husky_vm_interface::__Linkage;
+use husky_word::RootIdentifier;
 use vm::__LinkageFp;
-use word::RootIdentifier;
 
 pub trait ResolveStaticRootDefn {
     fn __root_defn_resolver(&self) -> fn(ident: RootIdentifier) -> &'static EntityStaticDefn;

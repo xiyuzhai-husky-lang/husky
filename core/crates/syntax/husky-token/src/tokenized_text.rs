@@ -1,10 +1,10 @@
 use crate::*;
 use fold::{FoldableList, FoldingEnd};
 use husky_file::URange;
+use husky_word::WordInterner;
 use lsp_types::FoldingRange;
 use std::fmt::Write;
 use std::sync::Arc;
-use word::WordInterner;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenizedText {

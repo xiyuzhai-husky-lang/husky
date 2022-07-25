@@ -17,12 +17,12 @@ use husky_file::FilePtr;
 use husky_lazy_semantics::{LazyStmt, XmlExprVariant};
 use husky_print_utils::{msg_once, p};
 use husky_text::*;
+use husky_word::{CustomIdentifier, IdentDict};
 use infer_decl::{DeclQueryGroup, MemberIdx};
 use infer_total::InferQueryGroup;
 use semantics_error::SemanticResult;
 use std::{iter::Peekable, sync::Arc};
 use vec_like::VecMap;
-use word::{CustomIdentifier, IdentDict};
 
 impl EntityDefnVariant {
     pub(crate) fn ty_from_ast(

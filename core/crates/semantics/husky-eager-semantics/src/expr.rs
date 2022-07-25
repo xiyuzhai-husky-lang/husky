@@ -5,6 +5,7 @@ use crate::*;
 use husky_ast::{AstIter, RawExprArena, RawExprIdx};
 use husky_file::FilePtr;
 use husky_infer_qualified_ty::{EagerValueQualifiedTy, EagerVariableQualifier};
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use infer_contract::EagerContract;
 use infer_total::InferQueryGroup;
 pub use opn::*;
@@ -13,9 +14,9 @@ use std::sync::Arc;
 
 use husky_entity_route::EntityRoutePtr;
 use husky_text::{RangedCustomIdentifier, TextRange};
+use husky_word::CustomIdentifier;
 use semantics_error::SemanticResultArc;
 use vm::{Binding, InstructionId, InstructionSource, PrimitiveValueData, __LinkageFp};
-use word::CustomIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct EagerExpr {
@@ -77,7 +78,7 @@ pub enum EagerExprVariant {
     // EntityRoute {
     //     route: EntityRoutePtr,
     // },
-    PrimitiveLiteral(PrimitiveValueData),
+    PrimitiveLiteral(PrimitiveLiteralData),
     EnumKindLiteral(EntityRoutePtr),
     Bracketed(Arc<EagerExpr>),
     Opn {

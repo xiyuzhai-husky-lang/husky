@@ -3,7 +3,7 @@ use crate::*;
 use husky_atom::context::{Symbol, SymbolKind};
 use husky_entity_route::{EntityRoute, EntityRouteKind};
 use husky_text::TextRange;
-use word::IdentPairDict;
+use husky_word::IdentPairDict;
 
 impl<'a> AstTransformer<'a> {
     pub(crate) fn parse_xml_expr(

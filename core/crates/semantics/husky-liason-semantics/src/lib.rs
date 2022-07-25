@@ -1,6 +1,6 @@
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr, TemporalArgument};
 use husky_text::TextRange;
-use word::{LiasonKeyword, RootIdentifier};
+use husky_word::{LiasonKeyword, RootIdentifier};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ParameterLiason {

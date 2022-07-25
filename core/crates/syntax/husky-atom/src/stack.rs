@@ -1,7 +1,7 @@
 use husky_entity_route::{EntityKind, SpatialArgument};
+use husky_word::RootIdentifier;
 use thin_vec::{thin_vec, ThinVec};
 use vm::*;
-use word::RootIdentifier;
 
 use crate::{context::AtomContext, *};
 
@@ -116,7 +116,7 @@ impl AtomStack {
         let expectation = "expect Fp, Fn, FnMut, FnOnce";
 
         match attr {
-            ListStartAttr::None => Ok(word::default_func_type()),
+            ListStartAttr::None => Ok(husky_word::default_func_type()),
             ListStartAttr::Attach => {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.variant {

@@ -2,9 +2,9 @@ use crate::*;
 use husky_ast::{MatchLiason, ReturnKind};
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_text::TextRange;
+use husky_word::RootIdentifier;
 use infer_decl::DeclQueryGroup;
 use infer_error::throw;
-use word::RootIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EagerContract {

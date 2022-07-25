@@ -15,6 +15,7 @@ pub use block::*;
 pub use branch::*;
 pub use eval_id::*;
 pub use expr::*;
+use husky_xml_syntax::XmlTagKind;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
 pub use stmt::{FeatureLazyStmtVariant, FeatureStmt};
@@ -27,11 +28,11 @@ use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_print_utils::*;
 use husky_text::*;
+use husky_word::{CustomIdentifier, IdentPairDict};
 use std::sync::Arc;
 use temp::*;
-use vm::{EntityUid, XmlTagKind};
+use vm::EntityUid;
 use vm::{PrimitiveValueData, PureBinaryOpr};
-use word::{CustomIdentifier, IdentPairDict};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {

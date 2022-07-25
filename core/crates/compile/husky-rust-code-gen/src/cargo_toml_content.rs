@@ -1,6 +1,6 @@
 use std::path::Path;
 
-use word::snake_to_dash;
+use husky_word::snake_to_dash;
 
 use crate::*;
 

@@ -18,9 +18,12 @@ sync-utils = { path = "../../../../common-rs/utils/husky-sync-utils" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }
 static-defn = { path = "../../static/static-defn" }
 thin-vec = { path = "../../../../forks/thin-vec" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-instantiate = { path = "../../infer/husky-instantiate" }
 __husky = { path = "../../static/__husky" }
+husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface", features = [
+    "binding"
+] }

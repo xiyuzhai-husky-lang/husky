@@ -10,7 +10,7 @@ description = "Generic LSP server scaffold."
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }
 fold = { path = "../../../../common-rs/abstraction/fold" }
 vm = { path = "../../vm/husky-vm" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
@@ -18,6 +18,8 @@ husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
+husky-token = { path = "../../syntax/husky-token" }
+husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 semantics-error = { path = "../error" }
 infer-total = { path = "../../infer/total" }
 husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
@@ -27,3 +29,4 @@ husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
 entity-kind = { path = "../../syntax/entity-kind" }
 defn-head = { path = "../../syntax/defn-head" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }

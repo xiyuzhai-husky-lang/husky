@@ -53,7 +53,7 @@ pub struct HuskyEvalTimeConfig {
 
 impl HuskyEvalTime {
     pub fn new(
-        // __root_defn: fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
+        // __root_defn: fn(ident: husky_word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
         init_compile_time: impl FnOnce(&mut HuskyCompileTime),
         config: HuskyEvalTimeConfig,
     ) -> HuskyEvalTimeSingletonKeeper {

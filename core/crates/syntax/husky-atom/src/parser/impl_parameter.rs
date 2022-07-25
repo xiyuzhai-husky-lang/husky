@@ -5,7 +5,7 @@ use defn_head::{GenericPlaceholderVariant, Parameter, SpatialParameter};
 use husky_entity_route::*;
 use husky_print_utils::msg_once;
 use husky_token::SemanticTokenKind;
-use word::{IdentDict, Paradigm};
+use husky_word::{IdentDict, Paradigm};
 
 use super::*;
 

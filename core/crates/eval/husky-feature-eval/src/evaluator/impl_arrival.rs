@@ -5,10 +5,10 @@ use husky_feature_gen::*;
 use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
+use husky_word::IdentPairDict;
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
 use vm::__Linkage;
 use vm::*;
-use word::IdentPairDict;
 
 use super::FeatureEvaluator;
 
@@ -19,7 +19,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     ) -> __VMResult<bool> {
         if let Some(arrival_indicator) = opt_arrival_indicator {
             self.eval_cached(EvalKey::Feature(arrival_indicator.feature), |this| {
-                Ok(__EvalValue::Copyable(
+                Ok(__Register::Copyable(
                     this.eval_arrival_indicator(arrival_indicator)?.into(),
                 ))
             })
@@ -38,7 +38,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if !self.eval_opt_arrival_indicator_cached(stmt.opt_arrival_indicator.as_ref())? {
                     return Ok(false);
                 }
-                self.eval_stmt(stmt)? == __EvalValue::Unreturned
+                self.eval_stmt(stmt)? == __Register::Unreturned
             }
             FeatureBranchIndicatorVariant::AfterConditionNotMet {
                 ref opt_parent,

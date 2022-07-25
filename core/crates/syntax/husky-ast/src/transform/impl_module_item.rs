@@ -1,7 +1,7 @@
 use crate::*;
 use husky_text::TextRanged;
 use husky_token::*;
-use word::*;
+use husky_word::*;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_module_item(

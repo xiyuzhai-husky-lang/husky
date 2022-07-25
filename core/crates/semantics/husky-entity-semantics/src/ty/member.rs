@@ -2,8 +2,8 @@ mod field;
 mod method;
 
 pub use field::*;
+use husky_word::Paradigm;
 pub use method::*;
-use word::Paradigm;
 
 use super::*;
 

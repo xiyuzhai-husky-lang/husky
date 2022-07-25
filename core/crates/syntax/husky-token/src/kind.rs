@@ -1,5 +1,5 @@
 pub use crate::*;
-use word::{Decorator, Identifier, Keyword, WordOpr, WordPtr};
+use husky_word::{Decorator, Identifier, Keyword, WordOpr, WordPtr};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum HuskyTokenKind {

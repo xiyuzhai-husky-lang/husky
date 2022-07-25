@@ -4,7 +4,7 @@ mod main_feature_repr;
 pub use entity_feature_repr::*;
 use husky_trace_protocol::Restriction;
 pub use main_feature_repr::*;
-use vm::{InterpreterQueryGroup, ModelLinkage, __VMResult};
+use vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
 
 use crate::{record::*, unique_allocate::AllocateUniqueFeature, visual::*, *};
 use husky_compile_time::AskCompileTime;
@@ -39,8 +39,8 @@ pub trait FeatureGenQueryGroup:
 pub trait TrainModel {
     fn train(
         &self,
-        model: ModelLinkage,
+        model: __ModelLinkage,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         opds: &[Arc<FeatureExpr>],
-    ) -> __VMResult;
+    ) -> __VMResult<__Register<'static>>;
 }

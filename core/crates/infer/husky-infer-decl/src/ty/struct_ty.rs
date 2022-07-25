@@ -1,6 +1,6 @@
 use crate::*;
+use husky_word::IdentDict;
 use vec_like::VecMap;
-use word::IdentDict;
 
 pub(crate) fn struct_decl(
     db: &dyn DeclQueryGroup,

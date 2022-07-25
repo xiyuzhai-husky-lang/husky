@@ -3,8 +3,8 @@ use entity_kind::FieldKind;
 use husky_atom::AtomContext;
 use husky_entity_route::EntityRoutePtr;
 use husky_instantiate::InstantiationContext;
+use husky_word::CustomIdentifier;
 use vec_like::VecMapEntry;
-use word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FieldDecl {

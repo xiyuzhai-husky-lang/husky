@@ -5,11 +5,11 @@ use husky_ast::RawExprMap;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_print_utils::{p, ps};
 use husky_text::{Row, TextRange};
+use husky_word::{CustomIdentifier, Identifier};
 use infer_contract::ContractSheet;
 use infer_error::{derived_not_none, InferError, InferErrorVariant};
 use std::fmt::Write;
 use vec_like::VecPairMap;
-use word::{CustomIdentifier, Identifier};
 
 use crate::*;
 

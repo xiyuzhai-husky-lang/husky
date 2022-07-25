@@ -14,10 +14,10 @@ use husky_entity_route::EntityRoutePtr;
 use husky_liason_semantics::*;
 use husky_print_utils::msg_once;
 use husky_text::{Row, TextRange};
+use husky_word::{CustomIdentifier, Identifier};
 use infer_contract::*;
 use infer_error::InferResult;
 use vm::*;
-use word::{CustomIdentifier, Identifier};
 
 pub trait InferQualifiedTy {
     fn qualified_ty_sheet(&self) -> &QualifiedTySheet;

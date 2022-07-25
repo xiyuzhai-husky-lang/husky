@@ -15,4 +15,4 @@ husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-display-utils = { path = "../../../../common-rs/utils/husky-display-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 husky-file = { path = "../husky-file" }
-word = { path = "../word" }
+husky-word = { path = "../husky-word" }

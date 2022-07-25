@@ -6,7 +6,7 @@ use crate::*;
 impl HuskyTraceTime {
     pub fn visualize_temp_value(
         &self,
-        value: &__EvalValue<'static>,
+        value: &__Register<'static>,
         ty: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,

@@ -29,8 +29,8 @@ use husky_file::FilePtr;
 use husky_liason_semantics::*;
 use husky_print_utils::*;
 use husky_text::*;
+use husky_word::{CustomIdentifier, IdentDict, Identifier, Paradigm, StmtKeyword};
 use vm::InitKind;
-use word::{CustomIdentifier, IdentDict, Identifier, Paradigm, StmtKeyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {

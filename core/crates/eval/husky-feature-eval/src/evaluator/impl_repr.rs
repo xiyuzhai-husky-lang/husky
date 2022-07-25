@@ -11,14 +11,14 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         repr: &FeatureRepr,
     ) -> __VMResult<__Register<'eval>> {
         let result = match repr {
-            FeatureRepr::Value { value, .. } => Ok(__EvalValue::EvalRef(value.short())),
+            FeatureRepr::Value { value, .. } => Ok(__Register::EvalRef(value.short())),
             FeatureRepr::Expr(expr) => self.eval_expr(expr),
             FeatureRepr::LazyBlock(block) => self.eval_feature_lazy_block(block),
             FeatureRepr::FuncBlock(block) => self.eval_feature_func_block(block),
             FeatureRepr::ProcBlock(_) => todo!(),
         };
         if let Ok(ref value) = result {
-            if value != &__EvalValue::Undefined && value != &__EvalValue::Unreturned {
+            if value != &__Register::Undefined && value != &__Register::Unreturned {
                 should!(self
                     .db
                     .compile_time()

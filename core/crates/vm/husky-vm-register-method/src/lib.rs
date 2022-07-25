@@ -2,6 +2,7 @@ mod binding;
 
 pub use binding::*;
 use husky_entity_route::EntityRoutePtr;
+use husky_vm_binding::Binding;
 use husky_vm_interface::{PrimitiveValueData, __Register};
 
 pub trait VMRegisterMethodX<'eval> {

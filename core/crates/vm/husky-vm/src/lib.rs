@@ -25,6 +25,7 @@ pub use error::*;
 pub use frame::{FrameKind, LoopFrameData};
 pub use history::{History, HistoryEntry};
 pub use husky_any::*;
+pub use husky_vm_binding::Binding;
 pub use husky_vm_interface::*;
 pub use husky_vm_runtime_error::*;
 pub use instruction::*;
@@ -42,8 +43,8 @@ use husky_entity_route::EntityRoutePtr;
 use husky_print_utils::p;
 use husky_trace_protocol::*;
 use husky_vm_register_method::*;
+use husky_word::CustomIdentifier;
 use std::sync::Arc;
-use word::CustomIdentifier;
 
 pub fn eval_fast<'temp, 'eval: 'temp>(
     db: &'temp dyn InterpreterQueryGroup,

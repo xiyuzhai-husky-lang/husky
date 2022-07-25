@@ -4,8 +4,8 @@ use crate::{stmt::*, *};
 use husky_atom::context::{Symbol, SymbolKind};
 use husky_text::{TextRange, TextRanged};
 use husky_token::*;
+use husky_word::Paradigm;
 use vm::*;
-use word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_stmt_with_keyword(

@@ -10,10 +10,10 @@ pub use loader::*;
 pub use synthetic::*;
 
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
+use husky_word::RootIdentifier;
 use serde::Serialize;
 use std::{borrow::Cow, sync::Arc};
 use vm::*;
-use word::RootIdentifier;
 
 pub trait DatasetDyn<'eval>: __RegistrableDyn + std::fmt::Debug + Send + Sync + 'eval {
     fn dev_loader(&self) -> DataLoader<'eval>;

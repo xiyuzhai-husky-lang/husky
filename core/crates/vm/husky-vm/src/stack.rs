@@ -2,9 +2,9 @@ use crate::*;
 use arrayvec::ArrayVec;
 use husky_check_utils::should_eq;
 use husky_print_utils::{msg_once, p};
+use husky_word::CustomIdentifier;
 use map_collect::MapCollect;
 use std::{fmt::Write, ops::Add};
-use word::CustomIdentifier;
 
 pub const STACK_SIZE: usize = 255;
 

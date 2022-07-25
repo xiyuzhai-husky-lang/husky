@@ -1,8 +1,8 @@
 use entity_kind::{EntityKind, FieldKind};
 use husky_entity_route::entity_route_menu;
 use husky_entity_route::{EntityRoute, EntityRouteKind, SpatialArgument};
+use husky_word::RootIdentifier;
 use infer_decl::TyMemberDecl;
-use word::RootIdentifier;
 
 use super::*;
 

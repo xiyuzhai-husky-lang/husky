@@ -10,7 +10,7 @@ rand = "0.8.5"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 xrng = { path = "../../../../../../common-rs/utils/husky-rng-utils" }
-word = { path = "../../../../syntax/word" }
+husky-word = { path = "../../../../syntax/husky-word" }
 husky-entity-route = { path = "../../../../syntax/husky-entity-route" }
 vm = { path = "../../../../vm/husky-vm" }
 husky-print-utils = { path = "../../../../../../common-rs/utils/husky-print-utils" }

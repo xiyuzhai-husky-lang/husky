@@ -24,11 +24,12 @@ arena = { path = "../../../../common-rs/abstraction/arena" }
 map-collect = { path = "../../../../common-rs/abstraction/map-collect" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
-word = { path = "../word" }
+husky-word = { path = "../husky-word" }
 husky-token = { path = "../husky-token" }
 husky-entity-route = { path = "../husky-entity-route" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
 vm = { path = "../../vm/husky-vm" }
+husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
 entity-kind = { path = "../entity-kind" }
 husky-atom = { path = "../husky-atom" }
 defn-head = { path = "../defn-head" }

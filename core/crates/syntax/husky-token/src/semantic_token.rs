@@ -126,11 +126,11 @@ impl SemanticTokenKind {
     }
 }
 
+use husky_word::{Keyword, StmtKeyword};
 use lsp_types::{
     Range, SemanticToken, SemanticTokenModifier, SemanticTokenType, SemanticTokens,
     SemanticTokensEdit,
 };
-use word::{Keyword, StmtKeyword};
 
 macro_rules! define_semantic_token_types {
     ($(($ident:ident, $string:literal)),*$(,)?) => {

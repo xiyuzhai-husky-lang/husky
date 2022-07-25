@@ -28,7 +28,7 @@ vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
-word = { path = "../../syntax/word" }
+husky-word = { path = "../../syntax/husky-word" }
 husky-ast = { path = "../../syntax/husky-ast" }
 semantics-error = { path = "../../semantics/error" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
@@ -44,3 +44,4 @@ thin-vec = { path = "../../../../forks/thin-vec" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
 husky-compile-time = { path = "../../compile/husky-compile-time" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }

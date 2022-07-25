@@ -1,4 +1,4 @@
-use word::ContextualIdentifier;
+use husky_word::ContextualIdentifier;
 
 use crate::*;
 

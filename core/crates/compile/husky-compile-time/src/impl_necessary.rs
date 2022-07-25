@@ -7,7 +7,7 @@ use husky_trace_protocol::*;
 use infer_total::InferQueryGroup;
 use static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
-use vm::{InterpreterQueryGroup, __AnyValueDyn};
+use vm::InterpreterQueryGroup;
 
 impl fmt::Debug for HuskyCompileTime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
@@ -42,7 +42,7 @@ impl AllocateUniqueFile for HuskyCompileTime {
 }
 
 impl InternWord for HuskyCompileTime {
-    fn word_allocator(&self) -> &word::WordInterner {
+    fn word_allocator(&self) -> &husky_word::WordInterner {
         &self.word_interner
     }
 }
@@ -70,7 +70,7 @@ impl TokenQueryGroup for HuskyCompileTime {}
 impl ResolveStaticRootDefn for HuskyCompileTime {
     fn __root_defn_resolver(
         &self,
-    ) -> fn(ident: word::RootIdentifier) -> &'static static_defn::EntityStaticDefn {
+    ) -> fn(ident: husky_word::RootIdentifier) -> &'static static_defn::EntityStaticDefn {
         self.config.__resolve_root_defn
     }
 }

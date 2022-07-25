@@ -6,11 +6,11 @@ use husky_entity_route::*;
 use husky_file::{FileError, FileErrorKind, FilePtr};
 use husky_print_utils::{epin, msg_once, p};
 use husky_text::TextRange;
+use husky_word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
 use path_utils::*;
 use static_defn::*;
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
-use word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
 
 use fold::FoldableStorage;
 

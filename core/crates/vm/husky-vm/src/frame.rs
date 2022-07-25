@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use crate::*;
-use word::CustomIdentifier;
+use husky_word::CustomIdentifier;
 
 #[derive(Debug)]
 pub struct LoopFrameData<'eval> {

@@ -25,6 +25,19 @@ impl __Linkage {
             __Linkage::Model(_) => true,
         }
     }
+
+    #[cfg(feature = "binding")]
+    pub fn bind(self, binding: husky_vm_binding::Binding) -> __LinkageFp {
+        todo!()
+    }
+
+    pub fn transfer(self) -> __LinkageFp {
+        match self {
+            __Linkage::Transfer(fp) => fp,
+            __Linkage::Member(_) => todo!(),
+            __Linkage::Model(_) => todo!(),
+        }
+    }
 }
 
 #[derive(Debug, Clone, Copy)]

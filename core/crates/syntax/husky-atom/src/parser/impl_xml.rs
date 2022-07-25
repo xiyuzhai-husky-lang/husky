@@ -2,7 +2,7 @@ use super::*;
 use crate::*;
 use husky_entity_route::RangedEntityRoute;
 use husky_text::RangedCustomIdentifier;
-use word::{CustomIdentifier, IdentPairDict};
+use husky_word::{CustomIdentifier, IdentPairDict};
 
 // inner ops
 impl<'a, 'b> AtomParser<'a, 'b> {

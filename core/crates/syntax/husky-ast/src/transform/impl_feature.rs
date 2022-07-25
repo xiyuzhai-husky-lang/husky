@@ -1,6 +1,6 @@
 use super::*;
 use husky_token::*;
-use word::Paradigm;
+use husky_word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_feature_defn_head(

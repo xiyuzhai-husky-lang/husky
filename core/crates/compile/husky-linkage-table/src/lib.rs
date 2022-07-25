@@ -17,6 +17,7 @@ use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVar
 use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
 use husky_print_utils::p;
+use husky_word::{CustomIdentifier, RootIdentifier};
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::collections::HashMap;
@@ -24,8 +25,7 @@ use sync_utils::ASafeRwLock;
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
 use vm::{Binding, EntityUid, __Linkage};
-use vm::{__EvalValue, __LinkageFp, __OwnedValue, __TempValue, __VMResult};
-use word::{CustomIdentifier, RootIdentifier};
+use vm::{__LinkageFp, __VMResult};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup> {
     fn linkage_table(&self) -> &LinkageTable;

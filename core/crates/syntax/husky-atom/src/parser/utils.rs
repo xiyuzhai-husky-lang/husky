@@ -126,7 +126,7 @@ macro_rules! try_eat {
     }};
 
     ($parser:expr, "mut") => {{
-        try_eat!($parser, token_kind, HuskyTokenKind::Keyword(word::Keyword::Liason(word::LiasonKeyword::Mut)))
+        try_eat!($parser, token_kind, HuskyTokenKind::Keyword(husky_word::Keyword::Liason(husky_word::LiasonKeyword::Mut)))
     }};
 
     ($parser:expr, "!!") => {{

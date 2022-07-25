@@ -7,9 +7,9 @@ use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_print_utils::{p, ps};
 use husky_text::TextRange;
+use husky_word::{CustomIdentifier, Identifier};
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
-use word::{CustomIdentifier, Identifier};
 
 use crate::*;
 

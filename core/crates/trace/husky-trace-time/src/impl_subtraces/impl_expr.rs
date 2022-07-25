@@ -3,7 +3,7 @@ mod impl_feature_expr;
 
 use std::borrow::Cow;
 
-use word::CustomIdentifier;
+use husky_word::CustomIdentifier;
 
 use super::*;
 

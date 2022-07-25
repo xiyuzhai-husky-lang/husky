@@ -8,3 +8,4 @@ edition = "2021"
 husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-vm-binding = { path = "../husky-vm-binding" }

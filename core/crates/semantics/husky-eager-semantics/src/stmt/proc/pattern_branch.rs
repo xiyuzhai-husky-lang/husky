@@ -17,3 +17,12 @@ pub enum ProcPatternBranchVariant {
     Case { pattern: ProcCasePattern },
     Default,
 }
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ProcCasePattern {
+    pub ty: EntityRoutePtr,
+    pub variant: ProcCasePatternVariant,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum ProcCasePatternVariant {}

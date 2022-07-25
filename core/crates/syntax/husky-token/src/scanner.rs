@@ -5,8 +5,8 @@ use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
 use husky_dev_utils::dev_src;
 use husky_file::URange;
 use husky_text::TextIndent;
+use husky_word::WordInterner;
 use wild_utils::ref_to_mut_ref;
-use word::WordInterner;
 
 #[derive(PartialEq, Eq)]
 pub struct TokenizedLine {

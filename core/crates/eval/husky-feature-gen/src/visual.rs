@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_route::RangedEntityRoute;
+use husky_word::RootIdentifier;
 use vm::__VMResult;
-use word::RootIdentifier;
 
 pub(crate) fn visual_feature_repr(
     db: &dyn FeatureGenQueryGroup,

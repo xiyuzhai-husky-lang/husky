@@ -3,7 +3,7 @@ use crate::{line_token_iter::LineTokenIter, *};
 use husky_dev_utils::dev_src;
 use husky_file::{FileError, FileErrorKind, FileResultArc};
 #[salsa::query_group(TokenQueryGroupStorage)]
-pub trait TokenSalsaQueryGroup: husky_file::FileQueryGroup + word::InternWord {
+pub trait TokenSalsaQueryGroup: husky_file::FileQueryGroup + husky_word::InternWord {
     fn tokenized_text(&self, id: husky_file::FilePtr) -> FileResultArc<TokenizedText>;
 }
 

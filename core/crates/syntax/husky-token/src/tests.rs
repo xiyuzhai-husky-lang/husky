@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use husky_print_utils::ep;
-use word::new_word_interner;
+use husky_word::new_word_interner;
 
 use crate::TokenizedText;
 

@@ -1,4 +1,4 @@
-use word::LiasonKeyword;
+use husky_word::LiasonKeyword;
 
 use super::*;
 

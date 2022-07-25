@@ -8,9 +8,9 @@ use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{InferQualifiedTy, LazyExprQualifier};
 use husky_text::RangedCustomIdentifier;
+use husky_word::{CustomIdentifier, RootIdentifier};
 use infer_contract::{InferContract, LazyContract};
 use vm::*;
-use word::{CustomIdentifier, RootIdentifier};
 
 use super::*;
 use semantics_error::*;
@@ -51,10 +51,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 EntityKind::Module => todo!(),
                 EntityKind::EnumLiteral => match entity_route {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
-                        LazyExprVariant::PrimitiveLiteral(PrimitiveValueData::Bool(true))
+                        LazyExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(true))
                     }
                     EntityRoutePtr::Root(RootIdentifier::False) => {
-                        LazyExprVariant::PrimitiveLiteral(PrimitiveValueData::Bool(false))
+                        LazyExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(false))
                     }
                     EntityRoutePtr::Custom(scope_ref) => {
                         LazyExprVariant::EnumLiteral { entity_route }

@@ -6,11 +6,11 @@ use std::{
 use crate::*;
 use husky_check_utils::should_eq;
 use husky_print_utils::{msg_once, p};
+use husky_word::CustomIdentifier;
 use indexmap::IndexMap;
 use itertools::Itertools;
 use path_utils::{parent_module_path, submodule_path};
 use sync_utils::{ASafeRwLock, SafeRwLock};
-use word::CustomIdentifier;
 
 pub trait LiveFiles: AllocateUniqueFile {
     fn get_live_files(&self) -> &ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>;

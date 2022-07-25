@@ -9,6 +9,7 @@ use husky_datasets_protocol::{Dataset, DatasetDyn};
 use husky_eager_semantics::FuncStmt;
 use husky_feature_gen::{Feature, FeaturePtr};
 use husky_package_semantics::{Config, Package};
+use husky_word::RootIdentifier;
 use std::{
     any::{Any as _, TypeId},
     ops::Index,
@@ -16,7 +17,6 @@ use std::{
 };
 use trivial_iter::TrivialIter;
 use vm::{eval_fast, InterpreterQueryGroup, Mode, __VMResult};
-use word::RootIdentifier;
 
 #[derive(Debug)]
 pub struct Session<'eval> {
@@ -31,7 +31,7 @@ pub struct Session<'eval> {
 
 #[derive(Debug)]
 pub struct ValidationReport<'sess> {
-    predictions: Vec<__EvalValueResult<'sess>>,
+    predictions: Vec<__RegisterResult<'sess>>,
 }
 
 impl<'eval> Default for ValidationReport<'eval> {

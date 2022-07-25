@@ -10,13 +10,13 @@ use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_liason_semantics::*;
 use husky_trace_protocol::VisualData;
 use husky_visual_syntax::StaticVisualTy;
+use husky_word::RootIdentifier;
 use serde::Serialize;
 use static_defn::*;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::{borrow::Cow, sync::Arc};
 use vm::__StaticInfo;
 use vm::*;
-use word::RootIdentifier;
 
 pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "datasets",

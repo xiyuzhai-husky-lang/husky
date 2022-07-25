@@ -7,7 +7,7 @@ use std::sync::Arc;
 
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
-use word::{CustomIdentifier, IdentDict, Paradigm, RootIdentifier};
+use husky_word::{CustomIdentifier, IdentDict, Paradigm, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Parameter {

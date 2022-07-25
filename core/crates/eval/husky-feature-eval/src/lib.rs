@@ -14,7 +14,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use upcast::Upcast;
-use vm::{VMConfig, __EvalValue, __EvalValueResult, __VMResult};
+use vm::{VMConfig, __Register, __RegisterResult, __VMResult};
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;
@@ -102,7 +102,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
                     )? {
                         return Ok(false);
                     }
-                    self.eval_feature_stmt(stmt, sample_id)? == __EvalValue::Unreturned
+                    self.eval_feature_stmt(stmt, sample_id)? == __Register::Unreturned
                 }
                 FeatureBranchIndicatorVariant::AfterConditionNotMet {
                     ref opt_parent,

@@ -4,7 +4,7 @@ use husky_entity_route::RangedEntityRoute;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::sync::Arc;
-use vm::{GenericLinkageFp, __Linkage, __LinkageFp};
+use vm::{__Linkage, __LinkageFp};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TypeCallDefn {

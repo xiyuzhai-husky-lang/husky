@@ -8,7 +8,7 @@ pub use query::{PackageQueryGroup, PackageQueryGroupStorage};
 use std::{path::PathBuf, sync::Arc};
 
 use husky_entity_semantics::*;
-use word::CustomIdentifier;
+use husky_word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Package {

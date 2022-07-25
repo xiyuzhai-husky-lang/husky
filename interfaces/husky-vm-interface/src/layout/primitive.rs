@@ -2,7 +2,7 @@ use super::*;
 #[cfg(feature = "serde_support")]
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub enum PrimitiveValueData {
     I32(i32),
@@ -12,6 +12,34 @@ pub enum PrimitiveValueData {
     Bool(bool),
     Void(()),
 }
+
+impl PartialEq for PrimitiveValueData {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::I32(l0), Self::I32(r0)) => l0 == r0,
+            (Self::F32(l0), Self::F32(r0)) => *l0 as u32 == *r0 as u32,
+            (Self::B32(l0), Self::B32(r0)) => l0 == r0,
+            (Self::B64(l0), Self::B64(r0)) => l0 == r0,
+            (Self::Bool(l0), Self::Bool(r0)) => l0 == r0,
+            (Self::Void(l0), Self::Void(r0)) => l0 == r0,
+            _ => false,
+        }
+    }
+}
+impl std::hash::Hash for PrimitiveValueData {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        core::mem::discriminant(self).hash(state);
+        match self {
+            PrimitiveValueData::I32(_) => todo!(),
+            PrimitiveValueData::F32(_) => todo!(),
+            PrimitiveValueData::B32(_) => todo!(),
+            PrimitiveValueData::B64(_) => todo!(),
+            PrimitiveValueData::Bool(_) => todo!(),
+            PrimitiveValueData::Void(_) => todo!(),
+        }
+    }
+}
+impl Eq for PrimitiveValueData {}
 
 impl PrimitiveValueData {
     pub fn take_i32(self) -> i32 {

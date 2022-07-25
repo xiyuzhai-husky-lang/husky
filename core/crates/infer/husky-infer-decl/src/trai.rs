@@ -7,10 +7,10 @@ use husky_atom::{
 use husky_check_utils::should_eq;
 use husky_implement::{Implementable, ImplementationContext};
 use husky_instantiate::{Instantiable, InstantiationContext};
+use husky_word::IdentDict;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
 use vec_like::VecMapEntry;
-use word::IdentDict;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitDecl {
