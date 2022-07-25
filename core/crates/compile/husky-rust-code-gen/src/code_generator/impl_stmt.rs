@@ -180,6 +180,7 @@ impl<'a> RustCodeGenerator<'a> {
             EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
                 RootIdentifier::Void => todo!(),
                 RootIdentifier::I32
+                | RootIdentifier::I64
                 | RootIdentifier::F32
                 | RootIdentifier::B32
                 | RootIdentifier::B64 => {

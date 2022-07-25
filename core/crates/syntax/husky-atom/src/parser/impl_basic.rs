@@ -36,7 +36,13 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         Some(*i as usize)
                     }
                 }
-                PrimitiveLiteralData::Integer(_) => todo!(),
+                PrimitiveLiteralData::Integer(i) => {
+                    if *i < 0 {
+                        None
+                    } else {
+                        Some(*i as usize)
+                    }
+                }
                 PrimitiveLiteralData::I64(_) => todo!(),
                 PrimitiveLiteralData::Float(_) => todo!(),
                 PrimitiveLiteralData::F32(_) => todo!(),

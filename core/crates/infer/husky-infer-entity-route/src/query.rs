@@ -124,10 +124,12 @@ fn are_different_root_tys_explicity_castable(
     dst_ty: RootIdentifier,
 ) -> bool {
     match (src_ty, dst_ty) {
-        (RootIdentifier::I32, RootIdentifier::F32)
+        (RootIdentifier::I32, RootIdentifier::I64)
+        | (RootIdentifier::I32, RootIdentifier::F32)
         | (RootIdentifier::I32, RootIdentifier::Bool)
         | (RootIdentifier::I32, RootIdentifier::B32)
         | (RootIdentifier::I32, RootIdentifier::B64)
+        | (RootIdentifier::I64, RootIdentifier::B64)
         | (RootIdentifier::B32, RootIdentifier::I32)
         | (RootIdentifier::B32, RootIdentifier::B64) => true,
         (RootIdentifier::B32, _) => false,

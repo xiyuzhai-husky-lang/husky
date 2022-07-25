@@ -325,9 +325,17 @@ impl<'a> ExprStack<'a> {
                     | PrimitiveLiteralData::B32(_)
                     | PrimitiveLiteralData::Bool(_)
                     | PrimitiveLiteralData::B64(_) => todo!(),
-                    PrimitiveLiteralData::Integer(_) => todo!(),
+                    PrimitiveLiteralData::Integer(i) => self.exprs.push(RawExpr {
+                        range,
+                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Integer(
+                            -i,
+                        )),
+                    }),
                     PrimitiveLiteralData::I64(_) => todo!(),
-                    PrimitiveLiteralData::Float(_) => todo!(),
+                    PrimitiveLiteralData::Float(f) => self.exprs.push(RawExpr {
+                        range,
+                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Float(-f)),
+                    }),
                     PrimitiveLiteralData::F64(_) => todo!(),
                     PrimitiveLiteralData::Bits(_) => todo!(),
                 }
