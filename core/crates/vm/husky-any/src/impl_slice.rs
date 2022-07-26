@@ -7,7 +7,7 @@ where
     T: __StaticInfo,
 {
     type __StaticSelf = &'static [T::__StaticSelf];
-    fn __static_type_name() -> Cow<'static, str> {
+    fn __static_typename() -> Cow<'static, str> {
         todo!()
     }
 }
@@ -18,5 +18,5 @@ fn gen_iter<'temp, 'eval: 'temp, T>(
 where
     T: __Registrable + 'eval,
 {
-    Box::new(slice.iter().map(|t| __Register<'eval>::new_temp_ref(t)))
+    Box::new(slice.iter().map(|t| __Register::new_temp_ref(t)))
 }

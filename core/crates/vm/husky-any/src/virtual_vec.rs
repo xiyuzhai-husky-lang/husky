@@ -39,7 +39,7 @@ impl<'eval> std::ops::DerefMut for GenericVec<'eval> {
 impl<'eval> __StaticInfo for GenericVec<'eval> {
     type __StaticSelf = GenericVec<'static>;
 
-    fn __static_type_name() -> Cow<'static, str> {
+    fn __static_typename() -> Cow<'static, str> {
         "[]Any".into()
     }
 }

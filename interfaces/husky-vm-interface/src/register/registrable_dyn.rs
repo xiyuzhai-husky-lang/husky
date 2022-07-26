@@ -2,7 +2,7 @@ use super::*;
 
 pub trait __RegistrableDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
     unsafe fn __drop_dyn__(&mut self);
-    fn __static_type_name_dyn__(&self) -> std::borrow::Cow<'static, str>;
+    fn __static_typename_dyn__(&self) -> std::borrow::Cow<'static, str>;
     fn __static_type_id_dyn__(&self) -> std::any::TypeId;
     fn __fmt_debug__(&self) -> String;
     fn __primitive_dyn__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData;
@@ -17,8 +17,8 @@ where
         drop(Box::from_raw(ptr));
     }
 
-    fn __static_type_name_dyn__(&self) -> std::borrow::Cow<'static, str> {
-        T::__static_type_name()
+    fn __static_typename_dyn__(&self) -> std::borrow::Cow<'static, str> {
+        T::__static_typename()
     }
 
     fn __fmt_debug__(&self) -> String {

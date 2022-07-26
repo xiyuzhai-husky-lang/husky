@@ -3,17 +3,14 @@ use crate::*;
 impl __StaticInfo for i32 {
     type __StaticSelf = Self;
 
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         "i32".into()
     }
 }
 
 impl __Registrable for i32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(
-            __RegisterData { as_i32: self },
-            &__I32_VTABLE,
-        )
+        __Register::new_primitive_value::<Self>(__RegisterData { as_i32: self }, &__I32_VTABLE)
     }
 
     fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
@@ -41,17 +38,14 @@ impl __Registrable for i32 {
 impl __StaticInfo for i64 {
     type __StaticSelf = Self;
 
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         "i64".into()
     }
 }
 
 impl __Registrable for i64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(
-            __RegisterData { as_i64: self },
-            &__I64_VTABLE,
-        )
+        __Register::new_primitive_value::<Self>(__RegisterData { as_i64: self }, &__I64_VTABLE)
     }
 
     fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
@@ -78,17 +72,14 @@ impl __Registrable for i64 {
 
 impl __StaticInfo for () {
     type __StaticSelf = Self;
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         "void".into()
     }
 }
 
 impl __Registrable for () {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(
-            __RegisterData { as_void: () },
-            &__VOID_VTABLE,
-        )
+        __Register::new_primitive_value::<Self>(__RegisterData { as_void: () }, &__VOID_VTABLE)
     }
 
     fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
@@ -111,17 +102,14 @@ impl __Registrable for () {
 
 impl __StaticInfo for f32 {
     type __StaticSelf = Self;
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         "f32".into()
     }
 }
 
 impl __Registrable for f32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(
-            __RegisterData { as_f32: self },
-            &__F32_VTABLE,
-        )
+        __Register::new_primitive_value::<Self>(__RegisterData { as_f32: self }, &__F32_VTABLE)
     }
 
     fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
@@ -148,17 +136,14 @@ impl __Registrable for f32 {
 
 impl __StaticInfo for f64 {
     type __StaticSelf = Self;
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         "f64".into()
     }
 }
 
 impl __Registrable for f64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(
-            __RegisterData { as_f64: self },
-            &__F64_VTABLE,
-        )
+        __Register::new_primitive_value::<Self>(__RegisterData { as_f64: self }, &__F64_VTABLE)
     }
 
     fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
@@ -186,17 +171,14 @@ impl __Registrable for f64 {
 
 impl __StaticInfo for u32 {
     type __StaticSelf = Self;
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         "u32".into()
     }
 }
 
 impl __Registrable for u32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(
-            __RegisterData { as_b32: self },
-            &__B32_VTABLE,
-        )
+        __Register::new_primitive_value::<Self>(__RegisterData { as_b32: self }, &__B32_VTABLE)
     }
 
     fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
@@ -223,17 +205,14 @@ impl __Registrable for u32 {
 
 impl __StaticInfo for u64 {
     type __StaticSelf = Self;
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         "u64".into()
     }
 }
 
 impl __Registrable for u64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(
-            __RegisterData { as_b64: self },
-            &__B64_VTABLE,
-        )
+        __Register::new_primitive_value::<Self>(__RegisterData { as_b64: self }, &__B64_VTABLE)
     }
 
     fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
@@ -260,17 +239,14 @@ impl __Registrable for u64 {
 
 impl __StaticInfo for bool {
     type __StaticSelf = Self;
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         "bool".into()
     }
 }
 
 impl __Registrable for bool {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(
-            __RegisterData { as_bool: self },
-            &__BOOL_VTABLE,
-        )
+        __Register::new_primitive_value::<Self>(__RegisterData { as_bool: self }, &__BOOL_VTABLE)
     }
 
     fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {

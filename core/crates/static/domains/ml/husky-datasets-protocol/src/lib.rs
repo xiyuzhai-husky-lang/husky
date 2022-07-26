@@ -65,7 +65,7 @@ impl<'eval> Serialize for Dataset<'eval> {
 impl<'a> __StaticInfo for Dataset<'a> {
     type __StaticSelf = Dataset<'static>;
 
-    fn __static_type_name() -> Cow<'static, str> {
+    fn __static_typename() -> Cow<'static, str> {
         "Dataset".into()
     }
 }
