@@ -7,5 +7,5 @@ edition = "2021"
 [dependencies]
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
-husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface" }
+husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-word = { path = "../../syntax/husky-word" }

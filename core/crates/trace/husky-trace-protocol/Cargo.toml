@@ -11,7 +11,7 @@ wasm-bindgen = "0.2.80"
 log = "0.4.6"
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 husky-signal = { path = "../../../../common-rs/abstraction/husky-signal" }
-husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface", features = [
+husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "serde_support"
 ] }
 husky-log-utils = { path = "../../../../common-rs/utils/husky-log-utils" }

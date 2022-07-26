@@ -3,7 +3,7 @@ use std::path::PathBuf;
 
 fn main() {
     let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
-    let vm_interface_dir = format!("{}/interfaces/husky-vm-interface", husky_dir);
+    let vm_interface_dir = format!("{}/core/crates//vm/husky-vm-interface", husky_dir);
 
     // Tell cargo to look for shared libraries in the specified directory
     println!("cargo:rustc-link-search={}/lib", vm_interface_dir);

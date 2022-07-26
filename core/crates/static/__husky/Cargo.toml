@@ -7,6 +7,6 @@ edition = "2021"
 [dependencies]
 cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
-husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface" }
+husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 
 [lib]
