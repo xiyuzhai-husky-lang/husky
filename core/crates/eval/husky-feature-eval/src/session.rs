@@ -23,7 +23,7 @@ pub struct Session<'eval> {
     config: Arc<Config>,
     pub(crate) dataset: Dataset<'eval>,
     pub(crate) dev: Division<'eval>,
-    pub(crate) trained_features: Mutex<HashMap<EvalKey<'eval>, __VMResult<__Register<'eval>>>>,
+    pub(crate) trained_features: Mutex<HashMap<EvalKey, __VMResult<__Register<'eval>>>>,
     val: Division<'eval>,
     test: Division<'eval>,
     validation_report: ValidationReport<'eval>,

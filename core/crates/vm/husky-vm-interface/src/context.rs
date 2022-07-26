@@ -6,7 +6,7 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
 
     fn opt_cached_lazy_field(
         &self,
-        this: &'eval dyn __RegistrableDyn,
+        this: &'eval (),
         uid: usize,
     ) -> Option<__VMResult<__Register<'eval>>>;
 
@@ -20,7 +20,7 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
 
     fn cache_lazy_field(
         &self,
-        this: &'eval dyn __RegistrableDyn,
+        this: &'eval (),
         uid: usize,
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>>;
