@@ -18,7 +18,7 @@ impl HuskyTraceTime {
             &mut Self,
             &A,
             &'static str,
-        ) -> (TraceId, __VMResult<__Register<'static>>),
+        ) -> (TraceId, Option<__VMResult<__Register<'static>>>),
     ) -> Vec<TraceId> {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
             // let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
@@ -51,9 +51,13 @@ impl HuskyTraceTime {
             for (i, argument) in arguments.iter().enumerate() {
                 let (argument_trace, result) = argument_trace_gen(self, argument, argnames[i]);
                 subtraces.push(argument_trace);
-                match result {
-                    Ok(value) => func_input_values.push(value),
-                    Err(_) => return subtraces,
+                if let Some(result) = result {
+                    match result {
+                        Ok(value) => func_input_values.push(value),
+                        Err(_) => return subtraces,
+                    }
+                } else {
+                    todo!()
                 }
             }
             let sample_id = self.restriction.opt_sample_id().unwrap();

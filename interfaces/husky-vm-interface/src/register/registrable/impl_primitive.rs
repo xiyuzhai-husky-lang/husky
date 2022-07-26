@@ -12,7 +12,7 @@ impl __Registrable for i32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(
             __RegisterData { as_i32: self },
-            &__I32_REGISTER_PROTOTYPE,
+            &__I32_VTABLE,
         )
     }
 
@@ -50,7 +50,7 @@ impl __Registrable for i64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(
             __RegisterData { as_i64: self },
-            &__I64_REGISTER_PROTOTYPE,
+            &__I64_VTABLE,
         )
     }
 
@@ -87,7 +87,7 @@ impl __Registrable for () {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(
             __RegisterData { as_void: () },
-            &__VOID_REGISTER_PROTOTYPE,
+            &__VOID_VTABLE,
         )
     }
 
@@ -120,7 +120,7 @@ impl __Registrable for f32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(
             __RegisterData { as_f32: self },
-            &__F32_REGISTER_PROTOTYPE,
+            &__F32_VTABLE,
         )
     }
 
@@ -157,7 +157,7 @@ impl __Registrable for f64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(
             __RegisterData { as_f64: self },
-            &__F64_REGISTER_PROTOTYPE,
+            &__F64_VTABLE,
         )
     }
 
@@ -195,7 +195,7 @@ impl __Registrable for u32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(
             __RegisterData { as_b32: self },
-            &__B32_REGISTER_PROTOTYPE,
+            &__B32_VTABLE,
         )
     }
 
@@ -232,7 +232,7 @@ impl __Registrable for u64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(
             __RegisterData { as_b64: self },
-            &__B64_REGISTER_PROTOTYPE,
+            &__B64_VTABLE,
         )
     }
 
@@ -269,7 +269,7 @@ impl __Registrable for bool {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(
             __RegisterData { as_bool: self },
-            &__BOOL_REGISTER_PROTOTYPE,
+            &__BOOL_VTABLE,
         )
     }
 

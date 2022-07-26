@@ -95,11 +95,11 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
-                            copy_fp: linkage_fp!(generic_vec_index_copy),
-                            eval_ref_fp: linkage_fp!(generic_vec_index_eval_ref),
-                            temp_ref_fp: linkage_fp!(generic_vec_index_temp_ref),
-                            temp_mut_fp: linkage_fp!(generic_vec_index_temp_mut),
-                            move_fp: linkage_fp!(generic_vec_index_move),
+                            copy_fp: linkage_fp!(virtual_vec_index_copy),
+                            eval_ref_fp: linkage_fp!(virtual_vec_index_eval_ref),
+                            temp_ref_fp: linkage_fp!(virtual_vec_index_temp_ref),
+                            temp_mut_fp: linkage_fp!(virtual_vec_index_temp_mut),
+                            move_fp: linkage_fp!(virtual_vec_index_move),
                         })),
                     },
                 },
@@ -131,12 +131,12 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::SingleTyped { ty: "E" },
         output_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
-        linkage: transfer_linkage!(generic_vec_type_call, none),
+        linkage: transfer_linkage!(virtual_vec_type_call, none),
     },
     dev_src: __static_dev_src!(),
 };
 
-fn generic_vec_type_call<'eval>(
+unsafe fn virtual_vec_type_call<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
@@ -144,39 +144,39 @@ fn generic_vec_type_call<'eval>(
     for value in values {
         data.push(value.bind_move())
     }
-    (__Register::new_box(VirtualVec::new(data)))
+    (__Register::new_box(GenericVec::new(data), &__VIRTUAL_VEC_VTABLE))
 }
 
-unsafe fn generic_vec_push<'temp, 'eval>(
+unsafe fn virtual_vec_push<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let element = values[1].bind_move();
-    let generic_vec: &mut VirtualVec = values[0].downcast_temp_mut();
-    generic_vec.push(element);
+    let virtual_vec: &mut GenericVec = values[0].downcast_temp_mut();
+    virtual_vec.push(element);
     ().to_register()
 }
 
-unsafe fn generic_vec_pop<'temp, 'eval>(
+unsafe fn virtual_vec_pop<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let generic_vec: &mut VirtualVec = values[0].downcast_temp_mut();
-    generic_vec.pop().unwrap()
+    let virtual_vec: &mut GenericVec = values[0].downcast_temp_mut();
+    virtual_vec.pop().unwrap()
 }
 
-fn generic_vec_index_move<'eval>(
+fn virtual_vec_index_move<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     todo!()
 }
 
-unsafe fn generic_vec_index_copy<'eval>(
+unsafe fn virtual_vec_index_copy<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let this_value: &VirtualVec = values[0].downcast_temp_ref();
+    let this_value: &GenericVec = values[0].downcast_temp_ref();
     let i: usize = values[1].downcast_i32() as usize;
     if i >= this_value.len() {
         todo!()
@@ -184,11 +184,11 @@ unsafe fn generic_vec_index_copy<'eval>(
     this_value[i].bind_copy()
 }
 
-unsafe fn generic_vec_index_eval_ref<'eval>(
+unsafe fn virtual_vec_index_eval_ref<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let this_value: &'eval VirtualVec = values[0].downcast_eval_ref();
+    let this_value: &'eval GenericVec = values[0].downcast_eval_ref();
     let i: usize = values[1].downcast_i32() as usize;
     this_value[i].bind_eval_ref()
     // match values[0] {
@@ -198,21 +198,21 @@ unsafe fn generic_vec_index_eval_ref<'eval>(
     // }
 }
 
-unsafe fn generic_vec_index_temp_ref<'eval>(
+unsafe fn virtual_vec_index_temp_ref<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let this_value: &VirtualVec = values[0].downcast_temp_ref();
+    let this_value: &GenericVec = values[0].downcast_temp_ref();
     let i: usize = values[1].downcast_i32() as usize;
     this_value[i].bind_temp_ref()
 }
 
-unsafe fn generic_vec_index_temp_mut<'eval>(
+unsafe fn virtual_vec_index_temp_mut<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let i: usize = values[1].downcast_i32() as usize;
-    let this_value: &mut VirtualVec = values[0].downcast_temp_mut();
+    let this_value: &mut GenericVec = values[0].downcast_temp_mut();
     if i >= this_value.len() {
         todo!()
     }
@@ -228,18 +228,18 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "i32",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(transfer_linkage!(generic_vec_len, none)),
+        opt_linkage: Some(transfer_linkage!(virtual_vec_len, none)),
         output_liason: OutputLiason::Transfer,
     },
     dev_src: __static_dev_src!(),
 };
 
-unsafe fn generic_vec_len<'temp, 'eval>(
+unsafe fn virtual_vec_len<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let generic_vec: &VirtualVec = values[0].downcast_temp_ref();
-    let len: i32 = generic_vec.len().try_into().unwrap();
+    let virtual_vec: &GenericVec = values[0].downcast_temp_ref();
+    let len: i32 = virtual_vec.len().try_into().unwrap();
     len.to_register()
 }
 
@@ -256,7 +256,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
         output_ty: "void",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(transfer_linkage!(generic_vec_push, none)),
+        opt_linkage: Some(transfer_linkage!(virtual_vec_push, none)),
         output_liason: OutputLiason::Transfer,
     },
     dev_src: __static_dev_src!(),
@@ -271,7 +271,7 @@ pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(transfer_linkage!(generic_vec_pop, none)),
+        opt_linkage: Some(transfer_linkage!(virtual_vec_pop, none)),
         output_liason: OutputLiason::Transfer,
     },
     dev_src: __static_dev_src!(),

@@ -8,10 +8,10 @@ pub static STD_SLICE_CYCLIC_SLICE_END_DEFN: EntityStaticDefn = EntityStaticDefn 
         liason: MemberLiason::Mutable,
         ty: "i32",
         linkage: eager_field_linkage!(
-            GenericCyclicSlice<'eval>,
-            __GENERIC_CYCLIC_SLICE_REGISTER_PROTOTYPE,
+            VirtualCyclicSlice<'eval>,
+            __VIRTUAL_CYCLIC_SLICE_VTABLE,
             i32,
-            __I32_REGISTER_PROTOTYPE,
+            __I32_VTABLE,
             end,
             direct
         ),

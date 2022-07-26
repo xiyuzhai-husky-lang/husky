@@ -41,13 +41,13 @@ macro_rules! method_elem_linkage {
 
 #[macro_export]
 macro_rules! eager_field_linkage {
-    ($Type: ty, $TYPE_PROTO: expr, $FieldTy: ty, $FIELD_TY_PROTO: expr, $field: ident, $copy_kind: tt) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $FieldTy: ty, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_fp: field_copy_fp!($Type, $FieldTy, $field, $copy_kind),
-            eval_ref_fp: field_eval_ref_fp!($Type, $field),
-            temp_ref_fp: field_temp_ref_fp!($Type, $field),
-            temp_mut_fp: field_temp_mut_invalid_fp!($Type, $field),
-            move_fp: field_move_fp!($Type, $field),
+            copy_fp: field_copy_fp!($Type, $TYPE_VTABLE, $FieldTy, $FIELD_TY_VTABLE, $field, $copy_kind),
+            eval_ref_fp: field_eval_ref_fp!($Type, $TYPE_VTABLE, $FieldTy, $FIELD_TY_VTABLE, $field),
+            temp_ref_fp: field_temp_ref_fp!($Type, $TYPE_VTABLE, $FieldTy, $FIELD_TY_VTABLE, $field),
+            temp_mut_fp: field_temp_mut_invalid_fp!($Type, $TYPE_VTABLE, $FieldTy, $FIELD_TY_VTABLE, $field),
+            move_fp: field_move_fp!($Type, $TYPE_VTABLE, $FieldTy, $FIELD_TY_VTABLE, $field),
         })
     }};
 }
@@ -83,21 +83,21 @@ macro_rules! eager_mut_field_linkage {
 macro_rules! index_linkage {
     (
         $Type: ty,
-        $TYPE_PROTO: expr, 
+        $TYPE_VTABLE: expr, 
         $ElementType: ty, 
-        $ELEMENT_TYPE_PROTO: expr, 
+        $ELEMENT_TYPE_VTABLE: expr, 
         $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
             copy_fp: index_copy_fp!(
                 $Type,
-                $TYPE_PROTO,
+                $TYPE_VTABLE,
                 $ElementType,
-                $ELEMENT_TYPE_PROTO,
+                $ELEMENT_TYPE_VTABLE,
                 $copy_kind
             ),
-            eval_ref_fp: index_eval_ref_fp!($Type, $TYPE_PROTO),
+            eval_ref_fp: index_eval_ref_fp!($Type, $TYPE_VTABLE),
             temp_ref_fp: index_temp_ref_fp!($Type),
-            temp_mut_fp: index_temp_mut_fp!($Type, $TYPE_PROTO),
+            temp_mut_fp: index_temp_mut_fp!($Type, $TYPE_VTABLE),
             move_fp: index_move_fp!($Type),
         })
     }};

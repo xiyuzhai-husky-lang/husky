@@ -19,25 +19,25 @@ impl PrimitiveValueData {
         unsafe {
             match self {
                 PrimitiveValueData::I32(value) => {
-                    __Register::new_box(value, &__I32_REGISTER_PROTOTYPE)
+                    __Register::new_box(value, &__I32_VTABLE)
                 }
                 PrimitiveValueData::I64(value) => {
-                    __Register::new_box(value, &__I64_REGISTER_PROTOTYPE)
+                    __Register::new_box(value, &__I64_VTABLE)
                 }
                 PrimitiveValueData::F32(value) => {
-                    __Register::new_box(value, &__F32_REGISTER_PROTOTYPE)
+                    __Register::new_box(value, &__F32_VTABLE)
                 }
                 PrimitiveValueData::B32(value) => {
-                    __Register::new_box(value, &__B32_REGISTER_PROTOTYPE)
+                    __Register::new_box(value, &__B32_VTABLE)
                 }
                 PrimitiveValueData::B64(value) => {
-                    __Register::new_box(value, &__B64_REGISTER_PROTOTYPE)
+                    __Register::new_box(value, &__B64_VTABLE)
                 }
                 PrimitiveValueData::Bool(value) => {
-                    __Register::new_box(value, &__BOOL_REGISTER_PROTOTYPE)
+                    __Register::new_box(value, &__BOOL_VTABLE)
                 }
                 PrimitiveValueData::Void(value) => {
-                    __Register::new_box(value, &__VOID_REGISTER_PROTOTYPE)
+                    __Register::new_box(value, &__VOID_VTABLE)
                 }
             }
         }

@@ -73,10 +73,7 @@ unsafe fn cache_raw_eval_value<'eval>(
     raw: &mut __VMResult<__Register<'eval>>,
 ) -> __VMResult<__Register<'eval>> {
     match raw {
-        Ok(value) => match value.data_kind {
-            __RegisterDataKind::PrimitiveValue => *raw = Ok(value.primitive().into_box_register()),
-            _ => (),
-        },
+        Ok(ref mut value) => value.cache_eval(),
         Err(error) => (),
     }
     share_cached(raw)
@@ -86,25 +83,7 @@ unsafe fn share_cached<'eval>(
     cached: &__VMResult<__Register<'eval>>,
 ) -> __VMResult<__Register<'eval>> {
     match cached {
-        Ok(value) => Ok(match value.data_kind {
-            __RegisterDataKind::PrimitiveValue => panic!(),
-            __RegisterDataKind::Box | __RegisterDataKind::EvalRef => __Register {
-                data_kind: __RegisterDataKind::EvalRef,
-                opt_data: value.opt_data,
-                phantom: std::marker::PhantomData,
-            },
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
-            // __Register::Copyable(value) => panic!(),
-            // __Register::Owned(value) => __Register::EvalRef(__EvalRef(&*value.any_ptr())),
-            // __Register::EvalRef(value) => __Register::EvalRef(*value),
-            // __Register::EvalPure(value) => __Register::EvalPure(value.clone()),
-            // __Register::Undefined => __Register::Undefined,
-            // __Register::Unreturned => __Register::Unreturned,
-        }),
+        Ok(value) => Ok(value.share_cached()),
         Err(error) => Err(error.clone()),
     }
 }

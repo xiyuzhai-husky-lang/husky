@@ -23,7 +23,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     .eval_arrival_indicator(arrival_indicator)?
                     .to_register())
             })
-            .map(|v| v.downcast_value::<bool>())
+            .map(|v| v.downcast_bool())
         } else {
             Ok(true)
         }
@@ -47,7 +47,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if !self.eval_opt_arrival_indicator_cached(opt_parent.as_ref())? {
                     return Ok(false);
                 }
-                !self.eval_expr(condition)?.downcast_value::<bool>()
+                !self.eval_expr(condition)?.downcast_bool()
             }
             FeatureBranchIndicatorVariant::IfConditionMet {
                 ref opt_parent,
@@ -56,7 +56,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if !self.eval_opt_arrival_indicator_cached(opt_parent.as_ref())? {
                     return Ok(false);
                 }
-                self.eval_expr(condition)?.downcast_value::<bool>()
+                self.eval_expr(condition)?.downcast_bool()
             }
         })
     }

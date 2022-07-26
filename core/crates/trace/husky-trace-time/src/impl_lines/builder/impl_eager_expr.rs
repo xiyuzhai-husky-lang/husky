@@ -108,7 +108,11 @@ impl<'a> TraceTokenBuilder<'a> {
         };
         if config.appended {
             self.push(fade!(" = "));
-            self.push(history.register_result(expr).into())
+            if let Some(register_result) = history.register_result(expr) {
+                self.push(register_result.into())
+            } else {
+                self.push(fade!("???"))
+            }
         }
     }
 

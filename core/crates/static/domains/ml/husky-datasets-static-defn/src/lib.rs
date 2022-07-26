@@ -19,7 +19,7 @@ use vm::__StaticInfo;
 use vm::*;
 
 extern "C" {
-    pub static __DATASET_REGISTER_PROTOTYPE: __RegisterPrototype;
+    pub static __DATASET_VTABLE: __RegisterVTable;
 }
 
 pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {

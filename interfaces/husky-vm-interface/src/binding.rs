@@ -99,4 +99,36 @@ impl<'eval> __Register<'eval> {
     pub fn to_bool(self) -> bool {
         self.primitive().to_bool()
     }
+
+    pub fn cache_eval(&mut self) {
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => {
+                self.data_kind = __RegisterDataKind::Box;
+                todo!("need to use vtable now")
+            }
+            _ => (),
+        }
+    }
+
+    pub fn share_cached(&self) -> __Register<'eval> {
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => panic!(),
+            __RegisterDataKind::Box | __RegisterDataKind::EvalRef => __Register {
+                data_kind: __RegisterDataKind::EvalRef,
+                data: self.data,
+                proto: self.proto,
+            },
+            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+            // __Register::Copyable(value) => panic!(),
+            // __Register::Owned(value) => __Register::EvalRef(__EvalRef(&*value.any_ptr())),
+            // __Register::EvalRef(value) => __Register::EvalRef(*value),
+            // __Register::EvalPure(value) => __Register::EvalPure(value.clone()),
+            // __Register::Undefined => __Register::Undefined,
+            // __Register::Unreturned => __Register::Unreturned,
+        }
+    }
 }
