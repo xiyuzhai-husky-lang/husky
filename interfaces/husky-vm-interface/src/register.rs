@@ -1,9 +1,9 @@
-mod proto;
+mod prototype;
 mod registrable;
 mod registrable_dyn;
 mod registrable_safe;
 
-pub use proto::*;
+pub use prototype::*;
 pub use registrable::*;
 pub use registrable_dyn::*;
 pub use registrable_safe::*;
@@ -30,6 +30,7 @@ impl<'eval> std::hash::Hash for __Register<'eval> {
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub union __RegisterData {
+    as_void: (),
     as_bool: bool,
     as_i32: i32,
     as_i64: i64,
@@ -87,14 +88,17 @@ pub trait __StaticInfo {
 }
 
 impl<'eval> __Register<'eval> {
-    pub unsafe fn new_direct<'a, T: __Registrable + 'a>(value: u64) -> __Register<'eval>
+    pub unsafe fn new_primitive_value<'a, T: __Registrable + 'a>(
+        data: __RegisterData,
+        proto: &'eval __RegisterPrototype,
+    ) -> __Register<'eval>
     where
         T: Copy,
     {
         __Register {
             data_kind: __RegisterDataKind::PrimitiveValue,
-            data: todo!(),
-            proto: todo!(),
+            data,
+            proto,
         }
     }
 
@@ -104,7 +108,7 @@ impl<'eval> __Register<'eval> {
     ) -> __Register<'eval> {
         let ptr: *mut T = Box::<T>::into_raw(Box::new(value));
         #[cfg(feature = "check")]
-        assert_eq!(T::static_type_id, proto.type_id);
+        assert_eq!(T::static_type_id, prototype.type_id);
         __Register {
             data_kind: __RegisterDataKind::Box,
             data: __RegisterData {
