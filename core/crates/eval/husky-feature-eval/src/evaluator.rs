@@ -18,8 +18,8 @@ pub use sheet::*;
 use crate::*;
 use husky_feature_gen::FeatureEvalId;
 use husky_trace_protocol::SampleId;
+use vm::__VMResult;
 use vm::{EntityUid, VMConfig, __EvalContext, __Register};
-use vm::{__RegistrableDyn, __VMResult};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,
@@ -42,11 +42,11 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn opt_cached_lazy_field(
         &self,
-        this: &'eval dyn __RegistrableDyn,
+        this: &'eval (),
         uid: usize,
     ) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet.cached_value(EvalKey::StructDerivedField {
-            parent: this as *const (dyn __RegistrableDyn + 'eval) as *const dyn __RegistrableDyn,
+            parent: this as *const (),
             field_uid: unsafe { EntityUid::from_raw(uid) },
         })
     }
@@ -69,13 +69,13 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn cache_lazy_field(
         &self,
-        this: &'eval dyn __RegistrableDyn,
+        this: &'eval (),
         uid: usize,
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
             EvalKey::StructDerivedField {
-                parent: this as *const dyn __RegistrableDyn,
+                parent: this as *const (),
                 field_uid: unsafe { EntityUid::from_raw(uid) },
             },
             value,
@@ -109,7 +109,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
 
     fn cache(
         &mut self,
-        eval_key: EvalKey<'eval>,
+        eval_key: EvalKey,
         compute_value: impl FnOnce(&mut Self) -> __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         if let Some(value) = self.sheet.cached_value(eval_key) {

@@ -8,27 +8,24 @@ use super::*;
 
 #[derive(Default, Debug)]
 pub struct EvalSheet<'eval> {
-    values: Mutex<HashMap<EvalKey<'eval>, __VMResult<__Register<'eval>>>>,
+    values: Mutex<HashMap<EvalKey, __VMResult<__Register<'eval>>>>,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-pub enum EvalKey<'eval> {
+pub enum EvalKey {
     Feature(FeaturePtr),
     StructDerivedField {
-        parent: *const (dyn __RegistrableDyn + 'eval),
+        parent: *const (),
         field_uid: EntityUid,
     },
 }
 
-unsafe impl<'eval> Send for EvalKey<'eval> {}
+unsafe impl Send for EvalKey {}
 
-unsafe impl<'eval> Sync for EvalKey<'eval> {}
+unsafe impl Sync for EvalKey {}
 
 impl<'eval> EvalSheet<'eval> {
-    pub(crate) fn cached_value(
-        &self,
-        eval_key: EvalKey<'eval>,
-    ) -> Option<__VMResult<__Register<'eval>>> {
+    pub(crate) fn cached_value(&self, eval_key: EvalKey) -> Option<__VMResult<__Register<'eval>>> {
         self.values
             .lock()
             .unwrap()
@@ -38,7 +35,7 @@ impl<'eval> EvalSheet<'eval> {
 
     pub(crate) fn try_cache(
         &self,
-        eval_key: EvalKey<'eval>,
+        eval_key: EvalKey,
         mut value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         let mut values = self.values.lock().unwrap();
@@ -53,7 +50,7 @@ impl<'eval> EvalSheet<'eval> {
 
     pub(crate) fn cache(
         &self,
-        eval_key: EvalKey<'eval>,
+        eval_key: EvalKey,
         mut value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         let result = unsafe { cache_raw_eval_value(&mut value) };

@@ -8,7 +8,9 @@ use super::*;
 use husky_trace_protocol::SampleId;
 use vm::*;
 
-pub trait SyntheticDataset<'eval>: __RegistrableDyn + 'eval {
+pub trait SyntheticDataset<'eval>:
+    std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + 'eval
+{
     fn data_generator(&self) -> fn(seed: u64, sample_id: SampleId) -> LabeledData<'eval>;
     fn seed(&self) -> u64;
     fn dev_len(&self) -> usize {

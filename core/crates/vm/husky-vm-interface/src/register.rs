@@ -126,7 +126,7 @@ impl<'eval> PartialEq for __Register<'eval> {
 impl<'eval> Eq for __Register<'eval> {}
 
 pub trait __StaticInfo {
-    type __StaticSelf: __StaticInfo<__StaticSelf = Self::__StaticSelf> + __Registrable + 'static;
+    type __StaticSelf: __StaticInfo<__StaticSelf = Self::__StaticSelf> + 'static;
 
     fn __static_type_id__() -> std::any::TypeId {
         std::any::TypeId::of::<Self::__StaticSelf>()
@@ -147,7 +147,7 @@ impl<'eval> __Register<'eval> {
     //     self.proto
     // }
 
-    pub unsafe fn new_primitive_value<'a, T: __Registrable + 'a>(
+    pub unsafe fn new_primitive_value<'a, T: 'a>(
         data: __RegisterData,
         proto: &'eval __RegisterVTable,
     ) -> __Register<'eval>
@@ -161,13 +161,8 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_box<T: __Registrable>(
-        value: T,
-        proto: &'eval __RegisterVTable,
-    ) -> __Register<'eval> {
+    pub fn new_box<T>(value: T, proto: &'eval __RegisterVTable) -> __Register<'eval> {
         let ptr: *mut T = Box::<T>::into_raw(Box::new(value));
-        #[cfg(feature = "check")]
-        assert_eq!(T::static_type_id, prototype.type_id);
         __Register {
             data_kind: __RegisterDataKind::Box,
             data: __RegisterData {
@@ -177,7 +172,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn new_eval_ref<T: __Registrable + 'eval>(
+    pub unsafe fn new_eval_ref<T: 'eval>(
         value: &'eval T,
         proto: &'eval __RegisterVTable,
     ) -> __Register<'eval> {
@@ -272,12 +267,12 @@ impl<'eval> __Register<'eval> {
         // }
     }
 
-    unsafe fn move_into_raw(&mut self) -> *mut dyn __RegistrableDyn {
-        self.data_kind = __RegisterDataKind::Moved;
-        std::mem::replace(&mut self.data, __RegisterData { as_opt_ptr: None })
-            .as_opt_ptr
-            .unwrap()
-    }
+    // unsafe fn move_into_raw(&mut self) -> *mut dyn __RegistrableDyn {
+    //     self.data_kind = __RegisterDataKind::Moved;
+    //     std::mem::replace(&mut self.data, __RegisterData { as_opt_ptr: None })
+    //         .as_opt_ptr
+    //         .unwrap()
+    // }
 
     pub fn downcast_void(&self) -> () {
         assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
@@ -345,7 +340,7 @@ impl<'eval> __Register<'eval> {
 
     // pub fn downcast<T>(&mut self) -> T
     // where
-    //     T: __Registrable + 'eval,
+    //     T:  'eval,
     // {
     //     match self.data_kind {
     //         __RegisterDataKind::PrimitiveValue => todo!(),
@@ -361,7 +356,7 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_unbox<T>(self) -> T
     where
-        T: __Registrable + 'eval,
+        T: 'eval,
     {
         assert_eq!(self.data_kind, __RegisterDataKind::Box);
         let t = unsafe { *Box::from_raw(self.data.as_opt_ptr.unwrap() as *mut T) };
@@ -402,10 +397,11 @@ impl<'eval> Drop for __Register<'eval> {
     fn drop(&mut self) {
         match self.data_kind {
             __RegisterDataKind::Box => unsafe {
-                (*std::mem::replace(&mut self.data, __RegisterData { as_opt_ptr: None })
-                    .as_opt_ptr
-                    .unwrap())
-                .__drop_dyn__()
+                todo!()
+                // (*std::mem::replace(&mut self.data, __RegisterData { as_opt_ptr: None })
+                //     .as_opt_ptr
+                //     .unwrap())
+                // .__drop_dyn__()
             },
             __RegisterDataKind::Undefined => {
                 // when undefined, opt_data might hold a message
@@ -438,7 +434,7 @@ macro_rules! register_new_copyable {
 //         unsafe { &*ptr }
 //     }
 //     #[inline]
-//     pub fn __downcast_copy<'a, T: __Registrable + Copy>(&'a self) -> T {
+//     pub fn __downcast_copy<'a, T:  Copy>(&'a self) -> T {
 //         if T::__static_type_id() != self.__static_type_id_dyn() {
 //             panic!(
 //                 "expect type `{}`, but got `{}` instead",

@@ -12,10 +12,16 @@ pub use synthetic::*;
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_word::RootIdentifier;
 use serde::Serialize;
-use std::{borrow::Cow, sync::Arc};
+use std::{
+    borrow::Cow,
+    panic::{RefUnwindSafe, UnwindSafe},
+    sync::Arc,
+};
 use vm::*;
 
-pub trait DatasetDyn<'eval>: __RegistrableDyn + std::fmt::Debug + Send + Sync + 'eval {
+pub trait DatasetDyn<'eval>:
+    std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + 'eval
+{
     fn dev_loader(&self) -> DataLoader<'eval>;
     fn val_loader(&self) -> DataLoader<'eval>;
     fn test_loader(&self) -> DataLoader<'eval>;
@@ -67,15 +73,5 @@ impl<'a> __StaticInfo for Dataset<'a> {
 
     fn __static_typename() -> Cow<'static, str> {
         "Dataset".into()
-    }
-}
-
-impl<'a> __Registrable for Dataset<'a> {
-    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        todo!()
-    }
-
-    fn __copy__(&self) -> Self {
-        panic!()
     }
 }
