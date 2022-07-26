@@ -14,6 +14,7 @@ husky-signal = { path = "../../../../common-rs/abstraction/husky-signal" }
 husky-vm-interface = { path = "../../../../interfaces/husky-vm-interface", features = [
     "serde_support"
 ] }
+husky-log-utils = { path = "../../../../common-rs/utils/husky-log-utils" }
 
 [dependencies.web-sys]
 version = "0.3.57"

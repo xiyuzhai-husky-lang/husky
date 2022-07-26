@@ -2,6 +2,7 @@ use crate::*;
 use entity_kind::TyKind;
 use husky_ast::FieldAstKind;
 use husky_linkage_table::ResolveLinkage;
+use husky_primitive_literal_semantics::convert_primitive_literal_to_value;
 use infer_decl::TyDecl;
 use map_collect::MapCollect;
 use vm::{
@@ -31,7 +32,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerExprVariant::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
                 InstructionVariant::PushPrimitiveValue {
-                    value: todo!(),
+                    value: convert_primitive_literal_to_value(value, expr.ty()),
                     explicit: true,
                 },
                 expr.clone(),

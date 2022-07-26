@@ -1,3 +1,4 @@
+use husky_log_utils::log_once;
 use husky_signal::Signalable;
 use husky_vm_interface::__VMError;
 
@@ -61,8 +62,13 @@ impl From<__VMError> for TraceTokenData {
 }
 
 impl<'eval> From<__Register<'eval>> for TraceTokenData {
-    fn from(_: __Register<'eval>) -> Self {
-        todo!()
+    fn from(reg: __Register<'eval>) -> Self {
+        log_once!("todo: value trace");
+        TraceTokenData {
+            kind: TraceTokenKind::Fade,
+            value: reg.print_short(),
+            opt_associated_trace_id: None,
+        }
     }
 }
 

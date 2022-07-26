@@ -60,7 +60,8 @@ impl<'eval> __Register<'eval> {
     }
 
     pub fn print_short(&self) -> String {
-        todo!()
+        // print short ad hoc
+        "...".to_string()
     }
 
     pub fn to_bool(self) -> bool {

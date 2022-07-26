@@ -1,4 +1,4 @@
-use vm::{EvalError, __Register, __VMResult};
+use vm::{EvalError, __Register, __VMError, __VMResult};
 
 use crate::*;
 
@@ -9,15 +9,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned()),
             FeatureLazyStmtVariant::Assert { ref condition } => {
-                todo!()
-                // if self.satisfies(condition)? {
-                //     Ok(__Register::Unreturned)
-                // } else {
-                //     Err(EvalError::Normal {
-                //         message: format!("assertion failed"),
-                //     }
-                //     .into())
-                // }
+                if self.satisfies(condition)? {
+                    Ok(__Register::new_unreturned())
+                } else {
+                    Err(__VMError::new_normal(format!("assertion failed")))
+                }
             }
             FeatureLazyStmtVariant::Return { ref result } => self.eval_expr(result),
             FeatureLazyStmtVariant::ReturnXml { ref result } => self.eval_xml_expr(result),
