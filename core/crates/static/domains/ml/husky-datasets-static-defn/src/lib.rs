@@ -18,6 +18,10 @@ use std::{borrow::Cow, sync::Arc};
 use vm::__StaticInfo;
 use vm::*;
 
+extern "C" {
+    pub static __DATASET_REGISTER_PROTOTYPE: __RegisterPrototype;
+}
+
 pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "datasets",
     items: &[&synthetic::SYNTHETIC_MODULE_DEFN, &cv::CV_MOD_DEFN],

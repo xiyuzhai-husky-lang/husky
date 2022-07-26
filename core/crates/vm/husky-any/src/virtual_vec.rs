@@ -7,6 +7,10 @@ use serde::Serialize;
 
 use super::*;
 
+extern "C" {
+    pub static __VIRTUAL_VEC_REGISTER_PROTOTYPE: __RegisterPrototype;
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct VirtualVec<'eval> {
     data: Vec<__Register<'eval>>,
@@ -42,7 +46,7 @@ impl<'eval> __StaticInfo for VirtualVec<'eval> {
 
 impl<'eval> __Registrable for VirtualVec<'eval> {
     unsafe fn __to_register__<'eval0>(self) -> __Register<'eval0> {
-        __Register::new_box(self)
+        __Register::new_box(self, &__VIRTUAL_VEC_REGISTER_PROTOTYPE)
     }
 
     fn __copy__(&self) -> Self {

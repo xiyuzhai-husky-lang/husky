@@ -32,7 +32,8 @@ impl<'eval> __Register<'eval> {
     }
 
     pub fn primitive(&self) -> PrimitiveValueData {
-        unsafe { (*self.opt_data.unwrap()).__primitive_dyn__(self.data_kind) }
+        todo!()
+        // unsafe { (*self.opt_data.unwrap()).__primitive_dyn__(self.data_kind) }
     }
 
     pub fn bind_copy(&self) -> __Register<'eval> {
@@ -54,12 +55,20 @@ impl<'eval> __Register<'eval> {
     pub fn bind_temp_mut(&self) -> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => {
-                let ptr = &self.opt_data as *const _;
-                let ptr = ptr as *mut dyn __RegistrableDyn;
+                // C standard (N1570, 6.7.2.1 Structure and union specifiers) says:
+                // 16 The size of a union is sufficient to contain the largest of its members.
+                // The value of at most one of the members can be stored in a union object at any time.
+                // A pointer to a union object, suitably converted, points to each of its members
+                // (or if a member is a bit- field, then to the unit in which it resides),
+                // and vice versa.
+                // so it's ultimately safe to do this
+                let data = __RegisterData {
+                    as_opt_ptr: Some(&self.data as *const _ as *mut ()),
+                };
                 __Register {
-                    data_kind: todo!(),
-                    opt_data: todo!(),
-                    phantom: std::marker::PhantomData,
+                    data_kind: __RegisterDataKind::TempMut,
+                    data,
+                    proto: self.proto,
                 }
             }
             __RegisterDataKind::Box => todo!(),

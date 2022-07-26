@@ -26,11 +26,8 @@ impl<'eval> VirtualStruct<'eval> {
         &self.fields.data()[field_idx].1
     }
 
-    pub unsafe fn take_field(&mut self, field_idx: usize) -> __Register<'eval> {
-        std::mem::replace(
-            &mut self.fields.data_mut()[field_idx].1,
-            __Register::new_moved(),
-        )
+    pub fn take_field(&mut self, field_idx: usize) -> __Register<'eval> {
+        self.fields.data_mut()[field_idx].1.register_move()
     }
 
     pub fn access_field(&self, field_idx: usize) -> __Register<'eval> {

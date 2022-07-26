@@ -16,9 +16,9 @@ use std::{
 
 #[repr(C)]
 pub struct __Register<'eval> {
-    data_kind: __RegisterDataKind,
-    data: __RegisterData,
-    proto: &'eval __RegisterPrototype,
+    pub(crate) data_kind: __RegisterDataKind,
+    pub(crate) data: __RegisterData,
+    pub(crate) proto: &'eval __RegisterPrototype,
 }
 
 impl<'eval> std::hash::Hash for __Register<'eval> {
@@ -30,15 +30,63 @@ impl<'eval> std::hash::Hash for __Register<'eval> {
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub union __RegisterData {
-    as_void: (),
-    as_bool: bool,
-    as_i32: i32,
-    as_i64: i64,
-    as_b32: u32,
-    as_b64: u64,
-    as_f32: f32,
-    as_f64: f64,
-    as_opt_ptr: Option<*mut ()>,
+    pub(crate) as_void: (),
+    pub(crate) as_bool: bool,
+    pub(crate) as_i32: i32,
+    pub(crate) as_i64: i64,
+    pub(crate) as_b32: u32,
+    pub(crate) as_b64: u64,
+    pub(crate) as_f32: f32,
+    pub(crate) as_f64: f64,
+    pub(crate) as_opt_ptr: Option<*mut ()>,
+}
+// C standard (N1570, 6.7.2.1 Structure and union specifiers) says:
+// 16 The size of a union is sufficient to contain the largest of its members.
+// The value of at most one of the members can be stored in a union object at any time.
+// A pointer to a union object, suitably converted, points to each of its members
+// (or if a member is a bit- field, then to the unit in which it resides),
+// and vice versa.
+#[test]
+fn test_alignment() {
+    let a = __RegisterData { as_void: () };
+    unsafe {
+        assert_eq!(
+            &a as *const _ as *const (),
+            &a.as_void as *const _ as *const (),
+        );
+        assert_eq!(
+            &a as *const _ as *const (),
+            &a.as_bool as *const _ as *const ()
+        );
+        assert_eq!(
+            &a as *const _ as *const (),
+            &a.as_i32 as *const _ as *const ()
+        );
+        assert_eq!(
+            &a as *const _ as *const (),
+            &a.as_i64 as *const _ as *const ()
+        );
+        assert_eq!(
+            &a as *const _ as *const (),
+            &a.as_b32 as *const _ as *const ()
+        );
+        assert_eq!(
+            &a as *const _ as *const (),
+            &a.as_b64 as *const _ as *const ()
+        );
+        assert_eq!(
+            &a as *const _ as *const (),
+            &a.as_f32 as *const _ as *const ()
+        );
+        assert_eq!(
+            &a as *const _ as *const (),
+            &a.as_f64 as *const _ as *const ()
+        );
+        assert_eq!(
+            &a as *const _ as *const (),
+            &a.as_opt_ptr as *const _ as *const ()
+        )
+    }
 }
 
 unsafe impl<'eval> Send for __Register<'eval> {}
@@ -88,6 +136,10 @@ pub trait __StaticInfo {
 }
 
 impl<'eval> __Register<'eval> {
+    // pub fn proto(&self) -> &'eval __RegisterPrototype {
+    //     self.proto
+    // }
+
     pub unsafe fn new_primitive_value<'a, T: __Registrable + 'a>(
         data: __RegisterData,
         proto: &'eval __RegisterPrototype,
@@ -160,12 +212,13 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_moved(proto: &'eval __RegisterPrototype) -> __Register<'eval> {
-        __Register {
+    pub fn register_move(&mut self) -> __Register<'eval> {
+        let moved = __Register {
             data_kind: __RegisterDataKind::Moved,
             data: __RegisterData { as_opt_ptr: None },
-            proto,
-        }
+            proto: self.proto,
+        };
+        std::mem::replace(self, moved)
     }
 
     pub fn new_undefined(proto: &'eval __RegisterPrototype) -> __Register<'eval> {
@@ -217,21 +270,109 @@ impl<'eval> __Register<'eval> {
             .unwrap()
     }
 
-    pub fn downcast<T>(&mut self) -> T
-    where
-        T: __Registrable + 'eval,
-    {
-        match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => todo!(),
-            __RegisterDataKind::Box => unsafe { *Box::from_raw(self.move_into_raw() as *mut T) },
-            __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
+    pub fn downcast_void(&self) -> () {
+        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+        unsafe {
+            assert_eq!(
+                self.proto as *const _,
+                &__VOID_REGISTER_PROTOTYPE as *const _
+            );
+            self.data.as_void
         }
     }
+
+    pub fn downcast_bool(&self) -> bool {
+        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+        unsafe {
+            assert_eq!(
+                self.proto as *const _,
+                &__BOOL_REGISTER_PROTOTYPE as *const _
+            );
+            self.data.as_bool
+        }
+    }
+
+    pub fn downcast_i32(&self) -> i32 {
+        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+        unsafe {
+            assert_eq!(
+                self.proto as *const _,
+                &__I32_REGISTER_PROTOTYPE as *const _
+            );
+            self.data.as_i32
+        }
+    }
+
+    pub fn downcast_i64(&self) -> i64 {
+        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+        unsafe {
+            assert_eq!(
+                self.proto as *const _,
+                &__I64_REGISTER_PROTOTYPE as *const _
+            );
+            self.data.as_i64
+        }
+    }
+
+    pub fn downcast_b32(&self) -> u32 {
+        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+        unsafe {
+            assert_eq!(
+                self.proto as *const _,
+                &__B32_REGISTER_PROTOTYPE as *const _
+            );
+            self.data.as_b32
+        }
+    }
+
+    pub fn downcast_b64(&self) -> u64 {
+        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+        unsafe {
+            assert_eq!(
+                self.proto as *const _,
+                &__B64_REGISTER_PROTOTYPE as *const _
+            );
+            self.data.as_b64
+        }
+    }
+
+    pub fn downcast_f32(&self) -> f32 {
+        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+        unsafe {
+            assert_eq!(
+                self.proto as *const _,
+                &__F32_REGISTER_PROTOTYPE as *const _
+            );
+            self.data.as_f32
+        }
+    }
+
+    pub fn downcast_f64(&self) -> f64 {
+        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+        unsafe {
+            assert_eq!(
+                self.proto as *const _,
+                &__F64_REGISTER_PROTOTYPE as *const _
+            );
+            self.data.as_f64
+        }
+    }
+
+    // pub fn downcast<T>(&mut self) -> T
+    // where
+    //     T: __Registrable + 'eval,
+    // {
+    //     match self.data_kind {
+    //         __RegisterDataKind::PrimitiveValue => todo!(),
+    //         __RegisterDataKind::Box => unsafe { *Box::from_raw(self.move_into_raw() as *mut T) },
+    //         __RegisterDataKind::EvalRef => todo!(),
+    //         __RegisterDataKind::TempRef => todo!(),
+    //         __RegisterDataKind::TempMut => todo!(),
+    //         __RegisterDataKind::Moved => todo!(),
+    //         __RegisterDataKind::Undefined => todo!(),
+    //         __RegisterDataKind::Unreturned => todo!(),
+    //     }
+    // }
 
     pub fn downcast_value<T>(&self) -> T
     where
@@ -260,7 +401,7 @@ impl<'eval> __Register<'eval> {
     }
 }
 
-#[derive(Debug, Clone, Copy, Hash)]
+#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
 pub enum __RegisterDataKind {
     PrimitiveValue,
     Box,
@@ -290,7 +431,7 @@ impl<'eval> Drop for __Register<'eval> {
 #[macro_export]
 macro_rules! register_new_copyable {
     ($argument: expr, $Type: ty, direct) => {{
-        __Register::new_direct::<$Type>($argument as u64)
+        ($argument).to_register()
     }};
 }
 

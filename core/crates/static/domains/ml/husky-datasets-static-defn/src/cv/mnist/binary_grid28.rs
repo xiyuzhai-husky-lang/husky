@@ -5,6 +5,10 @@ use husky_visual_syntax::StaticVisualTy;
 use std::any::TypeId;
 use vm::*;
 
+extern "C" {
+    pub static __BINARY_GRID28_REGISTER_PROTOTYPE: __RegisterPrototype;
+}
+
 pub static BINARY_GRID_28_BASE_ROUTE: &'static str =
     "domains::ml::datasets::cv::mnist::BinaryGrid28";
 
@@ -36,7 +40,13 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(index_linkage!(BinaryImage28, u32, direct)),
+                        opt_linkage: Some(index_linkage!(
+                            BinaryGrid28,
+                            __BINARY_GRID28_REGISTER_PROTOTYPE,
+                            u32,
+                            __U32_REGISTER_PROTOTYPE,
+                            direct
+                        )),
                     },
                 },
             ],
@@ -59,8 +69,8 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
-        linkage: transfer_linkage!(|_, _values| {
-            (__Register::new_box(BinaryGrid28::default()))
+        linkage: transfer_linkage!(|_, _values|unsafe  {
+            (__Register::new_box(BinaryGrid28::default(), &__BINARY_GRID28_REGISTER_PROTOTYPE))
         },
         some BinaryGrid28::__call__)
         .into(),
