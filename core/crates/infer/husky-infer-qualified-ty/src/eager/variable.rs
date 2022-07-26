@@ -156,7 +156,7 @@ impl EagerVariableQualifier {
             EagerVariableQualifier::TempRefMut => todo!(),
             EagerVariableQualifier::CopyableMut => match contract {
                 EagerContract::Pure | EagerContract::Pass => Binding::Copy,
-                EagerContract::TempRefMut => Binding::TempRefMut,
+                EagerContract::TempRefMut => Binding::TempMut,
                 _ => panic!(),
             },
             EagerVariableQualifier::Owned => match contract {
@@ -164,12 +164,12 @@ impl EagerVariableQualifier {
                     Binding::TempRef
                 }
                 EagerContract::Move => Binding::Move,
-                EagerContract::TempRefMut => Binding::TempRefMut,
+                EagerContract::TempRefMut => Binding::TempMut,
                 _ => panic!(),
             },
             EagerVariableQualifier::OwnedMut => match contract {
                 EagerContract::Move => Binding::Move,
-                EagerContract::TempRefMut => Binding::TempRefMut,
+                EagerContract::TempRefMut => Binding::TempMut,
                 EagerContract::Pure | EagerContract::TempRef | EagerContract::Pass => {
                     Binding::TempRef
                 }

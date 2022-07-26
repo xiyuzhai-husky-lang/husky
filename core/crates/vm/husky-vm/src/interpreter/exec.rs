@@ -46,7 +46,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     match mode {
                         Mode::Fast => (),
                         Mode::TrackMutation => match binding {
-                            Binding::TempRefMut => {
+                            Binding::TempMut => {
                                 self.record_mutation(stack_idx, varname, ins.src.file(), range, ty)
                             }
                             _ => (),

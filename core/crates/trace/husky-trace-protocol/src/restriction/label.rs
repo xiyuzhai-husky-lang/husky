@@ -21,4 +21,8 @@ impl __Registrable for Label {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         todo!()
     }
+
+    fn __copy__(&self) -> Self {
+        *self
+    }
 }

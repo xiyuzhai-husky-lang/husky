@@ -18,4 +18,8 @@ impl __Registrable for __CallFormValue {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         todo!()
     }
+
+    fn __copy__(&self) -> Self {
+        self.clone()
+    }
 }

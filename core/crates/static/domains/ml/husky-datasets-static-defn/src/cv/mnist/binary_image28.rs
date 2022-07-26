@@ -144,4 +144,8 @@ impl __Registrable for BinaryImage28 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         todo!()
     }
+
+    fn __copy__(&self) -> Self {
+        panic!()
+    }
 }

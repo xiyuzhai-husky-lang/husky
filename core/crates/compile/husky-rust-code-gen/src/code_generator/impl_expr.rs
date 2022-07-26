@@ -135,7 +135,7 @@ impl<'a> RustCodeGenerator<'a> {
                                 self.gen_arguments(indent, &opds[1..]);
                                 self.write(")");
                             }
-                            Binding::TempRefMut => {
+                            Binding::TempMut => {
                                 self.gen_expr(indent, &opds[0]);
                                 self.write(".");
                                 self.write(&method_ident.ident);
@@ -431,7 +431,7 @@ impl<'a> RustCodeGenerator<'a> {
         match expr.qualified_ty.qual.binding(expr.contract) {
             Binding::EvalRef => (),
             Binding::TempRef => self.write("&"),
-            Binding::TempRefMut => self.write("&mut "),
+            Binding::TempMut => self.write("&mut "),
             Binding::Move => (),
             Binding::Copy => (),
         }

@@ -93,6 +93,10 @@ impl __Registrable for MnistDataset {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         todo!()
     }
+
+    fn __copy__(&self) -> Self {
+        panic!()
+    }
 }
 
 impl<'eval> DatasetDyn<'eval> for MnistDataset {

@@ -2,7 +2,7 @@
 pub enum Binding {
     EvalRef,
     TempRef,
-    TempRefMut,
+    TempMut,
     Move,
     Copy,
 }

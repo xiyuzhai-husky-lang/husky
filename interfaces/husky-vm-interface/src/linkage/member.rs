@@ -19,7 +19,7 @@ impl __MemberLinkage {
         match binding {
             Binding::EvalRef => self.eval_ref_fp,
             Binding::TempRef => self.temp_ref_fp,
-            Binding::TempRefMut => self.temp_mut_fp,
+            Binding::TempMut => self.temp_mut_fp,
             Binding::Move => self.move_fp,
             Binding::Copy => self.copy_fp,
         }

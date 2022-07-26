@@ -16,6 +16,7 @@ mod try_salsa;
 mod try_serde;
 mod try_size;
 mod try_trait;
+mod try_whimsical;
 mod try_xxhash;
 
 use husky_check_utils::*;

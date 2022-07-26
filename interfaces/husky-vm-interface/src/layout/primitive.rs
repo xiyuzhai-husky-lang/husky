@@ -17,13 +17,17 @@ pub enum PrimitiveValueData {
 impl PrimitiveValueData {
     pub fn into_box_register<'eval>(self) -> __Register<'eval> {
         match self {
-            PrimitiveValueData::I32(value) => __Register::new_box(value),
-            PrimitiveValueData::I64(value) => __Register::new_box(value),
-            PrimitiveValueData::F32(value) => __Register::new_box(value),
-            PrimitiveValueData::B32(value) => __Register::new_box(value),
-            PrimitiveValueData::B64(value) => __Register::new_box(value),
-            PrimitiveValueData::Bool(value) => __Register::new_box(value),
-            PrimitiveValueData::Void(value) => __Register::new_box(value),
+            PrimitiveValueData::I32(value) => __Register::new_box(value, &__I32_REGISTER_PROTOTYPE),
+            PrimitiveValueData::I64(value) => __Register::new_box(value, &__I64_REGISTER_PROTOTYPE),
+            PrimitiveValueData::F32(value) => __Register::new_box(value, &__F32_REGISTER_PROTOTYPE),
+            PrimitiveValueData::B32(value) => __Register::new_box(value, &__B32_REGISTER_PROTOTYPE),
+            PrimitiveValueData::B64(value) => __Register::new_box(value, &__B64_REGISTER_PROTOTYPE),
+            PrimitiveValueData::Bool(value) => {
+                __Register::new_box(value, &__BOOL_REGISTER_PROTOTYPE)
+            }
+            PrimitiveValueData::Void(value) => {
+                __Register::new_box(value, &__VOID_REGISTER_PROTOTYPE)
+            }
         }
     }
 }
@@ -172,6 +176,13 @@ impl From<&f32> for PrimitiveValueData {
 impl From<u32> for PrimitiveValueData {
     fn from(value: u32) -> Self {
         Self::B32(value)
+    }
+}
+
+impl From<&f64> for PrimitiveValueData {
+    fn from(value: &f64) -> Self {
+        todo!()
+        // Self::F64(*value)
     }
 }
 

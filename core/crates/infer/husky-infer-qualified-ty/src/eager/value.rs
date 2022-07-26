@@ -75,7 +75,7 @@ impl EagerExprQualifier {
                 EagerContract::Pure | EagerContract::TempRef | EagerContract::Pass => {
                     Binding::TempRef
                 }
-                EagerContract::TempRefMut => Binding::TempRefMut,
+                EagerContract::TempRefMut => Binding::TempMut,
                 _ => panic!(),
             },
         }

@@ -44,4 +44,8 @@ impl<'eval> __Registrable for VirtualVec<'eval> {
     unsafe fn __to_register__<'eval0>(self) -> __Register<'eval0> {
         __Register::new_box(self)
     }
+
+    fn __copy__(&self) -> Self {
+        panic!()
+    }
 }

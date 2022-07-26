@@ -13,7 +13,7 @@ impl __Registrable for i32 {
         __Register::new_direct::<Self>(self as u64)
     }
 
-    fn __primitive(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
+    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
         match data_kind {
             __RegisterDataKind::PrimitiveValue => {
                 let ptr: *const i32 = self;
@@ -28,6 +28,10 @@ impl __Registrable for i32 {
             __RegisterDataKind::Undefined => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
+    }
+
+    fn __copy__(&self) -> Self {
+        *self
     }
 }
 
@@ -44,7 +48,7 @@ impl __Registrable for i64 {
         __Register::new_direct::<Self>(self as u64)
     }
 
-    fn __primitive(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
+    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
         match data_kind {
             __RegisterDataKind::PrimitiveValue => {
                 let ptr: *const Self = self;
@@ -59,6 +63,10 @@ impl __Registrable for i64 {
             __RegisterDataKind::Undefined => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
+    }
+
+    fn __copy__(&self) -> Self {
+        *self
     }
 }
 
@@ -74,7 +82,7 @@ impl __Registrable for () {
         __Register::new_direct::<Self>(0)
     }
 
-    fn __primitive(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
+    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
         match data_kind {
             __RegisterDataKind::PrimitiveValue => ().into(),
             __RegisterDataKind::Box => todo!(),
@@ -85,6 +93,10 @@ impl __Registrable for () {
             __RegisterDataKind::Undefined => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
+    }
+
+    fn __copy__(&self) -> Self {
+        *self
     }
 }
 
@@ -100,7 +112,7 @@ impl __Registrable for f32 {
         __Register::new_direct::<Self>(self as u64)
     }
 
-    fn __primitive(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
+    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
         match data_kind {
             __RegisterDataKind::PrimitiveValue => {
                 let ptr: *const Self = self;
@@ -116,6 +128,45 @@ impl __Registrable for f32 {
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
+
+    fn __copy__(&self) -> Self {
+        *self
+    }
+}
+
+impl __StaticInfo for f64 {
+    type __StaticSelf = Self;
+    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+        "f64".into()
+    }
+}
+
+impl __Registrable for f64 {
+    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
+        __Register::new_direct::<Self>(self as u64)
+    }
+
+    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
+        todo!()
+        // match data_kind {
+        //     __RegisterDataKind::PrimitiveValue => {
+        //         let ptr: *const Self = self;
+        //         let data = ptr as u64 as Self;
+        //         data.into()
+        //     }
+        //     __RegisterDataKind::Box => todo!(),
+        //     __RegisterDataKind::EvalRef => todo!(),
+        //     __RegisterDataKind::TempRef => todo!(),
+        //     __RegisterDataKind::TempMut => todo!(),
+        //     __RegisterDataKind::Moved => todo!(),
+        //     __RegisterDataKind::Undefined => todo!(),
+        //     __RegisterDataKind::Unreturned => todo!(),
+        // }
+    }
+
+    fn __copy__(&self) -> Self {
+        *self
+    }
 }
 
 impl __StaticInfo for u32 {
@@ -130,7 +181,7 @@ impl __Registrable for u32 {
         todo!()
     }
 
-    fn __primitive(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
+    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
         match data_kind {
             __RegisterDataKind::PrimitiveValue => {
                 let ptr: *const Self = self;
@@ -145,6 +196,10 @@ impl __Registrable for u32 {
             __RegisterDataKind::Undefined => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
+    }
+
+    fn __copy__(&self) -> Self {
+        *self
     }
 }
 
@@ -160,7 +215,7 @@ impl __Registrable for u64 {
         __Register::new_direct::<Self>(self)
     }
 
-    fn __primitive(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
+    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
         match data_kind {
             __RegisterDataKind::PrimitiveValue => {
                 let ptr: *const Self = self;
@@ -176,6 +231,10 @@ impl __Registrable for u64 {
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
+
+    fn __copy__(&self) -> Self {
+        *self
+    }
 }
 
 impl __StaticInfo for bool {
@@ -190,7 +249,7 @@ impl __Registrable for bool {
         __Register::new_direct::<Self>(self as u64)
     }
 
-    fn __primitive(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
+    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
         match data_kind {
             __RegisterDataKind::PrimitiveValue => {
                 let ptr: *const Self = self;
@@ -205,6 +264,10 @@ impl __Registrable for bool {
             __RegisterDataKind::Undefined => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
+    }
+
+    fn __copy__(&self) -> Self {
+        *self
     }
 }
 
