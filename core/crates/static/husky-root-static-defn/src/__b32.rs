@@ -31,7 +31,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-            (values[0]. primitive ().take_b32().leading_zeros() as i32).to_register()
+            (values[0]. downcast_b32().leading_zeros() as i32).to_register()
         }, some u32::leading_zeros)),
     },
     dev_src: __static_dev_src!(),
@@ -48,7 +48,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-         values[0]. primitive ().take_b32().ctz().to_register()
+         values[0]. downcast_b32().ctz().to_register()
         }, some u32::ctz)),
     },
     dev_src: __static_dev_src!(),

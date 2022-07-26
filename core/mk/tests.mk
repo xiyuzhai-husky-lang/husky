@@ -31,15 +31,19 @@ test-analyzer-with-backtrace-filtered:
 # debugger
 
 test-debugger:
+	cargo check
 	cargo run -q --bin husky-debugger -- --package-dir $(tests_dir)/debugger --sample-id 23 --mode test
 
 test-debugger-v:
+	cargo check
 	cargo run -q --bin husky-debugger -- --package-dir $(tests_dir)/debugger -v --sample-id 23 --mode test
 
 test-debugger-with-backtrace:
+	cargo check
 	RUST_BACKTRACE=1 cargo run -q --bin husky-debugger -- --package-dir $(tests_dir)/debugger --sample-id 23 --mode test
 
 test-debugger-with-backtrace-filtered:
+	cargo check
 	RUST_BACKTRACE=1 cargo run -q --bin husky-debugger -- --package-dir $(tests_dir)/debugger --sample-id 23 --mode test 2>&1 | python scripts/filter_rust_backtrace.py
 
 # compiler

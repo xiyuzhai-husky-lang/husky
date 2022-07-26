@@ -24,14 +24,10 @@ impl<'a> TraceTokenBuilder<'a> {
                 LazyExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
                 _ => panic!(),
             },
-            FeatureExprVariant::PrimitiveBinaryOpr {
-                opr,
-                ref lopd,
-                ref ropd,
-            } => {
-                self.gen_feature_expr_tokens(lopd, config.subexpr());
+            FeatureExprVariant::PrimitiveBinaryOpr { opr, ref opds, .. } => {
+                self.gen_feature_expr_tokens(&opds[0], config.subexpr());
                 self.push(special!(opr.spaced_code(), opt_assoc_id));
-                self.gen_feature_expr_tokens(ropd, config.subexpr())
+                self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
             FeatureExprVariant::CustomBinaryOpr { opr, ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());

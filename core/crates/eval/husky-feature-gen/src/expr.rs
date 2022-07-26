@@ -57,8 +57,8 @@ pub enum FeatureExprVariant {
     },
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,
-        lopd: Arc<FeatureExpr>,
-        ropd: Arc<FeatureExpr>,
+        opds: Vec<Arc<FeatureExpr>>,
+        linkage: __Linkage,
     },
     CustomBinaryOpr {
         opr: PureBinaryOpr,

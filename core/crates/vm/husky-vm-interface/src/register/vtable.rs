@@ -5,7 +5,8 @@ unsafe impl Sync for __RegisterVTable {}
 unsafe impl Send for __RegisterVTable {}
 #[repr(C)]
 pub struct __RegisterVTable {
-    pub type_name: *const c_char,
+    pub typename: *const c_char,
+    pub primitive_value_to_bool: Option<fn(data: __RegisterData) -> bool>,
 }
 extern "C" {
     pub static __VOID_VTABLE: __RegisterVTable;

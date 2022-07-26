@@ -76,6 +76,13 @@ impl EntityRoutePtr {
         }
     }
 
+    pub fn root(self) -> RootIdentifier {
+        match self {
+            EntityRoutePtr::Root(root_identifier) => root_identifier,
+            _ => panic!(),
+        }
+    }
+
     pub fn to_str(&self) -> String {
         format!("{:?}", self)
     }

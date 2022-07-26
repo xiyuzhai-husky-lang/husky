@@ -4,6 +4,7 @@ use husky_ast::FieldAstKind;
 use husky_entity_route::{make_subroute, EntityRoute, InternEntityRoute};
 use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
+use husky_vm_primitive_opr_linkage::resolve_primitive_binary_opr_linkage;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
 use vm::{Binding, __ModelLinkage, __VMResult, __root::__NEQ_LINKAGE};
@@ -161,7 +162,15 @@ impl<'a> FeatureExprBuilder<'a> {
                     ropd: ropd.feature,
                 });
                 (
-                    FeatureExprVariant::PrimitiveBinaryOpr { opr, lopd, ropd },
+                    FeatureExprVariant::PrimitiveBinaryOpr {
+                        opr,
+                        linkage: resolve_primitive_binary_opr_linkage(
+                            lopd.expr.ty().root(),
+                            opr,
+                            ropd.expr.ty().root(),
+                        ),
+                        opds: vec![lopd, ropd],
+                    },
                     feature,
                 )
             }

@@ -46,3 +46,4 @@ husky-compile-time = { path = "../../compile/husky-compile-time" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-literal-semantics" }
+husky-vm-primitive-opr-linkage = { path = "../../vm/husky-vm-primitive-opr-linkage" }
