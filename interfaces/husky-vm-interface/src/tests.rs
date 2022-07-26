@@ -26,12 +26,22 @@
 use crate::__Registrable;
 
 #[test]
-fn downcast_works1() {
+fn downcast_works_for_bool() {
+    let mut ra = {
+        let a = true;
+        unsafe { a.__to_register__() }
+    };
+    let b: bool = ra.downcast_bool();
+    assert!(b)
+}
+
+#[test]
+fn downcast_works_for_i32() {
     let mut ra = {
         let a = 1i32;
         unsafe { a.__to_register__() }
     };
-    let b: i32 = ra.downcast();
+    let b: i32 = ra.downcast_i32();
 }
 
 // #[test]

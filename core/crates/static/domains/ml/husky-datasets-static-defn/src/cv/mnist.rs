@@ -42,7 +42,7 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn 
         output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>",
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(
-            |_, _|  __Register::new_box(new_binary_dataset()) ,
+            |_, _|  unsafe {__Register::new_box(new_binary_dataset(), &__DATASET_REGISTER_PROTOTYPE)} ,
             some new_binary_dataset
         )
         .into(),

@@ -41,7 +41,7 @@ macro_rules! method_elem_linkage {
 
 #[macro_export]
 macro_rules! eager_field_linkage {
-    ($Type: ty, $FieldTy: ty, $field: ident, $copy_kind: tt) => {{
+    ($Type: ty, $TYPE_PROTO: expr, $FieldTy: ty, $FIELD_TY_PROTO: expr, $field: ident, $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
             copy_fp: field_copy_fp!($Type, $FieldTy, $field, $copy_kind),
             eval_ref_fp: field_eval_ref_fp!($Type, $field),
@@ -81,12 +81,23 @@ macro_rules! eager_mut_field_linkage {
 
 #[macro_export]
 macro_rules! index_linkage {
-    ($Type: ty, $ElementType: ty, $copy_kind: tt) => {{
+    (
+        $Type: ty,
+        $TYPE_PROTO: expr, 
+        $ElementType: ty, 
+        $ELEMENT_TYPE_PROTO: expr, 
+        $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_fp: index_copy_fp!($Type, $ElementType, $copy_kind),
-            eval_ref_fp: index_eval_ref_fp!($Type),
+            copy_fp: index_copy_fp!(
+                $Type,
+                $TYPE_PROTO,
+                $ElementType,
+                $ELEMENT_TYPE_PROTO,
+                $copy_kind
+            ),
+            eval_ref_fp: index_eval_ref_fp!($Type, $TYPE_PROTO),
             temp_ref_fp: index_temp_ref_fp!($Type),
-            temp_mut_fp: index_temp_mut_fp!($Type),
+            temp_mut_fp: index_temp_mut_fp!($Type, $TYPE_PROTO),
             move_fp: index_move_fp!($Type),
         })
     }};

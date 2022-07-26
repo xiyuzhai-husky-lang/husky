@@ -6,7 +6,10 @@ use husky_print_utils::p;
 use husky_trace_protocol::Label;
 use husky_vm_register_method::VMRegisterMethodX;
 use static_defn::*;
-use vm::{Model, __Linkage, __ModelLinkage, __Register, __RegistrableSafe, __VMResult};
+use vm::{
+    Model, __Linkage, __ModelLinkage, __Register, __RegistrableSafe, __VMResult,
+    __I32_REGISTER_PROTOTYPE,
+};
 
 static_mod! { naive = { naive_i32 } }
 
@@ -41,8 +44,11 @@ impl Model for NaiveI32 {
         let mut label_statics_map: HashMap<i32, HashMap<Label, usize>> = Default::default();
         for (arguments, mut label) in training_data {
             assert_eq!(arguments.len(), 1);
-            let value = arguments[0].downcast_value::<i32>();
-            let label = unsafe { label.downcast::<Label>() };
+            let value = arguments[0].downcast_i32();
+            let label = unsafe {
+                todo!()
+                // label.downcast::<Label>()
+            };
             *label_statics_map
                 .entry(value)
                 .or_default()
@@ -70,13 +76,15 @@ impl Model for NaiveI32 {
         most_likely_labels: &Self::Internal,
         arguments: &[__Register<'eval>],
     ) -> __VMResult<__Register<'eval>> {
-        let argument = arguments[0].downcast_value::<i32>();
+        let argument = arguments[0].downcast_i32();
         match most_likely_labels.get(&argument) {
             Some(l) => Ok(l.to_register()),
             None => {
                 p!(argument);
                 panic!();
-                Ok(__Register::new_undefined())
+                Ok(__Register::new_undefined(
+                    todo!(), // &__I64_REGISTER_PROTOTYPE
+                ))
             }
         }
     }

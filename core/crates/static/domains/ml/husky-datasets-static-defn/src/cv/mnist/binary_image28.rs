@@ -5,6 +5,10 @@ use husky_visual_syntax::StaticVisualTy;
 use std::{any::TypeId, sync::Arc};
 use vm::*;
 
+extern "C" {
+    pub static __BINARY_IMAGE28_REGISTER_PROTOTYPE: __RegisterPrototype;
+}
+
 pub static BINARY_IMAGE_28_BASE_ROUTE: &'static str =
     "domains::ml::datasets::cv::mnist::BinaryImage28";
 
@@ -36,7 +40,13 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(index_linkage!(BinaryImage28, u32, direct)),
+                        opt_linkage: Some(index_linkage!(
+                            BinaryImage28,
+                            __BINARY_IMAGE28_REGISTER_PROTOTYPE,
+                            u32,
+                            __U32_REGISTER_PROTOTYPE,
+                            direct
+                        )),
                     },
                 },
             ],
@@ -59,8 +69,8 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: BINARY_IMAGE_28_BASE_ROUTE,
         output_liason: OutputLiason::Transfer,
-        linkage: transfer_linkage!(|_, _values| {
-            (__Register::new_box(BinaryImage28::default()))
+        linkage: transfer_linkage!(|_, _values| unsafe {
+            (__Register::new_box(BinaryImage28::default(), &__BINARY_IMAGE28_REGISTER_PROTOTYPE))
         }, some BinaryImage28::__call__)
         .into(),
     },

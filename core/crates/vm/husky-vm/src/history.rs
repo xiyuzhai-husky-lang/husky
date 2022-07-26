@@ -24,12 +24,13 @@ impl<'eval> History<'eval> {
 }
 
 impl History<'static> {
-    pub fn register_result<T: InstructionSource>(&self, t: &T) -> __VMResult<__Register<'static>> {
-        if let Some(entry) = self.entries.get(&t.instruction_id()) {
-            entry.result()
-        } else {
-            Ok(__Register::new_undefined())
-        }
+    pub fn register_result<T: InstructionSource>(
+        &self,
+        t: &T,
+    ) -> Option<__VMResult<__Register<'static>>> {
+        self.entries
+            .get(&t.instruction_id())
+            .map(|entry| entry.result())
     }
 
     pub fn get<T: InstructionSource>(&self, t: &T) -> Option<&HistoryEntry<'static>> {
