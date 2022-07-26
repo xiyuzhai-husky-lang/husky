@@ -3,7 +3,7 @@ use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_vm_interface::PrimitiveValueData;
 use husky_word::RootIdentifier;
 
-pub fn convert_literal_to_value(
+pub fn convert_primitive_literal_to_value(
     literal: PrimitiveLiteralData,
     ty: EntityRoutePtr,
 ) -> PrimitiveValueData {
