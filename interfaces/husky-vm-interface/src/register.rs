@@ -1,7 +1,9 @@
+mod proto;
 mod registrable;
 mod registrable_dyn;
 mod registrable_safe;
 
+pub use proto::*;
 pub use registrable::*;
 pub use registrable_dyn::*;
 pub use registrable_safe::*;
@@ -12,12 +14,30 @@ use std::{
     panic::{RefUnwindSafe, UnwindSafe},
 };
 
-#[derive(Hash)]
 #[repr(C)]
 pub struct __Register<'eval> {
-    pub data_kind: __RegisterDataKind,
-    pub opt_data: Option<*mut dyn __RegistrableDyn>,
-    pub phantom: PhantomData<&'eval ()>,
+    data_kind: __RegisterDataKind,
+    data: __RegisterData,
+    proto: &'eval __RegisterPrototype,
+}
+
+impl<'eval> std::hash::Hash for __Register<'eval> {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        todo!()
+    }
+}
+
+#[derive(Clone, Copy)]
+#[repr(C)]
+pub union __RegisterData {
+    as_bool: bool,
+    as_i32: i32,
+    as_i64: i64,
+    as_b32: u32,
+    as_b64: u64,
+    as_f32: f32,
+    as_f64: f64,
+    as_opt_ptr: Option<*mut ()>,
 }
 
 unsafe impl<'eval> Send for __Register<'eval> {}
@@ -33,17 +53,17 @@ impl<'eval> Clone for __Register<'eval> {
     fn clone(&self) -> Self {
         Self {
             data_kind: self.data_kind,
-            opt_data: match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.opt_data,
+            data: match self.data_kind {
+                __RegisterDataKind::PrimitiveValue => self.data,
                 __RegisterDataKind::Box => todo!(),
-                __RegisterDataKind::EvalRef => self.opt_data,
-                __RegisterDataKind::TempRef => self.opt_data,
+                __RegisterDataKind::EvalRef => self.data,
+                __RegisterDataKind::TempRef => self.data,
                 __RegisterDataKind::TempMut => panic!(),
                 __RegisterDataKind::Moved => panic!(),
                 __RegisterDataKind::Undefined => todo!(),
                 __RegisterDataKind::Unreturned => panic!(),
             },
-            phantom: PhantomData,
+            proto: self.proto,
         }
     }
 }
@@ -59,7 +79,7 @@ impl<'eval> Eq for __Register<'eval> {}
 pub trait __StaticInfo {
     type __StaticSelf: __StaticInfo<__StaticSelf = Self::__StaticSelf> + __Registrable + 'static;
 
-    fn __static_type_id() -> std::any::TypeId {
+    fn __static_type_id__() -> std::any::TypeId {
         std::any::TypeId::of::<Self::__StaticSelf>()
     }
 
@@ -73,76 +93,101 @@ impl<'eval> __Register<'eval> {
     {
         __Register {
             data_kind: __RegisterDataKind::PrimitiveValue,
-            opt_data: Some(value as *const () as *mut T::__StaticSelf as *mut dyn __RegistrableDyn),
-            phantom: PhantomData,
+            data: todo!(),
+            proto: todo!(),
         }
     }
 
-    pub fn new_box<'a, T: __Registrable + 'a>(value: T) -> __Register<'eval> {
-        let data: *mut T = Box::<T>::into_raw(Box::new(value));
+    pub fn new_box<T: __Registrable>(
+        value: T,
+        proto: &'eval __RegisterPrototype,
+    ) -> __Register<'eval> {
+        let ptr: *mut T = Box::<T>::into_raw(Box::new(value));
+        #[cfg(feature = "check")]
+        assert_eq!(T::static_type_id, proto.type_id);
         __Register {
             data_kind: __RegisterDataKind::Box,
-            opt_data: Some(data as *mut T::__StaticSelf as *mut dyn __RegistrableDyn),
-            phantom: PhantomData,
+            data: __RegisterData {
+                as_opt_ptr: Some(ptr as *mut ()),
+            },
+            proto,
         }
     }
 
-    pub unsafe fn new_eval_ref<T: __Registrable + 'eval>(value: &'eval T) -> __Register {
+    pub unsafe fn new_eval_ref<T: __Registrable + 'eval>(
+        value: &'eval T,
+        proto: &'eval __RegisterPrototype,
+    ) -> __Register<'eval> {
         let ptr: *const T = value;
         __Register {
             data_kind: __RegisterDataKind::EvalRef,
-            opt_data: Some(ptr as *mut T::__StaticSelf as *mut dyn __RegistrableDyn),
-            phantom: PhantomData,
+            data: __RegisterData {
+                as_opt_ptr: Some(ptr as *mut ()),
+            },
+            proto,
         }
     }
 
-    pub unsafe fn new_temp_ref<T: __Registrable>(value: &T) -> __Register<'eval> {
+    pub unsafe fn new_temp_ref<T: __Registrable>(
+        value: &T,
+        proto: &'eval __RegisterPrototype,
+    ) -> __Register<'eval> {
         let ptr: *const T = value;
         __Register {
             data_kind: __RegisterDataKind::TempRef,
-            opt_data: Some(ptr as *mut T::__StaticSelf as *mut dyn __RegistrableDyn),
-            phantom: PhantomData,
+            data: __RegisterData {
+                as_opt_ptr: Some(ptr as *mut ()),
+            },
+            proto,
         }
     }
 
-    pub unsafe fn new_temp_mut<T: __Registrable>(value: &mut T) -> __Register<'eval> {
+    pub unsafe fn new_temp_mut<T: __Registrable>(
+        value: &mut T,
+        proto: &'eval __RegisterPrototype,
+    ) -> __Register<'eval> {
         let ptr: *const T = value;
         __Register {
             data_kind: __RegisterDataKind::TempMut,
-            opt_data: Some(ptr as *mut T::__StaticSelf as *mut dyn __RegistrableDyn),
-            phantom: PhantomData,
+            data: __RegisterData {
+                as_opt_ptr: Some(ptr as *mut ()),
+            },
+            proto,
         }
     }
 
-    pub fn new_moved() -> __Register<'eval> {
+    pub fn new_moved(proto: &'eval __RegisterPrototype) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Moved,
-            opt_data: None,
-            phantom: PhantomData,
+            data: __RegisterData { as_opt_ptr: None },
+            proto,
         }
     }
 
-    pub fn new_undefined() -> __Register<'eval> {
+    pub fn new_undefined(proto: &'eval __RegisterPrototype) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
-            opt_data: None,
-            phantom: PhantomData,
+            data: __RegisterData { as_opt_ptr: None },
+            proto,
         }
     }
 
-    pub fn new_unreturned() -> __Register<'eval> {
+    pub fn new_unreturned(proto: &'eval __RegisterPrototype) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Unreturned,
-            opt_data: None,
-            phantom: PhantomData,
+            data: __RegisterData { as_opt_ptr: None },
+            proto,
         }
     }
 
-    pub unsafe fn new_undefined_with_message() -> __Register<'eval> {
+    pub unsafe fn new_undefined_with_message(
+        proto: &'eval __RegisterPrototype,
+        message: String,
+    ) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
-            opt_data: None,
-            phantom: PhantomData,
+            data: __RegisterData { as_opt_ptr: None },
+            proto,
         }
     }
 
@@ -163,7 +208,9 @@ impl<'eval> __Register<'eval> {
 
     unsafe fn move_into_raw(&mut self) -> *mut dyn __RegistrableDyn {
         self.data_kind = __RegisterDataKind::Moved;
-        std::mem::take(&mut self.opt_data).unwrap()
+        std::mem::replace(&mut self.data, __RegisterData { as_opt_ptr: None })
+            .as_opt_ptr
+            .unwrap()
     }
 
     pub fn downcast<T>(&mut self) -> T
@@ -181,11 +228,15 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
+
     pub fn downcast_value<T>(&self) -> T
     where
-        T: __Registrable + 'eval,
+        T: __Registrable + Copy + 'eval,
     {
-        todo!()
+        unsafe {
+            let true_ref: &T = &*((&self.data as *const _) as *const T);
+            true_ref.__copy__()
+        }
     }
 
     pub unsafe fn downcast_temp<T>(&mut self) -> T {
@@ -222,7 +273,10 @@ impl<'eval> Drop for __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::Box | __RegisterDataKind::Undefined => unsafe {
                 // when undefined, opt_data might hold a message
-                (*std::mem::take(&mut self.opt_data).unwrap()).drop_dyn()
+                (*std::mem::replace(&mut self.data, __RegisterData { as_opt_ptr: None })
+                    .as_opt_ptr
+                    .unwrap())
+                .__drop_dyn__()
             },
             _ => (),
         }

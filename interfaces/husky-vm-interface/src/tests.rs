@@ -1,3 +1,5 @@
+use std::ffi::{c_char, CString};
+
 use crate::*;
 
 #[derive(Debug)]
@@ -11,9 +13,17 @@ impl __StaticInfo for A {
     }
 }
 
+pub static A_PROTOTYPE: __RegisterPrototype = __RegisterPrototype {
+    type_name: CString::new("A").unwrap().as_ptr() as *const c_char,
+};
+
 impl __Registrable for A {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_box(self)
+        __Register::new_box(self, &A_PROTOTYPE)
+    }
+
+    fn __copy__(&self) -> Self {
+        panic!()
     }
 }
 
@@ -29,7 +39,7 @@ fn downcast_works1() {
 #[test]
 fn downcast_works2() {
     let a = A {};
-    let mut ra = __Register::new_box(a);
+    let mut ra = __Register::new_box(a, &A_PROTOTYPE);
     let b: A = ra.downcast();
 }
 

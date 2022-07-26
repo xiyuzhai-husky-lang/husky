@@ -22,4 +22,8 @@ impl __Registrable for EnumKindValue {
     {
         todo!()
     }
+
+    fn __copy__(&self) -> Self {
+        *self
+    }
 }
