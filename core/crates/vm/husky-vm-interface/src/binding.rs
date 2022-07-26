@@ -31,10 +31,10 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn primitive(&self) -> PrimitiveValueData {
-        todo!()
-        // unsafe { (*self.opt_data.unwrap()).__primitive_dyn__(self.data_kind) }
-    }
+    // pub fn primitive(&self) -> PrimitiveValueData {
+    //     todo!()
+    //     // unsafe { (*self.opt_data.unwrap()).__primitive_dyn__(self.data_kind) }
+    // }
 
     pub fn bind_copy(&self) -> __Register<'eval> {
         todo!()
@@ -68,7 +68,7 @@ impl<'eval> __Register<'eval> {
                 __Register {
                     data_kind: __RegisterDataKind::TempMut,
                     data,
-                    proto: self.proto,
+                    vtable: self.vtable,
                 }
             }
             __RegisterDataKind::Box => todo!(),
@@ -96,8 +96,32 @@ impl<'eval> __Register<'eval> {
         "...".to_string()
     }
 
+    pub fn any_ptr(&self) -> *mut () {
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => todo!(),
+            __RegisterDataKind::Box
+            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::TempRef
+            | __RegisterDataKind::TempMut => unsafe { self.data.as_opt_ptr.unwrap() },
+            __RegisterDataKind::Moved
+            | __RegisterDataKind::Undefined
+            | __RegisterDataKind::Unreturned => panic!(),
+        }
+    }
+
     pub fn to_bool(self) -> bool {
-        self.primitive().to_bool()
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => {
+                (self.vtable.primitive_value_to_bool).unwrap()(self.data)
+            }
+            __RegisterDataKind::Box
+            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::TempRef
+            | __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved
+            | __RegisterDataKind::Undefined
+            | __RegisterDataKind::Unreturned => panic!(),
+        }
     }
 
     pub fn cache_eval(&mut self) {
@@ -116,7 +140,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::Box | __RegisterDataKind::EvalRef => __Register {
                 data_kind: __RegisterDataKind::EvalRef,
                 data: self.data,
-                proto: self.proto,
+                vtable: self.vtable,
             },
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),

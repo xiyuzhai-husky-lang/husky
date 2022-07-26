@@ -21,15 +21,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 todo!()
             }
             FeatureExprVariant::PrimitiveBinaryOpr {
-                opr,
-                ref lopd,
-                ref ropd,
-            } => Ok(opr
-                .act_on_primitives(
-                    self.eval_expr(lopd)?.primitive(),
-                    self.eval_expr(ropd)?.primitive(),
-                )?
-                .to_register()),
+                linkage, ref opds, ..
+            } => self.eval_routine_call(&None, Some(linkage), expr.expr.ty(), opds),
             FeatureExprVariant::StructOriginalField {
                 ref this,
                 field_idx,
@@ -51,15 +44,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 opt_linkage,
                 has_this,
                 ..
-            } => {
-                let result = self.eval_routine_call(
-                    opt_instruction_sheet,
-                    opt_linkage,
-                    expr.expr.ty(),
-                    opds,
-                );
-                result
-            }
+            } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, expr.expr.ty(), opds),
             FeatureExprVariant::EntityFeature { ref repr } => self.eval_feature_repr_cached(repr),
             FeatureExprVariant::NewRecord {
                 ty,
@@ -99,11 +84,12 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 field_uid,
                 ref repr,
             } => {
-                let parent = unsafe {self
-                    .eval_feature_repr_cached(this)?
-                    .data()
-                    .as_opt_ptr
-                    .unwrap()};
+                let parent = unsafe {
+                    self.eval_feature_repr_cached(this)?
+                        .data()
+                        .as_opt_ptr
+                        .unwrap()
+                };
                 let eval_key = EvalKey::StructDerivedField { parent, field_uid };
                 self.cache(eval_key, |this| this.eval_feature_repr(repr))
             }
@@ -224,10 +210,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         let vm_config = self.vm_config();
         let values = arguments
             .iter()
-            .map(|expr| {
-                todo!()
-                // __TempValue::from_eval(self.eval_expr(expr)?)
-            })
+            .map(|expr| self.eval_expr(expr))
             .collect::<Vec<_>>();
         msg_once!("kwargs");
         eval_fast(

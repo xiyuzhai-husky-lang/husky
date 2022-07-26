@@ -18,7 +18,7 @@ use std::{
 pub struct __Register<'eval> {
     pub(crate) data_kind: __RegisterDataKind,
     pub(crate) data: __RegisterData,
-    pub(crate) proto: &'eval __RegisterVTable,
+    pub(crate) vtable: &'eval __RegisterVTable,
 }
 
 impl<'eval> std::hash::Hash for __Register<'eval> {
@@ -112,7 +112,7 @@ impl<'eval> Clone for __Register<'eval> {
                 __RegisterDataKind::Undefined => todo!(),
                 __RegisterDataKind::Unreturned => panic!(),
             },
-            proto: self.proto,
+            vtable: self.vtable,
         }
     }
 }
@@ -157,7 +157,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::PrimitiveValue,
             data,
-            proto,
+            vtable: proto,
         }
     }
 
@@ -173,7 +173,7 @@ impl<'eval> __Register<'eval> {
             data: __RegisterData {
                 as_opt_ptr: Some(ptr as *mut ()),
             },
-            proto,
+            vtable: proto,
         }
     }
 
@@ -187,7 +187,7 @@ impl<'eval> __Register<'eval> {
             data: __RegisterData {
                 as_opt_ptr: Some(ptr as *mut ()),
             },
-            proto,
+            vtable: proto,
         }
     }
 
@@ -201,7 +201,7 @@ impl<'eval> __Register<'eval> {
             data: __RegisterData {
                 as_opt_ptr: Some(ptr as *mut ()),
             },
-            proto,
+            vtable: proto,
         }
     }
 
@@ -215,7 +215,7 @@ impl<'eval> __Register<'eval> {
             data: __RegisterData {
                 as_opt_ptr: Some(ptr as *mut ()),
             },
-            proto,
+            vtable: proto,
         }
     }
 
@@ -223,7 +223,7 @@ impl<'eval> __Register<'eval> {
         let moved = __Register {
             data_kind: __RegisterDataKind::Moved,
             data: __RegisterData { as_opt_ptr: None },
-            proto: self.proto,
+            vtable: self.vtable,
         };
         std::mem::replace(self, moved)
     }
@@ -232,7 +232,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
             data: __RegisterData { as_opt_ptr: None },
-            proto,
+            vtable: proto,
         }
     }
 
@@ -241,7 +241,7 @@ impl<'eval> __Register<'eval> {
             __Register {
                 data_kind: __RegisterDataKind::Unreturned,
                 data: __RegisterData { as_opt_ptr: None },
-                proto: &__VOID_VTABLE,
+                vtable: &__VOID_VTABLE,
             }
         }
     }
@@ -253,7 +253,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
             data: __RegisterData { as_opt_ptr: None },
-            proto,
+            vtable: proto,
         }
     }
 
@@ -282,7 +282,7 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_void(&self) -> () {
         assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
         unsafe {
-            assert_eq!(self.proto as *const _, &__VOID_VTABLE as *const _);
+            assert_eq!(self.vtable as *const _, &__VOID_VTABLE as *const _);
             self.data.as_void
         }
     }
@@ -290,7 +290,7 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_bool(&self) -> bool {
         assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
         unsafe {
-            assert_eq!(self.proto as *const _, &__BOOL_VTABLE as *const _);
+            assert_eq!(self.vtable as *const _, &__BOOL_VTABLE as *const _);
             self.data.as_bool
         }
     }
@@ -298,7 +298,7 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_i32(&self) -> i32 {
         assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
         unsafe {
-            assert_eq!(self.proto as *const _, &__I32_VTABLE as *const _);
+            assert_eq!(self.vtable as *const _, &__I32_VTABLE as *const _);
             self.data.as_i32
         }
     }
@@ -306,7 +306,7 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_i64(&self) -> i64 {
         assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
         unsafe {
-            assert_eq!(self.proto as *const _, &__I64_VTABLE as *const _);
+            assert_eq!(self.vtable as *const _, &__I64_VTABLE as *const _);
             self.data.as_i64
         }
     }
@@ -314,7 +314,7 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_b32(&self) -> u32 {
         assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
         unsafe {
-            assert_eq!(self.proto as *const _, &__B32_VTABLE as *const _);
+            assert_eq!(self.vtable as *const _, &__B32_VTABLE as *const _);
             self.data.as_b32
         }
     }
@@ -322,7 +322,7 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_b64(&self) -> u64 {
         assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
         unsafe {
-            assert_eq!(self.proto as *const _, &__B64_VTABLE as *const _);
+            assert_eq!(self.vtable as *const _, &__B64_VTABLE as *const _);
             self.data.as_b64
         }
     }
@@ -330,7 +330,7 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_f32(&self) -> f32 {
         assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
         unsafe {
-            assert_eq!(self.proto as *const _, &__F32_VTABLE as *const _);
+            assert_eq!(self.vtable as *const _, &__F32_VTABLE as *const _);
             self.data.as_f32
         }
     }
@@ -338,7 +338,7 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_f64(&self) -> f64 {
         assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
         unsafe {
-            assert_eq!(self.proto as *const _, &__F64_VTABLE as *const _);
+            assert_eq!(self.vtable as *const _, &__F64_VTABLE as *const _);
             self.data.as_f64
         }
     }
@@ -364,7 +364,9 @@ impl<'eval> __Register<'eval> {
         T: __Registrable + 'eval,
     {
         assert_eq!(self.data_kind, __RegisterDataKind::Box);
-        todo!()
+        let t = unsafe { *Box::from_raw(self.data.as_opt_ptr.unwrap() as *mut T) };
+        std::mem::forget(self);
+        t
     }
 
     pub unsafe fn downcast_temp<T>(&mut self) -> T {

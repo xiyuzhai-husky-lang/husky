@@ -115,8 +115,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
                     }
                     !self
                         .eval_feature_expr(condition, sample_id)?
-                        .primitive()
-                        .take_bool()
+                        .downcast_bool()
                 }
                 FeatureBranchIndicatorVariant::IfConditionMet {
                     ref opt_parent,
@@ -126,8 +125,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
                         return Ok(false);
                     }
                     self.eval_feature_expr(condition, sample_id)?
-                        .primitive()
-                        .take_bool()
+                        .downcast_bool()
                 }
             }
         } else {
