@@ -16,5 +16,4 @@ extra = ["binding"]
 check = []
 
 [build-dependencies]
-cbindgen = "0.24.3"
 bindgen = "0.60.1"

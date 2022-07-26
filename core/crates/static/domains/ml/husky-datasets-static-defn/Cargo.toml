@@ -21,3 +21,6 @@ static-defn = { path = "../../../static-defn" }
 husky-liason-semantics = { path = "../../../../semantics/husky-liason-semantics" }
 husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
 husky-datasets-protocol = { path = "../husky-datasets-protocol" }
+
+[build-dependencies]
+bindgen = "0.60.1"
