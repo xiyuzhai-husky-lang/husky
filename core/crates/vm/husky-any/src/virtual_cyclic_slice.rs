@@ -32,7 +32,7 @@ impl<'eval> std::ops::DerefMut for VirtualCyclicSlice<'eval> {
 impl<'eval> __StaticInfo for VirtualCyclicSlice<'eval> {
     type __StaticSelf = VirtualCyclicSlice<'static>;
 
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         "CyclicSlice<Any>".into()
     }
 }

@@ -10,7 +10,7 @@ where
 {
     type __StaticSelf = Vec<T::__StaticSelf>;
 
-    fn __static_type_name() -> Cow<'static, str> {
-        format!("[]{}", T::__static_type_name()).into()
+    fn __static_typename() -> Cow<'static, str> {
+        format!("[]{}", T::__static_typename()).into()
     }
 }

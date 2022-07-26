@@ -2,17 +2,26 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    // Tell cargo to look for shared libraries in the specified directory
-    println!("cargo:rustc-link-search=./lib");
+    let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
+    let vm_interface_dir = format!("{}/interfaces/husky-vm-interface", husky_dir);
 
-    // Tell cargo to tell rustc to link the system bzip2
+    // Tell cargo to look for shared libraries in the specified directory
+    println!("cargo:rustc-link-search={}/lib", vm_interface_dir);
+
+    // Tell cargo to tell rustc to link the husky_vm
     // shared library.
     println!("cargo:rustc-link-lib=husky_vm");
 
     // Tell cargo to invalidate the built crate whenever the wrapper changes
-    println!("cargo:rerun-if-changed=csrc/husky_vm.c");
+    println!(
+        "cargo:rerun-if-changed={}/csrc/husky_vm.c",
+        vm_interface_dir
+    );
     // Tell cargo to invalidate the built crate whenever the wrapper changes
-    println!("cargo:rerun-if-changed=csrc/husky_vm.h");
+    println!(
+        "cargo:rerun-if-changed={}/csrc/husky_vm.h",
+        vm_interface_dir
+    );
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for

@@ -17,7 +17,6 @@ use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::{borrow::Cow, sync::Arc};
 use vm::__StaticInfo;
 use vm::*;
-
 extern "C" {
     pub static __DATASET_VTABLE: __RegisterVTable;
 }

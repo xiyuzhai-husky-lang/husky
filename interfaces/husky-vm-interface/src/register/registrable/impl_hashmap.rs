@@ -9,11 +9,11 @@ where
     <K as __StaticInfo>::__StaticSelf: Eq + std::hash::Hash,
 {
     type __StaticSelf = HashMap<K::__StaticSelf, V::__StaticSelf>;
-    fn __static_type_name() -> std::borrow::Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         format!(
             "HashMap<{}, {}>",
-            K::__static_type_name(),
-            V::__static_type_name()
+            K::__static_typename(),
+            V::__static_typename()
         )
         .into()
     }

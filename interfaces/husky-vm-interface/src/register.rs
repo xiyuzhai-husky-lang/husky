@@ -132,7 +132,7 @@ pub trait __StaticInfo {
         std::any::TypeId::of::<Self::__StaticSelf>()
     }
 
-    fn __static_type_name() -> std::borrow::Cow<'static, str>;
+    fn __static_typename() -> std::borrow::Cow<'static, str>;
 }
 
 impl<'eval> __Register<'eval> {
@@ -427,8 +427,8 @@ macro_rules! register_new_copyable {
 //         if T::__static_type_id() != self.__static_type_id_dyn() {
 //             panic!(
 //                 "expect type `{}`, but got `{}` instead",
-//                 T::__static_type_name(),
-//                 self.__static_type_name_dyn()
+//                 T::__static_typename(),
+//                 self.__static_typename_dyn()
 //             )
 //         }
 //         let ptr: *const dyn __AnyValueDyn = &*self;
@@ -440,8 +440,8 @@ macro_rules! register_new_copyable {
 //         if T::__static_type_id() != self.__static_type_id_dyn() {
 //             panic!(
 //                 "expect type `{}`, but got `{}` instead",
-//                 T::__static_type_name(),
-//                 self.__static_type_name_dyn()
+//                 T::__static_typename(),
+//                 self.__static_typename_dyn()
 //             )
 //         }
 //         let ptr: *const dyn __AnyValueDyn = &*self;
@@ -454,8 +454,8 @@ macro_rules! register_new_copyable {
 //         if T::__static_type_id() != self.__static_type_id_dyn() {
 //             panic!(
 //                 "expect type `{}`, but got `{}` instead",
-//                 T::__static_type_name(),
-//                 self.__static_type_name_dyn()
+//                 T::__static_typename(),
+//                 self.__static_typename_dyn()
 //             )
 //         }
 //         let ptr: *mut dyn __AnyValueDyn = &mut *self;

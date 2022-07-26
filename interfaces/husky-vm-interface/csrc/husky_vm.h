@@ -1,6 +1,6 @@
 
 typedef struct __RegisterVTable {
-    char const *type_name;
+    char const *typename;
 } __RegisterVTable;
 extern const __RegisterVTable __VOID_VTABLE;
 extern const __RegisterVTable __BOOL_VTABLE;

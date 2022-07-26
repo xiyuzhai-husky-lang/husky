@@ -8,7 +8,7 @@
 // impl __StaticInfo for A {
 //     type __StaticSelf = A;
 
-//     fn __static_type_name() -> std::borrow::Cow<'static, str> {
+//     fn __static_typename() -> std::borrow::Cow<'static, str> {
 //         "A".into()
 //     }
 // }
