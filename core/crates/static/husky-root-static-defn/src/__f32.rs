@@ -34,8 +34,8 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-            let this = values[0].downcast_value::<f32>();
-            let other = values[0].downcast_value::<f32>();
+            let this = values[0].downcast_f32();
+            let other = values[0].downcast_f32();
              this.min(other) .to_register() 
         }, some f32::min)),
     },
@@ -57,8 +57,8 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-            let this = values[0].downcast_value::<f32>();
-            let other = values[0].downcast_value::<f32>();
+            let this = values[0].downcast_f32();
+            let other = values[0].downcast_f32();
              this.max(other) .to_register() 
         }, some f32::max)),
     },
@@ -76,7 +76,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-            let f = values[0].downcast_value::<f32>();
+            let f = values[0].downcast_f32();
              f.sgnx() .to_register() 
         }, some f32::sgnx)),
     },
@@ -94,7 +94,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-             values[0].downcast_value::<f32>().abs() .to_register() 
+             values[0].downcast_f32().abs() .to_register() 
         }, some f32::abs)),
     },
     dev_src: __static_dev_src!(),
@@ -111,7 +111,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-             values[0].downcast_value::<f32>().sqrt().to_register()
+             values[0].downcast_f32().sqrt().to_register()
         }, some f32::sqrt)),
     },
     dev_src: __static_dev_src!(),
@@ -128,7 +128,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-            values[0].downcast_value::<f32>().cos().to_register()
+            values[0].downcast_f32().cos().to_register()
         }, some f32::cos)),
     },
     dev_src: __static_dev_src!(),
@@ -145,7 +145,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-             values[0].downcast_value::<f32>().sin() .to_register() 
+             values[0].downcast_f32().sin() .to_register() 
         }, some f32::sin)),
     },
     dev_src: __static_dev_src!(),
@@ -162,7 +162,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-             values[0].downcast_value::<f32>().tan() .to_register() 
+             values[0].downcast_f32().tan() .to_register() 
         }, some f32::tan)),
     },
     dev_src: __static_dev_src!(),
@@ -179,7 +179,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-             values[0].downcast_value::<f32>().acos() .to_register() 
+             values[0].downcast_f32().acos() .to_register() 
         }, some f32::acos)),
     },
     dev_src: __static_dev_src!(),
@@ -196,7 +196,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-             values[0].downcast_value::<f32>().asin() .to_register() 
+             values[0].downcast_f32().asin() .to_register() 
         }, some f32::asin)),
     },
     dev_src: __static_dev_src!(),
@@ -213,7 +213,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
-             values[0].downcast_value::<f32>().atan() .to_register() 
+             values[0].downcast_f32().atan() .to_register() 
         }, some f32::atan)),
     },
     dev_src: __static_dev_src!(),

@@ -1,12 +1,12 @@
 
-typedef struct __RegisterPrototype {
+typedef struct __RegisterVTable {
     char const *type_name;
-} __RegisterPrototype;
-extern const __RegisterPrototype __VOID_REGISTER_PROTOTYPE;
-extern const __RegisterPrototype __BOOL_REGISTER_PROTOTYPE;
-extern const __RegisterPrototype __I32_REGISTER_PROTOTYPE;
-extern const __RegisterPrototype __I64_REGISTER_PROTOTYPE;
-extern const __RegisterPrototype __B32_REGISTER_PROTOTYPE;
-extern const __RegisterPrototype __B64_REGISTER_PROTOTYPE;
-extern const __RegisterPrototype __F32_REGISTER_PROTOTYPE;
-extern const __RegisterPrototype __F64_REGISTER_PROTOTYPE;
+} __RegisterVTable;
+extern const __RegisterVTable __VOID_VTABLE;
+extern const __RegisterVTable __BOOL_VTABLE;
+extern const __RegisterVTable __I32_VTABLE;
+extern const __RegisterVTable __I64_VTABLE;
+extern const __RegisterVTable __B32_VTABLE;
+extern const __RegisterVTable __B64_VTABLE;
+extern const __RegisterVTable __F32_VTABLE;
+extern const __RegisterVTable __F64_VTABLE;

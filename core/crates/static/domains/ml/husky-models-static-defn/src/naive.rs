@@ -8,7 +8,7 @@ use husky_vm_register_method::VMRegisterMethodX;
 use static_defn::*;
 use vm::{
     Model, __Linkage, __ModelLinkage, __Register, __RegistrableSafe, __VMResult,
-    __I32_REGISTER_PROTOTYPE,
+    __I32_VTABLE,
 };
 
 static_mod! { naive = { naive_i32 } }
@@ -83,7 +83,7 @@ impl Model for NaiveI32 {
                 p!(argument);
                 panic!();
                 Ok(__Register::new_undefined(
-                    todo!(), // &__I64_REGISTER_PROTOTYPE
+                    todo!(), // &__I64_VTABLE
                 ))
             }
         }

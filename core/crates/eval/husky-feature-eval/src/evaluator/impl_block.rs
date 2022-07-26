@@ -11,12 +11,13 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         self.cache(EvalKey::Feature(block.feature), |this: &mut Self| {
             for stmt in block.stmts.iter() {
                 let value = this.eval_stmt(stmt)?;
-                match value.data_kind {
+                match value.data_kind() {
                     __RegisterDataKind::Unreturned => (),
                     _ => return Ok(value),
                 }
             }
-            Ok(__Register::new_undefined())
+            todo!()
+            // Ok(__Register::new_unreturned())
         })
     }
 

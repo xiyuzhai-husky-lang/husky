@@ -15,7 +15,7 @@
 
 // impl __Registrable for A {
 //     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-//         __Register::new_box(self, &A_PROTOTYPE)
+//         __Register::new_box(self, &A_VTABLE)
 //     }
 
 //     fn __copy__(&self) -> Self {
@@ -47,7 +47,7 @@ fn downcast_works_for_i32() {
 // #[test]
 // fn downcast_works2() {
 //     let a = A {};
-//     let mut ra = __Register::new_box(a, &A_PROTOTYPE);
+//     let mut ra = __Register::new_box(a, &A_VTABLE);
 //     let b: A = ra.downcast();
 // }
 

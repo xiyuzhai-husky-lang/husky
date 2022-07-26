@@ -1,6 +1,6 @@
 #[macro_export]
 macro_rules! index_copy_fp {
-    ($Type: ty, $TYPE_PROTO: expr,  $ElementType: ty, $ELEMENT_TYPE_PROTO: expr, $copy_kind: tt) => {{
+    ($Type: ty, $TYPE_VTABLE: expr,  $ElementType: ty, $ELEMENT_TYPE_VTABLE: expr, $copy_kind: tt) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
@@ -18,14 +18,14 @@ macro_rules! index_copy_fp {
 
 #[macro_export]
 macro_rules! index_eval_ref_fp {
-    ($Type: ty, $TYPE_PROTO: expr) => {{
+    ($Type: ty, $TYPE_VTABLE: expr) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
             let this_value: &'eval $Type = values[0].downcast_eval_ref();
             let index_value: usize = values[1].downcast_i32() as usize;
-            __Register::new_eval_ref(&this_value[index_value], &$TYPE_PROTO)
+            __Register::new_eval_ref(&this_value[index_value], &$TYPE_VTABLE)
         }
         __LinkageFp {
             wrapper,
@@ -56,14 +56,14 @@ macro_rules! index_move_fp {
 
 #[macro_export]
 macro_rules! index_temp_mut_fp {
-    ($Type: ty, $TYPE_PROTO: expr) => {{
+    ($Type: ty, $TYPE_VTABLE: expr) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
             let index_value: usize = values[1].downcast_i32() as usize;
             let this_value: &mut $Type = values[0].downcast_temp_mut();
-            __Register::new_temp_mut(&mut this_value[index_value], &$TYPE_PROTO)
+            __Register::new_temp_mut(&mut this_value[index_value], &$TYPE_VTABLE)
         }
         __LinkageFp {
             wrapper,

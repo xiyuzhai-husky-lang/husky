@@ -32,7 +32,11 @@ impl<'a> TraceTokenBuilder<'a> {
                         EagerOpnVariant::Binary { opr, this_ty: this } => match opr {
                             BinaryOpr::Assign(_) => {
                                 self.push(fade!(" = "));
-                                self.push(history.register_result(expr).into())
+                                if let Some(register_result) = history.register_result(expr) {
+                                    self.push(register_result.into())
+                                } else {
+                                    todo!()
+                                }
                             }
                             BinaryOpr::Pure(_) => (),
                         },

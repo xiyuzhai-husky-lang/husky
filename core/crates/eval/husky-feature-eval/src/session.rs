@@ -61,7 +61,7 @@ impl<'eval> Session<'eval> {
                 0,
                 vm_config,
             )?
-            .downcast()
+            .downcast_unbox()
         };
         Ok(Self {
             dev: Division::new(dataset.dev_loader()),
