@@ -1,5 +1,5 @@
 
-typedef struct {
+typedef struct __RegisterPrototype {
     char const *type_name;
 } __RegisterPrototype;
 extern const __RegisterPrototype __VOID_REGISTER_PROTOTYPE;
