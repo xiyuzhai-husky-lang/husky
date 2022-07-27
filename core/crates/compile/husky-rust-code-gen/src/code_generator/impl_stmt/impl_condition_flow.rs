@@ -6,7 +6,7 @@ use husky_eager_semantics::{
 };
 use std::sync::Arc;
 
-impl<'a> RustCodeGenerator<'a> {
+impl<'a> Rustcode_generator<'a> {
     pub(super) fn gen_proc_condition_flow(
         &mut self,
         indent: Indent,

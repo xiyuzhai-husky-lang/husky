@@ -14,7 +14,7 @@ use vm::{BoundaryKind, InitKind};
 
 use super::*;
 
-impl<'a> RustCodeGenerator<'a> {
+impl<'a> Rustcode_generator<'a> {
     pub(super) fn gen_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
         for stmt in stmts {
             self.gen_func_stmt(stmt);

@@ -28,7 +28,7 @@ pub fn gen_vm_interface_csrc(out_dir: &str) {
     let c_source_path = format!("{}/husky_vm_interface.c", out_dir);
     let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
     let rust_path = format!(
-        "{}/core/crates/vm/husky-vm-interface/src/__rust_codegen__.rs",
+        "{}/core/crates/vm/husky-vm-interface/src/__rust_code_gen__.rs",
         husky_dir
     );
     write_c_header(&c_header_path).unwrap();
@@ -45,6 +45,6 @@ fn try_gen_vm_interface_csrc() {
     // this only works on my comuter
     std::env::set_var("HUSKY_DIR", "/home/xiyuzhai/Documents/husky");
     gen_vm_interface_csrc(
-        "/home/xiyuzhai/Documents/husky/core/crates/vm/husky-vm-interface/__c_codegen_test__",
+        "/home/xiyuzhai/Documents/husky/core/crates/vm/husky-vm-interface/__c_code_gen_test__",
     )
 }

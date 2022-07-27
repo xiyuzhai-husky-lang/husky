@@ -1,17 +1,17 @@
 use std::env;
 use std::path::PathBuf;
 
-use husky_vm_interface_codegen::gen_vm_interface_csrc;
+use husky_vm_interface_code_gen::gen_vm_interface_csrc;
 
 fn main() {
-    let c_codegen_dir = format!(
-        "{}/core/crates/vm/husky-vm-interface/__c_codegen__",
+    let c_code_gen_dir = format!(
+        "{}/core/crates/vm/husky-vm-interface/__c_code_gen__",
         std::env::var("HUSKY_DIR").expect("env not set")
     );
-    gen_vm_interface_csrc(&c_codegen_dir);
+    gen_vm_interface_csrc(&c_code_gen_dir);
 
     // Tell cargo to look for shared libraries in the specified directory
-    println!("cargo:rustc-link-search={}", c_codegen_dir);
+    println!("cargo:rustc-link-search={}", c_code_gen_dir);
 
     // Tell cargo to tell rustc to link the husky_vm
     // shared library.
@@ -19,7 +19,7 @@ fn main() {
 
     // // Tell cargo to invalidate the built crate whenever the wrapper changes
     // println!(
-    //     "cargo:rerun-if-changed={}/__c_codegen__/husky_vm_interface.c",
+    //     "cargo:rerun-if-changed={}/__c_code_gen__/husky_vm_interface.c",
     //     husky_core_dir
     // );
     // // Tell cargo to invalidate the built crate whenever the wrapper changes
@@ -31,7 +31,7 @@ fn main() {
     let bindings = bindgen::Builder::default()
         // The input header we would like to generate
         // bindings for.
-        .header(format!("{}/husky_vm_interface.h", c_codegen_dir))
+        .header(format!("{}/husky_vm_interface.h", c_code_gen_dir))
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))

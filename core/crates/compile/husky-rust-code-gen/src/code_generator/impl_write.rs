@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> RustCodeGenerator<'a> {
+impl<'a> Rustcode_generator<'a> {
     pub(crate) fn write(&mut self, s: &str) {
         self.result += s
     }

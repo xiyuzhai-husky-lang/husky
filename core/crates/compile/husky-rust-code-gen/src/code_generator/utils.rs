@@ -5,7 +5,7 @@ use husky_word::CustomIdentifier;
 
 use super::{impl_entity_route::EntityRouteRole, *};
 
-impl<'a> RustCodeGenerator<'a> {
+impl<'a> Rustcode_generator<'a> {
     pub(crate) fn gen_parameter(&mut self, parameter: &Parameter) {
         self.write(&parameter.ranged_ident.ident);
         self.write(": ");

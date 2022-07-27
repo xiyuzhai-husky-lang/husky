@@ -6,7 +6,7 @@ use infer_decl::FieldDecl;
 
 use super::*;
 
-impl<'a> RustCodeGenerator<'a> {
+impl<'a> Rustcode_generator<'a> {
     pub(super) fn gen_enum_defn(
         &mut self,
         base_route: EntityRoutePtr,
@@ -163,7 +163,7 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write(&ty_member.ident);
                         self.write(" = ");
                         self.exec_within_context(
-                            RustCodeGenContext::ThisFieldWithPrefix { prefix: "" },
+                            Rustcode_genContext::ThisFieldWithPrefix { prefix: "" },
                             |this| this.gen_expr(8, derivation),
                         );
                         self.write(";");

@@ -19,15 +19,15 @@ use husky_package_semantics::Package;
 use impl_entity_route::*;
 use std::sync::Arc;
 
-pub(crate) struct RustCodeGenerator<'a> {
+pub(crate) struct Rustcode_generator<'a> {
     db: &'a dyn RustCodeGenQueryGroup,
     result: String,
     package_main: FilePtr,
     entity_route_uses: LocalStack<EntityRoutePtr>,
-    context: RustCodeGenContext,
+    context: Rustcode_genContext,
 }
 
-impl<'a> RustCodeGenerator<'a> {
+impl<'a> Rustcode_generator<'a> {
     pub(crate) fn new(db: &'a dyn RustCodeGenQueryGroup, module: EntityRoutePtr) -> Self {
         let package_main = db.main_file(db.module_file(module).unwrap()).unwrap();
         let entity_defn = db.entity_defn(module).unwrap();
@@ -40,7 +40,7 @@ impl<'a> RustCodeGenerator<'a> {
             package_main,
             result: Default::default(),
             entity_route_uses: symbols,
-            context: RustCodeGenContext::Normal,
+            context: Rustcode_genContext::Normal,
         }
     }
 
@@ -55,7 +55,7 @@ impl<'a> RustCodeGenerator<'a> {
             package_main,
             result: Default::default(),
             entity_route_uses: symbols,
-            context: RustCodeGenContext::Normal,
+            context: Rustcode_genContext::Normal,
         }
     }
 
@@ -63,7 +63,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.db.package(self.package_main).unwrap()
     }
 
-    fn exec_within_context(&mut self, new_context: RustCodeGenContext, f: impl FnOnce(&mut Self)) {
+    fn exec_within_context(&mut self, new_context: Rustcode_genContext, f: impl FnOnce(&mut Self)) {
         let old_context = std::mem::replace(&mut self.context, new_context);
         f(self);
         std::mem::replace(&mut self.context, old_context);
