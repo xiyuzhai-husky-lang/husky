@@ -137,21 +137,12 @@ impl<'eval> __Register<'eval> {
                 // then there is a memory problem
                 // this ffi call could take some time I guess
                 let ptr = (self.vtable.primitive_value_to_box.unwrap())(&mut self.data);
-                let data = __RegisterData {
+                self.data = __RegisterData {
                     as_opt_ptr: Some(ptr),
                 };
-                *self = __Register {
-                    vtable: self.vtable,
-                    data,
-                    data_kind: __RegisterDataKind::Box,
-                };
-                todo!();
-                // .data = data;
-                // self.data_kind = __RegisterDataKind::Box;
+                self.data_kind = __RegisterDataKind::Box;
             },
-            _ => {
-                todo!()
-            }
+            _ => (),
         }
     }
 

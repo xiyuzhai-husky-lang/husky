@@ -1,3 +1,4 @@
+#pragma once
 #include <stdbool.h>
 #include <stdint.h>
 
@@ -19,7 +20,7 @@ typedef bool (*__primitive_value_to_bool_t)(__RegisterData);
 
 typedef void *(*__primitive_value_to_box_t)(__RegisterData *);
 
-typedef void (*__drop_t)(void*);
+typedef void (*__drop_t)(void *);
 
 typedef struct __RegisterVTable {
     char const *typename_str;
@@ -27,6 +28,12 @@ typedef struct __RegisterVTable {
     __primitive_value_to_box_t primitive_value_to_box;
     __drop_t drop;
 } __RegisterVTable;
+
+// handles of primitive types are provided by Rust
+// void type
+extern bool __void_primitive_value_to_bool(__RegisterData data);
+extern void *__void_primitive_value_to_box(__RegisterData *data);
+extern void __void_drop(void *);
 extern const __RegisterVTable __VOID_VTABLE;
 extern const __RegisterVTable __BOOL_VTABLE;
 extern const __RegisterVTable __I32_VTABLE;

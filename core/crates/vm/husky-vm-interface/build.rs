@@ -1,7 +1,10 @@
 use std::env;
 use std::path::PathBuf;
 
+use husky_vm_interface_csrc_gen::gen_vm_interface_csrc;
+
 fn main() {
+    gen_vm_interface_csrc();
     let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
     let husky_core_dir = format!("{}/core", husky_dir);
 
