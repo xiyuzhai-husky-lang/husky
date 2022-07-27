@@ -5,6 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-convert_case = "0.5.0"
 colored = "2.0.0"
 husky-print-utils = { path = "../../../../../common-rs/utils/husky-print-utils" }
+husky-c-code-repr = { path = "../../../compile/husky-c-code-repr" }
+husky-rust-code-repr = { path = "../../../compile/husky-rust-code-repr" }

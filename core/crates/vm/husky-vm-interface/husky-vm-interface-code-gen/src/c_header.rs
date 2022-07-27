@@ -1,6 +1,7 @@
+use husky_c_code_repr::{CPrimitiveTypeRegistrationHeader, CPrimitiveTypeRegistrationSource};
+
 use super::PRIMITIVE_TYPES;
 use crate::NONPRIMITIVE_BUILTIN_TYPES;
-use convert_case::{Case, Casing};
 use std;
 use std::fs::File;
 use std::io::prelude::*;
@@ -48,29 +49,10 @@ typedef struct __RegisterVTable {{
 "#
     )?;
     for ty in PRIMITIVE_TYPES {
-        let uppercase_ty = ty.to_uppercase();
-        write!(
-            buffer,
-            r#"
-// {ty}
-extern bool __{ty}_primitive_value_to_bool(__RegisterData data);
-extern void *__{ty}_primitive_value_to_box(__RegisterData data);
-extern void __{ty}_drop(void*);
-extern const __RegisterVTable __{uppercase_ty}_VTABLE;
-        "#
-        )?
+        write!(buffer, "{}", CPrimitiveTypeRegistrationHeader { ty })?
     }
     for ty in NONPRIMITIVE_BUILTIN_TYPES {
-        let lower_snake_ty = ty.to_case(Case::Snake);
-        let upper_snake_ty = ty.to_case(Case::UpperSnake);
-        write!(
-            buffer,
-            r#"
-// {ty}
-extern void __{lower_snake_ty}_drop(void*);
-extern const __RegisterVTable __{upper_snake_ty}_VTABLE;
-        "#
-        )?
+        write!(buffer, "{}", CPrimitiveTypeRegistrationSource { ty })?
     }
     Ok(())
 }
