@@ -1,0 +1,10 @@
+[package]
+name = "husky-datasets-static-defn-code-gen"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+
+[dependencies]
+husky-c-code-repr = { path = "../../../../../compile/husky-c-code-repr" }
+husky-c-code-build = { path = "../../../../../compile/husky-c-code-build" }

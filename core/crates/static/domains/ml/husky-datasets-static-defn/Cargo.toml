@@ -24,3 +24,4 @@ husky-datasets-protocol = { path = "../husky-datasets-protocol" }
 
 [build-dependencies]
 bindgen = "0.60.1"
+husky-datasets-static-defn-code-gen = { path = "husky-datasets-static-defn-code-gen" }

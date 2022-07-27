@@ -1,7 +1,13 @@
+use husky_datasets_static_defn_code_gen::gen_ml_datasets_code;
 use std::env;
 use std::path::PathBuf;
 
 fn main() {
+    let c_code_gen_dir = format!(
+        "{}/core/crates/static/domains/ml/husky-datasets-static-defn/__c_code_gen__",
+        std::env::var("HUSKY_DIR").expect("env not set")
+    );
+    gen_ml_datasets_code(&c_code_gen_dir);
     // msg_once!("todo")
     // let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
     // let husky_core_dir = format!("{}/core", husky_dir);

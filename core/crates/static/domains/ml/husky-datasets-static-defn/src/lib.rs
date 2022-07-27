@@ -1,8 +1,10 @@
 #![feature(const_trait_impl)]
 #![feature(const_convert)]
+mod __rust_code_gen__;
 pub mod cv;
 pub mod synthetic;
 
+use __rust_code_gen__::*;
 use entity_kind::TyKind;
 use husky_datasets_protocol::*;
 use husky_dev_utils::*;
@@ -17,9 +19,6 @@ use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use std::{borrow::Cow, sync::Arc};
 use vm::__StaticInfo;
 use vm::*;
-extern "C" {
-    pub static __DATASET_VTABLE: __RegisterVTable;
-}
 
 pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "datasets",
