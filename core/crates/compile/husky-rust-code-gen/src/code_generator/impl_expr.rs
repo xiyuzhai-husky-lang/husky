@@ -8,17 +8,17 @@ use husky_word::RootIdentifier;
 use infer_decl::{CallFormDecl, VariadicTemplate};
 use vm::*;
 
-impl<'a> RustCodeGenerator<'a> {
+impl<'a> Rustcode_generator<'a> {
     pub(super) fn gen_expr(&mut self, indent: Indent, expr: &EagerExpr) {
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => self.write(&varname),
             EagerExprVariant::ThisValue { .. } => self.write("self"),
             EagerExprVariant::ThisField { field_ident, .. } => match self.context {
-                RustCodeGenContext::Normal => {
+                Rustcode_genContext::Normal => {
                     self.write("self.");
                     self.write(&field_ident.ident);
                 }
-                RustCodeGenContext::ThisFieldWithPrefix { prefix } => {
+                Rustcode_genContext::ThisFieldWithPrefix { prefix } => {
                     self.write(prefix);
                     self.write(&field_ident.ident);
                 }
@@ -206,7 +206,7 @@ impl<'a> RustCodeGenerator<'a> {
     ) {
         let type_call = ty_decl.opt_type_call.as_ref().unwrap();
         self.exec_within_context(
-            RustCodeGenContext::ThisFieldWithPrefix { prefix: "__this_" },
+            Rustcode_genContext::ThisFieldWithPrefix { prefix: "__this_" },
             |this| {
                 if type_call.keyword_parameters.len() > 0 {
                     this.gen_type_call_opn_with_keyword_parameters(indent, ty, opds, type_call)
