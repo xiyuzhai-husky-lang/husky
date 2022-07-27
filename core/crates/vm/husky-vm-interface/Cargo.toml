@@ -17,4 +17,4 @@ check = []
 
 [build-dependencies]
 bindgen = "0.60.1"
-husky-vm-interface-csrc-gen = { path = "../husky-vm-interface-csrc-gen" }
+husky-vm-interface-codegen = { path = "husky-vm-interface-codegen" }

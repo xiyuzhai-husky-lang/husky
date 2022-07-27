@@ -1,3 +1,4 @@
+mod __rust_codegen__;
 mod binding;
 mod context;
 mod error;
@@ -7,6 +8,7 @@ mod register;
 #[cfg(test)]
 mod tests;
 
+pub use __rust_codegen__::*;
 pub use context::*;
 pub use error::*;
 pub use layout::*;
