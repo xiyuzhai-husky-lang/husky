@@ -9,3 +9,4 @@ colored = "2.0.0"
 husky-print-utils = { path = "../../../../../common-rs/utils/husky-print-utils" }
 husky-c-code-repr = { path = "../../../compile/husky-c-code-repr" }
 husky-rust-code-repr = { path = "../../../compile/husky-rust-code-repr" }
+husky-write-utils = { path = "../../../../../common-rs/utils/husky-write-utils" }
