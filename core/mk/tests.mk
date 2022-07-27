@@ -30,9 +30,9 @@ test-analyzer-with-backtrace-filtered:
 
 # debugger
 
-test-debugger: build-c
+test-debugger:
 	cargo check
-	cargo run -q --bin husky-debugger -- --package-dir $(tests_dir)/debugger --sample-id 23 --mode test
+	RUST_BACKTRACE=0 cargo run -q --bin husky-debugger -- --package-dir $(tests_dir)/debugger --sample-id 23 --mode test
 
 test-debugger-v: build-c
 	cargo check

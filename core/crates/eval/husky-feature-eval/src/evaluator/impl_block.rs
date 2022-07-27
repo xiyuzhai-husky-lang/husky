@@ -9,8 +9,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         block: &FeatureLazyBlock,
     ) -> __VMResult<__Register<'eval>> {
         self.cache(EvalKey::Feature(block.feature), |this: &mut Self| {
-            for stmt in block.stmts.iter() {
+            for (i, stmt) in block.stmts.iter().enumerate() {
                 let value = this.eval_stmt(stmt)?;
+                if i > 0 {
+                    todo!();
+                }
                 match value.data_kind() {
                     __RegisterDataKind::Unreturned => (),
                     _ => return Ok(value),
