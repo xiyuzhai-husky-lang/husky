@@ -7,6 +7,7 @@ unsafe impl Send for __RegisterVTable {}
 pub struct __RegisterVTable {
     pub typename: *const c_char,
     pub primitive_value_to_bool: Option<fn(data: __RegisterData) -> bool>,
+    pub primitive_value_to_box: Option<fn(data: *mut __RegisterData) -> *mut ()>,
 }
 extern "C" {
     pub static __VOID_VTABLE: __RegisterVTable;

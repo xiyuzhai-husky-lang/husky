@@ -1,3 +1,5 @@
+use std::ffi::CStr;
+
 #[cfg(feature = "binding")]
 use husky_vm_binding::Binding;
 
@@ -112,6 +114,9 @@ impl<'eval> __Register<'eval> {
     pub fn to_bool(self) -> bool {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => {
+                println!("vtable.typename =  {:?}", unsafe {
+                    CStr::from_ptr(self.vtable.typename)
+                });
                 (self.vtable.primitive_value_to_bool).unwrap()(self.data)
             }
             __RegisterDataKind::Box
@@ -128,7 +133,13 @@ impl<'eval> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => {
                 self.data_kind = __RegisterDataKind::Box;
-                todo!("need to use vtable now")
+                unsafe {
+                    self.data = __RegisterData {
+                        as_opt_ptr: Some((self.vtable.primitive_value_to_box.unwrap())(
+                            &mut self.data,
+                        )),
+                    };
+                }
             }
             _ => (),
         }
