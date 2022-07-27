@@ -16,5 +16,4 @@ _outdated
 .vscode
 
 // c, cpp
-build
-lib
+build/**
