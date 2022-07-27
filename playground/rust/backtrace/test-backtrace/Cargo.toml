@@ -1,5 +1,5 @@
 [package]
-name = "test-tokio-backtrace"
+name = "test-backtrace"
 version = "0.1.0"
 edition = "2021"
 
