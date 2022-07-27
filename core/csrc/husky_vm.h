@@ -17,9 +17,12 @@ typedef union __RegisterData {
 
 typedef bool (*primitive_value_to_bool_t)(__RegisterData);
 
+typedef void *(*primitive_value_to_box_t)(__RegisterData *);
+
 typedef struct __RegisterVTable {
     char const *typename;
     primitive_value_to_bool_t primitive_value_to_bool;
+    primitive_value_to_box_t primitive_value_to_box;
 } __RegisterVTable;
 extern const __RegisterVTable __VOID_VTABLE;
 extern const __RegisterVTable __BOOL_VTABLE;
