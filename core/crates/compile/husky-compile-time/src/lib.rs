@@ -95,6 +95,7 @@ impl HuskyCompileTime {
         ) -> &'static static_defn::EntityStaticDefn,
     ) -> Self {
         Self::new(HuskyCompileTimeConfig {
+            package_dir: Default::default(),
             __resolve_root_defn: __root_defn,
             linkage_table: Default::default(),
         })

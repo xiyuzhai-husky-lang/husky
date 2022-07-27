@@ -46,7 +46,7 @@ macro_rules! should_eq {
         }
     };
 
-    ($a:expr, $b:expr, $($msg_fmt_args: expr),*) => {
+    ($a:expr, $b:expr, $($msg_fmt_args: tt),*) => {
         match (&$a, &$b) {
             (left_val, right_val) => {
                 if !(*left_val == *right_val) {

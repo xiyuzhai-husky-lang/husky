@@ -40,6 +40,7 @@ impl HuskyDebuggerConfig {
                 },
             },
             compile_time: HuskyCompileTimeConfig {
+                package_dir: self.package_dir.clone(),
                 __resolve_root_defn,
                 linkage_table: LinkageTableConfig {
                     warn_missing_linkage: self.warn_missing_linkage,

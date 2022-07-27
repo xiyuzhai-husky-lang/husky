@@ -40,6 +40,7 @@ impl CompilerInstance {
             linkage_table: LinkageTableConfig {
                 warn_missing_linkage: false,
             },
+            package_dir: package_dir.clone(),
         });
         compile_time.load_package(&package_dir);
         let main_file = compile_time.unique_main_file();
