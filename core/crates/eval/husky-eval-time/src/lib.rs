@@ -46,6 +46,7 @@ pub struct HuskyEvalTime {
     config: HuskyEvalTimeConfig,
 }
 
+#[derive(Debug)]
 pub struct HuskyEvalTimeConfig {
     pub evaluator: EvaluatorConfig,
     pub compile_time: HuskyCompileTimeConfig,
@@ -53,14 +54,13 @@ pub struct HuskyEvalTimeConfig {
 
 impl HuskyEvalTime {
     pub fn new(
-        // __root_defn: fn(ident: husky_word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
         init_compile_time: impl FnOnce(&mut HuskyCompileTime),
         config: HuskyEvalTimeConfig,
     ) -> HuskyEvalTimeSingletonKeeper {
         let mut compile_time = HuskyCompileTime::new(config.compile_time.clone());
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
-        should_eq!(all_main_files.len(), 1);
+        should_eq!(all_main_files.len(), 1, "config = {config:?}");
         let package_main = all_main_files[0];
         let feature_interner = husky_feature_gen::new_feature_interner();
         let mut eval_time = Self {
