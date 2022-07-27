@@ -15,14 +15,17 @@ typedef union __RegisterData {
     void *as_opt_ptr;
 } __RegisterData;
 
-typedef bool (*primitive_value_to_bool_t)(__RegisterData);
+typedef bool (*__primitive_value_to_bool_t)(__RegisterData);
 
-typedef void *(*primitive_value_to_box_t)(__RegisterData *);
+typedef void *(*__primitive_value_to_box_t)(__RegisterData *);
+
+typedef void (*__drop_t)(void*);
 
 typedef struct __RegisterVTable {
     char const *typename;
-    primitive_value_to_bool_t primitive_value_to_bool;
-    primitive_value_to_box_t primitive_value_to_box;
+    __primitive_value_to_bool_t primitive_value_to_bool;
+    __primitive_value_to_box_t primitive_value_to_box;
+    __drop_t drop;
 } __RegisterVTable;
 extern const __RegisterVTable __VOID_VTABLE;
 extern const __RegisterVTable __BOOL_VTABLE;

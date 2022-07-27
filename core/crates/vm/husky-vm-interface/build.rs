@@ -6,7 +6,7 @@ fn main() {
     let husky_core_dir = format!("{}/core", husky_dir);
 
     // Tell cargo to look for shared libraries in the specified directory
-    println!("cargo:rustc-link-search={}/lib", husky_core_dir);
+    println!("cargo:rustc-link-search={}/build/lib", husky_core_dir);
 
     // Tell cargo to tell rustc to link the husky_vm
     // shared library.
