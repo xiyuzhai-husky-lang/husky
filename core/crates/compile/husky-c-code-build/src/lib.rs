@@ -1,12 +1,12 @@
 use colored::Colorize;
 use std::process::Command;
 
-pub fn build_c(out_dir: &str) {
+pub fn build_single_file_to_lib(out_dir: &str, filename: &str) {
     let cc_output = Command::new("cc")
         .arg("-c")
-        .arg(format!("{out_dir}/husky_vm_interface.c"))
+        .arg(format!("{out_dir}/{filename}.c"))
         .arg("-o")
-        .arg(format!("{out_dir}/husky_vm_interface.o"))
+        .arg(format!("{out_dir}/{filename}.o"))
         .output()
         .expect("cc failed");
     if cc_output.stderr.len() > 0 {
@@ -14,8 +14,8 @@ pub fn build_c(out_dir: &str) {
     }
     let ar_output = Command::new("ar")
         .arg("-rcs")
-        .arg(format!("{out_dir}/libhusky_vm_interface.a"))
-        .arg(format!("{out_dir}/husky_vm_interface.o"))
+        .arg(format!("{out_dir}/lib{filename}.a"))
+        .arg(format!("{out_dir}/{filename}.o"))
         .output()
         .expect("ar failed");
     if ar_output.stderr.len() > 0 {

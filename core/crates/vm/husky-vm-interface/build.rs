@@ -1,14 +1,14 @@
 use std::env;
 use std::path::PathBuf;
 
-use husky_vm_interface_code_gen::gen_vm_interface_csrc;
+use husky_vm_interface_code_gen::gen_vm_interface_code;
 
 fn main() {
     let c_code_gen_dir = format!(
         "{}/core/crates/vm/husky-vm-interface/__c_code_gen__",
         std::env::var("HUSKY_DIR").expect("env not set")
     );
-    gen_vm_interface_csrc(&c_code_gen_dir);
+    gen_vm_interface_code(&c_code_gen_dir);
 
     // Tell cargo to look for shared libraries in the specified directory
     println!("cargo:rustc-link-search={}", c_code_gen_dir);

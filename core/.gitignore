@@ -16,7 +16,6 @@ _outdated
 .vscode
 
 // c, cpp
-*.c
 *.a
 *.o
 __c_code_gen_test__
