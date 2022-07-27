@@ -5,7 +5,7 @@ use std;
 use std::fs::File;
 use std::io::prelude::*;
 
-pub fn write_source(c_source_path: &str) -> std::io::Result<()> {
+pub fn write_c_source(c_source_path: &str) -> std::io::Result<()> {
     let mut buffer = File::create(c_source_path).unwrap();
     write!(
         buffer,

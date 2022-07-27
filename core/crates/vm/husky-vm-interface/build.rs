@@ -1,24 +1,29 @@
 use std::env;
 use std::path::PathBuf;
 
-use husky_vm_interface_csrc_gen::gen_vm_interface_csrc;
+use husky_vm_interface_codegen::gen_vm_interface_csrc;
 
 fn main() {
-    gen_vm_interface_csrc();
-    let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
-    let husky_core_dir = format!("{}/core", husky_dir);
+    let c_codegen_dir = format!(
+        "{}/core/crates/vm/husky-vm-interface/__c_codegen__",
+        std::env::var("HUSKY_DIR").expect("env not set")
+    );
+    gen_vm_interface_csrc(&c_codegen_dir);
 
     // Tell cargo to look for shared libraries in the specified directory
-    println!("cargo:rustc-link-search={}/build/lib", husky_core_dir);
+    println!("cargo:rustc-link-search={}", c_codegen_dir);
 
     // Tell cargo to tell rustc to link the husky_vm
     // shared library.
-    println!("cargo:rustc-link-lib=husky_vm");
+    println!("cargo:rustc-link-lib=husky_vm_interface");
 
-    // Tell cargo to invalidate the built crate whenever the wrapper changes
-    println!("cargo:rerun-if-changed={}/csrc/husky_vm.c", husky_core_dir);
-    // Tell cargo to invalidate the built crate whenever the wrapper changes
-    println!("cargo:rerun-if-changed={}/csrc/husky_vm.h", husky_core_dir);
+    // // Tell cargo to invalidate the built crate whenever the wrapper changes
+    // println!(
+    //     "cargo:rerun-if-changed={}/__c_codegen__/husky_vm_interface.c",
+    //     husky_core_dir
+    // );
+    // // Tell cargo to invalidate the built crate whenever the wrapper changes
+    // println!("cargo:rerun-if-changed={}/csrc/husky_vm.h", husky_core_dir);
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
@@ -26,7 +31,7 @@ fn main() {
     let bindings = bindgen::Builder::default()
         // The input header we would like to generate
         // bindings for.
-        .header(format!("{}/csrc/husky_vm.h", husky_core_dir))
+        .header(format!("{}/husky_vm_interface.h", c_codegen_dir))
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))

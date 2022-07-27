@@ -16,4 +16,7 @@ _outdated
 .vscode
 
 // c, cpp
-build/**
+*.c
+*.a
+*.o
+__c_codegen_test__
