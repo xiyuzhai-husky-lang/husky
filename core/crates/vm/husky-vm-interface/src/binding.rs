@@ -131,17 +131,27 @@ impl<'eval> __Register<'eval> {
 
     pub fn cache_eval(&mut self) {
         match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => {
-                self.data_kind = __RegisterDataKind::Box;
-                unsafe {
-                    self.data = __RegisterData {
-                        as_opt_ptr: Some((self.vtable.primitive_value_to_box.unwrap())(
-                            &mut self.data,
-                        )),
-                    };
-                }
+            __RegisterDataKind::PrimitiveValue => unsafe {
+                // order is of greate importance here
+                // if data_kind is set first, and something happens during setting data
+                // then there is a memory problem
+                // this ffi call could take some time I guess
+                let ptr = (self.vtable.primitive_value_to_box.unwrap())(&mut self.data);
+                let data = __RegisterData {
+                    as_opt_ptr: Some(ptr),
+                };
+                *self = __Register {
+                    vtable: self.vtable,
+                    data,
+                    data_kind: __RegisterDataKind::Box,
+                };
+                todo!();
+                // .data = data;
+                // self.data_kind = __RegisterDataKind::Box;
+            },
+            _ => {
+                todo!()
             }
-            _ => (),
         }
     }
 

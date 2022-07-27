@@ -56,7 +56,7 @@ async fn test_all_packages_in_dir(dir: &Path) {
             husky_print_utils::RESET,
             package_dir.as_os_str().to_str().unwrap(),
         );
-        match HuskyDebugger::new(
+        let husky_debugger = HuskyDebugger::new(
             HuskyDebuggerConfig {
                 package_dir,
                 opt_sample_id: Some(SampleId(23)),
@@ -64,9 +64,10 @@ async fn test_all_packages_in_dir(dir: &Path) {
                 warn_missing_linkage: false,
             },
             &[],
-        )
-        .serve_on_error("localhost:51617", SampleId(0))
-        .await
+        );
+        match husky_debugger
+            .serve_on_error("localhost:51617", SampleId(0))
+            .await
         {
             TestResult::Success => finalize_success(),
             TestResult::Failure => finalize_failure(),

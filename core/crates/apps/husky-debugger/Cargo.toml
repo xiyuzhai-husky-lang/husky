@@ -16,7 +16,7 @@ rustc-hash = "1.1.0"
 tracing = "0.1"
 itertools = "^0.10.3"
 futures = { version = "0.3.19", features = ["executor", "thread-pool"] }
-tokio = { version = "1.19.2", features = ["full"] }
+tokio = { version = "1.19.2", features = ["rt-multi-thread", "macros"] }
 tokio-stream = { version = "0.1.9" }
 warp = "0.3.2"
 xflags = "0.2.4"

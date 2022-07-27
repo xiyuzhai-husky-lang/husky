@@ -9,6 +9,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned()),
             FeatureLazyStmtVariant::Assert { ref condition } => {
+                todo!();
                 if self.satisfies(condition)? {
                     Ok(__Register::new_unreturned())
                 } else {
