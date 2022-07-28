@@ -1,5 +1,6 @@
 mod __rust_code_gen__;
 mod binding;
+mod call_form_value;
 mod context;
 mod error;
 mod layout;
@@ -9,6 +10,7 @@ mod register;
 mod tests;
 
 pub use __rust_code_gen__::*;
+pub use call_form_value::*;
 pub use context::*;
 pub use error::*;
 pub use layout::*;

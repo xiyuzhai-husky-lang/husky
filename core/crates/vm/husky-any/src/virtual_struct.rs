@@ -80,7 +80,7 @@ impl<'eval> __StaticInfo for VirtualStruct<'eval> {
 
 impl<'eval> __Registrable for VirtualStruct<'eval> {
     unsafe fn __to_register__<'eval0>(self) -> __Register<'eval0> {
-        todo!()
+        __Register::new_box(self, &__VIRTUAL_STRUCT_VTABLE)
     }
 
     fn __copy__(&self) -> Self {

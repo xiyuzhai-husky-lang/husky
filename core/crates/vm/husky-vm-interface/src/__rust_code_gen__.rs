@@ -198,3 +198,16 @@ pub unsafe extern "C" fn __f64_drop(data: *mut ()) {
 extern "C" {
     pub static __F64_VTABLE: __RegisterVTable;
 }
+
+// __VirtualFunction
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_function_clone(data: *mut ()) -> *mut () {
+    Box::<__VirtualFunction>::into_raw(Box::new((*(data as *mut __VirtualFunction)).clone())) as *mut ()
+}
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
+    Box::from_raw(data as *mut __VirtualFunction);
+}
+extern "C" {
+    pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterVTable;
+}

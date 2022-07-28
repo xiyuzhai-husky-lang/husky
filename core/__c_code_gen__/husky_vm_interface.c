@@ -63,3 +63,11 @@ const __RegisterVTable __F64_VTABLE = {
     .clone = __f64_clone,
     .drop = __f64_drop,
 };
+
+const __RegisterVTable __VIRTUAL_FUNCTION_VTABLE = {
+    .typename_str = "__VirtualFunction",
+    .primitive_value_to_bool = 0,
+    .primitive_value_to_box = 0,
+    .clone = __virtual_function_clone,
+    .drop = __virtual_function_drop,
+};

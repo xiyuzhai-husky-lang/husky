@@ -17,7 +17,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 _ => (),
             }
         }
-        let output = f.call(self.opt_ctx, arguments)?;
+        let output = f.call_catch_unwind(self.opt_ctx, arguments)?;
         self.stack.push(output);
         Ok(())
     }

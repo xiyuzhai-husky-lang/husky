@@ -47,11 +47,13 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         RootIdentifier,
     )] = &[
         // i32
+        (I32, Add, I32),
         (I32, Eq, I32),
         (I32, Greater, I32),
         (I32, Geq, I32),
         (I32, Less, I32),
         (I32, Leq, I32),
+        (I32, Mul, I32),
         // f32
         (F32, Greater, F32),
         (F32, Geq, F32),
@@ -92,6 +94,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         RootIdentifier,
     )] = &[
         // i32
+        (I32, None, I32),
         (I32, Some(Add), I32),
         (I32, Some(Sub), I32),
         // b32

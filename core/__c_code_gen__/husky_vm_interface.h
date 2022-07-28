@@ -93,3 +93,8 @@ extern void *__f64_clone(void*);
 extern void __f64_drop(void*);
 extern const __RegisterVTable __F64_VTABLE;
         
+// __VirtualFunction
+extern void *__virtual_function_clone(void*);
+extern void __virtual_function_drop(void*);
+extern const __RegisterVTable __VIRTUAL_FUNCTION_VTABLE;
+        
