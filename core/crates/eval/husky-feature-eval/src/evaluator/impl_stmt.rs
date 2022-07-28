@@ -18,7 +18,6 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                         self.db.compile_time().vtable(stmt.output_ty),
                     ))
                 } else {
-                    todo!();
                     Err(__VMError::new_normal(format!("assertion failed")))
                 }
             }

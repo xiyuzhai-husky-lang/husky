@@ -227,7 +227,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     field_ty,
                 } => {
                     let this = self.stack.pop();
-                    self.stack.push(todo!());
+                    self.stack
+                        .push(this.virtual_struct_field(field_idx, field_binding));
                     // this.field(field_idx as usize, field_binding));
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),

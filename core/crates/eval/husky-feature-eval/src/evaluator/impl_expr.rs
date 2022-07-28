@@ -130,7 +130,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         &mut self,
         opt_linkage: Option<__LinkageFp>,
         this: &FeatureRepr,
-        field_idx: usize,
+        field_idx: u8,
         field_binding: Binding,
         field_ident: husky_text::RangedCustomIdentifier,
         expr: &FeatureExpr,
@@ -145,7 +145,17 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     this_value.vtable as *const _,
                     &__VIRTUAL_STRUCT_VTABLE as *const _
                 );
-                this_value.field_access(field_idx, field_binding)
+                match field_binding {
+                    Binding::EvalRef => todo!(),
+                    Binding::TempRef => todo!(),
+                    Binding::TempMut => todo!(),
+                    Binding::Move => todo!(),
+                    Binding::Copy => {
+                        let this_value: &VirtualStruct = this_value.downcast_temp_ref();
+                        this_value.bind_field_copy(field_idx)
+                    }
+                }
+                // this_value.field_access(field_idx, field_binding)
             }) {
                 Ok(value) => Ok(value),
                 Err(error) => {

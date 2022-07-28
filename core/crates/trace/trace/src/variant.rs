@@ -125,7 +125,7 @@ impl<'eval> TraceVariant<'eval> {
                 FeatureExprVariant::PrimitiveLiteral(_)
                 | FeatureExprVariant::PrimitiveBinaryOpr { .. }
                 | FeatureExprVariant::Variable { .. } => false,
-                FeatureExprVariant::StructOriginalField { .. } => todo!(),
+                FeatureExprVariant::StructOriginalField { .. } => false,
                 FeatureExprVariant::EnumKindLiteral { .. } => false,
                 FeatureExprVariant::EntityFeature { .. } => true,
                 FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),

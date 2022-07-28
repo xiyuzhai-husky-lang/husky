@@ -274,7 +274,10 @@ impl<'a> FeatureExprBuilder<'a> {
                 (
                     FeatureExprVariant::StructOriginalField {
                         field_ident,
-                        field_idx: this_ty_decl.field_idx(field_ident.ident),
+                        field_idx: this_ty_decl
+                            .field_idx(field_ident.ident)
+                            .try_into()
+                            .unwrap(),
                         field_binding,
                         opt_linkage: self.db.compile_time().struct_field_access_linkage(
                             this_ty,

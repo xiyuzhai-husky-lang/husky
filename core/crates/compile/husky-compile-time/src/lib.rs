@@ -6,6 +6,7 @@ mod impl_necessary;
 pub mod utils;
 
 pub use config::*;
+use entity_kind::TyKind;
 pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use husky_diagnostics::DiagnosticQuery;
 pub use husky_entity_route::{EntityRoute, InternEntityRoute};
@@ -108,7 +109,8 @@ impl HuskyCompileTime {
     }
     // ad hoc loc
     pub fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {
-        match ty.intrinsic() {
+        let intrinsic_ty = ty.intrinsic();
+        match intrinsic_ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
                 RootIdentifier::Void => todo!(),
                 RootIdentifier::I32 => match value.data_kind() {
@@ -152,8 +154,16 @@ impl HuskyCompileTime {
                 RootIdentifier::Option => todo!(),
             },
             EntityRoutePtr::Custom(_) => {
-                p!(ty);
-                todo!()
+                let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
+                match ty_decl.kind {
+                    TyKind::Enum => todo!(),
+                    TyKind::Record => todo!(),
+                    TyKind::Struct => "{ ... }".to_string(),
+                    TyKind::Primitive => todo!(),
+                    TyKind::Vec => todo!(),
+                    TyKind::Array => todo!(),
+                    TyKind::Other => todo!(),
+                }
             }
             EntityRoutePtr::ThisType => todo!(),
         }

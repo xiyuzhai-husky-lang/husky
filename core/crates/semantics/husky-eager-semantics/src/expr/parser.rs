@@ -131,7 +131,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 let ty_decl = self.decl_db().ty_decl(opt_this_ty.unwrap()).unwrap();
                 EagerExprVariant::ThisField {
                     field_ident,
-                    field_idx: ty_decl.field_idx(field_ident.ident),
+                    field_idx: ty_decl.field_idx(field_ident.ident).try_into().unwrap(),
                     this_ty: opt_this_ty.unwrap(),
                     this_binding: this_qual.binding(this_contract),
                     field_binding: { field_qt.qual.binding(field_contract) },
