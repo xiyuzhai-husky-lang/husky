@@ -114,9 +114,6 @@ impl<'eval> __Register<'eval> {
     pub fn to_bool(self) -> bool {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => {
-                println!("vtable.typename_str =   {:?}", unsafe {
-                    CStr::from_ptr(self.vtable.typename_str)
-                });
                 (self.vtable.primitive_value_to_bool).unwrap()(self.data)
             }
             __RegisterDataKind::Box
