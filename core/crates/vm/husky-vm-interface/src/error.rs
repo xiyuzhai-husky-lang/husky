@@ -3,13 +3,14 @@ use std::sync::Arc;
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[repr(C)]
 pub struct __VMError {
-    message: String,
-    variant: __VMErrorVariant,
+    pub message: String,
+    pub variant: __VMErrorVariant,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum __VMErrorVariant {
     Normal,
+    FromBatch { sample_id: usize },
 }
 
 impl __VMError {

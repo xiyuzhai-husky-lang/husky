@@ -56,8 +56,12 @@ impl TraceTokenKind {
 }
 
 impl From<__VMError> for TraceTokenData {
-    fn from(_: __VMError) -> Self {
-        todo!()
+    fn from(e: __VMError) -> Self {
+        Self {
+            kind: TraceTokenKind::Error,
+            value: e.message,
+            opt_associated_trace_id: None,
+        }
     }
 }
 
@@ -66,7 +70,7 @@ impl<'eval> From<__Register<'eval>> for TraceTokenData {
         log_once!("todo: value trace");
         TraceTokenData {
             kind: TraceTokenKind::Fade,
-            value: reg.print_short(),
+            value: "...".to_string(),
             opt_associated_trace_id: None,
         }
     }

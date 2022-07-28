@@ -10,7 +10,6 @@ fn main() {
         std::env::var("HUSKY_DIR").expect("env not set")
     );
     gen_vm_interface_code(&c_code_gen_dir);
-
     // Tell cargo to look for shared libraries in the specified directory
     println!("cargo:rustc-link-search={}", c_code_gen_dir);
 

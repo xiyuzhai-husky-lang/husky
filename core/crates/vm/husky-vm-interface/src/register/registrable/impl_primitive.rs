@@ -13,23 +13,6 @@ impl __Registrable for i32 {
         __Register::new_primitive_value::<Self>(__RegisterData { as_i32: self }, &__I32_VTABLE)
     }
 
-    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
-        match data_kind {
-            __RegisterDataKind::PrimitiveValue => {
-                let ptr: *const i32 = self;
-                let data = ptr as i32;
-                data.into()
-            }
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
-        }
-    }
-
     fn __copy__(&self) -> Self {
         *self
     }
@@ -46,23 +29,6 @@ impl __StaticInfo for i64 {
 impl __Registrable for i64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(__RegisterData { as_i64: self }, &__I64_VTABLE)
-    }
-
-    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
-        match data_kind {
-            __RegisterDataKind::PrimitiveValue => {
-                let ptr: *const Self = self;
-                let data = ptr as Self;
-                data.into()
-            }
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
-        }
     }
 
     fn __copy__(&self) -> Self {
@@ -82,19 +48,6 @@ impl __Registrable for () {
         __Register::new_primitive_value::<Self>(__RegisterData { as_void: () }, &__VOID_VTABLE)
     }
 
-    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
-        match data_kind {
-            __RegisterDataKind::PrimitiveValue => ().into(),
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
-        }
-    }
-
     fn __copy__(&self) -> Self {
         *self
     }
@@ -110,23 +63,6 @@ impl __StaticInfo for f32 {
 impl __Registrable for f32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(__RegisterData { as_f32: self }, &__F32_VTABLE)
-    }
-
-    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
-        match data_kind {
-            __RegisterDataKind::PrimitiveValue => {
-                let ptr: *const Self = self;
-                let data = ptr as u64 as Self;
-                data.into()
-            }
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
-        }
     }
 
     fn __copy__(&self) -> Self {
@@ -146,24 +82,6 @@ impl __Registrable for f64 {
         __Register::new_primitive_value::<Self>(__RegisterData { as_f64: self }, &__F64_VTABLE)
     }
 
-    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
-        todo!()
-        // match data_kind {
-        //     __RegisterDataKind::PrimitiveValue => {
-        //         let ptr: *const Self = self;
-        //         let data = ptr as u64 as Self;
-        //         data.into()
-        //     }
-        //     __RegisterDataKind::Box => todo!(),
-        //     __RegisterDataKind::EvalRef => todo!(),
-        //     __RegisterDataKind::TempRef => todo!(),
-        //     __RegisterDataKind::TempMut => todo!(),
-        //     __RegisterDataKind::Moved => todo!(),
-        //     __RegisterDataKind::Undefined => todo!(),
-        //     __RegisterDataKind::Unreturned => todo!(),
-        // }
-    }
-
     fn __copy__(&self) -> Self {
         *self
     }
@@ -179,23 +97,6 @@ impl __StaticInfo for u32 {
 impl __Registrable for u32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(__RegisterData { as_b32: self }, &__B32_VTABLE)
-    }
-
-    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
-        match data_kind {
-            __RegisterDataKind::PrimitiveValue => {
-                let ptr: *const Self = self;
-                let data = ptr as Self;
-                data.into()
-            }
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
-        }
     }
 
     fn __copy__(&self) -> Self {
@@ -215,23 +116,6 @@ impl __Registrable for u64 {
         __Register::new_primitive_value::<Self>(__RegisterData { as_b64: self }, &__B64_VTABLE)
     }
 
-    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
-        match data_kind {
-            __RegisterDataKind::PrimitiveValue => {
-                let ptr: *const Self = self;
-                let data = ptr as Self;
-                data.into()
-            }
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
-        }
-    }
-
     fn __copy__(&self) -> Self {
         *self
     }
@@ -247,23 +131,6 @@ impl __StaticInfo for bool {
 impl __Registrable for bool {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
         __Register::new_primitive_value::<Self>(__RegisterData { as_bool: self }, &__BOOL_VTABLE)
-    }
-
-    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
-        match data_kind {
-            __RegisterDataKind::PrimitiveValue => {
-                let ptr: *const Self = self;
-                let data = (ptr as u64) != 0;
-                data.into()
-            }
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
-        }
     }
 
     fn __copy__(&self) -> Self {

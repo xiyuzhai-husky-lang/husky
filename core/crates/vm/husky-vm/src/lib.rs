@@ -42,6 +42,7 @@ use error::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_print_utils::p;
 use husky_trace_protocol::*;
+use husky_vm_primitive_value::PrimitiveValueData;
 use husky_vm_register_method::*;
 use husky_word::CustomIdentifier;
 use std::sync::Arc;

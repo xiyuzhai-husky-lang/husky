@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Prop)]
 pub struct PrimitiveValueCanvasProps {
-    value: PrimitiveValueData,
+    value: husky_trace_protocol::PrimitiveValueData,
 }
 
 #[component]
