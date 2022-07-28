@@ -17,56 +17,32 @@ impl HuskyTraceTime {
     fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalkData {
         let trace: &Trace = self.trace(trace_id);
         match trace.variant {
-            TraceVariant::Main(ref block) => TraceStalkData {
-                extra_tokens: vec![
-                    husky_trace_protocol::fade!(" = "),
-                    self.eval_time().eval_feature_repr(block, sample_id).into(),
-                ],
-            },
+            TraceVariant::Main(ref block) => {
+                self.trace_stalk_from_value(self.eval_time().eval_feature_repr(block, sample_id))
+            }
             TraceVariant::FeatureLazyStmt(ref stmt) => match stmt.variant {
-                FeatureLazyStmtVariant::Init { varname, ref value } => TraceStalkData {
-                    extra_tokens: vec![
-                        husky_trace_protocol::fade!(" = "),
-                        self.eval_time().eval_feature_expr(value, sample_id).into(),
-                    ],
-                },
-                FeatureLazyStmtVariant::Assert { ref condition } => TraceStalkData {
-                    extra_tokens: vec![
-                        husky_trace_protocol::fade!(" = "),
-                        self.eval_time()
-                            .eval_feature_expr(condition, sample_id)
-                            .into(),
-                    ],
-                },
-                FeatureLazyStmtVariant::Return { ref result } => TraceStalkData {
-                    extra_tokens: vec![
-                        husky_trace_protocol::fade!(" = "),
-                        self.eval_time().eval_feature_expr(result, sample_id).into(),
-                    ],
-                },
+                FeatureLazyStmtVariant::Init { varname, ref value } => self
+                    .trace_stalk_from_value(self.eval_time().eval_feature_expr(value, sample_id)),
+                FeatureLazyStmtVariant::Assert { ref condition } => self.trace_stalk_from_value(
+                    self.eval_time().eval_feature_expr(condition, sample_id),
+                ),
+                FeatureLazyStmtVariant::Return { ref result } => self
+                    .trace_stalk_from_value(self.eval_time().eval_feature_expr(result, sample_id)),
                 FeatureLazyStmtVariant::ConditionFlow { ref branches } => panic!(),
                 FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
             },
             TraceVariant::FeatureLazyBranch(_) => TraceStalkData {
                 extra_tokens: vec![],
             },
-            TraceVariant::FeatureLazyExpr(ref expr) => TraceStalkData {
-                extra_tokens: vec![
-                    husky_trace_protocol::fade!(" = "),
-                    self.eval_time().eval_feature_expr(expr, sample_id).into(),
-                ],
-            },
+            TraceVariant::FeatureLazyExpr(ref expr) => {
+                self.trace_stalk_from_value(self.eval_time().eval_feature_expr(expr, sample_id))
+            }
             TraceVariant::FeatureCallArgument {
                 name: ident,
                 ref argument,
-            } => TraceStalkData {
-                extra_tokens: vec![
-                    husky_trace_protocol::fade!(" = "),
-                    self.eval_time()
-                        .eval_feature_expr(argument, sample_id)
-                        .into(),
-                ],
-            },
+            } => {
+                self.trace_stalk_from_value(self.eval_time().eval_feature_expr(argument, sample_id))
+            }
             TraceVariant::FuncStmt { .. }
             | TraceVariant::ProcStmt { .. }
             | TraceVariant::EagerExpr { .. }
@@ -115,6 +91,13 @@ impl HuskyTraceTime {
             for subtrace_id in self.subtrace_ids(trace_id) {
                 self.collect_new_trace_stalks_within_trace(sample_id, subtrace_id, trace_stalks)
             }
+        }
+    }
+
+    fn trace_stalk_from_value(&self, value: __VMResult<__Register<'static>>) -> TraceStalkData {
+        let value_token = todo!();
+        TraceStalkData {
+            extra_tokens: vec![fade!(" = "), value_token],
         }
     }
 }
