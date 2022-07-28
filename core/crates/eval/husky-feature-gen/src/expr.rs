@@ -76,7 +76,7 @@ pub enum FeatureExprVariant {
     StructOriginalField {
         this: FeatureRepr,
         field_ident: RangedCustomIdentifier,
-        field_idx: usize,
+        field_idx: u8,
         field_binding: Binding,
         opt_linkage: Option<__LinkageFp>,
     },

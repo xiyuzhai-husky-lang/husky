@@ -255,6 +255,16 @@ impl<'eval> __Register<'eval> {
         }
     }
 
+    pub fn new_moved(vtable: &'eval __RegisterVTable) -> __Register<'eval> {
+        unsafe {
+            __Register {
+                data_kind: __RegisterDataKind::Moved,
+                data: __RegisterData { as_void: () },
+                vtable,
+            }
+        }
+    }
+
     pub unsafe fn new_undefined_with_message(
         proto: &'eval __RegisterVTable,
         message: String,

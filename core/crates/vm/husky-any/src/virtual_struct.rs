@@ -22,21 +22,20 @@ impl<'eval> VirtualStruct<'eval> {
         VirtualStruct { ty, fields }
     }
 
-    pub fn eval_field(&self, field_idx: usize) -> &__Register<'eval> {
-        &self.fields.data()[field_idx].1
+    pub fn eval_field(&self, field_idx: u8) -> &__Register<'eval> {
+        &self.fields.data()[field_idx as usize].1
     }
 
-    pub fn take_field(&mut self, field_idx: usize) -> __Register<'eval> {
-        self.fields.data_mut()[field_idx].1.register_move()
+    pub fn take_field(&mut self, field_idx: u8) -> __Register<'eval> {
+        self.fields.data_mut()[field_idx as usize].1.register_move()
     }
 
-    pub fn access_field(&self, field_idx: usize) -> __Register<'eval> {
-        todo!()
-        // self.fields.data()[field_idx].1.bind(field_binding)
+    pub fn bind_field_copy(&self, field_idx: u8) -> __Register<'eval> {
+        self.fields.data()[field_idx as usize].1.bind_copy()
     }
 
-    pub fn field_mut(&mut self, field_idx: usize) -> __Register<'eval> {
-        todo!()
+    pub fn bind_field_mut(&mut self, field_idx: u8) -> __Register<'eval> {
+        self.fields.data_mut()[field_idx as usize].1.bind_temp_mut()
         // match field_binding {
         //     Binding::EvalRef => todo!(),
         //     Binding::TempRef => todo!(),

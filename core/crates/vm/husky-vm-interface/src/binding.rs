@@ -84,7 +84,7 @@ impl<'eval> __Register<'eval> {
     pub fn bind_move(&mut self) -> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => unsafe { self.primitive_copy() },
-            __RegisterDataKind::Box => todo!(),
+            __RegisterDataKind::Box => std::mem::replace(self, __Register::new_moved(self.vtable)),
             __RegisterDataKind::EvalRef => todo!(),
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),

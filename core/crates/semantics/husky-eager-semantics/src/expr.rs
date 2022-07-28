@@ -70,7 +70,7 @@ pub enum EagerExprVariant {
     },
     ThisField {
         field_ident: RangedCustomIdentifier,
-        field_idx: usize,
+        field_idx: u8,
         this_ty: EntityRoutePtr,
         this_binding: Binding,
         field_binding: Binding,
