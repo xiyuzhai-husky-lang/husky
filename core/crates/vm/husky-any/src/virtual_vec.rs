@@ -7,9 +7,15 @@ use serde::Serialize;
 
 use super::*;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub struct VirtualVec<'eval> {
     data: Vec<__Register<'eval>>,
+}
+
+impl<'eval> Clone for VirtualVec<'eval> {
+    fn clone(&self) -> Self {
+        Self { data: todo!() }
+    }
 }
 
 impl<'eval> VirtualVec<'eval> {

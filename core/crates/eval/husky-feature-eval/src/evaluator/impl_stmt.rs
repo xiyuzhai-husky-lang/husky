@@ -9,7 +9,9 @@ use super::FeatureEvaluator;
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn eval_stmt(&mut self, stmt: &FeatureStmt) -> __VMResult<__Register<'eval>> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned(todo!())),
+            FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned(
+                self.db.compile_time().vtable(stmt.output_ty),
+            )),
             FeatureLazyStmtVariant::Assert { ref condition } => {
                 if self.satisfies(condition)? {
                     Ok(__Register::new_unreturned(

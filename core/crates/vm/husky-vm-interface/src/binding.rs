@@ -9,7 +9,7 @@ use crate::*;
 
 #[cfg(feature = "extra")]
 impl<'eval> __Register<'eval> {
-    pub unsafe fn verbatim_copy(&self) -> __Register<'eval> {
+    pub unsafe fn primitive_copy(&self) -> __Register<'eval> {
         Self {
             data_kind: self.data_kind,
             data: self.data,
@@ -20,7 +20,7 @@ impl<'eval> __Register<'eval> {
     pub fn snapshot(&self) -> __Register<'eval> {
         unsafe {
             match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.verbatim_copy(),
+                __RegisterDataKind::PrimitiveValue => self.primitive_copy(),
                 __RegisterDataKind::Box => todo!(),
                 __RegisterDataKind::EvalRef => todo!(),
                 __RegisterDataKind::TempRef => todo!(),
@@ -82,14 +82,23 @@ impl<'eval> __Register<'eval> {
     }
 
     pub fn bind_move(&mut self) -> __Register<'eval> {
-        todo!()
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => unsafe { self.primitive_copy() },
+            __RegisterDataKind::Box => todo!(),
+            __RegisterDataKind::EvalRef => todo!(),
+            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+        }
     }
 
     pub fn bind_eval_ref(&self) -> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => unsafe { self.verbatim_copy() },
+            __RegisterDataKind::EvalRef => unsafe { self.primitive_copy() },
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
@@ -101,9 +110,13 @@ impl<'eval> __Register<'eval> {
     pub fn bind_temp_ref(&self) -> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => unsafe { self.verbatim_copy() },
+            __RegisterDataKind::Box | __RegisterDataKind::EvalRef | __RegisterDataKind::TempRef => unsafe {
+                __Register {
+                    data_kind: __RegisterDataKind::TempRef,
+                    data: self.data,
+                    vtable: self.vtable,
+                }
+            },
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::Undefined => todo!(),
@@ -130,7 +143,11 @@ impl<'eval> __Register<'eval> {
                     vtable: self.vtable,
                 }
             }
-            __RegisterDataKind::Box => todo!(),
+            __RegisterDataKind::Box => __Register {
+                data_kind: __RegisterDataKind::TempMut,
+                data: self.data,
+                vtable: self.vtable,
+            },
             __RegisterDataKind::EvalRef => todo!(),
             __RegisterDataKind::TempRef => panic!(),
             __RegisterDataKind::TempMut => todo!(),
@@ -147,6 +164,32 @@ impl<'eval> __Register<'eval> {
             Binding::TempMut => self.bind_temp_mut(),
             Binding::Move => self.bind_move(),
             Binding::Copy => self.bind_copy(),
+        }
+    }
+
+    pub unsafe fn extrinsic_clone(&self) -> __Register<'eval> {
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue
+            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::TempRef => self.primitive_copy(),
+            __RegisterDataKind::Box => self.clone_ptr_into_box(),
+            __RegisterDataKind::TempMut => panic!(),
+            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => panic!(),
+        }
+    }
+
+    pub unsafe fn intrinsic_clone(&self) -> __Register<'eval> {
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => self.primitive_copy(),
+            __RegisterDataKind::EvalRef
+            | __RegisterDataKind::TempRef
+            | __RegisterDataKind::Box
+            | __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
+            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => panic!(),
         }
     }
 
@@ -210,7 +253,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => unsafe { self.verbatim_copy() },
+            __RegisterDataKind::Unreturned => unsafe { self.primitive_copy() },
             // __Register::Copyable(value) => panic!(),
             // __Register::Owned(value) => __Register::EvalRef(__EvalRef(&*value.any_ptr())),
             // __Register::EvalRef(value) => __Register::EvalRef(*value),
