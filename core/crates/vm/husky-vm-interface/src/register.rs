@@ -19,7 +19,7 @@ use std::{
 pub struct __Register<'eval> {
     pub(crate) data_kind: __RegisterDataKind,
     pub(crate) data: __RegisterData,
-    pub(crate) vtable: &'eval __RegisterVTable,
+    pub vtable: &'eval __RegisterVTable,
 }
 
 impl<'eval> std::hash::Hash for __Register<'eval> {
@@ -124,18 +124,7 @@ impl<'eval> std::fmt::Debug for __Register<'eval> {
 #[cfg(feature = "extra")]
 impl<'eval> Clone for __Register<'eval> {
     fn clone(&self) -> Self {
-        unsafe {
-            match self.data_kind {
-                __RegisterDataKind::PrimitiveValue
-                | __RegisterDataKind::EvalRef
-                | __RegisterDataKind::TempRef => self.verbatim_copy(),
-                __RegisterDataKind::Box => self.clone_ptr_into_box(),
-                __RegisterDataKind::TempMut => panic!(),
-                __RegisterDataKind::Moved => panic!(),
-                __RegisterDataKind::Undefined => todo!(),
-                __RegisterDataKind::Unreturned => panic!(),
-            }
-        }
+        unsafe { self.extrinsic_clone() }
     }
 }
 
@@ -400,7 +389,16 @@ impl<'eval> __Register<'eval> {
     }
 
     pub unsafe fn downcast_temp_ref<T>(&self) -> &T {
-        todo!()
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => todo!(),
+            __RegisterDataKind::Box
+            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::TempRef
+            | __RegisterDataKind::TempMut => &*(self.data.as_ptr as *const T),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+        }
     }
 
     pub unsafe fn downcast_temp_mut<T>(&mut self) -> &mut T {

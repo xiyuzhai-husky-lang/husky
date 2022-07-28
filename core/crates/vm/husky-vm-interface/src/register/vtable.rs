@@ -12,7 +12,18 @@ pub struct __RegisterVTable {
 }
 
 unsafe impl Sync for __RegisterVTable {}
+
 unsafe impl Send for __RegisterVTable {}
+
+impl std::fmt::Debug for __RegisterVTable {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("__RegisterVTable")
+            .field("typename_str", unsafe {
+                &std::ffi::CStr::from_ptr(self.typename_str)
+            })
+            .finish()
+    }
+}
 
 #[test]
 fn test_size() {
