@@ -26,9 +26,6 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     ) -> __VMResult<__Register<'eval>> {
         let eval_key = EvalKey::Feature(repr.feature());
         if let Some(result) = self.sheet.cached_value(eval_key) {
-            if let Ok(ref value) = result {
-                should_eq!(value.ty(), repr.ty())
-            }
             result
         } else {
             todo!();

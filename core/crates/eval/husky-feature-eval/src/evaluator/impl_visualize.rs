@@ -21,7 +21,6 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
     {
         let visualizer = self.db.compile_time().visualizer(this.ty());
         let this_value = self.eval_feature_repr_cached(&this).unwrap();
-        should_eq!(this_value.ty(), this.ty());
         todo!()
         // if let Some(visual_data) =
         //     this_value

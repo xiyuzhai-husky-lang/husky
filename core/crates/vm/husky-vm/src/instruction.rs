@@ -94,11 +94,6 @@ pub enum InstructionVariant {
         ty: EntityRoutePtr,
         fields: Vec<CustomIdentifier>,
     },
-    OprOpn {
-        opn: OprOpn,
-        this_ty: EntityRoutePtr,
-        this_range: TextRange,
-    },
     Loop {
         body: Arc<InstructionSheet>,
         loop_kind: VMLoopKind,
@@ -123,15 +118,6 @@ pub enum InstructionVariant {
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
 }
-//     NewXmlFromTag {
-//         tag_kind: XmlTagKind,
-//         props: Vec<CustomIdentifier>,
-//         n_child_expr: u8,
-//     },
-//     NewXmlFromValue {
-//         ty: EntityRoutePtr,
-//     },
-// }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InitKind {
