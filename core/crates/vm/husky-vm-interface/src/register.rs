@@ -39,8 +39,30 @@ pub union __RegisterData {
     pub as_b64: u64,
     pub as_f32: f32,
     pub as_f64: f64,
-    pub as_opt_ptr: Option<*mut ()>,
+    pub as_ptr: *mut (),
 }
+
+#[test]
+fn test_register_data_size() {
+    println!(
+        "std::mem::size_of::<f64>() = {}",
+        std::mem::size_of::<f64>()
+    );
+    println!(
+        "std::mem::size_of::<*mut ()>() = {}",
+        std::mem::size_of::<*mut ()>()
+    );
+    println!(
+        "std::mem::size_of::< *mut () >() = {}",
+        std::mem::size_of::<*mut ()>()
+    );
+    assert_eq!(std::mem::size_of::<f64>(), std::mem::size_of::<*mut ()>(),);
+    assert_eq!(
+        std::mem::size_of::<f64>(),
+        std::mem::size_of::<__RegisterData>()
+    )
+}
+
 // C standard (N1570, 6.7.2.1 Structure and union specifiers) says:
 // 16 The size of a union is sufficient to contain the largest of its members.
 // The value of at most one of the members can be stored in a union object at any time.
@@ -85,7 +107,7 @@ fn test_alignment() {
         );
         assert_eq!(
             &a as *const _ as *const (),
-            &a.as_opt_ptr as *const _ as *const ()
+            &a.as_ptr as *const _ as *const ()
         )
     }
 }
@@ -147,6 +169,15 @@ impl<'eval> __Register<'eval> {
         data: __RegisterData,
         proto: &'eval __RegisterVTable,
     ) -> __Register<'eval> {
+        unsafe {
+            println!(
+                "vtable.typename_str = {:?}, data.as_bool = {}, data.as_i64 = {}, data.as_b64 = {}",
+                std::ffi::CStr::from_ptr(proto.typename_str),
+                data.as_bool,
+                data.as_i64,
+                data.as_b64
+            )
+        };
         __Register {
             data_kind: __RegisterDataKind::PrimitiveValue,
             data,
@@ -159,7 +190,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Box,
             data: __RegisterData {
-                as_opt_ptr: Some(ptr as *mut ()),
+                as_ptr: ptr as *mut (),
             },
             vtable: proto,
         }
@@ -173,7 +204,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::EvalRef,
             data: __RegisterData {
-                as_opt_ptr: Some(ptr as *mut ()),
+                as_ptr: ptr as *mut (),
             },
             vtable: proto,
         }
@@ -187,7 +218,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::TempRef,
             data: __RegisterData {
-                as_opt_ptr: Some(ptr as *mut ()),
+                as_ptr: ptr as *mut (),
             },
             vtable: proto,
         }
@@ -201,7 +232,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::TempMut,
             data: __RegisterData {
-                as_opt_ptr: Some(ptr as *mut ()),
+                as_ptr: ptr as *mut (),
             },
             vtable: proto,
         }
@@ -210,7 +241,7 @@ impl<'eval> __Register<'eval> {
     pub fn register_move(&mut self) -> __Register<'eval> {
         let moved = __Register {
             data_kind: __RegisterDataKind::Moved,
-            data: __RegisterData { as_opt_ptr: None },
+            data: __RegisterData { as_void: () },
             vtable: self.vtable,
         };
         std::mem::replace(self, moved)
@@ -219,7 +250,7 @@ impl<'eval> __Register<'eval> {
     pub fn new_undefined(proto: &'eval __RegisterVTable) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
-            data: __RegisterData { as_opt_ptr: None },
+            data: __RegisterData { as_void: () },
             vtable: proto,
         }
     }
@@ -238,7 +269,7 @@ impl<'eval> __Register<'eval> {
         unsafe {
             __Register {
                 data_kind: __RegisterDataKind::Unreturned,
-                data: __RegisterData { as_opt_ptr: None },
+                data: __RegisterData { as_void: () },
                 vtable: &__VOID_VTABLE,
             }
         }
@@ -250,7 +281,7 @@ impl<'eval> __Register<'eval> {
     ) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
-            data: __RegisterData { as_opt_ptr: None },
+            data: __RegisterData { as_void: () },
             vtable: proto,
         }
     }
@@ -298,7 +329,7 @@ impl<'eval> __Register<'eval> {
             assert_eq!(self.vtable as *const _, &__I32_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i32,
-                _ => *(self.data.as_opt_ptr.unwrap() as *const i32),
+                _ => *(self.data.as_ptr as *const i32),
             }
         }
     }
@@ -364,7 +395,7 @@ impl<'eval> __Register<'eval> {
         T: 'eval,
     {
         assert_eq!(self.data_kind, __RegisterDataKind::Box);
-        let t = unsafe { *Box::from_raw(self.data.as_opt_ptr.unwrap() as *mut T) };
+        let t = unsafe { *Box::from_raw(self.data.as_ptr as *mut T) };
         std::mem::forget(self);
         t
     }
@@ -387,7 +418,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::Box => todo!(),
             __RegisterDataKind::EvalRef => todo!(),
             __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => &mut *(self.data.as_opt_ptr.unwrap() as *mut T),
+            __RegisterDataKind::TempMut => &mut *(self.data.as_ptr as *mut T),
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::Undefined => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
@@ -425,7 +456,7 @@ impl<'eval> Drop for __Register<'eval> {
     fn drop(&mut self) {
         match self.data_kind {
             __RegisterDataKind::Box => unsafe {
-                (self.vtable.drop.unwrap())(self.data.as_opt_ptr.unwrap())
+                (self.vtable.drop.unwrap())(self.data.as_ptr)
                 // (*std::mem::replace(&mut self.data, __RegisterData { as_opt_ptr: None })
                 //     .as_opt_ptr
                 //     .unwrap())

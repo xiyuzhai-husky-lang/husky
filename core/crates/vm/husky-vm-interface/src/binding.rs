@@ -33,10 +33,10 @@ impl<'eval> __Register<'eval> {
     }
 
     pub(crate) unsafe fn clone_ptr_into_box(&self) -> __Register<'eval> {
-        let ptr = self.data.as_opt_ptr.unwrap();
+        let ptr = self.data.as_ptr;
         let data = unsafe {
             __RegisterData {
-                as_opt_ptr: Some(self.vtable.clone.unwrap()(ptr)),
+                as_ptr: self.vtable.clone.unwrap()(ptr),
             }
         };
         Self {
@@ -113,7 +113,7 @@ impl<'eval> __Register<'eval> {
                 // and vice versa.
                 // so it's ultimately safe to do this
                 let data = __RegisterData {
-                    as_opt_ptr: Some(&self.data as *const _ as *mut ()),
+                    as_ptr: &self.data as *const _ as *mut (),
                 };
                 __Register {
                     data_kind: __RegisterDataKind::TempMut,
@@ -152,11 +152,15 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::Box
             | __RegisterDataKind::EvalRef
             | __RegisterDataKind::TempRef
-            | __RegisterDataKind::TempMut => unsafe { self.data.as_opt_ptr.unwrap() },
+            | __RegisterDataKind::TempMut => unsafe { self.data.as_ptr },
             __RegisterDataKind::Moved
             | __RegisterDataKind::Undefined
             | __RegisterDataKind::Unreturned => panic!(),
         }
+    }
+
+    fn debug_it(&self, data: __RegisterData) {
+        println!("debug_it data.as_b64: {}", unsafe { data.as_b64 });
     }
 
     pub fn to_bool(&self) -> bool {
@@ -166,16 +170,22 @@ impl<'eval> __Register<'eval> {
                     self.vtable.primitive_value_to_bool.unwrap() as usize,
                     __bool_primitive_value_to_bool as usize,
                 );
+                println!("to_bool self.data.as_b64: {}", unsafe { self.data.as_b64 });
+                println!("to_bool self.data.as_b64: {}", unsafe { self.data.as_b64 });
+                self.debug_it(self.data);
+                let a = self.data;
+                println!("a.as_b64: {}", unsafe { a.as_b64 });
                 let result = (self.vtable.primitive_value_to_bool).unwrap()(self.data);
-                unsafe {
-                    p!(
-                        CStr::from_ptr(self.vtable.typename_str),
-                        self.data.as_bool,
-                        self.data.as_b64,
-                        (__RegisterData { as_bool: true }).as_b64,
-                        result
-                    )
-                };
+                // unsafe {
+                //     p!(
+                //         CStr::from_ptr(self.vtable.typename_str),
+                //         self.data.as_bool,
+                //         self.data.as_b64,
+                //         (__RegisterData { as_bool: true }).as_b64,
+                //         result
+                //     );
+                //     println!("{:#b}", self.data.as_b64)
+                // };
                 result
             }
             __RegisterDataKind::Box
@@ -195,10 +205,8 @@ impl<'eval> __Register<'eval> {
                 // if data_kind is set first, and something happens during setting data
                 // then there is a memory problem
                 // this ffi call could take some time I guess
-                let ptr = (self.vtable.primitive_value_to_box.unwrap())(&mut self.data);
-                self.data = __RegisterData {
-                    as_opt_ptr: Some(ptr),
-                };
+                let as_ptr = (self.vtable.primitive_value_to_box.unwrap())(&mut self.data);
+                self.data = __RegisterData { as_ptr };
                 self.data_kind = __RegisterDataKind::Box;
             },
             _ => (),

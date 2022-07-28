@@ -34,6 +34,7 @@ extern "C" {
 // bool
 #[no_mangle]
 pub unsafe extern "C" fn __bool_primitive_value_to_bool(data: __RegisterData) -> bool {
+    println!("data.as_b64 = {}", data.as_b64);
     let data = data.as_bool;
     data
 }
