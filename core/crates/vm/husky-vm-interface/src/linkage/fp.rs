@@ -33,17 +33,23 @@ impl __LinkageFp {
     //         })
     // }
 
-    pub fn call<'eval>(
+    pub fn call_catch_unwind<'eval>(
         self,
         opt_ctx: Option<&dyn __EvalContext<'eval>>,
         mut arguments: Vec<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
-        catch_unwind(move || unsafe { (self.wrapper)(opt_ctx, &mut arguments) }).map_err(|e| {
-            __VMError {
-                message: format!("error: {e:?} when calling linkage",),
-                variant: __VMErrorVariant::Normal,
-            }
+        catch_unwind(move || self.call(opt_ctx, &mut arguments)).map_err(|e| __VMError {
+            message: format!("error: {e:?} when calling linkage",),
+            variant: __VMErrorVariant::Normal,
         })
+    }
+
+    pub fn call<'eval>(
+        self,
+        opt_ctx: Option<&dyn __EvalContext<'eval>>,
+        arguments: &mut [__Register<'eval>],
+    ) -> __Register<'eval> {
+        unsafe { (self.wrapper)(opt_ctx, arguments) }
     }
 }
 

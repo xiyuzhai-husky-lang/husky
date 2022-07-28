@@ -10,7 +10,7 @@ use std::{fs::File, path::Path};
 pub static PRIMITIVE_TYPES: &'static [&'static str] =
     &["void", "bool", "i32", "i64", "b32", "b64", "f32", "f64"];
 
-pub static NONPRIMITIVE_BUILTIN_TYPES: &'static [&'static str] = &[];
+pub static NONPRIMITIVE_BUILTIN_TYPES: &'static [&'static str] = &["__VirtualFunction"];
 // &[
 //     "BinaryImage28",
 //     "BinaryGrid28",
@@ -84,7 +84,7 @@ typedef struct __RegisterVTable {{
         write!(buffer, "{}", CPrimitiveTypeRegistrationHeader { ty })?
     }
     for ty in NONPRIMITIVE_BUILTIN_TYPES {
-        write!(buffer, "{}", CNonPrimitiveTypeRegistrationSource { ty })?
+        write!(buffer, "{}", CNonPrimitiveTypeRegistrationHeader { ty })?
     }
     Ok(())
 }

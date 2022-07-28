@@ -64,9 +64,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::PushEntityFp {
                     opt_linkage, ty, ..
                 } => {
-                    self.stack.push(
-                        todo!(), //  __Register::owned_eval(__CallFormValue { opt_linkage })
-                    );
+                    self.stack
+                        .push(__VirtualFunction::Fp(opt_linkage.unwrap().transfer()).to_register());
                     if mode == Mode::TrackHistory {
                         self.history.write(
                             ins,
@@ -286,7 +285,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             __Linkage::Transfer(linkage) => {
                 let arguments = self.stack.drain(nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                linkage.call(self.opt_ctx, arguments)
+                linkage.call_catch_unwind(self.opt_ctx, arguments)
             }
             __Linkage::Model(_) => todo!(),
         }

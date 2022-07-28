@@ -14,6 +14,12 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
     type b64 = u64;
 
     match (lopd_ty, opr, ropd_ty) {
+        (I32, Add, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_i32() + arguments[1].downcast_i32()).to_register()
+            },
+            none
+        ),
         (I32, Eq, I32) => transfer_linkage!(
             |_,arguments| unsafe {
                 (arguments[0].downcast_i32() == arguments[1].downcast_i32()).to_register()
@@ -41,6 +47,12 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (I32, Leq, I32) => transfer_linkage!(
             |_,arguments| unsafe {
                 (arguments[0].downcast_i32() <= arguments[1].downcast_i32()).to_register()
+            },
+            none
+        ),
+        (I32, Mul, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_i32() * arguments[1].downcast_i32()).to_register()
             },
             none
         ),
@@ -86,6 +98,13 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
     type b64 = u64;
 
     match (lopd_ty, opt_opr, ropd_ty) {
+            (I32, None, I32) => transfer_linkage!(
+                |_,arguments| unsafe {
+                    *arguments[0].downcast_temp_mut::<i32>() = arguments[1].downcast_i32();
+                    __Register::new_void()
+                },
+                none
+            ),
             (I32, Some(Add), I32) => transfer_linkage!(
                 |_,arguments| unsafe {
                     let new_value: i32 = (arguments[0].downcast_i32() + arguments[1].downcast_i32());
