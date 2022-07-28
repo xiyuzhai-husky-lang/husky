@@ -75,10 +75,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::PushPrimitiveValue { value, explicit } => {
-                    self.stack.push(unsafe {
-                        todo!()
-                        // value.to_register()
-                    });
+                    self.stack.push(unsafe { value.to_register() });
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {

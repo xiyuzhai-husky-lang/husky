@@ -3,6 +3,7 @@ mod registrable_dyn;
 mod registrable_safe;
 mod vtable;
 
+use husky_vm_primitive_value::PrimitiveValueData;
 pub use registrable::*;
 pub use registrable_dyn::*;
 pub use registrable_safe::*;
@@ -401,6 +402,20 @@ impl<'eval> __Register<'eval> {
         }
     }
 }
+
+// impl<'eval> From<PrimitiveValueData> for __Register<'eval> {
+//     fn from(value: PrimitiveValueData) -> Self {
+//         match value {
+//             PrimitiveValueData::I32(_) => todo!(),
+//             PrimitiveValueData::I64(_) => todo!(),
+//             PrimitiveValueData::F32(_) => todo!(),
+//             PrimitiveValueData::B32(_) => todo!(),
+//             PrimitiveValueData::B64(_) => todo!(),
+//             PrimitiveValueData::Bool(_) => todo!(),
+//             PrimitiveValueData::Void(_) => todo!(),
+//         }
+//     }
+// }
 
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
 pub enum __RegisterDataKind {
