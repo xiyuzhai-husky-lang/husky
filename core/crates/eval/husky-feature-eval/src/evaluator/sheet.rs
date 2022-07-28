@@ -38,7 +38,6 @@ impl<'eval> EvalSheet<'eval> {
         eval_key: EvalKey,
         mut value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
-        todo!();
         let mut values = self.values.lock().unwrap();
         if !values.contains_key(&eval_key) {
             let result = unsafe { cache_raw_eval_value(&mut value) };

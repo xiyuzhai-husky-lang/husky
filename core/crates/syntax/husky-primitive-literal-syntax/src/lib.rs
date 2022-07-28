@@ -17,6 +17,18 @@ pub enum PrimitiveLiteralData {
 
 impl Into<String> for PrimitiveLiteralData {
     fn into(self) -> String {
-        todo!()
+        match self {
+            PrimitiveLiteralData::Void => "void".to_string(),
+            PrimitiveLiteralData::Integer(i) => format!("{i}"),
+            PrimitiveLiteralData::I32(i) => format!("{i}"),
+            PrimitiveLiteralData::I64(i) => format!("{i}"),
+            PrimitiveLiteralData::Float(f) => format!("{f}"),
+            PrimitiveLiteralData::F32(f) => format!("{f}"),
+            PrimitiveLiteralData::F64(f) => format!("{f}"),
+            PrimitiveLiteralData::Bits(_) => todo!(),
+            PrimitiveLiteralData::B32(_) => todo!(),
+            PrimitiveLiteralData::B64(_) => todo!(),
+            PrimitiveLiteralData::Bool(_) => todo!(),
+        }
     }
 }

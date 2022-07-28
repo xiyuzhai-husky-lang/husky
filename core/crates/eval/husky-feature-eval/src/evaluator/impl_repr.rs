@@ -28,9 +28,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         if let Some(result) = self.sheet.cached_value(eval_key) {
             result
         } else {
-            todo!();
             let result = self.eval_feature_repr(repr);
-            todo!();
             self.sheet.try_cache(eval_key, result)
         }
     }

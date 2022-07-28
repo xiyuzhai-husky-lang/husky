@@ -1,8 +1,9 @@
 use super::*;
+use husky_vm_primitive_value::PrimitiveValueData;
 
 #[derive(Prop)]
 pub struct PrimitiveValueCanvasProps {
-    value: husky_trace_protocol::PrimitiveValueData,
+    value: PrimitiveValueData,
 }
 
 #[component]

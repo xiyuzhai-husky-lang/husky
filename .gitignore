@@ -24,3 +24,6 @@ __rust_gen_cache__
 # c
 *.out
 *.exe
+
+# temporary
+tests/debugger/server

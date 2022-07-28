@@ -16,9 +16,7 @@ use super::FeatureEvaluator;
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn eval_expr(&mut self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
         match expr.variant {
-            FeatureExprVariant::PrimitiveLiteral(value) => Ok(
-                todo!(), // value.to_register()
-            ),
+            FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.to_register()),
             FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
                 todo!()
             }
