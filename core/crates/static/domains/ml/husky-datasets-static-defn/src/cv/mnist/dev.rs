@@ -33,7 +33,7 @@ impl<'eval> LoadSample<'eval> for MnistDevLoader {
         let input = unsafe {
             __Register::new_temp_ref(
                 &self.images[permuted_idx] as &BinaryImage28,
-                &__BINARY_IMAGE28_VTABLE,
+                &__BINARY_IMAGE_28_VTABLE,
             )
         };
         let label = self.labels[permuted_idx];

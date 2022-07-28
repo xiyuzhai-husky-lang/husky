@@ -66,14 +66,14 @@ const __RegisterVTable __F64_VTABLE = {.typename_str = "f64",
                                            __f64_primitive_value_to_bool,
                                        .primitive_value_to_box = nullptr};
 
-const __RegisterVTable __BINARY_GRID28_VTABLE = {
+const __RegisterVTable __BINARY_GRID_28_VTABLE = {
     .typename_str = "domains::ml::datasets::cv::mnist::BinaryGrid28",
     .primitive_value_to_bool = nullptr,
     .primitive_value_to_box = nullptr};
 
 // ad hoc
 // domains::ml::datasets::cv::mnist::BinaryImage2
-const __RegisterVTable __BINARY_IMAGE28_VTABLE = {
+const __RegisterVTable __BINARY_IMAGE_28_VTABLE = {
     .typename_str = "domains::ml::datasets::cv::mnist::BinaryImage28",
     .primitive_value_to_bool = nullptr,
     .primitive_value_to_box = nullptr};
