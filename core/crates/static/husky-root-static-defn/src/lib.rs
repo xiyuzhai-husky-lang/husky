@@ -27,8 +27,7 @@ pub use serde_json::value::Value as __JsonValue;
 pub use std::sync::Arc as __Arc;
 
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
-use husky_dev_utils::__StaticDevSource;
-use husky_dev_utils::{__static_dev_src, dev_src};
+use husky_dev_utils::*;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_visual_syntax::StaticVisualTy;
 use husky_vm_register_method::VMRegisterMethodX;
@@ -89,7 +88,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Void,
         opt_type_call: None,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -105,7 +104,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::B64,
         opt_type_call: None,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -121,5 +120,5 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Bool,
         opt_type_call: None,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };

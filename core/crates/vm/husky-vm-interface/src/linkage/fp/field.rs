@@ -11,6 +11,7 @@ macro_rules! field_copy_fp {
         __LinkageFp {
             wrapper,
             opt_fp: None,
+            dev_src: husky_dev_utils::static_dev_src!(),
         }
     }};
 }
@@ -28,6 +29,7 @@ macro_rules! field_eval_ref_fp {
         __LinkageFp {
             wrapper,
             opt_fp: None,
+            dev_src: husky_dev_utils::static_dev_src!(),
         }
     }};
 }
@@ -44,6 +46,7 @@ macro_rules! field_temp_ref_fp {
         __LinkageFp {
             wrapper,
             opt_fp: None,
+            dev_src: husky_dev_utils::static_dev_src!(),
         }
     }};
 }
@@ -61,6 +64,7 @@ macro_rules! field_temp_mut_fp {
         __LinkageFp {
             wrapper,
             opt_fp: None,
+            dev_src: husky_dev_utils::static_dev_src!(),
         }
     }};
 }
@@ -77,6 +81,7 @@ macro_rules! field_temp_mut_invalid_fp {
         __LinkageFp {
             wrapper,
             opt_fp: None,
+            dev_src: husky_dev_utils::static_dev_src!(),
         }
     }};
 }
@@ -93,6 +98,7 @@ macro_rules! field_move_fp {
         __LinkageFp {
             wrapper,
             opt_fp: None,
+            dev_src: husky_dev_utils::static_dev_src!(),
         }
     }};
 }

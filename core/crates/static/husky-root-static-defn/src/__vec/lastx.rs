@@ -20,7 +20,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
             member_liason: MemberLiason::Mutable,
         },
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 fn virtual_vec_lastx_copy<'eval>(

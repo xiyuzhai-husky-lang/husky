@@ -15,12 +15,12 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         base_route: BINARY_IMAGE_28_BASE_ROUTE,
         spatial_parameters: &[],
         static_trait_impls: &[StaticTraitImplDefn {
-            dev_src: __static_dev_src!(),
+            dev_src: static_dev_src!(),
             trai: "std::ops::Index<i32>",
             member_impls: &[
                 associated_type_impl!("Output", "b32"),
                 EntityStaticDefn {
-                    dev_src: husky_dev_utils::__static_dev_src!(),
+                    dev_src: husky_dev_utils::static_dev_src!(),
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
@@ -53,7 +53,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Image2d,
         opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DEFN),
     },
-    dev_src: husky_dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::static_dev_src!(),
 };
 
 pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -70,7 +70,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         }, some BinaryImage28::__call__)
         .into(),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 #[derive(Default, Clone, PartialEq, Eq)]

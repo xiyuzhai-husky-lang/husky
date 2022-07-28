@@ -16,5 +16,5 @@ pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDef
             direct
         ),
     },
-    dev_src: husky_dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::static_dev_src!(),
 };

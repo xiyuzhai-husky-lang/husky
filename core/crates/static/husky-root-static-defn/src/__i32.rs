@@ -13,7 +13,7 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Integer,
         opt_type_call: None,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
@@ -32,7 +32,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| todo!(), some i32::min)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
@@ -51,7 +51,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| todo!(), some i32::max)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
@@ -68,7 +68,7 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
             transfer_linkage!(|_, values| 
                 values[0].downcast_i32().sgn().to_register(), some i32::sgn)), 
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
@@ -85,5 +85,5 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
             values[0].downcast_i32().abs().to_register()
         }, some i32::abs)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };

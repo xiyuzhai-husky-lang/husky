@@ -4,15 +4,19 @@ mod method_elem;
 
 use std::panic::catch_unwind;
 
+use husky_dev_utils::__StaticDevSource;
+
 use super::*;
 
 #[derive(Clone, Copy)]
+#[repr(C)]
 pub struct __LinkageFp {
     pub wrapper: for<'eval> unsafe fn(
         Option<&dyn __EvalContext<'eval>>,
         &mut [__Register<'eval>],
     ) -> __Register<'eval>,
     pub opt_fp: Option<*const ()>,
+    pub dev_src: __StaticDevSource,
 }
 
 #[cfg(feature = "extra")]
@@ -66,18 +70,21 @@ macro_rules! linkage_fp {
         __LinkageFp {
             wrapper: $wrapper,
             opt_fp: Some($raw_fp as *const ()),
+            dev_src: husky_dev_utils::static_dev_src!(),
         }
     }};
     ($wrapper: expr, none) => {{
         __LinkageFp {
             wrapper: $wrapper,
             opt_fp: None,
+            dev_src: husky_dev_utils::static_dev_src!(),
         }
     }};
     ($wrapper: expr) => {{
         __LinkageFp {
             wrapper: $wrapper,
             opt_fp: None,
+            dev_src: husky_dev_utils::static_dev_src!(),
         }
     }};
 }

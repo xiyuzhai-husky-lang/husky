@@ -1,3 +1,7 @@
+pub use cstr::cstr;
+
+use std::{ffi::c_char, path::PathBuf};
+
 #[derive(PartialEq, Eq, Clone)]
 pub struct DevSource {
     pub file: String,
@@ -5,22 +9,46 @@ pub struct DevSource {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[repr(C)]
 pub struct __StaticDevSource {
-    pub file: &'static str,
+    pub file: __StaticFile,
     pub line: u32,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[repr(C)]
+pub enum __StaticFile {
+    Rust(&'static str),
+}
+
+impl Into<PathBuf> for __StaticFile {
+    fn into(self) -> PathBuf {
+        match self {
+            __StaticFile::Rust(file) => file.into(),
+        }
+    }
+}
+
+impl Into<String> for __StaticFile {
+    fn into(self) -> String {
+        match self {
+            __StaticFile::Rust(file) => file.to_string(),
+        }
+    }
 }
 
 impl std::fmt::Display for __StaticDevSource {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("{}:{}", self.file, self.line))
+        todo!()
+        // f.write_fmt(format_args!("{}:{}", self.file, self.line))
     }
 }
 
 impl From<__StaticDevSource> for DevSource {
-    fn from(__static_dev_src: __StaticDevSource) -> Self {
+    fn from(static_dev_src: __StaticDevSource) -> Self {
         Self {
-            file: __static_dev_src.file.into(),
-            line: __static_dev_src.line,
+            file: static_dev_src.file.into(),
+            line: static_dev_src.line,
         }
     }
 }
@@ -42,10 +70,10 @@ macro_rules! dev_src {
 }
 
 #[macro_export]
-macro_rules! __static_dev_src {
+macro_rules! static_dev_src {
     () => {
-        __StaticDevSource {
-            file: file!(),
+        husky_dev_utils::__StaticDevSource {
+            file: husky_dev_utils::__StaticFile::Rust(file!()),
             line: line!(),
         }
     };

@@ -16,7 +16,7 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Float,
         opt_type_call: None,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
@@ -39,7 +39,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
              this.min(other) .to_register() 
         }, some f32::min)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
@@ -62,7 +62,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
              this.max(other) .to_register() 
         }, some f32::max)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
@@ -80,7 +80,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
              f.sgnx() .to_register() 
         }, some f32::sgnx)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
@@ -97,7 +97,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
              values[0].downcast_f32().abs() .to_register() 
         }, some f32::abs)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
@@ -114,7 +114,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
              values[0].downcast_f32().sqrt().to_register()
         }, some f32::sqrt)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
@@ -131,7 +131,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
             values[0].downcast_f32().cos().to_register()
         }, some f32::cos)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
@@ -148,7 +148,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
              values[0].downcast_f32().sin() .to_register() 
         }, some f32::sin)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
@@ -165,7 +165,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
              values[0].downcast_f32().tan() .to_register() 
         }, some f32::tan)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
@@ -182,7 +182,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
              values[0].downcast_f32().acos() .to_register() 
         }, some f32::acos)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
@@ -199,7 +199,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
              values[0].downcast_f32().asin() .to_register() 
         }, some f32::asin)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
@@ -216,5 +216,5 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
              values[0].downcast_f32().atan() .to_register() 
         }, some f32::atan)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
