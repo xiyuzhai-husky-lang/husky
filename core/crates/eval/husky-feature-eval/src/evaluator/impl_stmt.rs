@@ -44,7 +44,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             .db
             .compile_time()
             .print_short(&value, RootIdentifier::Bool.into());
-        p!(value_str, value.to_bool());
+        p!(value.data_kind(), value_str, value.to_bool());
         Ok(value.to_bool())
     }
 }
