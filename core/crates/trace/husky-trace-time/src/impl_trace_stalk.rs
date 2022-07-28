@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_route::EntityRoutePtr;
 use husky_text::HuskyText;
 use vm::{ControlSnapshot, History, VMControl};
 
@@ -17,32 +18,31 @@ impl HuskyTraceTime {
     fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalkData {
         let trace: &Trace = self.trace(trace_id);
         match trace.variant {
-            TraceVariant::Main(ref block) => {
-                self.trace_stalk_from_value(self.eval_time().eval_feature_repr(block, sample_id))
-            }
+            TraceVariant::Main(ref block) => self.trace_stalk_from_value(
+                self.eval_time().eval_feature_repr(block, sample_id),
+                block.ty(),
+            ),
             TraceVariant::FeatureLazyStmt(ref stmt) => match stmt.variant {
-                FeatureLazyStmtVariant::Init { varname, ref value } => self
-                    .trace_stalk_from_value(self.eval_time().eval_feature_expr(value, sample_id)),
-                FeatureLazyStmtVariant::Assert { ref condition } => self.trace_stalk_from_value(
-                    self.eval_time().eval_feature_expr(condition, sample_id),
-                ),
-                FeatureLazyStmtVariant::Return { ref result } => self
-                    .trace_stalk_from_value(self.eval_time().eval_feature_expr(result, sample_id)),
+                FeatureLazyStmtVariant::Init { varname, ref value } => {
+                    self.trace_stalk_from_expr(value, sample_id)
+                }
+                FeatureLazyStmtVariant::Assert { ref condition } => {
+                    self.trace_stalk_from_expr(condition, sample_id)
+                }
+                FeatureLazyStmtVariant::Return { ref result } => {
+                    self.trace_stalk_from_expr(result, sample_id)
+                }
                 FeatureLazyStmtVariant::ConditionFlow { ref branches } => panic!(),
                 FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
             },
             TraceVariant::FeatureLazyBranch(_) => TraceStalkData {
                 extra_tokens: vec![],
             },
-            TraceVariant::FeatureLazyExpr(ref expr) => {
-                self.trace_stalk_from_value(self.eval_time().eval_feature_expr(expr, sample_id))
-            }
+            TraceVariant::FeatureLazyExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
             TraceVariant::FeatureCallArgument {
                 name: ident,
                 ref argument,
-            } => {
-                self.trace_stalk_from_value(self.eval_time().eval_feature_expr(argument, sample_id))
-            }
+            } => self.trace_stalk_from_expr(argument, sample_id),
             TraceVariant::FuncStmt { .. }
             | TraceVariant::ProcStmt { .. }
             | TraceVariant::EagerExpr { .. }
@@ -94,7 +94,18 @@ impl HuskyTraceTime {
         }
     }
 
-    fn trace_stalk_from_value(&self, value: __VMResult<__Register<'static>>) -> TraceStalkData {
+    fn trace_stalk_from_expr(&self, expr: &FeatureExpr, sample_id: SampleId) -> TraceStalkData {
+        self.trace_stalk_from_value(
+            self.eval_time().eval_feature_expr(expr, sample_id),
+            expr.expr.ty(),
+        )
+    }
+
+    fn trace_stalk_from_value(
+        &self,
+        value: __VMResult<__Register<'static>>,
+        ty: EntityRoutePtr,
+    ) -> TraceStalkData {
         let value_token = todo!();
         TraceStalkData {
             extra_tokens: vec![fade!(" = "), value_token],
