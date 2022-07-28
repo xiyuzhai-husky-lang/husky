@@ -8,3 +8,13 @@ edition = "2021"
 husky-word = { path = "../../syntax/husky-word" }
 vm = { path = "../husky-vm" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
+
+[build-dependencies]
+bindgen = "0.60.1"
+husky-c-code-repr = { path = "../../compile/husky-c-code-repr" }
+husky-c-code-build = { path = "../../compile/husky-c-code-build" }
+husky-rust-code-repr = { path = "../../compile/husky-rust-code-repr" }
+husky-bindgen-utils = { path = "../../../../common-rs/utils/husky-bindgen-utils" }
+husky-write-utils = { path = "../../../../common-rs/utils/husky-write-utils" }
+husky-word = { path = "../../syntax/husky-word" }
+vm = { path = "../husky-vm" }

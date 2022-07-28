@@ -73,6 +73,30 @@ pub enum PureBinaryOpr {
 }
 
 impl PureBinaryOpr {
+    pub fn rust_trait_method_name(self) -> &'static str {
+        match self {
+            PureBinaryOpr::Add => "add",
+            PureBinaryOpr::And => todo!(),
+            PureBinaryOpr::BitAnd => todo!(),
+            PureBinaryOpr::BitOr => todo!(),
+            PureBinaryOpr::BitXor => todo!(),
+            PureBinaryOpr::Div => todo!(),
+            PureBinaryOpr::Eq => "eq",
+            PureBinaryOpr::Geq => "ge",
+            PureBinaryOpr::Greater => "gt",
+            PureBinaryOpr::Leq => "le",
+            PureBinaryOpr::Less => "lt",
+            PureBinaryOpr::Mul => todo!(),
+            PureBinaryOpr::Neq => "ne",
+            PureBinaryOpr::RemEuclid => todo!(),
+            PureBinaryOpr::Or => todo!(),
+            PureBinaryOpr::Power => todo!(),
+            PureBinaryOpr::Shl => todo!(),
+            PureBinaryOpr::Shr => todo!(),
+            PureBinaryOpr::Sub => todo!(),
+        }
+    }
+
     pub fn act_on_primitives(
         &self,
         lopd: PrimitiveValueData,

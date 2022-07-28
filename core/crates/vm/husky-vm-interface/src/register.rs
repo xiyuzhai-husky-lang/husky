@@ -397,7 +397,6 @@ impl<'eval> Drop for __Register<'eval> {
     fn drop(&mut self) {
         match self.data_kind {
             __RegisterDataKind::Box => unsafe {
-                println!("env:RUST_BACKTRACE = {:?}", std::env::var("RUST_BACKTRACE"));
                 (self.vtable.drop.unwrap())(self.data.as_opt_ptr.unwrap())
                 // (*std::mem::replace(&mut self.data, __RegisterData { as_opt_ptr: None })
                 //     .as_opt_ptr
