@@ -8,7 +8,7 @@ use crate::*;
 
 #[cfg(feature = "extra")]
 impl<'eval> __Register<'eval> {
-    pub unsafe fn unsafe_copy(&self) -> __Register<'eval> {
+    pub unsafe fn verbatim_copy(&self) -> __Register<'eval> {
         Self {
             data_kind: self.data_kind,
             data: self.data,
@@ -19,11 +19,11 @@ impl<'eval> __Register<'eval> {
     pub fn snapshot(&self) -> __Register<'eval> {
         unsafe {
             match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.unsafe_copy(),
+                __RegisterDataKind::PrimitiveValue => self.verbatim_copy(),
                 __RegisterDataKind::Box => todo!(),
                 __RegisterDataKind::EvalRef => todo!(),
                 __RegisterDataKind::TempRef => todo!(),
-                __RegisterDataKind::TempMut => self.clone_into_box(),
+                __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
                 __RegisterDataKind::Moved => todo!(),
                 __RegisterDataKind::Undefined => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
@@ -31,9 +31,18 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    unsafe fn clone_into_box(&self) -> __Register<'eval> {
-        self.vtable.clone.unwrap()(self.data.as_opt_ptr.unwrap());
-        todo!()
+    pub(crate) unsafe fn clone_ptr_into_box(&self) -> __Register<'eval> {
+        let ptr = self.data.as_opt_ptr.unwrap();
+        let data = unsafe {
+            __RegisterData {
+                as_opt_ptr: Some(self.vtable.clone.unwrap()(ptr)),
+            }
+        };
+        Self {
+            data_kind: __RegisterDataKind::Box,
+            data,
+            vtable: self.vtable,
+        }
     }
 
     pub fn into_eval(self) -> __Register<'eval> {
@@ -79,7 +88,7 @@ impl<'eval> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => unsafe { self.unsafe_copy() },
+            __RegisterDataKind::EvalRef => unsafe { self.verbatim_copy() },
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
