@@ -17,9 +17,9 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                 opt_linkage: Some(transfer_linkage!(|_, values| values[0].clone(), none)),
                 output_liason: OutputLiason::Transfer,
             },
-            dev_src: __static_dev_src!(),
+            dev_src: static_dev_src!(),
         }],
         spatial_parameters: &[],
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };

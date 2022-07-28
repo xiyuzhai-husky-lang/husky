@@ -17,7 +17,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::B32,
         opt_type_call: None,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
@@ -34,7 +34,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
             (values[0]. downcast_b32().leading_zeros() as i32).to_register()
         }, some u32::leading_zeros)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
@@ -51,7 +51,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
          values[0]. downcast_b32().ctz().to_register()
         }, some u32::ctz)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
@@ -75,5 +75,5 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
             last_bits.to_register()
         }, some u32::last_bits)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };

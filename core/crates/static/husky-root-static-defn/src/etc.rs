@@ -13,7 +13,7 @@ pub static TYPE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Void,
         opt_type_call: None,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 pub static TRAIT_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "TraitType",
@@ -28,7 +28,7 @@ pub static TRAIT_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Void,
         opt_type_call: None,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 pub static MODULE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "ModuleType",
@@ -43,5 +43,5 @@ pub static MODULE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Void,
         opt_type_call: None,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };

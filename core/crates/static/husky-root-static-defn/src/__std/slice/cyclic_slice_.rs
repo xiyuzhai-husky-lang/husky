@@ -30,7 +30,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Group,
         opt_type_call: None,
     },
-    dev_src: husky_dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::static_dev_src!(),
 };
 
 pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -53,7 +53,7 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
             member_liason: MemberLiason::Mutable,
         },
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 fn virtual_cyclic_slice_first_copy<'eval>(
@@ -113,7 +113,7 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
             member_liason: MemberLiason::Mutable,
         },
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 fn virtual_cyclic_slice_last_copy<'temp, 'eval>(

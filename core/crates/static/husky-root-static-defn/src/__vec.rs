@@ -82,7 +82,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             member_impls: &[
                 associated_type_impl!("Output", "E"),
                 EntityStaticDefn {
-                    dev_src: __static_dev_src!(),
+                    dev_src: static_dev_src!(),
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
@@ -104,7 +104,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     },
                 },
             ],
-            dev_src: __static_dev_src!(),
+            dev_src: static_dev_src!(),
         }],
         ty_members: &[
             &VEC_LEN,
@@ -119,7 +119,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Group,
         opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
     },
-    dev_src: husky_dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::static_dev_src!(),
 };
 
 static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -133,7 +133,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(virtual_vec_type_call, none),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 unsafe fn virtual_vec_type_call<'eval>(
@@ -231,7 +231,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(transfer_linkage!(virtual_vec_len, none)),
         output_liason: OutputLiason::Transfer,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 unsafe fn virtual_vec_len<'temp, 'eval>(
@@ -259,7 +259,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(transfer_linkage!(virtual_vec_push, none)),
         output_liason: OutputLiason::Transfer,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
@@ -274,5 +274,5 @@ pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(transfer_linkage!(virtual_vec_pop, none)),
         output_liason: OutputLiason::Transfer,
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };

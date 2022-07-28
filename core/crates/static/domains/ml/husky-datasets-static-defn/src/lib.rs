@@ -24,7 +24,7 @@ pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "datasets",
     items: &[&synthetic::SYNTHETIC_MODULE_DEFN, &cv::CV_MOD_DEFN],
     variant: EntityStaticDefnVariant::Module,
-    dev_src: husky_dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::static_dev_src!(),
 };
 
 pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -49,5 +49,5 @@ pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visual_ty: StaticVisualTy::Dataset,
         opt_type_call: None,
     },
-    dev_src: husky_dev_utils::__static_dev_src!(),
+    dev_src: husky_dev_utils::static_dev_src!(),
 };

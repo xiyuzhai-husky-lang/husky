@@ -26,7 +26,7 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         // bug if output_liason is OutputLiason::MemberAccess
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 unsafe fn virtual_cyclic_slice<'temp, 'eval>(

@@ -1,14 +1,13 @@
 use std::{collections::HashMap, sync::Arc, time::Instant};
 
 use super::*;
-use husky_dev_utils::__static_dev_src;
+use husky_dev_utils::static_dev_src;
 use husky_print_utils::p;
 use husky_trace_protocol::Label;
 use husky_vm_register_method::VMRegisterMethodX;
 use static_defn::*;
 use vm::{
-    Model, __Linkage, __ModelLinkage, __Register, __RegistrableSafe, __VMResult,
-    __I32_VTABLE,
+    Model, __Linkage, __ModelLinkage, __Register, __RegistrableSafe, __VMResult, __I32_VTABLE,
 };
 
 static_mod! { naive = { naive_i32 } }
@@ -28,7 +27,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         linkage: __Linkage::Model(__ModelLinkage(&NaiveI32)),
     },
-    dev_src: __static_dev_src!(),
+    dev_src: static_dev_src!(),
 };
 
 #[derive(Debug)]

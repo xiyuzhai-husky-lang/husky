@@ -121,7 +121,7 @@ pub struct StaticTraitImplDefn {
 macro_rules! associated_type_impl {
     ($name: expr, $ty: expr) => {
         EntityStaticDefn {
-            dev_src: husky_dev_utils::__static_dev_src!(),
+            dev_src: husky_dev_utils::static_dev_src!(),
             name: $name,
             items: &[],
             variant: EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: $ty },
