@@ -90,7 +90,7 @@ impl HuskyTraceTime {
                                 before: None,
                                 after: FigureCanvasData::new_specific(
                                     self.visualize_temp_value(
-                                        &stack_snapshot[mutation_data.varidx()].eval(),
+                                        &stack_snapshot[mutation_data.varidx()].snapshot(),
                                         mutation_data.ty,
                                         mutation_data.file,
                                         mutation_data.range,

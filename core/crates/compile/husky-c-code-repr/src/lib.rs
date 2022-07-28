@@ -15,6 +15,7 @@ impl<'a> Display for CPrimitiveTypeRegistrationHeader<'a> {
 // {ty}
 extern bool __{ty}_primitive_value_to_bool(__RegisterData data);
 extern void *__{ty}_primitive_value_to_box(__RegisterData data);
+extern void *__{ty}_clone(void*);
 extern void __{ty}_drop(void*);
 extern const __RegisterVTable __{uppercase_ty}_VTABLE;
         "#
@@ -37,6 +38,7 @@ const __RegisterVTable __{uppercase_ty}_VTABLE = {{
     .typename_str = "{ty}",
     .primitive_value_to_bool = __{ty}_primitive_value_to_bool,
     .primitive_value_to_box = __{ty}_primitive_value_to_box,
+    .clone = __{ty}_clone,
     .drop = __{ty}_drop,
 }};
 "#
@@ -57,6 +59,7 @@ impl<'a> Display for CNonPrimitiveTypeRegistrationHeader<'a> {
             f,
             r#"
 // {ty}
+extern void *__{lower_snake_ty}_clone(void*);
 extern void __{lower_snake_ty}_drop(void*);
 extern const __RegisterVTable __{upper_snake_ty}_VTABLE;
         "#
@@ -80,6 +83,7 @@ const __RegisterVTable __{upper_snake_ty}_VTABLE = {{
     .typename_str = "{ty}",
     .primitive_value_to_bool = 0,
     .primitive_value_to_box = 0,
+    .clone = __{lower_snake_ty}_clone,
     .drop = __{lower_snake_ty}_drop,
 }};
 "#

@@ -20,6 +20,10 @@ pub unsafe extern "C" fn __void_primitive_value_to_box(data: __RegisterData) -> 
     ptr as *mut ()
 }
 #[no_mangle]
+pub unsafe extern "C" fn __void_clone(data: *mut ()) -> *mut () {
+    Box::<void>::into_raw(Box::new((*(data as *mut void)).clone())) as *mut ()
+}
+#[no_mangle]
 pub unsafe extern "C" fn __void_drop(data: *mut ()) {
     Box::from_raw(data as *mut void);
 }
@@ -38,6 +42,10 @@ pub unsafe extern "C" fn __bool_primitive_value_to_box(data: __RegisterData) -> 
     let data = data.as_bool;
     let ptr: *mut bool = Box::<bool>::into_raw(Box::new(data));
     ptr as *mut ()
+}
+#[no_mangle]
+pub unsafe extern "C" fn __bool_clone(data: *mut ()) -> *mut () {
+    Box::<bool>::into_raw(Box::new((*(data as *mut bool)).clone())) as *mut ()
 }
 #[no_mangle]
 pub unsafe extern "C" fn __bool_drop(data: *mut ()) {
@@ -60,6 +68,10 @@ pub unsafe extern "C" fn __i32_primitive_value_to_box(data: __RegisterData) -> *
     ptr as *mut ()
 }
 #[no_mangle]
+pub unsafe extern "C" fn __i32_clone(data: *mut ()) -> *mut () {
+    Box::<i32>::into_raw(Box::new((*(data as *mut i32)).clone())) as *mut ()
+}
+#[no_mangle]
 pub unsafe extern "C" fn __i32_drop(data: *mut ()) {
     Box::from_raw(data as *mut i32);
 }
@@ -78,6 +90,10 @@ pub unsafe extern "C" fn __i64_primitive_value_to_box(data: __RegisterData) -> *
     let data = data.as_i64;
     let ptr: *mut i64 = Box::<i64>::into_raw(Box::new(data));
     ptr as *mut ()
+}
+#[no_mangle]
+pub unsafe extern "C" fn __i64_clone(data: *mut ()) -> *mut () {
+    Box::<i64>::into_raw(Box::new((*(data as *mut i64)).clone())) as *mut ()
 }
 #[no_mangle]
 pub unsafe extern "C" fn __i64_drop(data: *mut ()) {
@@ -100,6 +116,10 @@ pub unsafe extern "C" fn __b32_primitive_value_to_box(data: __RegisterData) -> *
     ptr as *mut ()
 }
 #[no_mangle]
+pub unsafe extern "C" fn __b32_clone(data: *mut ()) -> *mut () {
+    Box::<b32>::into_raw(Box::new((*(data as *mut b32)).clone())) as *mut ()
+}
+#[no_mangle]
 pub unsafe extern "C" fn __b32_drop(data: *mut ()) {
     Box::from_raw(data as *mut b32);
 }
@@ -118,6 +138,10 @@ pub unsafe extern "C" fn __b64_primitive_value_to_box(data: __RegisterData) -> *
     let data = data.as_b64;
     let ptr: *mut b64 = Box::<b64>::into_raw(Box::new(data));
     ptr as *mut ()
+}
+#[no_mangle]
+pub unsafe extern "C" fn __b64_clone(data: *mut ()) -> *mut () {
+    Box::<b64>::into_raw(Box::new((*(data as *mut b64)).clone())) as *mut ()
 }
 #[no_mangle]
 pub unsafe extern "C" fn __b64_drop(data: *mut ()) {
@@ -140,6 +164,10 @@ pub unsafe extern "C" fn __f32_primitive_value_to_box(data: __RegisterData) -> *
     ptr as *mut ()
 }
 #[no_mangle]
+pub unsafe extern "C" fn __f32_clone(data: *mut ()) -> *mut () {
+    Box::<f32>::into_raw(Box::new((*(data as *mut f32)).clone())) as *mut ()
+}
+#[no_mangle]
 pub unsafe extern "C" fn __f32_drop(data: *mut ()) {
     Box::from_raw(data as *mut f32);
 }
@@ -158,6 +186,10 @@ pub unsafe extern "C" fn __f64_primitive_value_to_box(data: __RegisterData) -> *
     let data = data.as_f64;
     let ptr: *mut f64 = Box::<f64>::into_raw(Box::new(data));
     ptr as *mut ()
+}
+#[no_mangle]
+pub unsafe extern "C" fn __f64_clone(data: *mut ()) -> *mut () {
+    Box::<f64>::into_raw(Box::new((*(data as *mut f64)).clone())) as *mut ()
 }
 #[no_mangle]
 pub unsafe extern "C" fn __f64_drop(data: *mut ()) {

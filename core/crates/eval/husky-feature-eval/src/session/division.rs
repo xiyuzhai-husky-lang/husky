@@ -47,10 +47,9 @@ impl<'eval> Division<'eval> {
     where
         'eval: 'static,
     {
-        todo!()
-        // self.sheets[sample_id.0]
-        //     .cache(EvalKey::Feature(feature), Ok(value.clone()))
-        //     .unwrap()
-        //     .eval_ref()
+        self.sheets[sample_id.0]
+            .cache(EvalKey::Feature(feature), Ok(value.clone()))
+            .unwrap()
+            .bind_eval_ref()
     }
 }

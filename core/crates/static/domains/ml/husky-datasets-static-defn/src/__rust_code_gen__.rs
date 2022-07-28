@@ -12,6 +12,10 @@ use crate::cv::mnist::BinaryGrid28;
 
 // BinaryImage28
 #[no_mangle]
+pub unsafe extern "C" fn __binary_image_28_clone(data: *mut ()) -> *mut () {
+    Box::<BinaryImage28>::into_raw(Box::new((*(data as *mut BinaryImage28)).clone())) as *mut ()
+}
+#[no_mangle]
 pub unsafe extern "C" fn __binary_image_28_drop(data: *mut ()) {
     Box::from_raw(data as *mut BinaryImage28);
 }
@@ -21,6 +25,10 @@ extern "C" {
 
 // BinaryGrid28
 #[no_mangle]
+pub unsafe extern "C" fn __binary_grid_28_clone(data: *mut ()) -> *mut () {
+    Box::<BinaryGrid28>::into_raw(Box::new((*(data as *mut BinaryGrid28)).clone())) as *mut ()
+}
+#[no_mangle]
 pub unsafe extern "C" fn __binary_grid_28_drop(data: *mut ()) {
     Box::from_raw(data as *mut BinaryGrid28);
 }
@@ -29,6 +37,10 @@ extern "C" {
 }
 
 // Dataset
+#[no_mangle]
+pub unsafe extern "C" fn __dataset_clone(data: *mut ()) -> *mut () {
+    Box::<Dataset>::into_raw(Box::new((*(data as *mut Dataset)).clone())) as *mut ()
+}
 #[no_mangle]
 pub unsafe extern "C" fn __dataset_drop(data: *mut ()) {
     Box::from_raw(data as *mut Dataset);

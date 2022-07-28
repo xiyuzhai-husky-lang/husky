@@ -30,6 +30,10 @@ pub unsafe extern "C" fn __{ty}_primitive_value_to_box(data: __RegisterData) -> 
     ptr as *mut ()
 }}
 #[no_mangle]
+pub unsafe extern "C" fn __{ty}_clone(data: *mut ()) -> *mut () {{
+    Box::<{ty}>::into_raw(Box::new((*(data as *mut {ty})).clone())) as *mut ()
+}}
+#[no_mangle]
 pub unsafe extern "C" fn __{ty}_drop(data: *mut ()) {{
     Box::from_raw(data as *mut {ty});
 }}
@@ -54,6 +58,10 @@ impl<'a> Display for NonPrimitiveTypeRegistration<'a> {
             f,
             r#"
 // {ty}
+#[no_mangle]
+pub unsafe extern "C" fn __{snake_ty}_clone(data: *mut ()) -> *mut () {{
+    Box::<{ty}>::into_raw(Box::new((*(data as *mut {ty})).clone())) as *mut ()
+}}
 #[no_mangle]
 pub unsafe extern "C" fn __{snake_ty}_drop(data: *mut ()) {{
     Box::from_raw(data as *mut {ty});

@@ -9,6 +9,10 @@ type b64 = u64;
 
 // VirtualStruct
 #[no_mangle]
+pub unsafe extern "C" fn __virtual_struct_clone(data: *mut ()) -> *mut () {
+    Box::<VirtualStruct>::into_raw(Box::new((*(data as *mut VirtualStruct)).clone())) as *mut ()
+}
+#[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_drop(data: *mut ()) {
     Box::from_raw(data as *mut VirtualStruct);
 }
@@ -18,6 +22,10 @@ extern "C" {
 
 // VirtualVec
 #[no_mangle]
+pub unsafe extern "C" fn __virtual_vec_clone(data: *mut ()) -> *mut () {
+    Box::<VirtualVec>::into_raw(Box::new((*(data as *mut VirtualVec)).clone())) as *mut ()
+}
+#[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_drop(data: *mut ()) {
     Box::from_raw(data as *mut VirtualVec);
 }
@@ -26,6 +34,10 @@ extern "C" {
 }
 
 // VirtualCyclicSlice
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_cyclic_slice_clone(data: *mut ()) -> *mut () {
+    Box::<VirtualCyclicSlice>::into_raw(Box::new((*(data as *mut VirtualCyclicSlice)).clone())) as *mut ()
+}
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_drop(data: *mut ()) {
     Box::from_raw(data as *mut VirtualCyclicSlice);

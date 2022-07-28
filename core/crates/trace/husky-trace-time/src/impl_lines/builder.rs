@@ -130,7 +130,7 @@ impl<'a> TraceTokenBuilder<'a> {
             ControlSnapshot::Return(ref value) => {
                 self.push(fade!(" = "));
                 self.push(keyword!("return"));
-                self.push(value.eval().into());
+                self.push(value.snapshot().into());
             }
             ControlSnapshot::Break => {
                 self.push(fade!(" = "));
