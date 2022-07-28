@@ -5,10 +5,6 @@ use husky_visual_syntax::StaticVisualTy;
 use std::any::TypeId;
 use vm::*;
 
-extern "C" {
-    pub static __BINARY_GRID_28_VTABLE: __RegisterVTable;
-}
-
 pub static BINARY_GRID_28_BASE_ROUTE: &'static str =
     "domains::ml::datasets::cv::mnist::BinaryGrid28";
 

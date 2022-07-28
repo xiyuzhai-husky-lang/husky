@@ -33,7 +33,7 @@ unsafe fn virtual_cyclic_slice<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let this: &'eval GenericVec = values[0].downcast_eval_ref();
+    let this: &'eval VirtualVec = values[0].downcast_eval_ref();
     let start = values[1].downcast_i32();
     let end = values[2].downcast_i32();
     (__Register::new_box(
