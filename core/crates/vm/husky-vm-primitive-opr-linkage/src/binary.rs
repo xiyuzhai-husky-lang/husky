@@ -102,6 +102,13 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
                 },
                 none
             ),
+            (B32, None, B32) => transfer_linkage!(
+                |_,arguments| unsafe {
+                    *arguments[0].downcast_temp_mut::<b32>() = arguments[1].downcast_b32();
+                    __Register::new_void()
+                },
+                none
+            ),
         _ => {
             panic!("Assign operation {:?} is not supported in Husky", (lopd_ty, opt_opr, ropd_ty))
         }

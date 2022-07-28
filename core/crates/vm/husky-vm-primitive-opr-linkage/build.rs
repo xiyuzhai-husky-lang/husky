@@ -46,11 +46,13 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         PureBinaryOpr,
         RootIdentifier,
     )] = &[
+        // i32
         (I32, Eq, I32),
         (I32, Greater, I32),
         (I32, Geq, I32),
         (I32, Less, I32),
         (I32, Leq, I32),
+        // f32
         (F32, Greater, F32),
         (F32, Geq, F32),
         (F32, Less, F32),
@@ -88,7 +90,13 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         RootIdentifier,
         std::option::Option<PureBinaryOpr>,
         RootIdentifier,
-    )] = &[(I32, Some(Add), I32), (I32, Some(Sub), I32)];
+    )] = &[
+        // i32
+        (I32, Some(Add), I32),
+        (I32, Some(Sub), I32),
+        // b32
+        (B32, None, B32),
+    ];
     write!(
         f,
         r#"
@@ -124,7 +132,17 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             ),"#
             )?
         } else {
-            todo!()
+            write!(
+                f,
+                r#"
+            ({lopd_ty_ident:?}, None, {ropd_ty_ident:?}) => transfer_linkage!(
+                |_,arguments| unsafe {{
+                    *arguments[0].downcast_temp_mut::<{lopd_ty_husky_name}>() = arguments[1].downcast_{ropd_ty_husky_name}();
+                    __Register::new_void()
+                }},
+                none
+            ),"#
+            )?
         }
         // some {lopd_ty_husky_name}::{rust_trait_method_name}
     }

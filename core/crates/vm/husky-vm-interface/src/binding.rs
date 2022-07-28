@@ -99,7 +99,16 @@ impl<'eval> __Register<'eval> {
     }
 
     pub fn bind_temp_ref(&self) -> __Register<'eval> {
-        todo!()
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => todo!(),
+            __RegisterDataKind::Box => todo!(),
+            __RegisterDataKind::EvalRef => todo!(),
+            __RegisterDataKind::TempRef => unsafe { self.verbatim_copy() },
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+        }
     }
 
     pub fn bind_temp_mut(&self) -> __Register<'eval> {

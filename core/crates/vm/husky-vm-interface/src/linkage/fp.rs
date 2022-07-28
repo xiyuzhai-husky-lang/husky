@@ -23,14 +23,9 @@ impl __LinkageFp {
         mut arguments: Vec<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         catch_unwind(move || unsafe { (self.wrapper)(opt_ctx, &mut arguments).into_eval() })
-            .map_err(|e| {
-                todo!()
-                // EvalError::Normal {
-                //     message: format!(
-                //         "error: {e:?} when calling linkage with src = {}",
-                //         self.dev_src
-                //     ),
-                // }
+            .map_err(|e| __VMError {
+                message: format!("error: {e:?} when calling linkage",),
+                variant: __VMErrorVariant::Normal,
             })
     }
 

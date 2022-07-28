@@ -151,6 +151,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 Ok(control)
             }
             VMLoopKind::Loop => {
+                // ugly, urhh
                 let mut control_result = Err(vm_runtime_error!(format!(
                     "infinite loop (loop limit = {})",
                     LOOP_LIMIT
