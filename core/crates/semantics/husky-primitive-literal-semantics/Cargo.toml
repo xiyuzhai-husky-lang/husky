@@ -9,3 +9,4 @@ husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-word = { path = "../../syntax/husky-word" }
+husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }

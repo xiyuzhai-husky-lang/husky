@@ -9,9 +9,5 @@ pub trait __Registrable:
 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval>;
 
-    fn __primitive__(&self, data_kind: __RegisterDataKind) -> PrimitiveValueData {
-        panic!()
-    }
-
     fn __copy__(&self) -> Self;
 }

@@ -7,8 +7,6 @@ mod stmt;
 mod transform;
 mod xml;
 
-use std::sync::Arc;
-
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::*;
 pub use expr::*;
@@ -29,7 +27,9 @@ use husky_file::FilePtr;
 use husky_liason_semantics::*;
 use husky_print_utils::*;
 use husky_text::*;
+use husky_vm_primitive_value::PrimitiveValueData;
 use husky_word::{CustomIdentifier, IdentDict, Identifier, Paradigm, StmtKeyword};
+use std::sync::Arc;
 use vm::InitKind;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

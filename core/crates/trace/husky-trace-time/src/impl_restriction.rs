@@ -23,14 +23,13 @@ impl HuskyTraceTime {
             {
                 Ok(_) => (),
                 Err(e) => {
-                    todo!()
-                    //      match e {
-                    //     EvalError::FromBatch { sample_id, .. } => {
-                    //         todo!()
-                    //         // self.set_restriction_raw(Restriction::Specific { sample_id })
-                    //     }
-                    //     EvalError::Normal { .. } => (),
-                    // }
+                    match e.variant {
+                        __VMErrorVariant::FromBatch { sample_id, .. } => {
+                            todo!()
+                            // self.set_restriction_raw(Restriction::Specific { sample_id })
+                        }
+                        __VMErrorVariant::Normal => (),
+                    }
                 }
             }
             self.collect_new_trace_stalks()

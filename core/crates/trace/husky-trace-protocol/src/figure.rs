@@ -5,6 +5,7 @@ mod visual;
 pub use control::*;
 pub use graphics2d::*;
 use husky_signal::Signalable;
+use husky_vm_primitive_value::PrimitiveValueData;
 pub use visual::*;
 
 use super::*;

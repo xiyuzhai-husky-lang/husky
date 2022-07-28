@@ -15,6 +15,7 @@ husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "serde_support"
 ] }
 husky-log-utils = { path = "../../../../common-rs/utils/husky-log-utils" }
+husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 
 [dependencies.web-sys]
 version = "0.3.57"
