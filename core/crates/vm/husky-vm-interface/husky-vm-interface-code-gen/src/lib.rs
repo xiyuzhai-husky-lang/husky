@@ -23,7 +23,8 @@ pub static NONPRIMITIVE_BUILTIN_TYPES: &'static [&'static str] = &[];
 pub fn gen_vm_interface_code(c_code_gen_dir: &str) {
     let c_header_path = format!("{}/husky_vm_interface.h", c_code_gen_dir);
     let c_source_path = format!("{}/husky_vm_interface.c", c_code_gen_dir);
-    let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
+    // let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
+    let husky_dir = "/home/xiyuzhai/Documents/husky";
     let rust_path = format!(
         "{}/core/crates/vm/husky-vm-interface/src/__rust_code_gen__.rs",
         husky_dir

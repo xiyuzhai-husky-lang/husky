@@ -5,10 +5,8 @@ use husky_vm_interface_code_gen::gen_vm_interface_code;
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
-    let c_code_gen_dir = format!(
-        "{}/core/__c_code_gen__",
-        std::env::var("HUSKY_DIR").expect("env not set")
-    );
+    let husky_dir = "/home/xiyuzhai/Documents/husky";
+    let c_code_gen_dir = format!("{}/core/__c_code_gen__", husky_dir);
     gen_vm_interface_code(&c_code_gen_dir);
     // Tell cargo to look for shared libraries in the specified directory
     println!("cargo:rustc-link-search={}", c_code_gen_dir);

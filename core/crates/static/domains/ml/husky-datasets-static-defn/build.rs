@@ -15,10 +15,8 @@ fn main() {
         "../../compile/husky-c-code-repr",
         "../../compile/husky-rust-code-repr",
     );
-    let c_code_gen_dir = format!(
-        "{}/core/__c_code_gen__",
-        std::env::var("HUSKY_DIR").expect("env not set")
-    );
+    let husky_dir = "/home/xiyuzhai/Documents/husky";
+    let c_code_gen_dir = format!("{}/core/__c_code_gen__", husky_dir);
     gen_ml_datasets_code(&c_code_gen_dir);
     simple_bindgen(&c_code_gen_dir, FILENAME)
 }
@@ -29,7 +27,8 @@ pub static NONPRIMITIVE_TYPES: &'static [&'static str] =
 pub fn gen_ml_datasets_code(c_code_gen_dir: &str) {
     let c_header_path = format!("{c_code_gen_dir}/{FILENAME}.h");
     let c_source_path = format!("{c_code_gen_dir}/{FILENAME}.c");
-    let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
+    // let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
+    let husky_dir = "/home/xiyuzhai/Documents/husky";
     let rust_code_path = format!(
         "{}/core/crates/static/domains/ml/husky-datasets-static-defn/src/__rust_code_gen__.rs",
         husky_dir
