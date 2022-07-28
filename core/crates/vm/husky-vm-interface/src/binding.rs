@@ -20,11 +20,12 @@ impl<'eval> __Register<'eval> {
     pub fn snapshot(&self) -> __Register<'eval> {
         unsafe {
             match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.primitive_copy(),
-                __RegisterDataKind::Box => todo!(),
-                __RegisterDataKind::EvalRef => todo!(),
-                __RegisterDataKind::TempRef => todo!(),
-                __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
+                __RegisterDataKind::PrimitiveValue | __RegisterDataKind::EvalRef => {
+                    self.primitive_copy()
+                }
+                __RegisterDataKind::Box
+                | __RegisterDataKind::TempRef
+                | __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
                 __RegisterDataKind::Moved => todo!(),
                 __RegisterDataKind::Undefined => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
