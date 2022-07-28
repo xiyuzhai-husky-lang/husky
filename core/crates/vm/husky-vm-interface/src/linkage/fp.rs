@@ -17,17 +17,17 @@ pub struct __LinkageFp {
 
 #[cfg(feature = "extra")]
 impl __LinkageFp {
-    pub fn eval<'eval>(
-        self,
-        opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        mut arguments: Vec<__Register<'eval>>,
-    ) -> __VMResult<__Register<'eval>> {
-        catch_unwind(move || unsafe { (self.wrapper)(opt_ctx, &mut arguments).into_eval() })
-            .map_err(|e| __VMError {
-                message: format!("error: {e:?} when calling linkage",),
-                variant: __VMErrorVariant::Normal,
-            })
-    }
+    // pub fn eval<'eval>(
+    //     self,
+    //     opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    //     mut arguments: Vec<__Register<'eval>>,
+    // ) -> __VMResult<__Register<'eval>> {
+    //     catch_unwind(move || unsafe { (self.wrapper)(opt_ctx, &mut arguments).into_eval() })
+    //         .map_err(|e| __VMError {
+    //             message: format!("error: {e:?} when calling linkage",),
+    //             variant: __VMErrorVariant::Normal,
+    //         })
+    // }
 
     pub fn call<'eval>(
         self,
@@ -35,13 +35,10 @@ impl __LinkageFp {
         mut arguments: Vec<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         catch_unwind(move || unsafe { (self.wrapper)(opt_ctx, &mut arguments) }).map_err(|e| {
-            todo!()
-            // EvalError::Normal {
-            //     message: format!(
-            //         "error: {e:?} when calling linkage with src = {}",
-            //         self.dev_src
-            //     ),
-            // }
+            __VMError {
+                message: format!("error: {e:?} when calling linkage",),
+                variant: __VMErrorVariant::Normal,
+            }
         })
     }
 }

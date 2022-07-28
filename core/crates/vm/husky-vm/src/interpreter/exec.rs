@@ -286,7 +286,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             __Linkage::Transfer(linkage) => {
                 let arguments = self.stack.drain(nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
-                linkage.eval(self.opt_ctx, arguments)
+                linkage.call(self.opt_ctx, arguments)
             }
             __Linkage::Model(_) => todo!(),
         }

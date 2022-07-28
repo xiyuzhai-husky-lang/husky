@@ -132,7 +132,7 @@ impl<'eval> __Register<'eval> {
             }
             __RegisterDataKind::Box => todo!(),
             __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempRef => panic!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::Undefined => todo!(),

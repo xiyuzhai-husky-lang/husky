@@ -7,7 +7,7 @@ fi
 TEST_DIR=${HUSKY_DIR}/tests
 cd $HUSKY_DIR/core
 cargo check
-cargo run -q \
+cargo run \
     --bin husky-compiler \
     -- \
     $TEST_DIR/compiler
