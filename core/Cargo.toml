@@ -5,7 +5,6 @@ members = [
     "crates/semantics/*",
     "crates/compile/*",
     "crates/eval/*",
-    "crates/vm/husky-vm-interface/husky-vm-interface-code-gen",
     "crates/vm/*",
     "crates/trace/*",
     "crates/apps/*",

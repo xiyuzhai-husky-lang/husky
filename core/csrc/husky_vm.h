@@ -44,8 +44,8 @@ extern const __RegisterVTable __F32_VTABLE;
 extern const __RegisterVTable __F64_VTABLE;
 
 // ad hoc
-extern const __RegisterVTable __BINARY_IMAGE28_VTABLE;
-extern const __RegisterVTable __BINARY_GRID28_VTABLE;
+extern const __RegisterVTable __BINARY_IMAGE_28_VTABLE;
+extern const __RegisterVTable __BINARY_GRID_28_VTABLE;
 extern const __RegisterVTable __DATASET_VTABLE;
 extern const __RegisterVTable __VIRTUAL_VEC_VTABLE;
 extern const __RegisterVTable __VIRTUAL_CYCLIC_SLICE_VTABLE;

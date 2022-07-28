@@ -5,10 +5,6 @@ use husky_visual_syntax::StaticVisualTy;
 use std::{any::TypeId, sync::Arc};
 use vm::*;
 
-extern "C" {
-    pub static __BINARY_IMAGE28_VTABLE: __RegisterVTable;
-}
-
 pub static BINARY_IMAGE_28_BASE_ROUTE: &'static str =
     "domains::ml::datasets::cv::mnist::BinaryImage28";
 
@@ -42,7 +38,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(index_linkage!(
                             BinaryImage28,
-                            __BINARY_IMAGE28_VTABLE,
+                            __BINARY_IMAGE_28_VTABLE,
                             u32,
                             __U32_VTABLE,
                             direct
@@ -70,7 +66,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: BINARY_IMAGE_28_BASE_ROUTE,
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(|_, _values| unsafe {
-            (__Register::new_box(BinaryImage28::default(), &__BINARY_IMAGE28_VTABLE))
+            (__Register::new_box(BinaryImage28::default(), &__BINARY_IMAGE_28_VTABLE))
         }, some BinaryImage28::__call__)
         .into(),
     },

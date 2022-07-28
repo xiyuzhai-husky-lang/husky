@@ -1,5 +1,5 @@
 #include "husky_ml_datasets.h"
-
+    
 const __RegisterVTable __BINARY_IMAGE_28_VTABLE = {
     .typename_str = "BinaryImage28",
     .primitive_value_to_bool = 0,

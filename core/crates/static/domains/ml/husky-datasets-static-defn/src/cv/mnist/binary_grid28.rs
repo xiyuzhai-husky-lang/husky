@@ -6,7 +6,7 @@ use std::any::TypeId;
 use vm::*;
 
 extern "C" {
-    pub static __BINARY_GRID28_VTABLE: __RegisterVTable;
+    pub static __BINARY_GRID_28_VTABLE: __RegisterVTable;
 }
 
 pub static BINARY_GRID_28_BASE_ROUTE: &'static str =
@@ -42,7 +42,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(index_linkage!(
                             BinaryGrid28,
-                            __BINARY_GRID28_VTABLE,
+                            __BINARY_GRID_28_VTABLE,
                             u32,
                             __U32_VTABLE,
                             direct
@@ -70,7 +70,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(|_, _values|unsafe  {
-            (__Register::new_box(BinaryGrid28::default(), &__BINARY_GRID28_VTABLE))
+            (__Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE))
         },
         some BinaryGrid28::__call__)
         .into(),
