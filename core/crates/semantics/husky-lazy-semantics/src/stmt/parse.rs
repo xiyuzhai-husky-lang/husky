@@ -88,6 +88,7 @@ impl<'a> LazyStmtParser<'a> {
                         indent: item.indent,
                         variant,
                         instruction_id: Default::default(),
+                        output_ty,
                     }))
                 }
                 _ => panic!("Unexpected"),

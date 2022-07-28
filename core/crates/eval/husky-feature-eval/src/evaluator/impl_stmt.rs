@@ -9,10 +9,12 @@ use super::FeatureEvaluator;
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn eval_stmt(&mut self, stmt: &FeatureStmt) -> __VMResult<__Register<'eval>> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned()),
+            FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned(todo!())),
             FeatureLazyStmtVariant::Assert { ref condition } => {
                 if self.satisfies(condition)? {
-                    Ok(__Register::new_unreturned())
+                    Ok(__Register::new_unreturned(
+                        self.db.compile_time().vtable(stmt.output_ty),
+                    ))
                 } else {
                     todo!();
                     Err(__VMError::new_normal(format!("assertion failed")))
@@ -33,7 +35,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                         return self.eval_feature_lazy_block(&branch.block);
                     }
                 }
-                Ok(__Register::new_unreturned())
+                Ok(__Register::new_unreturned(todo!()))
             }
         }
     }
@@ -44,7 +46,6 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             .db
             .compile_time()
             .print_short(&value, RootIdentifier::Bool.into());
-        p!(value.data_kind(), value_str, value.to_bool());
         Ok(value.to_bool())
     }
 }

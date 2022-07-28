@@ -11,16 +11,14 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         self.cache(EvalKey::Feature(block.feature), |this: &mut Self| {
             for (i, stmt) in block.stmts.iter().enumerate() {
                 let value = this.eval_stmt(stmt)?;
-                if i > 0 {
-                    todo!();
-                }
                 match value.data_kind() {
                     __RegisterDataKind::Unreturned => (),
                     _ => return Ok(value),
                 }
             }
-            todo!()
-            // Ok(__Register::new_unreturned())
+            Ok(__Register::new_unreturned(
+                self.db.compile_time().vtable(block.ty.route),
+            ))
         })
     }
 

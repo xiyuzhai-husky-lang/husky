@@ -10,11 +10,7 @@ use std::{env, fs::File};
 static FILENAME: &str = &"husky_ml_datasets";
 
 fn main() {
-    cargo_emit::rerun_if_changed!(
-        "build.rs",
-        "../../compile/husky-c-code-repr",
-        "../../compile/husky-rust-code-repr",
-    );
+    println!("cargo:rerun-if-changed=build.rs");
     let husky_dir = "/home/xiyuzhai/Documents/husky";
     let c_code_gen_dir = format!("{}/core/__c_code_gen__", husky_dir);
     gen_ml_datasets_code(&c_code_gen_dir);

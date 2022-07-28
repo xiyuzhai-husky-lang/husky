@@ -47,6 +47,10 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         RootIdentifier,
     )] = &[
         (I32, Eq, I32),
+        (I32, Greater, I32),
+        (I32, Geq, I32),
+        (I32, Less, I32),
+        (I32, Leq, I32),
         (F32, Greater, F32),
         (F32, Geq, F32),
         (F32, Less, F32),
@@ -56,7 +60,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         let lopd_ty_husky_name = lopd_ty_ident.as_str();
         let ropd_ty_husky_name = ropd_ty_ident.as_str();
         let opr_code = opr.code();
-        let rust_trait_method_name = opr.rust_trait_method_name();
+        // let rust_trait_method_name = opr.rust_trait_method_name();
         write!(
             f,
             r#"
@@ -73,7 +77,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         f,
         r#"
         _ => {{
-            panic!("Assign operation {{:?}} is not supported in Husky", (lopd_ty, opr, ropd_ty))
+            panic!("Binary operation {{:?}} is not supported in Husky", (lopd_ty, opr, ropd_ty))
         }}
     }}
 }}
@@ -84,7 +88,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         RootIdentifier,
         std::option::Option<PureBinaryOpr>,
         RootIdentifier,
-    )] = &[(I32, Some(Add), I32)];
+    )] = &[(I32, Some(Add), I32), (I32, Some(Sub), I32)];
     write!(
         f,
         r#"
@@ -106,7 +110,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
         let ropd_ty_husky_name = ropd_ty_ident.as_str();
         if let Some(opr) = opt_opr {
             let opr_code = opr.code();
-            let rust_trait_method_name = opr.rust_trait_method_name();
+            // let rust_trait_method_name = opr.rust_trait_method_name();
             write!(
                 f,
                 r#"
@@ -128,7 +132,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
         f,
         r#"
         _ => {{
-            panic!("{{:?}} is not supported in Husky", (lopd_ty, opt_opr, ropd_ty))
+            panic!("Assign operation {{:?}} is not supported in Husky", (lopd_ty, opt_opr, ropd_ty))
         }}
     }}
 }}

@@ -93,7 +93,7 @@ impl PureBinaryOpr {
             PureBinaryOpr::Power => todo!(),
             PureBinaryOpr::Shl => todo!(),
             PureBinaryOpr::Shr => todo!(),
-            PureBinaryOpr::Sub => todo!(),
+            PureBinaryOpr::Sub => "sub",
         }
     }
 

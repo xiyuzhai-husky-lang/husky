@@ -169,15 +169,6 @@ impl<'eval> __Register<'eval> {
         data: __RegisterData,
         proto: &'eval __RegisterVTable,
     ) -> __Register<'eval> {
-        unsafe {
-            println!(
-                "vtable.typename_str = {:?}, data.as_bool = {}, data.as_i64 = {}, data.as_b64 = {}",
-                std::ffi::CStr::from_ptr(proto.typename_str),
-                data.as_bool,
-                data.as_i64,
-                data.as_b64
-            )
-        };
         __Register {
             data_kind: __RegisterDataKind::PrimitiveValue,
             data,
@@ -265,12 +256,12 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_unreturned() -> __Register<'eval> {
+    pub fn new_unreturned(vtable: &'eval __RegisterVTable) -> __Register<'eval> {
         unsafe {
             __Register {
                 data_kind: __RegisterDataKind::Unreturned,
                 data: __RegisterData { as_void: () },
-                vtable: &__VOID_VTABLE,
+                vtable,
             }
         }
     }
@@ -414,7 +405,7 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn downcast_temp_mut<T>(&mut self) -> &mut T {
         match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => todo!(),
+            __RegisterDataKind::PrimitiveValue => &mut *(&mut self.data as *mut _ as *mut T),
             __RegisterDataKind::Box => todo!(),
             __RegisterDataKind::EvalRef => todo!(),
             __RegisterDataKind::TempRef => todo!(),

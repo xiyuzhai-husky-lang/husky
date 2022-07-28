@@ -20,6 +20,30 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             },
             none
         ),
+        (I32, Greater, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_i32() > arguments[1].downcast_i32()).to_register()
+            },
+            none
+        ),
+        (I32, Geq, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_i32() >= arguments[1].downcast_i32()).to_register()
+            },
+            none
+        ),
+        (I32, Less, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_i32() < arguments[1].downcast_i32()).to_register()
+            },
+            none
+        ),
+        (I32, Leq, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_i32() <= arguments[1].downcast_i32()).to_register()
+            },
+            none
+        ),
         (F32, Greater, F32) => transfer_linkage!(
             |_,arguments| unsafe {
                 (arguments[0].downcast_f32() > arguments[1].downcast_f32()).to_register()
@@ -45,7 +69,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             none
         ),
         _ => {
-            panic!("Assign operation {:?} is not supported in Husky", (lopd_ty, opr, ropd_ty))
+            panic!("Binary operation {:?} is not supported in Husky", (lopd_ty, opr, ropd_ty))
         }
     }
 }
@@ -70,8 +94,16 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
                 },
                 none
             ),
+            (I32, Some(Sub), I32) => transfer_linkage!(
+                |_,arguments| unsafe {
+                    let new_value: i32 = (arguments[0].downcast_i32() - arguments[1].downcast_i32());
+                    *arguments[0].downcast_temp_mut::<i32>() = new_value;
+                    __Register::new_void()
+                },
+                none
+            ),
         _ => {
-            panic!("{:?} is not supported in Husky", (lopd_ty, opt_opr, ropd_ty))
+            panic!("Assign operation {:?} is not supported in Husky", (lopd_ty, opt_opr, ropd_ty))
         }
     }
 }

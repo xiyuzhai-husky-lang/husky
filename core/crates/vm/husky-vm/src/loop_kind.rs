@@ -44,13 +44,7 @@ impl LoopStep {
     }
 
     pub fn update<'temp, 'eval: 'temp>(&self, frame_var: &mut __Register<'eval>) {
-        todo!()
-        // match frame_var {
-        //     __TempValue::Copyable(PrimitiveValueData::I32(ref mut frame_var)) => {
-        //         *frame_var = *frame_var + self.0;
-        //     }
-        //     _ => panic!(),
-        // }
+        *unsafe { frame_var.downcast_temp_mut::<i32>() } += self.0
     }
 }
 
