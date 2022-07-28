@@ -10,7 +10,11 @@ use std::{env, fs::File};
 static FILENAME: &str = &"husky_any";
 
 fn main() {
-    println!("cargo:rerun-if-changed=build.rs");
+    cargo_emit::rerun_if_changed!(
+        "build.rs",
+        "../../compile/husky-c-code-repr",
+        "../../compile/husky-rust-code-repr",
+    );
     let c_code_gen_dir = format!(
         "{}/core/__c_code_gen__",
         std::env::var("HUSKY_DIR").expect("env not set")

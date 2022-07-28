@@ -54,7 +54,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::TrackHistory => self.history.write(
                             ins,
                             HistoryEntry::PureExpr {
-                                result: Ok(value.eval()),
+                                result: Ok(value.snapshot()),
                             },
                         ),
                     }

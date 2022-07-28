@@ -8,15 +8,31 @@ use crate::*;
 
 #[cfg(feature = "extra")]
 impl<'eval> __Register<'eval> {
+    pub unsafe fn unsafe_copy(&self) -> __Register<'eval> {
+        Self {
+            data_kind: self.data_kind,
+            data: self.data,
+            vtable: self.vtable,
+        }
+    }
+
     pub fn snapshot(&self) -> __Register<'eval> {
-        todo!()
+        unsafe {
+            match self.data_kind {
+                __RegisterDataKind::PrimitiveValue => self.unsafe_copy(),
+                __RegisterDataKind::Box => todo!(),
+                __RegisterDataKind::EvalRef => todo!(),
+                __RegisterDataKind::TempRef => todo!(),
+                __RegisterDataKind::TempMut => self.clone_into_box(),
+                __RegisterDataKind::Moved => todo!(),
+                __RegisterDataKind::Undefined => todo!(),
+                __RegisterDataKind::Unreturned => todo!(),
+            }
+        }
     }
 
-    pub fn stack(&self) -> __Register<'eval> {
-        todo!()
-    }
-
-    pub fn eval(&self) -> __Register<'eval> {
+    unsafe fn clone_into_box(&self) -> __Register<'eval> {
+        self.vtable.clone.unwrap()(self.data.as_opt_ptr.unwrap());
         todo!()
     }
 
@@ -60,7 +76,16 @@ impl<'eval> __Register<'eval> {
     }
 
     pub fn bind_eval_ref(&self) -> __Register<'eval> {
-        todo!()
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => todo!(),
+            __RegisterDataKind::Box => todo!(),
+            __RegisterDataKind::EvalRef => unsafe { self.unsafe_copy() },
+            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+        }
     }
 
     pub fn bind_temp_ref(&self) -> __Register<'eval> {

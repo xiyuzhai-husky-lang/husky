@@ -11,7 +11,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         repr: &FeatureRepr,
     ) -> __VMResult<__Register<'eval>> {
         let result = match repr {
-            FeatureRepr::Value { value, .. } => Ok(value.eval()),
+            FeatureRepr::Value { value, .. } => Ok(value.snapshot()),
             FeatureRepr::Expr(expr) => self.eval_expr(expr),
             FeatureRepr::LazyBlock(block) => self.eval_feature_lazy_block(block),
             FeatureRepr::FuncBlock(block) => self.eval_feature_func_block(block),

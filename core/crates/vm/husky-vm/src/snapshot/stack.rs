@@ -21,7 +21,7 @@ impl<'eval> Into<VMStack<'eval>> for &StackSnapshot<'eval> {
         VMStack::new(
             self.values
                 .iter()
-                .map(|value_snapshot| value_snapshot.stack()),
+                .map(|value_snapshot| value_snapshot.clone()),
         )
     }
 }

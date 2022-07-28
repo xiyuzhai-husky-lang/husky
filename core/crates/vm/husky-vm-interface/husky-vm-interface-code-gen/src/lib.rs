@@ -64,12 +64,15 @@ typedef bool (*__primitive_value_to_bool_t)(__RegisterData);
 
 typedef void *(*__primitive_value_to_box_t)(__RegisterData);
 
+typedef void *(*__clone_t)(void *);
+
 typedef void (*__drop_t)(void *);
 
 typedef struct __RegisterVTable {{
     char const *typename_str;
     __primitive_value_to_bool_t primitive_value_to_bool;
     __primitive_value_to_box_t primitive_value_to_box;
+    __clone_t clone;
     __drop_t drop;
 }} __RegisterVTable;
     

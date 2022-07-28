@@ -66,10 +66,7 @@ impl HuskyTraceTime {
                 self.eval_time(),
                 unsafe { evaluator.some_ctx() },
                 instruction_sheet,
-                func_input_values
-                    .into_iter()
-                    .map(|value| value.stack())
-                    .into(),
+                func_input_values.into_iter().map(|value| value).into(),
                 self.vm_config(),
             );
             match routine_defn.variant {
