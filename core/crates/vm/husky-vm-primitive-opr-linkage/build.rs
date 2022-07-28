@@ -10,6 +10,7 @@ use std::{env, fs::File};
 use vm::PureBinaryOpr;
 
 fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
     let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
     let crate_dir = format!("{husky_dir}/core/crates/vm/husky-vm-primitive-opr-linkage/src");
     let binary_mod_path = format!("{crate_dir}/binary.rs");
