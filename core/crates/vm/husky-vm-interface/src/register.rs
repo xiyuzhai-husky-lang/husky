@@ -117,7 +117,7 @@ unsafe impl<'eval> Sync for __Register<'eval> {}
 
 impl<'eval> std::fmt::Debug for __Register<'eval> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        f.write_str("__Register")
     }
 }
 
