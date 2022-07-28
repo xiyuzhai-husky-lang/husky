@@ -5,7 +5,7 @@ use std::sync::Arc;
 
 pub use branch::*;
 use husky_ast::*;
-use husky_entity_route::RangedEntityRoute;
+use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use semantics_error::SemanticResultArc;
 use vm::{InstructionId, InstructionSource};
 
@@ -25,6 +25,7 @@ pub struct LazyStmt {
     pub indent: fold::Indent,
     pub variant: LazyStmtVariant,
     pub instruction_id: InstructionId,
+    pub output_ty: RangedEntityRoute, // return type of the surrounding block
 }
 
 impl InstructionSource for LazyStmt {

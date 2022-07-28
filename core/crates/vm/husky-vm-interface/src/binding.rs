@@ -159,34 +159,10 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    fn debug_it(&self, data: __RegisterData) {
-        println!("debug_it data.as_b64: {}", unsafe { data.as_b64 });
-    }
-
     pub fn to_bool(&self) -> bool {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => {
-                assert_eq!(
-                    self.vtable.primitive_value_to_bool.unwrap() as usize,
-                    __bool_primitive_value_to_bool as usize,
-                );
-                println!("to_bool self.data.as_b64: {}", unsafe { self.data.as_b64 });
-                println!("to_bool self.data.as_b64: {}", unsafe { self.data.as_b64 });
-                self.debug_it(self.data);
-                let a = self.data;
-                println!("a.as_b64: {}", unsafe { a.as_b64 });
-                let result = (self.vtable.primitive_value_to_bool).unwrap()(self.data);
-                // unsafe {
-                //     p!(
-                //         CStr::from_ptr(self.vtable.typename_str),
-                //         self.data.as_bool,
-                //         self.data.as_b64,
-                //         (__RegisterData { as_bool: true }).as_b64,
-                //         result
-                //     );
-                //     println!("{:#b}", self.data.as_b64)
-                // };
-                result
+                (self.vtable.primitive_value_to_bool).unwrap()(self.data)
             }
             __RegisterDataKind::Box
             | __RegisterDataKind::EvalRef
@@ -225,7 +201,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
+            __RegisterDataKind::Unreturned => unsafe { self.verbatim_copy() },
             // __Register::Copyable(value) => panic!(),
             // __Register::Owned(value) => __Register::EvalRef(__EvalRef(&*value.any_ptr())),
             // __Register::EvalRef(value) => __Register::EvalRef(*value),

@@ -38,7 +38,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if !self.eval_opt_arrival_indicator_cached(stmt.opt_arrival_indicator.as_ref())? {
                     return Ok(false);
                 }
-                self.eval_stmt(stmt)? == __Register::new_unreturned()
+                self.eval_stmt(stmt)? == __Register::new_unreturned(todo!())
             }
             FeatureBranchIndicatorVariant::AfterConditionNotMet {
                 ref opt_parent,

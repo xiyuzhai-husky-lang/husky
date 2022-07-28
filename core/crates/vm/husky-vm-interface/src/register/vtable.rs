@@ -13,3 +13,16 @@ pub struct __RegisterVTable {
 
 unsafe impl Sync for __RegisterVTable {}
 unsafe impl Send for __RegisterVTable {}
+
+#[test]
+fn test_size() {
+    assert_eq!(std::mem::size_of::<Option<*const ()>>(), 16);
+    assert_eq!(
+        std::mem::size_of::<Option<std::ptr::NonNull<*const ()>>>(),
+        8
+    );
+    assert_eq!(
+        std::mem::size_of::<Option<fn(data: __RegisterData) -> bool>>(),
+        8
+    )
+}

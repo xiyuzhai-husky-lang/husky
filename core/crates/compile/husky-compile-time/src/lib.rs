@@ -38,7 +38,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use sync_utils::ASafeRwLock;
-use vm::__Register;
+use vm::{__Register, __RegisterDataKind, __RegisterVTable, __I32_VTABLE};
 
 #[salsa::database(
     husky_file::FileQueryStorage,
@@ -106,12 +106,19 @@ impl HuskyCompileTime {
     pub fn main_file(&self) -> FilePtr {
         self.opt_main.unwrap()
     }
-
+    // ad hoc loc
     pub fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {
         match ty.intrinsic() {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
                 RootIdentifier::Void => todo!(),
-                RootIdentifier::I32 => format!("{}", value.downcast_i32()),
+                RootIdentifier::I32 => match value.data_kind() {
+                    __RegisterDataKind::TempRef => todo!(),
+                    __RegisterDataKind::TempMut => todo!(),
+                    __RegisterDataKind::Moved => todo!(),
+                    __RegisterDataKind::Undefined => todo!(),
+                    __RegisterDataKind::Unreturned => "unreturned".to_string(),
+                    _ => format!("{}", value.downcast_i32()),
+                },
                 RootIdentifier::I64 => todo!(),
                 RootIdentifier::F32 => todo!(),
                 RootIdentifier::F64 => todo!(),
@@ -149,6 +156,54 @@ impl HuskyCompileTime {
                 todo!()
             }
             EntityRoutePtr::ThisType => todo!(),
+        }
+    }
+
+    // ad hoc
+    pub fn vtable<'eval>(&self, ty: EntityRoutePtr) -> &'eval __RegisterVTable {
+        unsafe {
+            // ad hoc: how to do with Option<>
+            match ty.intrinsic() {
+                EntityRoutePtr::Root(root_identifier) => match root_identifier {
+                    RootIdentifier::Void => todo!(),
+                    RootIdentifier::I32 => &__I32_VTABLE,
+                    RootIdentifier::I64 => todo!(),
+                    RootIdentifier::F32 => todo!(),
+                    RootIdentifier::F64 => todo!(),
+                    RootIdentifier::B32 => todo!(),
+                    RootIdentifier::B64 => todo!(),
+                    RootIdentifier::Bool => todo!(),
+                    RootIdentifier::True => todo!(),
+                    RootIdentifier::False => todo!(),
+                    RootIdentifier::Vec => todo!(),
+                    RootIdentifier::Tuple => todo!(),
+                    RootIdentifier::Debug => todo!(),
+                    RootIdentifier::Std => todo!(),
+                    RootIdentifier::Core => todo!(),
+                    RootIdentifier::Mor => todo!(),
+                    RootIdentifier::Fp => todo!(),
+                    RootIdentifier::Fn => todo!(),
+                    RootIdentifier::FnMut => todo!(),
+                    RootIdentifier::FnOnce => todo!(),
+                    RootIdentifier::Array => todo!(),
+                    RootIdentifier::Domains => todo!(),
+                    RootIdentifier::DatasetType => todo!(),
+                    RootIdentifier::VisualType => todo!(),
+                    RootIdentifier::TypeType => todo!(),
+                    RootIdentifier::TraitType => todo!(),
+                    RootIdentifier::ModuleType => todo!(),
+                    RootIdentifier::CloneTrait => todo!(),
+                    RootIdentifier::CopyTrait => todo!(),
+                    RootIdentifier::PartialEqTrait => todo!(),
+                    RootIdentifier::EqTrait => todo!(),
+                    RootIdentifier::Ref => todo!(),
+                    RootIdentifier::Option => todo!(),
+                },
+                EntityRoutePtr::Custom(_) => {
+                    todo!()
+                }
+                EntityRoutePtr::ThisType => todo!(),
+            }
         }
     }
 }
