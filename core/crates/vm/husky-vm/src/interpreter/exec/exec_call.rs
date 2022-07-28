@@ -11,28 +11,13 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     ) -> __VMResult<()> {
         let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
         for argument in arguments.iter() {
-            todo!()
-            // match argument {
-            //     __TempValue::Moved => panic!(),
-            //     _ => (),
-            // }
+            match argument.data_kind() {
+                __RegisterDataKind::Moved | __RegisterDataKind::Unreturned => panic!(),
+                __RegisterDataKind::Undefined => todo!(),
+                _ => (),
+            }
         }
         let output = f.eval(self.opt_ctx, arguments)?;
-        msg_once!("ugly");
-        if output_ty.kind
-            != (EntityRouteKind::Root {
-                ident: RootIdentifier::DatasetType,
-            })
-        {
-            should_eq!(
-                output.ty(),
-                output_ty,
-                r#"
-    output:
-        {output:?}
-"#
-            );
-        }
         self.stack.push(output.into());
         Ok(())
     }

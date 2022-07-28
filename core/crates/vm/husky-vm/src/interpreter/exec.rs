@@ -126,17 +126,14 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     control
                 }
-                InstructionVariant::OprOpn { opn, .. } => {
-                    // sheet.variable_stack.compare_with_vm_stack(&self.stack);
-                    self.exec_opr_opn(opn, mode, ins).into()
-                }
                 InstructionVariant::CallInterpreted {
-                    routine_uid: routine,
+                    routine_uid,
                     nargs, // including this
                     has_this,
                     output_ty,
                 } => {
-                    let instruction_sheet = self.db.entity_opt_instruction_sheet_by_uid(routine);
+                    let instruction_sheet =
+                        self.db.entity_opt_instruction_sheet_by_uid(routine_uid);
                     let result =
                         self.call_interpreted(&instruction_sheet.unwrap(), nargs, has_this);
                     match mode {
@@ -157,7 +154,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
                             let output = self.stack.eval_top();
-                            should_eq!(output.ty(), ty);
                             self.history
                                 .write(ins, HistoryEntry::PureExpr { result: Ok(output) })
                         }
@@ -166,14 +162,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 }
                 InstructionVariant::Return { output_ty } => {
                     let return_value = self.stack.pop().into_eval();
-                    msg_once!("ugly");
-                    if output_ty.kind
-                        != (EntityRouteKind::Root {
-                            ident: RootIdentifier::DatasetType,
-                        })
-                    {
-                        should_eq!(output_ty, return_value.ty());
-                    }
                     VMControl::Return(return_value)
                 }
                 InstructionVariant::Loop {

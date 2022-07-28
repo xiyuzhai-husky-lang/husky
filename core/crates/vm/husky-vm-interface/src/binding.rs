@@ -39,7 +39,20 @@ impl<'eval> __Register<'eval> {
     // }
 
     pub fn bind_copy(&self) -> __Register<'eval> {
-        todo!()
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => __Register {
+                data_kind: self.data_kind,
+                data: self.data,
+                vtable: self.vtable,
+            },
+            __RegisterDataKind::Box => todo!(),
+            __RegisterDataKind::EvalRef => todo!(),
+            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+        }
     }
 
     pub fn bind_move(&mut self) -> __Register<'eval> {

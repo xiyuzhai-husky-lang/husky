@@ -3,6 +3,9 @@ use entity_kind::TyKind;
 use husky_ast::FieldAstKind;
 use husky_linkage_table::ResolveLinkage;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_value;
+use husky_vm_primitive_opr_linkage::{
+    resolve_primitive_assign_binary_opr_linkage, resolve_primitive_pure_binary_opr_linkage,
+};
 use infer_decl::TyDecl;
 use map_collect::MapCollect;
 use vm::{
@@ -147,47 +150,53 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_binary_opn(*opr, this_ty, opds, expr)
             }
             EagerOpnVariant::Prefix { opr, this_ty } => {
-                let instruction = Instruction::new(
-                    InstructionVariant::OprOpn {
-                        opn: OprOpn::Prefix(*opr),
-                        this_ty: *this_ty,
-                        this_range: opds[0].range,
-                    },
-                    expr.clone(),
-                );
-                self.push_instruction(instruction)
+                todo!()
+                // let instruction = Instruction::new(
+                //     InstructionVariant::OprOpn {
+                //         opn: OprOpn::Prefix(*opr),
+                //         this_ty: *this_ty,
+                //     },
+                //     expr.clone(),
+                // );
+                // self.push_instruction(instruction)
             }
             EagerOpnVariant::Suffix { opr, this_ty } => {
                 let ins_kind = match opr {
-                    SuffixOpr::Incr => InstructionVariant::OprOpn {
-                        opn: OprOpn::Incr,
-                        this_ty: *this_ty,
-                        this_range: opds[0].range,
-                    },
-                    SuffixOpr::Decr => InstructionVariant::OprOpn {
-                        opn: OprOpn::Decr,
-                        this_ty: *this_ty,
-                        this_range: opds[0].range,
-                    },
-                    SuffixOpr::AsTy(ty) => InstructionVariant::OprOpn {
-                        opn: match ty.route {
-                            EntityRoutePtr::Root(ty_ident) => match ty_ident {
-                                RootIdentifier::Void => todo!(),
-                                RootIdentifier::Bool => todo!(),
-                                RootIdentifier::B32 => OprOpn::Cast(CastOpn::AsB32),
-                                RootIdentifier::B64 => OprOpn::Cast(CastOpn::AsB64),
-                                RootIdentifier::I32 => OprOpn::Cast(CastOpn::AsI32),
-                                RootIdentifier::I64 => OprOpn::Cast(CastOpn::AsI64),
-                                RootIdentifier::F32 => OprOpn::Cast(CastOpn::AsF32),
-                                RootIdentifier::F64 => OprOpn::Cast(CastOpn::AsF64),
-                                _ => todo!(),
-                            },
-                            EntityRoutePtr::Custom(_) => todo!(),
-                            EntityRoutePtr::ThisType => todo!(),
-                        },
-                        this_ty: *this_ty,
-                        this_range: opds[0].range,
-                    },
+                    SuffixOpr::Incr => {
+                        todo!()
+                        //     InstructionVariant::OprOpn {
+                        //     opn: OprOpn::Incr,
+                        //     this_ty: *this_ty,
+                        // }
+                    }
+                    SuffixOpr::Decr => {
+                        todo!()
+                        //     InstructionVariant::OprOpn {
+                        //     opn: OprOpn::Decr,
+                        //     this_ty: *this_ty,
+                        // }
+                    }
+                    SuffixOpr::AsTy(ty) => {
+                        todo!()
+                        //     InstructionVariant::OprOpn {
+                        //     opn: match ty.route {
+                        //         EntityRoutePtr::Root(ty_ident) => match ty_ident {
+                        //             RootIdentifier::Void => todo!(),
+                        //             RootIdentifier::Bool => todo!(),
+                        //             RootIdentifier::B32 => OprOpn::Cast(CastOpn::AsB32),
+                        //             RootIdentifier::B64 => OprOpn::Cast(CastOpn::AsB64),
+                        //             RootIdentifier::I32 => OprOpn::Cast(CastOpn::AsI32),
+                        //             RootIdentifier::I64 => OprOpn::Cast(CastOpn::AsI64),
+                        //             RootIdentifier::F32 => OprOpn::Cast(CastOpn::AsF32),
+                        //             RootIdentifier::F64 => OprOpn::Cast(CastOpn::AsF64),
+                        //             _ => todo!(),
+                        //         },
+                        //         EntityRoutePtr::Custom(_) => todo!(),
+                        //         EntityRoutePtr::ThisType => todo!(),
+                        //     },
+                        //     this_ty: *this_ty,
+                        // }
+                    }
                 };
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)
@@ -377,15 +386,27 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) {
         match opds[0].ty() {
             EntityRoutePtr::Root(_) => {
-                let ins_kind = InstructionVariant::OprOpn {
-                    opn: match opr {
-                        BinaryOpr::Pure(pure_binary_opr) => OprOpn::RootPureBinary(pure_binary_opr),
+                let ins_kind = InstructionVariant::CallRoutine {
+                    linkage_fp: match opr {
+                        BinaryOpr::Pure(pure_binary_opr) => {
+                            resolve_primitive_pure_binary_opr_linkage(
+                                opds[0].ty().root(),
+                                pure_binary_opr,
+                                opds[1].ty().root(),
+                            )
+                            .transfer()
+                        }
                         BinaryOpr::Assign(opt_binary_opr) => {
-                            OprOpn::RootBinaryAssign(opt_binary_opr)
+                            resolve_primitive_assign_binary_opr_linkage(
+                                opds[0].ty().root(),
+                                opt_binary_opr,
+                                opds[1].ty().root(),
+                            )
+                            .transfer()
                         }
                     },
-                    this_ty: *this_ty,
-                    this_range: opds[0].range,
+                    nargs: 2,
+                    output_ty: expr.ty(),
                 };
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)
