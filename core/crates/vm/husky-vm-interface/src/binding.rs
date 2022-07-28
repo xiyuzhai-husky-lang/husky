@@ -1,5 +1,6 @@
 use std::ffi::CStr;
 
+use husky_print_utils::p;
 #[cfg(feature = "binding")]
 use husky_vm_binding::Binding;
 
@@ -158,10 +159,24 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn to_bool(self) -> bool {
+    pub fn to_bool(&self) -> bool {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => {
-                (self.vtable.primitive_value_to_bool).unwrap()(self.data)
+                assert_eq!(
+                    self.vtable.primitive_value_to_bool.unwrap() as usize,
+                    __bool_primitive_value_to_bool as usize,
+                );
+                let result = (self.vtable.primitive_value_to_bool).unwrap()(self.data);
+                unsafe {
+                    p!(
+                        CStr::from_ptr(self.vtable.typename_str),
+                        self.data.as_bool,
+                        self.data.as_b64,
+                        (__RegisterData { as_bool: true }).as_b64,
+                        result
+                    )
+                };
+                result
             }
             __RegisterDataKind::Box
             | __RegisterDataKind::EvalRef

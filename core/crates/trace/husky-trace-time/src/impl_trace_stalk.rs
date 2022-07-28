@@ -1,6 +1,7 @@
 use crate::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_text::HuskyText;
+use husky_word::RootIdentifier;
 use vm::{ControlSnapshot, History, VMControl};
 
 impl HuskyTraceTime {
@@ -18,7 +19,7 @@ impl HuskyTraceTime {
     fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalkData {
         let trace: &Trace = self.trace(trace_id);
         match trace.variant {
-            TraceVariant::Main(ref block) => self.trace_stalk_from_value(
+            TraceVariant::Main(ref block) => self.trace_stalk_from_result(
                 self.eval_time().eval_feature_repr(block, sample_id),
                 block.ty(),
             ),
@@ -95,20 +96,42 @@ impl HuskyTraceTime {
     }
 
     fn trace_stalk_from_expr(&self, expr: &FeatureExpr, sample_id: SampleId) -> TraceStalkData {
-        self.trace_stalk_from_value(
+        self.trace_stalk_from_result(
             self.eval_time().eval_feature_expr(expr, sample_id),
             expr.expr.ty(),
         )
     }
 
-    fn trace_stalk_from_value(
+    fn trace_stalk_from_result(
         &self,
-        value: __VMResult<__Register<'static>>,
+        result: __VMResult<__Register<'static>>,
         ty: EntityRoutePtr,
     ) -> TraceStalkData {
-        let value_token = todo!();
         TraceStalkData {
-            extra_tokens: vec![fade!(" = "), value_token],
+            extra_tokens: vec![fade!(" = "), self.trace_token_from_result(result, ty)],
+        }
+    }
+
+    pub(crate) fn trace_token_from_result(
+        &self,
+        result: __VMResult<__Register<'static>>,
+        ty: EntityRoutePtr,
+    ) -> TraceTokenData {
+        match result {
+            Ok(value) => self.trace_token_from_value(value, ty),
+            Err(e) => e.into(),
+        }
+    }
+
+    pub(crate) fn trace_token_from_value(
+        &self,
+        value: __Register<'static>,
+        ty: EntityRoutePtr,
+    ) -> TraceTokenData {
+        TraceTokenData {
+            kind: TraceTokenKind::Fade,
+            value: self.compile_time().print_short(&value, ty),
+            opt_associated_trace_id: None,
         }
     }
 }

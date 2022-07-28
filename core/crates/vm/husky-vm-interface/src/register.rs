@@ -99,6 +99,7 @@ impl<'eval> std::fmt::Debug for __Register<'eval> {
     }
 }
 
+#[cfg(feature = "extra")]
 impl<'eval> Clone for __Register<'eval> {
     fn clone(&self) -> Self {
         unsafe {
@@ -142,13 +143,10 @@ impl<'eval> __Register<'eval> {
         self.data
     }
 
-    pub unsafe fn new_primitive_value<'a, T: 'a>(
+    pub unsafe fn new_primitive_value(
         data: __RegisterData,
         proto: &'eval __RegisterVTable,
-    ) -> __Register<'eval>
-    where
-        T: Copy,
-    {
+    ) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::PrimitiveValue,
             data,

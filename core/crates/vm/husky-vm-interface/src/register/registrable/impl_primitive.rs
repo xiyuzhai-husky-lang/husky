@@ -10,7 +10,7 @@ impl __StaticInfo for i32 {
 
 impl __Registrable for i32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(__RegisterData { as_i32: self }, &__I32_VTABLE)
+        __Register::new_primitive_value(__RegisterData { as_i32: self }, &__I32_VTABLE)
     }
 
     fn __copy__(&self) -> Self {
@@ -28,7 +28,7 @@ impl __StaticInfo for i64 {
 
 impl __Registrable for i64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(__RegisterData { as_i64: self }, &__I64_VTABLE)
+        __Register::new_primitive_value(__RegisterData { as_i64: self }, &__I64_VTABLE)
     }
 
     fn __copy__(&self) -> Self {
@@ -45,7 +45,7 @@ impl __StaticInfo for () {
 
 impl __Registrable for () {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(__RegisterData { as_void: () }, &__VOID_VTABLE)
+        __Register::new_primitive_value(__RegisterData { as_void: () }, &__VOID_VTABLE)
     }
 
     fn __copy__(&self) -> Self {
@@ -62,7 +62,7 @@ impl __StaticInfo for f32 {
 
 impl __Registrable for f32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(__RegisterData { as_f32: self }, &__F32_VTABLE)
+        __Register::new_primitive_value(__RegisterData { as_f32: self }, &__F32_VTABLE)
     }
 
     fn __copy__(&self) -> Self {
@@ -79,7 +79,7 @@ impl __StaticInfo for f64 {
 
 impl __Registrable for f64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(__RegisterData { as_f64: self }, &__F64_VTABLE)
+        __Register::new_primitive_value(__RegisterData { as_f64: self }, &__F64_VTABLE)
     }
 
     fn __copy__(&self) -> Self {
@@ -96,7 +96,7 @@ impl __StaticInfo for u32 {
 
 impl __Registrable for u32 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(__RegisterData { as_b32: self }, &__B32_VTABLE)
+        __Register::new_primitive_value(__RegisterData { as_b32: self }, &__B32_VTABLE)
     }
 
     fn __copy__(&self) -> Self {
@@ -113,7 +113,7 @@ impl __StaticInfo for u64 {
 
 impl __Registrable for u64 {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(__RegisterData { as_b64: self }, &__B64_VTABLE)
+        __Register::new_primitive_value(__RegisterData { as_b64: self }, &__B64_VTABLE)
     }
 
     fn __copy__(&self) -> Self {
@@ -130,7 +130,7 @@ impl __StaticInfo for bool {
 
 impl __Registrable for bool {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        __Register::new_primitive_value::<Self>(__RegisterData { as_bool: self }, &__BOOL_VTABLE)
+        __Register::new_primitive_value(__RegisterData { as_bool: self }, &__BOOL_VTABLE)
     }
 
     fn __copy__(&self) -> Self {

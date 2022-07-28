@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+use husky_word::RootIdentifier;
 use vm::{EvalError, __Register, __VMError, __VMResult};
 
 use crate::*;
@@ -12,6 +14,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 if self.satisfies(condition)? {
                     Ok(__Register::new_unreturned())
                 } else {
+                    todo!();
                     Err(__VMError::new_normal(format!("assertion failed")))
                 }
             }
@@ -36,6 +39,12 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     }
 
     fn satisfies(&mut self, condition: &FeatureExpr) -> __VMResult<bool> {
-        Ok(self.eval_expr(condition)?.to_bool())
+        let value = self.eval_expr(condition)?;
+        let value_str = self
+            .db
+            .compile_time()
+            .print_short(&value, RootIdentifier::Bool.into());
+        p!(value_str, value.to_bool());
+        Ok(value.to_bool())
     }
 }

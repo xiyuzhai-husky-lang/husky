@@ -6,6 +6,7 @@ use crate::*;
 pub enum HistoryEntry<'eval> {
     PureExpr {
         result: __VMResult<__Register<'eval>>,
+        ty: EntityRoutePtr,
     },
     Exec {
         mutations: Vec<MutationData<'eval>>,
@@ -37,7 +38,7 @@ pub enum HistoryEntry<'eval> {
 impl<'eval> HistoryEntry<'eval> {
     pub fn result(&self) -> __VMResult<__Register<'eval>> {
         match self {
-            HistoryEntry::PureExpr { ref result } => result.clone(),
+            HistoryEntry::PureExpr { ref result, ty } => result.clone(),
             HistoryEntry::Exec { mutations } => {
                 if mutations.len() != 1 {
                     todo!()

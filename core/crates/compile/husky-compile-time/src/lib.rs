@@ -20,6 +20,7 @@ pub use husky_rust_code_gen::RustCodeGenQueryGroup;
 pub use husky_token::TokenQueryGroup;
 pub use husky_token::TokenSalsaQueryGroup;
 pub use husky_word::InternWord;
+use husky_word::RootIdentifier;
 pub use infer_contract::*;
 pub use infer_decl::*;
 pub use infer_total::*;
@@ -37,6 +38,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use sync_utils::ASafeRwLock;
+use vm::__Register;
 
 #[salsa::database(
     husky_file::FileQueryStorage,
@@ -103,6 +105,51 @@ impl HuskyCompileTime {
 
     pub fn main_file(&self) -> FilePtr {
         self.opt_main.unwrap()
+    }
+
+    pub fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {
+        match ty.intrinsic() {
+            EntityRoutePtr::Root(root_identifier) => match root_identifier {
+                RootIdentifier::Void => todo!(),
+                RootIdentifier::I32 => format!("{}", value.downcast_i32()),
+                RootIdentifier::I64 => todo!(),
+                RootIdentifier::F32 => todo!(),
+                RootIdentifier::F64 => todo!(),
+                RootIdentifier::B32 => todo!(),
+                RootIdentifier::B64 => todo!(),
+                RootIdentifier::Bool => format!("{}", value.downcast_bool()),
+                RootIdentifier::True => todo!(),
+                RootIdentifier::False => todo!(),
+                RootIdentifier::Vec => todo!(),
+                RootIdentifier::Tuple => todo!(),
+                RootIdentifier::Debug => todo!(),
+                RootIdentifier::Std => todo!(),
+                RootIdentifier::Core => todo!(),
+                RootIdentifier::Mor => todo!(),
+                RootIdentifier::Fp => todo!(),
+                RootIdentifier::Fn => todo!(),
+                RootIdentifier::FnMut => todo!(),
+                RootIdentifier::FnOnce => todo!(),
+                RootIdentifier::Array => todo!(),
+                RootIdentifier::Domains => todo!(),
+                RootIdentifier::DatasetType => todo!(),
+                RootIdentifier::VisualType => todo!(),
+                RootIdentifier::TypeType => todo!(),
+                RootIdentifier::TraitType => todo!(),
+                RootIdentifier::ModuleType => todo!(),
+                RootIdentifier::CloneTrait => todo!(),
+                RootIdentifier::CopyTrait => todo!(),
+                RootIdentifier::PartialEqTrait => todo!(),
+                RootIdentifier::EqTrait => todo!(),
+                RootIdentifier::Ref => todo!(),
+                RootIdentifier::Option => todo!(),
+            },
+            EntityRoutePtr::Custom(_) => {
+                p!(ty);
+                todo!()
+            }
+            EntityRoutePtr::ThisType => todo!(),
+        }
     }
 }
 

@@ -103,18 +103,18 @@ macro_rules! keyword {
     }};
 }
 
-#[macro_export]
-macro_rules! label {
-    ($value:expr, $associated:expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Label,
-            value: $value.into(),
-            spaces_before: None,
-            associated: $associated,
-            associated: vec![],
-        }
-    }};
-}
+// #[macro_export]
+// macro_rules! label {
+//     ($value:expr, $associated:expr) => {{
+//         TraceTokenData {
+//             kind: TraceTokenKind::Label,
+//             value: $value.into(),
+//             spaces_before: None,
+//             associated: $associated,
+//             associated: vec![],
+//         }
+//     }};
+// }
 
 #[macro_export]
 macro_rules! ident {

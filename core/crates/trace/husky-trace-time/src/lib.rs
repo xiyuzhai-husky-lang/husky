@@ -82,6 +82,10 @@ impl HuskyTraceTime {
         &self.eval_time_singleton
     }
 
+    pub fn compile_time(&self) -> &HuskyCompileTime {
+        self.eval_time_singleton.compile_time()
+    }
+
     pub fn all_trace_nodes(&self) -> Vec<TraceNodeData> {
         self.trace_nodes
             .iter()
