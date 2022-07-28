@@ -101,19 +101,17 @@ impl<'eval> std::fmt::Debug for __Register<'eval> {
 
 impl<'eval> Clone for __Register<'eval> {
     fn clone(&self) -> Self {
-        Self {
-            data_kind: self.data_kind,
-            data: match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.data,
-                __RegisterDataKind::Box => todo!(),
-                __RegisterDataKind::EvalRef => self.data,
-                __RegisterDataKind::TempRef => self.data,
+        unsafe {
+            match self.data_kind {
+                __RegisterDataKind::PrimitiveValue
+                | __RegisterDataKind::EvalRef
+                | __RegisterDataKind::TempRef => self.verbatim_copy(),
+                __RegisterDataKind::Box => self.clone_ptr_into_box(),
                 __RegisterDataKind::TempMut => panic!(),
                 __RegisterDataKind::Moved => panic!(),
                 __RegisterDataKind::Undefined => todo!(),
                 __RegisterDataKind::Unreturned => panic!(),
-            },
-            vtable: self.vtable,
+            }
         }
     }
 }
@@ -143,10 +141,6 @@ impl<'eval> __Register<'eval> {
     pub fn data(&self) -> __RegisterData {
         self.data
     }
-
-    // pub fn proto(&self) -> &'eval __RegisterVTable {
-    //     self.proto
-    // }
 
     pub unsafe fn new_primitive_value<'a, T: 'a>(
         data: __RegisterData,
