@@ -55,12 +55,15 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             ins,
                             HistoryEntry::PureExpr {
                                 result: Ok(value.snapshot()),
+                                ty,
                             },
                         ),
                     }
                     VMControl::None
                 }
-                InstructionVariant::PushEntityFp { opt_linkage, .. } => {
+                InstructionVariant::PushEntityFp {
+                    opt_linkage, ty, ..
+                } => {
                     self.stack.push(
                         todo!(), // __TempValue::owned_eval(__CallFormValue { opt_linkage })
                     );
@@ -69,12 +72,17 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             ins,
                             HistoryEntry::PureExpr {
                                 result: Ok(self.stack.eval_top()),
+                                ty,
                             },
                         )
                     }
                     VMControl::None
                 }
-                InstructionVariant::PushPrimitiveValue { value, explicit } => {
+                InstructionVariant::PushPrimitiveValue {
+                    value,
+                    ty,
+                    explicit,
+                } => {
                     self.stack.push(unsafe { value.to_register() });
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -84,6 +92,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                     ins,
                                     HistoryEntry::PureExpr {
                                         result: Ok(self.stack.eval_top()),
+                                        ty,
                                     },
                                 )
                             }
@@ -101,6 +110,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             ins,
                             HistoryEntry::PureExpr {
                                 result: Ok(self.stack.eval_top()),
+                                ty: entity_kind.route.parent(),
                             },
                         ),
                     }
@@ -121,6 +131,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                     VMControl::Err(ref e) => Err(e.clone().into()),
                                     _ => Ok(self.stack.eval_top()),
                                 },
+                                ty: output_ty,
                             },
                         ),
                     }
@@ -143,7 +154,13 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                 Ok(()) => Ok(self.stack.eval_top()),
                                 Err(ref e) => Err(e.clone()),
                             };
-                            self.history.write(ins, HistoryEntry::PureExpr { result })
+                            self.history.write(
+                                ins,
+                                HistoryEntry::PureExpr {
+                                    result,
+                                    ty: output_ty,
+                                },
+                            );
                         }
                     };
                     result.into()
@@ -154,8 +171,13 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
                             let output = self.stack.eval_top();
-                            self.history
-                                .write(ins, HistoryEntry::PureExpr { result: Ok(output) })
+                            self.history.write(
+                                ins,
+                                HistoryEntry::PureExpr {
+                                    result: Ok(output),
+                                    ty,
+                                },
+                            )
                         }
                     }
                     VMControl::None
@@ -203,6 +225,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::FieldAccessInterpreted {
                     field_idx,
                     field_binding,
+                    field_ty,
                 } => {
                     let this = self.stack.pop();
                     self.stack.push(todo!());
@@ -213,6 +236,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             ins,
                             HistoryEntry::PureExpr {
                                 result: Ok(self.stack.eval_top()),
+                                ty: field_ty,
                             },
                         ),
                     };

@@ -33,7 +33,8 @@ impl<'a> TraceTokenBuilder<'a> {
                             BinaryOpr::Assign(_) => {
                                 self.push(fade!(" = "));
                                 if let Some(register_result) = history.register_result(expr) {
-                                    self.push(register_result.into())
+                                    todo!()
+                                    // self.push(register_result.into())
                                 } else {
                                     todo!()
                                 }

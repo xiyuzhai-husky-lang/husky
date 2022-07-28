@@ -37,6 +37,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 InstructionVariant::PushPrimitiveValue {
                     value: convert_primitive_literal_to_value(value, expr.ty()),
                     explicit: true,
+                    ty: expr.ty(),
                 },
                 expr.clone(),
             )),
@@ -95,6 +96,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                     .try_into()
                                     .unwrap(),
                                 field_binding,
+                                field_ty: expr.ty(),
                             }
                         },
                         expr.clone(),
@@ -129,6 +131,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 InstructionVariant::PushEntityFp {
                     opt_linkage: self.db.compile_time().routine_linkage(route),
                     opt_instruction_sheet: self.db.entity_instruction_sheet(route),
+                    ty: expr.ty(),
                 },
                 expr.clone(),
             )),
@@ -253,6 +256,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 .try_into()
                                 .unwrap(),
                             field_binding: *field_binding,
+                            field_ty: expr.ty(),
                         }
                     },
                     expr.clone(),

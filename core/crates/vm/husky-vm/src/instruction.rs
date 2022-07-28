@@ -73,12 +73,14 @@ pub enum InstructionVariant {
     },
     PushPrimitiveValue {
         value: PrimitiveValueData,
+        ty: EntityRoutePtr,
         explicit: bool,
     },
     PushEnumKindLiteral(EnumKindValue),
     FieldAccessInterpreted {
         field_idx: u8,
         field_binding: Binding,
+        field_ty: EntityRoutePtr,
     },
     CallRoutine {
         linkage_fp: __LinkageFp,
@@ -116,6 +118,7 @@ pub enum InstructionVariant {
     },
     PushEntityFp {
         opt_linkage: Option<__Linkage>,
+        ty: EntityRoutePtr,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
 }

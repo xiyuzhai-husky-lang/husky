@@ -174,6 +174,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 InstructionVariant::PushPrimitiveValue {
                     value: 0i32.into(),
                     explicit: false,
+                    ty: RootIdentifier::I32.into(),
                 },
                 loop_stmt.clone(),
             ))
