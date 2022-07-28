@@ -12,7 +12,8 @@ husky-vm-binding = { path = "../husky-vm-binding", optional = true }
 [features]
 serde_support = ["dep:serde"]
 binding = ["dep:husky-vm-binding"]
-extra = ["binding"]
+vtype = []
+extra = ["binding", "vtype"]
 check = []
 
 [build-dependencies]

@@ -6,10 +6,6 @@ use serde::Serialize;
 
 use super::*;
 
-extern "C" {
-    pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterVTable;
-}
-
 #[derive(Debug, Clone, PartialEq)]
 pub struct VirtualCyclicSlice<'eval> {
     pub data: CyclicSlice<'eval, __Register<'eval>>,
