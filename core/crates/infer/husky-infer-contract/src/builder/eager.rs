@@ -91,7 +91,7 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_eager_pattern(&mut self, pattern: &RawCasePattern) {
         match pattern.variant {
-            RawCasePatternVariant::PrimitiveValue(_) => (),
+            RawCasePatternVariant::PrimitiveLiteral(_) => (),
             RawCasePatternVariant::OneOf { .. } => (),
             RawCasePatternVariant::EnumLiteral(_) => (),
         }

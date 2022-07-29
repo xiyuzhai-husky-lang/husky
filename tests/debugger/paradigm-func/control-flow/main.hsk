@@ -23,6 +23,8 @@ func match_in_func_function() -> i32:
     match 1b32:
         case 2b32:
             1
+        case 1 | 0:
+            1
         default:
             3
 

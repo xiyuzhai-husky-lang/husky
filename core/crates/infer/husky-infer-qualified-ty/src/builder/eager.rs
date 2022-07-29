@@ -181,7 +181,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn infer_eager_case_pattern(&mut self, pattern: &RawCasePattern) {
         match pattern.variant {
-            RawCasePatternVariant::PrimitiveValue(_) => (),
+            RawCasePatternVariant::PrimitiveLiteral(_) => (),
             RawCasePatternVariant::OneOf {
                 subpatterns: ref patterns,
             } => (),

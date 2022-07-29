@@ -173,7 +173,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         // in pattern matching, we don't use expectation.intrinsic
         // because there is no implicit conversion
         let ty: EntityRoutePtr = match pattern.variant {
-            RawCasePatternVariant::PrimitiveValue(value) => match value {
+            RawCasePatternVariant::PrimitiveLiteral(value) => match value {
                 PrimitiveLiteralData::Void => todo!(),
                 PrimitiveLiteralData::Integer(_) => match expectation {
                     EntityRoutePtr::Root(
