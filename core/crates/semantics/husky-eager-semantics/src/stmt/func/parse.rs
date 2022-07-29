@@ -182,6 +182,10 @@ impl<'a> EagerParser<'a> {
         &mut self,
         raw_pattern: &RawCasePattern,
     ) -> SemanticResult<FuncCasePattern> {
-        todo!()
+        match raw_pattern.variant {
+            RawCasePatternVariant::PrimitiveValue(_) => todo!(),
+            RawCasePatternVariant::OneOf { ref subpatterns } => todo!(),
+            RawCasePatternVariant::EnumLiteral(_) => todo!(),
+        }
     }
 }

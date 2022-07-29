@@ -209,7 +209,7 @@ pub(crate) fn entity_call_form_decl(
                     let ty_decl = db.ty_decl(route)?;
                     Ok(ty_decl.opt_type_call.clone().expect("todo"))
                 }
-                _ => panic!(),
+                _ => Err(query_error!(format!("this entity can not be called"))),
             }
         }
         EntitySource::Module { file: file_id } => todo!(),

@@ -1,9 +1,10 @@
-use std::iter::zip;
+use std::{iter::zip, sync::Arc};
 
 use husky_ast::*;
 
-use husky_text::RangedCustomIdentifier;
 use husky_text::TextRange;
+use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
+use infer_decl::CallFormDecl;
 use infer_error::*;
 use vm::*;
 
@@ -259,7 +260,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: LazyContract,
     ) -> InferResult<()> {
         let call_expr = &self.arena[all_opds.start];
-        let call_form_decl = self.function_call_form_decl(all_opds.start).unwrap();
+        let call_form_decl = self.function_call_form_decl(all_opds.start)?;
         self.infer_lazy_expr(all_opds.start, LazyContract::Pure);
         for (argument, parameter) in zip(
             ((all_opds.start + 1)..all_opds.end).into_iter(),

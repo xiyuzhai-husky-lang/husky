@@ -113,7 +113,5 @@ fn try_gen_vm_interface_csrc() {
     std::env::set_var("RUST_BACKTRACE", "0");
     // this only works on my comuter
     std::env::set_var("HUSKY_DIR", "/home/xiyuzhai/Documents/husky");
-    gen_vm_interface_code(
-        "/home/xiyuzhai/Documents/husky/core/crates/vm/husky-vm-interface/__c_code_gen_test__",
-    )
+    gen_vm_interface_code("/home/xiyuzhai/Documents/husky/core/__c_code_gen_test__")
 }
