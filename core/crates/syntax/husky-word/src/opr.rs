@@ -7,6 +7,7 @@ pub enum WordOpr {
     And,
     Or,
     As,
+    Be,
 }
 
 impl From<WordOpr> for WordPtr {
@@ -29,6 +30,7 @@ impl WordOpr {
             WordOpr::And => "and",
             WordOpr::Or => "or",
             WordOpr::As => "as",
+            WordOpr::Be => "be",
         }
     }
 }
