@@ -1,6 +1,9 @@
 use crate::*;
 use avec::Avec;
-use vm::{InitKind, Instruction, InstructionVariant, VMConditionBranch, VMPatternBranch};
+use husky_primitive_literal_semantics::convert_primitive_literal_to_value;
+use vm::{
+    InitKind, Instruction, InstructionVariant, VMCasePattern, VMConditionBranch, VMPatternBranch,
+};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
@@ -125,7 +128,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 .map(|branch| {
                     Arc::new(match branch.variant {
                         FuncPatternBranchVariant::Case { ref pattern } => VMPatternBranch {
-                            opt_pattern: Some(todo!()),
+                            opt_pattern: Some(self.gen_func_case_pattern(pattern)),
                             body: {
                                 let mut body_sheet = self.subsheet_builder();
                                 body_sheet.compile_func_stmts(&branch.stmts);
@@ -144,5 +147,20 @@ impl<'a> InstructionSheetBuilder<'a> {
                 })
                 .collect(),
         )
+    }
+
+    fn gen_func_case_pattern(&self, pattern: &FuncCasePattern) -> VMCasePattern {
+        match pattern.variant {
+            FuncCasePatternVariant::PrimitiveLiteral(data) => {
+                VMCasePattern::Primitive(convert_primitive_literal_to_value(data, pattern.ty))
+            }
+            FuncCasePatternVariant::OneOf { ref subpatterns } => VMCasePattern::OneOf(
+                subpatterns
+                    .iter()
+                    .map(|subpattern| self.gen_func_case_pattern(subpattern))
+                    .collect(),
+            ),
+            FuncCasePatternVariant::EnumLiteral(_) => todo!(),
+        }
     }
 }

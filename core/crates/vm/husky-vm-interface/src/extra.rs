@@ -2,6 +2,7 @@ use crate::*;
 use husky_print_utils::p;
 #[cfg(feature = "binding")]
 use husky_vm_binding::Binding;
+use husky_vm_primitive_value::PrimitiveValueData;
 use std::ffi::CStr;
 
 #[cfg(feature = "extra")]
@@ -9,7 +10,7 @@ use crate::*;
 
 #[cfg(feature = "extra")]
 impl<'eval> __Register<'eval> {
-    pub unsafe fn primitive_copy(&self) -> __Register<'eval> {
+    pub unsafe fn verbatim_copy(&self) -> __Register<'eval> {
         Self {
             data_kind: self.data_kind,
             data: self.data,
@@ -21,7 +22,7 @@ impl<'eval> __Register<'eval> {
         unsafe {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue | __RegisterDataKind::EvalRef => {
-                    self.primitive_copy()
+                    self.verbatim_copy()
                 }
                 __RegisterDataKind::Box
                 | __RegisterDataKind::TempRef
@@ -71,7 +72,7 @@ impl<'eval> __Register<'eval> {
 
     pub fn bind_move(&mut self) -> __Register<'eval> {
         match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => unsafe { self.primitive_copy() },
+            __RegisterDataKind::PrimitiveValue => unsafe { self.verbatim_copy() },
             __RegisterDataKind::Box => std::mem::replace(self, __Register::new_moved(self.vtable)),
             __RegisterDataKind::EvalRef => todo!(),
             __RegisterDataKind::TempRef => todo!(),
@@ -86,7 +87,7 @@ impl<'eval> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => unsafe { self.primitive_copy() },
+            __RegisterDataKind::EvalRef => unsafe { self.verbatim_copy() },
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
@@ -159,7 +160,7 @@ impl<'eval> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue
             | __RegisterDataKind::EvalRef
-            | __RegisterDataKind::TempRef => self.primitive_copy(),
+            | __RegisterDataKind::TempRef => self.verbatim_copy(),
             __RegisterDataKind::Box => self.clone_ptr_into_box(),
             __RegisterDataKind::TempMut => panic!(),
             __RegisterDataKind::Moved => panic!(),
@@ -170,7 +171,7 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn intrinsic_clone(&self) -> __Register<'eval> {
         match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => self.primitive_copy(),
+            __RegisterDataKind::PrimitiveValue => self.verbatim_copy(),
             __RegisterDataKind::EvalRef
             | __RegisterDataKind::TempRef
             | __RegisterDataKind::Box
@@ -241,13 +242,39 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => unsafe { self.primitive_copy() },
+            __RegisterDataKind::Unreturned => unsafe { self.verbatim_copy() },
             // __Register::Copyable(value) => panic!(),
             // __Register::Owned(value) => __Register::EvalRef(__EvalRef(&*value.any_ptr())),
             // __Register::EvalRef(value) => __Register::EvalRef(*value),
             // __Register::EvalPure(value) => __Register::EvalPure(value.clone()),
             // __Register::Undefined => __Register::Undefined,
             // __Register::Unreturned => __Register::Unreturned,
+        }
+    }
+
+    pub fn match_primitive(&self, primitive: PrimitiveValueData) -> bool {
+        match primitive {
+            PrimitiveValueData::I32(i) => i == self.downcast_i32(),
+            PrimitiveValueData::I64(i) => i == self.downcast_i64(),
+            PrimitiveValueData::F32(f) => f == self.downcast_f32(),
+            PrimitiveValueData::B32(b) => b == self.downcast_b32(),
+            PrimitiveValueData::B64(b) => b == self.downcast_b64(),
+            PrimitiveValueData::Bool(_) => todo!(),
+            PrimitiveValueData::Void(_) => todo!(),
+        }
+    }
+}
+
+impl<'eval> From<PrimitiveValueData> for __Register<'eval> {
+    fn from(value: PrimitiveValueData) -> Self {
+        match value {
+            PrimitiveValueData::I32(_) => todo!(),
+            PrimitiveValueData::I64(_) => todo!(),
+            PrimitiveValueData::F32(_) => todo!(),
+            PrimitiveValueData::B32(_) => todo!(),
+            PrimitiveValueData::B64(_) => todo!(),
+            PrimitiveValueData::Bool(_) => todo!(),
+            PrimitiveValueData::Void(_) => todo!(),
         }
     }
 }
