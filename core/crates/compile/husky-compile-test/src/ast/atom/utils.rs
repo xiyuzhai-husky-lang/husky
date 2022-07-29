@@ -27,6 +27,6 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyCompileTime, line: &'static str) -
         },
         &mut tokens.as_slice().into(),
     )
-    .parse_all()
+    .parse_all_remaining_atoms()
     .unwrap()
 }

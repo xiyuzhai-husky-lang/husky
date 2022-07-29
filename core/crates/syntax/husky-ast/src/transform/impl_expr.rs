@@ -5,7 +5,7 @@ use husky_token::HuskyToken;
 
 impl<'a> AstTransformer<'a> {
     pub fn parse_expr(&mut self, tokens: &[HuskyToken]) -> AstResult<RawExprIdx> {
-        let atoms = self.parse_atoms(tokens, |parser| parser.parse_all())?;
+        let atoms = self.parse_atoms(tokens, |parser| parser.parse_all_atoms())?;
         self.parse_expr_from_atoms(atoms)
     }
 

@@ -8,6 +8,7 @@ use crate::{context::AtomContext, *};
 #[derive(Debug)]
 pub(crate) struct AtomStack {
     pub(crate) atoms: Vec<HuskyAtom>,
+    freezes: Vec<usize>,
 }
 
 impl Into<Vec<HuskyAtom>> for AtomStack {
@@ -19,7 +20,10 @@ impl Into<Vec<HuskyAtom>> for AtomStack {
 // get
 impl AtomStack {
     pub fn new() -> Self {
-        Self { atoms: Vec::new() }
+        Self {
+            atoms: Vec::new(),
+            freezes: vec![],
+        }
     }
 
     pub(crate) fn convexity(&self) -> Convexity {
@@ -188,5 +192,25 @@ impl AtomStack {
         generics.push(output.into());
         let func_type = self.func_generic(attr)?;
         self.push(symbol_context.builtin_type_atom(func_type, generics, tail))
+    }
+}
+
+// freeze and unfreeze
+impl AtomStack {
+    pub(super) fn freeze(&mut self) {
+        self.freezes.push(self.atoms.len())
+    }
+
+    pub(super) fn unfreeze(&mut self) -> AtomResult<Vec<HuskyAtom>> {
+        let last_freeze = self.freezes.pop().unwrap();
+        if self.is_convex() {
+            Ok(self.atoms.drain(last_freeze..).collect())
+            // Ok(self.stack.into())
+        } else if self.atoms.len() > last_freeze {
+            let last_atom = self.atoms.last().unwrap();
+            err!(format!("last atom is not right convex"), last_atom.range)
+        } else {
+            Ok(vec![])
+        }
     }
 }

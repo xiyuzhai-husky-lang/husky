@@ -23,7 +23,7 @@ impl<'a> AstTransformer<'a> {
                 second_last_token.range
             );
             let atoms = self.parse_atoms(&token_group[1..(token_group.len() - 2)], |parser| {
-                parser.parse_all()
+                parser.parse_all_atoms()
             })?;
             must_be!(
                 atoms.len() == 1,
@@ -45,7 +45,7 @@ impl<'a> AstTransformer<'a> {
             })
         } else {
             // use route
-            let atoms = self.parse_atoms(&token_group[1..], |parser| parser.parse_all())?;
+            let atoms = self.parse_atoms(&token_group[1..], |parser| parser.parse_all_atoms())?;
             let route = if atoms.len() != 1 {
                 todo!("expect one atom for entity route")
             } else {

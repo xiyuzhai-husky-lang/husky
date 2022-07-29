@@ -19,59 +19,12 @@ impl<'a> AstTransformer<'a> {
         if token_group.len() < 3 {
             return err!("expect `case <pattern>:`", token_group.text_range());
         }
-        let atoms = self.parse_atoms(&token_group[1..(token_group.len() - 1)], |parser| {
-            parser.parse_all()
-        })?;
+        let (pattern, other_atoms) = self
+            .parse_atoms(&token_group[1..(token_group.len() - 1)], |mut parser| {
+                parser.parse_pattern()
+            })?;
         Ok(RawStmtVariant::PatternBranch {
-            pattern_branch_variant: RawPatternBranchVariant::Case {
-                pattern: MatchPatternParser::new(&atoms).parse()?,
-            },
-        })
-    }
-}
-
-pub struct MatchPatternParser<'a> {
-    atom_iter: std::slice::Iter<'a, HuskyAtom>,
-}
-
-impl<'a> MatchPatternParser<'a> {
-    pub fn new(atoms: &'a [HuskyAtom]) -> Self {
-        Self {
-            atom_iter: atoms.iter(),
-        }
-    }
-
-    pub fn parse(mut self) -> AstResult<RawPattern> {
-        let mut pattern = self.parse_simple_pattern()?.unwrap();
-        while let Some(separator) = self.atom_iter.next() {
-            match separator.variant {
-                AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::BitOr)) => {
-                    if let Some(new_pattern) = self.parse_simple_pattern()? {
-                        pattern = pattern.or(new_pattern)
-                    } else {
-                        return err!("expect pattern after `|`", separator.range);
-                    }
-                }
-                _ => todo!(),
-            }
-        }
-        Ok(pattern)
-    }
-
-    fn parse_simple_pattern(&mut self) -> AstResult<Option<RawPattern>> {
-        Ok(if let Some(atom) = self.atom_iter.next() {
-            Some(match atom.variant {
-                AtomVariant::EntityRoute { route, kind } => match kind {
-                    EntityKind::EnumLiteral => RawPattern::enum_literal(route, atom.range),
-                    _ => err!(format!("expect enum literal"), atom.range)?,
-                },
-                AtomVariant::PrimitiveLiteral(value) => {
-                    RawPattern::primitive_literal(value, atom.range)
-                }
-                _ => err!(format!("expect pattern"), atom.range)?,
-            })
-        } else {
-            None
+            pattern_branch_variant: RawPatternBranchVariant::Case { pattern },
         })
     }
 }

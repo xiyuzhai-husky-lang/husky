@@ -13,12 +13,27 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         text_start: TextPosition,
     ) -> AtomResult<()> {
         match word_opr {
-            WordOpr::And | WordOpr::Or => self.push(word_opr.into(), text_start),
+            WordOpr::And | WordOpr::Or => {
+                let kind = word_opr.into();
+                self.stack.push(HuskyAtom::new(
+                    self.token_stream.text_range(text_start),
+                    kind,
+                ))
+            }
             WordOpr::As => {
                 let ty = get!(self, ranged_ty?);
-                self.push(AtomVariant::Suffix(SuffixOpr::AsTy(ty)), text_start)
+                {
+                    let kind = AtomVariant::Suffix(SuffixOpr::AsTy(ty));
+                    self.stack.push(HuskyAtom::new(
+                        self.token_stream.text_range(text_start),
+                        kind,
+                    ))
+                }
             }
-            WordOpr::Be => todo!(),
+            WordOpr::Be => {
+                let pattern = self.parse_pattern();
+                todo!()
+            }
         }
     }
 }
