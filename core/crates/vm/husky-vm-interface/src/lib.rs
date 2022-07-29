@@ -1,8 +1,8 @@
 mod __rust_code_gen__;
-mod binding;
 mod call_form_value;
 mod context;
 mod error;
+mod extra;
 mod layout;
 mod linkage;
 mod register;
@@ -16,13 +16,3 @@ pub use error::*;
 pub use layout::*;
 pub use linkage::*;
 pub use register::*;
-
-#[repr(C)]
-pub struct Play {
-    a: u32,
-}
-
-#[no_mangle]
-pub extern "C" fn play() -> Play {
-    todo!()
-}

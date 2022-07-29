@@ -17,21 +17,7 @@ pub enum VMCasePattern {
 impl VMCasePattern {
     pub fn matches<'temp, 'eval>(&self, value: &__Register<'eval>) -> bool {
         match self {
-            VMCasePattern::Primitive(v0) => {
-                todo!()
-                //     match value {
-                //     __TempValue::Moved => todo!(),
-                //     __TempValue::Copyable(v1) => v0 == v1,
-                //     __TempValue::OwnedEval(_) => todo!(),
-                //     __TempValue::EvalPure(_) => todo!(),
-                //     __TempValue::EvalRef(_) => todo!(),
-                //     __TempValue::TempRefEval(value) => todo!(),
-                //     __TempValue::TempRefMutEval { value, owner, gen } => todo!(),
-                //     __TempValue::OwnedTemp(_) => todo!(),
-                //     __TempValue::TempRefTemp(_) => todo!(),
-                //     __TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
-                // }
-            }
+            VMCasePattern::Primitive(primitive) => value.match_primitive(*primitive),
             VMCasePattern::OneOf(subpatterns) => {
                 for subpattern in subpatterns {
                     if subpattern.matches(value) {
