@@ -242,19 +242,19 @@ impl<'a> ContractSheetBuilder<'a> {
     fn infer_eager_suffix(
         &mut self,
         raw_expr_idx: RawExprIdx,
-        opr: SuffixOpr,
+        opr: RawSuffixOpr,
         opd: RawExprIdx,
         contract: EagerContract,
     ) -> InferResult<()> {
         match opr {
-            SuffixOpr::Incr | SuffixOpr::Decr => {
+            RawSuffixOpr::Incr | RawSuffixOpr::Decr => {
                 self.infer_eager_expr(opd, EagerContract::TempRefMut);
                 match contract {
                     EagerContract::Pure => Ok(()),
                     _ => todo!(),
                 }
             }
-            SuffixOpr::AsTy(_) => {
+            RawSuffixOpr::AsTy(_) => {
                 self.infer_eager_expr(opd, contract);
                 Ok(())
             }

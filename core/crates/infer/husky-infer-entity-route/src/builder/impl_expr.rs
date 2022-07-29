@@ -390,13 +390,13 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_suffix(
         &mut self,
-        opr: SuffixOpr,
+        opr: RawSuffixOpr,
         opd: RawExprIdx,
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         let opd_ty = derived_not_none!(self.infer_expr(opd, None,))?;
         match opr {
-            SuffixOpr::Incr | SuffixOpr::Decr => {
+            RawSuffixOpr::Incr | RawSuffixOpr::Decr => {
                 match opd_ty {
                     EntityRoutePtr::Root(opd_ty_ident) => match opd_ty_ident {
                         RootIdentifier::I32 => (),
@@ -407,7 +407,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 Ok(EntityRoutePtr::Root(RootIdentifier::Void))
             }
-            SuffixOpr::AsTy(ranged_ty) => Ok(ranged_ty.route),
+            RawSuffixOpr::AsTy(ranged_ty) => Ok(ranged_ty.route),
         }
     }
 

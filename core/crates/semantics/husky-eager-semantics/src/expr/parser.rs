@@ -239,7 +239,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
 
     fn parse_suffix_opr(
         &mut self,
-        opr: SuffixOpr,
+        opr: RawSuffixOpr,
         raw_opds: &RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
         let opd_idx = raw_opds.start;

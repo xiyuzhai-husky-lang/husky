@@ -11,7 +11,7 @@ fn std_scope() {
     utils::check_atom_kind(
         &mut db,
         "std",
-        AtomVariant::EntityRoute {
+        HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::Std.into(),
             kind: EntityKind::Module,
         },
@@ -24,7 +24,7 @@ fn core_scope() {
     utils::check_atom_kind(
         &mut db,
         "core",
-        AtomVariant::EntityRoute {
+        HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::Core.into(),
             kind: EntityKind::Module,
         },
@@ -37,7 +37,7 @@ fn debug_scope() {
     utils::check_atom_kind(
         &mut db,
         "debug",
-        AtomVariant::EntityRoute {
+        HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::Debug.into(),
             kind: EntityKind::Module,
         },
@@ -50,7 +50,7 @@ fn i32_type() {
     utils::check_atom_kind(
         &mut db,
         "i32",
-        AtomVariant::EntityRoute {
+        HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::I32.into(),
             kind: EntityKind::Type(TyKind::Primitive),
         },
@@ -63,7 +63,7 @@ fn i64_type() {
     utils::check_atom_kind(
         &mut db,
         "i64",
-        AtomVariant::EntityRoute {
+        HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::I64.into(),
             kind: EntityKind::Type(TyKind::Primitive),
         },
@@ -76,7 +76,7 @@ fn f32_type() {
     utils::check_atom_kind(
         &mut db,
         "f32",
-        AtomVariant::EntityRoute {
+        HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::F32.into(),
             kind: EntityKind::Type(TyKind::Primitive),
         },
@@ -89,7 +89,7 @@ fn f64_type() {
     utils::check_atom_kind(
         &mut db,
         "f64",
-        AtomVariant::EntityRoute {
+        HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::F64.into(),
             kind: EntityKind::Type(TyKind::Primitive),
         },
@@ -102,7 +102,7 @@ fn vec_generics() {
     utils::check_atom_kind(
         &mut db,
         "Vec",
-        AtomVariant::EntityRoute {
+        HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::Vec.into(),
             kind: EntityKind::Type(TyKind::Vec),
         },
@@ -115,7 +115,7 @@ fn tuple_generics() {
     utils::check_atom_kind(
         &mut db,
         "Tuple",
-        AtomVariant::EntityRoute {
+        HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::Tuple.into(),
             kind: EntityKind::Type(TyKind::Other),
         },

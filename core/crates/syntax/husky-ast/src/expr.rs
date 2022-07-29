@@ -8,8 +8,8 @@ pub use variant::*;
 
 use crate::*;
 use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
-use husky_atom::AtomVariant;
 use husky_atom::HuskyAtom;
+use husky_atom::HuskyAtomVariant;
 use husky_text::TextRange;
 use husky_text::TextRanged;
 pub(crate) use stack::ExprStack;
@@ -96,27 +96,27 @@ impl From<HuskyAtom> for RawExpr {
         Self {
             range: atom.text_range(),
             variant: match atom.variant {
-                AtomVariant::Variable {
+                HuskyAtomVariant::Variable {
                     varname,
                     init_range: init_row,
                 } => RawExprVariant::Variable {
                     varname,
                     init_range: init_row,
                 },
-                AtomVariant::PrimitiveLiteral(literal) => {
+                HuskyAtomVariant::PrimitiveLiteral(literal) => {
                     RawExprVariant::PrimitiveLiteral(literal.clone())
                 }
-                AtomVariant::EntityRoute { route: scope, kind } => {
+                HuskyAtomVariant::EntityRoute { route: scope, kind } => {
                     RawExprVariant::Entity { route: scope, kind }
                 }
-                AtomVariant::ThisValue {
+                HuskyAtomVariant::ThisValue {
                     opt_this_ty,
                     opt_this_liason,
                 } => RawExprVariant::ThisValue {
                     opt_this_ty,
                     opt_this_liason,
                 },
-                AtomVariant::ThisField {
+                HuskyAtomVariant::ThisField {
                     opt_this_ty,
                     opt_this_liason,
                     field_ident,
@@ -129,8 +129,8 @@ impl From<HuskyAtom> for RawExpr {
                     opt_field_ty,
                     field_liason,
                 },
-                AtomVariant::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
-                AtomVariant::FrameVariable {
+                HuskyAtomVariant::Unrecognized(ident) => RawExprVariant::Unrecognized(ident),
+                HuskyAtomVariant::FrameVariable {
                     varname,
                     init_range,
                 } => RawExprVariant::FrameVariable {

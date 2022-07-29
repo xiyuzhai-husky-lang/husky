@@ -5,10 +5,10 @@ use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::*;
 use husky_token::SpecialToken;
 use husky_word::{CustomIdentifier, WordOpr};
-use vm::{BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr, SuffixOpr};
+use vm::{BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr, RawSuffixOpr};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum AtomVariant {
+pub enum HuskyAtomVariant {
     EntityRoute {
         route: EntityRoutePtr,
         kind: EntityKind,
@@ -36,37 +36,38 @@ pub enum AtomVariant {
     PrimitiveLiteral(PrimitiveLiteralData),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
-    Suffix(SuffixOpr),
+    Suffix(RawSuffixOpr),
     FieldAccess(RangedCustomIdentifier),
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,
     LambdaHead(Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>),
     SilentEnd,
+    Be,
     BePattern(RawPattern),
 }
 
 pub type LambdaHead = Vec<(Identifier, Option<RangedEntityRoute>)>;
 
-impl From<BinaryOpr> for AtomVariant {
+impl From<BinaryOpr> for HuskyAtomVariant {
     fn from(opr: BinaryOpr) -> Self {
         Self::Binary(opr)
     }
 }
 
-impl From<PrefixOpr> for AtomVariant {
+impl From<PrefixOpr> for HuskyAtomVariant {
     fn from(opr: PrefixOpr) -> Self {
         Self::Prefix(opr)
     }
 }
 
-impl From<SuffixOpr> for AtomVariant {
-    fn from(opr: SuffixOpr) -> Self {
+impl From<RawSuffixOpr> for HuskyAtomVariant {
+    fn from(opr: RawSuffixOpr) -> Self {
         Self::Suffix(opr)
     }
 }
 
-impl From<SpecialToken> for AtomVariant {
+impl From<SpecialToken> for HuskyAtomVariant {
     fn from(special: SpecialToken) -> Self {
         match special {
             SpecialToken::DoubleColon
@@ -111,10 +112,10 @@ impl From<SpecialToken> for AtomVariant {
             SpecialToken::BitNot => PrefixOpr::BitNot.into(),
             SpecialToken::DoubleExclamation => PrefixOpr::Move.into(),
             SpecialToken::Modulo => BinaryOpr::Pure(PureBinaryOpr::RemEuclid).into(),
-            SpecialToken::Incr => AtomVariant::Suffix(SuffixOpr::Incr),
-            SpecialToken::Decr => AtomVariant::Suffix(SuffixOpr::Decr),
-            SpecialToken::Comma => AtomVariant::ListItem,
-            SpecialToken::Semicolon => AtomVariant::SilentEnd,
+            SpecialToken::Incr => HuskyAtomVariant::Suffix(RawSuffixOpr::Incr),
+            SpecialToken::Decr => HuskyAtomVariant::Suffix(RawSuffixOpr::Decr),
+            SpecialToken::Comma => HuskyAtomVariant::ListItem,
+            SpecialToken::Semicolon => HuskyAtomVariant::SilentEnd,
             SpecialToken::XmlKet => todo!(),
             SpecialToken::DeriveAssign => todo!(),
             SpecialToken::At => todo!(),
@@ -123,18 +124,18 @@ impl From<SpecialToken> for AtomVariant {
     }
 }
 
-impl From<WordOpr> for AtomVariant {
+impl From<WordOpr> for HuskyAtomVariant {
     fn from(word_opr: WordOpr) -> Self {
         match word_opr {
-            WordOpr::And => AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::And)),
-            WordOpr::Or => AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::Or)),
+            WordOpr::And => HuskyAtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::And)),
+            WordOpr::Or => HuskyAtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::Or)),
             WordOpr::As => panic!(),
             WordOpr::Be => todo!(),
         }
     }
 }
 
-impl From<PrimitiveLiteralData> for AtomVariant {
+impl From<PrimitiveLiteralData> for HuskyAtomVariant {
     fn from(lit: PrimitiveLiteralData) -> Self {
         Self::PrimitiveLiteral(lit)
     }

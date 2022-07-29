@@ -179,16 +179,16 @@ impl<'a> ContractSheetBuilder<'a> {
     fn lazy_suffix(
         &mut self,
         raw_expr_idx: RawExprIdx,
-        opr: SuffixOpr,
+        opr: RawSuffixOpr,
         opd: RawExprIdx,
         contract: LazyContract,
     ) -> InferResult<()> {
         match opr {
-            SuffixOpr::Incr | SuffixOpr::Decr => throw!(
+            RawSuffixOpr::Incr | RawSuffixOpr::Decr => throw!(
                 format!("mutation not allowed in lazy functional context"),
                 self.arena[raw_expr_idx].range
             ),
-            SuffixOpr::AsTy(expr) => {
+            RawSuffixOpr::AsTy(expr) => {
                 self.infer_lazy_expr(opd, contract);
                 Ok(())
             }

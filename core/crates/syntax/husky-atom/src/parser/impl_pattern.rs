@@ -4,20 +4,7 @@ use husky_pattern_syntax::RawPattern;
 impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn parse_pattern(&mut self) -> AtomResult<(RawPattern, Vec<HuskyAtom>)> {
         let pattern_parser = MatchPatternParser::new(self.parse_all_remaining_atoms()?);
-        todo!();
-        // while let Some(next_atom) = remaining_atoms {
-        //     match next_atom.variant {
-        //         AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::BitOr)) => {
-        //             if let Some(new_pattern) = self.parse_simple_pattern()? {
-        //                 pattern = pattern.or(new_pattern)
-        //             } else {
-        //                 return err!("expect pattern after `|`", next_atom.range);
-        //             }
-        //         }
-        //         _ => todo!(),
-        //     }
-        // }
-        pattern_parser.finish()
+        pattern_parser.parse_into_pattern()
     }
 }
 
@@ -55,11 +42,11 @@ impl MatchPatternParser {
     fn parse_simple_pattern(&mut self) -> AtomResult<Option<RawPattern>> {
         Ok(if let Some(atom) = self.next_atom() {
             Some(match atom.variant {
-                AtomVariant::EntityRoute { route, kind } => match kind {
+                HuskyAtomVariant::EntityRoute { route, kind } => match kind {
                     EntityKind::EnumLiteral => RawPattern::enum_literal(route, atom.range),
                     _ => err!(format!("expect enum literal"), atom.range)?,
                 },
-                AtomVariant::PrimitiveLiteral(value) => {
+                HuskyAtomVariant::PrimitiveLiteral(value) => {
                     RawPattern::primitive_literal(value, atom.range)
                 }
                 _ => err!(format!("expect pattern"), atom.range)?,
@@ -69,24 +56,29 @@ impl MatchPatternParser {
         })
     }
 
-    fn next_pattern_opr(&self) -> Option<(PatternOpr, TextRange)> {
+    fn next_pattern_opr(&mut self) -> Option<(PatternOpr, TextRange)> {
         let atom = &self.next_atom()?;
-        let kind = match atom.variant {
-            AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::BitOr)) => PatternOpr::Or,
-            _ => todo!(),
+        let opr = match atom.variant {
+            HuskyAtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::BitOr)) => PatternOpr::Or,
+            _ => {
+                p!(atom.variant);
+                todo!()
+            }
         };
-        Some((kind, atom.range))
+        Some((opr, atom.range))
     }
 
-    fn next_atom(&self) -> Option<&HuskyAtom> {
+    fn next_atom(&mut self) -> Option<&HuskyAtom> {
         if self.next >= self.atoms.len() {
             None
         } else {
-            Some(&self.atoms[self.next])
+            let next = self.next;
+            self.next += 1;
+            Some(&self.atoms[next])
         }
     }
 
-    fn finish(mut self) -> AtomResult<(RawPattern, Vec<HuskyAtom>)> {
+    fn parse_into_pattern(mut self) -> AtomResult<(RawPattern, Vec<HuskyAtom>)> {
         Ok((
             self.parse_pattern()?,
             self.atoms.drain(self.next..).collect(),

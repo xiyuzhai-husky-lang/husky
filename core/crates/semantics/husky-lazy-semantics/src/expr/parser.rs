@@ -317,14 +317,14 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
 
     fn parse_suffix_opr(
         &mut self,
-        opr: SuffixOpr,
+        opr: RawSuffixOpr,
         opds: &RawExprRange,
     ) -> SemanticResult<LazyExprVariant> {
         let this = self.parse_lazy_expr(opds.start)?;
         Ok(match opr {
-            SuffixOpr::Incr => todo!(),
-            SuffixOpr::Decr => todo!(),
-            SuffixOpr::AsTy(_) => todo!(),
+            RawSuffixOpr::Incr => todo!(),
+            RawSuffixOpr::Decr => todo!(),
+            RawSuffixOpr::AsTy(_) => todo!(),
         })
     }
 

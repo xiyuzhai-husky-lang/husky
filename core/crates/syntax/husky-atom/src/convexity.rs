@@ -1,52 +1,54 @@
 use super::*;
 use vm::*;
 
-impl AtomVariant {
+impl HuskyAtomVariant {
     pub(super) fn left_convexity(&self) -> Convexity {
         match self {
-            AtomVariant::EntityRoute { .. }
-            | AtomVariant::Variable { .. }
-            | AtomVariant::FrameVariable { .. }
-            | AtomVariant::ThisValue { .. }
-            | AtomVariant::ThisField { .. }
-            | AtomVariant::Unrecognized(_)
-            | AtomVariant::PrimitiveLiteral(_)
-            | AtomVariant::Prefix(_)
-            | AtomVariant::ListStart(_, ListStartAttr::None)
-            | AtomVariant::ListEnd(_, _)
-            | AtomVariant::LambdaHead(_) => Convexity::Convex,
-            AtomVariant::Suffix(_)
-            | AtomVariant::FieldAccess(_)
-            | AtomVariant::Binary(_)
-            | AtomVariant::ListStart(_, ListStartAttr::Attach)
-            | AtomVariant::ListStart(_, ListStartAttr::MethodAttach { .. })
-            | AtomVariant::ListItem
-            | AtomVariant::SilentEnd => Convexity::Concave,
-            AtomVariant::BePattern(_) => todo!(),
+            HuskyAtomVariant::EntityRoute { .. }
+            | HuskyAtomVariant::Variable { .. }
+            | HuskyAtomVariant::FrameVariable { .. }
+            | HuskyAtomVariant::ThisValue { .. }
+            | HuskyAtomVariant::ThisField { .. }
+            | HuskyAtomVariant::Unrecognized(_)
+            | HuskyAtomVariant::PrimitiveLiteral(_)
+            | HuskyAtomVariant::Prefix(_)
+            | HuskyAtomVariant::ListStart(_, ListStartAttr::None)
+            | HuskyAtomVariant::ListEnd(_, _)
+            | HuskyAtomVariant::LambdaHead(_) => Convexity::Convex,
+            HuskyAtomVariant::Suffix(_)
+            | HuskyAtomVariant::FieldAccess(_)
+            | HuskyAtomVariant::Binary(_)
+            | HuskyAtomVariant::ListStart(_, ListStartAttr::Attach)
+            | HuskyAtomVariant::ListStart(_, ListStartAttr::MethodAttach { .. })
+            | HuskyAtomVariant::ListItem
+            | HuskyAtomVariant::SilentEnd => Convexity::Concave,
+            HuskyAtomVariant::Be => Convexity::Concave,
+            HuskyAtomVariant::BePattern(_) => Convexity::Concave,
         }
     }
 
     pub(super) fn right_side_convexity(&self) -> Convexity {
         match self {
-            AtomVariant::EntityRoute { .. }
-            | AtomVariant::Variable { .. }
-            | AtomVariant::FrameVariable { .. }
-            | AtomVariant::ThisValue { .. }
-            | AtomVariant::ThisField { .. }
-            | AtomVariant::Unrecognized(_)
-            | AtomVariant::PrimitiveLiteral(_)
-            | AtomVariant::Suffix(_)
-            | AtomVariant::FieldAccess(_)
-            | AtomVariant::ListEnd(_, ListEndAttr::None)
-            | AtomVariant::ListEnd(_, ListEndAttr::Modulo)
-            | AtomVariant::SilentEnd => Convexity::Convex,
-            AtomVariant::Prefix(_)
-            | AtomVariant::Binary(_)
-            | AtomVariant::ListStart(_, _)
-            | AtomVariant::ListItem
-            | AtomVariant::ListEnd(_, ListEndAttr::Attach)
-            | AtomVariant::LambdaHead(_) => Convexity::Concave,
-            AtomVariant::BePattern(_) => todo!(),
+            HuskyAtomVariant::EntityRoute { .. }
+            | HuskyAtomVariant::Variable { .. }
+            | HuskyAtomVariant::FrameVariable { .. }
+            | HuskyAtomVariant::ThisValue { .. }
+            | HuskyAtomVariant::ThisField { .. }
+            | HuskyAtomVariant::Unrecognized(_)
+            | HuskyAtomVariant::PrimitiveLiteral(_)
+            | HuskyAtomVariant::Suffix(_)
+            | HuskyAtomVariant::FieldAccess(_)
+            | HuskyAtomVariant::ListEnd(_, ListEndAttr::None)
+            | HuskyAtomVariant::ListEnd(_, ListEndAttr::Modulo)
+            | HuskyAtomVariant::SilentEnd => Convexity::Convex,
+            HuskyAtomVariant::Prefix(_)
+            | HuskyAtomVariant::Binary(_)
+            | HuskyAtomVariant::ListStart(_, _)
+            | HuskyAtomVariant::ListItem
+            | HuskyAtomVariant::ListEnd(_, ListEndAttr::Attach)
+            | HuskyAtomVariant::LambdaHead(_) => Convexity::Concave,
+            HuskyAtomVariant::Be => Convexity::Concave,
+            HuskyAtomVariant::BePattern(_) => Convexity::Convex,
         }
     }
 }

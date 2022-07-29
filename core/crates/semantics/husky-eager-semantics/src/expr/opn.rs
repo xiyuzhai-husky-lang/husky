@@ -18,7 +18,7 @@ pub enum EagerOpnVariant {
     },
     Suffix {
         this_ty: EntityRoutePtr,
-        opr: SuffixOpr,
+        opr: RawSuffixOpr,
     },
     RoutineCall(RangedEntityRoute),
     ValueCall,

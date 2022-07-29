@@ -170,21 +170,21 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerOpnVariant::Suffix { opr, this_ty } => {
                 let ins_kind = match opr {
-                    SuffixOpr::Incr => {
+                    RawSuffixOpr::Incr => {
                         todo!()
                         //     InstructionVariant::OprOpn {
                         //     opn: OprOpn::Incr,
                         //     this_ty: *this_ty,
                         // }
                     }
-                    SuffixOpr::Decr => {
+                    RawSuffixOpr::Decr => {
                         todo!()
                         //     InstructionVariant::OprOpn {
                         //     opn: OprOpn::Decr,
                         //     this_ty: *this_ty,
                         // }
                     }
-                    SuffixOpr::AsTy(ty) => {
+                    RawSuffixOpr::AsTy(ty) => {
                         todo!()
                         //     InstructionVariant::OprOpn {
                         //     opn: match ty.route {
