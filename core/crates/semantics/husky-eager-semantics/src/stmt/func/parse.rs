@@ -61,6 +61,7 @@ impl<'a> EagerParser<'a> {
                             match_contract,
                         )?,
                         RawStmtVariant::ReturnXml(_) => panic!(),
+                        RawStmtVariant::Require { condition } => todo!(),
                     };
                     stmts.push(Arc::new(FuncStmt {
                         file: self.file,

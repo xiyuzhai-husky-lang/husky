@@ -266,6 +266,7 @@ impl<'a> Formatter<'a> {
             RawStmtVariant::Break => todo!(),
             RawStmtVariant::Match { .. } => todo!(),
             RawStmtVariant::ReturnXml(_) => todo!(),
+            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 

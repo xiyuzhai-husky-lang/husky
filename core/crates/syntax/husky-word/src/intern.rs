@@ -66,6 +66,7 @@ pub fn new_word_interner() -> Arc<WordInternerSingletonKeeper> {
             StmtKeyword::Break.into(),
             StmtKeyword::Return.into(),
             StmtKeyword::Assert.into(),
+            StmtKeyword::Require.into(),
             RootIdentifier::Debug.into(),
             RootIdentifier::Std.into(),
             RootIdentifier::Core.into(),

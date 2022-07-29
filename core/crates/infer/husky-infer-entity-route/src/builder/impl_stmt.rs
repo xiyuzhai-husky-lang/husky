@@ -127,6 +127,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     })
                 }
             },
+            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 
