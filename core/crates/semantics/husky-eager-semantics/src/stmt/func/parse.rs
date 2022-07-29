@@ -147,8 +147,8 @@ impl<'a> EagerParser<'a> {
         match_expr: RawExprIdx,
         match_contract: MatchLiason,
     ) -> SemanticResult<FuncStmtVariant> {
+        let match_expr = self.parse_eager_expr(match_expr)?;
         Ok(FuncStmtVariant::Match {
-            match_expr: self.parse_eager_expr(match_expr)?,
             branches: children
                 .map(|item| {
                     let value = item.value.as_ref().unwrap();
@@ -162,7 +162,7 @@ impl<'a> EagerParser<'a> {
                         }) => Ok(Arc::new(match pattern_branch_variant {
                             RawPatternBranchVariant::Case { pattern } => FuncPatternBranch {
                                 variant: FuncPatternBranchVariant::Case {
-                                    pattern: self.parse_func_pattern(pattern)?,
+                                    pattern: self.parse_func_pattern(pattern, match_expr.ty())?,
                                 },
                                 stmts: self.parse_func_stmts(item.opt_children.clone().unwrap())?,
                             },
@@ -175,17 +175,27 @@ impl<'a> EagerParser<'a> {
                     }
                 })
                 .collect::<SemanticResult<Vec<_>>>()?,
+            match_expr,
         })
     }
 
     fn parse_func_pattern(
         &mut self,
         raw_pattern: &RawCasePattern,
+        ty: EntityRoutePtr,
     ) -> SemanticResult<FuncCasePattern> {
-        match raw_pattern.variant {
-            RawCasePatternVariant::PrimitiveValue(_) => todo!(),
-            RawCasePatternVariant::OneOf { ref subpatterns } => todo!(),
+        let variant = match raw_pattern.variant {
+            RawCasePatternVariant::PrimitiveLiteral(data) => {
+                FuncCasePatternVariant::PrimitiveLiteral(data)
+            }
+            RawCasePatternVariant::OneOf { ref subpatterns } => FuncCasePatternVariant::OneOf {
+                subpatterns: subpatterns
+                    .iter()
+                    .map(|raw_pattern| self.parse_func_pattern(raw_pattern, ty))
+                    .collect::<SemanticResult<_>>()?,
+            },
             RawCasePatternVariant::EnumLiteral(_) => todo!(),
-        }
+        };
+        Ok(FuncCasePattern { ty, variant })
     }
 }

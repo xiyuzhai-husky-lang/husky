@@ -19,7 +19,7 @@ pub struct RawCasePattern {
 impl RawCasePattern {
     pub fn compile(&self) -> VMCasePattern {
         match self.variant {
-            RawCasePatternVariant::PrimitiveValue(value) => {
+            RawCasePatternVariant::PrimitiveLiteral(value) => {
                 todo!()
                 // VMCasePattern::Primitive(primitive_value_from_literal(self.ty, value))
             }
@@ -41,7 +41,7 @@ impl TextRanged for RawCasePattern {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawCasePatternVariant {
-    PrimitiveValue(PrimitiveLiteralData),
+    PrimitiveLiteral(PrimitiveLiteralData),
     OneOf { subpatterns: Vec<RawCasePattern> },
     EnumLiteral(EntityRoutePtr),
 }
@@ -49,7 +49,7 @@ pub enum RawCasePatternVariant {
 impl RawCasePattern {
     pub fn primitive_literal(value: PrimitiveLiteralData, range: TextRange) -> Self {
         Self {
-            variant: RawCasePatternVariant::PrimitiveValue(value),
+            variant: RawCasePatternVariant::PrimitiveLiteral(value),
             range,
         }
     }
@@ -64,7 +64,7 @@ impl RawCasePattern {
     pub fn or(self, new_pattern: RawCasePattern) -> AstResult<Self> {
         let range = self.text_range_to(&new_pattern);
         let patterns = match self.variant {
-            RawCasePatternVariant::PrimitiveValue(_) | RawCasePatternVariant::EnumLiteral(_) => {
+            RawCasePatternVariant::PrimitiveLiteral(_) | RawCasePatternVariant::EnumLiteral(_) => {
                 vec![self, new_pattern]
             }
             RawCasePatternVariant::OneOf {
