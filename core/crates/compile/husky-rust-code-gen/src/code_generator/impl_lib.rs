@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> Rustcode_generator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_lib_rs_content(&mut self) {
         let package = self.package();
         self.write("#![allow(warnings)]\n");

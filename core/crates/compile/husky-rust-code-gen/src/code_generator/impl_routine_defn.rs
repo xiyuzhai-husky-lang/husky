@@ -6,7 +6,7 @@ use husky_word::CustomIdentifier;
 
 use super::{impl_entity_route::EntityRouteRole, *};
 
-impl<'a> Rustcode_generator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_feature_defn(
         &mut self,
         feature_route: EntityRoutePtr,

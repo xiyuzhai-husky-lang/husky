@@ -35,6 +35,7 @@ impl std::fmt::Debug for EagerExpr {
             .field("range", &self.range)
             .field("qualified_ty", &self.qualified_ty)
             .field("instruction_id", &self.instruction_id)
+            .field("variant", &self.variant)
             .finish()
     }
 }
@@ -59,7 +60,7 @@ impl InstructionSource for EagerExpr {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub enum EagerExprVariant {
     Variable {
         varname: CustomIdentifier,
@@ -95,6 +96,49 @@ pub enum EagerExprVariant {
     EntityFeature {
         route: EntityRoutePtr,
     },
+}
+
+impl std::fmt::Debug for EagerExprVariant {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Variable { varname, binding } => f
+                .debug_struct("Variable")
+                .field("varname", varname)
+                .field("binding", binding)
+                .finish(),
+            Self::ThisValue { binding } => f
+                .debug_struct("ThisValue")
+                .field("binding", binding)
+                .finish(),
+            Self::ThisField {
+                field_ident,
+                field_idx,
+                this_ty,
+                this_binding,
+                field_binding,
+            } => f
+                .debug_struct("ThisField")
+                .field("field_ident", field_ident)
+                .field("field_idx", field_idx)
+                .field("this_ty", this_ty)
+                .field("this_binding", this_binding)
+                .field("field_binding", field_binding)
+                .finish(),
+            Self::PrimitiveLiteral(arg0) => f.debug_tuple("PrimitiveLiteral").field(arg0).finish(),
+            Self::EnumKindLiteral(arg0) => f.debug_tuple("EnumKindLiteral").field(arg0).finish(),
+            Self::Bracketed(_) => f.write_str("Bracketed"),
+            Self::Opn { opn_variant, .. } => f
+                .debug_struct("Opn")
+                .field("opn_variant", opn_variant)
+                .finish(),
+            Self::Lambda(arg0, arg1) => f.debug_tuple("Lambda").field(arg0).field(arg1).finish(),
+            Self::EntityFp { route } => f.debug_struct("EntityFp").field("route", route).finish(),
+            Self::EntityFeature { route } => f
+                .debug_struct("EntityFeature")
+                .field("route", route)
+                .finish(),
+        }
+    }
 }
 
 pub fn parse_eager_expr(

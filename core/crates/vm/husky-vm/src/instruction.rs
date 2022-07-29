@@ -70,6 +70,7 @@ pub enum InstructionVariant {
         range: TextRange,
         ty: EntityRoutePtr,
         varname: Identifier,
+        explicit: bool,
     },
     PushPrimitiveValue {
         value: PrimitiveValueData,

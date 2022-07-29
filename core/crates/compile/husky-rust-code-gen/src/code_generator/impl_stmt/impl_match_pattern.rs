@@ -6,7 +6,7 @@ use husky_eager_semantics::{
 };
 use std::sync::Arc;
 
-impl<'a> Rustcode_generator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub fn gen_func_match_pattern(
         &mut self,
         ref match_expr: &EagerExpr,
