@@ -374,17 +374,17 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn eager_suffix(
         &mut self,
         raw_expr_idx: RawExprIdx,
-        opr: SuffixOpr,
+        opr: RawSuffixOpr,
         opds: RawExprRange,
     ) -> InferResult<EagerValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         match opr {
-            SuffixOpr::Incr | SuffixOpr::Decr => Ok(EagerValueQualifiedTy {
+            RawSuffixOpr::Incr | RawSuffixOpr::Decr => Ok(EagerValueQualifiedTy {
                 qual: EagerExprQualifier::Copyable,
                 ty: EntityRoutePtr::Root(RootIdentifier::Void),
             }),
-            SuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
+            RawSuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
         }
     }
 

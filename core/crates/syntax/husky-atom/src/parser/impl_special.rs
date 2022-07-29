@@ -19,7 +19,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 if !self.stack.is_concave() {
                     BinaryOpr::Pure(PureBinaryOpr::BitOr).into()
                 } else {
-                    AtomVariant::LambdaHead(Vec::new())
+                    HuskyAtomVariant::LambdaHead(Vec::new())
                 },
             )),
             SpecialToken::Vertical => {
@@ -27,7 +27,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     let lambda_head = self.lambda_head()?;
                     self.stack.push(HuskyAtom::new(
                         self.token_stream.text_range(text_start),
-                        AtomVariant::LambdaHead(lambda_head),
+                        HuskyAtomVariant::LambdaHead(lambda_head),
                     ))
                 } else {
                     self.stack.push(HuskyAtom::new(
@@ -126,7 +126,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         },
                         None => todo!(),
                     }
-                    AtomVariant::ListStart(
+                    HuskyAtomVariant::ListStart(
                         Bracket::Par,
                         ListStartAttr::MethodAttach {
                             ranged_ident,
@@ -134,7 +134,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         },
                     )
                 } else {
-                    AtomVariant::FieldAccess(ranged_ident)
+                    HuskyAtomVariant::FieldAccess(ranged_ident)
                 };
                 self.stack.push(HuskyAtom::new(range, atom_variant))
             }

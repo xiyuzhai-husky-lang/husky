@@ -135,7 +135,7 @@ pub fn parse_route<'a, 'b>(
         err!("too many atoms", result[1..].text_range())?
     } else {
         match result[0].variant {
-            AtomVariant::EntityRoute {
+            HuskyAtomVariant::EntityRoute {
                 route,
                 kind: EntityKind::Type(_),
                 ..

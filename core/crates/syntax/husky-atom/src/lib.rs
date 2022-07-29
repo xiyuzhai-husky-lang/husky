@@ -10,7 +10,7 @@ pub use error::*;
 use husky_print_utils::p;
 pub use parser::AtomParser;
 pub use parser::*;
-pub use variant::{AtomVariant, LambdaHead};
+pub use variant::{HuskyAtomVariant, LambdaHead};
 
 use entity_kind::*;
 use husky_entity_route::EntityRoutePtr;
@@ -25,11 +25,11 @@ use husky_word::RootIdentifier;
 #[derive(Clone, PartialEq, Eq)]
 pub struct HuskyAtom {
     pub range: TextRange,
-    pub variant: AtomVariant,
+    pub variant: HuskyAtomVariant,
 }
 
 impl HuskyAtom {
-    pub fn new(range: TextRange, kind: AtomVariant) -> HuskyAtom {
+    pub fn new(range: TextRange, kind: HuskyAtomVariant) -> HuskyAtom {
         HuskyAtom {
             range,
             variant: kind,

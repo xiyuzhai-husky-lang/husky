@@ -59,11 +59,17 @@ impl AtomStack {
 
     pub(crate) fn end_list(&mut self, ket: Bracket, attr: ListEndAttr, ket_range: TextRange) {
         if self.is_convex() {
-            self.push(HuskyAtom::new(ket_range.clone(), AtomVariant::ListItem))
-                .unwrap();
-        }
-        self.push(HuskyAtom::new(ket_range, AtomVariant::ListEnd(ket, attr)))
+            self.push(HuskyAtom::new(
+                ket_range.clone(),
+                HuskyAtomVariant::ListItem,
+            ))
             .unwrap();
+        }
+        self.push(HuskyAtom::new(
+            ket_range,
+            HuskyAtomVariant::ListEnd(ket, attr),
+        ))
+        .unwrap();
     }
 
     pub(crate) fn end_list_or_make_type(
@@ -78,7 +84,7 @@ impl AtomStack {
                 Bracket::Par,
                 Some(HuskyAtom {
                     variant:
-                        AtomVariant::EntityRoute {
+                        HuskyAtomVariant::EntityRoute {
                             kind: EntityKind::Type(_),
                             ..
                         },
@@ -103,7 +109,7 @@ impl AtomStack {
     pub(crate) fn start_list(&mut self, bra: Bracket, text_range: TextRange) {
         self.push(HuskyAtom::new(
             text_range,
-            AtomVariant::ListStart(
+            HuskyAtomVariant::ListStart(
                 bra,
                 if self.is_convex() {
                     ListStartAttr::Attach
@@ -124,7 +130,7 @@ impl AtomStack {
             ListStartAttr::Attach => {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.variant {
-                    AtomVariant::EntityRoute {
+                    HuskyAtomVariant::EntityRoute {
                         route: EntityRoutePtr::Root(ident),
                         ..
                     } => match ident {
@@ -141,6 +147,9 @@ impl AtomStack {
         }
     }
 
+    pub(crate) fn pop_unwrap_ignore(&mut self) {
+        self.atoms.pop().unwrap();
+    }
     fn pop(&mut self, follower: &mut TextRange) -> AtomResult<HuskyAtom> {
         let atom = self
             .atoms
@@ -156,8 +165,8 @@ impl AtomStack {
     ) -> AtomResult<(ListStartAttr, ThinVec<SpatialArgument>)> {
         let mut types = thin_vec![];
         match self.pop(tail)?.variant {
-            AtomVariant::ListStart(Bracket::Par, attr) => return Ok((attr, thin_vec![])),
-            AtomVariant::EntityRoute {
+            HuskyAtomVariant::ListStart(Bracket::Par, attr) => return Ok((attr, thin_vec![])),
+            HuskyAtomVariant::EntityRoute {
                 route: scope,
                 kind: EntityKind::Type(_),
             } => types.push(scope.into()),
@@ -165,15 +174,15 @@ impl AtomStack {
         };
         loop {
             match self.pop(tail)?.variant {
-                AtomVariant::ListStart(Bracket::Par, attr) => {
+                HuskyAtomVariant::ListStart(Bracket::Par, attr) => {
                     types.reverse();
                     return Ok((attr, types));
                 }
-                AtomVariant::ListItem => (),
+                HuskyAtomVariant::ListItem => (),
                 _ => err!("left parenthesis or comma", *tail)?,
             }
             match self.pop(tail)?.variant {
-                AtomVariant::EntityRoute {
+                HuskyAtomVariant::EntityRoute {
                     route: scope,
                     kind: EntityKind::Type(_),
                 } => types.push(scope.into()),

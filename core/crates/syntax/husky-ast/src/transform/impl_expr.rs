@@ -1,5 +1,5 @@
 use crate::*;
-use husky_atom::{context::SymbolKind, AtomVariant};
+use husky_atom::{context::SymbolKind, HuskyAtomVariant};
 use husky_text::TextRanged;
 use husky_token::HuskyToken;
 
@@ -15,32 +15,34 @@ impl<'a> AstTransformer<'a> {
         let mut stack = ExprStack::new(&mut self.arena);
         while let Some(atom) = atom_iter.next() {
             let atom_text_start = atom.text_start();
+            let end = atom.text_end();
             match atom.variant {
-                AtomVariant::Variable { .. }
-                | AtomVariant::ThisValue { .. }
-                | AtomVariant::ThisField { .. }
-                | AtomVariant::PrimitiveLiteral(_)
-                | AtomVariant::EntityRoute { .. }
-                | AtomVariant::FrameVariable { .. } => stack.accept_atom_expr(atom.into()),
-                AtomVariant::Unrecognized(ident) => stack.accept_atom_expr(atom.into()),
-                AtomVariant::Binary(opr) => stack.accept_binary(opr)?,
-                AtomVariant::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_start()),
-                AtomVariant::Suffix(suffix) => stack.accept_suffix(suffix, atom.text_end()),
-                AtomVariant::FieldAccess(field_ident) => {
+                HuskyAtomVariant::Variable { .. }
+                | HuskyAtomVariant::ThisValue { .. }
+                | HuskyAtomVariant::ThisField { .. }
+                | HuskyAtomVariant::PrimitiveLiteral(_)
+                | HuskyAtomVariant::EntityRoute { .. }
+                | HuskyAtomVariant::FrameVariable { .. } => stack.accept_atom_expr(atom.into()),
+                HuskyAtomVariant::Unrecognized(ident) => stack.accept_atom_expr(atom.into()),
+                HuskyAtomVariant::Binary(opr) => stack.accept_binary(opr)?,
+                HuskyAtomVariant::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_start()),
+                HuskyAtomVariant::Suffix(suffix) => stack.accept_suffix(suffix, end),
+                HuskyAtomVariant::FieldAccess(field_ident) => {
                     stack.accept_field_access(field_ident, atom.text_end())
                 }
-                AtomVariant::ListStart(bra, attr) => {
+                HuskyAtomVariant::ListStart(bra, attr) => {
                     stack.accept_list_start(bra, attr, atom_text_start, Default::default())
                 }
-                AtomVariant::ListEnd(ket, attr) => {
+                HuskyAtomVariant::ListEnd(ket, attr) => {
                     stack.accept_list_end(ket, attr, atom.text_end())?
                 }
-                AtomVariant::ListItem => stack.accept_list_item(atom.range.start)?,
-                AtomVariant::LambdaHead(ref args) => {
+                HuskyAtomVariant::ListItem => stack.accept_list_item(atom.range.start)?,
+                HuskyAtomVariant::LambdaHead(ref args) => {
                     stack.accept_lambda_head(args.clone(), atom.text_start())
                 }
-                AtomVariant::SilentEnd => return err!(format!("unexpected `;`"), atom.range),
-                AtomVariant::BePattern(_) => todo!(),
+                HuskyAtomVariant::SilentEnd => return err!(format!("unexpected `;`"), atom.range),
+                HuskyAtomVariant::BePattern(pattern) => stack.accept_be_pattern(pattern, end),
+                HuskyAtomVariant::Be => panic!(),
             }
         }
         stack.finish()

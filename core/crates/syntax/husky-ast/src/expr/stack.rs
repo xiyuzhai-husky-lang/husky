@@ -1,6 +1,7 @@
 use crate::*;
 use husky_check_utils::should;
 use husky_entity_route::{RangedEntityRoute, SpatialArgument};
+use husky_pattern_syntax::RawPattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::RangedCustomIdentifier;
 use husky_text::{TextPosition, TextRange};
@@ -155,8 +156,12 @@ impl<'a> ExprStack<'a> {
         self.oprs.push(ExprStackOpr::prefix(prefix, start))
     }
 
-    pub(crate) fn accept_suffix(&mut self, suffix: SuffixOpr, end: TextPosition) {
+    pub(crate) fn accept_suffix(&mut self, suffix: RawSuffixOpr, end: TextPosition) {
         self.synthesize_suffix(suffix, end)
+    }
+
+    pub(crate) fn accept_be_pattern(&mut self, pattern: RawPattern, end: TextPosition) {
+        self.synthesize_be_pattern(pattern, end)
     }
 
     pub(crate) fn accept_field_access(
@@ -304,7 +309,7 @@ impl<'a> ExprStack<'a> {
     fn synthesize_binary(&mut self, binary: BinaryOpr) {
         let len = self.exprs.len();
         let range = (self.exprs[len - 2].range.start..self.exprs[len - 1].range.end).into();
-        self.synthesize_opr(binary.into(), Default::default(), 2, range)
+        self.synthesize_opn(binary.into(), Default::default(), 2, range)
     }
 
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
@@ -342,17 +347,17 @@ impl<'a> ExprStack<'a> {
                 return;
             }
         }
-        self.synthesize_opr(prefix.into(), Default::default(), 1, range)
+        self.synthesize_opn(prefix.into(), Default::default(), 1, range)
     }
 
-    fn synthesize_suffix(&mut self, suffix: SuffixOpr, end: TextPosition) {
+    fn synthesize_suffix(&mut self, suffix: RawSuffixOpr, end: TextPosition) {
         let range = (self.exprs.last().unwrap().range.start..end).into();
-        self.synthesize_opr(suffix.into(), Default::default(), 1, range)
+        self.synthesize_opn(suffix.into(), Default::default(), 1, range)
     }
 
     fn synthesize_field_access(&mut self, field_ident: RangedCustomIdentifier, end: TextPosition) {
         let range = (self.exprs.last().unwrap().range.start..end).into();
-        self.synthesize_opr(
+        self.synthesize_opn(
             RawOpnVariant::Field(field_ident),
             Default::default(),
             1,
@@ -360,9 +365,9 @@ impl<'a> ExprStack<'a> {
         )
     }
 
-    fn synthesize_opr(
+    fn synthesize_opn(
         &mut self,
-        opr: RawOpnVariant,
+        opn_variant: RawOpnVariant,
         generic_arguments: ThinVec<SpatialArgument>,
         n_opds: usize,
         range: TextRange,
@@ -372,10 +377,7 @@ impl<'a> ExprStack<'a> {
         self.exprs.truncate(len - n_opds);
         self.exprs.push(RawExpr {
             range,
-            variant: RawExprVariant::Opn {
-                opn_variant: opr,
-                opds,
-            },
+            variant: RawExprVariant::Opn { opn_variant, opds },
         });
     }
 

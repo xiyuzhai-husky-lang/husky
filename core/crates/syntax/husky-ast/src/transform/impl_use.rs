@@ -31,7 +31,7 @@ impl<'a> AstTransformer<'a> {
                 token_group[1..(token_group.len() - 2)].text_range()
             );
             let parent = match atoms[0].variant {
-                AtomVariant::EntityRoute { route, .. } => {
+                HuskyAtomVariant::EntityRoute { route, .. } => {
                     if route.spatial_arguments.len() != 0 {
                         todo!("expect no generics")
                     }
@@ -50,13 +50,13 @@ impl<'a> AstTransformer<'a> {
                 todo!("expect one atom for entity route")
             } else {
                 match atoms[0].variant {
-                    AtomVariant::EntityRoute { route, .. } => {
+                    HuskyAtomVariant::EntityRoute { route, .. } => {
                         if route.spatial_arguments.len() != 0 {
                             todo!("expect no generics")
                         }
                         route
                     }
-                    AtomVariant::Unrecognized(_) => {
+                    HuskyAtomVariant::Unrecognized(_) => {
                         return err!("unrecognized ident", atoms[0].range)
                     }
                     _ => todo!(),

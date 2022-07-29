@@ -309,16 +309,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn lazy_suffix(
         &mut self,
         raw_expr_idx: RawExprIdx,
-        opr: SuffixOpr,
+        opr: RawSuffixOpr,
         opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         match opr {
-            SuffixOpr::Incr | SuffixOpr::Decr => {
+            RawSuffixOpr::Incr | RawSuffixOpr::Decr => {
                 throw_derived!(format!("mutation not allowed in lazy functional context"))
             }
-            SuffixOpr::AsTy(_) => Ok(this_qt),
+            RawSuffixOpr::AsTy(_) => Ok(this_qt),
         }
     }
 

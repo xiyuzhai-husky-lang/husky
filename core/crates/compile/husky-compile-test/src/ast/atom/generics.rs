@@ -1,6 +1,6 @@
 use super::utils;
 use crate::*;
-use husky_atom::AtomVariant;
+use husky_atom::HuskyAtomVariant;
 
 #[test]
 fn option_type() {
@@ -45,7 +45,7 @@ fn func_pointer_with_implicitly_void_return_type() {
     let atoms = utils::get_atoms_in_line(&mut db, "Fp(i32, i32)");
     should_eq!(atoms.len(), 1);
     let atom = &atoms[0];
-    if let AtomVariant::EntityRoute { route, .. } = atom.variant {
+    if let HuskyAtomVariant::EntityRoute { route, .. } = atom.variant {
         should_eq!(route.spatial_arguments.len(), 3);
     } else {
         panic!()

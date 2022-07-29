@@ -63,7 +63,7 @@ pub trait AtomContext {
         tail: TextRange,
     ) -> HuskyAtom {
         let scope = EntityRoute::new_root(ident.into(), generics);
-        let kind = AtomVariant::EntityRoute {
+        let kind = HuskyAtomVariant::EntityRoute {
             route: self.entity_syntax_db().intern_entity_route(scope),
             kind: EntityKind::Type(match ident {
                 RootIdentifier::Void
@@ -197,7 +197,7 @@ pub trait AtomContext {
             err!("too many atoms", result[1..].text_range())?
         } else {
             match result[0].variant {
-                AtomVariant::EntityRoute { route: scope, .. } => Ok(scope),
+                HuskyAtomVariant::EntityRoute { route: scope, .. } => Ok(scope),
                 // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
                 _ => err!(
                     format!("expect type, but get `{:?}` instead", result[0]),

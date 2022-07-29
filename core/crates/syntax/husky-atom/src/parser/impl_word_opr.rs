@@ -22,17 +22,26 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             }
             WordOpr::As => {
                 let ty = get!(self, ranged_ty?);
-                {
-                    let kind = AtomVariant::Suffix(SuffixOpr::AsTy(ty));
-                    self.stack.push(HuskyAtom::new(
-                        self.token_stream.text_range(text_start),
-                        kind,
-                    ))
-                }
+                self.stack.push(HuskyAtom::new(
+                    self.token_stream.text_range(text_start),
+                    HuskyAtomVariant::Suffix(RawSuffixOpr::AsTy(ty)),
+                ))
             }
             WordOpr::Be => {
-                let pattern = self.parse_pattern();
-                todo!()
+                self.stack.push(HuskyAtom::new(
+                    self.token_stream.text_range(text_start),
+                    HuskyAtomVariant::Be,
+                ))?;
+                let (pattern, other_atoms) = self.parse_pattern()?;
+                self.stack.pop_unwrap_ignore();
+                self.stack.push(HuskyAtom::new(
+                    self.token_stream.text_range(text_start),
+                    HuskyAtomVariant::BePattern(pattern),
+                ));
+                for atom in other_atoms {
+                    todo!()
+                }
+                Ok(())
             }
         }
     }

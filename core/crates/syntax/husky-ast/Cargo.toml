@@ -38,3 +38,4 @@ husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 thin-vec = { path = "../../../../forks/thin-vec" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-pattern-syntax = { path = "../husky-pattern-syntax" }
+husky-opn-syntax = { path = "../husky-opn-syntax" }

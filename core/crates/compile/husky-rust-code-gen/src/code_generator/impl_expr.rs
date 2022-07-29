@@ -473,11 +473,11 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_suffix_opr(&mut self, opr: SuffixOpr) {
+    fn gen_suffix_opr(&mut self, opr: RawSuffixOpr) {
         match opr {
-            SuffixOpr::Incr => self.write(" += 1"),
-            SuffixOpr::Decr => self.write(" -= 1"),
-            SuffixOpr::AsTy(ty) => {
+            RawSuffixOpr::Incr => self.write(" += 1"),
+            RawSuffixOpr::Decr => self.write(" -= 1"),
+            RawSuffixOpr::AsTy(ty) => {
                 self.write(" as ");
                 self.gen_entity_route(ty.route, EntityRouteRole::Other)
             }

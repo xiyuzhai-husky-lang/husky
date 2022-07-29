@@ -7,7 +7,11 @@ use super::*;
 
 // inner ops
 impl<'a, 'b> AtomParser<'a, 'b> {
-    pub(crate) fn push(&mut self, kind: AtomVariant, text_start: TextPosition) -> AtomResult<()> {
+    pub(crate) fn push(
+        &mut self,
+        kind: HuskyAtomVariant,
+        text_start: TextPosition,
+    ) -> AtomResult<()> {
         self.stack.push(HuskyAtom::new(
             self.token_stream.text_range(text_start),
             kind,

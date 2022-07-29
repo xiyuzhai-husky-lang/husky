@@ -10,7 +10,7 @@ use thin_vec::{thin_vec, ThinVec};
 /// it's hard to parse a standalone tuple from left to right,
 /// so that is leaved for atom group to handle
 impl<'a, 'b> AtomParser<'a, 'b> {
-    pub(crate) fn symbol(&mut self) -> AtomResult<Option<AtomVariant>> {
+    pub(crate) fn symbol(&mut self) -> AtomResult<Option<HuskyAtomVariant>> {
         Ok(if let Some(token) = self.token_stream.next() {
             if is_special!(token, "[") {
                 self.atom_context
@@ -39,7 +39,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 } else {
                     return Ok(None);
                 };
-                Some(AtomVariant::EntityRoute {
+                Some(HuskyAtomVariant::EntityRoute {
                     route: self
                         .atom_context
                         .entity_syntax_db()
@@ -48,7 +48,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 })
             } else if is_special!(token, "&") {
                 let ty = get!(self, ty?);
-                Some(AtomVariant::EntityRoute {
+                Some(HuskyAtomVariant::EntityRoute {
                     route: self
                         .db()
                         .route_call(RootIdentifier::Ref.into(), thin_vec![ty.into()]),
@@ -56,7 +56,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 })
             } else if is_special!(token, "?") {
                 let ty = get!(self, ty?);
-                Some(AtomVariant::EntityRoute {
+                Some(HuskyAtomVariant::EntityRoute {
                     route: self
                         .db()
                         .route_call(RootIdentifier::Option.into(), thin_vec![ty.into()]),
@@ -83,13 +83,13 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                             ));
                         match ident {
                             Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
-                            Identifier::Custom(varname) => AtomVariant::Variable {
+                            Identifier::Custom(varname) => HuskyAtomVariant::Variable {
                                 varname,
                                 init_range,
                             },
                         }
                     }
-                    SymbolKind::Unrecognized(ident) => AtomVariant::Unrecognized(ident),
+                    SymbolKind::Unrecognized(ident) => HuskyAtomVariant::Unrecognized(ident),
                     SymbolKind::ThisValue {
                         opt_this_ty,
                         opt_this_liason,
@@ -99,7 +99,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                                 SemanticTokenKind::ThisValue,
                                 token.range,
                             ));
-                        AtomVariant::ThisValue {
+                        HuskyAtomVariant::ThisValue {
                             opt_this_ty,
                             opt_this_liason,
                         }
@@ -114,7 +114,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                                 SemanticTokenKind::Field,
                                 token.range,
                             ));
-                        AtomVariant::ThisField {
+                        HuskyAtomVariant::ThisField {
                             field_ident: RangedCustomIdentifier {
                                 ident: ident.custom(),
                                 range: token.range,
@@ -131,7 +131,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                                 SemanticTokenKind::FrameVariable,
                                 token.range,
                             ));
-                        AtomVariant::FrameVariable {
+                        HuskyAtomVariant::FrameVariable {
                             varname: ident.custom(),
                             init_range,
                         }
@@ -153,7 +153,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         Ok(EntityRoute::vec(self.generic()?))
     }
 
-    fn normal_route(&mut self, route: EntityRoutePtr) -> AtomResult<AtomVariant> {
+    fn normal_route(&mut self, route: EntityRoutePtr) -> AtomResult<HuskyAtomVariant> {
         let generic_arguments = self.generics(route)?;
         let mut route = self
             .atom_context
@@ -179,7 +179,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     ranged_ident.range,
                 ));
         }
-        return Ok(AtomVariant::EntityRoute {
+        return Ok(HuskyAtomVariant::EntityRoute {
             route,
             kind: self
                 .atom_context
@@ -190,7 +190,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     pub(crate) fn ty(&mut self) -> AtomResult<Option<EntityRoutePtr>> {
         Ok(
-            if let Some(AtomVariant::EntityRoute { route, kind, .. }) = self.symbol()? {
+            if let Some(HuskyAtomVariant::EntityRoute { route, kind, .. }) = self.symbol()? {
                 if let EntityKind::Type(_) = kind {
                     Some(route)
                 } else {
@@ -205,7 +205,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn ranged_ty(&mut self) -> AtomResult<Option<RangedEntityRoute>> {
         let text_start = self.token_stream.text_start();
         Ok(
-            if let Some(AtomVariant::EntityRoute { route, kind, .. }) = self.symbol()? {
+            if let Some(HuskyAtomVariant::EntityRoute { route, kind, .. }) = self.symbol()? {
                 if let EntityKind::Type(_) = kind {
                     Some(RangedEntityRoute {
                         route,
