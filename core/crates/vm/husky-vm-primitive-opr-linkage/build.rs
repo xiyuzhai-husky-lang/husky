@@ -110,6 +110,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (I32, Some(Sub), I32),
         // b32
         (B32, None, B32),
+        (B32, Some(BitAnd), B32),
         (B32, Some(BitOr), B32),
     ];
     write!(

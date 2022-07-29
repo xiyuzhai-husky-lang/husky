@@ -40,6 +40,17 @@ pub unsafe extern "C" fn __{ty}_drop(data: *mut ()) {{
 extern "C" {{
     pub static __{uppercase_ty}_VTABLE: __RegisterVTable;
 }}
+impl<'eval> __Register<'eval> {{
+    pub fn downcast_{ty}(&self) -> {ty} {{
+        unsafe {{
+            assert_eq!(self.vtable as *const _, &__{uppercase_ty}_VTABLE as *const _);
+            match self.data_kind {{
+                __RegisterDataKind::PrimitiveValue => self.data.as_{ty},
+                _ => *(self.data.as_ptr as *const {ty}),
+            }}
+        }}
+    }}
+}}
 "#
         )
     }

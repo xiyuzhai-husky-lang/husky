@@ -123,6 +123,7 @@ impl<'eval> Clone for __Register<'eval> {
 
 impl<'eval> PartialEq for __Register<'eval> {
     fn eq(&self, other: &Self) -> bool {
+        println!("{:?} {:?}", self.data_kind, other.data_kind);
         todo!()
         // self.data_kind == other.data_kind && self.opt_data == other.opt_data
     }
@@ -291,71 +292,71 @@ impl<'eval> __Register<'eval> {
     //         .unwrap()
     // }
 
-    pub fn downcast_void(&self) -> () {
-        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
-        unsafe {
-            assert_eq!(self.vtable as *const _, &__VOID_VTABLE as *const _);
-            self.data.as_void
-        }
-    }
+    // pub fn downcast_void(&self) -> () {
+    //     assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+    //     unsafe {
+    //         assert_eq!(self.vtable as *const _, &__VOID_VTABLE as *const _);
+    //         self.data.as_void
+    //     }
+    // }
 
-    pub fn downcast_bool(&self) -> bool {
-        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
-        unsafe {
-            assert_eq!(self.vtable as *const _, &__BOOL_VTABLE as *const _);
-            self.data.as_bool
-        }
-    }
+    // pub fn downcast_bool(&self) -> bool {
+    //     assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+    //     unsafe {
+    //         assert_eq!(self.vtable as *const _, &__BOOL_VTABLE as *const _);
+    //         self.data.as_bool
+    //     }
+    // }
 
-    pub fn downcast_i32(&self) -> i32 {
-        unsafe {
-            assert_eq!(self.vtable as *const _, &__I32_VTABLE as *const _);
-            match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.data.as_i32,
-                _ => *(self.data.as_ptr as *const i32),
-            }
-        }
-    }
+    // pub fn downcast_i32(&self) -> i32 {
+    //     unsafe {
+    //         assert_eq!(self.vtable as *const _, &__I32_VTABLE as *const _);
+    //         match self.data_kind {
+    //             __RegisterDataKind::PrimitiveValue => self.data.as_i32,
+    //             _ => *(self.data.as_ptr as *const i32),
+    //         }
+    //     }
+    // }
 
-    pub fn downcast_i64(&self) -> i64 {
-        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
-        unsafe {
-            assert_eq!(self.vtable as *const _, &__I64_VTABLE as *const _);
-            self.data.as_i64
-        }
-    }
+    // pub fn downcast_i64(&self) -> i64 {
+    //     assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+    //     unsafe {
+    //         assert_eq!(self.vtable as *const _, &__I64_VTABLE as *const _);
+    //         self.data.as_i64
+    //     }
+    // }
 
-    pub fn downcast_b32(&self) -> u32 {
-        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
-        unsafe {
-            assert_eq!(self.vtable as *const _, &__B32_VTABLE as *const _);
-            self.data.as_b32
-        }
-    }
+    // pub fn downcast_b32(&self) -> u32 {
+    //     assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+    //     unsafe {
+    //         assert_eq!(self.vtable as *const _, &__B32_VTABLE as *const _);
+    //         self.data.as_b32
+    //     }
+    // }
 
-    pub fn downcast_b64(&self) -> u64 {
-        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
-        unsafe {
-            assert_eq!(self.vtable as *const _, &__B64_VTABLE as *const _);
-            self.data.as_b64
-        }
-    }
+    // pub fn downcast_b64(&self) -> u64 {
+    //     assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+    //     unsafe {
+    //         assert_eq!(self.vtable as *const _, &__B64_VTABLE as *const _);
+    //         self.data.as_b64
+    //     }
+    // }
 
-    pub fn downcast_f32(&self) -> f32 {
-        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
-        unsafe {
-            assert_eq!(self.vtable as *const _, &__F32_VTABLE as *const _);
-            self.data.as_f32
-        }
-    }
+    // pub fn downcast_f32(&self) -> f32 {
+    //     assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+    //     unsafe {
+    //         assert_eq!(self.vtable as *const _, &__F32_VTABLE as *const _);
+    //         self.data.as_f32
+    //     }
+    // }
 
-    pub fn downcast_f64(&self) -> f64 {
-        assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
-        unsafe {
-            assert_eq!(self.vtable as *const _, &__F64_VTABLE as *const _);
-            self.data.as_f64
-        }
-    }
+    // pub fn downcast_f64(&self) -> f64 {
+    //     assert_eq!(self.data_kind, __RegisterDataKind::PrimitiveValue);
+    //     unsafe {
+    //         assert_eq!(self.vtable as *const _, &__F64_VTABLE as *const _);
+    //         self.data.as_f64
+    //     }
+    // }
 
     // pub fn downcast<T>(&mut self) -> T
     // where

@@ -158,6 +158,14 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
                 },
                 none
             ),
+            (B32, Some(BitAnd), B32) => transfer_linkage!(
+                |_,arguments| unsafe {
+                    let new_value: b32 = (arguments[0].downcast_b32() & arguments[1].downcast_b32());
+                    *arguments[0].downcast_temp_mut::<b32>() = new_value;
+                    __Register::new_void()
+                },
+                none
+            ),
             (B32, Some(BitOr), B32) => transfer_linkage!(
                 |_,arguments| unsafe {
                     let new_value: b32 = (arguments[0].downcast_b32() | arguments[1].downcast_b32());
