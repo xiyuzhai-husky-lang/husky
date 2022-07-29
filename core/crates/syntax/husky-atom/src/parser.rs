@@ -2,6 +2,7 @@ mod impl_basic;
 mod impl_entity_route;
 mod impl_lambda_head;
 mod impl_parameter;
+mod impl_pattern;
 mod impl_special;
 mod impl_state;
 mod impl_word_opr;
@@ -47,12 +48,22 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    pub fn parse_all(mut self) -> AtomResult<Vec<HuskyAtom>> {
+    pub fn parse_all_atoms(mut self) -> AtomResult<Vec<HuskyAtom>> {
+        self.parse_all_remaining_atoms()
+    }
+
+    pub fn parse_all_remaining_atoms(&mut self) -> AtomResult<Vec<HuskyAtom>> {
+        self.stack.freeze();
         loop {
             if self.stack.is_concave() {
                 let text_start = self.token_stream.text_start();
                 if let Some(kind) = try_get!(self, symbol?) {
-                    self.push(kind, text_start)?;
+                    {
+                        self.stack.push(HuskyAtom::new(
+                            self.token_stream.text_range(text_start),
+                            kind,
+                        ))
+                    }?;
                 }
             }
             let text_start = self.token_stream.text_start();
@@ -98,16 +109,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 break;
             }
         }
-
-        if self.stack.is_convex() {
-            Ok(self.stack.into())
-        } else {
-            if let Some(last_atom) = self.stack.atoms.last() {
-                err!(format!("last atom is not right convex"), last_atom.range)
-            } else {
-                Ok(vec![])
-            }
-        }
+        self.stack.unfreeze()
     }
 
     fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {
@@ -124,7 +126,7 @@ pub fn parse_route<'a, 'b>(
     symbol_context: &'a mut dyn AtomContext,
     tokens: &'a [HuskyToken],
 ) -> AtomResult<RangedEntityRoute> {
-    let result = AtomParser::new(symbol_context, &mut tokens.into()).parse_all()?;
+    let result = AtomParser::new(symbol_context, &mut tokens.into()).parse_all_remaining_atoms()?;
     if result.len() == 0 {
         panic!()
     }

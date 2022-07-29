@@ -65,7 +65,7 @@ impl<'a> AstTransformer<'a> {
                 );
             }
             let mut parser = AtomParser::new(self, &mut token_stream);
-            let atoms = parser.parse_all()?;
+            let atoms = parser.parse_all_remaining_atoms()?;
             FieldAstKind::StructDefault {
                 default: self.parse_expr_from_atoms(atoms)?,
             }
@@ -88,7 +88,7 @@ impl<'a> AstTransformer<'a> {
                 );
             }
             let mut parser = AtomParser::new(self, &mut token_stream);
-            let atoms = parser.parse_all()?;
+            let atoms = parser.parse_all_remaining_atoms()?;
             FieldAstKind::StructDerivedEager {
                 derivation: self.parse_expr_from_atoms(atoms)?,
             }

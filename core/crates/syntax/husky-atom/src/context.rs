@@ -187,8 +187,8 @@ pub trait AtomContext {
 
     fn parse_entity_route(&mut self, text: &str) -> AtomResult<EntityRoutePtr> {
         let tokens = self.entity_syntax_db().tokenize(text);
-        let result =
-            AtomParser::new(self.as_dyn_mut(), &mut (&tokens as &[_]).into()).parse_all()?;
+        let result = AtomParser::new(self.as_dyn_mut(), &mut (&tokens as &[_]).into())
+            .parse_all_remaining_atoms()?;
         if result.len() == 0 {
             panic!()
         }
