@@ -2,7 +2,7 @@ use crate::*;
 use avec::Avec;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_value;
 use vm::{
-    InitKind, Instruction, InstructionVariant, VMCasePattern, VMConditionBranch, VMPatternBranch,
+    InitKind, Instruction, InstructionVariant, VMConditionBranch, VMPattern, VMPatternBranch,
 };
 
 impl<'a> InstructionSheetBuilder<'a> {
@@ -149,18 +149,18 @@ impl<'a> InstructionSheetBuilder<'a> {
         )
     }
 
-    fn gen_func_case_pattern(&self, pattern: &FuncCasePattern) -> VMCasePattern {
+    fn gen_func_case_pattern(&self, pattern: &FuncPattern) -> VMPattern {
         match pattern.variant {
-            FuncCasePatternVariant::PrimitiveLiteral(data) => {
-                VMCasePattern::Primitive(convert_primitive_literal_to_value(data, pattern.ty))
+            FuncPatternVariant::PrimitiveLiteral(data) => {
+                VMPattern::Primitive(convert_primitive_literal_to_value(data, pattern.ty))
             }
-            FuncCasePatternVariant::OneOf { ref subpatterns } => VMCasePattern::OneOf(
+            FuncPatternVariant::OneOf { ref subpatterns } => VMPattern::OneOf(
                 subpatterns
                     .iter()
                     .map(|subpattern| self.gen_func_case_pattern(subpattern))
                     .collect(),
             ),
-            FuncCasePatternVariant::EnumLiteral(_) => todo!(),
+            FuncPatternVariant::EnumLiteral(_) => todo!(),
         }
     }
 }

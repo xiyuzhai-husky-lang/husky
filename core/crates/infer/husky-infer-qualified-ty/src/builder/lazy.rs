@@ -2,6 +2,7 @@ use defn_head::Parameter;
 use entity_kind::EntityKind;
 use husky_ast::*;
 use husky_check_utils::should;
+use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_print_utils::p;
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRanged;
@@ -144,13 +145,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    fn infer_lazy_case_pattern(&mut self, pattern: &RawCasePattern) {
+    fn infer_lazy_case_pattern(&mut self, pattern: &RawPattern) {
         match pattern.variant {
-            RawCasePatternVariant::PrimitiveLiteral(_) => (),
-            RawCasePatternVariant::OneOf {
+            RawPatternVariant::PrimitiveLiteral(_) => (),
+            RawPatternVariant::OneOf {
                 subpatterns: ref patterns,
             } => (),
-            RawCasePatternVariant::EnumLiteral(_) => (),
+            RawPatternVariant::EnumLiteral(_) => (),
         }
     }
 

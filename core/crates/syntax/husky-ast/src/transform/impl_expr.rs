@@ -40,6 +40,7 @@ impl<'a> AstTransformer<'a> {
                     stack.accept_lambda_head(args.clone(), atom.text_start())
                 }
                 AtomVariant::SilentEnd => return err!(format!("unexpected `;`"), atom.range),
+                AtomVariant::BePattern(_) => todo!(),
             }
         }
         stack.finish()

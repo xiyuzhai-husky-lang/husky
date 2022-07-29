@@ -22,6 +22,7 @@ impl AtomVariant {
             | AtomVariant::ListStart(_, ListStartAttr::MethodAttach { .. })
             | AtomVariant::ListItem
             | AtomVariant::SilentEnd => Convexity::Concave,
+            AtomVariant::BePattern(_) => todo!(),
         }
     }
 
@@ -45,6 +46,7 @@ impl AtomVariant {
             | AtomVariant::ListItem
             | AtomVariant::ListEnd(_, ListEndAttr::Attach)
             | AtomVariant::LambdaHead(_) => Convexity::Concave,
+            AtomVariant::BePattern(_) => todo!(),
         }
     }
 }

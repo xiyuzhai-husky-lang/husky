@@ -1,5 +1,6 @@
 use std::iter::Peekable;
 
+use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_word::IdentPairDict;
 use vm::InitKind;
 
@@ -182,21 +183,19 @@ impl<'a> EagerParser<'a> {
 
     fn parse_func_pattern(
         &mut self,
-        raw_pattern: &RawCasePattern,
+        raw_pattern: &RawPattern,
         ty: EntityRoutePtr,
-    ) -> SemanticResult<FuncCasePattern> {
+    ) -> SemanticResult<FuncPattern> {
         let variant = match raw_pattern.variant {
-            RawCasePatternVariant::PrimitiveLiteral(data) => {
-                FuncCasePatternVariant::PrimitiveLiteral(data)
-            }
-            RawCasePatternVariant::OneOf { ref subpatterns } => FuncCasePatternVariant::OneOf {
+            RawPatternVariant::PrimitiveLiteral(data) => FuncPatternVariant::PrimitiveLiteral(data),
+            RawPatternVariant::OneOf { ref subpatterns } => FuncPatternVariant::OneOf {
                 subpatterns: subpatterns
                     .iter()
                     .map(|raw_pattern| self.parse_func_pattern(raw_pattern, ty))
                     .collect::<SemanticResult<_>>()?,
             },
-            RawCasePatternVariant::EnumLiteral(route) => FuncCasePatternVariant::EnumLiteral(route),
+            RawPatternVariant::EnumLiteral(route) => FuncPatternVariant::EnumLiteral(route),
         };
-        Ok(FuncCasePattern { ty, variant })
+        Ok(FuncPattern { ty, variant })
     }
 }

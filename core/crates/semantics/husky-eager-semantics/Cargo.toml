@@ -29,3 +29,4 @@ defn-head = { path = "../../syntax/defn-head" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 entity-kind = { path = "../../syntax/entity-kind" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
+husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }

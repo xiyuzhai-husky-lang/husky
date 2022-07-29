@@ -1,5 +1,4 @@
 use crate::*;
-use husky_ast::RawCasePattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -10,19 +9,19 @@ pub struct FuncPatternBranch {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum FuncPatternBranchVariant {
-    Case { pattern: FuncCasePattern },
+    Case { pattern: FuncPattern },
     Default,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct FuncCasePattern {
+pub struct FuncPattern {
     pub ty: EntityRoutePtr,
-    pub variant: FuncCasePatternVariant,
+    pub variant: FuncPatternVariant,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum FuncCasePatternVariant {
+pub enum FuncPatternVariant {
     PrimitiveLiteral(PrimitiveLiteralData),
-    OneOf { subpatterns: Vec<FuncCasePattern> },
+    OneOf { subpatterns: Vec<FuncPattern> },
     EnumLiteral(EntityRoutePtr),
 }

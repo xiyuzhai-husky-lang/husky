@@ -1,5 +1,6 @@
 use husky_ast::{RawBoundary, RawLoopKind};
 use husky_dev_utils::dev_src;
+use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::TextRanged;
 
@@ -170,11 +171,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         }
     }
 
-    fn infer_pattern(&mut self, expectation: EntityRoutePtr, pattern: &RawCasePattern) {
+    fn infer_pattern(&mut self, expectation: EntityRoutePtr, pattern: &RawPattern) {
         // in pattern matching, we don't use expectation.intrinsic
         // because there is no implicit conversion
         let ty: EntityRoutePtr = match pattern.variant {
-            RawCasePatternVariant::PrimitiveLiteral(value) => match value {
+            RawPatternVariant::PrimitiveLiteral(value) => match value {
                 PrimitiveLiteralData::Void => todo!(),
                 PrimitiveLiteralData::Integer(_) => match expectation {
                     EntityRoutePtr::Root(
@@ -195,13 +196,13 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 PrimitiveLiteralData::B64(_) => RootIdentifier::B64.into(),
                 PrimitiveLiteralData::Bool(_) => todo!(),
             },
-            RawCasePatternVariant::OneOf { ref subpatterns } => {
+            RawPatternVariant::OneOf { ref subpatterns } => {
                 for subpattern in subpatterns {
                     self.infer_pattern(expectation, subpattern)
                 }
                 return;
             }
-            RawCasePatternVariant::EnumLiteral(value) => value.parent(),
+            RawPatternVariant::EnumLiteral(value) => value.parent(),
         };
         if ty != expectation {
             todo!()

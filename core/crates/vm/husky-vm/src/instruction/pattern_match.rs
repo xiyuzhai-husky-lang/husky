@@ -3,22 +3,22 @@ use husky_entity_route::EntityRoutePtr;
 
 #[derive(Debug, PartialEq)]
 pub struct VMPatternBranch {
-    pub opt_pattern: Option<VMCasePattern>,
+    pub opt_pattern: Option<VMPattern>,
     pub body: Arc<InstructionSheet>,
 }
 
 #[derive(Debug, PartialEq)]
-pub enum VMCasePattern {
+pub enum VMPattern {
     Primitive(PrimitiveValueData),
-    OneOf(Vec<VMCasePattern>),
+    OneOf(Vec<VMPattern>),
     EnumKindLiteral(EntityRoutePtr),
 }
 
-impl VMCasePattern {
+impl VMPattern {
     pub fn matches<'temp, 'eval>(&self, value: &__Register<'eval>) -> bool {
         match self {
-            VMCasePattern::Primitive(primitive) => value.match_primitive(*primitive),
-            VMCasePattern::OneOf(subpatterns) => {
+            VMPattern::Primitive(primitive) => value.match_primitive(*primitive),
+            VMPattern::OneOf(subpatterns) => {
                 for subpattern in subpatterns {
                     if subpattern.matches(value) {
                         return true;
@@ -26,7 +26,7 @@ impl VMCasePattern {
                 }
                 false
             }
-            VMCasePattern::EnumKindLiteral(route) => {
+            VMPattern::EnumKindLiteral(route) => {
                 todo!()
                 //     match value {
                 //     __TempValue::Moved => todo!(),

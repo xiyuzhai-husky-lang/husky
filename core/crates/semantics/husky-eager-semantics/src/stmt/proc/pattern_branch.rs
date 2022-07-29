@@ -1,5 +1,4 @@
 use crate::*;
-use husky_ast::RawCasePattern;
 use husky_file::FilePtr;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::TextRange;
@@ -15,19 +14,19 @@ pub struct ProcPatternBranch {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ProcPatternBranchVariant {
-    Case { pattern: ProcCasePattern },
+    Case { pattern: ProcPattern },
     Default,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ProcCasePattern {
+pub struct ProcPattern {
     pub ty: EntityRoutePtr,
-    pub variant: ProcCasePatternVariant,
+    pub variant: ProcPatternVariant,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ProcCasePatternVariant {
+pub enum ProcPatternVariant {
     PrimitiveLiteral(PrimitiveLiteralData),
-    OneOf { subpatterns: Vec<ProcCasePattern> },
+    OneOf { subpatterns: Vec<ProcPattern> },
     EnumLiteral(EntityRoutePtr),
 }

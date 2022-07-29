@@ -1,4 +1,3 @@
-use husky_ast::{RawCasePattern, RawCasePatternVariant};
 use husky_entity_route::EntityRouteKind;
 use husky_print_utils::msg_once;
 use semantics_error::*;

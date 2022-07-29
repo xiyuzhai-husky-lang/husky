@@ -5,6 +5,7 @@ use entity_kind::EntityKind;
 use husky_ast::*;
 use husky_check_utils::should;
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
+use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_print_utils::{epin, msg_once, p};
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
 use husky_text::{TextRange, TextRanged};
@@ -180,13 +181,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    fn infer_eager_case_pattern(&mut self, pattern: &RawCasePattern) {
+    fn infer_eager_case_pattern(&mut self, pattern: &RawPattern) {
         match pattern.variant {
-            RawCasePatternVariant::PrimitiveLiteral(_) => (),
-            RawCasePatternVariant::OneOf {
+            RawPatternVariant::PrimitiveLiteral(_) => (),
+            RawPatternVariant::OneOf {
                 subpatterns: ref patterns,
             } => (),
-            RawCasePatternVariant::EnumLiteral(_) => (),
+            RawPatternVariant::EnumLiteral(_) => (),
         }
     }
 

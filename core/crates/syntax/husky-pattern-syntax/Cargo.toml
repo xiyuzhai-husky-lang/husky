@@ -1,0 +1,10 @@
+[package]
+name = "husky-pattern-syntax"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+husky-text = { path = "../husky-text" }
+husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
+husky-entity-route = { path = "../husky-entity-route" }

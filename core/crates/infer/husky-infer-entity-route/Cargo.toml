@@ -34,3 +34,4 @@ infer-decl = { path = "../husky-infer-decl" }
 defn-head = { path = "../../syntax/defn-head" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 thin-vec = { path = "../../../../forks/thin-vec" }
+husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }

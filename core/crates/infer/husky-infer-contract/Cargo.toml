@@ -32,3 +32,4 @@ husky-atom = { path = "../../syntax/husky-atom" }
 infer-decl = { path = "../husky-infer-decl" }
 defn-head = { path = "../../syntax/defn-head" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }
