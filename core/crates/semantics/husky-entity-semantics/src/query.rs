@@ -66,9 +66,9 @@ pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRout
         | EntitySource::StaticTypeMember(_)
         | EntitySource::StaticTraitMember(_)
         | EntitySource::StaticTypeAsTraitMember => (),
+        EntitySource::Input { .. } => (), // ad hoc, should consider the task config block
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Module { file } => todo!(),
-        EntitySource::Input { main } => todo!(),
         EntitySource::WithinModule {
             file,
             token_group_index,
