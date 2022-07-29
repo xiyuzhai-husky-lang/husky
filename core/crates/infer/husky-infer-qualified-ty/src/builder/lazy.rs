@@ -124,6 +124,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawStmtVariant::Assert(condition) => {
                 self.infer_lazy_expr(condition);
             }
+            RawStmtVariant::Require { condition } => {
+                self.infer_lazy_expr(condition);
+            }
             RawStmtVariant::Break => todo!(),
             RawStmtVariant::Match { match_expr, .. } => {
                 self.infer_lazy_expr(match_expr);
@@ -138,7 +141,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     })
                 }
             },
-            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 

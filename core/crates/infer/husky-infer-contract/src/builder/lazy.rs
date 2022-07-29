@@ -58,6 +58,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 }
             }
             RawStmtVariant::Assert(condition) => self.infer_lazy_condition(condition),
+            RawStmtVariant::Require { condition } => self.infer_lazy_condition(condition),
             RawStmtVariant::Break => (),
             RawStmtVariant::Match {
                 match_expr,
@@ -73,7 +74,6 @@ impl<'a> ContractSheetBuilder<'a> {
                     })
                 }
             },
-            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 
