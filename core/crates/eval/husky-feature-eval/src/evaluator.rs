@@ -97,6 +97,15 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
                 .to_raw()
         }
     }
+
+    fn eval_feature_from_uid(&self, feature_uid: usize) -> __VMResult<__Register<'eval>> {
+        // self.sheet
+        //     .cached_value(EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }))
+        // if let Some(_) = self.opt_cached_feature(feature_uid) {
+        //     todo!()
+        // }
+        todo!()
+    }
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {

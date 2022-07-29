@@ -26,4 +26,6 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
     ) -> __VMResult<__Register<'eval>>;
 
     fn get_feature_ptr(&self, feature_route_text: &str) -> *const ();
+
+    fn eval_feature_from_uid(&self, feature_uid: usize) -> __VMResult<__Register<'eval>>;
 }
