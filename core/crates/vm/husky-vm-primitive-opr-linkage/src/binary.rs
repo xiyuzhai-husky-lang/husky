@@ -68,9 +68,39 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             },
             none
         ),
+        (B32, BitAnd, B32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_b32() & arguments[1].downcast_b32()).to_register()
+            },
+            none
+        ),
+        (B32, BitOr, B32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_b32() | arguments[1].downcast_b32()).to_register()
+            },
+            none
+        ),
         (B32, Eq, B32) => transfer_linkage!(
             |_,arguments| unsafe {
                 (arguments[0].downcast_b32() == arguments[1].downcast_b32()).to_register()
+            },
+            none
+        ),
+        (B32, Neq, B32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_b32() != arguments[1].downcast_b32()).to_register()
+            },
+            none
+        ),
+        (B32, Shl, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_b32() << arguments[1].downcast_i32()).to_register()
+            },
+            none
+        ),
+        (B32, Shr, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_b32() >> arguments[1].downcast_i32()).to_register()
             },
             none
         ),

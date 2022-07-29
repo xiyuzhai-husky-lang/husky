@@ -37,6 +37,10 @@ pub unsafe extern "C" fn __{ty}_clone(data: *mut ()) -> *mut () {{
 pub unsafe extern "C" fn __{ty}_drop(data: *mut ()) {{
     Box::from_raw(data as *mut {ty});
 }}
+#[no_mangle]
+pub unsafe extern "C" fn __{ty}_eq(this: &(), other: &()) -> bool {{
+    *(this as *const () as *const {ty}) == *(other as *const () as *const {ty})
+}}
 extern "C" {{
     pub static __{uppercase_ty}_VTABLE: __RegisterVTable;
 }}
@@ -76,6 +80,10 @@ pub unsafe extern "C" fn __{snake_ty}_clone(data: *mut ()) -> *mut () {{
 #[no_mangle]
 pub unsafe extern "C" fn __{snake_ty}_drop(data: *mut ()) {{
     Box::from_raw(data as *mut {ty});
+}}
+#[no_mangle]
+pub unsafe extern "C" fn __{snake_ty}_eq(this: &(), other: &()) -> bool {{
+    *(this as *const () as *const {ty}) == *(other as *const () as *const {ty})
 }}
 extern "C" {{
     pub static __{upper_snake_ty}_VTABLE: __RegisterVTable;

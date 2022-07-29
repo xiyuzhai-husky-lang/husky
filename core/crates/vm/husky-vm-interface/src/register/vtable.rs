@@ -9,6 +9,7 @@ pub struct __RegisterVTable {
     pub primitive_value_to_box: Option<fn(data: __RegisterData) -> *mut ()>,
     pub clone: Option<fn(data: *mut ()) -> *mut ()>,
     pub drop: Option<fn(data: *mut ())>,
+    pub eq: Option<fn(this: &(), this: &()) -> bool>,
 }
 
 unsafe impl Sync for __RegisterVTable {}

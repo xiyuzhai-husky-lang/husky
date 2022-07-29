@@ -6,6 +6,7 @@ const __RegisterVTable __BINARY_IMAGE_28_VTABLE = {
     .primitive_value_to_box = 0,
     .clone = __binary_image_28_clone,
     .drop = __binary_image_28_drop,
+    .eq = __binary_image_28_eq,
 };
 
 const __RegisterVTable __BINARY_GRID_28_VTABLE = {
@@ -14,6 +15,7 @@ const __RegisterVTable __BINARY_GRID_28_VTABLE = {
     .primitive_value_to_box = 0,
     .clone = __binary_grid_28_clone,
     .drop = __binary_grid_28_drop,
+    .eq = __binary_grid_28_eq,
 };
 
 const __RegisterVTable __DATASET_VTABLE = {
@@ -22,4 +24,5 @@ const __RegisterVTable __DATASET_VTABLE = {
     .primitive_value_to_box = 0,
     .clone = __dataset_clone,
     .drop = __dataset_drop,
+    .eq = __dataset_eq,
 };

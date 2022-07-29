@@ -6,6 +6,7 @@ const __RegisterVTable __VOID_VTABLE = {
     .primitive_value_to_box = __void_primitive_value_to_box,
     .clone = __void_clone,
     .drop = __void_drop,
+    .eq = __void_eq,
 };
 
 const __RegisterVTable __BOOL_VTABLE = {
@@ -14,6 +15,7 @@ const __RegisterVTable __BOOL_VTABLE = {
     .primitive_value_to_box = __bool_primitive_value_to_box,
     .clone = __bool_clone,
     .drop = __bool_drop,
+    .eq = __bool_eq,
 };
 
 const __RegisterVTable __I32_VTABLE = {
@@ -22,6 +24,7 @@ const __RegisterVTable __I32_VTABLE = {
     .primitive_value_to_box = __i32_primitive_value_to_box,
     .clone = __i32_clone,
     .drop = __i32_drop,
+    .eq = __i32_eq,
 };
 
 const __RegisterVTable __I64_VTABLE = {
@@ -30,6 +33,7 @@ const __RegisterVTable __I64_VTABLE = {
     .primitive_value_to_box = __i64_primitive_value_to_box,
     .clone = __i64_clone,
     .drop = __i64_drop,
+    .eq = __i64_eq,
 };
 
 const __RegisterVTable __B32_VTABLE = {
@@ -38,6 +42,7 @@ const __RegisterVTable __B32_VTABLE = {
     .primitive_value_to_box = __b32_primitive_value_to_box,
     .clone = __b32_clone,
     .drop = __b32_drop,
+    .eq = __b32_eq,
 };
 
 const __RegisterVTable __B64_VTABLE = {
@@ -46,6 +51,7 @@ const __RegisterVTable __B64_VTABLE = {
     .primitive_value_to_box = __b64_primitive_value_to_box,
     .clone = __b64_clone,
     .drop = __b64_drop,
+    .eq = __b64_eq,
 };
 
 const __RegisterVTable __F32_VTABLE = {
@@ -54,6 +60,7 @@ const __RegisterVTable __F32_VTABLE = {
     .primitive_value_to_box = __f32_primitive_value_to_box,
     .clone = __f32_clone,
     .drop = __f32_drop,
+    .eq = __f32_eq,
 };
 
 const __RegisterVTable __F64_VTABLE = {
@@ -62,6 +69,7 @@ const __RegisterVTable __F64_VTABLE = {
     .primitive_value_to_box = __f64_primitive_value_to_box,
     .clone = __f64_clone,
     .drop = __f64_drop,
+    .eq = __f64_eq,
 };
 
 const __RegisterVTable __VIRTUAL_FUNCTION_VTABLE = {
@@ -70,4 +78,5 @@ const __RegisterVTable __VIRTUAL_FUNCTION_VTABLE = {
     .primitive_value_to_box = 0,
     .clone = __virtual_function_clone,
     .drop = __virtual_function_drop,
+    .eq = __virtual_function_eq,
 };

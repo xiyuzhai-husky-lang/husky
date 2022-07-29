@@ -36,9 +36,9 @@ impl std::hash::Hash for PrimitiveValueData {
                 assert!(!f.is_nan());
                 (*f as u64).hash(state)
             }
-            PrimitiveValueData::B32(_) => todo!(),
-            PrimitiveValueData::B64(_) => todo!(),
-            PrimitiveValueData::Bool(_) => todo!(),
+            PrimitiveValueData::B32(b) => b.hash(state),
+            PrimitiveValueData::B64(b) => b.hash(state),
+            PrimitiveValueData::Bool(b) => b.hash(state),
             PrimitiveValueData::Void(_) => todo!(),
         }
     }

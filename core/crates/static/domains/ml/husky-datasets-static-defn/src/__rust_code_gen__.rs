@@ -19,6 +19,10 @@ pub unsafe extern "C" fn __binary_image_28_clone(data: *mut ()) -> *mut () {
 pub unsafe extern "C" fn __binary_image_28_drop(data: *mut ()) {
     Box::from_raw(data as *mut BinaryImage28);
 }
+#[no_mangle]
+pub unsafe extern "C" fn __binary_image_28_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const BinaryImage28) == *(other as *const () as *const BinaryImage28)
+}
 extern "C" {
     pub static __BINARY_IMAGE_28_VTABLE: __RegisterVTable;
 }
@@ -32,6 +36,10 @@ pub unsafe extern "C" fn __binary_grid_28_clone(data: *mut ()) -> *mut () {
 pub unsafe extern "C" fn __binary_grid_28_drop(data: *mut ()) {
     Box::from_raw(data as *mut BinaryGrid28);
 }
+#[no_mangle]
+pub unsafe extern "C" fn __binary_grid_28_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const BinaryGrid28) == *(other as *const () as *const BinaryGrid28)
+}
 extern "C" {
     pub static __BINARY_GRID_28_VTABLE: __RegisterVTable;
 }
@@ -44,6 +52,10 @@ pub unsafe extern "C" fn __dataset_clone(data: *mut ()) -> *mut () {
 #[no_mangle]
 pub unsafe extern "C" fn __dataset_drop(data: *mut ()) {
     Box::from_raw(data as *mut Dataset);
+}
+#[no_mangle]
+pub unsafe extern "C" fn __dataset_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const Dataset) == *(other as *const () as *const Dataset)
 }
 extern "C" {
     pub static __DATASET_VTABLE: __RegisterVTable;

@@ -6,15 +6,18 @@
 // VirtualStruct
 extern void *__virtual_struct_clone(void*);
 extern void __virtual_struct_drop(void*);
+extern bool __virtual_struct_eq(void*, void*);
 extern const __RegisterVTable __VIRTUAL_STRUCT_VTABLE;
         
 // VirtualVec
 extern void *__virtual_vec_clone(void*);
 extern void __virtual_vec_drop(void*);
+extern bool __virtual_vec_eq(void*, void*);
 extern const __RegisterVTable __VIRTUAL_VEC_VTABLE;
         
 // VirtualCyclicSlice
 extern void *__virtual_cyclic_slice_clone(void*);
 extern void __virtual_cyclic_slice_drop(void*);
+extern bool __virtual_cyclic_slice_eq(void*, void*);
 extern const __RegisterVTable __VIRTUAL_CYCLIC_SLICE_VTABLE;
         
