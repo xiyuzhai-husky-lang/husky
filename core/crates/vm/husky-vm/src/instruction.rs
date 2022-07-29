@@ -116,6 +116,7 @@ pub enum InstructionVariant {
     },
     EntityFeature {
         feature_uid: EntityUid,
+        ty: EntityRoutePtr,
     },
     PushEntityFp {
         opt_linkage: Option<__Linkage>,

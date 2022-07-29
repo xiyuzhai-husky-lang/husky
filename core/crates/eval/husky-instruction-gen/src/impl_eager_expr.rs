@@ -128,6 +128,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerExprVariant::EntityFeature { route } => self.push_instruction(Instruction::new(
                 InstructionVariant::EntityFeature {
                     feature_uid: self.db.compile_time().entity_uid(route),
+                    ty: expr.ty(),
                 },
                 expr.clone(),
             )),
