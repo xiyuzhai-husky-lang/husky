@@ -20,12 +20,10 @@ typedef union __RegisterData {
 } __RegisterData;
 
 typedef bool (*__primitive_value_to_bool_t)(__RegisterData);
-
 typedef void *(*__primitive_value_to_box_t)(__RegisterData);
-
 typedef void *(*__clone_t)(void *);
-
 typedef void (*__drop_t)(void *);
+typedef bool (*__eq_t)(void *, void *);
 
 typedef struct __RegisterVTable {
     char const *typename_str;
@@ -33,6 +31,7 @@ typedef struct __RegisterVTable {
     __primitive_value_to_box_t primitive_value_to_box;
     __clone_t clone;
     __drop_t drop;
+    __eq_t eq;
 } __RegisterVTable;
     
 // handles of primitive types are provided by Rust
@@ -42,6 +41,7 @@ extern bool __void_primitive_value_to_bool(__RegisterData data);
 extern void *__void_primitive_value_to_box(__RegisterData data);
 extern void *__void_clone(void*);
 extern void __void_drop(void*);
+extern bool __void_eq(void*, void*);
 extern const __RegisterVTable __VOID_VTABLE;
         
 // bool
@@ -49,6 +49,7 @@ extern bool __bool_primitive_value_to_bool(__RegisterData data);
 extern void *__bool_primitive_value_to_box(__RegisterData data);
 extern void *__bool_clone(void*);
 extern void __bool_drop(void*);
+extern bool __bool_eq(void*, void*);
 extern const __RegisterVTable __BOOL_VTABLE;
         
 // i32
@@ -56,6 +57,7 @@ extern bool __i32_primitive_value_to_bool(__RegisterData data);
 extern void *__i32_primitive_value_to_box(__RegisterData data);
 extern void *__i32_clone(void*);
 extern void __i32_drop(void*);
+extern bool __i32_eq(void*, void*);
 extern const __RegisterVTable __I32_VTABLE;
         
 // i64
@@ -63,6 +65,7 @@ extern bool __i64_primitive_value_to_bool(__RegisterData data);
 extern void *__i64_primitive_value_to_box(__RegisterData data);
 extern void *__i64_clone(void*);
 extern void __i64_drop(void*);
+extern bool __i64_eq(void*, void*);
 extern const __RegisterVTable __I64_VTABLE;
         
 // b32
@@ -70,6 +73,7 @@ extern bool __b32_primitive_value_to_bool(__RegisterData data);
 extern void *__b32_primitive_value_to_box(__RegisterData data);
 extern void *__b32_clone(void*);
 extern void __b32_drop(void*);
+extern bool __b32_eq(void*, void*);
 extern const __RegisterVTable __B32_VTABLE;
         
 // b64
@@ -77,6 +81,7 @@ extern bool __b64_primitive_value_to_bool(__RegisterData data);
 extern void *__b64_primitive_value_to_box(__RegisterData data);
 extern void *__b64_clone(void*);
 extern void __b64_drop(void*);
+extern bool __b64_eq(void*, void*);
 extern const __RegisterVTable __B64_VTABLE;
         
 // f32
@@ -84,6 +89,7 @@ extern bool __f32_primitive_value_to_bool(__RegisterData data);
 extern void *__f32_primitive_value_to_box(__RegisterData data);
 extern void *__f32_clone(void*);
 extern void __f32_drop(void*);
+extern bool __f32_eq(void*, void*);
 extern const __RegisterVTable __F32_VTABLE;
         
 // f64
@@ -91,10 +97,12 @@ extern bool __f64_primitive_value_to_bool(__RegisterData data);
 extern void *__f64_primitive_value_to_box(__RegisterData data);
 extern void *__f64_clone(void*);
 extern void __f64_drop(void*);
+extern bool __f64_eq(void*, void*);
 extern const __RegisterVTable __F64_VTABLE;
         
 // __VirtualFunction
 extern void *__virtual_function_clone(void*);
 extern void __virtual_function_drop(void*);
+extern bool __virtual_function_eq(void*, void*);
 extern const __RegisterVTable __VIRTUAL_FUNCTION_VTABLE;
         

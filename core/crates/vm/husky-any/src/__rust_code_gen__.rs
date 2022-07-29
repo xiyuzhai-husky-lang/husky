@@ -16,6 +16,10 @@ pub unsafe extern "C" fn __virtual_struct_clone(data: *mut ()) -> *mut () {
 pub unsafe extern "C" fn __virtual_struct_drop(data: *mut ()) {
     Box::from_raw(data as *mut VirtualStruct);
 }
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_struct_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const VirtualStruct) == *(other as *const () as *const VirtualStruct)
+}
 extern "C" {
     pub static __VIRTUAL_STRUCT_VTABLE: __RegisterVTable;
 }
@@ -29,6 +33,10 @@ pub unsafe extern "C" fn __virtual_vec_clone(data: *mut ()) -> *mut () {
 pub unsafe extern "C" fn __virtual_vec_drop(data: *mut ()) {
     Box::from_raw(data as *mut VirtualVec);
 }
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_vec_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const VirtualVec) == *(other as *const () as *const VirtualVec)
+}
 extern "C" {
     pub static __VIRTUAL_VEC_VTABLE: __RegisterVTable;
 }
@@ -41,6 +49,10 @@ pub unsafe extern "C" fn __virtual_cyclic_slice_clone(data: *mut ()) -> *mut () 
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_drop(data: *mut ()) {
     Box::from_raw(data as *mut VirtualCyclicSlice);
+}
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_cyclic_slice_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const VirtualCyclicSlice) == *(other as *const () as *const VirtualCyclicSlice)
 }
 extern "C" {
     pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterVTable;

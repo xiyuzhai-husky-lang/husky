@@ -6,15 +6,18 @@
 // BinaryImage28
 extern void *__binary_image_28_clone(void*);
 extern void __binary_image_28_drop(void*);
+extern bool __binary_image_28_eq(void*, void*);
 extern const __RegisterVTable __BINARY_IMAGE_28_VTABLE;
         
 // BinaryGrid28
 extern void *__binary_grid_28_clone(void*);
 extern void __binary_grid_28_drop(void*);
+extern bool __binary_grid_28_eq(void*, void*);
 extern const __RegisterVTable __BINARY_GRID_28_VTABLE;
         
 // Dataset
 extern void *__dataset_clone(void*);
 extern void __dataset_drop(void*);
+extern bool __dataset_eq(void*, void*);
 extern const __RegisterVTable __DATASET_VTABLE;
         

@@ -6,6 +6,7 @@ const __RegisterVTable __VIRTUAL_STRUCT_VTABLE = {
     .primitive_value_to_box = 0,
     .clone = __virtual_struct_clone,
     .drop = __virtual_struct_drop,
+    .eq = __virtual_struct_eq,
 };
 
 const __RegisterVTable __VIRTUAL_VEC_VTABLE = {
@@ -14,6 +15,7 @@ const __RegisterVTable __VIRTUAL_VEC_VTABLE = {
     .primitive_value_to_box = 0,
     .clone = __virtual_vec_clone,
     .drop = __virtual_vec_drop,
+    .eq = __virtual_vec_eq,
 };
 
 const __RegisterVTable __VIRTUAL_CYCLIC_SLICE_VTABLE = {
@@ -22,4 +24,5 @@ const __RegisterVTable __VIRTUAL_CYCLIC_SLICE_VTABLE = {
     .primitive_value_to_box = 0,
     .clone = __virtual_cyclic_slice_clone,
     .drop = __virtual_cyclic_slice_drop,
+    .eq = __virtual_cyclic_slice_eq,
 };

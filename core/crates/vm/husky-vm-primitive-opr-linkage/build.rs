@@ -57,7 +57,12 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (I32, Mul, I32),
         (I32, Sub, I32),
         // b32
+        (B32, BitAnd, B32),
+        (B32, BitOr, B32),
         (B32, Eq, B32),
+        (B32, Neq, B32),
+        (B32, Shl, I32),
+        (B32, Shr, I32),
         // f32
         (F32, Eq, F32),
         (F32, Greater, F32),

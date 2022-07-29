@@ -27,6 +27,10 @@ pub unsafe extern "C" fn __void_clone(data: *mut ()) -> *mut () {
 pub unsafe extern "C" fn __void_drop(data: *mut ()) {
     Box::from_raw(data as *mut void);
 }
+#[no_mangle]
+pub unsafe extern "C" fn __void_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const void) == *(other as *const () as *const void)
+}
 extern "C" {
     pub static __VOID_VTABLE: __RegisterVTable;
 }
@@ -61,6 +65,10 @@ pub unsafe extern "C" fn __bool_clone(data: *mut ()) -> *mut () {
 #[no_mangle]
 pub unsafe extern "C" fn __bool_drop(data: *mut ()) {
     Box::from_raw(data as *mut bool);
+}
+#[no_mangle]
+pub unsafe extern "C" fn __bool_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const bool) == *(other as *const () as *const bool)
 }
 extern "C" {
     pub static __BOOL_VTABLE: __RegisterVTable;
@@ -97,6 +105,10 @@ pub unsafe extern "C" fn __i32_clone(data: *mut ()) -> *mut () {
 pub unsafe extern "C" fn __i32_drop(data: *mut ()) {
     Box::from_raw(data as *mut i32);
 }
+#[no_mangle]
+pub unsafe extern "C" fn __i32_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const i32) == *(other as *const () as *const i32)
+}
 extern "C" {
     pub static __I32_VTABLE: __RegisterVTable;
 }
@@ -131,6 +143,10 @@ pub unsafe extern "C" fn __i64_clone(data: *mut ()) -> *mut () {
 #[no_mangle]
 pub unsafe extern "C" fn __i64_drop(data: *mut ()) {
     Box::from_raw(data as *mut i64);
+}
+#[no_mangle]
+pub unsafe extern "C" fn __i64_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const i64) == *(other as *const () as *const i64)
 }
 extern "C" {
     pub static __I64_VTABLE: __RegisterVTable;
@@ -167,6 +183,10 @@ pub unsafe extern "C" fn __b32_clone(data: *mut ()) -> *mut () {
 pub unsafe extern "C" fn __b32_drop(data: *mut ()) {
     Box::from_raw(data as *mut b32);
 }
+#[no_mangle]
+pub unsafe extern "C" fn __b32_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const b32) == *(other as *const () as *const b32)
+}
 extern "C" {
     pub static __B32_VTABLE: __RegisterVTable;
 }
@@ -201,6 +221,10 @@ pub unsafe extern "C" fn __b64_clone(data: *mut ()) -> *mut () {
 #[no_mangle]
 pub unsafe extern "C" fn __b64_drop(data: *mut ()) {
     Box::from_raw(data as *mut b64);
+}
+#[no_mangle]
+pub unsafe extern "C" fn __b64_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const b64) == *(other as *const () as *const b64)
 }
 extern "C" {
     pub static __B64_VTABLE: __RegisterVTable;
@@ -237,6 +261,10 @@ pub unsafe extern "C" fn __f32_clone(data: *mut ()) -> *mut () {
 pub unsafe extern "C" fn __f32_drop(data: *mut ()) {
     Box::from_raw(data as *mut f32);
 }
+#[no_mangle]
+pub unsafe extern "C" fn __f32_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const f32) == *(other as *const () as *const f32)
+}
 extern "C" {
     pub static __F32_VTABLE: __RegisterVTable;
 }
@@ -272,6 +300,10 @@ pub unsafe extern "C" fn __f64_clone(data: *mut ()) -> *mut () {
 pub unsafe extern "C" fn __f64_drop(data: *mut ()) {
     Box::from_raw(data as *mut f64);
 }
+#[no_mangle]
+pub unsafe extern "C" fn __f64_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const f64) == *(other as *const () as *const f64)
+}
 extern "C" {
     pub static __F64_VTABLE: __RegisterVTable;
 }
@@ -295,6 +327,10 @@ pub unsafe extern "C" fn __virtual_function_clone(data: *mut ()) -> *mut () {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
     Box::from_raw(data as *mut __VirtualFunction);
+}
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_function_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const __VirtualFunction) == *(other as *const () as *const __VirtualFunction)
 }
 extern "C" {
     pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterVTable;

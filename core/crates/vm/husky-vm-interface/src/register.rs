@@ -123,9 +123,8 @@ impl<'eval> Clone for __Register<'eval> {
 
 impl<'eval> PartialEq for __Register<'eval> {
     fn eq(&self, other: &Self) -> bool {
-        println!("{:?} {:?}", self.data_kind, other.data_kind);
-        todo!()
-        // self.data_kind == other.data_kind && self.opt_data == other.opt_data
+        assert_eq!(self.vtable as *const _, other.vtable as *const _);
+        self.vtable.eq.unwrap()(self.any_ref(), other.any_ref())
     }
 }
 impl<'eval> Eq for __Register<'eval> {}
@@ -141,6 +140,21 @@ pub trait __StaticInfo {
 }
 
 impl<'eval> __Register<'eval> {
+    fn any_ref(&self) -> &() {
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => unsafe {
+                &*(&self.data as *const _ as *const ())
+            },
+            __RegisterDataKind::Box | __RegisterDataKind::EvalRef | __RegisterDataKind::TempRef => unsafe {
+                &*self.data.as_ptr
+            },
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+        }
+    }
+
     pub fn data_kind(&self) -> __RegisterDataKind {
         self.data_kind
     }
