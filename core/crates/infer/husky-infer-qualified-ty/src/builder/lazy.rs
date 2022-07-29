@@ -138,6 +138,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     })
                 }
             },
+            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 

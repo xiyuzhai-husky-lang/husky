@@ -161,6 +161,7 @@ pub enum StmtKeyword {
     Break,
     Return,
     Assert,
+    Require,
 }
 
 impl StmtKeyword {
@@ -181,6 +182,7 @@ impl StmtKeyword {
             StmtKeyword::Break => "break",
             StmtKeyword::Return => "return",
             StmtKeyword::Assert => "assert",
+            StmtKeyword::Require => "require",
         }
     }
 }

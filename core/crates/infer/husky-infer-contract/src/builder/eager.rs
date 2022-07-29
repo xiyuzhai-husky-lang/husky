@@ -86,6 +86,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_expr(match_expr, EagerContract::from_match(match_liason));
             }
             RawStmtVariant::ReturnXml(_) => panic!(),
+            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 

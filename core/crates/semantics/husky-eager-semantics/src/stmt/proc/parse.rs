@@ -114,6 +114,7 @@ impl<'a> EagerParser<'a> {
                 panic!("pattern branch must be inside match stmt")
             }
             RawStmtVariant::ReturnXml(_) => todo!(),
+            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 

@@ -49,6 +49,9 @@ pub enum RawStmtVariant {
         match_expr: RawExprIdx,
         match_liason: MatchLiason,
     },
+    Require {
+        condition: RawExprIdx,
+    },
 }
 
 impl From<RawLoopKind> for RawStmtVariant {

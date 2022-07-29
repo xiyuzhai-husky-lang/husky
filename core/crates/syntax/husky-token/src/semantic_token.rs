@@ -115,7 +115,8 @@ impl SemanticTokenKind {
                     | StmtKeyword::While
                     | StmtKeyword::Do
                     | StmtKeyword::Break
-                    | StmtKeyword::Return => result |= CONTROL_FLOW,
+                    | StmtKeyword::Return
+                    | StmtKeyword::Require => result |= CONTROL_FLOW,
                     StmtKeyword::Let | StmtKeyword::Var | StmtKeyword::Assert => (),
                 },
                 _ => (),

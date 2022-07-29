@@ -81,6 +81,7 @@ impl<'a> LazyStmtParser<'a> {
                         RawStmtVariant::ReturnXml(ref raw_xml_expr) => LazyStmtVariant::ReturnXml {
                             xml_expr: self.parse_xml_expr(raw_xml_expr)?,
                         },
+                        RawStmtVariant::Require { condition } => todo!(),
                     };
                     stmts.push(Arc::new(LazyStmt {
                         file: self.file,

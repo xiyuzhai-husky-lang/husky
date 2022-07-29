@@ -73,6 +73,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     })
                 }
             },
+            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 

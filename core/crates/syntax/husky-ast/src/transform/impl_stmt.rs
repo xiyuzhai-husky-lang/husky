@@ -134,6 +134,12 @@ impl<'a> AstTransformer<'a> {
                     must_be!(token_group.len() >= 2, "expect some tokens after", kw_range);
                     RawStmtVariant::Assert(self.parse_expr(&token_group[1..])?)
                 }
+                StmtKeyword::Require => {
+                    expect_at_least!(token_group, kw_range, 2);
+                    RawStmtVariant::Require {
+                        condition: self.parse_expr(&token_group[1..])?,
+                    }
+                }
             },
         })
     }

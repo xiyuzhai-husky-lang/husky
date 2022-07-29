@@ -176,6 +176,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.infer_eager_expr(match_expr);
             }
             RawStmtVariant::ReturnXml(ref xml_expr) => panic!(),
+            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 
