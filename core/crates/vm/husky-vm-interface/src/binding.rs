@@ -1,8 +1,8 @@
-use std::ffi::CStr;
-
+use crate::*;
 use husky_print_utils::p;
 #[cfg(feature = "binding")]
 use husky_vm_binding::Binding;
+use std::ffi::CStr;
 
 #[cfg(feature = "extra")]
 use crate::*;
@@ -44,19 +44,6 @@ impl<'eval> __Register<'eval> {
             data_kind: __RegisterDataKind::Box,
             data,
             vtable: self.vtable,
-        }
-    }
-
-    pub fn into_eval(self) -> __Register<'eval> {
-        match self.data_kind {
-            __RegisterDataKind::PrimitiveValue
-            | __RegisterDataKind::Box
-            | __RegisterDataKind::EvalRef
-            | __RegisterDataKind::Undefined => self,
-            __RegisterDataKind::TempRef => panic!(),
-            __RegisterDataKind::TempMut => panic!(),
-            __RegisterDataKind::Moved => panic!(),
-            __RegisterDataKind::Unreturned => panic!(),
         }
     }
 
@@ -234,7 +221,7 @@ impl<'eval> __Register<'eval> {
                 // if data_kind is set first, and something happens during setting data
                 // then there is a memory problem
                 // this ffi call could take some time I guess
-                let as_ptr = (self.vtable.primitive_value_to_box.unwrap())(&mut self.data);
+                let as_ptr = (self.vtable.primitive_value_to_box.unwrap())(self.data);
                 self.data = __RegisterData { as_ptr };
                 self.data_kind = __RegisterDataKind::Box;
             },
@@ -263,4 +250,12 @@ impl<'eval> __Register<'eval> {
             // __Register::Unreturned => __Register::Unreturned,
         }
     }
+}
+
+#[cfg(feature = "extra")]
+#[test]
+fn test_cache_eval() {
+    let mut a = 1i32.to_register();
+    a.cache_eval();
+    assert_eq!(a.downcast_i32(), 1)
 }

@@ -9,6 +9,7 @@ husky-word = { path = "../../syntax/husky-word" }
 vm = { path = "../husky-vm" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+num = "0.4.0"
 
 [build-dependencies]
 bindgen = "0.60.1"

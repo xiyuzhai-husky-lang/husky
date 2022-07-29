@@ -89,7 +89,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             VMControl::None => {
                 panic!("no return from eval_instructions")
             }
-            VMControl::Return(result) => Ok(result),
+            VMControl::Return(result) => Ok({ result }),
             VMControl::Break => todo!(),
             VMControl::Err(e) => Err(
                 todo!(), // e.into()

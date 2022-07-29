@@ -1,6 +1,6 @@
 use super::*;
 use crate::*;
-use husky_print_utils::msg_once;
+use husky_print_utils::{epin, msg_once, p};
 use vm::{__RegisterDataKind, eval_fast};
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
@@ -34,7 +34,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         };
         let nargs: u8 = arguments.len().try_into().unwrap();
         msg_once!("kwargs");
-        vm::eval_fast(
+        let result = vm::eval_fast(
             self.db.upcast(),
             unsafe { self.some_ctx() },
             Some(&block.instruction_sheet),
@@ -44,6 +44,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             [].into_iter(),
             nargs,
             &self.evaluator_config.vm,
-        )
+        );
+        result
     }
 }

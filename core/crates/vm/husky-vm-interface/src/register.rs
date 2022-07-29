@@ -43,19 +43,12 @@ pub union __RegisterData {
 }
 
 #[test]
+fn it() {
+    unsafe { assert_eq!(__RegisterData { as_i32: 1 }.as_b64, 1) }
+}
+
+#[test]
 fn test_register_data_size() {
-    println!(
-        "std::mem::size_of::<f64>() = {}",
-        std::mem::size_of::<f64>()
-    );
-    println!(
-        "std::mem::size_of::<*mut ()>() = {}",
-        std::mem::size_of::<*mut ()>()
-    );
-    println!(
-        "std::mem::size_of::< *mut () >() = {}",
-        std::mem::size_of::<*mut ()>()
-    );
     assert_eq!(std::mem::size_of::<f64>(), std::mem::size_of::<*mut ()>(),);
     assert_eq!(
         std::mem::size_of::<f64>(),

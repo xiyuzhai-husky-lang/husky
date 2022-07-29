@@ -20,6 +20,12 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             },
             none
         ),
+        (I32, Div, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_i32() / arguments[1].downcast_i32()).to_register()
+            },
+            none
+        ),
         (I32, Eq, I32) => transfer_linkage!(
             |_,arguments| unsafe {
                 (arguments[0].downcast_i32() == arguments[1].downcast_i32()).to_register()
@@ -56,6 +62,24 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             },
             none
         ),
+        (I32, Sub, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_i32() - arguments[1].downcast_i32()).to_register()
+            },
+            none
+        ),
+        (B32, Eq, B32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_b32() == arguments[1].downcast_b32()).to_register()
+            },
+            none
+        ),
+        (F32, Eq, F32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_f32() == arguments[1].downcast_f32()).to_register()
+            },
+            none
+        ),
         (F32, Greater, F32) => transfer_linkage!(
             |_,arguments| unsafe {
                 (arguments[0].downcast_f32() > arguments[1].downcast_f32()).to_register()
@@ -77,6 +101,12 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (F32, Leq, F32) => transfer_linkage!(
             |_,arguments| unsafe {
                 (arguments[0].downcast_f32() <= arguments[1].downcast_f32()).to_register()
+            },
+            none
+        ),
+        (I32, Power, I32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                num::pow(arguments[0].downcast_i32(), arguments[1].downcast_i32() as usize).to_register()
             },
             none
         ),
@@ -124,6 +154,14 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             (B32, None, B32) => transfer_linkage!(
                 |_,arguments| unsafe {
                     *arguments[0].downcast_temp_mut::<b32>() = arguments[1].downcast_b32();
+                    __Register::new_void()
+                },
+                none
+            ),
+            (B32, Some(BitOr), B32) => transfer_linkage!(
+                |_,arguments| unsafe {
+                    let new_value: b32 = (arguments[0].downcast_b32() | arguments[1].downcast_b32());
+                    *arguments[0].downcast_temp_mut::<b32>() = new_value;
                     __Register::new_void()
                 },
                 none
