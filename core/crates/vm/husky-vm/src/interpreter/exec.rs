@@ -1,5 +1,6 @@
 mod exec_call;
 mod exec_condition_flow;
+mod exec_feature_eval;
 mod exec_interpret_call;
 mod exec_loop;
 mod exec_opr_opn;
@@ -268,8 +269,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     self.exec_pattern_matching(sheet, ins, branches, mode)
                 }
                 InstructionVariant::EntityFeature { feature_uid } => {
-                    p!(ins.src.file(), ins.src.text_range());
-                    todo!()
+                    self.exec_feature_eval(feature_uid)
                 }
             };
             match control {

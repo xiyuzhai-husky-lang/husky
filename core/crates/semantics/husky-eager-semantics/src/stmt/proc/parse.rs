@@ -271,8 +271,8 @@ impl<'a> EagerParser<'a> {
         match_expr: RawExprIdx,
         match_contract: MatchLiason,
     ) -> SemanticResult<ProcStmtVariant> {
+        let match_expr = self.parse_eager_expr(match_expr)?;
         Ok(ProcStmtVariant::Match {
-            match_expr: self.parse_eager_expr(match_expr)?,
             branches: children
                 .map(|item| {
                     let value = item.value.as_ref().unwrap();
@@ -286,7 +286,7 @@ impl<'a> EagerParser<'a> {
                         }) => Ok(Arc::new(match pattern_branch_variant {
                             RawPatternBranchVariant::Case { pattern } => ProcPatternBranch {
                                 variant: ProcPatternBranchVariant::Case {
-                                    pattern: self.parse_proc_pattern(pattern)?,
+                                    pattern: self.parse_proc_pattern(pattern, match_expr.ty())?,
                                 },
                                 stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
                                 range,
@@ -303,13 +303,27 @@ impl<'a> EagerParser<'a> {
                     }
                 })
                 .collect::<SemanticResult<Vec<_>>>()?,
+            match_expr,
         })
     }
 
     fn parse_proc_pattern(
         &mut self,
         raw_pattern: &RawCasePattern,
+        ty: EntityRoutePtr,
     ) -> SemanticResult<ProcCasePattern> {
-        todo!()
+        let variant = match raw_pattern.variant {
+            RawCasePatternVariant::PrimitiveLiteral(data) => {
+                ProcCasePatternVariant::PrimitiveLiteral(data)
+            }
+            RawCasePatternVariant::OneOf { ref subpatterns } => ProcCasePatternVariant::OneOf {
+                subpatterns: subpatterns
+                    .iter()
+                    .map(|raw_pattern| self.parse_proc_pattern(raw_pattern, ty))
+                    .collect::<SemanticResult<_>>()?,
+            },
+            RawCasePatternVariant::EnumLiteral(route) => ProcCasePatternVariant::EnumLiteral(route),
+        };
+        Ok(ProcCasePattern { ty, variant })
     }
 }
