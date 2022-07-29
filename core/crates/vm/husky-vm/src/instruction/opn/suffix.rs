@@ -11,7 +11,7 @@ impl From<SuffixOpr> for RawOpnVariant {
     }
 }
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SuffixOpr {
     Incr,                    // ++
     Decr,                    // --

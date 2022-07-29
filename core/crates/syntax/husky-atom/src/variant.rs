@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_route::{EntityKind, RangedEntityRoute};
+use husky_pattern_syntax::RawPattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::*;
 use husky_token::SpecialToken;
@@ -42,6 +43,7 @@ pub enum AtomVariant {
     ListItem,
     LambdaHead(Vec<(RangedCustomIdentifier, Option<RangedEntityRoute>)>),
     SilentEnd,
+    BePattern(RawPattern),
 }
 
 pub type LambdaHead = Vec<(Identifier, Option<RangedEntityRoute>)>;

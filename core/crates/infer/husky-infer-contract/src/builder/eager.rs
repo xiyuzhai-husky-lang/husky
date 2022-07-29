@@ -3,6 +3,7 @@ use std::iter::zip;
 use husky_ast::*;
 
 use husky_entity_route::EntityRoutePtr;
+use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_text::TextRange;
 use husky_text::{RangedCustomIdentifier, TextPosition};
 use infer_error::*;
@@ -90,11 +91,11 @@ impl<'a> ContractSheetBuilder<'a> {
         }
     }
 
-    fn infer_eager_pattern(&mut self, pattern: &RawCasePattern) {
+    fn infer_eager_pattern(&mut self, pattern: &RawPattern) {
         match pattern.variant {
-            RawCasePatternVariant::PrimitiveLiteral(_) => (),
-            RawCasePatternVariant::OneOf { .. } => (),
-            RawCasePatternVariant::EnumLiteral(_) => (),
+            RawPatternVariant::PrimitiveLiteral(_) => (),
+            RawPatternVariant::OneOf { .. } => (),
+            RawPatternVariant::EnumLiteral(_) => (),
         }
     }
 

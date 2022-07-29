@@ -1,3 +1,4 @@
+use husky_pattern_syntax::RawPattern;
 use wild_utils::ref_to_mut_ref;
 
 use super::*;
@@ -40,13 +41,13 @@ impl<'a> MatchPatternParser<'a> {
         }
     }
 
-    pub fn parse(mut self) -> AstResult<RawCasePattern> {
+    pub fn parse(mut self) -> AstResult<RawPattern> {
         let mut pattern = self.parse_simple_pattern()?.unwrap();
         while let Some(separator) = self.atom_iter.next() {
             match separator.variant {
                 AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::BitOr)) => {
                     if let Some(new_pattern) = self.parse_simple_pattern()? {
-                        pattern = pattern.or(new_pattern)?
+                        pattern = pattern.or(new_pattern)
                     } else {
                         return err!("expect pattern after `|`", separator.range);
                     }
@@ -57,15 +58,15 @@ impl<'a> MatchPatternParser<'a> {
         Ok(pattern)
     }
 
-    fn parse_simple_pattern(&mut self) -> AstResult<Option<RawCasePattern>> {
+    fn parse_simple_pattern(&mut self) -> AstResult<Option<RawPattern>> {
         Ok(if let Some(atom) = self.atom_iter.next() {
             Some(match atom.variant {
                 AtomVariant::EntityRoute { route, kind } => match kind {
-                    EntityKind::EnumLiteral => RawCasePattern::enum_literal(route, atom.range),
+                    EntityKind::EnumLiteral => RawPattern::enum_literal(route, atom.range),
                     _ => err!(format!("expect enum literal"), atom.range)?,
                 },
                 AtomVariant::PrimitiveLiteral(value) => {
-                    RawCasePattern::primitive_literal(value, atom.range)
+                    RawPattern::primitive_literal(value, atom.range)
                 }
                 _ => err!(format!("expect pattern"), atom.range)?,
             })

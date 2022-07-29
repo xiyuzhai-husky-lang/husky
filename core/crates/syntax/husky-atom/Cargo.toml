@@ -28,3 +28,4 @@ husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 defn-head = { path = "../defn-head" }
 thin-vec = { path = "../../../../forks/thin-vec" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
+husky-pattern-syntax = { path = "../husky-pattern-syntax" }

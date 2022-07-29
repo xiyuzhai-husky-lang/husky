@@ -1,5 +1,7 @@
 use std::iter::Peekable;
 
+use husky_pattern_syntax::{RawPattern, RawPatternVariant};
+
 use super::{parser::EagerParser, *};
 use crate::*;
 
@@ -310,21 +312,19 @@ impl<'a> EagerParser<'a> {
 
     fn parse_proc_pattern(
         &mut self,
-        raw_pattern: &RawCasePattern,
+        raw_pattern: &RawPattern,
         ty: EntityRoutePtr,
-    ) -> SemanticResult<ProcCasePattern> {
+    ) -> SemanticResult<ProcPattern> {
         let variant = match raw_pattern.variant {
-            RawCasePatternVariant::PrimitiveLiteral(data) => {
-                ProcCasePatternVariant::PrimitiveLiteral(data)
-            }
-            RawCasePatternVariant::OneOf { ref subpatterns } => ProcCasePatternVariant::OneOf {
+            RawPatternVariant::PrimitiveLiteral(data) => ProcPatternVariant::PrimitiveLiteral(data),
+            RawPatternVariant::OneOf { ref subpatterns } => ProcPatternVariant::OneOf {
                 subpatterns: subpatterns
                     .iter()
                     .map(|raw_pattern| self.parse_proc_pattern(raw_pattern, ty))
                     .collect::<SemanticResult<_>>()?,
             },
-            RawCasePatternVariant::EnumLiteral(route) => ProcCasePatternVariant::EnumLiteral(route),
+            RawPatternVariant::EnumLiteral(route) => ProcPatternVariant::EnumLiteral(route),
         };
-        Ok(ProcCasePattern { ty, variant })
+        Ok(ProcPattern { ty, variant })
     }
 }

@@ -1,6 +1,7 @@
 mod loop_kind;
 mod match_stmt;
 
+use husky_pattern_syntax::RawPattern;
 pub use loop_kind::{RawBoundary, RawLoopKind};
 pub use match_stmt::*;
 
@@ -69,6 +70,6 @@ pub enum RawConditionBranchKind {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawPatternBranchVariant {
-    Case { pattern: RawCasePattern },
+    Case { pattern: RawPattern },
     Default,
 }
