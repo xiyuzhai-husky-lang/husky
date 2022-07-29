@@ -46,7 +46,7 @@ impl InstructionSource for LazyExpr {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub enum LazyExprVariant {
     Variable {
         varname: CustomIdentifier,
@@ -77,4 +77,46 @@ pub enum LazyExprVariant {
     EntityFeature {
         entity_route: EntityRoutePtr,
     },
+}
+
+impl std::fmt::Debug for LazyExprVariant {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Variable { varname, binding } => f
+                .debug_struct("Variable")
+                .field("varname", varname)
+                .field("binding", binding)
+                .finish(),
+            Self::PrimitiveLiteral(arg0) => f.debug_tuple("PrimitiveLiteral").field(arg0).finish(),
+            Self::EnumLiteral { entity_route } => f
+                .debug_struct("EnumLiteral")
+                .field("entity_route", entity_route)
+                .finish(),
+            Self::Bracketed(arg0) => f.write_str("Bracketed"),
+            Self::Opn { opn_kind, opds } => {
+                f.debug_struct("Opn").field("opn_kind", opn_kind).finish()
+            }
+            Self::Lambda(arg0, arg1) => f.debug_tuple("Lambda").field(arg0).field(arg1).finish(),
+            Self::ThisValue { binding } => f
+                .debug_struct("ThisValue")
+                .field("binding", binding)
+                .finish(),
+            Self::ThisField {
+                field_ident,
+                this_ty,
+                this_binding,
+                field_binding,
+            } => f
+                .debug_struct("ThisField")
+                .field("field_ident", field_ident)
+                .field("this_ty", this_ty)
+                .field("this_binding", this_binding)
+                .field("field_binding", field_binding)
+                .finish(),
+            Self::EntityFeature { entity_route } => f
+                .debug_struct("EntityFeature")
+                .field("entity_route", entity_route)
+                .finish(),
+        }
+    }
 }

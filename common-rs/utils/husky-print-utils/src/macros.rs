@@ -1,32 +1,27 @@
 #[macro_export]
 macro_rules! test_print {
     ($($v:expr),*) => {
+        use husky_print_utils::*;
         #[cfg(test)]
-        eprintln!(r#"
--------------------------------------------------------------------
-{}{}:{}{}:{}
-{}"#,
-        husky_print_utils::GREEN,
-        file!(),
-        husky_print_utils::YELLOW,
-        line!(),
-        husky_print_utils::RESET,
+        println!(r#"
+{}
+        {GREEN}{}:{YELLOW}{}:{RESET}"#,
         husky_print_utils::show!($($v),*),
+        file!(),
+        line!(),
     )};
 }
 #[macro_export]
 macro_rules! p {
     ($($v:expr),*) => {
-        eprintln!(r#"
--------------------------------------------------------------------
-{}{}:{}{}:{}
-{}"#,
+        println!(r#"{}
+            --- {}{}:{}{}:{}"#,
+        husky_print_utils::show!($($v),*),
         husky_print_utils::GREEN,
         file!(),
         husky_print_utils::YELLOW,
         line!(),
         husky_print_utils::RESET,
-        husky_print_utils::show!($($v),*),
     )};
 }
 
@@ -35,7 +30,6 @@ macro_rules! ps {
     ($s:expr) => {
         eprintln!(
             r#"
--------------------------------------------------------------------
 {}{}:{}{}:{}
 {}"#,
             husky_print_utils::GREEN,

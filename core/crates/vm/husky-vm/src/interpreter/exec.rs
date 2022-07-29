@@ -187,7 +187,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::Return { output_ty } => {
-                    let return_value = self.stack.pop().into_eval();
+                    let return_value = self.stack.pop();
                     VMControl::Return(return_value)
                 }
                 InstructionVariant::Loop {

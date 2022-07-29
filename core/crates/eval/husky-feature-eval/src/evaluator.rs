@@ -12,6 +12,7 @@ mod sheet;
 
 pub use config::*;
 use husky_ast::AstQueryGroup;
+use husky_print_utils::epin;
 pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 
@@ -112,11 +113,11 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         eval_key: EvalKey,
         compute_value: impl FnOnce(&mut Self) -> __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
-        if let Some(value) = self.sheet.cached_value(eval_key) {
-            value
+        if let Some(result) = self.sheet.cached_value(eval_key) {
+            result
         } else {
-            let value = compute_value(self);
-            self.sheet.cache(eval_key, value)
+            let result = compute_value(self);
+            self.sheet.cache(eval_key, result)
         }
     }
 

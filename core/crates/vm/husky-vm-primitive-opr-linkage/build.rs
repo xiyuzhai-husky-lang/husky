@@ -48,13 +48,18 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
     )] = &[
         // i32
         (I32, Add, I32),
+        (I32, Div, I32),
         (I32, Eq, I32),
         (I32, Greater, I32),
         (I32, Geq, I32),
         (I32, Less, I32),
         (I32, Leq, I32),
         (I32, Mul, I32),
+        (I32, Sub, I32),
+        // b32
+        (B32, Eq, B32),
         // f32
+        (F32, Eq, F32),
         (F32, Greater, F32),
         (F32, Geq, F32),
         (F32, Less, F32),
@@ -80,6 +85,12 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
     write!(
         f,
         r#"
+        (I32, Power, I32) => transfer_linkage!(
+            |_,arguments| unsafe {{
+                num::pow(arguments[0].downcast_i32(), arguments[1].downcast_i32() as usize).to_register()
+            }},
+            none
+        ),
         _ => {{
             panic!("Binary operation {{:?}} is not supported in Husky", (lopd_ty, opr, ropd_ty))
         }}
@@ -99,6 +110,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (I32, Some(Sub), I32),
         // b32
         (B32, None, B32),
+        (B32, Some(BitOr), B32),
     ];
     write!(
         f,
