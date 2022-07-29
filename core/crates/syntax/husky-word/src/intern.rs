@@ -108,6 +108,7 @@ pub fn new_word_interner() -> Arc<WordInternerSingletonKeeper> {
             WordOpr::And.into(),
             WordOpr::Or.into(),
             WordOpr::As.into(),
+            WordOpr::Be.into(),
             Decorator::Pub.into(),
             Decorator::Private.into(),
             Decorator::Async.into(),

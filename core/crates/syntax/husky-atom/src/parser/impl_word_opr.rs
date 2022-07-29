@@ -18,6 +18,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 let ty = get!(self, ranged_ty?);
                 self.push(AtomVariant::Suffix(SuffixOpr::AsTy(ty)), text_start)
             }
+            WordOpr::Be => todo!(),
         }
     }
 }

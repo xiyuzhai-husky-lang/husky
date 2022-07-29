@@ -127,6 +127,7 @@ impl From<WordOpr> for AtomVariant {
             WordOpr::And => AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::And)),
             WordOpr::Or => AtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::Or)),
             WordOpr::As => panic!(),
+            WordOpr::Be => todo!(),
         }
     }
 }
