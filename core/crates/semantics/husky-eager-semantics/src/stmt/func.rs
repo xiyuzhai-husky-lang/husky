@@ -35,7 +35,7 @@ impl FuncStmt {
             FuncStmtVariant::Init { .. }
             | FuncStmtVariant::Assert { .. }
             | FuncStmtVariant::Return { .. } => stmt.range.end,
-            FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
+            FuncStmtVariant::ConditionFlow { ref branches } => branches.last().unwrap().range.end,
             FuncStmtVariant::Match {
                 ref match_expr,
                 ref branches,
