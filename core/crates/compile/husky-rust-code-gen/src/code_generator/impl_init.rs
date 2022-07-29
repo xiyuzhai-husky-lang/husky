@@ -5,7 +5,7 @@ use infer_decl::{CallFormDecl, OutputDecl, ParameterDecl, VariadicTemplate};
 
 use super::*;
 
-impl<'a> Rustcode_generator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_init_content(&mut self) {
         self.write(
             r#"use crate::*;

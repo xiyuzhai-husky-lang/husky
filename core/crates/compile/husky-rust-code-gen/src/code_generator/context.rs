@@ -1,4 +1,4 @@
-pub enum Rustcode_genContext {
+pub enum RustCodeGenContext {
     Normal,
     ThisFieldWithPrefix { prefix: &'static str },
 }

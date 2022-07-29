@@ -41,6 +41,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     range,
                     ty,
                     varname,
+                    explicit,
                 } => {
                     let value = self.stack.push_variable(stack_idx, binding);
                     match mode {
@@ -51,13 +52,17 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             }
                             _ => (),
                         },
-                        Mode::TrackHistory => self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                result: Ok(value.snapshot()),
-                                ty,
-                            },
-                        ),
+                        Mode::TrackHistory => {
+                            if explicit {
+                                self.history.write(
+                                    ins,
+                                    HistoryEntry::PureExpr {
+                                        result: Ok(value.snapshot()),
+                                        ty,
+                                    },
+                                )
+                            }
+                        }
                     }
                     VMControl::None
                 }

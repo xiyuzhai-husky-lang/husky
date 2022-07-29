@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> Rustcode_generator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_mod_rs_content(&mut self, subentities: &[Arc<EntityDefn>]) {
         for entity in subentities.iter() {
             match entity.variant {

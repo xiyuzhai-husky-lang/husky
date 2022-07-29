@@ -2,7 +2,7 @@ use super::*;
 use husky_eager_semantics::ProcStmt;
 use std::sync::Arc;
 
-impl<'a> Rustcode_generator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_loop_stmt(
         &mut self,
         loop_variant: &LoopVariant,

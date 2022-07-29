@@ -20,7 +20,7 @@ impl EntityRouteRole {
     }
 }
 
-impl<'a> Rustcode_generator<'a> {
+impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_entity_route(&mut self, entity_route: EntityRoutePtr, role: EntityRouteRole) {
         if let Some(_) = self
             .entity_route_uses

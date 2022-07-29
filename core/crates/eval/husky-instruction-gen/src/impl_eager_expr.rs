@@ -29,6 +29,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         binding,
                         range: expr.range,
                         ty: expr.ty(),
+                        explicit: true,
                     },
                     expr.clone(),
                 ))
@@ -56,6 +57,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     binding,
                     range: expr.range,
                     ty: expr.ty(),
+                    explicit: true,
                 },
                 expr.clone(),
             )),
@@ -74,6 +76,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             binding: this_binding,
                             range: expr.range,
                             ty: this_ty,
+                            explicit: false,
                         },
                         expr.clone(),
                     ));
@@ -110,6 +113,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             binding: field_binding,
                             range: expr.range,
                             ty: expr.ty(),
+                            explicit: true,
                         },
                         expr.clone(),
                     )),
