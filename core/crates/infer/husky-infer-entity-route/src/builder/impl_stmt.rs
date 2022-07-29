@@ -72,6 +72,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 RawConditionBranchKind::Elif { condition } => self.infer_condition(condition),
                 RawConditionBranchKind::Else => (),
             },
+            RawStmtVariant::Require { condition } => self.infer_condition(condition),
             RawStmtVariant::PatternBranch {
                 ref pattern_branch_variant,
             } => match pattern_branch_variant {
@@ -127,7 +128,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     })
                 }
             },
-            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 
