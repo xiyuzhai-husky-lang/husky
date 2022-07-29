@@ -1,6 +1,7 @@
 use crate::*;
 use husky_ast::RawCasePattern;
 use husky_file::FilePtr;
+use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::TextRange;
 use std::sync::Arc;
 
@@ -25,4 +26,8 @@ pub struct ProcCasePattern {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ProcCasePatternVariant {}
+pub enum ProcCasePatternVariant {
+    PrimitiveLiteral(PrimitiveLiteralData),
+    OneOf { subpatterns: Vec<ProcCasePattern> },
+    EnumLiteral(EntityRoutePtr),
+}

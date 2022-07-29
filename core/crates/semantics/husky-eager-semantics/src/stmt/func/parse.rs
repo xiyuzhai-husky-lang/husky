@@ -194,7 +194,7 @@ impl<'a> EagerParser<'a> {
                     .map(|raw_pattern| self.parse_func_pattern(raw_pattern, ty))
                     .collect::<SemanticResult<_>>()?,
             },
-            RawCasePatternVariant::EnumLiteral(_) => todo!(),
+            RawCasePatternVariant::EnumLiteral(route) => FuncCasePatternVariant::EnumLiteral(route),
         };
         Ok(FuncCasePattern { ty, variant })
     }
