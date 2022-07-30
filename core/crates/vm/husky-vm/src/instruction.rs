@@ -73,7 +73,7 @@ pub enum InstructionVariant {
         explicit: bool,
     },
     PushPrimitiveValue {
-        value: PrimitiveValueData,
+        value: __Register<'static>,
         ty: EntityRoutePtr,
         explicit: bool,
     },

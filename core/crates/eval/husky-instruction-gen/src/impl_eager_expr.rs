@@ -3,7 +3,7 @@ use entity_kind::TyKind;
 use husky_ast::FieldAstKind;
 use husky_linkage_table::ResolveLinkage;
 use husky_opn_semantics::SuffixOpr;
-use husky_primitive_literal_semantics::convert_primitive_literal_to_value;
+use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use husky_vm_primitive_opr_linkage::{
     resolve_primitive_assign_binary_opr_linkage, resolve_primitive_prefix_opr_linkage,
     resolve_primitive_pure_binary_opr_linkage,
@@ -38,7 +38,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerExprVariant::PrimitiveLiteral(value) => self.push_instruction(Instruction::new(
                 InstructionVariant::PushPrimitiveValue {
-                    value: convert_primitive_literal_to_value(value, expr.ty()),
+                    value: convert_primitive_literal_to_register(value, expr.ty()),
                     explicit: true,
                     ty: expr.ty(),
                 },

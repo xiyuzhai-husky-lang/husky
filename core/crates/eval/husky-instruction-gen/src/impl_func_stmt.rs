@@ -1,6 +1,6 @@
 use crate::*;
 use avec::Avec;
-use husky_primitive_literal_semantics::convert_primitive_literal_to_value;
+use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use vm::{Instruction, InstructionVariant, VMConditionBranch, VMPattern, VMPatternBranch};
 
 impl<'a> InstructionSheetBuilder<'a> {
@@ -150,7 +150,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn gen_func_case_pattern(&self, pattern: &FuncStmtPattern) -> VMPattern {
         match pattern.variant {
             FuncStmtPatternVariant::PrimitiveLiteral(data) => {
-                VMPattern::Primitive(convert_primitive_literal_to_value(data, pattern.ty))
+                VMPattern::Primitive(convert_primitive_literal_to_register(data, pattern.ty))
             }
             FuncStmtPatternVariant::OneOf { ref subpatterns } => VMPattern::OneOf(
                 subpatterns

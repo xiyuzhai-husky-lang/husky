@@ -159,6 +159,13 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
     type b64 = u64;
 
     match (lopd_ty, opt_opr, ropd_ty) {
+            (Bool, None, Bool) => transfer_linkage!(
+                |_,arguments| unsafe {
+                    *arguments[0].downcast_temp_mut::<bool>() = arguments[1].downcast_bool();
+                    __Register::new_void()
+                },
+                none
+            ),
             (I32, None, I32) => transfer_linkage!(
                 |_,arguments| unsafe {
                     *arguments[0].downcast_temp_mut::<i32>() = arguments[1].downcast_i32();

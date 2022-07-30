@@ -258,17 +258,17 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn match_primitive(&self, primitive: PrimitiveValueData) -> bool {
-        match primitive {
-            PrimitiveValueData::I32(i) => i == self.downcast_i32(),
-            PrimitiveValueData::I64(i) => i == self.downcast_i64(),
-            PrimitiveValueData::F32(f) => f == self.downcast_f32(),
-            PrimitiveValueData::B32(b) => b == self.downcast_b32(),
-            PrimitiveValueData::B64(b) => b == self.downcast_b64(),
-            PrimitiveValueData::Bool(_) => todo!(),
-            PrimitiveValueData::Void(_) => todo!(),
-        }
-    }
+    // pub fn match_primitive(&self, primitive: PrimitiveValueData) -> bool {
+    //     match primitive {
+    //         PrimitiveValueData::I32(i) => i == self.downcast_i32(),
+    //         PrimitiveValueData::I64(i) => i == self.downcast_i64(),
+    //         PrimitiveValueData::F32(f) => f == self.downcast_f32(),
+    //         PrimitiveValueData::B32(b) => b == self.downcast_b32(),
+    //         PrimitiveValueData::B64(b) => b == self.downcast_b64(),
+    //         PrimitiveValueData::Bool(_) => todo!(),
+    //         PrimitiveValueData::Void(_) => todo!(),
+    //     }
+    // }
 }
 
 impl<'eval> From<PrimitiveValueData> for __Register<'eval> {

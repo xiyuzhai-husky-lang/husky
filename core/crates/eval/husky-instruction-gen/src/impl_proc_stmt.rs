@@ -1,7 +1,10 @@
 use crate::*;
 
 use avec::Avec;
-use vm::{Instruction, InstructionVariant, VMConditionBranch, VMLoopKind, VMPatternBranch};
+use vm::{
+    Instruction, InstructionVariant, VMConditionBranch, VMLoopKind, VMPatternBranch,
+    __RegistrableSafe,
+};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
@@ -172,7 +175,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         } else {
             self.push_instruction(Instruction::new(
                 InstructionVariant::PushPrimitiveValue {
-                    value: 0i32.into(),
+                    value: 0i32.to_register(),
                     explicit: false,
                     ty: RootIdentifier::I32.into(),
                 },
