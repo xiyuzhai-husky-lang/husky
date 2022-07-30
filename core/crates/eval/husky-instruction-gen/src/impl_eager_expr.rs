@@ -2,6 +2,7 @@ use crate::*;
 use entity_kind::TyKind;
 use husky_ast::FieldAstKind;
 use husky_linkage_table::ResolveLinkage;
+use husky_opn_semantics::SuffixOpr;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_value;
 use husky_vm_primitive_opr_linkage::{
     resolve_primitive_assign_binary_opr_linkage, resolve_primitive_pure_binary_opr_linkage,
@@ -170,21 +171,21 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerOpnVariant::Suffix { opr, this_ty } => {
                 let ins_kind = match opr {
-                    RawSuffixOpr::Incr => {
+                    SuffixOpr::Incr => {
                         todo!()
                         //     InstructionVariant::OprOpn {
                         //     opn: OprOpn::Incr,
                         //     this_ty: *this_ty,
                         // }
                     }
-                    RawSuffixOpr::Decr => {
+                    SuffixOpr::Decr => {
                         todo!()
                         //     InstructionVariant::OprOpn {
                         //     opn: OprOpn::Decr,
                         //     this_ty: *this_ty,
                         // }
                     }
-                    RawSuffixOpr::AsTy(ty) => {
+                    SuffixOpr::AsTy(ty) => {
                         todo!()
                         //     InstructionVariant::OprOpn {
                         //     opn: match ty.route {
@@ -205,7 +206,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         //     this_ty: *this_ty,
                         // }
                     }
-                    RawSuffixOpr::BePattern(_) => todo!(),
+                    SuffixOpr::BePattern(_) => todo!(),
                 };
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)

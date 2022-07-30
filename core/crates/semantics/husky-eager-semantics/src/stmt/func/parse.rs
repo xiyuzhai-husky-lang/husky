@@ -161,14 +161,14 @@ impl<'a> EagerParser<'a> {
                                 },
                             ..
                         }) => Ok(Arc::new(match pattern_branch_variant {
-                            RawPatternBranchVariant::Case { pattern } => FuncPatternBranch {
-                                variant: FuncPatternBranchVariant::Case {
+                            RawPatternBranchVariant::Case { pattern } => FuncStmtPatternBranch {
+                                variant: FuncStmtPatternBranchVariant::Case {
                                     pattern: self.parse_func_pattern(pattern, match_expr.ty())?,
                                 },
                                 stmts: self.parse_func_stmts(item.opt_children.clone().unwrap())?,
                             },
-                            RawPatternBranchVariant::Default => FuncPatternBranch {
-                                variant: FuncPatternBranchVariant::Default,
+                            RawPatternBranchVariant::Default => FuncStmtPatternBranch {
+                                variant: FuncStmtPatternBranchVariant::Default,
                                 stmts: self.parse_func_stmts(item.opt_children.clone().unwrap())?,
                             },
                         })),
@@ -184,17 +184,19 @@ impl<'a> EagerParser<'a> {
         &mut self,
         raw_pattern: &RawPattern,
         ty: EntityRoutePtr,
-    ) -> SemanticResult<FuncPattern> {
+    ) -> SemanticResult<FuncStmtPattern> {
         let variant = match raw_pattern.variant {
-            RawPatternVariant::PrimitiveLiteral(data) => FuncPatternVariant::PrimitiveLiteral(data),
-            RawPatternVariant::OneOf { ref subpatterns } => FuncPatternVariant::OneOf {
+            RawPatternVariant::PrimitiveLiteral(data) => {
+                FuncStmtPatternVariant::PrimitiveLiteral(data)
+            }
+            RawPatternVariant::OneOf { ref subpatterns } => FuncStmtPatternVariant::OneOf {
                 subpatterns: subpatterns
                     .iter()
                     .map(|raw_pattern| self.parse_func_pattern(raw_pattern, ty))
                     .collect::<SemanticResult<_>>()?,
             },
-            RawPatternVariant::EnumLiteral(route) => FuncPatternVariant::EnumLiteral(route),
+            RawPatternVariant::EnumLiteral(route) => FuncStmtPatternVariant::EnumLiteral(route),
         };
-        Ok(FuncPattern { ty, variant })
+        Ok(FuncStmtPattern { ty, variant })
     }
 }

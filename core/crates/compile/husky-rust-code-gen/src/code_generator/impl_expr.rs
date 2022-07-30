@@ -3,10 +3,11 @@ use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_entity_semantics::FieldDefnVariant;
 use husky_infer_qualified_ty::EagerExprQualifier;
+use husky_opn_semantics::SuffixOpr;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_vm_binding::Binding;
 use husky_word::RootIdentifier;
 use infer_decl::{CallFormDecl, VariadicTemplate};
-use vm::*;
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_expr(&mut self, indent: Indent, expr: &EagerExpr) {
@@ -473,15 +474,15 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_suffix_opr(&mut self, opr: &RawSuffixOpr) {
+    fn gen_suffix_opr(&mut self, opr: &SuffixOpr) {
         match opr {
-            RawSuffixOpr::Incr => self.write(" += 1"),
-            RawSuffixOpr::Decr => self.write(" -= 1"),
-            RawSuffixOpr::AsTy(ty) => {
+            SuffixOpr::Incr => self.write(" += 1"),
+            SuffixOpr::Decr => self.write(" -= 1"),
+            SuffixOpr::AsTy(ty) => {
                 self.write(" as ");
                 self.gen_entity_route(ty.route, EntityRouteRole::Other)
             }
-            RawSuffixOpr::BePattern(_) => todo!(),
+            SuffixOpr::BePattern(_) => todo!(),
         }
     }
 }

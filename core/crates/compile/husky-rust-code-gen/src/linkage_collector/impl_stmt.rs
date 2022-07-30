@@ -1,8 +1,8 @@
 use super::*;
 use husky_eager_semantics::{
-    Boundary, FuncConditionFlowBranchVariant, FuncPatternBranchVariant, FuncStmt, FuncStmtVariant,
-    LoopVariant, ProcConditionFlowBranchVariant, ProcPatternBranchVariant, ProcStmt,
-    ProcStmtVariant,
+    Boundary, FuncConditionFlowBranchVariant, FuncStmt, FuncStmtPatternBranchVariant,
+    FuncStmtVariant, LoopVariant, ProcConditionFlowBranchVariant, ProcStmt,
+    ProcStmtPatternBranchVariant, ProcStmtVariant,
 };
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant, FieldDefnVariant};
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};

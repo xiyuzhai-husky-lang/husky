@@ -118,14 +118,14 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_func_pattern_match(
         &self,
-        branches: &[Arc<FuncPatternBranch>],
+        branches: &[Arc<FuncStmtPatternBranch>],
     ) -> Avec<VMPatternBranch> {
         Arc::new(
             branches
                 .iter()
                 .map(|branch| {
                     Arc::new(match branch.variant {
-                        FuncPatternBranchVariant::Case { ref pattern } => VMPatternBranch {
+                        FuncStmtPatternBranchVariant::Case { ref pattern } => VMPatternBranch {
                             opt_pattern: Some(self.gen_func_case_pattern(pattern)),
                             body: {
                                 let mut body_sheet = self.subsheet_builder();
@@ -133,7 +133,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 body_sheet.finalize()
                             },
                         },
-                        FuncPatternBranchVariant::Default => VMPatternBranch {
+                        FuncStmtPatternBranchVariant::Default => VMPatternBranch {
                             opt_pattern: None,
                             body: {
                                 let mut body_sheet = self.subsheet_builder();
@@ -147,18 +147,18 @@ impl<'a> InstructionSheetBuilder<'a> {
         )
     }
 
-    fn gen_func_case_pattern(&self, pattern: &FuncPattern) -> VMPattern {
+    fn gen_func_case_pattern(&self, pattern: &FuncStmtPattern) -> VMPattern {
         match pattern.variant {
-            FuncPatternVariant::PrimitiveLiteral(data) => {
+            FuncStmtPatternVariant::PrimitiveLiteral(data) => {
                 VMPattern::Primitive(convert_primitive_literal_to_value(data, pattern.ty))
             }
-            FuncPatternVariant::OneOf { ref subpatterns } => VMPattern::OneOf(
+            FuncStmtPatternVariant::OneOf { ref subpatterns } => VMPattern::OneOf(
                 subpatterns
                     .iter()
                     .map(|subpattern| self.gen_func_case_pattern(subpattern))
                     .collect(),
             ),
-            FuncPatternVariant::EnumLiteral(_) => todo!(),
+            FuncStmtPatternVariant::EnumLiteral(_) => todo!(),
         }
     }
 }

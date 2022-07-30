@@ -1,7 +1,7 @@
 use super::*;
 use husky_eager_semantics::{
-    FuncPattern, FuncPatternBranch, FuncPatternBranchVariant, ProcPattern, ProcPatternBranch,
-    ProcPatternBranchVariant,
+    FuncStmtPattern, FuncStmtPatternBranch, FuncStmtPatternBranchVariant, ProcStmtPattern,
+    ProcStmtPatternBranch, ProcStmtPatternBranchVariant,
 };
 use std::sync::Arc;
 
@@ -10,7 +10,7 @@ impl<'a> RustCodeGenerator<'a> {
         &mut self,
         ref match_expr: &EagerExpr,
         indent: u8,
-        ref branches: &[Arc<FuncPatternBranch>],
+        ref branches: &[Arc<FuncStmtPatternBranch>],
     ) {
         self.write("match ");
         self.gen_expr(indent, match_expr);
@@ -20,10 +20,10 @@ impl<'a> RustCodeGenerator<'a> {
         for branch in branches.iter() {
             self.indent(indent + 4);
             match branch.variant {
-                FuncPatternBranchVariant::Case { ref pattern } => {
+                FuncStmtPatternBranchVariant::Case { ref pattern } => {
                     self.gen_func_case_pattern(pattern);
                 }
-                FuncPatternBranchVariant::Default => {
+                FuncStmtPatternBranchVariant::Default => {
                     has_default = true;
                     self.write("_")
                 }
@@ -46,7 +46,7 @@ impl<'a> RustCodeGenerator<'a> {
         &mut self,
         ref match_expr: &EagerExpr,
         indent: u8,
-        ref branches: &[Arc<ProcPatternBranch>],
+        ref branches: &[Arc<ProcStmtPatternBranch>],
     ) {
         self.write("match ");
         self.gen_expr(indent, match_expr);
@@ -56,10 +56,10 @@ impl<'a> RustCodeGenerator<'a> {
         for branch in branches.iter() {
             self.indent(indent + 4);
             match branch.variant {
-                ProcPatternBranchVariant::Case { ref pattern } => {
+                ProcStmtPatternBranchVariant::Case { ref pattern } => {
                     self.gen_proc_case_pattern(pattern);
                 }
-                ProcPatternBranchVariant::Default => {
+                ProcStmtPatternBranchVariant::Default => {
                     has_default = true;
                     self.write("_")
                 }
@@ -78,13 +78,13 @@ impl<'a> RustCodeGenerator<'a> {
         self.write("}");
     }
 
-    fn gen_func_case_pattern(&mut self, pattern: &FuncPattern) {
+    fn gen_func_case_pattern(&mut self, pattern: &FuncStmtPattern) {
         match pattern.variant {
             _ => todo!(),
         }
     }
 
-    fn gen_proc_case_pattern(&mut self, pattern: &ProcPattern) {
+    fn gen_proc_case_pattern(&mut self, pattern: &ProcStmtPattern) {
         match pattern.variant {
             _ => todo!(),
             // RawPatternVariant::PrimitiveValue(v) => {
