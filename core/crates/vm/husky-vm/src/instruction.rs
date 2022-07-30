@@ -72,27 +72,29 @@ pub enum InstructionVariant {
         varname: Identifier,
         explicit: bool,
     },
-    PushPrimitiveValue {
+    PushValue {
         value: __Register<'static>,
         ty: EntityRoutePtr,
         explicit: bool,
     },
     PushEnumKindLiteral(EnumKindValue),
-    FieldAccessInterpreted {
-        field_idx: u8,
-        field_binding: Binding,
-        field_ty: EntityRoutePtr,
-    },
     CallRoutine {
         linkage_fp: __LinkageFp,
         nargs: u8,
         output_ty: EntityRoutePtr,
+        discard: bool,
     },
     CallInterpreted {
         routine_uid: EntityUid,
         nargs: u8,
         has_this: bool,
         output_ty: EntityRoutePtr,
+        discard: bool,
+    },
+    VirtualStructField {
+        field_idx: u8,
+        field_binding: Binding,
+        field_ty: EntityRoutePtr,
     },
     NewVirtualStruct {
         ty: EntityRoutePtr,

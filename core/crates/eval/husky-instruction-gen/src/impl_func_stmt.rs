@@ -16,15 +16,23 @@ impl<'a> InstructionSheetBuilder<'a> {
                 varname,
                 ref initial_value,
             } => {
-                self.compile_eager_expr(initial_value, self.sheet.variable_stack.next_stack_idx());
+                self.compile_eager_expr(
+                    initial_value,
+                    self.sheet.variable_stack.next_stack_idx(),
+                    false,
+                );
                 self.def_variable(varname.ident)
             }
             FuncStmtVariant::Assert { ref condition } => {
-                self.compile_eager_expr(condition, self.sheet.variable_stack.next_stack_idx());
+                self.compile_eager_expr(
+                    condition,
+                    self.sheet.variable_stack.next_stack_idx(),
+                    false,
+                );
                 self.push_instruction(Instruction::new(InstructionVariant::Assert, stmt))
             }
             FuncStmtVariant::Return { ref result, .. } => {
-                self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx());
+                self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx(), false);
                 self.push_instruction(Instruction::new(
                     InstructionVariant::Return {
                         output_ty: result.ty(),
@@ -44,7 +52,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref match_expr,
                 ref branches,
             } => {
-                self.compile_eager_expr(match_expr, self.sheet.variable_stack.next_stack_idx());
+                self.compile_eager_expr(
+                    match_expr,
+                    self.sheet.variable_stack.next_stack_idx(),
+                    false,
+                );
                 self.push_instruction(Instruction::new(
                     InstructionVariant::PatternMatch {
                         branches: self.compile_func_pattern_match(branches),
@@ -73,6 +85,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                         .sheet
                                         .variable_stack
                                         .next_stack_idx(),
+                                    false,
                                 );
                                 Some(condition_sheet_builder.finalize())
                             },
@@ -93,6 +106,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                         .sheet
                                         .variable_stack
                                         .next_stack_idx(),
+                                    false,
                                 );
                                 Some(condition_sheet_builder.finalize())
                             },
