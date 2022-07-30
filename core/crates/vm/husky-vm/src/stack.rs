@@ -86,6 +86,9 @@ impl<'eval> VMStack<'eval> {
     }
 
     pub(crate) fn push(&mut self, value: __Register<'eval>) {
+        assert_ne!(value.vtable as *const _, unsafe {
+            &__VOID_VTABLE as *const _
+        });
         self.values.push(value);
     }
     pub(crate) fn pop(&mut self) -> __Register<'eval> {

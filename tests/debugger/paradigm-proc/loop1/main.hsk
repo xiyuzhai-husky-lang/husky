@@ -114,3 +114,4 @@ main:
     assert do_while_loop2() == 0
     assert do_while_loop3() == 4
     assert do_while_loop4() == 4
+    1

@@ -82,7 +82,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::PushPrimitiveValue {
+                InstructionVariant::PushValue {
                     ref value,
                     ty,
                     explicit,
@@ -124,8 +124,17 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     linkage_fp: linkage,
                     nargs,
                     output_ty,
+                    discard,
                 } => {
-                    let control = self.call_specific_routine(linkage, nargs, output_ty).into();
+                    // p!(ins.src.file(), ins.src.text_range());
+                    if self.stack.len() > 0 {
+                        assert_ne!(self.stack.eval_top().vtable as *const _, unsafe {
+                            &__VOID_VTABLE as *const _
+                        });
+                    }
+                    let control = self
+                        .call_specific_routine(linkage, nargs, output_ty, discard)
+                        .into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(
@@ -146,11 +155,16 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     nargs, // including this
                     has_this,
                     output_ty,
+                    discard,
                 } => {
                     let instruction_sheet =
                         self.db.entity_opt_instruction_sheet_by_uid(routine_uid);
-                    let result =
-                        self.call_interpreted(&instruction_sheet.unwrap(), nargs, has_this);
+                    let result = self.call_interpreted(
+                        &instruction_sheet.unwrap(),
+                        nargs,
+                        has_this,
+                        discard,
+                    );
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
@@ -226,7 +240,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     };
                     control
                 }
-                InstructionVariant::FieldAccessInterpreted {
+                InstructionVariant::VirtualStructField {
                     field_idx,
                     field_binding,
                     field_ty,

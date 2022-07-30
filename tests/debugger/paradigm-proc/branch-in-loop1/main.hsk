@@ -33,3 +33,4 @@ main:
     assert f1() == 6
     assert f2() == 9
     assert f3() == 9
+    1

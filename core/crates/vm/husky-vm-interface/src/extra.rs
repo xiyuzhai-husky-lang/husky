@@ -232,7 +232,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempMut => panic!(),
             __RegisterDataKind::Moved => panic!(),
             __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
+            __RegisterDataKind::Unreturned => panic!(),
         }
     }
 

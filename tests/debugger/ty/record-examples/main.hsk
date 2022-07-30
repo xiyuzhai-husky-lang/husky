@@ -13,3 +13,4 @@ task:
 main:
     assert a1.x == 1
     assert a1.y == 2
+    1
