@@ -110,6 +110,8 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         std::option::Option<PureBinaryOpr>,
         RootIdentifier,
     )] = &[
+        // bool
+        (Bool, None, Bool),
         // i32
         (I32, None, I32),
         (I32, Some(Add), I32),

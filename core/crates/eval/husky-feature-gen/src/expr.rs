@@ -1,9 +1,12 @@
 mod impl_opn;
 mod xml;
 
-use husky_primitive_literal_semantics::convert_primitive_literal_to_value;
-use vm::{__Linkage, __Register};
+use husky_primitive_literal_semantics::{
+    convert_primitive_literal_to_register, convert_primitive_literal_to_value,
+};
 pub use xml::*;
+
+use vm::{__Linkage, __Register};
 
 use husky_entity_route::EntityRouteKind;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
@@ -50,7 +53,7 @@ impl<'eval> Eq for FeatureExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureExprVariant {
-    PrimitiveLiteral(PrimitiveValueData),
+    PrimitiveLiteral(__Register<'static>),
     EnumKindLiteral {
         entity_route: EntityRoutePtr,
         uid: EntityUid,
@@ -203,13 +206,15 @@ impl<'a> FeatureExprBuilder<'a> {
                     }
                 })
                 .unwrap(),
-            LazyExprVariant::PrimitiveLiteral(data) => {
-                let value = convert_primitive_literal_to_value(data, expr.ty());
-                (
-                    FeatureExprVariant::PrimitiveLiteral(value),
-                    self.features.intern(Feature::PrimitiveLiteral(value)),
-                )
-            }
+            LazyExprVariant::PrimitiveLiteral(data) => (
+                FeatureExprVariant::PrimitiveLiteral(convert_primitive_literal_to_register(
+                    data,
+                    expr.ty(),
+                )),
+                self.features.intern(Feature::PrimitiveLiteral(
+                    convert_primitive_literal_to_value(data, expr.ty()),
+                )),
+            ),
             LazyExprVariant::Bracketed(ref bracketed_expr) => {
                 return self.new_expr(bracketed_expr.clone())
             }

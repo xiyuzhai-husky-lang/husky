@@ -91,9 +91,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             }
             VMControl::Return(result) => Ok({ result }),
             VMControl::Break => todo!(),
-            VMControl::Err(e) => Err(
-                todo!(), // e.into()
-            ),
+            VMControl::Err(e) => {
+                p!(e);
+                Err(
+                    todo!(), // e.into()
+                )
+            }
         }
     }
 

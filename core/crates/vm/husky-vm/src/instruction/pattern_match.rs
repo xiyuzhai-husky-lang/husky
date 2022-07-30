@@ -9,7 +9,7 @@ pub struct VMPatternBranch {
 
 #[derive(Debug, PartialEq)]
 pub enum VMPattern {
-    Primitive(PrimitiveValueData),
+    Primitive(__Register<'static>),
     OneOf(Vec<VMPattern>),
     EnumKindLiteral(EntityRoutePtr),
 }
@@ -17,7 +17,7 @@ pub enum VMPattern {
 impl VMPattern {
     pub fn matches<'temp, 'eval>(&self, value: &__Register<'eval>) -> bool {
         match self {
-            VMPattern::Primitive(primitive) => value.match_primitive(*primitive),
+            VMPattern::Primitive(primitive) => value == primitive,
             VMPattern::OneOf(subpatterns) => {
                 for subpattern in subpatterns {
                     if subpattern.matches(value) {

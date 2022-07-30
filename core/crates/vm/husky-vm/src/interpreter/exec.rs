@@ -83,11 +83,11 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::PushPrimitiveValue {
-                    value,
+                    ref value,
                     ty,
                     explicit,
                 } => {
-                    self.stack.push(unsafe { value.to_register() });
+                    self.stack.push(unsafe { value.verbatim_copy() });
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
