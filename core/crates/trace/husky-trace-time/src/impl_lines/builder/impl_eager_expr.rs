@@ -103,7 +103,14 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(ident!(field_ident.ident.0))
             }
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
-            EagerExprVariant::EntityFeature { .. } => todo!(),
+            EagerExprVariant::EntityFeature { .. } => {
+                let text = self
+                    .eval_time_singleton
+                    .compile_time()
+                    .text(expr.file)
+                    .unwrap();
+                self.push(route!(text.ranged(expr.range)))
+            }
             EagerExprVariant::EntityFp { route } => todo!(),
         };
         if config.appended {

@@ -269,6 +269,10 @@ impl<'eval> __Register<'eval> {
     //         PrimitiveValueData::Void(_) => todo!(),
     //     }
     // }
+
+    pub fn typename_cstr(&self) -> &std::ffi::CStr {
+        unsafe { std::ffi::CStr::from_ptr(self.vtable.typename_str) }
+    }
 }
 
 impl<'eval> From<PrimitiveValueData> for __Register<'eval> {

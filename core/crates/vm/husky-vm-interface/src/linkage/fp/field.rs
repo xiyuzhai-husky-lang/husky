@@ -1,12 +1,12 @@
 #[macro_export]
 macro_rules! field_copy_fp {
-    ($Type: ty, $TYPE_VTABLE: expr, $FieldTy: ty, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref();
-            register_new_copyable!(value.$field, $FieldTy, $copy_kind)
+            register_new_copyable!(value.$field, $FIELD_TY_VTABLE, $copy_kind)
         }
         __LinkageFp {
             wrapper,

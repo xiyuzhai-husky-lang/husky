@@ -314,7 +314,7 @@ impl<'eval> Drop for __Register<'eval> {
 
 #[macro_export]
 macro_rules! register_new_copyable {
-    ($argument: expr, $Type: ty, direct) => {{
+    ($argument: expr, $TYPE_VTABLE: expr, direct) => {{
         ($argument).to_register()
     }};
 }

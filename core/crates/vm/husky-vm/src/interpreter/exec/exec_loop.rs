@@ -143,7 +143,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             control = VMControl::None;
                             break;
                         }
-                        VMControl::Err(_) => todo!(),
+                        VMControl::Err(e) => {
+                            control = VMControl::Err(e);
+                            break;
+                        }
                     }
                     unsafe {
                         *self

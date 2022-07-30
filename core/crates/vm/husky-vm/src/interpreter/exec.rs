@@ -121,7 +121,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::None
                 }
                 InstructionVariant::CallRoutine {
-                    linkage_fp: linkage,
+                    linkage_fp,
                     nargs,
                     output_ty,
                     discard,
@@ -132,9 +132,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             &__VOID_VTABLE as *const _
                         });
                     }
-                    p!(ins.src.file(), ins.src.text_range(), discard);
                     let control = self
-                        .call_specific_routine(linkage, nargs, output_ty, discard)
+                        .call_specific_routine(linkage_fp, nargs, output_ty, discard)
                         .into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
