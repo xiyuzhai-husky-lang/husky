@@ -7,15 +7,12 @@ impl HuskyTraceTime {
     pub(crate) fn feature_expr_figure(
         &self,
         expr: &Arc<FeatureExpr>,
-    ) -> Result<FigureCanvasData, (SampleId, EvalError)> {
+    ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
             let value = self
                 .eval_time_singleton
                 .eval_feature_expr(expr, sample_id)
-                .map_err(|e| {
-                    todo!()
-                    // (sample_id, e)
-                })?;
+                .map_err(|e| (sample_id, e))?;
             Ok(FigureCanvasData::new_specific(
                 self.eval_time()
                     .visualize_feature(FeatureRepr::Expr(expr.clone()), sample_id)
@@ -29,7 +26,7 @@ impl HuskyTraceTime {
     fn feature_expr_generic_figure(
         &self,
         expr: &Arc<FeatureExpr>,
-    ) -> Result<FigureCanvasData, (SampleId, EvalError)> {
+    ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         assert_eq!(
             self.restriction.partitions().last().unwrap().variant,
             PartitionDefnDataVariant::Other
@@ -100,7 +97,7 @@ impl HuskyTraceTime {
         &self,
         expr: &Arc<FeatureExpr>,
         map: impl Fn(VisualData) -> T,
-    ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, EvalError)> {
+    ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
         let session = self.eval_time().session();
         let dev_division = session.dev();
         let restriction = &self.restriction;

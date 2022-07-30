@@ -4,7 +4,7 @@ impl HuskyTraceTime {
     pub(crate) fn feature_stmt_figure(
         &self,
         stmt: &FeatureStmt,
-    ) -> Result<FigureCanvasData, (SampleId, EvalError)> {
+    ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { varname, ref value } => self.feature_expr_figure(value),
             FeatureLazyStmtVariant::Assert { .. } => Ok(FigureCanvasData::void()),
