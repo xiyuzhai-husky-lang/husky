@@ -19,6 +19,10 @@ pub enum FeatureRepr {
     LazyBlock(Arc<FeatureLazyBlock>),
     FuncBlock(Arc<FeatureFuncBlock>),
     ProcBlock(Arc<FeatureProcBlock>),
+    EvalInput {
+        ty: EntityRoutePtr,
+        feature: FeaturePtr,
+    },
 }
 
 impl FeatureRepr {
@@ -29,6 +33,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.ty.route,
             FeatureRepr::FuncBlock(block) => block.ty.route,
             FeatureRepr::ProcBlock(block) => block.ty.route,
+            FeatureRepr::EvalInput { ty, .. } => *ty,
         }
     }
     pub fn feature(&self) -> FeaturePtr {
@@ -38,6 +43,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.feature,
             FeatureRepr::FuncBlock(block) => block.feature,
             FeatureRepr::ProcBlock(block) => block.feature,
+            FeatureRepr::EvalInput { feature, .. } => *feature,
         }
     }
 
@@ -48,6 +54,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.file,
             FeatureRepr::FuncBlock(block) => block.file,
             FeatureRepr::ProcBlock(block) => block.file,
+            FeatureRepr::EvalInput { .. } => todo!(),
         }
     }
 
@@ -58,6 +65,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.range,
             FeatureRepr::FuncBlock(block) => block.range,
             FeatureRepr::ProcBlock(block) => block.range,
+            FeatureRepr::EvalInput { .. } => todo!(),
         }
     }
 

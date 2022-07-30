@@ -138,6 +138,7 @@ impl<'a> LinkageCollector<'a> {
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => {
                 todo!()
             }
+            EntityDefnVariant::Input { .. } => todo!(),
         }
     }
 

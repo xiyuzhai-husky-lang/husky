@@ -227,7 +227,7 @@ pub(crate) fn trait_decl(
             token_group_index,
         } => todo!(),
         EntitySource::Module { file } => todo!(),
-        EntitySource::Input { main } => todo!(),
+        EntitySource::Input { main_file: main } => todo!(),
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),

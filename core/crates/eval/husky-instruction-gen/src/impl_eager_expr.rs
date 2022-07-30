@@ -5,7 +5,8 @@ use husky_linkage_table::ResolveLinkage;
 use husky_opn_semantics::SuffixOpr;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_value;
 use husky_vm_primitive_opr_linkage::{
-    resolve_primitive_assign_binary_opr_linkage, resolve_primitive_pure_binary_opr_linkage,
+    resolve_primitive_assign_binary_opr_linkage, resolve_primitive_prefix_opr_linkage,
+    resolve_primitive_pure_binary_opr_linkage,
 };
 use infer_decl::TyDecl;
 use map_collect::MapCollect;
@@ -158,17 +159,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::Binary { opr, this_ty } => {
                 self.compile_binary_opn(*opr, this_ty, opds, expr)
             }
-            EagerOpnVariant::Prefix { opr, this_ty } => {
-                todo!()
-                // let instruction = Instruction::new(
-                //     InstructionVariant::OprOpn {
-                //         opn: OprOpn::Prefix(*opr),
-                //         this_ty: *this_ty,
-                //     },
-                //     expr.clone(),
-                // );
-                // self.push_instruction(instruction)
-            }
+            EagerOpnVariant::Prefix { opr, this_ty } => self.compile_prefix_opn(*opr, opds, expr),
             EagerOpnVariant::Suffix { opr, this_ty } => {
                 let ins_kind = match opr {
                     SuffixOpr::Incr => {
@@ -458,6 +449,35 @@ impl<'a> InstructionSheetBuilder<'a> {
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)
             }
+            EntityRoutePtr::ThisType => todo!(),
+        }
+    }
+
+    fn compile_prefix_opn(
+        &mut self,
+        prefix: PrefixOpr,
+        opds: &[Arc<EagerExpr>],
+        expr: &Arc<EagerExpr>,
+    ) {
+        let this = &opds[0];
+        let this_ty = this.ty();
+        match this_ty {
+            EntityRoutePtr::Root(root_identifier) => {
+                let instruction = Instruction::new(
+                    InstructionVariant::CallRoutine {
+                        linkage_fp: resolve_primitive_prefix_opr_linkage(
+                            prefix,
+                            opds[0].ty().root(),
+                        )
+                        .transfer(),
+                        nargs: 1,
+                        output_ty: expr.ty(),
+                    },
+                    expr.clone(),
+                );
+                self.push_instruction(instruction)
+            }
+            EntityRoutePtr::Custom(_) => todo!(),
             EntityRoutePtr::ThisType => todo!(),
         }
     }

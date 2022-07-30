@@ -46,7 +46,7 @@ pub struct FeatureSymbol {
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub enum Feature {
-    Input,
+    Input, // ad hoc: needs to include task config
     PrimitiveLiteral(PrimitiveValueData),
     EnumLiteral(EntityRoutePtr),
     Assert {

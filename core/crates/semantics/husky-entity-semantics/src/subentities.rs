@@ -12,7 +12,8 @@ impl EntityDefnVariant {
             | EntityDefnVariant::Func { .. }
             | EntityDefnVariant::Proc { .. }
             | EntityDefnVariant::Method { .. }
-            | EntityDefnVariant::Function { .. } => Arc::new(Vec::new()),
+            | EntityDefnVariant::Function { .. }
+            | EntityDefnVariant::Input { .. } => Default::default(),
             EntityDefnVariant::Ty { members, .. } => members.clone(),
             EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
                 EnumVariantDefnVariant::Constant => Default::default(),

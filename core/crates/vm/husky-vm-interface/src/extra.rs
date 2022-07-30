@@ -226,7 +226,13 @@ impl<'eval> __Register<'eval> {
                 self.data = __RegisterData { as_ptr };
                 self.data_kind = __RegisterDataKind::Box;
             },
-            _ => (),
+            __RegisterDataKind::Box => (),
+            __RegisterDataKind::EvalRef => (),
+            __RegisterDataKind::TempRef => panic!(),
+            __RegisterDataKind::TempMut => panic!(),
+            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
         }
     }
 

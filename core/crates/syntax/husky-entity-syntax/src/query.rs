@@ -150,7 +150,7 @@ fn entity_source(
         ))),
         EntityRouteKind::Package { main, .. } => Ok(EntitySource::Module { file: main }),
         EntityRouteKind::Child { parent, ident } => db.subroute_table(parent)?.entity_source(ident),
-        EntityRouteKind::Input { main } => Ok(EntitySource::Input { main }),
+        EntityRouteKind::Input { main } => Ok(EntitySource::Input { main_file: main }),
         EntityRouteKind::Generic { .. } => {
             p!(entity_route);
             todo!()

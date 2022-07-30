@@ -18,7 +18,7 @@ pub use menu::{entity_route_menu, new_entity_route_menu, EntityRouteMenuSingleto
 
 use husky_file::FilePtr;
 use husky_text::{TextRange, TextRanged};
-use husky_word::{CustomIdentifier, Identifier, RootIdentifier};
+use husky_word::{ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier};
 use thin_vec::{thin_vec, ThinVec};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -134,7 +134,7 @@ impl EntityRoute {
             EntityRouteKind::Root { ident } => ident.into(),
             EntityRouteKind::Package { ident, .. } => ident.into(),
             EntityRouteKind::Child { ident, .. } => ident.into(),
-            EntityRouteKind::Input { .. } => todo!(),
+            EntityRouteKind::Input { .. } => ContextualIdentifier::Input.into(),
             EntityRouteKind::Generic { ident, .. } => ident.into(),
             EntityRouteKind::ThisType => todo!(),
             EntityRouteKind::TypeAsTraitMember { ident, .. } => ident.into(),

@@ -212,6 +212,7 @@ impl EntityDefn {
                 output,
                 ref source,
             } => todo!(),
+            EntityDefnVariant::Input { .. } => todo!(),
         };
         return builder.finish();
 
@@ -482,6 +483,7 @@ impl EntityDefn {
                     output,
                     ref source,
                 } => todo!(),
+                EntityDefnVariant::Input { .. } => todo!(),
             }
         }
 

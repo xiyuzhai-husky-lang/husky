@@ -36,6 +36,6 @@ pub fn convert_primitive_literal_to_value(
         PrimitiveLiteralData::Bits(_) => todo!(),
         PrimitiveLiteralData::B32(b) => PrimitiveValueData::B32(b),
         PrimitiveLiteralData::B64(_) => todo!(),
-        PrimitiveLiteralData::Bool(_) => todo!(),
+        PrimitiveLiteralData::Bool(b) => PrimitiveValueData::Bool(b),
     }
 }

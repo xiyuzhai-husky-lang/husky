@@ -87,6 +87,7 @@ fn entity_instruction_sheet(
             output,
             ref source,
         } => todo!(),
+        EntityDefnVariant::Input { .. } => todo!(),
     }
 }
 
