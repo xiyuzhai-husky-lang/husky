@@ -21,7 +21,7 @@ impl HuskyTraceTime {
     pub fn figure_canvas(
         &self,
         trace_id: TraceId,
-    ) -> Result<FigureCanvasData, (SampleId, EvalError)> {
+    ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         let trace = self.trace(trace_id);
         Ok(match trace.variant {
             TraceVariant::Main(_) => FigureCanvasData::void(),

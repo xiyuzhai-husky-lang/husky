@@ -76,14 +76,6 @@ extern "C" {
 impl<'eval> __Register<'eval> {
     pub fn downcast_bool(&self) -> bool {
         unsafe {
-            // println!("self.vtable.typename_str: {:?}", unsafe {
-            //     std::ffi::CStr::from_ptr(self.vtable.typename_str)
-            // });
-            // println!("self.data_kind {:?}", self.data_kind());
-            // println!(
-            //     "self.vtable as *const _ == &__VOID_VTABLE as *const _ is {}",
-            //     unsafe { self.vtable as *const _ == &__VOID_VTABLE as *const _ }
-            // );
             assert_eq!(self.vtable as *const _, &__BOOL_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_bool,
@@ -330,8 +322,7 @@ impl<'eval> __Register<'eval> {
 // __VirtualFunction
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_clone(data: *mut ()) -> *mut () {
-    Box::<__VirtualFunction>::into_raw(Box::new((*(data as *mut __VirtualFunction)).clone()))
-        as *mut ()
+    Box::<__VirtualFunction>::into_raw(Box::new((*(data as *mut __VirtualFunction)).clone())) as *mut ()
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
@@ -339,8 +330,7 @@ pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const __VirtualFunction)
-        == *(other as *const () as *const __VirtualFunction)
+    *(this as *const () as *const __VirtualFunction) == *(other as *const () as *const __VirtualFunction)
 }
 extern "C" {
     pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterVTable;

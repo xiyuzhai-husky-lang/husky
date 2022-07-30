@@ -132,6 +132,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                             &__VOID_VTABLE as *const _
                         });
                     }
+                    p!(ins.src.file(), ins.src.text_range(), discard);
                     let control = self
                         .call_specific_routine(linkage, nargs, output_ty, discard)
                         .into();
@@ -264,7 +265,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::Assert => {
                     let is_condition_satisfied = self.stack.pop().to_bool();
                     if !is_condition_satisfied {
-                        VMControl::Err(vm_runtime_error!(format!("assert failure")))
+                        VMControl::Err(vm_error!(format!("assert failure")))
                     } else {
                         VMControl::None
                     }

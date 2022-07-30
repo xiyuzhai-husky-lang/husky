@@ -1,6 +1,6 @@
 use husky_print_utils::p;
 use husky_word::RootIdentifier;
-use vm::{EvalError, __Register, __VMError, __VMResult};
+use vm::{__Register, __VMError, __VMResult};
 
 use crate::*;
 

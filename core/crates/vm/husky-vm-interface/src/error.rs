@@ -35,3 +35,13 @@ impl std::fmt::Display for __VMError {
 }
 
 pub type __VMResult<T> = Result<T, __VMError>;
+
+#[macro_export]
+macro_rules! vm_error {
+    ($message: expr) => {
+        __VMError {
+            message: $message.into(),
+            variant: __VMErrorVariant::Normal,
+        }
+    };
+}

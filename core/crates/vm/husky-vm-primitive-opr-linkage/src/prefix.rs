@@ -12,10 +12,12 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, lopd_ty: RootIdentif
             RootIdentifier::I64 => todo!(),
             RootIdentifier::F32 => todo!(),
             RootIdentifier::F64 => todo!(),
-            RootIdentifier::B32 => transfer_linkage!(|_, _| todo!(), none),
+            RootIdentifier::B32 => {
+                transfer_linkage!(|_, args| (0 != args[0].downcast_b32()).to_register(), none)
+            }
             RootIdentifier::B64 => todo!(),
             RootIdentifier::Bool => {
-                transfer_linkage!(|_, arguments|(!arguments[0].downcast_bool()).to_register(), some bool::not)
+                transfer_linkage!(|_, args|(!args[0].downcast_bool()).to_register(), some bool::not)
             }
             RootIdentifier::True => todo!(),
             RootIdentifier::False => todo!(),
@@ -49,7 +51,9 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, lopd_ty: RootIdentif
             RootIdentifier::I64 => todo!(),
             RootIdentifier::F32 => todo!(),
             RootIdentifier::F64 => todo!(),
-            RootIdentifier::B32 => transfer_linkage!(|_, _| todo!(), some u32::not),
+            RootIdentifier::B32 => {
+                transfer_linkage!(|_, args| (!args[0].downcast_b32()).to_register(), some u32::not)
+            }
             RootIdentifier::B64 => todo!(),
             RootIdentifier::Bool => todo!(),
             RootIdentifier::True => todo!(),
