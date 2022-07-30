@@ -287,16 +287,16 @@ impl<'a> EagerParser<'a> {
                                 },
                             range,
                         }) => Ok(Arc::new(match pattern_branch_variant {
-                            RawPatternBranchVariant::Case { pattern } => ProcPatternBranch {
-                                variant: ProcPatternBranchVariant::Case {
+                            RawPatternBranchVariant::Case { pattern } => ProcStmtPatternBranch {
+                                variant: ProcStmtPatternBranchVariant::Case {
                                     pattern: self.parse_proc_pattern(pattern, match_expr.ty())?,
                                 },
                                 stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
                                 range,
                                 file: self.file,
                             },
-                            RawPatternBranchVariant::Default => ProcPatternBranch {
-                                variant: ProcPatternBranchVariant::Default,
+                            RawPatternBranchVariant::Default => ProcStmtPatternBranch {
+                                variant: ProcStmtPatternBranchVariant::Default,
                                 stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
                                 range,
                                 file: self.file,
@@ -314,17 +314,19 @@ impl<'a> EagerParser<'a> {
         &mut self,
         raw_pattern: &RawPattern,
         ty: EntityRoutePtr,
-    ) -> SemanticResult<ProcPattern> {
+    ) -> SemanticResult<ProcStmtPattern> {
         let variant = match raw_pattern.variant {
-            RawPatternVariant::PrimitiveLiteral(data) => ProcPatternVariant::PrimitiveLiteral(data),
-            RawPatternVariant::OneOf { ref subpatterns } => ProcPatternVariant::OneOf {
+            RawPatternVariant::PrimitiveLiteral(data) => {
+                ProcStmtPatternVariant::PrimitiveLiteral(data)
+            }
+            RawPatternVariant::OneOf { ref subpatterns } => ProcStmtPatternVariant::OneOf {
                 subpatterns: subpatterns
                     .iter()
                     .map(|raw_pattern| self.parse_proc_pattern(raw_pattern, ty))
                     .collect::<SemanticResult<_>>()?,
             },
-            RawPatternVariant::EnumLiteral(route) => ProcPatternVariant::EnumLiteral(route),
+            RawPatternVariant::EnumLiteral(route) => ProcStmtPatternVariant::EnumLiteral(route),
         };
-        Ok(ProcPattern { ty, variant })
+        Ok(ProcStmtPattern { ty, variant })
     }
 }

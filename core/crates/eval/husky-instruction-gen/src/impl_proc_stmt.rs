@@ -244,14 +244,14 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_proc_pattern_match(
         &self,
-        branches: &[Arc<ProcPatternBranch>],
+        branches: &[Arc<ProcStmtPatternBranch>],
     ) -> Avec<VMPatternBranch> {
         Arc::new(
             branches
                 .iter()
                 .map(|branch| {
                     Arc::new(match branch.variant {
-                        ProcPatternBranchVariant::Case { ref pattern } => VMPatternBranch {
+                        ProcStmtPatternBranchVariant::Case { ref pattern } => VMPatternBranch {
                             opt_pattern: Some(todo!()),
                             body: {
                                 let mut body_sheet = self.subsheet_builder();
@@ -259,7 +259,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 body_sheet.finalize()
                             },
                         },
-                        ProcPatternBranchVariant::Default => VMPatternBranch {
+                        ProcStmtPatternBranchVariant::Default => VMPatternBranch {
                             opt_pattern: None,
                             body: {
                                 let mut body_sheet = self.subsheet_builder();

@@ -5,28 +5,28 @@ use husky_text::TextRange;
 use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ProcPatternBranch {
-    pub variant: ProcPatternBranchVariant,
+pub struct ProcStmtPatternBranch {
+    pub variant: ProcStmtPatternBranchVariant,
     pub stmts: Arc<Vec<Arc<ProcStmt>>>,
     pub range: TextRange,
     pub file: FilePtr,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ProcPatternBranchVariant {
-    Case { pattern: ProcPattern },
+pub enum ProcStmtPatternBranchVariant {
+    Case { pattern: ProcStmtPattern },
     Default,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ProcPattern {
+pub struct ProcStmtPattern {
     pub ty: EntityRoutePtr,
-    pub variant: ProcPatternVariant,
+    pub variant: ProcStmtPatternVariant,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ProcPatternVariant {
+pub enum ProcStmtPatternVariant {
     PrimitiveLiteral(PrimitiveLiteralData),
-    OneOf { subpatterns: Vec<ProcPattern> },
+    OneOf { subpatterns: Vec<ProcStmtPattern> },
     EnumLiteral(EntityRoutePtr),
 }

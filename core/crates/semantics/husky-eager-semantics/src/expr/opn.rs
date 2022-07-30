@@ -4,7 +4,7 @@ use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use infer_decl::TyDecl;
 use std::sync::Arc;
-use vm::*;
+use vm::Binding;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EagerOpnVariant {
@@ -18,7 +18,7 @@ pub enum EagerOpnVariant {
     },
     Suffix {
         this_ty: EntityRoutePtr,
-        opr: RawSuffixOpr,
+        opr: SuffixOpr,
     },
     RoutineCall(RangedEntityRoute),
     ValueCall,

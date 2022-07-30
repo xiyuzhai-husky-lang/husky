@@ -23,7 +23,6 @@ husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
-vm = { path = "../../vm/husky-vm" }
 husky-ast = { path = "../../syntax/husky-ast" }
 infer-decl = { path = "../../infer/husky-infer-decl" }
 defn-head = { path = "../../syntax/defn-head" }
@@ -37,3 +36,5 @@ husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
+husky-vm-binding = { path = "../../vm/husky-vm-binding" }
+husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
