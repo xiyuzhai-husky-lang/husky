@@ -1,6 +1,7 @@
 mod loop_kind;
 mod match_stmt;
 
+use husky_init_syntax::InitKind;
 use husky_pattern_syntax::RawPattern;
 pub use loop_kind::{RawBoundary, RawLoopKind};
 pub use match_stmt::*;

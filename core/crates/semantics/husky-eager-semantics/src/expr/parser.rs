@@ -169,7 +169,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         match opr {
             RawOpnVariant::Binary(opr) => self.parse_binary_opr(*opr, opds),
             RawOpnVariant::Prefix(opr) => self.parse_prefix_opr(*opr, opds),
-            RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(*opr, opds),
+            RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(opr, opds),
             RawOpnVariant::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => self.parse_new_vec_from_list(idx, opds.clone()),
@@ -239,14 +239,14 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
 
     fn parse_suffix_opr(
         &mut self,
-        opr: RawSuffixOpr,
+        opr: &RawSuffixOpr,
         raw_opds: &RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
         let opd_idx = raw_opds.start;
         let opd = self.parse_eager_expr(opd_idx)?;
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Suffix {
-                opr,
+                opr: todo!(),
                 this_ty: opd.ty(),
             },
             opds: vec![opd],

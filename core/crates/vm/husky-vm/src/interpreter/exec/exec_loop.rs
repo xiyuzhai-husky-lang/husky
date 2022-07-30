@@ -1,6 +1,5 @@
-use husky_print_utils::{epin, p};
-
 use crate::*;
+use husky_print_utils::{epin, p};
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn exec_loop_fast(
@@ -146,7 +145,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         }
                         VMControl::Err(_) => todo!(),
                     }
-                    step.update(self.stack.value_mut(frame_varidx));
+                    unsafe {
+                        *self
+                            .stack
+                            .value_mut(frame_varidx)
+                            .downcast_temp_mut::<i32>() += step.0
+                    }
                 }
                 Ok(control)
             }

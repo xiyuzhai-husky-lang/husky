@@ -1,5 +1,6 @@
 use crate::*;
 use husky_atom::{context::SymbolKind, HuskyAtomVariant};
+use husky_opn_syntax::RawSuffixOpr;
 use husky_text::TextRanged;
 use husky_token::HuskyToken;
 
@@ -41,7 +42,9 @@ impl<'a> AstTransformer<'a> {
                     stack.accept_lambda_head(args.clone(), atom.text_start())
                 }
                 HuskyAtomVariant::SilentEnd => return err!(format!("unexpected `;`"), atom.range),
-                HuskyAtomVariant::BePattern(pattern) => stack.accept_be_pattern(pattern, end),
+                HuskyAtomVariant::BePattern(pattern) => {
+                    stack.accept_suffix(RawSuffixOpr::BePattern(pattern), end)
+                }
                 HuskyAtomVariant::Be => panic!(),
             }
         }

@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use husky_text::RangedCustomIdentifier;
-use vm::{BoundaryKind, LoopStep, VMLoopKind, VMStackIdx};
+use vm::{VMLoopKind, VMStackIdx};
 
 use crate::*;
 

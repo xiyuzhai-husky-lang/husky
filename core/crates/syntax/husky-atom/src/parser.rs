@@ -24,7 +24,6 @@ use husky_token::{
 };
 use std::iter::Peekable;
 use utils::*;
-use vm::{BinaryOpr, Bracket, PureBinaryOpr};
 
 pub struct AtomParser<'a, 'b> {
     pub atom_context: &'a mut dyn AtomContext,

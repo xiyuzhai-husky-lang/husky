@@ -131,7 +131,7 @@ impl<'a> ContractSheetBuilder<'a> {
         match opr {
             RawOpnVariant::Binary(opr) => self.infer_lazy_binary_opn(idx, *opr, opds, contract),
             RawOpnVariant::Prefix(opr) => self.infer_lazy_prefix_opn(*opr, opds.start, contract),
-            RawOpnVariant::Suffix(opr) => self.lazy_suffix(idx, *opr, opds.start, contract),
+            RawOpnVariant::Suffix(opr) => self.lazy_suffix(idx, opr, opds.start, contract),
             RawOpnVariant::Field(ident) => self.infer_lazy_field(*ident, opds.start, contract),
             RawOpnVariant::List(opr) => self.infer_lazy_list_opn(idx, opr, opds, contract),
         }
@@ -179,7 +179,7 @@ impl<'a> ContractSheetBuilder<'a> {
     fn lazy_suffix(
         &mut self,
         raw_expr_idx: RawExprIdx,
-        opr: RawSuffixOpr,
+        opr: &RawSuffixOpr,
         opd: RawExprIdx,
         contract: LazyContract,
     ) -> InferResult<()> {
@@ -192,6 +192,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_lazy_expr(opd, contract);
                 Ok(())
             }
+            RawSuffixOpr::BePattern(_) => todo!(),
         }
     }
 

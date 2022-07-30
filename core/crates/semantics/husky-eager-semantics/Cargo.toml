@@ -30,3 +30,6 @@ husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 entity-kind = { path = "../../syntax/entity-kind" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
+husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }

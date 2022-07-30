@@ -8,3 +8,6 @@ edition = "2021"
 husky-pattern-syntax = { path = "../husky-pattern-syntax" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
+thin-vec = { path = "../../../../forks/thin-vec" }
+husky-word = { path = "../husky-word" }
+husky-text = { path = "../husky-text" }

@@ -306,7 +306,7 @@ pub trait EntitySyntaxQueryGroup:
                     "expect custom identifier for module name, but got keyword {} instead",
                     kw.as_str()
                 ))),
-                WordPtr::RawOpnVariant(word_opr) => Err(derived_error!(format!(
+                WordPtr::Opr(word_opr) => Err(derived_error!(format!(
                     "expect custom identifier for module name, but got word operator {} instead",
                     word_opr.as_str()
                 ))),

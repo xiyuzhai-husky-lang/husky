@@ -15,6 +15,7 @@ pub use variant::{HuskyAtomVariant, LambdaHead};
 use entity_kind::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_liason_semantics::*;
+use husky_opn_syntax::*;
 use husky_text::TextRange;
 use husky_text::TextRanged;
 use husky_token::Convexity;

@@ -81,7 +81,7 @@ impl<'a> RustCodeGenerator<'a> {
                 },
                 EagerOpnVariant::Suffix { opr, .. } => {
                     self.gen_expr(indent, &opds[0]);
-                    self.gen_suffix_opr(*opr)
+                    self.gen_suffix_opr(opr)
                 }
                 EagerOpnVariant::RoutineCall(routine) => {
                     self.gen_entity_route(routine.route, EntityRouteRole::Caller);
@@ -473,7 +473,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_suffix_opr(&mut self, opr: RawSuffixOpr) {
+    fn gen_suffix_opr(&mut self, opr: &RawSuffixOpr) {
         match opr {
             RawSuffixOpr::Incr => self.write(" += 1"),
             RawSuffixOpr::Decr => self.write(" -= 1"),
@@ -481,6 +481,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(" as ");
                 self.gen_entity_route(ty.route, EntityRouteRole::Other)
             }
+            RawSuffixOpr::BePattern(_) => todo!(),
         }
     }
 }

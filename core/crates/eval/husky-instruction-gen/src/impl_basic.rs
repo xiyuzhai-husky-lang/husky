@@ -1,6 +1,6 @@
 use crate::*;
 
-use vm::{InitKind, Instruction, InstructionSource, VMStackIdx};
+use vm::{Instruction, InstructionSource, VMStackIdx};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn push_instruction(&mut self, instr: Instruction) {

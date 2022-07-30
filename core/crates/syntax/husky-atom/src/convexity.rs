@@ -1,6 +1,4 @@
 use super::*;
-use vm::*;
-
 impl HuskyAtomVariant {
     pub(super) fn left_convexity(&self) -> Convexity {
         match self {

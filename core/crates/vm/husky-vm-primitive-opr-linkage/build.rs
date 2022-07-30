@@ -1,13 +1,13 @@
 use husky_bindgen_utils::simple_bindgen;
 use husky_c_code_build::build_single_file_to_lib;
 use husky_c_code_repr::*;
+use husky_opn_syntax::*;
 use husky_rust_code_repr::{BuildCodeGenStart, NonPrimitiveTypeRegistration};
 use husky_word::RootIdentifier;
 use husky_write_utils::w;
 use std::io::Write;
 use std::path::PathBuf;
 use std::{env, fs::File};
-use vm::PureBinaryOpr;
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
@@ -26,6 +26,7 @@ fn gen_binary(binary_mod_path: &str) -> std::io::Result<()> {
 use husky_print_utils::p;
 use husky_word::RootIdentifier;
 use vm::*;
+use husky_opn_syntax::*;
 
 pub fn resolve_primitive_pure_binary_opr_linkage(
     lopd_ty: RootIdentifier,

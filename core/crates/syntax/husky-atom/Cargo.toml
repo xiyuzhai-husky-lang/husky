@@ -21,7 +21,6 @@ husky-word = { path = "../husky-word" }
 husky-token = { path = "../husky-token" }
 husky-entity-route = { path = "../husky-entity-route" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
-vm = { path = "../../vm/husky-vm" }
 entity-kind = { path = "../entity-kind" }
 static-defn = { path = "../../static/static-defn" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
@@ -29,3 +28,4 @@ defn-head = { path = "../defn-head" }
 thin-vec = { path = "../../../../forks/thin-vec" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
 husky-pattern-syntax = { path = "../husky-pattern-syntax" }
+husky-opn-syntax = { path = "../husky-opn-syntax" }

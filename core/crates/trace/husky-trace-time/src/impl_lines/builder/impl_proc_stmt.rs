@@ -11,9 +11,9 @@ impl<'a> TraceTokenBuilder<'a> {
                 init_kind,
             } => {
                 self.push(keyword!(match init_kind {
-                    vm::InitKind::Let => "let ",
-                    vm::InitKind::Var => "var ",
-                    vm::InitKind::Decl => panic!(),
+                    InitKind::Let => "let ",
+                    InitKind::Var => "var ",
+                    InitKind::Decl => panic!(),
                 }));
                 self.push(ident!(varname.ident.0));
                 self.push(special!(" = "));

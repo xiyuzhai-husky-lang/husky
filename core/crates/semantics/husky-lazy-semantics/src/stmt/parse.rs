@@ -9,7 +9,7 @@ use husky_xml_syntax::XmlTagKind;
 use infer_contract::{ContractSheet, InferContract};
 use semantics_error::*;
 use std::{iter::Peekable, sync::Arc};
-use vm::{InitKind, VMCompileResult, VMStackIdx, __VMResult};
+use vm::{VMCompileResult, VMStackIdx, __VMResult};
 
 pub(super) struct LazyStmtParser<'a> {
     pub(super) db: &'a dyn InferQueryGroup,

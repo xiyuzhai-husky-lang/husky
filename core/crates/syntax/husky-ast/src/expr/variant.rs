@@ -4,7 +4,6 @@ use husky_entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::RangedCustomIdentifier;
 use husky_text::Row;
-use vm::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprVariant {

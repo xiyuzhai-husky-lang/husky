@@ -1,4 +1,4 @@
-use vm::{BoundaryKind, LoopStep, PureBinaryOpr};
+use husky_loop_syntax::{BoundaryKind, LoopStep};
 
 use crate::*;
 

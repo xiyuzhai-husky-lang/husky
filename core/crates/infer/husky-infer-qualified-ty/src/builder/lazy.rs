@@ -273,7 +273,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match opr {
             RawOpnVariant::Binary(binary_opr) => self.lazy_binary(raw_expr_idx, opds),
             RawOpnVariant::Prefix(prefix_opr) => self.lazy_prefix(raw_expr_idx, opds),
-            RawOpnVariant::Suffix(suffix_opr) => self.lazy_suffix(raw_expr_idx, *suffix_opr, opds),
+            RawOpnVariant::Suffix(suffix_opr) => self.lazy_suffix(raw_expr_idx, suffix_opr, opds),
             RawOpnVariant::List(list_opr) => self.lazy_list(raw_expr_idx, list_opr, opds),
             RawOpnVariant::Field(field_ident) => {
                 self.lazy_field_access(raw_expr_idx, *field_ident, opds)
@@ -309,7 +309,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn lazy_suffix(
         &mut self,
         raw_expr_idx: RawExprIdx,
-        opr: RawSuffixOpr,
+        opr: &RawSuffixOpr,
         opds: RawExprRange,
     ) -> InferResult<LazyValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(opds.start))?;
@@ -319,6 +319,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 throw_derived!(format!("mutation not allowed in lazy functional context"))
             }
             RawSuffixOpr::AsTy(_) => Ok(this_qt),
+            RawSuffixOpr::BePattern(_) => todo!(),
         }
     }
 

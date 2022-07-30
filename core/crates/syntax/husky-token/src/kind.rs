@@ -43,7 +43,7 @@ impl From<WordPtr> for HuskyTokenKind {
         match word {
             WordPtr::Keyword(keyword) => HuskyTokenKind::Keyword(keyword),
             WordPtr::Identifier(ident) => HuskyTokenKind::Identifier(ident),
-            WordPtr::RawOpnVariant(word_opr) => HuskyTokenKind::WordOpr(word_opr),
+            WordPtr::Opr(word_opr) => HuskyTokenKind::WordOpr(word_opr),
             WordPtr::Decorator(decorator) => HuskyTokenKind::Decorator(decorator),
         }
     }

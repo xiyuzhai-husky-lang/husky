@@ -19,6 +19,6 @@ fold = { path = "../../../../common-rs/abstraction/fold" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
 husky-word = { path = "../husky-word" }
-vm = { path = "../../vm/husky-vm" }
 entity-kind = { path = "../entity-kind" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
+husky-opn-syntax = { path = "../husky-opn-syntax" }

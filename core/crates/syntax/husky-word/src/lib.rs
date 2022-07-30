@@ -23,7 +23,7 @@ use vec_like::{VecMap, VecPairMap};
 pub enum WordPtr {
     Keyword(Keyword),
     Identifier(Identifier),
-    RawOpnVariant(WordOpr),
+    Opr(WordOpr),
     Decorator(Decorator),
 }
 

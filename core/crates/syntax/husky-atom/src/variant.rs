@@ -1,11 +1,13 @@
 use super::*;
 use husky_entity_route::{EntityKind, RangedEntityRoute};
+use husky_opn_syntax::{
+    BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr, RawSuffixOpr,
+};
 use husky_pattern_syntax::RawPattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::*;
 use husky_token::SpecialToken;
 use husky_word::{CustomIdentifier, WordOpr};
-use vm::{BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr, RawSuffixOpr};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum HuskyAtomVariant {

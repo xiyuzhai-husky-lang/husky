@@ -12,7 +12,7 @@ use crate::*;
 use fold::Indent;
 use husky_text::RangedCustomIdentifier;
 use std::sync::Arc;
-use vm::{History, InitKind, InstructionId, InstructionSource, VMStackIdx};
+use vm::{History, InstructionId, InstructionSource, VMStackIdx};
 
 use parser::EagerParser;
 

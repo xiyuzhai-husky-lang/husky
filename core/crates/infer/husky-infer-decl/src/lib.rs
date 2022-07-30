@@ -25,6 +25,7 @@ use husky_entity_syntax::*;
 use husky_file::FilePtr;
 use husky_instantiate::*;
 use husky_liason_semantics::*;
+use husky_opn_syntax::*;
 use husky_word::{CustomIdentifier, RootIdentifier};
 use infer_error::*;
 use static_defn::*;
