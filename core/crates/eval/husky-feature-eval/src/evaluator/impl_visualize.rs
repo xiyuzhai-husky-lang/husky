@@ -12,10 +12,10 @@ use std::{iter::zip, sync::Arc};
 use vm::*;
 
 impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
-    pub fn visualize_feature(&mut self, this: FeatureRepr) -> __VMResult<VisualData> {
+    pub fn visualize_feature(&self, this: FeatureRepr) -> __VMResult<VisualData> {
         self.as_static().visualize_static(this)
     }
-    pub fn visualize_static(&mut self, this: FeatureRepr) -> __VMResult<VisualData>
+    pub fn visualize_static(&self, this: FeatureRepr) -> __VMResult<VisualData>
     where
         'eval: 'static,
     {

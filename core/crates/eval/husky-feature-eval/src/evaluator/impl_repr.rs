@@ -6,10 +6,7 @@ use husky_print_utils::{epin, p};
 use vm::*;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_feature_repr(
-        &mut self,
-        repr: &FeatureRepr,
-    ) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_feature_repr(&self, repr: &FeatureRepr) -> __VMResult<__Register<'eval>> {
         let result = match repr {
             FeatureRepr::Value { value, .. } => Ok(value.snapshot()),
             FeatureRepr::Expr(expr) => self.eval_expr(expr),
@@ -21,7 +18,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     }
 
     pub(crate) fn eval_feature_repr_cached(
-        &mut self,
+        &self,
         repr: &FeatureRepr,
     ) -> __VMResult<__Register<'eval>> {
         let eval_key = EvalKey::Feature(repr.feature());
