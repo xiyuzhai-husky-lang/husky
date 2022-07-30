@@ -139,6 +139,7 @@ impl HuskyTraceTime {
             } => todo!(),
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::Input { .. } => todo!(),
         };
         return self.new_trace(
             Some(parent.id()),

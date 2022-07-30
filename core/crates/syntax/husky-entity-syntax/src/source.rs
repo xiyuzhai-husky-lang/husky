@@ -16,7 +16,7 @@ pub enum EntitySource {
         file: FilePtr,
     },
     Input {
-        main: FilePtr,
+        main_file: FilePtr,
     },
 }
 

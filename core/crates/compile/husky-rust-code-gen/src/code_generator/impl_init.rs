@@ -139,6 +139,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             } => panic!(),
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {}
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::Input { .. } => todo!(),
         }
     }
 

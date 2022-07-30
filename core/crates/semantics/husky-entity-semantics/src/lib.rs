@@ -87,7 +87,7 @@ impl EntityDefn {
         static_entity_defn: &'static EntityStaticDefn,
     ) -> Arc<Self> {
         let variant = EntityDefnVariant::from_static(symbol_context, static_entity_defn);
-        Self::new(
+        EntityDefn::new(
             symbol_context
                 .entity_syntax_db()
                 .intern_word(static_entity_defn.name)
@@ -179,6 +179,7 @@ impl EntityDefn {
             EntityDefnVariant::TyField { .. } => todo!(),
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::Input { .. } => todo!(),
         }
     }
 }
@@ -252,26 +253,32 @@ pub enum EntityDefnVariant {
     TraitAssociatedConstSizeImpl {
         value: usize,
     },
+    Input {
+        main_file: FilePtr,
+    },
 }
 
 impl std::fmt::Debug for EntityDefnVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Module { .. } => f.write_str("Module { ... }"),
-            Self::Feature { .. } => f.write_str("Feature { ... }"),
-            Self::Function { .. } => f.write_str("Function { ... }"),
-            Self::Method { .. } => f.write_str("Method { ... }"),
-            Self::Func { .. } => f.write_str("Func { ... }"),
-            Self::Proc { .. } => f.write_str("Proc { ... }"),
-            Self::Ty { .. } => f.write_str("Ty { ... }"),
-            Self::Trait { .. } => f.write_str("Trait { ... }"),
-            Self::EnumVariant { ident, variant } => f.write_str("EnumVariant { ... }"),
-            Self::Builtin => f.write_str("Builtin { ... }"),
-            Self::TyField { .. } => f.write_str("TyField"),
-            Self::TraitAssociatedTypeImpl { .. } => f.write_str("TraitAssociatedTypeImpl { ... }"),
-            Self::TraitAssociatedConstSizeImpl { .. } => {
+            EntityDefnVariant::Module { .. } => f.write_str("Module { ... }"),
+            EntityDefnVariant::Feature { .. } => f.write_str("Feature { ... }"),
+            EntityDefnVariant::Function { .. } => f.write_str("Function { ... }"),
+            EntityDefnVariant::Method { .. } => f.write_str("Method { ... }"),
+            EntityDefnVariant::Func { .. } => f.write_str("Func { ... }"),
+            EntityDefnVariant::Proc { .. } => f.write_str("Proc { ... }"),
+            EntityDefnVariant::Ty { .. } => f.write_str("Ty { ... }"),
+            EntityDefnVariant::Trait { .. } => f.write_str("Trait { ... }"),
+            EntityDefnVariant::EnumVariant { ident, variant } => f.write_str("EnumVariant { ... }"),
+            EntityDefnVariant::Builtin => f.write_str("Builtin { ... }"),
+            EntityDefnVariant::TyField { .. } => f.write_str("TyField"),
+            EntityDefnVariant::TraitAssociatedTypeImpl { .. } => {
+                f.write_str("TraitAssociatedTypeImpl { ... }")
+            }
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => {
                 f.write_str("TraitAssociatedConstSizeImpl { ... }")
             }
+            EntityDefnVariant::Input { .. } => f.write_str("Input"),
         }
     }
 }
@@ -305,7 +312,9 @@ impl EntityDefnVariant {
                 },
                 source: CallFormSource::Static(linkage),
             },
-            EntityStaticDefnVariant::Ty { .. } => Self::ty_from_static(symbol_context, static_defn),
+            EntityStaticDefnVariant::Ty { .. } => {
+                EntityDefnVariant::ty_from_static(symbol_context, static_defn)
+            }
             EntityStaticDefnVariant::Trait {
                 base_route,
                 spatial_parameters: generic_parameters,
@@ -392,7 +401,7 @@ impl EntityDefnVariant {
             },
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TyField { .. } => {
-                Self::ty_field_from_static(symbol_context, static_defn)
+                EntityDefnVariant::ty_field_from_static(symbol_context, static_defn)
             }
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
@@ -540,7 +549,17 @@ pub(crate) fn entity_defn(
             ))
         }
         EntitySource::Module { file } => module_defn(db, entity_route, file),
-        EntitySource::Input { .. } => todo!(),
+        EntitySource::Input { main_file } => {
+            msg_once!("use task config for input defn");
+            Ok(Arc::new(EntityDefn {
+                ident: entity_route.ident(),
+                variant: EntityDefnVariant::Input { main_file },
+                subentities: Default::default(),
+                base_route: entity_route,
+                file: main_file,
+                range: Default::default(),
+            }))
+        }
         EntitySource::StaticTypeMember(_) => match entity_route.kind {
             EntityRouteKind::Child { parent: ty, ident } => {
                 let ty_defn = db.entity_defn(ty).unwrap();
