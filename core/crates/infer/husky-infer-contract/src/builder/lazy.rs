@@ -192,7 +192,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_lazy_expr(opd, contract);
                 Ok(())
             }
-            RawSuffixOpr::BePattern(_) => todo!(),
+            RawSuffixOpr::BePattern(_) => {
+                self.infer_lazy_expr(opd, LazyContract::Pure);
+                Ok(())
+            }
         }
     }
 
