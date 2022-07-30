@@ -239,14 +239,20 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
 
     fn parse_suffix_opr(
         &mut self,
-        opr: &RawSuffixOpr,
+        raw_opr: &RawSuffixOpr,
         raw_opds: &RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
         let opd_idx = raw_opds.start;
         let opd = self.parse_eager_expr(opd_idx)?;
+        let opr = match raw_opr {
+            RawSuffixOpr::Incr => SuffixOpr::Incr,
+            RawSuffixOpr::Decr => SuffixOpr::Decr,
+            RawSuffixOpr::AsTy(ty) => SuffixOpr::AsTy(ty.clone()),
+            RawSuffixOpr::BePattern(_) => todo!(),
+        };
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Suffix {
-                opr: todo!(),
+                opr,
                 this_ty: opd.ty(),
             },
             opds: vec![opd],
