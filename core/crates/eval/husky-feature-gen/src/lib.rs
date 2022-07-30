@@ -27,13 +27,15 @@ pub use unique_allocate::{
 use husky_compile_time::DeclQueryGroup;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityDefnQueryGroup;
+use husky_init_syntax::*;
+use husky_loop_syntax::*;
+use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_text::*;
 use husky_word::{CustomIdentifier, IdentPairDict};
 use std::sync::Arc;
 use temp::*;
 use vm::EntityUid;
-use vm::PureBinaryOpr;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {

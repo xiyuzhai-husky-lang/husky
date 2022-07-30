@@ -1,4 +1,4 @@
-use vm::*;
+use husky_opn_syntax::{BinaryOpr, PureBinaryOpr};
 
 use super::*;
 

@@ -1,4 +1,4 @@
-use vm::Bracket;
+use husky_opn_syntax::Bracket;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum SpecialToken {

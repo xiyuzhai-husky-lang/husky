@@ -30,3 +30,5 @@ entity-kind = { path = "../../syntax/entity-kind" }
 defn-head = { path = "../../syntax/defn-head" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
+husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

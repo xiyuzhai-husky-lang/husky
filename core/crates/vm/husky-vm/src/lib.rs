@@ -28,7 +28,7 @@ pub use husky_vm_interface::*;
 pub use husky_vm_runtime_error::*;
 pub use instruction::*;
 pub use interpreter::{Interpreter, InterpreterQueryGroup};
-pub use loop_kind::{BoundaryKind, LoopStep, VMLoopKind};
+pub use loop_kind::VMLoopKind;
 pub use mode::Mode;
 pub use mutation::*;
 pub use signature::*;
@@ -38,6 +38,7 @@ pub use stack_idx::*;
 
 use error::*;
 use husky_entity_route::EntityRoutePtr;
+use husky_loop_syntax::*;
 use husky_print_utils::{epin, p};
 use husky_trace_protocol::*;
 use husky_vm_primitive_value::PrimitiveValueData;

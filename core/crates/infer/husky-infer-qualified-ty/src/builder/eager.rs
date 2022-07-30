@@ -5,6 +5,7 @@ use entity_kind::EntityKind;
 use husky_ast::*;
 use husky_check_utils::should;
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
+use husky_opn_syntax::RawOpnVariant;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_print_utils::{epin, msg_once, p};
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
@@ -321,7 +322,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match opr {
             RawOpnVariant::Binary(binary_opr) => self.eager_binary(idx, *binary_opr, opds, range),
             RawOpnVariant::Prefix(prefix_opr) => self.eager_prefix(idx, opds),
-            RawOpnVariant::Suffix(suffix_opr) => self.eager_suffix(idx, *suffix_opr, opds),
+            RawOpnVariant::Suffix(suffix_opr) => self.eager_suffix(idx, suffix_opr, opds),
             RawOpnVariant::List(list_opr) => self.eager_list(idx, list_opr, opds),
             RawOpnVariant::Field(field_ident) => self.eager_field_access(idx, *field_ident, opds),
         }
@@ -374,7 +375,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn eager_suffix(
         &mut self,
         raw_expr_idx: RawExprIdx,
-        opr: RawSuffixOpr,
+        opr: &RawSuffixOpr,
         opds: RawExprRange,
     ) -> InferResult<EagerValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(opds.start))?;
@@ -385,6 +386,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 ty: EntityRoutePtr::Root(RootIdentifier::Void),
             }),
             RawSuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
+            RawSuffixOpr::BePattern(_) => todo!(),
         }
     }
 

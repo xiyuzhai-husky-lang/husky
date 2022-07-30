@@ -12,7 +12,7 @@ pub enum WordOpr {
 
 impl From<WordOpr> for WordPtr {
     fn from(ident: WordOpr) -> Self {
-        WordPtr::RawOpnVariant(ident)
+        WordPtr::Opr(ident)
     }
 }
 

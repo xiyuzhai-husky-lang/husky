@@ -13,7 +13,6 @@ use husky_atom::HuskyAtomVariant;
 use husky_text::TextRange;
 use husky_text::TextRanged;
 pub(crate) use stack::ExprStack;
-use vm::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawExpr {

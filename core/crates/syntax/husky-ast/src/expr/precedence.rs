@@ -1,4 +1,4 @@
-use vm::{BinaryOpr, PureBinaryOpr};
+use crate::*;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum Precedence {

@@ -3,7 +3,6 @@ mod exec_condition_flow;
 mod exec_feature_eval;
 mod exec_interpret_call;
 mod exec_loop;
-mod exec_opr_opn;
 mod exec_pattern_match;
 
 use crate::{history::HistoryEntry, *};

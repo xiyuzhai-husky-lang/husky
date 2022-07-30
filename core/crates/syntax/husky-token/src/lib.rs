@@ -21,6 +21,7 @@ pub use special::SpecialToken;
 pub use stream::*;
 pub use tokenized_text::{TokenGroupIter, TokenizedText};
 
+use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::{RangedCustomIdentifier, TextIndent, TextRange, TextRanged};
 use husky_word::Identifier;

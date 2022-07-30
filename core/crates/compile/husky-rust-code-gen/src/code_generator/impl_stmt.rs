@@ -10,7 +10,6 @@ use husky_eager_semantics::{
 use husky_entity_route::EntityRoutePtr;
 use husky_infer_qualified_ty::EagerExprQualifier;
 use husky_word::RootIdentifier;
-use vm::{BoundaryKind, InitKind};
 
 use super::*;
 

@@ -205,6 +205,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         //     this_ty: *this_ty,
                         // }
                     }
+                    RawSuffixOpr::BePattern(_) => todo!(),
                 };
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)

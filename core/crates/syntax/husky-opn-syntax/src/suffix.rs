@@ -1,6 +1,7 @@
 use std::borrow::Cow;
 
 use husky_entity_route::RangedEntityRoute;
+use husky_pattern_syntax::RawPattern;
 use husky_word::RootIdentifier;
 
 use super::*;
@@ -20,11 +21,12 @@ pub enum RawSuffixOpr {
 }
 
 impl RawSuffixOpr {
-    pub fn code(self) -> Cow<'static, str> {
+    pub fn code(&self) -> Cow<'static, str> {
         match self {
             RawSuffixOpr::Incr => "++".into(),
             RawSuffixOpr::Decr => "--".into(),
             RawSuffixOpr::AsTy(ty) => format!(" as {}", ty.route).into(),
+            RawSuffixOpr::BePattern(_) => todo!(),
         }
     }
 }

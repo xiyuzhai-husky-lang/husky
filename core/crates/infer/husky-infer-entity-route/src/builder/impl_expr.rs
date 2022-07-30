@@ -193,7 +193,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         match opr {
             RawOpnVariant::Binary(opr) => self.binary_opn(*opr, opds.start, opds.start + 1, range),
             RawOpnVariant::Prefix(opr) => self.infer_prefix(*opr, opds.start),
-            RawOpnVariant::Suffix(opr) => self.infer_suffix(*opr, opds.start, range),
+            RawOpnVariant::Suffix(opr) => self.infer_suffix(opr, opds.start, range),
             RawOpnVariant::List(opr) => self.list_opn_ty_result(idx, opr, opds, range),
             RawOpnVariant::Field(field_ident) => {
                 self.infer_field_access(*field_ident, opds.start, range)
@@ -390,7 +390,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_suffix(
         &mut self,
-        opr: RawSuffixOpr,
+        opr: &RawSuffixOpr,
         opd: RawExprIdx,
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
@@ -408,6 +408,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 Ok(EntityRoutePtr::Root(RootIdentifier::Void))
             }
             RawSuffixOpr::AsTy(ranged_ty) => Ok(ranged_ty.route),
+            RawSuffixOpr::BePattern(_) => todo!(),
         }
     }
 

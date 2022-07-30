@@ -1,8 +1,8 @@
 use husky_entity_route::RangedEntityRoute;
+use husky_opn_syntax::RawSuffixOpr;
 use husky_print_utils::epin;
 use husky_text::TextPosition;
 use husky_word::WordOpr;
-use vm::*;
 
 use super::*;
 

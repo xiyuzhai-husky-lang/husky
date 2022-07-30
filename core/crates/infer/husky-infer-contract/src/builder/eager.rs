@@ -1,13 +1,12 @@
 use std::iter::zip;
 
+use crate::*;
 use husky_ast::*;
-
 use husky_entity_route::EntityRoutePtr;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_text::TextRange;
 use husky_text::{RangedCustomIdentifier, TextPosition};
 use infer_error::*;
-use vm::*;
 
 use super::*;
 use crate::*;
@@ -124,9 +123,9 @@ impl<'a> ContractSheetBuilder<'a> {
                 Ok(())
             }
             RawExprVariant::Opn {
-                opn_variant: ref opr,
+                ref opn_variant,
                 ref opds,
-            } => self.infer_eager_opn(idx, opr, opds, contract),
+            } => self.infer_eager_opn(idx, opn_variant, opds, contract),
             RawExprVariant::Lambda(_, _) => todo!(),
         };
         self.contract_sheet.eager_expr_contract_results.insert_new(
@@ -141,11 +140,11 @@ impl<'a> ContractSheetBuilder<'a> {
     fn infer_eager_opn(
         &mut self,
         raw_expr_idx: RawExprIdx,
-        opr: &RawOpnVariant,
+        opn_variant: &RawOpnVariant,
         opds: &RawExprRange,
         contract: EagerContract,
     ) -> InferResult<()> {
-        match opr {
+        match opn_variant {
             RawOpnVariant::Binary(opr) => {
                 self.infer_eager_binary_opn(raw_expr_idx, *opr, opds, contract)
             }
@@ -153,7 +152,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_prefix_opn(raw_expr_idx, *opr, opds.start, contract)
             }
             RawOpnVariant::Suffix(opr) => {
-                self.infer_eager_suffix(raw_expr_idx, *opr, opds.start, contract)
+                self.infer_eager_suffix(raw_expr_idx, opr, opds.start, contract)
             }
             RawOpnVariant::List(opr) => {
                 self.infer_eager_list_opn(raw_expr_idx, opr, opds, contract)
@@ -242,11 +241,11 @@ impl<'a> ContractSheetBuilder<'a> {
     fn infer_eager_suffix(
         &mut self,
         raw_expr_idx: RawExprIdx,
-        opr: RawSuffixOpr,
+        suffix: &RawSuffixOpr,
         opd: RawExprIdx,
         contract: EagerContract,
     ) -> InferResult<()> {
-        match opr {
+        match suffix {
             RawSuffixOpr::Incr | RawSuffixOpr::Decr => {
                 self.infer_eager_expr(opd, EagerContract::TempRefMut);
                 match contract {
@@ -258,6 +257,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_expr(opd, contract);
                 Ok(())
             }
+            RawSuffixOpr::BePattern(_) => todo!(),
         }
     }
 

@@ -9,6 +9,7 @@ husky-word = { path = "../../syntax/husky-word" }
 vm = { path = "../husky-vm" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 num = "0.4.0"
 
 [build-dependencies]
@@ -19,4 +20,4 @@ husky-rust-code-repr = { path = "../../compile/husky-rust-code-repr" }
 husky-bindgen-utils = { path = "../../../../common-rs/utils/husky-bindgen-utils" }
 husky-write-utils = { path = "../../../../common-rs/utils/husky-write-utils" }
 husky-word = { path = "../../syntax/husky-word" }
-vm = { path = "../husky-vm" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

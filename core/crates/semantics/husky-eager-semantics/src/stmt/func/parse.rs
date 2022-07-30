@@ -2,7 +2,6 @@ use std::iter::Peekable;
 
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_word::IdentPairDict;
-use vm::InitKind;
 
 use super::parser::EagerParser;
 use super::*;

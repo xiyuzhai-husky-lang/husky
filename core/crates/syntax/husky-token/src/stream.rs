@@ -1,7 +1,6 @@
 use crate::*;
 use husky_check_utils::should;
 use husky_text::TextPosition;
-use vm::Bracket;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
