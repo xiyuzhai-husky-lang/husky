@@ -14,7 +14,7 @@ use vm::*;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(crate) fn eval_expr(&mut self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_expr(&self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
         match expr.variant {
             FeatureExprVariant::PrimitiveLiteral(value) => Ok(value.to_register()),
             FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
@@ -58,7 +58,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 // .into()),
             }
             FeatureExprVariant::Variable { ref value, .. } => self
-                .cache(EvalKey::Feature(expr.feature), |evaluator: &mut Self| {
+                .cache(EvalKey::Feature(expr.feature), |evaluator: &Self| {
                     evaluator.eval_expr(&value)
                 }),
             FeatureExprVariant::RecordOriginalField {
@@ -128,7 +128,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     }
 
     fn eval_struct_original_field(
-        &mut self,
+        &self,
         opt_linkage: Option<__LinkageFp>,
         this: &FeatureRepr,
         field_idx: u8,
@@ -175,7 +175,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         }
     }
 
-    pub(crate) fn eval_xml_expr(&mut self, expr: &FeatureXmlExpr) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_xml_expr(&self, expr: &FeatureXmlExpr) -> __VMResult<__Register<'eval>> {
         match expr.variant {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
@@ -208,7 +208,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     }
 
     fn eval_routine_call(
-        &mut self,
+        &self,
         opt_instrns: &Option<Arc<InstructionSheet>>,
         opt_linkage: Option<__Linkage>,
         output_ty: EntityRoutePtr,

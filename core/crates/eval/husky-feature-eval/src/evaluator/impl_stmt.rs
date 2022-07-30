@@ -7,7 +7,7 @@ use crate::*;
 use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_stmt(&mut self, stmt: &FeatureStmt) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_stmt(&self, stmt: &FeatureStmt) -> __VMResult<__Register<'eval>> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned(
                 self.db.compile_time().vtable(stmt.output_ty),
@@ -41,7 +41,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn satisfies(&mut self, condition: &FeatureExpr) -> __VMResult<bool> {
+    fn satisfies(&self, condition: &FeatureExpr) -> __VMResult<bool> {
         let value = self.eval_expr(condition)?;
         let value_str = self
             .db

@@ -17,6 +17,7 @@ pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 
 use crate::*;
+use husky_entity_semantics::*;
 use husky_feature_gen::FeatureEvalId;
 use husky_trace_protocol::SampleId;
 use vm::__VMResult;
@@ -98,13 +99,19 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn eval_feature_from_uid(&self, feature_uid: usize) -> __VMResult<__Register<'eval>> {
-        // self.sheet
-        //     .cached_value(EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }))
-        // if let Some(_) = self.opt_cached_feature(feature_uid) {
-        //     todo!()
-        // }
-        todo!()
+    fn eval_feature_from_uid(&self, uid_raw: usize) -> __VMResult<__Register<'eval>> {
+        let uid = unsafe { EntityUid::from_raw(uid_raw) };
+        let route = self.db.compile_time().entity_route_by_uid(uid);
+        let feature = self
+            .db
+            .feature_interner()
+            .intern(Feature::EntityFeature { route, uid });
+        if let Some(result) = self.sheet.cached_value(EvalKey::Feature(feature)) {
+            result
+        } else {
+            let repr = self.db.entity_feature_repr(route);
+            self.eval_feature_repr_cached(&repr)
+        }
     }
 }
 
@@ -118,9 +125,9 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     }
 
     fn cache(
-        &mut self,
+        &self,
         eval_key: EvalKey,
-        compute_value: impl FnOnce(&mut Self) -> __VMResult<__Register<'eval>>,
+        compute_value: impl FnOnce(&Self) -> __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         if let Some(result) = self.sheet.cached_value(eval_key) {
             result
