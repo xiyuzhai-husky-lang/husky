@@ -43,7 +43,7 @@ macro_rules! method_elem_linkage {
 macro_rules! eager_field_linkage {
     ($Type: ty, $TYPE_VTABLE: expr, $FieldTy: ty, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_fp: field_copy_fp!($Type, $TYPE_VTABLE, $FieldTy, $FIELD_TY_VTABLE, $field, $copy_kind),
+            copy_fp: field_copy_fp!($Type, $TYPE_VTABLE, $FIELD_TY_VTABLE, $field, $copy_kind),
             eval_ref_fp: field_eval_ref_fp!($Type, $TYPE_VTABLE, $FieldTy, $FIELD_TY_VTABLE, $field),
             temp_ref_fp: field_temp_ref_fp!($Type, $TYPE_VTABLE, $FieldTy, $FIELD_TY_VTABLE, $field),
             temp_mut_fp: field_temp_mut_invalid_fp!($Type, $TYPE_VTABLE, $FieldTy, $FIELD_TY_VTABLE, $field),
@@ -83,21 +83,18 @@ macro_rules! eager_mut_field_linkage {
 macro_rules! index_linkage {
     (
         $Type: ty,
-        $TYPE_VTABLE: expr, 
-        $ElementType: ty, 
+        $TYPE_VTABLE: expr,
         $ELEMENT_TYPE_VTABLE: expr, 
         $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
             copy_fp: index_copy_fp!(
-                $Type,
-                $TYPE_VTABLE,
-                $ElementType,
+                $Type, 
                 $ELEMENT_TYPE_VTABLE,
                 $copy_kind
             ),
-            eval_ref_fp: index_eval_ref_fp!($Type, $TYPE_VTABLE),
+            eval_ref_fp: index_eval_ref_fp!($Type, $ELEMENT_TYPE_VTABLE),
             temp_ref_fp: index_temp_ref_fp!($Type),
-            temp_mut_fp: index_temp_mut_fp!($Type, $TYPE_VTABLE),
+            temp_mut_fp: index_temp_mut_fp!($Type, $ELEMENT_TYPE_VTABLE),
             move_fp: index_move_fp!($Type),
         })
     }};
