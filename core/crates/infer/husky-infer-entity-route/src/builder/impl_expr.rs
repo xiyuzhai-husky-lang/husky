@@ -408,7 +408,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 Ok(EntityRoutePtr::Root(RootIdentifier::Void))
             }
             RawSuffixOpr::AsTy(ranged_ty) => Ok(ranged_ty.route),
-            RawSuffixOpr::BePattern(_) => todo!(),
+            RawSuffixOpr::BePattern(_) => {
+                msg_once!("check be pattern ty");
+                Ok(RootIdentifier::Bool.into())
+            }
         }
     }
 

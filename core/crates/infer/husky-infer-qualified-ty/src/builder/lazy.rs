@@ -319,7 +319,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 throw_derived!(format!("mutation not allowed in lazy functional context"))
             }
             RawSuffixOpr::AsTy(_) => Ok(this_qt),
-            RawSuffixOpr::BePattern(_) => todo!(),
+            RawSuffixOpr::BePattern(_) => Ok(LazyValueQualifiedTy {
+                qual: LazyExprQualifier::Copyable,
+                ty: RootIdentifier::Bool.into(),
+            }),
         }
     }
 
