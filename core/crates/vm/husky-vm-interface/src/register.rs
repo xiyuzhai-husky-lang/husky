@@ -251,7 +251,16 @@ impl<'eval> __Register<'eval> {
     }
 
     pub unsafe fn downcast_eval_ref<T: 'eval>(&self) -> &'eval T {
-        todo!()
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => todo!(),
+            __RegisterDataKind::Box => todo!(),
+            __RegisterDataKind::EvalRef => &*(self.data.as_ptr as *const T),
+            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+        }
     }
 
     pub unsafe fn downcast_temp_ref<T>(&self) -> &T {

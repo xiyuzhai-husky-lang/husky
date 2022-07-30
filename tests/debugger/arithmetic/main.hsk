@@ -4,6 +4,14 @@ func add(x: i32, y: i32) -> i32:
 proc bitor_assign() -> bool:
     var b = 0b32
     assert !0b32
+    assert true && true
+    assert !(true && false)
+    assert 1 != 2
+    var a = 1
+    a--
+    assert a == 0
+    a++
+    assert a == 1
     b |= 1b32
     return b == 1b32
 

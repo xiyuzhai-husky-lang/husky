@@ -50,6 +50,5 @@ impl<'eval> Division<'eval> {
         self.sheets[sample_id.0]
             .cache(EvalKey::Feature(feature), Ok(value.clone()))
             .unwrap()
-            .bind_eval_ref()
     }
 }

@@ -35,7 +35,7 @@ unsafe fn virtual_vec_lastx_eval_ref<'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let virtual_vec: &'eval VirtualVec = values[0].downcast_eval_ref();
-    virtual_vec.last().unwrap().bind_eval_ref()
+    virtual_vec.last().unwrap().eval_bind_eval_ref()
 }
 
 unsafe fn virtual_vec_lastx_temp_ref<'eval>(

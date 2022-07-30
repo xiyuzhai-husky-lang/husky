@@ -68,7 +68,7 @@ unsafe fn virtual_cyclic_slice_first_eval_ref<'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let virtual_cyclic_slice: &'eval VirtualCyclicSlice<'eval> = values[0].downcast_eval_ref();
-    virtual_cyclic_slice.first().unwrap().bind_eval_ref()
+    virtual_cyclic_slice.first().unwrap().eval_bind_eval_ref()
 }
 
 unsafe fn virtual_cyclic_slice_first_temp_ref<'temp, 'eval>(
@@ -128,7 +128,7 @@ unsafe fn virtual_cyclic_slice_last_eval_ref<'temp, 'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let virtual_cyclic_slice: &'eval VirtualCyclicSlice<'eval> = values[0].downcast_eval_ref();
-    virtual_cyclic_slice.last().unwrap().bind_eval_ref()
+    virtual_cyclic_slice.last().unwrap().eval_bind_eval_ref()
 }
 
 unsafe fn virtual_cyclic_slice_last_temp_ref<'temp, 'eval>(

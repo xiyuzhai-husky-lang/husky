@@ -1,8 +1,8 @@
 use crate::*;
-
 use avec::Avec;
+use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use vm::{
-    Instruction, InstructionVariant, VMConditionBranch, VMLoopKind, VMPatternBranch,
+    Instruction, InstructionVariant, VMConditionBranch, VMLoopKind, VMPattern, VMPatternBranch,
     __RegistrableSafe,
 };
 
@@ -271,7 +271,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 .map(|branch| {
                     Arc::new(match branch.variant {
                         ProcStmtPatternBranchVariant::Case { ref pattern } => VMPatternBranch {
-                            opt_pattern: Some(todo!()),
+                            opt_pattern: Some(self.gen_proc_case_pattern(pattern)),
                             body: {
                                 let mut body_sheet = self.subsheet_builder();
                                 body_sheet.compile_proc_stmts(&branch.stmts);
@@ -290,5 +290,20 @@ impl<'a> InstructionSheetBuilder<'a> {
                 })
                 .collect(),
         )
+    }
+
+    fn gen_proc_case_pattern(&self, pattern: &ProcStmtPattern) -> VMPattern {
+        match pattern.variant {
+            ProcStmtPatternVariant::PrimitiveLiteral(data) => {
+                VMPattern::Primitive(convert_primitive_literal_to_register(data, pattern.ty))
+            }
+            ProcStmtPatternVariant::OneOf { ref subpatterns } => VMPattern::OneOf(
+                subpatterns
+                    .iter()
+                    .map(|subpattern| self.gen_proc_case_pattern(subpattern))
+                    .collect(),
+            ),
+            ProcStmtPatternVariant::EnumLiteral(route) => VMPattern::EnumKindLiteral(route),
+        }
     }
 }
