@@ -83,7 +83,23 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn bind_eval_ref(&self) -> __Register<'eval> {
+    pub fn eval_bind_eval_ref(&'eval self) -> __Register<'eval> {
+        match self.data_kind {
+            __RegisterDataKind::PrimitiveValue => todo!(),
+            __RegisterDataKind::Box | __RegisterDataKind::EvalRef => __Register {
+                data_kind: __RegisterDataKind::EvalRef,
+                data: self.data,
+                vtable: self.vtable,
+            },
+            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => todo!(),
+            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Unreturned => todo!(),
+        }
+    }
+
+    pub fn temp_bind_eval_ref(&self) -> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box => todo!(),
@@ -148,7 +164,7 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn bind(&mut self, binding: Binding) -> __Register<'eval> {
         match binding {
-            Binding::EvalRef => self.bind_eval_ref(),
+            Binding::EvalRef => self.temp_bind_eval_ref(),
             Binding::TempRef => self.bind_temp_ref(),
             Binding::TempMut => self.bind_temp_mut(),
             Binding::Move => self.bind_move(),

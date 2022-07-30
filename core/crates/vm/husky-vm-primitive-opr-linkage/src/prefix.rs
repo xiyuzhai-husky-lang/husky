@@ -3,10 +3,10 @@ use husky_word::RootIdentifier;
 use std::ops::Not;
 use vm::*;
 
-pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, lopd_ty: RootIdentifier) -> __Linkage {
+pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentifier) -> __Linkage {
     match opr {
         PrefixOpr::Minus => todo!(),
-        PrefixOpr::Not => match lopd_ty {
+        PrefixOpr::Not => match this_ty {
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => todo!(),
             RootIdentifier::I64 => todo!(),
@@ -45,7 +45,7 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, lopd_ty: RootIdentif
             RootIdentifier::Ref => todo!(),
             RootIdentifier::Option => todo!(),
         },
-        PrefixOpr::BitNot => match lopd_ty {
+        PrefixOpr::BitNot => match this_ty {
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => todo!(),
             RootIdentifier::I64 => todo!(),

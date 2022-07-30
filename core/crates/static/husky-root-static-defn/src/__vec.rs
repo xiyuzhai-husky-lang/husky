@@ -190,7 +190,7 @@ unsafe fn virtual_vec_index_eval_ref<'eval>(
 ) -> __Register<'eval> {
     let this_value: &'eval VirtualVec = values[0].downcast_eval_ref();
     let i: usize = values[1].downcast_i32() as usize;
-    this_value[i].bind_eval_ref()
+    this_value[i].eval_bind_eval_ref()
     // match values[0] {
     //     __TempValue::EvalRef(_) => __TempValue::EvalRef(__EvalRef(unsafe { &*any_ptr })),
     //     __TempValue::TempRefEval(_) => __TempValue::TempRefEval(unsafe { &*any_ptr }),

@@ -11,7 +11,7 @@ use husky_vm_primitive_opr_linkage::{
 use infer_decl::TyDecl;
 use map_collect::MapCollect;
 use vm::{
-    __root::{__EQ_LINKAGE, __NEQ_LINKAGE, __VALUE_CALL_LINKAGE},
+    __root::{__ASSIGN_LINKAGE, __EQ_LINKAGE, __NEQ_LINKAGE, __VALUE_CALL_LINKAGE},
     *,
 };
 
@@ -171,48 +171,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::Prefix { opr, this_ty } => {
                 self.compile_prefix_opn(*opr, opds, expr, discard)
             }
-            EagerOpnVariant::Suffix { opr, this_ty } => {
-                let ins_kind = match opr {
-                    SuffixOpr::Incr => {
-                        todo!()
-                        //     InstructionVariant::OprOpn {
-                        //     opn: OprOpn::Incr,
-                        //     this_ty: *this_ty,
-                        // }
-                    }
-                    SuffixOpr::Decr => {
-                        todo!()
-                        //     InstructionVariant::OprOpn {
-                        //     opn: OprOpn::Decr,
-                        //     this_ty: *this_ty,
-                        // }
-                    }
-                    SuffixOpr::AsTy(ty) => {
-                        todo!()
-                        //     InstructionVariant::OprOpn {
-                        //     opn: match ty.route {
-                        //         EntityRoutePtr::Root(ty_ident) => match ty_ident {
-                        //             RootIdentifier::Void => todo!(),
-                        //             RootIdentifier::Bool => todo!(),
-                        //             RootIdentifier::B32 => OprOpn::Cast(CastOpn::AsB32),
-                        //             RootIdentifier::B64 => OprOpn::Cast(CastOpn::AsB64),
-                        //             RootIdentifier::I32 => OprOpn::Cast(CastOpn::AsI32),
-                        //             RootIdentifier::I64 => OprOpn::Cast(CastOpn::AsI64),
-                        //             RootIdentifier::F32 => OprOpn::Cast(CastOpn::AsF32),
-                        //             RootIdentifier::F64 => OprOpn::Cast(CastOpn::AsF64),
-                        //             _ => todo!(),
-                        //         },
-                        //         EntityRoutePtr::Custom(_) => todo!(),
-                        //         EntityRoutePtr::ThisType => todo!(),
-                        //     },
-                        //     this_ty: *this_ty,
-                        // }
-                    }
-                    SuffixOpr::BePattern(_) => todo!(),
-                };
-                let instruction = Instruction::new(ins_kind, expr.clone());
-                self.push_instruction(instruction)
-            }
+            EagerOpnVariant::Suffix { opr, this_ty } => self.compile_suffix(opr, opds, expr),
             EagerOpnVariant::RoutineCall(routine) => {
                 if let Some(__Linkage) = self.db.compile_time().routine_linkage(routine.route) {
                     match __Linkage {
@@ -412,6 +371,25 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
     }
 
+    fn compile_suffix(&mut self, opr: &SuffixOpr, opds: &[Arc<EagerExpr>], expr: &Arc<EagerExpr>) {
+        let ins_variant = match opr {
+            SuffixOpr::Incr | SuffixOpr::Decr | SuffixOpr::AsTy(_) => match opds[0].ty() {
+                EntityRoutePtr::Root(root_identifier) => InstructionVariant::CallRoutine {
+                    linkage_fp: resolve_primitive_suffix_opr_linkage(opr, root_identifier)
+                        .transfer(),
+                    nargs: todo!(),
+                    output_ty: todo!(),
+                    discard: todo!(),
+                },
+                EntityRoutePtr::Custom(_) => todo!(),
+                EntityRoutePtr::ThisType => todo!(),
+            },
+            SuffixOpr::BePattern(_) => todo!(),
+        };
+        let instruction = Instruction::new(ins_variant, expr.clone());
+        self.push_instruction(instruction)
+    }
+
     fn compile_binary_opn(
         &mut self,
         opr: BinaryOpr,
@@ -449,7 +427,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(instruction)
             }
             EntityRoutePtr::Custom(_) => {
-                let ins_kind = match opr {
+                let ins_variant = match opr {
                     BinaryOpr::Pure(pure_binary_opr) => match pure_binary_opr {
                         PureBinaryOpr::Add => todo!(),
                         PureBinaryOpr::And => todo!(),
@@ -481,9 +459,20 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::Shr => todo!(),
                         PureBinaryOpr::Sub => todo!(),
                     },
-                    BinaryOpr::Assign(opt_binary_opr) => todo!(),
+                    BinaryOpr::Assign(opt_binary_opr) => {
+                        if let Some(binary_opr) = opt_binary_opr {
+                            todo!()
+                        } else {
+                            InstructionVariant::CallRoutine {
+                                linkage_fp: __ASSIGN_LINKAGE.transfer(),
+                                nargs: 2,
+                                output_ty: RootIdentifier::Void.into(),
+                                discard,
+                            }
+                        }
+                    }
                 };
-                let instruction = Instruction::new(ins_kind, expr.clone());
+                let instruction = Instruction::new(ins_variant, expr.clone());
                 self.push_instruction(instruction)
             }
             EntityRoutePtr::ThisType => todo!(),
