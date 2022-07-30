@@ -13,7 +13,7 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, lopd_ty: RootIdentif
             RootIdentifier::F32 => todo!(),
             RootIdentifier::F64 => todo!(),
             RootIdentifier::B32 => {
-                transfer_linkage!(|_, args| (0 != args[0].downcast_b32()).to_register(), none)
+                transfer_linkage!(|_, args| (0 == args[0].downcast_b32()).to_register(), none)
             }
             RootIdentifier::B64 => todo!(),
             RootIdentifier::Bool => {
