@@ -18,7 +18,10 @@ impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
         });
         match field_binding {
             Binding::EvalRef => todo!(),
-            Binding::TempRef => todo!(),
+            Binding::TempRef => {
+                let this_value: &VirtualStruct = unsafe { self.downcast_temp_ref() };
+                this_value.bind_field_temp_ref(field_idx)
+            }
             Binding::TempMut => {
                 let this_value: &mut VirtualStruct = unsafe { self.downcast_temp_mut() };
                 this_value.bind_field_mut(field_idx)
