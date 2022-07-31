@@ -13,11 +13,6 @@ pub struct __RegisterVTable {
     pub assign: Option<fn(args: *mut __Register)>,
 }
 
-#[test]
-fn test_it() {
-    assert_eq!(std::mem::size_of::<&mut [__Register]>(), 8)
-}
-
 unsafe impl Sync for __RegisterVTable {}
 
 unsafe impl Send for __RegisterVTable {}

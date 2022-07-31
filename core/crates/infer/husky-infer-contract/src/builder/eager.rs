@@ -48,6 +48,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawConditionBranchKind::Elif { condition } => self.infer_eager_condition(condition),
                 RawConditionBranchKind::Else => (),
             },
+            RawStmtVariant::Require { condition } => self.infer_eager_condition(condition),
             RawStmtVariant::PatternBranch {
                 ref pattern_branch_variant,
             } => match pattern_branch_variant {
@@ -86,7 +87,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_eager_expr(match_expr, EagerContract::from_match(match_liason));
             }
             RawStmtVariant::ReturnXml(_) => panic!(),
-            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 

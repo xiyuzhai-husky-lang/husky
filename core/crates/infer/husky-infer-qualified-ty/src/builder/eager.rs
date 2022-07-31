@@ -121,6 +121,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
                 RawConditionBranchKind::Else => (),
             },
+            RawStmtVariant::Require { condition } => {
+                self.infer_eager_expr(condition);
+            }
             RawStmtVariant::PatternBranch {
                 ref pattern_branch_variant,
             } => match pattern_branch_variant {
@@ -178,7 +181,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 self.infer_eager_expr(match_expr);
             }
             RawStmtVariant::ReturnXml(ref xml_expr) => panic!(),
-            RawStmtVariant::Require { condition } => todo!(),
         }
     }
 
