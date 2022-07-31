@@ -21,6 +21,7 @@ impl<'a> DependeeMapBuilder<'a> {
     }
 
     fn push(&mut self, entity_route: EntityRoutePtr) {
+        let entity_route = entity_route.intrinsic();
         match entity_route.kind {
             EntityRouteKind::Root { ident, .. } => {
                 if ident == RootIdentifier::Ref {
@@ -275,6 +276,9 @@ impl EntityDefn {
                         initial_value: ref value,
                     } => extract_eager_expr_dependees(value, builder),
                     FuncStmtVariant::Assert { ref condition } => {
+                        extract_eager_expr_dependees(condition, builder)
+                    }
+                    FuncStmtVariant::Require { ref condition } => {
                         extract_eager_expr_dependees(condition, builder)
                     }
                     FuncStmtVariant::Return { ref result, .. } => {

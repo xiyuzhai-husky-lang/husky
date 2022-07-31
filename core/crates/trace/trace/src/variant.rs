@@ -264,6 +264,7 @@ impl<'eval> TraceVariant<'eval> {
                     ref match_expr,
                     ref branches,
                 } => history.contains(match_expr),
+                FuncStmtVariant::Require { ref condition } => todo!(),
             },
             TraceVariant::ProcStmt { stmt, history } => match stmt.variant {
                 ProcStmtVariant::Init {

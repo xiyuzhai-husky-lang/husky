@@ -61,6 +61,7 @@ impl Instruction {
             InstructionVariant::PatternMatch { .. } => todo!(),
             InstructionVariant::EntityFeature { .. } => todo!(),
             InstructionVariant::PushEntityFp { .. } => todo!(),
+            InstructionVariant::Require => "require",
         }
     }
 }
@@ -129,6 +130,7 @@ pub enum InstructionVariant {
     BreakIfFalse,
     Break,
     Assert,
+    Require,
     ConditionFlow {
         branches: Avec<VMConditionBranch>,
     },

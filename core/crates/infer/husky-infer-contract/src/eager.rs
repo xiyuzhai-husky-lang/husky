@@ -137,8 +137,21 @@ impl EagerContract {
                 } else {
                     EagerContract::Move
                 }
+            } else if output_ty.kind
+                == (EntityRouteKind::Root {
+                    ident: RootIdentifier::Option,
+                })
+            {
+                if output_ty.spatial_arguments[0].take_entity_route() == return_ty {
+                    if db.is_copyable(return_ty)? {
+                        EagerContract::Pure
+                    } else {
+                        EagerContract::Move
+                    }
+                } else {
+                    todo!()
+                }
             } else {
-                p!(output_ty, return_ty);
                 todo!()
             }),
             ReturnKind::Feature | ReturnKind::LazyField => {

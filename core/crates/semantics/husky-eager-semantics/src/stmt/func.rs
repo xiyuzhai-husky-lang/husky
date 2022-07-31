@@ -34,6 +34,7 @@ impl FuncStmt {
         match stmt.variant {
             FuncStmtVariant::Init { .. }
             | FuncStmtVariant::Assert { .. }
+            | FuncStmtVariant::Require { .. }
             | FuncStmtVariant::Return { .. } => stmt.range.end,
             FuncStmtVariant::ConditionFlow { ref branches } => branches.last().unwrap().range.end,
             FuncStmtVariant::Match {
@@ -65,6 +66,9 @@ pub enum FuncStmtVariant {
         initial_value: Arc<EagerExpr>,
     },
     Assert {
+        condition: Arc<EagerExpr>,
+    },
+    Require {
         condition: Arc<EagerExpr>,
     },
     Return {
