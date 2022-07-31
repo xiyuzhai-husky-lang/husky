@@ -34,6 +34,10 @@ impl<'eval> VirtualStruct<'eval> {
         self.fields.data()[field_idx as usize].1.bind_copy()
     }
 
+    pub fn bind_field_temp_ref(&self, field_idx: u8) -> __Register<'eval> {
+        self.fields.data()[field_idx as usize].1.bind_temp_ref()
+    }
+
     pub fn bind_field_mut(&mut self, field_idx: u8) -> __Register<'eval> {
         self.fields.data_mut()[field_idx as usize].1.bind_temp_mut()
         // match field_binding {
