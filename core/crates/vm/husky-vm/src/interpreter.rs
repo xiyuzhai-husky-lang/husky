@@ -97,7 +97,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     fn push_new_virtual_struct(&mut self, ty: EntityRoutePtr, fields: &[CustomIdentifier]) {
         let parameters = self.stack.drain(fields.len().try_into().unwrap());
-        let value = unsafe { VirtualStruct::new_struct(ty, parameters, fields).__to_register__() };
+        let value = unsafe { VirtualStruct::new_struct(ty, parameters, fields).__to_register() };
         self.stack.push(value)
     }
 

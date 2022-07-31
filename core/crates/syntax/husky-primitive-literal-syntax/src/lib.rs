@@ -20,15 +20,15 @@ impl Into<String> for PrimitiveLiteralData {
         match self {
             PrimitiveLiteralData::Void => "void".to_string(),
             PrimitiveLiteralData::Integer(i) => format!("{i}"),
-            PrimitiveLiteralData::I32(i) => format!("{i}"),
-            PrimitiveLiteralData::I64(i) => format!("{i}"),
+            PrimitiveLiteralData::I32(i) => format!("{i}i32"),
+            PrimitiveLiteralData::I64(i) => format!("{i}i64"),
             PrimitiveLiteralData::Float(f) => format!("{f}"),
-            PrimitiveLiteralData::F32(f) => format!("{f}"),
-            PrimitiveLiteralData::F64(f) => format!("{f}"),
-            PrimitiveLiteralData::Bits(_) => todo!(),
-            PrimitiveLiteralData::B32(_) => todo!(),
-            PrimitiveLiteralData::B64(_) => todo!(),
-            PrimitiveLiteralData::Bool(_) => todo!(),
+            PrimitiveLiteralData::F32(f) => format!("{f}f32"),
+            PrimitiveLiteralData::F64(f) => format!("{f}f64"),
+            PrimitiveLiteralData::Bits(b) => format!("{b}"),
+            PrimitiveLiteralData::B32(b) => format!("{b}b32"),
+            PrimitiveLiteralData::B64(b) => format!("{b}b64"),
+            PrimitiveLiteralData::Bool(b) => format!("{b}"),
         }
     }
 }

@@ -66,7 +66,7 @@ impl<'a> LinkageCollector<'a> {
                     LazyOpnKind::RecordCall(ranged_route) => self.insert(ranged_route.route),
                     LazyOpnKind::Field { .. } => (),
                     LazyOpnKind::MethodCall { method_route, .. } => self.insert(method_route),
-                    LazyOpnKind::Index { .. } => todo!(),
+                    LazyOpnKind::Index { .. } => (),
                 }
             }
             LazyExprVariant::Lambda(_, _) => todo!(),

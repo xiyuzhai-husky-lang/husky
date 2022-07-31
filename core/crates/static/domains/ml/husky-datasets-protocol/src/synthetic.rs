@@ -116,13 +116,9 @@ impl<'a> __StaticInfo for SimpleSyntheticDataset<'a> {
     }
 }
 
-impl<'a> __Registrable for SimpleSyntheticDataset<'a> {
-    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
+impl<'eval> __Registrable<'eval> for SimpleSyntheticDataset<'eval> {
+    unsafe fn __to_register(self) -> __Register<'eval> {
         todo!()
-    }
-
-    fn __copy__(&self) -> Self {
-        panic!()
     }
 }
 

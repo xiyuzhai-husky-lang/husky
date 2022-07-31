@@ -135,7 +135,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn new_temp_ref<T: __Registrable>(
+    pub unsafe fn new_temp_ref<T: __Registrable<'eval>>(
         value: &T,
         proto: &'eval __RegisterVTable,
     ) -> __Register<'eval> {
@@ -149,7 +149,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn new_temp_mut<T: __Registrable>(
+    pub unsafe fn new_temp_mut<T: __Registrable<'eval>>(
         value: &mut T,
         proto: &'eval __RegisterVTable,
     ) -> __Register<'eval> {

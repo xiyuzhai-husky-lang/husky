@@ -386,9 +386,8 @@ impl<'a> RustCodeGenerator<'a> {
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
-                    r#"__cache_lazy_field(
-        __ctx,
-        self,
+                    r#"__ctx.cache_lazy_field(
+        self as *const _ as *const (),
         __uid,
         Ok(("#,
                 );
@@ -400,8 +399,7 @@ impl<'a> RustCodeGenerator<'a> {
             }
             EagerExprQualifier::EvalRef => {
                 self.write(
-                    r#"__cache_lazy_field(
-        __ctx,
+                    r#"__ctx.cache_lazy_field(
         self,
         __uid,
         Ok(__EvalRef(&("#,

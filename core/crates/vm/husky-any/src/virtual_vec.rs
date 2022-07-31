@@ -40,12 +40,8 @@ impl<'eval> __StaticInfo for VirtualVec<'eval> {
     }
 }
 
-impl<'eval> __Registrable for VirtualVec<'eval> {
-    unsafe fn __to_register__<'eval0>(self) -> __Register<'eval0> {
+impl<'eval> __Registrable<'eval> for VirtualVec<'eval> {
+    unsafe fn __to_register(self) -> __Register<'eval> {
         __Register::new_box(self, &__VIRTUAL_VEC_VTABLE)
-    }
-
-    fn __copy__(&self) -> Self {
-        panic!()
     }
 }

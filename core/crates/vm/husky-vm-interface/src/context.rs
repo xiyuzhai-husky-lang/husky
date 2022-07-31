@@ -20,7 +20,7 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
 
     fn cache_lazy_field(
         &self,
-        this: &'eval (),
+        this: *const (),
         uid: usize,
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>>;

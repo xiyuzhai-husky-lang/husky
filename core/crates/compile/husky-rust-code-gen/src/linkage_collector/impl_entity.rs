@@ -27,7 +27,7 @@ impl<'a> LinkageCollector<'a> {
                 ref parameters,
                 output,
                 ref source,
-            } => todo!(),
+            } => self.collect_from_call_form_source(source),
             EntityDefnVariant::Method {
                 ref spatial_parameters,
                 this_liason,
@@ -42,12 +42,7 @@ impl<'a> LinkageCollector<'a> {
                 self.collect_from_parameters(parameters);
                 self.insert(output_ty.route);
                 if let Some(source) = opt_source {
-                    match source {
-                        CallFormSource::Func { stmts } => self.collect_from_func_stmts(stmts),
-                        CallFormSource::Proc { stmts } => self.collect_from_proc_stmts(stmts),
-                        CallFormSource::Lazy { stmts } => (),
-                        CallFormSource::Static(_) => (),
-                    }
+                    self.collect_from_call_form_source(source)
                 }
             }
             EntityDefnVariant::Func {
@@ -181,6 +176,15 @@ impl<'a> LinkageCollector<'a> {
                 self.insert(ty.route);
                 self.collect_from_proc_stmts(stmts)
             }
+        }
+    }
+
+    fn collect_from_call_form_source(&mut self, source: &CallFormSource) {
+        match source {
+            CallFormSource::Func { stmts } => self.collect_from_func_stmts(stmts),
+            CallFormSource::Proc { stmts } => self.collect_from_proc_stmts(stmts),
+            CallFormSource::Lazy { stmts } => todo!(),
+            CallFormSource::Static(_) => (),
         }
     }
 }

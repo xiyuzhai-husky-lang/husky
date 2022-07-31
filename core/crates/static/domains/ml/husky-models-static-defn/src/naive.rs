@@ -49,13 +49,9 @@ impl __StaticInfo for NaiveI32Internal {
     }
 }
 
-impl __Registrable for NaiveI32Internal {
-    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
+impl<'eval> __Registrable<'eval> for NaiveI32Internal {
+    unsafe fn __to_register(self) -> __Register<'eval> {
         __Register::new_box(self, &__NAIVE_I_32_INTERNAL_VTABLE)
-    }
-
-    fn __copy__(&self) -> Self {
-        panic!()
     }
 }
 

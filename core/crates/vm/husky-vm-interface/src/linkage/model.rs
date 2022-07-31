@@ -37,7 +37,7 @@ pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
 pub trait Model:
     std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + Sized + 'static
 {
-    type Internal: __Registrable;
+    type Internal: for<'eval> __Registrable<'eval>;
     fn train<'eval>(
         &self,
         opds: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,

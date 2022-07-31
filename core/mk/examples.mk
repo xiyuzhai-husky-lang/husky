@@ -20,7 +20,7 @@ mnist-release:
 mnist-compiled:
 	cargo check
 	cargo run --bin husky-compiler $(examples_dir)/cv/mnist-classifier
-	cd ${HUSKY_DIR}/__rust_gen__ && cargo run --bin mnist-classifier-debugger -- --warn-missing-linkage
+	# cargo run --bin mnist-classifier-debugger -- --warn-missing-linkage
 
 mnist-compiled-release:
 	cargo check

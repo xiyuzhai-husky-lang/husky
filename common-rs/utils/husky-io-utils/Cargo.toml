@@ -5,3 +5,6 @@ edition = "2021"
 
 [lib]
 doctest = false
+
+[dependencies]
+husky-print-utils = { path = "../husky-print-utils" }

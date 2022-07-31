@@ -134,15 +134,16 @@ debug = 1
             &compile_time.rust_mod_rs_content(module.base_route),
         );
         self.save_husky_code_snapshot(compile_time, husky_code_snapshot_path, module.file);
-        let rust_code_dir = rust_code_path.with_extension("");
-        let husky_code_snapshot_dir = husky_code_snapshot_path.with_extension("");
-        mkdir(&husky_code_snapshot_dir);
+        let module_rust_code_gen_dir = rust_code_path.with_extension("");
+        let module_husky_code_snapshot_dir = husky_code_snapshot_path.with_extension("");
+        mkdir(&module_rust_code_gen_dir);
+        mkdir(&module_husky_code_snapshot_dir);
         for submodule in module.subentities.iter() {
             let submodule_name = submodule.ident.as_str();
             self.compile_maybe_module(
                 compile_time,
-                rust_code_dir.join(format!("{submodule_name}.rs")),
-                &husky_code_snapshot_dir.join(format!("{submodule_name}.hsk")),
+                module_rust_code_gen_dir.join(format!("{submodule_name}.rs")),
+                &module_husky_code_snapshot_dir.join(format!("{submodule_name}.hsk")),
                 submodule,
             )
         }

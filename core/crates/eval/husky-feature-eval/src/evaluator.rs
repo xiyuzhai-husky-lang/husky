@@ -71,13 +71,13 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn cache_lazy_field(
         &self,
-        this: &'eval (),
+        this: *const (),
         uid: usize,
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
             EvalKey::StructDerivedField {
-                parent: this as *const (),
+                parent: this,
                 field_uid: unsafe { EntityUid::from_raw(uid) },
             },
             value,

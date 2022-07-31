@@ -298,7 +298,7 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write(&format!(
                             r#" {{
     let __uid = entity_uid!(__ctx, "{route:?}");
-    if let Some(__result) = __opt_cached_lazy_field(__ctx, self, __uid) {{
+    if let Some(__result) = __ctx.opt_cached_lazy_field(self, __uid) {{
         return __result.unwrap();
     }}
 "#,
@@ -358,7 +358,7 @@ impl<'a> RustCodeGenerator<'a> {
         tyname: CustomIdentifier,
         ty_contains_eval_ref: bool,
     ) {
-        self.write("\nimpl __Registrable for ");
+        self.write("\nimpl<'eval> __Registrable<'eval> for ");
         self.write(&tyname);
         if ty_contains_eval_ref {
             self.write("<'eval>")
