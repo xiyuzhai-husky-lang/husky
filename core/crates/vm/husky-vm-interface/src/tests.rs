@@ -4,7 +4,7 @@ use crate::*;
 fn downcast_works_for_bool() {
     let mut ra = {
         let a = true;
-        unsafe { a.__to_register__() }
+        unsafe { a.__to_register() }
     };
     let b: bool = ra.downcast_bool();
     assert!(b)
@@ -14,7 +14,7 @@ fn downcast_works_for_bool() {
 fn downcast_works_for_i32() {
     let mut ra = {
         let a = 1i32;
-        unsafe { a.__to_register__() }
+        unsafe { a.__to_register() }
     };
     let b: i32 = ra.downcast_i32();
 }

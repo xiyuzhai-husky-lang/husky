@@ -14,12 +14,8 @@ impl __StaticInfo for __VirtualFunction {
     }
 }
 
-impl __Registrable for __VirtualFunction {
-    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
+impl<'eval> __Registrable<'eval> for __VirtualFunction {
+    unsafe fn __to_register(self) -> __Register<'eval> {
         __Register::new_box(self, &__VIRTUAL_FUNCTION_VTABLE)
-    }
-
-    fn __copy__(&self) -> Self {
-        self.clone()
     }
 }

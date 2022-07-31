@@ -18,13 +18,9 @@ impl __StaticInfo for Label {
     }
 }
 
-impl __Registrable for Label {
-    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
+impl<'eval> __Registrable<'eval> for Label {
+    unsafe fn __to_register(self) -> __Register<'eval> {
         self.0.to_register()
-    }
-
-    fn __copy__(&self) -> Self {
-        *self
     }
 }
 

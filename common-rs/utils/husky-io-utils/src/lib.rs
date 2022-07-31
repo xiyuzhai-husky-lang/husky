@@ -1,3 +1,4 @@
+use husky_print_utils::p;
 use std::path::Path;
 
 // first read and compare, and then write if different
@@ -10,6 +11,12 @@ pub fn diff_write(path: &Path, content: &str) {
         Err(_) => true,
     };
     if different {
-        std::fs::write(path, content).unwrap()
+        match std::fs::write(path, content) {
+            Ok(_) => (),
+            Err(e) => {
+                p!(path, e);
+                todo!()
+            }
+        }
     }
 }

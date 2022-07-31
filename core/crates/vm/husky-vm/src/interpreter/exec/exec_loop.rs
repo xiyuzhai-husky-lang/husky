@@ -82,7 +82,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 let stack_len = self.stack.len();
                 for i in 0..n {
                     let frame_var = step.frame_var(initial_bound_shifted, i);
-                    self.stack.push(unsafe { frame_var.__to_register__() });
+                    self.stack.push(unsafe { frame_var.__to_register() });
                     exec_before_each_frame(self);
                     let frame_control = self.exec_all(body, mode);
                     exec_after_each_frame(self, frame_var, &frame_control);

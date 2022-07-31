@@ -1,7 +1,7 @@
 use super::*;
 use husky_eager_semantics::{
-    FuncStmtPattern, FuncStmtPatternBranch, FuncStmtPatternBranchVariant, ProcStmtPattern,
-    ProcStmtPatternBranch, ProcStmtPatternBranchVariant,
+    FuncStmtPattern, FuncStmtPatternBranch, FuncStmtPatternBranchVariant, FuncStmtPatternVariant,
+    ProcStmtPattern, ProcStmtPatternBranch, ProcStmtPatternBranchVariant, ProcStmtPatternVariant,
 };
 use std::sync::Arc;
 
@@ -80,30 +80,41 @@ impl<'a> RustCodeGenerator<'a> {
 
     fn gen_func_case_pattern(&mut self, pattern: &FuncStmtPattern) {
         match pattern.variant {
-            _ => todo!(),
+            FuncStmtPatternVariant::PrimitiveLiteral(v) => {
+                let v: String = v.into();
+                self.write(&(v))
+            }
+            FuncStmtPatternVariant::OneOf { ref subpatterns } => {
+                for (i, subpattern) in subpatterns.iter().enumerate() {
+                    if i > 0 {
+                        self.write(" | ");
+                    }
+                    self.gen_func_case_pattern(subpattern)
+                }
+            }
+            FuncStmtPatternVariant::EnumLiteral(entity_route) => {
+                self.gen_entity_route(entity_route, EntityRouteRole::Other)
+            }
         }
     }
 
     fn gen_proc_case_pattern(&mut self, pattern: &ProcStmtPattern) {
         match pattern.variant {
-            _ => todo!(),
-            // RawPatternVariant::PrimitiveValue(v) => {
-            //     let v: String = v.into();
-            //     self.write(&(v))
-            // }
-            // RawPatternVariant::OneOf {
-            //     subpatterns: ref patterns,
-            // } => {
-            //     for (i, pattern) in patterns.iter().enumerate() {
-            //         if i > 0 {
-            //             self.write(" | ");
-            //         }
-            //         self.gen_proc_case_pattern(pattern)
-            //     }
-            // }
-            // RawPatternVariant::EnumLiteral(entity_route) => {
-            //     self.gen_entity_route(entity_route, EntityRouteRole::Other)
-            // }
+            ProcStmtPatternVariant::PrimitiveLiteral(v) => {
+                let v: String = v.into();
+                self.write(&(v))
+            }
+            ProcStmtPatternVariant::OneOf { ref subpatterns } => {
+                for (i, subpattern) in subpatterns.iter().enumerate() {
+                    if i > 0 {
+                        self.write(" | ");
+                    }
+                    self.gen_proc_case_pattern(subpattern)
+                }
+            }
+            ProcStmtPatternVariant::EnumLiteral(entity_route) => {
+                self.gen_entity_route(entity_route, EntityRouteRole::Other)
+            }
         }
     }
 }

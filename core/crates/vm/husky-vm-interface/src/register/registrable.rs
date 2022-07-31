@@ -4,12 +4,10 @@ mod impl_primitive;
 
 use super::*;
 
-pub trait __Registrable:
+pub trait __Registrable<'eval>:
     __StaticInfo + std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + Sized
 {
-    unsafe fn __to_register__<'eval>(self) -> __Register<'eval>;
-
-    fn __copy__(&self) -> Self;
+    unsafe fn __to_register(self) -> __Register<'eval>;
 }
 
 impl __StaticInfo for PrimitiveValueData {

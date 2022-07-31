@@ -15,15 +15,11 @@ impl __StaticInfo for VirtualEnum {
     }
 }
 
-impl __Registrable for VirtualEnum {
-    unsafe fn __to_register__<'eval>(self) -> __Register<'eval>
+impl<'eval> __Registrable<'eval> for VirtualEnum {
+    unsafe fn __to_register(self) -> __Register<'eval>
     where
         Self: 'eval,
     {
         __Register::new_box(self, &__VIRTUAL_ENUM_VTABLE)
-    }
-
-    fn __copy__(&self) -> Self {
-        *self
     }
 }

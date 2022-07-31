@@ -33,12 +33,8 @@ impl<'eval> __StaticInfo for VirtualCyclicSlice<'eval> {
     }
 }
 
-impl<'eval> __Registrable for VirtualCyclicSlice<'eval> {
-    unsafe fn __to_register__<'eval0>(self) -> __Register<'eval0> {
+impl<'eval> __Registrable<'eval> for VirtualCyclicSlice<'eval> {
+    unsafe fn __to_register(self) -> __Register<'eval> {
         todo!()
-    }
-
-    fn __copy__(&self) -> Self {
-        panic!()
     }
 }
