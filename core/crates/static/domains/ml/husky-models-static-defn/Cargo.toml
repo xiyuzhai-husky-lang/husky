@@ -19,3 +19,11 @@ static-defn = { path = "../../../static-defn" }
 husky-liason-semantics = { path = "../../../../semantics/husky-liason-semantics" }
 husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
 husky-vm-register-method = { path = "../../../../vm/husky-vm-register-method" }
+
+[build-dependencies]
+bindgen = "0.60.1"
+husky-c-code-repr = { path = "../../../../compile/husky-c-code-repr" }
+husky-c-code-build = { path = "../../../../compile/husky-c-code-build" }
+husky-rust-code-repr = { path = "../../../../compile/husky-rust-code-repr" }
+husky-bindgen-utils = { path = "../../../../../../common-rs/utils/husky-bindgen-utils" }
+husky-write-utils = { path = "../../../../../../common-rs/utils/husky-write-utils" }

@@ -1,5 +1,7 @@
 use std::{collections::HashMap, sync::Arc, time::Instant};
 
+use crate::__rust_code_gen__::__NAIVE_I_32_INTERNAL_VTABLE;
+
 use super::*;
 use husky_dev_utils::static_dev_src;
 use husky_print_utils::p;
@@ -7,7 +9,8 @@ use husky_trace_protocol::Label;
 use husky_vm_register_method::VMRegisterMethodX;
 use static_defn::*;
 use vm::{
-    Model, __Linkage, __ModelLinkage, __Register, __RegistrableSafe, __VMResult, __I32_VTABLE,
+    Model, __Linkage, __ModelLinkage, __Register, __Registrable, __RegistrableSafe, __StaticInfo,
+    __VMResult, __I32_VTABLE,
 };
 
 static_mod! { naive = { naive_i32 } }
@@ -33,8 +36,31 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
 #[derive(Debug)]
 struct NaiveI32;
 
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct NaiveI32Internal {
+    most_likely_labels: HashMap<i32, Label>,
+}
+
+impl __StaticInfo for NaiveI32Internal {
+    type __StaticSelf = Self;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+}
+
+impl __Registrable for NaiveI32Internal {
+    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
+        __Register::new_box(self, &__NAIVE_I_32_INTERNAL_VTABLE)
+    }
+
+    fn __copy__(&self) -> Self {
+        panic!()
+    }
+}
+
 impl Model for NaiveI32 {
-    type Internal = HashMap<i32, Label>; // most likely labels
+    type Internal = NaiveI32Internal; // most likely labels
 
     fn train<'eval>(
         &self,
@@ -64,16 +90,16 @@ impl Model for NaiveI32 {
                 )
             })
             .collect();
-        Ok(most_likely_labels)
+        Ok(NaiveI32Internal { most_likely_labels })
     }
 
     fn eval<'eval>(
         &self,
-        most_likely_labels: &Self::Internal,
+        internal: &Self::Internal,
         arguments: &[__Register<'eval>],
     ) -> __VMResult<__Register<'eval>> {
         let argument = arguments[0].downcast_i32();
-        match most_likely_labels.get(&argument) {
+        match internal.most_likely_labels.get(&argument) {
             Some(l) => Ok(l.to_register()),
             None => {
                 p!(argument);
