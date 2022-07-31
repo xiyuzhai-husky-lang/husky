@@ -11,14 +11,6 @@ pub static PRIMITIVE_TYPES: &'static [&'static str] =
     &["void", "bool", "i32", "i64", "b32", "b64", "f32", "f64"];
 
 pub static NONPRIMITIVE_BUILTIN_TYPES: &'static [&'static str] = &["__VirtualFunction"];
-// &[
-//     "BinaryImage28",
-//     "BinaryGrid28",
-//     "Dataset",
-//     "VirtualVec",
-//     "VirtualCyclicSlice",
-//     "VirtualStruct",
-// ];
 
 pub fn gen_vm_interface_code(c_code_gen_dir: &str) {
     let c_header_path = format!("{}/husky_vm_interface.h", c_code_gen_dir);
@@ -61,11 +53,14 @@ typedef union __RegisterData {{
     void *as_opt_ptr;
 }} __RegisterData;
 
+typedef struct __Register __Register;
+
 typedef bool (*__primitive_value_to_bool_t)(__RegisterData);
 typedef void *(*__primitive_value_to_box_t)(__RegisterData);
-typedef void *(*__clone_t)(void *);
-typedef void (*__drop_t)(void *);
-typedef bool (*__eq_t)(void *, void *);
+typedef void *(*__clone_t)(void const*);
+typedef void (*__drop_t)(void const*);
+typedef bool (*__eq_t)(void const*, void const*);
+typedef void (*__assign_t)(__Register *);
 
 typedef struct __RegisterVTable {{
     char const *typename_str;
@@ -74,6 +69,7 @@ typedef struct __RegisterVTable {{
     __clone_t clone;
     __drop_t drop;
     __eq_t eq;
+    __assign_t assign;
 }} __RegisterVTable;
     
 // handles of primitive types are provided by Rust

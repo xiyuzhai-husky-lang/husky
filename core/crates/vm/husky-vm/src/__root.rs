@@ -11,7 +11,13 @@ pub static __NEQ_LINKAGE: __Linkage = transfer_linkage!(
     none
 );
 
-pub static __ASSIGN_LINKAGE: __Linkage = transfer_linkage!(|_, values| todo!(), none);
+pub static __ASSIGN_LINKAGE: __Linkage = transfer_linkage!(
+    |_, args| {
+        assert_eq!(args[0].vtable as *const _, args[1].vtable as *const _);
+        args[0].vtable.assign.unwrap()(args.as_mut_ptr()).to_register()
+    },
+    none
+);
 
 pub static __VALUE_CALL_LINKAGE: __Linkage = transfer_linkage!(
     |ctx, values| unsafe {

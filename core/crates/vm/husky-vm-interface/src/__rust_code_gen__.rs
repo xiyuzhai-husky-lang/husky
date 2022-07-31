@@ -31,6 +31,11 @@ pub unsafe extern "C" fn __void_drop(data: *mut ()) {
 pub unsafe extern "C" fn __void_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const void) == *(other as *const () as *const void)
 }
+#[no_mangle]
+pub unsafe extern "C" fn __void_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<void>() = registers[1].downcast_void()
+}
 extern "C" {
     pub static __VOID_VTABLE: __RegisterVTable;
 }
@@ -69,6 +74,11 @@ pub unsafe extern "C" fn __bool_drop(data: *mut ()) {
 #[no_mangle]
 pub unsafe extern "C" fn __bool_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const bool) == *(other as *const () as *const bool)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __bool_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<bool>() = registers[1].downcast_bool()
 }
 extern "C" {
     pub static __BOOL_VTABLE: __RegisterVTable;
@@ -109,6 +119,11 @@ pub unsafe extern "C" fn __i32_drop(data: *mut ()) {
 pub unsafe extern "C" fn __i32_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const i32) == *(other as *const () as *const i32)
 }
+#[no_mangle]
+pub unsafe extern "C" fn __i32_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<i32>() = registers[1].downcast_i32()
+}
 extern "C" {
     pub static __I32_VTABLE: __RegisterVTable;
 }
@@ -147,6 +162,11 @@ pub unsafe extern "C" fn __i64_drop(data: *mut ()) {
 #[no_mangle]
 pub unsafe extern "C" fn __i64_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const i64) == *(other as *const () as *const i64)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __i64_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<i64>() = registers[1].downcast_i64()
 }
 extern "C" {
     pub static __I64_VTABLE: __RegisterVTable;
@@ -187,6 +207,11 @@ pub unsafe extern "C" fn __b32_drop(data: *mut ()) {
 pub unsafe extern "C" fn __b32_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const b32) == *(other as *const () as *const b32)
 }
+#[no_mangle]
+pub unsafe extern "C" fn __b32_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<b32>() = registers[1].downcast_b32()
+}
 extern "C" {
     pub static __B32_VTABLE: __RegisterVTable;
 }
@@ -225,6 +250,11 @@ pub unsafe extern "C" fn __b64_drop(data: *mut ()) {
 #[no_mangle]
 pub unsafe extern "C" fn __b64_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const b64) == *(other as *const () as *const b64)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __b64_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<b64>() = registers[1].downcast_b64()
 }
 extern "C" {
     pub static __B64_VTABLE: __RegisterVTable;
@@ -265,6 +295,11 @@ pub unsafe extern "C" fn __f32_drop(data: *mut ()) {
 pub unsafe extern "C" fn __f32_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const f32) == *(other as *const () as *const f32)
 }
+#[no_mangle]
+pub unsafe extern "C" fn __f32_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<f32>() = registers[1].downcast_f32()
+}
 extern "C" {
     pub static __F32_VTABLE: __RegisterVTable;
 }
@@ -304,6 +339,11 @@ pub unsafe extern "C" fn __f64_drop(data: *mut ()) {
 pub unsafe extern "C" fn __f64_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const f64) == *(other as *const () as *const f64)
 }
+#[no_mangle]
+pub unsafe extern "C" fn __f64_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<f64>() = registers[1].downcast_f64()
+}
 extern "C" {
     pub static __F64_VTABLE: __RegisterVTable;
 }
@@ -331,6 +371,11 @@ pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const __VirtualFunction) == *(other as *const () as *const __VirtualFunction)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_function_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<__VirtualFunction>() = registers[1].downcast_move()
 }
 extern "C" {
     pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterVTable;

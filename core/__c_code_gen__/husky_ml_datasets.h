@@ -4,20 +4,23 @@
     #include "husky_vm_interface.h"
     
 // BinaryImage28
-extern void *__binary_image_28_clone(void*);
-extern void __binary_image_28_drop(void*);
-extern bool __binary_image_28_eq(void*, void*);
+extern void *__binary_image_28_clone(void const*);
+extern void __binary_image_28_drop(void const*);
+extern bool __binary_image_28_eq(void const*, void const*);
+extern void __binary_image_28_assign(__Register*);
 extern const __RegisterVTable __BINARY_IMAGE_28_VTABLE;
         
 // BinaryGrid28
-extern void *__binary_grid_28_clone(void*);
-extern void __binary_grid_28_drop(void*);
-extern bool __binary_grid_28_eq(void*, void*);
+extern void *__binary_grid_28_clone(void const*);
+extern void __binary_grid_28_drop(void const*);
+extern bool __binary_grid_28_eq(void const*, void const*);
+extern void __binary_grid_28_assign(__Register*);
 extern const __RegisterVTable __BINARY_GRID_28_VTABLE;
         
 // Dataset
-extern void *__dataset_clone(void*);
-extern void __dataset_drop(void*);
-extern bool __dataset_eq(void*, void*);
+extern void *__dataset_clone(void const*);
+extern void __dataset_drop(void const*);
+extern bool __dataset_eq(void const*, void const*);
+extern void __dataset_assign(__Register*);
 extern const __RegisterVTable __DATASET_VTABLE;
         

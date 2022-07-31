@@ -246,6 +246,16 @@ impl<'eval> __Register<'eval> {
         t
     }
 
+    pub fn downcast_move<T>(&mut self) -> T
+    where
+        T: 'eval,
+    {
+        assert_eq!(self.data_kind, __RegisterDataKind::Box);
+        let t = unsafe { *Box::from_raw(self.data.as_ptr as *mut T) };
+        *self = __Register::new_moved(self.vtable);
+        t
+    }
+
     pub unsafe fn downcast_temp<T>(&mut self) -> T {
         todo!()
     }

@@ -15,9 +15,10 @@ impl<'a> Display for CPrimitiveTypeRegistrationHeader<'a> {
 // {ty}
 extern bool __{ty}_primitive_value_to_bool(__RegisterData data);
 extern void *__{ty}_primitive_value_to_box(__RegisterData data);
-extern void *__{ty}_clone(void*);
-extern void __{ty}_drop(void*);
-extern bool __{ty}_eq(void*, void*);
+extern void *__{ty}_clone(void const*);
+extern void __{ty}_drop(void const*);
+extern bool __{ty}_eq(void const*, void const*);
+extern void __{ty}_assign(__Register *);
 extern const __RegisterVTable __{uppercase_ty}_VTABLE;
         "#
         )
@@ -42,6 +43,7 @@ const __RegisterVTable __{uppercase_ty}_VTABLE = {{
     .clone = __{ty}_clone,
     .drop = __{ty}_drop,
     .eq = __{ty}_eq,
+    .assign = __{ty}_assign,
 }};
 "#
         )
@@ -61,9 +63,10 @@ impl<'a> Display for CNonPrimitiveTypeRegistrationHeader<'a> {
             f,
             r#"
 // {ty}
-extern void *__{lower_snake_ty}_clone(void*);
-extern void __{lower_snake_ty}_drop(void*);
-extern bool __{lower_snake_ty}_eq(void*, void*);
+extern void *__{lower_snake_ty}_clone(void const*);
+extern void __{lower_snake_ty}_drop(void const*);
+extern bool __{lower_snake_ty}_eq(void const*, void const*);
+extern void __{lower_snake_ty}_assign(__Register*);
 extern const __RegisterVTable __{upper_snake_ty}_VTABLE;
         "#
         )
@@ -89,6 +92,7 @@ const __RegisterVTable __{upper_snake_ty}_VTABLE = {{
     .clone = __{lower_snake_ty}_clone,
     .drop = __{lower_snake_ty}_drop,
     .eq = __{lower_snake_ty}_eq,
+    .assign = __{lower_snake_ty}_assign,
 }};
 "#
         )

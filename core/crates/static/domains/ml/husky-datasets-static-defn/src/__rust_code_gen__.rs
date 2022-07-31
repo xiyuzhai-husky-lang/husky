@@ -23,6 +23,11 @@ pub unsafe extern "C" fn __binary_image_28_drop(data: *mut ()) {
 pub unsafe extern "C" fn __binary_image_28_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const BinaryImage28) == *(other as *const () as *const BinaryImage28)
 }
+#[no_mangle]
+pub unsafe extern "C" fn __binary_image_28_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<BinaryImage28>() = registers[1].downcast_move()
+}
 extern "C" {
     pub static __BINARY_IMAGE_28_VTABLE: __RegisterVTable;
 }
@@ -40,6 +45,11 @@ pub unsafe extern "C" fn __binary_grid_28_drop(data: *mut ()) {
 pub unsafe extern "C" fn __binary_grid_28_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const BinaryGrid28) == *(other as *const () as *const BinaryGrid28)
 }
+#[no_mangle]
+pub unsafe extern "C" fn __binary_grid_28_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<BinaryGrid28>() = registers[1].downcast_move()
+}
 extern "C" {
     pub static __BINARY_GRID_28_VTABLE: __RegisterVTable;
 }
@@ -56,6 +66,11 @@ pub unsafe extern "C" fn __dataset_drop(data: *mut ()) {
 #[no_mangle]
 pub unsafe extern "C" fn __dataset_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const Dataset) == *(other as *const () as *const Dataset)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __dataset_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<Dataset>() = registers[1].downcast_move()
 }
 extern "C" {
     pub static __DATASET_VTABLE: __RegisterVTable;
