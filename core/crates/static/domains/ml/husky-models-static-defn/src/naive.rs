@@ -44,10 +44,7 @@ impl Model for NaiveI32 {
         for (arguments, mut label) in training_data {
             assert_eq!(arguments.len(), 1);
             let value = arguments[0].downcast_i32();
-            let label = unsafe {
-                todo!()
-                // label.downcast::<Label>()
-            };
+            let label: Label = label.into();
             *label_statics_map
                 .entry(value)
                 .or_default()

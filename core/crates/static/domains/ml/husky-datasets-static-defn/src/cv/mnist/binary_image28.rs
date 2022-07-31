@@ -94,7 +94,7 @@ impl std::ops::IndexMut<usize> for BinaryImage28 {
 impl std::fmt::Debug for BinaryImage28 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!(
-            "BinaryImage {{ padded_rows: [{:?}] }}",
+            "BinaryImage28 {{ padded_rows: [{:?}] }}",
             self.padded_rows
         ))
     }

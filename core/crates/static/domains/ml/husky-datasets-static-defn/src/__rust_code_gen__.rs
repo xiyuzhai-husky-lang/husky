@@ -7,8 +7,29 @@ type void = ();
 type b32 = u32;
 type b64 = u64;
 
-use crate::cv::mnist::BinaryImage28;
-use crate::cv::mnist::BinaryGrid28;
+use crate::cv::mnist::*;
+
+// MnistLabel
+#[no_mangle]
+pub unsafe extern "C" fn __mnist_label_clone(data: *mut ()) -> *mut () {
+    Box::<MnistLabel>::into_raw(Box::new((*(data as *mut MnistLabel)).clone())) as *mut ()
+}
+#[no_mangle]
+pub unsafe extern "C" fn __mnist_label_drop(data: *mut ()) {
+    Box::from_raw(data as *mut MnistLabel);
+}
+#[no_mangle]
+pub unsafe extern "C" fn __mnist_label_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const MnistLabel) == *(other as *const () as *const MnistLabel)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __mnist_label_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<MnistLabel>() = registers[1].downcast_move()
+}
+extern "C" {
+    pub static __MNIST_LABEL_VTABLE: __RegisterVTable;
+}
 
 // BinaryImage28
 #[no_mangle]
