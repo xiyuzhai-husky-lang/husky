@@ -16,7 +16,7 @@ members = [
 ]
 
 [profile.dev]
-opt-level = 3
+opt-level = 0
 panic = "unwind"
 
 [profile.release]
