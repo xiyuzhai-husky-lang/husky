@@ -35,3 +35,4 @@ husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }

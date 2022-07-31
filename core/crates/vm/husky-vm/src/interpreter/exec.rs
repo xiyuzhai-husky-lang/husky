@@ -82,12 +82,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::PushValue {
+                InstructionVariant::PushLiteralValue {
                     ref value,
                     ty,
                     explicit,
                 } => {
-                    self.stack.push(unsafe { value.verbatim_copy() });
+                    self.stack.push(value.clone());
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
@@ -101,22 +101,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                 )
                             }
                         }
-                    }
-                    VMControl::None
-                }
-                InstructionVariant::PushEnumKindLiteral(entity_kind) => {
-                    self.stack.push(
-                        todo!(), // __TempValue::Copyable(entity_kind.into())
-                    );
-                    match mode {
-                        Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                result: Ok(self.stack.eval_top()),
-                                ty: entity_kind.route.parent(),
-                            },
-                        ),
                     }
                     VMControl::None
                 }

@@ -60,7 +60,7 @@ impl<'eval> __Register<'eval> {
                 data: self.data,
                 vtable: self.vtable,
             },
-            __RegisterDataKind::Box => todo!(),
+            __RegisterDataKind::Box => self.clone(),
             __RegisterDataKind::EvalRef => todo!(),
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),

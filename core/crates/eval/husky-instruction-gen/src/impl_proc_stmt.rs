@@ -188,7 +188,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             self.compile_eager_expr(bound, self.sheet.variable_stack.next_stack_idx(), false)
         } else {
             self.push_instruction(Instruction::new(
-                InstructionVariant::PushValue {
+                InstructionVariant::PushLiteralValue {
                     value: 0i32.to_register(),
                     explicit: false,
                     ty: RootIdentifier::I32.into(),

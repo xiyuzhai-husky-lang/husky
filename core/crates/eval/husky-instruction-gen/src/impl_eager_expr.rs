@@ -43,7 +43,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 // no discard
                 assert!(!discard);
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::PushValue {
+                    InstructionVariant::PushLiteralValue {
                         value: convert_primitive_literal_to_register(value, expr.ty()),
                         explicit: true,
                         ty: expr.ty(),
@@ -129,10 +129,15 @@ impl<'a> InstructionSheetBuilder<'a> {
                     )),
             },
             EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
-                InstructionVariant::PushEnumKindLiteral(EnumKindValue {
-                    kind_idx: self.db.enum_literal_as_u8(route),
-                    route,
-                }),
+                InstructionVariant::PushLiteralValue {
+                    value: VirtualEnum {
+                        kind_idx: self.db.enum_literal_as_u8(route),
+                        route,
+                    }
+                    .to_register(),
+                    ty: expr.ty(),
+                    explicit: true,
+                },
                 expr.clone(),
             )),
             EagerExprVariant::EntityFeature { route } => self.push_instruction(Instruction::new(
@@ -380,19 +385,85 @@ impl<'a> InstructionSheetBuilder<'a> {
         expr: &Arc<EagerExpr>,
         discard: bool,
     ) {
-        let ins_variant = match opr {
-            SuffixOpr::Incr | SuffixOpr::Decr | SuffixOpr::AsTy(_) => match opds[0].ty() {
-                EntityRoutePtr::Root(root_identifier) => InstructionVariant::CallRoutine {
-                    linkage_fp: resolve_primitive_suffix_opr_linkage(opr, root_identifier)
-                        .transfer(),
-                    nargs: 1,
-                    output_ty: expr.ty(),
-                    discard: discard,
+        let this_ty = opds[0].ty();
+        let ins_variant = InstructionVariant::CallRoutine {
+            linkage_fp: match opr {
+                SuffixOpr::Incr | SuffixOpr::Decr | SuffixOpr::AsTy(_) => match this_ty {
+                    EntityRoutePtr::Root(root_identifier) => {
+                        resolve_primitive_suffix_opr_linkage(opr, root_identifier).transfer()
+                    }
+                    EntityRoutePtr::Custom(_) => {
+                        let ty_decl: Arc<TyDecl> = self.db.compile_time().ty_decl(this_ty).unwrap();
+                        match ty_decl.kind {
+                            TyKind::Enum => match opr {
+                                SuffixOpr::Incr => todo!(),
+                                SuffixOpr::Decr => todo!(),
+                                SuffixOpr::AsTy(as_ty) => match as_ty.route {
+                                    EntityRoutePtr::Root(root_identifier) => {
+                                        match root_identifier {
+                                            RootIdentifier::Void => todo!(),
+                                            RootIdentifier::I32 => transfer_linkage!(
+                                                |_, args| {
+                                                    let enum_value: &VirtualEnum =
+                                                        unsafe { args[0].downcast_temp_ref() };
+                                                    (enum_value.kind_idx as i32).to_register()
+                                                },
+                                                none
+                                            )
+                                            .transfer(),
+                                            RootIdentifier::I64 => todo!(),
+                                            RootIdentifier::F32 => todo!(),
+                                            RootIdentifier::F64 => todo!(),
+                                            RootIdentifier::B32 => todo!(),
+                                            RootIdentifier::B64 => todo!(),
+                                            RootIdentifier::Bool => todo!(),
+                                            RootIdentifier::True => todo!(),
+                                            RootIdentifier::False => todo!(),
+                                            RootIdentifier::Vec => todo!(),
+                                            RootIdentifier::Tuple => todo!(),
+                                            RootIdentifier::Debug => todo!(),
+                                            RootIdentifier::Std => todo!(),
+                                            RootIdentifier::Core => todo!(),
+                                            RootIdentifier::Mor => todo!(),
+                                            RootIdentifier::Fp => todo!(),
+                                            RootIdentifier::Fn => todo!(),
+                                            RootIdentifier::FnMut => todo!(),
+                                            RootIdentifier::FnOnce => todo!(),
+                                            RootIdentifier::Array => todo!(),
+                                            RootIdentifier::Domains => todo!(),
+                                            RootIdentifier::DatasetType => todo!(),
+                                            RootIdentifier::VisualType => todo!(),
+                                            RootIdentifier::TypeType => todo!(),
+                                            RootIdentifier::TraitType => todo!(),
+                                            RootIdentifier::ModuleType => todo!(),
+                                            RootIdentifier::CloneTrait => todo!(),
+                                            RootIdentifier::CopyTrait => todo!(),
+                                            RootIdentifier::PartialEqTrait => todo!(),
+                                            RootIdentifier::EqTrait => todo!(),
+                                            RootIdentifier::Ref => todo!(),
+                                            RootIdentifier::Option => todo!(),
+                                        }
+                                    }
+                                    EntityRoutePtr::Custom(_) => todo!(),
+                                    EntityRoutePtr::ThisType => todo!(),
+                                },
+                                SuffixOpr::BePattern(_) => todo!(),
+                            },
+                            TyKind::Record => todo!(),
+                            TyKind::Struct => todo!(),
+                            TyKind::Primitive => todo!(),
+                            TyKind::Vec => todo!(),
+                            TyKind::Array => todo!(),
+                            TyKind::Other => todo!(),
+                        }
+                    }
+                    EntityRoutePtr::ThisType => todo!(),
                 },
-                EntityRoutePtr::Custom(_) => todo!(),
-                EntityRoutePtr::ThisType => todo!(),
+                SuffixOpr::BePattern(_) => todo!(),
             },
-            SuffixOpr::BePattern(_) => todo!(),
+            nargs: 1,
+            output_ty: expr.ty(),
+            discard,
         };
         let instruction = Instruction::new(ins_variant, expr.clone());
         self.push_instruction(instruction)

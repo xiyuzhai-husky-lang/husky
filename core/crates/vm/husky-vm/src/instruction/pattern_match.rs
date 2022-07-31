@@ -27,22 +27,8 @@ impl VMPattern {
                 false
             }
             VMPattern::EnumKindLiteral(route) => {
-                todo!()
-                //     match value {
-                //     __TempValue::Moved => todo!(),
-                //     __TempValue::Copyable(copyable_value) => match copyable_value {
-                //         PrimitiveValueData::EnumKind(enum_kind) => enum_kind.route == *route,
-                //         _ => todo!(),
-                //     },
-                //     __TempValue::OwnedEval(_) => todo!(),
-                //     __TempValue::EvalPure(_) => todo!(),
-                //     __TempValue::EvalRef(_) => todo!(),
-                //     __TempValue::TempRefEval(value) => todo!(),
-                //     __TempValue::TempRefMutEval { value, owner, gen } => todo!(),
-                //     __TempValue::OwnedTemp(_) => todo!(),
-                //     __TempValue::TempRefTemp(_) => todo!(),
-                //     __TempValue::TempRefMutTemp { value, owner, gen } => todo!(),
-                // },
+                let value: &VirtualEnum = unsafe { value.downcast_temp_ref() };
+                value.route == *route
             }
         }
     }

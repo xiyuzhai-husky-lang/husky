@@ -17,8 +17,12 @@ fn main() {
     simple_bindgen(&c_code_gen_dir, FILENAME)
 }
 
-pub static NONPRIMITIVE_TYPES: &'static [&'static str] =
-    &["VirtualStruct", "VirtualVec", "VirtualCyclicSlice"];
+pub static NONPRIMITIVE_TYPES: &'static [&'static str] = &[
+    "VirtualStruct",
+    "VirtualEnum",
+    "VirtualVec",
+    "VirtualCyclicSlice",
+];
 
 pub fn gen_ml_datasets_code(c_code_gen_dir: &str) {
     let c_header_path = format!("{c_code_gen_dir}/{FILENAME}.h");

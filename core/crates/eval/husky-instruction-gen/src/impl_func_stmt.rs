@@ -172,7 +172,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     .map(|subpattern| self.gen_func_case_pattern(subpattern))
                     .collect(),
             ),
-            FuncStmtPatternVariant::EnumLiteral(_) => todo!(),
+            FuncStmtPatternVariant::EnumLiteral(route) => VMPattern::EnumKindLiteral(route),
         }
     }
 }
