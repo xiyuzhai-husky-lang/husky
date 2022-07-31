@@ -252,7 +252,7 @@ impl<'eval> __Register<'eval> {
     {
         assert_eq!(self.data_kind, __RegisterDataKind::Box);
         let t = unsafe { *Box::from_raw(self.data.as_ptr as *mut T) };
-        *self = __Register::new_moved(self.vtable);
+        self.data_kind = __RegisterDataKind::Moved;
         t
     }
 

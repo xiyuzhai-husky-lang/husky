@@ -26,15 +26,16 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         let output = f.call_catch_unwind(self.opt_ctx, arguments)?;
         if !discard {
             self.stack.push(output);
-        } else {
-            if unsafe { output.vtable as *const _ != &__VOID_VTABLE as *const _ } {
-                use husky_print_utils::*;
-                println!(
-                    "{RED}[warning]{RESET}: discard a non-void value of type {:?}",
-                    output.typename_cstr()
-                )
-            }
         }
+        // else {
+        //     if unsafe { output.vtable as *const _ != &__VOID_VTABLE as *const _ } {
+        //         use husky_print_utils::*;
+        //         println!(
+        //             "{RED}[warning]{RESET}: discard a non-void value of type {:?}",
+        //             output.typename_cstr()
+        //         )
+        //     }
+        // }
         Ok(())
     }
 

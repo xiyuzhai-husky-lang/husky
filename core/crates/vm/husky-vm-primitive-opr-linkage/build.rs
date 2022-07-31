@@ -68,11 +68,15 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (B32, Shl, I32),
         (B32, Shr, I32),
         // f32
+        (F32, Add, F32),
+        (F32, Div, F32),
         (F32, Eq, F32),
         (F32, Greater, F32),
         (F32, Geq, F32),
         (F32, Less, F32),
         (F32, Leq, F32),
+        (F32, Mul, F32),
+        (F32, Sub, F32),
     ];
     for (lopd_ty_ident, opr, ropd_ty_ident) in supported_pure_binary_opns {
         let lopd_ty_husky_name = lopd_ty_ident.as_str();
@@ -100,6 +104,14 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             }},
             none
         ),
+        (I32, RemEuclid, I32) => transfer_linkage!(
+            |_, arguments| unsafe {{
+                let dividend = arguments[0].downcast_i32();
+                let divisor = arguments[1].downcast_i32();
+                dividend.rem_euclid(divisor).to_register()
+            }},
+            none
+        ),
         _ => {{
             panic!("Binary operation {{:?}} is not supported in Husky", (lopd_ty, opr, ropd_ty))
         }}
@@ -123,6 +135,8 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (B32, None, B32),
         (B32, Some(BitAnd), B32),
         (B32, Some(BitOr), B32),
+        // f32
+        (F32, None, F32),
     ];
     write!(
         f,
