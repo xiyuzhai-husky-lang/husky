@@ -1,7 +1,7 @@
 use husky_opn_syntax::PrefixOpr;
+use husky_vm_interface::*;
 use husky_word::RootIdentifier;
 use std::ops::Not;
-use vm::*;
 
 pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentifier) -> __Linkage {
     match opr {
