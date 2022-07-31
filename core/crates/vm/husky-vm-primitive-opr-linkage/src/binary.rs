@@ -1,7 +1,7 @@
 
 use husky_print_utils::p;
 use husky_word::RootIdentifier;
-use vm::*;
+use husky_vm_interface::*;
 use husky_opn_syntax::*;
 
 pub fn resolve_primitive_pure_binary_opr_linkage(

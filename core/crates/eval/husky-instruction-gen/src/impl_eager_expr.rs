@@ -6,7 +6,7 @@ use husky_opn_semantics::SuffixOpr;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use husky_vm_primitive_opr_linkage::{
     resolve_primitive_assign_binary_opr_linkage, resolve_primitive_prefix_opr_linkage,
-    resolve_primitive_pure_binary_opr_linkage,
+    resolve_primitive_pure_binary_opr_linkage, resolve_primitive_suffix_opr_linkage,
 };
 use infer_decl::TyDecl;
 use map_collect::MapCollect;
@@ -171,7 +171,9 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::Prefix { opr, this_ty } => {
                 self.compile_prefix_opn(*opr, opds, expr, discard)
             }
-            EagerOpnVariant::Suffix { opr, this_ty } => self.compile_suffix(opr, opds, expr),
+            EagerOpnVariant::Suffix { ref opr, this_ty } => {
+                self.compile_suffix(opr, opds, expr, discard)
+            }
             EagerOpnVariant::RoutineCall(routine) => {
                 if let Some(__Linkage) = self.db.compile_time().routine_linkage(routine.route) {
                     match __Linkage {
@@ -371,15 +373,21 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
     }
 
-    fn compile_suffix(&mut self, opr: &SuffixOpr, opds: &[Arc<EagerExpr>], expr: &Arc<EagerExpr>) {
+    fn compile_suffix(
+        &mut self,
+        opr: &SuffixOpr,
+        opds: &[Arc<EagerExpr>],
+        expr: &Arc<EagerExpr>,
+        discard: bool,
+    ) {
         let ins_variant = match opr {
             SuffixOpr::Incr | SuffixOpr::Decr | SuffixOpr::AsTy(_) => match opds[0].ty() {
                 EntityRoutePtr::Root(root_identifier) => InstructionVariant::CallRoutine {
                     linkage_fp: resolve_primitive_suffix_opr_linkage(opr, root_identifier)
                         .transfer(),
-                    nargs: todo!(),
-                    output_ty: todo!(),
-                    discard: todo!(),
+                    nargs: 1,
+                    output_ty: expr.ty(),
+                    discard: discard,
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
                 EntityRoutePtr::ThisType => todo!(),
