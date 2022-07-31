@@ -10,6 +10,12 @@ pub struct __RegisterVTable {
     pub clone: Option<fn(data: *mut ()) -> *mut ()>,
     pub drop: Option<fn(data: *mut ())>,
     pub eq: Option<fn(this: &(), this: &()) -> bool>,
+    pub assign: Option<fn(args: *mut __Register)>,
+}
+
+#[test]
+fn test_it() {
+    assert_eq!(std::mem::size_of::<&mut [__Register]>(), 8)
 }
 
 unsafe impl Sync for __RegisterVTable {}

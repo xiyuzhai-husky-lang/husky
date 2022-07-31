@@ -7,6 +7,7 @@ const __RegisterVTable __VOID_VTABLE = {
     .clone = __void_clone,
     .drop = __void_drop,
     .eq = __void_eq,
+    .assign = __void_assign,
 };
 
 const __RegisterVTable __BOOL_VTABLE = {
@@ -16,6 +17,7 @@ const __RegisterVTable __BOOL_VTABLE = {
     .clone = __bool_clone,
     .drop = __bool_drop,
     .eq = __bool_eq,
+    .assign = __bool_assign,
 };
 
 const __RegisterVTable __I32_VTABLE = {
@@ -25,6 +27,7 @@ const __RegisterVTable __I32_VTABLE = {
     .clone = __i32_clone,
     .drop = __i32_drop,
     .eq = __i32_eq,
+    .assign = __i32_assign,
 };
 
 const __RegisterVTable __I64_VTABLE = {
@@ -34,6 +37,7 @@ const __RegisterVTable __I64_VTABLE = {
     .clone = __i64_clone,
     .drop = __i64_drop,
     .eq = __i64_eq,
+    .assign = __i64_assign,
 };
 
 const __RegisterVTable __B32_VTABLE = {
@@ -43,6 +47,7 @@ const __RegisterVTable __B32_VTABLE = {
     .clone = __b32_clone,
     .drop = __b32_drop,
     .eq = __b32_eq,
+    .assign = __b32_assign,
 };
 
 const __RegisterVTable __B64_VTABLE = {
@@ -52,6 +57,7 @@ const __RegisterVTable __B64_VTABLE = {
     .clone = __b64_clone,
     .drop = __b64_drop,
     .eq = __b64_eq,
+    .assign = __b64_assign,
 };
 
 const __RegisterVTable __F32_VTABLE = {
@@ -61,6 +67,7 @@ const __RegisterVTable __F32_VTABLE = {
     .clone = __f32_clone,
     .drop = __f32_drop,
     .eq = __f32_eq,
+    .assign = __f32_assign,
 };
 
 const __RegisterVTable __F64_VTABLE = {
@@ -70,6 +77,7 @@ const __RegisterVTable __F64_VTABLE = {
     .clone = __f64_clone,
     .drop = __f64_drop,
     .eq = __f64_eq,
+    .assign = __f64_assign,
 };
 
 const __RegisterVTable __VIRTUAL_FUNCTION_VTABLE = {
@@ -79,4 +87,5 @@ const __RegisterVTable __VIRTUAL_FUNCTION_VTABLE = {
     .clone = __virtual_function_clone,
     .drop = __virtual_function_drop,
     .eq = __virtual_function_eq,
+    .assign = __virtual_function_assign,
 };

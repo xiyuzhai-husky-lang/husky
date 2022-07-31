@@ -20,6 +20,11 @@ pub unsafe extern "C" fn __virtual_struct_drop(data: *mut ()) {
 pub unsafe extern "C" fn __virtual_struct_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const VirtualStruct) == *(other as *const () as *const VirtualStruct)
 }
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_struct_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<VirtualStruct>() = registers[1].downcast_move()
+}
 extern "C" {
     pub static __VIRTUAL_STRUCT_VTABLE: __RegisterVTable;
 }
@@ -36,6 +41,11 @@ pub unsafe extern "C" fn __virtual_enum_drop(data: *mut ()) {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_enum_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const VirtualEnum) == *(other as *const () as *const VirtualEnum)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_enum_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<VirtualEnum>() = registers[1].downcast_move()
 }
 extern "C" {
     pub static __VIRTUAL_ENUM_VTABLE: __RegisterVTable;
@@ -54,6 +64,11 @@ pub unsafe extern "C" fn __virtual_vec_drop(data: *mut ()) {
 pub unsafe extern "C" fn __virtual_vec_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const VirtualVec) == *(other as *const () as *const VirtualVec)
 }
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_vec_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<VirtualVec>() = registers[1].downcast_move()
+}
 extern "C" {
     pub static __VIRTUAL_VEC_VTABLE: __RegisterVTable;
 }
@@ -70,6 +85,11 @@ pub unsafe extern "C" fn __virtual_cyclic_slice_drop(data: *mut ()) {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const VirtualCyclicSlice) == *(other as *const () as *const VirtualCyclicSlice)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_cyclic_slice_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<VirtualCyclicSlice>() = registers[1].downcast_move()
 }
 extern "C" {
     pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterVTable;

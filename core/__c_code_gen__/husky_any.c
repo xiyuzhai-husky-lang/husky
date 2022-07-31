@@ -7,6 +7,7 @@ const __RegisterVTable __VIRTUAL_STRUCT_VTABLE = {
     .clone = __virtual_struct_clone,
     .drop = __virtual_struct_drop,
     .eq = __virtual_struct_eq,
+    .assign = __virtual_struct_assign,
 };
 
 const __RegisterVTable __VIRTUAL_ENUM_VTABLE = {
@@ -16,6 +17,7 @@ const __RegisterVTable __VIRTUAL_ENUM_VTABLE = {
     .clone = __virtual_enum_clone,
     .drop = __virtual_enum_drop,
     .eq = __virtual_enum_eq,
+    .assign = __virtual_enum_assign,
 };
 
 const __RegisterVTable __VIRTUAL_VEC_VTABLE = {
@@ -25,6 +27,7 @@ const __RegisterVTable __VIRTUAL_VEC_VTABLE = {
     .clone = __virtual_vec_clone,
     .drop = __virtual_vec_drop,
     .eq = __virtual_vec_eq,
+    .assign = __virtual_vec_assign,
 };
 
 const __RegisterVTable __VIRTUAL_CYCLIC_SLICE_VTABLE = {
@@ -34,4 +37,5 @@ const __RegisterVTable __VIRTUAL_CYCLIC_SLICE_VTABLE = {
     .clone = __virtual_cyclic_slice_clone,
     .drop = __virtual_cyclic_slice_drop,
     .eq = __virtual_cyclic_slice_eq,
+    .assign = __virtual_cyclic_slice_assign,
 };

@@ -41,6 +41,11 @@ pub unsafe extern "C" fn __{ty}_drop(data: *mut ()) {{
 pub unsafe extern "C" fn __{ty}_eq(this: &(), other: &()) -> bool {{
     *(this as *const () as *const {ty}) == *(other as *const () as *const {ty})
 }}
+#[no_mangle]
+pub unsafe extern "C" fn __{ty}_assign(registers: *mut __Register) {{
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<{ty}>() = registers[1].downcast_{ty}()
+}}
 extern "C" {{
     pub static __{uppercase_ty}_VTABLE: __RegisterVTable;
 }}
@@ -84,6 +89,11 @@ pub unsafe extern "C" fn __{snake_ty}_drop(data: *mut ()) {{
 #[no_mangle]
 pub unsafe extern "C" fn __{snake_ty}_eq(this: &(), other: &()) -> bool {{
     *(this as *const () as *const {ty}) == *(other as *const () as *const {ty})
+}}
+#[no_mangle]
+pub unsafe extern "C" fn __{snake_ty}_assign(registers: *mut __Register) {{
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<{ty}>() = registers[1].downcast_move()
 }}
 extern "C" {{
     pub static __{upper_snake_ty}_VTABLE: __RegisterVTable;
