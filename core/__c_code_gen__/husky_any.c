@@ -9,6 +9,15 @@ const __RegisterVTable __VIRTUAL_STRUCT_VTABLE = {
     .eq = __virtual_struct_eq,
 };
 
+const __RegisterVTable __VIRTUAL_ENUM_VTABLE = {
+    .typename_str = "VirtualEnum",
+    .primitive_value_to_bool = 0,
+    .primitive_value_to_box = 0,
+    .clone = __virtual_enum_clone,
+    .drop = __virtual_enum_drop,
+    .eq = __virtual_enum_eq,
+};
+
 const __RegisterVTable __VIRTUAL_VEC_VTABLE = {
     .typename_str = "VirtualVec",
     .primitive_value_to_bool = 0,

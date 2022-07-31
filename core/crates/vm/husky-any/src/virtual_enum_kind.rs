@@ -2,12 +2,12 @@ use crate::*;
 use husky_entity_route::EntityRoutePtr;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct EnumKindValue {
+pub struct VirtualEnum {
     pub kind_idx: u8,
     pub route: EntityRoutePtr,
 }
 
-impl __StaticInfo for EnumKindValue {
+impl __StaticInfo for VirtualEnum {
     type __StaticSelf = Self;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -15,12 +15,12 @@ impl __StaticInfo for EnumKindValue {
     }
 }
 
-impl __Registrable for EnumKindValue {
+impl __Registrable for VirtualEnum {
     unsafe fn __to_register__<'eval>(self) -> __Register<'eval>
     where
         Self: 'eval,
     {
-        todo!()
+        __Register::new_box(self, &__VIRTUAL_ENUM_VTABLE)
     }
 
     fn __copy__(&self) -> Self {

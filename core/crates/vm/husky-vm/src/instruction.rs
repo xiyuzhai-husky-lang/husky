@@ -47,8 +47,7 @@ impl Instruction {
     pub fn describe_like_assembly(&self) -> &'static str {
         match self.variant {
             InstructionVariant::PushVariable { .. } => todo!(),
-            InstructionVariant::PushValue { .. } => todo!(),
-            InstructionVariant::PushEnumKindLiteral(_) => todo!(),
+            InstructionVariant::PushLiteralValue { .. } => todo!(),
             InstructionVariant::CallRoutine { .. } => "CallRoutine",
             InstructionVariant::CallInterpreted { .. } => todo!(),
             InstructionVariant::VirtualStructField { .. } => todo!(),
@@ -93,12 +92,11 @@ pub enum InstructionVariant {
         varname: Identifier,
         explicit: bool,
     },
-    PushValue {
+    PushLiteralValue {
         value: __Register<'static>,
         ty: EntityRoutePtr,
         explicit: bool,
     },
-    PushEnumKindLiteral(EnumKindValue),
     CallRoutine {
         linkage_fp: __LinkageFp,
         nargs: u8,

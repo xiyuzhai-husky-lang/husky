@@ -9,16 +9,16 @@
 // mod stack_idx;
 // mod utils;
 mod __rust_code_gen__;
-mod enum_literal;
 mod linkage;
 mod virtual_cyclic_slice;
+mod virtual_enum_kind;
 mod virtual_struct;
 mod virtual_vec;
 
 pub use __rust_code_gen__::*;
-pub use enum_literal::*;
 pub use linkage::*;
 pub use virtual_cyclic_slice::*;
+pub use virtual_enum_kind::*;
 pub use virtual_struct::*;
 pub use virtual_vec::*;
 
