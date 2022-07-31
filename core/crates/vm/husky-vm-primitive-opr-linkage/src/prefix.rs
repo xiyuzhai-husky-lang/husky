@@ -5,7 +5,23 @@ use std::ops::Not;
 
 pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentifier) -> __Linkage {
     match opr {
-        PrefixOpr::Minus => todo!(),
+        PrefixOpr::Minus => match this_ty {
+            RootIdentifier::Void => todo!(),
+            RootIdentifier::I32 => {
+                transfer_linkage!(|_, args| (-args[0].downcast_i32()).to_register(), none)
+            }
+            RootIdentifier::I64 => todo!(),
+            RootIdentifier::F32 => {
+                transfer_linkage!(|_, args| (-args[0].downcast_f32()).to_register(), none)
+            }
+            RootIdentifier::F64 => {
+                transfer_linkage!(|_, args| (-args[0].downcast_f64()).to_register(), none)
+            }
+            RootIdentifier::B32 => todo!(),
+            RootIdentifier::B64 => todo!(),
+            RootIdentifier::Bool => todo!(),
+            _ => panic!(),
+        },
         PrefixOpr::Not => match this_ty {
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => todo!(),
@@ -19,31 +35,7 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentif
             RootIdentifier::Bool => {
                 transfer_linkage!(|_, args|(!args[0].downcast_bool()).to_register(), some bool::not)
             }
-            RootIdentifier::True => todo!(),
-            RootIdentifier::False => todo!(),
-            RootIdentifier::Vec => todo!(),
-            RootIdentifier::Tuple => todo!(),
-            RootIdentifier::Debug => todo!(),
-            RootIdentifier::Std => todo!(),
-            RootIdentifier::Core => todo!(),
-            RootIdentifier::Mor => todo!(),
-            RootIdentifier::Fp => todo!(),
-            RootIdentifier::Fn => todo!(),
-            RootIdentifier::FnMut => todo!(),
-            RootIdentifier::FnOnce => todo!(),
-            RootIdentifier::Array => todo!(),
-            RootIdentifier::Domains => todo!(),
-            RootIdentifier::DatasetType => todo!(),
-            RootIdentifier::VisualType => todo!(),
-            RootIdentifier::TypeType => todo!(),
-            RootIdentifier::TraitType => todo!(),
-            RootIdentifier::ModuleType => todo!(),
-            RootIdentifier::CloneTrait => todo!(),
-            RootIdentifier::CopyTrait => todo!(),
-            RootIdentifier::PartialEqTrait => todo!(),
-            RootIdentifier::EqTrait => todo!(),
-            RootIdentifier::Ref => todo!(),
-            RootIdentifier::Option => todo!(),
+            _ => panic!(),
         },
         PrefixOpr::BitNot => match this_ty {
             RootIdentifier::Void => todo!(),
@@ -56,31 +48,7 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentif
             }
             RootIdentifier::B64 => todo!(),
             RootIdentifier::Bool => todo!(),
-            RootIdentifier::True => todo!(),
-            RootIdentifier::False => todo!(),
-            RootIdentifier::Vec => todo!(),
-            RootIdentifier::Tuple => todo!(),
-            RootIdentifier::Debug => todo!(),
-            RootIdentifier::Std => todo!(),
-            RootIdentifier::Core => todo!(),
-            RootIdentifier::Mor => todo!(),
-            RootIdentifier::Fp => todo!(),
-            RootIdentifier::Fn => todo!(),
-            RootIdentifier::FnMut => todo!(),
-            RootIdentifier::FnOnce => todo!(),
-            RootIdentifier::Array => todo!(),
-            RootIdentifier::Domains => todo!(),
-            RootIdentifier::DatasetType => todo!(),
-            RootIdentifier::VisualType => todo!(),
-            RootIdentifier::TypeType => todo!(),
-            RootIdentifier::TraitType => todo!(),
-            RootIdentifier::ModuleType => todo!(),
-            RootIdentifier::CloneTrait => todo!(),
-            RootIdentifier::CopyTrait => todo!(),
-            RootIdentifier::PartialEqTrait => todo!(),
-            RootIdentifier::EqTrait => todo!(),
-            RootIdentifier::Ref => todo!(),
-            RootIdentifier::Option => todo!(),
+            _ => panic!(),
         },
         PrefixOpr::Shared => todo!(),
         PrefixOpr::Move => todo!(),

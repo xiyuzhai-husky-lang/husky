@@ -117,6 +117,18 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             },
             none
         ),
+        (F32, Add, F32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_f32() + arguments[1].downcast_f32()).to_register()
+            },
+            none
+        ),
+        (F32, Div, F32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_f32() / arguments[1].downcast_f32()).to_register()
+            },
+            none
+        ),
         (F32, Eq, F32) => transfer_linkage!(
             |_,arguments| unsafe {
                 (arguments[0].downcast_f32() == arguments[1].downcast_f32()).to_register()
@@ -147,9 +159,29 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             },
             none
         ),
+        (F32, Mul, F32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_f32() * arguments[1].downcast_f32()).to_register()
+            },
+            none
+        ),
+        (F32, Sub, F32) => transfer_linkage!(
+            |_,arguments| unsafe {
+                (arguments[0].downcast_f32() - arguments[1].downcast_f32()).to_register()
+            },
+            none
+        ),
         (I32, Power, I32) => transfer_linkage!(
             |_,arguments| unsafe {
                 num::pow(arguments[0].downcast_i32(), arguments[1].downcast_i32() as usize).to_register()
+            },
+            none
+        ),
+        (I32, RemEuclid, I32) => transfer_linkage!(
+            |_, arguments| unsafe {
+                let dividend = arguments[0].downcast_i32();
+                let divisor = arguments[1].downcast_i32();
+                dividend.rem_euclid(divisor).to_register()
             },
             none
         ),
@@ -220,6 +252,13 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
                 |_,arguments| unsafe {
                     let new_value: b32 = (arguments[0].downcast_b32() | arguments[1].downcast_b32());
                     *arguments[0].downcast_temp_mut::<b32>() = new_value;
+                    __Register::new_void()
+                },
+                none
+            ),
+            (F32, None, F32) => transfer_linkage!(
+                |_,arguments| unsafe {
+                    *arguments[0].downcast_temp_mut::<f32>() = arguments[1].downcast_f32();
                     __Register::new_void()
                 },
                 none

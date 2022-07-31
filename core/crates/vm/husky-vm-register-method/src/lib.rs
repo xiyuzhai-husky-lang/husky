@@ -1,7 +1,7 @@
 use husky_any::{VirtualStruct, __VIRTUAL_STRUCT_VTABLE};
 use husky_entity_route::EntityRoutePtr;
 use husky_vm_binding::Binding;
-use husky_vm_interface::__Register;
+use husky_vm_interface::{__Register, __RegisterDataKind};
 
 pub trait VMRegisterMethodX<'eval>: Sized {
     fn json_value(&self) -> serde_json::Value;
@@ -17,7 +17,19 @@ impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
             &__VIRTUAL_STRUCT_VTABLE as *const _
         });
         match field_binding {
-            Binding::EvalRef => todo!(),
+            Binding::EvalRef => match self.data_kind() {
+                __RegisterDataKind::PrimitiveValue => todo!(),
+                __RegisterDataKind::Box => todo!(),
+                __RegisterDataKind::EvalRef => {
+                    let this_value: &'eval VirtualStruct = unsafe { self.downcast_eval_ref() };
+                    this_value.bind_field_eval_ref(field_idx)
+                }
+                __RegisterDataKind::TempRef => todo!(),
+                __RegisterDataKind::TempMut => todo!(),
+                __RegisterDataKind::Moved => todo!(),
+                __RegisterDataKind::Undefined => todo!(),
+                __RegisterDataKind::Unreturned => todo!(),
+            },
             Binding::TempRef => {
                 let this_value: &VirtualStruct = unsafe { self.downcast_temp_ref() };
                 this_value.bind_field_temp_ref(field_idx)
