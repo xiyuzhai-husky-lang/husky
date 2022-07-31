@@ -133,7 +133,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             result
         } else {
             let result = compute_value(self);
-            self.sheet.cache(eval_key, result)
+            self.sheet.try_cache(eval_key, result)
         }
     }
 

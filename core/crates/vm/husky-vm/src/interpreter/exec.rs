@@ -253,6 +253,14 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         VMControl::None
                     }
                 }
+                InstructionVariant::Require => {
+                    let is_condition_satisfied = self.stack.pop().to_bool();
+                    if !is_condition_satisfied {
+                        VMControl::Return(todo!())
+                    } else {
+                        VMControl::None
+                    }
+                }
                 InstructionVariant::Break => {
                     if mode == Mode::TrackHistory {
                         self.history.write(ins, HistoryEntry::Break)
