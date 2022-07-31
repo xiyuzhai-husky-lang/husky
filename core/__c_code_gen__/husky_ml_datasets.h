@@ -3,6 +3,13 @@
     #pragma once
     #include "husky_vm_interface.h"
     
+// MnistLabel
+extern void *__mnist_label_clone(void const*);
+extern void __mnist_label_drop(void const*);
+extern bool __mnist_label_eq(void const*, void const*);
+extern void __mnist_label_assign(__Register*);
+extern const __RegisterVTable __MNIST_LABEL_VTABLE;
+        
 // BinaryImage28
 extern void *__binary_image_28_clone(void const*);
 extern void __binary_image_28_drop(void const*);

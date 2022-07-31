@@ -19,18 +19,18 @@ where
     }
 }
 
-impl<K, V> __Registrable for HashMap<K, V>
-where
-    K: __Registrable + std::cmp::Eq + std::hash::Hash,
-    V: __Registrable,
-    K::__StaticSelf: std::hash::Hash,
-    <K as __StaticInfo>::__StaticSelf: Eq,
-{
-    unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
-        todo!()
-    }
+// impl<K, V> __Registrable for HashMap<K, V>
+// where
+//     K: __Registrable + std::cmp::Eq + std::hash::Hash,
+//     V: __Registrable,
+//     K::__StaticSelf: std::hash::Hash,
+//     <K as __StaticInfo>::__StaticSelf: Eq,
+// {
+//     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
+//         todo!()
+//     }
 
-    fn __copy__(&self) -> Self {
-        panic!()
-    }
-}
+//     fn __copy__(&self) -> Self {
+//         panic!()
+//     }
+// }

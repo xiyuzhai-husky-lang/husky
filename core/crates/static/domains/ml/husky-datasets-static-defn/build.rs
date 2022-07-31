@@ -18,7 +18,7 @@ fn main() {
 }
 
 pub static NONPRIMITIVE_TYPES: &'static [&'static str] =
-    &["BinaryImage28", "BinaryGrid28", "Dataset"];
+    &["MnistLabel", "BinaryImage28", "BinaryGrid28", "Dataset"];
 
 pub fn gen_ml_datasets_code(c_code_gen_dir: &str) {
     let c_header_path = format!("{c_code_gen_dir}/{FILENAME}.h");
@@ -72,8 +72,7 @@ pub fn write_rust_code(rust_code_path: &str) -> std::io::Result<()> {
         .expect(&format!("rust code path {rust_code_path} doesn't exist"));
     w!(f; BuildCodeGenStart);
     w!(f; r#"
-use crate::cv::mnist::BinaryImage28;
-use crate::cv::mnist::BinaryGrid28;
+use crate::cv::mnist::*;
 "#);
     for ty in NONPRIMITIVE_TYPES {
         w!(f; NonPrimitiveTypeRegistration { ty })

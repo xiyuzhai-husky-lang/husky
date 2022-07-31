@@ -1,5 +1,15 @@
 #include "husky_ml_datasets.h"
     
+const __RegisterVTable __MNIST_LABEL_VTABLE = {
+    .typename_str = "MnistLabel",
+    .primitive_value_to_bool = 0,
+    .primitive_value_to_box = 0,
+    .clone = __mnist_label_clone,
+    .drop = __mnist_label_drop,
+    .eq = __mnist_label_eq,
+    .assign = __mnist_label_assign,
+};
+
 const __RegisterVTable __BINARY_IMAGE_28_VTABLE = {
     .typename_str = "BinaryImage28",
     .primitive_value_to_bool = 0,

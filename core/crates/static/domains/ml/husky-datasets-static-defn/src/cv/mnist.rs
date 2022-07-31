@@ -2,19 +2,21 @@ mod binary_grid28;
 mod binary_image28;
 mod dev;
 mod load;
+mod mnist_label;
 mod test;
 mod val;
 
 pub use binary_grid28::*;
 pub use binary_image28::*;
-use husky_entity_route::EntityRoutePtr;
-use husky_liason_semantics::OutputLiason;
+pub use mnist_label::*;
 
 use super::*;
 use crate::*;
 use dev::*;
 use entity_kind::{RoutineKind, TyKind};
 use husky_dev_utils::static_dev_src;
+use husky_entity_route::EntityRoutePtr;
+use husky_liason_semantics::OutputLiason;
 use load::*;
 use test::*;
 use val::*;
