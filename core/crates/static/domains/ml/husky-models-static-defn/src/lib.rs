@@ -1,3 +1,4 @@
+mod __rust_code_gen__;
 mod naive;
 
 pub use naive::*;
