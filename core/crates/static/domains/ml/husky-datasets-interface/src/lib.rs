@@ -1,11 +1,11 @@
-mod __rust_code_gen__;
+pub mod __rust_code_gen__;
 pub mod cv;
 mod iter;
 mod labeled;
 mod loader;
 pub mod synthetic;
 
-pub use __rust_code_gen__::*;
+use __rust_code_gen__::*;
 pub use cv::*;
 use husky_trace_protocol::VisualData;
 pub use iter::*;
@@ -15,7 +15,6 @@ pub use synthetic::*;
 
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_word::RootIdentifier;
-use serde::Serialize;
 use std::{
     borrow::Cow,
     panic::{RefUnwindSafe, UnwindSafe},
@@ -63,7 +62,7 @@ impl<'eval> PartialEq for Dataset<'eval> {
         // self.0.__eq__(other.0.__upcast_any())
     }
 }
-
+#[cfg(feature = "serde_support")]
 impl<'eval> Serialize for Dataset<'eval> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where

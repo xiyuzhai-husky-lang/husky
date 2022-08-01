@@ -1,7 +1,7 @@
 use super::*;
-use husky_liason_semantics::{MemberLiason, ParameterLiason};
 use husky_trace_protocol::*;
-use husky_visual_syntax::StaticVisualTy;
+#[cfg(feature = "serde_support")]
+use serde::Serialize;
 use std::any::TypeId;
 use vm::*;
 
@@ -49,6 +49,7 @@ impl BinaryGrid28 {
     }
 }
 
+#[cfg(feature = "serde_support")]
 impl Serialize for BinaryGrid28 {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
@@ -61,7 +62,7 @@ impl Serialize for BinaryGrid28 {
 impl __StaticInfo for BinaryGrid28 {
     type __StaticSelf = Self;
 
-    fn __static_typename() -> Cow<'static, str> {
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
         todo!()
     }
 }

@@ -99,6 +99,7 @@ impl<'eval> SimpleSyntheticDataset<'eval> {
     }
 }
 
+#[cfg(feature = "serde_support")]
 impl<'eval> Serialize for SimpleSyntheticDataset<'eval> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
