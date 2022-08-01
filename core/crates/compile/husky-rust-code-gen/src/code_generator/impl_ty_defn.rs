@@ -29,7 +29,30 @@ impl<'a> RustCodeGenerator<'a> {
                 _ => panic!(""),
             }
         }
-        self.result += "}\n";
+        self.result += "}";
+        msg_once!("todo: tell whether From<u8> is okay (equivalent to enum being simple)");
+        self.write(&format!(
+            r#"
+        
+impl From<u8> for {tyname} {{
+    fn from(__raw: u8) -> Self {{
+        match __raw {{"#,
+        ));
+        for (i, variant) in variants.iter().enumerate() {
+            self.write(&format!(
+                r#"
+            {i} => "#
+            ));
+            self.gen_entity_route(variant.base_route, EntityRouteRole::Decl);
+            self.write(",")
+        }
+        self.write(
+            r#"
+            _ => panic!(),
+        }
+    }
+}"#,
+        );
         let ty_contains_eval_ref = self.db.entity_route_kind_contains_eval_ref(base_route.kind);
         self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
         self.gen_any_value_impl(base_route, tyname, ty_contains_eval_ref);
