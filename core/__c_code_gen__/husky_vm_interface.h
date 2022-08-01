@@ -119,3 +119,10 @@ extern bool __virtual_function_eq(void const*, void const*);
 extern void __virtual_function_assign(__Register*);
 extern const __RegisterVTable __VIRTUAL_FUNCTION_VTABLE;
         
+// __VirtualEnum
+extern void *__virtual_enum_clone(void const*);
+extern void __virtual_enum_drop(void const*);
+extern bool __virtual_enum_eq(void const*, void const*);
+extern void __virtual_enum_assign(__Register*);
+extern const __RegisterVTable __VIRTUAL_ENUM_VTABLE;
+        

@@ -130,9 +130,8 @@ impl<'a> InstructionSheetBuilder<'a> {
             },
             EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
                 InstructionVariant::PushLiteralValue {
-                    value: VirtualEnum {
+                    value: __VirtualEnum {
                         kind_idx: self.db.enum_literal_as_u8(route),
-                        route,
                     }
                     .to_register(),
                     ty: expr.ty(),
@@ -404,7 +403,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                             RootIdentifier::Void => todo!(),
                                             RootIdentifier::I32 => transfer_linkage!(
                                                 |_, args| {
-                                                    let enum_value: &VirtualEnum =
+                                                    let enum_value: &__VirtualEnum =
                                                         unsafe { args[0].downcast_temp_ref() };
                                                     (enum_value.kind_idx as i32).to_register()
                                                 },

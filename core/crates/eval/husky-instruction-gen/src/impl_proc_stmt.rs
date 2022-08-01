@@ -303,7 +303,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                     .map(|subpattern| self.gen_proc_case_pattern(subpattern))
                     .collect(),
             ),
-            ProcStmtPatternVariant::EnumLiteral(route) => VMPattern::EnumKindLiteral(route),
+            ProcStmtPatternVariant::EnumLiteral(route) => VMPattern::EnumKind {
+                kind_idx: self.db.enum_literal_as_u8(route),
+            },
         }
     }
 }

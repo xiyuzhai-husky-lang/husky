@@ -1,7 +1,8 @@
 use husky_entity_route::entity_route_menu;
 use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
-use infer_decl::{CallFormDecl, OutputDecl, ParameterDecl, VariadicTemplate};
+use husky_word::RootIdentifier;
+use infer_decl::{CallFormDecl, OutputDecl, ParameterDecl, TyDecl, VariadicTemplate};
 
 use super::*;
 
@@ -293,7 +294,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             MethodDefnKind::TypeMethod { .. } => {
                 self.write(&format!(
                     r#"
-        "{entity_route}","#,
+        __StaticLinkageKey::Routine {{ route: "{entity_route}" }},"#,
                 ));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 let this_liason = call_form_decl.this_liason();
@@ -397,7 +398,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     self.write("&mut ");
                     self.gen_entity_route(this_ty, EntityRouteRole::Decl);
                     self.write(&format!(
-                        " = unsafe {{ __arb_ref(&__arguments[0]) }}.downcast_mut();"
+                        " = unsafe {{ __arb_ref(&__arguments[0]) }}.downcast_temp_mut();"
                     ))
                 }
             }
@@ -542,7 +543,60 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 let {parameter_name}: "#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
-        self.write(&format!(" = __arguments[{i}].downcast();"))
+        match parameter_ty {
+            EntityRoutePtr::Root(root_identifier) => match root_identifier {
+                RootIdentifier::Void
+                | RootIdentifier::I32
+                | RootIdentifier::I64
+                | RootIdentifier::F32
+                | RootIdentifier::F64
+                | RootIdentifier::B32
+                | RootIdentifier::B64 => self.write(&format!(
+                    " = __arguments[{i}].downcast_{root_identifier}();"
+                )),
+                RootIdentifier::Bool => todo!(),
+                RootIdentifier::True => todo!(),
+                RootIdentifier::False => todo!(),
+                RootIdentifier::Vec => todo!(),
+                RootIdentifier::Tuple => todo!(),
+                RootIdentifier::Debug => todo!(),
+                RootIdentifier::Std => todo!(),
+                RootIdentifier::Core => todo!(),
+                RootIdentifier::Mor => todo!(),
+                RootIdentifier::Fp => todo!(),
+                RootIdentifier::Fn => todo!(),
+                RootIdentifier::FnMut => todo!(),
+                RootIdentifier::FnOnce => todo!(),
+                RootIdentifier::Array => todo!(),
+                RootIdentifier::Domains => todo!(),
+                RootIdentifier::DatasetType => todo!(),
+                RootIdentifier::VisualType => todo!(),
+                RootIdentifier::TypeType => todo!(),
+                RootIdentifier::TraitType => todo!(),
+                RootIdentifier::ModuleType => todo!(),
+                RootIdentifier::CloneTrait => todo!(),
+                RootIdentifier::CopyTrait => todo!(),
+                RootIdentifier::PartialEqTrait => todo!(),
+                RootIdentifier::EqTrait => todo!(),
+                RootIdentifier::Ref => todo!(),
+                RootIdentifier::Option => todo!(),
+            },
+            EntityRoutePtr::Custom(_) => {
+                let parameter_ty_decl: Arc<TyDecl> = self.db.ty_decl(parameter_ty).unwrap();
+                match parameter_ty_decl.kind {
+                    TyKind::Enum => self.write(&format!(
+                        " = __arguments[{i}].downcast_temp_ref::<__VirtualEnum>();"
+                    )),
+                    TyKind::Record => todo!(),
+                    TyKind::Struct => todo!(),
+                    TyKind::Primitive => todo!(),
+                    TyKind::Vec => todo!(),
+                    TyKind::Array => todo!(),
+                    TyKind::Other => todo!(),
+                }
+            }
+            EntityRoutePtr::ThisType => todo!(),
+        }
     }
 
     fn gen_parameter_downcast_move(&mut self, i: usize, parameter: &ParameterDecl) {

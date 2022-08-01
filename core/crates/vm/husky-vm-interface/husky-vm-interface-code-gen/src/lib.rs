@@ -10,7 +10,8 @@ use std::{fs::File, path::Path};
 pub static PRIMITIVE_TYPES: &'static [&'static str] =
     &["void", "bool", "i32", "i64", "b32", "b64", "f32", "f64"];
 
-pub static NONPRIMITIVE_BUILTIN_TYPES: &'static [&'static str] = &["__VirtualFunction"];
+pub static NONPRIMITIVE_BUILTIN_TYPES: &'static [&'static str] =
+    &["__VirtualFunction", "__VirtualEnum"];
 
 pub fn gen_vm_interface_code(c_code_gen_dir: &str) {
     let c_header_path = format!("{}/husky_vm_interface.h", c_code_gen_dir);

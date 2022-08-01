@@ -37,6 +37,12 @@ pub enum RootIdentifier {
     Option,
 }
 
+impl std::fmt::Display for RootIdentifier {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str(self.as_str())
+    }
+}
+
 impl From<RootIdentifier> for Identifier {
     fn from(ident: RootIdentifier) -> Self {
         Self::Builtin(ident)

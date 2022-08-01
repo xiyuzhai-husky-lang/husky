@@ -180,7 +180,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                     .map(|subpattern| self.gen_func_case_pattern(subpattern))
                     .collect(),
             ),
-            FuncStmtPatternVariant::EnumLiteral(route) => VMPattern::EnumKindLiteral(route),
+            FuncStmtPatternVariant::EnumLiteral(route) => VMPattern::EnumKind {
+                kind_idx: self.db.enum_literal_as_u8(route),
+            },
         }
     }
 }

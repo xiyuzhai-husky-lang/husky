@@ -380,3 +380,25 @@ pub unsafe extern "C" fn __virtual_function_assign(registers: *mut __Register) {
 extern "C" {
     pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterVTable;
 }
+
+// __VirtualEnum
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_enum_clone(data: *mut ()) -> *mut () {
+    Box::<__VirtualEnum>::into_raw(Box::new((*(data as *mut __VirtualEnum)).clone())) as *mut ()
+}
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_enum_drop(data: *mut ()) {
+    Box::from_raw(data as *mut __VirtualEnum);
+}
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_enum_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const __VirtualEnum) == *(other as *const () as *const __VirtualEnum)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __virtual_enum_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<__VirtualEnum>() = registers[1].downcast_move()
+}
+extern "C" {
+    pub static __VIRTUAL_ENUM_VTABLE: __RegisterVTable;
+}

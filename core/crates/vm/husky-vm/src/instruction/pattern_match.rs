@@ -11,7 +11,7 @@ pub struct VMPatternBranch {
 pub enum VMPattern {
     Primitive(__Register<'static>),
     OneOf(Vec<VMPattern>),
-    EnumKindLiteral(EntityRoutePtr),
+    EnumKind { kind_idx: u8 },
 }
 
 impl VMPattern {
@@ -26,9 +26,9 @@ impl VMPattern {
                 }
                 false
             }
-            VMPattern::EnumKindLiteral(route) => {
-                let value: &VirtualEnum = unsafe { value.downcast_temp_ref() };
-                value.route == *route
+            VMPattern::EnumKind { kind_idx } => {
+                let value: &__VirtualEnum = unsafe { value.downcast_temp_ref() };
+                value.kind_idx == *kind_idx
             }
         }
     }
