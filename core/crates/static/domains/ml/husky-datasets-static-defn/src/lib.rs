@@ -4,7 +4,7 @@ pub mod cv;
 pub mod synthetic;
 
 use entity_kind::TyKind;
-use husky_datasets_interface::*;
+use husky_datasets_interface::{__rust_code_gen__::*, *};
 use husky_dev_utils::*;
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_liason_semantics::*;

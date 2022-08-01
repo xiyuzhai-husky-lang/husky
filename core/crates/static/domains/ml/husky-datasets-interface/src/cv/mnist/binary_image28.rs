@@ -1,8 +1,7 @@
 use super::*;
 use husky_entity_route::InternEntityRoute;
 use husky_trace_protocol::*;
-use husky_visual_syntax::StaticVisualTy;
-use std::{any::TypeId, sync::Arc};
+use std::{any::TypeId, borrow::Cow, sync::Arc};
 use vm::*;
 
 #[derive(Default, Clone, PartialEq, Eq)]
@@ -62,6 +61,7 @@ impl BinaryImage28 {
     }
 }
 
+#[cfg(feature = "serde_support")]
 impl Serialize for BinaryImage28 {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
@@ -70,6 +70,7 @@ impl Serialize for BinaryImage28 {
         todo!()
     }
 }
+
 impl __StaticInfo for BinaryImage28 {
     type __StaticSelf = Self;
 

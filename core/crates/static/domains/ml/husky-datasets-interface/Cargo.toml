@@ -5,8 +5,8 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-serde = { version = "1.0.106", features = ["derive"] }
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
+serde = { version = "1.0.106", features = ["derive"], optional = true }
+xrng = { path = "../../../../../../common-rs/utils/husky-rng-utils" }
 husky-word = { path = "../../../../syntax/husky-word" }
 husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
 vm = { path = "../../../../vm/husky-vm" }
@@ -19,3 +19,6 @@ husky-c-code-build = { path = "../../../../compile/husky-c-code-build" }
 husky-rust-code-repr = { path = "../../../../compile/husky-rust-code-repr" }
 husky-bindgen-utils = { path = "../../../../../../common-rs/utils/husky-bindgen-utils" }
 husky-write-utils = { path = "../../../../../../common-rs/utils/husky-write-utils" }
+
+[features]
+serde_support = ["dep:serde"]
