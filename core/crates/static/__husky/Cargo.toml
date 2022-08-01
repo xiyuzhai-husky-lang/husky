@@ -8,5 +8,7 @@ edition = "2021"
 cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
+husky-datasets-interface = { path = "../domains/ml/husky-datasets-interface" }
+husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 
 [lib]

@@ -72,8 +72,8 @@ macro_rules! dev_src {
 #[macro_export]
 macro_rules! static_dev_src {
     () => {
-        husky_dev_utils::__StaticDevSource {
-            file: husky_dev_utils::__StaticFile::Rust(file!()),
+        __StaticDevSource {
+            file: __StaticFile::Rust(file!()),
             line: line!(),
         }
     };

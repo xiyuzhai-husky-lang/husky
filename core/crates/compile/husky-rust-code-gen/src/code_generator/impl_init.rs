@@ -350,6 +350,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         self.write(&format!(
             r#"
         __Linkage::Transfer(__LinkageFp {{
+            dev_src: static_dev_src!(),
             wrapper: {{
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
