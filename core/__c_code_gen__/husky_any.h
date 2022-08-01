@@ -10,13 +10,6 @@ extern bool __virtual_struct_eq(void const*, void const*);
 extern void __virtual_struct_assign(__Register*);
 extern const __RegisterVTable __VIRTUAL_STRUCT_VTABLE;
         
-// __VirtualEnum
-extern void *__virtual_enum_clone(void const*);
-extern void __virtual_enum_drop(void const*);
-extern bool __virtual_enum_eq(void const*, void const*);
-extern void __virtual_enum_assign(__Register*);
-extern const __RegisterVTable __VIRTUAL_ENUM_VTABLE;
-        
 // VirtualVec
 extern void *__virtual_vec_clone(void const*);
 extern void __virtual_vec_drop(void const*);
