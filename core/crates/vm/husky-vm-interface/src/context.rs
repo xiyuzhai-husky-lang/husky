@@ -6,7 +6,7 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
 
     fn opt_cached_lazy_field(
         &self,
-        this: &'eval (),
+        this: *const (),
         uid: u64,
     ) -> Option<__VMResult<__Register<'eval>>>;
 
@@ -25,7 +25,7 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>>;
 
-    fn get_feature_ptr(&self, feature_route_text: &str) -> *const ();
+    fn feature_ptr(&self, feature_route_text: &str) -> *const ();
 
     fn eval_feature_from_uid(&self, feature_uid: u64) -> __VMResult<__Register<'eval>>;
 }
@@ -34,7 +34,7 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
 macro_rules! feature_ptr {
     ($ctx: ident, $text: expr) => {{
         unsafe {
-            static mut __OPT_FEATURE_PTR: Option<__FeaturePtr> = None;
+            static mut __OPT_FEATURE_PTR: Option<*const ()> = None;
             if let Some(__feature_ptr) = __OPT_FEATURE_PTR {
                 __feature_ptr
             } else {

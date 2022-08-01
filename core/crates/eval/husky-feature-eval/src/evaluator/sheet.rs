@@ -15,7 +15,7 @@ pub struct EvalSheet<'eval> {
 pub enum EvalKey {
     Feature(FeaturePtr),
     StructDerivedField {
-        parent: *const (),
+        this: *const (),
         field_uid: EntityUid,
     },
 }

@@ -44,11 +44,11 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn opt_cached_lazy_field(
         &self,
-        this: &'eval (),
+        this: *const (),
         uid: u64,
     ) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet.cached_value(EvalKey::StructDerivedField {
-            parent: this as *const (),
+            this,
             field_uid: unsafe { EntityUid::from_raw(uid) },
         })
     }
@@ -77,14 +77,14 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
             EvalKey::StructDerivedField {
-                parent: this,
+                this,
                 field_uid: unsafe { EntityUid::from_raw(uid) },
             },
             value,
         )
     }
 
-    fn get_feature_ptr(&self, feature_route_text: &str) -> *const () {
+    fn feature_ptr(&self, feature_route_text: &str) -> *const () {
         use husky_entity_semantics::EntityDefnQueryGroup;
         let route = self
             .db
