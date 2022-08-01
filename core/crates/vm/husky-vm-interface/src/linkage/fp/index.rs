@@ -38,7 +38,7 @@ macro_rules! index_eval_ref_fp {
 
 #[macro_export]
 macro_rules! index_temp_ref_fp {
-    ($Type: ty) => {{
+    ($Type: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
         __LinkageFp {
             wrapper: |_, values| -> __Register { todo!("temp ref") },
             opt_fp: None,
@@ -49,7 +49,7 @@ macro_rules! index_temp_ref_fp {
 
 #[macro_export]
 macro_rules! index_move_fp {
-    ($Type: ty) => {{
+    ($Type: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
         __LinkageFp {
             wrapper: |_, values| -> __Register { todo!("move") },
             opt_fp: None,
