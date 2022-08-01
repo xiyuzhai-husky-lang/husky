@@ -2,11 +2,8 @@ mod field;
 mod index;
 mod method_elem;
 
-use std::panic::catch_unwind;
-
-use husky_dev_utils::__StaticDevSource;
-
 use super::*;
+use std::panic::catch_unwind;
 
 #[derive(Clone, Copy)]
 #[repr(C)]
@@ -76,21 +73,21 @@ macro_rules! linkage_fp {
         __LinkageFp {
             wrapper: $wrapper,
             opt_fp: Some($raw_fp as *const ()),
-            dev_src: husky_dev_utils::static_dev_src!(),
+            dev_src: static_dev_src!(),
         }
     }};
     ($wrapper: expr, none) => {{
         __LinkageFp {
             wrapper: $wrapper,
             opt_fp: None,
-            dev_src: husky_dev_utils::static_dev_src!(),
+            dev_src: static_dev_src!(),
         }
     }};
     ($wrapper: expr) => {{
         __LinkageFp {
             wrapper: $wrapper,
             opt_fp: None,
-            dev_src: husky_dev_utils::static_dev_src!(),
+            dev_src: static_dev_src!(),
         }
     }};
 }

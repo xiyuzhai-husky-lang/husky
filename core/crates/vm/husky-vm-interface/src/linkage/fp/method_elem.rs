@@ -9,6 +9,7 @@ macro_rules! method_elem_copy_fp {
             todo!()
         }
         __LinkageFp {
+            dev_src: static_dev_src!(),
             wrapper,
             opt_fp: None,
         }
@@ -26,6 +27,7 @@ macro_rules! method_elem_eval_ref_fp {
             __Register::new_eval_ref(this_value.$method_name())
         }
         __LinkageFp {
+            dev_src: static_dev_src!(),
             wrapper,
             opt_fp: None,
         }
@@ -43,6 +45,7 @@ macro_rules! method_elem_temp_ref_fp {
             __Register::new_temp_ref(this_value.$method_name())
         }
         __LinkageFp {
+            dev_src: static_dev_src!(),
             wrapper,
             opt_fp: None,
         }
@@ -53,6 +56,7 @@ macro_rules! method_elem_temp_ref_fp {
 macro_rules! method_elem_move_fp {
     ($Type: ty, $method_name: ident) => {{
         __LinkageFp {
+            dev_src: static_dev_src!(),
             wrapper: |_, values| -> __Register { todo!("move") },
             opt_fp: None,
         }
@@ -75,6 +79,7 @@ macro_rules! method_elem_temp_mut_fp {
             // })
         }
         __LinkageFp {
+            dev_src: static_dev_src!(),
             wrapper,
             opt_fp: None,
         }

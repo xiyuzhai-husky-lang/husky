@@ -1,4 +1,5 @@
 mod b32x;
+pub mod domains;
 mod f32x;
 mod i32x;
 mod vecx;

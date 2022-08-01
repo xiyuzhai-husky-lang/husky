@@ -22,7 +22,7 @@ fn gen_binary(binary_mod_path: &str) -> std::io::Result<()> {
     let mut f = File::create(binary_mod_path).unwrap();
     write!(
         f,
-        r#"
+        r#"use super::*;
 use husky_print_utils::p;
 use husky_word::RootIdentifier;
 use husky_vm_interface::*;
