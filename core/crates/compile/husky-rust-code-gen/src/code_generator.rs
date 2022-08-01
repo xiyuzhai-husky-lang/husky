@@ -4,6 +4,7 @@ mod impl_expr;
 mod impl_init;
 mod impl_lib;
 mod impl_mod;
+mod impl_registration;
 mod impl_routine_defn;
 mod impl_stmt;
 mod impl_ty_defn;

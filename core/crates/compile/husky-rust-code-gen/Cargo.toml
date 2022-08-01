@@ -41,3 +41,4 @@ husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
 husky-rust-code-repr = { path = "../husky-rust-code-repr", features = [
     "entity_route"
 ] }
+husky-write-utils = { path = "../../../../common-rs/utils/husky-write-utils" }

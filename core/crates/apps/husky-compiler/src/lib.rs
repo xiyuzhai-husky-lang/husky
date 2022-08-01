@@ -107,6 +107,12 @@ debug = 1
             &compile_time.rust_init_rs_content(main_file),
         );
 
+        // __init__.rs
+        diff_write(
+            &src_dir.join("__registration__.rs"),
+            &compile_time.rust_registration_rs_content(main_file),
+        );
+
         for module in package.subentities.iter() {
             let module_name = module.ident.as_str();
             self.compile_maybe_module(
