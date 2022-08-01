@@ -5,11 +5,14 @@ mod eval_context;
 mod init_content;
 mod lib_rs_content;
 mod linkage_collector;
+mod mangle;
 mod mod_rs_content;
+mod registration_content;
 mod utils;
 
 pub use cargo_toml_content::*;
 
+use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
 use defn_head::*;
 use eval_context::*;
@@ -25,6 +28,7 @@ use husky_rust_code_repr::entity_route::*;
 use init_content::*;
 use lib_rs_content::*;
 use linkage_collector::*;
+use mangle::mangle_ty_vtable;
 use mod_rs_content::*;
 use std::{
     collections::HashSet,
@@ -37,6 +41,7 @@ use vec_like::VecSet;
 #[salsa::query_group(RustGenQueryStorage)]
 pub trait RustCodeGenQueryGroup: PackageQueryGroup {
     fn rust_lib_rs_content(&self, main_file: FilePtr) -> Arc<String>;
+    fn rust_registration_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_init_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: EntityRoutePtr) -> Arc<String>;
     fn entity_route_kind_contains_eval_ref(&self, entity_route_kind: EntityRouteKind) -> bool;
@@ -49,4 +54,5 @@ pub trait RustCodeGenQueryGroup: PackageQueryGroup {
     ) -> Arc<VecSet<EntityRoutePtr>>;
     fn entity_link_dependees(&self, entity_route: EntityRoutePtr) -> Arc<VecSet<EntityRoutePtr>>;
     fn needs_eval_context(&self, entity_route: EntityRoutePtr) -> bool;
+    fn mangle_ty_vtable(&self, entity_route: EntityRoutePtr) -> Arc<String>;
 }
