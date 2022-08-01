@@ -10,16 +10,6 @@ const __RegisterVTable __VIRTUAL_STRUCT_VTABLE = {
     .assign = __virtual_struct_assign,
 };
 
-const __RegisterVTable __VIRTUAL_ENUM_VTABLE = {
-    .typename_str = "__VirtualEnum",
-    .primitive_value_to_bool = 0,
-    .primitive_value_to_box = 0,
-    .clone = __virtual_enum_clone,
-    .drop = __virtual_enum_drop,
-    .eq = __virtual_enum_eq,
-    .assign = __virtual_enum_assign,
-};
-
 const __RegisterVTable __VIRTUAL_VEC_VTABLE = {
     .typename_str = "VirtualVec",
     .primitive_value_to_bool = 0,
