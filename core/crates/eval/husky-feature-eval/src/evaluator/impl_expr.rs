@@ -85,7 +85,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref repr,
             } => {
                 let parent = unsafe { self.eval_feature_repr_cached(this)?.data().as_ptr };
-                let eval_key = EvalKey::StructDerivedField { parent, field_uid };
+                let eval_key = EvalKey::StructDerivedField {
+                    this: parent,
+                    field_uid,
+                };
                 let result = self.cache(eval_key, |this| this.eval_feature_repr(repr));
                 result
             }

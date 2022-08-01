@@ -298,7 +298,10 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write(&format!(
                             r#" {{
     let __uid = entity_uid!(__ctx, "{route:?}");
-    if let Some(__result) = __ctx.opt_cached_lazy_field(self, __uid) {{
+    if let Some(__result) = __ctx.opt_cached_lazy_field(
+        self as *const _ as *const (),
+        __uid
+    ) {{
         return __result.unwrap().downcast_eval_ref();
     }}
 "#,

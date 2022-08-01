@@ -359,19 +359,19 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_expr(indent, result);
                 self.write(
                     r#").__into_eval_value())
-    ).unwrap()"#,
+    ).unwrap().downcast_eval_ref()"#,
                 );
             }
             EagerExprQualifier::EvalRef => {
                 self.write(
                     r#"__ctx.cache_feature(
         __feature,
-        Ok(__EvalRef(&("#,
+        Ok(__Register::new_eval_ref(&("#,
                 );
                 self.gen_expr(indent, result);
                 self.write(
                     r#")).into())
-    ).unwrap()"#,
+    ).unwrap().downcast_eval_ref()"#,
                 );
             }
             EagerExprQualifier::PureRef
@@ -400,7 +400,7 @@ impl<'a> RustCodeGenerator<'a> {
                     r#"__ctx.cache_lazy_field(
         self,
         __uid,
-        Ok(__EvalRef(&("#,
+        Ok(__Register::new_eval_ref(&("#,
                 );
                 self.gen_expr(indent, result);
                 self.write(

@@ -265,26 +265,8 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::Undefined => todo!(),
             __RegisterDataKind::Unreturned => unsafe { self.verbatim_copy() },
-            // __Register::Copyable(value) => panic!(),
-            // __Register::Owned(value) => __Register::EvalRef(__EvalRef(&*value.any_ptr())),
-            // __Register::EvalRef(value) => __Register::EvalRef(*value),
-            // __Register::EvalPure(value) => __Register::EvalPure(value.clone()),
-            // __Register::Undefined => __Register::Undefined,
-            // __Register::Unreturned => __Register::Unreturned,
         }
     }
-
-    // pub fn match_primitive(&self, primitive: PrimitiveValueData) -> bool {
-    //     match primitive {
-    //         PrimitiveValueData::I32(i) => i == self.downcast_i32(),
-    //         PrimitiveValueData::I64(i) => i == self.downcast_i64(),
-    //         PrimitiveValueData::F32(f) => f == self.downcast_f32(),
-    //         PrimitiveValueData::B32(b) => b == self.downcast_b32(),
-    //         PrimitiveValueData::B64(b) => b == self.downcast_b64(),
-    //         PrimitiveValueData::Bool(_) => todo!(),
-    //         PrimitiveValueData::Void(_) => todo!(),
-    //     }
-    // }
 
     pub fn typename_cstr(&self) -> &std::ffi::CStr {
         unsafe { std::ffi::CStr::from_ptr(self.vtable.typename_str) }
