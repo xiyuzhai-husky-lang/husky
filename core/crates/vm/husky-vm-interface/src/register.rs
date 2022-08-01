@@ -336,6 +336,12 @@ macro_rules! register_new_copyable {
     ($argument: expr, $TYPE_VTABLE: expr, direct) => {{
         ($argument).to_register()
     }};
+    ($argument: expr, $TYPE_VTABLE: expr, box) => {{
+        __Register::new_box($argument, &$TYPE_VTABLE)
+    }};
+    ($argument: expr, $TYPE_VTABLE: expr, invalid) => {{
+        panic!()
+    }};
 }
 
 // impl<'temp, 'eval: 'temp> dyn __RegistrableDyn + 'temp {

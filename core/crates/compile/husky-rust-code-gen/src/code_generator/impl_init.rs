@@ -585,7 +585,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 let parameter_ty_decl: Arc<TyDecl> = self.db.ty_decl(parameter_ty).unwrap();
                 match parameter_ty_decl.kind {
                     TyKind::Enum => self.write(&format!(
-                        " = __arguments[{i}].downcast_temp_ref::<__VirtualEnum>();"
+                        " = __arguments[{i}].downcast_temp_ref::<__VirtualEnum>().kind_idx.into();"
                     )),
                     TyKind::Record => todo!(),
                     TyKind::Struct => todo!(),
@@ -608,7 +608,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
         self.write(&format!(
-            " = unsafe {{ __arb_ref(&__arguments[{i}]) }}.downcast();"
+            " = unsafe {{ __arb_ref(&__arguments[{i}]) }}.downcast_move();"
         ))
     }
 

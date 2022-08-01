@@ -93,9 +93,9 @@ macro_rules! index_linkage {
                 $copy_kind
             ),
             eval_ref_fp: index_eval_ref_fp!($Type, $ELEMENT_TYPE_VTABLE),
-            temp_ref_fp: index_temp_ref_fp!($Type),
+            temp_ref_fp: index_temp_ref_fp!($Type, $ELEMENT_TYPE_VTABLE),
             temp_mut_fp: index_temp_mut_fp!($Type, $ELEMENT_TYPE_VTABLE),
-            move_fp: index_move_fp!($Type),
+            move_fp: index_move_fp!($Type, $ELEMENT_TYPE_VTABLE),
         })
     }};
 }
