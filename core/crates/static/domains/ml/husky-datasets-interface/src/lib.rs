@@ -1,8 +1,12 @@
+mod __rust_code_gen__;
+pub mod cv;
 mod iter;
 mod labeled;
 mod loader;
-mod synthetic;
+pub mod synthetic;
 
+pub use __rust_code_gen__::*;
+pub use cv::*;
 use husky_trace_protocol::VisualData;
 pub use iter::*;
 pub use labeled::*;

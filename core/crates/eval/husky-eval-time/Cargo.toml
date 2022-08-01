@@ -36,5 +36,5 @@ husky-feature-eval = { path = "../husky-feature-eval" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
 static-defn = { path = "../../static/static-defn" }
-husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-protocol" }
+husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }
 husky-atom = { path = "../../syntax/husky-atom" }

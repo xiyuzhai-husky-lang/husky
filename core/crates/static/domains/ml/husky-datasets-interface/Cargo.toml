@@ -1,5 +1,5 @@
 [package]
-name = "husky-datasets-protocol"
+name = "husky-datasets-interface"
 version = "0.0.0"
 edition = "2021"
 
@@ -11,3 +11,11 @@ husky-word = { path = "../../../../syntax/husky-word" }
 husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
 vm = { path = "../../../../vm/husky-vm" }
 husky-entity-route = { path = "../../../../syntax/husky-entity-route" }
+
+[build-dependencies]
+bindgen = "0.60.1"
+husky-c-code-repr = { path = "../../../../compile/husky-c-code-repr" }
+husky-c-code-build = { path = "../../../../compile/husky-c-code-build" }
+husky-rust-code-repr = { path = "../../../../compile/husky-rust-code-repr" }
+husky-bindgen-utils = { path = "../../../../../../common-rs/utils/husky-bindgen-utils" }
+husky-write-utils = { path = "../../../../../../common-rs/utils/husky-write-utils" }

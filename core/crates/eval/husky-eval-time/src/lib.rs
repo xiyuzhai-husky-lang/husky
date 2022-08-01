@@ -14,7 +14,7 @@ pub use utils::*;
 
 use husky_check_utils::*;
 use husky_compile_time::*;
-use husky_datasets_protocol::LabeledData;
+use husky_datasets_interface::LabeledData;
 use husky_feature_eval::*;
 use husky_feature_eval::{EvalFeature, Session};
 use husky_file::{FilePtr, FileQueryGroup};

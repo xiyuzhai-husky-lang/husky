@@ -5,7 +5,7 @@ pub use division::*;
 
 use crate::*;
 use husky_compile_time::HuskyCompileTime;
-use husky_datasets_protocol::{Dataset, DatasetDyn};
+use husky_datasets_interface::{Dataset, DatasetDyn};
 use husky_eager_semantics::FuncStmt;
 use husky_feature_gen::{Feature, FeaturePtr};
 use husky_package_semantics::{Config, Package};
