@@ -13,8 +13,16 @@ impl<'a> RustCodeGenerator<'a> {
         tyname: CustomIdentifier,
         variants: &[Arc<EntityDefn>],
     ) {
-        self.write("#[derive(Debug, Clone, Copy, PartialEq, Eq)]\n");
-        self.write("pub(crate) enum ");
+        self.write(
+            r#"
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(C)]
+"#,
+        );
+        self.write(
+            r#"
+pub(crate) enum "#,
+        );
         self.write(&tyname);
         self.write(" {\n");
         for enum_variant_defn in variants {
