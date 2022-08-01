@@ -1,4 +1,4 @@
-use husky_datasets_protocol::{DataLoader, LabeledData};
+use husky_datasets_interface::{DataLoader, LabeledData};
 use husky_feature_gen::*;
 
 use crate::*;

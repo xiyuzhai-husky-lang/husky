@@ -1,12 +1,10 @@
 #![feature(const_trait_impl)]
 #![feature(const_convert)]
-mod __rust_code_gen__;
 pub mod cv;
 pub mod synthetic;
 
-use __rust_code_gen__::*;
 use entity_kind::TyKind;
-use husky_datasets_protocol::*;
+use husky_datasets_interface::*;
 use husky_dev_utils::*;
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_liason_semantics::*;
