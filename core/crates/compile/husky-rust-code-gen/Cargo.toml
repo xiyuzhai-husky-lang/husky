@@ -38,4 +38,6 @@ husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
 husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
-husky-rust-code-repr = { path = "../husky-rust-code-repr" }
+husky-rust-code-repr = { path = "../husky-rust-code-repr", features = [
+    "entity_route"
+] }

@@ -35,7 +35,7 @@ impl TrainModel for HuskyEvalTime {
                     todo!()
                     // (sample_id, e)
                 })?;
-            training_data.push((values, labeled_data.label.to_register()))
+            training_data.push((values, labeled_data.label.0.to_register()))
         }
         let train_result = model.train_dyn(training_data);
         println!(

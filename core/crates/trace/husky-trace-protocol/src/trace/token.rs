@@ -1,6 +1,5 @@
 use husky_log_utils::log_once;
 use husky_signal::Signalable;
-use husky_vm_interface::{__RegisterDataKind, __VMError};
 
 use super::*;
 
@@ -55,15 +54,15 @@ impl TraceTokenKind {
     }
 }
 
-impl From<__VMError> for TraceTokenData {
-    fn from(e: __VMError) -> Self {
-        Self {
-            kind: TraceTokenKind::Error,
-            value: e.message,
-            opt_associated_trace_id: None,
-        }
-    }
-}
+// impl From<__VMError> for TraceTokenData {
+//     fn from(e: __VMError) -> Self {
+//         Self {
+//             kind: TraceTokenKind::Error,
+//             value: e.message,
+//             opt_associated_trace_id: None,
+//         }
+//     }
+// }
 
 // impl<'eval> From<__Register<'eval>> for TraceTokenData {
 //     fn from(reg: __Register<'eval>) -> Self {
