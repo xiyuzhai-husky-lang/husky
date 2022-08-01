@@ -1,8 +1,9 @@
 use super::*;
+use std::fmt::Write;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(crate) fn write(&mut self, s: &str) {
-        self.result += s
+    pub(crate) fn write<T: std::fmt::Display>(&mut self, s: T) {
+        write!(self.result, "{}", s).unwrap()
     }
 
     pub(super) fn indent(&mut self, n: u8) {

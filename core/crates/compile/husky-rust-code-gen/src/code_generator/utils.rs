@@ -6,7 +6,7 @@ use husky_word::CustomIdentifier;
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(crate) fn gen_parameter(&mut self, parameter: &Parameter) {
+    pub(super) fn gen_parameter(&mut self, parameter: &Parameter) {
         self.write(&parameter.ranged_ident.ident);
         self.write(": ");
         match parameter.ranged_liason.liason {

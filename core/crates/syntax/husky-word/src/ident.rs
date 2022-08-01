@@ -19,6 +19,12 @@ pub enum Identifier {
     Contextual(ContextualIdentifier),
 }
 
+impl std::fmt::Display for Identifier {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str(self.as_str())
+    }
+}
+
 impl HuskyDisplay for Identifier {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         if config.colored {
