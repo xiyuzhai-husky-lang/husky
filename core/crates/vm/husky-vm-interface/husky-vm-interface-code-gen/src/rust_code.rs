@@ -2,7 +2,8 @@ use super::PRIMITIVE_TYPES;
 use crate::NONPRIMITIVE_BUILTIN_TYPES;
 use husky_print_utils::p;
 use husky_rust_code_repr::{
-    BuildCodeGenStart, NonPrimitiveTypeRegistration, PrimitiveTypeRegistration,
+    registration::NonPrimitiveTypeRegistration, registration::PrimitiveTypeRegistration,
+    BuildCodeGenStart,
 };
 use husky_write_utils::w;
 use std;

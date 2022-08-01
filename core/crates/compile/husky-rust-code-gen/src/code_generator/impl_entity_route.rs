@@ -3,23 +3,6 @@ use husky_word::RootIdentifier;
 
 use super::*;
 
-#[derive(Debug, Clone, Copy)]
-pub enum EntityRouteRole {
-    Caller,
-    Decl,
-    Other,
-}
-
-impl EntityRouteRole {
-    fn argument_role(self) -> Self {
-        match self {
-            EntityRouteRole::Caller => EntityRouteRole::Other,
-            EntityRouteRole::Decl => EntityRouteRole::Decl,
-            EntityRouteRole::Other => EntityRouteRole::Other,
-        }
-    }
-}
-
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_entity_route(&mut self, entity_route: EntityRoutePtr, role: EntityRouteRole) {
         if let Some(_) = self

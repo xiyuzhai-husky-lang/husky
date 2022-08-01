@@ -9,7 +9,7 @@ serde = { version = "1.0.106", features = ["derive"], optional = true }
 xrng = { path = "../../../../../../common-rs/utils/husky-rng-utils" }
 husky-word = { path = "../../../../syntax/husky-word" }
 husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
-vm = { path = "../../../../vm/husky-vm" }
+husky-vm-interface = { path = "../../../../vm/husky-vm-interface" }
 husky-entity-route = { path = "../../../../syntax/husky-entity-route" }
 
 [build-dependencies]

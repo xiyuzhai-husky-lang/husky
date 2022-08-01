@@ -3,7 +3,6 @@ use husky_trace_protocol::*;
 #[cfg(feature = "serde_support")]
 use serde::Serialize;
 use std::any::TypeId;
-use vm::*;
 
 #[derive(Default, Clone, PartialEq, Eq)]
 pub struct BinaryGrid28 {

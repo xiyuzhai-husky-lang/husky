@@ -2,7 +2,7 @@ use husky_bindgen_utils::simple_bindgen;
 use husky_c_code_build::build_single_file_to_lib;
 use husky_c_code_repr::*;
 use husky_opn_syntax::*;
-use husky_rust_code_repr::{BuildCodeGenStart, NonPrimitiveTypeRegistration};
+use husky_rust_code_repr::{registration::NonPrimitiveTypeRegistration, BuildCodeGenStart};
 use husky_word::RootIdentifier;
 use husky_write_utils::w;
 use std::io::Write;
