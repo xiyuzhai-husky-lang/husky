@@ -181,7 +181,7 @@ impl DebuggerContext {
                             };
                             let new_partition = PartitionDefnData {
                                 ncol,
-                                variant: PartitionDefnDataVariant::Label(Label(label_raw)),
+                                variant: PartitionDefnDataVariant::Label(Label(label_raw as i32)),
                             };
                             new_partition_dialog().close();
                             self.handle_status_change(StatusChange::update_restriction(

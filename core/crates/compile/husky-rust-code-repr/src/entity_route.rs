@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_route::EntityRoutePtr;
 
 pub struct EntityRouteRepr<'a> {
     route: EntityRoutePtr,

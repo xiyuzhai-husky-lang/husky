@@ -119,7 +119,10 @@ impl HuskyTraceTime {
     ) -> TraceTokenData {
         match result {
             Ok(value) => self.trace_token_from_value(value, ty),
-            Err(e) => e.into(),
+            Err(e) => {
+                todo!()
+                // e.into()
+            }
         }
     }
 

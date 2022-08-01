@@ -139,7 +139,9 @@ impl<'a> TraceTokenBuilder<'a> {
             }
             ControlSnapshot::Err(ref e) => {
                 self.push(fade!(" = "));
-                self.push(e.clone().into());
+                self.push(
+                    todo!(), // e.clone().into()
+                );
             }
         }
     }

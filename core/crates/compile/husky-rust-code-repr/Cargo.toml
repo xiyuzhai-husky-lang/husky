@@ -5,5 +5,11 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+salsa = { version = "0.17.0-pre.2", optional = true }
 convert_case = "0.5.0"
-husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-route = { path = "../../syntax/husky-entity-route", optional = true }
+
+[features]
+query = ["dep:salsa"]
+entity_route = ["query", "dep:husky-entity-route"]
+registration = []

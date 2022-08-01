@@ -66,7 +66,7 @@ impl Model for NaiveI32 {
         for (arguments, mut label) in training_data {
             assert_eq!(arguments.len(), 1);
             let value = arguments[0].downcast_i32();
-            let label: Label = label.into();
+            let label: Label = Label(label.downcast_i32());
             *label_statics_map
                 .entry(value)
                 .or_default()
@@ -96,7 +96,7 @@ impl Model for NaiveI32 {
     ) -> __VMResult<__Register<'eval>> {
         let argument = arguments[0].downcast_i32();
         match internal.most_likely_labels.get(&argument) {
-            Some(l) => Ok(l.to_register()),
+            Some(l) => Ok(l.0.to_register()),
             None => {
                 p!(argument);
                 panic!();
