@@ -352,8 +352,7 @@ impl<'a> RustCodeGenerator<'a> {
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
-                    r#"__cache_feature(
-        __ctx,
+                    r#"__ctx.cache_feature(
         __feature,
         Ok(("#,
                 );
@@ -365,8 +364,7 @@ impl<'a> RustCodeGenerator<'a> {
             }
             EagerExprQualifier::EvalRef => {
                 self.write(
-                    r#"__cache_feature(
-        __ctx,
+                    r#"__ctx.cache_feature(
         __feature,
         Ok(__EvalRef(&("#,
                 );
@@ -394,7 +392,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_expr(indent, result);
                 self.write(
                     r#").__into_eval_value())
-    ).unwrap()"#,
+    ).unwrap().downcast_eval_ref()"#,
                 );
             }
             EagerExprQualifier::EvalRef => {
@@ -449,7 +447,11 @@ impl<'a> RustCodeGenerator<'a> {
                 self.result.push_str(&i.to_string());
                 self.write("i64")
             }
-            PrimitiveLiteralData::Float(f) => self.result.push_str(&f.to_string()),
+            PrimitiveLiteralData::Float(f) => {
+                self.result.push_str(&f.to_string());
+                msg_once!("ad hoc");
+                self.write("f32")
+            }
             PrimitiveLiteralData::F32(f) => {
                 self.result.push_str(&f.to_string());
                 self.write("f32")

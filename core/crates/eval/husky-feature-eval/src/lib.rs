@@ -1,4 +1,3 @@
-pub mod __root;
 mod evaluator;
 mod session;
 

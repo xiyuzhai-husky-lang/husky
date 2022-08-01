@@ -48,12 +48,12 @@ impl EntityRouteStore {
         self.internal.write(|internal: &mut Vec<EntityRoutePtr>| {
             let raw = internal.len();
             internal.push(entity_route);
-            unsafe { EntityUid::from_raw(raw) }
+            unsafe { EntityUid::from_raw(raw as u64) }
         })
     }
 
     fn get(&self, uid: EntityUid) -> EntityRoutePtr {
-        self.internal.read(|internal| internal[uid.raw()])
+        self.internal.read(|internal| internal[uid.raw() as usize])
     }
 }
 

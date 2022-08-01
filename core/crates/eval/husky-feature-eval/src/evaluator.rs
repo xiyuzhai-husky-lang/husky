@@ -33,7 +33,7 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
 }
 
 impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
-    fn entity_uid(&self, entity_route_text: &str) -> usize {
+    fn entity_uid(&self, entity_route_text: &str) -> u64 {
         use husky_entity_semantics::EntityDefnQueryGroup;
         let route = self
             .db
@@ -45,7 +45,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     fn opt_cached_lazy_field(
         &self,
         this: &'eval (),
-        uid: usize,
+        uid: u64,
     ) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet.cached_value(EvalKey::StructDerivedField {
             parent: this as *const (),
@@ -72,7 +72,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     fn cache_lazy_field(
         &self,
         this: *const (),
-        uid: usize,
+        uid: u64,
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
@@ -99,7 +99,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn eval_feature_from_uid(&self, uid_raw: usize) -> __VMResult<__Register<'eval>> {
+    fn eval_feature_from_uid(&self, uid_raw: u64) -> __VMResult<__Register<'eval>> {
         let uid = unsafe { EntityUid::from_raw(uid_raw) };
         let route = self.db.compile_time().entity_route_by_uid(uid);
         let feature = self
