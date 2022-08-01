@@ -1,4 +1,4 @@
-use super::{impl_entity_route::EntityRouteRole, *};
+use super::*;
 use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_entity_semantics::FieldDefnVariant;

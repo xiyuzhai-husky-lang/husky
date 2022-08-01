@@ -14,13 +14,13 @@ pub use loader::*;
 pub use synthetic::*;
 
 use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
+use husky_vm_interface::*;
 use husky_word::RootIdentifier;
 use std::{
     borrow::Cow,
     panic::{RefUnwindSafe, UnwindSafe},
     sync::Arc,
 };
-use vm::*;
 
 pub trait DatasetDyn<'eval>:
     std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + 'eval

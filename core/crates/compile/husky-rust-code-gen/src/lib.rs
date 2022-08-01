@@ -21,6 +21,7 @@ use husky_loop_syntax::*;
 use husky_opn_syntax::*;
 use husky_package_semantics::PackageQueryGroup;
 use husky_print_utils::*;
+use husky_rust_code_repr::entity_route::*;
 use init_content::*;
 use lib_rs_content::*;
 use linkage_collector::*;

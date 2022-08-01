@@ -1,9 +1,9 @@
-mod registration;
-
-use std::fmt::Display;
+pub mod entity_route;
+pub mod registration;
 
 use convert_case::{Case, Casing};
-pub use registration::*;
+use husky_entity_route::*;
+use std::fmt::Display;
 
 pub struct BuildCodeGenStart;
 

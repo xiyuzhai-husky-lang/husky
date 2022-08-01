@@ -484,12 +484,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         __StaticLinkageKey::FeatureEagerBlock {{
             route: "{route}"
         }},
-        feature_eager_block_linkage!("#
+        transfer_linkage!("#
         ));
         self.gen_entity_route(route, EntityRouteRole::Caller);
         self.write(
-            r#"
-        },"#,
+            r#"),
+    ),"#,
         );
     }
 

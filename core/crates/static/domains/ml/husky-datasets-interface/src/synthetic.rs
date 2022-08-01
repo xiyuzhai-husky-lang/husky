@@ -6,7 +6,6 @@ pub use synthetic_loader::*;
 
 use super::*;
 use husky_trace_protocol::SampleId;
-use vm::*;
 
 pub trait SyntheticDataset<'eval>:
     std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + 'eval

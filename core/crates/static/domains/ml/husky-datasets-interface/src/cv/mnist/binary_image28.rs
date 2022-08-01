@@ -2,7 +2,6 @@ use super::*;
 use husky_entity_route::InternEntityRoute;
 use husky_trace_protocol::*;
 use std::{any::TypeId, borrow::Cow, sync::Arc};
-use vm::*;
 
 #[derive(Default, Clone, PartialEq, Eq)]
 pub struct BinaryImage28 {

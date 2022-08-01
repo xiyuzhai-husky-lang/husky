@@ -3,7 +3,7 @@ use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::CallFormSource;
 use husky_word::CustomIdentifier;
 
-use super::{impl_entity_route::EntityRouteRole, *};
+use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_parameter(&mut self, parameter: &Parameter) {
