@@ -11,7 +11,7 @@ const __RegisterVTable __VIRTUAL_STRUCT_VTABLE = {
 };
 
 const __RegisterVTable __VIRTUAL_ENUM_VTABLE = {
-    .typename_str = "VirtualEnum",
+    .typename_str = "__VirtualEnum",
     .primitive_value_to_bool = 0,
     .primitive_value_to_box = 0,
     .clone = __virtual_enum_clone,

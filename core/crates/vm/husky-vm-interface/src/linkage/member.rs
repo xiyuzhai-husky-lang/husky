@@ -28,13 +28,13 @@ impl __MemberLinkage {
 
 #[macro_export]
 macro_rules! method_elem_linkage {
-    ($Type: ty, $method_name: ident) => {{
+    ($Type: ty, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_fp: method_elem_copy_fp!($Type, $method_name),
-            eval_ref_fp: method_elem_eval_ref_fp!($Type, $method_name),
-            temp_ref_fp: method_elem_temp_ref_fp!($Type, $method_name),
-            temp_mut_fp: method_elem_temp_mut_fp!($Type, $method_name),
-            move_fp: method_elem_move_fp!($Type, $method_name),
+            copy_fp: method_elem_copy_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
+            eval_ref_fp: method_elem_eval_ref_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
+            temp_ref_fp: method_elem_temp_ref_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
+            temp_mut_fp: method_elem_temp_mut_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
+            move_fp: method_elem_move_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
         })
     }};
 }
@@ -54,13 +54,13 @@ macro_rules! eager_field_linkage {
 
 #[macro_export]
 macro_rules! lazy_field_linkage {
-    ($Type: ty, $field: ident) => {{
+    ($Type: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
         fn __wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register {
             let this_value: &'eval $Type = values[0].downcast_eval_ref();
-            __Register::new_eval_ref(this_value.$field(__opt_ctx.unwrap()))
+            __Register::new_eval_ref(this_value.$field(__opt_ctx.unwrap(), &$FIELD_TY_VTABLE))
         }
         transfer_linkage!(__wrapper, none)
     }};

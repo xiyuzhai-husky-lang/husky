@@ -1,13 +1,12 @@
 use crate::*;
-use husky_entity_route::EntityRoutePtr;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VirtualEnum {
+pub struct __VirtualEnum {
     pub kind_idx: u8,
-    pub route: EntityRoutePtr,
+    // pub route: EntityRoutePtr,
 }
 
-impl __StaticInfo for VirtualEnum {
+impl __StaticInfo for __VirtualEnum {
     type __StaticSelf = Self;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -15,7 +14,7 @@ impl __StaticInfo for VirtualEnum {
     }
 }
 
-impl<'eval> __Registrable<'eval> for VirtualEnum {
+impl<'eval> __Registrable<'eval> for __VirtualEnum {
     unsafe fn __to_register(self) -> __Register<'eval>
     where
         Self: 'eval,

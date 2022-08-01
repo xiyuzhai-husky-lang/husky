@@ -19,7 +19,7 @@ fn main() {
 
 pub static NONPRIMITIVE_TYPES: &'static [&'static str] = &[
     "VirtualStruct",
-    "VirtualEnum",
+    "__VirtualEnum",
     "VirtualVec",
     "VirtualCyclicSlice",
 ];

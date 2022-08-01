@@ -11,14 +11,12 @@
 mod __rust_code_gen__;
 mod linkage;
 mod virtual_cyclic_slice;
-mod virtual_enum_kind;
 mod virtual_struct;
 mod virtual_vec;
 
 pub use __rust_code_gen__::*;
 pub use linkage::*;
 pub use virtual_cyclic_slice::*;
-pub use virtual_enum_kind::*;
 pub use virtual_struct::*;
 pub use virtual_vec::*;
 
