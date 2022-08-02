@@ -8,6 +8,7 @@ xflags::xflags! {
         optional -v, --verbose
         optional --sample-id sample_id: String
         optional --mode mode: String
-        optional -c, --compile
+        optional --cdylib cdylib: String
+        optional -c, --compiled
     }
 }

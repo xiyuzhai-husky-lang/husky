@@ -12,7 +12,7 @@ pub struct HuskyDebuggerConfig {
     pub package_dir: PathBuf,
     pub opt_sample_id: Option<SampleId>,
     pub verbose: bool,
-    pub warn_missing_linkage: bool,
+    pub compiled: bool,
 }
 
 impl HuskyDebuggerConfig {
@@ -28,7 +28,7 @@ impl HuskyDebuggerConfig {
                 .sample_id
                 .map(|text| SampleId(text.parse::<usize>().unwrap())),
             verbose: flags.verbose,
-            warn_missing_linkage: flags.warn_missing_linkage || flags.verbose,
+            compiled: flags.compiled,
         }
     }
 
@@ -43,7 +43,7 @@ impl HuskyDebuggerConfig {
                 package_dir: self.package_dir.clone(),
                 __resolve_root_defn,
                 linkage_table: LinkageTableConfig {
-                    warn_missing_linkage: self.warn_missing_linkage,
+                    warn_missing_linkage: self.compiled,
                 },
             },
         }
