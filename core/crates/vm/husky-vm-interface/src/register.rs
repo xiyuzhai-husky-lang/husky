@@ -61,7 +61,7 @@ impl<'eval> Clone for __Register<'eval> {
 impl<'eval> PartialEq for __Register<'eval> {
     fn eq(&self, other: &Self) -> bool {
         assert_eq!(self.vtable as *const _, other.vtable as *const _);
-        self.vtable.eq.unwrap()(self.any_ref(), other.any_ref())
+        unsafe { (self.vtable.eq)(self.any_ref(), other.any_ref()) }
     }
 }
 impl<'eval> Eq for __Register<'eval> {}
@@ -316,7 +316,7 @@ impl<'eval> Drop for __Register<'eval> {
     fn drop(&mut self) {
         match self.data_kind {
             __RegisterDataKind::Box => unsafe {
-                (self.vtable.drop.unwrap())(self.data.as_ptr)
+                (self.vtable.drop)(self.data.as_ptr)
                 // (*std::mem::replace(&mut self.data, __RegisterData { as_opt_ptr: None })
                 //     .as_opt_ptr
                 //     .unwrap())
