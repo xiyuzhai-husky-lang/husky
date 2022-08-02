@@ -25,6 +25,7 @@ text-diff = "0.4.0"
 indexmap = "1.8.1"
 lsp-types = { version = "0.93", features = ["proposed"] }
 colored = "2.0.0"
+libloading = "0.7.3"
 xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
