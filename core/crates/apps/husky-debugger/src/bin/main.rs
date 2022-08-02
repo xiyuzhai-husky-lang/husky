@@ -17,7 +17,7 @@ async fn main() {
         .map(|library| unsafe { library.get(b"get_linkages") }.expect("what"));
     let mode: Mode = flags.mode.into();
     let package_dir: PathBuf = flags.package_dir.unwrap().into();
-    mode.run(
+    mode.apply(
         &package_dir,
         opt_get_linkages_from_cdylib
             .as_ref()
