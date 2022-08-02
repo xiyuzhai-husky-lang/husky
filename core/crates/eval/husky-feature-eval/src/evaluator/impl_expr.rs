@@ -76,6 +76,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     todo!()
                 }
                 let values = vec![self.eval_expr(&opds[0])?, self.eval_expr(&opds[1])?];
+                epin!();
+                p!(linkage.dev_src);
                 linkage.call_catch_unwind(unsafe { self.some_ctx() }, values)
             }
             FeatureExprVariant::StructDerivedLazyField {
@@ -141,6 +143,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     ) -> __VMResult<__Register<'eval>> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
+            epin!();
             linkage.call_catch_unwind(unsafe { self.some_ctx() }, vec![this_value])
         } else {
             let this_value = self.eval_feature_repr(this)?;

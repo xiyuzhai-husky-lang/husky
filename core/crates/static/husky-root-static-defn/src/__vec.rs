@@ -6,6 +6,7 @@ use cyclic_slice::CyclicSlice;
 pub use cyclic_slice_::*;
 pub use firstx::*;
 use husky_entity_route::EntityRoutePtr;
+use husky_print_utils::msg_once;
 use husky_visual_syntax::StaticVisualTy;
 pub use lastx::*;
 
@@ -161,6 +162,7 @@ unsafe fn virtual_vec_pop<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
+    msg_once!("the current impl of virtual vec is deprecated");
     let virtual_vec: &mut VirtualVec = values[0].downcast_temp_mut();
     virtual_vec.pop().unwrap()
 }
@@ -169,6 +171,7 @@ fn virtual_vec_index_move<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
+    msg_once!("the current impl of virtual vec is deprecated");
     todo!()
 }
 
@@ -176,6 +179,11 @@ unsafe fn virtual_vec_index_copy<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
+    msg_once!("the current impl of virtual vec is deprecated");
+    assert_eq!(
+        values[0].vtable as *const _,
+        &__VIRTUAL_VEC_VTABLE as *const _
+    );
     let this_value: &VirtualVec = values[0].downcast_temp_ref();
     let i: usize = values[1].downcast_i32() as usize;
     if i >= this_value.len() {
@@ -188,6 +196,11 @@ unsafe fn virtual_vec_index_eval_ref<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
+    msg_once!("the current impl of virtual vec is deprecated");
+    assert_eq!(
+        values[0].vtable as *const _,
+        &__VIRTUAL_VEC_VTABLE as *const _
+    );
     let this_value: &'eval VirtualVec = values[0].downcast_eval_ref();
     let i: usize = values[1].downcast_i32() as usize;
     this_value[i].eval_bind_eval_ref()
@@ -197,6 +210,7 @@ unsafe fn virtual_vec_index_temp_ref<'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
+    msg_once!("the current impl of virtual vec is deprecated");
     let this_value: &VirtualVec = values[0].downcast_temp_ref();
     let i: usize = values[1].downcast_i32() as usize;
     this_value[i].bind_temp_ref()
