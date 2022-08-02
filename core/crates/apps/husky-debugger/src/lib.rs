@@ -45,14 +45,11 @@ pub struct HuskyDebugger {
 }
 
 impl HuskyDebugger {
-    pub fn new_from_flags(opt_get_linkages_from_cdylib: Option<&GetLinkagesFromCDylib>) -> Self {
+    pub fn new_from_flags(
+        linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)],
+    ) -> Self {
         let mut config = HuskyDebuggerConfig::from_env();
-        HuskyDebugger::new(
-            config,
-            opt_get_linkages_from_cdylib
-                .map(|f| unsafe { f() })
-                .unwrap_or(&[]),
-        )
+        HuskyDebugger::new(config, linkages_from_cdylib)
     }
     pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
         let package_dir: &Path = &config.package_dir;

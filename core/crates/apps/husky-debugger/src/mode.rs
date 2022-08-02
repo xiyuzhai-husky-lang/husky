@@ -13,10 +13,10 @@ impl Mode {
     pub async fn apply(
         &self,
         dir: &Path,
-        opt_get_linkages_from_cdylib: Option<&GetLinkagesFromCDylib>,
+        linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)],
     ) {
         match self {
-            Mode::Run => run(dir, opt_get_linkages_from_cdylib).await,
+            Mode::Run => run(dir, linkages_from_cdylib).await,
             Mode::Test => test_all_packages_in_dir(dir).await,
         }
     }
@@ -36,8 +36,8 @@ impl From<Option<String>> for Mode {
     }
 }
 
-async fn run(package_dir: &Path, opt_get_linkages_from_cdylib: Option<&GetLinkagesFromCDylib>) {
-    HuskyDebugger::new_from_flags(opt_get_linkages_from_cdylib)
+async fn run(package_dir: &Path, linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)]) {
+    HuskyDebugger::new_from_flags(linkages_from_cdylib)
         .serve("localhost:51617")
         .await
         .expect("")
