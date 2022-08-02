@@ -113,6 +113,10 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
             self.eval_feature_repr_cached(&repr)
         }
     }
+
+    fn eval_input(&self) -> &__Register<'eval> {
+        &self.eval_input
+    }
 }
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {

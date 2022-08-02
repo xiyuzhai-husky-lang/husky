@@ -208,7 +208,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                         ));
                         self.gen_entity_route(entity_route, EntityRouteRole::Decl);
                         self.write(", __registration__::");
-                        self.write(&self.db.mangle_ty_vtable(ty));
+                        self.write(&self.db.mangled_ty_vtable(ty));
                         self.write(", ");
                         self.write(field_ident);
                         let copy_kind = if self.db.is_copyable(ty).unwrap() {
@@ -222,31 +222,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                                     | RootIdentifier::B32
                                     | RootIdentifier::B64
                                     | RootIdentifier::Bool => "direct",
-                                    RootIdentifier::True => todo!(),
-                                    RootIdentifier::False => todo!(),
-                                    RootIdentifier::Vec => todo!(),
-                                    RootIdentifier::Tuple => todo!(),
-                                    RootIdentifier::Debug => todo!(),
-                                    RootIdentifier::Std => todo!(),
-                                    RootIdentifier::Core => todo!(),
-                                    RootIdentifier::Mor => todo!(),
-                                    RootIdentifier::Fp => todo!(),
-                                    RootIdentifier::Fn => todo!(),
-                                    RootIdentifier::FnMut => todo!(),
-                                    RootIdentifier::FnOnce => todo!(),
-                                    RootIdentifier::Array => todo!(),
-                                    RootIdentifier::Domains => todo!(),
-                                    RootIdentifier::DatasetType => todo!(),
-                                    RootIdentifier::VisualType => todo!(),
-                                    RootIdentifier::TypeType => todo!(),
-                                    RootIdentifier::TraitType => todo!(),
-                                    RootIdentifier::ModuleType => todo!(),
-                                    RootIdentifier::CloneTrait => todo!(),
-                                    RootIdentifier::CopyTrait => todo!(),
-                                    RootIdentifier::PartialEqTrait => todo!(),
-                                    RootIdentifier::EqTrait => todo!(),
-                                    RootIdentifier::Ref => todo!(),
-                                    RootIdentifier::Option => todo!(),
                                     _ => panic!(),
                                 },
                                 EntityRoutePtr::Custom(_) => "box",
@@ -280,7 +255,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                             ));
                             self.gen_entity_route(entity_route, EntityRouteRole::Decl);
                             self.write(", __registration__::");
-                            self.write(&self.db.mangle_ty_vtable(ty.route));
+                            self.write(&self.db.mangled_ty_vtable(ty.route));
                             self.write(", ");
                             self.write(field_ident);
                             self.write(
@@ -298,37 +273,38 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     FieldDefnVariant::RecordOriginal | FieldDefnVariant::RecordDerived { .. } => (),
                 },
                 _ => {
-                    if is_defn_static {
-                        let member_entity_route = match member.base_route.kind {
-                            EntityRouteKind::Root { ident } => {
-                                p!(member.base_route, member.ident);
-                                todo!()
-                            }
-                            EntityRouteKind::Package { main, ident } => todo!(),
-                            EntityRouteKind::Child { parent, ident } => make_subroute(
-                                entity_route,
-                                member.ident.custom(),
-                                Default::default(),
-                            ),
-                            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
-                                msg_once!(
-                                    "todo: ignore trait that is generic over a specific type"
-                                );
-                                make_type_as_trait_member_route(
-                                    entity_route,
-                                    trai,
-                                    ident,
-                                    Default::default(),
-                                )
-                            }
-                            EntityRouteKind::Input { main } => todo!(),
-                            EntityRouteKind::Generic { ident, entity_kind } => todo!(),
-                            EntityRouteKind::ThisType => todo!(),
-                        };
-                        self.gen_linkage_entry(member_entity_route, member)
-                    } else {
-                        break;
-                    }
+                    break;
+                    // if is_defn_static {
+                    //     let member_entity_route = match member.base_route.kind {
+                    //         EntityRouteKind::Root { ident } => {
+                    //             p!(member.base_route, member.ident);
+                    //             todo!()
+                    //         }
+                    //         EntityRouteKind::Package { main, ident } => todo!(),
+                    //         EntityRouteKind::Child { parent, ident } => make_subroute(
+                    //             entity_route,
+                    //             member.ident.custom(),
+                    //             Default::default(),
+                    //         ),
+                    //         EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                    //             msg_once!(
+                    //                 "todo: ignore trait that is generic over a specific type"
+                    //             );
+                    //             make_type_as_trait_member_route(
+                    //                 entity_route,
+                    //                 trai,
+                    //                 ident,
+                    //                 Default::default(),
+                    //             )
+                    //         }
+                    //         EntityRouteKind::Input { main } => todo!(),
+                    //         EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+                    //         EntityRouteKind::ThisType => todo!(),
+                    //     };
+                    //     self.gen_linkage_entry(member_entity_route, member)
+                    // } else {
+                    //     break;
+                    // }
                 }
             }
         }
@@ -356,7 +332,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                         ));
                         self.gen_entity_route(entity_route.parent(), EntityRouteRole::Decl);
                         let method_name = entity_route.ident().as_str();
-                        self.write(&format!(", {method_name})"))
+                        let mangled_output_ty_vtable =
+                            self.db.mangled_ty_vtable(call_form_decl.output.ty);
+                        self.write(&format!(
+                            ", __registration__::{mangled_output_ty_vtable}, {method_name})"
+                        ))
                     }
                     _ => self.gen_specific_routine_linkage(
                         Some((this_liason, entity_route.parent())),
@@ -489,6 +469,10 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             r#"
                     "#
         ));
+        let is_output_ty_primitive = decl.output.ty.is_primitive();
+        if !is_output_ty_primitive {
+            self.write("__Register::new_box(");
+        }
         gen_caller(self);
         self.write("(");
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
@@ -515,13 +499,24 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 self.write("__variadics")
             }
         }
-        self.write(&format!(
-            r#").__to_register()
+        let mangled_output_ty_vtable = self.db.mangled_ty_vtable(decl.output.ty);
+        if is_output_ty_primitive {
+            self.write(&format!(
+                r#").to_register()
                 }}
                 __wrapper
             }},
             opt_fp: Some("#
-        ));
+            ));
+        } else {
+            self.write(&format!(
+                r#"), &__registration__::{mangled_output_ty_vtable})
+                }}
+                __wrapper
+            }},
+            opt_fp: Some("#
+            ));
+        }
         gen_call_route(self);
         self.write(
             r#" as *const ()),
@@ -545,7 +540,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         self.gen_entity_route(route, EntityRouteRole::Caller);
         self.write(", __registration__::");
         let entity_defn = self.db.entity_defn(route).unwrap();
-        self.write(&self.db.mangle_ty_vtable(output_ty));
+        self.write(&self.db.mangled_ty_vtable(output_ty));
         self.write(
             r#"),
     ),"#,

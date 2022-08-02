@@ -3,7 +3,7 @@ use convert_case::{Case, Casing};
 use husky_write_utils::w;
 use std::fmt::Write;
 
-pub(crate) fn mangle_ty(
+pub(crate) fn mangled_ty(
     db: &dyn RustCodeGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> Arc<String> {
@@ -14,7 +14,7 @@ pub(crate) fn mangle_ty(
         w!(result; "_");
         for subroute in entity_route.spatial_arguments.iter() {
             let subroute = subroute.take_entity_route();
-            write!(result, "_{}", db.mangle_ty(subroute)).unwrap();
+            write!(result, "_{}", db.mangled_ty(subroute)).unwrap();
         }
         result
     } else {
@@ -22,7 +22,7 @@ pub(crate) fn mangle_ty(
     })
 }
 
-pub(crate) fn mangle_ty_vtable(
+pub(crate) fn mangled_ty_vtable(
     db: &dyn RustCodeGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> Arc<String> {
@@ -32,7 +32,7 @@ pub(crate) fn mangle_ty_vtable(
         }
         EntityRoutePtr::Custom(_) => format!(
             "__{}_VTABLE",
-            &db.mangle_ty(entity_route).to_case(Case::UpperSnake)
+            &db.mangled_ty(entity_route).to_case(Case::UpperSnake)
         ),
         EntityRoutePtr::ThisType => todo!(),
     })

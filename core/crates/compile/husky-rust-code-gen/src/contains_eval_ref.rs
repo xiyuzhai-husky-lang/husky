@@ -22,6 +22,13 @@ pub(super) fn entity_route_kind_contains_eval_ref(
     {
         return true;
     }
+    if entity_route_kind
+        == (EntityRouteKind::Root {
+            ident: RootIdentifier::Option,
+        })
+    {
+        return false;
+    }
     let entity_route_menu = entity_route_menu();
     if entity_route_kind == entity_route_menu.std_slice_cyclic_slice.kind {
         return true;

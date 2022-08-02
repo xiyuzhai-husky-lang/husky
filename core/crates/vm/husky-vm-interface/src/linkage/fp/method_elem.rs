@@ -5,7 +5,7 @@ macro_rules! method_elem_copy_fp {
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
-            let this_value: &$Type = values[0].downcast_temp_ref();
+            let this_value: &$Type = unsafe { values[0].downcast_temp_ref() };
             todo!()
         }
         __LinkageFp {
@@ -41,8 +41,8 @@ macro_rules! method_elem_temp_ref_fp {
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
-            let this_value: &$Type = values[0].downcast_temp_ref();
-            __Register::new_temp_ref(this_value.$method_name(), &$ELEMENT_TYPE_VTABLE)
+            let this_value: &$Type = unsafe { values[0].downcast_temp_ref() };
+            unsafe { __Register::new_temp_ref(this_value.$method_name(), &$ELEMENT_TYPE_VTABLE) }
         }
         __LinkageFp {
             dev_src: static_dev_src!(),
@@ -66,7 +66,7 @@ macro_rules! method_elem_move_fp {
 #[macro_export]
 macro_rules! method_elem_temp_mut_fp {
     ($Type: ty, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
-        fn wrapper<'eval>(
+        unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
