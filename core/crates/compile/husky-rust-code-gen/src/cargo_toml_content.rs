@@ -26,7 +26,7 @@ rust-version = "1.56"
 __husky = {{ path = "{husky_dir}/core/crates/static/__husky" }}
 
 [lib]
-crate-type = ["dylib"]
+crate-type = ["cdylib"]
 "#
     )
 }
