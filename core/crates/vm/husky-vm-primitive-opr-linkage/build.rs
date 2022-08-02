@@ -1,6 +1,3 @@
-use husky_bindgen_utils::simple_bindgen;
-use husky_c_code_build::build_single_file_to_lib;
-use husky_c_code_repr::*;
 use husky_opn_syntax::*;
 use husky_rust_code_repr::{registration::NonPrimitiveTypeRegistration, BuildCodeGenStart};
 use husky_word::RootIdentifier;
@@ -15,10 +12,10 @@ fn main() {
     let husky_dir = "/home/xiyuzhai/Documents/husky";
     let crate_dir = format!("{husky_dir}/core/crates/vm/husky-vm-primitive-opr-linkage/src");
     let binary_mod_path = format!("{crate_dir}/binary.rs");
-    gen_binary(&binary_mod_path).unwrap();
+    gen_binary_primitive_opr_linkage(&binary_mod_path).unwrap();
 }
 
-fn gen_binary(binary_mod_path: &str) -> std::io::Result<()> {
+fn gen_binary_primitive_opr_linkage(binary_mod_path: &str) -> std::io::Result<()> {
     let mut f = File::create(binary_mod_path).unwrap();
     write!(
         f,

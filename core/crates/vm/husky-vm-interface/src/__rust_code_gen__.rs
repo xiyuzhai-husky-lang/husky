@@ -36,9 +36,15 @@ pub unsafe extern "C" fn __void_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<void>() = registers[1].downcast_void()
 }
-extern "C" {
-    pub static __VOID_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __VOID_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: Some(__void_primitive_value_to_bool),
+    primitive_value_to_box: Some(__void_primitive_value_to_box),
+    clone: __void_clone,
+    drop: __void_drop,
+    eq: __void_eq,
+    assign: __void_assign,
+};
 impl<'eval> __Register<'eval> {
     pub fn downcast_void(&self) -> void {
         unsafe {
@@ -80,9 +86,15 @@ pub unsafe extern "C" fn __bool_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<bool>() = registers[1].downcast_bool()
 }
-extern "C" {
-    pub static __BOOL_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __BOOL_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: Some(__bool_primitive_value_to_bool),
+    primitive_value_to_box: Some(__bool_primitive_value_to_box),
+    clone: __bool_clone,
+    drop: __bool_drop,
+    eq: __bool_eq,
+    assign: __bool_assign,
+};
 impl<'eval> __Register<'eval> {
     pub fn downcast_bool(&self) -> bool {
         unsafe {
@@ -124,9 +136,15 @@ pub unsafe extern "C" fn __i32_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<i32>() = registers[1].downcast_i32()
 }
-extern "C" {
-    pub static __I32_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __I32_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: Some(__i32_primitive_value_to_bool),
+    primitive_value_to_box: Some(__i32_primitive_value_to_box),
+    clone: __i32_clone,
+    drop: __i32_drop,
+    eq: __i32_eq,
+    assign: __i32_assign,
+};
 impl<'eval> __Register<'eval> {
     pub fn downcast_i32(&self) -> i32 {
         unsafe {
@@ -168,9 +186,15 @@ pub unsafe extern "C" fn __i64_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<i64>() = registers[1].downcast_i64()
 }
-extern "C" {
-    pub static __I64_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __I64_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: Some(__i64_primitive_value_to_bool),
+    primitive_value_to_box: Some(__i64_primitive_value_to_box),
+    clone: __i64_clone,
+    drop: __i64_drop,
+    eq: __i64_eq,
+    assign: __i64_assign,
+};
 impl<'eval> __Register<'eval> {
     pub fn downcast_i64(&self) -> i64 {
         unsafe {
@@ -212,9 +236,15 @@ pub unsafe extern "C" fn __b32_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<b32>() = registers[1].downcast_b32()
 }
-extern "C" {
-    pub static __B32_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __B32_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: Some(__b32_primitive_value_to_bool),
+    primitive_value_to_box: Some(__b32_primitive_value_to_box),
+    clone: __b32_clone,
+    drop: __b32_drop,
+    eq: __b32_eq,
+    assign: __b32_assign,
+};
 impl<'eval> __Register<'eval> {
     pub fn downcast_b32(&self) -> b32 {
         unsafe {
@@ -256,9 +286,15 @@ pub unsafe extern "C" fn __b64_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<b64>() = registers[1].downcast_b64()
 }
-extern "C" {
-    pub static __B64_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __B64_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: Some(__b64_primitive_value_to_bool),
+    primitive_value_to_box: Some(__b64_primitive_value_to_box),
+    clone: __b64_clone,
+    drop: __b64_drop,
+    eq: __b64_eq,
+    assign: __b64_assign,
+};
 impl<'eval> __Register<'eval> {
     pub fn downcast_b64(&self) -> b64 {
         unsafe {
@@ -300,9 +336,15 @@ pub unsafe extern "C" fn __f32_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<f32>() = registers[1].downcast_f32()
 }
-extern "C" {
-    pub static __F32_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __F32_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: Some(__f32_primitive_value_to_bool),
+    primitive_value_to_box: Some(__f32_primitive_value_to_box),
+    clone: __f32_clone,
+    drop: __f32_drop,
+    eq: __f32_eq,
+    assign: __f32_assign,
+};
 impl<'eval> __Register<'eval> {
     pub fn downcast_f32(&self) -> f32 {
         unsafe {
@@ -344,9 +386,15 @@ pub unsafe extern "C" fn __f64_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<f64>() = registers[1].downcast_f64()
 }
-extern "C" {
-    pub static __F64_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __F64_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: Some(__f64_primitive_value_to_bool),
+    primitive_value_to_box: Some(__f64_primitive_value_to_box),
+    clone: __f64_clone,
+    drop: __f64_drop,
+    eq: __f64_eq,
+    assign: __f64_assign,
+};
 impl<'eval> __Register<'eval> {
     pub fn downcast_f64(&self) -> f64 {
         unsafe {
@@ -377,9 +425,15 @@ pub unsafe extern "C" fn __virtual_function_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<__VirtualFunction>() = registers[1].downcast_move()
 }
-extern "C" {
-    pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __virtual_function_clone,
+    drop: __virtual_function_drop,
+    eq: __virtual_function_eq,
+    assign: __virtual_function_assign,
+};
 
 // __VirtualEnum
 #[no_mangle]
@@ -399,6 +453,12 @@ pub unsafe extern "C" fn __virtual_enum_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<__VirtualEnum>() = registers[1].downcast_move()
 }
-extern "C" {
-    pub static __VIRTUAL_ENUM_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __VIRTUAL_ENUM_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __virtual_enum_clone,
+    drop: __virtual_enum_drop,
+    eq: __virtual_enum_eq,
+    assign: __virtual_enum_assign,
+};

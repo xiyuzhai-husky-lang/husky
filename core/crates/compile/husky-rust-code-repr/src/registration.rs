@@ -46,9 +46,15 @@ pub unsafe extern "C" fn __{ty}_assign(registers: *mut __Register) {{
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<{ty}>() = registers[1].downcast_{ty}()
 }}
-extern "C" {{
-    pub static __{uppercase_ty}_VTABLE: __RegisterVTable;
-}}
+#[no_mangle]
+pub static __{uppercase_ty}_VTABLE: __RegisterVTable = __RegisterVTable {{
+    primitive_value_to_bool: Some(__{ty}_primitive_value_to_bool),
+    primitive_value_to_box: Some(__{ty}_primitive_value_to_box),
+    clone: __{ty}_clone,
+    drop: __{ty}_drop,
+    eq: __{ty}_eq,
+    assign: __{ty}_assign,
+}};
 impl<'eval> __Register<'eval> {{
     pub fn downcast_{ty}(&self) -> {ty} {{
         unsafe {{
@@ -95,9 +101,15 @@ pub unsafe extern "C" fn __{snake_ty}_assign(registers: *mut __Register) {{
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<{ty}>() = registers[1].downcast_move()
 }}
-extern "C" {{
-    pub static __{upper_snake_ty}_VTABLE: __RegisterVTable;
-}}
+#[no_mangle]
+pub static __{upper_snake_ty}_VTABLE: __RegisterVTable = __RegisterVTable {{
+    primitive_value_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __{snake_ty}_clone,
+    drop: __{snake_ty}_drop,
+    eq: __{snake_ty}_eq,
+    assign: __{snake_ty}_assign,
+}};
 "#
         )
     }

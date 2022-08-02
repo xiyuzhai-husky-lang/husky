@@ -38,7 +38,7 @@ impl<'eval> __Register<'eval> {
         let ptr = self.data.as_ptr;
         let data = unsafe {
             __RegisterData {
-                as_ptr: self.vtable.clone.unwrap()(ptr),
+                as_ptr: (self.vtable.clone)(ptr),
             }
         };
         Self {
@@ -218,9 +218,9 @@ impl<'eval> __Register<'eval> {
 
     pub fn to_bool(&self) -> bool {
         match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => {
+            __RegisterDataKind::PrimitiveValue => unsafe {
                 (self.vtable.primitive_value_to_bool).unwrap()(self.data)
-            }
+            },
             __RegisterDataKind::Box
             | __RegisterDataKind::EvalRef
             | __RegisterDataKind::TempRef
@@ -269,7 +269,8 @@ impl<'eval> __Register<'eval> {
     }
 
     pub fn typename_cstr(&self) -> &std::ffi::CStr {
-        unsafe { std::ffi::CStr::from_ptr(self.vtable.typename_str) }
+        todo!()
+        // unsafe { std::ffi::CStr::from_ptr(self.vtable.typename_str) }
     }
 }
 

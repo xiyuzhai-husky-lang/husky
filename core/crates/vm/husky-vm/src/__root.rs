@@ -14,7 +14,7 @@ pub static __NEQ_LINKAGE: __Linkage = transfer_linkage!(
 pub static __ASSIGN_LINKAGE: __Linkage = transfer_linkage!(
     |_, args| {
         assert_eq!(args[0].vtable as *const _, args[1].vtable as *const _);
-        args[0].vtable.assign.unwrap()(args.as_mut_ptr()).to_register()
+        unsafe { (args[0].vtable.assign)(args.as_mut_ptr()) }.to_register()
     },
     none
 );

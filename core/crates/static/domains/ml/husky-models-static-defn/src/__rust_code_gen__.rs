@@ -29,6 +29,12 @@ pub unsafe extern "C" fn __naive_i_32_internal_assign(registers: *mut __Register
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<NaiveI32Internal>() = registers[1].downcast_move()
 }
-extern "C" {
-    pub static __NAIVE_I_32_INTERNAL_VTABLE: __RegisterVTable;
-}
+#[no_mangle]
+pub static __NAIVE_I_32_INTERNAL_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __naive_i_32_internal_clone,
+    drop: __naive_i_32_internal_drop,
+    eq: __naive_i_32_internal_eq,
+    assign: __naive_i_32_internal_assign,
+};
