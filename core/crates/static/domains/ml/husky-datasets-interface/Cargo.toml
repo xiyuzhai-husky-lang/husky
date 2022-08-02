@@ -6,7 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"], optional = true }
-xrng = { path = "../../../../../../common-rs/utils/husky-rng-utils" }
 husky-vm-interface = { path = "../../../../vm/husky-vm-interface" }
 husky-datasets-protocol = { path = "../husky-datasets-protocol" }
 
