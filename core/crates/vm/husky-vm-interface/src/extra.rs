@@ -1,5 +1,4 @@
 use crate::*;
-use husky_print_utils::p;
 #[cfg(feature = "binding")]
 use husky_vm_binding::Binding;
 use husky_vm_primitive_value::PrimitiveValueData;

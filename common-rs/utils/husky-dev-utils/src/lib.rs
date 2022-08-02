@@ -1,5 +1,3 @@
-pub use cstr::cstr;
-
 use std::{ffi::c_char, path::PathBuf};
 
 #[derive(PartialEq, Eq, Clone)]

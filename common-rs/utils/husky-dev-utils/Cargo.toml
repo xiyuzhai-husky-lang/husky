@@ -7,4 +7,3 @@ edition = "2021"
 doctest = false
 
 [dependencies]
-cstr = "0.2.10"

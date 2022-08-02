@@ -8,7 +8,6 @@ edition = "2021"
 cyclic-slice = { path = "../../../../common-rs/abstraction/cyclic-slice" }
 husky-vm-binding = { path = "../husky-vm-binding", optional = true }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
-husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 
 [features]
