@@ -1,21 +1,19 @@
 pub mod __rust_code_gen__;
 pub mod cv;
 mod iter;
-mod labeled;
+mod labeled_data;
 mod loader;
 pub mod synthetic;
 
 use __rust_code_gen__::*;
 pub use cv::*;
-use husky_trace_protocol::VisualData;
+pub use husky_datasets_protocol::*;
 pub use iter::*;
-pub use labeled::*;
+pub use labeled_data::*;
 pub use loader::*;
 pub use synthetic::*;
 
-use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
 use husky_vm_interface::*;
-use husky_word::RootIdentifier;
 use std::{
     borrow::Cow,
     panic::{RefUnwindSafe, UnwindSafe},

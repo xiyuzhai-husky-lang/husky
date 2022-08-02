@@ -135,10 +135,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn new_temp_ref<T: __Registrable<'eval>>(
-        value: &T,
-        proto: &'eval __RegisterVTable,
-    ) -> __Register<'eval> {
+    pub unsafe fn new_temp_ref<T>(value: &T, proto: &'eval __RegisterVTable) -> __Register<'eval> {
         let ptr: *const T = value;
         __Register {
             data_kind: __RegisterDataKind::TempRef,
@@ -149,7 +146,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn new_temp_mut<T: __Registrable<'eval>>(
+    pub unsafe fn new_temp_mut<T>(
         value: &mut T,
         proto: &'eval __RegisterVTable,
     ) -> __Register<'eval> {

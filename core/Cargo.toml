@@ -10,6 +10,7 @@ members = [
     "crates/apps/*",
     "crates/static/husky-root-static-defn",
     "crates/static/static-defn",
+    "crates/static/domains/ml/*",
     "crates/static/__husky",
     "crates/static/static-defn",
     "crates/try",

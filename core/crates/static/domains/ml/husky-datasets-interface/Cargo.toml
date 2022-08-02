@@ -7,13 +7,10 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"], optional = true }
 xrng = { path = "../../../../../../common-rs/utils/husky-rng-utils" }
-husky-word = { path = "../../../../syntax/husky-word" }
-husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
 husky-vm-interface = { path = "../../../../vm/husky-vm-interface" }
-husky-entity-route = { path = "../../../../syntax/husky-entity-route" }
+husky-datasets-protocol = { path = "../husky-datasets-protocol" }
 
 [build-dependencies]
-bindgen = "0.60.1"
 husky-rust-code-repr = { path = "../../../../compile/husky-rust-code-repr" }
 husky-write-utils = { path = "../../../../../../common-rs/utils/husky-write-utils" }
 

@@ -16,6 +16,9 @@ husky-log-utils = { path = "../../../../common-rs/utils/husky-log-utils" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value", features = [
     "serde_support"
 ] }
+husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-protocol", features = [
+    "serde_support"
+] }
 
 [dependencies.web-sys]
 version = "0.3.57"

@@ -8,7 +8,7 @@ impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_registration_content(&mut self) {
         self.write(
             r#"use crate::*;
-use __husky::registration::*;
+pub(crate) use __husky::registration::*;
 
 "#,
         );
@@ -40,7 +40,7 @@ use __husky::registration::*;
 
     fn gen_ty_registration(&mut self, entity_route: EntityRoutePtr) {
         let ty_decl = self.db.ty_decl(entity_route);
-        let mangled_ty = self.db.mangle_ty_vtable(entity_route);
+        let mangled_ty = self.db.mangle_ty(entity_route);
         let needs_eval_ref = self.db.entity_route_contains_eval_ref(entity_route);
         write!(
             self.result,

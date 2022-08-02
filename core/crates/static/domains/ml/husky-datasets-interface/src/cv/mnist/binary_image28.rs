@@ -1,6 +1,4 @@
 use super::*;
-use husky_entity_route::InternEntityRoute;
-use husky_trace_protocol::*;
 use std::{any::TypeId, borrow::Cow, sync::Arc};
 
 #[derive(Default, Clone, PartialEq, Eq)]

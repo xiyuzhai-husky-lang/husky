@@ -1,5 +1,4 @@
 use super::*;
-use husky_trace_protocol::*;
 #[cfg(feature = "serde_support")]
 use serde::Serialize;
 use std::any::TypeId;

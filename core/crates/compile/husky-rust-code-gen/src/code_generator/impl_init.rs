@@ -44,8 +44,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             EntityDefnVariant::Feature { ref defn_repr } => match **defn_repr {
                 DefinitionRepr::LazyExpr { ref expr } => (),
                 DefinitionRepr::LazyBlock { ref stmts, ty } => (),
-                DefinitionRepr::FuncBlock { route, .. } => {
-                    self.gen_eager_block_linkage_entries(route)
+                DefinitionRepr::FuncBlock { route, ty, .. } => {
+                    self.gen_eager_feature_linkage_entry(route, ty.route)
                 }
                 DefinitionRepr::ProcBlock {
                     file,
@@ -207,8 +207,56 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                             }
                         ));
                         self.gen_entity_route(entity_route, EntityRouteRole::Decl);
+                        self.write(", __registration__::");
+                        self.write(&self.db.mangle_ty_vtable(ty));
                         self.write(", ");
                         self.write(field_ident);
+                        let copy_kind = if self.db.is_copyable(ty).unwrap() {
+                            match ty {
+                                EntityRoutePtr::Root(root_identifer) => match root_identifer {
+                                    RootIdentifier::Void
+                                    | RootIdentifier::I32
+                                    | RootIdentifier::I64
+                                    | RootIdentifier::F32
+                                    | RootIdentifier::F64
+                                    | RootIdentifier::B32
+                                    | RootIdentifier::B64
+                                    | RootIdentifier::Bool => "direct",
+                                    RootIdentifier::True => todo!(),
+                                    RootIdentifier::False => todo!(),
+                                    RootIdentifier::Vec => todo!(),
+                                    RootIdentifier::Tuple => todo!(),
+                                    RootIdentifier::Debug => todo!(),
+                                    RootIdentifier::Std => todo!(),
+                                    RootIdentifier::Core => todo!(),
+                                    RootIdentifier::Mor => todo!(),
+                                    RootIdentifier::Fp => todo!(),
+                                    RootIdentifier::Fn => todo!(),
+                                    RootIdentifier::FnMut => todo!(),
+                                    RootIdentifier::FnOnce => todo!(),
+                                    RootIdentifier::Array => todo!(),
+                                    RootIdentifier::Domains => todo!(),
+                                    RootIdentifier::DatasetType => todo!(),
+                                    RootIdentifier::VisualType => todo!(),
+                                    RootIdentifier::TypeType => todo!(),
+                                    RootIdentifier::TraitType => todo!(),
+                                    RootIdentifier::ModuleType => todo!(),
+                                    RootIdentifier::CloneTrait => todo!(),
+                                    RootIdentifier::CopyTrait => todo!(),
+                                    RootIdentifier::PartialEqTrait => todo!(),
+                                    RootIdentifier::EqTrait => todo!(),
+                                    RootIdentifier::Ref => todo!(),
+                                    RootIdentifier::Option => todo!(),
+                                    _ => panic!(),
+                                },
+                                EntityRoutePtr::Custom(_) => "box",
+                                EntityRoutePtr::ThisType => todo!(),
+                            }
+                        } else {
+                            "invalid"
+                        };
+                        self.write(", ");
+                        self.write(copy_kind);
                         self.write(")\n    ),");
                     }
                     FieldDefnVariant::StructDerivedLazy { ref defn_repr } => match **defn_repr {
@@ -231,6 +279,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         lazy_field_linkage!("#,
                             ));
                             self.gen_entity_route(entity_route, EntityRouteRole::Decl);
+                            self.write(", __registration__::");
+                            self.write(&self.db.mangle_ty_vtable(ty.route));
                             self.write(", ");
                             self.write(field_ident);
                             self.write(
@@ -479,16 +529,23 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
     }
 
-    fn gen_eager_block_linkage_entries(&mut self, route: EntityRoutePtr) {
+    fn gen_eager_feature_linkage_entry(
+        &mut self,
+        route: EntityRoutePtr,
+        output_ty: EntityRoutePtr,
+    ) {
         self.write(&format!(
             r#"
     (
         __StaticLinkageKey::FeatureEagerBlock {{
             route: "{route}"
         }},
-        transfer_linkage!("#
+        feature_linkage!("#
         ));
         self.gen_entity_route(route, EntityRouteRole::Caller);
+        self.write(", __registration__::");
+        let entity_defn = self.db.entity_defn(route).unwrap();
+        self.write(&self.db.mangle_ty_vtable(output_ty));
         self.write(
             r#"),
     ),"#,

@@ -1,11 +1,9 @@
 mod synthetic_iter;
 mod synthetic_loader;
 
+use super::*;
 pub use synthetic_iter::*;
 pub use synthetic_loader::*;
-
-use super::*;
-use husky_trace_protocol::SampleId;
 
 pub trait SyntheticDataset<'eval>:
     std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + 'eval
