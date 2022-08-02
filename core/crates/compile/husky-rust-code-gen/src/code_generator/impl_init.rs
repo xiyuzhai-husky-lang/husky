@@ -13,7 +13,7 @@ impl<'a> RustCodeGenerator<'a> {
 use __husky::init::*;
 
 #[no_mangle]
-pub extern "C" fn gen_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
+pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
     LINKAGES
 }
 

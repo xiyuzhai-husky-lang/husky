@@ -10,9 +10,13 @@ pub enum Mode {
 }
 
 impl Mode {
-    pub async fn run(&self, dir: &Path) {
+    pub async fn run(
+        &self,
+        dir: &Path,
+        opt_get_linkages_from_cdylib: Option<&GetLinkagesFromCDylib>,
+    ) {
         match self {
-            Mode::Run => run(dir).await,
+            Mode::Run => run_interpreter(dir).await,
             Mode::Test => test_all_packages_in_dir(dir).await,
         }
     }
@@ -32,7 +36,7 @@ impl From<Option<String>> for Mode {
     }
 }
 
-async fn run(package_dir: &Path) {
+async fn run_interpreter(package_dir: &Path) {
     HuskyDebugger::new_from_flags()
         .serve("localhost:51617")
         .await
@@ -61,7 +65,7 @@ async fn test_all_packages_in_dir(dir: &Path) {
                 package_dir,
                 opt_sample_id: Some(SampleId(23)),
                 verbose: false,
-                warn_missing_linkage: false,
+                compiled: false,
             },
             &[],
         );

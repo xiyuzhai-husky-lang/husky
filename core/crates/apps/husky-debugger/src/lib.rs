@@ -35,6 +35,9 @@ use std::{sync::Mutex, time::Instant};
 use vm::__Linkage;
 use warp::Filter;
 
+pub type GetLinkagesFromCDylib =
+    unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
+
 pub struct HuskyDebugger {
     pub(crate) config: HuskyDebuggerConfig,
     internal: Mutex<HuskyDebuggerInternal>,
