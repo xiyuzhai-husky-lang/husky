@@ -83,6 +83,48 @@ impl EntityRoutePtr {
         }
     }
 
+    pub fn is_primitive(self) -> bool {
+        match self {
+            EntityRoutePtr::Root(root_identifier) => match root_identifier {
+                RootIdentifier::Void
+                | RootIdentifier::I32
+                | RootIdentifier::I64
+                | RootIdentifier::F32
+                | RootIdentifier::F64
+                | RootIdentifier::B32
+                | RootIdentifier::B64
+                | RootIdentifier::Bool => true,
+                RootIdentifier::True => todo!(),
+                RootIdentifier::False => todo!(),
+                RootIdentifier::Vec => todo!(),
+                RootIdentifier::Tuple => todo!(),
+                RootIdentifier::Debug => todo!(),
+                RootIdentifier::Std => todo!(),
+                RootIdentifier::Core => todo!(),
+                RootIdentifier::Mor => todo!(),
+                RootIdentifier::Fp => todo!(),
+                RootIdentifier::Fn => todo!(),
+                RootIdentifier::FnMut => todo!(),
+                RootIdentifier::FnOnce => todo!(),
+                RootIdentifier::Array => todo!(),
+                RootIdentifier::Domains => todo!(),
+                RootIdentifier::DatasetType => todo!(),
+                RootIdentifier::VisualType => todo!(),
+                RootIdentifier::TypeType => todo!(),
+                RootIdentifier::TraitType => todo!(),
+                RootIdentifier::ModuleType => todo!(),
+                RootIdentifier::CloneTrait => todo!(),
+                RootIdentifier::CopyTrait => todo!(),
+                RootIdentifier::PartialEqTrait => todo!(),
+                RootIdentifier::EqTrait => todo!(),
+                RootIdentifier::Ref => todo!(),
+                RootIdentifier::Option => todo!(),
+            },
+            EntityRoutePtr::Custom(_) => false,
+            EntityRoutePtr::ThisType => todo!(),
+        }
+    }
+
     pub fn to_str(&self) -> String {
         format!("{:?}", self)
     }

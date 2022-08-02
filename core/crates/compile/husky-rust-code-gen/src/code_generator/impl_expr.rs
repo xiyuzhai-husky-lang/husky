@@ -349,18 +349,19 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     pub(super) fn gen_feature_return(&mut self, indent: Indent, result: &EagerExpr) {
+        let mangled_ty_vtable = self.db.mangled_ty_vtable(result.ty());
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
                     r#"__ctx.cache_feature(
         __feature,
-        Ok(("#,
+        Ok(__Register::new_box("#,
                 );
                 self.gen_expr(indent, result);
-                self.write(
-                    r#").__into_eval_value())
+                self.write(&format!(
+                    r#", &__registration__::{mangled_ty_vtable}))
     ).unwrap().downcast_eval_ref()"#,
-                );
+                ));
             }
             EagerExprQualifier::EvalRef => {
                 self.write(
@@ -369,10 +370,10 @@ impl<'a> RustCodeGenerator<'a> {
         Ok(__Register::new_eval_ref(&("#,
                 );
                 self.gen_expr(indent, result);
-                self.write(
-                    r#")).into())
+                self.write(&format!(
+                    r#"), &__registration__::{mangled_ty_vtable}).into())
     ).unwrap().downcast_eval_ref()"#,
-                );
+                ));
             }
             EagerExprQualifier::PureRef
             | EagerExprQualifier::TempRef
@@ -381,19 +382,20 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     pub(super) fn gen_lazy_field_return(&mut self, indent: Indent, result: &EagerExpr) {
+        let mangled_ty_vtable = self.db.mangled_ty_vtable(result.ty());
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
                     r#"__ctx.cache_lazy_field(
         self as *const _ as *const (),
         __uid,
-        Ok(("#,
+        Ok(__Register::new_box("#,
                 );
                 self.gen_expr(indent, result);
-                self.write(
-                    r#").__into_eval_value())
+                self.write(&format!(
+                    r#", &__registration__::{mangled_ty_vtable}))
     ).unwrap().downcast_eval_ref()"#,
-                );
+                ));
             }
             EagerExprQualifier::EvalRef => {
                 self.write(

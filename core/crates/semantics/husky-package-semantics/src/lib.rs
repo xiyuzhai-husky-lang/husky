@@ -22,4 +22,8 @@ impl Package {
     pub fn dir(&self) -> PathBuf {
         self.main_defn.file.parent().unwrap().to_owned()
     }
+
+    pub fn main_file(&self) -> FilePtr {
+        self.main_defn.file
+    }
 }
