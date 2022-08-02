@@ -10,6 +10,7 @@ rust-version = "1.56"
 doctest = false
 
 [dependencies]
+convert_case = "0.5.0"
 salsa = "0.17.0-pre.2"
 vec-like = { path = "../../../../common-rs/abstraction/vec-like" }
 fold = { path = "../../../../common-rs/abstraction/fold" }

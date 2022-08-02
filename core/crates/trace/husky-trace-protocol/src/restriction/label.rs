@@ -1,15 +1,6 @@
 use super::*;
 // use husky_vm_interface::__RegistrableSafe;
 
-#[derive(Debug, Hash, Serialize, Deserialize, PartialEq, Eq, Clone, Copy)]
-pub struct Label(pub i32);
-
-impl From<u8> for Label {
-    fn from(v: u8) -> Self {
-        Self(v as i32)
-    }
-}
-
 // impl __StaticInfo for Label {
 //     type __StaticSelf = Self;
 

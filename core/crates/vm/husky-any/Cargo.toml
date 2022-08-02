@@ -22,6 +22,5 @@ husky-vm-runtime-error = { path = "../husky-vm-runtime-error" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 
 [build-dependencies]
-bindgen = "0.60.1"
 husky-rust-code-repr = { path = "../../compile/husky-rust-code-repr" }
 husky-write-utils = { path = "../../../../common-rs/utils/husky-write-utils" }

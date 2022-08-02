@@ -1,5 +1,3 @@
-use husky_trace_protocol::SampleId;
-
 use super::*;
 
 #[derive(Debug)]
