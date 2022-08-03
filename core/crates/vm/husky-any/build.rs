@@ -16,17 +16,20 @@ fn main() {
     write_rust_code(&rust_code_path).unwrap();
 }
 
-pub static NONPRIMITIVE_TYPES: &'static [&'static str] =
-    &["VirtualStruct", "VirtualVec", "VirtualCyclicSlice"];
+pub static NONPRIMITIVE_TYPES: &'static [&'static str] = &[
+    "VirtualStruct",
+    "VirtualVec",
+    "VirtualCyclicSlice",
+    "VisualData",
+];
 
 pub fn write_rust_code(rust_code_path: &str) -> std::io::Result<()> {
     let mut f = File::create(rust_code_path)
         .expect(&format!("rust code path {rust_code_path} doesn't exist"));
     w!(f; BuildCodeGenStart);
-    //     w!(f; r#"
-    // use crate::cv::mnist::BinaryImage28;
-    // use crate::cv::mnist::BinaryGrid28;
-    // "#);
+    w!(f; r#"
+    use husky_trace_protocol::VisualData;
+    "#);
     for ty in NONPRIMITIVE_TYPES {
         w!(f; NonPrimitiveTypeRegistration { ty })
     }

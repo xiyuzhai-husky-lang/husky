@@ -5,6 +5,22 @@ pub struct CyclicSlice<'a, T> {
     pub total: &'a [T],
 }
 
+impl<'eval, T> std::ops::Index<i32> for CyclicSlice<'eval, T> {
+    type Output = T;
+
+    fn index(&self, index: i32) -> &Self::Output {
+        &self.total[index.rem_euclid(self.total.len() as i32) as usize]
+    }
+}
+
+impl<'eval, T> std::ops::Index<usize> for CyclicSlice<'eval, T> {
+    type Output = T;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.total[index.rem_euclid(self.total.len())]
+    }
+}
+
 impl<'a, T> CyclicSlice<'a, T> {
     pub fn first(&self) -> Option<&T> {
         if self.total.len() == 0 {
@@ -12,7 +28,7 @@ impl<'a, T> CyclicSlice<'a, T> {
         } else if self.start >= self.end {
             None
         } else {
-            Some(&self.total[self.start.rem_euclid(self.total.len() as i32) as usize])
+            Some(&self[self.start])
         }
     }
     pub fn firstx(&self) -> &T {
@@ -24,7 +40,7 @@ impl<'a, T> CyclicSlice<'a, T> {
         } else if self.start >= self.end {
             None
         } else {
-            Some(&self.total[(self.end - 1).rem_euclid(self.total.len() as i32) as usize])
+            Some(&self[self.end])
         }
     }
     pub fn lastx(&self) -> &T {
@@ -32,15 +48,10 @@ impl<'a, T> CyclicSlice<'a, T> {
     }
 
     pub fn iter(&self) -> impl Iterator<Item = &T> {
-        (self.start..self.end).map(|i| &self.total[i.rem_euclid(self.total.len() as i32) as usize])
+        (self.start..self.end).map(|i| &self[i])
     }
 
     pub fn enum_iter(&self) -> impl Iterator<Item = (i32, &T)> {
-        (self.start..self.end).map(|i| {
-            (
-                i,
-                &self.total[i.rem_euclid(self.total.len() as i32) as usize],
-            )
-        })
+        (self.start..self.end).map(|i| (i, &self[i]))
     }
 }

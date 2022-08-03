@@ -28,6 +28,7 @@ pub trait FeatureGenQueryGroup:
     + InstructionGenQueryGroup
     + Upcast<dyn InterpreterQueryGroup>
     + HuskyDataViewerQueryGroup
+    + Upcast<dyn HuskyDataViewerQueryGroup>
     + TrainModel
     + RefUnwindSafe
     + UnwindSafe

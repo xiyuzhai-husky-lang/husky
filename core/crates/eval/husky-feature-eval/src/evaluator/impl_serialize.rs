@@ -11,6 +11,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         ty: EntityRoutePtr,
     ) -> serde_json::Value {
         let ty_data_viewer: Arc<HuskyDataViewer> = self.db.ty_data_viewer(ty);
-        ty_data_viewer.serialize(comptime, value)
+        ty_data_viewer.serialize(self.db.upcast(), value)
     }
 }

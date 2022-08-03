@@ -2,7 +2,7 @@ use super::FeatureEvaluator;
 use crate::*;
 use cyclic_slice::CyclicSlice;
 use husky_check_utils::should_eq;
-use husky_entity_semantics::{EntityDefnQueryGroup, Visualizer, VisualizerVariant};
+use husky_entity_semantics::{EntityDefnQueryGroup, VisualTy, Visualizer, VisualizerVariant};
 use husky_feature_gen::*;
 use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
@@ -19,10 +19,10 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
     where
         'eval: 'static,
     {
-        let visualizer: Arc<Visualizer> = self.db.compile_time().visualizer(this.ty());
+        let ty = this.ty();
+        let visualizer: Arc<Visualizer> = self.db.compile_time().visualizer(ty);
         match visualizer.variant {
             VisualizerVariant::Group { element_ty } => {
-                let ty = this.ty();
                 let ty_data_viewer = self.db.ty_data_viewer(ty);
                 let value = self.eval_feature_repr_cached(&this)?;
                 let mut elements = vec![];
@@ -38,10 +38,16 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                         }),
                     })?)
                 }
-                todo!()
+                Ok(VisualData::Group(elements))
             }
             VisualizerVariant::Custom { ref opt_stmts } => {
                 if opt_stmts.is_none() {
+                    should_eq!(
+                        visualizer.visual_ty,
+                        VisualTy::Void,
+                        "expect `{}` to be of visual type void",
+                        ty
+                    );
                     Ok(VisualData::Primitive { value: ().into() })
                 } else {
                     let visual_feature_lazy_block = self.db.visual_feature_lazy_block(this)?;

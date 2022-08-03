@@ -1,5 +1,6 @@
 use std::time::Instant;
 
+use husky_data_viewer::HuskyDataViewerQueryGroup;
 use husky_entity_semantics::StoreEntityRoute;
 use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr, TrainModel};
 use upcast::Upcast;
@@ -57,6 +58,12 @@ impl Upcast<dyn FeatureGenQueryGroup> for HuskyEvalTime {
 
 impl Upcast<dyn EvalFeature<'static>> for HuskyEvalTime {
     fn upcast(&self) -> &(dyn EvalFeature<'static> + 'static) {
+        self
+    }
+}
+
+impl Upcast<dyn HuskyDataViewerQueryGroup> for HuskyEvalTime {
+    fn upcast(&self) -> &(dyn HuskyDataViewerQueryGroup + 'static) {
         self
     }
 }

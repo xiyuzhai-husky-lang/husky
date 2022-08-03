@@ -34,7 +34,7 @@ fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc
                 fields
             },
         },
-        TyKind::Primitive => todo!(),
+        TyKind::Primitive => HuskyDataViewer::Primitive { ty: ty.root() },
         TyKind::Vec => HuskyDataViewer::Vec {
             ilen: comptime
                 .method_linkage(comptime.subroute(
@@ -47,7 +47,15 @@ fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc
             index: comptime.index_linkage(vec![ty, RootIdentifier::I32.into()]),
         },
         TyKind::Slice => todo!(),
-        TyKind::CyclicSlice => todo!(),
+        TyKind::CyclicSlice => HuskyDataViewer::CyclicSlice {
+            start: comptime
+                .field_linkage_fp(ty, comptime.intern_word("start").custom(), Binding::Copy)
+                .unwrap(),
+            end: comptime
+                .field_linkage_fp(ty, comptime.intern_word("end").custom(), Binding::Copy)
+                .unwrap(),
+            index: comptime.index_linkage(vec![ty, RootIdentifier::I32.into()]),
+        },
         TyKind::Array => todo!(),
         TyKind::Tuple => todo!(),
         TyKind::Mor => todo!(),
