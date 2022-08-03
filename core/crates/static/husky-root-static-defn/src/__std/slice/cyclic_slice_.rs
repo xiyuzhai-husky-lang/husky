@@ -26,7 +26,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ],
         static_trait_impls: &[],
         variants: &[],
-        kind: TyKind::Struct,
+        kind: TyKind::CyclicSlice,
         visual_ty: StaticVisualTy::Group,
         opt_type_call: None,
     },
