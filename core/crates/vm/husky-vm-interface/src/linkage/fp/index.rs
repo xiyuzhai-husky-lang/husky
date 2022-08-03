@@ -60,7 +60,7 @@ macro_rules! index_move_fp {
 
 #[macro_export]
 macro_rules! index_temp_mut_fp {
-    ($Type: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
+    ($Type: ty, $ELEMENT_TYPE_VTABLE: expr, mutable) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
@@ -68,6 +68,19 @@ macro_rules! index_temp_mut_fp {
             let index_value: usize = values[1].downcast_i32() as usize;
             let this_value: &mut $Type = values[0].downcast_temp_mut();
             __Register::new_temp_mut(&mut this_value[index_value], &$ELEMENT_TYPE_VTABLE)
+        }
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+            dev_src: static_dev_src!(),
+        }
+    }};
+    ($Type: ty, $ELEMENT_TYPE_VTABLE: expr, immutable) => {{
+        unsafe fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            panic!()
         }
         __LinkageFp {
             wrapper,

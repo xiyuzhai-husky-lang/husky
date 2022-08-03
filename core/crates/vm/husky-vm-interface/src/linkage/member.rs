@@ -84,17 +84,15 @@ macro_rules! index_linkage {
     (
         $Type: ty,
         $TYPE_VTABLE: expr,
-        $ELEMENT_TYPE_VTABLE: expr, 
-        $copy_kind: tt) => {{
+        $ELEMENT_TYPE_VTABLE: expr,
+        $copy_kind: tt,
+        $mutability: tt
+    ) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_fp: index_copy_fp!(
-                $Type, 
-                $ELEMENT_TYPE_VTABLE,
-                $copy_kind
-            ),
+            copy_fp: index_copy_fp!($Type, $ELEMENT_TYPE_VTABLE, $copy_kind),
             eval_ref_fp: index_eval_ref_fp!($Type, $ELEMENT_TYPE_VTABLE),
             temp_ref_fp: index_temp_ref_fp!($Type, $ELEMENT_TYPE_VTABLE),
-            temp_mut_fp: index_temp_mut_fp!($Type, $ELEMENT_TYPE_VTABLE),
+            temp_mut_fp: index_temp_mut_fp!($Type, $ELEMENT_TYPE_VTABLE, $mutability),
             move_fp: index_move_fp!($Type, $ELEMENT_TYPE_VTABLE),
         })
     }};

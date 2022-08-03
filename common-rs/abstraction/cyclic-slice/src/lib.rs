@@ -40,7 +40,7 @@ impl<'a, T> CyclicSlice<'a, T> {
         } else if self.start >= self.end {
             None
         } else {
-            Some(&self[self.end])
+            Some(&self[self.end - 1])
         }
     }
     pub fn lastx(&self) -> &T {
