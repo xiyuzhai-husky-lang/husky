@@ -90,7 +90,7 @@ impl Signalable for Restriction {}
 impl Default for Restriction {
     fn default() -> Self {
         Self {
-            is_specific: true,
+            is_specific: false,
             specific_sample_id: SampleId(0),
             partitions: vec![PartitionDefnData {
                 ncol: 7,
