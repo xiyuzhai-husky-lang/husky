@@ -141,7 +141,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     ) -> __VMResult<__Register<'eval>> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
-            epin!();
             linkage.call_catch_unwind(unsafe { self.some_ctx() }, vec![this_value])
         } else {
             let this_value = self.eval_feature_repr(this)?;
@@ -197,8 +196,16 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .iter()
                         .map(
                             |(ident, argument)| {
-                                self.eval_expr(argument)
-                                    .map(|v| (*ident, self.serialize(&v, argument.expr.ty())))
+                                self.eval_expr(argument).map(|v| {
+                                    (
+                                        *ident,
+                                        self.serialize(
+                                            self.db.compile_time(),
+                                            &v,
+                                            argument.expr.ty(),
+                                        ),
+                                    )
+                                })
                             },
                             // argument.any_ref().to_json_value_dyn()
                         )

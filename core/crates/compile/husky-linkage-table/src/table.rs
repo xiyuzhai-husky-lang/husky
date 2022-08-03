@@ -61,12 +61,11 @@ impl LinkageTable {
         self.get_linkage(db, LinkageKey::Routine { routine_uid })
     }
 
-    pub(crate) fn struct_field_access_linkage_source(
+    pub(crate) fn field_linkage_source(
         &self,
         db: &dyn EntityDefnQueryGroup,
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,
-        field_binding: Binding,
     ) -> Option<__Linkage> {
         self.get_linkage(
             db,

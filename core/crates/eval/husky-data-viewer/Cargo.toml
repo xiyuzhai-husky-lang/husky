@@ -5,6 +5,8 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
 salsa = "0.17.0-pre.2"
 husky-compile-time = { path = "../../compile/husky-compile-time" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }

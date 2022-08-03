@@ -21,8 +21,25 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
     {
         let visualizer: Arc<Visualizer> = self.db.compile_time().visualizer(this.ty());
         match visualizer.variant {
-            VisualizerVariant::Vec {} => self.visualize_vec(),
-            VisualizerVariant::CyclicSlice => self.visualize_cyclic_slice(),
+            VisualizerVariant::Group { element_ty } => {
+                let ty = this.ty();
+                let ty_data_viewer = self.db.ty_data_viewer(ty);
+                let value = self.eval_feature_repr_cached(&this)?;
+                let mut elements = vec![];
+                for (index, element) in ty_data_viewer.member_eval_iter(&value) {
+                    elements.push(self.visualize_feature(FeatureRepr::Value {
+                        value: element,
+                        file: this.file(),
+                        range: this.text_range(),
+                        ty: element_ty,
+                        feature: self.db.feature_interner().intern(Feature::IndexFixed {
+                            this: this.feature(),
+                            index: index as usize,
+                        }),
+                    })?)
+                }
+                todo!()
+            }
             VisualizerVariant::Custom { ref opt_stmts } => {
                 if opt_stmts.is_none() {
                     Ok(VisualData::Primitive { value: ().into() })
@@ -43,24 +60,11 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
         //         .eval_ref()
         //         .0
         //         .__opt_visualize_dyn(&mut |index, elem| {
-        //             self.visualize_feature(FeatureRepr::Value {
-        //                 value: __EvalRef(elem),
-        //                 file: this.file(),
-        //                 range: this.text_range(),
-        //                 ty: elem.__ty_dyn(),
-        //                 feature: self.db.feature_interner().intern(Feature::IndexFixed {
-        //                     this: this.feature(),
-        //                     index,
-        //                 }),
-        //             })
+
         //         })?
         // {
         //     return Ok(visual_data);
         // }
-    }
-
-    fn visualize_vec(&self) -> __VMResult<VisualData> {
-        todo!()
     }
 
     fn visualize_cyclic_slice(&self) -> __VMResult<VisualData> {
