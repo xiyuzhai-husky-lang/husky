@@ -65,6 +65,7 @@ impl HuskyTraceTime {
             restriction: Default::default(),
             pins: Default::default(),
         };
+        assert!(trace_time.restriction.opt_sample_id().is_none());
         trace_time.update();
         trace_time
     }
