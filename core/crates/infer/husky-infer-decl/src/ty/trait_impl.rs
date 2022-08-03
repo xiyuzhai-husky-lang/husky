@@ -130,7 +130,7 @@ fn derive_is_copyable(
         TyKind::ThisAny => todo!(),
         TyKind::SpatialPlaceholderAny => todo!(),
         TyKind::BoxAny => todo!(),
-        TyKind::HigherKind => todo!(),
+        TyKind::HigherKind => true,
         TyKind::Ref => todo!(),
         TyKind::Option => todo!(),
     }
