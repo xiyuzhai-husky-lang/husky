@@ -19,10 +19,10 @@ impl Into<String> for PrimitiveLiteralData {
     fn into(self) -> String {
         match self {
             PrimitiveLiteralData::Void => "void".to_string(),
-            PrimitiveLiteralData::Integer(i) => format!("{i}/*integer*/"),
+            PrimitiveLiteralData::Integer(i) => format!("{i}"),
             PrimitiveLiteralData::I32(i) => format!("{i}i32"),
             PrimitiveLiteralData::I64(i) => format!("{i}i64"),
-            PrimitiveLiteralData::Float(f) => format!("{f}/*float*/"),
+            PrimitiveLiteralData::Float(f) => format!("{f}"),
             PrimitiveLiteralData::F32(f) => format!("{f}f32"),
             PrimitiveLiteralData::F64(f) => format!("{f}f64"),
             PrimitiveLiteralData::Bits(b) => format!("{b}"),
