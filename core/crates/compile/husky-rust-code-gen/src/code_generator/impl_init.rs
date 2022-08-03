@@ -419,8 +419,54 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         } else {
             "invalid"
         };
+        // ad hoc
+        let mutability = match ty.kind {
+            EntityRouteKind::Root { ident } => match ident {
+                RootIdentifier::Void => todo!(),
+                RootIdentifier::I32 => todo!(),
+                RootIdentifier::I64 => todo!(),
+                RootIdentifier::F32 => todo!(),
+                RootIdentifier::F64 => todo!(),
+                RootIdentifier::B32 => todo!(),
+                RootIdentifier::B64 => todo!(),
+                RootIdentifier::Bool => todo!(),
+                RootIdentifier::True => todo!(),
+                RootIdentifier::False => todo!(),
+                RootIdentifier::Vec => "mutable",
+                RootIdentifier::Tuple => todo!(),
+                RootIdentifier::Debug => todo!(),
+                RootIdentifier::Std => todo!(),
+                RootIdentifier::Core => todo!(),
+                RootIdentifier::Mor => todo!(),
+                RootIdentifier::Fp => todo!(),
+                RootIdentifier::Fn => todo!(),
+                RootIdentifier::FnMut => todo!(),
+                RootIdentifier::FnOnce => todo!(),
+                RootIdentifier::Array => "mutable",
+                RootIdentifier::Domains => todo!(),
+                RootIdentifier::DatasetType => todo!(),
+                RootIdentifier::VisualType => todo!(),
+                RootIdentifier::TypeType => todo!(),
+                RootIdentifier::TraitType => todo!(),
+                RootIdentifier::ModuleType => todo!(),
+                RootIdentifier::CloneTrait => todo!(),
+                RootIdentifier::CopyTrait => todo!(),
+                RootIdentifier::PartialEqTrait => todo!(),
+                RootIdentifier::EqTrait => todo!(),
+                RootIdentifier::Ref => todo!(),
+                RootIdentifier::Option => todo!(),
+            },
+            _ => {
+                let route_menu = entity_route_menu();
+                if ty.kind == route_menu.std_slice_cyclic_slice.kind {
+                    "immutable"
+                } else {
+                    todo!()
+                }
+            }
+        };
         self.write(format!(
-            ", __registration__::{mangled_ty_vtable}, __registration__::__I32_VTABLE, {copy_kind})"
+            ", __registration__::{mangled_ty_vtable}, __registration__::__I32_VTABLE, {copy_kind}, {mutability})"
         ))
     }
 

@@ -36,7 +36,8 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             BinaryImage28,
                             __BINARY_IMAGE_28_VTABLE,
                             __B32_VTABLE,
-                            direct
+                            direct,
+                            mutable
                         )),
                     },
                 },

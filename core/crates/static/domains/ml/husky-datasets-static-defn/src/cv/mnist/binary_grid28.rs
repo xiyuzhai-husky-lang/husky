@@ -41,7 +41,8 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             BinaryGrid28,
                             __BINARY_GRID_28_VTABLE,
                             __B32_VTABLE,
-                            direct
+                            direct,
+                            mutable
                         )),
                     },
                 },

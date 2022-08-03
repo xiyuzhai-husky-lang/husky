@@ -63,8 +63,7 @@ impl HuskyDataViewer {
                     })
                     .collect(),
             ),
-            HuskyDataViewer::Vec { ilen, index } => todo!(),
-            HuskyDataViewer::CyclicSlice { start, end, index } => todo!(),
+            HuskyDataViewer::Vec { .. } | HuskyDataViewer::CyclicSlice { .. } => todo!(),
         }
     }
 
@@ -72,7 +71,7 @@ impl HuskyDataViewer {
         &'a self,
         value: &'a __Register<'eval>,
     ) -> impl Iterator<Item = (i32, __Register<'eval>)> + 'a {
-        match self {
+        let (start, end, index) = match self {
             HuskyDataViewer::Primitive { ty } => todo!(),
             HuskyDataViewer::Struct { fields } => todo!(),
             HuskyDataViewer::Vec { ilen, index } => {
@@ -80,14 +79,24 @@ impl HuskyDataViewer {
                     .call(None, &mut vec![value.temp_bind_eval_ref()])
                     .downcast_i32();
                 let index = index.bind(Binding::EvalRef);
-                (0..ilen).into_iter().map(move |i| {
-                    (
-                        i,
-                        index.call(None, &mut vec![value.temp_bind_eval_ref(), i.to_register()]),
-                    )
-                })
+                (0, ilen, index)
             }
-            HuskyDataViewer::CyclicSlice { start, end, index } => todo!(),
-        }
+            HuskyDataViewer::CyclicSlice { start, end, index } => {
+                let start = start
+                    .call(None, &mut vec![value.temp_bind_eval_ref()])
+                    .downcast_i32();
+                let end = end
+                    .call(None, &mut vec![value.temp_bind_eval_ref()])
+                    .downcast_i32();
+                let index = index.bind(Binding::EvalRef);
+                (start, end, index)
+            }
+        };
+        (start..end).into_iter().map(move |i| {
+            (
+                i,
+                index.call(None, &mut vec![value.temp_bind_eval_ref(), i.to_register()]),
+            )
+        })
     }
 }
