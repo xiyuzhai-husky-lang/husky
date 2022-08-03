@@ -28,7 +28,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
                 ident: self.intern_word(static_generic_placeholder.name).custom(),
                 range: Default::default(),
             },
-            variant: GenericPlaceholderVariant::Type { traits: vec![] },
+            variant: SpatialPlaceholderVariant::Type { traits: vec![] },
         })
     }
 

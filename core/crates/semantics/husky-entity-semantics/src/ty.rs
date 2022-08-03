@@ -115,7 +115,18 @@ impl EntityDefnVariant {
             TyKind::Primitive => todo!(),
             TyKind::Vec => todo!(),
             TyKind::Array => todo!(),
-            TyKind::Other => todo!(),
+            TyKind::Slice => todo!(),
+            TyKind::CyclicSlice => todo!(),
+            TyKind::Tuple => todo!(),
+            TyKind::Mor => todo!(),
+            TyKind::Fp => todo!(),
+            TyKind::AssociatedAny => todo!(),
+            TyKind::ThisAny => todo!(),
+            TyKind::SpatialPlaceholderAny => todo!(),
+            TyKind::BoxAny => todo!(),
+            TyKind::HigherKind => todo!(),
+            TyKind::Ref => todo!(),
+            TyKind::Option => todo!(),
         };
         Self::collect_other_ty_members(db, arena, file, ty, &mut children, &mut ty_members)?;
         let opt_visual_stmts = Self::collect_visual_source(db, arena, file, ty, &mut children);

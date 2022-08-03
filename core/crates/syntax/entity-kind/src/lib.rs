@@ -9,8 +9,19 @@ pub enum TyKind {
     Struct,
     Primitive,
     Vec,
+    Slice,
+    CyclicSlice,
     Array,
-    Other,
+    Tuple,
+    Mor,
+    Fp,
+    AssociatedAny,
+    ThisAny,
+    SpatialPlaceholderAny,
+    BoxAny,
+    HigherKind,
+    Ref,
+    Option,
 }
 
 impl From<TyKeyword> for TyKind {

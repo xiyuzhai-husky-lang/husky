@@ -5,7 +5,7 @@ pub use standalone::*;
 pub use symbol::*;
 
 use super::*;
-use defn_head::{GenericPlaceholderVariant, Parameter, SpatialParameter};
+use defn_head::{Parameter, SpatialParameter, SpatialPlaceholderVariant};
 use entity_kind::TyKind;
 use husky_entity_route::{entity_route_menu, EntityRouteKind, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
@@ -77,14 +77,14 @@ pub trait AtomContext {
                 RootIdentifier::True => todo!(),
                 RootIdentifier::False => todo!(),
                 RootIdentifier::Vec => todo!(),
-                RootIdentifier::Tuple => TyKind::Other,
+                RootIdentifier::Tuple => TyKind::Tuple,
                 RootIdentifier::Debug => todo!(),
                 RootIdentifier::Std => todo!(),
                 RootIdentifier::Core => todo!(),
-                RootIdentifier::Mor => TyKind::Other,
-                RootIdentifier::Fp => TyKind::Other,
-                RootIdentifier::Fn => TyKind::Other,
-                RootIdentifier::FnMut => TyKind::Other,
+                RootIdentifier::Mor => TyKind::Mor,
+                RootIdentifier::Fp => TyKind::Fp,
+                RootIdentifier::Fn => todo!(),
+                RootIdentifier::FnMut => todo!(),
                 RootIdentifier::FnOnce => todo!(),
                 RootIdentifier::Array => todo!(),
                 RootIdentifier::DatasetType => todo!(),
@@ -167,7 +167,9 @@ pub trait AtomContext {
                         {
                             MemberKind::Method { .. } => todo!(),
                             MemberKind::Call => todo!(),
-                            MemberKind::TraitAssociatedType => Ok(EntityKind::Type(TyKind::Other)),
+                            MemberKind::TraitAssociatedType => {
+                                Ok(EntityKind::Type(TyKind::AssociatedAny))
+                            }
                             MemberKind::TraitAssociatedConstSize => todo!(),
                             MemberKind::Field => todo!(),
                             MemberKind::TraitAssociatedAny => panic!(),
@@ -245,7 +247,7 @@ pub trait AtomContext {
                     .custom(),
                 range: Default::default(),
             },
-            variant: GenericPlaceholderVariant::Type { traits: vec![] },
+            variant: SpatialPlaceholderVariant::Type { traits: vec![] },
         })
     }
 
