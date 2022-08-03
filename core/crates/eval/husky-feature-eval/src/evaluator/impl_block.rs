@@ -16,9 +16,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     _ => return Ok(value),
                 }
             }
-            Ok(__Register::new_unreturned(
-                self.db.compile_time().vtable(block.ty.route),
-            ))
+            panic!()
         })
     }
 

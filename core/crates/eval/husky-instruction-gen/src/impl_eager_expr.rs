@@ -404,7 +404,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     }
                     EntityRoutePtr::Custom(_) => {
                         let ty_decl: Arc<TyDecl> = self.db.compile_time().ty_decl(this_ty).unwrap();
-                        match ty_decl.kind {
+                        match ty_decl.ty_kind {
                             TyKind::Enum => match opr {
                                 SuffixOpr::Incr => todo!(),
                                 SuffixOpr::Decr => todo!(),
@@ -623,7 +623,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 linkage_fp: self
                     .db
                     .compile_time()
-                    .element_access_linkage(opds.map(|opd| opd.ty()))
+                    .index_linkage(opds.map(|opd| opd.ty()))
                     .bind(element_binding),
                 discard: false,
             },

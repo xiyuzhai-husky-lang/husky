@@ -29,7 +29,14 @@ impl Default for VisualTy {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Visualizer {
     pub visual_ty: VisualTy,
-    pub opt_stmts: Option<Avec<LazyStmt>>,
+    pub variant: VisualizerVariant,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum VisualizerVariant {
+    Vec,
+    CyclicSlice,
+    Custom { opt_stmts: Option<Avec<LazyStmt>> },
 }
 
 pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> Arc<Visualizer> {
@@ -38,6 +45,7 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
         EntityDefnVariant::Ty {
             opt_static_visual_ty,
             ref opt_visual_stmts,
+            ty_kind,
             ..
         } => Visualizer {
             visual_ty: match opt_static_visual_ty {
@@ -50,7 +58,28 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
                     }
                 }
             },
-            opt_stmts: opt_visual_stmts.clone(),
+            variant: match ty_kind {
+                TyKind::Enum => todo!(),
+                TyKind::Record => todo!(),
+                TyKind::Struct => VisualizerVariant::Custom {
+                    opt_stmts: opt_visual_stmts.clone(),
+                },
+                TyKind::Primitive => todo!(),
+                TyKind::Vec => VisualizerVariant::Vec,
+                TyKind::Slice => todo!(),
+                TyKind::CyclicSlice => VisualizerVariant::CyclicSlice,
+                TyKind::Array => todo!(),
+                TyKind::Tuple => todo!(),
+                TyKind::Mor => todo!(),
+                TyKind::Fp => todo!(),
+                TyKind::AssociatedAny => todo!(),
+                TyKind::ThisAny => todo!(),
+                TyKind::SpatialPlaceholderAny => todo!(),
+                TyKind::BoxAny => todo!(),
+                TyKind::HigherKind => todo!(),
+                TyKind::Ref => todo!(),
+                TyKind::Option => todo!(),
+            },
         },
         _ => panic!(),
     })

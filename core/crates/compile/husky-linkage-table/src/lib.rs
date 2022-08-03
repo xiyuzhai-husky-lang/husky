@@ -30,7 +30,7 @@ use vm::{__LinkageFp, __VMResult};
 pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup> {
     fn linkage_table(&self) -> &LinkageTable;
 
-    fn element_access_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {
+    fn index_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {
         if let Some(__Linkage) = self
             .linkage_table()
             .element_access(self.upcast(), opd_tys.map(|ty| self.entity_uid(*ty)))

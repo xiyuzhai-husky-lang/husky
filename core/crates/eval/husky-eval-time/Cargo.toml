@@ -38,3 +38,4 @@ husky-instruction-gen = { path = "../husky-instruction-gen" }
 static-defn = { path = "../../static/static-defn" }
 husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }
 husky-atom = { path = "../../syntax/husky-atom" }
+husky-data-viewer = { path = "../husky-data-viewer" }

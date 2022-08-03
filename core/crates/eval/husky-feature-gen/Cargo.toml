@@ -51,3 +51,4 @@ husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
+husky-data-viewer = { path = "../husky-data-viewer" }

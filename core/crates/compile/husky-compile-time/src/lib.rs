@@ -16,12 +16,12 @@ pub use husky_file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFil
 pub use husky_fmt::FmtQuery;
 pub use husky_infer_entity_route::*;
 pub use husky_infer_qualified_ty::*;
+pub use husky_linkage_table::ResolveLinkage;
 pub use husky_package_semantics::PackageQueryGroup;
 pub use husky_rust_code_gen::RustCodeGenQueryGroup;
 pub use husky_token::TokenQueryGroup;
 pub use husky_token::TokenSalsaQueryGroup;
 pub use husky_word::InternWord;
-use husky_word::RootIdentifier;
 pub use infer_contract::*;
 pub use infer_decl::*;
 pub use infer_total::*;
@@ -32,6 +32,7 @@ use husky_entity_semantics::EntityRouteStore;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
 use husky_print_utils::*;
+use husky_word::RootIdentifier;
 use indexmap::IndexMap;
 use std::{
     collections::HashMap,
@@ -155,7 +156,7 @@ impl HuskyCompileTime {
             },
             EntityRoutePtr::Custom(_) => {
                 let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
-                match ty_decl.kind {
+                match ty_decl.ty_kind {
                     TyKind::Enum => todo!(),
                     TyKind::Record => todo!(),
                     TyKind::Struct => "{ ... }".to_string(),

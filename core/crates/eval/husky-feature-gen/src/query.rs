@@ -2,6 +2,7 @@ mod entity_feature_repr;
 mod main_feature_repr;
 
 pub use entity_feature_repr::*;
+use husky_data_viewer::HuskyDataViewerQueryGroup;
 use husky_trace_protocol::Restriction;
 pub use main_feature_repr::*;
 use vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
@@ -26,6 +27,7 @@ pub trait FeatureGenQueryGroup:
     + Upcast<dyn InstructionGenQueryGroup>
     + InstructionGenQueryGroup
     + Upcast<dyn InterpreterQueryGroup>
+    + HuskyDataViewerQueryGroup
     + TrainModel
     + RefUnwindSafe
     + UnwindSafe
@@ -33,7 +35,7 @@ pub trait FeatureGenQueryGroup:
     fn main_feature_repr(&'eval self, main_file: husky_file::FilePtr) -> FeatureRepr;
     fn entity_feature_repr(&self, entity_route: EntityRoutePtr) -> FeatureRepr;
     fn record_field_repr(&self, this: FeatureRepr, field_ident: CustomIdentifier) -> FeatureRepr;
-    fn visual_feature_repr(&self, this: FeatureRepr) -> __VMResult<FeatureRepr>;
+    fn visual_feature_lazy_block(&self, this: FeatureRepr) -> __VMResult<Arc<FeatureLazyBlock>>;
 }
 
 pub trait TrainModel {

@@ -20,7 +20,7 @@ impl TyDecl {
             Default::default(), // generic_parameters
             self.ty_members.map(|member| member.instantiate(&ctx)), //   type_methods
             self.variants.map(|variant| variant.instantiate(&ctx)), //   variants
-            self.kind,          //      kind
+            self.ty_kind,       //      kind
             self.trait_impls.map(|t| t.instantiate(&ctx)), //   trait_impls
             self.opt_type_call
                 .as_ref()
