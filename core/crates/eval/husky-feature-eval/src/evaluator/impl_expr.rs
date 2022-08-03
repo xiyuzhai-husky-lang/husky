@@ -182,9 +182,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         match expr.variant {
             FeatureXmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
-                let visual_data = self.visualize_feature(this);
-                todo!()
-                // Ok(__Register::Owned(__OwnedValue::new(visual_data?)))
+                let visual_data = self.visualize_feature(this)?;
+                Ok(__Register::new_box(visual_data, &__VISUAL_DATA_VTABLE))
             }
             FeatureXmlExprVariant::Tag {
                 tag_kind,
@@ -211,10 +210,11 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         )
                         .collect::<__VMResult<IdentPairDict<_>>>()?,
                 };
-                todo!()
-                // Ok(__Register::Owned(__OwnedValue::new(VisualData::from(
-                //     xml_value.into(),
-                // ))))
+
+                Ok(__Register::new_box(
+                    VisualData::from(xml_value.into()),
+                    &__VISUAL_DATA_VTABLE,
+                ))
             }
         }
     }

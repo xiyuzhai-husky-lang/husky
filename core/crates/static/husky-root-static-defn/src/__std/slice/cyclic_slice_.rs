@@ -1,9 +1,11 @@
 mod end;
+mod index;
 mod start;
 
 use ::cyclic_slice::CyclicSlice;
 use end::*;
 use husky_visual_syntax::StaticVisualTy;
+use index::*;
 use start::*;
 use std::any::TypeId;
 use vm::*;
@@ -24,7 +26,35 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
             &STD_SLICE_CYCLIC_SLICE_FIRST_DEFN,
             &STD_SLICE_CYCLIC_SLICE_LAST_DEFN,
         ],
-        static_trait_impls: &[],
+        static_trait_impls: &[StaticTraitImplDefn {
+            trai: "std::ops::Index<i32>",
+            member_impls: &[
+                associated_type_impl!("Output", "E"),
+                EntityStaticDefn {
+                    dev_src: static_dev_src!(),
+                    name: "index",
+                    items: &[],
+                    variant: EntityStaticDefnVariant::Method {
+                        this_liason: ParameterLiason::MemberAccess,
+                        parameters: &[],
+                        output_ty: "E",
+                        output_liason: OutputLiason::MemberAccess {
+                            member_liason: MemberLiason::Mutable,
+                        },
+                        spatial_parameters: &[],
+                        method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
+                        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+                            copy_fp: linkage_fp!(virtual_cyclic_slice_index_copy),
+                            eval_ref_fp: linkage_fp!(virtual_cyclic_slice_index_eval_ref),
+                            temp_ref_fp: linkage_fp!(virtual_cyclic_slice_index_temp_ref),
+                            temp_mut_fp: linkage_fp!(virtual_cyclic_slice_index_temp_mut),
+                            move_fp: linkage_fp!(virtual_cyclic_slice_index_move),
+                        })),
+                    },
+                },
+            ],
+            dev_src: static_dev_src!(),
+        }],
         variants: &[],
         kind: TyKind::CyclicSlice,
         visual_ty: StaticVisualTy::Group,

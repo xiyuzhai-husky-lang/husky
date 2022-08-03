@@ -7,6 +7,8 @@ type void = ();
 type b32 = u32;
 type b64 = u64;
 
+    use husky_trace_protocol::VisualData;
+    
 // VirtualStruct
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_clone(data: *mut ()) -> *mut () {
@@ -92,4 +94,33 @@ pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterVTable = __RegisterVTable {
     eq: __virtual_cyclic_slice_eq,
     assign: __virtual_cyclic_slice_assign,
     typename_str: "VirtualCyclicSlice",
+};
+
+// VisualData
+#[no_mangle]
+pub unsafe extern "C" fn __visual_data_clone(data: *mut ()) -> *mut () {
+    Box::<VisualData>::into_raw(Box::new((*(data as *mut VisualData)).clone())) as *mut ()
+}
+#[no_mangle]
+pub unsafe extern "C" fn __visual_data_drop(data: *mut ()) {
+    Box::from_raw(data as *mut VisualData);
+}
+#[no_mangle]
+pub unsafe extern "C" fn __visual_data_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const VisualData) == *(other as *const () as *const VisualData)
+}
+#[no_mangle]
+pub unsafe extern "C" fn __visual_data_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<VisualData>() = registers[1].downcast_move()
+}
+#[no_mangle]
+pub static __VISUAL_DATA_VTABLE: __RegisterVTable = __RegisterVTable {
+    primitive_value_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __visual_data_clone,
+    drop: __visual_data_drop,
+    eq: __visual_data_eq,
+    assign: __visual_data_assign,
+    typename_str: "VisualData",
 };
