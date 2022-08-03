@@ -54,11 +54,12 @@ pub static __{uppercase_ty}_VTABLE: __RegisterVTable = __RegisterVTable {{
     drop: __{ty}_drop,
     eq: __{ty}_eq,
     assign: __{ty}_assign,
+    typename_str: "{ty}",
 }};
 impl<'eval> __Register<'eval> {{
     pub fn downcast_{ty}(&self) -> {ty} {{
         unsafe {{
-            assert_eq!(self.vtable as *const _, &__{uppercase_ty}_VTABLE as *const _);
+            // assert_eq!(self.vtable as *const _, &__{uppercase_ty}_VTABLE as *const _);
             match self.data_kind {{
                 __RegisterDataKind::PrimitiveValue => self.data.as_{ty},
                 _ => *(self.data.as_ptr as *const {ty}),
@@ -109,6 +110,7 @@ pub static __{upper_snake_ty}_VTABLE: __RegisterVTable = __RegisterVTable {{
     drop: __{snake_ty}_drop,
     eq: __{snake_ty}_eq,
     assign: __{snake_ty}_assign,
+    typename_str: "{ty}",
 }};
 "#
         )

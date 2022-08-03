@@ -44,11 +44,12 @@ pub static __VOID_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __void_drop,
     eq: __void_eq,
     assign: __void_assign,
+    typename_str: "void",
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_void(&self) -> void {
         unsafe {
-            assert_eq!(self.vtable as *const _, &__VOID_VTABLE as *const _);
+            // assert_eq!(self.vtable as *const _, &__VOID_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_void,
                 _ => *(self.data.as_ptr as *const void),
@@ -94,11 +95,12 @@ pub static __BOOL_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __bool_drop,
     eq: __bool_eq,
     assign: __bool_assign,
+    typename_str: "bool",
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_bool(&self) -> bool {
         unsafe {
-            assert_eq!(self.vtable as *const _, &__BOOL_VTABLE as *const _);
+            // assert_eq!(self.vtable as *const _, &__BOOL_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_bool,
                 _ => *(self.data.as_ptr as *const bool),
@@ -144,11 +146,12 @@ pub static __I32_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __i32_drop,
     eq: __i32_eq,
     assign: __i32_assign,
+    typename_str: "i32",
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_i32(&self) -> i32 {
         unsafe {
-            assert_eq!(self.vtable as *const _, &__I32_VTABLE as *const _);
+            // assert_eq!(self.vtable as *const _, &__I32_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i32,
                 _ => *(self.data.as_ptr as *const i32),
@@ -194,11 +197,12 @@ pub static __I64_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __i64_drop,
     eq: __i64_eq,
     assign: __i64_assign,
+    typename_str: "i64",
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_i64(&self) -> i64 {
         unsafe {
-            assert_eq!(self.vtable as *const _, &__I64_VTABLE as *const _);
+            // assert_eq!(self.vtable as *const _, &__I64_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i64,
                 _ => *(self.data.as_ptr as *const i64),
@@ -244,11 +248,12 @@ pub static __B32_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __b32_drop,
     eq: __b32_eq,
     assign: __b32_assign,
+    typename_str: "b32",
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_b32(&self) -> b32 {
         unsafe {
-            assert_eq!(self.vtable as *const _, &__B32_VTABLE as *const _);
+            // assert_eq!(self.vtable as *const _, &__B32_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_b32,
                 _ => *(self.data.as_ptr as *const b32),
@@ -294,11 +299,12 @@ pub static __B64_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __b64_drop,
     eq: __b64_eq,
     assign: __b64_assign,
+    typename_str: "b64",
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_b64(&self) -> b64 {
         unsafe {
-            assert_eq!(self.vtable as *const _, &__B64_VTABLE as *const _);
+            // assert_eq!(self.vtable as *const _, &__B64_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_b64,
                 _ => *(self.data.as_ptr as *const b64),
@@ -344,11 +350,12 @@ pub static __F32_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __f32_drop,
     eq: __f32_eq,
     assign: __f32_assign,
+    typename_str: "f32",
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_f32(&self) -> f32 {
         unsafe {
-            assert_eq!(self.vtable as *const _, &__F32_VTABLE as *const _);
+            // assert_eq!(self.vtable as *const _, &__F32_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_f32,
                 _ => *(self.data.as_ptr as *const f32),
@@ -394,11 +401,12 @@ pub static __F64_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __f64_drop,
     eq: __f64_eq,
     assign: __f64_assign,
+    typename_str: "f64",
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_f64(&self) -> f64 {
         unsafe {
-            assert_eq!(self.vtable as *const _, &__F64_VTABLE as *const _);
+            // assert_eq!(self.vtable as *const _, &__F64_VTABLE as *const _);
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_f64,
                 _ => *(self.data.as_ptr as *const f64),
@@ -433,6 +441,7 @@ pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_function_drop,
     eq: __virtual_function_eq,
     assign: __virtual_function_assign,
+    typename_str: "__VirtualFunction",
 };
 
 // __VirtualEnum
@@ -461,4 +470,5 @@ pub static __VIRTUAL_ENUM_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_enum_drop,
     eq: __virtual_enum_eq,
     assign: __virtual_enum_assign,
+    typename_str: "__VirtualEnum",
 };

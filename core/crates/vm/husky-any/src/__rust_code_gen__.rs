@@ -33,6 +33,7 @@ pub static __VIRTUAL_STRUCT_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_struct_drop,
     eq: __virtual_struct_eq,
     assign: __virtual_struct_assign,
+    typename_str: "VirtualStruct",
 };
 
 // VirtualVec
@@ -61,6 +62,7 @@ pub static __VIRTUAL_VEC_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_vec_drop,
     eq: __virtual_vec_eq,
     assign: __virtual_vec_assign,
+    typename_str: "VirtualVec",
 };
 
 // VirtualCyclicSlice
@@ -89,4 +91,5 @@ pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_cyclic_slice_drop,
     eq: __virtual_cyclic_slice_eq,
     assign: __virtual_cyclic_slice_assign,
+    typename_str: "VirtualCyclicSlice",
 };
