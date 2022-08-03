@@ -39,8 +39,16 @@ macro_rules! index_eval_ref_fp {
 #[macro_export]
 macro_rules! index_temp_ref_fp {
     ($Type: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
+        unsafe fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            let this_value: &$Type = values[0].downcast_temp_ref();
+            let index_value: usize = values[1].downcast_i32() as usize;
+            __Register::new_temp_ref(&this_value[index_value], &$ELEMENT_TYPE_VTABLE)
+        }
         __LinkageFp {
-            wrapper: |_, values| -> __Register { todo!("temp ref") },
+            wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
         }
