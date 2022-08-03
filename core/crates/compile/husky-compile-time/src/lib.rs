@@ -160,7 +160,7 @@ impl HuskyCompileTime {
                     TyKind::Record => todo!(),
                     TyKind::Struct => "{ ... }".to_string(),
                     TyKind::Primitive => todo!(),
-                    TyKind::Vec => todo!(),
+                    TyKind::Vec => "[ ... ]".to_string(),
                     TyKind::Array => todo!(),
                     TyKind::Slice => todo!(),
                     TyKind::CyclicSlice => todo!(),
