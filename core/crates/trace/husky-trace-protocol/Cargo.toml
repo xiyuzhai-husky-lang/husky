@@ -17,7 +17,8 @@ husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value", feature
     "serde_support"
 ] }
 husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-protocol", features = [
-    "serde_support"
+    "serde_support",
+    "signal_support"
 ] }
 
 [dependencies.web-sys]
