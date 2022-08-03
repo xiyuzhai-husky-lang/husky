@@ -10,6 +10,7 @@ rust-version = "1.56"
 
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
@@ -42,3 +43,5 @@ husky-feature-gen = { path = "../husky-feature-gen" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 wild-utils = { path = "../../../../common-rs/utils/husky-unsafe-utils" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
+entity-kind = { path = "../../syntax/entity-kind" }
+husky-data-viewer = { path = "../husky-data-viewer" }

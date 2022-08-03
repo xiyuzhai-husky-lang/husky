@@ -496,7 +496,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             },
             EntityRoutePtr::Custom(_) => {
                 let parameter_ty_decl: Arc<TyDecl> = self.db.ty_decl(parameter_ty).unwrap();
-                match parameter_ty_decl.kind {
+                match parameter_ty_decl.ty_kind {
                     TyKind::Enum => self.write(&format!(
                         " = __arguments[{i}].downcast_temp_ref::<__VirtualEnum>().kind_idx.into();"
                     )),

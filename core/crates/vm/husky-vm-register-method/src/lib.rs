@@ -4,14 +4,10 @@ use husky_vm_binding::Binding;
 use husky_vm_interface::{__Register, __RegisterDataKind};
 
 pub trait VMRegisterMethodX<'eval>: Sized {
-    fn json_value(&self) -> serde_json::Value;
     fn virtual_struct_field(self, field_idx: u8, field_binding: Binding) -> __Register<'eval>;
 }
 
 impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
-    fn json_value(&self) -> serde_json::Value {
-        todo!()
-    }
     fn virtual_struct_field(mut self, field_idx: u8, field_binding: Binding) -> __Register<'eval> {
         assert_eq!(self.vtable as *const _, unsafe {
             &__VIRTUAL_STRUCT_VTABLE as *const _

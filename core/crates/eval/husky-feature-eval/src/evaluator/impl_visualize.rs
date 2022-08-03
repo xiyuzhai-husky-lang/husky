@@ -2,7 +2,7 @@ use super::FeatureEvaluator;
 use crate::*;
 use cyclic_slice::CyclicSlice;
 use husky_check_utils::should_eq;
-use husky_entity_semantics::EntityDefnQueryGroup;
+use husky_entity_semantics::{EntityDefnQueryGroup, Visualizer, VisualizerVariant};
 use husky_feature_gen::*;
 use husky_lazy_semantics::LazyStmt;
 use husky_print_utils::{epin, msg_once, p};
@@ -19,10 +19,22 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
     where
         'eval: 'static,
     {
-        let visualizer = self.db.compile_time().visualizer(this.ty());
-        todo!();
-        msg_once!("todo: reimplement visualize");
-        Ok(VisualData::Primitive { value: ().into() })
+        let visualizer: Arc<Visualizer> = self.db.compile_time().visualizer(this.ty());
+        match visualizer.variant {
+            VisualizerVariant::Vec {} => self.visualize_vec(),
+            VisualizerVariant::CyclicSlice => self.visualize_cyclic_slice(),
+            VisualizerVariant::Custom { ref opt_stmts } => {
+                if opt_stmts.is_none() {
+                    Ok(VisualData::Primitive { value: ().into() })
+                } else {
+                    let visual_feature_lazy_block = self.db.visual_feature_lazy_block(this)?;
+                    Ok(self
+                        .eval_feature_lazy_block(&visual_feature_lazy_block)?
+                        .downcast_eval_ref::<VisualData>()
+                        .clone())
+                }
+            }
+        }
         // let visualizer = self.db.compile_time().visualizer(this.ty());
         // let this_value = self.eval_feature_repr_cached(&this).unwrap();
         // todo!()
@@ -45,12 +57,14 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
         // {
         //     return Ok(visual_data);
         // }
-        // let visual_feature = self.db.visual_feature_repr(this)?;
-        // Ok(self
-        //     .eval_feature_repr(&visual_feature)?
-        //     .any_ref()
-        //     .__downcast_ref::<VisualData>()
-        //     .clone())
+    }
+
+    fn visualize_vec(&self) -> __VMResult<VisualData> {
+        todo!()
+    }
+
+    fn visualize_cyclic_slice(&self) -> __VMResult<VisualData> {
+        todo!()
     }
 }
 

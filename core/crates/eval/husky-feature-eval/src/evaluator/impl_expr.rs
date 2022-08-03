@@ -197,7 +197,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .iter()
                         .map(
                             |(ident, argument)| {
-                                self.eval_expr(argument).map(|v| (*ident, v.json_value()))
+                                self.eval_expr(argument)
+                                    .map(|v| (*ident, self.serialize(&v, argument.expr.ty())))
                             },
                             // argument.any_ref().to_json_value_dyn()
                         )

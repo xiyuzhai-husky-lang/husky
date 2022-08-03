@@ -1,0 +1,14 @@
+[package]
+name = "husky-data-viewer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+salsa = "0.17.0-pre.2"
+husky-compile-time = { path = "../../compile/husky-compile-time" }
+husky-vm-interface = { path = "../../vm/husky-vm-interface" }
+entity-kind = { path = "../../syntax/entity-kind" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-vm-binding = { path = "../../vm/husky-vm-binding" }
+husky-word = { path = "../../syntax/husky-word" }

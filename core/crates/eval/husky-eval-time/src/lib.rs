@@ -34,7 +34,8 @@ use vm::{Instruction, VMConfig};
 
 #[salsa::database(
     husky_feature_gen::FeatureGenQueryGroupStorage,
-    husky_instruction_gen::InstructionGenQueryGroupStorage
+    husky_instruction_gen::InstructionGenQueryGroupStorage,
+    husky_data_viewer::HuskyDataViewerQueryGroupStorage
 )]
 pub struct HuskyEvalTime {
     storage: salsa::Storage<HuskyEvalTime>,

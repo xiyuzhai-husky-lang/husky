@@ -403,7 +403,7 @@ impl<'a> FeatureExprBuilder<'a> {
             linkage: self
                 .db
                 .compile_time()
-                .element_access_linkage(opds.map(|opd| opd.expr.ty()))
+                .index_linkage(opds.map(|opd| opd.expr.ty()))
                 .bind(element_binding),
             opds,
         };

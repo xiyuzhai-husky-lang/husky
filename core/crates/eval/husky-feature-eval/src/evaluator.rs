@@ -5,6 +5,7 @@ mod impl_cached;
 mod impl_eval_context;
 mod impl_expr;
 mod impl_repr;
+mod impl_serialize;
 mod impl_stmt;
 mod impl_visualize;
 mod indicator;

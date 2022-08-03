@@ -110,7 +110,7 @@ fn is_explicitly_castable(
     }
     let src_ty_decl = db.ty_decl(src_ty)?;
     let dst_ty_decl = db.ty_decl(dst_ty)?;
-    Ok(match src_ty_decl.kind {
+    Ok(match src_ty_decl.ty_kind {
         TyKind::Enum => match dst_ty {
             EntityRoutePtr::Root(dst_ty_ident) => match dst_ty_ident {
                 RootIdentifier::I32 | RootIdentifier::B32 | RootIdentifier::B64 => true,
