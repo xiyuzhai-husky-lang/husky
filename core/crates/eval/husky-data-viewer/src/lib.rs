@@ -19,11 +19,13 @@ pub enum HuskyDataViewer {
     Vec {
         ilen: __LinkageFp,
         index: __Linkage,
+        elem_ty: EntityRoutePtr,
     },
     CyclicSlice {
         start: __LinkageFp,
         end: __LinkageFp,
         index: __Linkage,
+        elem_ty: EntityRoutePtr,
     },
 }
 
@@ -63,25 +65,42 @@ impl HuskyDataViewer {
                     })
                     .collect(),
             ),
-            HuskyDataViewer::Vec { .. } | HuskyDataViewer::CyclicSlice { .. } => todo!(),
+            HuskyDataViewer::Vec { elem_ty, .. } => {
+                let elem_data_viewer = db.ty_data_viewer(*elem_ty);
+                serde_json::Value::Array(
+                    self.member_temp_iter(value)
+                        .map(|elem| elem_data_viewer.serialize(db, &elem))
+                        .collect(),
+                )
+            }
+            HuskyDataViewer::CyclicSlice { elem_ty, .. } => {
+                let elem_data_viewer = db.ty_data_viewer(*elem_ty);
+                serde_json::Value::Array(
+                    self.member_temp_iter(value)
+                        .map(|elem| elem_data_viewer.serialize(db, &elem))
+                        .collect(),
+                )
+            }
         }
     }
 
-    pub fn member_eval_iter<'a, 'eval>(
+    pub fn member_eval_indexed_iter<'a, 'eval>(
         &'a self,
         value: &'a __Register<'eval>,
     ) -> impl Iterator<Item = (i32, __Register<'eval>)> + 'a {
         let (start, end, index) = match self {
             HuskyDataViewer::Primitive { ty } => todo!(),
             HuskyDataViewer::Struct { fields } => todo!(),
-            HuskyDataViewer::Vec { ilen, index } => {
+            HuskyDataViewer::Vec { ilen, index, .. } => {
                 let ilen = ilen
                     .call(None, &mut vec![value.temp_bind_eval_ref()])
                     .downcast_i32();
                 let index = index.bind(Binding::EvalRef);
                 (0, ilen, index)
             }
-            HuskyDataViewer::CyclicSlice { start, end, index } => {
+            HuskyDataViewer::CyclicSlice {
+                start, end, index, ..
+            } => {
                 let start = start
                     .call(None, &mut vec![value.temp_bind_eval_ref()])
                     .downcast_i32();
@@ -98,5 +117,37 @@ impl HuskyDataViewer {
                 index.call(None, &mut vec![value.temp_bind_eval_ref(), i.to_register()]),
             )
         })
+    }
+
+    pub fn member_temp_iter<'a, 'eval>(
+        &'a self,
+        value: &'a __Register<'eval>,
+    ) -> impl Iterator<Item = __Register<'eval>> + 'a {
+        let (start, end, index) = match self {
+            HuskyDataViewer::Primitive { ty } => todo!(),
+            HuskyDataViewer::Struct { fields } => todo!(),
+            HuskyDataViewer::Vec { ilen, index, .. } => {
+                let ilen = ilen
+                    .call(None, &mut vec![value.bind_temp_ref()])
+                    .downcast_i32();
+                let index = index.bind(Binding::TempRef);
+                (0, ilen, index)
+            }
+            HuskyDataViewer::CyclicSlice {
+                start, end, index, ..
+            } => {
+                let start = start
+                    .call(None, &mut vec![value.bind_temp_ref()])
+                    .downcast_i32();
+                let end = end
+                    .call(None, &mut vec![value.bind_temp_ref()])
+                    .downcast_i32();
+                let index = index.bind(Binding::TempRef);
+                (start, end, index)
+            }
+        };
+        (start..end)
+            .into_iter()
+            .map(move |i| index.call(None, &mut vec![value.bind_temp_ref(), i.to_register()]))
     }
 }

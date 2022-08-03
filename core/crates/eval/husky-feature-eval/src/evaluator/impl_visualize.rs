@@ -26,7 +26,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                 let ty_data_viewer = self.db.ty_data_viewer(ty);
                 let value = self.eval_feature_repr_cached(&this)?;
                 let mut elements = vec![];
-                for (index, element) in ty_data_viewer.member_eval_iter(&value) {
+                for (index, element) in ty_data_viewer.member_eval_indexed_iter(&value) {
                     elements.push(self.visualize_feature(FeatureRepr::Value {
                         value: element,
                         file: this.file(),
