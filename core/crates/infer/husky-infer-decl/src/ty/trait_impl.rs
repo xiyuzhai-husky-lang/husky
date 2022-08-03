@@ -121,7 +121,18 @@ fn derive_is_copyable(
         TyKind::Primitive => true,
         TyKind::Vec => false,
         TyKind::Array => false,
-        TyKind::Other => false,
+        TyKind::Slice => todo!(),
+        TyKind::CyclicSlice => todo!(),
+        TyKind::Tuple => todo!(),
+        TyKind::Mor => todo!(),
+        TyKind::Fp => todo!(),
+        TyKind::AssociatedAny => todo!(),
+        TyKind::ThisAny => todo!(),
+        TyKind::SpatialPlaceholderAny => todo!(),
+        TyKind::BoxAny => todo!(),
+        TyKind::HigherKind => todo!(),
+        TyKind::Ref => todo!(),
+        TyKind::Option => todo!(),
     }
 }
 
@@ -175,10 +186,18 @@ fn derive_is_clonable(
             true
         }
         TyKind::Array => true,
-        TyKind::Other => {
-            msg_once!("Examine this more closely");
-            true
-        }
+        TyKind::Slice => todo!(),
+        TyKind::CyclicSlice => todo!(),
+        TyKind::Tuple => todo!(),
+        TyKind::Mor => todo!(),
+        TyKind::Fp => todo!(),
+        TyKind::AssociatedAny => todo!(),
+        TyKind::ThisAny => todo!(),
+        TyKind::SpatialPlaceholderAny => todo!(),
+        TyKind::BoxAny => todo!(),
+        TyKind::HigherKind => todo!(),
+        TyKind::Ref => todo!(),
+        TyKind::Option => todo!(),
     })
 }
 

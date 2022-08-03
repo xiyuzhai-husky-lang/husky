@@ -43,7 +43,7 @@ pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         static_trait_impls: &[],
         ty_members: &[],
         variants: &[],
-        kind: TyKind::Other,
+        kind: TyKind::BoxAny,
         visual_ty: StaticVisualTy::Dataset,
         opt_type_call: None,
     },

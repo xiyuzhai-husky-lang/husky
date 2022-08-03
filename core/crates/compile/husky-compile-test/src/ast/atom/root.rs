@@ -117,7 +117,7 @@ fn tuple_generics() {
         "Tuple",
         HuskyAtomVariant::EntityRoute {
             route: RootIdentifier::Tuple.into(),
-            kind: EntityKind::Type(TyKind::Other),
+            kind: EntityKind::Type(TyKind::Tuple),
         },
     );
 }

@@ -106,7 +106,18 @@ impl<'a> Formatter<'a> {
                     TyKind::Primitive => todo!(),
                     TyKind::Vec => todo!(),
                     TyKind::Array => todo!(),
-                    TyKind::Other => todo!(),
+                    TyKind::Slice => todo!(),
+                    TyKind::CyclicSlice => todo!(),
+                    TyKind::Tuple => todo!(),
+                    TyKind::Mor => todo!(),
+                    TyKind::Fp => todo!(),
+                    TyKind::AssociatedAny => todo!(),
+                    TyKind::ThisAny => todo!(),
+                    TyKind::SpatialPlaceholderAny => todo!(),
+                    TyKind::BoxAny => todo!(),
+                    TyKind::HigherKind => todo!(),
+                    TyKind::Ref => todo!(),
+                    TyKind::Option => todo!(),
                 }
                 self.fmt_ident(ident.ident.into());
                 if spatial_parameters.len() > 0 {

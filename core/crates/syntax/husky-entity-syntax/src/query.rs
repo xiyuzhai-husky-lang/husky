@@ -101,14 +101,14 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::B64
             | RootIdentifier::Bool => EntityKind::Type(TyKind::Primitive),
             RootIdentifier::Vec => EntityKind::Type(TyKind::Vec),
-            RootIdentifier::Tuple
-            | RootIdentifier::Mor
-            | RootIdentifier::Fp
-            | RootIdentifier::Array
-            | RootIdentifier::DatasetType
-            | RootIdentifier::TraitType
-            | RootIdentifier::TypeType
-            | RootIdentifier::ModuleType => EntityKind::Type(TyKind::Other),
+            RootIdentifier::Tuple => EntityKind::Type(TyKind::Tuple),
+            RootIdentifier::Mor => todo!(),
+            RootIdentifier::Fp => todo!(),
+            RootIdentifier::Array => todo!(),
+            RootIdentifier::DatasetType => EntityKind::Type(TyKind::BoxAny),
+            RootIdentifier::TraitType | RootIdentifier::TypeType | RootIdentifier::ModuleType => {
+                EntityKind::Type(TyKind::HigherKind)
+            }
             RootIdentifier::True | RootIdentifier::False => EntityKind::EnumLiteral,
             RootIdentifier::Fn | RootIdentifier::FnMut | RootIdentifier::FnOnce => {
                 EntityKind::Trait
@@ -121,8 +121,8 @@ fn entity_kind_from_entity_route_kind(
             | RootIdentifier::CopyTrait
             | RootIdentifier::PartialEqTrait
             | RootIdentifier::EqTrait => EntityKind::Trait,
-            RootIdentifier::Ref => EntityKind::Type(TyKind::Other),
-            RootIdentifier::Option => EntityKind::Type(TyKind::Other),
+            RootIdentifier::Ref => EntityKind::Type(TyKind::Ref),
+            RootIdentifier::Option => EntityKind::Type(TyKind::Option),
             RootIdentifier::VisualType => todo!(),
         },
         EntityRouteKind::Package { .. } => EntityKind::Module,
@@ -132,7 +132,7 @@ fn entity_kind_from_entity_route_kind(
         },
         EntityRouteKind::Input { .. } => EntityKind::Feature,
         EntityRouteKind::Generic { entity_kind, .. } => entity_kind,
-        EntityRouteKind::ThisType => EntityKind::Type(TyKind::Other),
+        EntityRouteKind::ThisType => EntityKind::Type(TyKind::ThisAny),
         EntityRouteKind::TypeAsTraitMember { .. } => {
             EntityKind::Member(MemberKind::TraitAssociatedAny)
         }

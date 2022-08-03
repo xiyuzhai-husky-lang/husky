@@ -9,7 +9,7 @@ use vec_like::VecMapEntry;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SpatialParameter {
     pub ident: RangedCustomIdentifier,
-    pub variant: GenericPlaceholderVariant,
+    pub variant: SpatialPlaceholderVariant,
 }
 
 impl VecMapEntry<CustomIdentifier> for SpatialParameter {
@@ -19,7 +19,7 @@ impl VecMapEntry<CustomIdentifier> for SpatialParameter {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum GenericPlaceholderVariant {
+pub enum SpatialPlaceholderVariant {
     Const,
     Type { traits: Vec<RangedEntityRoute> },
 }
@@ -33,8 +33,10 @@ impl SpatialParameter {
 impl SpatialParameter {
     pub fn entity_kind(&self) -> EntityKind {
         match self.variant {
-            GenericPlaceholderVariant::Const => todo!(),
-            GenericPlaceholderVariant::Type { .. } => EntityKind::Type(TyKind::Other),
+            SpatialPlaceholderVariant::Const => todo!(),
+            SpatialPlaceholderVariant::Type { .. } => {
+                EntityKind::Type(TyKind::SpatialPlaceholderAny)
+            }
         }
     }
 }

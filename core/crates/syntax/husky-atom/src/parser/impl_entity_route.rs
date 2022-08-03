@@ -18,19 +18,24 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         SemanticTokenKind::Special,
                         token.range,
                     ));
-                let route = if try_eat!(self, SpecialToken::RBox) {
-                    self.vec_ty()?
+                let (route, ty_kind) = if try_eat!(self, SpecialToken::RBox) {
+                    (self.vec_ty()?, TyKind::Vec)
                 } else if try_eat!(self, SpecialToken::Modulo) {
                     eat!(self, token_kind, SpecialToken::RBox.into());
                     let element = self.generic()?;
-                    entity_route_menu().std_slice_cyclic_slice.call([element])
+                    (
+                        entity_route_menu().std_slice_cyclic_slice.call([element]),
+                        TyKind::CyclicSlice,
+                    )
                 } else if let Some(size) = try_get!(self, usize_literal) {
                     if !try_eat!(self, special, SpecialToken::RBox) {
                         return Ok(None);
                     }
                     if let Some(token) = self.token_stream.peek() {
                         match token.left_convexity() {
-                            Some(Convexity::Convex) => EntityRoute::array(self.generic()?, size),
+                            Some(Convexity::Convex) => {
+                                (EntityRoute::array(self.generic()?, size), TyKind::Array)
+                            }
                             _ => return Ok(None),
                         }
                     } else {
@@ -44,7 +49,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         .atom_context
                         .entity_syntax_db()
                         .intern_entity_route(route),
-                    kind: EntityKind::Type(TyKind::Other),
+                    kind: EntityKind::Type(ty_kind),
                 })
             } else if is_special!(token, "&") {
                 let ty = get!(self, ty?);
@@ -52,7 +57,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     route: self
                         .db()
                         .route_call(RootIdentifier::Ref.into(), thin_vec![ty.into()]),
-                    kind: EntityKind::Type(TyKind::Other),
+                    kind: EntityKind::Type(TyKind::Ref),
                 })
             } else if is_special!(token, "?") {
                 let ty = get!(self, ty?);
@@ -60,7 +65,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     route: self
                         .db()
                         .route_call(RootIdentifier::Option.into(), thin_vec![ty.into()]),
-                    kind: EntityKind::Type(TyKind::Other),
+                    kind: EntityKind::Type(TyKind::Option),
                 })
             } else if let HuskyTokenKind::Identifier(ident) = token.kind {
                 let symbol_kind = self.atom_context.resolve_symbol_kind(ident, token.range)?;

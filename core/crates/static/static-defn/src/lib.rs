@@ -102,7 +102,9 @@ impl EntityStaticDefnVariant {
             EntityStaticDefnVariant::Method { .. } => {
                 EntityKind::Member(MemberKind::Method { is_lazy: false })
             }
-            EntityStaticDefnVariant::TraitAssociatedType { .. } => EntityKind::Type(TyKind::Other),
+            EntityStaticDefnVariant::TraitAssociatedType { .. } => {
+                EntityKind::Type(TyKind::AssociatedAny)
+            }
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),

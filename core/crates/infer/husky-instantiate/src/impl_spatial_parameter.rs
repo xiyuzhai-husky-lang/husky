@@ -12,8 +12,8 @@ impl FilterInstantiable for SpatialParameter {
         Some(SpatialParameter {
             ident: self.ident,
             variant: match self.variant {
-                GenericPlaceholderVariant::Const => GenericPlaceholderVariant::Const,
-                GenericPlaceholderVariant::Type { ref traits } => GenericPlaceholderVariant::Type {
+                SpatialPlaceholderVariant::Const => SpatialPlaceholderVariant::Const,
+                SpatialPlaceholderVariant::Type { ref traits } => SpatialPlaceholderVariant::Type {
                     traits: traits.map(|trai| todo!()),
                 },
             },

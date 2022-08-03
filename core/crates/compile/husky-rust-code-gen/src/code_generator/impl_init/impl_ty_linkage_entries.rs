@@ -18,7 +18,18 @@ impl<'a> RustCodeGenerator<'a> {
             TyKind::Primitive => todo!(),
             TyKind::Vec => todo!(),
             TyKind::Array => todo!(),
-            TyKind::Other => todo!(),
+            TyKind::Slice => todo!(),
+            TyKind::CyclicSlice => todo!(),
+            TyKind::Tuple => todo!(),
+            TyKind::Mor => todo!(),
+            TyKind::Fp => todo!(),
+            TyKind::AssociatedAny => todo!(),
+            TyKind::ThisAny => todo!(),
+            TyKind::SpatialPlaceholderAny => todo!(),
+            TyKind::BoxAny => todo!(),
+            TyKind::HigherKind => todo!(),
+            TyKind::Ref => todo!(),
+            TyKind::Option => todo!(),
         }
         for member in members.iter() {
             let is_defn_static = self.db.is_defn_static(entity_route);
