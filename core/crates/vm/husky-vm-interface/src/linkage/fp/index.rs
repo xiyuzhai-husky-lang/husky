@@ -12,7 +12,7 @@ macro_rules! index_copy_fp {
         __LinkageFp {
             wrapper,
             opt_fp: None,
-            dev_src: husky_dev_utils::static_dev_src!(),
+            dev_src: static_dev_src!(),
         }
     }};
 }
@@ -31,7 +31,7 @@ macro_rules! index_eval_ref_fp {
         __LinkageFp {
             wrapper,
             opt_fp: None,
-            dev_src: husky_dev_utils::static_dev_src!(),
+            dev_src: static_dev_src!(),
         }
     }};
 }
@@ -42,7 +42,7 @@ macro_rules! index_temp_ref_fp {
         __LinkageFp {
             wrapper: |_, values| -> __Register { todo!("temp ref") },
             opt_fp: None,
-            dev_src: husky_dev_utils::static_dev_src!(),
+            dev_src: static_dev_src!(),
         }
     }};
 }
@@ -53,7 +53,7 @@ macro_rules! index_move_fp {
         __LinkageFp {
             wrapper: |_, values| -> __Register { todo!("move") },
             opt_fp: None,
-            dev_src: husky_dev_utils::static_dev_src!(),
+            dev_src: static_dev_src!(),
         }
     }};
 }
@@ -72,7 +72,7 @@ macro_rules! index_temp_mut_fp {
         __LinkageFp {
             wrapper,
             opt_fp: None,
-            dev_src: husky_dev_utils::static_dev_src!(),
+            dev_src: static_dev_src!(),
         }
     }};
 }

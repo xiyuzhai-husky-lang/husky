@@ -11,69 +11,8 @@ impl<'a> RustCodeGenerator<'a> {
         if let Some(_) = opt_type_call {
             self.gen_type_call_linkage(entity_route);
         }
-        match ty_kind {
-            TyKind::Enum => todo!(),
-            TyKind::Record => todo!(),
-            TyKind::Struct => todo!(),
-            TyKind::Primitive => todo!(),
-            TyKind::Vec => todo!(),
-            TyKind::Array => todo!(),
-            TyKind::Slice => todo!(),
-            TyKind::CyclicSlice => todo!(),
-            TyKind::Tuple => todo!(),
-            TyKind::Mor => todo!(),
-            TyKind::Fp => todo!(),
-            TyKind::AssociatedAny => todo!(),
-            TyKind::ThisAny => todo!(),
-            TyKind::SpatialPlaceholderAny => todo!(),
-            TyKind::BoxAny => todo!(),
-            TyKind::HigherKind => todo!(),
-            TyKind::Ref => todo!(),
-            TyKind::Option => todo!(),
-        }
-        for member in members.iter() {
-            let is_defn_static = self.db.is_defn_static(entity_route);
-            match member.variant {
-                EntityDefnVariant::TyField {
-                    ty,
-                    ref field_variant,
-                    liason,
-                    opt_linkage,
-                } => self.gen_ty_field_linkages(field_variant, member, liason, entity_route, ty),
-                _ => {
-                    break;
-                    // let member_entity_route = match member.base_route.kind {
-                    //     EntityRouteKind::Root { ident } => {
-                    //         p!(member.base_route, member.ident);
-                    //         todo!()
-                    //     }
-                    //     EntityRouteKind::Package { main, ident } => todo!(),
-                    //     EntityRouteKind::Child { parent, ident } => {
-                    //         make_subroute(entity_route, member.ident.custom(), Default::default())
-                    //     }
-                    //     EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
-                    //         msg_once!("todo: ignore trait that is generic over a specific type");
-                    //         make_type_as_trait_member_route(
-                    //             entity_route,
-                    //             trai,
-                    //             ident,
-                    //             Default::default(),
-                    //         )
-                    //     }
-                    //     EntityRouteKind::Input { main } => todo!(),
-                    //     EntityRouteKind::Generic { ident, entity_kind } => todo!(),
-                    //     EntityRouteKind::ThisType => todo!(),
-                    // };
-                    // todo!();
-                    // self.gen_linkage_entry(member_entity_route, member);
-                    // if is_defn_static {
-                    //     todo!();
-                    // } else {
-                    //     break;
-                    // }
-                }
-            }
-        }
+        // currently field and index are always generated
+        self.gen_member_access_linkages(members, entity_route);
     }
 
     fn gen_type_call_linkage(&mut self, entity_route: EntityRoutePtr) {
@@ -101,7 +40,45 @@ impl<'a> RustCodeGenerator<'a> {
         self.write("\n    ),");
     }
 
-    fn gen_ty_field_linkages(
+    fn gen_member_access_linkages(
+        &mut self,
+        members: &Arc<Vec<Arc<EntityDefn>>>,
+        entity_route: EntityRoutePtr,
+    ) {
+        for member in members.iter() {
+            let is_defn_static = self.db.is_defn_static(entity_route);
+            match member.variant {
+                EntityDefnVariant::TyField {
+                    ty,
+                    ref field_variant,
+                    liason,
+                    opt_linkage,
+                } => {
+                    self.gen_struct_field_linkages(field_variant, member, liason, entity_route, ty)
+                }
+                _ => {
+                    let member_entity_route = match member.base_route.kind {
+                        EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                            if trai.kind == entity_route_menu().std_ops_index_trai.kind {
+                                make_type_as_trait_member_route(
+                                    entity_route,
+                                    trai,
+                                    ident,
+                                    Default::default(),
+                                )
+                            } else {
+                                todo!()
+                            }
+                        }
+                        _ => continue,
+                    };
+                    self.gen_linkage_entry(member_entity_route, member);
+                }
+            }
+        }
+    }
+
+    fn gen_struct_field_linkages(
         &mut self,
         field_variant: &FieldDefnVariant,
         member: &Arc<EntityDefn>,
