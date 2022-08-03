@@ -63,7 +63,9 @@ impl Graphics2dCanvasData {
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
-            _ => panic!(),
+            _ => {
+                panic!()
+            }
         }
     }
 }

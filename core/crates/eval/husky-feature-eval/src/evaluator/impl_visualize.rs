@@ -19,6 +19,8 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
     where
         'eval: 'static,
     {
+        let visualizer = self.db.compile_time().visualizer(this.ty());
+        todo!();
         msg_once!("todo: reimplement visualize");
         Ok(VisualData::Primitive { value: ().into() })
         // let visualizer = self.db.compile_time().visualizer(this.ty());
