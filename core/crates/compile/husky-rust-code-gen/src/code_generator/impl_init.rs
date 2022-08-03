@@ -4,7 +4,9 @@ use husky_entity_route::entity_route_menu;
 use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
 use husky_word::RootIdentifier;
-use infer_decl::{CallFormDecl, OutputDecl, ParameterDecl, TyDecl, VariadicTemplate};
+use infer_decl::{
+    CallFormDecl, OutputDecl, ParameterDecl, TraitMemberImplDecl, TyDecl, VariadicTemplate,
+};
 
 use super::*;
 
@@ -63,10 +65,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 output,
                 ref source,
             } => todo!(),
-            EntityDefnVariant::Method {
-                method_defn_kind, ..
-            } => {
-                self.gen_method_linkage_entry(method_defn_kind, entity_route);
+            EntityDefnVariant::Method { .. } => {
+                self.gen_method_linkage_entry(entity_route);
             }
             EntityDefnVariant::Func {
                 ref spatial_parameters,
@@ -147,14 +147,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         }
     }
 
-    fn gen_method_linkage_entry(
-        &mut self,
-        method_defn_kind: MethodDefnKind,
-        entity_route: EntityRoutePtr,
-    ) {
-        self.write("\n    (\n");
-        match method_defn_kind {
-            MethodDefnKind::TypeMethod { .. } => {
+    fn gen_method_linkage_entry(&mut self, entity_route: EntityRoutePtr) {
+        self.write(
+            r#"
+    ("#,
+        );
+        match entity_route.kind {
+            EntityRouteKind::Child { parent, ident } => {
                 self.write(&format!(
                     r#"
         __StaticLinkageKey::Routine {{ route: "{entity_route}" }},"#,
@@ -185,26 +184,29 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     ),
                 }
             }
-            MethodDefnKind::TraitMethod { trai } => todo!(),
-            MethodDefnKind::TraitMethodImpl { trai } => {
+            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
                 if trai.kind == entity_route_menu().std_ops_index_trai.kind {
-                    match entity_route.kind {
-                        EntityRouteKind::Root { ident } => todo!(),
-                        EntityRouteKind::Package { main, ident } => todo!(),
-                        EntityRouteKind::Child { parent, ident } => todo!(),
-                        EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
-                            self.gen_index_linkage(ty)
-                        }
-                        EntityRouteKind::Input { main } => todo!(),
-                        EntityRouteKind::Generic { ident, entity_kind } => todo!(),
-                        EntityRouteKind::ThisType => todo!(),
-                    }
+                    let this_ty_decl = self.db.ty_decl(ty).unwrap();
+                    let trai_impl = this_ty_decl.trait_impl(trai).unwrap();
+                    let elem_ty = match trai_impl.member_impls[0] {
+                        TraitMemberImplDecl::AssociatedType { ty, .. } => ty,
+                        _ => panic!(),
+                    };
+                    self.gen_index_linkage(ty, elem_ty)
                 } else {
                     todo!()
                 }
             }
+            EntityRouteKind::Root { ident } => todo!(),
+            EntityRouteKind::Package { main, ident } => todo!(),
+            EntityRouteKind::Input { main } => todo!(),
+            EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+            EntityRouteKind::ThisType => todo!(),
         }
-        self.write("\n    ),");
+        self.write(
+            r#"
+    ),"#,
+        );
     }
 
     fn gen_specific_routine_linkage(
@@ -384,7 +386,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
     }
 
-    fn gen_index_linkage(&mut self, ty: EntityRoutePtr) {
+    fn gen_index_linkage(&mut self, ty: EntityRoutePtr, elem_ty: EntityRoutePtr) {
         msg_once!("todo: generic indexing");
         self.write(&format!(
             r#"
@@ -396,8 +398,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             r#"
         index_linkage!("#
         ));
+        let mangled_ty_vtable = self.db.mangled_ty_vtable(ty);
         self.gen_entity_route(ty, EntityRouteRole::Decl);
-        self.write(")")
+        let copy_kind: &'static str = if self.db.is_copyable(ty).unwrap() {
+            match ty {
+                EntityRoutePtr::Root(root_identifer) => match root_identifer {
+                    RootIdentifier::Void
+                    | RootIdentifier::I32
+                    | RootIdentifier::I64
+                    | RootIdentifier::F32
+                    | RootIdentifier::F64
+                    | RootIdentifier::B32
+                    | RootIdentifier::B64
+                    | RootIdentifier::Bool => "direct",
+                    _ => panic!(),
+                },
+                EntityRoutePtr::Custom(_) => "box",
+                EntityRoutePtr::ThisType => todo!(),
+            }
+        } else {
+            "invalid"
+        };
+        self.write(format!(
+            ", __registration__::{mangled_ty_vtable}, __registration__::__I32_VTABLE, {copy_kind})"
+        ))
     }
 
     fn gen_parameter_downcast(&mut self, i: usize, parameter: &ParameterDecl) {
