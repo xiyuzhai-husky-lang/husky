@@ -10,6 +10,7 @@ pub struct __RegisterVTable {
     pub drop: unsafe extern "C" fn(data: *mut ()),
     pub eq: unsafe extern "C" fn(this: &(), this: &()) -> bool,
     pub assign: unsafe extern "C" fn(args: *mut __Register),
+    pub typename_str: &'static str,
 }
 
 unsafe impl Sync for __RegisterVTable {}

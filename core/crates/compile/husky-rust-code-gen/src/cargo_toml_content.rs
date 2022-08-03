@@ -27,6 +27,14 @@ __husky = {{ path = "{husky_dir}/core/crates/static/__husky" }}
 
 [lib]
 crate-type = ["cdylib"]
+
+[profile.dev]
+opt-level = 3
+lto = true
+
+[profile.release]
+opt-level = 3
+lto = true
 "#
     )
 }
