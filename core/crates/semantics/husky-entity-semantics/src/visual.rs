@@ -34,8 +34,7 @@ pub struct Visualizer {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum VisualizerVariant {
-    Vec,
-    CyclicSlice,
+    Group { element_ty: EntityRoutePtr },
     Custom { opt_stmts: Option<Avec<LazyStmt>> },
 }
 
@@ -65,9 +64,9 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
                     opt_stmts: opt_visual_stmts.clone(),
                 },
                 TyKind::Primitive => todo!(),
-                TyKind::Vec => VisualizerVariant::Vec,
-                TyKind::Slice => todo!(),
-                TyKind::CyclicSlice => VisualizerVariant::CyclicSlice,
+                TyKind::Vec | TyKind::Slice | TyKind::CyclicSlice => VisualizerVariant::Group {
+                    element_ty: ty.spatial_arguments[0].take_entity_route(),
+                },
                 TyKind::Array => todo!(),
                 TyKind::Tuple => todo!(),
                 TyKind::Mor => todo!(),

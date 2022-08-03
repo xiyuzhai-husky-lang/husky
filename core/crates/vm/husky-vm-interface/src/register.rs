@@ -24,7 +24,7 @@ pub struct __Register<'eval> {
 
 impl<'eval> std::hash::Hash for __Register<'eval> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        todo!()
+        unsafe { self.data.as_ptr.hash(state) }
     }
 }
 

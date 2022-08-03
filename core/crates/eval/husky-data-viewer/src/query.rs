@@ -13,17 +13,38 @@ pub trait HuskyDataViewerQueryGroup: AskCompileTime {
 
 fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc<HuskyDataViewer> {
     let ty_decl: Arc<TyDecl> = db.compile_time().ty_decl(ty).unwrap();
+    let comptime = db.compile_time();
     Arc::new(match ty_decl.ty_kind {
         TyKind::Enum => todo!(),
         TyKind::Record => todo!(),
-        TyKind::Struct => todo!(),
+        TyKind::Struct => HuskyDataViewer::Struct {
+            fields: {
+                let mut fields: IdentPairDict<(__Linkage, EntityRoutePtr)> = Default::default();
+                for ty_member in ty_decl.ty_members.iter() {
+                    match ty_member {
+                        TyMemberDecl::Field(field) => fields
+                            .insert_new((
+                                field.ident,
+                                (comptime.field_linkage(ty, field.ident).unwrap(), field.ty),
+                            ))
+                            .unwrap(),
+                        _ => break,
+                    }
+                }
+                fields
+            },
+        },
         TyKind::Primitive => todo!(),
         TyKind::Vec => HuskyDataViewer::Vec {
-            len: todo!(),
-            index: db
-                .compile_time()
-                .index_linkage(vec![ty, RootIdentifier::I32.into()])
-                .bind(Binding::TempRef),
+            ilen: comptime
+                .method_linkage(comptime.subroute(
+                    ty,
+                    comptime.intern_word("ilen").custom(),
+                    Default::default(),
+                ))
+                .unwrap()
+                .transfer(),
+            index: comptime.index_linkage(vec![ty, RootIdentifier::I32.into()]),
         },
         TyKind::Slice => todo!(),
         TyKind::CyclicSlice => todo!(),

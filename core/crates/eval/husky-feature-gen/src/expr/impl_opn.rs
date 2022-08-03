@@ -279,7 +279,7 @@ impl<'a> FeatureExprBuilder<'a> {
                             .try_into()
                             .unwrap(),
                         field_binding,
-                        opt_linkage: self.db.compile_time().struct_field_access_linkage(
+                        opt_linkage: self.db.compile_time().field_linkage_fp(
                             this_ty,
                             field_ident.ident,
                             field_binding,
