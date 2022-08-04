@@ -23,6 +23,7 @@ impl HuskyTraceTime {
                 self.runtime().eval_feature_repr(block, sample_id),
                 block.ty(),
             ),
+            TraceVariant::Module { .. } => todo!(),
             TraceVariant::FeatureLazyStmt(ref stmt) => match stmt.variant {
                 FeatureLazyStmtVariant::Init { varname, ref value } => {
                     self.trace_stalk_from_expr(value, sample_id)

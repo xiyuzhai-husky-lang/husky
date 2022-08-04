@@ -26,6 +26,8 @@ pub trait EntitySyntaxSalsaQueryGroup:
     fn entity_kind(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityKind>;
 
     fn entity_source(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntitySource>;
+
+    fn submodules(&self, module: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
 }
 
 fn subroute_table(
@@ -77,6 +79,18 @@ fn subscopes(
     Arc::new(db.subroute_table(entity_route).map_or(Vec::new(), |table| {
         table.subroute_iter(db, entity_route).collect()
     }))
+}
+
+fn submodules(
+    db: &dyn EntitySyntaxSalsaQueryGroup,
+    module: EntityRoutePtr,
+) -> Arc<Vec<EntityRoutePtr>> {
+    Arc::new(
+        db.subroute_table(module)
+            .unwrap()
+            .submodule_route_iter(db, module)
+            .collect(),
+    )
 }
 
 fn entity_kind(

@@ -24,7 +24,8 @@ impl TraceStalkKey {
                 trace_id,
                 sample_id,
             },
-            TraceKind::LoopFrame
+            TraceKind::Module
+            | TraceKind::LoopFrame
             | TraceKind::FuncStmt
             | TraceKind::ProcStmt
             | TraceKind::ProcBranch

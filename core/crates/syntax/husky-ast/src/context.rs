@@ -65,7 +65,7 @@ impl std::fmt::Display for AstContext {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str(match self {
             AstContext::Package(_) => "package",
-            AstContext::Module(_) => "module",
+            AstContext::Module { .. } => "module",
             AstContext::Stmt { .. } => "stmt",
             AstContext::Visual => "visual",
             AstContext::Struct { .. } => "struct",

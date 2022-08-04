@@ -31,6 +31,7 @@ impl HuskyTraceTime {
         let trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(_)
+            | TraceVariant::Module { .. }
             | TraceVariant::FeatureLazyStmt(_)
             | TraceVariant::FeatureLazyBranch(_)
             | TraceVariant::FeatureLazyExpr(_)

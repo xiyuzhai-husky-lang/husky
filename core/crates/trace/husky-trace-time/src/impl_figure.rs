@@ -24,7 +24,7 @@ impl HuskyTraceTime {
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         let trace = self.trace(trace_id);
         Ok(match trace.variant {
-            TraceVariant::Main(_) => FigureCanvasData::void(),
+            TraceVariant::Main(_) | TraceVariant::Module { .. } => FigureCanvasData::void(),
             TraceVariant::FeatureLazyStmt(ref stmt) => self.feature_stmt_figure(stmt)?,
             TraceVariant::FeatureLazyBranch(_) => FigureCanvasData::void(),
             TraceVariant::FeatureLazyExpr(ref expr) => self.feature_expr_figure(expr)?,

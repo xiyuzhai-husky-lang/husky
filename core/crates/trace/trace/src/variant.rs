@@ -1,3 +1,4 @@
+use husky_entity_route::EntityRoutePtr;
 use husky_feature_gen::*;
 use husky_word::CustomIdentifier;
 use vm::{History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch, VMControl};
@@ -7,6 +8,11 @@ use crate::*;
 #[derive(Debug)]
 pub enum TraceVariant<'eval> {
     Main(FeatureRepr),
+    Module {
+        route: EntityRoutePtr,
+        file: FilePtr,
+        range: TextRange,
+    },
     FeatureLazyStmt(Arc<FeatureStmt>),
     FeatureLazyBranch(Arc<FeatureBranch>),
     FeatureLazyExpr(Arc<FeatureExpr>),
@@ -61,6 +67,7 @@ impl<'eval> TraceVariant<'eval> {
     pub fn kind(&self) -> TraceKind {
         match self {
             TraceVariant::Main(_) => TraceKind::Main,
+            TraceVariant::Module { .. } => TraceKind::Module,
             TraceVariant::FeatureLazyStmt(_) => TraceKind::FeatureStmt,
             TraceVariant::FeatureLazyBranch(_) => TraceKind::FeatureBranch,
             TraceVariant::FeatureLazyExpr(_) => TraceKind::FeatureExpr,
@@ -79,6 +86,7 @@ impl<'eval> TraceVariant<'eval> {
     pub fn file_and_range(&self) -> (FilePtr, TextRange) {
         match self {
             TraceVariant::Main(ref block) => (block.file(), block.text_range()),
+            TraceVariant::Module { file, range, .. } => (*file, *range),
             TraceVariant::FeatureLazyStmt(ref stmt) => (stmt.file, stmt.range),
             TraceVariant::FeatureLazyExpr(expr) => (expr.expr.file, expr.expr.range),
             TraceVariant::FeatureLazyBranch(ref branch) => (branch.block.file, branch.block.range),
@@ -120,6 +128,7 @@ impl<'eval> TraceVariant<'eval> {
             },
             TraceVariant::LoopFrame { .. }
             | TraceVariant::Main(_)
+            | TraceVariant::Module { .. }
             | TraceVariant::FeatureLazyBranch(_) => true,
             TraceVariant::FeatureLazyExpr(expr) => match expr.variant {
                 FeatureExprVariant::PrimitiveLiteral(_)
@@ -247,6 +256,7 @@ impl<'eval> TraceVariant<'eval> {
     pub fn reachable(&self) -> bool {
         match self {
             TraceVariant::Main(_) => true,
+            TraceVariant::Module { .. } => true,
             TraceVariant::FeatureLazyStmt(_)
             | TraceVariant::FeatureLazyBranch(_)
             | TraceVariant::FeatureLazyExpr(_) => true,
@@ -353,6 +363,7 @@ impl<'eval> Serialize for TraceVariant<'eval> {
     {
         serializer.serialize_str(match self {
             TraceVariant::Main(_) => "Main",
+            TraceVariant::Module { .. } => "Module",
             TraceVariant::FeatureLazyStmt(_) => "FeatureStmt",
             TraceVariant::FeatureLazyBranch(_) => "FeatureBranch",
             TraceVariant::FeatureLazyExpr(_) => "FeatureExpr",
