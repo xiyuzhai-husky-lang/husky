@@ -3,6 +3,7 @@ use husky_check_utils::should;
 use husky_entity_route::{base_route, entity_route_menu, make_route, SpatialArgument};
 use husky_instantiate::InstantiationContext;
 use husky_linkage_table::LinkageKey;
+use husky_word::RootIdentifier;
 use std::collections::{HashMap, HashSet};
 mod context;
 mod impl_entity;
@@ -25,6 +26,18 @@ impl<'a> LinkageCollector<'a> {
                 }
             }
             EntityRouteKind::Input { .. } => return,
+            EntityRouteKind::Root {
+                ident: RootIdentifier::Vec,
+            } => {
+                // ad hoc
+                if entity_route.spatial_arguments.len() > 0 {
+                    self.insert(self.db.subroute(
+                        entity_route,
+                        self.db.intern_word("ilen").custom(),
+                        Default::default(),
+                    ))
+                }
+            }
             _ => (),
         }
         for argument in entity_route.spatial_arguments.iter() {
