@@ -80,7 +80,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                     let text = self
-                        .eval_time_singleton
+                        .runtime_singleton
                         .compile_time()
                         .text(expr.file)
                         .unwrap();
@@ -105,7 +105,7 @@ impl<'a> TraceTokenBuilder<'a> {
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
             EagerExprVariant::EntityFeature { .. } => {
                 let text = self
-                    .eval_time_singleton
+                    .runtime_singleton
                     .compile_time()
                     .text(expr.file)
                     .unwrap();
@@ -132,7 +132,7 @@ impl<'a> TraceTokenBuilder<'a> {
         history: &Arc<History<'static>>,
         config: &ExprTokenConfig,
     ) {
-        let text = self.eval_time().compile_time().text(file).unwrap();
+        let text = self.runtime().compile_time().text(file).unwrap();
         self.extend([
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),

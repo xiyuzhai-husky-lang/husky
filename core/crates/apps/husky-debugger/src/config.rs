@@ -1,6 +1,6 @@
 use crate::*;
 use husky_compile_time::HuskyCompileTimeConfig;
-use husky_eval_time::HuskyEvalTimeConfig;
+use husky_eval_time::HuskyRuntimeConfig;
 use husky_feature_eval::EvaluatorConfig;
 use husky_linkage_table::LinkageTableConfig;
 use husky_root_static_defn::__resolve_root_defn;
@@ -32,8 +32,8 @@ impl HuskyDebuggerConfig {
         }
     }
 
-    pub fn eval_time(&self) -> HuskyEvalTimeConfig {
-        HuskyEvalTimeConfig {
+    pub fn eval_time(&self) -> HuskyRuntimeConfig {
+        HuskyRuntimeConfig {
             evaluator: EvaluatorConfig {
                 vm: VMConfig {
                     verbose: self.verbose,

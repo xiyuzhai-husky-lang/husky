@@ -32,7 +32,7 @@ impl HuskyTraceTime {
                                 name: ident,
                             },
                         ),
-                        Some(this.eval_time_singleton.eval_feature_expr(
+                        Some(this.runtime_singleton.eval_feature_expr(
                             argument,
                             this.restriction.opt_sample_id().unwrap(),
                         )),

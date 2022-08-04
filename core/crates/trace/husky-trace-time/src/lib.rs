@@ -38,7 +38,7 @@ use vm::*;
 use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
-    eval_time_singleton: HuskyEvalTimeSingletonKeeper,
+    runtime_singleton: HuskyRuntimeSingletonKeeper,
     restriction: Restriction,
     pins: VecSet<TraceId>,
     trace_nodes: Vec<Option<TraceNode>>,
@@ -51,11 +51,11 @@ pub struct HuskyTraceTime {
 
 impl HuskyTraceTime {
     pub fn new(
-        init_compile_time: impl FnOnce(&mut HuskyCompileTime),
-        eval_time_config: HuskyEvalTimeConfig,
+        init_compile_time: impl FnOnce(&mut HuskyComptime),
+        eval_time_config: HuskyRuntimeConfig,
     ) -> Self {
         let mut trace_time = Self {
-            eval_time_singleton: HuskyEvalTime::new(init_compile_time, eval_time_config),
+            runtime_singleton: HuskyRuntime::new(init_compile_time, eval_time_config),
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
             opt_active_trace_id: Default::default(),
@@ -82,12 +82,12 @@ impl HuskyTraceTime {
         self.root_trace_ids.clone()
     }
 
-    pub fn eval_time(&self) -> &HuskyEvalTime {
-        &self.eval_time_singleton
+    pub fn runtime(&self) -> &HuskyRuntime {
+        &self.runtime_singleton
     }
 
-    pub fn compile_time(&self) -> &HuskyCompileTime {
-        self.eval_time_singleton.compile_time()
+    pub fn comptime(&self) -> &HuskyComptime {
+        self.runtime_singleton.compile_time()
     }
 
     pub fn all_trace_nodes(&self) -> Vec<TraceNodeData> {
@@ -132,7 +132,7 @@ impl HuskyTraceTime {
         let trace_id = self.next_id();
         let trace = {
             let (file, range) = variant.file_and_range();
-            let text = self.eval_time().compile_time().text(file).unwrap();
+            let text = self.runtime().compile_time().text(file).unwrap();
             let reachable = variant.reachable();
             let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.trace_lines(trace_id, indent, &variant, opt_parent_id.is_some());
@@ -255,7 +255,7 @@ impl HuskyTraceTime {
     }
 
     fn vm_config(&self) -> &VMConfig {
-        self.eval_time().vm_config()
+        self.runtime().vm_config()
     }
 }
 

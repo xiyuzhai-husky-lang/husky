@@ -35,7 +35,7 @@ impl CompilerInstance {
     }
 
     pub fn compile_package(&self, package_dir: PathBuf) {
-        let mut compile_time = HuskyCompileTime::new(HuskyCompileTimeConfig {
+        let mut compile_time = HuskyComptime::new(HuskyCompileTimeConfig {
             __resolve_root_defn,
             linkage_table: LinkageTableConfig {
                 warn_missing_linkage: false,
@@ -126,7 +126,7 @@ debug = 1
 
     fn compile_maybe_module(
         &self,
-        compile_time: &HuskyCompileTime,
+        compile_time: &HuskyComptime,
         rust_code_path: PathBuf,
         husky_code_snapshot_path: &Path,
         module: &EntityDefn,
@@ -157,7 +157,7 @@ debug = 1
 
     fn save_husky_code_snapshot(
         &self,
-        compile_time: &HuskyCompileTime,
+        compile_time: &HuskyComptime,
         husky_code_snapshot_path: &Path,
         main_file: FilePtr,
     ) {

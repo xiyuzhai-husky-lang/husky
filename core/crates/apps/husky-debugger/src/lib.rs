@@ -14,7 +14,7 @@ pub use mode::Mode;
 use avec::Avec;
 use futures::executor::ThreadPool;
 use gui::handle_query;
-use husky_compile_time::HuskyCompileTime;
+use husky_compile_time::HuskyComptime;
 use husky_file::FilePtr;
 use husky_print_utils::*;
 use husky_root_static_defn::__StaticLinkageKey;

@@ -15,10 +15,10 @@ impl HuskyTraceTime {
     ) -> Vec<(TraceStalkKey, TraceStalkData)> {
         self.restriction = restriction;
         if let Some(sample_id0) = self.restriction.opt_sample_id() {
-            let main_file = self.eval_time().compile_time().main_file();
-            let main_feature_repr = self.eval_time().main_feature_repr(main_file);
+            let main_file = self.runtime().compile_time().main_file();
+            let main_feature_repr = self.runtime().main_feature_repr(main_file);
             match self
-                .eval_time_singleton
+                .runtime_singleton
                 .eval_feature_repr(&main_feature_repr, sample_id0)
             {
                 Ok(_) => (),

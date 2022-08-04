@@ -6,7 +6,7 @@ use husky_data_viewer::HuskyDataViewer;
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(super) fn serialize(
         &self,
-        comptime: &HuskyCompileTime,
+        comptime: &HuskyComptime,
         value: &__Register<'eval>,
         ty: EntityRoutePtr,
     ) -> serde_json::Value {

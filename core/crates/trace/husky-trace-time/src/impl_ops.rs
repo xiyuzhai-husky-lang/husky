@@ -23,13 +23,14 @@ impl HuskyTraceTime {
     }
 
     fn update_root_traces(&mut self) {
-        let main_file = self.eval_time().compile_time().main_file();
+        let main_file = self.runtime().compile_time().main_file();
         let now = Instant::now();
-        let main_feature_repr = self.eval_time().main_feature_repr(main_file);
+        let main_feature_repr = self.runtime().main_feature_repr(main_file);
         println!(
             "{} milliseconds elapsed for computing main feature",
             now.elapsed().as_millis(),
         );
+        let submodules = self.comptime();
         self.root_trace_ids = vec![self.new_trace(None, 0, TraceVariant::Main(main_feature_repr))];
     }
 }

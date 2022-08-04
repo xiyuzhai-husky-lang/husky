@@ -58,8 +58,8 @@ use vm::{__Register, __RegisterDataKind, __RegisterTyVTable, __I32_VTABLE};
     husky_diagnostics::DiagnosticQueryGroupStorage,
     husky_rust_code_gen::RustGenQueryStorage
 )]
-pub struct HuskyCompileTime {
-    storage: salsa::Storage<HuskyCompileTime>,
+pub struct HuskyComptime {
+    storage: salsa::Storage<HuskyComptime>,
     file_interner: Arc<husky_file::FileInternerSingletonKeeper>,
     ty_cache: Arc<husky_entity_route::TyRouteCacheSingletonKeeper>,
     word_interner: Arc<husky_word::WordInternerSingletonKeeper>,
@@ -72,7 +72,7 @@ pub struct HuskyCompileTime {
     config: HuskyCompileTimeConfig,
 }
 
-impl HuskyCompileTime {
+impl HuskyComptime {
     pub fn new(config: HuskyCompileTimeConfig) -> Self {
         let live_docs = Default::default();
         let entity_route_interner = husky_entity_route::new_entity_route_interner();
@@ -231,5 +231,5 @@ impl HuskyCompileTime {
 }
 
 pub trait AskCompileTime {
-    fn compile_time(&self) -> &HuskyCompileTime;
+    fn compile_time(&self) -> &HuskyComptime;
 }

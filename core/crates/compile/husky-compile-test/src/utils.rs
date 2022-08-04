@@ -5,12 +5,12 @@ use crate::*;
 pub fn test_all_source_files<T>(
     package_dir: &Path,
     extension: &str,
-    f: impl Fn(&HuskyCompileTime, FilePtr) -> T,
+    f: impl Fn(&HuskyComptime, FilePtr) -> T,
 ) -> TestResult
 where
     T: HuskyDisplay,
 {
-    let mut compile_time = HuskyCompileTime::new_default(__resolve_root_defn);
+    let mut compile_time = HuskyComptime::new_default(__resolve_root_defn);
     compile_time.load_package(package_dir);
     for file in compile_time.all_source_files() {
         match compare_saved_data(&f(&compile_time, file), &file.with_extension(extension)) {
@@ -24,9 +24,9 @@ where
 pub fn print_all_source_files_analysis(
     package_dir: &Path,
     title: &str,
-    f: impl Fn(&HuskyCompileTime, FilePtr) -> String,
+    f: impl Fn(&HuskyComptime, FilePtr) -> String,
 ) {
-    let mut compile_time = HuskyCompileTime::new_default(__resolve_root_defn);
+    let mut compile_time = HuskyComptime::new_default(__resolve_root_defn);
     compile_time.load_package(package_dir);
     for file in compile_time.all_source_files() {
         println!("{} for file: {:?}:\n", title, file);
