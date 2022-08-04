@@ -71,7 +71,7 @@ pub static __{uppercase_ty}_VTABLE: __RegisterVTable = __RegisterVTable {{
 impl<'eval> __Register<'eval> {{
     pub fn downcast_{ty}(&self) -> {ty} {{
         unsafe {{
-            // assert_eq!(self.vtable as *const _, &__{uppercase_ty}_VTABLE as *const _);
+            assert_eq!(self.vtable.typename_str_hash_u64, {typename_str_hash_u64});
             match self.data_kind {{
                 __RegisterDataKind::PrimitiveValue => self.data.as_{ty},
                 _ => *(self.data.as_ptr as *const {ty}),
