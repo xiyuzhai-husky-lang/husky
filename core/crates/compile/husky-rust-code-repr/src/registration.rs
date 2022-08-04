@@ -1,6 +1,16 @@
+use xxhash_rust::xxh3::xxh3_64;
+
 pub use super::*;
 pub struct PrimitiveTypeRegistration<'a> {
     pub ty: &'a str,
+}
+
+#[test]
+fn it_works() {
+    let i32_str: String = "i32".to_string();
+    let hash = xxh3_64(i32_str.as_bytes());
+    println!("hash = {hash}");
+    assert_eq!(hash, 6639413044669031007)
 }
 
 impl<'a> Display for PrimitiveTypeRegistration<'a> {
@@ -14,6 +24,7 @@ impl<'a> Display for PrimitiveTypeRegistration<'a> {
             "f32" | "f64" => "data != 0.0",
             _ => panic!(),
         };
+        let typename_str_hash_u64: u64 = xxh3_64(ty.as_bytes());
         write!(
             f,
             r#"
@@ -55,6 +66,7 @@ pub static __{uppercase_ty}_VTABLE: __RegisterVTable = __RegisterVTable {{
     eq: __{ty}_eq,
     assign: __{ty}_assign,
     typename_str: "{ty}",
+    typename_str_hash_u64: {typename_str_hash_u64},
 }};
 impl<'eval> __Register<'eval> {{
     pub fn downcast_{ty}(&self) -> {ty} {{
@@ -81,6 +93,7 @@ impl<'a> Display for NonPrimitiveTypeRegistration<'a> {
         let ty = self.ty;
         let snake_ty = ty.to_case(Case::Snake);
         let upper_snake_ty = ty.to_case(Case::UpperSnake);
+        let typename_str_hash_u64: u64 = xxh3_64(ty.as_bytes());
         write!(
             f,
             r#"
@@ -110,6 +123,7 @@ pub static __{upper_snake_ty}_VTABLE: __RegisterVTable = __RegisterVTable {{
     drop: __{snake_ty}_drop,
     eq: __{snake_ty}_eq,
     assign: __{snake_ty}_assign,
+    typename_str_hash_u64: {typename_str_hash_u64},
     typename_str: "{ty}",
 }};
 "#

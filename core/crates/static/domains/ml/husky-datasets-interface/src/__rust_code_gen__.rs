@@ -35,6 +35,7 @@ pub static __MNIST_LABEL_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __mnist_label_drop,
     eq: __mnist_label_eq,
     assign: __mnist_label_assign,
+    typename_str_hash_u64: 16552472197362797834,
     typename_str: "MnistLabel",
 };
 
@@ -64,6 +65,7 @@ pub static __BINARY_IMAGE_28_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __binary_image_28_drop,
     eq: __binary_image_28_eq,
     assign: __binary_image_28_assign,
+    typename_str_hash_u64: 266812593373922541,
     typename_str: "BinaryImage28",
 };
 
@@ -93,6 +95,7 @@ pub static __BINARY_GRID_28_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __binary_grid_28_drop,
     eq: __binary_grid_28_eq,
     assign: __binary_grid_28_assign,
+    typename_str_hash_u64: 5289051695346958525,
     typename_str: "BinaryGrid28",
 };
 
@@ -122,5 +125,6 @@ pub static __DATASET_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __dataset_drop,
     eq: __dataset_eq,
     assign: __dataset_assign,
+    typename_str_hash_u64: 8010506253231886660,
     typename_str: "Dataset",
 };

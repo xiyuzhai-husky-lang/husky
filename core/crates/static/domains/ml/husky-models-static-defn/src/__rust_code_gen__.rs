@@ -37,5 +37,6 @@ pub static __NAIVE_I_32_INTERNAL_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __naive_i_32_internal_drop,
     eq: __naive_i_32_internal_eq,
     assign: __naive_i_32_internal_assign,
+    typename_str_hash_u64: 7406184017455031898,
     typename_str: "NaiveI32Internal",
 };
