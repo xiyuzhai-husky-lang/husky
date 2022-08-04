@@ -24,7 +24,14 @@ pub struct __Register<'eval> {
 
 impl<'eval> std::hash::Hash for __Register<'eval> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        unsafe { self.data.as_ptr.hash(state) }
+        unsafe {
+            (
+                self.data_kind,
+                self.data.as_ptr,
+                self.vtable.typename_str_hash_u64,
+            )
+                .hash(state)
+        }
     }
 }
 
@@ -60,8 +67,7 @@ impl<'eval> Clone for __Register<'eval> {
 
 impl<'eval> PartialEq for __Register<'eval> {
     fn eq(&self, other: &Self) -> bool {
-        assert_eq!(self.vtable, other.vtable);
-        unsafe { (self.vtable.eq)(self.any_ref(), other.any_ref()) }
+        self.vtable == other.vtable && unsafe { (self.vtable.eq)(self.any_ref(), other.any_ref()) }
     }
 }
 impl<'eval> Eq for __Register<'eval> {}
