@@ -126,7 +126,7 @@ impl<'a> fold::Transformer<[HuskyToken], TokenizedText, AstResult<Ast>> for AstT
         Ok(Ast {
             range: token_group.text_range(),
             variant: match self.context() {
-                AstContext::Package(_) | AstContext::Module(_) => {
+                AstContext::Package(_) | AstContext::Module { .. } => {
                     self.parse_module_item(token_group, enter_block)?
                 }
                 AstContext::Stmt { .. } | AstContext::Match { .. } | AstContext::Visual => {

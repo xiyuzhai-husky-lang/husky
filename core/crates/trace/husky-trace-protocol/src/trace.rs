@@ -42,7 +42,10 @@ impl TraceData {
 
     pub fn has_subtraces(&self, has_sample_id: bool) -> bool {
         match self.kind {
-            TraceKind::Main | TraceKind::FeatureBranch | TraceKind::LoopFrame => true,
+            TraceKind::Main
+            | TraceKind::Module
+            | TraceKind::FeatureBranch
+            | TraceKind::LoopFrame => true,
             TraceKind::CallHead
             | TraceKind::FeatureCallArgument
             | TraceKind::EagerCallArgument
@@ -60,6 +63,7 @@ impl TraceData {
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum TraceKind {
     Main,
+    Module,
     FeatureStmt,
     FeatureBranch,
     FeatureExpr,
@@ -78,6 +82,7 @@ impl TraceKind {
     pub fn as_str(&self) -> &'static str {
         match self {
             TraceKind::Main => "Main",
+            TraceKind::Module => "Module",
             TraceKind::FeatureStmt => "FeatureStmt",
             TraceKind::FeatureBranch => "FeatureBranch",
             TraceKind::FeatureExpr => "FeatureExpr",
@@ -98,7 +103,8 @@ impl TraceKind {
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr => true,
-            TraceKind::FeatureCallArgument
+            TraceKind::Module
+            | TraceKind::FeatureCallArgument
             | TraceKind::EagerCallArgument
             | TraceKind::FuncStmt
             | TraceKind::ProcStmt

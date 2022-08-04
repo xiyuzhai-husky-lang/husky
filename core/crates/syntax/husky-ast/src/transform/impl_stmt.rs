@@ -149,7 +149,7 @@ impl<'a> AstTransformer<'a> {
         token_group: &[HuskyToken],
     ) -> AstResult<RawStmt> {
         Ok(match self.context() {
-            AstContext::Record | AstContext::Package(_) | AstContext::Module(_) => {
+            AstContext::Record | AstContext::Package(_) | AstContext::Module { .. } => {
                 return derived_err!()
             }
             AstContext::Stmt {

@@ -57,6 +57,10 @@ impl<'a> TraceTokenBuilder<'a> {
     pub(super) fn build(mut self) -> Vec<TraceLineData> {
         match self.trace_variant {
             TraceVariant::Main(feature_block) => self.push(keyword!("main")),
+            TraceVariant::Module { route, .. } => {
+                self.push(keyword!("mod "));
+                self.push(ident!(route.ident().as_str()))
+            }
             TraceVariant::FeatureLazyStmt(stmt) => self.feature_stmt_tokens(stmt),
             TraceVariant::FeatureLazyExpr(ref expr) => {
                 self.gen_feature_expr_tokens(expr, ExprTokenConfig::expr(false))

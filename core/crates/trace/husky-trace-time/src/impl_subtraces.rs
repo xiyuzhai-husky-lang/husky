@@ -12,6 +12,7 @@ impl HuskyTraceTime {
         let trace = unsafe { self.trace_ref(trace_id) };
         match trace.variant {
             TraceVariant::Main(ref repr) => self.feature_repr_subtraces(&trace, repr),
+            TraceVariant::Module { .. } => todo!(),
             TraceVariant::FeatureLazyStmt(_)
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }

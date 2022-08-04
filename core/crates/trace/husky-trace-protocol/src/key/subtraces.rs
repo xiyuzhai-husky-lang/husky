@@ -28,9 +28,10 @@ impl SubtracesKey {
             | TraceKind::ProcBranch
             | TraceKind::LoopFrame
             | TraceKind::EagerExpr => SubtracesKey::Simple { trace_id },
-            TraceKind::FeatureCallArgument | TraceKind::CallHead | TraceKind::EagerCallArgument => {
-                SubtracesKey::Null
-            }
+            TraceKind::Module
+            | TraceKind::FeatureCallArgument
+            | TraceKind::CallHead
+            | TraceKind::EagerCallArgument => SubtracesKey::Null,
             TraceKind::FeatureExpr => match opt_sample_id {
                 Some(sample_id) => SubtracesKey::FeatureExprStalk {
                     trace_id,

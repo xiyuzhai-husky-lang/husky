@@ -49,7 +49,9 @@ impl FigureCanvasKey {
             | TraceKind::ProcBranch
             | TraceKind::EagerExpr
             | TraceKind::LoopFrame => FigureCanvasKey::Specific { trace_id },
-            TraceKind::CallHead | TraceKind::EagerCallArgument => FigureCanvasKey::Null,
+            TraceKind::Module | TraceKind::CallHead | TraceKind::EagerCallArgument => {
+                FigureCanvasKey::Null
+            }
         }
     }
 }
