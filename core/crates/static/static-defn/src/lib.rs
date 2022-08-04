@@ -68,7 +68,7 @@ pub enum EntityStaticDefnVariant {
     TyField {
         field_kind: FieldKind,
         liason: MemberLiason,
-        ty: &'static str,
+        field_ty: &'static str,
         linkage: __Linkage,
     },
     Method {

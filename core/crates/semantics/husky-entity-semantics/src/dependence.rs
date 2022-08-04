@@ -137,7 +137,7 @@ impl EntityDefn {
                 ..
             } => {
                 ty_members.iter().for_each(|member| match member.variant {
-                    EntityDefnVariant::TyField { ty, .. } => builder.push(ty),
+                    EntityDefnVariant::TyField { field_ty: ty, .. } => builder.push(ty),
                     _ => (),
                 });
                 variants.iter().for_each(|enum_variant| {
@@ -149,7 +149,7 @@ impl EntityDefn {
                 EnumVariantDefnVariant::Constant => (),
             },
             EntityDefnVariant::TyField {
-                ty,
+                field_ty: ty,
                 ref field_variant,
                 ..
             } => {
@@ -469,7 +469,7 @@ impl EntityDefn {
                 EntityDefnVariant::EnumVariant { .. } => todo!(),
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::TyField {
-                    ty,
+                    field_ty: ty,
                     field_variant: ref field_variant,
                     liason: contract,
                     ..

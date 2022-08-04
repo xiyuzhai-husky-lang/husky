@@ -28,13 +28,28 @@ impl __MemberLinkage {
 
 #[macro_export]
 macro_rules! method_elem_linkage {
-    ($Type: ty, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_fp: method_elem_copy_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
-            eval_ref_fp: method_elem_eval_ref_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
-            temp_ref_fp: method_elem_temp_ref_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
-            temp_mut_fp: method_elem_temp_mut_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
-            move_fp: method_elem_move_fp!($Type, $ELEMENT_TYPE_VTABLE, $method_name),
+            copy_fp: method_elem_copy_fp!($Type, $TYPE_VTABLE, $ELEMENT_TYPE_VTABLE, $method_name),
+            eval_ref_fp: method_elem_eval_ref_fp!(
+                $Type,
+                $TYPE_VTABLE,
+                $ELEMENT_TYPE_VTABLE,
+                $method_name
+            ),
+            temp_ref_fp: method_elem_temp_ref_fp!(
+                $Type,
+                $TYPE_VTABLE,
+                $ELEMENT_TYPE_VTABLE,
+                $method_name
+            ),
+            temp_mut_fp: method_elem_temp_mut_fp!(
+                $Type,
+                $TYPE_VTABLE,
+                $ELEMENT_TYPE_VTABLE,
+                $method_name
+            ),
+            move_fp: method_elem_move_fp!($Type, $TYPE_VTABLE, $ELEMENT_TYPE_VTABLE, $method_name),
         })
     }};
 }

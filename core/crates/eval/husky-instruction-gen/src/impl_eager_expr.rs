@@ -286,7 +286,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         for (i, ty_member) in ty_members.iter().enumerate() {
                             match ty_member.variant {
                                 EntityDefnVariant::TyField {
-                                    ty,
+                                    field_ty: ty,
                                     ref field_variant,
                                     liason,
                                     ..

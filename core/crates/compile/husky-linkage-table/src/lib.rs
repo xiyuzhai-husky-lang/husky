@@ -81,7 +81,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         let ty_field_defn = this_ty_defn.field(field_ident);
         match ty_field_defn.variant {
             EntityDefnVariant::TyField {
-                ty,
+                field_ty: ty,
                 ref field_variant,
                 liason,
                 opt_linkage,
@@ -107,7 +107,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         let ty_field_defn = this_ty_defn.field(field_ident);
         match ty_field_defn.variant {
             EntityDefnVariant::TyField {
-                ty,
+                field_ty: ty,
                 ref field_variant,
                 liason,
                 opt_linkage,

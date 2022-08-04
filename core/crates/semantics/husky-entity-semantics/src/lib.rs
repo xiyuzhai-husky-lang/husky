@@ -244,7 +244,7 @@ pub enum EntityDefnVariant {
     },
     Builtin,
     TyField {
-        ty: EntityRoutePtr,
+        field_ty: EntityRoutePtr,
         field_variant: FieldDefnVariant,
         liason: MemberLiason,
         opt_linkage: Option<__Linkage>,

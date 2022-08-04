@@ -132,7 +132,7 @@ impl HuskyTraceTime {
             EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TyField {
-                ty,
+                field_ty: ty,
                 ref field_variant,
                 liason,
                 opt_linkage,

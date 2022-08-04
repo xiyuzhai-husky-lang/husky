@@ -20,7 +20,7 @@ impl<'a> RustCodeGenerator<'a> {
                 file,
                 range,
                 stmts,
-                ty,
+                output_ty: ty,
             } => self.gen_feature_func_block_defn(feature_route, ty.route, stmts),
             DefinitionRepr::ProcBlock {
                 file,
@@ -42,11 +42,12 @@ impl<'a> RustCodeGenerator<'a> {
         self.write(&ident);
         self.write("<'eval>(__ctx: &dyn __EvalContext<'eval>) -> &'eval ");
         self.gen_entity_route(output.deref_route(), EntityRouteRole::Decl);
+        let mangled_output_ty_vtable = self.db.mangled_ty_vtable(output);
         self.write(&format!(
             r#" {{
     let __feature = feature_ptr!(__ctx, "{feature_route:?}");
     if let Some(__result) = __ctx.opt_cached_feature(__feature) {{
-        return __result.unwrap().downcast_eval_ref();
+        return __result.unwrap().downcast_eval_ref(&__registration__::{mangled_output_ty_vtable});
     }}
 "#,
         ));

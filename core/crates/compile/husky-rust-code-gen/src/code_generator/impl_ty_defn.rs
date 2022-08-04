@@ -84,7 +84,7 @@ impl From<u8> for {tyname} {{
         for member in ty_members {
             match member.variant {
                 EntityDefnVariant::TyField {
-                    ty,
+                    field_ty: ty,
                     ref field_variant,
                     liason: contract,
                     ..
@@ -156,7 +156,7 @@ impl From<u8> for {tyname} {{
         for (i, ty_member) in ty_members.iter().enumerate() {
             match ty_member.variant {
                 EntityDefnVariant::TyField {
-                    ty,
+                    field_ty: ty,
                     ref field_variant,
                     liason,
                     opt_linkage,
@@ -182,7 +182,7 @@ impl From<u8> for {tyname} {{
         for (i, ty_member) in ty_members.iter().enumerate() {
             match ty_member.variant {
                 EntityDefnVariant::TyField {
-                    ty,
+                    field_ty: ty,
                     ref field_variant,
                     liason,
                     opt_linkage,
@@ -212,7 +212,7 @@ impl From<u8> for {tyname} {{
         for (i, ty_member) in ty_members.iter().enumerate() {
             match ty_member.variant {
                 EntityDefnVariant::TyField {
-                    ty,
+                    field_ty: ty,
                     ref field_variant,
                     liason,
                     opt_linkage,
@@ -299,7 +299,7 @@ impl From<u8> for {tyname} {{
             } => self.gen_proc_defn(4, ty_member.base_route, parameters, output.route, stmts),
             EntityDefnVariant::Function { .. } => todo!(),
             EntityDefnVariant::TyField {
-                ty,
+                field_ty: ty,
                 ref field_variant,
                 liason,
                 opt_linkage,
@@ -315,7 +315,7 @@ impl From<u8> for {tyname} {{
                         file,
                         range,
                         ref stmts,
-                        ty,
+                        output_ty,
                     } => {
                         self.write("pub(crate) fn ");
                         let ident = ty_member.ident;
@@ -324,8 +324,9 @@ impl From<u8> for {tyname} {{
                             self.write("<'eval>")
                         }
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
-                        self.gen_entity_route(ty.route.deref_route(), EntityRouteRole::Decl);
+                        self.gen_entity_route(output_ty.route.deref_route(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
+                        let mangled_output_ty_vtable = self.db.mangled_ty_vtable(output_ty.route);
                         self.write(&format!(
                             r#" {{
     let __uid = entity_uid!(__ctx, "{route:?}");
@@ -333,7 +334,7 @@ impl From<u8> for {tyname} {{
         self as *const _ as *const (),
         __uid
     ) {{
-        return __result.unwrap().downcast_eval_ref();
+        return __result.unwrap().downcast_eval_ref(&__registration__::{mangled_output_ty_vtable});
     }}
 "#,
                         ));

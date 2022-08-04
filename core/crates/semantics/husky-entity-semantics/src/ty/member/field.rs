@@ -11,10 +11,10 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::TyField {
                 field_kind,
                 liason,
-                ty,
+                field_ty,
                 linkage: __Linkage,
             } => Self::TyField {
-                ty: symbol_context.parse_entity_route(ty).unwrap(),
+                field_ty: symbol_context.parse_entity_route(field_ty).unwrap(),
                 liason,
                 field_variant: match field_kind {
                     FieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
@@ -83,7 +83,7 @@ impl EntityDefnVariant {
                     }
                 };
                 Ok(Self::TyField {
-                    ty: field_ty.route,
+                    field_ty: field_ty.route,
                     liason,
                     field_variant,
                     opt_linkage: None,

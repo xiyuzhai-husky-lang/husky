@@ -5,14 +5,14 @@ impl<'a> RustCodeGenerator<'a> {
         &mut self,
         ty_kind: TyKind,
         opt_type_call: &Option<Arc<husky_entity_semantics::TypeCallDefn>>,
-        entity_route: EntityRoutePtr,
+        ty: EntityRoutePtr,
         members: &Arc<Vec<Arc<EntityDefn>>>,
     ) {
         if let Some(_) = opt_type_call {
-            self.gen_type_call_linkage(entity_route);
+            self.gen_type_call_linkage(ty);
         }
         // currently field and index are always generated
-        self.gen_member_access_linkages(members, entity_route);
+        self.gen_member_access_linkages(members, ty);
     }
 
     fn gen_type_call_linkage(&mut self, entity_route: EntityRoutePtr) {
@@ -43,29 +43,23 @@ impl<'a> RustCodeGenerator<'a> {
     fn gen_member_access_linkages(
         &mut self,
         members: &Arc<Vec<Arc<EntityDefn>>>,
-        entity_route: EntityRoutePtr,
+        ty: EntityRoutePtr,
     ) {
+        // todo: use decl rather than defn
         for member in members.iter() {
-            let is_defn_static = self.db.is_defn_static(entity_route);
+            let is_defn_static = self.db.is_defn_static(ty);
             match member.variant {
                 EntityDefnVariant::TyField {
-                    ty,
+                    field_ty,
                     ref field_variant,
                     liason,
                     opt_linkage,
-                } => {
-                    self.gen_struct_field_linkages(field_variant, member, liason, entity_route, ty)
-                }
+                } => self.gen_struct_field_linkages(field_variant, member, liason, ty, field_ty),
                 _ => {
                     let member_entity_route = match member.base_route.kind {
-                        EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                        EntityRouteKind::TypeAsTraitMember { trai, ident, .. } => {
                             if trai.kind == entity_route_menu().std_ops_index_trai.kind {
-                                make_type_as_trait_member_route(
-                                    entity_route,
-                                    trai,
-                                    ident,
-                                    Default::default(),
-                                )
+                                make_type_as_trait_member_route(ty, trai, ident, Default::default())
                             } else {
                                 todo!()
                             }
@@ -83,8 +77,8 @@ impl<'a> RustCodeGenerator<'a> {
         field_variant: &FieldDefnVariant,
         member: &Arc<EntityDefn>,
         liason: MemberLiason,
-        entity_route: EntityRoutePtr,
         ty: EntityRoutePtr,
+        field_ty: EntityRoutePtr,
     ) {
         match field_variant {
             FieldDefnVariant::StructOriginal
@@ -94,14 +88,14 @@ impl<'a> RustCodeGenerator<'a> {
                 let field_ident = member.ident.as_str();
                 self.write(&format!(
                     r#"        __StaticLinkageKey::StructEagerField {{
-            this_ty: "{entity_route}",
+            this_ty: "{ty}",
             field_ident: "{field_ident}",
         }},
         {}!("#,
                     match liason {
                         MemberLiason::Immutable => "eager_field_linkage",
                         MemberLiason::Mutable => {
-                            if ty.is_ref() {
+                            if field_ty.is_ref() {
                                 todo!()
                             } else {
                                 "eager_mut_field_linkage"
@@ -110,13 +104,15 @@ impl<'a> RustCodeGenerator<'a> {
                         MemberLiason::Derived => todo!(),
                     }
                 ));
-                self.gen_entity_route(entity_route, EntityRouteRole::Decl);
+                self.gen_entity_route(ty, EntityRouteRole::Decl);
                 self.write(", __registration__::");
                 self.write(&self.db.mangled_ty_vtable(ty));
+                self.write(", __registration__::");
+                self.write(&self.db.mangled_ty_vtable(field_ty));
                 self.write(", ");
                 self.write(field_ident);
-                let copy_kind = if self.db.is_copyable(ty).unwrap() {
-                    match ty {
+                let copy_kind = if self.db.is_copyable(field_ty).unwrap() {
+                    match field_ty {
                         EntityRoutePtr::Root(root_identifer) => match root_identifer {
                             RootIdentifier::Void
                             | RootIdentifier::I32
@@ -146,7 +142,7 @@ impl<'a> RustCodeGenerator<'a> {
                     file,
                     range,
                     ref stmts,
-                    ty,
+                    output_ty: field_ty,
                 } => {
                     let field_ident = member.ident.as_str();
                     self.write(&format!(
@@ -157,9 +153,11 @@ impl<'a> RustCodeGenerator<'a> {
         }},
         lazy_field_linkage!("#,
                     ));
-                    self.gen_entity_route(entity_route, EntityRouteRole::Decl);
+                    self.gen_entity_route(ty, EntityRouteRole::Decl);
                     self.write(", __registration__::");
-                    self.write(&self.db.mangled_ty_vtable(ty.route));
+                    self.write(&self.db.mangled_ty_vtable(ty));
+                    self.write(", __registration__::");
+                    self.write(&self.db.mangled_ty_vtable(field_ty.route));
                     self.write(", ");
                     self.write(field_ident);
                     self.write(

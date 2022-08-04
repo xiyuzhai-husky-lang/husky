@@ -58,7 +58,7 @@ impl EntityDefnVariant {
             TyKind::Record => Some(Arc::new(TypeCallDefn {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TyField {
-                        ty,
+                        field_ty: ty,
                         ref field_variant,
                         liason,
                         ..
@@ -88,7 +88,7 @@ impl EntityDefnVariant {
             TyKind::Struct => Some(Arc::new(TypeCallDefn {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TyField {
-                        ty,
+                        field_ty: ty,
                         ref field_variant,
                         liason,
                         ..
