@@ -55,19 +55,19 @@ pub struct HuskyRuntimeConfig {
 
 impl HuskyRuntime {
     pub fn new(
-        init_compile_time: impl FnOnce(&mut HuskyComptime),
+        init_comptime: impl FnOnce(&mut HuskyComptime),
         config: HuskyRuntimeConfig,
     ) -> HuskyRuntimeSingletonKeeper {
-        let mut compile_time = HuskyComptime::new(config.compile_time.clone());
-        init_compile_time(&mut compile_time);
-        let all_main_files = compile_time.all_main_files();
+        let mut comptime = HuskyComptime::new(config.compile_time.clone());
+        init_comptime(&mut comptime);
+        let all_main_files = comptime.all_main_files();
         should_eq!(all_main_files.len(), 1, "config = {config:?}");
         let package_main = all_main_files[0];
         let feature_interner = husky_feature_gen::new_feature_interner();
         let mut eval_time = Self {
             storage: Default::default(),
             variant: HuskyRuntimeVariant::None,
-            compile_time,
+            compile_time: comptime,
             compile_time_version: 0,
             package_main,
             config,
