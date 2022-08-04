@@ -10,11 +10,11 @@ impl HuskyTraceTime {
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
             let value = self
-                .eval_time_singleton
+                .runtime_singleton
                 .eval_feature_expr(expr, sample_id)
                 .map_err(|e| (sample_id, e))?;
             Ok(FigureCanvasData::new_specific(
-                self.eval_time()
+                self.runtime()
                     .visualize_feature(FeatureRepr::Expr(expr.clone()), sample_id)
                     .unwrap(),
             ))
@@ -42,7 +42,7 @@ impl HuskyTraceTime {
                     .map(|partition| partition.ncol)
                     .sum::<u32>());
         let ty = expr.expr.ty();
-        let visualizer = self.eval_time().compile_time().visualizer(ty);
+        let visualizer = self.runtime().compile_time().visualizer(ty);
         match visualizer.visual_ty {
             VisualTy::Void => {
                 p!(ty);
@@ -98,7 +98,7 @@ impl HuskyTraceTime {
         expr: &Arc<FeatureExpr>,
         map: impl Fn(VisualData) -> T,
     ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
-        let session = self.eval_time().session();
+        let session = self.runtime().session();
         let dev_division = session.dev();
         let restriction = &self.restriction;
         let mut sampler = PartitionedSampler::<T>::new(restriction);
@@ -121,7 +121,7 @@ impl HuskyTraceTime {
             if sampler
                 .process(label, || {
                     let visual_data = self
-                        .eval_time()
+                        .runtime()
                         .visualize_feature(expr.clone().into(), sample_id)?;
                     Ok((labeled_data.sample_id, map(visual_data)))
                 })
@@ -149,10 +149,10 @@ impl HuskyTraceTime {
         match trace.variant {
             TraceVariant::Main(_) => todo!(),
             TraceVariant::FeatureLazyStmt(ref stmt) => self
-                .eval_time()
+                .runtime()
                 .eval_opt_arrival_indicator(stmt.opt_arrival_indicator.as_ref(), sample_id),
             TraceVariant::FeatureLazyBranch(ref branch) => self
-                .eval_time()
+                .runtime()
                 .eval_opt_arrival_indicator(branch.opt_arrival_indicator.as_ref(), sample_id),
             TraceVariant::FeatureLazyExpr(_) => todo!(),
             TraceVariant::FeatureCallArgument { .. } => todo!(),

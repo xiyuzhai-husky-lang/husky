@@ -20,7 +20,7 @@ impl HuskyTraceTime {
         let trace: &Trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(ref block) => self.trace_stalk_from_result(
-                self.eval_time().eval_feature_repr(block, sample_id),
+                self.runtime().eval_feature_repr(block, sample_id),
                 block.ty(),
             ),
             TraceVariant::FeatureLazyStmt(ref stmt) => match stmt.variant {
@@ -97,7 +97,7 @@ impl HuskyTraceTime {
 
     fn trace_stalk_from_expr(&self, expr: &FeatureExpr, sample_id: SampleId) -> TraceStalkData {
         self.trace_stalk_from_result(
-            self.eval_time().eval_feature_expr(expr, sample_id),
+            self.runtime().eval_feature_expr(expr, sample_id),
             expr.expr.ty(),
         )
     }
@@ -133,7 +133,7 @@ impl HuskyTraceTime {
     ) -> TraceTokenData {
         TraceTokenData {
             kind: TraceTokenKind::Fade,
-            value: self.compile_time().print_short(&value, ty),
+            value: self.comptime().print_short(&value, ty),
             opt_associated_trace_id: None,
         }
     }

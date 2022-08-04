@@ -129,7 +129,7 @@ impl HuskyTraceTime {
             name: match mutation_data.kind {
                 MutationDataVariant::Exec => {
                     let text = self
-                        .eval_time()
+                        .runtime()
                         .compile_time()
                         .text(mutation_data.file)
                         .unwrap();

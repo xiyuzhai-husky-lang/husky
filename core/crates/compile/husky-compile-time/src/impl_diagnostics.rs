@@ -2,7 +2,7 @@ use husky_diagnostics::Diagnostic;
 
 use crate::*;
 
-impl HuskyCompileTime {
+impl HuskyComptime {
     pub fn print_diagnostics(&self) {
         let modules = self.all_modules();
         for module in modules.iter() {

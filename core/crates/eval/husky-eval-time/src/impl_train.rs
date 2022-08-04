@@ -6,7 +6,7 @@ use upcast::Upcast;
 use vm::__RegistrableSafe;
 use vm::{InterpreterQueryGroup, VMConfig, __Register, __VMResult};
 
-impl TrainModel for HuskyEvalTime {
+impl TrainModel for HuskyRuntime {
     fn train(
         &self,
         model: vm::__ModelLinkage,

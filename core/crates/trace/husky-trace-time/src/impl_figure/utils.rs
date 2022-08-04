@@ -11,10 +11,10 @@ impl HuskyTraceTime {
         file: FilePtr,
         range: TextRange,
     ) -> __VMResult<VisualData> {
-        let eval_time = self.eval_time();
+        let eval_time = self.runtime();
         let sample_id = self.restriction.opt_sample_id().unwrap();
         let feature = self
-            .eval_time()
+            .runtime()
             .feature_interner()
             .intern(Feature::new_temp());
         let value = eval_time

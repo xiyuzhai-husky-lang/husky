@@ -9,17 +9,17 @@ use static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
 use vm::InterpreterQueryGroup;
 
-impl fmt::Debug for HuskyCompileTime {
+impl fmt::Debug for HuskyComptime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("HuskyCompileTime").finish()
     }
 }
 
-impl salsa::Database for HuskyCompileTime {}
+impl salsa::Database for HuskyComptime {}
 
-impl salsa::ParallelDatabase for HuskyCompileTime {
-    fn snapshot(&self) -> salsa::Snapshot<HuskyCompileTime> {
-        salsa::Snapshot::new(HuskyCompileTime {
+impl salsa::ParallelDatabase for HuskyComptime {
+    fn snapshot(&self) -> salsa::Snapshot<HuskyComptime> {
+        salsa::Snapshot::new(HuskyComptime {
             storage: self.storage.snapshot(),
             file_interner: self.file_interner.clone(),
             word_interner: self.word_interner.clone(),
@@ -35,19 +35,19 @@ impl salsa::ParallelDatabase for HuskyCompileTime {
     }
 }
 
-impl AllocateUniqueFile for HuskyCompileTime {
+impl AllocateUniqueFile for HuskyComptime {
     fn file_interner(&self) -> &husky_file::FileInterner {
         &self.file_interner
     }
 }
 
-impl InternWord for HuskyCompileTime {
+impl InternWord for HuskyComptime {
     fn word_allocator(&self) -> &husky_word::WordInterner {
         &self.word_interner
     }
 }
 
-impl LiveFiles for HuskyCompileTime {
+impl LiveFiles for HuskyComptime {
     fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::FilePtr, ASafeRwLock<String>>> {
         &self.live_docs
     }
@@ -57,17 +57,17 @@ impl LiveFiles for HuskyCompileTime {
     }
 }
 
-impl FileQueryGroup for HuskyCompileTime {}
+impl FileQueryGroup for HuskyComptime {}
 
-impl InternEntityRoute for HuskyCompileTime {
+impl InternEntityRoute for HuskyComptime {
     fn scope_interner(&self) -> &husky_entity_route::EntityRouteInterner {
         &self.entity_route_interner
     }
 }
 
-impl TokenQueryGroup for HuskyCompileTime {}
+impl TokenQueryGroup for HuskyComptime {}
 
-impl ResolveStaticRootDefn for HuskyCompileTime {
+impl ResolveStaticRootDefn for HuskyComptime {
     fn __root_defn_resolver(
         &self,
     ) -> fn(ident: husky_word::RootIdentifier) -> &'static static_defn::EntityStaticDefn {
@@ -75,55 +75,55 @@ impl ResolveStaticRootDefn for HuskyCompileTime {
     }
 }
 
-impl EntitySyntaxQueryGroup for HuskyCompileTime {
+impl EntitySyntaxQueryGroup for HuskyComptime {
     fn opt_package_main(&self) -> Option<FilePtr> {
         self.opt_main
     }
 }
 
-impl AstQueryGroup for HuskyCompileTime {}
+impl AstQueryGroup for HuskyComptime {}
 
-impl Upcast<dyn InferQueryGroup> for HuskyCompileTime {
+impl Upcast<dyn InferQueryGroup> for HuskyComptime {
     fn upcast(&self) -> &(dyn infer_total::InferQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for HuskyCompileTime {
+impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for HuskyComptime {
     fn upcast(&self) -> &(dyn husky_entity_semantics::EntityDefnQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup> for HuskyCompileTime {
+impl Upcast<dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup> for HuskyComptime {
     fn upcast(&self) -> &(dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_syntax::EntitySyntaxQueryGroup> for HuskyCompileTime {
+impl Upcast<dyn husky_entity_syntax::EntitySyntaxQueryGroup> for HuskyComptime {
     fn upcast(&self) -> &(dyn husky_entity_syntax::EntitySyntaxQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn DeclQueryGroup> for HuskyCompileTime {
+impl Upcast<dyn DeclQueryGroup> for HuskyComptime {
     fn upcast(&self) -> &(dyn DeclQueryGroup + 'static) {
         self
     }
 }
 
-impl infer_contract::InferContractQueryGroup for HuskyCompileTime {}
+impl infer_contract::InferContractQueryGroup for HuskyComptime {}
 
-impl infer_total::InferQueryGroup for HuskyCompileTime {}
+impl infer_total::InferQueryGroup for HuskyComptime {}
 
-impl ResolveLinkage for HuskyCompileTime {
+impl ResolveLinkage for HuskyComptime {
     fn linkage_table(&self) -> &LinkageTable {
         &self.linkage_table
     }
 }
 
-impl StoreEntityRoute for HuskyCompileTime {
+impl StoreEntityRoute for HuskyComptime {
     fn entity_route_store(&self) -> &EntityRouteStore {
         &self.entity_route_store
     }

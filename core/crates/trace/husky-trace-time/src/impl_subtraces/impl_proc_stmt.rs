@@ -11,14 +11,14 @@ impl HuskyTraceTime {
         body_instruction_sheet: &Arc<InstructionSheet>,
     ) -> Vec<TraceId> {
         let text = self
-            .eval_time_singleton
+            .runtime_singleton
             .compile_time()
             .text(parent.file)
             .unwrap();
         let sample_id = self.restriction.opt_sample_id().unwrap();
-        let evaluator = self.eval_time().evaluator(sample_id);
+        let evaluator = self.runtime().evaluator(sample_id);
         let frames = exec_loop_debug(
-            &self.eval_time() as &HuskyEvalTime,
+            &self.runtime() as &HuskyRuntime,
             unsafe { evaluator.some_ctx() },
             loop_kind,
             &body_instruction_sheet,
@@ -51,7 +51,7 @@ impl HuskyTraceTime {
         parent: &Trace,
     ) -> Vec<TraceId> {
         let sample_id = self.restriction.opt_sample_id().unwrap();
-        let evaluator = self.eval_time().evaluator(sample_id);
+        let evaluator = self.runtime().evaluator(sample_id);
         let history = exec_debug(
             eval_time(),
             unsafe { evaluator.some_ctx() },
@@ -95,9 +95,9 @@ impl HuskyTraceTime {
         parent: &Trace,
     ) -> Vec<TraceId> {
         let sample_id = self.restriction.opt_sample_id().unwrap();
-        let evaluator = self.eval_time().evaluator(sample_id);
+        let evaluator = self.runtime().evaluator(sample_id);
         let history = exec_debug(
-            self.eval_time().upcast(),
+            self.runtime().upcast(),
             unsafe { evaluator.some_ctx() },
             instruction_sheet,
             stack_snapshot.into(),

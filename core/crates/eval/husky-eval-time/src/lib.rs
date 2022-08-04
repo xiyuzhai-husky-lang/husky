@@ -37,28 +37,28 @@ use vm::{Instruction, VMConfig};
     husky_instruction_gen::InstructionGenQueryGroupStorage,
     husky_data_viewer::HuskyDataViewerQueryGroupStorage
 )]
-pub struct HuskyEvalTime {
-    storage: salsa::Storage<HuskyEvalTime>,
-    compile_time: HuskyCompileTime,
+pub struct HuskyRuntime {
+    storage: salsa::Storage<HuskyRuntime>,
+    compile_time: HuskyComptime,
     compile_time_version: usize,
     feature_interner: husky_feature_gen::FeatureInterner,
-    variant: HuskyEvalTimeVariant,
+    variant: HuskyRuntimeVariant,
     package_main: FilePtr,
-    config: HuskyEvalTimeConfig,
+    config: HuskyRuntimeConfig,
 }
 
 #[derive(Debug)]
-pub struct HuskyEvalTimeConfig {
+pub struct HuskyRuntimeConfig {
     pub evaluator: EvaluatorConfig,
     pub compile_time: HuskyCompileTimeConfig,
 }
 
-impl HuskyEvalTime {
+impl HuskyRuntime {
     pub fn new(
-        init_compile_time: impl FnOnce(&mut HuskyCompileTime),
-        config: HuskyEvalTimeConfig,
-    ) -> HuskyEvalTimeSingletonKeeper {
-        let mut compile_time = HuskyCompileTime::new(config.compile_time.clone());
+        init_compile_time: impl FnOnce(&mut HuskyComptime),
+        config: HuskyRuntimeConfig,
+    ) -> HuskyRuntimeSingletonKeeper {
+        let mut compile_time = HuskyComptime::new(config.compile_time.clone());
         init_compile_time(&mut compile_time);
         let all_main_files = compile_time.all_main_files();
         should_eq!(all_main_files.len(), 1, "config = {config:?}");
@@ -66,7 +66,7 @@ impl HuskyEvalTime {
         let feature_interner = husky_feature_gen::new_feature_interner();
         let mut eval_time = Self {
             storage: Default::default(),
-            variant: HuskyEvalTimeVariant::None,
+            variant: HuskyRuntimeVariant::None,
             compile_time,
             compile_time_version: 0,
             package_main,
@@ -92,7 +92,7 @@ impl HuskyEvalTime {
                 panic!()
             }
         };
-        self.variant = HuskyEvalTimeVariant::Learning {
+        self.variant = HuskyRuntimeVariant::Learning {
             session: Session::new(&package, self, &self.evaluator_config().vm).unwrap(),
         }
     }

@@ -5,11 +5,11 @@ use vm::__StaticInfo;
 
 use crate::*;
 
-singleton! {HuskyEvalTime}
+singleton! {HuskyRuntime}
 
-// pub(crate) static mut HUSKY_EVAL_TIME_SINGLETON: Option<*const HuskyEvalTime> = None;
+// pub(crate) static mut HUSKY_EVAL_TIME_SINGLETON: Option<*const HuskyRuntime> = None;
 
-pub fn eval_time() -> &'static HuskyEvalTime {
+pub fn eval_time() -> &'static HuskyRuntime {
     __access_singleton()
     // unsafe { &*HUSKY_EVAL_TIME_SINGLETON.unwrap() }
 }
@@ -21,27 +21,27 @@ pub fn eval_time() -> &'static HuskyEvalTime {
 //     compile_time().parse_route_from_text(text)
 // }
 
-pub fn compile_time() -> &'static HuskyCompileTime {
+pub fn compile_time() -> &'static HuskyComptime {
     eval_time().compile_time()
 }
-// pub struct HuskyEvalTimeSingletonKeeper(Box<HuskyEvalTime>);
+// pub struct HuskyRuntimeSingletonKeeper(Box<HuskyRuntime>);
 
-// impl std::ops::Deref for HuskyEvalTimeSingletonKeeper {
-//     type Target = HuskyEvalTime;
+// impl std::ops::Deref for HuskyRuntimeSingletonKeeper {
+//     type Target = HuskyRuntime;
 
 //     fn deref(&self) -> &Self::Target {
 //         &self.0
 //     }
 // }
 
-// impl Drop for HuskyEvalTimeSingletonKeeper {
+// impl Drop for HuskyRuntimeSingletonKeeper {
 //     fn drop(&mut self) {
 //         unsafe { HUSKY_EVAL_TIME_SINGLETON = None }
 //     }
 // }
 
-// impl From<HuskyEvalTime> for HuskyEvalTimeSingletonKeeper {
-//     fn from(eval_time: HuskyEvalTime) -> Self {
+// impl From<HuskyRuntime> for HuskyRuntimeSingletonKeeper {
+//     fn from(eval_time: HuskyRuntime) -> Self {
 //         let boxed_eval_time = Box::new(eval_time);
 //         unsafe { HUSKY_EVAL_TIME_SINGLETON = Some(&*boxed_eval_time) };
 //         Self(boxed_eval_time)

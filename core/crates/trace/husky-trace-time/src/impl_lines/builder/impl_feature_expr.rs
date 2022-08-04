@@ -106,7 +106,7 @@ impl<'a> TraceTokenBuilder<'a> {
             FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
             FeatureExprVariant::EntityFeature { .. } => {
                 let text = self
-                    .eval_time_singleton
+                    .runtime_singleton
                     .compile_time()
                     .text(expr.expr.file)
                     .unwrap();
@@ -208,7 +208,7 @@ impl<'a> TraceTokenBuilder<'a> {
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) {
-        let text = self.eval_time().compile_time().text(file).unwrap();
+        let text = self.runtime().compile_time().text(file).unwrap();
         self.extend([
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),

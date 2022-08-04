@@ -2,7 +2,7 @@ use husky_entity_route::{insert_new_ty_route, try_get_ty_route};
 
 use crate::*;
 
-impl HuskyCompileTime {
+impl HuskyComptime {
     pub fn ty_route_from_static(&self, type_id: std::any::TypeId, text: &str) -> EntityRoutePtr {
         if let Some(ty) = try_get_ty_route(type_id) {
             ty

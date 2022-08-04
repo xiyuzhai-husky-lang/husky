@@ -47,17 +47,17 @@ impl HuskyTraceTime {
         let sample_id = self.restriction.opt_sample_id().unwrap();
         if let Some(ref this_repr) = feature_block.opt_this {
             arguments.push(
-                self.eval_time()
+                self.runtime()
                     .eval_feature_repr(this_repr, sample_id)
                     .unwrap(),
             )
         }
         let sample_id = self.restriction.opt_sample_id().unwrap();
-        let eval_time = self.eval_time();
+        let eval_time = self.runtime();
         let evaluator: FeatureEvaluator<'_, 'static> = eval_time.evaluator(sample_id);
         let stack = arguments.into_iter().into();
         let history = exec_debug(
-            self.eval_time(),
+            self.runtime(),
             Some(&evaluator),
             instruction_sheet,
             stack,

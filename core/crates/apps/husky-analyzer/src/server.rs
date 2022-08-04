@@ -5,14 +5,14 @@ use crossbeam_channel::Sender;
 
 use client_comm::ClientCommunicator;
 use event_loop_comm::EventLoopCommunicator;
-use husky_compile_time::HuskyCompileTime;
+use husky_compile_time::HuskyComptime;
 use husky_root_static_defn::__resolve_root_defn;
 use threadpool::ThreadPool;
 
 pub(crate) struct Server {
     pub(crate) client_comm: ClientCommunicator,
     pub(crate) event_loop_comm: EventLoopCommunicator,
-    pub(crate) db: HuskyCompileTime,
+    pub(crate) db: HuskyComptime,
     pub(crate) threadpool: ThreadPool,
 }
 
@@ -22,7 +22,7 @@ impl Server {
             client_comm: ClientCommunicator::new(sender),
             threadpool: ThreadPool::default(),
             event_loop_comm: EventLoopCommunicator::default(),
-            db: HuskyCompileTime::new_default(__resolve_root_defn),
+            db: HuskyComptime::new_default(__resolve_root_defn),
         }
     }
 }
