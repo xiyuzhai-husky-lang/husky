@@ -60,7 +60,7 @@ impl<'eval> Clone for __Register<'eval> {
 
 impl<'eval> PartialEq for __Register<'eval> {
     fn eq(&self, other: &Self) -> bool {
-        assert_eq!(self.vtable as *const _, other.vtable as *const _);
+        assert_eq!(self.vtable, other.vtable);
         unsafe { (self.vtable.eq)(self.any_ref(), other.any_ref()) }
     }
 }
@@ -286,7 +286,10 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn downcast_temp_ref<T>(&self, target_ty_vtable: &__RegisterTyVTable) -> &T {
         if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
-            panic!()
+            panic!(
+                "expect vtable to be {}, got {} instead",
+                target_ty_vtable.typename_str, self.vtable.typename_str
+            )
         }
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),

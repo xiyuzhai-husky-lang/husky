@@ -23,15 +23,11 @@ mnist-compiled:
 	cd $(examples_dir)/cv/mnist-classifier/__rust_gen_cache__ && cargo build --release
 	cargo run --bin husky-debugger -- --package-dir $(examples_dir)/cv/mnist-classifier --cdylib $(examples_dir)/cv/mnist-classifier/__rust_gen_cache__/target/release/libmnist_classifier.so --compiled
 
-mnist-compiled-release:
-	cargo check
-	cargo run --bin husky-compiler $(examples_dir)/cv/mnist-classifier
-	cd ${HUSKY_DIR}/__rust_gen__ && cargo run --release mnist-classifier-debugger --warn-missing-linkage
-
 mnist-compiled-with-backtrace:
-	@cargo check
-	@RUST_BACKTRACE=1 cargo run --bin husky-compiler $(examples_dir)/cv/mnist-classifier
-	@cd ${HUSKY_DIR}/__rust_gen__&& RUST_BACKTRACE=1 cargo run mnist-classifier-debugger
+	cargo check
+	RUST_BACKTRACE=1 cargo run --bin husky-compiler $(examples_dir)/cv/mnist-classifier
+	cd $(examples_dir)/cv/mnist-classifier/__rust_gen_cache__ && cargo build --release
+	RUST_BACKTRACE=1 cargo run --bin husky-debugger -- --package-dir $(examples_dir)/cv/mnist-classifier --cdylib $(examples_dir)/cv/mnist-classifier/__rust_gen_cache__/target/release/libmnist_classifier.so --compiled
 
 mnist-compiled-with-backtrace-filtered:
 	@cargo check

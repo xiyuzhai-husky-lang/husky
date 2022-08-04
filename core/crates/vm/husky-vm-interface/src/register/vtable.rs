@@ -14,18 +14,23 @@ pub struct __RegisterTyVTable {
     pub typename_str: &'static str,
 }
 
+impl PartialEq for __RegisterTyVTable {
+    fn eq(&self, other: &Self) -> bool {
+        self.typename_str_hash_u64 == other.typename_str_hash_u64
+    }
+}
+
+impl Eq for __RegisterTyVTable {}
+
 unsafe impl Sync for __RegisterTyVTable {}
 
 unsafe impl Send for __RegisterTyVTable {}
 
 impl std::fmt::Debug for __RegisterTyVTable {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
-        // f.debug_struct("__RegisterTyVTable")
-        //     .field("typename_str", unsafe {
-        //         &std::ffi::CStr::from_ptr(self.typename_str)
-        //     })
-        //     .finish()
+        f.debug_struct("__RegisterTyVTable")
+            .field("typename_str", &self.typename_str)
+            .finish()
     }
 }
 
