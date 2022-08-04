@@ -32,7 +32,7 @@ impl FieldDecl {
             EntityStaticDefnVariant::TyField {
                 field_kind,
                 liason,
-                ty,
+                field_ty: ty,
                 ..
             } => Arc::new(Self {
                 ident: symbol_context

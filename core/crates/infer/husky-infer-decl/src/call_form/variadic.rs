@@ -3,7 +3,7 @@ pub use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub enum VariadicTemplate {
     None,
-    SingleTyped { ty: EntityRoutePtr },
+    SingleTyped { variadic_ty: EntityRoutePtr },
 }
 
 impl Default for VariadicTemplate {
@@ -20,7 +20,7 @@ impl VariadicTemplate {
         match static_defn {
             StaticVariadicTemplate::None => VariadicTemplate::None,
             StaticVariadicTemplate::SingleTyped { ty } => VariadicTemplate::SingleTyped {
-                ty: ctx.parse_entity_route(ty).unwrap(),
+                variadic_ty: ctx.parse_entity_route(ty).unwrap(),
             },
         }
     }
@@ -32,8 +32,8 @@ impl Instantiable for VariadicTemplate {
     fn instantiate(&self, ctx: &InstantiationContext) -> Self::Target {
         match self {
             VariadicTemplate::None => VariadicTemplate::None,
-            VariadicTemplate::SingleTyped { ty } => VariadicTemplate::SingleTyped {
-                ty: ty.instantiate(ctx).take_entity_route(),
+            VariadicTemplate::SingleTyped { variadic_ty: ty } => VariadicTemplate::SingleTyped {
+                variadic_ty: ty.instantiate(ctx).take_entity_route(),
             },
         }
     }
@@ -45,8 +45,8 @@ impl Implementable for VariadicTemplate {
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         match self {
             VariadicTemplate::None => VariadicTemplate::None,
-            VariadicTemplate::SingleTyped { ty } => VariadicTemplate::SingleTyped {
-                ty: ty.implement(ctx).take_entity_route(),
+            VariadicTemplate::SingleTyped { variadic_ty: ty } => VariadicTemplate::SingleTyped {
+                variadic_ty: ty.implement(ctx).take_entity_route(),
             },
         }
     }

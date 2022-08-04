@@ -15,9 +15,10 @@ fn __input<'a, 'eval: 'a>(
 ) -> &'a "#,
         ));
         self.gen_entity_route(eval_input_ty, EntityRouteRole::Decl);
+        let mangled_eval_input_ty_vtable = self.db.mangled_ty_vtable(eval_input_ty);
         self.write(&format!(
             r#" {{
-    unsafe {{ __ctx.eval_input().downcast_temp_ref() }}
+    unsafe {{ __ctx.eval_input().downcast_temp_ref(&__registration__::{mangled_eval_input_ty_vtable}) }}
 }}
 "#
         ));

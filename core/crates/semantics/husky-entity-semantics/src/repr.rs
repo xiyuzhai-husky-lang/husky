@@ -17,7 +17,7 @@ pub enum DefinitionRepr {
         file: FilePtr,
         range: TextRange,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
-        ty: RangedEntityRoute,
+        output_ty: RangedEntityRoute,
     },
     ProcBlock {
         file: FilePtr,
@@ -59,7 +59,7 @@ pub(crate) fn parse_definition_repr(
                 file,
                 range: FuncStmt::text_range(&*stmts),
                 stmts,
-                ty,
+                output_ty: ty,
             }
         }
         Paradigm::EagerProcedural => todo!(),

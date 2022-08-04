@@ -92,7 +92,7 @@ impl FeatureRepr {
                 file,
                 range,
                 route,
-                ty,
+                output_ty: ty,
             } => FeatureRepr::FuncBlock(Arc::new(FeatureFuncBlock {
                 file: *file,
                 range: *range,

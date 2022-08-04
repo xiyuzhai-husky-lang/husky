@@ -6,7 +6,7 @@ pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDef
     variant: EntityStaticDefnVariant::TyField {
         field_kind: FieldKind::StructOriginal,
         liason: MemberLiason::Mutable,
-        ty: "i32",
+        field_ty: "i32",
         linkage: eager_field_linkage!(
             VirtualCyclicSlice<'eval>,
             &__VIRTUAL_CYCLIC_SLICE_VTABLE,

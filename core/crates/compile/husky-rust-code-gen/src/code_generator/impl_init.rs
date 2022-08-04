@@ -49,9 +49,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             EntityDefnVariant::Feature { ref defn_repr } => match **defn_repr {
                 DefinitionRepr::LazyExpr { ref expr } => (),
                 DefinitionRepr::LazyBlock { ref stmts, ty } => (),
-                DefinitionRepr::FuncBlock { route, ty, .. } => {
-                    self.gen_eager_feature_linkage_entry(route, ty.route)
-                }
+                DefinitionRepr::FuncBlock {
+                    route,
+                    output_ty: ty,
+                    ..
+                } => self.gen_eager_feature_linkage_entry(route, ty.route),
                 DefinitionRepr::ProcBlock {
                     file,
                     range,
@@ -136,7 +138,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TyField {
-                ty,
+                field_ty: ty,
                 ref field_variant,
                 liason,
                 opt_linkage,
@@ -168,10 +170,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                         ));
                         self.gen_entity_route(entity_route.parent(), EntityRouteRole::Decl);
                         let method_name = entity_route.ident().as_str();
+                        let mangled_ty_vtable = self.db.mangled_ty_vtable(parent);
                         let mangled_output_ty_vtable =
                             self.db.mangled_ty_vtable(call_form_decl.output.ty);
                         self.write(&format!(
-                            ", __registration__::{mangled_output_ty_vtable}, {method_name})"
+                            ", __registration__::{mangled_ty_vtable}, __registration__::{mangled_output_ty_vtable}, {method_name})"
                         ))
                     }
                     _ => self.gen_specific_routine_linkage(
@@ -228,6 +231,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 ) -> __Register<'eval> {{"#
         ));
         if let Some((this_liason, this_ty)) = opt_this {
+            let mangled_this_ty_vtable = self.db.mangled_ty_vtable(this_ty);
             match this_liason {
                 ParameterLiason::Pure => {
                     self.write(&format!(
@@ -239,7 +243,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     } else {
                         self.write("&");
                         self.gen_entity_route(this_ty, EntityRouteRole::Decl);
-                        self.write(&format!(" = __arguments[0].downcast_temp_ref();"))
+                        self.write(&format!(" = __arguments[0].downcast_temp_ref(&__registration__::{mangled_this_ty_vtable});"))
                     }
                 }
                 ParameterLiason::Move => todo!(),
@@ -255,7 +259,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     } else {
                         self.write("&'eval ");
                         self.gen_entity_route(this_ty.deref_route(), EntityRouteRole::Decl);
-                        self.write(&format!(" = __arguments[0].downcast_eval_ref();"))
+                        self.write(&format!(" = __arguments[0].downcast_eval_ref(&__registration__::{mangled_this_ty_vtable});"))
                     }
                 }
                 ParameterLiason::TempRef => todo!(),
@@ -267,7 +271,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     self.write("&mut ");
                     self.gen_entity_route(this_ty, EntityRouteRole::Decl);
                     self.write(&format!(
-                        " = unsafe {{ __arb_ref(&__arguments[0]) }}.downcast_temp_mut();"
+                        " = unsafe {{ __arb_ref(&__arguments[0]) }}.downcast_temp_mut(&__registration__::{mangled_this_ty_vtable});"
                     ))
                 }
             }
@@ -288,18 +292,19 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         }
         match decl.variadic_template {
             VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { ty } => {
+            VariadicTemplate::SingleTyped { variadic_ty } => {
                 let variadic_start = decl.variadic_start();
-                let move_or_copy = match self.db.is_copyable(ty).unwrap() {
+                let move_or_copy = match self.db.is_copyable(variadic_ty).unwrap() {
                     true => "copy",
                     false => "move",
                 };
+                let variadic_ty_vtable = self.db.mangled_ty_vtable(variadic_ty);
                 self.write(&format!(
                     r#"
                     let __variadics = 
                         __arguments[{variadic_start}..]
                             .iter_mut()
-                            .map(|v|v.downcast_{move_or_copy}())
+                            .map(|v|v.downcast_{move_or_copy}(&__registration__::{variadic_ty_vtable}))
                             .collect();"#,
                 ));
             }
@@ -399,6 +404,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         index_linkage!("#
         ));
         let mangled_ty_vtable = self.db.mangled_ty_vtable(ty);
+        let mangled_elem_ty_vtable = self.db.mangled_ty_vtable(elem_ty);
         self.gen_entity_route(ty, EntityRouteRole::Decl);
         let copy_kind: &'static str = if self.db.is_copyable(ty).unwrap() {
             match ty {
@@ -466,7 +472,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             }
         };
         self.write(format!(
-            ", __registration__::{mangled_ty_vtable}, __registration__::__I32_VTABLE, {copy_kind}, {mutability})"
+            r#",
+    __registration__::{mangled_ty_vtable},
+    __registration__::{mangled_elem_ty_vtable},
+    {copy_kind},
+    {mutability}
+)"#
         ))
     }
 
@@ -544,7 +555,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 let parameter_ty_decl: Arc<TyDecl> = self.db.ty_decl(parameter_ty).unwrap();
                 match parameter_ty_decl.ty_kind {
                     TyKind::Enum => self.write(&format!(
-                        " = __arguments[{i}].downcast_temp_ref::<__VirtualEnum>().kind_idx.into();"
+                        " = __arguments[{i}].downcast_temp_ref::<__VirtualEnum>(&__registration__::__VIRTUAL_ENUM_VTABLE).kind_idx.into();"
                     )),
                     TyKind::Record => todo!(),
                     TyKind::Struct => todo!(),
@@ -577,8 +588,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 let {parameter_name}: "#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
+        let mangled_parameter_ty_vtable = self.db.mangled_ty_vtable(parameter_ty);
         self.write(&format!(
-            " = unsafe {{ __arb_ref(&__arguments[{i}]) }}.downcast_move();"
+            " = unsafe {{ __arb_ref(&__arguments[{i}]) }}.downcast_move(&__registration__::{mangled_parameter_ty_vtable});"
         ))
     }
 
@@ -590,7 +602,10 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 let {parameter_name}: &"#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
-        self.write(&format!(" = __arguments[{i}].downcast_temp_ref();"))
+        let mangled_parameter_ty_vtable = self.db.mangled_ty_vtable(parameter_ty);
+        self.write(&format!(
+            " = __arguments[{i}].downcast_temp_ref(&__registration__::{mangled_parameter_ty_vtable});"
+        ))
     }
 
     fn gen_parameter_downcast_eval_ref(&mut self, i: usize, parameter: &ParameterDecl) {
@@ -600,7 +615,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             r#"
                 let {parameter_name}: &'eval "#
         ));
+        let mangled_parameter_ty_vtable = self.db.mangled_ty_vtable(parameter_ty);
         self.gen_entity_route(parameter_ty.deref_route(), EntityRouteRole::Decl);
-        self.write(&format!(" = __arguments[{i}].downcast_eval_ref();"))
+        self.write(&format!(" = __arguments[{i}].downcast_eval_ref(&__registration__::{mangled_parameter_ty_vtable});"))
     }
 }

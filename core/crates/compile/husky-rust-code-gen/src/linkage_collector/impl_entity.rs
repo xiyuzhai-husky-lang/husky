@@ -85,7 +85,7 @@ impl<'a> LinkageCollector<'a> {
                 for member in members.iter() {
                     match member.variant {
                         EntityDefnVariant::TyField {
-                            ty,
+                            field_ty: ty,
                             ref field_variant,
                             liason,
                             opt_linkage,
@@ -122,7 +122,7 @@ impl<'a> LinkageCollector<'a> {
             },
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TyField {
-                ty,
+                field_ty: ty,
                 ref field_variant,
                 liason,
                 opt_linkage,
@@ -160,7 +160,7 @@ impl<'a> LinkageCollector<'a> {
                 file,
                 range,
                 stmts,
-                ty,
+                output_ty: ty,
             } => {
                 opt_feature_route.map(|feature_route| self.insert(feature_route));
                 self.insert(ty.route);

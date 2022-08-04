@@ -46,7 +46,7 @@ pub(crate) fn expr_record_field<'eval>(
                 if let Some((idx, type_member)) = type_members.iget_entry(field_ident) {
                     match type_member.variant {
                         EntityDefnVariant::TyField {
-                            ty,
+                            field_ty: ty,
                             ref field_variant,
                             liason: contract,
                             ..

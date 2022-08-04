@@ -247,7 +247,7 @@ impl<'a> RustCodeGenerator<'a> {
         msg_once!("variadics");
         match type_call.variadic_template {
             VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { ty } => {
+            VariadicTemplate::SingleTyped { variadic_ty: ty } => {
                 if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
                     self.write(", ")
                 }
@@ -299,7 +299,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.write(&parameter.ident);
             match ty_members.data()[type_call.primary_parameters.len() + i].variant {
                 EntityDefnVariant::TyField {
-                    ty,
+                    field_ty: ty,
                     ref field_variant,
                     ..
                 } => match field_variant {
@@ -336,7 +336,7 @@ impl<'a> RustCodeGenerator<'a> {
         msg_once!("keyword arguments and more on variadics");
         match type_call.variadic_template {
             VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { ty } => {
+            VariadicTemplate::SingleTyped { variadic_ty: ty } => {
                 if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
                     self.write(", ")
                 }
@@ -360,7 +360,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_expr(indent, result);
                 self.write(&format!(
                     r#", &__registration__::{mangled_ty_vtable}))
-    ).unwrap().downcast_eval_ref()"#,
+    ).unwrap().downcast_eval_ref(&__registration__::{mangled_ty_vtable})"#,
                 ));
             }
             EagerExprQualifier::EvalRef => {
@@ -372,7 +372,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_expr(indent, result);
                 self.write(&format!(
                     r#"), &__registration__::{mangled_ty_vtable}).into())
-    ).unwrap().downcast_eval_ref()"#,
+    ).unwrap().downcast_eval_ref(&__registration__::{mangled_ty_vtable})"#,
                 ));
             }
             EagerExprQualifier::PureRef
@@ -394,7 +394,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_expr(indent, result);
                 self.write(&format!(
                     r#", &__registration__::{mangled_ty_vtable}))
-    ).unwrap().downcast_eval_ref()"#,
+    ).unwrap().downcast_eval_ref(&__registration__::{mangled_ty_vtable})"#,
                 ));
             }
             EagerExprQualifier::EvalRef => {
