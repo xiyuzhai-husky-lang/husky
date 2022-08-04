@@ -45,6 +45,7 @@ pub static __VOID_VTABLE: __RegisterVTable = __RegisterVTable {
     eq: __void_eq,
     assign: __void_assign,
     typename_str: "void",
+    typename_str_hash_u64: 8073556201194512886,
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_void(&self) -> void {
@@ -96,6 +97,7 @@ pub static __BOOL_VTABLE: __RegisterVTable = __RegisterVTable {
     eq: __bool_eq,
     assign: __bool_assign,
     typename_str: "bool",
+    typename_str_hash_u64: 729807561129781588,
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_bool(&self) -> bool {
@@ -147,6 +149,7 @@ pub static __I32_VTABLE: __RegisterVTable = __RegisterVTable {
     eq: __i32_eq,
     assign: __i32_assign,
     typename_str: "i32",
+    typename_str_hash_u64: 6639413044669031007,
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_i32(&self) -> i32 {
@@ -198,6 +201,7 @@ pub static __I64_VTABLE: __RegisterVTable = __RegisterVTable {
     eq: __i64_eq,
     assign: __i64_assign,
     typename_str: "i64",
+    typename_str_hash_u64: 9204872793588273300,
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_i64(&self) -> i64 {
@@ -249,6 +253,7 @@ pub static __B32_VTABLE: __RegisterVTable = __RegisterVTable {
     eq: __b32_eq,
     assign: __b32_assign,
     typename_str: "b32",
+    typename_str_hash_u64: 9758498138566595375,
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_b32(&self) -> b32 {
@@ -300,6 +305,7 @@ pub static __B64_VTABLE: __RegisterVTable = __RegisterVTable {
     eq: __b64_eq,
     assign: __b64_assign,
     typename_str: "b64",
+    typename_str_hash_u64: 11108470303398574121,
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_b64(&self) -> b64 {
@@ -351,6 +357,7 @@ pub static __F32_VTABLE: __RegisterVTable = __RegisterVTable {
     eq: __f32_eq,
     assign: __f32_assign,
     typename_str: "f32",
+    typename_str_hash_u64: 211483071870485656,
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_f32(&self) -> f32 {
@@ -402,6 +409,7 @@ pub static __F64_VTABLE: __RegisterVTable = __RegisterVTable {
     eq: __f64_eq,
     assign: __f64_assign,
     typename_str: "f64",
+    typename_str_hash_u64: 14456281901843390161,
 };
 impl<'eval> __Register<'eval> {
     pub fn downcast_f64(&self) -> f64 {
@@ -441,6 +449,7 @@ pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_function_drop,
     eq: __virtual_function_eq,
     assign: __virtual_function_assign,
+    typename_str_hash_u64: 14269288641304277215,
     typename_str: "__VirtualFunction",
 };
 
@@ -470,5 +479,6 @@ pub static __VIRTUAL_ENUM_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_enum_drop,
     eq: __virtual_enum_eq,
     assign: __virtual_enum_assign,
+    typename_str_hash_u64: 10189591299398487822,
     typename_str: "__VirtualEnum",
 };

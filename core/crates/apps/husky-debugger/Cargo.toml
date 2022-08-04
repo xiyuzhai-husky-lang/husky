@@ -12,7 +12,6 @@ log = "0.4.3"
 serde = { version = "1.0.106", features = ["derive", "rc"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 parking_lot = "0.12.1"
-rustc-hash = "1.1.0"
 tracing = "0.1"
 itertools = "^0.10.3"
 futures = { version = "0.3.19", features = ["executor", "thread-pool"] }

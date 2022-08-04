@@ -35,6 +35,7 @@ pub static __VIRTUAL_STRUCT_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_struct_drop,
     eq: __virtual_struct_eq,
     assign: __virtual_struct_assign,
+    typename_str_hash_u64: 14990497878918864822,
     typename_str: "VirtualStruct",
 };
 
@@ -64,6 +65,7 @@ pub static __VIRTUAL_VEC_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_vec_drop,
     eq: __virtual_vec_eq,
     assign: __virtual_vec_assign,
+    typename_str_hash_u64: 11613109528630800846,
     typename_str: "VirtualVec",
 };
 
@@ -93,6 +95,7 @@ pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __virtual_cyclic_slice_drop,
     eq: __virtual_cyclic_slice_eq,
     assign: __virtual_cyclic_slice_assign,
+    typename_str_hash_u64: 18190648919425218071,
     typename_str: "VirtualCyclicSlice",
 };
 
@@ -122,5 +125,6 @@ pub static __VISUAL_DATA_VTABLE: __RegisterVTable = __RegisterVTable {
     drop: __visual_data_drop,
     eq: __visual_data_eq,
     assign: __visual_data_assign,
+    typename_str_hash_u64: 271246442404434293,
     typename_str: "VisualData",
 };
