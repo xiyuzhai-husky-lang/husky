@@ -38,6 +38,8 @@ pub trait Model:
     std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + Sized + 'static
 {
     type Internal: for<'eval> __Registrable<'eval>;
+    fn internal_ty_vtable() -> &'static __RegisterTyVTable;
+
     fn train<'eval>(
         &self,
         opds: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
@@ -62,7 +64,7 @@ impl<T: Model> ModelDyn for T {
         internal: &__Register<'eval>,
         arguments: &[__Register<'eval>],
     ) -> __VMResult<__Register<'eval>> {
-        let internal: &T::Internal = unsafe { internal.downcast_temp_ref() };
+        let internal: &T::Internal = unsafe { internal.downcast_temp_ref(T::internal_ty_vtable()) };
         self.eval(internal, arguments)
     }
 }

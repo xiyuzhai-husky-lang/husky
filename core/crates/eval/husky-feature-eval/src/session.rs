@@ -5,7 +5,7 @@ pub use division::*;
 
 use crate::*;
 use husky_compile_time::HuskyCompileTime;
-use husky_datasets_interface::{Dataset, DatasetDyn};
+use husky_datasets_interface::{Dataset, DatasetDyn, __rust_code_gen__::__DATASET_VTABLE};
 use husky_eager_semantics::FuncStmt;
 use husky_feature_gen::{Feature, FeaturePtr};
 use husky_package_semantics::{Config, Package};
@@ -61,7 +61,7 @@ impl<'eval> Session<'eval> {
                 0,
                 vm_config,
             )?
-            .downcast_unbox()
+            .downcast_unbox(&__DATASET_VTABLE)
         };
         Ok(Self {
             dev: Division::new(dataset.dev_loader()),

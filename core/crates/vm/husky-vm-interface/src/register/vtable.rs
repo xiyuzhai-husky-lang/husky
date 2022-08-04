@@ -3,7 +3,7 @@ use std::ffi::c_char;
 
 // order matters!
 #[repr(C)]
-pub struct __RegisterVTable {
+pub struct __RegisterTyVTable {
     pub primitive_value_to_bool: Option<unsafe extern "C" fn(data: __RegisterData) -> bool>,
     pub primitive_value_to_box: Option<unsafe extern "C" fn(data: __RegisterData) -> *mut ()>,
     pub clone: unsafe extern "C" fn(data: *mut ()) -> *mut (),
@@ -14,14 +14,14 @@ pub struct __RegisterVTable {
     pub typename_str: &'static str,
 }
 
-unsafe impl Sync for __RegisterVTable {}
+unsafe impl Sync for __RegisterTyVTable {}
 
-unsafe impl Send for __RegisterVTable {}
+unsafe impl Send for __RegisterTyVTable {}
 
-impl std::fmt::Debug for __RegisterVTable {
+impl std::fmt::Debug for __RegisterTyVTable {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
-        // f.debug_struct("__RegisterVTable")
+        // f.debug_struct("__RegisterTyVTable")
         //     .field("typename_str", unsafe {
         //         &std::ffi::CStr::from_ptr(self.typename_str)
         //     })

@@ -40,7 +40,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 use sync_utils::ASafeRwLock;
-use vm::{__Register, __RegisterDataKind, __RegisterVTable, __I32_VTABLE};
+use vm::{__Register, __RegisterDataKind, __RegisterTyVTable, __I32_VTABLE};
 
 #[salsa::database(
     husky_file::FileQueryStorage,
@@ -182,7 +182,7 @@ impl HuskyCompileTime {
     }
 
     // ad hoc
-    pub fn vtable<'eval>(&self, ty: EntityRoutePtr) -> &'eval __RegisterVTable {
+    pub fn vtable<'eval>(&self, ty: EntityRoutePtr) -> &'eval __RegisterTyVTable {
         unsafe {
             // ad hoc: how to do with Option<>
             match ty.intrinsic() {

@@ -1,11 +1,11 @@
 #[macro_export]
 macro_rules! field_copy_fp {
-    ($Type: ty, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register<'eval> {
-            let value: &$Type = values[0].downcast_temp_ref();
+            let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             register_new_copyable!(value.$field, $FIELD_TY_VTABLE, $copy_kind)
         }
         __LinkageFp {
@@ -18,12 +18,12 @@ macro_rules! field_copy_fp {
 
 #[macro_export]
 macro_rules! field_eval_ref_fp {
-    ($Type: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
-            let value: &'eval $Type = values[0].downcast_eval_ref();
+            let value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
             __Register::new_eval_ref(&value.$field, &$FIELD_TY_VTABLE)
         }
         __LinkageFp {
@@ -35,12 +35,12 @@ macro_rules! field_eval_ref_fp {
 }
 #[macro_export]
 macro_rules! field_temp_ref_fp {
-    ($Type: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
-            let value: &$Type = values[0].downcast_temp_ref();
+            let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_temp_ref(&value.$field, &$FIELD_TY_VTABLE)
         }
         __LinkageFp {
@@ -53,12 +53,12 @@ macro_rules! field_temp_ref_fp {
 
 #[macro_export]
 macro_rules! field_temp_mut_fp {
-    ($Type: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
-            let value: &mut $Type = values[0].downcast_temp_mut();
+            let value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
             __Register::new_temp_mut(&mut value.$field, &$FIELD_TY_VTABLE)
         }
         __LinkageFp {
@@ -71,7 +71,7 @@ macro_rules! field_temp_mut_fp {
 
 #[macro_export]
 macro_rules! field_temp_mut_invalid_fp {
-    ($Type: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
@@ -88,7 +88,7 @@ macro_rules! field_temp_mut_invalid_fp {
 
 #[macro_export]
 macro_rules! field_move_fp {
-    ($Type: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident) => {{
         fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],

@@ -19,7 +19,8 @@ pub(super) unsafe fn virtual_cyclic_slice_index_copy<'eval>(
         values[0].vtable as *const _,
         &__VIRTUAL_CYCLIC_SLICE_VTABLE as *const _
     );
-    let this_value: &VirtualCyclicSlice = values[0].downcast_temp_ref();
+    let this_value: &VirtualCyclicSlice =
+        values[0].downcast_temp_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
     let i: usize = values[1].downcast_i32() as usize;
     this_value[i].bind_copy()
 }
@@ -33,7 +34,8 @@ pub(super) unsafe fn virtual_cyclic_slice_index_eval_ref<'eval>(
         values[0].vtable as *const _,
         &__VIRTUAL_CYCLIC_SLICE_VTABLE as *const _
     );
-    let this_value: &'eval VirtualCyclicSlice = values[0].downcast_eval_ref();
+    let this_value: &'eval VirtualCyclicSlice =
+        values[0].downcast_eval_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
     let i: usize = values[1].downcast_i32() as usize;
     this_value[i].eval_bind_eval_ref()
 }
@@ -43,7 +45,8 @@ pub(super) unsafe fn virtual_cyclic_slice_index_temp_ref<'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     msg_once!("the current impl of virtual vec is deprecated");
-    let this_value: &VirtualCyclicSlice = values[0].downcast_temp_ref();
+    let this_value: &VirtualCyclicSlice =
+        values[0].downcast_temp_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
     let i: usize = values[1].downcast_i32() as usize;
     this_value[i].bind_temp_ref()
 }

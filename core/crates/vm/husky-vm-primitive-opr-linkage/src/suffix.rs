@@ -10,13 +10,19 @@ pub fn resolve_primitive_suffix_opr_linkage(opr: &SuffixOpr, this_ty: RootIdenti
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => {
                 transfer_linkage!(
-                    |_, args| { unsafe { *args[0].downcast_temp_mut::<i32>() += 1 }.to_register() },
+                    |_, args| {
+                        unsafe { *args[0].downcast_temp_mut::<i32>(&__I32_VTABLE) += 1 }
+                            .to_register()
+                    },
                     none
                 )
             }
             RootIdentifier::I64 => {
                 transfer_linkage!(
-                    |_, args| { unsafe { *args[0].downcast_temp_mut::<i64>() += 1 }.to_register() },
+                    |_, args| {
+                        unsafe { *args[0].downcast_temp_mut::<i64>(&__I64_VTABLE) += 1 }
+                            .to_register()
+                    },
                     none
                 )
             }
@@ -55,13 +61,19 @@ pub fn resolve_primitive_suffix_opr_linkage(opr: &SuffixOpr, this_ty: RootIdenti
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => {
                 transfer_linkage!(
-                    |_, args| { unsafe { *args[0].downcast_temp_mut::<i32>() -= 1 }.to_register() },
+                    |_, args| {
+                        unsafe { *args[0].downcast_temp_mut::<i32>(&__I32_VTABLE) -= 1 }
+                            .to_register()
+                    },
                     none
                 )
             }
             RootIdentifier::I64 => {
                 transfer_linkage!(
-                    |_, args| { unsafe { *args[0].downcast_temp_mut::<i64>() -= 1 }.to_register() },
+                    |_, args| {
+                        unsafe { *args[0].downcast_temp_mut::<i64>(&__I64_VTABLE) -= 1 }
+                            .to_register()
+                    },
                     none
                 )
             }

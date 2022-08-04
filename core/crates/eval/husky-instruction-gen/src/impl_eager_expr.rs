@@ -414,8 +414,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                                             RootIdentifier::Void => todo!(),
                                             RootIdentifier::I32 => transfer_linkage!(
                                                 |_, args| {
-                                                    let enum_value: &__VirtualEnum =
-                                                        unsafe { args[0].downcast_temp_ref() };
+                                                    let enum_value: &__VirtualEnum = unsafe {
+                                                        args[0].downcast_temp_ref(
+                                                            &__VIRTUAL_ENUM_VTABLE,
+                                                        )
+                                                    };
                                                     (enum_value.kind_idx as i32).to_register()
                                                 },
                                                 none

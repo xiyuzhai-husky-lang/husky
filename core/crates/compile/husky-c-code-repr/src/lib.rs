@@ -19,7 +19,7 @@ extern void *__{ty}_clone(void const*);
 extern void __{ty}_drop(void const*);
 extern bool __{ty}_eq(void const*, void const*);
 extern void __{ty}_assign(__Register *);
-extern const __RegisterVTable __{uppercase_ty}_VTABLE;
+extern const __RegisterTyVTable __{uppercase_ty}_VTABLE;
         "#
         )
     }
@@ -36,7 +36,7 @@ impl<'a> Display for CPrimitiveTypeRegistrationSource<'a> {
         write!(
             f,
             r#"
-const __RegisterVTable __{uppercase_ty}_VTABLE = {{
+const __RegisterTyVTable __{uppercase_ty}_VTABLE = {{
     .typename_str = "{ty}",
     .primitive_value_to_bool = __{ty}_primitive_value_to_bool,
     .primitive_value_to_box = __{ty}_primitive_value_to_box,
@@ -67,7 +67,7 @@ extern void *__{lower_snake_ty}_clone(void const*);
 extern void __{lower_snake_ty}_drop(void const*);
 extern bool __{lower_snake_ty}_eq(void const*, void const*);
 extern void __{lower_snake_ty}_assign(__Register*);
-extern const __RegisterVTable __{upper_snake_ty}_VTABLE;
+extern const __RegisterTyVTable __{upper_snake_ty}_VTABLE;
         "#
         )
     }
@@ -85,7 +85,7 @@ impl<'a> Display for CNonPrimitiveTypeRegistrationSource<'a> {
         write!(
             f,
             r#"
-const __RegisterVTable __{upper_snake_ty}_VTABLE = {{
+const __RegisterTyVTable __{upper_snake_ty}_VTABLE = {{
     .typename_str = "{ty}",
     .primitive_value_to_bool = 0,
     .primitive_value_to_box = 0,

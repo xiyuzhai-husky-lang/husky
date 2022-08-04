@@ -55,10 +55,10 @@ pub unsafe extern "C" fn __{ty}_eq(this: &(), other: &()) -> bool {{
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_assign(registers: *mut __Register) {{
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<{ty}>() = registers[1].downcast_{ty}()
+    *registers[0].downcast_temp_mut::<{ty}>(&__{uppercase_ty}_VTABLE) = registers[1].downcast_{ty}()
 }}
 #[no_mangle]
-pub static __{uppercase_ty}_VTABLE: __RegisterVTable = __RegisterVTable {{
+pub static __{uppercase_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
     primitive_value_to_bool: Some(__{ty}_primitive_value_to_bool),
     primitive_value_to_box: Some(__{ty}_primitive_value_to_box),
     clone: __{ty}_clone,
@@ -113,10 +113,10 @@ pub unsafe extern "C" fn __{snake_ty}_eq(this: &(), other: &()) -> bool {{
 #[no_mangle]
 pub unsafe extern "C" fn __{snake_ty}_assign(registers: *mut __Register) {{
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<{ty}>() = registers[1].downcast_move()
+    *registers[0].downcast_temp_mut::<{ty}>(&__{upper_snake_ty}_VTABLE) = registers[1].downcast_move(&__{upper_snake_ty}_VTABLE)
 }}
 #[no_mangle]
-pub static __{upper_snake_ty}_VTABLE: __RegisterVTable = __RegisterVTable {{
+pub static __{upper_snake_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
     clone: __{snake_ty}_clone,

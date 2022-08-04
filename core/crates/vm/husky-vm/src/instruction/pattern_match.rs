@@ -27,7 +27,8 @@ impl VMPattern {
                 false
             }
             VMPattern::EnumKind { kind_idx } => {
-                let value: &__VirtualEnum = unsafe { value.downcast_temp_ref() };
+                let value: &__VirtualEnum =
+                    unsafe { value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE) };
                 value.kind_idx == *kind_idx
             }
         }

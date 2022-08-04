@@ -152,7 +152,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         *self
                             .stack
                             .value_mut(frame_varidx)
-                            .downcast_temp_mut::<i32>() += step.0
+                            .downcast_temp_mut::<i32>(&__I32_VTABLE) += step.0
                     }
                 }
                 Ok(control)
