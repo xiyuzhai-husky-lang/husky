@@ -34,7 +34,7 @@ unsafe fn virtual_vec_firstx_eval_ref<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let virtual_vec: &'eval VirtualVec = values[0].downcast_eval_ref();
+    let virtual_vec: &'eval VirtualVec = values[0].downcast_eval_ref(&__VIRTUAL_VEC_VTABLE);
     virtual_vec.first().unwrap().eval_bind_eval_ref()
 }
 
@@ -42,7 +42,7 @@ unsafe fn virtual_vec_firstx_temp_ref<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let virtual_vec: &VirtualVec = values[0].downcast_temp_ref();
+    let virtual_vec: &VirtualVec = values[0].downcast_temp_ref(&__VIRTUAL_VEC_VTABLE);
     virtual_vec.first().unwrap().bind_temp_ref()
 }
 
@@ -50,7 +50,7 @@ unsafe fn virtual_vec_firstx_temp_mut<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let virtual_vec: &mut VirtualVec = values[0].downcast_temp_mut();
+    let virtual_vec: &mut VirtualVec = values[0].downcast_temp_mut(&__VIRTUAL_VEC_VTABLE);
     virtual_vec.first_mut().unwrap().bind_temp_mut()
 }
 

@@ -106,4 +106,8 @@ impl Model for NaiveI32 {
             }
         }
     }
+
+    fn internal_ty_vtable() -> &'static vm::__RegisterTyVTable {
+        &__NAIVE_I_32_INTERNAL_VTABLE
+    }
 }

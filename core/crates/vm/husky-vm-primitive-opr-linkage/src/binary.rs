@@ -205,14 +205,14 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
     match (lopd_ty, opt_opr, ropd_ty) {
             (Bool, None, Bool) => transfer_linkage!(
                 |_,arguments| unsafe {
-                    *arguments[0].downcast_temp_mut::<bool>() = arguments[1].downcast_bool();
+                    *arguments[0].downcast_temp_mut::<bool>(&__BOOL_VTABLE) = arguments[1].downcast_bool();
                     __Register::new_void()
                 },
                 none
             ),
             (I32, None, I32) => transfer_linkage!(
                 |_,arguments| unsafe {
-                    *arguments[0].downcast_temp_mut::<i32>() = arguments[1].downcast_i32();
+                    *arguments[0].downcast_temp_mut::<i32>(&__I32_VTABLE) = arguments[1].downcast_i32();
                     __Register::new_void()
                 },
                 none
@@ -220,7 +220,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             (I32, Some(Add), I32) => transfer_linkage!(
                 |_,arguments| unsafe {
                     let new_value: i32 = (arguments[0].downcast_i32() + arguments[1].downcast_i32());
-                    *arguments[0].downcast_temp_mut::<i32>() = new_value;
+                    *arguments[0].downcast_temp_mut::<i32>(&__I32_VTABLE) = new_value;
                     __Register::new_void()
                 },
                 none
@@ -228,14 +228,14 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             (I32, Some(Sub), I32) => transfer_linkage!(
                 |_,arguments| unsafe {
                     let new_value: i32 = (arguments[0].downcast_i32() - arguments[1].downcast_i32());
-                    *arguments[0].downcast_temp_mut::<i32>() = new_value;
+                    *arguments[0].downcast_temp_mut::<i32>(&__I32_VTABLE) = new_value;
                     __Register::new_void()
                 },
                 none
             ),
             (B32, None, B32) => transfer_linkage!(
                 |_,arguments| unsafe {
-                    *arguments[0].downcast_temp_mut::<b32>() = arguments[1].downcast_b32();
+                    *arguments[0].downcast_temp_mut::<b32>(&__B32_VTABLE) = arguments[1].downcast_b32();
                     __Register::new_void()
                 },
                 none
@@ -243,7 +243,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             (B32, Some(BitAnd), B32) => transfer_linkage!(
                 |_,arguments| unsafe {
                     let new_value: b32 = (arguments[0].downcast_b32() & arguments[1].downcast_b32());
-                    *arguments[0].downcast_temp_mut::<b32>() = new_value;
+                    *arguments[0].downcast_temp_mut::<b32>(&__B32_VTABLE) = new_value;
                     __Register::new_void()
                 },
                 none
@@ -251,14 +251,14 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             (B32, Some(BitOr), B32) => transfer_linkage!(
                 |_,arguments| unsafe {
                     let new_value: b32 = (arguments[0].downcast_b32() | arguments[1].downcast_b32());
-                    *arguments[0].downcast_temp_mut::<b32>() = new_value;
+                    *arguments[0].downcast_temp_mut::<b32>(&__B32_VTABLE) = new_value;
                     __Register::new_void()
                 },
                 none
             ),
             (F32, None, F32) => transfer_linkage!(
                 |_,arguments| unsafe {
-                    *arguments[0].downcast_temp_mut::<f32>() = arguments[1].downcast_f32();
+                    *arguments[0].downcast_temp_mut::<f32>(&__F32_VTABLE) = arguments[1].downcast_f32();
                     __Register::new_void()
                 },
                 none

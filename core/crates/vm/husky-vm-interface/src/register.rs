@@ -19,7 +19,7 @@ use std::{
 pub struct __Register<'eval> {
     pub(crate) data_kind: __RegisterDataKind,
     pub(crate) data: __RegisterData,
-    pub vtable: &'eval __RegisterVTable,
+    pub vtable: &'eval __RegisterTyVTable,
 }
 
 impl<'eval> std::hash::Hash for __Register<'eval> {
@@ -101,7 +101,7 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn new_primitive_value(
         data: __RegisterData,
-        proto: &'eval __RegisterVTable,
+        proto: &'eval __RegisterTyVTable,
     ) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::PrimitiveValue,
@@ -110,7 +110,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_box<T>(value: T, proto: &'eval __RegisterVTable) -> __Register<'eval> {
+    pub fn new_box<T>(value: T, proto: &'eval __RegisterTyVTable) -> __Register<'eval> {
         let ptr: *mut T = Box::<T>::into_raw(Box::new(value));
         __Register {
             data_kind: __RegisterDataKind::Box,
@@ -123,7 +123,7 @@ impl<'eval> __Register<'eval> {
 
     pub fn new_eval_ref<T: 'eval>(
         value: &'eval T,
-        proto: &'eval __RegisterVTable,
+        proto: &'eval __RegisterTyVTable,
     ) -> __Register<'eval> {
         let ptr: *const T = value;
         __Register {
@@ -135,7 +135,10 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn new_temp_ref<T>(value: &T, proto: &'eval __RegisterVTable) -> __Register<'eval> {
+    pub unsafe fn new_temp_ref<T>(
+        value: &T,
+        proto: &'eval __RegisterTyVTable,
+    ) -> __Register<'eval> {
         let ptr: *const T = value;
         __Register {
             data_kind: __RegisterDataKind::TempRef,
@@ -148,7 +151,7 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn new_temp_mut<T>(
         value: &mut T,
-        proto: &'eval __RegisterVTable,
+        proto: &'eval __RegisterTyVTable,
     ) -> __Register<'eval> {
         let ptr: *const T = value;
         __Register {
@@ -169,7 +172,7 @@ impl<'eval> __Register<'eval> {
         std::mem::replace(self, moved)
     }
 
-    pub fn new_undefined(proto: &'eval __RegisterVTable) -> __Register<'eval> {
+    pub fn new_undefined(proto: &'eval __RegisterTyVTable) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
             data: __RegisterData { as_void: () },
@@ -187,7 +190,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_unreturned(vtable: &'eval __RegisterVTable) -> __Register<'eval> {
+    pub fn new_unreturned(vtable: &'eval __RegisterTyVTable) -> __Register<'eval> {
         unsafe {
             __Register {
                 data_kind: __RegisterDataKind::Unreturned,
@@ -197,7 +200,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_moved(vtable: &'eval __RegisterVTable) -> __Register<'eval> {
+    pub fn new_moved(vtable: &'eval __RegisterTyVTable) -> __Register<'eval> {
         unsafe {
             __Register {
                 data_kind: __RegisterDataKind::Moved,
@@ -208,7 +211,7 @@ impl<'eval> __Register<'eval> {
     }
 
     pub unsafe fn new_undefined_with_message(
-        proto: &'eval __RegisterVTable,
+        proto: &'eval __RegisterTyVTable,
         message: String,
     ) -> __Register<'eval> {
         __Register {
@@ -233,31 +236,40 @@ impl<'eval> __Register<'eval> {
         // }
     }
 
-    pub fn downcast_unbox<T>(self) -> T
+    pub fn downcast_unbox<T>(self, target_ty_vtable: &__RegisterTyVTable) -> T
     where
         T: 'eval,
     {
+        if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
+            panic!()
+        }
         assert_eq!(self.data_kind, __RegisterDataKind::Box);
         let t = unsafe { *Box::from_raw(self.data.as_ptr as *mut T) };
         std::mem::forget(self);
         t
     }
 
-    pub fn downcast_move<T>(&mut self) -> T
+    pub fn downcast_move<T>(&mut self, target_ty_vtable: &__RegisterTyVTable) -> T
     where
         T: 'eval,
     {
+        if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
+            panic!()
+        }
         assert_eq!(self.data_kind, __RegisterDataKind::Box);
         let t = unsafe { *Box::from_raw(self.data.as_ptr as *mut T) };
         self.data_kind = __RegisterDataKind::Moved;
         t
     }
 
-    pub unsafe fn downcast_temp<T>(&mut self) -> T {
+    pub unsafe fn downcast_temp<T>(&mut self, target_ty_vtable: &__RegisterTyVTable) -> T {
         todo!()
     }
 
-    pub fn downcast_eval_ref<T: 'eval>(&self) -> &'eval T {
+    pub fn downcast_eval_ref<T: 'eval>(&self, target_ty_vtable: &__RegisterTyVTable) -> &'eval T {
+        if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
+            panic!()
+        }
         unsafe {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => todo!(),
@@ -272,7 +284,10 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn downcast_temp_ref<T>(&self) -> &T {
+    pub unsafe fn downcast_temp_ref<T>(&self, target_ty_vtable: &__RegisterTyVTable) -> &T {
+        if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
+            panic!()
+        }
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box
@@ -285,7 +300,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn downcast_temp_mut<T>(&mut self) -> &mut T {
+    pub unsafe fn downcast_temp_mut<T>(&mut self, target_ty_vtable: &__RegisterTyVTable) -> &mut T {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => &mut *(&mut self.data as *mut _ as *mut T),
             __RegisterDataKind::Box => todo!(),

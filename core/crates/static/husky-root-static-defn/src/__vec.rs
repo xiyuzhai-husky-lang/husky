@@ -97,7 +97,7 @@ unsafe fn virtual_vec_push<'temp, 'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let element = values[1].bind_move();
-    let virtual_vec: &mut VirtualVec = values[0].downcast_temp_mut();
+    let virtual_vec: &mut VirtualVec = values[0].downcast_temp_mut(&__VIRTUAL_VEC_VTABLE);
     virtual_vec.push(element);
     ().to_register()
 }
@@ -107,7 +107,7 @@ unsafe fn virtual_vec_pop<'temp, 'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     msg_once!("the current impl of virtual vec is deprecated");
-    let virtual_vec: &mut VirtualVec = values[0].downcast_temp_mut();
+    let virtual_vec: &mut VirtualVec = values[0].downcast_temp_mut(&__VIRTUAL_VEC_VTABLE);
     virtual_vec.pop().unwrap()
 }
 
@@ -128,7 +128,7 @@ unsafe fn virtual_vec_index_copy<'eval>(
         values[0].vtable as *const _,
         &__VIRTUAL_VEC_VTABLE as *const _
     );
-    let this_value: &VirtualVec = values[0].downcast_temp_ref();
+    let this_value: &VirtualVec = values[0].downcast_temp_ref(&__VIRTUAL_VEC_VTABLE);
     let i: usize = values[1].downcast_i32() as usize;
     if i >= this_value.len() {
         todo!()
@@ -145,7 +145,7 @@ unsafe fn virtual_vec_index_eval_ref<'eval>(
         values[0].vtable as *const _,
         &__VIRTUAL_VEC_VTABLE as *const _
     );
-    let this_value: &'eval VirtualVec = values[0].downcast_eval_ref();
+    let this_value: &'eval VirtualVec = values[0].downcast_eval_ref(&__VIRTUAL_VEC_VTABLE);
     let i: usize = values[1].downcast_i32() as usize;
     this_value[i].eval_bind_eval_ref()
 }
@@ -155,7 +155,7 @@ unsafe fn virtual_vec_index_temp_ref<'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     msg_once!("the current impl of virtual vec is deprecated");
-    let this_value: &VirtualVec = values[0].downcast_temp_ref();
+    let this_value: &VirtualVec = values[0].downcast_temp_ref(&__VIRTUAL_VEC_VTABLE);
     let i: usize = values[1].downcast_i32() as usize;
     this_value[i].bind_temp_ref()
 }
@@ -165,7 +165,7 @@ unsafe fn virtual_vec_index_temp_mut<'eval>(
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
     let i: usize = values[1].downcast_i32() as usize;
-    let this_value: &mut VirtualVec = values[0].downcast_temp_mut();
+    let this_value: &mut VirtualVec = values[0].downcast_temp_mut(&__VIRTUAL_VEC_VTABLE);
     if i >= this_value.len() {
         todo!()
     }
@@ -191,7 +191,7 @@ unsafe fn virtual_vec_len<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
-    let virtual_vec: &VirtualVec = values[0].downcast_temp_ref();
+    let virtual_vec: &VirtualVec = values[0].downcast_temp_ref(&__VIRTUAL_VEC_VTABLE);
     let len: i32 = virtual_vec.len().try_into().unwrap();
     len.to_register()
 }

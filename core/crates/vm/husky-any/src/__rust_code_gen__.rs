@@ -25,10 +25,10 @@ pub unsafe extern "C" fn __virtual_struct_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VirtualStruct>() = registers[1].downcast_move()
+    *registers[0].downcast_temp_mut::<VirtualStruct>(&__VIRTUAL_STRUCT_VTABLE) = registers[1].downcast_move(&__VIRTUAL_STRUCT_VTABLE)
 }
 #[no_mangle]
-pub static __VIRTUAL_STRUCT_VTABLE: __RegisterVTable = __RegisterVTable {
+pub static __VIRTUAL_STRUCT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
     clone: __virtual_struct_clone,
@@ -55,10 +55,10 @@ pub unsafe extern "C" fn __virtual_vec_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VirtualVec>() = registers[1].downcast_move()
+    *registers[0].downcast_temp_mut::<VirtualVec>(&__VIRTUAL_VEC_VTABLE) = registers[1].downcast_move(&__VIRTUAL_VEC_VTABLE)
 }
 #[no_mangle]
-pub static __VIRTUAL_VEC_VTABLE: __RegisterVTable = __RegisterVTable {
+pub static __VIRTUAL_VEC_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
     clone: __virtual_vec_clone,
@@ -85,10 +85,10 @@ pub unsafe extern "C" fn __virtual_cyclic_slice_eq(this: &(), other: &()) -> boo
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VirtualCyclicSlice>() = registers[1].downcast_move()
+    *registers[0].downcast_temp_mut::<VirtualCyclicSlice>(&__VIRTUAL_CYCLIC_SLICE_VTABLE) = registers[1].downcast_move(&__VIRTUAL_CYCLIC_SLICE_VTABLE)
 }
 #[no_mangle]
-pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterVTable = __RegisterVTable {
+pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
     clone: __virtual_cyclic_slice_clone,
@@ -115,10 +115,10 @@ pub unsafe extern "C" fn __visual_data_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __visual_data_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VisualData>() = registers[1].downcast_move()
+    *registers[0].downcast_temp_mut::<VisualData>(&__VISUAL_DATA_VTABLE) = registers[1].downcast_move(&__VISUAL_DATA_VTABLE)
 }
 #[no_mangle]
-pub static __VISUAL_DATA_VTABLE: __RegisterVTable = __RegisterVTable {
+pub static __VISUAL_DATA_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
     clone: __visual_data_clone,

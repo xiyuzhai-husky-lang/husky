@@ -154,6 +154,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
     for (lopd_ty_ident, opt_opr, ropd_ty_ident) in supported_assign_binary_opns {
         let lopd_ty_husky_name = lopd_ty_ident.as_str();
         let ropd_ty_husky_name = ropd_ty_ident.as_str();
+        let upper_lopd_ty_husky_name = lopd_ty_husky_name.to_uppercase();
         if let Some(opr) = opt_opr {
             let opr_code = opr.code();
             // let rust_trait_method_name = opr.rust_trait_method_name();
@@ -163,7 +164,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             ({lopd_ty_ident:?}, Some({opr:?}), {ropd_ty_ident:?}) => transfer_linkage!(
                 |_,arguments| unsafe {{
                     let new_value: {lopd_ty_husky_name} = (arguments[0].downcast_{lopd_ty_husky_name}() {opr_code} arguments[1].downcast_{ropd_ty_husky_name}());
-                    *arguments[0].downcast_temp_mut::<{lopd_ty_husky_name}>() = new_value;
+                    *arguments[0].downcast_temp_mut::<{lopd_ty_husky_name}>(&__{upper_lopd_ty_husky_name}_VTABLE) = new_value;
                     __Register::new_void()
                 }},
                 none
@@ -175,7 +176,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
                 r#"
             ({lopd_ty_ident:?}, None, {ropd_ty_ident:?}) => transfer_linkage!(
                 |_,arguments| unsafe {{
-                    *arguments[0].downcast_temp_mut::<{lopd_ty_husky_name}>() = arguments[1].downcast_{ropd_ty_husky_name}();
+                    *arguments[0].downcast_temp_mut::<{lopd_ty_husky_name}>(&__{upper_lopd_ty_husky_name}_VTABLE) = arguments[1].downcast_{ropd_ty_husky_name}();
                     __Register::new_void()
                 }},
                 none

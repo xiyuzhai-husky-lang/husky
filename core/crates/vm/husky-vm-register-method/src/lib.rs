@@ -17,7 +17,8 @@ impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => todo!(),
                 __RegisterDataKind::Box => todo!(),
                 __RegisterDataKind::EvalRef => {
-                    let this_value: &'eval VirtualStruct = unsafe { self.downcast_eval_ref() };
+                    let this_value: &'eval VirtualStruct =
+                        unsafe { self.downcast_eval_ref(&__VIRTUAL_STRUCT_VTABLE) };
                     this_value.bind_field_eval_ref(field_idx)
                 }
                 __RegisterDataKind::TempRef => todo!(),
@@ -27,16 +28,19 @@ impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
                 __RegisterDataKind::Unreturned => todo!(),
             },
             Binding::TempRef => {
-                let this_value: &VirtualStruct = unsafe { self.downcast_temp_ref() };
+                let this_value: &VirtualStruct =
+                    unsafe { self.downcast_temp_ref(&__VIRTUAL_STRUCT_VTABLE) };
                 this_value.bind_field_temp_ref(field_idx)
             }
             Binding::TempMut => {
-                let this_value: &mut VirtualStruct = unsafe { self.downcast_temp_mut() };
+                let this_value: &mut VirtualStruct =
+                    unsafe { self.downcast_temp_mut(&__VIRTUAL_STRUCT_VTABLE) };
                 this_value.bind_field_mut(field_idx)
             }
             Binding::Move => todo!(),
             Binding::Copy => {
-                let this_value: &VirtualStruct = unsafe { self.downcast_temp_ref() };
+                let this_value: &VirtualStruct =
+                    unsafe { self.downcast_temp_ref(&__VIRTUAL_STRUCT_VTABLE) };
                 this_value.bind_field_copy(field_idx)
             }
         }
