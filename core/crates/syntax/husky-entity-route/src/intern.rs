@@ -156,23 +156,23 @@ impl EntityRoutePtr {
         }
     }
 
-    pub fn is_generic(&self) -> bool {
+    pub fn contains_any(&self) -> bool {
         match self.variant {
             EntityRouteVariant::Child { parent, ident } => {
-                if parent.is_generic() {
+                if parent.contains_any() {
                     return true;
                 }
             }
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
-                if ty.is_generic() {
+                if ty.contains_any() {
                     return true;
                 }
-                if trai.is_generic() {
+                if trai.contains_any() {
                     return true;
                 }
             }
             EntityRouteVariant::Input { main } => todo!(),
-            EntityRouteVariant::Generic { .. } => return true,
+            EntityRouteVariant::Any { .. } => return true,
             EntityRouteVariant::ThisType => todo!(),
             _ => (),
         }
@@ -180,7 +180,7 @@ impl EntityRoutePtr {
             match spatial_argument {
                 SpatialArgument::Const(_) => (),
                 SpatialArgument::EntityRoute(route) => {
-                    if route.is_generic() {
+                    if route.contains_any() {
                         return true;
                     }
                 }

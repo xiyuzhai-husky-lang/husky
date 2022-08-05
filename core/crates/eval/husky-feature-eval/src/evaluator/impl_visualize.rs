@@ -57,6 +57,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                 Ok(VisualData::Primitive { value: ().into() })
             }
             VisualizerVariant::Static => todo!(),
+            VisualizerVariant::Any => todo!(),
         }
         // let visualizer = self.db.compile_time().visualizer(this.ty());
         // let this_value = self.eval_feature_repr_cached(&this).unwrap();

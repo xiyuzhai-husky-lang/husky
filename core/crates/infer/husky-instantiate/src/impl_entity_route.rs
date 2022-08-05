@@ -19,7 +19,7 @@ impl Instantiable for EntityRoutePtr {
                         thin_vec![],
                     ),
                     EntityRouteVariant::Input { main } => todo!(),
-                    EntityRouteVariant::Generic { ident, .. } => {
+                    EntityRouteVariant::Any { ident, .. } => {
                         if let Some(idx) = ctx.find_generic(ident) {
                             match ctx.spatial_arguments[idx] {
                                 SpatialArgument::Const(value) => {

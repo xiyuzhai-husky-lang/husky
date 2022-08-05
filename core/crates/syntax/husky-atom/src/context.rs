@@ -262,7 +262,7 @@ pub trait AtomContext {
     ) -> ThinVec<SpatialArgument> {
         generic_parameters.map(|spatial_parameter| {
             SpatialArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
-                variant: EntityRouteVariant::Generic {
+                variant: EntityRouteVariant::Any {
                     ident: spatial_parameter.ident.ident,
                     entity_kind: spatial_parameter.entity_kind(),
                     file: spatial_parameter.file,
@@ -284,7 +284,7 @@ pub trait AtomContext {
                 init_ident: spatial_parameter.ident,
                 kind: SymbolKind::EntityRoute(self.entity_syntax_db().intern_entity_route(
                     EntityRoute {
-                        variant: EntityRouteVariant::Generic {
+                        variant: EntityRouteVariant::Any {
                             ident: spatial_parameter.ident.ident,
                             entity_kind: spatial_parameter.entity_kind(),
                             file: spatial_parameter.file,

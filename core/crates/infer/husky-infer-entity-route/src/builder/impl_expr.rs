@@ -94,7 +94,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     EntityRouteVariant::Package { main, ident } => todo!(),
                     EntityRouteVariant::Child { parent, ident } => parent,
                     EntityRouteVariant::Input { main } => todo!(),
-                    EntityRouteVariant::Generic { ident, .. } => todo!(),
+                    EntityRouteVariant::Any { ident, .. } => todo!(),
                     EntityRouteVariant::ThisType => todo!(),
                     EntityRouteVariant::TypeAsTraitMember {
                         ty: parent,

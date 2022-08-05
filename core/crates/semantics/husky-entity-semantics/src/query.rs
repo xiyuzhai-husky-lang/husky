@@ -76,7 +76,7 @@ pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRout
             let _defn = db.entity_defn(entity_route);
             let _dependees = db.entity_dependees(entity_route);
         }
-        EntitySource::Generic { .. } => todo!(),
+        EntitySource::Any { .. } => todo!(),
     }
     db.entity_route_store().add(entity_route)
 }

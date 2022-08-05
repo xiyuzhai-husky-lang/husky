@@ -41,7 +41,7 @@ impl CallFormDecl {
             AstVariant::CallFormDefnHead {
                 ident,
                 paradigm,
-                spatial_parameters: ref generic_parameters,
+                ref spatial_parameters,
                 ref parameters,
                 output_ty,
                 output_liason,
@@ -49,7 +49,7 @@ impl CallFormDecl {
             } => Arc::new(CallFormDecl {
                 opt_base_route: Some(route),
                 opt_this_liason,
-                spatial_parameters: generic_parameters.clone(),
+                spatial_parameters: spatial_parameters.clone(),
                 primary_parameters: parameters
                     .iter()
                     .map(|parameter| parameter.into())
@@ -91,10 +91,10 @@ impl CallFormDecl {
                         liason: output_liason,
                         ty: output_ty,
                     },
-                    spatial_parameters: spatial_parameters.map(|static_generic_placeholder| {
+                    spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                         SpatialParameter::from_static(
                             symbol_context.entity_syntax_db(),
-                            static_generic_placeholder,
+                            static_spatial_parameter,
                         )
                     }),
                     is_lazy: false,
@@ -231,7 +231,7 @@ pub(crate) fn entity_call_form_decl(
             }
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
             EntityRouteVariant::Input { main } => todo!(),
-            EntityRouteVariant::Generic { .. } => todo!(),
+            EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
@@ -247,7 +247,7 @@ pub(crate) fn entity_call_form_decl(
             }
             _ => todo!(),
         },
-        EntitySource::Generic { .. } => todo!(),
+        EntitySource::Any { .. } => todo!(),
     };
 }
 
@@ -313,8 +313,8 @@ pub(crate) fn routine_decl_from_static(
             ref linkage,
             ref variadic_template,
         } => {
-            let generic_parameters = db.spatial_parameters_from_static(spatial_parameters);
-            symbols.extend(db.symbols_from_spatial_parameters(&generic_parameters));
+            let spatial_parameters = db.spatial_parameters_from_static(spatial_parameters);
+            symbols.extend(db.symbols_from_spatial_parameters(&spatial_parameters));
             let mut symbol_context = AtomContextStandalone {
                 opt_package_main: None,
                 db: db.upcast(),
@@ -333,7 +333,7 @@ pub(crate) fn routine_decl_from_static(
             msg_once!("todo: keyword parameters");
             Arc::new(CallFormDecl {
                 opt_base_route: Some(route),
-                spatial_parameters: generic_parameters,
+                spatial_parameters,
                 primary_parameters: parameters,
                 output: OutputDecl {
                     liason: output_liason,

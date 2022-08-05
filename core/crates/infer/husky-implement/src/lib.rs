@@ -72,7 +72,7 @@ impl Implementable for EntityRoutePtr {
                 }
             },
             EntityRouteVariant::Input { main } => todo!(),
-            EntityRouteVariant::Generic { .. } => todo!(),
+            EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType => (
                 ctx.this_ty.variant.clone(),
                 ctx.this_ty.spatial_arguments.clone(),
