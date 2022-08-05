@@ -15,7 +15,7 @@ vm = { path = "../../vm/husky-vm" }
 husky-check-utils = { path = "../../../../common-rs/utils/husky-check-utils" }
 husky-print-utils = { path = "../../../../common-rs/utils/husky-print-utils" }
 entity-kind = { path = "../../syntax/entity-kind" }
-husky-visual-syntax = { path = "../../syntax/husky-visual-syntax" }
+husky-static-visualizer = { path = "../husky-static-visualizer" }
 husky-dev-utils = { path = "../../../../common-rs/utils/husky-dev-utils" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }

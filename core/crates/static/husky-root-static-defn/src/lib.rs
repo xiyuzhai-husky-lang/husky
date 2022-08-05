@@ -29,7 +29,7 @@ pub use std::sync::Arc as __Arc;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_dev_utils::*;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
-use husky_visual_syntax::StaticVisualTy;
+use husky_static_visualizer::StaticVisualTy;
 use husky_vm_register_method::VMRegisterMethodX;
 use husky_word::RootIdentifier;
 use static_defn::StaticParameter;

@@ -1,3 +1,5 @@
+#![feature(extern_types)]
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum StaticVisualTy {
     Void,
@@ -19,4 +21,9 @@ impl Default for StaticVisualTy {
     fn default() -> Self {
         StaticVisualTy::Void
     }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct StaticVisualizer {
+    pub visual_ty: StaticVisualTy,
 }

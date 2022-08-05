@@ -7,7 +7,7 @@ pub use cyclic_slice_::*;
 pub use firstx::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_print_utils::msg_once;
-use husky_visual_syntax::StaticVisualTy;
+use husky_static_visualizer::StaticVisualTy;
 pub use lastx::*;
 
 use super::*;

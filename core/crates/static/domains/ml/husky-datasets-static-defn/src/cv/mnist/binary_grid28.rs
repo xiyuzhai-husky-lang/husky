@@ -1,8 +1,8 @@
 use super::*;
 use husky_datasets_interface::mnist::BinaryGrid28;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
+use husky_static_visualizer::{StaticVisualTy, StaticVisualizer};
 use husky_trace_protocol::*;
-use husky_visual_syntax::StaticVisualTy;
 use std::any::TypeId;
 use vm::*;
 
@@ -51,7 +51,9 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[],
         variants: &[],
         kind: TyKind::Struct,
-        visual_ty: StaticVisualTy::Shape2d,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Shape2d,
+        },
         opt_type_call: Some(&BINARY_GRID28_TYPE_CALL_DEFN),
     },
     dev_src: husky_dev_utils::static_dev_src!(),

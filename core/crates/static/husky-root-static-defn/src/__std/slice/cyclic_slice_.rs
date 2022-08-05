@@ -4,7 +4,7 @@ mod start;
 
 use ::cyclic_slice::CyclicSlice;
 use end::*;
-use husky_visual_syntax::StaticVisualTy;
+use husky_static_visualizer::StaticVisualTy;
 use index::*;
 use start::*;
 use std::any::TypeId;
