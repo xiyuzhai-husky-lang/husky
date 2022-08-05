@@ -3,7 +3,7 @@ use std::{any::TypeId, borrow::Cow, sync::Arc};
 
 #[derive(Default, Clone, PartialEq, Eq)]
 pub struct BinaryImage28 {
-    padded_rows: [u32; 30],
+    pub padded_rows: [u32; 30],
 }
 
 impl std::ops::Index<usize> for BinaryImage28 {
