@@ -39,7 +39,7 @@ impl<'a> DependeeMapBuilder<'a> {
                 msg_once!("dependences on entity from external packs should be merged");
                 ()
             }
-            EntityRouteVariant::Generic {
+            EntityRouteVariant::Any {
                 ident, entity_kind, ..
             } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
@@ -216,6 +216,7 @@ impl EntityDefn {
                 ref source,
             } => todo!(),
             EntityDefnVariant::Input { .. } => todo!(),
+            EntityDefnVariant::Any => (),
         };
         return builder.finish();
 
@@ -490,6 +491,7 @@ impl EntityDefn {
                     ref source,
                 } => todo!(),
                 EntityDefnVariant::Input { .. } => todo!(),
+                EntityDefnVariant::Any => (),
             }
         }
 

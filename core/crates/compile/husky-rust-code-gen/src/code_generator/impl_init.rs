@@ -26,7 +26,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let main_module = self.db.module(self.package_main).unwrap();
         let entity_link_dependees = self.db.entity_link_dependees(main_module);
         for entity_route in entity_link_dependees.iter() {
-            if !entity_route.is_generic() {
+            if !entity_route.contains_any() {
                 let entity_defn = self.db.entity_defn(*entity_route).unwrap();
                 self.gen_linkage_entry(*entity_route, &entity_defn);
             }
@@ -127,7 +127,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 _ => self.gen_ty_linkages(ty_kind, opt_type_call, entity_route, members),
             },
             EntityDefnVariant::Trait {
-                spatial_parameters: ref generic_parameters,
+                ref spatial_parameters,
                 ref members,
             } => todo!(),
             EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
@@ -141,6 +141,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {}
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             EntityDefnVariant::Input { .. } => todo!(),
+            EntityDefnVariant::Any => todo!(),
         }
     }
 
@@ -198,7 +199,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             EntityRouteVariant::Root { ident } => todo!(),
             EntityRouteVariant::Package { main, ident } => todo!(),
             EntityRouteVariant::Input { main } => todo!(),
-            EntityRouteVariant::Generic {
+            EntityRouteVariant::Any {
                 ident, entity_kind, ..
             } => todo!(),
             EntityRouteVariant::ThisType => todo!(),

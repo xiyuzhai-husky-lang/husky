@@ -22,6 +22,7 @@ impl EntityDefnVariant {
             EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => Arc::new(Vec::new()),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             EntityDefnVariant::Trait { ref members, .. } => Arc::new(members.data().to_vec()),
+            EntityDefnVariant::Any => Arc::new(Vec::new()),
         }
     }
 }

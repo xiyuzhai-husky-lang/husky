@@ -118,7 +118,7 @@ pub(crate) fn entity_link_dependees(
             .collect::<Vec<_>>()
         {
             match subroute.variant {
-                EntityRouteVariant::Generic { .. } => continue,
+                EntityRouteVariant::Any { .. } => continue,
                 _ => (),
             }
             let subroute_dependees = db.entity_immediate_link_dependees(subroute);

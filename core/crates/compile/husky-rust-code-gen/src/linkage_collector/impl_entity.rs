@@ -68,7 +68,7 @@ impl<'a> LinkageCollector<'a> {
                 self.collect_from_proc_stmts(stmts)
             }
             EntityDefnVariant::Ty {
-                spatial_parameters: ref generic_parameters,
+                ref spatial_parameters,
                 ref ty_members,
                 ref variants,
                 ty_kind: kind,
@@ -110,7 +110,7 @@ impl<'a> LinkageCollector<'a> {
                 }
             }
             EntityDefnVariant::Trait {
-                spatial_parameters: ref generic_parameters,
+                ref spatial_parameters,
                 ref members,
             } => {
                 p!(defn.base_route);
@@ -133,6 +133,7 @@ impl<'a> LinkageCollector<'a> {
                 todo!()
             }
             EntityDefnVariant::Input { .. } => todo!(),
+            EntityDefnVariant::Any => todo!(),
         }
     }
 

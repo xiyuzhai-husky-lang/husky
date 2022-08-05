@@ -34,7 +34,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(&ident)
                 }
                 EntityRouteVariant::Input { main } => self.write("__input"),
-                EntityRouteVariant::Generic { ident, .. } => {
+                EntityRouteVariant::Any { ident, .. } => {
                     p!(entity_route);
                     todo!()
                 }

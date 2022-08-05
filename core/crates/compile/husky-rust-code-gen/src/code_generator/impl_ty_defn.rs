@@ -245,7 +245,7 @@ impl From<u8> for {tyname} {{
     ) {
         match ty_member.variant {
             EntityDefnVariant::Method {
-                spatial_parameters: ref generic_parameters,
+                ref spatial_parameters,
                 this_liason: this_contract,
                 ref parameters,
                 output_ty,

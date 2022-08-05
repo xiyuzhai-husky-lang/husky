@@ -595,7 +595,7 @@ pub(crate) fn ty_decl(
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),
-        EntitySource::Generic { .. } => todo!(),
+        EntitySource::Any { .. } => todo!(),
     }
 }
 
@@ -605,7 +605,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
         EntityRouteVariant::Package { main, ident } => todo!(),
         EntityRouteVariant::Child { parent, ident } => todo!(),
         EntityRouteVariant::Input { main } => todo!(),
-        EntityRouteVariant::Generic {
+        EntityRouteVariant::Any {
             ident, entity_kind, ..
         } => todo!(),
         EntityRouteVariant::ThisType => todo!(),

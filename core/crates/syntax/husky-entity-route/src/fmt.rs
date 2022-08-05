@@ -37,7 +37,7 @@ impl EntityRoute {
                 f.write_str(&ident)?
             }
             EntityRouteVariant::Input { .. } => f.write_str("input")?,
-            EntityRouteVariant::Generic { ident, .. } => f.write_str(&ident)?,
+            EntityRouteVariant::Any { ident, .. } => f.write_str(&ident)?,
             EntityRouteVariant::ThisType => f.write_str("This")?,
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                 f.write_str("<")?;
@@ -85,7 +85,7 @@ impl EntityRoute {
                 f.write_str(&ident)?
             }
             EntityRouteVariant::Input { .. } => f.write_str("input")?,
-            EntityRouteVariant::Generic { ident, .. } => f.write_str(&ident)?,
+            EntityRouteVariant::Any { ident, .. } => f.write_str(&ident)?,
             EntityRouteVariant::ThisType => f.write_str("This")?,
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                 f.write_str("<")?;

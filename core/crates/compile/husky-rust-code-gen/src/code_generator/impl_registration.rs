@@ -15,7 +15,7 @@ pub(crate) use __husky::registration::*;
         let main_module = self.db.module(self.package_main).unwrap();
         let entity_link_dependees = self.db.entity_link_dependees(main_module);
         for entity_route in entity_link_dependees.iter() {
-            if !entity_route.is_generic() {
+            if !entity_route.contains_any() {
                 let entity_defn = self.db.entity_defn(*entity_route).unwrap();
                 self.might_gen_ty_registration(*entity_route, &entity_defn);
             }

@@ -232,7 +232,7 @@ pub(crate) fn trait_decl(
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),
-        EntitySource::Generic { .. } => todo!(),
+        EntitySource::Any { .. } => todo!(),
     }
 }
 

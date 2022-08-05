@@ -260,7 +260,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     let kind = FeatureExprVariant::EvalInput;
                     (kind, feature)
                 }
-                EntityRouteVariant::Generic { ident, .. } => todo!(),
+                EntityRouteVariant::Any { ident, .. } => todo!(),
                 EntityRouteVariant::ThisType => todo!(),
                 EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
             },

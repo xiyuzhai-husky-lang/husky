@@ -1,3 +1,4 @@
+use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_text::TextRange;
 use husky_word::CustomIdentifier;
@@ -20,10 +21,11 @@ pub enum EntitySource {
     Input {
         main_file: FilePtr,
     },
-    Generic {
+    Any {
         ident: CustomIdentifier,
         file: FilePtr,
         range: TextRange,
+        route: EntityRoutePtr,
     },
 }
 

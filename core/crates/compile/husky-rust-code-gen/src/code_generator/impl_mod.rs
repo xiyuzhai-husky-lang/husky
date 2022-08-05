@@ -60,6 +60,7 @@ impl<'a> RustCodeGenerator<'a> {
                     ref source,
                 } => todo!(),
                 EntityDefnVariant::Input { .. } => todo!(),
+                EntityDefnVariant::Any => todo!(),
             }
         }
     }

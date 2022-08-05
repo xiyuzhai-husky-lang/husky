@@ -102,8 +102,13 @@ impl EntityDefn {
         )
     }
 
-    pub fn from_generic() -> Arc<Self> {
-        todo!()
+    pub fn from_generic(
+        ident: CustomIdentifier,
+        route: EntityRoutePtr,
+        file: FilePtr,
+        range: TextRange,
+    ) -> Arc<Self> {
+        Self::new(ident.into(), EntityDefnVariant::Any, route, file, range)
     }
 
     pub(crate) fn new(
@@ -188,6 +193,7 @@ impl EntityDefn {
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             EntityDefnVariant::Input { .. } => todo!(),
+            EntityDefnVariant::Any => todo!(),
         }
     }
 }
@@ -263,6 +269,7 @@ pub enum EntityDefnVariant {
     Input {
         main_file: FilePtr,
     },
+    Any,
 }
 
 impl std::fmt::Debug for EntityDefnVariant {
@@ -286,6 +293,7 @@ impl std::fmt::Debug for EntityDefnVariant {
                 f.write_str("TraitAssociatedConstSizeImpl { ... }")
             }
             EntityDefnVariant::Input { .. } => f.write_str("Input"),
+            EntityDefnVariant::Any => f.write_str("Generic"),
         }
     }
 }
@@ -600,7 +608,12 @@ pub(crate) fn entity_defn(
             _ => panic!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
-        EntitySource::Generic { .. } => Ok(EntityDefn::from_generic()),
+        EntitySource::Any {
+            route,
+            ident,
+            file,
+            range,
+        } => Ok(EntityDefn::from_generic(ident, route, file, range)),
     }
 }
 

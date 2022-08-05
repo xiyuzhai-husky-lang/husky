@@ -89,6 +89,8 @@ impl HuskyTraceTime {
             }
             VisualTy::Dataset => todo!(),
             VisualTy::Plot2d => todo!(),
+            VisualTy::Any => todo!(),
+            VisualTy::AnyGroup => todo!(),
         }
     }
 

@@ -6,6 +6,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VisualTy {
+    Any,
     Void,
     Bool,
     B32,
@@ -19,6 +20,7 @@ pub enum VisualTy {
     Graphics2d,
     Plot2d,
     Dataset,
+    AnyGroup,
 }
 
 impl Default for VisualTy {
@@ -40,6 +42,12 @@ impl Visualizer {
             variant: VisualizerVariant::Void,
         })
     }
+    pub fn generic() -> Arc<Self> {
+        Arc::new(Self {
+            visual_ty: VisualTy::Any,
+            variant: VisualizerVariant::Any,
+        })
+    }
 
     pub fn from_static(
         db: &dyn EntityDefnQueryGroup,
@@ -59,12 +67,14 @@ pub enum VisualizerVariant {
     Custom { stmts: Avec<LazyStmt> },
     Static,
     Void,
+    Any,
 }
 
 pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> Arc<Visualizer> {
     let ty_defn = db.entity_defn(ty).unwrap();
     match ty_defn.variant {
         EntityDefnVariant::Ty { ref visualizer, .. } => visualizer.clone(),
+        EntityDefnVariant::Any => Visualizer::generic(),
         _ => todo!(),
     }
 
@@ -166,6 +176,8 @@ impl VisualTy {
                 VisualTy::Graphics2d => todo!(),
                 VisualTy::Dataset => todo!(),
                 VisualTy::Plot2d => todo!(),
+                VisualTy::Any => VisualTy::AnyGroup,
+                VisualTy::AnyGroup => todo!(),
             },
             StaticVisualTy::Dataset => todo!(),
         }

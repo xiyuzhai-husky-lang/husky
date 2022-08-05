@@ -71,7 +71,7 @@ fn subroute_table(
                 EntitySource::StaticTypeMember(_) => todo!(),
                 EntitySource::StaticTraitMember(_) => todo!(),
                 EntitySource::StaticTypeAsTraitMember => todo!(),
-                EntitySource::Generic { .. } => todo!(),
+                EntitySource::Any { .. } => todo!(),
             }))
         }
     }
@@ -161,7 +161,7 @@ fn entity_kind_from_entity_route_kind(
             _ => db.subroute_table(*parent).unwrap().entity_kind(*ident)?,
         },
         EntityRouteVariant::Input { .. } => EntityKind::Feature,
-        EntityRouteVariant::Generic { entity_kind, .. } => *entity_kind,
+        EntityRouteVariant::Any { entity_kind, .. } => *entity_kind,
         EntityRouteVariant::ThisType => EntityKind::Type(TyKind::ThisAny),
         EntityRouteVariant::TypeAsTraitMember { .. } => {
             EntityKind::Member(MemberKind::TraitAssociatedAny)
@@ -183,9 +183,14 @@ fn entity_source(
             db.subroute_table(parent)?.entity_source(ident)
         }
         EntityRouteVariant::Input { main } => Ok(EntitySource::Input { main_file: main }),
-        EntityRouteVariant::Generic {
+        EntityRouteVariant::Any {
             ident, file, range, ..
-        } => Ok(EntitySource::Generic { ident, file, range }),
+        } => Ok(EntitySource::Any {
+            route: entity_route,
+            ident,
+            file,
+            range,
+        }),
         EntityRouteVariant::ThisType => panic!(),
         EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
             EntityRoutePtr::Root(root_ident) => match root_ident {
@@ -213,7 +218,7 @@ fn entity_source(
                     EntitySource::StaticTypeMember(_) => todo!(),
                     EntitySource::StaticTraitMember(_) => todo!(),
                     EntitySource::StaticTypeAsTraitMember => todo!(),
-                    EntitySource::Generic { .. } => todo!(),
+                    EntitySource::Any { .. } => todo!(),
                 }
             }
         },
@@ -371,7 +376,7 @@ pub trait EntitySyntaxQueryGroup:
             EntitySource::StaticTypeMember(_) => todo!(),
             EntitySource::StaticTraitMember(_) => todo!(),
             EntitySource::StaticTypeAsTraitMember => todo!(),
-            EntitySource::Generic { .. } => todo!(),
+            EntitySource::Any { .. } => todo!(),
         })
     }
 

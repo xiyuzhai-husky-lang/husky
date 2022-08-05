@@ -113,7 +113,7 @@ pub enum EntityRouteVariant {
     Input {
         main: FilePtr,
     },
-    Generic {
+    Any {
         ident: CustomIdentifier,
         entity_kind: EntityKind,
         file: FilePtr,
@@ -137,7 +137,7 @@ impl EntityRoute {
             EntityRouteVariant::Package { ident, .. } => ident.into(),
             EntityRouteVariant::Child { ident, .. } => ident.into(),
             EntityRouteVariant::Input { .. } => ContextualIdentifier::Input.into(),
-            EntityRouteVariant::Generic { ident, .. } => ident.into(),
+            EntityRouteVariant::Any { ident, .. } => ident.into(),
             EntityRouteVariant::ThisType => todo!(),
             EntityRouteVariant::TypeAsTraitMember { ident, .. } => ident.into(),
         }
@@ -208,7 +208,7 @@ impl EntityRoute {
             EntityRouteVariant::Package { .. } => false,
             EntityRouteVariant::Child { parent, .. } => parent.is_builtin(),
             EntityRouteVariant::Input { .. } => false,
-            EntityRouteVariant::Generic { .. } => todo!(),
+            EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
             EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
         }
@@ -223,7 +223,7 @@ impl EntityRoute {
             EntityRouteVariant::Root { .. }
             | EntityRouteVariant::Input { .. }
             | EntityRouteVariant::Package { .. }
-            | EntityRouteVariant::Generic { .. }
+            | EntityRouteVariant::Any { .. }
             | EntityRouteVariant::ThisType => None,
             EntityRouteVariant::Child { parent, .. } => Some(parent),
             EntityRouteVariant::TypeAsTraitMember { ty: parent, .. } => Some(parent),
