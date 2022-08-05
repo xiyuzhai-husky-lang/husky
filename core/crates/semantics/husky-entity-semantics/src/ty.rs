@@ -164,14 +164,15 @@ impl EntityDefnVariant {
     }
 
     pub(crate) fn ty_from_static(
+        db: &dyn EntityDefnQueryGroup,
         symbol_context: &mut dyn AtomContext,
         static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::Ty {
                 base_route,
-                spatial_parameters: generic_parameters,
-                static_trait_impls: ref trait_impls,
+                spatial_parameters,
+                ref trait_impls,
                 ref ty_members,
                 ref variants,
                 kind,
@@ -188,7 +189,7 @@ impl EntityDefnVariant {
                 };
                 let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let generic_parameters =
-                    symbol_context.generic_parameters_from_static(generic_parameters);
+                    symbol_context.generic_parameters_from_static(spatial_parameters);
                 let generic_arguments =
                     symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
                 let this_ty = symbol_context.db.intern_entity_route(EntityRoute {
@@ -205,13 +206,13 @@ impl EntityDefnVariant {
                         symbol_context.db.intern_word(ty_member.name).custom(),
                         thin_vec![],
                     ));
-                    EntityDefn::from_static(&mut symbol_context, route, ty_member)
+                    EntityDefn::from_static(db, &mut symbol_context, route, ty_member)
                 });
                 let variants = variants.map(|_| todo!());
                 let kind = kind;
                 let trait_impls = trait_impls
                     .map(|trait_impl| TraitImplDefn::from_static(&mut symbol_context, trait_impl));
-                let visualizer = todo!();
+                let visualizer = Visualizer::from_static(db, this_ty, visualizer);
                 Self::new_ty(
                     generic_parameters,
                     ty_members,

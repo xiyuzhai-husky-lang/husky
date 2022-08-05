@@ -29,7 +29,7 @@ pub use std::sync::Arc as __Arc;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_dev_utils::*;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
-use husky_static_visualizer::StaticVisualTy;
+use husky_static_visualizer::{StaticVisualTy, StaticVisualizer};
 use husky_vm_register_method::VMRegisterMethodX;
 use husky_word::RootIdentifier;
 use static_defn::StaticParameter;
@@ -81,11 +81,13 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: "void",
         spatial_parameters: &[],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visual_ty: StaticVisualTy::Void,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Void,
+        },
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),
@@ -97,11 +99,13 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: "b64",
         spatial_parameters: &[],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visual_ty: StaticVisualTy::B64,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::B64,
+        },
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),
@@ -113,11 +117,13 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: "bool",
         spatial_parameters: &[],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[],
         variants: &[],
         kind: TyKind::Primitive,
-        visual_ty: StaticVisualTy::Bool,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Bool,
+        },
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),

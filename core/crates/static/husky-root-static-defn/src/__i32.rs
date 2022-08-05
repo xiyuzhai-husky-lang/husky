@@ -6,11 +6,13 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: "i32",
         spatial_parameters: &[],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[&I32_MIN, &I32_MAX, &I32_SGN, &I32_ABS],
         variants: &[],
         kind: TyKind::Primitive,
-        visual_ty: StaticVisualTy::Integer,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Integer,
+        },
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),
@@ -64,9 +66,8 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(
-            transfer_linkage!(|_, values| 
-                values[0].downcast_i32().sgn().to_register(), some i32::sgn)), 
+        opt_linkage: Some(transfer_linkage!(|_, values| 
+                values[0].downcast_i32().sgn().to_register(), some i32::sgn)),
     },
     dev_src: static_dev_src!(),
 };

@@ -10,11 +10,13 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: "b32",
         spatial_parameters: &[],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[&B32_LEADING_ZEROS, &B32_TRAILING_ZEROS, &B32_LAST_BITS],
         variants: &[],
         kind: TyKind::Primitive,
-        visual_ty: StaticVisualTy::B32,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::B32,
+        },
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),

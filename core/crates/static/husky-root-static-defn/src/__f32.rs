@@ -6,14 +6,16 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: "f32",
         spatial_parameters: &[],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[
             &F32_MIN, &F32_MAX, &F32_SGN, &F32_ABS, &F32_SQRT, &F32_COS, &F32_SIN, &F32_TAN,
             &F32_ACOS, &F32_ASIN, &F32_ATAN,
         ],
         variants: &[],
         kind: TyKind::Primitive,
-        visual_ty: StaticVisualTy::Float,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Float,
+        },
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),

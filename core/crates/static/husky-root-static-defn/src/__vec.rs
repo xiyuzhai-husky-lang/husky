@@ -22,7 +22,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
         }],
-        static_trait_impls: &[StaticTraitImplDefn {
+        trait_impls: &[StaticTraitImplDefn {
             trai: "std::ops::Index<i32>",
             member_impls: &[
                 associated_type_impl!("Output", "E"),
@@ -61,7 +61,9 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ],
         variants: &[],
         kind: TyKind::Vec,
-        visual_ty: StaticVisualTy::Group,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Group,
+        },
         opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
     },
     dev_src: husky_dev_utils::static_dev_src!(),
