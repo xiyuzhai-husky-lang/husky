@@ -172,7 +172,7 @@ impl EntityRoutePtr {
                 }
             }
             EntityRouteKind::Input { main } => todo!(),
-            EntityRouteKind::Generic { ident, entity_kind } => return true,
+            EntityRouteKind::Generic { .. } => return true,
             EntityRouteKind::ThisType => todo!(),
             _ => (),
         }

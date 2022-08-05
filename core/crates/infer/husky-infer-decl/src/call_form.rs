@@ -231,7 +231,7 @@ pub(crate) fn entity_call_form_decl(
             }
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => todo!(),
             EntityRouteKind::Input { main } => todo!(),
-            EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+            EntityRouteKind::Generic { .. } => todo!(),
             EntityRouteKind::ThisType => todo!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
@@ -247,6 +247,7 @@ pub(crate) fn entity_call_form_decl(
             }
             _ => todo!(),
         },
+        EntitySource::Generic => todo!(),
     };
 }
 
@@ -321,6 +322,7 @@ pub(crate) fn routine_decl_from_static(
                 opt_this_contract: None,
                 symbols: (&symbols as &[Symbol]).into(),
                 kind: AtomContextKind::Normal,
+                opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
             };
             let parameters = parameters.map(|parameter| ParameterDecl {
                 ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),

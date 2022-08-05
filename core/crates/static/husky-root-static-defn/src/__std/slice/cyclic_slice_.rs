@@ -19,6 +19,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[StaticSpatialParameter {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
+            dev_src: static_dev_src!(),
         }],
         ty_members: &[
             &STD_SLICE_CYCLIC_SLICE_START_DEFN,

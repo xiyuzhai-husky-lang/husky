@@ -5,7 +5,7 @@ pub use standalone::*;
 pub use symbol::*;
 
 use super::*;
-use defn_head::{Parameter, SpatialParameter, SpatialPlaceholderVariant};
+use defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
 use entity_kind::TyKind;
 use husky_entity_route::{entity_route_menu, EntityRouteKind, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
@@ -35,6 +35,7 @@ pub struct AtomContextState {
 
 pub trait AtomContext {
     fn opt_package_main(&self) -> Option<FilePtr>;
+    fn file(&self) -> FilePtr;
     fn entity_syntax_db(&self) -> &dyn EntitySyntaxQueryGroup;
     fn opt_this_ty(&self) -> Option<EntityRoutePtr>;
     fn opt_this_liason(&self) -> Option<ParameterLiason>;
@@ -239,15 +240,18 @@ pub trait AtomContext {
         &self,
         static_generic_parameters: &[StaticSpatialParameter],
     ) -> IdentDict<SpatialParameter> {
-        static_generic_parameters.map(|static_generic_placeholder| SpatialParameter {
+        static_generic_parameters.map(|static_spatial_parameter| SpatialParameter {
             ident: RangedCustomIdentifier {
                 ident: self
                     .entity_syntax_db()
-                    .intern_word(static_generic_placeholder.name)
+                    .intern_word(static_spatial_parameter.name)
                     .custom(),
                 range: Default::default(),
             },
-            variant: SpatialPlaceholderVariant::Type { traits: vec![] },
+            variant: SpatialParameterVariant::Type { traits: vec![] },
+            file: self
+                .entity_syntax_db()
+                .intern_file(static_spatial_parameter.dev_src.file.into()),
         })
     }
 
@@ -260,6 +264,7 @@ pub trait AtomContext {
                 kind: EntityRouteKind::Generic {
                     ident: generic_placeholder.ident.ident,
                     entity_kind: generic_placeholder.entity_kind(),
+                    file: todo!(),
                 },
                 temporal_arguments: thin_vec![],
                 spatial_arguments: thin_vec![],
@@ -280,6 +285,7 @@ pub trait AtomContext {
                         kind: EntityRouteKind::Generic {
                             ident: generic_parameter.ident.ident,
                             entity_kind: generic_parameter.entity_kind(),
+                            file: todo!(),
                         },
                         temporal_arguments: thin_vec![],
                         spatial_arguments: thin_vec![],

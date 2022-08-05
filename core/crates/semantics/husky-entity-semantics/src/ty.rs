@@ -186,6 +186,7 @@ impl EntityDefnVariant {
                     opt_this_contract: None,
                     symbols: (&[] as &[Symbol]).into(),
                     kind: AtomContextKind::Normal,
+                    opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
                 };
                 let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let generic_parameters =

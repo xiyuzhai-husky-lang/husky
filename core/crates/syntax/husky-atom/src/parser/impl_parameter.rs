@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use crate::*;
-use defn_head::{Parameter, SpatialParameter, SpatialPlaceholderVariant};
+use defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
 use husky_entity_route::*;
 use husky_print_utils::msg_once;
 use husky_token::SemanticTokenKind;
@@ -65,7 +65,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             ));
         Ok(SpatialParameter {
             ident: ranged_ident,
-            variant: SpatialPlaceholderVariant::Type { traits },
+            variant: SpatialParameterVariant::Type { traits },
+            file: self.atom_context.file(),
         })
     }
 

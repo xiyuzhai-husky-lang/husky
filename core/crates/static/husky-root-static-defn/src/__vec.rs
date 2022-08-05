@@ -21,6 +21,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[StaticSpatialParameter {
             name: "E",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
+            dev_src: static_dev_src!(),
         }],
         trait_impls: &[StaticTraitImplDefn {
             trai: "std::ops::Index<i32>",

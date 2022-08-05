@@ -28,19 +28,21 @@ impl<'a> dyn DeclQueryGroup + 'a {
                 ident: self.intern_word(static_generic_placeholder.name).custom(),
                 range: Default::default(),
             },
-            variant: SpatialPlaceholderVariant::Type { traits: vec![] },
+            variant: SpatialParameterVariant::Type { traits: vec![] },
+            file: todo!(),
         })
     }
 
     pub fn generic_arguments_from_generic_parameters(
         &self,
-        generic_parameters: &[SpatialParameter],
+        spatial_parameters: &[SpatialParameter],
     ) -> ThinVec<SpatialArgument> {
-        generic_parameters.map(|generic_placeholder| {
+        spatial_parameters.map(|spatial_parameter| {
             SpatialArgument::EntityRoute(self.intern_entity_route(EntityRoute {
                 kind: EntityRouteKind::Generic {
-                    ident: generic_placeholder.ident.ident,
-                    entity_kind: generic_placeholder.entity_kind(),
+                    ident: spatial_parameter.ident.ident,
+                    entity_kind: spatial_parameter.entity_kind(),
+                    file: spatial_parameter.file,
                 },
                 temporal_arguments: thin_vec![],
                 spatial_arguments: thin_vec![],
@@ -60,6 +62,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
                     kind: EntityRouteKind::Generic {
                         ident: generic_placeholder.ident.ident,
                         entity_kind: generic_placeholder.entity_kind(),
+                        file: todo!(),
                     },
                     temporal_arguments: thin_vec![],
                     spatial_arguments: thin_vec![],

@@ -72,7 +72,7 @@ impl Implementable for EntityRoutePtr {
                 }
             },
             EntityRouteKind::Input { main } => todo!(),
-            EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+            EntityRouteKind::Generic { .. } => todo!(),
             EntityRouteKind::ThisType => (ctx.this_ty.kind, ctx.this_ty.spatial_arguments.clone()),
             EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => match ty.kind {
                 EntityRouteKind::ThisType => {

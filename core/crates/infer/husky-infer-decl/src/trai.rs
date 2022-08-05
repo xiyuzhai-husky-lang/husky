@@ -136,6 +136,7 @@ impl TraitDecl {
                     opt_this_contract: None,
                     symbols: symbols.into(),
                     kind: AtomContextKind::Normal,
+                    opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
                 };
                 let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let generic_arguments =
@@ -231,6 +232,7 @@ pub(crate) fn trait_decl(
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),
+        EntitySource::Generic => todo!(),
     }
 }
 

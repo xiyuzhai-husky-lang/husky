@@ -18,6 +18,7 @@ pub enum EntitySource {
     Input {
         main_file: FilePtr,
     },
+    Generic,
 }
 
 impl EntitySource {

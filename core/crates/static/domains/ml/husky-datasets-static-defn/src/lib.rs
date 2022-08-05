@@ -34,10 +34,12 @@ pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             StaticSpatialParameter {
                 name: "Input",
                 variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
+                dev_src: static_dev_src!(),
             },
             StaticSpatialParameter {
                 name: "Output",
                 variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
+                dev_src: static_dev_src!(),
             },
         ],
         trait_impls: &[],
