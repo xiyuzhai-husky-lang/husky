@@ -39,7 +39,9 @@ impl<'a> DependeeMapBuilder<'a> {
                 msg_once!("dependences on entity from external packs should be merged");
                 ()
             }
-            EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+            EntityRouteKind::Generic {
+                ident, entity_kind, ..
+            } => todo!(),
             EntityRouteKind::ThisType => todo!(),
             EntityRouteKind::TypeAsTraitMember {
                 ty: parent,

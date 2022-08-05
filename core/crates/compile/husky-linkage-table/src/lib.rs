@@ -224,6 +224,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
                     .routine_linkage(self.upcast(), self.entity_uid(routine)),
                 EntitySource::Module { file } => todo!(),
                 EntitySource::Input { main_file: main } => todo!(),
+                EntitySource::Generic => todo!(),
             },
             || format!("routine {routine}"),
         )

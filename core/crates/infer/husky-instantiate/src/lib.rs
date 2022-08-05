@@ -9,7 +9,7 @@ mod impl_vec_set;
 
 pub use context::*;
 
-use defn_head::{SpatialParameter, SpatialPlaceholderVariant};
+use defn_head::{SpatialParameter, SpatialParameterVariant};
 use husky_check_utils::should_eq;
 use husky_entity_route::*;
 use husky_entity_syntax::*;

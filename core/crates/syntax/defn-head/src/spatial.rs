@@ -1,6 +1,7 @@
 use entity_kind::TyKind;
 use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
+use husky_file::FilePtr;
 use husky_text::RangedCustomIdentifier;
 use husky_word::CustomIdentifier;
 use static_defn::StaticSpatialParameter;
@@ -9,7 +10,8 @@ use vec_like::VecMapEntry;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SpatialParameter {
     pub ident: RangedCustomIdentifier,
-    pub variant: SpatialPlaceholderVariant,
+    pub variant: SpatialParameterVariant,
+    pub file: FilePtr,
 }
 
 impl VecMapEntry<CustomIdentifier> for SpatialParameter {
@@ -19,7 +21,7 @@ impl VecMapEntry<CustomIdentifier> for SpatialParameter {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum SpatialPlaceholderVariant {
+pub enum SpatialParameterVariant {
     Const,
     Type { traits: Vec<RangedEntityRoute> },
 }
@@ -33,10 +35,8 @@ impl SpatialParameter {
 impl SpatialParameter {
     pub fn entity_kind(&self) -> EntityKind {
         match self.variant {
-            SpatialPlaceholderVariant::Const => todo!(),
-            SpatialPlaceholderVariant::Type { .. } => {
-                EntityKind::Type(TyKind::SpatialPlaceholderAny)
-            }
+            SpatialParameterVariant::Const => todo!(),
+            SpatialParameterVariant::Type { .. } => EntityKind::Type(TyKind::SpatialPlaceholderAny),
         }
     }
 }

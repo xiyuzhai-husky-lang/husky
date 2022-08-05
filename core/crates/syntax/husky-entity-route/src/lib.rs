@@ -116,6 +116,7 @@ pub enum EntityRouteKind {
     Generic {
         ident: CustomIdentifier,
         entity_kind: EntityKind,
+        file: FilePtr,
     },
     ThisType,
 }

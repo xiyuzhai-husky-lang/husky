@@ -102,6 +102,10 @@ impl EntityDefn {
         )
     }
 
+    pub fn from_generic() -> Arc<Self> {
+        todo!()
+    }
+
     pub(crate) fn new(
         ident: Identifier,
         variant: EntityDefnVariant,
@@ -331,6 +335,7 @@ impl EntityDefnVariant {
                     opt_this_contract: None,
                     symbols: (&[] as &[Symbol]).into(),
                     kind: AtomContextKind::Normal,
+                    opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
                 };
                 let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let generic_parameters =
@@ -460,6 +465,7 @@ pub(crate) fn entity_defn(
                 opt_this_contract: None,
                 symbols: (&[] as &[Symbol]).into(),
                 kind: AtomContextKind::Normal,
+                opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
             },
             entity_route,
             static_defn,
@@ -596,6 +602,7 @@ pub(crate) fn entity_defn(
             _ => panic!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
+        EntitySource::Generic => Ok(EntityDefn::from_generic()),
     }
 }
 

@@ -12,11 +12,12 @@ impl FilterInstantiable for SpatialParameter {
         Some(SpatialParameter {
             ident: self.ident,
             variant: match self.variant {
-                SpatialPlaceholderVariant::Const => SpatialPlaceholderVariant::Const,
-                SpatialPlaceholderVariant::Type { ref traits } => SpatialPlaceholderVariant::Type {
+                SpatialParameterVariant::Const => SpatialParameterVariant::Const,
+                SpatialParameterVariant::Type { ref traits } => SpatialParameterVariant::Type {
                     traits: traits.map(|trai| todo!()),
                 },
             },
+            file: self.file,
         })
     }
 }

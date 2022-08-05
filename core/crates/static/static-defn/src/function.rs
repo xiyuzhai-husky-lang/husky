@@ -12,6 +12,7 @@ pub struct StaticParameter {
 pub struct StaticSpatialParameter {
     pub name: &'static str,
     pub variant: StaticGenericPlaceholderVariant,
+    pub dev_src: __StaticDevSource,
 }
 
 #[derive(Debug, PartialEq, Eq)]

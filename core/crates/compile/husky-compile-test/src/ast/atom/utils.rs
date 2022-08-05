@@ -24,6 +24,7 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyComptime, line: &'static str) -> V
             opt_this_contract: None,
             symbols: (&symbols as &[Symbol]).into(),
             kind: AtomContextKind::Normal,
+            opt_file: None,
         },
         &mut tokens.as_slice().into(),
     )

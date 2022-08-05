@@ -65,6 +65,7 @@ impl TyDecl {
                     opt_this_contract: None,
                     symbols: (&symbols as &[Symbol]).into(),
                     kind: AtomContextKind::Normal,
+                    opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
                 };
                 let base_ty = symbol_context.parse_entity_route(base_route).unwrap();
                 let this_ty = db.intern_entity_route(EntityRoute {
@@ -594,6 +595,7 @@ pub(crate) fn ty_decl(
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),
+        EntitySource::Generic => todo!(),
     }
 }
 
@@ -603,7 +605,9 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteKind]
         EntityRouteKind::Package { main, ident } => todo!(),
         EntityRouteKind::Child { parent, ident } => todo!(),
         EntityRouteKind::Input { main } => todo!(),
-        EntityRouteKind::Generic { ident, entity_kind } => todo!(),
+        EntityRouteKind::Generic {
+            ident, entity_kind, ..
+        } => todo!(),
         EntityRouteKind::ThisType => todo!(),
         EntityRouteKind::TypeAsTraitMember {
             ty: parent,
@@ -637,6 +641,7 @@ pub(crate) fn call_form_decl_from_static(
                 opt_this_contract: None,
                 symbols: symbols.into(),
                 kind: AtomContextKind::Normal,
+                opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
             };
             let primary_parameters = parameters.map(|parameter| ParameterDecl {
                 ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),

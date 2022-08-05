@@ -49,6 +49,7 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
             opt_this_contract: None,
             symbols: (&root_symbols as &[_]).into(),
             kind: AtomContextKind::Normal,
+            opt_file: None,
         };
         match context.parse_entity_route(text) {
             Ok(route) => route,

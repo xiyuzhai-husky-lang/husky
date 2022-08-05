@@ -17,6 +17,7 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[StaticSpatialParameter {
             name: "Idx",
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
+            dev_src: static_dev_src!(),
         }],
         members: &[
             EntityStaticDefn {

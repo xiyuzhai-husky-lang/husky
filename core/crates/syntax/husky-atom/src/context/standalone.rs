@@ -4,6 +4,7 @@ use super::*;
 
 pub struct AtomContextStandalone<'a> {
     pub opt_package_main: Option<FilePtr>,
+    pub opt_file: Option<FilePtr>,
     pub db: &'a dyn EntitySyntaxQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
     pub opt_this_contract: Option<ParameterLiason>,
@@ -57,5 +58,9 @@ impl<'a> AtomContext for AtomContextStandalone<'a> {
 
     fn push_symbol(&mut self, new_symbol: Symbol) {
         todo!()
+    }
+
+    fn file(&self) -> FilePtr {
+        self.opt_file.unwrap()
     }
 }

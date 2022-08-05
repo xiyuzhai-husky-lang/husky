@@ -57,4 +57,8 @@ impl<'a> AtomContext for AstTransformer<'a> {
     fn push_symbol(&mut self, new_symbol: Symbol) {
         self.symbols.push(new_symbol)
     }
+
+    fn file(&self) -> FilePtr {
+        todo!()
+    }
 }
