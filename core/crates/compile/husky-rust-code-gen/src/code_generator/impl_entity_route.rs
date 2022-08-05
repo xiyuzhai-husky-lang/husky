@@ -7,11 +7,11 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_entity_route(&mut self, entity_route: EntityRoutePtr, role: EntityRouteRole) {
         if let Some(_) = self
             .entity_route_uses
-            .find(|candidate| candidate.kind == entity_route.kind)
+            .find(|candidate| candidate.variant == entity_route.variant)
         {
             self.write(&entity_route.ident())
         } else {
-            match entity_route.kind {
+            match entity_route.variant {
                 EntityRouteVariant::Root { ident } => match ident {
                     RootIdentifier::Void => self.write("()"),
                     RootIdentifier::B32 => self.write("u32"),
@@ -47,9 +47,7 @@ impl<'a> RustCodeGenerator<'a> {
             }
         }
         let needs_eval_ref = match role {
-            EntityRouteRole::Decl => self
-                .db
-                .entity_route_kind_contains_eval_ref(entity_route.kind),
+            EntityRouteRole::Decl => self.db.entity_route_variant_contains_eval_ref(entity_route),
             _ => false,
         };
         if needs_eval_ref || entity_route.spatial_arguments.len() > 0 {

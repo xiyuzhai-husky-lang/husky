@@ -30,7 +30,7 @@ impl From<ParameterLiason> for RangedParameterLiason {
 
 impl ParameterLiason {
     pub fn new(ty: EntityRoutePtr) -> Self {
-        match ty.kind {
+        match ty.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => {
@@ -51,7 +51,7 @@ impl ParameterLiason {
         member_ty: EntityRoutePtr,
         is_copyable: bool,
     ) -> ParameterLiason {
-        match member_ty.kind {
+        match member_ty.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => {

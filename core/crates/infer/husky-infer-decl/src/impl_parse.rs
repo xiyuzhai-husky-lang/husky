@@ -39,7 +39,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
     ) -> ThinVec<SpatialArgument> {
         spatial_parameters.map(|spatial_parameter| {
             SpatialArgument::EntityRoute(self.intern_entity_route(EntityRoute {
-                kind: EntityRouteVariant::Generic {
+                variant: EntityRouteVariant::Generic {
                     ident: spatial_parameter.ident.ident,
                     entity_kind: spatial_parameter.entity_kind(),
                     file: spatial_parameter.file,
@@ -59,7 +59,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
             symbols.push(Symbol {
                 init_ident: spatial_parameter.ident,
                 kind: SymbolKind::EntityRoute(self.intern_entity_route(EntityRoute {
-                    kind: EntityRouteVariant::Generic {
+                    variant: EntityRouteVariant::Generic {
                         ident: spatial_parameter.ident.ident,
                         entity_kind: spatial_parameter.entity_kind(),
                         file: spatial_parameter.file,

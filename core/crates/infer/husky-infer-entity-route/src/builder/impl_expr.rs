@@ -89,7 +89,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             EntityKind::EnumLiteral => match entity_route {
                 EntityRoutePtr::Root(RootIdentifier::True)
                 | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
-                EntityRoutePtr::Custom(scope) => match scope.kind {
+                EntityRoutePtr::Custom(scope) => match scope.variant {
                     EntityRouteVariant::Root { ident } => todo!(),
                     EntityRouteVariant::Package { main, ident } => todo!(),
                     EntityRouteVariant::Child { parent, ident } => parent,
@@ -563,7 +563,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let index_ty = derived_not_none!(self.infer_expr(total_opds.start + 1, None))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
         let index_trai = self.db.intern_entity_route(EntityRoute {
-            kind: entity_route_menu().std_ops_index_trai.kind,
+            variant: entity_route_menu().std_ops_index_trai.variant.clone(),
             temporal_arguments: thin_vec![],
             spatial_arguments: thin_vec![SpatialArgument::EntityRoute(index_ty)],
         });

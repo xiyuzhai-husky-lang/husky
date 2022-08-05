@@ -201,7 +201,7 @@ impl EagerValueQualifiedTy {
     }
 
     pub(crate) fn new(qual: EagerExprQualifier, ty: EntityRoutePtr) -> Self {
-        match ty.kind {
+        match ty.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => {

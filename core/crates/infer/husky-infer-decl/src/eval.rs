@@ -30,7 +30,7 @@ fn eval_input_ty_from_ast(
                         let signature_result: InferResult<_> =
                             db.entity_call_form_decl(route).bind_into(caller);
                         let dataset_type = signature_result?.output.ty;
-                        match dataset_type.kind {
+                        match dataset_type.variant {
                             EntityRouteVariant::Root {
                                 ident: RootIdentifier::DatasetType,
                             } => match dataset_type.spatial_arguments[0] {
@@ -73,7 +73,7 @@ fn eval_output_ty_from_ast(
                         let call_decl_result: InferResult<_> =
                             db.entity_call_form_decl(route).bind_into(caller);
                         let dataset_type = call_decl_result?.output.ty;
-                        match dataset_type.kind {
+                        match dataset_type.variant {
                             EntityRouteVariant::Root {
                                 ident: RootIdentifier::DatasetType,
                             } => match dataset_type.spatial_arguments[1] {

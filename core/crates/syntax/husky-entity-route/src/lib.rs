@@ -23,7 +23,7 @@ use thin_vec::{thin_vec, ThinVec};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct EntityRoute {
-    pub kind: EntityRouteVariant,
+    pub variant: EntityRouteVariant,
     pub temporal_arguments: ThinVec<TemporalArgument>,
     pub spatial_arguments: ThinVec<SpatialArgument>,
 }
@@ -92,7 +92,7 @@ impl From<&RootIdentifier> for EntityRouteVariant {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum EntityRouteVariant {
     Root {
         ident: RootIdentifier,
@@ -124,14 +124,14 @@ pub enum EntityRouteVariant {
 impl EntityRoute {
     pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
-            kind: EntityRouteVariant::Package { main, ident },
+            variant: EntityRouteVariant::Package { main, ident },
             temporal_arguments: Default::default(),
             spatial_arguments: Default::default(),
         }
     }
 
     pub fn ident(&self) -> Identifier {
-        match self.kind {
+        match self.variant {
             EntityRouteVariant::Root { ident } => ident.into(),
             EntityRouteVariant::Package { ident, .. } => ident.into(),
             EntityRouteVariant::Child { ident, .. } => ident.into(),
@@ -148,7 +148,7 @@ impl EntityRoute {
         spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoute {
         EntityRoute {
-            kind: EntityRouteVariant::Child { parent, ident },
+            variant: EntityRouteVariant::Child { parent, ident },
             temporal_arguments: Default::default(),
             spatial_arguments,
         }
@@ -159,7 +159,7 @@ impl EntityRoute {
         spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoute {
         EntityRoute {
-            kind: EntityRouteVariant::Root { ident },
+            variant: EntityRouteVariant::Root { ident },
             temporal_arguments: Default::default(),
             spatial_arguments,
         }
@@ -172,7 +172,7 @@ impl EntityRoute {
         let mut spatial_arguments = self.spatial_arguments.clone();
         spatial_arguments.extend(new_spatial_arguments);
         EntityRoute {
-            kind: self.kind,
+            variant: self.variant.clone(),
             temporal_arguments: thin_vec![],
             spatial_arguments,
         }
@@ -202,7 +202,7 @@ impl EntityRoute {
     }
 
     pub fn is_builtin(&self) -> bool {
-        match self.kind {
+        match self.variant {
             EntityRouteVariant::Root { .. } => true,
             EntityRouteVariant::Package { .. } => false,
             EntityRouteVariant::Child { parent, .. } => parent.is_builtin(),
@@ -218,7 +218,7 @@ impl EntityRoute {
     }
 
     pub fn opt_parent(&self) -> Option<EntityRoutePtr> {
-        match self.kind {
+        match self.variant {
             EntityRouteVariant::Root { .. }
             | EntityRouteVariant::Input { .. }
             | EntityRouteVariant::Package { .. }

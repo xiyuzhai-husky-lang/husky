@@ -22,7 +22,7 @@ impl<'a> DependeeMapBuilder<'a> {
 
     fn push(&mut self, entity_route: EntityRoutePtr) {
         let entity_route = entity_route.intrinsic();
-        match entity_route.kind {
+        match entity_route.variant {
             EntityRouteVariant::Root { ident, .. } => {
                 if ident == RootIdentifier::Ref {
                     self.push(entity_route.deref_route());

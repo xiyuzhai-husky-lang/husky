@@ -340,13 +340,11 @@ impl EntityDefnVariant {
                 let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let generic_parameters =
                     symbol_context.generic_parameters_from_static(generic_parameters);
-                let generic_arguments =
+                let spatial_arguments =
                     symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
-                let this_trai = symbol_context.db.intern_entity_route(EntityRoute {
-                    kind: base_route.kind,
-                    temporal_arguments: thin_vec![],
-                    spatial_arguments: generic_arguments,
-                });
+                let this_trai = symbol_context
+                    .db
+                    .intern_entity_route(base_route.call(spatial_arguments));
                 let member_kinds: Vec<_> = members.map(|member| {
                     (
                         symbol_context.db.intern_word(member.name).custom(),
@@ -571,7 +569,7 @@ pub(crate) fn entity_defn(
                 range: Default::default(),
             }))
         }
-        EntitySource::StaticTypeMember(_) => match entity_route.kind {
+        EntitySource::StaticTypeMember(_) => match entity_route.variant {
             EntityRouteVariant::Child { parent: ty, ident } => {
                 let ty_defn = db.entity_defn(ty).unwrap();
                 match ty_defn.variant {
@@ -581,7 +579,7 @@ pub(crate) fn entity_defn(
             }
             _ => panic!(),
         },
-        EntitySource::StaticTypeAsTraitMember => match entity_route.kind {
+        EntitySource::StaticTypeAsTraitMember => match entity_route.variant {
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
                 EntityRoutePtr::Root(RootIdentifier::CloneTrait) => {
                     msg_once!("this is a temporary ugly solution");

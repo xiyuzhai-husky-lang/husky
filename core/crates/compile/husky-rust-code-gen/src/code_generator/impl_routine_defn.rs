@@ -65,10 +65,10 @@ impl<'a> RustCodeGenerator<'a> {
     ) {
         let needs_eval_context: bool = self.db.needs_eval_context(base_route);
         let needs_eval_ref = (needs_eval_context
-            || self.db.entity_route_kind_contains_eval_ref(base_route.kind))
+            || self.db.entity_route_variant_contains_eval_ref(base_route))
             && !self
                 .db
-                .entity_route_kind_contains_eval_ref(base_route.parent().kind);
+                .entity_route_variant_contains_eval_ref(base_route.parent());
         self.write("\n");
         self.indent(indent);
         self.write("pub(crate) fn ");
@@ -120,10 +120,10 @@ impl<'a> RustCodeGenerator<'a> {
     ) {
         let needs_eval_context: bool = self.db.needs_eval_context(base_route);
         let needs_eval_ref = needs_eval_context
-            || self.db.entity_route_kind_contains_eval_ref(base_route.kind)
+            || self.db.entity_route_variant_contains_eval_ref(base_route)
                 && !self
                     .db
-                    .entity_route_kind_contains_eval_ref(base_route.parent().kind);
+                    .entity_route_variant_contains_eval_ref(base_route.parent());
         self.indent(indent);
         self.write("pub(crate) fn ");
         let ident = base_route.ident();

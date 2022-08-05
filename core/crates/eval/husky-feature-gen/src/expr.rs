@@ -242,7 +242,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 let this_repr = self.opt_this.clone().unwrap();
                 self.compile_field_access(field_ident, this_repr, field_binding)
             }
-            LazyExprVariant::EntityFeature { entity_route } => match entity_route.kind {
+            LazyExprVariant::EntityFeature { entity_route } => match entity_route.variant {
                 EntityRouteVariant::Root { .. } | EntityRouteVariant::Package { .. } => panic!(),
                 EntityRouteVariant::Child { .. } => {
                     let uid = self.db.compile_time().entity_uid(entity_route);

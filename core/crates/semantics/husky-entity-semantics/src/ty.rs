@@ -189,16 +189,14 @@ impl EntityDefnVariant {
                     opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
                 };
                 let base_route = symbol_context.parse_entity_route(base_route).unwrap();
-                let generic_parameters =
+                let spatial_parameters =
                     symbol_context.generic_parameters_from_static(spatial_parameters);
-                let generic_arguments =
-                    symbol_context.generic_arguments_from_generic_parameters(&generic_parameters);
-                let this_ty = symbol_context.db.intern_entity_route(EntityRoute {
-                    kind: base_route.kind,
-                    temporal_arguments: thin_vec![],
-                    spatial_arguments: generic_arguments,
-                });
-                let symbols = symbol_context.symbols_from_generic_parameters(&generic_parameters);
+                let spatial_arguments =
+                    symbol_context.generic_arguments_from_generic_parameters(&spatial_parameters);
+                let this_ty = symbol_context
+                    .db
+                    .intern_entity_route(base_route.call(spatial_arguments));
+                let symbols = symbol_context.symbols_from_generic_parameters(&spatial_parameters);
                 symbol_context.symbols = symbols.into();
                 symbol_context.opt_this_ty = Some(this_ty);
                 let ty_members = ty_members.map(|ty_member| {
@@ -215,7 +213,7 @@ impl EntityDefnVariant {
                     .map(|trait_impl| TraitImplDefn::from_static(&mut symbol_context, trait_impl));
                 let visualizer = Visualizer::from_static(db, this_ty, visualizer);
                 Self::new_ty(
-                    generic_parameters,
+                    spatial_parameters,
                     ty_members,
                     variants,
                     kind,
