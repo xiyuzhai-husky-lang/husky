@@ -1,6 +1,6 @@
 use crate::*;
 pub use husky_datasets_interface::mnist::BinaryImage28;
-use husky_static_visualizer::StaticVisualizer;
+use husky_static_visualizer::{StaticVisualizer, StaticVisualizerFp};
 
 pub static BINARY_IMAGE_28_BASE_ROUTE: &'static str =
     "domains::ml::datasets::cv::mnist::BinaryImage28";
@@ -49,6 +49,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Struct,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Image2d,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DEFN),
     },

@@ -60,6 +60,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::CyclicSlice,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Group,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: None,
     },

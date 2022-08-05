@@ -64,6 +64,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Vec,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Group,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: Some(&VEC_TYPE_CALL_DEFN),
     },

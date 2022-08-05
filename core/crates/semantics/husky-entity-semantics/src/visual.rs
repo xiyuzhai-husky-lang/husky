@@ -1,5 +1,6 @@
 use husky_lazy_semantics::XmlExprVariant;
-use husky_static_visualizer::StaticVisualizer;
+use husky_static_visualizer::{StaticVisualizer, StaticVisualizerFp};
+use husky_trace_protocol::VisualData;
 use husky_xml_syntax::XmlTagKind;
 
 use crate::*;
@@ -56,7 +57,9 @@ impl Visualizer {
     ) -> Arc<Self> {
         Arc::new(Self {
             visual_ty: VisualTy::from_static(db, ty, static_visualizer.visual_ty),
-            variant: VisualizerVariant::Static,
+            variant: VisualizerVariant::Static {
+                fp: static_visualizer.fp,
+            },
         })
     }
 }
@@ -65,17 +68,50 @@ impl Visualizer {
 pub enum VisualizerVariant {
     Group { element_ty: EntityRoutePtr },
     Custom { stmts: Avec<LazyStmt> },
-    Static,
+    Static { fp: StaticVisualizerFp },
     Void,
     Any,
 }
 
 pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> Arc<Visualizer> {
     let ty_defn = db.entity_defn(ty).unwrap();
-    match ty_defn.variant {
-        EntityDefnVariant::Ty { ref visualizer, .. } => visualizer.clone(),
-        EntityDefnVariant::Any => Visualizer::generic(),
-        _ => todo!(),
+    if ty.spatial_arguments.len() == 0 {
+        match ty_defn.variant {
+            EntityDefnVariant::Ty { ref visualizer, .. } => visualizer.clone(),
+            EntityDefnVariant::Any => Visualizer::generic(),
+            _ => todo!(),
+        }
+    } else {
+        match ty_defn.variant {
+            EntityDefnVariant::Ty { ref visualizer, .. } => match visualizer.visual_ty {
+                VisualTy::AnyGroup => {
+                    let element_ty = ty.spatial_arguments[0].take_entity_route();
+                    let visual_ty = match db.visualizer(element_ty).visual_ty {
+                        VisualTy::Void => todo!(),
+                        VisualTy::Bool => todo!(),
+                        VisualTy::B32 => todo!(),
+                        VisualTy::B64 => todo!(),
+                        VisualTy::Integer => VisualTy::Plot2d,
+                        VisualTy::Float => todo!(),
+                        VisualTy::Point2d | VisualTy::Shape2d => VisualTy::Shape2d,
+                        VisualTy::Region2d => VisualTy::Region2d,
+                        VisualTy::Image2d => VisualTy::Image2d,
+                        VisualTy::Graphics2d => todo!(),
+                        VisualTy::Dataset => todo!(),
+                        VisualTy::Plot2d => todo!(),
+                        VisualTy::Any => VisualTy::AnyGroup,
+                        VisualTy::AnyGroup => todo!(),
+                    };
+                    Arc::new(Visualizer {
+                        visual_ty,
+                        variant: VisualizerVariant::Group { element_ty },
+                    })
+                }
+                _ => panic!(),
+            },
+            EntityDefnVariant::Any => Visualizer::generic(),
+            _ => todo!(),
+        }
     }
 
     //     Visualizer {

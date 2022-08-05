@@ -15,6 +15,7 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Float,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: None,
     },
