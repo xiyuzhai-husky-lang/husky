@@ -12,6 +12,7 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Integer,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: None,
     },

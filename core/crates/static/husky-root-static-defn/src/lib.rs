@@ -29,7 +29,7 @@ pub use std::sync::Arc as __Arc;
 use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_dev_utils::*;
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
-use husky_static_visualizer::{StaticVisualTy, StaticVisualizer};
+use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_vm_register_method::VMRegisterMethodX;
 use husky_word::RootIdentifier;
 use static_defn::StaticParameter;
@@ -87,6 +87,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Void,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: None,
     },
@@ -105,6 +106,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::B64,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: None,
     },
@@ -123,6 +125,7 @@ pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Bool,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: None,
     },

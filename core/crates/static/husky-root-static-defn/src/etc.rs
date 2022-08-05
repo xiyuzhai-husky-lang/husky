@@ -14,6 +14,7 @@ pub static TYPE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::HigherKind,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Void,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: None,
     },
@@ -31,6 +32,7 @@ pub static TRAIT_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::HigherKind,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Void,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: None,
     },
@@ -48,6 +50,7 @@ pub static MODULE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::HigherKind,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Void,
+            fp: StaticVisualizerFp(|_| todo!()),
         },
         opt_type_call: None,
     },

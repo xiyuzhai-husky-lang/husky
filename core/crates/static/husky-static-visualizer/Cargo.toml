@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
