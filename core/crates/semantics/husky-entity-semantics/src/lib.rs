@@ -231,8 +231,7 @@ pub enum EntityDefnVariant {
         trait_impls: Vec<Arc<TraitImplDefn>>,
         members: Avec<EntityDefn>,
         opt_type_call: Option<Arc<TypeCallDefn>>,
-        opt_static_visual_ty: Option<StaticVisualTy>,
-        opt_visual_stmts: Option<Avec<LazyStmt>>,
+        visualizer: Arc<Visualizer>,
     },
     Trait {
         spatial_parameters: IdentDict<SpatialParameter>,

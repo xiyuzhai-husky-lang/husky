@@ -13,9 +13,7 @@ pub(crate) fn visual_feature_lazy_block(
         db,
         Some(this),
         match visualizer.variant {
-            VisualizerVariant::Custom {
-                opt_stmts: Some(ref stmts),
-            } => stmts,
+            VisualizerVariant::Custom { ref stmts } => stmts,
             _ => panic!(),
         },
         &[],

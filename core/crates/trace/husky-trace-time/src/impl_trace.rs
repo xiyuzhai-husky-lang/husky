@@ -122,7 +122,6 @@ impl HuskyTraceTime {
                 ref trait_impls,
                 ref members,
                 ref opt_type_call,
-                ref opt_visual_stmts,
                 ..
             } => todo!(),
             EntityDefnVariant::Trait {

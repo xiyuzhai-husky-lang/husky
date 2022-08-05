@@ -130,6 +130,7 @@ impl EntityDefnVariant {
         };
         Self::collect_other_ty_members(db, arena, file, ty, &mut children, &mut ty_members)?;
         let opt_visual_stmts = Self::collect_visual_source(db, arena, file, ty, &mut children);
+        let visualizer = todo!();
         Ok(EntityDefnVariant::new_ty(
             generic_parameters,
             ty_members,
@@ -137,8 +138,7 @@ impl EntityDefnVariant {
             kind,
             trait_impls,
             opt_type_call,
-            None,
-            opt_visual_stmts,
+            visualizer,
         ))
     }
 
@@ -149,8 +149,7 @@ impl EntityDefnVariant {
         kind: TyKind,
         trait_impls: Vec<Arc<TraitImplDefn>>,
         opt_type_call: Option<Arc<TypeCallDefn>>,
-        opt_static_visual_ty: Option<StaticVisualTy>,
-        opt_visual_stmts: Option<Avec<LazyStmt>>,
+        visualizer: Arc<Visualizer>,
     ) -> Self {
         let members = collect_all_members(&ty_members, &trait_impls);
         EntityDefnVariant::Ty {
@@ -161,8 +160,7 @@ impl EntityDefnVariant {
             trait_impls,
             members,
             opt_type_call,
-            opt_static_visual_ty,
-            opt_visual_stmts,
+            visualizer,
         }
     }
 
@@ -214,6 +212,7 @@ impl EntityDefnVariant {
                 let kind = kind;
                 let trait_impls = trait_impls
                     .map(|trait_impl| TraitImplDefn::from_static(&mut symbol_context, trait_impl));
+                let visualizer = todo!();
                 Self::new_ty(
                     generic_parameters,
                     ty_members,
@@ -222,8 +221,7 @@ impl EntityDefnVariant {
                     trait_impls,
                     opt_type_call
                         .map(|type_call| TypeCallDefn::from_static(&mut symbol_context, type_call)),
-                    Some(visual_ty),
-                    None,
+                    visualizer,
                 )
             }
             _ => panic!(),

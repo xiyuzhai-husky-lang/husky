@@ -35,53 +35,55 @@ pub struct Visualizer {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum VisualizerVariant {
     Group { element_ty: EntityRoutePtr },
-    Custom { opt_stmts: Option<Avec<LazyStmt>> },
+    Custom { stmts: Avec<LazyStmt> },
+    Static,
+    Void,
 }
 
 pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> Arc<Visualizer> {
     let ty_defn = db.entity_defn(ty).unwrap();
-    Arc::new(match ty_defn.variant {
-        EntityDefnVariant::Ty {
-            opt_static_visual_ty,
-            ref opt_visual_stmts,
-            ty_kind,
-            ..
-        } => Visualizer {
-            visual_ty: match opt_static_visual_ty {
-                Some(static_visual_ty) => VisualTy::from_static(db, ty, static_visual_ty),
-                None => {
-                    if let Some(ref stmts) = opt_visual_stmts {
-                        VisualTy::from_stmts(db, stmts)
-                    } else {
-                        panic!("No visual source for ty `{ty:?}`")
-                    }
-                }
-            },
-            variant: match ty_kind {
-                TyKind::Enum => todo!(),
-                TyKind::Record => todo!(),
-                TyKind::Struct => VisualizerVariant::Custom {
-                    opt_stmts: opt_visual_stmts.clone(),
-                },
-                TyKind::Primitive => todo!(),
-                TyKind::Vec | TyKind::Slice | TyKind::CyclicSlice => VisualizerVariant::Group {
-                    element_ty: ty.spatial_arguments[0].take_entity_route(),
-                },
-                TyKind::Array => todo!(),
-                TyKind::Tuple => todo!(),
-                TyKind::Mor => todo!(),
-                TyKind::Fp => todo!(),
-                TyKind::AssociatedAny => todo!(),
-                TyKind::ThisAny => todo!(),
-                TyKind::SpatialPlaceholderAny => todo!(),
-                TyKind::BoxAny => todo!(),
-                TyKind::HigherKind => todo!(),
-                TyKind::Ref => todo!(),
-                TyKind::Option => todo!(),
-            },
-        },
-        _ => panic!(),
-    })
+    match ty_defn.variant {
+        EntityDefnVariant::Ty { ref visualizer, .. } => visualizer.clone(),
+        _ => todo!(),
+    }
+
+    //     Visualizer {
+    //         visual_ty: match opt_static_visual_ty {
+    //             Some(static_visual_ty) => VisualTy::from_static(db, ty, static_visual_ty),
+    //             None => {
+    //                 if let Some(ref stmts) = opt_visual_stmts {
+    //                     VisualTy::from_stmts(db, stmts)
+    //                 } else {
+    //                     panic!("No visual source for ty `{ty:?}`")
+    //                 }
+    //             }
+    //         },
+    //         variant: match ty_kind {
+    //             TyKind::Enum => todo!(),
+    //             TyKind::Record => todo!(),
+    //             TyKind::Struct => VisualizerVariant::Custom {
+    //                 opt_stmts: opt_visual_stmts.clone(),
+    //             },
+    //             TyKind::Primitive => todo!(),
+    //             TyKind::Vec | TyKind::Slice | TyKind::CyclicSlice | TyKind::Array => {
+    //                 VisualizerVariant::Group {
+    //                     element_ty: ty.spatial_arguments[0].take_entity_route(),
+    //                 }
+    //             }
+    //             TyKind::Tuple => todo!(),
+    //             TyKind::Mor => todo!(),
+    //             TyKind::Fp => todo!(),
+    //             TyKind::AssociatedAny => todo!(),
+    //             TyKind::ThisAny => todo!(),
+    //             TyKind::SpatialPlaceholderAny => todo!(),
+    //             TyKind::BoxAny => todo!(),
+    //             TyKind::HigherKind => todo!(),
+    //             TyKind::Ref => todo!(),
+    //             TyKind::Option => todo!(),
+    //         },
+    //     },
+    //     _ => panic!(),
+    // })
 }
 
 pub(crate) fn visual_ty(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> VisualTy {

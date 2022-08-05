@@ -75,8 +75,7 @@ impl<'a> LinkageCollector<'a> {
                 ref trait_impls,
                 ref members,
                 ref opt_type_call,
-                opt_static_visual_ty,
-                ref opt_visual_stmts,
+                ..
             } => {
                 if opt_type_call.is_some() {
                     self.insert(defn.base_route)
