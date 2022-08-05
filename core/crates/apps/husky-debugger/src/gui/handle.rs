@@ -127,7 +127,16 @@ impl HuskyDebuggerInternal {
                         trace_stalks,
                     })
                 } else {
-                    None
+                    // ad hoc; should panic here
+                    if request.opt_request_id.is_some() {
+                        Some(HuskyTracerServerMessageVariant::ToggleExpansion {
+                            new_traces: Default::default(),
+                            subtrace_ids: Default::default(),
+                            trace_stalks: Default::default(),
+                        })
+                    } else {
+                        None
+                    }
                 }
             }
             HuskyTracerGuiMessageVariant::ToggleShow { trace_id } => {
