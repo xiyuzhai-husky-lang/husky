@@ -43,7 +43,8 @@ impl TraceData {
     pub fn has_subtraces(&self, has_sample_id: bool) -> bool {
         match self.kind {
             TraceKind::Main
-            | TraceKind::EntityFeature
+            | TraceKind::EntityFeatureLazy
+            | TraceKind::FeatureExprLazy
             | TraceKind::Module
             | TraceKind::FeatureBranch
             | TraceKind::LoopFrame => true,
@@ -56,7 +57,9 @@ impl TraceData {
             | TraceKind::ProcStmt
             | TraceKind::FuncBranch
             | TraceKind::ProcBranch => self.can_have_subtraces,
-            TraceKind::FeatureExpr => has_sample_id && self.can_have_subtraces,
+            TraceKind::EntityFeatureEager | TraceKind::FeatureExprEager => {
+                has_sample_id && self.can_have_subtraces
+            }
         }
     }
 }
@@ -65,10 +68,12 @@ impl TraceData {
 pub enum TraceKind {
     Main,
     Module,
-    EntityFeature,
+    EntityFeatureLazy,
+    EntityFeatureEager,
     FeatureStmt,
     FeatureBranch,
-    FeatureExpr,
+    FeatureExprLazy,
+    FeatureExprEager,
     FeatureCallArgument,
     FuncStmt,
     ProcStmt,
@@ -85,10 +90,12 @@ impl TraceKind {
         match self {
             TraceKind::Main => "Main",
             TraceKind::Module => "Module",
-            TraceKind::EntityFeature => "EntityFeature",
+            TraceKind::EntityFeatureLazy => "EntityFeatureLazy",
+            TraceKind::EntityFeatureEager => "EntityFeatureEager",
             TraceKind::FeatureStmt => "FeatureStmt",
             TraceKind::FeatureBranch => "FeatureBranch",
-            TraceKind::FeatureExpr => "FeatureExpr",
+            TraceKind::FeatureExprLazy => "FeatureExprLazy",
+            TraceKind::FeatureExprEager => "FeatureExprEager",
             TraceKind::FeatureCallArgument => "FeatureCallArgument",
             TraceKind::FuncStmt => "FuncStmt",
             TraceKind::ProcStmt => "ProcStmt",
@@ -103,10 +110,12 @@ impl TraceKind {
     pub fn can_have_stalk(self) -> bool {
         match self {
             TraceKind::Main
-            | TraceKind::EntityFeature
+            | TraceKind::EntityFeatureLazy
+            | TraceKind::EntityFeatureEager
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
-            | TraceKind::FeatureExpr => true,
+            | TraceKind::FeatureExprLazy
+            | TraceKind::FeatureExprEager => true,
             TraceKind::Module
             | TraceKind::FeatureCallArgument
             | TraceKind::EagerCallArgument

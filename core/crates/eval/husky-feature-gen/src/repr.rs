@@ -26,6 +26,17 @@ pub enum FeatureRepr {
 }
 
 impl FeatureRepr {
+    pub fn is_lazy(&self) -> bool {
+        match self {
+            FeatureRepr::Expr(_) => true,
+            FeatureRepr::LazyBlock(_) => true,
+            FeatureRepr::Value { .. } => false,
+            FeatureRepr::FuncBlock(_) => false,
+            FeatureRepr::ProcBlock(_) => false,
+            FeatureRepr::EvalInput { .. } => false,
+        }
+    }
+
     pub fn ty(&self) -> EntityRoutePtr {
         match self {
             FeatureRepr::Value { ty, .. } => *ty,

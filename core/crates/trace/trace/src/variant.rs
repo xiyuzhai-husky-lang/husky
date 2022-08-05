@@ -17,9 +17,9 @@ pub enum TraceVariant<'eval> {
         route: EntityRoutePtr,
         repr: FeatureRepr,
     },
-    FeatureLazyStmt(Arc<FeatureStmt>),
-    FeatureLazyBranch(Arc<FeatureBranch>),
-    FeatureLazyExpr(Arc<FeatureExpr>),
+    FeatureStmt(Arc<FeatureStmt>),
+    FeatureBranch(Arc<FeatureBranch>),
+    FeatureExpr(Arc<FeatureExpr>),
     FeatureCallArgument {
         name: &'static str,
         argument: Arc<FeatureExpr>,
@@ -72,10 +72,22 @@ impl<'eval> TraceVariant<'eval> {
         match self {
             TraceVariant::Main(_) => TraceKind::Main,
             TraceVariant::Module { .. } => TraceKind::Module,
-            TraceVariant::EntityFeature { .. } => TraceKind::EntityFeature,
-            TraceVariant::FeatureLazyStmt(_) => TraceKind::FeatureStmt,
-            TraceVariant::FeatureLazyBranch(_) => TraceKind::FeatureBranch,
-            TraceVariant::FeatureLazyExpr(_) => TraceKind::FeatureExpr,
+            TraceVariant::EntityFeature { ref repr, .. } => match repr.is_lazy() {
+                true => TraceKind::EntityFeatureLazy,
+                false => TraceKind::EntityFeatureEager,
+            },
+            TraceVariant::FeatureStmt(_) => TraceKind::FeatureStmt,
+            TraceVariant::FeatureBranch(_) => TraceKind::FeatureBranch,
+            TraceVariant::FeatureExpr(expr) => match expr.variant {
+                FeatureExprVariant::StructDerivedLazyField { .. } => todo!(),
+                FeatureExprVariant::RecordDerivedField { .. } => todo!(),
+                FeatureExprVariant::ModelCall { .. } => todo!(),
+                FeatureExprVariant::EntityFeature { .. } => todo!(),
+                FeatureExprVariant::EvalInput => todo!(),
+                FeatureExprVariant::NewRecord { .. } => todo!(),
+                FeatureExprVariant::NewVecFromList { .. } => todo!(),
+                _ => TraceKind::FeatureExprEager,
+            },
             TraceVariant::FeatureCallArgument { .. } => TraceKind::FeatureCallArgument,
             TraceVariant::FuncStmt { .. } => TraceKind::FuncStmt,
             TraceVariant::ProcStmt { .. } => TraceKind::ProcStmt,
@@ -93,9 +105,9 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::Main(ref repr) => (repr.file(), repr.text_range()),
             TraceVariant::Module { file, range, .. } => (*file, *range),
             TraceVariant::EntityFeature { ref repr, .. } => (repr.file(), repr.text_range()),
-            TraceVariant::FeatureLazyStmt(ref stmt) => (stmt.file, stmt.range),
-            TraceVariant::FeatureLazyExpr(expr) => (expr.expr.file, expr.expr.range),
-            TraceVariant::FeatureLazyBranch(ref branch) => (branch.block.file, branch.block.range),
+            TraceVariant::FeatureStmt(ref stmt) => (stmt.file, stmt.range),
+            TraceVariant::FeatureExpr(expr) => (expr.expr.file, expr.expr.range),
+            TraceVariant::FeatureBranch(ref branch) => (branch.block.file, branch.block.range),
             TraceVariant::FeatureCallArgument { argument, .. } => {
                 (argument.expr.file, argument.expr.range)
             }
@@ -115,7 +127,7 @@ impl<'eval> TraceVariant<'eval> {
             return false;
         }
         match self {
-            TraceVariant::FeatureLazyStmt(_)
+            TraceVariant::FeatureStmt(_)
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::EagerCallArgument { .. } => false,
@@ -136,8 +148,8 @@ impl<'eval> TraceVariant<'eval> {
             | TraceVariant::Main(_)
             | TraceVariant::Module { .. }
             | TraceVariant::EntityFeature { .. }
-            | TraceVariant::FeatureLazyBranch(_) => true,
-            TraceVariant::FeatureLazyExpr(expr) => match expr.variant {
+            | TraceVariant::FeatureBranch(_) => true,
+            TraceVariant::FeatureExpr(expr) => match expr.variant {
                 FeatureExprVariant::PrimitiveLiteral(_)
                 | FeatureExprVariant::PrimitiveBinaryOpr { .. }
                 | FeatureExprVariant::Variable { .. } => false,
@@ -265,9 +277,9 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::Main(_)
             | TraceVariant::EntityFeature { .. }
             | TraceVariant::Module { .. } => true,
-            TraceVariant::FeatureLazyStmt(_)
-            | TraceVariant::FeatureLazyBranch(_)
-            | TraceVariant::FeatureLazyExpr(_) => true,
+            TraceVariant::FeatureStmt(_)
+            | TraceVariant::FeatureBranch(_)
+            | TraceVariant::FeatureExpr(_) => true,
             TraceVariant::FeatureCallArgument { .. } | TraceVariant::EagerCallArgument { .. } => {
                 true
             }
@@ -373,9 +385,9 @@ impl<'eval> Serialize for TraceVariant<'eval> {
             TraceVariant::Main(_) => "Main",
             TraceVariant::EntityFeature { .. } => "EntityFeature",
             TraceVariant::Module { .. } => "Module",
-            TraceVariant::FeatureLazyStmt(_) => "FeatureStmt",
-            TraceVariant::FeatureLazyBranch(_) => "FeatureBranch",
-            TraceVariant::FeatureLazyExpr(_) => "FeatureExpr",
+            TraceVariant::FeatureStmt(_) => "FeatureStmt",
+            TraceVariant::FeatureBranch(_) => "FeatureBranch",
+            TraceVariant::FeatureExpr(_) => "FeatureExpr",
             TraceVariant::FeatureCallArgument { .. } => "FeatureCallInput",
             TraceVariant::FuncStmt { .. } => "FuncStmt",
             TraceVariant::ProcStmt { .. } => "ProcStmt",

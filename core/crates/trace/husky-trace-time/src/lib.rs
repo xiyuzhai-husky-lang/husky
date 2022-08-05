@@ -107,10 +107,13 @@ impl HuskyTraceTime {
         if let Some(subtrace_ids) = self.subtrace_ids_map.get(&key) {
             subtrace_ids.clone()
         } else {
-            let subtrace_ids = self.gen_subtraces(trace_id);
-            self.subtrace_ids_map
-                .insert(key.clone(), subtrace_ids.clone());
-            subtrace_ids
+            if let Some(subtrace_ids) = self.gen_subtraces(trace_id) {
+                self.subtrace_ids_map
+                    .insert(key.clone(), subtrace_ids.clone());
+                subtrace_ids
+            } else {
+                todo!()
+            }
         }
     }
 
@@ -156,7 +159,7 @@ impl HuskyTraceTime {
         self.trace_nodes[trace_id.0] = Some(TraceNode {
             expansion: false,
             shown: match trace.raw_data.kind {
-                TraceKind::FeatureExpr | TraceKind::EagerExpr => {
+                TraceKind::FeatureExprLazy | TraceKind::FeatureExprEager | TraceKind::EagerExpr => {
                     trace.raw_data.opt_parent_id.is_some()
                 }
                 _ => true,

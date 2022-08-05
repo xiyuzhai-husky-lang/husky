@@ -28,10 +28,12 @@ impl FigureCanvasKey {
     ) -> FigureCanvasKey {
         match trace_kind {
             TraceKind::Main
-            | TraceKind::EntityFeature
+            | TraceKind::EntityFeatureLazy
+            | TraceKind::EntityFeatureEager
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
-            | TraceKind::FeatureExpr
+            | TraceKind::FeatureExprLazy
+            | TraceKind::FeatureExprEager
             | TraceKind::FeatureCallArgument => {
                 if restriction.is_specific() {
                     FigureCanvasKey::Specific { trace_id }

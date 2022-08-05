@@ -17,10 +17,12 @@ impl TraceStalkKey {
     pub fn new(sample_id: SampleId, trace_kind: TraceKind, trace_id: TraceId) -> Self {
         match trace_kind {
             TraceKind::Main
-            | TraceKind::EntityFeature
+            | TraceKind::EntityFeatureLazy
+            | TraceKind::EntityFeatureEager
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
-            | TraceKind::FeatureExpr
+            | TraceKind::FeatureExprLazy
+            | TraceKind::FeatureExprEager
             | TraceKind::FeatureCallArgument => TraceStalkKey::Lazy {
                 trace_id,
                 sample_id,

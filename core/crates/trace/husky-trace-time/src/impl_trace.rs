@@ -19,7 +19,7 @@ impl HuskyTraceTime {
                 vec![self.new_trace(
                     Some(parent.id()),
                     stmt.indent,
-                    TraceVariant::FeatureLazyStmt(stmt),
+                    TraceVariant::FeatureStmt(stmt),
                 )]
             }
             FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => branches
@@ -39,7 +39,7 @@ impl HuskyTraceTime {
         self.new_trace(
             Some(parent.id()),
             indent,
-            TraceVariant::FeatureLazyBranch(branch),
+            TraceVariant::FeatureBranch(branch),
         )
     }
 

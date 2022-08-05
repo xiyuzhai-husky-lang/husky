@@ -65,11 +65,11 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(keyword!("mod "));
                 self.push(ident!(route.ident().as_str()))
             }
-            TraceVariant::FeatureLazyStmt(stmt) => self.feature_stmt_tokens(stmt),
-            TraceVariant::FeatureLazyExpr(ref expr) => {
+            TraceVariant::FeatureStmt(stmt) => self.feature_stmt_tokens(stmt),
+            TraceVariant::FeatureExpr(ref expr) => {
                 self.gen_feature_expr_tokens(expr, ExprTokenConfig::expr(false))
             }
-            TraceVariant::FeatureLazyBranch(branch) => self.feature_branch_tokens(branch),
+            TraceVariant::FeatureBranch(branch) => self.feature_branch_tokens(branch),
             TraceVariant::FuncStmt {
                 ref stmt,
                 ref history,

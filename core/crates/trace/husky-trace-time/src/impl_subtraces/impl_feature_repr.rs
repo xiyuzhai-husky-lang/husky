@@ -7,12 +7,12 @@ impl HuskyTraceTime {
         &mut self,
         parent: &Trace,
         feature_repr: &FeatureRepr,
-    ) -> Vec<TraceId> {
+    ) -> Option<Vec<TraceId>> {
         match feature_repr {
             FeatureRepr::Value { .. } => todo!(),
             FeatureRepr::Expr(_) => todo!(),
             FeatureRepr::LazyBlock(feature_block) => {
-                self.feature_lazy_block_subtraces(parent, feature_block)
+                Some(self.feature_lazy_block_subtraces(parent, feature_block))
             }
             FeatureRepr::FuncBlock(feature_block) => {
                 self.feature_func_block_subtraces(parent, feature_block)
@@ -39,10 +39,10 @@ impl HuskyTraceTime {
         &mut self,
         parent: &Trace,
         feature_block: &FeatureFuncBlock,
-    ) -> Vec<TraceId> {
+    ) -> Option<Vec<TraceId>> {
         let instruction_sheet: &InstructionSheet = &feature_block.instruction_sheet;
         let mut arguments = vec![];
-        let sample_id = self.restriction.opt_sample_id().unwrap();
+        let sample_id = self.restriction.opt_sample_id()?;
         if let Some(ref this_repr) = feature_block.opt_this {
             arguments.push(
                 self.runtime()
@@ -63,6 +63,6 @@ impl HuskyTraceTime {
         );
         let mut subtraces = vec![];
         subtraces.extend(self.func_stmts_traces(parent.id(), 4, &feature_block.stmts, &history));
-        subtraces
+        Some(subtraces)
     }
 }
