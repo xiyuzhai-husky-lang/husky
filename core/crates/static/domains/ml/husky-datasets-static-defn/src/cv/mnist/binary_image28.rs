@@ -49,7 +49,13 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Struct,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Image2d,
-            fp: StaticVisualizerFp(|_| todo!()),
+            fp: StaticVisualizerFp(|value| {
+                let value: &BinaryImage28 =
+                    unsafe { value.downcast_temp_ref(&__BINARY_IMAGE_28_VTABLE) };
+                Ok(VisualData::BinaryImage28 {
+                    padded_rows: value.padded_rows.clone(),
+                })
+            }),
         },
         opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DEFN),
     },
