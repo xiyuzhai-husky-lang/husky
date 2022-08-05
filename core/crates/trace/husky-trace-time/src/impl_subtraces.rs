@@ -2,6 +2,7 @@ mod impl_expr;
 mod impl_feature_branch;
 mod impl_feature_repr;
 mod impl_func_stmt;
+mod impl_module;
 mod impl_proc_stmt;
 
 use super::*;
@@ -12,7 +13,10 @@ impl HuskyTraceTime {
         let trace = unsafe { self.trace_ref(trace_id) };
         match trace.variant {
             TraceVariant::Main(ref repr) => self.feature_repr_subtraces(&trace, repr),
-            TraceVariant::Module { .. } => todo!(),
+            TraceVariant::Module { route, .. } => self.module_subtraces(&trace, route),
+            TraceVariant::EntityFeature { ref repr, .. } => {
+                self.feature_repr_subtraces(&trace, repr)
+            }
             TraceVariant::FeatureLazyStmt(_)
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }

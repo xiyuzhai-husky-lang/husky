@@ -179,6 +179,21 @@ impl SubrouteTable {
         })
     }
 
+    pub fn subentity_kinded_route_iter<'a>(
+        &'a self,
+        db: &'a dyn EntitySyntaxSalsaQueryGroup,
+        parent_route: EntityRoutePtr,
+    ) -> impl Iterator<Item = (EntityKind, EntityRoutePtr)> + 'a {
+        self.entries.iter().filter_map(move |entry| {
+            entry.ident.map(|ident| {
+                (
+                    entry.kind,
+                    db.subroute(parent_route, ident.ident, thin_vec![]),
+                )
+            })
+        })
+    }
+
     pub fn submodule_route_iter<'a>(
         &'a self,
         db: &'a dyn EntitySyntaxSalsaQueryGroup,

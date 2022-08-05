@@ -21,7 +21,11 @@ pub trait EntitySyntaxSalsaQueryGroup:
 {
     fn subroute_table(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResultArc<SubrouteTable>;
 
-    fn subscopes(&self, entity_route: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
+    fn subentity_routes(&self, entity_route: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
+    fn subentity_kinded_routes(
+        &self,
+        entity_route: EntityRoutePtr,
+    ) -> Arc<Vec<(EntityKind, EntityRoutePtr)>>;
 
     fn entity_kind(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityKind>;
 
@@ -72,12 +76,23 @@ fn subroute_table(
     }
 }
 
-fn subscopes(
+fn subentity_routes(
     db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> Arc<Vec<EntityRoutePtr>> {
     Arc::new(db.subroute_table(entity_route).map_or(Vec::new(), |table| {
         table.subroute_iter(db, entity_route).collect()
+    }))
+}
+
+fn subentity_kinded_routes(
+    db: &dyn EntitySyntaxSalsaQueryGroup,
+    entity_route: EntityRoutePtr,
+) -> Arc<Vec<(EntityKind, EntityRoutePtr)>> {
+    Arc::new(db.subroute_table(entity_route).map_or(Vec::new(), |table| {
+        table
+            .subentity_kinded_route_iter(db, entity_route)
+            .collect()
     }))
 }
 

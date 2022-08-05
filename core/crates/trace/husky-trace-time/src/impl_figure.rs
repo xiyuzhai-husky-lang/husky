@@ -27,6 +27,7 @@ impl HuskyTraceTime {
             TraceVariant::Main(_) | TraceVariant::Module { .. } => FigureCanvasData::void(),
             TraceVariant::FeatureLazyStmt(ref stmt) => self.feature_stmt_figure(stmt)?,
             TraceVariant::FeatureLazyBranch(_) => FigureCanvasData::void(),
+            TraceVariant::EntityFeature { .. } => todo!(),
             TraceVariant::FeatureLazyExpr(ref expr) => self.feature_expr_figure(expr)?,
             TraceVariant::FeatureCallArgument {
                 argument: ref input,

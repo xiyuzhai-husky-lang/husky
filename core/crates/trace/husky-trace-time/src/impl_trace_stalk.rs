@@ -19,11 +19,15 @@ impl HuskyTraceTime {
     fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalkData {
         let trace: &Trace = self.trace(trace_id);
         match trace.variant {
-            TraceVariant::Main(ref block) => self.trace_stalk_from_result(
-                self.runtime().eval_feature_repr(block, sample_id),
-                block.ty(),
+            TraceVariant::Main(ref repr) => self.trace_stalk_from_result(
+                self.runtime().eval_feature_repr(repr, sample_id),
+                repr.ty(),
             ),
             TraceVariant::Module { .. } => todo!(),
+            TraceVariant::EntityFeature { ref repr, .. } => self.trace_stalk_from_result(
+                self.runtime().eval_feature_repr(repr, sample_id),
+                repr.ty(),
+            ),
             TraceVariant::FeatureLazyStmt(ref stmt) => match stmt.variant {
                 FeatureLazyStmtVariant::Init { varname, ref value } => {
                     self.trace_stalk_from_expr(value, sample_id)

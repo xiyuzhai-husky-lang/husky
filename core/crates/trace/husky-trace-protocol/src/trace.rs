@@ -43,6 +43,7 @@ impl TraceData {
     pub fn has_subtraces(&self, has_sample_id: bool) -> bool {
         match self.kind {
             TraceKind::Main
+            | TraceKind::EntityFeature
             | TraceKind::Module
             | TraceKind::FeatureBranch
             | TraceKind::LoopFrame => true,
@@ -64,6 +65,7 @@ impl TraceData {
 pub enum TraceKind {
     Main,
     Module,
+    EntityFeature,
     FeatureStmt,
     FeatureBranch,
     FeatureExpr,
@@ -83,6 +85,7 @@ impl TraceKind {
         match self {
             TraceKind::Main => "Main",
             TraceKind::Module => "Module",
+            TraceKind::EntityFeature => "EntityFeature",
             TraceKind::FeatureStmt => "FeatureStmt",
             TraceKind::FeatureBranch => "FeatureBranch",
             TraceKind::FeatureExpr => "FeatureExpr",
@@ -100,6 +103,7 @@ impl TraceKind {
     pub fn can_have_stalk(self) -> bool {
         match self {
             TraceKind::Main
+            | TraceKind::EntityFeature
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr => true,

@@ -13,6 +13,10 @@ pub enum TraceVariant<'eval> {
         file: FilePtr,
         range: TextRange,
     },
+    EntityFeature {
+        route: EntityRoutePtr,
+        repr: FeatureRepr,
+    },
     FeatureLazyStmt(Arc<FeatureStmt>),
     FeatureLazyBranch(Arc<FeatureBranch>),
     FeatureLazyExpr(Arc<FeatureExpr>),
@@ -68,6 +72,7 @@ impl<'eval> TraceVariant<'eval> {
         match self {
             TraceVariant::Main(_) => TraceKind::Main,
             TraceVariant::Module { .. } => TraceKind::Module,
+            TraceVariant::EntityFeature { .. } => TraceKind::EntityFeature,
             TraceVariant::FeatureLazyStmt(_) => TraceKind::FeatureStmt,
             TraceVariant::FeatureLazyBranch(_) => TraceKind::FeatureBranch,
             TraceVariant::FeatureLazyExpr(_) => TraceKind::FeatureExpr,
@@ -85,8 +90,9 @@ impl<'eval> TraceVariant<'eval> {
 
     pub fn file_and_range(&self) -> (FilePtr, TextRange) {
         match self {
-            TraceVariant::Main(ref block) => (block.file(), block.text_range()),
+            TraceVariant::Main(ref repr) => (repr.file(), repr.text_range()),
             TraceVariant::Module { file, range, .. } => (*file, *range),
+            TraceVariant::EntityFeature { ref repr, .. } => (repr.file(), repr.text_range()),
             TraceVariant::FeatureLazyStmt(ref stmt) => (stmt.file, stmt.range),
             TraceVariant::FeatureLazyExpr(expr) => (expr.expr.file, expr.expr.range),
             TraceVariant::FeatureLazyBranch(ref branch) => (branch.block.file, branch.block.range),
@@ -129,6 +135,7 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::LoopFrame { .. }
             | TraceVariant::Main(_)
             | TraceVariant::Module { .. }
+            | TraceVariant::EntityFeature { .. }
             | TraceVariant::FeatureLazyBranch(_) => true,
             TraceVariant::FeatureLazyExpr(expr) => match expr.variant {
                 FeatureExprVariant::PrimitiveLiteral(_)
@@ -255,8 +262,9 @@ impl<'eval> TraceVariant<'eval> {
 
     pub fn reachable(&self) -> bool {
         match self {
-            TraceVariant::Main(_) => true,
-            TraceVariant::Module { .. } => true,
+            TraceVariant::Main(_)
+            | TraceVariant::EntityFeature { .. }
+            | TraceVariant::Module { .. } => true,
             TraceVariant::FeatureLazyStmt(_)
             | TraceVariant::FeatureLazyBranch(_)
             | TraceVariant::FeatureLazyExpr(_) => true,
@@ -363,6 +371,7 @@ impl<'eval> Serialize for TraceVariant<'eval> {
     {
         serializer.serialize_str(match self {
             TraceVariant::Main(_) => "Main",
+            TraceVariant::EntityFeature { .. } => "EntityFeature",
             TraceVariant::Module { .. } => "Module",
             TraceVariant::FeatureLazyStmt(_) => "FeatureStmt",
             TraceVariant::FeatureLazyBranch(_) => "FeatureBranch",

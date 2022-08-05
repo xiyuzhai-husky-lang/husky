@@ -1,6 +1,7 @@
 use std::time::Instant;
 
 use crate::*;
+use entity_kind::EntityKind;
 use husky_text::HuskyText;
 use vm::{History, VMControl};
 
@@ -32,16 +33,22 @@ impl HuskyTraceTime {
         );
         let module = self.comptime().module(main_file).unwrap();
         let mut root_trace_ids = vec![];
-        for submodule in self.comptime().submodules(module).iter() {
-            root_trace_ids.push(self.new_trace(
-                None,
-                0,
-                TraceVariant::Module {
-                    route: *submodule,
-                    file: main_file,
-                    range: Default::default(),
-                },
-            ))
+        for (subentity_kind, subentity_route) in
+            self.comptime().subentity_kinded_routes(module).iter()
+        {
+            match subentity_kind {
+                EntityKind::Module => root_trace_ids.push(self.new_trace(
+                    None,
+                    0,
+                    TraceVariant::Module {
+                        route: *subentity_route,
+                        file: main_file,
+                        range: Default::default(),
+                    },
+                )),
+                EntityKind::Feature => todo!(),
+                _ => (),
+            }
         }
         root_trace_ids.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
         self.root_trace_ids = root_trace_ids
