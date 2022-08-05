@@ -82,11 +82,12 @@ impl VecMapEntry<CustomIdentifier> for EntityDefn {
 
 impl EntityDefn {
     pub fn from_static(
+        db: &dyn EntityDefnQueryGroup,
         symbol_context: &mut dyn AtomContext,
         route: EntityRoutePtr,
         static_entity_defn: &'static EntityStaticDefn,
     ) -> Arc<Self> {
-        let variant = EntityDefnVariant::from_static(symbol_context, static_entity_defn);
+        let variant = EntityDefnVariant::from_static(db, symbol_context, static_entity_defn);
         EntityDefn::new(
             symbol_context
                 .entity_syntax_db()
@@ -287,6 +288,7 @@ impl std::fmt::Debug for EntityDefnVariant {
 
 impl EntityDefnVariant {
     pub fn from_static(
+        db: &dyn EntityDefnQueryGroup,
         symbol_context: &mut dyn AtomContext,
         static_defn: &'static EntityStaticDefn,
     ) -> Self {
@@ -315,7 +317,7 @@ impl EntityDefnVariant {
                 source: CallFormSource::Static(linkage),
             },
             EntityStaticDefnVariant::Ty { .. } => {
-                EntityDefnVariant::ty_from_static(symbol_context, static_defn)
+                EntityDefnVariant::ty_from_static(db, symbol_context, static_defn)
             }
             EntityStaticDefnVariant::Trait {
                 base_route,
@@ -369,7 +371,7 @@ impl EntityDefnVariant {
                             symbol_context.db.intern_word(member.name).custom(),
                             thin_vec![],
                         ));
-                        EntityDefn::from_static(&mut symbol_context, route, member)
+                        EntityDefn::from_static(db, &mut symbol_context, route, member)
                     }),
                 }
             }
@@ -450,6 +452,7 @@ pub(crate) fn entity_defn(
     let source = db.entity_source(entity_route).unwrap();
     match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(EntityDefn::from_static(
+            db,
             &mut AtomContextStandalone {
                 opt_package_main: None,
                 db: db.upcast(),

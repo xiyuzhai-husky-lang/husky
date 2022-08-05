@@ -15,7 +15,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: BINARY_GRID_28_BASE_ROUTE,
         spatial_parameters: &[],
-        static_trait_impls: &[StaticTraitImplDefn {
+        trait_impls: &[StaticTraitImplDefn {
             dev_src: static_dev_src!(),
             trai: "std::ops::Index<i32>",
             member_impls: &[

@@ -47,7 +47,7 @@ impl TyDecl {
             EntityStaticDefnVariant::Ty {
                 base_route,
                 spatial_parameters: generic_parameters,
-                static_trait_impls,
+                trait_impls: static_trait_impls,
                 ty_members: type_members,
                 variants,
                 kind,

@@ -1,3 +1,5 @@
+use husky_static_visualizer::StaticVisualizer;
+
 use crate::*;
 
 pub static TYPE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -6,11 +8,13 @@ pub static TYPE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: "Type",
         spatial_parameters: &[],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[],
         variants: &[],
         kind: TyKind::HigherKind,
-        visual_ty: StaticVisualTy::Void,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Void,
+        },
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),
@@ -21,11 +25,13 @@ pub static TRAIT_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: "Trait",
         spatial_parameters: &[],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[],
         variants: &[],
         kind: TyKind::HigherKind,
-        visual_ty: StaticVisualTy::Void,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Void,
+        },
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),
@@ -36,11 +42,13 @@ pub static MODULE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Ty {
         base_route: "Module",
         spatial_parameters: &[],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[],
         variants: &[],
         kind: TyKind::HigherKind,
-        visual_ty: StaticVisualTy::Void,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Void,
+        },
         opt_type_call: None,
     },
     dev_src: static_dev_src!(),

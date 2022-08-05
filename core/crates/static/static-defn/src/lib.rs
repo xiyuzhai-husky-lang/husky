@@ -52,7 +52,7 @@ pub enum EntityStaticDefnVariant {
     Ty {
         base_route: &'static str,
         spatial_parameters: &'static [StaticSpatialParameter],
-        static_trait_impls: &'static [StaticTraitImplDefn],
+        trait_impls: &'static [StaticTraitImplDefn],
         ty_members: &'static [&'static EntityStaticDefn],
         variants: &'static [EntityStaticDefn],
         kind: TyKind,

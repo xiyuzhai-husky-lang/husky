@@ -26,7 +26,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
             &STD_SLICE_CYCLIC_SLICE_FIRST_DEFN,
             &STD_SLICE_CYCLIC_SLICE_LAST_DEFN,
         ],
-        static_trait_impls: &[StaticTraitImplDefn {
+        trait_impls: &[StaticTraitImplDefn {
             trai: "std::ops::Index<i32>",
             member_impls: &[
                 associated_type_impl!("Output", "E"),
@@ -57,7 +57,9 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
         }],
         variants: &[],
         kind: TyKind::CyclicSlice,
-        visual_ty: StaticVisualTy::Group,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Group,
+        },
         opt_type_call: None,
     },
     dev_src: husky_dev_utils::static_dev_src!(),

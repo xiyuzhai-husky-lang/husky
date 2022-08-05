@@ -40,7 +40,7 @@ pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                 variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
             },
         ],
-        static_trait_impls: &[],
+        trait_impls: &[],
         ty_members: &[],
         variants: &[],
         kind: TyKind::BoxAny,

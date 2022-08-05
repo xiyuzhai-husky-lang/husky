@@ -1,4 +1,5 @@
 use husky_lazy_semantics::XmlExprVariant;
+use husky_static_visualizer::StaticVisualizer;
 use husky_xml_syntax::XmlTagKind;
 
 use crate::*;
@@ -37,6 +38,17 @@ impl Visualizer {
         Arc::new(Self {
             visual_ty: VisualTy::Void,
             variant: VisualizerVariant::Void,
+        })
+    }
+
+    pub fn from_static(
+        db: &dyn EntityDefnQueryGroup,
+        ty: EntityRoutePtr,
+        static_visualizer: StaticVisualizer,
+    ) -> Arc<Self> {
+        Arc::new(Self {
+            visual_ty: VisualTy::from_static(db, ty, static_visualizer.visual_ty),
+            variant: VisualizerVariant::Static,
         })
     }
 }
