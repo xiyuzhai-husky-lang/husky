@@ -69,7 +69,7 @@ impl TyDecl {
                 };
                 let base_ty = symbol_context.parse_entity_route(base_route).unwrap();
                 let this_ty = db.intern_entity_route(EntityRoute {
-                    kind: base_ty.kind,
+                    variant: base_ty.variant.clone(),
                     temporal_arguments: thin_vec![],
                     spatial_arguments: generic_arguments,
                 });
@@ -121,7 +121,7 @@ impl TyDecl {
     ) -> InferQueryResultArc<Self> {
         let generic_arguments = db.spatial_arguments_from_spatial_parameters(&generic_parameters);
         let this_ty = db.intern_entity_route(EntityRoute {
-            kind: ty.kind,
+            variant: ty.variant.clone(),
             temporal_arguments: thin_vec![],
             spatial_arguments: generic_arguments,
         });
@@ -497,7 +497,7 @@ impl TyDecl {
     }
 
     pub fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx {
-        match member_route.kind {
+        match member_route.variant {
             EntityRouteVariant::Child { parent, ident } => {
                 should_eq!(self.this_ty, parent);
                 self.ty_members.position(ident).unwrap().into()
@@ -600,7 +600,7 @@ pub(crate) fn ty_decl(
 }
 
 fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVariant]) -> bool {
-    match trait_route.kind {
+    match trait_route.variant {
         EntityRouteVariant::Root { ident } => true,
         EntityRouteVariant::Package { main, ident } => todo!(),
         EntityRouteVariant::Child { parent, ident } => todo!(),

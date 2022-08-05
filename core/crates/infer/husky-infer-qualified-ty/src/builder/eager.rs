@@ -399,7 +399,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<EagerValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(opds.start))?;
-        let this_deref_ty = match this_qt.ty.kind {
+        let this_deref_ty = match this_qt.ty.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => this_qt.ty.spatial_arguments[0].take_entity_route(),

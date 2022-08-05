@@ -6,23 +6,23 @@ use infer_decl::TyMemberDecl;
 
 use super::*;
 
-pub(super) fn entity_route_kind_contains_eval_ref(
+pub(super) fn entity_route_variant_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route_kind: EntityRouteVariant,
+    entity_route: EntityRoutePtr,
 ) -> bool {
     let base_route = db.intern_entity_route(EntityRoute {
-        kind: entity_route_kind,
+        variant: entity_route.variant.clone(),
         temporal_arguments: Default::default(),
         spatial_arguments: Default::default(),
     });
-    if entity_route_kind
+    if entity_route.variant
         == (EntityRouteVariant::Root {
             ident: RootIdentifier::Ref,
         })
     {
         return true;
     }
-    if entity_route_kind
+    if entity_route.variant
         == (EntityRouteVariant::Root {
             ident: RootIdentifier::Option,
         })
@@ -30,7 +30,7 @@ pub(super) fn entity_route_kind_contains_eval_ref(
         return false;
     }
     let entity_route_menu = entity_route_menu();
-    if entity_route_kind == entity_route_menu.std_slice_cyclic_slice.kind {
+    if entity_route.variant == entity_route_menu.std_slice_cyclic_slice.variant {
         return true;
     }
     let entity_kind = db.entity_kind(base_route).unwrap();
@@ -110,7 +110,7 @@ pub(super) fn entity_route_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> bool {
-    if db.entity_route_kind_contains_eval_ref(entity_route.kind) {
+    if db.entity_route_variant_contains_eval_ref(entity_route) {
         return true;
     }
     for argument in entity_route.spatial_arguments.iter() {

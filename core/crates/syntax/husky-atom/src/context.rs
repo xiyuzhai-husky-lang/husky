@@ -111,7 +111,7 @@ pub trait AtomContext {
             Identifier::Contextual(ident) => match ident {
                 ContextualIdentifier::Input => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
-                        kind: EntityRouteVariant::Input {
+                        variant: EntityRouteVariant::Input {
                             main: self
                                 .opt_package_main()
                                 .ok_or(error!("can't use implicit without main", range))?,
@@ -149,11 +149,11 @@ pub trait AtomContext {
     }
 
     fn entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
-        let kind_result: EntitySyntaxResult<EntityKind> = match route.kind {
+        let kind_result: EntitySyntaxResult<EntityKind> = match route.variant {
             EntityRouteVariant::Child {
                 parent,
                 ident: ident0,
-            } => match parent.kind {
+            } => match parent.variant {
                 EntityRouteVariant::ThisType => match self.kind() {
                     AtomContextKind::Normal => todo!(),
                     AtomContextKind::Trait {
@@ -261,7 +261,7 @@ pub trait AtomContext {
     ) -> ThinVec<SpatialArgument> {
         generic_parameters.map(|spatial_parameter| {
             SpatialArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
-                kind: EntityRouteVariant::Generic {
+                variant: EntityRouteVariant::Generic {
                     ident: spatial_parameter.ident.ident,
                     entity_kind: spatial_parameter.entity_kind(),
                     file: spatial_parameter.file,
@@ -282,7 +282,7 @@ pub trait AtomContext {
                 init_ident: spatial_parameter.ident,
                 kind: SymbolKind::EntityRoute(self.entity_syntax_db().intern_entity_route(
                     EntityRoute {
-                        kind: EntityRouteVariant::Generic {
+                        variant: EntityRouteVariant::Generic {
                             ident: spatial_parameter.ident.ident,
                             entity_kind: spatial_parameter.entity_kind(),
                             file: spatial_parameter.file,

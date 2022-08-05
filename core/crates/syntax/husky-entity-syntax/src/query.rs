@@ -113,14 +113,14 @@ fn entity_kind(
     db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResult<EntityKind> {
-    entity_kind_from_entity_route_kind(db, entity_route.kind)
+    entity_kind_from_entity_route_kind(db, &entity_route.variant)
 }
 
 fn entity_kind_from_entity_route_kind(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    entity_route_kind: EntityRouteVariant,
+    entity_route_variant: &EntityRouteVariant,
 ) -> EntitySyntaxResult<EntityKind> {
-    Ok(match entity_route_kind {
+    Ok(match entity_route_variant {
         EntityRouteVariant::Root { ident } => match ident {
             RootIdentifier::Void
             | RootIdentifier::I32
@@ -156,12 +156,12 @@ fn entity_kind_from_entity_route_kind(
             RootIdentifier::VisualType => todo!(),
         },
         EntityRouteVariant::Package { .. } => EntityKind::Module,
-        EntityRouteVariant::Child { parent, ident } => match parent.kind {
+        EntityRouteVariant::Child { parent, ident } => match parent.variant {
             EntityRouteVariant::ThisType => EntityKind::Member(MemberKind::TraitAssociatedAny),
-            _ => db.subroute_table(parent).unwrap().entity_kind(ident)?,
+            _ => db.subroute_table(*parent).unwrap().entity_kind(*ident)?,
         },
         EntityRouteVariant::Input { .. } => EntityKind::Feature,
-        EntityRouteVariant::Generic { entity_kind, .. } => entity_kind,
+        EntityRouteVariant::Generic { entity_kind, .. } => *entity_kind,
         EntityRouteVariant::ThisType => EntityKind::Type(TyKind::ThisAny),
         EntityRouteVariant::TypeAsTraitMember { .. } => {
             EntityKind::Member(MemberKind::TraitAssociatedAny)
@@ -173,7 +173,7 @@ fn entity_source(
     db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResult<EntitySource> {
-    match entity_route.kind {
+    match entity_route.variant {
         EntityRouteVariant::Root { ident } => Ok(EntitySource::StaticModuleItem(db
             .__root_defn_resolver()(
             ident
@@ -343,7 +343,7 @@ pub trait EntitySyntaxQueryGroup:
                 WordPtr::Identifier(ident) => match ident {
                     Identifier::Builtin(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
-                        kind: EntityRouteVariant::Child { parent, ident },
+                        variant: EntityRouteVariant::Child { parent, ident },
                         temporal_arguments: thin_vec![],
                         spatial_arguments: thin_vec![],
                     })),
@@ -373,10 +373,10 @@ pub trait EntitySyntaxQueryGroup:
         })
     }
 
-    fn entity_kind_from_scope_kind(
+    fn entity_kind_from_entity_route_variant(
         &self,
-        scope_kind: EntityRouteVariant,
+        entity_route_variant: &EntityRouteVariant,
     ) -> EntitySyntaxResult<EntityKind> {
-        entity_kind_from_entity_route_kind(self.upcast(), scope_kind)
+        entity_kind_from_entity_route_kind(self.upcast(), entity_route_variant)
     }
 }

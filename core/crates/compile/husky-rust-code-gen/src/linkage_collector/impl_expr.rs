@@ -25,12 +25,14 @@ impl<'a> LinkageCollector<'a> {
                     EagerOpnVariant::RoutineCall(routine) => self.insert(routine.route),
                     EagerOpnVariant::TypeCall { ranged_ty, .. } => self.insert(ranged_ty.route),
                     EagerOpnVariant::Field { .. } => (),
-                    EagerOpnVariant::MethodCall { method_route, .. } => match method_route.kind {
-                        EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
-                            self.insert(*method_route)
+                    EagerOpnVariant::MethodCall { method_route, .. } => {
+                        match method_route.variant {
+                            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
+                                self.insert(*method_route)
+                            }
+                            _ => self.insert(*method_route),
                         }
-                        _ => self.insert(*method_route),
-                    },
+                    }
                     EagerOpnVariant::Index { .. } => (),
                     EagerOpnVariant::NewVecFromList => self.insert(expr.ty()),
                     EagerOpnVariant::ValueCall => (),

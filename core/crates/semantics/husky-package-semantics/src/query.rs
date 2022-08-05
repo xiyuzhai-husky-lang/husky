@@ -18,7 +18,7 @@ fn package(
     main_file: husky_file::FilePtr,
 ) -> SemanticResultArc<Package> {
     let module = db.module(main_file).unwrap();
-    let ident = match module.kind {
+    let ident = match module.variant {
         EntityRouteVariant::Package { ident, .. } => ident,
         _ => panic!(),
     };

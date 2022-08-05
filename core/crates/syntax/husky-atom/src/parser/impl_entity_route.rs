@@ -230,7 +230,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             p!(route);
             todo!()
         }
-        match route.kind {
+        match route.variant {
             EntityRouteVariant::Root { ident } => match ident {
                 RootIdentifier::Void
                 | RootIdentifier::I32

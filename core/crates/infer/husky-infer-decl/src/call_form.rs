@@ -214,7 +214,7 @@ pub(crate) fn entity_call_form_decl(
         }
         EntitySource::Module { file: file_id } => todo!(),
         EntitySource::Input { .. } => todo!(),
-        EntitySource::StaticTypeMember(_) => match route.kind {
+        EntitySource::StaticTypeMember(_) => match route.variant {
             EntityRouteVariant::Root { ident } => todo!(),
             EntityRouteVariant::Package { main, ident } => todo!(),
             EntityRouteVariant::Child { parent, ident } => {
@@ -235,7 +235,7 @@ pub(crate) fn entity_call_form_decl(
             EntityRouteVariant::ThisType => todo!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
-        EntitySource::StaticTypeAsTraitMember => match route.kind {
+        EntitySource::StaticTypeAsTraitMember => match route.variant {
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                 let ty_decl = derived_unwrap!(db.ty_decl(ty));
                 match derived_not_none!(ty_decl.trai_member_impl(trai, ident))? {
@@ -255,7 +255,7 @@ pub(crate) fn value_call_form_decl(
     db: &dyn DeclQueryGroup,
     ty: EntityRoutePtr,
 ) -> InferQueryResultArc<CallFormDecl> {
-    match ty.kind {
+    match ty.variant {
         EntityRouteVariant::Root {
             ident: RootIdentifier::Fp,
         } => {

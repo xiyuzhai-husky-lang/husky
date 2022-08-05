@@ -139,13 +139,13 @@ impl TraitDecl {
                     opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
                 };
                 let base_route = symbol_context.parse_entity_route(base_route).unwrap();
-                let generic_arguments =
+                let spatial_arguments =
                     db.spatial_arguments_from_spatial_parameters(&generic_parameters);
                 should_eq!(base_route.spatial_arguments.len(), 0);
                 let trai = db.intern_entity_route(EntityRoute {
-                    kind: base_route.kind,
+                    variant: base_route.variant.clone(),
                     temporal_arguments: thin_vec![],
-                    spatial_arguments: generic_arguments,
+                    spatial_arguments,
                 });
                 symbol_context.kind = AtomContextKind::Trait {
                     this_trai: trai,

@@ -54,7 +54,7 @@ impl<'a> AstTransformer<'a> {
             arena: RawExprArena::new(),
             folded_results: FoldableList::new(),
             symbols: module_symbols(db, module),
-            context: LocalValue::new(match module.kind {
+            context: LocalValue::new(match module.variant {
                 EntityRouteVariant::Package { main, .. } => AstContext::Package(main),
                 EntityRouteVariant::Child { .. } => AstContext::Module(module),
                 _ => panic!(),

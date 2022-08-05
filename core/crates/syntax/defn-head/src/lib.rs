@@ -22,7 +22,7 @@ impl Parameter {
         ranged_liason: RangedParameterLiason,
         ranged_ty: RangedEntityRoute,
     ) -> Self {
-        match ranged_ty.route.kind {
+        match ranged_ty.route.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => panic!(),

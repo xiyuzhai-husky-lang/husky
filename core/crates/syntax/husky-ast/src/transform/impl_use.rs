@@ -80,7 +80,7 @@ impl<'a> AstTransformer<'a> {
                     entry.ident.map(|ident| Symbol {
                         init_ident: ident.into(),
                         kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {
-                            kind: EntityRouteVariant::Child {
+                            variant: EntityRouteVariant::Child {
                                 parent,
                                 ident: ident.ident,
                             },

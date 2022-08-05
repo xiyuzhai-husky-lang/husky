@@ -23,7 +23,7 @@ impl EagerContract {
         output_liason: OutputLiason,
         range: TextRange,
     ) -> EagerContract {
-        match parameter_ty.kind {
+        match parameter_ty.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => EagerContract::EvalRef,
@@ -131,13 +131,13 @@ impl EagerContract {
         return_kind: ReturnKind,
     ) -> InferResult<Self> {
         match return_kind {
-            ReturnKind::Normal => Ok(if output_ty.kind == return_ty.kind {
+            ReturnKind::Normal => Ok(if output_ty.variant == return_ty.variant {
                 if db.is_copyable(output_ty)? {
                     EagerContract::Pure
                 } else {
                     EagerContract::Move
                 }
-            } else if output_ty.kind
+            } else if output_ty.variant
                 == (EntityRouteVariant::Root {
                     ident: RootIdentifier::Option,
                 })

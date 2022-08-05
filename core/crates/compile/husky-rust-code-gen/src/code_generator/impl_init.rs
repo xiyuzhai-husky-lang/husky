@@ -149,7 +149,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             r#"
     ("#,
         );
-        match entity_route.kind {
+        match entity_route.variant {
             EntityRouteVariant::Child { parent, ident } => {
                 self.write(&format!(
                     r#"
@@ -183,7 +183,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 }
             }
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
-                if trai.kind == entity_route_menu().std_ops_index_trai.kind {
+                if trai.variant == entity_route_menu().std_ops_index_trai.variant {
                     let this_ty_decl = self.db.ty_decl(ty).unwrap();
                     let trai_impl = this_ty_decl.trait_impl(trai).unwrap();
                     let elem_ty = match trai_impl.member_impls[0] {
@@ -423,7 +423,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             "invalid"
         };
         // ad hoc
-        let mutability = match ty.kind {
+        let mutability = match ty.variant {
             EntityRouteVariant::Root { ident } => match ident {
                 RootIdentifier::Void => todo!(),
                 RootIdentifier::I32 => todo!(),
@@ -461,7 +461,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             },
             _ => {
                 let route_menu = entity_route_menu();
-                if ty.kind == route_menu.std_slice_cyclic_slice.kind {
+                if ty.variant == route_menu.std_slice_cyclic_slice.variant {
                     "immutable"
                 } else {
                     todo!()

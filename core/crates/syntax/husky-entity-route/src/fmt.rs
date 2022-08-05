@@ -3,7 +3,7 @@ use std::fmt::Debug;
 
 impl EntityRoute {
     pub fn root_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
-        match self.kind {
+        match self.variant {
             EntityRouteVariant::Root { ident } => match ident {
                 RootIdentifier::Vec => {
                     f.write_str("[]");
@@ -64,7 +64,7 @@ impl EntityRoute {
         Ok(())
     }
     pub fn parent_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
-        match self.kind {
+        match self.variant {
             EntityRouteVariant::Root { ident } => match ident {
                 RootIdentifier::Tuple => {
                     f.write_str("(");
