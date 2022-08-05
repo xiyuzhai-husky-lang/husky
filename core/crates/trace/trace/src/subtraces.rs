@@ -9,6 +9,7 @@ impl<'eval> Trace {
         }
         match self.variant {
             TraceVariant::Main(_)
+            | TraceVariant::EntityFeature { .. }
             | TraceVariant::FeatureLazyStmt(_)
             | TraceVariant::FeatureLazyBranch(_)
             | TraceVariant::FeatureCallArgument { .. }

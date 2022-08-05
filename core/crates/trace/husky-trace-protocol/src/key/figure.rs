@@ -28,6 +28,7 @@ impl FigureCanvasKey {
     ) -> FigureCanvasKey {
         match trace_kind {
             TraceKind::Main
+            | TraceKind::EntityFeature
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FeatureExpr

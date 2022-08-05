@@ -603,7 +603,7 @@ pub(crate) fn subentity_defns(
 ) -> SemanticResultArc<Vec<Arc<EntityDefn>>> {
     let mut defns = Vec::new();
     for defn_result in this
-        .subscopes(scope_id)
+        .subentity_routes(scope_id)
         .iter()
         .map(|scope| this.entity_defn(*scope))
     {

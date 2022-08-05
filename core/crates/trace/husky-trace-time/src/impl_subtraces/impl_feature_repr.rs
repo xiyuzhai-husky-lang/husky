@@ -1,7 +1,5 @@
-use husky_feature_eval::FeatureEvaluator;
-
 use crate::*;
-
+use husky_feature_eval::FeatureEvaluator;
 use std::sync::Arc;
 
 impl HuskyTraceTime {

@@ -149,6 +149,7 @@ impl HuskyTraceTime {
         match trace.variant {
             TraceVariant::Main(_) => todo!(),
             TraceVariant::Module { .. } => todo!(),
+            TraceVariant::EntityFeature { .. } => todo!(),
             TraceVariant::FeatureLazyStmt(ref stmt) => self
                 .runtime()
                 .eval_opt_arrival_indicator(stmt.opt_arrival_indicator.as_ref(), sample_id),

@@ -20,6 +20,7 @@ impl SubtracesKey {
     ) -> SubtracesKey {
         match trace_kind {
             TraceKind::Main
+            | TraceKind::EntityFeature
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FuncStmt

@@ -144,13 +144,13 @@ debug = 1
         let module_husky_code_snapshot_dir = husky_code_snapshot_path.with_extension("");
         mkdir(&module_rust_code_gen_dir);
         mkdir(&module_husky_code_snapshot_dir);
-        for submodule in module.subentities.iter() {
-            let submodule_name = submodule.ident.as_str();
+        for subentity in module.subentities.iter() {
+            let subentity_name = subentity.ident.as_str();
             self.compile_maybe_module(
                 compile_time,
-                module_rust_code_gen_dir.join(format!("{submodule_name}.rs")),
-                &module_husky_code_snapshot_dir.join(format!("{submodule_name}.hsk")),
-                submodule,
+                module_rust_code_gen_dir.join(format!("{subentity_name}.rs")),
+                &module_husky_code_snapshot_dir.join(format!("{subentity_name}.hsk")),
+                subentity,
             )
         }
     }
