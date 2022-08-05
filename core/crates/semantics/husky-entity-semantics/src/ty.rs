@@ -129,8 +129,7 @@ impl EntityDefnVariant {
             TyKind::Option => todo!(),
         };
         Self::collect_other_ty_members(db, arena, file, ty, &mut children, &mut ty_members)?;
-        let opt_visual_stmts = Self::collect_visual_source(db, arena, file, ty, &mut children);
-        let visualizer = todo!();
+        let visualizer = Self::visualizer_from_ast(db, arena, file, ty, &mut children);
         Ok(EntityDefnVariant::new_ty(
             generic_parameters,
             ty_members,
@@ -176,7 +175,7 @@ impl EntityDefnVariant {
                 ref ty_members,
                 ref variants,
                 kind,
-                visual_ty,
+                visualizer,
                 opt_type_call,
             } => {
                 let mut symbol_context = AtomContextStandalone {
@@ -303,22 +302,22 @@ impl EntityDefnVariant {
         // }
     }
 
-    fn collect_visual_source(
+    fn visualizer_from_ast(
         db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
         file: FilePtr,
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
-    ) -> Option<Avec<LazyStmt>> {
+    ) -> Arc<Visualizer> {
         let item = if let Some(_) = children.peek() {
             children.next().unwrap()
         } else {
-            return None;
+            return Visualizer::void();
         };
         let ref ast = item.value.as_ref().unwrap();
         match ast.variant {
-            AstVariant::Visual => Some(
-                parse_lazy_stmts(
+            AstVariant::Visual => {
+                let stmts = parse_lazy_stmts(
                     db.upcast(),
                     arena,
                     item.opt_children.clone().unwrap(),
@@ -328,9 +327,13 @@ impl EntityDefnVariant {
                         range: Default::default(),
                     },
                 )
-                .unwrap(),
-            ),
-            _ => None,
+                .unwrap();
+                Arc::new(Visualizer {
+                    visual_ty: VisualTy::from_stmts(db, &stmts),
+                    variant: VisualizerVariant::Custom { stmts },
+                })
+            }
+            _ => Visualizer::void(),
         }
     }
 }

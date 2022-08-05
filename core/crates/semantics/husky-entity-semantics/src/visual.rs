@@ -32,6 +32,15 @@ pub struct Visualizer {
     pub variant: VisualizerVariant,
 }
 
+impl Visualizer {
+    pub fn void() -> Arc<Self> {
+        Arc::new(Self {
+            visual_ty: VisualTy::Void,
+            variant: VisualizerVariant::Void,
+        })
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum VisualizerVariant {
     Group { element_ty: EntityRoutePtr },

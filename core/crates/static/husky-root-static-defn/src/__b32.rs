@@ -1,5 +1,5 @@
+use husky_static_visualizer::StaticVisualTy;
 use husky_trace_protocol::*;
-use husky_visual_syntax::StaticVisualTy;
 use husky_vm_register_method::VMRegisterMethodX;
 
 use super::*;
