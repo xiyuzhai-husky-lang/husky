@@ -4,7 +4,7 @@ use defn_head::Parameter;
 use entity_kind::EntityKind;
 use husky_ast::*;
 use husky_check_utils::should;
-use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
+use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_opn_syntax::RawOpnVariant;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_print_utils::{epin, msg_once, p};
@@ -400,7 +400,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<EagerValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(opds.start))?;
         let this_deref_ty = match this_qt.ty.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => this_qt.ty.spatial_arguments[0].take_entity_route(),
             _ => this_qt.ty,

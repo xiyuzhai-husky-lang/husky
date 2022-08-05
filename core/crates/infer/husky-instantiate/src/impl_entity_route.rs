@@ -9,17 +9,17 @@ impl Instantiable for EntityRoutePtr {
             EntityKind::EnumLiteral => todo!(),
             _ => {
                 let (kind, mut generics) = match self.kind {
-                    EntityRouteKind::Package { .. } => panic!(),
-                    EntityRouteKind::Root { ident } => (self.kind, thin_vec![]),
-                    EntityRouteKind::Child { parent, ident } => (
-                        EntityRouteKind::Child {
+                    EntityRouteVariant::Package { .. } => panic!(),
+                    EntityRouteVariant::Root { ident } => (self.kind, thin_vec![]),
+                    EntityRouteVariant::Child { parent, ident } => (
+                        EntityRouteVariant::Child {
                             parent: parent.instantiate(ctx).take_entity_route(),
                             ident,
                         },
                         thin_vec![],
                     ),
-                    EntityRouteKind::Input { main } => todo!(),
-                    EntityRouteKind::Generic { ident, .. } => {
+                    EntityRouteVariant::Input { main } => todo!(),
+                    EntityRouteVariant::Generic { ident, .. } => {
                         if let Some(idx) = ctx.find_generic(ident) {
                             match ctx.spatial_arguments[idx] {
                                 SpatialArgument::Const(value) => {
@@ -35,9 +35,9 @@ impl Instantiable for EntityRoutePtr {
                             todo!()
                         }
                     }
-                    EntityRouteKind::ThisType => (EntityRouteKind::ThisType, thin_vec![]),
-                    EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => (
-                        EntityRouteKind::TypeAsTraitMember {
+                    EntityRouteVariant::ThisType => (EntityRouteVariant::ThisType, thin_vec![]),
+                    EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => (
+                        EntityRouteVariant::TypeAsTraitMember {
                             ty: ty.instantiate(ctx).take_entity_route(),
                             trai: trai.instantiate(ctx).take_entity_route(),
                             ident,

@@ -2,7 +2,7 @@ use crate::*;
 use fold::FoldableStorage;
 use husky_ast::{AstText, AstVariant};
 use husky_eager_semantics::parse_func_stmts;
-use husky_entity_route::EntityRouteKind;
+use husky_entity_route::EntityRouteVariant;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_file::FilePtr;
 use semantics_error::*;
@@ -19,7 +19,7 @@ fn package(
 ) -> SemanticResultArc<Package> {
     let module = db.module(main_file).unwrap();
     let ident = match module.kind {
-        EntityRouteKind::Package { ident, .. } => ident,
+        EntityRouteVariant::Package { ident, .. } => ident,
         _ => panic!(),
     };
     Ok(Arc::new(Package {

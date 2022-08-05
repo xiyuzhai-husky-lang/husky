@@ -19,7 +19,7 @@ use crate::{
 };
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use husky_atom::context::{Symbol, SymbolKind};
-use husky_entity_route::EntityRouteKind;
+use husky_entity_route::EntityRouteVariant;
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_file::FilePtr;
 use husky_text::TextRanged;
@@ -55,8 +55,8 @@ impl<'a> AstTransformer<'a> {
             folded_results: FoldableList::new(),
             symbols: module_symbols(db, module),
             context: LocalValue::new(match module.kind {
-                EntityRouteKind::Package { main, .. } => AstContext::Package(main),
-                EntityRouteKind::Child { .. } => AstContext::Module(module),
+                EntityRouteVariant::Package { main, .. } => AstContext::Package(main),
+                EntityRouteVariant::Child { .. } => AstContext::Module(module),
                 _ => panic!(),
             }),
             opt_base_ty: LocalValue::new(None),

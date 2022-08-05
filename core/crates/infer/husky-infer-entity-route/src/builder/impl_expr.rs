@@ -90,13 +90,13 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 EntityRoutePtr::Root(RootIdentifier::True)
                 | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
                 EntityRoutePtr::Custom(scope) => match scope.kind {
-                    EntityRouteKind::Root { ident } => todo!(),
-                    EntityRouteKind::Package { main, ident } => todo!(),
-                    EntityRouteKind::Child { parent, ident } => parent,
-                    EntityRouteKind::Input { main } => todo!(),
-                    EntityRouteKind::Generic { ident, .. } => todo!(),
-                    EntityRouteKind::ThisType => todo!(),
-                    EntityRouteKind::TypeAsTraitMember {
+                    EntityRouteVariant::Root { ident } => todo!(),
+                    EntityRouteVariant::Package { main, ident } => todo!(),
+                    EntityRouteVariant::Child { parent, ident } => parent,
+                    EntityRouteVariant::Input { main } => todo!(),
+                    EntityRouteVariant::Generic { ident, .. } => todo!(),
+                    EntityRouteVariant::ThisType => todo!(),
+                    EntityRouteVariant::TypeAsTraitMember {
                         ty: parent,
                         trai,
                         ident,

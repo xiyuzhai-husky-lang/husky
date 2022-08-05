@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::{MatchLiason, ReturnKind};
-use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
+use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_text::TextRange;
 use husky_word::RootIdentifier;
 use infer_decl::DeclQueryGroup;
@@ -24,7 +24,7 @@ impl EagerContract {
         range: TextRange,
     ) -> EagerContract {
         match parameter_ty.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => EagerContract::EvalRef,
             _ => match output_liason {
@@ -138,7 +138,7 @@ impl EagerContract {
                     EagerContract::Move
                 }
             } else if output_ty.kind
-                == (EntityRouteKind::Root {
+                == (EntityRouteVariant::Root {
                     ident: RootIdentifier::Option,
                 })
             {

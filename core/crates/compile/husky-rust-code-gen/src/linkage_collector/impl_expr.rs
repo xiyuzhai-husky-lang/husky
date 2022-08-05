@@ -26,7 +26,7 @@ impl<'a> LinkageCollector<'a> {
                     EagerOpnVariant::TypeCall { ranged_ty, .. } => self.insert(ranged_ty.route),
                     EagerOpnVariant::Field { .. } => (),
                     EagerOpnVariant::MethodCall { method_route, .. } => match method_route.kind {
-                        EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+                        EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                             self.insert(*method_route)
                         }
                         _ => self.insert(*method_route),

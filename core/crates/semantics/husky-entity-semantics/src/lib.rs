@@ -29,7 +29,7 @@ use husky_atom::{
     AtomContext, AtomContextStandalone,
 };
 use husky_eager_semantics::*;
-use husky_entity_route::{EntityRoute, EntityRouteKind};
+use husky_entity_route::{EntityRoute, EntityRouteVariant};
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
@@ -572,7 +572,7 @@ pub(crate) fn entity_defn(
             }))
         }
         EntitySource::StaticTypeMember(_) => match entity_route.kind {
-            EntityRouteKind::Child { parent: ty, ident } => {
+            EntityRouteVariant::Child { parent: ty, ident } => {
                 let ty_defn = db.entity_defn(ty).unwrap();
                 match ty_defn.variant {
                     EntityDefnVariant::Ty { ref ty_members, .. } => Ok(ty_members[ident].clone()),
@@ -582,7 +582,7 @@ pub(crate) fn entity_defn(
             _ => panic!(),
         },
         EntitySource::StaticTypeAsTraitMember => match entity_route.kind {
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => match trai {
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
                 EntityRoutePtr::Root(RootIdentifier::CloneTrait) => {
                     msg_once!("this is a temporary ugly solution");
                     let clone_trait_defn = db

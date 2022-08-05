@@ -1,5 +1,5 @@
 use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
-use husky_entity_route::{EntityKind, EntityRouteKind, EntityRoutePtr};
+use husky_entity_route::{EntityKind, EntityRoutePtr, EntityRouteVariant};
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{EagerExprQualifier, EagerVariableQualifier, InferQualifiedTy};

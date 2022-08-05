@@ -8,7 +8,7 @@ pub use xml::*;
 
 use vm::{__Linkage, __Register};
 
-use husky_entity_route::EntityRouteKind;
+use husky_entity_route::EntityRouteVariant;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
@@ -243,8 +243,8 @@ impl<'a> FeatureExprBuilder<'a> {
                 self.compile_field_access(field_ident, this_repr, field_binding)
             }
             LazyExprVariant::EntityFeature { entity_route } => match entity_route.kind {
-                EntityRouteKind::Root { .. } | EntityRouteKind::Package { .. } => panic!(),
-                EntityRouteKind::Child { .. } => {
+                EntityRouteVariant::Root { .. } | EntityRouteVariant::Package { .. } => panic!(),
+                EntityRouteVariant::Child { .. } => {
                     let uid = self.db.compile_time().entity_uid(entity_route);
                     let feature = self.features.intern(Feature::EntityFeature {
                         route: entity_route,
@@ -255,14 +255,14 @@ impl<'a> FeatureExprBuilder<'a> {
                     };
                     (kind, feature)
                 }
-                EntityRouteKind::Input { main } => {
+                EntityRouteVariant::Input { main } => {
                     let feature = self.features.intern(Feature::Input);
                     let kind = FeatureExprVariant::EvalInput;
                     (kind, feature)
                 }
-                EntityRouteKind::Generic { ident, .. } => todo!(),
-                EntityRouteKind::ThisType => todo!(),
-                EntityRouteKind::TypeAsTraitMember { .. } => todo!(),
+                EntityRouteVariant::Generic { ident, .. } => todo!(),
+                EntityRouteVariant::ThisType => todo!(),
+                EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
             },
         };
         Arc::new(FeatureExpr {

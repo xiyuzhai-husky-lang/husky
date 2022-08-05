@@ -1,4 +1,4 @@
-use husky_entity_route::EntityRouteKind;
+use husky_entity_route::EntityRouteVariant;
 use husky_print_utils::msg_once;
 use semantics_error::*;
 use vec_like::{VecMap, VecPairMap};
@@ -23,7 +23,7 @@ impl<'a> DependeeMapBuilder<'a> {
     fn push(&mut self, entity_route: EntityRoutePtr) {
         let entity_route = entity_route.intrinsic();
         match entity_route.kind {
-            EntityRouteKind::Root { ident, .. } => {
+            EntityRouteVariant::Root { ident, .. } => {
                 if ident == RootIdentifier::Ref {
                     self.push(entity_route.deref_route());
                     return;
@@ -33,17 +33,17 @@ impl<'a> DependeeMapBuilder<'a> {
                     }
                 }
             }
-            EntityRouteKind::Input { main } => return,
-            EntityRouteKind::Package { main, ident } => todo!(),
-            EntityRouteKind::Child { parent, ident } => {
+            EntityRouteVariant::Input { main } => return,
+            EntityRouteVariant::Package { main, ident } => todo!(),
+            EntityRouteVariant::Child { parent, ident } => {
                 msg_once!("dependences on entity from external packs should be merged");
                 ()
             }
-            EntityRouteKind::Generic {
+            EntityRouteVariant::Generic {
                 ident, entity_kind, ..
             } => todo!(),
-            EntityRouteKind::ThisType => todo!(),
-            EntityRouteKind::TypeAsTraitMember {
+            EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::TypeAsTraitMember {
                 ty: parent,
                 trai,
                 ident,

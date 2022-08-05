@@ -202,7 +202,7 @@ impl EagerValueQualifiedTy {
 
     pub(crate) fn new(qual: EagerExprQualifier, ty: EntityRoutePtr) -> Self {
         match ty.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => {
                 let qual = if ty.temporal_arguments.len() == 0 {

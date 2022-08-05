@@ -231,7 +231,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             todo!()
         }
         match route.kind {
-            EntityRouteKind::Root { ident } => match ident {
+            EntityRouteVariant::Root { ident } => match ident {
                 RootIdentifier::Void
                 | RootIdentifier::I32
                 | RootIdentifier::I64

@@ -118,10 +118,10 @@ fn entity_kind(
 
 fn entity_kind_from_entity_route_kind(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    entity_route_kind: EntityRouteKind,
+    entity_route_kind: EntityRouteVariant,
 ) -> EntitySyntaxResult<EntityKind> {
     Ok(match entity_route_kind {
-        EntityRouteKind::Root { ident } => match ident {
+        EntityRouteVariant::Root { ident } => match ident {
             RootIdentifier::Void
             | RootIdentifier::I32
             | RootIdentifier::I64
@@ -155,15 +155,15 @@ fn entity_kind_from_entity_route_kind(
             RootIdentifier::Option => EntityKind::Type(TyKind::Option),
             RootIdentifier::VisualType => todo!(),
         },
-        EntityRouteKind::Package { .. } => EntityKind::Module,
-        EntityRouteKind::Child { parent, ident } => match parent.kind {
-            EntityRouteKind::ThisType => EntityKind::Member(MemberKind::TraitAssociatedAny),
+        EntityRouteVariant::Package { .. } => EntityKind::Module,
+        EntityRouteVariant::Child { parent, ident } => match parent.kind {
+            EntityRouteVariant::ThisType => EntityKind::Member(MemberKind::TraitAssociatedAny),
             _ => db.subroute_table(parent).unwrap().entity_kind(ident)?,
         },
-        EntityRouteKind::Input { .. } => EntityKind::Feature,
-        EntityRouteKind::Generic { entity_kind, .. } => entity_kind,
-        EntityRouteKind::ThisType => EntityKind::Type(TyKind::ThisAny),
-        EntityRouteKind::TypeAsTraitMember { .. } => {
+        EntityRouteVariant::Input { .. } => EntityKind::Feature,
+        EntityRouteVariant::Generic { entity_kind, .. } => entity_kind,
+        EntityRouteVariant::ThisType => EntityKind::Type(TyKind::ThisAny),
+        EntityRouteVariant::TypeAsTraitMember { .. } => {
             EntityKind::Member(MemberKind::TraitAssociatedAny)
         }
     })
@@ -174,16 +174,18 @@ fn entity_source(
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResult<EntitySource> {
     match entity_route.kind {
-        EntityRouteKind::Root { ident } => Ok(EntitySource::StaticModuleItem(db
+        EntityRouteVariant::Root { ident } => Ok(EntitySource::StaticModuleItem(db
             .__root_defn_resolver()(
             ident
         ))),
-        EntityRouteKind::Package { main, .. } => Ok(EntitySource::Module { file: main }),
-        EntityRouteKind::Child { parent, ident } => db.subroute_table(parent)?.entity_source(ident),
-        EntityRouteKind::Input { main } => Ok(EntitySource::Input { main_file: main }),
-        EntityRouteKind::Generic { .. } => Ok(EntitySource::Generic),
-        EntityRouteKind::ThisType => panic!(),
-        EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => match trai {
+        EntityRouteVariant::Package { main, .. } => Ok(EntitySource::Module { file: main }),
+        EntityRouteVariant::Child { parent, ident } => {
+            db.subroute_table(parent)?.entity_source(ident)
+        }
+        EntityRouteVariant::Input { main } => Ok(EntitySource::Input { main_file: main }),
+        EntityRouteVariant::Generic { .. } => Ok(EntitySource::Generic),
+        EntityRouteVariant::ThisType => panic!(),
+        EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
             EntityRoutePtr::Root(root_ident) => match root_ident {
                 RootIdentifier::CloneTrait => {
                     msg_once!("ad hoc");
@@ -341,7 +343,7 @@ pub trait EntitySyntaxQueryGroup:
                 WordPtr::Identifier(ident) => match ident {
                     Identifier::Builtin(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
-                        kind: EntityRouteKind::Child { parent, ident },
+                        kind: EntityRouteVariant::Child { parent, ident },
                         temporal_arguments: thin_vec![],
                         spatial_arguments: thin_vec![],
                     })),
@@ -373,7 +375,7 @@ pub trait EntitySyntaxQueryGroup:
 
     fn entity_kind_from_scope_kind(
         &self,
-        scope_kind: EntityRouteKind,
+        scope_kind: EntityRouteVariant,
     ) -> EntitySyntaxResult<EntityKind> {
         entity_kind_from_entity_route_kind(self.upcast(), scope_kind)
     }

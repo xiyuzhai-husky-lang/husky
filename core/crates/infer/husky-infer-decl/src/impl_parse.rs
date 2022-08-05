@@ -23,23 +23,23 @@ impl<'a> dyn DeclQueryGroup + 'a {
         &self,
         static_generic_parameters: &[StaticSpatialParameter],
     ) -> IdentDict<SpatialParameter> {
-        static_generic_parameters.map(|static_generic_placeholder| SpatialParameter {
+        static_generic_parameters.map(|static_spatial_parameter| SpatialParameter {
             ident: RangedCustomIdentifier {
-                ident: self.intern_word(static_generic_placeholder.name).custom(),
+                ident: self.intern_word(static_spatial_parameter.name).custom(),
                 range: Default::default(),
             },
             variant: SpatialParameterVariant::Type { traits: vec![] },
-            file: todo!(),
+            file: self.intern_file(static_spatial_parameter.dev_src.file.into()),
         })
     }
 
-    pub fn generic_arguments_from_generic_parameters(
+    pub fn spatial_arguments_from_spatial_parameters(
         &self,
         spatial_parameters: &[SpatialParameter],
     ) -> ThinVec<SpatialArgument> {
         spatial_parameters.map(|spatial_parameter| {
             SpatialArgument::EntityRoute(self.intern_entity_route(EntityRoute {
-                kind: EntityRouteKind::Generic {
+                kind: EntityRouteVariant::Generic {
                     ident: spatial_parameter.ident.ident,
                     entity_kind: spatial_parameter.entity_kind(),
                     file: spatial_parameter.file,
@@ -50,19 +50,19 @@ impl<'a> dyn DeclQueryGroup + 'a {
         })
     }
 
-    pub fn symbols_from_generic_parameters(
+    pub fn symbols_from_spatial_parameters(
         &self,
-        generic_parameters: &[SpatialParameter],
+        spatial_parameters: &[SpatialParameter],
     ) -> Vec<Symbol> {
         let mut symbols = Vec::new();
-        for generic_placeholder in generic_parameters.iter() {
+        for spatial_parameter in spatial_parameters.iter() {
             symbols.push(Symbol {
-                init_ident: generic_placeholder.ident,
+                init_ident: spatial_parameter.ident,
                 kind: SymbolKind::EntityRoute(self.intern_entity_route(EntityRoute {
-                    kind: EntityRouteKind::Generic {
-                        ident: generic_placeholder.ident.ident,
-                        entity_kind: generic_placeholder.entity_kind(),
-                        file: todo!(),
+                    kind: EntityRouteVariant::Generic {
+                        ident: spatial_parameter.ident.ident,
+                        entity_kind: spatial_parameter.entity_kind(),
+                        file: spatial_parameter.file,
                     },
                     temporal_arguments: thin_vec![],
                     spatial_arguments: thin_vec![],

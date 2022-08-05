@@ -16,7 +16,7 @@ use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
 use defn_head::*;
 use eval_context::*;
-use husky_entity_route::{EntityRouteKind, EntityRoutePtr};
+use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_file::FilePtr;
 use husky_init_syntax::*;
 use husky_liason_semantics::*;
@@ -44,7 +44,7 @@ pub trait RustCodeGenQueryGroup: PackageQueryGroup {
     fn rust_registration_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_init_rs_content(&self, main_file: FilePtr) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: EntityRoutePtr) -> Arc<String>;
-    fn entity_route_kind_contains_eval_ref(&self, entity_route_kind: EntityRouteKind) -> bool;
+    fn entity_route_kind_contains_eval_ref(&self, entity_route_kind: EntityRouteVariant) -> bool;
     fn entity_route_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;
     fn is_defn_static(&self, entity_route: EntityRoutePtr) -> bool;
     fn contains_spatial_parameters(&self, entity_route: EntityRoutePtr) -> bool;
