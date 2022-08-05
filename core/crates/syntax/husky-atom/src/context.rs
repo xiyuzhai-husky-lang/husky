@@ -274,18 +274,18 @@ pub trait AtomContext {
 
     fn symbols_from_generic_parameters(
         &self,
-        generic_parameters: &[SpatialParameter],
+        spatial_parameters: &[SpatialParameter],
     ) -> Vec<Symbol> {
         let mut symbols = Vec::new();
-        for generic_parameter in generic_parameters.iter() {
+        for spatial_parameter in spatial_parameters.iter() {
             symbols.push(Symbol {
-                init_ident: generic_parameter.ident,
+                init_ident: spatial_parameter.ident,
                 kind: SymbolKind::EntityRoute(self.entity_syntax_db().intern_entity_route(
                     EntityRoute {
                         kind: EntityRouteVariant::Generic {
-                            ident: generic_parameter.ident.ident,
-                            entity_kind: generic_parameter.entity_kind(),
-                            file: todo!(),
+                            ident: spatial_parameter.ident.ident,
+                            entity_kind: spatial_parameter.entity_kind(),
+                            file: spatial_parameter.file,
                         },
                         temporal_arguments: thin_vec![],
                         spatial_arguments: thin_vec![],
