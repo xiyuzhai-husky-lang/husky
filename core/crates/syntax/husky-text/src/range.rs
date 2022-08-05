@@ -32,6 +32,10 @@ impl TextRange {
     pub fn whole() -> TextRange {
         ((0, 0)..(0, 4)).into()
     }
+
+    pub fn from_line(line: u32) -> TextRange {
+        ((line, 0)..(line, 4)).into()
+    }
 }
 
 impl From<__StaticDevSource> for TextRange {

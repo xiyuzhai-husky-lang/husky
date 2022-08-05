@@ -54,7 +54,7 @@ impl TyDecl {
                 opt_type_call,
                 ..
             } => {
-                let generic_parameters = db.generic_parameters_from_static(generic_parameters);
+                let generic_parameters = db.spatial_parameters_from_static(generic_parameters);
                 let generic_arguments =
                     db.spatial_arguments_from_spatial_parameters(&generic_parameters);
                 let symbols = db.symbols_from_spatial_parameters(&generic_parameters);
@@ -595,7 +595,7 @@ pub(crate) fn ty_decl(
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),
-        EntitySource::Generic => todo!(),
+        EntitySource::Generic { .. } => todo!(),
     }
 }
 
@@ -632,7 +632,7 @@ pub(crate) fn call_form_decl_from_static(
             // ref kind,
             ..
         } => {
-            let generic_parameters = db.generic_parameters_from_static(generic_parameters);
+            let generic_parameters = db.spatial_parameters_from_static(generic_parameters);
             symbols.extend(db.symbols_from_spatial_parameters(&generic_parameters));
             let mut symbol_context = AtomContextStandalone {
                 opt_package_main: None,

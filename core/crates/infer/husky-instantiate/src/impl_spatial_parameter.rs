@@ -18,6 +18,7 @@ impl FilterInstantiable for SpatialParameter {
                 },
             },
             file: self.file,
+            range: self.range,
         })
     }
 }

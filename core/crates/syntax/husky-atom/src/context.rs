@@ -252,6 +252,7 @@ pub trait AtomContext {
             file: self
                 .entity_syntax_db()
                 .intern_file(static_spatial_parameter.dev_src.file.into()),
+            range: TextRange::from_line(static_spatial_parameter.dev_src.line),
         })
     }
 
@@ -265,6 +266,7 @@ pub trait AtomContext {
                     ident: spatial_parameter.ident.ident,
                     entity_kind: spatial_parameter.entity_kind(),
                     file: spatial_parameter.file,
+                    range: spatial_parameter.range,
                 },
                 temporal_arguments: thin_vec![],
                 spatial_arguments: thin_vec![],
@@ -286,6 +288,7 @@ pub trait AtomContext {
                             ident: spatial_parameter.ident.ident,
                             entity_kind: spatial_parameter.entity_kind(),
                             file: spatial_parameter.file,
+                            range: spatial_parameter.range,
                         },
                         temporal_arguments: thin_vec![],
                         spatial_arguments: thin_vec![],

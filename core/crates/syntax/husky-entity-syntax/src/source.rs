@@ -1,4 +1,6 @@
 use husky_file::FilePtr;
+use husky_text::TextRange;
+use husky_word::CustomIdentifier;
 use static_defn::EntityStaticDefn;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -18,14 +20,18 @@ pub enum EntitySource {
     Input {
         main_file: FilePtr,
     },
-    Generic,
+    Generic {
+        ident: CustomIdentifier,
+        file: FilePtr,
+        range: TextRange,
+    },
 }
 
 impl EntitySource {
     pub fn from_file(file_id: FilePtr, token_group_index: usize) -> EntitySource {
         EntitySource::WithinModule {
             file: file_id,
-            token_group_index: token_group_index,
+            token_group_index,
         }
     }
 }

@@ -71,7 +71,7 @@ fn subroute_table(
                 EntitySource::StaticTypeMember(_) => todo!(),
                 EntitySource::StaticTraitMember(_) => todo!(),
                 EntitySource::StaticTypeAsTraitMember => todo!(),
-                EntitySource::Generic => todo!(),
+                EntitySource::Generic { .. } => todo!(),
             }))
         }
     }
@@ -183,7 +183,9 @@ fn entity_source(
             db.subroute_table(parent)?.entity_source(ident)
         }
         EntityRouteVariant::Input { main } => Ok(EntitySource::Input { main_file: main }),
-        EntityRouteVariant::Generic { .. } => Ok(EntitySource::Generic),
+        EntityRouteVariant::Generic {
+            ident, file, range, ..
+        } => Ok(EntitySource::Generic { ident, file, range }),
         EntityRouteVariant::ThisType => panic!(),
         EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
             EntityRoutePtr::Root(root_ident) => match root_ident {
@@ -211,7 +213,7 @@ fn entity_source(
                     EntitySource::StaticTypeMember(_) => todo!(),
                     EntitySource::StaticTraitMember(_) => todo!(),
                     EntitySource::StaticTypeAsTraitMember => todo!(),
-                    EntitySource::Generic => todo!(),
+                    EntitySource::Generic { .. } => todo!(),
                 }
             }
         },
@@ -369,7 +371,7 @@ pub trait EntitySyntaxQueryGroup:
             EntitySource::StaticTypeMember(_) => todo!(),
             EntitySource::StaticTraitMember(_) => todo!(),
             EntitySource::StaticTypeAsTraitMember => todo!(),
-            EntitySource::Generic => todo!(),
+            EntitySource::Generic { .. } => todo!(),
         })
     }
 

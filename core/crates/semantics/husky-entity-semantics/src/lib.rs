@@ -600,7 +600,7 @@ pub(crate) fn entity_defn(
             _ => panic!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
-        EntitySource::Generic => Ok(EntityDefn::from_generic()),
+        EntitySource::Generic { .. } => Ok(EntityDefn::from_generic()),
     }
 }
 

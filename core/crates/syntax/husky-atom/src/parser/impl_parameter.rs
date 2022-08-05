@@ -67,6 +67,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             ident: ranged_ident,
             variant: SpatialParameterVariant::Type { traits },
             file: self.atom_context.file(),
+            range: ranged_ident.range,
         })
     }
 
