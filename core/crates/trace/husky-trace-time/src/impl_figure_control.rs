@@ -33,9 +33,9 @@ impl HuskyTraceTime {
             TraceVariant::Main(_)
             | TraceVariant::EntityFeature { .. }
             | TraceVariant::Module { .. }
-            | TraceVariant::FeatureLazyStmt(_)
-            | TraceVariant::FeatureLazyBranch(_)
-            | TraceVariant::FeatureLazyExpr(_)
+            | TraceVariant::FeatureStmt(_)
+            | TraceVariant::FeatureBranch(_)
+            | TraceVariant::FeatureExpr(_)
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::EagerExpr { .. }

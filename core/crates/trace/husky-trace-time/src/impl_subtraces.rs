@@ -9,18 +9,18 @@ use super::*;
 use husky_check_utils::should_eq;
 
 impl HuskyTraceTime {
-    pub fn gen_subtraces(&mut self, trace_id: TraceId) -> Vec<TraceId> {
+    pub fn gen_subtraces(&mut self, trace_id: TraceId) -> Option<Vec<TraceId>> {
         let trace = unsafe { self.trace_ref(trace_id) };
         match trace.variant {
             TraceVariant::Main(ref repr) => self.feature_repr_subtraces(&trace, repr),
-            TraceVariant::Module { route, .. } => self.module_subtraces(&trace, route),
+            TraceVariant::Module { route, .. } => Some(self.module_subtraces(&trace, route)),
             TraceVariant::EntityFeature { ref repr, .. } => {
                 self.feature_repr_subtraces(&trace, repr)
             }
-            TraceVariant::FeatureLazyStmt(_)
+            TraceVariant::FeatureStmt(_)
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
-            | TraceVariant::CallHead { .. } => vec![],
+            | TraceVariant::CallHead { .. } => None,
             TraceVariant::ProcStmt {
                 ref stmt,
                 ref history,
@@ -28,30 +28,28 @@ impl HuskyTraceTime {
                 ProcStmtVariant::Init { .. }
                 | ProcStmtVariant::Assert { .. }
                 | ProcStmtVariant::Execute { .. }
-                | ProcStmtVariant::Return { .. } => vec![],
+                | ProcStmtVariant::Return { .. } => None,
                 ProcStmtVariant::ConditionFlow { .. } => panic!(),
                 ProcStmtVariant::Loop { ref stmts, .. } => {
                     match history
                         .get(stmt)
                         .expect("if there is no entry, there is no subtraces")
                     {
-                        HistoryEntry::PureExpr { .. } | HistoryEntry::Exec { .. } => {
-                            vec![]
-                        }
+                        HistoryEntry::PureExpr { .. } | HistoryEntry::Exec { .. } => None,
                         HistoryEntry::Loop {
                             control,
                             ref stack_snapshot,
                             body_instruction_sheet: ref body,
                             loop_kind,
                             ..
-                        } => self.loop_subtraces(
+                        } => Some(self.loop_subtraces(
                             trace,
                             *loop_kind,
                             stmt,
                             stmts,
                             stack_snapshot,
                             body,
-                        ),
+                        )),
                         HistoryEntry::ControlFlow {
                             opt_branch_entered: enter,
                             ..
@@ -60,32 +58,32 @@ impl HuskyTraceTime {
                         HistoryEntry::PatternMatching { .. } => todo!(),
                     }
                 }
-                ProcStmtVariant::Break => vec![],
+                ProcStmtVariant::Break => None,
                 ProcStmtVariant::Match {
                     ref match_expr,
                     ref branches,
                 } => todo!(),
             },
-            TraceVariant::FeatureLazyExpr(ref expr) => self.feature_expr_subtraces(trace, expr),
-            TraceVariant::FeatureLazyBranch(ref branch) => {
-                self.feature_lazy_block_subtraces(trace, &branch.block)
+            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_subtraces(trace, expr),
+            TraceVariant::FeatureBranch(ref branch) => {
+                Some(self.feature_lazy_block_subtraces(trace, &branch.block))
             }
             TraceVariant::EagerExpr {
                 ref expr,
                 ref history,
-            } => self.eager_expr_subtraces(trace, expr, history),
+            } => Some(self.eager_expr_subtraces(trace, expr, history)),
             TraceVariant::LoopFrame {
                 ref loop_frame_data,
                 ref loop_stmt,
                 ref body_stmts,
                 ref body_instruction_sheet,
-            } => self.loop_frame_subtraces(
+            } => Some(self.loop_frame_subtraces(
                 loop_stmt,
                 body_stmts,
                 body_instruction_sheet,
                 loop_frame_data,
                 trace,
-            ),
+            )),
             TraceVariant::FuncBranch {
                 ref stmt,
                 branch_idx,
@@ -100,12 +98,12 @@ impl HuskyTraceTime {
                     ..
                 } => {
                     should_eq!(Some(branch_idx), *branch_entered);
-                    self.func_branch_subtraces(
+                    Some(self.func_branch_subtraces(
                         &branch.stmts,
                         &opt_vm_branch.as_ref().unwrap().body,
                         stack_snapshot,
                         trace,
-                    )
+                    ))
                 }
                 _ => panic!(),
             },
@@ -123,12 +121,12 @@ impl HuskyTraceTime {
                     ..
                 } => {
                     should_eq!(Some(branch_idx), *branch_entered);
-                    self.proc_branch_subtraces(
+                    Some(self.proc_branch_subtraces(
                         &branch.stmts,
                         &opt_vm_branch.as_ref().unwrap().body,
                         stack_snapshot,
                         trace,
-                    )
+                    ))
                 }
                 _ => panic!(),
             },

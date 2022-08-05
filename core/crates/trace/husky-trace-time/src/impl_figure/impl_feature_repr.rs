@@ -149,13 +149,13 @@ impl HuskyTraceTime {
             TraceVariant::Main(_) => todo!(),
             TraceVariant::Module { .. } => todo!(),
             TraceVariant::EntityFeature { .. } => todo!(),
-            TraceVariant::FeatureLazyStmt(ref stmt) => self
+            TraceVariant::FeatureStmt(ref stmt) => self
                 .runtime()
                 .eval_opt_arrival_indicator(stmt.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::FeatureLazyBranch(ref branch) => self
+            TraceVariant::FeatureBranch(ref branch) => self
                 .runtime()
                 .eval_opt_arrival_indicator(branch.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::FeatureLazyExpr(_) => todo!(),
+            TraceVariant::FeatureExpr(_) => todo!(),
             TraceVariant::FeatureCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
             TraceVariant::ProcStmt { .. } => todo!(),

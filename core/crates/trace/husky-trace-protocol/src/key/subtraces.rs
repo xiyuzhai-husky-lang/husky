@@ -2,10 +2,10 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum SubtracesKey {
-    Simple {
+    Trivial {
         trace_id: TraceId,
     },
-    FeatureExprStalk {
+    Stalkwise {
         trace_id: TraceId,
         sample_id: SampleId,
     },
@@ -28,12 +28,14 @@ impl SubtracesKey {
             | TraceKind::FuncBranch
             | TraceKind::ProcBranch
             | TraceKind::LoopFrame
-            | TraceKind::EagerExpr => SubtracesKey::Simple { trace_id },
+            | TraceKind::EagerExpr
+            | TraceKind::EntityFeatureLazy
+            | TraceKind::FeatureExprLazy => SubtracesKey::Trivial { trace_id },
             TraceKind::FeatureCallArgument | TraceKind::CallHead | TraceKind::EagerCallArgument => {
                 SubtracesKey::Null
             }
-            TraceKind::EntityFeature | TraceKind::FeatureExpr => match opt_sample_id {
-                Some(sample_id) => SubtracesKey::FeatureExprStalk {
+            TraceKind::EntityFeatureEager | TraceKind::FeatureExprEager => match opt_sample_id {
+                Some(sample_id) => SubtracesKey::Stalkwise {
                     trace_id,
                     sample_id,
                 },

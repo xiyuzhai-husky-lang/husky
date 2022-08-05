@@ -26,10 +26,10 @@ impl HuskyTraceTime {
         let trace = self.trace(trace_id);
         Ok(match trace.variant {
             TraceVariant::Main(_) | TraceVariant::Module { .. } => FigureCanvasData::void(),
-            TraceVariant::FeatureLazyStmt(ref stmt) => self.feature_stmt_figure(stmt)?,
-            TraceVariant::FeatureLazyBranch(_) => FigureCanvasData::void(),
+            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt)?,
+            TraceVariant::FeatureBranch(_) => FigureCanvasData::void(),
             TraceVariant::EntityFeature { ref repr, .. } => self.feature_repr_figure(repr)?,
-            TraceVariant::FeatureLazyExpr(ref expr) => self.feature_expr_figure(expr)?,
+            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr)?,
             TraceVariant::FeatureCallArgument {
                 argument: ref input,
                 ..

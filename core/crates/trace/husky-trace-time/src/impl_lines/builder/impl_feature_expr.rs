@@ -15,7 +15,7 @@ impl<'a> TraceTokenBuilder<'a> {
         config: ExprTokenConfig,
     ) {
         let opt_assoc_id = if config.associated {
-            Some(self.new_trace(None, 0, TraceVariant::FeatureLazyExpr(expr.clone())))
+            Some(self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone())))
         } else {
             None
         };

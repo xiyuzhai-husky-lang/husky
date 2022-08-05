@@ -28,7 +28,7 @@ impl HuskyTraceTime {
                 self.runtime().eval_feature_repr(repr, sample_id),
                 repr.ty(),
             ),
-            TraceVariant::FeatureLazyStmt(ref stmt) => match stmt.variant {
+            TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
                 FeatureLazyStmtVariant::Init { varname, ref value } => {
                     self.trace_stalk_from_expr(value, sample_id)
                 }
@@ -41,10 +41,10 @@ impl HuskyTraceTime {
                 FeatureLazyStmtVariant::ConditionFlow { ref branches } => panic!(),
                 FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
             },
-            TraceVariant::FeatureLazyBranch(_) => TraceStalkData {
+            TraceVariant::FeatureBranch(_) => TraceStalkData {
                 extra_tokens: vec![],
             },
-            TraceVariant::FeatureLazyExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
+            TraceVariant::FeatureExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
             TraceVariant::FeatureCallArgument {
                 name: ident,
                 ref argument,

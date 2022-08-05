@@ -7,17 +7,17 @@ impl HuskyTraceTime {
         &mut self,
         parent: &Trace,
         expr: &FeatureExpr,
-    ) -> Vec<TraceId> {
+    ) -> Option<Vec<TraceId>> {
         match expr.variant {
             FeatureExprVariant::PrimitiveLiteral(_)
             | FeatureExprVariant::PrimitiveBinaryOpr { .. }
-            | FeatureExprVariant::Variable { .. } => vec![],
+            | FeatureExprVariant::Variable { .. } => None,
             FeatureExprVariant::RoutineCall {
                 ref opt_instruction_sheet,
                 ref routine_defn,
                 ref opds,
                 ..
-            } => self.routine_call_subtraces(
+            } => Some(self.routine_call_subtraces(
                 parent,
                 opt_instruction_sheet.as_ref().unwrap(),
                 routine_defn,
@@ -38,7 +38,7 @@ impl HuskyTraceTime {
                         )),
                     )
                 },
-            ),
+            )),
             FeatureExprVariant::EntityFeature { ref repr, .. } => {
                 self.feature_repr_subtraces(parent, repr)
             }
