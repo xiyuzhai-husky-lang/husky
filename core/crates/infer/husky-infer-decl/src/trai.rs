@@ -113,7 +113,7 @@ impl TraitDecl {
                 spatial_parameters: ref generic_parameters,
                 ref members,
             } => {
-                let generic_parameters = db.generic_parameters_from_static(generic_parameters);
+                let generic_parameters = db.spatial_parameters_from_static(generic_parameters);
                 let symbols = db.symbols_from_spatial_parameters(&generic_parameters);
                 let member_context: Vec<_> = members.map(|member| {
                     (
@@ -232,7 +232,7 @@ pub(crate) fn trait_decl(
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),
-        EntitySource::Generic => todo!(),
+        EntitySource::Generic { .. } => todo!(),
     }
 }
 

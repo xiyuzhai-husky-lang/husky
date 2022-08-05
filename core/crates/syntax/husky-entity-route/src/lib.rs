@@ -117,6 +117,7 @@ pub enum EntityRouteVariant {
         ident: CustomIdentifier,
         entity_kind: EntityKind,
         file: FilePtr,
+        range: TextRange,
     },
     ThisType,
 }

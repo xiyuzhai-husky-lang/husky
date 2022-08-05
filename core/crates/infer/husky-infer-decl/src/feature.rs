@@ -40,6 +40,6 @@ pub(crate) fn feature_decl(
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),
-        EntitySource::Generic => todo!(),
+        EntitySource::Generic { .. } => todo!(),
     }
 }

@@ -5,7 +5,7 @@ use husky_atom::{
     *,
 };
 use husky_entity_route::*;
-use husky_text::RangedCustomIdentifier;
+use husky_text::{RangedCustomIdentifier, TextRange};
 use husky_word::IdentDict;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
@@ -19,7 +19,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
     //     parse_entity(symbol_context, &self.tokenize(text))
     // }
 
-    pub fn generic_parameters_from_static(
+    pub fn spatial_parameters_from_static(
         &self,
         static_generic_parameters: &[StaticSpatialParameter],
     ) -> IdentDict<SpatialParameter> {
@@ -30,6 +30,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
             },
             variant: SpatialParameterVariant::Type { traits: vec![] },
             file: self.intern_file(static_spatial_parameter.dev_src.file.into()),
+            range: TextRange::from_line(static_spatial_parameter.dev_src.line),
         })
     }
 
@@ -43,6 +44,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
                     ident: spatial_parameter.ident.ident,
                     entity_kind: spatial_parameter.entity_kind(),
                     file: spatial_parameter.file,
+                    range: spatial_parameter.range,
                 },
                 temporal_arguments: thin_vec![],
                 spatial_arguments: thin_vec![],
@@ -63,6 +65,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
                         ident: spatial_parameter.ident.ident,
                         entity_kind: spatial_parameter.entity_kind(),
                         file: spatial_parameter.file,
+                        range: spatial_parameter.range,
                     },
                     temporal_arguments: thin_vec![],
                     spatial_arguments: thin_vec![],

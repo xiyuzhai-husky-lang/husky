@@ -247,7 +247,7 @@ pub(crate) fn entity_call_form_decl(
             }
             _ => todo!(),
         },
-        EntitySource::Generic => todo!(),
+        EntitySource::Generic { .. } => todo!(),
     };
 }
 
@@ -313,7 +313,7 @@ pub(crate) fn routine_decl_from_static(
             ref linkage,
             ref variadic_template,
         } => {
-            let generic_parameters = db.generic_parameters_from_static(spatial_parameters);
+            let generic_parameters = db.spatial_parameters_from_static(spatial_parameters);
             symbols.extend(db.symbols_from_spatial_parameters(&generic_parameters));
             let mut symbol_context = AtomContextStandalone {
                 opt_package_main: None,
