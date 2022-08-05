@@ -45,7 +45,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         }],
         ty_members: &[],
         variants: &[],
-        kind: TyKind::Array,
+        kind: TyKind::Struct,
         visual_ty: StaticVisualTy::Image2d,
         opt_type_call: Some(&BINARY_IMAGE28_TYPE_CALL_DEFN),
     },

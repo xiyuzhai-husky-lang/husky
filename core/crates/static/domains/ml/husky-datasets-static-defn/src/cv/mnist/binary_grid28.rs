@@ -50,7 +50,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         }],
         ty_members: &[],
         variants: &[],
-        kind: TyKind::Array,
+        kind: TyKind::Struct,
         visual_ty: StaticVisualTy::Shape2d,
         opt_type_call: Some(&BINARY_GRID28_TYPE_CALL_DEFN),
     },

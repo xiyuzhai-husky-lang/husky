@@ -235,8 +235,7 @@ impl<'a> RustCodeGenerator<'a> {
                 ref trait_impls,
                 ref members,
                 ref opt_type_call,
-                opt_static_visual_ty,
-                ref opt_visual_stmts,
+                ..
             } => ty_members,
             _ => panic!(),
         };
@@ -276,8 +275,7 @@ impl<'a> RustCodeGenerator<'a> {
                 ref trait_impls,
                 ref members,
                 ref opt_type_call,
-                opt_static_visual_ty,
-                ref opt_visual_stmts,
+                ..
             } => ty_members,
             _ => panic!(),
         };

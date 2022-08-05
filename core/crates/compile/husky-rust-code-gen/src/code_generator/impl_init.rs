@@ -118,14 +118,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 );
             }
             EntityDefnVariant::Ty {
-                spatial_parameters: ref generic_parameters,
-                ref ty_members,
-                ref variants,
                 ty_kind,
-                ref trait_impls,
                 ref members,
                 ref opt_type_call,
-                ref opt_visual_stmts,
                 ..
             } => match ty_kind {
                 TyKind::Record => (),

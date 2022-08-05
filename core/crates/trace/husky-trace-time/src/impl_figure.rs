@@ -1,5 +1,6 @@
 mod impl_eager_expr;
 mod impl_feature_expr;
+mod impl_feature_repr;
 mod impl_feature_stmt;
 mod impl_func_stmt;
 mod impl_proc_stmt;
@@ -27,7 +28,7 @@ impl HuskyTraceTime {
             TraceVariant::Main(_) | TraceVariant::Module { .. } => FigureCanvasData::void(),
             TraceVariant::FeatureLazyStmt(ref stmt) => self.feature_stmt_figure(stmt)?,
             TraceVariant::FeatureLazyBranch(_) => FigureCanvasData::void(),
-            TraceVariant::EntityFeature { .. } => todo!(),
+            TraceVariant::EntityFeature { ref repr, .. } => self.feature_repr_figure(repr)?,
             TraceVariant::FeatureLazyExpr(ref expr) => self.feature_expr_figure(expr)?,
             TraceVariant::FeatureCallArgument {
                 argument: ref input,

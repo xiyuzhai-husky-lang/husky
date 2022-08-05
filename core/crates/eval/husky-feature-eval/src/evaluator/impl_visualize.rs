@@ -40,23 +40,23 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                 }
                 Ok(VisualData::Group(elements))
             }
-            VisualizerVariant::Custom { ref opt_stmts } => {
-                if opt_stmts.is_none() {
-                    should_eq!(
-                        visualizer.visual_ty,
-                        VisualTy::Void,
-                        "expect `{}` to be of visual type void",
-                        ty
-                    );
-                    Ok(VisualData::Primitive { value: ().into() })
-                } else {
-                    let visual_feature_lazy_block = self.db.visual_feature_lazy_block(this)?;
-                    Ok(self
-                        .eval_feature_lazy_block(&visual_feature_lazy_block)?
-                        .downcast_eval_ref::<VisualData>(&__VISUAL_DATA_VTABLE)
-                        .clone())
-                }
+            VisualizerVariant::Custom { .. } => {
+                let visual_feature_lazy_block = self.db.visual_feature_lazy_block(this)?;
+                Ok(self
+                    .eval_feature_lazy_block(&visual_feature_lazy_block)?
+                    .downcast_eval_ref::<VisualData>(&__VISUAL_DATA_VTABLE)
+                    .clone())
             }
+            VisualizerVariant::Void => {
+                should_eq!(
+                    visualizer.visual_ty,
+                    VisualTy::Void,
+                    "expect `{}` to be of visual type void",
+                    ty
+                );
+                Ok(VisualData::Primitive { value: ().into() })
+            }
+            VisualizerVariant::Static => todo!(),
         }
         // let visualizer = self.db.compile_time().visualizer(this.ty());
         // let this_value = self.eval_feature_repr_cached(&this).unwrap();
