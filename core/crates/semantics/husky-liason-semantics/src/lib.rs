@@ -1,4 +1,4 @@
-use husky_entity_route::{EntityRouteKind, EntityRoutePtr, TemporalArgument};
+use husky_entity_route::{EntityRoutePtr, EntityRouteVariant, TemporalArgument};
 use husky_text::TextRange;
 use husky_word::{LiasonKeyword, RootIdentifier};
 
@@ -31,7 +31,7 @@ impl From<ParameterLiason> for RangedParameterLiason {
 impl ParameterLiason {
     pub fn new(ty: EntityRoutePtr) -> Self {
         match ty.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => {
                 if ty.temporal_arguments.len() == 0
@@ -52,7 +52,7 @@ impl ParameterLiason {
         is_copyable: bool,
     ) -> ParameterLiason {
         match member_ty.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => {
                 if member_ty.temporal_arguments.len() == 0

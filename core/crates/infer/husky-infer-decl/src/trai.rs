@@ -114,7 +114,7 @@ impl TraitDecl {
                 ref members,
             } => {
                 let generic_parameters = db.generic_parameters_from_static(generic_parameters);
-                let symbols = db.symbols_from_generic_parameters(&generic_parameters);
+                let symbols = db.symbols_from_spatial_parameters(&generic_parameters);
                 let member_context: Vec<_> = members.map(|member| {
                     (
                         db.intern_word(member.name).custom(),
@@ -140,7 +140,7 @@ impl TraitDecl {
                 };
                 let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let generic_arguments =
-                    db.generic_arguments_from_generic_parameters(&generic_parameters);
+                    db.spatial_arguments_from_spatial_parameters(&generic_parameters);
                 should_eq!(base_route.spatial_arguments.len(), 0);
                 let trai = db.intern_entity_route(EntityRoute {
                     kind: base_route.kind,

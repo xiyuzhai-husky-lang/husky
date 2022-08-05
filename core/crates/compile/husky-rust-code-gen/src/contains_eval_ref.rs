@@ -1,6 +1,6 @@
 use entity_kind::{EntityKind, FieldKind};
 use husky_entity_route::entity_route_menu;
-use husky_entity_route::{EntityRoute, EntityRouteKind, SpatialArgument};
+use husky_entity_route::{EntityRoute, EntityRouteVariant, SpatialArgument};
 use husky_word::RootIdentifier;
 use infer_decl::TyMemberDecl;
 
@@ -8,7 +8,7 @@ use super::*;
 
 pub(super) fn entity_route_kind_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route_kind: EntityRouteKind,
+    entity_route_kind: EntityRouteVariant,
 ) -> bool {
     let base_route = db.intern_entity_route(EntityRoute {
         kind: entity_route_kind,
@@ -16,14 +16,14 @@ pub(super) fn entity_route_kind_contains_eval_ref(
         spatial_arguments: Default::default(),
     });
     if entity_route_kind
-        == (EntityRouteKind::Root {
+        == (EntityRouteVariant::Root {
             ident: RootIdentifier::Ref,
         })
     {
         return true;
     }
     if entity_route_kind
-        == (EntityRouteKind::Root {
+        == (EntityRouteVariant::Root {
             ident: RootIdentifier::Option,
         })
     {

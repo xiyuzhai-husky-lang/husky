@@ -1,4 +1,4 @@
-use husky_entity_route::{EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument};
+use husky_entity_route::{EntityRoute, EntityRoutePtr, EntityRouteVariant, SpatialArgument};
 use husky_entity_syntax::EntitySyntaxSalsaQueryGroup;
 use husky_print_utils::p;
 use husky_word::CustomIdentifier;
@@ -59,10 +59,10 @@ impl Implementable for EntityRoutePtr {
 
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         let (kind, mut spatial_arguments) = match self.kind {
-            EntityRouteKind::Root { ident } => todo!(),
-            EntityRouteKind::Package { main, ident } => todo!(),
-            EntityRouteKind::Child { parent, ident } => match parent.kind {
-                EntityRouteKind::ThisType => {
+            EntityRouteVariant::Root { ident } => todo!(),
+            EntityRouteVariant::Package { main, ident } => todo!(),
+            EntityRouteVariant::Child { parent, ident } => match parent.kind {
+                EntityRouteVariant::ThisType => {
                     let route = ctx.spatial_argument(ident).take_entity_route();
                     (route.kind, route.spatial_arguments.clone())
                 }
@@ -71,11 +71,13 @@ impl Implementable for EntityRoutePtr {
                     todo!()
                 }
             },
-            EntityRouteKind::Input { main } => todo!(),
-            EntityRouteKind::Generic { .. } => todo!(),
-            EntityRouteKind::ThisType => (ctx.this_ty.kind, ctx.this_ty.spatial_arguments.clone()),
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => match ty.kind {
-                EntityRouteKind::ThisType => {
+            EntityRouteVariant::Input { main } => todo!(),
+            EntityRouteVariant::Generic { .. } => todo!(),
+            EntityRouteVariant::ThisType => {
+                (ctx.this_ty.kind, ctx.this_ty.spatial_arguments.clone())
+            }
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match ty.kind {
+                EntityRouteVariant::ThisType => {
                     if let Some(spatial_argument) = ctx.opt_spatial_argument(ident) {
                         match spatial_argument {
                             SpatialArgument::EntityRoute(_) => todo!(),

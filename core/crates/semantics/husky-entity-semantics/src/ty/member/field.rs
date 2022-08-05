@@ -125,7 +125,7 @@ impl EntityDefnVariant {
                             child.opt_children.clone(),
                         )?,
                         db.intern_entity_route(EntityRoute {
-                            kind: EntityRouteKind::Child {
+                            kind: EntityRouteVariant::Child {
                                 parent: ty_route,
                                 ident: ranged_ident.ident,
                             },

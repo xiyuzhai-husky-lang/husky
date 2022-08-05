@@ -42,7 +42,7 @@ pub fn make_type_as_trait_member_route(
     spatial_arguments: ThinVec<SpatialArgument>,
 ) -> EntityRoutePtr {
     entity_route_interner().intern(EntityRoute {
-        kind: EntityRouteKind::TypeAsTraitMember { ty, trai, ident },
+        kind: EntityRouteVariant::TypeAsTraitMember { ty, trai, ident },
         temporal_arguments: Default::default(),
         spatial_arguments,
     })
@@ -54,7 +54,7 @@ pub fn make_subroute(
     spatial_arguments: ThinVec<SpatialArgument>,
 ) -> EntityRoutePtr {
     entity_route_interner().intern(EntityRoute {
-        kind: EntityRouteKind::Child { parent, ident },
+        kind: EntityRouteVariant::Child { parent, ident },
         temporal_arguments: Default::default(),
         spatial_arguments,
     })
@@ -131,7 +131,7 @@ impl EntityRoutePtr {
 
     pub fn intrinsic(self) -> EntityRoutePtr {
         match self.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref | RootIdentifier::Option,
             } => self.spatial_arguments[0].take_entity_route().intrinsic(),
             _ => self,
@@ -140,7 +140,7 @@ impl EntityRoutePtr {
 
     pub fn deref_route(self) -> EntityRoutePtr {
         match self.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => self.spatial_arguments[0].take_entity_route().deref_route(),
             _ => self,
@@ -149,7 +149,7 @@ impl EntityRoutePtr {
 
     pub fn is_ref(self) -> bool {
         match self.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => true,
             _ => false,
@@ -158,12 +158,12 @@ impl EntityRoutePtr {
 
     pub fn is_generic(&self) -> bool {
         match self.kind {
-            EntityRouteKind::Child { parent, ident } => {
+            EntityRouteVariant::Child { parent, ident } => {
                 if parent.is_generic() {
                     return true;
                 }
             }
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                 if ty.is_generic() {
                     return true;
                 }
@@ -171,9 +171,9 @@ impl EntityRoutePtr {
                     return true;
                 }
             }
-            EntityRouteKind::Input { main } => todo!(),
-            EntityRouteKind::Generic { .. } => return true,
-            EntityRouteKind::ThisType => todo!(),
+            EntityRouteVariant::Input { main } => todo!(),
+            EntityRouteVariant::Generic { .. } => return true,
+            EntityRouteVariant::ThisType => todo!(),
             _ => (),
         }
         for spatial_argument in self.spatial_arguments.iter() {
@@ -238,7 +238,7 @@ impl Deref for EntityRoutePtr {
                  paste! {
                     $(
                         const [<$reserved:upper _ROUTE>]: &EntityRoute = &EntityRoute {
-                            kind: EntityRouteKind::Root {
+                            kind: EntityRouteVariant::Root {
                                 ident: RootIdentifier::$reserved,
                             },
                             temporal_arguments: thin_vec![],
@@ -256,7 +256,7 @@ impl Deref for EntityRoutePtr {
         }
 
         const THIS_TYPE_ROUTE: &EntityRoute = &EntityRoute {
-            kind: EntityRouteKind::ThisType,
+            kind: EntityRouteVariant::ThisType,
             temporal_arguments: thin_vec![],
             spatial_arguments: thin_vec![],
         };
@@ -337,7 +337,7 @@ pub trait InternEntityRoute {
         spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoutePtr {
         self.intern_entity_route(EntityRoute {
-            kind: EntityRouteKind::Child { parent, ident },
+            kind: EntityRouteVariant::Child { parent, ident },
             temporal_arguments: Default::default(),
             spatial_arguments,
         })
@@ -351,7 +351,7 @@ pub trait InternEntityRoute {
         spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoutePtr {
         self.intern_entity_route(EntityRoute {
-            kind: EntityRouteKind::TypeAsTraitMember { ty, trai, ident },
+            kind: EntityRouteVariant::TypeAsTraitMember { ty, trai, ident },
             temporal_arguments: Default::default(),
             spatial_arguments,
         })

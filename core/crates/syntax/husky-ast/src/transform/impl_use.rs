@@ -1,7 +1,7 @@
 use super::*;
 use crate::*;
 use husky_atom::context::{Symbol, SymbolKind};
-use husky_entity_route::{EntityRoute, EntityRouteKind};
+use husky_entity_route::{EntityRoute, EntityRouteVariant};
 use husky_text::TextRange;
 
 impl<'a> AstTransformer<'a> {
@@ -80,7 +80,7 @@ impl<'a> AstTransformer<'a> {
                     entry.ident.map(|ident| Symbol {
                         init_ident: ident.into(),
                         kind: SymbolKind::EntityRoute(self.db.intern_entity_route(EntityRoute {
-                            kind: EntityRouteKind::Child {
+                            kind: EntityRouteVariant::Child {
                                 parent,
                                 ident: ident.ident,
                             },

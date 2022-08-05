@@ -53,7 +53,7 @@ pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
 
 pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferResult<bool> {
     match ty.kind {
-        EntityRouteKind::Root { ident } => Ok(match ident {
+        EntityRouteVariant::Root { ident } => Ok(match ident {
             RootIdentifier::Void
             | RootIdentifier::I32
             | RootIdentifier::I64

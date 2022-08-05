@@ -215,9 +215,9 @@ pub(crate) fn entity_call_form_decl(
         EntitySource::Module { file: file_id } => todo!(),
         EntitySource::Input { .. } => todo!(),
         EntitySource::StaticTypeMember(_) => match route.kind {
-            EntityRouteKind::Root { ident } => todo!(),
-            EntityRouteKind::Package { main, ident } => todo!(),
-            EntityRouteKind::Child { parent, ident } => {
+            EntityRouteVariant::Root { ident } => todo!(),
+            EntityRouteVariant::Package { main, ident } => todo!(),
+            EntityRouteVariant::Child { parent, ident } => {
                 let ty_decl = derived_unwrap!(db.ty_decl(parent));
                 match derived_not_none!(ty_decl
                     .ty_members
@@ -229,14 +229,14 @@ pub(crate) fn entity_call_form_decl(
                     TyMemberDecl::Call(_) => todo!(),
                 }
             }
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => todo!(),
-            EntityRouteKind::Input { main } => todo!(),
-            EntityRouteKind::Generic { .. } => todo!(),
-            EntityRouteKind::ThisType => todo!(),
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
+            EntityRouteVariant::Input { main } => todo!(),
+            EntityRouteVariant::Generic { .. } => todo!(),
+            EntityRouteVariant::ThisType => todo!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => match route.kind {
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                 let ty_decl = derived_unwrap!(db.ty_decl(ty));
                 match derived_not_none!(ty_decl.trai_member_impl(trai, ident))? {
                     TraitMemberImplDecl::Method(method) => Ok(method.clone()),
@@ -256,7 +256,7 @@ pub(crate) fn value_call_form_decl(
     ty: EntityRoutePtr,
 ) -> InferQueryResultArc<CallFormDecl> {
     match ty.kind {
-        EntityRouteKind::Root {
+        EntityRouteVariant::Root {
             ident: RootIdentifier::Fp,
         } => {
             msg_once!("much more todo");
@@ -283,13 +283,13 @@ pub(crate) fn value_call_form_decl(
                 is_lazy: false,
             }));
         }
-        EntityRouteKind::Root {
+        EntityRouteVariant::Root {
             ident: RootIdentifier::Fn,
         } => todo!(),
-        EntityRouteKind::Root {
+        EntityRouteVariant::Root {
             ident: RootIdentifier::FnMut,
         } => todo!(),
-        EntityRouteKind::Root {
+        EntityRouteVariant::Root {
             ident: RootIdentifier::FnOnce,
         } => todo!(),
         _ => Err(query_error!(format!(
@@ -314,7 +314,7 @@ pub(crate) fn routine_decl_from_static(
             ref variadic_template,
         } => {
             let generic_parameters = db.generic_parameters_from_static(spatial_parameters);
-            symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
+            symbols.extend(db.symbols_from_spatial_parameters(&generic_parameters));
             let mut symbol_context = AtomContextStandalone {
                 opt_package_main: None,
                 db: db.upcast(),

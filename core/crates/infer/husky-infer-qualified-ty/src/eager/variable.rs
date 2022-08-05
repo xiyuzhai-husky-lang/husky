@@ -73,7 +73,7 @@ impl EagerVariableQualifier {
         parameter_liason: ParameterLiason,
     ) -> InferResult<Self> {
         Ok(match parameter_ty.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => {
                 if parameter_ty.temporal_arguments.len() == 0 {
@@ -204,7 +204,7 @@ impl EagerVariableQualifiedTy {
 
     pub(crate) fn new(qual: EagerVariableQualifier, ty: EntityRoutePtr) -> Self {
         match ty.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => todo!(),
             _ => Self { qual, ty },

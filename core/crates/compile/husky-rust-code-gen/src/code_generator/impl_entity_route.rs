@@ -12,7 +12,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.write(&entity_route.ident())
         } else {
             match entity_route.kind {
-                EntityRouteKind::Root { ident } => match ident {
+                EntityRouteVariant::Root { ident } => match ident {
                     RootIdentifier::Void => self.write("()"),
                     RootIdentifier::B32 => self.write("u32"),
                     RootIdentifier::B64 => self.write("u64"),
@@ -27,19 +27,19 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                     _ => self.result += &ident,
                 },
-                EntityRouteKind::Package { .. } => self.write("crate"),
-                EntityRouteKind::Child { parent, ident } => {
+                EntityRouteVariant::Package { .. } => self.write("crate"),
+                EntityRouteVariant::Child { parent, ident } => {
                     self.gen_entity_route(parent, role);
                     self.write("::");
                     self.write(&ident)
                 }
-                EntityRouteKind::Input { main } => self.write("__input"),
-                EntityRouteKind::Generic { ident, .. } => {
+                EntityRouteVariant::Input { main } => self.write("__input"),
+                EntityRouteVariant::Generic { ident, .. } => {
                     p!(entity_route);
                     todo!()
                 }
-                EntityRouteKind::ThisType => todo!(),
-                EntityRouteKind::TypeAsTraitMember {
+                EntityRouteVariant::ThisType => todo!(),
+                EntityRouteVariant::TypeAsTraitMember {
                     ty: parent,
                     trai,
                     ident,

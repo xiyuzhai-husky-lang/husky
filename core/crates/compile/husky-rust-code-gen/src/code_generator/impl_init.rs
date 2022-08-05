@@ -150,7 +150,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     ("#,
         );
         match entity_route.kind {
-            EntityRouteKind::Child { parent, ident } => {
+            EntityRouteVariant::Child { parent, ident } => {
                 self.write(&format!(
                     r#"
         __StaticLinkageKey::Routine {{ route: "{entity_route}" }},"#,
@@ -182,7 +182,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     ),
                 }
             }
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                 if trai.kind == entity_route_menu().std_ops_index_trai.kind {
                     let this_ty_decl = self.db.ty_decl(ty).unwrap();
                     let trai_impl = this_ty_decl.trait_impl(trai).unwrap();
@@ -195,13 +195,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     todo!()
                 }
             }
-            EntityRouteKind::Root { ident } => todo!(),
-            EntityRouteKind::Package { main, ident } => todo!(),
-            EntityRouteKind::Input { main } => todo!(),
-            EntityRouteKind::Generic {
+            EntityRouteVariant::Root { ident } => todo!(),
+            EntityRouteVariant::Package { main, ident } => todo!(),
+            EntityRouteVariant::Input { main } => todo!(),
+            EntityRouteVariant::Generic {
                 ident, entity_kind, ..
             } => todo!(),
-            EntityRouteKind::ThisType => todo!(),
+            EntityRouteVariant::ThisType => todo!(),
         }
         self.write(
             r#"
@@ -424,7 +424,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         };
         // ad hoc
         let mutability = match ty.kind {
-            EntityRouteKind::Root { ident } => match ident {
+            EntityRouteVariant::Root { ident } => match ident {
                 RootIdentifier::Void => todo!(),
                 RootIdentifier::I32 => todo!(),
                 RootIdentifier::I64 => todo!(),

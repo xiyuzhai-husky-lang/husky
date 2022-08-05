@@ -5,7 +5,7 @@ use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason, Ranged
 pub use spatial::*;
 use std::sync::Arc;
 
-use husky_entity_route::{EntityRouteKind, EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRoutePtr, EntityRouteVariant, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use husky_word::{CustomIdentifier, IdentDict, Paradigm, RootIdentifier};
 
@@ -23,7 +23,7 @@ impl Parameter {
         ranged_ty: RangedEntityRoute,
     ) -> Self {
         match ranged_ty.route.kind {
-            EntityRouteKind::Root {
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => panic!(),
             _ => (),

@@ -56,8 +56,8 @@ impl TyDecl {
             } => {
                 let generic_parameters = db.generic_parameters_from_static(generic_parameters);
                 let generic_arguments =
-                    db.generic_arguments_from_generic_parameters(&generic_parameters);
-                let symbols = db.symbols_from_generic_parameters(&generic_parameters);
+                    db.spatial_arguments_from_spatial_parameters(&generic_parameters);
+                let symbols = db.symbols_from_spatial_parameters(&generic_parameters);
                 let mut symbol_context = AtomContextStandalone {
                     opt_package_main: None,
                     db: db.upcast(),
@@ -119,7 +119,7 @@ impl TyDecl {
         generic_parameters: IdentDict<SpatialParameter>,
         children: AstIter,
     ) -> InferQueryResultArc<Self> {
-        let generic_arguments = db.generic_arguments_from_generic_parameters(&generic_parameters);
+        let generic_arguments = db.spatial_arguments_from_spatial_parameters(&generic_parameters);
         let this_ty = db.intern_entity_route(EntityRoute {
             kind: ty.kind,
             temporal_arguments: thin_vec![],
@@ -422,7 +422,7 @@ impl TyDecl {
     pub fn method(
         &self,
         ranged_ident: RangedCustomIdentifier,
-        trait_uses: &[EntityRouteKind],
+        trait_uses: &[EntityRouteVariant],
     ) -> InferResult<&Arc<CallFormDecl>> {
         // the rule is:
         // first look in the type members,
@@ -498,11 +498,11 @@ impl TyDecl {
 
     pub fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx {
         match member_route.kind {
-            EntityRouteKind::Child { parent, ident } => {
+            EntityRouteVariant::Child { parent, ident } => {
                 should_eq!(self.this_ty, parent);
                 self.ty_members.position(ident).unwrap().into()
             }
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                 should_eq!(self.this_ty, ty);
                 todo!()
             }
@@ -599,17 +599,17 @@ pub(crate) fn ty_decl(
     }
 }
 
-fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteKind]) -> bool {
+fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVariant]) -> bool {
     match trait_route.kind {
-        EntityRouteKind::Root { ident } => true,
-        EntityRouteKind::Package { main, ident } => todo!(),
-        EntityRouteKind::Child { parent, ident } => todo!(),
-        EntityRouteKind::Input { main } => todo!(),
-        EntityRouteKind::Generic {
+        EntityRouteVariant::Root { ident } => true,
+        EntityRouteVariant::Package { main, ident } => todo!(),
+        EntityRouteVariant::Child { parent, ident } => todo!(),
+        EntityRouteVariant::Input { main } => todo!(),
+        EntityRouteVariant::Generic {
             ident, entity_kind, ..
         } => todo!(),
-        EntityRouteKind::ThisType => todo!(),
-        EntityRouteKind::TypeAsTraitMember {
+        EntityRouteVariant::ThisType => todo!(),
+        EntityRouteVariant::TypeAsTraitMember {
             ty: parent,
             trai,
             ident,
@@ -633,7 +633,7 @@ pub(crate) fn call_form_decl_from_static(
             ..
         } => {
             let generic_parameters = db.generic_parameters_from_static(generic_parameters);
-            symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
+            symbols.extend(db.symbols_from_spatial_parameters(&generic_parameters));
             let mut symbol_context = AtomContextStandalone {
                 opt_package_main: None,
                 db: db.upcast(),

@@ -20,13 +20,13 @@ pub(crate) struct LinkageCollector<'a> {
 impl<'a> LinkageCollector<'a> {
     pub(crate) fn insert(&mut self, entity_route: EntityRoutePtr) {
         match entity_route.kind {
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => {
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                 if trai == entity_route_menu().clone_trait {
                     return;
                 }
             }
-            EntityRouteKind::Input { .. } => return,
-            EntityRouteKind::Root {
+            EntityRouteVariant::Input { .. } => return,
+            EntityRouteVariant::Root {
                 ident: RootIdentifier::Vec,
             } => {
                 // ad hoc
@@ -118,7 +118,7 @@ pub(crate) fn entity_link_dependees(
             .collect::<Vec<_>>()
         {
             match subroute.kind {
-                EntityRouteKind::Generic { .. } => continue,
+                EntityRouteVariant::Generic { .. } => continue,
                 _ => (),
             }
             let subroute_dependees = db.entity_immediate_link_dependees(subroute);

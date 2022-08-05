@@ -11,7 +11,7 @@ pub use table::*;
 use colored::Colorize;
 use husky_check_utils::*;
 use husky_entity_route::{
-    entity_route_menu, EntityRoute, EntityRouteKind, EntityRoutePtr, SpatialArgument,
+    entity_route_menu, EntityRoute, EntityRoutePtr, EntityRouteVariant, SpatialArgument,
 };
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
 use husky_entity_syntax::EntitySource;

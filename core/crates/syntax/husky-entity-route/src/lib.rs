@@ -23,7 +23,7 @@ use thin_vec::{thin_vec, ThinVec};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct EntityRoute {
-    pub kind: EntityRouteKind,
+    pub kind: EntityRouteVariant,
     pub temporal_arguments: ThinVec<TemporalArgument>,
     pub spatial_arguments: ThinVec<SpatialArgument>,
 }
@@ -80,20 +80,20 @@ impl From<EntityRoutePtr> for SpatialArgument {
     }
 }
 
-impl From<RootIdentifier> for EntityRouteKind {
+impl From<RootIdentifier> for EntityRouteVariant {
     fn from(ident: RootIdentifier) -> Self {
         Self::Root { ident }
     }
 }
 
-impl From<&RootIdentifier> for EntityRouteKind {
+impl From<&RootIdentifier> for EntityRouteVariant {
     fn from(ident: &RootIdentifier) -> Self {
         Self::Root { ident: *ident }
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum EntityRouteKind {
+pub enum EntityRouteVariant {
     Root {
         ident: RootIdentifier,
     },
@@ -124,7 +124,7 @@ pub enum EntityRouteKind {
 impl EntityRoute {
     pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
         EntityRoute {
-            kind: EntityRouteKind::Package { main, ident },
+            kind: EntityRouteVariant::Package { main, ident },
             temporal_arguments: Default::default(),
             spatial_arguments: Default::default(),
         }
@@ -132,13 +132,13 @@ impl EntityRoute {
 
     pub fn ident(&self) -> Identifier {
         match self.kind {
-            EntityRouteKind::Root { ident } => ident.into(),
-            EntityRouteKind::Package { ident, .. } => ident.into(),
-            EntityRouteKind::Child { ident, .. } => ident.into(),
-            EntityRouteKind::Input { .. } => ContextualIdentifier::Input.into(),
-            EntityRouteKind::Generic { ident, .. } => ident.into(),
-            EntityRouteKind::ThisType => todo!(),
-            EntityRouteKind::TypeAsTraitMember { ident, .. } => ident.into(),
+            EntityRouteVariant::Root { ident } => ident.into(),
+            EntityRouteVariant::Package { ident, .. } => ident.into(),
+            EntityRouteVariant::Child { ident, .. } => ident.into(),
+            EntityRouteVariant::Input { .. } => ContextualIdentifier::Input.into(),
+            EntityRouteVariant::Generic { ident, .. } => ident.into(),
+            EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::TypeAsTraitMember { ident, .. } => ident.into(),
         }
     }
 
@@ -148,7 +148,7 @@ impl EntityRoute {
         spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoute {
         EntityRoute {
-            kind: EntityRouteKind::Child { parent, ident },
+            kind: EntityRouteVariant::Child { parent, ident },
             temporal_arguments: Default::default(),
             spatial_arguments,
         }
@@ -159,7 +159,7 @@ impl EntityRoute {
         spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoute {
         EntityRoute {
-            kind: EntityRouteKind::Root { ident },
+            kind: EntityRouteVariant::Root { ident },
             temporal_arguments: Default::default(),
             spatial_arguments,
         }
@@ -203,13 +203,13 @@ impl EntityRoute {
 
     pub fn is_builtin(&self) -> bool {
         match self.kind {
-            EntityRouteKind::Root { .. } => true,
-            EntityRouteKind::Package { .. } => false,
-            EntityRouteKind::Child { parent, .. } => parent.is_builtin(),
-            EntityRouteKind::Input { .. } => false,
-            EntityRouteKind::Generic { .. } => todo!(),
-            EntityRouteKind::ThisType => todo!(),
-            EntityRouteKind::TypeAsTraitMember { .. } => todo!(),
+            EntityRouteVariant::Root { .. } => true,
+            EntityRouteVariant::Package { .. } => false,
+            EntityRouteVariant::Child { parent, .. } => parent.is_builtin(),
+            EntityRouteVariant::Input { .. } => false,
+            EntityRouteVariant::Generic { .. } => todo!(),
+            EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
         }
     }
 
@@ -219,13 +219,13 @@ impl EntityRoute {
 
     pub fn opt_parent(&self) -> Option<EntityRoutePtr> {
         match self.kind {
-            EntityRouteKind::Root { .. }
-            | EntityRouteKind::Input { .. }
-            | EntityRouteKind::Package { .. }
-            | EntityRouteKind::Generic { .. }
-            | EntityRouteKind::ThisType => None,
-            EntityRouteKind::Child { parent, .. } => Some(parent),
-            EntityRouteKind::TypeAsTraitMember { ty: parent, .. } => Some(parent),
+            EntityRouteVariant::Root { .. }
+            | EntityRouteVariant::Input { .. }
+            | EntityRouteVariant::Package { .. }
+            | EntityRouteVariant::Generic { .. }
+            | EntityRouteVariant::ThisType => None,
+            EntityRouteVariant::Child { parent, .. } => Some(parent),
+            EntityRouteVariant::TypeAsTraitMember { ty: parent, .. } => Some(parent),
         }
     }
 }

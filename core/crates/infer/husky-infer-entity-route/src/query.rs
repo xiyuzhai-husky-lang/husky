@@ -71,7 +71,7 @@ fn is_implicitly_castable(
             RootIdentifier::DatasetType => match src_ty {
                 EntityRoutePtr::Root(RootIdentifier::DatasetType) => true,
                 EntityRoutePtr::Custom(scope) => match scope.kind {
-                    EntityRouteKind::Root {
+                    EntityRouteVariant::Root {
                         ident: RootIdentifier::DatasetType,
                     } => true,
                     _ => false,

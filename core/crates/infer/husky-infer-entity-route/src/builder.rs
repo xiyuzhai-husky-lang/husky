@@ -14,7 +14,7 @@ pub struct EntityRouteSheetBuilder<'a> {
     arena: &'a RawExprArena,
     main_file: FilePtr,
     entity_route_sheet: EntityRouteSheet,
-    trait_uses: LocalStack<EntityRouteKind>,
+    trait_uses: LocalStack<EntityRouteVariant>,
 }
 
 impl<'a> EntityRouteSheetBuilder<'a> {

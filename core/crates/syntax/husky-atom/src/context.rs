@@ -7,7 +7,7 @@ pub use symbol::*;
 use super::*;
 use defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
 use entity_kind::TyKind;
-use husky_entity_route::{entity_route_menu, EntityRouteKind, *};
+use husky_entity_route::{entity_route_menu, EntityRouteVariant, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
 use husky_file::FilePtr;
 use husky_print_utils::p;
@@ -111,7 +111,7 @@ pub trait AtomContext {
             Identifier::Contextual(ident) => match ident {
                 ContextualIdentifier::Input => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
-                        kind: EntityRouteKind::Input {
+                        kind: EntityRouteVariant::Input {
                             main: self
                                 .opt_package_main()
                                 .ok_or(error!("can't use implicit without main", range))?,
@@ -150,11 +150,11 @@ pub trait AtomContext {
 
     fn entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
         let kind_result: EntitySyntaxResult<EntityKind> = match route.kind {
-            EntityRouteKind::Child {
+            EntityRouteVariant::Child {
                 parent,
                 ident: ident0,
             } => match parent.kind {
-                EntityRouteKind::ThisType => match self.kind() {
+                EntityRouteVariant::ThisType => match self.kind() {
                     AtomContextKind::Normal => todo!(),
                     AtomContextKind::Trait {
                         member_kinds: members,
@@ -179,7 +179,7 @@ pub trait AtomContext {
                 },
                 _ => self.entity_syntax_db().entity_kind(route),
             },
-            EntityRouteKind::TypeAsTraitMember { ty, trai, ident } => todo!(),
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
             _ => self.entity_syntax_db().entity_kind(route),
         };
         match kind_result {
@@ -259,12 +259,12 @@ pub trait AtomContext {
         &self,
         generic_parameters: &[SpatialParameter],
     ) -> ThinVec<SpatialArgument> {
-        generic_parameters.map(|generic_placeholder| {
+        generic_parameters.map(|spatial_parameter| {
             SpatialArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
-                kind: EntityRouteKind::Generic {
-                    ident: generic_placeholder.ident.ident,
-                    entity_kind: generic_placeholder.entity_kind(),
-                    file: todo!(),
+                kind: EntityRouteVariant::Generic {
+                    ident: spatial_parameter.ident.ident,
+                    entity_kind: spatial_parameter.entity_kind(),
+                    file: spatial_parameter.file,
                 },
                 temporal_arguments: thin_vec![],
                 spatial_arguments: thin_vec![],
@@ -282,7 +282,7 @@ pub trait AtomContext {
                 init_ident: generic_parameter.ident,
                 kind: SymbolKind::EntityRoute(self.entity_syntax_db().intern_entity_route(
                     EntityRoute {
-                        kind: EntityRouteKind::Generic {
+                        kind: EntityRouteVariant::Generic {
                             ident: generic_parameter.ident.ident,
                             entity_kind: generic_parameter.entity_kind(),
                             file: todo!(),
