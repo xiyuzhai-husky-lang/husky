@@ -139,12 +139,9 @@ impl EntityDefn {
         match self.variant {
             EntityDefnVariant::Ty {
                 ref trait_impls, ..
-            } => {
-                p!(trait_impls);
-                trait_impls
-                    .iter()
-                    .find(|trait_impl| trait_impl.trai == trai)
-            }
+            } => trait_impls
+                .iter()
+                .find(|trait_impl| trait_impl.trai == trai),
             _ => panic!(""),
         }
     }

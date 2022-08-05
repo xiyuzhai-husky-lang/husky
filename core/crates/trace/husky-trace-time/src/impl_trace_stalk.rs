@@ -23,7 +23,6 @@ impl HuskyTraceTime {
                 self.runtime().eval_feature_repr(repr, sample_id),
                 repr.ty(),
             ),
-            TraceVariant::Module { .. } => todo!(),
             TraceVariant::EntityFeature { ref repr, .. } => self.trace_stalk_from_result(
                 self.runtime().eval_feature_repr(repr, sample_id),
                 repr.ty(),
@@ -49,7 +48,8 @@ impl HuskyTraceTime {
                 name: ident,
                 ref argument,
             } => self.trace_stalk_from_expr(argument, sample_id),
-            TraceVariant::FuncStmt { .. }
+            TraceVariant::Module { .. }
+            | TraceVariant::FuncStmt { .. }
             | TraceVariant::ProcStmt { .. }
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. }
