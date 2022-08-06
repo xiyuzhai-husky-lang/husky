@@ -214,11 +214,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i32,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut
-                | __RegisterDataKind::Box => *(self.data.as_ptr as *const i32),
-                _ => {
-                    panic!("unexpected data kind: {:?}", self.data_kind)
-                }
+                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const i32),
+                _ => panic!(),
             }
         }
     }
@@ -621,8 +618,7 @@ impl<'eval> __Register<'eval> {
 // __VirtualFunction
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_clone(data: *mut ()) -> *mut () {
-    Box::<__VirtualFunction>::into_raw(Box::new((*(data as *mut __VirtualFunction)).clone()))
-        as *mut ()
+    Box::<__VirtualFunction>::into_raw(Box::new((*(data as *mut __VirtualFunction)).clone())) as *mut ()
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
@@ -630,14 +626,12 @@ pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const __VirtualFunction)
-        == *(other as *const () as *const __VirtualFunction)
+    *(this as *const () as *const __VirtualFunction) == *(other as *const () as *const __VirtualFunction)
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<__VirtualFunction>(&__VIRTUAL_FUNCTION_VTABLE) =
-        registers[1].downcast_move(&__VIRTUAL_FUNCTION_VTABLE)
+    *registers[0].downcast_temp_mut::<__VirtualFunction>(&__VIRTUAL_FUNCTION_VTABLE) = registers[1].downcast_move(&__VIRTUAL_FUNCTION_VTABLE)
 }
 #[no_mangle]
 pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
@@ -667,8 +661,7 @@ pub unsafe extern "C" fn __virtual_enum_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_enum_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE) =
-        registers[1].downcast_move(&__VIRTUAL_ENUM_VTABLE)
+    *registers[0].downcast_temp_mut::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE) = registers[1].downcast_move(&__VIRTUAL_ENUM_VTABLE)
 }
 #[no_mangle]
 pub static __VIRTUAL_ENUM_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
