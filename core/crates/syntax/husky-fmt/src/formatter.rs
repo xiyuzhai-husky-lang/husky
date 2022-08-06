@@ -136,7 +136,7 @@ impl<'a> Formatter<'a> {
                 paradigm,
                 ident,
                 ref parameters,
-                output_ty,
+                return_ty,
                 ..
             } => {
                 enter_block(self);
@@ -162,9 +162,9 @@ impl<'a> Formatter<'a> {
                     self.fmt_func_input_liasoned_type(input_placeholder);
                 }
                 self.write(")");
-                if output_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if return_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
                     self.write(" -> ");
-                    self.fmt_ty(output_ty.route);
+                    self.fmt_ty(return_ty.route);
                 }
                 self.write(":");
             }

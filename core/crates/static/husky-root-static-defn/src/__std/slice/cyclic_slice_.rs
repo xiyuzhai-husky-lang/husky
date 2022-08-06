@@ -38,7 +38,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     variant: EntityStaticDefnVariant::Method {
                         this_liason: ParameterLiason::MemberAccess,
                         parameters: &[],
-                        output_ty: "E",
+                        return_ty: "E",
                         output_liason: OutputLiason::MemberAccess {
                             member_liason: MemberLiason::Mutable,
                         },
@@ -73,7 +73,7 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,
         parameters: &[],
-        output_ty: "E",
+        return_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
@@ -135,7 +135,7 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,
         parameters: &[],
-        output_ty: "E",
+        return_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {

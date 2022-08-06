@@ -107,7 +107,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::CallRoutine {
                     linkage_fp,
                     nargs,
-                    output_ty,
+                    return_ty,
                     discard,
                 } => {
                     // p!(ins.src.file(), ins.src.text_range());
@@ -117,7 +117,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                         });
                     }
                     let control = self
-                        .call_specific_routine(linkage_fp, nargs, output_ty, discard)
+                        .call_specific_routine(linkage_fp, nargs, return_ty, discard)
                         .into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -128,7 +128,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                     VMControl::Err(ref e) => Err(e.clone().into()),
                                     _ => Ok(self.stack.eval_top()),
                                 },
-                                ty: output_ty,
+                                ty: return_ty,
                             },
                         ),
                     }
@@ -138,7 +138,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     routine_uid,
                     nargs, // including this
                     has_this,
-                    output_ty,
+                    return_ty,
                     discard,
                 } => {
                     let instruction_sheet =
@@ -160,7 +160,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                                 ins,
                                 HistoryEntry::PureExpr {
                                     result,
-                                    ty: output_ty,
+                                    ty: return_ty,
                                 },
                             );
                         }
@@ -184,7 +184,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::Return { output_ty } => {
+                InstructionVariant::Return { return_ty } => {
                     let return_value = self.stack.pop();
                     VMControl::Return(return_value)
                 }
@@ -289,7 +289,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         linkage: __Linkage,
         nargs: u8,
-        output_ty: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
     ) -> __VMResult<__Register<'eval>> {
         match linkage {
             __Linkage::Member { .. } => todo!(),

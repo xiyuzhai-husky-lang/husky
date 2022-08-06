@@ -91,9 +91,9 @@ impl LazyValueQualifiedTy {
         self,
         db: &dyn InferQualifiedTyQueryGroup,
         output_liason: OutputLiason,
-        output_ty: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
     ) -> bool {
-        if !db.is_implicitly_castable(self.ty, output_ty) {
+        if !db.is_implicitly_castable(self.ty, return_ty) {
             return false;
         }
         match output_liason {

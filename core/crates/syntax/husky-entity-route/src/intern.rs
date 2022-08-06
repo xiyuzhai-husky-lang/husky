@@ -156,6 +156,15 @@ impl EntityRoutePtr {
         }
     }
 
+    pub fn is_option(self) -> bool {
+        match self.variant {
+            EntityRouteVariant::Root {
+                ident: RootIdentifier::Option,
+            } => true,
+            _ => false,
+        }
+    }
+
     pub fn contains_any(&self) -> bool {
         match self.variant {
             EntityRouteVariant::Child { parent, ident } => {

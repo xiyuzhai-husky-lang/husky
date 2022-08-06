@@ -17,3 +17,13 @@ pub mod __std {
         pub use cyclic_slice::CyclicSlice;
     }
 }
+
+#[macro_export]
+macro_rules! require {
+    ($condition: expr) => {
+        if !$condition {
+            return None;
+        }
+    };
+}
+pub use require;

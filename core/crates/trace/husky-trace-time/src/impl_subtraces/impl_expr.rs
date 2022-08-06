@@ -81,7 +81,7 @@ impl HuskyTraceTime {
                     ref spatial_parameters,
                     this_liason,
                     ref parameters,
-                    output_ty,
+                    return_ty,
                     output_liason,
                     ref opt_source,
                     ..

@@ -12,21 +12,21 @@ use super::*;
 use crate::*;
 
 impl<'a> ContractSheetBuilder<'a> {
-    pub(super) fn infer_eager_stmts(&mut self, ast_iter: AstIter, output_ty: EntityRoutePtr) {
+    pub(super) fn infer_eager_stmts(&mut self, ast_iter: AstIter, return_ty: EntityRoutePtr) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.variant {
-                    AstVariant::Stmt(ref stmt) => self.infer_eager_stmt(stmt, output_ty),
+                    AstVariant::Stmt(ref stmt) => self.infer_eager_stmt(stmt, return_ty),
                     _ => (),
                 }
             }
             if let Some(children) = item.opt_children {
-                self.infer_eager_stmts(children, output_ty)
+                self.infer_eager_stmts(children, return_ty)
             }
         }
     }
 
-    fn infer_eager_stmt(&mut self, stmt: &RawStmt, output_ty: EntityRoutePtr) {
+    fn infer_eager_stmt(&mut self, stmt: &RawStmt, return_ty: EntityRoutePtr) {
         match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
@@ -67,11 +67,11 @@ impl<'a> ContractSheetBuilder<'a> {
                 result,
                 return_kind,
             } => {
-                if let Ok(return_ty) = self.raw_expr_ty(result) {
+                if let Ok(expr_ty) = self.raw_expr_ty(result) {
                     if let Ok(contract) = EagerContract::ret_contract(
                         self.db.upcast(),
-                        output_ty,
                         return_ty,
+                        expr_ty,
                         return_kind,
                     ) {
                         self.infer_eager_expr(result, contract);

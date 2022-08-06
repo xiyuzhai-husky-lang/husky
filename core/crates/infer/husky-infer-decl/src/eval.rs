@@ -49,7 +49,7 @@ fn eval_input_ty_from_ast(
     }
 }
 
-fn eval_output_ty_from_ast(
+fn eval_return_ty_from_ast(
     db: &dyn DeclQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
@@ -121,7 +121,7 @@ pub(crate) fn eval_input_ty(
     )
 }
 
-pub(crate) fn eval_output_ty(
+pub(crate) fn eval_return_ty(
     db: &dyn DeclQueryGroup,
     main_file: FilePtr,
 ) -> InferResult<EntityRoutePtr> {
@@ -129,7 +129,7 @@ pub(crate) fn eval_output_ty(
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.variant {
             AstVariant::DatasetConfigDefnHead => {
-                return eval_output_ty_from_ast(
+                return eval_return_ty_from_ast(
                     db,
                     &ast_text.arena,
                     derived_not_none!(item.opt_children)?

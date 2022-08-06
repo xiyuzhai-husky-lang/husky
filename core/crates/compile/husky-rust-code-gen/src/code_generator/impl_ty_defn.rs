@@ -248,7 +248,7 @@ impl From<u8> for {tyname} {{
                 ref spatial_parameters,
                 this_liason: this_contract,
                 ref parameters,
-                output_ty,
+                return_ty,
                 output_liason,
                 opt_source: Some(ref source),
                 ..
@@ -280,7 +280,7 @@ impl From<u8> for {tyname} {{
                     self.gen_parameter(parameter)
                 }
                 self.write(") -> ");
-                self.gen_entity_route(output_ty.route, EntityRouteRole::Decl);
+                self.gen_entity_route(return_ty.route, EntityRouteRole::Decl);
                 self.write(" {\n");
                 self.gen_call_form_source(source);
                 self.write("    }\n");
@@ -315,7 +315,7 @@ impl From<u8> for {tyname} {{
                         file,
                         range,
                         ref stmts,
-                        output_ty,
+                        return_ty,
                     } => {
                         self.write("pub(crate) fn ");
                         let ident = ty_member.ident;
@@ -324,9 +324,9 @@ impl From<u8> for {tyname} {{
                             self.write("<'eval>")
                         }
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
-                        self.gen_entity_route(output_ty.route.deref_route(), EntityRouteRole::Decl);
+                        self.gen_entity_route(return_ty.route.deref_route(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
-                        let mangled_output_ty_vtable = self.db.mangled_ty_vtable(output_ty.route);
+                        let mangled_return_ty_vtable = self.db.mangled_ty_vtable(return_ty.route);
                         self.write(&format!(
                             r#" {{
     let __uid = entity_uid!(__ctx, "{route:?}");
@@ -334,7 +334,7 @@ impl From<u8> for {tyname} {{
         self as *const _ as *const (),
         __uid
     ) {{
-        return __result.unwrap().downcast_eval_ref(&__registration__::{mangled_output_ty_vtable});
+        return __result.unwrap().downcast_eval_ref(&__registration__::{mangled_return_ty_vtable});
     }}
 "#,
                         ));

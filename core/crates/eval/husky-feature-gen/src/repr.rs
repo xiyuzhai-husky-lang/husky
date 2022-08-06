@@ -103,7 +103,7 @@ impl FeatureRepr {
                 file,
                 range,
                 route,
-                output_ty: ty,
+                return_ty,
             } => FeatureRepr::FuncBlock(Arc::new(FeatureFuncBlock {
                 file: *file,
                 range: *range,
@@ -130,7 +130,7 @@ impl FeatureRepr {
                     })
                 },
                 opt_this,
-                ty: *ty,
+                ty: *return_ty,
                 opt_linkage: { db.compile_time().feature_eager_block_linkage(*route) },
             })),
             DefinitionRepr::ProcBlock {

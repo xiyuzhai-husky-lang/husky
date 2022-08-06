@@ -17,7 +17,7 @@ pub enum DefinitionRepr {
         file: FilePtr,
         range: TextRange,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
-        output_ty: RangedEntityRoute,
+        return_ty: RangedEntityRoute,
     },
     ProcBlock {
         file: FilePtr,
@@ -31,7 +31,7 @@ pub(crate) fn parse_definition_repr(
     db: &dyn EntityDefnQueryGroup,
     paradigm: Paradigm,
     route: EntityRoutePtr,
-    ty: RangedEntityRoute,
+    return_ty: RangedEntityRoute,
     arena: &RawExprArena,
     children: Option<AstIter>,
     file: FilePtr,
@@ -43,9 +43,12 @@ pub(crate) fn parse_definition_repr(
                 arena,
                 children.unwrap(),
                 file,
-                ty,
+                return_ty,
             )?;
-            DefinitionRepr::LazyBlock { stmts, ty }
+            DefinitionRepr::LazyBlock {
+                stmts,
+                ty: return_ty,
+            }
         }
         Paradigm::EagerFunctional => {
             let stmts = husky_eager_semantics::parse_func_stmts(
@@ -59,7 +62,7 @@ pub(crate) fn parse_definition_repr(
                 file,
                 range: FuncStmt::text_range(&*stmts),
                 stmts,
-                output_ty: ty,
+                return_ty,
             }
         }
         Paradigm::EagerProcedural => todo!(),

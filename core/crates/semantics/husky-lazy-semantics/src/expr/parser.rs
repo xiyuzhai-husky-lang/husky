@@ -178,7 +178,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         // let raw_opds = &self.arena()[raw_opds];
         let lopd = self.parse_lazy_expr(opds.start)?;
         let ropd = self.parse_lazy_expr(opds.start + 1)?;
-        let output_type = match opr {
+        let return_type = match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
                 self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty(), ropd.ty())?
             }

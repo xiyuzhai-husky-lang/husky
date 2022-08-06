@@ -21,11 +21,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         inputs: &[Parameter],
         ast_iter: AstIter,
-        opt_output_ty: Option<EntityRoutePtr>,
+        opt_return_ty: Option<EntityRoutePtr>,
         output_liason: OutputLiason,
     ) {
         self.add_eager_inputs(inputs);
-        self.infer_eager_stmts(ast_iter, opt_output_ty, output_liason)
+        self.infer_eager_stmts(ast_iter, opt_return_ty, output_liason)
     }
 
     fn add_eager_inputs(&mut self, inputs: &[Parameter]) {
@@ -50,20 +50,20 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn infer_eager_stmts(
         &mut self,
         ast_iter: AstIter,
-        opt_output_ty: Option<EntityRoutePtr>,
+        opt_return_ty: Option<EntityRoutePtr>,
         output_liason: OutputLiason,
     ) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
                 match value.variant {
                     AstVariant::Stmt(ref stmt) => {
-                        self.infer_eager_stmt(stmt, opt_output_ty, output_liason)
+                        self.infer_eager_stmt(stmt, opt_return_ty, output_liason)
                     }
                     _ => (),
                 }
             }
             if let Some(children) = item.opt_children {
-                self.infer_eager_stmts(children, opt_output_ty, output_liason)
+                self.infer_eager_stmts(children, opt_return_ty, output_liason)
             }
         }
     }
@@ -71,7 +71,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn infer_eager_stmt(
         &mut self,
         stmt: &RawStmt,
-        opt_output_ty: Option<EntityRoutePtr>,
+        opt_return_ty: Option<EntityRoutePtr>,
         output_liason: OutputLiason,
     ) {
         match stmt.variant {
@@ -152,18 +152,18 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
             }
             RawStmtVariant::Return { result, .. } => {
-                match (opt_output_ty, self.infer_eager_expr(result)) {
-                    (Some(output_ty), Some(qualified_ty)) => {
+                match (opt_return_ty, self.infer_eager_expr(result)) {
+                    (Some(return_ty), Some(qualified_ty)) => {
                         if !qualified_ty.is_implicitly_castable_to_output(
                             self.db,
                             output_liason,
-                            output_ty,
+                            return_ty,
                         ) {
                             self.qualified_ty_sheet.extra_errors.push(InferError {
                                 variant: InferErrorVariant::Original {
                                     message: format!(
                                         "expect return type to be `{:?}`,\n  but got `{:?}` instead",
-                                   output_ty,qualified_ty),
+                                   return_ty,qualified_ty),
                                     range: stmt.range,
                                 },
                                 dev_src: husky_dev_utils::dev_src!(),
