@@ -157,16 +157,28 @@ impl EagerContract {
             ReturnKind::Feature | ReturnKind::LazyField => {
                 if output_ty.is_ref() {
                     todo!("warn: output ty should be dereferenced")
-                } else {
-                    if output_ty == return_ty {
-                        if db.is_copyable(return_ty)? {
-                            Ok(EagerContract::Pure)
+                } else if output_ty == return_ty {
+                    if db.is_copyable(return_ty)? {
+                        Ok(EagerContract::Pure)
+                    } else {
+                        Ok(EagerContract::Pass)
+                    }
+                } else if output_ty.variant
+                    == (EntityRouteVariant::Root {
+                        ident: RootIdentifier::Option,
+                    })
+                {
+                    if output_ty.spatial_arguments[0].take_entity_route() == return_ty {
+                        Ok(if db.is_copyable(return_ty)? {
+                            EagerContract::Pure
                         } else {
-                            Ok(EagerContract::Pass)
-                        }
+                            EagerContract::Move
+                        })
                     } else {
                         todo!()
                     }
+                } else {
+                    todo!()
                 }
             }
         }

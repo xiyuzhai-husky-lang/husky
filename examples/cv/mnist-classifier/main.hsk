@@ -2,6 +2,7 @@ mod connected_component
 mod raw_contour
 mod geom2d
 mod line_segment_sketch
+mod one
 
 task:
     ml::datasets::cv::mnist::new_binary_dataset()
