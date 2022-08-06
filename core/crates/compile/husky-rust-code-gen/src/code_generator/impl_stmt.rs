@@ -57,7 +57,7 @@ impl<'a> RustCodeGenerator<'a> {
                 RawReturnContextKind::Feature => {
                     let mangled_output_ty_vtable =
                         self.db.mangled_ty_vtable(return_context.output_ty.route);
-                    self.write(format!(r#"feature_require!(__ctx, __feature, __registration__::{mangled_output_ty_vtable},"#));
+                    self.write(format!(r#"feature_require!(__ctx, __feature, __registration__::{mangled_output_ty_vtable}, "#));
                     self.gen_expr(stmt.indent, condition);
                     self.write(");");
                 }
@@ -73,12 +73,16 @@ impl<'a> RustCodeGenerator<'a> {
                         self.gen_binding(result);
                         self.gen_expr(stmt.indent, result)
                     }
-                    RawReturnContextKind::Feature => self.gen_feature_return(stmt.indent, result),
-                    RawReturnContextKind::LazyField => {
-                        self.gen_lazy_field_return(stmt.indent, result)
+                    RawReturnContextKind::Feature => {
+                        self.gen_feature_return(stmt.indent, result, return_context.output_ty.route)
                     }
+                    RawReturnContextKind::LazyField => self.gen_lazy_field_return(
+                        stmt.indent,
+                        result,
+                        return_context.output_ty.route,
+                    ),
                 }
-                self.write(";\n");
+                self.write(";")
             }
             FuncStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_func_condition_flow(stmt.indent, branches)
@@ -127,6 +131,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write("return ");
                     self.gen_binding(result);
                     self.gen_expr(stmt.indent, result);
+                    self.write(";")
                 }
                 RawReturnContextKind::Feature => todo!(),
                 RawReturnContextKind::LazyField => todo!(),
@@ -146,7 +151,6 @@ impl<'a> RustCodeGenerator<'a> {
                 ref branches,
             } => self.gen_proc_match_pattern(match_expr, stmt.indent, branches),
         }
-        self.newline();
     }
 
     fn gen_range_start(&mut self, indent: Indent, boundary: &Boundary) {

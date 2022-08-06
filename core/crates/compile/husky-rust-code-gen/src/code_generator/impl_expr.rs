@@ -346,31 +346,49 @@ impl<'a> RustCodeGenerator<'a> {
         self.write("}");
     }
 
-    pub(super) fn gen_feature_return(&mut self, indent: Indent, result: &EagerExpr) {
+    pub(super) fn gen_feature_return(
+        &mut self,
+        indent: Indent,
+        result: &EagerExpr,
+        output_ty: EntityRoutePtr,
+    ) {
         let mangled_ty_vtable = self.db.mangled_ty_vtable(result.ty());
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
-                    r#"__ctx.cache_feature(
-        __feature,
-        Ok(__Register::new_box("#,
+                    r#"__ctx
+        .cache_feature(
+            __feature,
+            Ok(__Register::new_box("#,
                 );
                 self.gen_expr(indent, result);
                 self.write(&format!(
-                    r#", &__registration__::{mangled_ty_vtable}))
-    ).unwrap().downcast_eval_ref(&__registration__::{mangled_ty_vtable})"#,
+                    r#", &__registration__::{mangled_ty_vtable})),
+        )
+        .unwrap()
+        .downcast_{}eval_ref(&__registration__::{mangled_ty_vtable})"#,
+                    match output_ty.is_option() {
+                        true => "opt_",
+                        false => "",
+                    }
                 ));
             }
             EagerExprQualifier::EvalRef => {
                 self.write(
-                    r#"__ctx.cache_feature(
-        __feature,
-        Ok(__Register::new_eval_ref(&("#,
+                    r#"__ctx
+        .cache_feature(
+            __feature,
+            Ok(__Register::new_eval_ref(&("#,
                 );
                 self.gen_expr(indent, result);
                 self.write(&format!(
-                    r#"), &__registration__::{mangled_ty_vtable}).into())
-    ).unwrap().downcast_eval_ref(&__registration__::{mangled_ty_vtable})"#,
+                    r#"), &__registration__::{mangled_ty_vtable}).into()),
+        )
+        .unwrap().downcast_{}eval_ref(&__registration__::{mangled_ty_vtable})"#,
+                    match output_ty.is_option() {
+                        true => "opt_",
+                        false => "",
+                    }
                 ));
             }
             EagerExprQualifier::PureRef
@@ -379,7 +397,12 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    pub(super) fn gen_lazy_field_return(&mut self, indent: Indent, result: &EagerExpr) {
+    pub(super) fn gen_lazy_field_return(
+        &mut self,
+        indent: Indent,
+        result: &EagerExpr,
+        output_ty: EntityRoutePtr,
+    ) {
         let mangled_ty_vtable = self.db.mangled_ty_vtable(result.ty());
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
@@ -392,7 +415,11 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_expr(indent, result);
                 self.write(&format!(
                     r#", &__registration__::{mangled_ty_vtable}))
-    ).unwrap().downcast_eval_ref(&__registration__::{mangled_ty_vtable})"#,
+    ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_ty_vtable})"#,
+                    match output_ty.is_option() {
+                        true => "opt_",
+                        false => "",
+                    }
                 ));
             }
             EagerExprQualifier::EvalRef => {

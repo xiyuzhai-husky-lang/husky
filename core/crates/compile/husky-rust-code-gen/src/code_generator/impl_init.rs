@@ -376,7 +376,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         __StaticLinkageKey::FeatureEagerBlock {{
             route: "{route}"
         }},
-        feature_linkage!("#
+        {}feature_linkage!("#,
+            match output_ty.is_option() {
+                true => "opt_",
+                false => "",
+            }
         ));
         self.gen_entity_route(route, EntityRouteRole::Caller);
         self.write(", __registration__::");
