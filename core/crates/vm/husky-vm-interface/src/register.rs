@@ -301,6 +301,27 @@ impl<'eval> __Register<'eval> {
         }
     }
 
+    pub fn downcast_opt_eval_ref<T: 'eval>(
+        &self,
+        target_ty_vtable: &__RegisterTyVTable,
+    ) -> Option<&'eval T> {
+        if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
+            panic!()
+        }
+        unsafe {
+            match self.data_kind {
+                __RegisterDataKind::PrimitiveValue => todo!(),
+                __RegisterDataKind::Box => todo!(),
+                __RegisterDataKind::EvalRef => Some(&*(self.data.as_ptr as *const T)),
+                __RegisterDataKind::TempRef => todo!(),
+                __RegisterDataKind::TempMut => todo!(),
+                __RegisterDataKind::Moved => todo!(),
+                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::Unreturned => todo!(),
+            }
+        }
+    }
+
     pub unsafe fn downcast_temp_ref<T>(&self, target_ty_vtable: &__RegisterTyVTable) -> &T {
         if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
             panic!(

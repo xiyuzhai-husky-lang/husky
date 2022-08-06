@@ -334,9 +334,15 @@ impl From<u8> for {tyname} {{
         self as *const _ as *const (),
         __uid
     ) {{
-        return __result.unwrap().downcast_eval_ref(&__registration__::{mangled_output_ty_vtable});
+        return __result
+            .unwrap()
+            .downcast_{}eval_ref(&__registration__::{mangled_output_ty_vtable});
     }}
 "#,
+                            match output_ty.route.is_option() {
+                                true => "opt_",
+                                false => "",
+                            }
                         ));
                         self.gen_func_stmts(stmts);
                         self.write("    }\n");

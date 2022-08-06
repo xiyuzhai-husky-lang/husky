@@ -22,3 +22,16 @@ macro_rules! feature_linkage {
         __Linkage::Transfer(linkage_fp!(__wrapper, none))
     }};
 }
+
+#[macro_export]
+macro_rules! opt_feature_linkage {
+    ($f: expr, $OUTPUT_TY_VTABLE: expr) => {{
+        unsafe fn __wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            __arguments: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            __Register::new_opt_eval_ref($f(__opt_ctx.unwrap()), &$OUTPUT_TY_VTABLE)
+        }
+        __Linkage::Transfer(linkage_fp!(__wrapper, none))
+    }};
+}

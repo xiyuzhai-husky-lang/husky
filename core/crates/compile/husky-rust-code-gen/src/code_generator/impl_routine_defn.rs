@@ -57,9 +57,15 @@ impl<'a> RustCodeGenerator<'a> {
             r#" {{
     let __feature = feature_ptr!(__ctx, "{feature_route:?}");
     if let Some(__result) = __ctx.opt_cached_feature(__feature) {{
-        return __result.unwrap().downcast_eval_ref(&__registration__::{mangled_output_ty_vtable});
+        return __result
+            .unwrap()
+            .downcast_{}eval_ref(&__registration__::{mangled_output_ty_vtable});
     }}
 "#,
+            match output_ty.is_option() {
+                true => "opt_",
+                false => "",
+            }
         ));
         self.gen_func_stmts(stmts);
         self.write("}\n");
