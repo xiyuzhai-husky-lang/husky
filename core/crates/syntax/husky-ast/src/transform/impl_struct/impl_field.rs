@@ -41,8 +41,8 @@ impl<'a> AstTransformer<'a> {
             _ => (),
         };
         let mut parser = AtomParser::new(self, &mut token_stream);
-        let ty = if let Some(ty) = opt_field_ty {
-            ty
+        let field_ty = if let Some(field_ty) = opt_field_ty {
+            field_ty
         } else {
             return err!(format!("expect type"), parser.token_stream.next_range());
         };
@@ -82,7 +82,7 @@ impl<'a> AstTransformer<'a> {
             self.context.set(AstContext::Stmt {
                 paradigm: Paradigm::EagerFunctional,
                 output_context: Some(RawOutputContext {
-                    output_ty: todo!(),
+                    output_ty: field_ty,
                     kind: RawOutputContextKind::Normal,
                 }),
             });
@@ -106,7 +106,7 @@ impl<'a> AstTransformer<'a> {
         Ok(AstVariant::FieldDefnHead {
             liason: field_liason,
             ranged_ident: ident,
-            field_ty: ty,
+            field_ty,
             field_ast_kind: field_kind,
         })
     }
