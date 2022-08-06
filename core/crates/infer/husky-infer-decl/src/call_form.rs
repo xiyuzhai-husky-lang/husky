@@ -176,6 +176,7 @@ impl Implementable for CallFormDecl {
 
 pub(crate) fn entity_call_form_decl(
     db: &dyn DeclQueryGroup,
+    opt_crate_entrance: Option<FilePtr>,
     route: EntityRoutePtr,
 ) -> InferQueryResultArc<CallFormDecl> {
     let source = db.entity_source(route)?;
@@ -317,7 +318,7 @@ pub(crate) fn routine_decl_from_static(
             let spatial_parameters = db.spatial_parameters_from_static(spatial_parameters);
             symbols.extend(db.symbols_from_spatial_parameters(&spatial_parameters));
             let mut symbol_context = AtomContextStandalone {
-                opt_package_main: None,
+                opt_crate_entrance: None,
                 db: db.upcast(),
                 opt_this_ty: None,
                 opt_this_contract: None,
@@ -370,7 +371,7 @@ pub(crate) fn routine_decl_from_static(
 //             let generic_parameters = db.generic_parameters_from_static(generic_parameters);
 //             symbols.extend(db.symbols_from_generic_parameters(&generic_parameters));
 //             let mut symbol_context = AtomContextStandalone {
-//                 opt_package_main: None,
+//                 opt_crate_entrance: None,
 //                 db: db.upcast(),
 //                 opt_this_ty: None,
 //                 opt_this_contract: None,

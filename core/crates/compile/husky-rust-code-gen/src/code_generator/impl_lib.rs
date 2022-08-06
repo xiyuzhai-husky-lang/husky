@@ -3,7 +3,7 @@ use super::*;
 impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_lib_rs_content(&mut self) {
         let package = self.package();
-        let crate_input_ty = self.db.crate_input_ty(package.main_file()).unwrap();
+        let crate_input_ty = self.db.crate_input_ty(package.crate_entrance()).unwrap();
         self.write(&format!(
             r#"#![allow(warnings)]
 pub mod __init__;

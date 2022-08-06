@@ -40,12 +40,20 @@ use vec_like::VecSet;
 
 #[salsa::query_group(RustGenQueryStorage)]
 pub trait RustCodeGenQueryGroup: PackageQueryGroup {
-    fn rust_lib_rs_content(&self, main_file: FilePtr) -> Arc<String>;
-    fn rust_registration_rs_content(&self, main_file: FilePtr) -> Arc<String>;
-    fn rust_init_rs_content(&self, main_file: FilePtr) -> Arc<String>;
+    fn rust_lib_rs_content(&self, crate_entrance: FilePtr) -> Arc<String>;
+    fn rust_registration_rs_content(&self, crate_entrance: FilePtr) -> Arc<String>;
+    fn rust_init_rs_content(&self, crate_entrance: FilePtr) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: EntityRoutePtr) -> Arc<String>;
-    fn entity_route_variant_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;
-    fn entity_route_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;
+    fn entity_route_variant_contains_eval_ref(
+        &self,
+        opt_crate_entrance: Option<FilePtr>,
+        entity_route: EntityRoutePtr,
+    ) -> bool;
+    fn entity_route_contains_eval_ref(
+        &self,
+        opt_crate_entrance: Option<FilePtr>,
+        entity_route: EntityRoutePtr,
+    ) -> bool;
     fn is_defn_static(&self, entity_route: EntityRoutePtr) -> bool;
     fn contains_spatial_parameters(&self, entity_route: EntityRoutePtr) -> bool;
     fn entity_immediate_link_dependees(

@@ -183,7 +183,9 @@ fn entity_source(
         EntityRouteVariant::Child { parent, ident } => {
             db.subroute_table(parent)?.entity_source(ident)
         }
-        EntityRouteVariant::CrateInputValue { main } => Ok(EntitySource::Input { main_file: main }),
+        EntityRouteVariant::CrateInputValue { main } => Ok(EntitySource::Input {
+            crate_entrance: main,
+        }),
         EntityRouteVariant::Any {
             ident, file, range, ..
         } => Ok(EntitySource::Any {
@@ -241,7 +243,7 @@ pub enum ModuleFromFileRule {
 pub trait EntitySyntaxQueryGroup:
     EntitySyntaxSalsaQueryGroup + InternEntityRoute + Upcast<dyn EntitySyntaxSalsaQueryGroup>
 {
-    fn opt_package_main(&self) -> Option<FilePtr>;
+    fn opt_crate_entrance(&self) -> Option<FilePtr>;
 
     fn subroute_result(
         &self,
@@ -309,9 +311,9 @@ pub trait EntitySyntaxQueryGroup:
         }
     }
 
-    fn collect_source_files(&self, main_file: FilePtr) -> Vec<FilePtr> {
-        should!(main_file.ends_with("main.hsk"));
-        collect_all_source_files(main_file.parent().unwrap().to_path_buf())
+    fn collect_source_files(&self, crate_entrance: FilePtr) -> Vec<FilePtr> {
+        should!(crate_entrance.ends_with("main.hsk"));
+        collect_all_source_files(crate_entrance.parent().unwrap().to_path_buf())
             .into_iter()
             .map(|path| self.intern_file(path))
             .collect()

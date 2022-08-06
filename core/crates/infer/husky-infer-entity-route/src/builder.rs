@@ -12,7 +12,7 @@ use std::sync::Arc;
 pub struct EntityRouteSheetBuilder<'a> {
     db: &'a dyn InferEntityRouteQueryGroup,
     arena: &'a RawExprArena,
-    main_file: FilePtr,
+    crate_entrance: FilePtr,
     entity_route_sheet: EntityRouteSheet,
     trait_uses: LocalStack<EntityRouteVariant>,
 }
@@ -27,21 +27,21 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         arena: &'a RawExprArena,
         ast_text: Arc<AstText>,
     ) -> Self {
-        let main_file = db.main_file(ast_text.file).unwrap();
+        let crate_entrance = db.crate_entrance(ast_text.file).unwrap();
         let mut global_errors = Vec::new();
-        match db.crate_input_ty(main_file) {
+        match db.crate_input_ty(crate_entrance) {
             Ok(_) => (),
             Err(e) => global_errors.push(e),
         }
-        match db.crate_output_ty(main_file) {
+        match db.crate_output_ty(crate_entrance) {
             Ok(_) => (),
             Err(e) => global_errors.push(e),
         }
         Self {
             db,
             arena,
-            main_file,
-            entity_route_sheet: EntityRouteSheet::new(ast_text, global_errors),
+            crate_entrance,
+            entity_route_sheet: EntityRouteSheet::new(crate_entrance, ast_text, global_errors),
             trait_uses: LocalStack::new(),
         }
     }
@@ -81,7 +81,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         self.infer_all(children)
                     }
                     AstVariant::MainDefnHead => {
-                        let opt_output_ty = self.db.crate_output_ty(self.main_file).ok();
+                        let opt_output_ty = self.db.crate_output_ty(self.crate_entrance).ok();
                         self.infer_function(&[], opt_output_ty, children)
                     }
                     AstVariant::DatasetConfigDefnHead => {

@@ -43,8 +43,8 @@ impl CompilerInstance {
             package_dir: package_dir.clone(),
         });
         compile_time.load_package(&package_dir);
-        let main_file = compile_time.unique_main_file();
-        let package = compile_time.package(main_file).unwrap();
+        let crate_entrance = compile_time.unique_main_file();
+        let package = compile_time.package(crate_entrance).unwrap();
         let rust_dir = self.getx_rust_gen_cache_dir(&package);
         let husky_code_snapshot_dir = self.getx_husky_code_snapshot_dir(&package);
         let src_dir = getx_child_dir(&rust_dir, "src");
@@ -52,7 +52,7 @@ impl CompilerInstance {
         self.save_husky_code_snapshot(
             &compile_time,
             &husky_code_snapshot_dir.join("main.hsk"),
-            main_file,
+            crate_entrance,
         );
 
         let cargo_config_path = getx_child_dir(&rust_dir, ".cargo").join("config.toml");
@@ -92,25 +92,25 @@ debug = 1
         // Cargo.toml
         diff_write(
             &rust_dir.join("Cargo.toml"),
-            &compile_time.cargo_toml_content(main_file, &self.husky_dir),
+            &compile_time.cargo_toml_content(crate_entrance, &self.husky_dir),
         );
 
         // lib.rs
         diff_write(
             &src_dir.join("lib.rs"),
-            &compile_time.rust_lib_rs_content(main_file),
+            &compile_time.rust_lib_rs_content(crate_entrance),
         );
 
         // __init__.rs
         diff_write(
             &src_dir.join("__init__.rs"),
-            &compile_time.rust_init_rs_content(main_file),
+            &compile_time.rust_init_rs_content(crate_entrance),
         );
 
         // __init__.rs
         diff_write(
             &src_dir.join("__registration__.rs"),
-            &compile_time.rust_registration_rs_content(main_file),
+            &compile_time.rust_registration_rs_content(crate_entrance),
         );
 
         for module in package.subentities.iter() {
@@ -159,11 +159,11 @@ debug = 1
         &self,
         compile_time: &HuskyComptime,
         husky_code_snapshot_path: &Path,
-        main_file: FilePtr,
+        crate_entrance: FilePtr,
     ) {
         diff_write(
             husky_code_snapshot_path,
-            compile_time.file_content(main_file).to_str().unwrap(),
+            compile_time.file_content(crate_entrance).to_str().unwrap(),
         );
     }
 }

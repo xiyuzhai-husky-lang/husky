@@ -42,12 +42,12 @@ impl HuskyTraceTime {
         subtrace_ids
     }
 }
-// let main_file = self.comptime().main_file();
-// let main_feature_repr = self.runtime().main_feature_repr(main_file);
+// let crate_entrance = self.comptime().crate_entrance();
+// let main_feature_repr = self.runtime().main_feature_repr(crate_entrance);
 // println!(
 //     "{} milliseconds elapsed for computing main feature",
 //     now.elapsed().as_millis(),
 // );
-// let module = self.comptime().module(main_file).unwrap();
+// let module = self.comptime().module(crate_entrance).unwrap();
 
 // self.root_trace_ids = root_trace_ids

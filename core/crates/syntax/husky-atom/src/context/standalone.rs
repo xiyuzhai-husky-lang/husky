@@ -3,7 +3,7 @@ use husky_check_utils::should;
 use super::*;
 
 pub struct AtomContextStandalone<'a> {
-    pub opt_package_main: Option<FilePtr>,
+    pub opt_crate_entrance: Option<FilePtr>,
     pub opt_file: Option<FilePtr>,
     pub db: &'a dyn EntitySyntaxQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
@@ -13,8 +13,8 @@ pub struct AtomContextStandalone<'a> {
 }
 
 impl<'a> AtomContext for AtomContextStandalone<'a> {
-    fn opt_package_main(&self) -> Option<FilePtr> {
-        self.opt_package_main
+    fn opt_crate_entrance(&self) -> Option<FilePtr> {
+        self.opt_crate_entrance
     }
 
     fn entity_syntax_db(&self) -> &dyn EntitySyntaxQueryGroup {

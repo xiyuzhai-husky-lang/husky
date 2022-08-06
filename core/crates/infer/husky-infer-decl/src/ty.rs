@@ -59,7 +59,7 @@ impl TyDecl {
                     db.spatial_arguments_from_spatial_parameters(&generic_parameters);
                 let symbols = db.symbols_from_spatial_parameters(&generic_parameters);
                 let mut symbol_context = AtomContextStandalone {
-                    opt_package_main: None,
+                    opt_crate_entrance: None,
                     db: db.upcast(),
                     opt_this_ty: None,
                     opt_this_contract: None,
@@ -636,7 +636,7 @@ pub(crate) fn call_form_decl_from_static(
             let generic_parameters = db.spatial_parameters_from_static(generic_parameters);
             symbols.extend(db.symbols_from_spatial_parameters(&generic_parameters));
             let mut symbol_context = AtomContextStandalone {
-                opt_package_main: None,
+                opt_crate_entrance: None,
                 db: db.upcast(),
                 opt_this_ty: None,
                 opt_this_contract: None,

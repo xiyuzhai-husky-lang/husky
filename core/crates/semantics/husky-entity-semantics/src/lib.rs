@@ -264,7 +264,7 @@ pub enum EntityDefnVariant {
         value: usize,
     },
     Input {
-        main_file: FilePtr,
+        crate_entrance: FilePtr,
     },
     Any,
 }
@@ -334,7 +334,7 @@ impl EntityDefnVariant {
                 members,
             } => {
                 let mut symbol_context = AtomContextStandalone {
-                    opt_package_main: symbol_context.opt_package_main(),
+                    opt_crate_entrance: symbol_context.opt_crate_entrance(),
                     db: symbol_context.entity_syntax_db(),
                     opt_this_ty: None,
                     opt_this_contract: None,
@@ -423,14 +423,14 @@ impl EntityDefnVariant {
 
 pub(crate) fn main_defn(
     this: &dyn EntityDefnQueryGroup,
-    main_file: husky_file::FilePtr,
+    crate_entrance: husky_file::FilePtr,
 ) -> SemanticResultArc<MainDefn> {
-    let ast_text = this.ast_text(main_file).unwrap();
+    let ast_text = this.ast_text(crate_entrance).unwrap();
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref().unwrap().variant {
             AstVariant::MainDefnHead => {
                 let ty = RangedEntityRoute {
-                    route: this.crate_output_ty(main_file).unwrap(),
+                    route: this.crate_output_ty(crate_entrance).unwrap(),
                     range: Default::default(),
                 };
                 return Ok(Arc::new(MainDefn {
@@ -439,12 +439,12 @@ pub(crate) fn main_defn(
                             this.upcast(),
                             &ast_text.arena,
                             not_none!(item.opt_children),
-                            main_file,
+                            crate_entrance,
                             ty,
                         )?,
                         ty,
                     },
-                    file: main_file,
+                    file: crate_entrance,
                 }));
             }
             _ => (),
@@ -462,7 +462,7 @@ pub(crate) fn entity_defn(
         EntitySource::StaticModuleItem(static_defn) => Ok(EntityDefn::from_static(
             db,
             &mut AtomContextStandalone {
-                opt_package_main: None,
+                opt_crate_entrance: None,
                 db: db.upcast(),
                 opt_this_ty: None,
                 opt_this_contract: None,
@@ -563,14 +563,14 @@ pub(crate) fn entity_defn(
             ))
         }
         EntitySource::Module { file } => module_defn(db, entity_route, file),
-        EntitySource::Input { main_file } => {
+        EntitySource::Input { crate_entrance } => {
             msg_once!("use task config for input defn");
             Ok(Arc::new(EntityDefn {
                 ident: entity_route.ident(),
-                variant: EntityDefnVariant::Input { main_file },
+                variant: EntityDefnVariant::Input { crate_entrance },
                 subentities: Default::default(),
                 base_route: entity_route,
-                file: main_file,
+                file: crate_entrance,
                 range: Default::default(),
             }))
         }

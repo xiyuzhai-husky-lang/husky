@@ -61,7 +61,9 @@ impl From<u8> for {tyname} {{
     }
 }"#,
         );
-        let ty_contains_eval_ref = self.db.entity_route_variant_contains_eval_ref(base_route);
+        let ty_contains_eval_ref = self
+            .db
+            .entity_route_variant_contains_eval_ref(Some(self.crate_entrance), base_route);
         self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
         self.gen_any_value_impl(base_route, tyname, ty_contains_eval_ref);
     }
@@ -76,7 +78,9 @@ impl From<u8> for {tyname} {{
         self.write("#[derive(Debug, Clone, PartialEq)]\n");
         self.result += "pub(crate) struct ";
         self.result += tyname.0;
-        let ty_contains_eval_ref = self.db.entity_route_variant_contains_eval_ref(base_route);
+        let ty_contains_eval_ref = self
+            .db
+            .entity_route_variant_contains_eval_ref(Some(self.crate_entrance), base_route);
         if ty_contains_eval_ref {
             self.write("<'eval>")
         }

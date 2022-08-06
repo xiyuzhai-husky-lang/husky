@@ -9,15 +9,15 @@ use semantics_error::*;
 
 #[salsa::query_group(PackageQueryGroupStorage)]
 pub trait PackageQueryGroup: EntityDefnQueryGroup {
-    fn package(&self, main_file: husky_file::FilePtr) -> SemanticResultArc<Package>;
-    fn config(&self, main_file: husky_file::FilePtr) -> SemanticResultArc<Config>;
+    fn package(&self, crate_entrance: husky_file::FilePtr) -> SemanticResultArc<Package>;
+    fn config(&self, crate_entrance: husky_file::FilePtr) -> SemanticResultArc<Config>;
 }
 
 fn package(
     db: &dyn PackageQueryGroup,
-    main_file: husky_file::FilePtr,
+    crate_entrance: husky_file::FilePtr,
 ) -> SemanticResultArc<Package> {
-    let module = db.module(main_file).unwrap();
+    let module = db.module(crate_entrance).unwrap();
     let ident = match module.variant {
         EntityRouteVariant::Package { ident, .. } => ident,
         _ => panic!(),
@@ -25,17 +25,17 @@ fn package(
     Ok(Arc::new(Package {
         ident,
         subentities: db.subentity_defns(module)?,
-        main_defn: db.main_defn(main_file)?,
-        config: db.config(main_file)?,
+        main_defn: db.main_defn(crate_entrance)?,
+        config: db.config(crate_entrance)?,
     }))
 }
 
 fn config(
     this: &dyn PackageQueryGroup,
-    main_file: husky_file::FilePtr,
+    crate_entrance: husky_file::FilePtr,
 ) -> SemanticResultArc<Config> {
-    let ast_text = this.ast_text(main_file).unwrap();
-    config_from_ast(this, &ast_text, main_file)
+    let ast_text = this.ast_text(crate_entrance).unwrap();
+    config_from_ast(this, &ast_text, crate_entrance)
 }
 
 fn config_from_ast(

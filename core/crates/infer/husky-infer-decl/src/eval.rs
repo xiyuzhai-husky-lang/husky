@@ -28,7 +28,7 @@ fn crate_input_ty_from_ast(
                         ..
                     } => {
                         let signature_result: InferResult<_> =
-                            db.entity_call_form_decl(route).bind_into(caller);
+                            db.entity_call_form_decl(None, route).bind_into(caller);
                         let dataset_type = signature_result?.output.ty;
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
@@ -71,7 +71,7 @@ fn crate_output_ty_from_ast(
                         ..
                     } => {
                         let call_decl_result: InferResult<_> =
-                            db.entity_call_form_decl(route).bind_into(caller);
+                            db.entity_call_form_decl(None, route).bind_into(caller);
                         let dataset_type = call_decl_result?.output.ty;
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
@@ -96,9 +96,9 @@ fn crate_output_ty_from_ast(
 
 pub(crate) fn crate_input_ty(
     db: &dyn DeclQueryGroup,
-    main_file: FilePtr,
+    crate_entrance: FilePtr,
 ) -> InferResult<EntityRoutePtr> {
-    let ast_text = db.ast_text(main_file)?;
+    let ast_text = db.ast_text(crate_entrance)?;
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.variant {
             AstVariant::DatasetConfigDefnHead => {
@@ -123,9 +123,9 @@ pub(crate) fn crate_input_ty(
 
 pub(crate) fn crate_output_ty(
     db: &dyn DeclQueryGroup,
-    main_file: FilePtr,
+    crate_entrance: FilePtr,
 ) -> InferResult<EntityRoutePtr> {
-    let ast_text = db.ast_text(main_file)?;
+    let ast_text = db.ast_text(crate_entrance)?;
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.variant {
             AstVariant::DatasetConfigDefnHead => {
