@@ -22,6 +22,51 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
         let ty = this.ty();
         let visualizer: Arc<Visualizer> = self.db.compile_time().visualizer(ty);
         match visualizer.variant {
+            VisualizerVariant::Option {
+                ref intrinsic_visualizer,
+            } => {
+                let value = self.eval_feature_repr_cached(&this)?;
+                match value.data_kind() {
+                    __RegisterDataKind::PrimitiveValue => todo!(),
+                    __RegisterDataKind::Box => todo!(),
+
+                    __RegisterDataKind::EvalRef => {
+                        self.visualize_intrinsic(this, intrinsic_visualizer)
+                    }
+                    __RegisterDataKind::TempRef => todo!(),
+                    __RegisterDataKind::TempMut => todo!(),
+                    __RegisterDataKind::Moved => todo!(),
+                    __RegisterDataKind::Undefined => todo!(),
+                    __RegisterDataKind::Unreturned => todo!(),
+                }
+            }
+            _ => self.visualize_intrinsic(this, &visualizer),
+        }
+        // let visualizer = self.db.compile_time().visualizer(this.ty());
+        // let this_value = self.eval_feature_repr_cached(&this).unwrap();
+        // todo!()
+        // if let Some(visual_data) =
+        //     this_value
+        //         .eval_ref()
+        //         .0
+        //         .__opt_visualize_dyn(&mut |index, elem| {
+
+        //         })?
+        // {
+        //     return Ok(visual_data);
+        // }
+    }
+
+    pub fn visualize_intrinsic(
+        &self,
+        this: FeatureRepr,
+        visualizer: &Visualizer,
+    ) -> __VMResult<VisualData>
+    where
+        'eval: 'static,
+    {
+        let ty = this.ty().intrinsic();
+        match visualizer.variant {
             VisualizerVariant::Group { element_ty } => {
                 let ty_data_viewer = self.db.ty_data_viewer(ty);
                 let value = self.eval_feature_repr_cached(&this)?;
@@ -61,22 +106,9 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                 (fp.0)(&value)
             }
             VisualizerVariant::Any => todo!(),
+            VisualizerVariant::Option { .. } => panic!(),
         }
-        // let visualizer = self.db.compile_time().visualizer(this.ty());
-        // let this_value = self.eval_feature_repr_cached(&this).unwrap();
-        // todo!()
-        // if let Some(visual_data) =
-        //     this_value
-        //         .eval_ref()
-        //         .0
-        //         .__opt_visualize_dyn(&mut |index, elem| {
-
-        //         })?
-        // {
-        //     return Ok(visual_data);
-        // }
     }
-
     fn visualize_cyclic_slice(&self) -> __VMResult<VisualData> {
         todo!()
     }
