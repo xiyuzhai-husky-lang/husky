@@ -46,7 +46,9 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(");");
             }
             FuncStmtVariant::Require { ref condition } => {
-                todo!()
+                self.write("require!(");
+                self.gen_expr(stmt.indent, condition);
+                self.write(");");
             }
             FuncStmtVariant::Return {
                 ref result,
