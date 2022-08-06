@@ -68,7 +68,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
                     return true;
                 }
             }
-            if db.entity_route_contains_eval_ref(call_form_decl.output.ty) {
+            if db.entity_route_contains_eval_ref(call_form_decl.output.ty()) {
                 return true;
             }
         }
@@ -84,7 +84,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
                     return true;
                 }
             }
-            if db.entity_route_contains_eval_ref(call_form_decl.output.ty) {
+            if db.entity_route_contains_eval_ref(call_form_decl.output.ty()) {
                 return true;
             }
         }

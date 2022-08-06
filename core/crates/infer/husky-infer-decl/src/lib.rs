@@ -1,9 +1,9 @@
 mod call_form;
-mod eval;
 mod feature;
 mod impl_parse;
 mod input;
 mod member;
+mod target;
 mod trai;
 mod ty;
 
@@ -16,7 +16,6 @@ pub use ty::*;
 
 use defn_head::*;
 use entity_kind::TyKind;
-use eval::*;
 use feature::*;
 use fold::FoldableStorage;
 use husky_ast::*;
@@ -30,6 +29,7 @@ use husky_word::{CustomIdentifier, RootIdentifier};
 use infer_error::*;
 use static_defn::*;
 use std::sync::Arc;
+use target::*;
 
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
@@ -43,6 +43,7 @@ pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
     fn feature_decl(&self, feature_entity: EntityRoutePtr) -> InferResultArc<FeatureDecl>;
     fn target_input_ty(&self) -> InferResult<EntityRoutePtr>;
     fn target_output_ty(&self) -> InferResult<EntityRoutePtr>;
+    fn implement_target(&self, ty: EntityRoutePtr) -> InferResult<EntityRoutePtr>;
     // fn vec_decl(&self) -> Arc<TyDecl>;
     // fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
     fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx;

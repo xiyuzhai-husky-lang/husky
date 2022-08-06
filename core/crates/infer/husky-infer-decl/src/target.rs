@@ -1,7 +1,7 @@
 use husky_file::FilePtr;
 use husky_text::{BindTextRangeInto, TextRange};
 use husky_word::RootIdentifier;
-use thin_vec::thin_vec;
+use thin_vec::{thin_vec, ThinVec};
 use vm::*;
 
 use crate::*;
@@ -29,7 +29,7 @@ fn target_input_ty_from_ast(
                     } => {
                         let signature_result: InferResult<_> =
                             db.entity_call_form_decl(route).bind_into(caller);
-                        let dataset_type = signature_result?.output.ty;
+                        let dataset_type = signature_result?.output.ty();
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
                                 ident: RootIdentifier::DatasetType,
@@ -72,7 +72,7 @@ fn target_output_ty_from_ast(
                     } => {
                         let call_decl_result: InferResult<_> =
                             db.entity_call_form_decl(route).bind_into(caller);
-                        let dataset_type = call_decl_result?.output.ty;
+                        let dataset_type = call_decl_result?.output.ty();
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
                                 ident: RootIdentifier::DatasetType,
@@ -137,4 +137,51 @@ pub(crate) fn target_output_ty(db: &dyn DeclQueryGroup) -> InferResult<EntityRou
         }
     }
     throw_derived!("dataset config not found in main, so output type can't be inferred")
+}
+
+pub(crate) fn implement_target(
+    db: &dyn DeclQueryGroup,
+    ty: EntityRoutePtr,
+) -> InferResult<EntityRoutePtr> {
+    let mut spatial_arguments: ThinVec<_> = Default::default();
+    let variant = match ty.variant {
+        EntityRouteVariant::Root { ident } => EntityRouteVariant::Root { ident },
+        EntityRouteVariant::Package { main, ident } => EntityRouteVariant::Package { main, ident },
+        EntityRouteVariant::Child { parent, ident } => EntityRouteVariant::Child {
+            parent: db.implement_target(parent)?,
+            ident,
+        },
+        EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
+        EntityRouteVariant::CrateInputValue => todo!(),
+        EntityRouteVariant::TargetOutputType => {
+            let target_output_ty = db.target_output_ty()?;
+            spatial_arguments = target_output_ty.spatial_arguments.clone();
+            target_output_ty.variant.clone()
+        }
+        EntityRouteVariant::Any {
+            ident,
+            entity_kind,
+            file,
+            range,
+        } => EntityRouteVariant::Any {
+            ident,
+            entity_kind,
+            file,
+            range,
+        },
+        EntityRouteVariant::ThisType => EntityRouteVariant::ThisType,
+    };
+    for arg in ty.spatial_arguments.iter() {
+        spatial_arguments.push(match arg {
+            SpatialArgument::Const(value) => SpatialArgument::Const(*value),
+            SpatialArgument::EntityRoute(route) => {
+                SpatialArgument::EntityRoute(db.implement_target(*route)?)
+            }
+        })
+    }
+    Ok(db.intern_entity_route(EntityRoute {
+        variant,
+        temporal_arguments: Default::default(),
+        spatial_arguments,
+    }))
 }

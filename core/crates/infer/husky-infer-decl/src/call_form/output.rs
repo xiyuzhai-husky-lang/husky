@@ -6,8 +6,27 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct OutputDecl {
-    pub liason: OutputLiason,
-    pub ty: EntityRoutePtr,
+    liason: OutputLiason,
+    ty: EntityRoutePtr,
+}
+
+impl OutputDecl {
+    pub(crate) fn new(
+        db: &dyn DeclQueryGroup,
+        liason: OutputLiason,
+        ty: EntityRoutePtr,
+    ) -> InferResult<Self> {
+        let ty = implement_target(db, ty)?;
+        Ok(Self { liason, ty })
+    }
+
+    pub fn liason(&self) -> OutputLiason {
+        self.liason
+    }
+
+    pub fn ty(&self) -> EntityRoutePtr {
+        self.ty
+    }
 }
 
 impl Instantiable for OutputDecl {

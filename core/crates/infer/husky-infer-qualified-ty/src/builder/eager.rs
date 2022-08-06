@@ -469,16 +469,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
             }
         }
-        match call_decl.output.liason {
+        match call_decl.output.liason() {
             OutputLiason::Transfer => {
                 msg_once!("handle ref");
                 Ok(EagerValueQualifiedTy::new(
-                    if self.db.is_copyable(call_decl.output.ty)? {
+                    if self.db.is_copyable(call_decl.output.ty())? {
                         EagerExprQualifier::Copyable
                     } else {
                         EagerExprQualifier::Transient
                     },
-                    call_decl.output.ty,
+                    call_decl.output.ty(),
                 ))
             }
             OutputLiason::MemberAccess { .. } => todo!(),
@@ -521,9 +521,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         for input in inputs {
             self.infer_eager_expr(input);
         }
-        let is_element_copyable = self.db.is_copyable(call_form_decl.output.ty)?;
+        let is_element_copyable = self.db.is_copyable(call_form_decl.output.ty())?;
         let output_contract = self.eager_expr_contract(idx)?;
-        let qual = match call_form_decl.output.liason {
+        let qual = match call_form_decl.output.liason() {
             OutputLiason::Transfer => {
                 if is_element_copyable {
                     EagerExprQualifier::Copyable
@@ -538,6 +538,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 is_element_copyable,
             ),
         };
-        Ok(EagerValueQualifiedTy::new(qual, call_form_decl.output.ty))
+        Ok(EagerValueQualifiedTy::new(qual, call_form_decl.output.ty()))
     }
 }

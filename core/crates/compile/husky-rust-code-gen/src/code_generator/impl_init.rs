@@ -166,7 +166,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                         let method_name = entity_route.ident().as_str();
                         let mangled_ty_vtable = self.db.mangled_ty_vtable(parent);
                         let mangled_output_ty_vtable =
-                            self.db.mangled_ty_vtable(call_form_decl.output.ty);
+                            self.db.mangled_ty_vtable(call_form_decl.output.ty());
                         self.write(&format!(
                             ", __registration__::{mangled_ty_vtable}, __registration__::{mangled_output_ty_vtable}, {method_name})"
                         ))
@@ -310,7 +310,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             r#"
                     "#
         ));
-        let is_output_ty_primitive = decl.output.ty.is_primitive();
+        let is_output_ty_primitive = decl.output.ty().is_primitive();
         if !is_output_ty_primitive {
             self.write("__Register::new_box(");
         }
@@ -340,7 +340,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 self.write("__variadics")
             }
         }
-        let mangled_output_ty_vtable = self.db.mangled_ty_vtable(decl.output.ty);
+        let mangled_output_ty_vtable = self.db.mangled_ty_vtable(decl.output.ty());
         if is_output_ty_primitive {
             self.write(&format!(
                 r#").to_register()

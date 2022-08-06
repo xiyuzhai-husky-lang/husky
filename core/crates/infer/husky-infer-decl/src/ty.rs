@@ -42,8 +42,11 @@ pub struct TyDecl {
 }
 
 impl TyDecl {
-    fn from_static(db: &dyn DeclQueryGroup, static_defn: &EntityStaticDefn) -> Arc<Self> {
-        match static_defn.variant {
+    fn from_static(
+        db: &dyn DeclQueryGroup,
+        static_defn: &EntityStaticDefn,
+    ) -> InferResultArc<Self> {
+        Ok(match static_defn.variant {
             EntityStaticDefnVariant::Ty {
                 base_route,
                 spatial_parameters: generic_parameters,
@@ -73,19 +76,27 @@ impl TyDecl {
                     spatial_arguments: generic_arguments,
                 });
                 symbol_context.opt_this_ty = Some(this_ty);
-                let opt_type_call = opt_type_call.map(|type_call| {
-                    routine_decl_from_static(db, symbols.clone(), this_ty, type_call)
-                });
+                let opt_type_call = if let Some(type_call) = opt_type_call {
+                    Some(routine_decl_from_static(
+                        db,
+                        symbols.clone(),
+                        this_ty,
+                        type_call,
+                    )?)
+                } else {
+                    None
+                };
                 let ty_members: IdentDict<_> = type_members
                     .iter()
                     .map(|member| {
                         TyMemberDecl::from_static(
+                            db,
                             &mut symbol_context,
                             db.subroute(this_ty, db.intern_word(member.name).custom(), thin_vec![]),
                             member,
                         )
                     })
-                    .collect();
+                    .collect::<InferResult<_>>()?;
                 let variants: IdentDict<_> = variants.map(|static_decl| {
                     EnumVariantDecl::from_static(db, static_decl, &mut symbol_context)
                 });
@@ -107,7 +118,7 @@ impl TyDecl {
                 )
             }
             _ => panic!(""),
-        }
+        })
     }
 
     fn from_ast(
@@ -166,10 +177,7 @@ impl TyDecl {
                     primary_parameters,
                     variadic_template: VariadicTemplate::None,
                     keyword_parameters,
-                    output: OutputDecl {
-                        ty,
-                        liason: OutputLiason::Transfer,
-                    },
+                    output: OutputDecl::new(db, OutputLiason::Transfer, ty)?,
                     opt_this_liason: None,
                     is_lazy: match kind {
                         TyKind::Record => true,
@@ -276,14 +284,19 @@ impl TyDecl {
                         Paradigm::EagerProcedural => todo!(),
                         Paradigm::EagerFunctional => throw_query_derived!(members.insert_new(
                             TyMemberDecl::Method(CallFormDecl::from_ast(
+                                db,
                                 make_subroute(this_ty, ident.ident, thin_vec![]),
                                 ast,
-                            ))
+                            )?)
                         )),
                         Paradigm::LazyFunctional => todo!(),
                     },
                     None => throw_query_derived!(members.insert_new(TyMemberDecl::Call(
-                        CallFormDecl::from_ast(db.subroute(this_ty, ident.ident, thin_vec![]), ast,)
+                        CallFormDecl::from_ast(
+                            db,
+                            db.subroute(this_ty, ident.ident, thin_vec![]),
+                            ast,
+                        )?
                     ))),
                 },
                 AstVariant::Use { .. } => todo!(),
@@ -535,7 +548,7 @@ pub(crate) fn ty_decl(
             EntityStaticDefnVariant::Function { .. } => todo!(),
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Ty { .. } => {
-                let base_decl = TyDecl::from_static(db, static_defn);
+                let base_decl = TyDecl::from_static(db, static_defn)?;
                 if ty_route.spatial_arguments.len() > 0 {
                     assert_eq!(
                         ty_route.spatial_arguments.len(),
@@ -622,7 +635,7 @@ pub(crate) fn call_form_decl_from_static(
     db: &dyn DeclQueryGroup,
     mut symbols: Vec<Symbol>,
     static_defn: &EntityStaticDefn,
-) -> Arc<CallFormDecl> {
+) -> InferResultArc<CallFormDecl> {
     match static_defn.variant {
         EntityStaticDefnVariant::Method {
             this_liason,
@@ -650,19 +663,16 @@ pub(crate) fn call_form_decl_from_static(
             });
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
-            Arc::new(CallFormDecl {
+            Ok(Arc::new(CallFormDecl {
                 spatial_parameters: generic_parameters,
                 primary_parameters,
-                output: OutputDecl {
-                    liason: output_liason,
-                    ty: output_ty,
-                },
+                output: OutputDecl::new(db, output_liason, output_ty)?,
                 opt_this_liason: Some(this_liason),
                 is_lazy: false,
                 opt_base_route: todo!(),
                 variadic_template: todo!(),
                 keyword_parameters: todo!(),
-            })
+            }))
         }
         _ => panic!(""),
     }
