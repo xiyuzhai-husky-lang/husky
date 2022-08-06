@@ -76,7 +76,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     AstVariant::MainDefnHead => self.infer_lazy_call_form(
                         &[],
                         children,
-                        self.db.eval_output_ty(self.main_file).ok(),
+                        self.db.eval_return_ty(self.main_file).ok(),
                         OutputLiason::Transfer,
                     ),
                     AstVariant::DatasetConfigDefnHead => self.infer_eager_call_form(
@@ -87,13 +87,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     ),
                     AstVariant::CallFormDefnHead {
                         ref parameters,
-                        output_ty,
+                        return_ty,
                         output_liason,
                         ..
                     } => self.infer_eager_call_form(
                         parameters,
                         children,
-                        Some(output_ty.route),
+                        Some(return_ty.route),
                         output_liason,
                     ),
                     AstVariant::Visual => {

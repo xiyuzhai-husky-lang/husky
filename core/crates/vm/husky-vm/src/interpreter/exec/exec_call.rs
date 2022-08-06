@@ -7,7 +7,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         f: __LinkageFp,
         nargs: u8,
-        output_ty: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
         discard: bool,
     ) -> __VMResult<()> {
         let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
@@ -64,7 +64,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         linkage: __Linkage,
         nargs: u8,
-        output_ty: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
     ) -> __VMResult<()> {
         todo!()
     }

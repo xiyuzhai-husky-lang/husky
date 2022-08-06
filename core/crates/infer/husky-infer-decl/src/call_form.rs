@@ -43,7 +43,7 @@ impl CallFormDecl {
                 paradigm,
                 ref spatial_parameters,
                 ref parameters,
-                output_ty,
+                return_ty,
                 output_liason,
                 opt_this_liason,
             } => Arc::new(CallFormDecl {
@@ -55,7 +55,7 @@ impl CallFormDecl {
                     .map(|parameter| parameter.into())
                     .collect(),
                 output: OutputDecl {
-                    ty: output_ty.route,
+                    ty: return_ty.route,
                     liason: output_liason,
                 },
                 keyword_parameters: Default::default(),
@@ -75,13 +75,13 @@ impl CallFormDecl {
             EntityStaticDefnVariant::Method {
                 this_liason,
                 parameters,
-                output_ty,
+                return_ty,
                 output_liason,
                 spatial_parameters,
                 method_static_defn_kind: method_kind,
                 ..
             } => {
-                let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
+                let return_ty = symbol_context.parse_entity_route(return_ty).unwrap();
                 Arc::new(Self {
                     opt_base_route: Some(base_route),
                     opt_this_liason: Some(this_liason),
@@ -89,7 +89,7 @@ impl CallFormDecl {
                         .map(|input| ParameterDecl::from_static(symbol_context, input)),
                     output: OutputDecl {
                         liason: output_liason,
-                        ty: output_ty,
+                        ty: return_ty,
                     },
                     spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                         SpatialParameter::from_static(
@@ -308,7 +308,7 @@ pub(crate) fn routine_decl_from_static(
         EntityStaticDefnVariant::Function {
             ref spatial_parameters,
             ref parameters,
-            output_ty,
+            return_ty,
             output_liason,
             ref linkage,
             ref variadic_template,
@@ -329,7 +329,7 @@ pub(crate) fn routine_decl_from_static(
                 liason: parameter.liason,
                 ident: db.custom_ident(parameter.name),
             });
-            let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
+            let return_ty = symbol_context.parse_entity_route(return_ty).unwrap();
             msg_once!("todo: keyword parameters");
             Arc::new(CallFormDecl {
                 opt_base_route: Some(route),
@@ -337,7 +337,7 @@ pub(crate) fn routine_decl_from_static(
                 primary_parameters: parameters,
                 output: OutputDecl {
                     liason: output_liason,
-                    ty: output_ty,
+                    ty: return_ty,
                 },
                 keyword_parameters: Default::default(),
                 variadic_template: VariadicTemplate::from_static(
@@ -362,7 +362,7 @@ pub(crate) fn routine_decl_from_static(
 //         EntityStaticDefnVariant::Model {
 //             spatial_parameters: ref generic_parameters,
 //             ref parameters,
-//             output_ty,
+//             return_ty,
 //             output_liason,
 //             ..
 //         } => {
@@ -381,7 +381,7 @@ pub(crate) fn routine_decl_from_static(
 //                 liason: parameter.liason,
 //                 ident: db.custom_ident(parameter.name),
 //             });
-//             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
+//             let return_ty = symbol_context.parse_entity_route(return_ty).unwrap();
 //             msg_once!("todo: keyword parameters");
 //             Arc::new(FunctionDecl {
 //                 route,
@@ -389,7 +389,7 @@ pub(crate) fn routine_decl_from_static(
 //                 primary_parameters: parameters,
 //                 output: OutputDecl {
 //                     liason: output_liason,
-//                     ty: output_ty,
+//                     ty: return_ty,
 //                 },
 //                 keyword_parameters: Default::default(),
 //             })

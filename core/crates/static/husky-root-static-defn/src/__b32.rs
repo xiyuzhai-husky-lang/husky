@@ -29,7 +29,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        output_ty: "i32",
+        return_ty: "i32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -46,7 +46,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        output_ty: "i32",
+        return_ty: "i32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -67,7 +67,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
             liason: ParameterLiason::Pure,
             ty: "i32",
         }],
-        output_ty: "b32",
+        return_ty: "b32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,

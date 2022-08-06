@@ -626,7 +626,7 @@ pub(crate) fn call_form_decl_from_static(
         EntityStaticDefnVariant::Method {
             this_liason,
             parameters,
-            output_ty,
+            return_ty,
             output_liason,
             spatial_parameters: generic_parameters,
             // ref kind,
@@ -648,14 +648,14 @@ pub(crate) fn call_form_decl_from_static(
                 liason: parameter.liason,
                 ident: db.custom_ident(parameter.name),
             });
-            let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
+            let return_ty = symbol_context.parse_entity_route(return_ty).unwrap();
             // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
             Arc::new(CallFormDecl {
                 spatial_parameters: generic_parameters,
                 primary_parameters,
                 output: OutputDecl {
                     liason: output_liason,
-                    ty: output_ty,
+                    ty: return_ty,
                 },
                 opt_this_liason: Some(this_liason),
                 is_lazy: false,

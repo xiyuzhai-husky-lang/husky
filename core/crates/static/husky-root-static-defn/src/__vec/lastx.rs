@@ -6,7 +6,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::MemberAccess,
         parameters: &[],
-        output_ty: "E",
+        return_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {

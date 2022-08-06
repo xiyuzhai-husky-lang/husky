@@ -18,7 +18,7 @@ impl EntityDefnVariant {
                 paradigm,
                 ref spatial_parameters,
                 ref parameters,
-                output_ty,
+                return_ty,
                 output_liason,
                 opt_this_liason,
             } => Ok(match paradigm {
@@ -27,7 +27,7 @@ impl EntityDefnVariant {
                     EntityDefnVariant::Proc {
                         spatial_parameters: spatial_parameters.clone(),
                         parameters: parameters.clone(),
-                        output: output_ty,
+                        output: return_ty,
                         stmts,
                     }
                 }
@@ -36,7 +36,7 @@ impl EntityDefnVariant {
                     EntityDefnVariant::Func {
                         spatial_parameters: spatial_parameters.clone(),
                         parameters: parameters.clone(),
-                        output: output_ty,
+                        output: return_ty,
                         stmts,
                     }
                 }

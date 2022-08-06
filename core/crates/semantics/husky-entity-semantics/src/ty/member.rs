@@ -57,7 +57,7 @@ impl EntityDefnVariant {
                     ident,
                     ref spatial_parameters,
                     ref parameters,
-                    output_ty,
+                    return_ty,
                     ..
                 } => match opt_this_liason {
                     Some(this_contract) => {
@@ -78,7 +78,7 @@ impl EntityDefnVariant {
                             ident.ident,
                             EntityDefnVariant::Method {
                                 parameters: parameters.clone(),
-                                output_ty,
+                                return_ty,
                                 this_liason: this_contract,
                                 output_liason: OutputLiason::Transfer,
                                 spatial_parameters: spatial_parameters.clone(),

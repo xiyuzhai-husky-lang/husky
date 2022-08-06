@@ -101,14 +101,14 @@ pub enum InstructionVariant {
     CallRoutine {
         linkage_fp: __LinkageFp,
         nargs: u8,
-        output_ty: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
         discard: bool,
     },
     CallInterpreted {
         routine_uid: EntityUid,
         nargs: u8,
         has_this: bool,
-        output_ty: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
         discard: bool,
     },
     VirtualStructField {
@@ -125,7 +125,7 @@ pub enum InstructionVariant {
         loop_kind: VMLoopKind,
     },
     Return {
-        output_ty: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
     },
     BreakIfFalse,
     Break,

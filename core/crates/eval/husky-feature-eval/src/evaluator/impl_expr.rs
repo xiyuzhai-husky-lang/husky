@@ -224,7 +224,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         &self,
         opt_instrns: &Option<Arc<InstructionSheet>>,
         opt_linkage: Option<__Linkage>,
-        output_ty: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
         arguments: &[Arc<FeatureExpr>],
     ) -> __VMResult<__Register<'eval>> {
         let db = self.db;
@@ -239,7 +239,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             Some(self),
             opt_instrns.as_ref().map(|v| &**v),
             opt_linkage,
-            output_ty,
+            return_ty,
             values.into_iter(),
             [].into_iter(),
             arguments.len().try_into().unwrap(),

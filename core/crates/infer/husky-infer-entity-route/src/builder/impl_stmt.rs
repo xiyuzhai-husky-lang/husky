@@ -7,7 +7,7 @@ use husky_text::TextRanged;
 use super::*;
 
 impl<'a> EntityRouteSheetBuilder<'a> {
-    pub(super) fn infer_stmts(&mut self, ast_iter: AstIter, opt_output_ty: Option<EntityRoutePtr>) {
+    pub(super) fn infer_stmts(&mut self, ast_iter: AstIter, opt_return_ty: Option<EntityRoutePtr>) {
         self.enter_block();
         let file = self.entity_route_sheet.ast_text.file;
         for item in ast_iter {
@@ -19,15 +19,15 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             if let Some(children) = item.opt_children {
                                 self.infer_match_branches(
                                     children,
-                                    opt_output_ty,
+                                    opt_return_ty,
                                     opt_match_expr_ty,
                                 )
                             }
                         }
                         _ => {
-                            self.infer_stmt(stmt, opt_output_ty);
+                            self.infer_stmt(stmt, opt_return_ty);
                             if let Some(children) = item.opt_children {
-                                self.infer_stmts(children, opt_output_ty)
+                                self.infer_stmts(children, opt_return_ty)
                             }
                         }
                     },
@@ -35,14 +35,14 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
             } else {
                 if let Some(children) = item.opt_children {
-                    self.infer_stmts(children, opt_output_ty)
+                    self.infer_stmts(children, opt_return_ty)
                 }
             }
         }
         self.exit_block()
     }
 
-    fn infer_stmt(&mut self, stmt: &RawStmt, opt_output_ty: Option<EntityRoutePtr>) {
+    fn infer_stmt(&mut self, stmt: &RawStmt, opt_return_ty: Option<EntityRoutePtr>) {
         match stmt.variant {
             RawStmtVariant::Loop(raw_loop_kind) => match raw_loop_kind {
                 RawLoopKind::For {
@@ -114,7 +114,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
             }
             RawStmtVariant::Return { result, .. } => {
-                self.infer_expr(result, opt_output_ty);
+                self.infer_expr(result, opt_return_ty);
             }
             RawStmtVariant::Assert(condition) => self.infer_condition(condition),
             RawStmtVariant::Break => msg_once!("ensure break is inside a loop"),
@@ -135,7 +135,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     fn infer_match_branches(
         &mut self,
         branch_ast_iter: AstIter,
-        opt_output_ty: Option<EntityRoutePtr>,
+        opt_return_ty: Option<EntityRoutePtr>,
         opt_match_expr_ty: Option<EntityRoutePtr>,
     ) {
         for item in branch_ast_iter {
@@ -166,7 +166,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
             }
             if let Some(children) = item.opt_children {
-                self.infer_stmts(children, opt_output_ty)
+                self.infer_stmts(children, opt_return_ty)
             }
         }
     }

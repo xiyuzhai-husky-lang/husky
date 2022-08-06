@@ -34,7 +34,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     variant: EntityStaticDefnVariant::Method {
                         this_liason: ParameterLiason::MemberAccess,
                         parameters: &[],
-                        output_ty: "E",
+                        return_ty: "E",
                         output_liason: OutputLiason::MemberAccess {
                             member_liason: MemberLiason::Mutable,
                         },
@@ -78,7 +78,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         parameters: &[],
         variadic_template: StaticVariadicTemplate::SingleTyped { ty: "E" },
-        output_ty: "Vec<E>",
+        return_ty: "Vec<E>",
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(virtual_vec_type_call, none),
     },
@@ -182,7 +182,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        output_ty: "i32",
+        return_ty: "i32",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_len, none)),
@@ -210,7 +210,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
             ty: "E",
             name: "element",
         }],
-        output_ty: "void",
+        return_ty: "void",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_push, none)),
@@ -225,7 +225,7 @@ pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::TempRefMut,
         parameters: &[],
-        output_ty: "E",
+        return_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_pop, none)),

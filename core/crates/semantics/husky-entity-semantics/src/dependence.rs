@@ -171,12 +171,12 @@ impl EntityDefn {
             }
             EntityDefnVariant::Method {
                 parameters: ref parameters,
-                output_ty,
+                return_ty,
                 // ref method_variant,
                 ref opt_source,
                 ..
             } => {
-                extract_call_head_dependees(parameters, output_ty, &mut builder);
+                extract_call_head_dependees(parameters, return_ty, &mut builder);
                 // let opt_source = match method_variant {
                 //     MethodDefnKind::TypeMethod { ty, method_source } => {
                 //         builder.push(*ty);
