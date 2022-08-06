@@ -27,7 +27,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             ty: "i32",
                             name: "todo!()",
                         }],
-                        return_ty: "b32",
+                        output_ty: "b32",
                         output_liason: OutputLiason::MemberAccess {
                             member_liason: MemberLiason::Mutable,
                         },
@@ -69,7 +69,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         parameters: &[],
         variadic_template: StaticVariadicTemplate::None,
-        return_ty: BINARY_IMAGE_28_BASE_ROUTE,
+        output_ty: BINARY_IMAGE_28_BASE_ROUTE,
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(|_, _values| unsafe {
             (__Register::new_box(BinaryImage28::default(), &__BINARY_IMAGE_28_VTABLE))

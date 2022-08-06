@@ -67,7 +67,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref repr,
             } => self.eval_feature_repr(repr),
             FeatureExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
-            FeatureExprVariant::EvalInput => Ok(self.eval_input.clone()),
+            FeatureExprVariant::EvalInput => Ok(self.crate_input.clone()),
             FeatureExprVariant::RecordDerivedField { ref repr, .. } => self.eval_feature_repr(repr),
             FeatureExprVariant::ElementAccess {
                 ref opds, linkage, ..
@@ -224,7 +224,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         &self,
         opt_instrns: &Option<Arc<InstructionSheet>>,
         opt_linkage: Option<__Linkage>,
-        return_ty: EntityRoutePtr,
+        output_ty: EntityRoutePtr,
         arguments: &[Arc<FeatureExpr>],
     ) -> __VMResult<__Register<'eval>> {
         let db = self.db;
@@ -239,7 +239,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             Some(self),
             opt_instrns.as_ref().map(|v| &**v),
             opt_linkage,
-            return_ty,
+            output_ty,
             values.into_iter(),
             [].into_iter(),
             arguments.len().try_into().unwrap(),

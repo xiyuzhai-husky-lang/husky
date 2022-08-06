@@ -50,8 +50,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 DefinitionRepr::LazyExpr { ref expr } => (),
                 DefinitionRepr::LazyBlock { ref stmts, ty } => (),
                 DefinitionRepr::FuncBlock {
-                    route, return_ty, ..
-                } => self.gen_eager_feature_linkage_entry(route, return_ty.route),
+                    route, output_ty, ..
+                } => self.gen_eager_feature_linkage_entry(route, output_ty.route),
                 DefinitionRepr::ProcBlock {
                     file,
                     range,
@@ -165,10 +165,10 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                         self.gen_entity_route(entity_route.parent(), EntityRouteRole::Decl);
                         let method_name = entity_route.ident().as_str();
                         let mangled_ty_vtable = self.db.mangled_ty_vtable(parent);
-                        let mangled_return_ty_vtable =
+                        let mangled_output_ty_vtable =
                             self.db.mangled_ty_vtable(call_form_decl.output.ty);
                         self.write(&format!(
-                            ", __registration__::{mangled_ty_vtable}, __registration__::{mangled_return_ty_vtable}, {method_name})"
+                            ", __registration__::{mangled_ty_vtable}, __registration__::{mangled_output_ty_vtable}, {method_name})"
                         ))
                     }
                     _ => self.gen_specific_routine_linkage(
@@ -196,12 +196,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             }
             EntityRouteVariant::Root { ident } => todo!(),
             EntityRouteVariant::Package { main, ident } => todo!(),
-            EntityRouteVariant::InputValue { main } => todo!(),
+            EntityRouteVariant::CrateInputValue { main } => todo!(),
             EntityRouteVariant::Any {
                 ident, entity_kind, ..
             } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
-            EntityRouteVariant::OutputType { main } => todo!(),
+            EntityRouteVariant::CrateOutputType { main } => todo!(),
         }
         self.write(
             r#"
@@ -310,8 +310,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             r#"
                     "#
         ));
-        let is_return_ty_primitive = decl.output.ty.is_primitive();
-        if !is_return_ty_primitive {
+        let is_output_ty_primitive = decl.output.ty.is_primitive();
+        if !is_output_ty_primitive {
             self.write("__Register::new_box(");
         }
         gen_caller(self);
@@ -340,8 +340,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 self.write("__variadics")
             }
         }
-        let mangled_return_ty_vtable = self.db.mangled_ty_vtable(decl.output.ty);
-        if is_return_ty_primitive {
+        let mangled_output_ty_vtable = self.db.mangled_ty_vtable(decl.output.ty);
+        if is_output_ty_primitive {
             self.write(&format!(
                 r#").to_register()
                 }}
@@ -351,7 +351,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             ));
         } else {
             self.write(&format!(
-                r#"), &__registration__::{mangled_return_ty_vtable})
+                r#"), &__registration__::{mangled_output_ty_vtable})
                 }}
                 __wrapper
             }},
@@ -368,7 +368,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     fn gen_eager_feature_linkage_entry(
         &mut self,
         route: EntityRoutePtr,
-        return_ty: EntityRoutePtr,
+        output_ty: EntityRoutePtr,
     ) {
         self.write(&format!(
             r#"
@@ -381,7 +381,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         self.gen_entity_route(route, EntityRouteRole::Caller);
         self.write(", __registration__::");
         let entity_defn = self.db.entity_defn(route).unwrap();
-        self.write(&self.db.mangled_ty_vtable(return_ty));
+        self.write(&self.db.mangled_ty_vtable(output_ty));
         self.write(
             r#"),
     ),"#,

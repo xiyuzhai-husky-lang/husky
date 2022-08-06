@@ -12,7 +12,7 @@ pub(super) fn entity_feature_repr(
             FeatureRepr::from_defn(db, None, defn_repr, db.feature_interner())
         }
         EntityDefnVariant::Input { main_file } => FeatureRepr::EvalInput {
-            ty: db.compile_time().eval_input_ty(main_file).unwrap(),
+            ty: db.compile_time().crate_input_ty(main_file).unwrap(),
             feature: db.feature_interner().intern(Feature::Input {}),
         },
         _ => todo!(),

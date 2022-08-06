@@ -87,7 +87,7 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::Method {
                 this_liason,
                 parameters,
-                return_ty,
+                output_ty,
                 output_liason,
                 spatial_parameters,
                 opt_linkage,
@@ -96,8 +96,8 @@ impl EntityDefnVariant {
                 parameters: Arc::new(
                     parameters.map(|parameter| context.parameter_from_static(parameter)),
                 ),
-                return_ty: RangedEntityRoute {
-                    route: context.parse_entity_route(return_ty).unwrap(),
+                output_ty: RangedEntityRoute {
+                    route: context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
                 this_liason,

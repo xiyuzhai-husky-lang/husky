@@ -142,7 +142,7 @@ impl<'a> RustCodeGenerator<'a> {
                     file,
                     range,
                     ref stmts,
-                    return_ty,
+                    output_ty,
                 } => {
                     let field_ident = member.ident.as_str();
                     self.write(&format!(
@@ -157,7 +157,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(", __registration__::");
                     self.write(&self.db.mangled_ty_vtable(ty));
                     self.write(", __registration__::");
-                    self.write(&self.db.mangled_ty_vtable(return_ty.route));
+                    self.write(&self.db.mangled_ty_vtable(output_ty.route));
                     self.write(", ");
                     self.write(field_ident);
                     self.write(

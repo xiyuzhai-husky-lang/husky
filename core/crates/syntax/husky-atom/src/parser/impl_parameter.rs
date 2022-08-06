@@ -26,14 +26,14 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     //         ));
     //     let generics = self.generic_parameters()?;
     //     let parameters = self.parameters()?;
-    //     let return_ty = self.func_return_type()?;
+    //     let output_ty = self.func_output_type()?;
     //     Ok(CallableDefnHead {
     //         opt_this_liason: Some(this),
     //         paradigm,
     //         ident: routine_ident,
     //         generic_parameters: generics,
     //         parameters,
-    //         return_ty,
+    //         output_ty,
     //         output_liason: OutputLiason::Transfer,
     //     })
     // }
@@ -111,7 +111,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    pub fn func_return_ty(&mut self) -> AtomResult<RangedEntityRoute> {
+    pub fn func_output_ty(&mut self) -> AtomResult<RangedEntityRoute> {
         Ok(if try_eat!(self, "->") {
             get!(self, ranged_ty?)
         } else {

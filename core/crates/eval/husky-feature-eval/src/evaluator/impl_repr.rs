@@ -13,7 +13,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             FeatureRepr::LazyBlock(block) => self.eval_feature_lazy_block(block),
             FeatureRepr::FuncBlock(block) => self.eval_feature_func_block(block),
             FeatureRepr::ProcBlock(_) => todo!(),
-            FeatureRepr::EvalInput { .. } => Ok(self.eval_input.bind_temp_ref()),
+            FeatureRepr::EvalInput { .. } => Ok(self.crate_input.bind_temp_ref()),
         };
         result
     }

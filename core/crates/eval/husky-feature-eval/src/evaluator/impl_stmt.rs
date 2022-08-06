@@ -10,12 +10,12 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn eval_stmt(&self, stmt: &FeatureStmt) -> __VMResult<__Register<'eval>> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned(
-                self.db.compile_time().vtable(stmt.return_ty),
+                self.db.compile_time().vtable(stmt.output_ty),
             )),
             FeatureLazyStmtVariant::Assert { ref condition } => {
                 if self.satisfies(condition)? {
                     Ok(__Register::new_unreturned(
-                        self.db.compile_time().vtable(stmt.return_ty),
+                        self.db.compile_time().vtable(stmt.output_ty),
                     ))
                 } else {
                     Err(__VMError::new_normal(format!("assertion failed")))

@@ -40,7 +40,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx(), false);
                 self.push_instruction(Instruction::new(
                     InstructionVariant::Return {
-                        return_ty: result.ty(),
+                        output_ty: result.ty(),
                     },
                     stmt,
                 ));

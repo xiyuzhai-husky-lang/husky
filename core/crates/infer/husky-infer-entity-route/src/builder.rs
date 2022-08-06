@@ -29,11 +29,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> Self {
         let main_file = db.main_file(ast_text.file).unwrap();
         let mut global_errors = Vec::new();
-        match db.eval_input_ty(main_file) {
+        match db.crate_input_ty(main_file) {
             Ok(_) => (),
             Err(e) => global_errors.push(e),
         }
-        match db.eval_output_ty(main_file) {
+        match db.crate_output_ty(main_file) {
             Ok(_) => (),
             Err(e) => global_errors.push(e),
         }
@@ -81,17 +81,17 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         self.infer_all(children)
                     }
                     AstVariant::MainDefnHead => {
-                        let opt_return_ty = self.db.eval_output_ty(self.main_file).ok();
-                        self.infer_function(&[], opt_return_ty, children)
+                        let opt_output_ty = self.db.crate_output_ty(self.main_file).ok();
+                        self.infer_function(&[], opt_output_ty, children)
                     }
                     AstVariant::DatasetConfigDefnHead => {
                         self.infer_function(&[], Some(RootIdentifier::DatasetType.into()), children)
                     }
                     AstVariant::CallFormDefnHead {
                         ref parameters,
-                        return_ty,
+                        output_ty,
                         ..
-                    } => self.infer_function(parameters, Some(return_ty.route), children),
+                    } => self.infer_function(parameters, Some(output_ty.route), children),
                     AstVariant::Visual => self.infer_function(&[], None, children),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
@@ -108,7 +108,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         FieldAstKind::StructDerivedEager { .. } => todo!(),
                     },
                     AstVariant::Stmt(_) => todo!(),
-                    AstVariant::FeatureDefnHead { return_ty: ty, .. } => {
+                    AstVariant::FeatureDefnHead { output_ty: ty, .. } => {
                         self.infer_function(&[], Some(ty.route), children)
                     }
                     AstVariant::Submodule { ident, source_file } => (),

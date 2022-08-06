@@ -31,7 +31,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             ty: "i32",
                             name: "todo!()",
                         }],
-                        return_ty: "b32",
+                        output_ty: "b32",
                         output_liason: OutputLiason::MemberAccess {
                             member_liason: MemberLiason::Mutable,
                         },
@@ -67,7 +67,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         parameters: &[],
         variadic_template: StaticVariadicTemplate::None,
-        return_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
+        output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(|_, _values|unsafe  {
             (__Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE))

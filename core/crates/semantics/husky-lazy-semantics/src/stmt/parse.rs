@@ -35,7 +35,7 @@ impl<'a> LazyStmtParser<'a> {
     pub(super) fn parse_lazy_stmts(
         &mut self,
         iter: AstIter,
-        return_ty: RangedEntityRoute,
+        output_ty: RangedEntityRoute,
     ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
@@ -52,7 +52,7 @@ impl<'a> LazyStmtParser<'a> {
                             not_none!(item.opt_children),
                             &mut iter,
                             condition_branch_kind,
-                            return_ty,
+                            output_ty,
                         )?,
                         RawStmtVariant::PatternBranch { .. } => panic!(),
                         RawStmtVariant::Exec { .. } => todo!(),
@@ -89,7 +89,7 @@ impl<'a> LazyStmtParser<'a> {
                         indent: item.indent,
                         variant,
                         instruction_id: Default::default(),
-                        return_ty,
+                        output_ty,
                     }))
                 }
                 _ => panic!("Unexpected"),

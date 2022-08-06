@@ -3,7 +3,7 @@ mod impl_loop;
 mod impl_match_pattern;
 
 use fold::Indent;
-use husky_ast::{RawReturnContext, ReturnContextKind};
+use husky_ast::{RawOutputContext, RawOutputContextKind};
 use husky_eager_semantics::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
 };
@@ -52,16 +52,18 @@ impl<'a> RustCodeGenerator<'a> {
             }
             FuncStmtVariant::Return {
                 ref result,
-                return_context,
+                output_context,
             } => {
                 self.write("return ");
-                match return_context.kind {
-                    ReturnContextKind::Normal => {
+                match output_context.kind {
+                    RawOutputContextKind::Normal => {
                         self.gen_binding(result);
                         self.gen_expr(stmt.indent, result)
                     }
-                    ReturnContextKind::Feature => self.gen_feature_return(stmt.indent, result),
-                    ReturnContextKind::LazyField => self.gen_lazy_field_return(stmt.indent, result),
+                    RawOutputContextKind::Feature => self.gen_feature_return(stmt.indent, result),
+                    RawOutputContextKind::LazyField => {
+                        self.gen_lazy_field_return(stmt.indent, result)
+                    }
                 }
                 self.write(";\n");
             }
@@ -106,15 +108,15 @@ impl<'a> RustCodeGenerator<'a> {
             }
             ProcStmtVariant::Return {
                 ref result,
-                return_context,
-            } => match return_context.kind {
-                ReturnContextKind::Normal => {
+                output_context,
+            } => match output_context.kind {
+                RawOutputContextKind::Normal => {
                     self.write("return ");
                     self.gen_binding(result);
                     self.gen_expr(stmt.indent, result);
                 }
-                ReturnContextKind::Feature => todo!(),
-                ReturnContextKind::LazyField => todo!(),
+                RawOutputContextKind::Feature => todo!(),
+                RawOutputContextKind::LazyField => todo!(),
             },
             ProcStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_proc_condition_flow(stmt.indent, branches)

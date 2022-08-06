@@ -62,7 +62,7 @@ pub enum ProcStmtVariant {
     Break,
     Return {
         result: Arc<EagerExpr>,
-        return_context: RawReturnContext,
+        output_context: RawOutputContext,
     },
     Match {
         match_expr: Arc<EagerExpr>,

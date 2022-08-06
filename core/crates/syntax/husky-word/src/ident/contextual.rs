@@ -3,8 +3,8 @@ use super::*;
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum ContextualIdentifier {
     Crate,
-    InputValue,
-    OutputType,
+    CrateInputValue,
+    CrateOutputType,
     ThisValue,
     ThisType,
 }
@@ -18,8 +18,8 @@ impl ContextualIdentifier {
     pub fn as_str(&self) -> &'static str {
         match self {
             ContextualIdentifier::Crate => "crate",
-            ContextualIdentifier::InputValue => "input",
-            ContextualIdentifier::OutputType => "Output",
+            ContextualIdentifier::CrateInputValue => "input",
+            ContextualIdentifier::CrateOutputType => "CrateOutput",
             ContextualIdentifier::ThisValue => "this",
             ContextualIdentifier::ThisType => "This",
         }

@@ -101,7 +101,7 @@ impl HuskyTraceTime {
                 spatial_parameters: ref generic_parameters,
                 this_liason: this_contract,
                 ref parameters,
-                return_ty,
+                output_ty,
                 output_liason,
                 ..
             } => routine_call_head_tokens(

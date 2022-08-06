@@ -79,7 +79,7 @@ impl EntityDefnVariant {
                     },
                     _ => panic!(),
                 })),
-                return_ty: RangedEntityRoute {
+                output_ty: RangedEntityRoute {
                     route: ty,
                     range: Default::default(),
                 },
@@ -106,7 +106,7 @@ impl EntityDefnVariant {
                     },
                     _ => panic!(),
                 })),
-                return_ty: RangedEntityRoute {
+                output_ty: RangedEntityRoute {
                     route: ty,
                     range: Default::default(),
                 },
@@ -284,7 +284,7 @@ impl EntityDefnVariant {
         //             )?;
         //             fields.insert_new(FieldDefn {
         //                 ident,
-        //                 return_ty: ty,
+        //                 output_ty: ty,
         //                 stmts,
         //             });
         //         }

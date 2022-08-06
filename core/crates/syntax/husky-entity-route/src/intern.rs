@@ -180,7 +180,7 @@ impl EntityRoutePtr {
                     return true;
                 }
             }
-            EntityRouteVariant::InputValue { main } => todo!(),
+            EntityRouteVariant::CrateInputValue { main } => todo!(),
             EntityRouteVariant::Any { .. } => return true,
             EntityRouteVariant::ThisType => todo!(),
             _ => (),

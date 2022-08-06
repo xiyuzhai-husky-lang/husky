@@ -18,7 +18,7 @@ impl Instantiable for EntityRoutePtr {
                         },
                         thin_vec![],
                     ),
-                    EntityRouteVariant::InputValue { main } => todo!(),
+                    EntityRouteVariant::CrateInputValue { main } => todo!(),
                     EntityRouteVariant::Any { ident, .. } => {
                         if let Some(idx) = ctx.find_generic(ident) {
                             match ctx.spatial_arguments[idx] {
@@ -44,7 +44,7 @@ impl Instantiable for EntityRoutePtr {
                         },
                         thin_vec![],
                     ),
-                    EntityRouteVariant::OutputType { main } => todo!(),
+                    EntityRouteVariant::CrateOutputType { main } => todo!(),
                 };
                 // convention: A<B,C> = A<B><C>
                 generics.extend(self.spatial_arguments.instantiate(ctx));

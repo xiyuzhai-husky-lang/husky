@@ -110,10 +110,10 @@ pub enum EntityRouteVariant {
         trai: EntityRoutePtr,
         ident: CustomIdentifier,
     },
-    InputValue {
+    CrateInputValue {
         main: FilePtr,
     },
-    OutputType {
+    CrateOutputType {
         main: FilePtr,
     },
     Any {
@@ -139,8 +139,12 @@ impl EntityRoute {
             EntityRouteVariant::Root { ident } => ident.into(),
             EntityRouteVariant::Package { ident, .. } => ident.into(),
             EntityRouteVariant::Child { ident, .. } => ident.into(),
-            EntityRouteVariant::InputValue { .. } => ContextualIdentifier::InputValue.into(),
-            EntityRouteVariant::OutputType { .. } => ContextualIdentifier::OutputType.into(),
+            EntityRouteVariant::CrateInputValue { .. } => {
+                ContextualIdentifier::CrateInputValue.into()
+            }
+            EntityRouteVariant::CrateOutputType { .. } => {
+                ContextualIdentifier::CrateOutputType.into()
+            }
             EntityRouteVariant::Any { ident, .. } => ident.into(),
             EntityRouteVariant::ThisType => todo!(),
             EntityRouteVariant::TypeAsTraitMember { ident, .. } => ident.into(),
@@ -211,7 +215,8 @@ impl EntityRoute {
             EntityRouteVariant::Root { .. } => true,
             EntityRouteVariant::Package { .. } => false,
             EntityRouteVariant::Child { parent, .. } => parent.is_builtin(),
-            EntityRouteVariant::InputValue { .. } | EntityRouteVariant::OutputType { .. } => {
+            EntityRouteVariant::CrateInputValue { .. }
+            | EntityRouteVariant::CrateOutputType { .. } => {
                 todo!()
             }
             EntityRouteVariant::Any { .. } => todo!(),
@@ -227,11 +232,11 @@ impl EntityRoute {
     pub fn opt_parent(&self) -> Option<EntityRoutePtr> {
         match self.variant {
             EntityRouteVariant::Root { .. }
-            | EntityRouteVariant::InputValue { .. }
+            | EntityRouteVariant::CrateInputValue { .. }
             | EntityRouteVariant::Package { .. }
             | EntityRouteVariant::Any { .. }
             | EntityRouteVariant::ThisType => None,
-            EntityRouteVariant::OutputType { .. } => todo!(),
+            EntityRouteVariant::CrateOutputType { .. } => todo!(),
             EntityRouteVariant::Child { parent, .. } => Some(parent),
             EntityRouteVariant::TypeAsTraitMember { ty: parent, .. } => Some(parent),
         }

@@ -29,7 +29,7 @@ pub(crate) fn feature_decl(
             match ast.variant {
                 AstVariant::FeatureDefnHead {
                     ident,
-                    return_ty: ty,
+                    output_ty: ty,
                     ..
                 } => Ok(Arc::new(FeatureDecl { ty: ty.route })),
                 _ => todo!(),
@@ -37,7 +37,7 @@ pub(crate) fn feature_decl(
         }
         EntitySource::Module { file } => todo!(),
         EntitySource::Input { main_file: main } => Ok(Arc::new(FeatureDecl {
-            ty: db.eval_input_ty(main)?,
+            ty: db.crate_input_ty(main)?,
         })),
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),

@@ -12,12 +12,12 @@ macro_rules! transfer_linkage {
 
 #[macro_export]
 macro_rules! feature_linkage {
-    ($f: expr, $return_ty_VTABLE: expr) => {{
+    ($f: expr, $output_ty_VTABLE: expr) => {{
         unsafe fn __wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             __arguments: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
-            __Register::new_eval_ref($f(__opt_ctx.unwrap()), &$return_ty_VTABLE)
+            __Register::new_eval_ref($f(__opt_ctx.unwrap()), &$output_ty_VTABLE)
         }
         __Linkage::Transfer(linkage_fp!(__wrapper, none))
     }};
