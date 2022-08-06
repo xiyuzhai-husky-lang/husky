@@ -127,7 +127,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         _ => todo!(),
                     },
                     AstVariant::Stmt(_) => (),
-                    AstVariant::FeatureDefnHead { paradigm, ty, .. } => match paradigm {
+                    AstVariant::FeatureDefnHead {
+                        paradigm,
+                        return_ty: ty,
+                        ..
+                    } => match paradigm {
                         Paradigm::LazyFunctional => self.infer_lazy_call_form(
                             &[],
                             children,

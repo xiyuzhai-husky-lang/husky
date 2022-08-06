@@ -8,10 +8,6 @@ impl<'a> AstTransformer<'a> {
         paradigm: Paradigm,
         token_group: &[HuskyToken],
     ) -> AstResult<AstVariant> {
-        self.context.set(AstContext::Stmt {
-            paradigm,
-            return_kind: ReturnKind::Feature,
-        });
         expect_head!(token_group);
         expect_at_least!(token_group, token_group.text_range(), 5);
         let ident = identify_token!(
@@ -19,11 +15,18 @@ impl<'a> AstTransformer<'a> {
             token_group[1],
             SemanticTokenKind::Entity(EntityKind::Feature)
         );
-        let ty = husky_atom::parse_route(self, &token_group[3..])?;
+        let return_ty = husky_atom::parse_route(self, &token_group[3..])?;
+        self.context.set(AstContext::Stmt {
+            paradigm,
+            return_context: Some(ReturnContext {
+                return_ty,
+                kind: ReturnContextKind::Feature,
+            }),
+        });
         Ok(AstVariant::FeatureDefnHead {
             paradigm,
             ident,
-            ty,
+            return_ty,
         })
     }
 }

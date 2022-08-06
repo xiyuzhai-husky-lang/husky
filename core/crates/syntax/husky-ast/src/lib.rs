@@ -57,7 +57,7 @@ pub enum AstVariant {
     FeatureDefnHead {
         paradigm: Paradigm,
         ident: RangedCustomIdentifier,
-        ty: RangedEntityRoute,
+        return_ty: RangedEntityRoute,
     },
     FieldDefnHead {
         liason: MemberLiason,

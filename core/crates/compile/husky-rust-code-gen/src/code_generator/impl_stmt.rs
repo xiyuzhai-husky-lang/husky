@@ -3,7 +3,7 @@ mod impl_loop;
 mod impl_match_pattern;
 
 use fold::Indent;
-use husky_ast::ReturnKind;
+use husky_ast::{ReturnContext, ReturnContextKind};
 use husky_eager_semantics::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
 };
@@ -52,16 +52,16 @@ impl<'a> RustCodeGenerator<'a> {
             }
             FuncStmtVariant::Return {
                 ref result,
-                return_kind,
+                return_context,
             } => {
                 self.write("return ");
-                match return_kind {
-                    ReturnKind::Normal => {
+                match return_context.kind {
+                    ReturnContextKind::Normal => {
                         self.gen_binding(result);
                         self.gen_expr(stmt.indent, result)
                     }
-                    ReturnKind::Feature => self.gen_feature_return(stmt.indent, result),
-                    ReturnKind::LazyField => self.gen_lazy_field_return(stmt.indent, result),
+                    ReturnContextKind::Feature => self.gen_feature_return(stmt.indent, result),
+                    ReturnContextKind::LazyField => self.gen_lazy_field_return(stmt.indent, result),
                 }
                 self.write(";\n");
             }
@@ -106,15 +106,15 @@ impl<'a> RustCodeGenerator<'a> {
             }
             ProcStmtVariant::Return {
                 ref result,
-                return_kind,
-            } => match return_kind {
-                ReturnKind::Normal => {
+                return_context,
+            } => match return_context.kind {
+                ReturnContextKind::Normal => {
                     self.write("return ");
                     self.gen_binding(result);
                     self.gen_expr(stmt.indent, result);
                 }
-                ReturnKind::Feature => todo!(),
-                ReturnKind::LazyField => todo!(),
+                ReturnContextKind::Feature => todo!(),
+                ReturnContextKind::LazyField => todo!(),
             },
             ProcStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_proc_condition_flow(stmt.indent, branches)

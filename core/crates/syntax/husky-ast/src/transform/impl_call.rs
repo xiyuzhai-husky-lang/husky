@@ -15,10 +15,6 @@ impl<'a> AstTransformer<'a> {
         let mut parser = AtomParser::new(self, &mut token_stream);
         let paradigm = get!(parser, paradigm);
         enter_block(self);
-        self.context.set(AstContext::Stmt {
-            paradigm,
-            return_kind: ReturnKind::Normal,
-        });
         let mut parser = AtomParser::new(self, &mut token_stream);
         let ranged_ident = get!(parser, custom_ident);
         parser
@@ -53,6 +49,13 @@ impl<'a> AstTransformer<'a> {
                 _ => (),
             }
         };
+        self.context.set(AstContext::Stmt {
+            paradigm,
+            return_context: Some(ReturnContext {
+                return_ty,
+                kind: ReturnContextKind::Normal,
+            }),
+        });
         self.opt_this_liason.set(opt_this_liason);
         self.symbols.extend(
             parameters

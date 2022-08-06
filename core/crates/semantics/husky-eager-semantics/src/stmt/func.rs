@@ -73,7 +73,7 @@ pub enum FuncStmtVariant {
     },
     Return {
         result: Arc<EagerExpr>,
-        return_kind: ReturnKind,
+        return_context: ReturnContext,
     },
     ConditionFlow {
         branches: Vec<Arc<FuncConditionFlowBranch>>,

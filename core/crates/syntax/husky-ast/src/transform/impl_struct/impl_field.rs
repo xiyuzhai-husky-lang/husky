@@ -55,7 +55,10 @@ impl<'a> AstTransformer<'a> {
             enter_block(self);
             self.context.set(AstContext::Stmt {
                 paradigm: Paradigm::EagerFunctional,
-                return_kind: ReturnKind::Normal,
+                return_context: Some(ReturnContext {
+                    return_ty: todo!(),
+                    kind: ReturnContextKind::Normal,
+                }),
             });
             self.opt_this_liason.set(Some(ParameterLiason::Pure));
             if token_stream.empty() {
@@ -78,7 +81,10 @@ impl<'a> AstTransformer<'a> {
             enter_block(self);
             self.context.set(AstContext::Stmt {
                 paradigm: Paradigm::EagerFunctional,
-                return_kind: ReturnKind::Normal,
+                return_context: Some(ReturnContext {
+                    return_ty: todo!(),
+                    kind: ReturnContextKind::Normal,
+                }),
             });
             self.opt_this_liason.set(Some(ParameterLiason::Pure));
             if token_stream.empty() {
@@ -119,7 +125,10 @@ impl<'a> AstTransformer<'a> {
         };
         self.context.set(AstContext::Stmt {
             paradigm,
-            return_kind: ReturnKind::LazyField,
+            return_context: Some(ReturnContext {
+                return_ty: todo!(),
+                kind: ReturnContextKind::LazyField,
+            }),
         });
         self.opt_this_liason.set(Some(ParameterLiason::EvalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);

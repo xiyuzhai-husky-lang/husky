@@ -108,7 +108,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         FieldAstKind::StructDerivedEager { .. } => todo!(),
                     },
                     AstVariant::Stmt(_) => todo!(),
-                    AstVariant::FeatureDefnHead { ty, .. } => {
+                    AstVariant::FeatureDefnHead { return_ty: ty, .. } => {
                         self.infer_function(&[], Some(ty.route), children)
                     }
                     AstVariant::Submodule { ident, source_file } => (),
