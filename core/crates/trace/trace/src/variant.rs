@@ -85,12 +85,15 @@ impl<'eval> TraceVariant<'eval> {
                         false => TraceKind::FeatureExprEager,
                     }
                 }
-                FeatureExprVariant::RecordDerivedField { .. } => todo!(),
-                FeatureExprVariant::ModelCall { .. } => todo!(),
-                FeatureExprVariant::EntityFeature { .. } => todo!(),
-                FeatureExprVariant::EvalInput => todo!(),
-                FeatureExprVariant::NewRecord { .. } => todo!(),
-                FeatureExprVariant::NewVecFromList { .. } => todo!(),
+                FeatureExprVariant::RecordDerivedField { .. } => TraceKind::FeatureExprLazy,
+                FeatureExprVariant::ModelCall { .. } => TraceKind::FeatureExprLazy,
+                FeatureExprVariant::EntityFeature { ref repr, .. } => match repr.is_lazy() {
+                    true => TraceKind::FeatureExprLazy,
+                    false => TraceKind::FeatureExprEager,
+                },
+                FeatureExprVariant::EvalInput => TraceKind::FeatureExprEager,
+                FeatureExprVariant::NewRecord { .. } => TraceKind::FeatureExprLazy,
+                FeatureExprVariant::NewVecFromList { .. } => TraceKind::FeatureExprEager,
                 _ => TraceKind::FeatureExprEager,
             },
             TraceVariant::FeatureCallArgument { .. } => TraceKind::FeatureCallArgument,
