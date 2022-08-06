@@ -26,6 +26,7 @@ pub(crate) fn mangled_ty_vtable(
     db: &dyn RustCodeGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> Arc<String> {
+    let entity_route = entity_route.intrinsic();
     Arc::new(match entity_route {
         EntityRoutePtr::Root(_) => {
             format!("__{}_VTABLE", entity_route.ident().as_str().to_uppercase())
