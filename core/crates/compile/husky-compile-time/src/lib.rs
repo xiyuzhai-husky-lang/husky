@@ -68,7 +68,7 @@ pub struct HuskyComptime {
     live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
-    opt_main: Option<FilePtr>,
+    opt_crate_entrance: Option<FilePtr>,
     config: HuskyCompileTimeConfig,
 }
 
@@ -86,7 +86,7 @@ impl HuskyComptime {
             live_docs,
             linkage_table,
             entity_route_store,
-            opt_main: None,
+            opt_crate_entrance: None,
             config,
             ty_cache: new_ty_route_cache(),
             entity_route_menu: husky_entity_route::new_entity_route_menu(),
@@ -105,8 +105,8 @@ impl HuskyComptime {
         })
     }
 
-    pub fn main_file(&self) -> FilePtr {
-        self.opt_main.unwrap()
+    pub fn crate_entrance(&self) -> FilePtr {
+        self.opt_crate_entrance.unwrap()
     }
     // ad hoc loc
     pub fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {

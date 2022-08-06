@@ -34,7 +34,7 @@ pub struct AtomContextState {
 }
 
 pub trait AtomContext {
-    fn opt_package_main(&self) -> Option<FilePtr>;
+    fn opt_crate_entrance(&self) -> Option<FilePtr>;
     fn file(&self) -> FilePtr;
     fn entity_syntax_db(&self) -> &dyn EntitySyntaxQueryGroup;
     fn opt_this_ty(&self) -> Option<EntityRoutePtr>;
@@ -113,7 +113,7 @@ pub trait AtomContext {
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
                         variant: EntityRouteVariant::CrateInputValue {
                             main: self
-                                .opt_package_main()
+                                .opt_crate_entrance()
                                 .ok_or(error!("can't use implicit without main", range))?,
                         },
                         temporal_arguments: thin_vec![],
@@ -124,7 +124,7 @@ pub trait AtomContext {
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
                         variant: EntityRouteVariant::CrateOutputType {
                             main: self
-                                .opt_package_main()
+                                .opt_crate_entrance()
                                 .ok_or(error!("can't use implicit without main", range))?,
                         },
                         temporal_arguments: thin_vec![],
@@ -140,7 +140,7 @@ pub trait AtomContext {
                 }
                 ContextualIdentifier::Crate => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db()
-                        .module(self.opt_package_main().unwrap())
+                        .module(self.opt_crate_entrance().unwrap())
                         .unwrap(),
                 )),
             },

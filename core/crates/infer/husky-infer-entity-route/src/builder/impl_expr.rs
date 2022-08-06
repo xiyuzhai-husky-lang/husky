@@ -108,7 +108,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             EntityKind::Type(_) => RootIdentifier::TypeType.into(),
             EntityKind::Trait => RootIdentifier::TraitType.into(),
             EntityKind::Function { .. } | EntityKind::Member(_) => {
-                let decl = self.db.entity_call_form_decl(entity_route)?;
+                let decl = self
+                    .db
+                    .entity_call_form_decl(Some(self.crate_entrance), entity_route)?;
                 let base_route: EntityRoutePtr = if decl.is_lazy {
                     RootIdentifier::Mor
                 } else {
@@ -477,7 +479,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 self.entity_route_sheet
                     .function_call_routes
                     .insert_new(all_opds.start, Ok(route));
-                self.db.entity_call_form_decl(route)
+                self.db
+                    .entity_call_form_decl(Some(self.crate_entrance), route)
             }
             _ => self
                 .db

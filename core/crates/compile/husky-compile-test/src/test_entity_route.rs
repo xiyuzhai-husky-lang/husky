@@ -14,9 +14,9 @@ main:
         .into(),
     );
 
-    let main_file = db.intern_file("haha/main.hsk".into());
+    let crate_entrance = db.intern_file("haha/main.hsk".into());
     let pack = db.intern_entity_route(EntityRoute::package(
-        main_file,
+        crate_entrance,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
     let subscope_table = db.subroute_table(pack).ok().unwrap();
@@ -46,10 +46,10 @@ struct B {}
         .into(),
     );
 
-    let main_file = db.intern_file("haha/main.hsk".into());
+    let crate_entrance = db.intern_file("haha/main.hsk".into());
     let husky_lord_file = db.intern_file("haha/husky_lord.hsk".into());
     let package = db.intern_entity_route(EntityRoute::package(
-        main_file,
+        crate_entrance,
         db.intern_word("haha".into()).opt_custom().unwrap(),
     ));
     let subroute_table = db.subroute_table(package).ok().unwrap();

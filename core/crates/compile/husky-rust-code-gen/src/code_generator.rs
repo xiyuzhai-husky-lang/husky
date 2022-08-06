@@ -23,14 +23,14 @@ use std::sync::Arc;
 pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustCodeGenQueryGroup,
     result: String,
-    package_main: FilePtr,
+    crate_entrance: FilePtr,
     entity_route_uses: LocalStack<EntityRoutePtr>,
     context: RustCodeGenContext,
 }
 
 impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn new(db: &'a dyn RustCodeGenQueryGroup, module: EntityRoutePtr) -> Self {
-        let package_main = db.main_file(db.module_file(module).unwrap()).unwrap();
+        let package_main = db.crate_entrance(db.module_file(module).unwrap()).unwrap();
         let entity_defn = db.entity_defn(module).unwrap();
         let mut symbols = LocalStack::new();
         for entity_defn in entity_defn.subentities.iter() {
@@ -38,7 +38,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
         Self {
             db,
-            package_main,
+            crate_entrance: package_main,
             result: Default::default(),
             entity_route_uses: symbols,
             context: RustCodeGenContext::Normal,
@@ -53,7 +53,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
         Self {
             db,
-            package_main,
+            crate_entrance: package_main,
             result: Default::default(),
             entity_route_uses: symbols,
             context: RustCodeGenContext::Normal,
@@ -61,7 +61,7 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     pub(crate) fn package(&self) -> Arc<Package> {
-        self.db.package(self.package_main).unwrap()
+        self.db.package(self.crate_entrance).unwrap()
     }
 
     fn exec_within_context(&mut self, new_context: RustCodeGenContext, f: impl FnOnce(&mut Self)) {

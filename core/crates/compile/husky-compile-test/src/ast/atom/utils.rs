@@ -18,7 +18,7 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyComptime, line: &'static str) -> V
     let symbols = fold::LocalStack::new();
     AtomParser::new(
         &mut AtomContextStandalone {
-            opt_package_main: Some(main),
+            opt_crate_entrance: Some(main),
             db,
             opt_this_ty: None,
             opt_this_contract: None,

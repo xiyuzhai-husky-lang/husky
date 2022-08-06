@@ -7,8 +7,8 @@ use std::{fs, path::Path};
 
 impl HuskyComptime {
     fn set_main_package(&mut self, package_dir: &Path) {
-        assert!(self.opt_main.is_none());
-        self.opt_main = Some(self.intern_file(package_dir.join("main.hsk")))
+        assert!(self.opt_crate_entrance.is_none());
+        self.opt_crate_entrance = Some(self.intern_file(package_dir.join("main.hsk")))
     }
 
     pub fn load_package(&mut self, package_dir: &Path) {

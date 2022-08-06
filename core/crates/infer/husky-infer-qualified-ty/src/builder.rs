@@ -19,7 +19,7 @@ pub(crate) struct QualifiedTySheetBuilder<'a> {
     contract_sheet: Arc<ContractSheet>,
     entity_route_sheet: Arc<EntityRouteSheet>,
     qualified_ty_sheet: QualifiedTySheet,
-    main_file: FilePtr,
+    crate_entrance: FilePtr,
 }
 
 impl<'a> QualifiedTySheetBuilder<'a> {
@@ -35,7 +35,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             entity_route_sheet: contract_sheet.entity_route_sheet.clone(),
             qualified_ty_sheet: QualifiedTySheet::new(contract_sheet.clone()),
             contract_sheet,
-            main_file: db.main_file(file).unwrap(),
+            crate_entrance: db.crate_entrance(file).unwrap(),
         })
     }
 
@@ -76,7 +76,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     AstVariant::MainDefnHead => self.infer_lazy_call_form(
                         &[],
                         children,
-                        self.db.crate_output_ty(self.main_file).ok(),
+                        self.db.crate_output_ty(self.crate_entrance).ok(),
                         OutputLiason::Transfer,
                     ),
                     AstVariant::DatasetConfigDefnHead => self.infer_eager_call_form(

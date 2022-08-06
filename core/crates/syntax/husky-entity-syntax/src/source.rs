@@ -19,7 +19,7 @@ pub enum EntitySource {
         file: FilePtr,
     },
     Input {
-        main_file: FilePtr,
+        crate_entrance: FilePtr,
     },
     Any {
         ident: CustomIdentifier,

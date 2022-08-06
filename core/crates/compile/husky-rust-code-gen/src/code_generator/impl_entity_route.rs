@@ -48,7 +48,9 @@ impl<'a> RustCodeGenerator<'a> {
             }
         }
         let needs_eval_ref = match role {
-            EntityRouteRole::Decl => self.db.entity_route_variant_contains_eval_ref(entity_route),
+            EntityRouteRole::Decl => self
+                .db
+                .entity_route_variant_contains_eval_ref(Some(self.crate_entrance), entity_route),
             _ => false,
         };
         if needs_eval_ref || entity_route.spatial_arguments.len() > 0 {

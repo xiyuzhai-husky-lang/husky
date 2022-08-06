@@ -36,7 +36,9 @@ pub(crate) fn feature_decl(
             }
         }
         EntitySource::Module { file } => todo!(),
-        EntitySource::Input { main_file: main } => Ok(Arc::new(FeatureDecl {
+        EntitySource::Input {
+            crate_entrance: main,
+        } => Ok(Arc::new(FeatureDecl {
             ty: db.crate_input_ty(main)?,
         })),
         EntitySource::StaticTypeMember(_) => todo!(),

@@ -26,6 +26,7 @@ pub(crate) fn entity_route_sheet(
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityRouteSheet {
+    pub crate_entrance: FilePtr,
     pub ast_text: Arc<AstText>,
     pub(crate) expr_tys: RawExprMap<InferResult<EntityRoutePtr>>,
     pub(crate) function_call_routes: RawExprMap<InferResult<EntityRoutePtr>>, // keys are function idx
@@ -39,7 +40,11 @@ impl EntityRouteSheet {
         &self.ast_text.arena[idx]
     }
 
-    pub(crate) fn new(ast_text: Arc<AstText>, extra_errors: Vec<InferError>) -> Self {
+    pub(crate) fn new(
+        crate_entrance: FilePtr,
+        ast_text: Arc<AstText>,
+        extra_errors: Vec<InferError>,
+    ) -> Self {
         Self {
             expr_tys: ArenaMap::new(&ast_text.arena),
             function_call_routes: ArenaMap::new(&ast_text.arena),
@@ -47,6 +52,7 @@ impl EntityRouteSheet {
             variable_tys: Default::default(),
             ast_text,
             extra_errors,
+            crate_entrance: todo!(),
         }
     }
 

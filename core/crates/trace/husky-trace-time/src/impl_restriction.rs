@@ -15,8 +15,8 @@ impl HuskyTraceTime {
     ) -> Vec<(TraceStalkKey, TraceStalkData)> {
         self.restriction = restriction;
         if let Some(sample_id0) = self.restriction.opt_sample_id() {
-            let main_file = self.runtime().compile_time().main_file();
-            let main_feature_repr = self.runtime().main_feature_repr(main_file);
+            let crate_entrance = self.runtime().compile_time().crate_entrance();
+            let main_feature_repr = self.runtime().main_feature_repr(crate_entrance);
             match self
                 .runtime_singleton
                 .eval_feature_repr(&main_feature_repr, sample_id0)

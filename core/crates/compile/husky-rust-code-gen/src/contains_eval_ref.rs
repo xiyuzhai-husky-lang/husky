@@ -8,6 +8,7 @@ use super::*;
 
 pub(super) fn entity_route_variant_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
+    opt_crate_entrance: Option<FilePtr>,
     entity_route: EntityRoutePtr,
 ) -> bool {
     let base_route = db.intern_entity_route(EntityRoute {
@@ -44,7 +45,8 @@ pub(super) fn entity_route_variant_contains_eval_ref(
                         FieldKind::StructOriginal
                         | FieldKind::StructDefault
                         | FieldKind::StructDerivedEager => {
-                            if db.entity_route_contains_eval_ref(field_decl.ty) {
+                            if db.entity_route_contains_eval_ref(opt_crate_entrance, field_decl.ty)
+                            {
                                 return true;
                             }
                         }
@@ -59,32 +61,36 @@ pub(super) fn entity_route_variant_contains_eval_ref(
         }
         EntityKind::Trait => todo!(),
         EntityKind::Member(_) => {
-            let call_form_decl = db.entity_call_form_decl(base_route).unwrap();
-            if db.entity_route_contains_eval_ref(base_route.parent()) {
+            let call_form_decl = db
+                .entity_call_form_decl(opt_crate_entrance, base_route)
+                .unwrap();
+            if db.entity_route_contains_eval_ref(opt_crate_entrance, base_route.parent()) {
                 return true;
             }
             for parameter in call_form_decl.primary_parameters.iter() {
-                if db.entity_route_contains_eval_ref(parameter.ty) {
+                if db.entity_route_contains_eval_ref(opt_crate_entrance, parameter.ty) {
                     return true;
                 }
             }
-            if db.entity_route_contains_eval_ref(call_form_decl.output.ty) {
+            if db.entity_route_contains_eval_ref(opt_crate_entrance, call_form_decl.output.ty) {
                 return true;
             }
         }
         EntityKind::Function { requires_lazy } => {
-            let call_form_decl = db.entity_call_form_decl(base_route).unwrap();
+            let call_form_decl = db
+                .entity_call_form_decl(opt_crate_entrance, base_route)
+                .unwrap();
             for parameter in call_form_decl.primary_parameters.iter() {
-                if parameter_contains_eval_ref(db, parameter) {
+                if parameter_contains_eval_ref(db, opt_crate_entrance, parameter) {
                     return true;
                 }
             }
             for parameter in call_form_decl.keyword_parameters.iter() {
-                if parameter_contains_eval_ref(db, parameter) {
+                if parameter_contains_eval_ref(db, opt_crate_entrance, parameter) {
                     return true;
                 }
             }
-            if db.entity_route_contains_eval_ref(call_form_decl.output.ty) {
+            if db.entity_route_contains_eval_ref(opt_crate_entrance, call_form_decl.output.ty) {
                 return true;
             }
         }
@@ -97,27 +103,29 @@ pub(super) fn entity_route_variant_contains_eval_ref(
 
 fn parameter_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
+    opt_crate_entrance: Option<FilePtr>,
     parameter: &infer_decl::ParameterDecl,
 ) -> bool {
     match parameter.liason {
         ParameterLiason::EvalRef => return true,
         _ => (),
     }
-    db.entity_route_contains_eval_ref(parameter.ty)
+    db.entity_route_contains_eval_ref(opt_crate_entrance, parameter.ty)
 }
 
 pub(super) fn entity_route_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
+    opt_crate_entrance: Option<FilePtr>,
     entity_route: EntityRoutePtr,
 ) -> bool {
-    if db.entity_route_variant_contains_eval_ref(entity_route) {
+    if db.entity_route_variant_contains_eval_ref(opt_crate_entrance, entity_route) {
         return true;
     }
     for argument in entity_route.spatial_arguments.iter() {
         match argument {
             SpatialArgument::Const(_) => (),
             SpatialArgument::EntityRoute(entity_route) => {
-                if db.entity_route_contains_eval_ref(*entity_route) {
+                if db.entity_route_contains_eval_ref(opt_crate_entrance, *entity_route) {
                     return true;
                 }
             }

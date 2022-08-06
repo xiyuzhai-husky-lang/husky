@@ -35,14 +35,15 @@ use std::sync::Arc;
 pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
     fn entity_call_form_decl(
         &self,
+        opt_crate_entrance: Option<FilePtr>,
         call_route: EntityRoutePtr,
     ) -> InferQueryResultArc<CallFormDecl>;
     fn value_call_form_decl(&self, ty: EntityRoutePtr) -> InferQueryResultArc<CallFormDecl>;
     fn ty_decl(&self, ty: EntityRoutePtr) -> InferQueryResultArc<TyDecl>;
     fn trait_decl(&self, trai: EntityRoutePtr) -> InferResultArc<TraitDecl>;
     fn feature_decl(&self, feature_entity: EntityRoutePtr) -> InferResultArc<FeatureDecl>;
-    fn crate_input_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
-    fn crate_output_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
+    fn crate_input_ty(&self, crate_entrance: FilePtr) -> InferResult<EntityRoutePtr>;
+    fn crate_output_ty(&self, crate_entrance: FilePtr) -> InferResult<EntityRoutePtr>;
     // fn vec_decl(&self) -> Arc<TyDecl>;
     // fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
     fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx;

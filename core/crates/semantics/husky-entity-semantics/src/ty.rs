@@ -180,7 +180,7 @@ impl EntityDefnVariant {
                 opt_type_call,
             } => {
                 let mut symbol_context = AtomContextStandalone {
-                    opt_package_main: symbol_context.opt_package_main(),
+                    opt_crate_entrance: symbol_context.opt_crate_entrance(),
                     db: symbol_context.entity_syntax_db(),
                     opt_this_ty: None,
                     opt_this_contract: None,
