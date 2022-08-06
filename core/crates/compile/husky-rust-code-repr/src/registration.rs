@@ -83,7 +83,8 @@ impl<'eval> __Register<'eval> {{
                 __RegisterDataKind::PrimitiveValue => self.data.as_{ty},
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const {ty}),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const {ty}),
                 _ => panic!(),
             }}
         }}
@@ -96,7 +97,8 @@ impl<'eval> __Register<'eval> {{
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_{ty}),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const {ty})),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const {ty})),
                 __RegisterDataKind::Undefined => None,
                 _ => panic!(),
             }}

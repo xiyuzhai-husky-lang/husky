@@ -18,7 +18,7 @@ lazy expr:
     23:9..23:45    naive_i32(concave_components.ilen())   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
 kind:
-Original { message: "expect ?i32 but get Output instead", range: 23:9..23:45 }
+Original { message: "expect ?i32 but get TargetOutput instead", range: 23:9..23:45 }
     25:9..25:10    1                      Copyable i32
 
 eager expr:
@@ -42,5 +42,5 @@ lazy expr:
     23:9..23:45    naive_i32(concave_components.ilen())   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
 kind:
-Original { message: "expect ?i32 but get Output instead", range: 23:9..23:45 }
+Original { message: "expect ?i32 but get TargetOutput instead", range: 23:9..23:45 }
     25:9..25:10    1                      Copyable i32
