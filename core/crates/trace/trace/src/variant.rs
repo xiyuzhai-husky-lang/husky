@@ -79,7 +79,12 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::FeatureStmt(_) => TraceKind::FeatureStmt,
             TraceVariant::FeatureBranch(_) => TraceKind::FeatureBranch,
             TraceVariant::FeatureExpr(expr) => match expr.variant {
-                FeatureExprVariant::StructDerivedLazyField { .. } => todo!(),
+                FeatureExprVariant::StructDerivedLazyField { ref repr, .. } => {
+                    match repr.is_lazy() {
+                        true => TraceKind::FeatureExprLazy,
+                        false => TraceKind::FeatureExprEager,
+                    }
+                }
                 FeatureExprVariant::RecordDerivedField { .. } => todo!(),
                 FeatureExprVariant::ModelCall { .. } => todo!(),
                 FeatureExprVariant::EntityFeature { .. } => todo!(),
@@ -294,7 +299,7 @@ impl<'eval> TraceVariant<'eval> {
                     ref match_expr,
                     ref branches,
                 } => history.contains(match_expr),
-                FuncStmtVariant::Require { ref condition, .. } => todo!(),
+                FuncStmtVariant::Require { ref condition, .. } => history.contains(condition),
             },
             TraceVariant::ProcStmt { stmt, history } => match stmt.variant {
                 ProcStmtVariant::Init {
