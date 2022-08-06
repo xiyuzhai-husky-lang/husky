@@ -1,7 +1,7 @@
 use xxhash_rust::xxh3::xxh3_64;
 
 pub use super::*;
-pub struct PrimitiveTypeRegistration<'a> {
+pub struct RootPrimitiveTypeRegistration<'a> {
     pub ty: &'a str,
 }
 
@@ -13,7 +13,7 @@ fn it_works() {
     assert_eq!(hash, 6639413044669031007)
 }
 
-impl<'a> Display for PrimitiveTypeRegistration<'a> {
+impl<'a> Display for RootPrimitiveTypeRegistration<'a> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let ty = self.ty;
         let uppercase_ty = ty.to_uppercase();
@@ -34,29 +34,35 @@ pub unsafe extern "C" fn __{ty}_primitive_value_to_bool(data: __RegisterData) ->
     let data = data.as_{ty};
     {result}
 }}
+
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_primitive_value_to_box(data: __RegisterData) -> *mut () {{
     let data = data.as_{ty};
     let ptr: *mut {ty} = Box::<{ty}>::into_raw(Box::new(data));
     ptr as *mut ()
 }}
+
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_clone(data: *mut ()) -> *mut () {{
     Box::<{ty}>::into_raw(Box::new((*(data as *mut {ty})).clone())) as *mut ()
 }}
+
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_drop(data: *mut ()) {{
     Box::from_raw(data as *mut {ty});
 }}
+
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_eq(this: &(), other: &()) -> bool {{
     *(this as *const () as *const {ty}) == *(other as *const () as *const {ty})
 }}
+
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_assign(registers: *mut __Register) {{
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<{ty}>(&__{uppercase_ty}_VTABLE) = registers[1].downcast_{ty}()
 }}
+
 #[no_mangle]
 pub static __{uppercase_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
     primitive_value_to_bool: Some(__{ty}_primitive_value_to_bool),
@@ -68,13 +74,31 @@ pub static __{uppercase_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
     typename_str: "{ty}",
     typename_str_hash_u64: {typename_str_hash_u64},
 }};
+
 impl<'eval> __Register<'eval> {{
     pub fn downcast_{ty}(&self) -> {ty} {{
         unsafe {{
             assert_eq!(self.vtable.typename_str_hash_u64, {typename_str_hash_u64});
             match self.data_kind {{
                 __RegisterDataKind::PrimitiveValue => self.data.as_{ty},
-                _ => *(self.data.as_ptr as *const {ty}),
+                __RegisterDataKind::EvalRef
+                | __RegisterDataKind::TempRef
+                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const {ty}),
+                _ => panic!(),
+            }}
+        }}
+    }}
+
+    pub fn downcast_opt_{ty}(&self) -> Option<{ty}> {{
+        unsafe {{
+            assert_eq!(self.vtable.typename_str_hash_u64, {typename_str_hash_u64});
+            match self.data_kind {{
+                __RegisterDataKind::PrimitiveValue => Some(self.data.as_{ty}),
+                __RegisterDataKind::EvalRef
+                | __RegisterDataKind::TempRef
+                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const {ty})),
+                __RegisterDataKind::Undefined => None,
+                _ => panic!(),
             }}
         }}
     }}
