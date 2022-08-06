@@ -7,7 +7,7 @@ use husky_ast::{
     Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant,
     RawReturnContext, RawReturnContextKind, RawStmtVariant, StructItemContext,
 };
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::{EntityRoute, EntityRoutePtr, EntityRouteVariant, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_init_syntax::InitKind;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
@@ -130,7 +130,14 @@ impl<'a> Formatter<'a> {
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
                     return_context: Some(RawReturnContext {
-                        output_ty: todo!(),
+                        output_ty: RangedEntityRoute {
+                            route: self.db.intern_entity_route(EntityRoute {
+                                variant: EntityRouteVariant::TargetOutputType,
+                                temporal_arguments: Default::default(),
+                                spatial_arguments: Default::default(),
+                            }),
+                            range: Default::default(),
+                        },
                         kind: RawReturnContextKind::Feature,
                     }),
                 });
@@ -147,7 +154,7 @@ impl<'a> Formatter<'a> {
                 self.context.set(AstContext::Stmt {
                     paradigm,
                     return_context: Some(RawReturnContext {
-                        output_ty: todo!(),
+                        output_ty,
                         kind: RawReturnContextKind::Normal,
                     }),
                 });

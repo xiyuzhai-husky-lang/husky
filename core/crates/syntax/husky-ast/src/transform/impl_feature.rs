@@ -8,6 +8,10 @@ impl<'a> AstTransformer<'a> {
         paradigm: Paradigm,
         token_group: &[HuskyToken],
     ) -> AstResult<AstVariant> {
+        self.context.set(AstContext::Stmt {
+            paradigm,
+            return_context: None,
+        });
         expect_head!(token_group);
         expect_at_least!(token_group, token_group.text_range(), 5);
         let ident = identify_token!(

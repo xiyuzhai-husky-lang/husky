@@ -14,10 +14,10 @@ lazy expr:
     19:27..19:40   raw_contour0.          EvalRef mnist_classifier006::line_segment_sketch::LineSegmentSketch
     20:26..20:45   line_segment_sketch    EvalRef mnist_classifier006::line_segment_sketch::LineSegmentSketch
     20:26..20:46   line_segment_sketch.   EvalRef []mnist_classifier006::line_segment_sketch::concave_component::ConcaveComponent
-    21:15..21:33   concave_components     PureRef []mnist_classifier006::line_segment_sketch::concave_component::ConcaveComponent
-    21:5..21:14    naive_i32              InferError: failed to infer expr ty
-    21:15..21:40   concave_components.ilen()   Copyable i32
-    21:5..21:41    naive_i32(concave_components.ilen())   Copyable i32
+    21:5..21:41    naive_i32(concave_components.ilen())   InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
+kind:
+Original { message: "expect ?i32 but get Output instead", range: 21:5..21:41 }
 
 eager expr:
     7:5..7:48      ml::datasets::cv::mnist::new_binary_dataset   InferError: failed to infer expr ty
@@ -36,7 +36,7 @@ lazy expr:
     19:27..19:40   raw_contour0.          EvalRef mnist_classifier006::line_segment_sketch::LineSegmentSketch
     20:26..20:45   line_segment_sketch    EvalRef mnist_classifier006::line_segment_sketch::LineSegmentSketch
     20:26..20:46   line_segment_sketch.   EvalRef []mnist_classifier006::line_segment_sketch::concave_component::ConcaveComponent
-    21:15..21:33   concave_components     PureRef []mnist_classifier006::line_segment_sketch::concave_component::ConcaveComponent
-    21:5..21:14    naive_i32              InferError: failed to infer expr ty
-    21:15..21:40   concave_components.ilen()   Copyable i32
-    21:5..21:41    naive_i32(concave_components.ilen())   Copyable i32
+    21:5..21:41    naive_i32(concave_components.ilen())   InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
+kind:
+Original { message: "expect ?i32 but get Output instead", range: 21:5..21:41 }
