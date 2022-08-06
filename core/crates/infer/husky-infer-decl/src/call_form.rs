@@ -230,9 +230,10 @@ pub(crate) fn entity_call_form_decl(
                 }
             }
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
-            EntityRouteVariant::Input { main } => todo!(),
+            EntityRouteVariant::InputValue { main } => todo!(),
             EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::OutputType { main } => todo!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => match route.variant {

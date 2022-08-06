@@ -196,11 +196,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             }
             EntityRouteVariant::Root { ident } => todo!(),
             EntityRouteVariant::Package { main, ident } => todo!(),
-            EntityRouteVariant::Input { main } => todo!(),
+            EntityRouteVariant::InputValue { main } => todo!(),
             EntityRouteVariant::Any {
                 ident, entity_kind, ..
             } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::OutputType { main } => todo!(),
         }
         self.write(
             r#"
