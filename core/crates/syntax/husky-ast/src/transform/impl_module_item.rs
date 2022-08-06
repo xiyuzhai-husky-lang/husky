@@ -30,6 +30,10 @@ impl<'a> AstTransformer<'a> {
                 match token_group[2].kind {
                     HuskyTokenKind::Special(SpecialToken::LightArrow) => {
                         enter_block(self);
+                        self.context.set(AstContext::Stmt {
+                            paradigm,
+                            return_context: None,
+                        });
                         self.parse_feature_defn_head(paradigm, token_group)
                     }
                     HuskyTokenKind::Special(SpecialToken::LPar) => {

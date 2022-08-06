@@ -1,7 +1,7 @@
 use crate::*;
 
 #[test]
-fn no_error_single_file() {
+fn semantics_no_error_single_file() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
     db.set_live_file_text(
         "haha/main.hsk".into(),
@@ -20,6 +20,7 @@ main:
 "#
         .into(),
     );
+    db.set_opt_target_entrance(Some(db.intern_file("haha/main.hsk".into())));
     let all_diagnostics = db.all_diagnostics();
     if all_diagnostics.len() > 0 {
         p!(all_diagnostics);

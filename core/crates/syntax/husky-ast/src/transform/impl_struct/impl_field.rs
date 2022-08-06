@@ -56,7 +56,7 @@ impl<'a> AstTransformer<'a> {
             self.context.set(AstContext::Stmt {
                 paradigm: Paradigm::EagerFunctional,
                 return_context: Some(RawReturnContext {
-                    output_ty: todo!(),
+                    output_ty: field_ty,
                     kind: RawReturnContextKind::Normal,
                 }),
             });
