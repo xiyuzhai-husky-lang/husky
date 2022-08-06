@@ -51,7 +51,7 @@ impl<'a> AstTransformer<'a> {
         };
         self.context.set(AstContext::Stmt {
             paradigm,
-            return_context: Some(ReturnContext {
+            return_context: Some(RawReturnContext {
                 return_ty,
                 kind: ReturnContextKind::Normal,
             }),

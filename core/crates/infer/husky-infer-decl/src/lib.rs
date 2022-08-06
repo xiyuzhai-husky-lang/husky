@@ -42,7 +42,7 @@ pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
     fn trait_decl(&self, trai: EntityRoutePtr) -> InferResultArc<TraitDecl>;
     fn feature_decl(&self, feature_entity: EntityRoutePtr) -> InferResultArc<FeatureDecl>;
     fn eval_input_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
-    fn eval_return_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
+    fn eval_output_ty(&self, main_file: FilePtr) -> InferResult<EntityRoutePtr>;
     // fn vec_decl(&self) -> Arc<TyDecl>;
     // fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
     fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx;

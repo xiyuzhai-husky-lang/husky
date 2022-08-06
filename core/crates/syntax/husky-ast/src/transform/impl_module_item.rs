@@ -57,7 +57,7 @@ impl<'a> AstTransformer<'a> {
                     ConfigKeyword::Task => {
                         self.context.set(AstContext::Stmt {
                             paradigm: Paradigm::EagerFunctional,
-                            return_context: Some(ReturnContext {
+                            return_context: Some(RawReturnContext {
                                 return_ty: RangedEntityRoute {
                                     route: RootIdentifier::DatasetType.into(),
                                     range: Default::default(),
@@ -74,8 +74,8 @@ impl<'a> AstTransformer<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
-                    return_context: Some(ReturnContext {
-                        return_ty: todo!(),
+                    return_context: Some(RawReturnContext {
+                        return_ty: self.db.raw_eval_output_ty(),
                         kind: ReturnContextKind::Feature,
                     }),
                 });
