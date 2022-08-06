@@ -12,8 +12,8 @@ pub trait HuskyDataViewerQueryGroup: AskCompileTime {
 }
 
 fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc<HuskyDataViewer> {
-    let ty_decl: Arc<TyDecl> = db.compile_time().ty_decl(ty).unwrap();
-    let comptime = db.compile_time();
+    let ty_decl: Arc<TyDecl> = db.comptime().ty_decl(ty).unwrap();
+    let comptime = db.comptime();
     Arc::new(match ty_decl.ty_kind {
         TyKind::Enum => todo!(),
         TyKind::Record => todo!(),

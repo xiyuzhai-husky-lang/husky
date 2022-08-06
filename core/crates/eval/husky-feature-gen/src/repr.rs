@@ -110,8 +110,10 @@ impl FeatureRepr {
                 eval_id: Default::default(),
                 stmts: stmts.clone(),
                 instruction_sheet: {
+                    let target_entrance = db.comptime().target_entrance();
                     new_func_instruction_sheet(
                         db.upcast(),
+                        target_entrance,
                         [].into_iter(),
                         stmts,
                         opt_this.is_some(),
@@ -125,13 +127,13 @@ impl FeatureRepr {
                         },
                         None => Feature::EntityFeature {
                             route: *route,
-                            uid: db.compile_time().entity_uid(*route),
+                            uid: db.comptime().entity_uid(*route),
                         },
                     })
                 },
                 opt_this,
                 ty: *output_ty,
-                opt_linkage: { db.compile_time().feature_eager_block_linkage(*route) },
+                opt_linkage: { db.comptime().feature_eager_block_linkage(*route) },
             })),
             DefinitionRepr::ProcBlock {
                 stmts,

@@ -17,7 +17,7 @@ use super::EagerOpnVariant;
 pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedTy {
     fn arena(&self) -> &'a RawExprArena;
     fn file(&self) -> FilePtr;
-    fn crate_entrance(&self) -> FilePtr;
+    fn target_entrance(&self) -> FilePtr;
 
     fn parse_eager_expr(&mut self, idx: RawExprIdx) -> SemanticResult<Arc<EagerExpr>> {
         let raw_expr = &self.arena()[idx];
@@ -321,9 +321,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 kind: EntityKind::Type(_),
                 ..
             } => {
-                let signature = derived_unwrap!(self
-                    .decl_db()
-                    .entity_call_form_decl(Some(self.crate_entrance()), route));
+                let signature = derived_unwrap!(self.decl_db().entity_call_form_decl(route));
                 let arguments: Vec<_> = input_opd_idx_range
                     .enumerate()
                     .map(|(i, raw)| self.parse_eager_expr(raw))

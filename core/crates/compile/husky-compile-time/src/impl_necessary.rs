@@ -27,7 +27,6 @@ impl salsa::ParallelDatabase for HuskyComptime {
             live_docs: self.live_docs.clone(),
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
-            opt_crate_entrance: self.opt_crate_entrance,
             config: self.config.clone(),
             ty_cache: self.ty_cache.clone(),
             entity_route_menu: self.entity_route_menu.clone(),
@@ -75,11 +74,7 @@ impl ResolveStaticRootDefn for HuskyComptime {
     }
 }
 
-impl EntitySyntaxQueryGroup for HuskyComptime {
-    fn opt_crate_entrance(&self) -> Option<FilePtr> {
-        self.opt_crate_entrance
-    }
-}
+impl EntitySyntaxQueryGroup for HuskyComptime {}
 
 impl AstQueryGroup for HuskyComptime {}
 

@@ -23,7 +23,7 @@ impl Package {
         self.main_defn.file.parent().unwrap().to_owned()
     }
 
-    pub fn crate_entrance(&self) -> FilePtr {
+    pub fn target_entrance(&self) -> FilePtr {
         self.main_defn.file
     }
 }

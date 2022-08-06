@@ -142,7 +142,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         }
                     }
                     SymbolKind::ThisMethod => {
-                        p!(self.atom_context.opt_crate_entrance(), token.range);
+                        p!(self.atom_context.opt_target_entrance(), token.range);
                         todo!()
                     }
                 })

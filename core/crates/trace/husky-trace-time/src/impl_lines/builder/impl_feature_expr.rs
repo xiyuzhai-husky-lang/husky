@@ -107,7 +107,7 @@ impl<'a> TraceTokenBuilder<'a> {
             FeatureExprVariant::EntityFeature { .. } => {
                 let text = self
                     .runtime_singleton
-                    .compile_time()
+                    .comptime()
                     .text(expr.expr.file)
                     .unwrap();
                 self.push(route!(text.ranged(expr.expr.range), opt_assoc_id))
@@ -208,7 +208,7 @@ impl<'a> TraceTokenBuilder<'a> {
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) {
-        let text = self.runtime().compile_time().text(file).unwrap();
+        let text = self.runtime().comptime().text(file).unwrap();
         self.extend([
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
             special!("("),

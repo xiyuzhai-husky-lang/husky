@@ -67,7 +67,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref repr,
             } => self.eval_feature_repr(repr),
             FeatureExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
-            FeatureExprVariant::EvalInput => Ok(self.crate_input.clone()),
+            FeatureExprVariant::EvalInput => Ok(self.target_input.clone()),
             FeatureExprVariant::RecordDerivedField { ref repr, .. } => self.eval_feature_repr(repr),
             FeatureExprVariant::ElementAccess {
                 ref opds, linkage, ..
@@ -199,11 +199,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                                 self.eval_expr(argument).map(|v| {
                                     (
                                         *ident,
-                                        self.serialize(
-                                            self.db.compile_time(),
-                                            &v,
-                                            argument.expr.ty(),
-                                        ),
+                                        self.serialize(self.db.comptime(), &v, argument.expr.ty()),
                                     )
                                 })
                             },

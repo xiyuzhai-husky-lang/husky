@@ -18,7 +18,7 @@
 // }
 
 // pub fn root_traces(this: &dyn TraceQueryGroup) -> Vec<TraceId> {
-//     let compile_time = this.compile_time();
+//     let comptime = this.comptime();
 //     let pack_main = this.pack_main();
 //     Arc::new()
 // }

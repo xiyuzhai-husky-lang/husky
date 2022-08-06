@@ -3,9 +3,9 @@ use code_generator::RustCodeGenerator;
 
 pub(crate) fn rust_lib_rs_content(
     db: &dyn RustCodeGenQueryGroup,
-    package_main: FilePtr,
+    target_entrance: FilePtr,
 ) -> Arc<String> {
-    let mut generator = RustCodeGenerator::new_lib(db, package_main);
+    let mut generator = RustCodeGenerator::new_lib(db, target_entrance);
     generator.gen_lib_rs_content();
     Arc::new(generator.finish())
 }

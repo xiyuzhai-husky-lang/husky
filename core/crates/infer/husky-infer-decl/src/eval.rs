@@ -6,7 +6,7 @@ use vm::*;
 
 use crate::*;
 
-fn crate_input_ty_from_ast(
+fn target_input_ty_from_ast(
     db: &dyn DeclQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
@@ -28,7 +28,7 @@ fn crate_input_ty_from_ast(
                         ..
                     } => {
                         let signature_result: InferResult<_> =
-                            db.entity_call_form_decl(None, route).bind_into(caller);
+                            db.entity_call_form_decl(route).bind_into(caller);
                         let dataset_type = signature_result?.output.ty;
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
@@ -49,7 +49,7 @@ fn crate_input_ty_from_ast(
     }
 }
 
-fn crate_output_ty_from_ast(
+fn target_output_ty_from_ast(
     db: &dyn DeclQueryGroup,
     arena: &RawExprArena,
     ast: &Ast,
@@ -71,7 +71,7 @@ fn crate_output_ty_from_ast(
                         ..
                     } => {
                         let call_decl_result: InferResult<_> =
-                            db.entity_call_form_decl(None, route).bind_into(caller);
+                            db.entity_call_form_decl(route).bind_into(caller);
                         let dataset_type = call_decl_result?.output.ty;
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
@@ -94,15 +94,12 @@ fn crate_output_ty_from_ast(
     }
 }
 
-pub(crate) fn crate_input_ty(
-    db: &dyn DeclQueryGroup,
-    crate_entrance: FilePtr,
-) -> InferResult<EntityRoutePtr> {
-    let ast_text = db.ast_text(crate_entrance)?;
+pub(crate) fn target_input_ty(db: &dyn DeclQueryGroup) -> InferResult<EntityRoutePtr> {
+    let ast_text = db.ast_text(db.opt_target_entrance().unwrap())?;
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.variant {
             AstVariant::DatasetConfigDefnHead => {
-                return crate_input_ty_from_ast(
+                return target_input_ty_from_ast(
                     db,
                     &ast_text.arena,
                     derived_not_none!(item.opt_children)?
@@ -121,15 +118,12 @@ pub(crate) fn crate_input_ty(
     )
 }
 
-pub(crate) fn crate_output_ty(
-    db: &dyn DeclQueryGroup,
-    crate_entrance: FilePtr,
-) -> InferResult<EntityRoutePtr> {
-    let ast_text = db.ast_text(crate_entrance)?;
+pub(crate) fn target_output_ty(db: &dyn DeclQueryGroup) -> InferResult<EntityRoutePtr> {
+    let ast_text = db.ast_text(db.opt_target_entrance().unwrap())?;
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref()?.variant {
             AstVariant::DatasetConfigDefnHead => {
-                return crate_output_ty_from_ast(
+                return target_output_ty_from_ast(
                     db,
                     &ast_text.arena,
                     derived_not_none!(item.opt_children)?

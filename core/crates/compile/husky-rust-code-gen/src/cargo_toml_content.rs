@@ -6,10 +6,10 @@ use crate::*;
 
 pub fn cargo_toml_content(
     db: &dyn RustCodeGenQueryGroup,
-    crate_entrance: FilePtr,
+    target_entrance: FilePtr,
     husky_dir: &str,
 ) -> String {
-    let package = db.package(crate_entrance).unwrap();
+    let package = db.package(target_entrance).unwrap();
     let package_ident = package.ident;
     let dashed_package_ident = snake_to_dash(&package_ident);
     msg_once!("ad hoc");

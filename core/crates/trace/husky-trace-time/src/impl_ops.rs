@@ -24,14 +24,14 @@ impl HuskyTraceTime {
     }
 
     fn update_root_traces(&mut self) {
-        let crate_entrance = self.comptime().crate_entrance();
+        let target_entrance = self.comptime().target_entrance();
         let now = Instant::now();
-        let main_feature_repr = self.runtime().main_feature_repr(crate_entrance);
+        let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
         println!(
             "{} milliseconds elapsed for computing main feature",
             now.elapsed().as_millis(),
         );
-        let module = self.comptime().module(crate_entrance).unwrap();
+        let module = self.comptime().module(target_entrance).unwrap();
         let mut root_trace_ids = vec![];
         for (subentity_kind, subentity_route) in
             self.comptime().subentity_kinded_routes(module).iter()
@@ -42,7 +42,7 @@ impl HuskyTraceTime {
                     0,
                     TraceVariant::Module {
                         route: *subentity_route,
-                        file: crate_entrance,
+                        file: target_entrance,
                         range: Default::default(),
                     },
                 )),

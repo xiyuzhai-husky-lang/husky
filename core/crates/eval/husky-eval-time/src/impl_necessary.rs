@@ -11,8 +11,8 @@ use crate::*;
 impl salsa::Database for HuskyRuntime {}
 
 impl AskCompileTime for HuskyRuntime {
-    fn compile_time(&self) -> &HuskyComptime {
-        &self.compile_time
+    fn comptime(&self) -> &HuskyComptime {
+        &self.comptime
     }
 }
 
@@ -38,9 +38,9 @@ impl InterpreterQueryGroup for HuskyRuntime {
         &self,
         uid: vm::EntityUid,
     ) -> Option<Arc<vm::InstructionSheet>> {
-        let entity_route = self.compile_time.entity_route_by_uid(uid);
-        self.entity_instruction_sheet(entity_route)
-        // self.compile_time.entity_opt_instruction_sheet_by_uid(uid)
+        let entity_route = self.comptime.entity_route_by_uid(uid);
+        self.entity_instruction_sheet(self.target_entrance, entity_route)
+        // self.comptime.entity_opt_instruction_sheet_by_uid(uid)
     }
 }
 

@@ -128,11 +128,7 @@ impl HuskyTraceTime {
         MutationFigureData {
             name: match mutation_data.kind {
                 MutationDataVariant::Exec => {
-                    let text = self
-                        .runtime()
-                        .compile_time()
-                        .text(mutation_data.file)
-                        .unwrap();
+                    let text = self.runtime().comptime().text(mutation_data.file).unwrap();
                     text.ranged(mutation_data.range)
                 }
                 MutationDataVariant::Block { varname, .. } => varname.as_str().to_string(),

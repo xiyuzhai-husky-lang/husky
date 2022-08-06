@@ -1,6 +1,7 @@
 mod impl_opn;
 mod xml;
 
+use husky_file::FilePtr;
 use husky_primitive_literal_semantics::{
     convert_primitive_literal_to_register, convert_primitive_literal_to_value,
 };
@@ -223,7 +224,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::EnumLiteral { entity_route } => (
                 FeatureExprVariant::EnumKindLiteral {
                     entity_route,
-                    uid: self.db.compile_time().entity_uid(entity_route),
+                    uid: self.db.comptime().entity_uid(entity_route),
                 },
                 self.features.intern(Feature::EnumLiteral(entity_route)),
             ),
@@ -245,7 +246,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::EntityFeature { entity_route } => match entity_route.variant {
                 EntityRouteVariant::Root { .. } | EntityRouteVariant::Package { .. } => panic!(),
                 EntityRouteVariant::Child { .. } => {
-                    let uid = self.db.compile_time().entity_uid(entity_route);
+                    let uid = self.db.comptime().entity_uid(entity_route);
                     let feature = self.features.intern(Feature::EntityFeature {
                         route: entity_route,
                         uid,

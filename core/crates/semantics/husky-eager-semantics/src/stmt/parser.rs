@@ -11,7 +11,7 @@ pub(crate) struct EagerParser<'a> {
     pub(super) db: &'a dyn InferQueryGroup,
     pub(super) arena: &'a RawExprArena,
     pub(super) file: FilePtr,
-    pub(super) crate_entrance: FilePtr,
+    pub(super) target_entrance: FilePtr,
     entity_route_sheet: Arc<EntityRouteSheet>,
     contract_sheet: Arc<ContractSheet>,
     qualified_ty_sheet: Arc<QualifiedTySheet>,
@@ -21,9 +21,9 @@ impl<'a> EagerParser<'a> {
     pub(crate) fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FilePtr) -> Self {
         msg_once!("check no errors in entity_route_sheet");
         let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();
-        let crate_entrance = db.crate_entrance(file).unwrap();
+        let target_entrance = db.target_entrance(file).unwrap();
         Self {
-            crate_entrance,
+            target_entrance,
             db,
             arena,
             file,
@@ -65,7 +65,7 @@ impl<'a> EagerExprParser<'a> for EagerParser<'a> {
         self.file
     }
 
-    fn crate_entrance(&self) -> FilePtr {
-        self.crate_entrance
+    fn target_entrance(&self) -> FilePtr {
+        self.target_entrance
     }
 }

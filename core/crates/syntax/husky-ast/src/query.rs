@@ -23,10 +23,10 @@ pub trait AstSalsaQueryGroup:
 
 fn root_symbols(db: &dyn AstSalsaQueryGroup) -> Arc<Vec<Symbol>> {
     Arc::new(
-        db.all_main_files()
+        db.all_target_entrances()
             .into_iter()
-            .map(|crate_entrance| -> Symbol {
-                let module = db.module(crate_entrance).unwrap();
+            .map(|target_entrance| -> Symbol {
+                let module = db.module(target_entrance).unwrap();
                 Symbol {
                     init_ident: RangedCustomIdentifier {
                         ident: module.ident().custom(),
@@ -43,7 +43,6 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
     fn parse_route_from_text(&self, text: &str) -> EntityRoutePtr {
         let root_symbols = self.root_symbols();
         let mut context = AtomContextStandalone {
-            opt_crate_entrance: self.opt_crate_entrance(),
             db: self.upcast(),
             opt_this_ty: None,
             opt_this_contract: None,

@@ -41,7 +41,7 @@ impl HuskyTraceTime {
                     .map(|partition| partition.ncol)
                     .sum::<u32>());
         let ty = repr.ty();
-        let visualizer = self.runtime().compile_time().visualizer(ty);
+        let visualizer = self.runtime().comptime().visualizer(ty);
         match visualizer.visual_ty {
             VisualTy::Void => {
                 p!(ty);

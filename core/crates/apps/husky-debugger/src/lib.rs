@@ -54,9 +54,9 @@ impl HuskyDebugger {
     pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
         let package_dir: &Path = &config.package_dir;
         let mut trace_time = HuskyTraceTime::new(
-            |compile_time| {
-                compile_time.load_package(package_dir);
-                compile_time.load_linkages(linkages)
+            |comptime| {
+                comptime.load_package(package_dir);
+                comptime.load_linkages(linkages)
             },
             config.eval_time(),
         );

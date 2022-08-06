@@ -26,7 +26,7 @@ use vm::{EntityUid, VMConfig, __EvalContext, __Register};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,
-    pub crate_input: __Register<'eval>,
+    pub target_input: __Register<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
     pub(crate) db: &'a dyn FeatureGenQueryGroup,
     pub(crate) evaluator_config: &'a EvaluatorConfig,
@@ -36,11 +36,8 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
 impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     fn entity_uid(&self, entity_route_text: &str) -> u64 {
         use husky_entity_semantics::EntityDefnQueryGroup;
-        let route = self
-            .db
-            .compile_time()
-            .parse_route_from_text(entity_route_text);
-        self.db.compile_time().entity_uid(route).raw()
+        let route = self.db.comptime().parse_route_from_text(entity_route_text);
+        self.db.comptime().entity_uid(route).raw()
     }
 
     fn opt_cached_lazy_field(
@@ -87,11 +84,8 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn feature_ptr(&self, feature_route_text: &str) -> *const () {
         use husky_entity_semantics::EntityDefnQueryGroup;
-        let route = self
-            .db
-            .compile_time()
-            .parse_route_from_text(feature_route_text);
-        let uid = self.db.compile_time().entity_uid(route);
+        let route = self.db.comptime().parse_route_from_text(feature_route_text);
+        let uid = self.db.comptime().entity_uid(route);
         unsafe {
             self.db
                 .feature_interner()
@@ -102,7 +96,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn eval_feature_from_uid(&self, uid_raw: u64) -> __VMResult<__Register<'eval>> {
         let uid = unsafe { EntityUid::from_raw(uid_raw) };
-        let route = self.db.compile_time().entity_route_by_uid(uid);
+        let route = self.db.comptime().entity_route_by_uid(uid);
         let feature = self
             .db
             .feature_interner()
@@ -115,8 +109,8 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn crate_input(&self) -> &__Register<'eval> {
-        &self.crate_input
+    fn target_input(&self) -> &__Register<'eval> {
+        &self.target_input
     }
 }
 

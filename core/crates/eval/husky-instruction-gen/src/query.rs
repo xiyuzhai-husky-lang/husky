@@ -10,20 +10,26 @@ use vm::{__LinkageFp, __VMResult};
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
 pub trait InstructionGenQueryGroup: AskCompileTime {
-    fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Option<Arc<InstructionSheet>>;
+    fn entity_instruction_sheet(
+        &self,
+        target_entrance: FilePtr,
+        route: EntityRoutePtr,
+    ) -> Option<Arc<InstructionSheet>>;
     fn method_opt_instruction_sheet(
         &self,
+        target_entrance: FilePtr,
         member_route: EntityRoutePtr,
     ) -> Option<Arc<InstructionSheet>>;
-    fn dataset_config_instruction_sheet(&self, package_main: FilePtr) -> Arc<InstructionSheet>;
+    fn dataset_config_instruction_sheet(&self, target_entrance: FilePtr) -> Arc<InstructionSheet>;
     fn enum_literal_as_u8(&self, route: EntityRoutePtr) -> u8;
 }
 
 fn entity_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
+    target_entrance: FilePtr,
     route: EntityRoutePtr,
 ) -> Option<Arc<InstructionSheet>> {
-    let entity_defn = db.compile_time().entity_defn(route).unwrap();
+    let entity_defn = db.comptime().entity_defn(route).unwrap();
     match entity_defn.variant {
         EntityDefnVariant::Module { .. } => todo!(),
         EntityDefnVariant::Feature { .. } => todo!(),
@@ -33,6 +39,7 @@ fn entity_instruction_sheet(
             ..
         } => Some(new_func_instruction_sheet(
             db,
+            target_entrance,
             parameters
                 .iter()
                 .map(|input_placeholder| input_placeholder.ranged_ident.ident),
@@ -45,6 +52,7 @@ fn entity_instruction_sheet(
             ..
         } => Some(new_proc_instruction_sheet(
             db,
+            target_entrance,
             parameters
                 .iter()
                 .map(|parameter| parameter.ranged_ident.ident),
@@ -69,6 +77,7 @@ fn entity_instruction_sheet(
             match opt_source.as_ref()? {
                 CallFormSource::Func { stmts } => Some(new_func_instruction_sheet(
                     db,
+                    target_entrance,
                     parameters
                         .iter()
                         .map(|parameter| parameter.ranged_ident.ident),
@@ -94,10 +103,11 @@ fn entity_instruction_sheet(
 
 fn method_opt_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
+    target_entrance: FilePtr,
     member_route: EntityRoutePtr,
 ) -> Option<Arc<InstructionSheet>> {
     let ty = member_route.parent();
-    let entity_defn = db.compile_time().entity_defn(ty).unwrap();
+    let entity_defn = db.comptime().entity_defn(ty).unwrap();
     match entity_defn.variant {
         EntityDefnVariant::Ty {
             ty_members: ref type_members,
@@ -107,7 +117,7 @@ fn method_opt_instruction_sheet(
             ref members,
             ..
         } => {
-            let method_defn = db.compile_time().member_defn(member_route);
+            let method_defn = db.comptime().member_defn(member_route);
             match method_defn.variant {
                 EntityDefnVariant::Method {
                     ref parameters,
@@ -118,9 +128,13 @@ fn method_opt_instruction_sheet(
                         .iter()
                         .map(|input_placeholder| input_placeholder.ranged_ident.ident);
                     match opt_source.as_ref()? {
-                        CallFormSource::Func { stmts } => {
-                            Some(new_func_instruction_sheet(db, inputs, stmts, true))
-                        }
+                        CallFormSource::Func { stmts } => Some(new_func_instruction_sheet(
+                            db,
+                            target_entrance,
+                            inputs,
+                            stmts,
+                            true,
+                        )),
                         CallFormSource::Proc { stmts } => todo!(),
                         CallFormSource::Lazy { stmts } => todo!(),
                         CallFormSource::Static(_) => None,
@@ -135,14 +149,20 @@ fn method_opt_instruction_sheet(
 
 fn dataset_config_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    package_main: FilePtr,
+    target_entrance: FilePtr,
 ) -> Arc<InstructionSheet> {
-    let package = db.compile_time().package(package_main).unwrap();
-    new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
+    let package = db.comptime().package(target_entrance).unwrap();
+    new_func_instruction_sheet(
+        db,
+        target_entrance,
+        vec![].into_iter(),
+        &package.config.dataset.stmts,
+        false,
+    )
 }
 
 fn enum_literal_as_u8(db: &dyn InstructionGenQueryGroup, route: EntityRoutePtr) -> u8 {
-    let ty_decl = db.compile_time().ty_decl(route.parent()).unwrap();
+    let ty_decl = db.comptime().ty_decl(route.parent()).unwrap();
     ty_decl
         .variants
         .position(route.ident().custom())

@@ -67,7 +67,7 @@ fn subroute_table(
                     SubrouteTable::parse(db, file_id, entity_route, entity_kind, text.iter())
                 }
                 EntitySource::WithinBuiltinModule => todo!(),
-                EntitySource::Input { .. } => todo!(),
+                EntitySource::TargetInput { .. } => todo!(),
                 EntitySource::StaticTypeMember(_) => todo!(),
                 EntitySource::StaticTraitMember(_) => todo!(),
                 EntitySource::StaticTypeAsTraitMember => todo!(),
@@ -183,9 +183,7 @@ fn entity_source(
         EntityRouteVariant::Child { parent, ident } => {
             db.subroute_table(parent)?.entity_source(ident)
         }
-        EntityRouteVariant::CrateInputValue { main } => Ok(EntitySource::Input {
-            crate_entrance: main,
-        }),
+        EntityRouteVariant::CrateInputValue { main } => Ok(EntitySource::TargetInput),
         EntityRouteVariant::Any {
             ident, file, range, ..
         } => Ok(EntitySource::Any {
@@ -217,7 +215,7 @@ fn entity_source(
                     EntitySource::WithinBuiltinModule => todo!(),
                     EntitySource::WithinModule { .. } => todo!(),
                     EntitySource::Module { .. } => todo!(),
-                    EntitySource::Input { .. } => todo!(),
+                    EntitySource::TargetInput { .. } => todo!(),
                     EntitySource::StaticTypeMember(_) => todo!(),
                     EntitySource::StaticTraitMember(_) => todo!(),
                     EntitySource::StaticTypeAsTraitMember => todo!(),
@@ -243,8 +241,6 @@ pub enum ModuleFromFileRule {
 pub trait EntitySyntaxQueryGroup:
     EntitySyntaxSalsaQueryGroup + InternEntityRoute + Upcast<dyn EntitySyntaxSalsaQueryGroup>
 {
-    fn opt_crate_entrance(&self) -> Option<FilePtr>;
-
     fn subroute_result(
         &self,
         parent_entity_route: EntityRoutePtr,
@@ -268,7 +264,7 @@ pub trait EntitySyntaxQueryGroup:
     }
 
     fn all_modules(&self) -> Vec<EntityRoutePtr> {
-        self.all_main_files()
+        self.all_target_entrances()
             .iter()
             .map(|id| self.collect_modules(*id))
             .flatten()
@@ -279,7 +275,7 @@ pub trait EntitySyntaxQueryGroup:
     where
         Self: Sized,
     {
-        self.all_main_files()
+        self.all_target_entrances()
             .iter()
             .map(|file| self.collect_source_files(*file))
             .flatten()
@@ -311,9 +307,9 @@ pub trait EntitySyntaxQueryGroup:
         }
     }
 
-    fn collect_source_files(&self, crate_entrance: FilePtr) -> Vec<FilePtr> {
-        should!(crate_entrance.ends_with("main.hsk"));
-        collect_all_source_files(crate_entrance.parent().unwrap().to_path_buf())
+    fn collect_source_files(&self, target_entrance: FilePtr) -> Vec<FilePtr> {
+        should!(target_entrance.ends_with("main.hsk"));
+        collect_all_source_files(target_entrance.parent().unwrap().to_path_buf())
             .into_iter()
             .map(|path| self.intern_file(path))
             .collect()
@@ -376,7 +372,7 @@ pub trait EntitySyntaxQueryGroup:
             EntitySource::WithinModule { file, .. } => file,
             EntitySource::Module { file } => file,
             EntitySource::WithinBuiltinModule => todo!(),
-            EntitySource::Input { .. } => todo!(),
+            EntitySource::TargetInput { .. } => todo!(),
             EntitySource::StaticTypeMember(_) => todo!(),
             EntitySource::StaticTraitMember(_) => todo!(),
             EntitySource::StaticTypeAsTraitMember => todo!(),
