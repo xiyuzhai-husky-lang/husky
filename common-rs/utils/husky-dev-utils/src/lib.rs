@@ -1,4 +1,4 @@
-use std::{ffi::c_char, path::PathBuf};
+use std::path::PathBuf;
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct DevSource {
@@ -19,6 +19,14 @@ pub enum __StaticFile {
     Rust(&'static str),
 }
 
+impl std::fmt::Display for __StaticFile {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            __StaticFile::Rust(file) => f.write_str(file),
+        }
+    }
+}
+
 impl Into<PathBuf> for __StaticFile {
     fn into(self) -> PathBuf {
         match self {
@@ -37,8 +45,7 @@ impl Into<String> for __StaticFile {
 
 impl std::fmt::Display for __StaticDevSource {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
-        // f.write_fmt(format_args!("{}:{}", self.file, self.line))
+        f.write_fmt(format_args!("{}:{}", self.file, self.line))
     }
 }
 
