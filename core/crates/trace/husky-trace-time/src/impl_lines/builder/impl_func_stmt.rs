@@ -15,6 +15,10 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(keyword!("assert "));
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::stmt())
             }
+            FuncStmtVariant::Require { ref condition, .. } => {
+                self.push(keyword!("require "));
+                self.eager_expr_tokens(condition, history, ExprTokenConfig::stmt())
+            }
             FuncStmtVariant::Return { ref result, .. } => {
                 self.eager_expr_tokens(result, history, ExprTokenConfig::stmt())
             }
@@ -23,7 +27,6 @@ impl<'a> TraceTokenBuilder<'a> {
                 ref branches,
             } => todo!(),
             FuncStmtVariant::ConditionFlow { .. } => panic!(),
-            FuncStmtVariant::Require { ref condition, .. } => todo!(),
         }
     }
 

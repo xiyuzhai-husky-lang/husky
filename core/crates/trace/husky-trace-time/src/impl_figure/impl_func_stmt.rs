@@ -15,14 +15,15 @@ impl HuskyTraceTime {
                 varname,
                 ref initial_value,
             } => self.eager_expr_figure(initial_value, history),
-            FuncStmtVariant::Assert { ref condition } => FigureCanvasData::void(),
+            FuncStmtVariant::Require { .. } | FuncStmtVariant::Assert { .. } => {
+                FigureCanvasData::void()
+            }
             FuncStmtVariant::Return { ref result, .. } => self.eager_expr_figure(result, history),
             FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
             FuncStmtVariant::Match {
                 ref match_expr,
                 ref branches,
             } => todo!(),
-            FuncStmtVariant::Require { ref condition, .. } => todo!(),
         }
     }
 }
