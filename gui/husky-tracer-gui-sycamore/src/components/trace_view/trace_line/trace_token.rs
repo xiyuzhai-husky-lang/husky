@@ -67,8 +67,7 @@ fn count_spaces_after(text: &str) -> usize {
     return 0;
 }
 fn spaces_style(n: usize) -> String {
-    let width = n as f64 * 9.5;
-    format!("width: {width}px")
+    format!("width: {n}ch")
 }
 
 // <span style={spacesBeforeStyles} />
