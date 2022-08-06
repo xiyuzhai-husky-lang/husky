@@ -32,13 +32,14 @@ pub enum TraitMemberDecl {
 
 impl TraitMemberDecl {
     pub fn from_static(
+        db: &dyn DeclQueryGroup,
         symbol_context: &mut dyn AtomContext,
         route: EntityRoutePtr,
         static_member_defn: &EntityStaticDefn,
-    ) -> Self {
-        match static_member_defn.variant {
+    ) -> InferResult<Self> {
+        Ok(match static_member_defn.variant {
             EntityStaticDefnVariant::Method { .. } => TraitMemberDecl::Method(
-                CallFormDecl::from_static(route, symbol_context, static_member_defn),
+                CallFormDecl::from_static(db, route, symbol_context, static_member_defn)?,
             ),
             EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => {
                 TraitMemberDecl::Type {
@@ -51,7 +52,7 @@ impl TraitMemberDecl {
             }
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             _ => panic!(),
-        }
+        })
     }
 
     pub fn implement(
@@ -106,8 +107,11 @@ impl VecMapEntry<CustomIdentifier> for TraitMemberDecl {
 }
 
 impl TraitDecl {
-    pub fn from_static(db: &dyn DeclQueryGroup, static_defn: &EntityStaticDefn) -> Arc<Self> {
-        match static_defn.variant {
+    pub fn from_static(
+        db: &dyn DeclQueryGroup,
+        static_defn: &EntityStaticDefn,
+    ) -> InferResultArc<Self> {
+        Ok(match static_defn.variant {
             EntityStaticDefnVariant::Trait {
                 base_route,
                 spatial_parameters: ref generic_parameters,
@@ -157,6 +161,7 @@ impl TraitDecl {
                         .iter()
                         .map(|member| {
                             TraitMemberDecl::from_static(
+                                db,
                                 &mut symbol_context,
                                 db.ty_as_trai_subroute(
                                     EntityRoutePtr::ThisType,
@@ -167,11 +172,11 @@ impl TraitDecl {
                                 member,
                             )
                         })
-                        .collect(),
+                        .collect::<InferResult<_>>()?,
                 })
             }
             _ => panic!(),
-        }
+        })
     }
 
     pub fn instantiate(
@@ -207,7 +212,7 @@ pub(crate) fn trait_decl(
             EntityStaticDefnVariant::Function { .. } => todo!(),
             EntityStaticDefnVariant::Ty { .. } => todo!(),
             EntityStaticDefnVariant::Trait { .. } => {
-                let base_decl = TraitDecl::from_static(db, static_defn);
+                let base_decl = TraitDecl::from_static(db, static_defn)?;
                 if entity_route.spatial_arguments.len() > 0 {
                     Ok(base_decl.instantiate(db, &entity_route.spatial_arguments))
                 } else {

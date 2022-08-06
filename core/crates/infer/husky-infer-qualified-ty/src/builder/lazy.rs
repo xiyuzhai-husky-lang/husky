@@ -388,16 +388,16 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             .into_iter()
             .map(|opd_idx| self.infer_lazy_expr(opd_idx))
             .collect();
-        match call_decl.output.liason {
+        match call_decl.output.liason() {
             OutputLiason::Transfer => {
                 msg_once!("handle ref");
                 Ok(LazyValueQualifiedTy::new(
-                    if self.db.is_copyable(call_decl.output.ty)? {
+                    if self.db.is_copyable(call_decl.output.ty())? {
                         LazyExprQualifier::Copyable
                     } else {
                         LazyExprQualifier::Transient
                     },
-                    call_decl.output.ty,
+                    call_decl.output.ty(),
                 ))
             }
             OutputLiason::MemberAccess { .. } => todo!(),
@@ -436,9 +436,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         for input in inputs {
             self.infer_lazy_expr(input);
         }
-        let qual = match call_form_decl.output.liason {
+        let qual = match call_form_decl.output.liason() {
             OutputLiason::Transfer => {
-                if self.db.is_copyable(call_form_decl.output.ty)? {
+                if self.db.is_copyable(call_form_decl.output.ty())? {
                     LazyExprQualifier::Copyable
                 } else {
                     LazyExprQualifier::Transient
@@ -446,6 +446,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             }
             OutputLiason::MemberAccess { .. } => todo!(),
         };
-        Ok(LazyValueQualifiedTy::new(qual, call_form_decl.output.ty))
+        Ok(LazyValueQualifiedTy::new(qual, call_form_decl.output.ty()))
     }
 }

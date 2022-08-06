@@ -125,7 +125,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     spatial_arguments
                         .insert(0, SpatialArgument::EntityRoute(entity_route.parent()));
                 }
-                spatial_arguments.push(SpatialArgument::EntityRoute(decl.output.ty));
+                spatial_arguments.push(SpatialArgument::EntityRoute(decl.output.ty()));
                 self.db.route_call(base_route, spatial_arguments)
             }
             EntityKind::Feature => self.db.feature_decl(entity_route)?.ty,
@@ -504,7 +504,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         ) {
             self.infer_expr(argument, Some(parameter.ty));
         }
-        Ok(call_decl.output.ty)
+        Ok(call_decl.output.ty())
     }
 
     fn infer_method_call(
@@ -547,7 +547,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 thin_vec![], // spatial_arguments
             )),
         );
-        Ok(call_form_decl.output.ty)
+        Ok(call_form_decl.output.ty())
     }
 
     fn infer_index(

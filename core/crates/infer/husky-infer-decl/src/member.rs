@@ -110,19 +110,20 @@ impl TyMemberDecl {
     }
 
     pub(crate) fn from_static(
+        db: &dyn DeclQueryGroup,
         symbol_context: &mut dyn AtomContext,
         route: EntityRoutePtr,
         static_defn: &EntityStaticDefn,
-    ) -> Self {
-        match static_defn.variant {
+    ) -> InferResult<Self> {
+        Ok(match static_defn.variant {
             EntityStaticDefnVariant::Method { .. } => TyMemberDecl::Method(
-                CallFormDecl::from_static(route, symbol_context, static_defn),
+                CallFormDecl::from_static(db, route, symbol_context, static_defn)?,
             ),
             EntityStaticDefnVariant::TyField { .. } => {
                 TyMemberDecl::Field(FieldDecl::from_static(symbol_context, static_defn))
             }
             _ => panic!(""),
-        }
+        })
     }
 }
 

@@ -85,10 +85,7 @@ impl TraitImplDecl {
                     )),
                     opt_this_liason: Some(ParameterLiason::Pure),
                     primary_parameters: Default::default(),
-                    output: OutputDecl {
-                        liason: OutputLiason::Transfer,
-                        ty: this_ty,
-                    },
+                    output: OutputDecl::new(db, OutputLiason::Transfer, this_ty)?,
                     spatial_parameters: Default::default(),
                     is_lazy: false,
                     variadic_template: VariadicTemplate::None,

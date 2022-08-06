@@ -341,7 +341,7 @@ impl<'a> ContractSheetBuilder<'a> {
             let argument_contract = EagerContract::argument_eager_contract(
                 parameter.ty,
                 parameter.liason,
-                call_decl.output.liason,
+                call_decl.output.liason(),
                 self.arena[argument].range,
             );
             self.infer_eager_expr(argument, argument_contract)
@@ -359,7 +359,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_form_decl = self.method_call_form_decl(this)?;
         let this_contract = EagerContract::method_call_this_eager_contract(
             call_form_decl.opt_this_liason.unwrap(),
-            call_form_decl.output.liason,
+            call_form_decl.output.liason(),
             contract,
         );
         self.infer_eager_expr(this, this_contract);
@@ -370,7 +370,7 @@ impl<'a> ContractSheetBuilder<'a> {
             let argument_contract = EagerContract::argument_eager_contract(
                 parameter.ty,
                 parameter.liason,
-                call_form_decl.output.liason,
+                call_form_decl.output.liason(),
                 self.arena[argument].range,
             );
             self.infer_eager_expr(argument, argument_contract)

@@ -39,6 +39,14 @@ impl ParameterDecl {
         })
     }
 
+    pub fn from_parameter(db: &dyn DeclQueryGroup, parameter: &Parameter) -> InferResult<Self> {
+        Ok(ParameterDecl {
+            liason: parameter.ranged_liason.liason,
+            ty: db.implement_target(parameter.ranged_ty.route)?,
+            ident: parameter.ranged_ident.ident,
+        })
+    }
+
     pub fn instantiate(&self, ctx: &InstantiationContext) -> Self {
         Self {
             ty: self.ty.instantiate(ctx).take_entity_route(),
@@ -49,15 +57,5 @@ impl ParameterDecl {
 
     pub fn implement(&self, implementor: &ImplementationContext) -> Self {
         todo!()
-    }
-}
-
-impl Into<ParameterDecl> for &Parameter {
-    fn into(self) -> ParameterDecl {
-        ParameterDecl {
-            liason: self.ranged_liason.liason,
-            ty: self.ranged_ty.route,
-            ident: self.ranged_ident.ident,
-        }
     }
 }

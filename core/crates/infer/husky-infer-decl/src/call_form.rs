@@ -35,9 +35,13 @@ pub struct CallFormDecl {
 }
 
 impl CallFormDecl {
-    pub(crate) fn from_ast(route: EntityRoutePtr, ast: &Ast) -> Arc<Self> {
+    pub(crate) fn from_ast(
+        db: &dyn DeclQueryGroup,
+        route: EntityRoutePtr,
+        ast: &Ast,
+    ) -> InferResultArc<Self> {
         msg_once!("variadics");
-        match ast.variant {
+        Ok(match ast.variant {
             AstVariant::CallFormDefnHead {
                 ident,
                 paradigm,
@@ -52,26 +56,24 @@ impl CallFormDecl {
                 spatial_parameters: spatial_parameters.clone(),
                 primary_parameters: parameters
                     .iter()
-                    .map(|parameter| parameter.into())
-                    .collect(),
-                output: OutputDecl {
-                    ty: output_ty.route,
-                    liason: output_liason,
-                },
+                    .map(|parameter| ParameterDecl::from_parameter(db, parameter))
+                    .collect::<InferResult<_>>()?,
+                output: OutputDecl::new(db, output_liason, output_ty.route)?,
                 keyword_parameters: Default::default(),
                 variadic_template: VariadicTemplate::None,
                 is_lazy: paradigm.is_lazy(),
             }),
             _ => todo!(),
-        }
+        })
     }
 
     pub fn from_static(
+        db: &dyn DeclQueryGroup,
         base_route: EntityRoutePtr,
         symbol_context: &mut dyn AtomContext,
         defn: &EntityStaticDefn,
-    ) -> Arc<Self> {
-        match defn.variant {
+    ) -> InferResultArc<Self> {
+        Ok(match defn.variant {
             EntityStaticDefnVariant::Method {
                 this_liason,
                 parameters,
@@ -87,10 +89,7 @@ impl CallFormDecl {
                     opt_this_liason: Some(this_liason),
                     primary_parameters: parameters
                         .map(|input| ParameterDecl::from_static(symbol_context, input)),
-                    output: OutputDecl {
-                        liason: output_liason,
-                        ty: output_ty,
-                    },
+                    output: OutputDecl::new(db, output_liason, output_ty)?,
                     spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                         SpatialParameter::from_static(
                             symbol_context.entity_syntax_db(),
@@ -103,7 +102,7 @@ impl CallFormDecl {
                 })
             }
             _ => panic!(""),
-        }
+        })
     }
 
     pub fn ident(&self) -> CustomIdentifier {
@@ -182,7 +181,7 @@ pub(crate) fn entity_call_form_decl(
     return match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Function { .. } => {
-                routine_decl_from_static(db, vec![], route, static_defn)
+                routine_decl_from_static(db, vec![], route, static_defn)?
             }
             EntityStaticDefnVariant::Ty { .. } => match db.ty_decl(route)?.opt_type_call {
                 Some(ref ty_call) => ty_call.clone(),
@@ -203,7 +202,7 @@ pub(crate) fn entity_call_form_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.variant {
-                AstVariant::CallFormDefnHead { .. } => Ok(CallFormDecl::from_ast(route, ast)),
+                AstVariant::CallFormDefnHead { .. } => Ok(CallFormDecl::from_ast(db, route, ast)?),
                 // type constructor
                 AstVariant::TypeDefnHead { .. } => {
                     let ty_decl = db.ty_decl(route)?;
@@ -277,10 +276,11 @@ pub(crate) fn value_call_form_decl(
                     .collect(),
                 variadic_template: Default::default(),
                 keyword_parameters: Default::default(),
-                output: OutputDecl {
-                    liason: OutputLiason::Transfer,
-                    ty: ty.spatial_arguments.last().unwrap().take_entity_route(),
-                },
+                output: OutputDecl::new(
+                    db,
+                    OutputLiason::Transfer,
+                    ty.spatial_arguments.last().unwrap().take_entity_route(),
+                )?,
                 is_lazy: false,
             }));
         }
@@ -304,7 +304,7 @@ pub(crate) fn routine_decl_from_static(
     mut symbols: Vec<Symbol>,
     route: EntityRoutePtr,
     static_defn: &EntityStaticDefn,
-) -> Arc<CallFormDecl> {
+) -> InferResultArc<CallFormDecl> {
     match static_defn.variant {
         EntityStaticDefnVariant::Function {
             ref spatial_parameters,
@@ -331,14 +331,11 @@ pub(crate) fn routine_decl_from_static(
             });
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             msg_once!("todo: keyword parameters");
-            Arc::new(CallFormDecl {
+            Ok(Arc::new(CallFormDecl {
                 opt_base_route: Some(route),
                 spatial_parameters,
                 primary_parameters: parameters,
-                output: OutputDecl {
-                    liason: output_liason,
-                    ty: output_ty,
-                },
+                output: OutputDecl::new(db, output_liason, output_ty)?,
                 keyword_parameters: Default::default(),
                 variadic_template: VariadicTemplate::from_static(
                     &mut symbol_context,
@@ -346,7 +343,7 @@ pub(crate) fn routine_decl_from_static(
                 ),
                 opt_this_liason: None,
                 is_lazy: false,
-            })
+            }))
         }
         _ => panic!(),
     }
