@@ -14,6 +14,9 @@ code.TraceToken.associated:hover {
 .TraceToken.keyword {
     color: rgb(28, 142, 195);
 }
+.TraceToken.mod {
+    color: brown;
+}
 .TraceToken.label {
     color: rgb(28, 142, 195);
 }

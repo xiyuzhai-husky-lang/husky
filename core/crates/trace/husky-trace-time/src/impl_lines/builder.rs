@@ -62,7 +62,11 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(ident!(route.ident().as_str()))
             }
             TraceVariant::Module { route, .. } => {
-                self.push(keyword!("mod "));
+                self.push(TraceTokenData {
+                    kind: TraceTokenKind::Mod,
+                    value: "mod ".into(),
+                    opt_associated_trace_id: None,
+                });
                 self.push(ident!(route.ident().as_str()))
             }
             TraceVariant::FeatureStmt(stmt) => self.feature_stmt_tokens(stmt),
