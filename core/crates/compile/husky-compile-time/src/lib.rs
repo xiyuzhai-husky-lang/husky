@@ -89,7 +89,8 @@ impl HuskyComptime {
             ty_cache: new_ty_route_cache(),
             entity_route_menu: husky_entity_route::new_entity_route_menu(),
         };
-        comptime.set_opt_target_entrance(None);
+        let target_entrance = comptime.intern_file(comptime.config.package_dir.join("main.hsk"));
+        comptime.set_opt_target_entrance(Some(target_entrance));
         comptime
     }
 

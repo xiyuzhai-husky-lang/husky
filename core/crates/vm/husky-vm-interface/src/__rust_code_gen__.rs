@@ -62,7 +62,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => self.data.as_void,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const void),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const void),
                 _ => panic!(),
             }
         }
@@ -75,7 +76,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_void),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const void)),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const void)),
                 __RegisterDataKind::Undefined => None,
                 _ => panic!(),
             }
@@ -138,7 +140,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => self.data.as_bool,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const bool),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const bool),
                 _ => panic!(),
             }
         }
@@ -151,7 +154,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_bool),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const bool)),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const bool)),
                 __RegisterDataKind::Undefined => None,
                 _ => panic!(),
             }
@@ -214,7 +218,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i32,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const i32),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const i32),
                 _ => panic!(),
             }
         }
@@ -227,7 +232,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_i32),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const i32)),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const i32)),
                 __RegisterDataKind::Undefined => None,
                 _ => panic!(),
             }
@@ -290,7 +296,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i64,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const i64),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const i64),
                 _ => panic!(),
             }
         }
@@ -303,7 +310,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_i64),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const i64)),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const i64)),
                 __RegisterDataKind::Undefined => None,
                 _ => panic!(),
             }
@@ -366,7 +374,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => self.data.as_b32,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const b32),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const b32),
                 _ => panic!(),
             }
         }
@@ -379,7 +388,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_b32),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const b32)),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const b32)),
                 __RegisterDataKind::Undefined => None,
                 _ => panic!(),
             }
@@ -442,7 +452,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => self.data.as_b64,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const b64),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const b64),
                 _ => panic!(),
             }
         }
@@ -455,7 +466,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_b64),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const b64)),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const b64)),
                 __RegisterDataKind::Undefined => None,
                 _ => panic!(),
             }
@@ -518,7 +530,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => self.data.as_f32,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const f32),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const f32),
                 _ => panic!(),
             }
         }
@@ -531,7 +544,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_f32),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const f32)),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const f32)),
                 __RegisterDataKind::Undefined => None,
                 _ => panic!(),
             }
@@ -594,7 +608,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => self.data.as_f64,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => *(self.data.as_ptr as *const f64),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const f64),
                 _ => panic!(),
             }
         }
@@ -607,7 +622,8 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_f64),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => Some(*(self.data.as_ptr as *const f64)),
+                | __RegisterDataKind::TempMut
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const f64)),
                 __RegisterDataKind::Undefined => None,
                 _ => panic!(),
             }
