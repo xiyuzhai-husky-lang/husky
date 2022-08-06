@@ -3,7 +3,7 @@ mod impl_loop;
 mod impl_match_pattern;
 
 use fold::Indent;
-use husky_ast::{ReturnContext, ReturnContextKind};
+use husky_ast::{RawReturnContext, ReturnContextKind};
 use husky_eager_semantics::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
 };

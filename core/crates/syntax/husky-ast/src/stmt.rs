@@ -42,7 +42,7 @@ pub enum RawStmtVariant {
     },
     Return {
         result: RawExprIdx,
-        return_context: ReturnContext,
+        return_context: RawReturnContext,
     },
     ReturnXml(Arc<RawXmlExpr>),
     Assert(RawExprIdx),

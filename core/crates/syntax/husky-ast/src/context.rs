@@ -9,7 +9,7 @@ use husky_word::Paradigm;
 use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ReturnContext {
+pub struct RawReturnContext {
     pub return_ty: RangedEntityRoute,
     pub kind: ReturnContextKind,
 }
@@ -27,11 +27,11 @@ pub enum AstContext {
     Module(EntityRoutePtr),
     Stmt {
         paradigm: Paradigm,
-        return_context: Option<ReturnContext>,
+        return_context: Option<RawReturnContext>,
     },
     Match {
         paradigm: Paradigm,
-        return_context: Option<ReturnContext>,
+        return_context: Option<RawReturnContext>,
     },
     Visual,
     Struct {
@@ -58,7 +58,7 @@ impl AstContext {
         })
     }
 
-    pub fn return_context(&self) -> Option<ReturnContext> {
+    pub fn return_context(&self) -> Option<RawReturnContext> {
         match self {
             AstContext::Stmt { return_context, .. } => *return_context,
             AstContext::Match { return_context, .. } => *return_context,

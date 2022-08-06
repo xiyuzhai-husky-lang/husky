@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{MatchLiason, ReturnContext, ReturnContextKind};
+use husky_ast::{MatchLiason, RawReturnContext, ReturnContextKind};
 use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_text::TextRange;
 use husky_word::RootIdentifier;
@@ -128,7 +128,7 @@ impl EagerContract {
         db: &dyn DeclQueryGroup,
         return_ty: EntityRoutePtr,
         expr_ty: EntityRoutePtr,
-        return_context: ReturnContext,
+        return_context: RawReturnContext,
     ) -> InferResult<Self> {
         match return_context.kind {
             ReturnContextKind::Normal => Ok(if return_ty.variant == expr_ty.variant {

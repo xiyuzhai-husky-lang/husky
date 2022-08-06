@@ -430,7 +430,7 @@ pub(crate) fn main_defn(
         match item.value.as_ref().unwrap().variant {
             AstVariant::MainDefnHead => {
                 let ty = RangedEntityRoute {
-                    route: this.eval_return_ty(main_file).unwrap(),
+                    route: this.eval_output_ty(main_file).unwrap(),
                     range: Default::default(),
                 };
                 return Ok(Arc::new(MainDefn {
