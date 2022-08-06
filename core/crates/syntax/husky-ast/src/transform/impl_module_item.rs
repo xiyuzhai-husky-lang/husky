@@ -78,7 +78,7 @@ impl<'a> AstTransformer<'a> {
                     return_context: Some(RawReturnContext {
                         output_ty: RangedEntityRoute {
                             route: self.db.intern_entity_route(EntityRoute {
-                                variant: EntityRouteVariant::CrateOutputType { main: self.main },
+                                variant: EntityRouteVariant::TargetOutputType,
                                 temporal_arguments: Default::default(),
                                 spatial_arguments: Default::default(),
                             }),

@@ -17,6 +17,7 @@ pub enum TyKind {
     Fp,
     AssociatedAny,
     ThisAny,
+    TargetOutputAny,
     SpatialPlaceholderAny,
     BoxAny,
     HigherKind,

@@ -82,7 +82,7 @@ impl HuskyRuntime {
             p!(all_diagnostics);
             panic!("diagnostic errors")
         }
-        let package = match comptime.package(self.target_entrance) {
+        let package = match comptime.package(comptime.opt_target_entrance().unwrap()) {
             Ok(package) => package,
             Err(error) => {
                 comptime.print_diagnostics();

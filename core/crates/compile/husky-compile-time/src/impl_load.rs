@@ -6,13 +6,13 @@ use crate::*;
 use std::{fs, path::Path};
 
 impl HuskyComptime {
-    fn set_main_package(&mut self, package_dir: &Path) {
-        assert!(self.opt_target_entrance.is_none());
-        self.opt_target_entrance = Some(self.intern_file(package_dir.join("main.hsk")))
+    fn set_target_entrance(&mut self, package_dir: &Path) {
+        assert!(self.opt_target_entrance().is_none());
+        self.set_opt_target_entrance(Some(self.intern_file(package_dir.join("main.hsk"))))
     }
 
     pub fn load_package(&mut self, package_dir: &Path) {
-        self.set_main_package(package_dir);
+        self.set_target_entrance(package_dir);
         self.load_dir(package_dir);
     }
 

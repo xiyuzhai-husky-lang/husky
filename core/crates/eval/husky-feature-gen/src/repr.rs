@@ -19,7 +19,7 @@ pub enum FeatureRepr {
     LazyBlock(Arc<FeatureLazyBlock>),
     FuncBlock(Arc<FeatureFuncBlock>),
     ProcBlock(Arc<FeatureProcBlock>),
-    EvalInput {
+    TargetInput {
         ty: EntityRoutePtr,
         feature: FeaturePtr,
     },
@@ -33,7 +33,7 @@ impl FeatureRepr {
             FeatureRepr::Value { .. } => false,
             FeatureRepr::FuncBlock(_) => false,
             FeatureRepr::ProcBlock(_) => false,
-            FeatureRepr::EvalInput { .. } => false,
+            FeatureRepr::TargetInput { .. } => false,
         }
     }
 
@@ -44,7 +44,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.ty.route,
             FeatureRepr::FuncBlock(block) => block.ty.route,
             FeatureRepr::ProcBlock(block) => block.ty.route,
-            FeatureRepr::EvalInput { ty, .. } => *ty,
+            FeatureRepr::TargetInput { ty, .. } => *ty,
         }
     }
     pub fn feature(&self) -> FeaturePtr {
@@ -54,7 +54,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.feature,
             FeatureRepr::FuncBlock(block) => block.feature,
             FeatureRepr::ProcBlock(block) => block.feature,
-            FeatureRepr::EvalInput { feature, .. } => *feature,
+            FeatureRepr::TargetInput { feature, .. } => *feature,
         }
     }
 
@@ -65,7 +65,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.file,
             FeatureRepr::FuncBlock(block) => block.file,
             FeatureRepr::ProcBlock(block) => block.file,
-            FeatureRepr::EvalInput { .. } => todo!(),
+            FeatureRepr::TargetInput { .. } => todo!(),
         }
     }
 
@@ -76,7 +76,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.range,
             FeatureRepr::FuncBlock(block) => block.range,
             FeatureRepr::ProcBlock(block) => block.range,
-            FeatureRepr::EvalInput { .. } => todo!(),
+            FeatureRepr::TargetInput { .. } => todo!(),
         }
     }
 
@@ -113,7 +113,6 @@ impl FeatureRepr {
                     let target_entrance = db.comptime().target_entrance();
                     new_func_instruction_sheet(
                         db.upcast(),
-                        target_entrance,
                         [].into_iter(),
                         stmts,
                         opt_this.is_some(),

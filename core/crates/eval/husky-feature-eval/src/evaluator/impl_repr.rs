@@ -13,7 +13,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             FeatureRepr::LazyBlock(block) => self.eval_feature_lazy_block(block),
             FeatureRepr::FuncBlock(block) => self.eval_feature_func_block(block),
             FeatureRepr::ProcBlock(_) => todo!(),
-            FeatureRepr::EvalInput { .. } => Ok(self.target_input.bind_temp_ref()),
+            FeatureRepr::TargetInput { .. } => Ok(self.target_input.bind_temp_ref()),
         };
         result
     }
@@ -28,7 +28,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         } else {
             let result = self.eval_feature_repr(repr);
             match repr {
-                FeatureRepr::EvalInput { .. } => result,
+                FeatureRepr::TargetInput { .. } => result,
                 _ => self.sheet.try_cache(eval_key, result),
             }
         }

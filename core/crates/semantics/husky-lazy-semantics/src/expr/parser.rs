@@ -399,6 +399,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                         TyKind::Mor => todo!(),
                         TyKind::Fp => todo!(),
                         TyKind::AssociatedAny => todo!(),
+                        TyKind::TargetOutputAny => todo!(),
                         TyKind::ThisAny => todo!(),
                         TyKind::SpatialPlaceholderAny => todo!(),
                         TyKind::BoxAny => todo!(),

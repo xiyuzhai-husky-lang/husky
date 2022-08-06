@@ -77,7 +77,7 @@ impl HuskyComptime {
         let entity_route_interner = husky_entity_route::new_entity_route_interner();
         let entity_route_store = Default::default();
         let linkage_table = LinkageTable::new(config.linkage_table.clone());
-        let comptime = Self {
+        let mut comptime = Self {
             storage: Default::default(),
             file_interner: husky_file::new_file_interner(),
             word_interner: husky_word::new_word_interner(),
@@ -89,8 +89,8 @@ impl HuskyComptime {
             ty_cache: new_ty_route_cache(),
             entity_route_menu: husky_entity_route::new_entity_route_menu(),
         };
-        comptime.set_opt_target_entrance(config.target_entrance());
-        todo!()
+        comptime.set_opt_target_entrance(None);
+        comptime
     }
 
     pub fn new_default(
@@ -106,7 +106,7 @@ impl HuskyComptime {
     }
 
     pub fn target_entrance(&self) -> FilePtr {
-        self.opt_target_entrance.unwrap()
+        self.opt_target_entrance().unwrap()
     }
     // ad hoc loc
     pub fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {
@@ -175,6 +175,7 @@ impl HuskyComptime {
                     TyKind::HigherKind => todo!(),
                     TyKind::Ref => todo!(),
                     TyKind::Option => todo!(),
+                    TyKind::TargetOutputAny => todo!(),
                 }
             }
             EntityRoutePtr::ThisType => todo!(),

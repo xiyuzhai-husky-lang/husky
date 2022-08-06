@@ -187,6 +187,7 @@ impl TyDecl {
             TyKind::Mor => todo!(),
             TyKind::Fp => todo!(),
             TyKind::AssociatedAny => todo!(),
+            TyKind::TargetOutputAny => todo!(),
             TyKind::ThisAny => todo!(),
             TyKind::SpatialPlaceholderAny => todo!(),
             TyKind::BoxAny => todo!(),
@@ -603,7 +604,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
         EntityRouteVariant::Root { ident } => true,
         EntityRouteVariant::Package { main, ident } => todo!(),
         EntityRouteVariant::Child { parent, ident } => todo!(),
-        EntityRouteVariant::CrateInputValue { main } => todo!(),
+        EntityRouteVariant::CrateInputValue => todo!(),
         EntityRouteVariant::Any {
             ident, entity_kind, ..
         } => todo!(),
@@ -613,7 +614,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
             trai,
             ident,
         } => todo!(),
-        EntityRouteVariant::CrateOutputType { main } => todo!(),
+        EntityRouteVariant::TargetOutputType => todo!(),
     }
 }
 

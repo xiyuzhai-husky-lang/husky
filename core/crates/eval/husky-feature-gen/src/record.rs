@@ -15,7 +15,7 @@ pub(crate) fn record_field_repr<'eval>(
         FeatureRepr::LazyBlock(ref block) => block_record_field(db, block, field_ident),
         FeatureRepr::FuncBlock(_) => todo!(),
         FeatureRepr::ProcBlock(_) => todo!(),
-        FeatureRepr::EvalInput { .. } => todo!(),
+        FeatureRepr::TargetInput { .. } => todo!(),
     }
 }
 

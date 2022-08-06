@@ -39,7 +39,7 @@ impl InterpreterQueryGroup for HuskyRuntime {
         uid: vm::EntityUid,
     ) -> Option<Arc<vm::InstructionSheet>> {
         let entity_route = self.comptime.entity_route_by_uid(uid);
-        self.entity_instruction_sheet(self.target_entrance, entity_route)
+        self.entity_instruction_sheet(entity_route)
         // self.comptime.entity_opt_instruction_sheet_by_uid(uid)
     }
 }

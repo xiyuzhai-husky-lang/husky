@@ -75,9 +75,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     opt_linkage,
                     opds,
                     has_this: false,
-                    opt_instruction_sheet: self
-                        .db
-                        .entity_instruction_sheet(self.target_entrance, routine.route),
+                    opt_instruction_sheet: self.db.entity_instruction_sheet(routine.route),
                     routine_defn,
                 };
                 (kind, feature)
@@ -245,9 +243,7 @@ impl<'a> FeatureExprBuilder<'a> {
         let method_defn = this_ty_defn.method(member_idx);
         let kind = match method_defn.variant {
             EntityDefnVariant::Method { .. } => FeatureExprVariant::RoutineCall {
-                opt_instruction_sheet: self
-                    .db
-                    .method_opt_instruction_sheet(self.target_entrance, method_route),
+                opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
                 opt_linkage: self.db.comptime().method_linkage(method_route),
                 opds,
                 has_this: true,

@@ -18,7 +18,7 @@ impl HuskyTraceTime {
                 self.feature_func_block_subtraces(parent, feature_block)
             }
             FeatureRepr::ProcBlock(_) => todo!(),
-            FeatureRepr::EvalInput { .. } => todo!(),
+            FeatureRepr::TargetInput { .. } => todo!(),
         }
     }
 

@@ -11,8 +11,8 @@ pub(super) fn entity_feature_repr(
         EntityDefnVariant::Feature { ref defn_repr, .. } => {
             FeatureRepr::from_defn(db, None, defn_repr, db.feature_interner())
         }
-        EntityDefnVariant::Input { target_entrance } => FeatureRepr::EvalInput {
-            ty: db.comptime().target_input_ty(target_entrance).unwrap(),
+        EntityDefnVariant::Input => FeatureRepr::TargetInput {
+            ty: db.comptime().target_input_ty().unwrap(),
             feature: db.feature_interner().intern(Feature::Input {}),
         },
         _ => todo!(),

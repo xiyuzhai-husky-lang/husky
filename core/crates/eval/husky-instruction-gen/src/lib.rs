@@ -28,31 +28,29 @@ pub fn new_visual_instruction_sheet(
     target_entrance: FilePtr,
     stmts: &[Arc<FuncStmt>],
 ) -> Arc<InstructionSheet> {
-    let mut builder = InstructionSheetBuilder::new(db, target_entrance, [].into_iter(), true);
+    let mut builder = InstructionSheetBuilder::new(db, [].into_iter(), true);
     builder.compile_func_stmts(stmts);
     builder.finalize()
 }
 
 pub fn new_func_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    target_entrance: FilePtr,
     inputs: impl Iterator<Item = CustomIdentifier>,
     stmts: &[Arc<FuncStmt>],
     has_this: bool,
 ) -> Arc<InstructionSheet> {
-    let mut builder = InstructionSheetBuilder::new(db, target_entrance, inputs, has_this);
+    let mut builder = InstructionSheetBuilder::new(db, inputs, has_this);
     builder.compile_func_stmts(stmts);
     builder.finalize()
 }
 
 pub fn new_proc_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    target_entrance: FilePtr,
     inputs: impl Iterator<Item = CustomIdentifier>,
     stmts: &[Arc<ProcStmt>],
     has_this: bool,
 ) -> Arc<InstructionSheet> {
-    let mut builder = InstructionSheetBuilder::new(db, target_entrance, inputs, has_this);
+    let mut builder = InstructionSheetBuilder::new(db, inputs, has_this);
     builder.compile_proc_stmts(stmts);
     builder.finalize()
 }
@@ -66,7 +64,6 @@ struct InstructionSheetBuilder<'a> {
 impl<'a> InstructionSheetBuilder<'a> {
     fn new(
         db: &'a dyn InstructionGenQueryGroup,
-        target_entrance: FilePtr,
         inputs: impl Iterator<Item = CustomIdentifier>,
         has_this: bool,
     ) -> Self {

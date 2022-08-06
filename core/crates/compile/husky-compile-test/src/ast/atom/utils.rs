@@ -15,10 +15,10 @@ pub(super) fn get_atoms_in_line(db: &mut HuskyComptime, line: &'static str) -> V
     db.set_live_file_text("haha/main.hsk".into(), line.into());
     let tokens = db.tokenize(line);
     let main = db.intern_file("haha/main.hsk".into());
+    db.set_opt_target_entrance(Some(main));
     let symbols = fold::LocalStack::new();
     AtomParser::new(
         &mut AtomContextStandalone {
-            opt_target_entrance: Some(main),
             db,
             opt_this_ty: None,
             opt_this_contract: None,
