@@ -55,9 +55,9 @@ impl<'a> AstTransformer<'a> {
             enter_block(self);
             self.context.set(AstContext::Stmt {
                 paradigm: Paradigm::EagerFunctional,
-                output_context: Some(RawOutputContext {
+                return_context: Some(RawReturnContext {
                     output_ty: todo!(),
-                    kind: RawOutputContextKind::Normal,
+                    kind: RawReturnContextKind::Normal,
                 }),
             });
             self.opt_this_liason.set(Some(ParameterLiason::Pure));
@@ -81,9 +81,9 @@ impl<'a> AstTransformer<'a> {
             enter_block(self);
             self.context.set(AstContext::Stmt {
                 paradigm: Paradigm::EagerFunctional,
-                output_context: Some(RawOutputContext {
+                return_context: Some(RawReturnContext {
                     output_ty: field_ty,
-                    kind: RawOutputContextKind::Normal,
+                    kind: RawReturnContextKind::Normal,
                 }),
             });
             self.opt_this_liason.set(Some(ParameterLiason::Pure));
@@ -142,9 +142,9 @@ impl<'a> AstTransformer<'a> {
         context_update_result?;
         self.context.set(AstContext::Stmt {
             paradigm,
-            output_context: Some(RawOutputContext {
+            return_context: Some(RawReturnContext {
                 output_ty: field_ty,
-                kind: RawOutputContextKind::LazyField,
+                kind: RawReturnContextKind::LazyField,
             }),
         });
         Ok(AstVariant::FieldDefnHead {

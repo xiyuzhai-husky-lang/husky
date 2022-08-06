@@ -282,7 +282,7 @@ impl EntityDefn {
                     FuncStmtVariant::Assert { ref condition } => {
                         extract_eager_expr_dependees(condition, builder)
                     }
-                    FuncStmtVariant::Require { ref condition } => {
+                    FuncStmtVariant::Require { ref condition, .. } => {
                         extract_eager_expr_dependees(condition, builder)
                     }
                     FuncStmtVariant::Return { ref result, .. } => {

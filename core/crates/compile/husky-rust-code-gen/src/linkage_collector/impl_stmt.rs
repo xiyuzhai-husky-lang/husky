@@ -46,7 +46,7 @@ impl<'a> LinkageCollector<'a> {
                 FuncStmtVariant::Assert { ref condition } => {
                     self.collect_from_eager_expr(condition)
                 }
-                FuncStmtVariant::Require { ref condition } => {
+                FuncStmtVariant::Require { ref condition, .. } => {
                     self.collect_from_eager_expr(condition)
                 }
                 FuncStmtVariant::Return { ref result, .. } => self.collect_from_eager_expr(result),

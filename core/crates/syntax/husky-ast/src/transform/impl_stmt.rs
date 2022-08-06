@@ -62,10 +62,10 @@ impl<'a> AstTransformer<'a> {
                     match self.context() {
                         AstContext::Stmt {
                             paradigm,
-                            output_context,
+                            return_context,
                         } => self.context.set(AstContext::Match {
                             paradigm,
-                            output_context,
+                            return_context,
                         }),
                         _ => todo!("can't put match here"),
                     }
@@ -76,10 +76,10 @@ impl<'a> AstTransformer<'a> {
                     match self.context() {
                         AstContext::Match {
                             paradigm,
-                            output_context,
+                            return_context,
                         } => self.context.set(AstContext::Stmt {
                             paradigm,
-                            output_context,
+                            return_context,
                         }),
                         _ => {
                             return err!(
@@ -95,10 +95,10 @@ impl<'a> AstTransformer<'a> {
                     match self.context() {
                         AstContext::Match {
                             paradigm,
-                            output_context,
+                            return_context,
                         } => self.context.set(AstContext::Stmt {
                             paradigm,
-                            output_context,
+                            return_context,
                         }),
                         _ => {
                             return err!(
@@ -127,7 +127,7 @@ impl<'a> AstTransformer<'a> {
                     must_be!(token_group.len() >= 2, "expect some tokens after", kw_range);
                     RawStmtVariant::Return {
                         result: self.parse_expr(&token_group[1..])?,
-                        output_context: derived_not_none!(self.context().output_context())?,
+                        return_context: derived_not_none!(self.context().return_context())?,
                     }
                 }
                 StmtKeyword::Assert => {
@@ -138,6 +138,7 @@ impl<'a> AstTransformer<'a> {
                     expect_at_least!(token_group, kw_range, 2);
                     RawStmtVariant::Require {
                         condition: self.parse_expr(&token_group[1..])?,
+                        return_context: derived_not_none!(self.context().return_context())?,
                     }
                 }
             },
@@ -188,7 +189,7 @@ impl<'a> AstTransformer<'a> {
                             range: token_group.text_range(),
                             variant: RawStmtVariant::Return {
                                 result: self.parse_expr(token_group)?,
-                                output_context: derived_not_none!(self.context().output_context())?,
+                                return_context: derived_not_none!(self.context().return_context())?,
                             },
                         }
                     }
@@ -228,7 +229,7 @@ impl<'a> AstTransformer<'a> {
             InitKind::Let | InitKind::Var => match self.context() {
                 AstContext::Stmt {
                     paradigm: Paradigm::EagerProcedural,
-                    output_context,
+                    return_context,
                 } => (),
                 _ => err!(
                     format!(

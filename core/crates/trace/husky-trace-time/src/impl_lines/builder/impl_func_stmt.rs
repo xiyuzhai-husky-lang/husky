@@ -23,7 +23,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 ref branches,
             } => todo!(),
             FuncStmtVariant::ConditionFlow { .. } => panic!(),
-            FuncStmtVariant::Require { ref condition } => todo!(),
+            FuncStmtVariant::Require { ref condition, .. } => todo!(),
         }
     }
 

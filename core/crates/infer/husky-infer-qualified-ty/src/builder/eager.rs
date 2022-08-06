@@ -121,7 +121,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
                 RawConditionBranchKind::Else => (),
             },
-            RawStmtVariant::Require { condition } => {
+            RawStmtVariant::Require { condition, .. } => {
                 self.infer_eager_expr(condition);
             }
             RawStmtVariant::PatternBranch {

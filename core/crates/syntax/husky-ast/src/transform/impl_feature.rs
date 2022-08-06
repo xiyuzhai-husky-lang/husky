@@ -18,9 +18,9 @@ impl<'a> AstTransformer<'a> {
         let output_ty = husky_atom::parse_route(self, &token_group[3..])?;
         self.context.set(AstContext::Stmt {
             paradigm,
-            output_context: Some(RawOutputContext {
+            return_context: Some(RawReturnContext {
                 output_ty,
-                kind: RawOutputContextKind::Feature,
+                kind: RawReturnContextKind::Feature,
             }),
         });
         Ok(AstVariant::FeatureDefnHead {

@@ -3,7 +3,7 @@ mod impl_loop;
 mod impl_match_pattern;
 
 use fold::Indent;
-use husky_ast::{RawOutputContext, RawOutputContextKind};
+use husky_ast::{RawReturnContext, RawReturnContextKind};
 use husky_eager_semantics::{
     Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
 };
@@ -45,23 +45,36 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_expr(stmt.indent, condition);
                 self.write(");");
             }
-            FuncStmtVariant::Require { ref condition } => {
-                self.write("require!(");
-                self.gen_expr(stmt.indent, condition);
-                self.write(");");
-            }
+            FuncStmtVariant::Require {
+                ref condition,
+                return_context,
+            } => match return_context.kind {
+                RawReturnContextKind::Normal => {
+                    self.write("normal_require!(");
+                    self.gen_expr(stmt.indent, condition);
+                    self.write(");");
+                }
+                RawReturnContextKind::Feature => {
+                    let mangled_output_ty_vtable =
+                        self.db.mangled_ty_vtable(return_context.output_ty.route);
+                    self.write(format!(r#"feature_require!(__ctx, __feature, __registration__::{mangled_output_ty_vtable},"#));
+                    self.gen_expr(stmt.indent, condition);
+                    self.write(");");
+                }
+                RawReturnContextKind::LazyField => todo!(),
+            },
             FuncStmtVariant::Return {
                 ref result,
-                output_context,
+                return_context,
             } => {
                 self.write("return ");
-                match output_context.kind {
-                    RawOutputContextKind::Normal => {
+                match return_context.kind {
+                    RawReturnContextKind::Normal => {
                         self.gen_binding(result);
                         self.gen_expr(stmt.indent, result)
                     }
-                    RawOutputContextKind::Feature => self.gen_feature_return(stmt.indent, result),
-                    RawOutputContextKind::LazyField => {
+                    RawReturnContextKind::Feature => self.gen_feature_return(stmt.indent, result),
+                    RawReturnContextKind::LazyField => {
                         self.gen_lazy_field_return(stmt.indent, result)
                     }
                 }
@@ -108,15 +121,15 @@ impl<'a> RustCodeGenerator<'a> {
             }
             ProcStmtVariant::Return {
                 ref result,
-                output_context,
-            } => match output_context.kind {
-                RawOutputContextKind::Normal => {
+                return_context,
+            } => match return_context.kind {
+                RawReturnContextKind::Normal => {
                     self.write("return ");
                     self.gen_binding(result);
                     self.gen_expr(stmt.indent, result);
                 }
-                RawOutputContextKind::Feature => todo!(),
-                RawOutputContextKind::LazyField => todo!(),
+                RawReturnContextKind::Feature => todo!(),
+                RawReturnContextKind::LazyField => todo!(),
             },
             ProcStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_proc_condition_flow(stmt.indent, branches)

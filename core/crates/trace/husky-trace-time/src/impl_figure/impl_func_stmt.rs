@@ -22,7 +22,7 @@ impl HuskyTraceTime {
                 ref match_expr,
                 ref branches,
             } => todo!(),
-            FuncStmtVariant::Require { ref condition } => todo!(),
+            FuncStmtVariant::Require { ref condition, .. } => todo!(),
         }
     }
 }
