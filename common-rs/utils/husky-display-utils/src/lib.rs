@@ -1,7 +1,6 @@
 use text_diff::print_diff;
 
 use husky_test_utils::TestResult;
-use std::fmt::Write;
 use std::io::Write as _;
 use std::{
     fmt::Debug,

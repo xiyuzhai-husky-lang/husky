@@ -2,7 +2,6 @@
 use husky_signal::Signalable;
 #[cfg(feature = "serde_support")]
 use serde::{Deserialize, Serialize};
-use std::sync::Arc;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
