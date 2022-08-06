@@ -39,18 +39,17 @@ use vm::{Instruction, VMConfig};
 )]
 pub struct HuskyRuntime {
     storage: salsa::Storage<HuskyRuntime>,
-    compile_time: HuskyComptime,
+    comptime: HuskyComptime,
     compile_time_version: usize,
     feature_interner: husky_feature_gen::FeatureInterner,
     variant: HuskyRuntimeVariant,
-    package_main: FilePtr,
     config: HuskyRuntimeConfig,
 }
 
 #[derive(Debug)]
 pub struct HuskyRuntimeConfig {
     pub evaluator: EvaluatorConfig,
-    pub compile_time: HuskyCompileTimeConfig,
+    pub comptime: HuskyCompileTimeConfig,
 }
 
 impl HuskyRuntime {
@@ -58,18 +57,17 @@ impl HuskyRuntime {
         init_comptime: impl FnOnce(&mut HuskyComptime),
         config: HuskyRuntimeConfig,
     ) -> HuskyRuntimeSingletonKeeper {
-        let mut comptime = HuskyComptime::new(config.compile_time.clone());
+        let mut comptime = HuskyComptime::new(config.comptime.clone());
         init_comptime(&mut comptime);
-        let all_main_files = comptime.all_main_files();
+        let all_main_files = comptime.all_target_entrances();
         should_eq!(all_main_files.len(), 1, "config = {config:?}");
-        let package_main = all_main_files[0];
+        let target_entrance = all_main_files[0];
         let feature_interner = husky_feature_gen::new_feature_interner();
         let mut eval_time = Self {
             storage: Default::default(),
             variant: HuskyRuntimeVariant::None,
-            compile_time: comptime,
+            comptime: comptime,
             compile_time_version: 0,
-            package_main,
             config,
             feature_interner,
         };
@@ -78,16 +76,16 @@ impl HuskyRuntime {
     }
 
     fn init(&mut self) {
-        let compile_time = &self.compile_time;
-        let all_diagnostics = compile_time.all_diagnostics();
+        let comptime = &self.comptime;
+        let all_diagnostics = comptime.all_diagnostics();
         if all_diagnostics.len() > 0 {
             p!(all_diagnostics);
             panic!("diagnostic errors")
         }
-        let package = match compile_time.package(self.package_main) {
+        let package = match comptime.package(self.target_entrance) {
             Ok(package) => package,
             Err(error) => {
-                compile_time.print_diagnostics();
+                comptime.print_diagnostics();
                 p!(error);
                 panic!()
             }

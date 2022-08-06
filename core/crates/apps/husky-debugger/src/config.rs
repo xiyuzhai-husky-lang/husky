@@ -39,7 +39,7 @@ impl HuskyDebuggerConfig {
                     verbose: self.verbose,
                 },
             },
-            compile_time: HuskyCompileTimeConfig {
+            comptime: HuskyCompileTimeConfig {
                 package_dir: self.package_dir.clone(),
                 __resolve_root_defn,
                 linkage_table: LinkageTableConfig {

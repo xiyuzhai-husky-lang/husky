@@ -42,10 +42,9 @@ pub trait InferEntityRoute {
             .entity_route_sheet()
             .opt_function_call_route(function_idx)
         {
-            Ok(derived_unwrap!(self.decl_db().entity_call_form_decl(
-                Some(self.entity_route_sheet().crate_entrance),
-                call_route_result?
-            )))
+            Ok(derived_unwrap!(self
+                .decl_db()
+                .entity_call_form_decl(call_route_result?)))
         } else {
             Ok(derived_unwrap!(self
                 .decl_db()
@@ -56,9 +55,8 @@ pub trait InferEntityRoute {
     fn method_call_form_decl(&self, this_idx: RawExprIdx) -> InferResultArc<CallFormDecl> {
         let call_route_result =
             derived_not_none!(self.entity_route_sheet().opt_method_call_route(this_idx))?;
-        Ok(derived_unwrap!(self.decl_db().entity_call_form_decl(
-            Some(self.entity_route_sheet().crate_entrance),
-            call_route_result?
-        )))
+        Ok(derived_unwrap!(self
+            .decl_db()
+            .entity_call_form_decl(call_route_result?)))
     }
 }

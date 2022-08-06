@@ -35,24 +35,24 @@ impl CompilerInstance {
     }
 
     pub fn compile_package(&self, package_dir: PathBuf) {
-        let mut compile_time = HuskyComptime::new(HuskyCompileTimeConfig {
+        let mut comptime = HuskyComptime::new(HuskyCompileTimeConfig {
             __resolve_root_defn,
             linkage_table: LinkageTableConfig {
                 warn_missing_linkage: false,
             },
             package_dir: package_dir.clone(),
         });
-        compile_time.load_package(&package_dir);
-        let crate_entrance = compile_time.unique_main_file();
-        let package = compile_time.package(crate_entrance).unwrap();
+        comptime.load_package(&package_dir);
+        let target_entrance = comptime.unique_main_file();
+        let package = comptime.package(target_entrance).unwrap();
         let rust_dir = self.getx_rust_gen_cache_dir(&package);
         let husky_code_snapshot_dir = self.getx_husky_code_snapshot_dir(&package);
         let src_dir = getx_child_dir(&rust_dir, "src");
 
         self.save_husky_code_snapshot(
-            &compile_time,
+            &comptime,
             &husky_code_snapshot_dir.join("main.hsk"),
-            crate_entrance,
+            target_entrance,
         );
 
         let cargo_config_path = getx_child_dir(&rust_dir, ".cargo").join("config.toml");
@@ -92,31 +92,31 @@ debug = 1
         // Cargo.toml
         diff_write(
             &rust_dir.join("Cargo.toml"),
-            &compile_time.cargo_toml_content(crate_entrance, &self.husky_dir),
+            &comptime.cargo_toml_content(target_entrance, &self.husky_dir),
         );
 
         // lib.rs
         diff_write(
             &src_dir.join("lib.rs"),
-            &compile_time.rust_lib_rs_content(crate_entrance),
+            &comptime.rust_lib_rs_content(target_entrance),
         );
 
         // __init__.rs
         diff_write(
             &src_dir.join("__init__.rs"),
-            &compile_time.rust_init_rs_content(crate_entrance),
+            &comptime.rust_init_rs_content(target_entrance),
         );
 
         // __init__.rs
         diff_write(
             &src_dir.join("__registration__.rs"),
-            &compile_time.rust_registration_rs_content(crate_entrance),
+            &comptime.rust_registration_rs_content(target_entrance),
         );
 
         for module in package.subentities.iter() {
             let module_name = module.ident.as_str();
             self.compile_maybe_module(
-                &compile_time,
+                &comptime,
                 src_dir.join(format!("{module_name}.rs")),
                 &husky_code_snapshot_dir.join(format!("{module_name}.hsk")),
                 module,
@@ -126,7 +126,7 @@ debug = 1
 
     fn compile_maybe_module(
         &self,
-        compile_time: &HuskyComptime,
+        comptime: &HuskyComptime,
         rust_code_path: PathBuf,
         husky_code_snapshot_path: &Path,
         module: &EntityDefn,
@@ -137,9 +137,9 @@ debug = 1
         }
         diff_write(
             &rust_code_path,
-            &compile_time.rust_mod_rs_content(module.base_route),
+            &comptime.rust_mod_rs_content(module.base_route),
         );
-        self.save_husky_code_snapshot(compile_time, husky_code_snapshot_path, module.file);
+        self.save_husky_code_snapshot(comptime, husky_code_snapshot_path, module.file);
         let module_rust_code_gen_dir = rust_code_path.with_extension("");
         let module_husky_code_snapshot_dir = husky_code_snapshot_path.with_extension("");
         mkdir(&module_rust_code_gen_dir);
@@ -147,7 +147,7 @@ debug = 1
         for subentity in module.subentities.iter() {
             let subentity_name = subentity.ident.as_str();
             self.compile_maybe_module(
-                compile_time,
+                comptime,
                 module_rust_code_gen_dir.join(format!("{subentity_name}.rs")),
                 &module_husky_code_snapshot_dir.join(format!("{subentity_name}.hsk")),
                 subentity,
@@ -157,13 +157,13 @@ debug = 1
 
     fn save_husky_code_snapshot(
         &self,
-        compile_time: &HuskyComptime,
+        comptime: &HuskyComptime,
         husky_code_snapshot_path: &Path,
-        crate_entrance: FilePtr,
+        target_entrance: FilePtr,
     ) {
         diff_write(
             husky_code_snapshot_path,
-            compile_time.file_content(crate_entrance).to_str().unwrap(),
+            comptime.file_content(target_entrance).to_str().unwrap(),
         );
     }
 }

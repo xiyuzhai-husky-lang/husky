@@ -9,7 +9,7 @@ use defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
 use entity_kind::TyKind;
 use husky_entity_route::{entity_route_menu, EntityRouteVariant, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
-use husky_file::FilePtr;
+use husky_file::{FilePtr, FileSalsaQuery};
 use husky_print_utils::p;
 use husky_text::*;
 use husky_token::AbsSemanticToken;
@@ -34,9 +34,11 @@ pub struct AtomContextState {
 }
 
 pub trait AtomContext {
-    fn opt_crate_entrance(&self) -> Option<FilePtr>;
     fn file(&self) -> FilePtr;
     fn entity_syntax_db(&self) -> &dyn EntitySyntaxQueryGroup;
+    fn opt_target_entrance(&self) -> Option<FilePtr> {
+        FileSalsaQuery::opt_target_entrance(self.entity_syntax_db())
+    }
     fn opt_this_ty(&self) -> Option<EntityRoutePtr>;
     fn opt_this_liason(&self) -> Option<ParameterLiason>;
     fn symbols(&self) -> &[Symbol];
@@ -113,7 +115,7 @@ pub trait AtomContext {
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
                         variant: EntityRouteVariant::CrateInputValue {
                             main: self
-                                .opt_crate_entrance()
+                                .opt_target_entrance()
                                 .ok_or(error!("can't use implicit without main", range))?,
                         },
                         temporal_arguments: thin_vec![],
@@ -124,7 +126,7 @@ pub trait AtomContext {
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
                         variant: EntityRouteVariant::CrateOutputType {
                             main: self
-                                .opt_crate_entrance()
+                                .opt_target_entrance()
                                 .ok_or(error!("can't use implicit without main", range))?,
                         },
                         temporal_arguments: thin_vec![],
@@ -140,7 +142,7 @@ pub trait AtomContext {
                 }
                 ContextualIdentifier::Crate => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db()
-                        .module(self.opt_crate_entrance().unwrap())
+                        .module(self.opt_target_entrance().unwrap())
                         .unwrap(),
                 )),
             },

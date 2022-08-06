@@ -18,9 +18,7 @@ pub enum EntitySource {
     Module {
         file: FilePtr,
     },
-    Input {
-        crate_entrance: FilePtr,
-    },
+    TargetInput,
     Any {
         ident: CustomIdentifier,
         file: FilePtr,

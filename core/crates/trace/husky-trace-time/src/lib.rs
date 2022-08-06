@@ -87,7 +87,7 @@ impl HuskyTraceTime {
     }
 
     pub fn comptime(&self) -> &HuskyComptime {
-        self.runtime_singleton.compile_time()
+        self.runtime_singleton.comptime()
     }
 
     pub fn all_trace_nodes(&self) -> Vec<TraceNodeData> {
@@ -135,7 +135,7 @@ impl HuskyTraceTime {
         let trace_id = self.next_id();
         let trace = {
             let (file, range) = variant.file_and_range();
-            let text = self.runtime().compile_time().text(file).unwrap();
+            let text = self.runtime().comptime().text(file).unwrap();
             let reachable = variant.reachable();
             let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.trace_lines(trace_id, indent, &variant, opt_parent_id.is_some());
@@ -270,7 +270,7 @@ impl HuskyTraceTime {
 //         parent: &Trace,
 //         feature_repr: &FeatureRepr,
 //     ) ->  Vec<TraceId>  {
-//         let text = &self.compile_time().text(parent.file).unwrap();
+//         let text = &self.comptime().text(parent.file).unwrap();
 //         Arc::new(
 //             self.trace_factory()
 //                 .feature_repr_subtraces(parent, feature_repr, text),
@@ -282,7 +282,7 @@ impl HuskyTraceTime {
 //         parent: &Trace,
 //         feature_block: &FeatureLazyBlock,
 //     ) ->  Vec<TraceId>  {
-//         let text = &self.compile_time().text(parent.file).unwrap();
+//         let text = &self.comptime().text(parent.file).unwrap();
 //         Arc::new(
 //             self.trace_factory()
 //                 .feature_lazy_block_subtraces(parent, feature_block, text),
@@ -294,7 +294,7 @@ impl HuskyTraceTime {
 //         parent: &Trace,
 //         branch: &FeatureBranch,
 //     ) ->  Vec<TraceId>  {
-//         let text = &self.compile_time().text(parent.file).unwrap();
+//         let text = &self.comptime().text(parent.file).unwrap();
 //         self.trace_factory()
 //             .feature_branch_subtraces(parent, branch, self.trace_factory(), text)
 //     }
@@ -340,7 +340,7 @@ impl HuskyTraceTime {
 //         parent: &Trace,
 //         verbose: bool,
 //     ) ->  Vec<TraceId>  {
-//         let text = &self.compile_time().text(parent.file).unwrap();
+//         let text = &self.comptime().text(parent.file).unwrap();
 //         self.trace_factory().loop_frame_subtraces(
 //             self.runtime.upcast(),
 //             text,
@@ -361,7 +361,7 @@ impl HuskyTraceTime {
 //         parent: &Trace,
 //         verbose: bool,
 //     ) ->  Vec<TraceId>  {
-//         let text = &self.compile_time().text(parent.file).unwrap();
+//         let text = &self.comptime().text(parent.file).unwrap();
 //         self.trace_factory().proc_branch_subtraces(
 //             self.runtime.upcast(),
 //             text,
@@ -384,7 +384,7 @@ impl HuskyTraceTime {
 //             parent_id,
 //             indent,
 //             kind,
-//             &self.compile_time().text(file).unwrap(),
+//             &self.comptime().text(file).unwrap(),
 //         )
 //     }
 // }

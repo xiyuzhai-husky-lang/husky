@@ -130,7 +130,6 @@ impl TraitDecl {
                     )
                 });
                 let mut symbol_context = AtomContextStandalone {
-                    opt_crate_entrance: None,
                     db: db.upcast(),
                     opt_this_ty: None,
                     opt_this_contract: None,
@@ -228,9 +227,7 @@ pub(crate) fn trait_decl(
             token_group_index,
         } => todo!(),
         EntitySource::Module { file } => todo!(),
-        EntitySource::Input {
-            crate_entrance: main,
-        } => todo!(),
+        EntitySource::TargetInput => todo!(),
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),

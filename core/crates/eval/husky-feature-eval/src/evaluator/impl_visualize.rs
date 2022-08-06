@@ -20,7 +20,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
         'eval: 'static,
     {
         let ty = this.ty();
-        let visualizer: Arc<Visualizer> = self.db.compile_time().visualizer(ty);
+        let visualizer: Arc<Visualizer> = self.db.comptime().visualizer(ty);
         match visualizer.variant {
             VisualizerVariant::Option {
                 ref intrinsic_visualizer,
@@ -42,7 +42,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
             }
             _ => self.visualize_intrinsic(this, &visualizer),
         }
-        // let visualizer = self.db.compile_time().visualizer(this.ty());
+        // let visualizer = self.db.comptime().visualizer(this.ty());
         // let this_value = self.eval_feature_repr_cached(&this).unwrap();
         // todo!()
         // if let Some(visual_data) =

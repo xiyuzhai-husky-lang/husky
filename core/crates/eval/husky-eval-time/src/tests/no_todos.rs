@@ -3,8 +3,8 @@ use husky_compile_time::*;
 fn walkthrough(main_source: &'static str) {
     let mut db = HuskyCompileTime::new_default(__root_defn);
     db.set_live_file_text("haha/main.hsk".into(), main_source.into());
-    let crate_entrance = db.intern_file("haha/main.hsk".into());
-    let pack = db.package(crate_entrance).unwrap();
+    let target_entrance = db.intern_file("haha/main.hsk".into());
+    let pack = db.package(target_entrance).unwrap();
     // let sess = Session::new(&Pack);
 }
 

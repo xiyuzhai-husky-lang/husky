@@ -108,10 +108,7 @@ impl<'a> RustCodeGenerator<'a> {
                     output_binding,
                     ..
                 } => {
-                    let call_form_decl = self
-                        .db
-                        .entity_call_form_decl(Some(self.crate_entrance), *method_route)
-                        .unwrap();
+                    let call_form_decl = self.db.entity_call_form_decl(*method_route).unwrap();
                     match call_form_decl.output.liason {
                         OutputLiason::Transfer => {
                             self.gen_expr(indent, &opds[0]);

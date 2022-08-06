@@ -7,15 +7,17 @@ use lsp_types::SemanticToken;
 use std::path::Path;
 
 pub(super) fn test_semantic_tokens(package_dir: &Path) -> TestResult {
-    test_all_source_files(package_dir, "semantic_tokens.txt", |compile_time, file| {
-        match compile_time.ast_text(file) {
+    test_all_source_files(
+        package_dir,
+        "semantic_tokens.txt",
+        |comptime, file| match comptime.ast_text(file) {
             Ok(ast_text) => AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens)
                 .into_iter()
                 .map(|st| SemanticTokenWrapper(st))
                 .collect(),
             Err(_) => Vec::new(),
-        }
-    })
+        },
+    )
 }
 
 #[derive(Debug, PartialEq, Eq)]

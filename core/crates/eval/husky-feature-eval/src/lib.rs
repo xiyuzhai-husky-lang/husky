@@ -26,11 +26,11 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     fn evaluator<'a>(&'a self, sample_id: SampleId) -> FeatureEvaluator<'a, 'eval> {
         let dev = self.session().dev();
         let sheet = &dev.sheets[sample_id.0];
-        let crate_input = dev.load(sample_id).input;
+        let target_input = dev.load(sample_id).input;
         FeatureEvaluator {
             sample_id,
             db: self.upcast(),
-            crate_input,
+            target_input,
             sheet,
             evaluator_config: self.evaluator_config(),
             opt_static_husky_feature_eval: self.opt_static_husky_feature_eval(),

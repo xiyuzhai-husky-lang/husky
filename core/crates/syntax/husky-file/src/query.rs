@@ -42,9 +42,12 @@ pub trait LiveFiles: AllocateUniqueFile {
 
 #[salsa::query_group(FileQueryStorage)]
 pub trait FileSalsaQuery: LiveFiles {
-    fn file_content(&self, id: FilePtr) -> FileContent;
+    #[salsa::input]
+    fn opt_target_entrance(&self) -> Option<FilePtr>;
 
-    fn crate_entrance(&self, module_file: FilePtr) -> Option<FilePtr>;
+    fn target_entrance(&self, module_file: FilePtr) -> Option<FilePtr>;
+
+    fn file_content(&self, id: FilePtr) -> FileContent;
 
     fn parent_module_file(&self, module_file: FilePtr) -> Option<FilePtr>;
 
@@ -68,7 +71,7 @@ fn file_content(db: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
         })
 }
 
-fn crate_entrance(db: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
+fn target_entrance(db: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
     let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
         let id = db.intern_file(ancestor.with_file_name("main.hsk"));
@@ -116,16 +119,16 @@ pub trait FileQueryGroup: FileSalsaQuery {
         }
     }
 
-    fn all_main_files(&self) -> Vec<FilePtr> {
+    fn all_target_entrances(&self) -> Vec<FilePtr> {
         self.file_interner()
             .id_iter()
-            .filter_map(|id| self.crate_entrance(id))
+            .filter_map(|id| self.target_entrance(id))
             .unique()
             .collect()
     }
 
     fn unique_main_file(&self) -> FilePtr {
-        let all_main_files = self.all_main_files();
+        let all_main_files = self.all_target_entrances();
         assert_eq!(all_main_files.len(), 1);
         all_main_files[0]
     }

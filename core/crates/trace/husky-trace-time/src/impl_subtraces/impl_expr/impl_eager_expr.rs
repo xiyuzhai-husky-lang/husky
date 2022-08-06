@@ -43,14 +43,10 @@ impl HuskyTraceTime {
             EagerOpnVariant::Prefix { opr, this_ty } => todo!(),
             EagerOpnVariant::Suffix { this_ty, opr } => todo!(),
             EagerOpnVariant::RoutineCall(route) => {
-                let routine_defn = self
-                    .runtime()
-                    .compile_time()
-                    .entity_defn(route.route)
-                    .unwrap();
+                let routine_defn = self.runtime().comptime().entity_defn(route.route).unwrap();
                 let instruction_sheet = self
                     .runtime()
-                    .entity_instruction_sheet(route.route)
+                    .entity_instruction_sheet(self.comptime().target_entrance(), route.route)
                     .unwrap();
                 self.routine_call_subtraces(
                     parent,
@@ -89,12 +85,12 @@ impl HuskyTraceTime {
             } => {
                 let routine_defn = self
                     .runtime()
-                    .compile_time()
+                    .comptime()
                     .entity_defn(*method_route)
                     .unwrap();
                 let instruction_sheet = self
                     .runtime()
-                    .entity_instruction_sheet(*method_route)
+                    .entity_instruction_sheet(self.comptime().target_entrance(), *method_route)
                     .unwrap();
                 self.routine_call_subtraces(
                     parent,

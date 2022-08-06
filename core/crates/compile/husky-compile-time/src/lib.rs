@@ -68,7 +68,6 @@ pub struct HuskyComptime {
     live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
-    opt_crate_entrance: Option<FilePtr>,
     config: HuskyCompileTimeConfig,
 }
 
@@ -78,7 +77,7 @@ impl HuskyComptime {
         let entity_route_interner = husky_entity_route::new_entity_route_interner();
         let entity_route_store = Default::default();
         let linkage_table = LinkageTable::new(config.linkage_table.clone());
-        Self {
+        let comptime = Self {
             storage: Default::default(),
             file_interner: husky_file::new_file_interner(),
             word_interner: husky_word::new_word_interner(),
@@ -86,11 +85,12 @@ impl HuskyComptime {
             live_docs,
             linkage_table,
             entity_route_store,
-            opt_crate_entrance: None,
             config,
             ty_cache: new_ty_route_cache(),
             entity_route_menu: husky_entity_route::new_entity_route_menu(),
-        }
+        };
+        comptime.set_opt_target_entrance(config.target_entrance());
+        todo!()
     }
 
     pub fn new_default(
@@ -105,8 +105,8 @@ impl HuskyComptime {
         })
     }
 
-    pub fn crate_entrance(&self) -> FilePtr {
-        self.opt_crate_entrance.unwrap()
+    pub fn target_entrance(&self) -> FilePtr {
+        self.opt_target_entrance.unwrap()
     }
     // ad hoc loc
     pub fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {
@@ -231,5 +231,5 @@ impl HuskyComptime {
 }
 
 pub trait AskCompileTime {
-    fn compile_time(&self) -> &HuskyComptime;
+    fn comptime(&self) -> &HuskyComptime;
 }

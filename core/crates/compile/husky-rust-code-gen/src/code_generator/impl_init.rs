@@ -23,7 +23,7 @@ pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
 
 pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
-        let main_module = self.db.module(self.crate_entrance).unwrap();
+        let main_module = self.db.module(self.target_entrance).unwrap();
         let entity_link_dependees = self.db.entity_link_dependees(main_module);
         for entity_route in entity_link_dependees.iter() {
             if !entity_route.contains_any() {
@@ -81,10 +81,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             route: "{entity_route}",
         }},"#,
                 ));
-                let call_form_decl = self
-                    .db
-                    .entity_call_form_decl(Some(self.crate_entrance), entity_route)
-                    .unwrap();
+                let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
                     None,
@@ -105,10 +102,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             route: "{entity_route}",
         }},"#,
                 ));
-                let call_form_decl = self
-                    .db
-                    .entity_call_form_decl(Some(self.crate_entrance), entity_route)
-                    .unwrap();
+                let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
                     None,
@@ -160,10 +154,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     r#"
         __StaticLinkageKey::Routine {{ route: "{entity_route}" }},"#,
                 ));
-                let call_form_decl = self
-                    .db
-                    .entity_call_form_decl(Some(self.crate_entrance), entity_route)
-                    .unwrap();
+                let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 let this_liason = call_form_decl.this_liason();
                 match this_liason {
                     ParameterLiason::MemberAccess => {

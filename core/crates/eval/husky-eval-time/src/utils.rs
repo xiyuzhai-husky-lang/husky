@@ -15,14 +15,14 @@ pub fn eval_time() -> &'static HuskyRuntime {
 }
 
 // pub fn __ty_route_from_static_binded<T: __StaticInfo>(text: &str) -> EntityRoutePtr {
-//     compile_time().ty_route_from_static(std::any::TypeId::of::<T::__StaticSelf>(), text)
+//     comptime().ty_route_from_static(std::any::TypeId::of::<T::__StaticSelf>(), text)
 // }
 // pub fn __parse_route_from_text(text: &str) -> EntityRoutePtr {
-//     compile_time().parse_route_from_text(text)
+//     comptime().parse_route_from_text(text)
 // }
 
-pub fn compile_time() -> &'static HuskyComptime {
-    eval_time().compile_time()
+pub fn comptime() -> &'static HuskyComptime {
+    eval_time().comptime()
 }
 // pub struct HuskyRuntimeSingletonKeeper(Box<HuskyRuntime>);
 
