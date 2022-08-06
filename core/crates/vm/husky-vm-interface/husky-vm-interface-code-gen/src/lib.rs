@@ -12,10 +12,5 @@ pub static NONPRIMITIVE_BUILTIN_TYPES: &'static [&'static str] =
     &["__VirtualFunction", "__VirtualEnum"];
 
 pub fn gen_vm_interface_code() {
-    let husky_dir = "/home/xiyuzhai/Documents/husky";
-    let rust_path = format!(
-        "{}/core/crates/vm/husky-vm-interface/src/__rust_code_gen__.rs",
-        husky_dir
-    );
-    write_rust_code(&rust_path).unwrap();
+    write_rust_code("src/__rust_code_gen__.rs").unwrap();
 }

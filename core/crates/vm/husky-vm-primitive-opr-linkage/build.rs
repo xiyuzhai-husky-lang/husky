@@ -8,11 +8,7 @@ use std::{env, fs::File};
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
-    // let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
-    let husky_dir = "/home/xiyuzhai/Documents/husky";
-    let crate_dir = format!("{husky_dir}/core/crates/vm/husky-vm-primitive-opr-linkage/src");
-    let binary_mod_path = format!("{crate_dir}/binary.rs");
-    gen_binary_primitive_opr_linkage(&binary_mod_path).unwrap();
+    gen_binary_primitive_opr_linkage("src/binary.rs").unwrap();
 }
 
 fn gen_binary_primitive_opr_linkage(binary_mod_path: &str) -> std::io::Result<()> {
