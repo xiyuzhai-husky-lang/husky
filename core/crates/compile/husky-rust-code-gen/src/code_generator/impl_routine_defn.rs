@@ -34,13 +34,13 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_feature_func_block_defn(
         &mut self,
         feature_route: EntityRoutePtr,
-        output: EntityRoutePtr,
+        return_ty: EntityRoutePtr,
         stmts: &[Arc<FuncStmt>],
     ) {
         self.write("pub(crate) fn ");
         let ident = feature_route.ident();
         self.write(&ident);
-        let is_output_option = output.is_option();
+        let is_output_option = return_ty.is_option();
         self.write(format!(
             "<'eval>(__ctx: &dyn __EvalContext<'eval>) -> {}&'eval ",
             match is_output_option {
@@ -48,11 +48,11 @@ impl<'a> RustCodeGenerator<'a> {
                 false => "",
             },
         ));
-        self.gen_entity_route(output.intrinsic(), EntityRouteRole::Decl);
+        self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
         if is_output_option {
             self.write(">")
         }
-        let mangled_return_ty_vtable = self.db.mangled_ty_vtable(output);
+        let mangled_return_ty_vtable = self.db.mangled_ty_vtable(return_ty);
         self.write(&format!(
             r#" {{
     let __feature = feature_ptr!(__ctx, "{feature_route:?}");
