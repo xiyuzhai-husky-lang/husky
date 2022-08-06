@@ -42,10 +42,10 @@ impl<'a> EagerParser<'a> {
                         },
                         RawStmtVariant::Return {
                             result,
-                            return_kind,
+                            return_context,
                         } => FuncStmtVariant::Return {
                             result: self.parse_eager_expr(result)?,
-                            return_kind,
+                            return_context,
                         },
                         RawStmtVariant::Assert(condition) => FuncStmtVariant::Assert {
                             condition: self.parse_eager_expr(condition)?,

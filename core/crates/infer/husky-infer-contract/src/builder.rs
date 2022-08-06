@@ -109,7 +109,11 @@ impl<'a> ContractSheetBuilder<'a> {
                         | FieldAstKind::RecordDerived => self.infer_lazy_stmts(children),
                         _ => (),
                     },
-                    AstVariant::FeatureDefnHead { paradigm, ty, .. } => match paradigm {
+                    AstVariant::FeatureDefnHead {
+                        paradigm,
+                        return_ty: ty,
+                        ..
+                    } => match paradigm {
                         Paradigm::LazyFunctional => self.infer_lazy_stmts(children),
                         Paradigm::EagerFunctional | Paradigm::EagerProcedural => {
                             self.infer_eager_stmts(children, ty.route)

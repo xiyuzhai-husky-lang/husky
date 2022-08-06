@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{MatchLiason, ReturnKind};
+use husky_ast::{MatchLiason, ReturnContext, ReturnContextKind};
 use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_text::TextRange;
 use husky_word::RootIdentifier;
@@ -128,10 +128,10 @@ impl EagerContract {
         db: &dyn DeclQueryGroup,
         return_ty: EntityRoutePtr,
         expr_ty: EntityRoutePtr,
-        return_kind: ReturnKind,
+        return_context: ReturnContext,
     ) -> InferResult<Self> {
-        match return_kind {
-            ReturnKind::Normal => Ok(if return_ty.variant == expr_ty.variant {
+        match return_context.kind {
+            ReturnContextKind::Normal => Ok(if return_ty.variant == expr_ty.variant {
                 if db.is_copyable(return_ty)? {
                     EagerContract::Pure
                 } else {
@@ -154,7 +154,7 @@ impl EagerContract {
             } else {
                 todo!()
             }),
-            ReturnKind::Feature | ReturnKind::LazyField => {
+            ReturnContextKind::Feature | ReturnContextKind::LazyField => {
                 if return_ty.is_ref() {
                     todo!("warn: output ty should be dereferenced")
                 } else if return_ty == expr_ty {

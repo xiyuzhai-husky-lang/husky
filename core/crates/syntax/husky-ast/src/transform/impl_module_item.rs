@@ -38,7 +38,7 @@ impl<'a> AstTransformer<'a> {
                         enter_block(self);
                         self.context.set(AstContext::Stmt {
                             paradigm,
-                            return_kind: ReturnKind::Normal,
+                            return_context: None,
                         });
                         return err!(format!("expect `->` or `(`"), token_group[2].range);
                     }
@@ -57,7 +57,13 @@ impl<'a> AstTransformer<'a> {
                     ConfigKeyword::Task => {
                         self.context.set(AstContext::Stmt {
                             paradigm: Paradigm::EagerFunctional,
-                            return_kind: ReturnKind::Normal,
+                            return_context: Some(ReturnContext {
+                                return_ty: RangedEntityRoute {
+                                    route: RootIdentifier::DatasetType.into(),
+                                    range: Default::default(),
+                                },
+                                kind: ReturnContextKind::Normal,
+                            }),
                         });
                         self.use_all(RootIdentifier::Domains.into(), token_group[0].text_range())?;
                         AstVariant::DatasetConfigDefnHead
@@ -68,7 +74,10 @@ impl<'a> AstTransformer<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
-                    return_kind: ReturnKind::Feature,
+                    return_context: Some(ReturnContext {
+                        return_ty: todo!(),
+                        kind: ReturnContextKind::Feature,
+                    }),
                 });
                 Ok(AstVariant::MainDefnHead)
             }

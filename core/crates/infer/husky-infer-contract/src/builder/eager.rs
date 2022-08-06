@@ -65,14 +65,14 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawStmtVariant::Return {
                 result,
-                return_kind,
+                return_context,
             } => {
                 if let Ok(expr_ty) = self.raw_expr_ty(result) {
                     if let Ok(contract) = EagerContract::ret_contract(
                         self.db.upcast(),
                         return_ty,
                         expr_ty,
-                        return_kind,
+                        return_context,
                     ) {
                         self.infer_eager_expr(result, contract);
                     }

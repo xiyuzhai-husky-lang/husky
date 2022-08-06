@@ -5,7 +5,7 @@ use entity_kind::TyKind;
 use fold::LocalValue;
 use husky_ast::{
     Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant, RawStmtVariant,
-    ReturnKind, StructItemContext,
+    ReturnContext, ReturnContextKind, StructItemContext,
 };
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
@@ -128,7 +128,10 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
-                    return_kind: ReturnKind::Feature,
+                    return_context: Some(ReturnContext {
+                        return_ty: todo!(),
+                        kind: ReturnContextKind::Feature,
+                    }),
                 });
                 self.write("main:")
             }
@@ -142,7 +145,10 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm,
-                    return_kind: ReturnKind::Normal,
+                    return_context: Some(ReturnContext {
+                        return_ty: todo!(),
+                        kind: ReturnContextKind::Normal,
+                    }),
                 });
                 self.write(match paradigm {
                     Paradigm::EagerProcedural => "proc ",
@@ -254,15 +260,15 @@ impl<'a> Formatter<'a> {
                 match self.context.value() {
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerFunctional,
-                        return_kind,
+                        return_context,
                     }
                     | AstContext::Stmt {
                         paradigm: Paradigm::LazyFunctional,
-                        return_kind,
+                        return_context,
                     }
                     | AstContext::Stmt {
                         paradigm: Paradigm::LazyFunctional,
-                        return_kind,
+                        return_context,
                     } => (),
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerProcedural,

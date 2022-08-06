@@ -59,17 +59,20 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         enter_block(self);
-        self.context.set(AstContext::Stmt {
-            paradigm: Paradigm::LazyFunctional,
-            return_kind: ReturnKind::LazyField,
-        });
         self.opt_this_liason.set(Some(ParameterLiason::Pure));
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);
         msg_once!("field contract");
-        let ty = husky_atom::parse_route(self, &token_group[3..])?;
+        let field_ty = husky_atom::parse_route(self, &token_group[3..])?;
+        self.context.set(AstContext::Stmt {
+            paradigm: Paradigm::LazyFunctional,
+            return_context: Some(ReturnContext {
+                return_ty: field_ty,
+                kind: ReturnContextKind::LazyField,
+            }),
+        });
         Ok(AstVariant::FieldDefnHead {
             ranged_ident: ident,
-            field_ty: ty,
+            field_ty,
             field_ast_kind: FieldAstKind::RecordDerived,
             liason: MemberLiason::Immutable,
         })

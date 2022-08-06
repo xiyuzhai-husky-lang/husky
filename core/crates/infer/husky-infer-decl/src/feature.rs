@@ -27,9 +27,11 @@ pub(crate) fn feature_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.variant {
-                AstVariant::FeatureDefnHead { ident, ty, .. } => {
-                    Ok(Arc::new(FeatureDecl { ty: ty.route }))
-                }
+                AstVariant::FeatureDefnHead {
+                    ident,
+                    return_ty: ty,
+                    ..
+                } => Ok(Arc::new(FeatureDecl { ty: ty.route })),
                 _ => todo!(),
             }
         }
