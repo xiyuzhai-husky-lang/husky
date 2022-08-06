@@ -30,6 +30,7 @@ where
 #[serde(rename_all = "lowercase")]
 pub enum TraceTokenKind {
     Keyword,
+    Mod,
     Label,
     Ident,
     Literal,
@@ -43,6 +44,7 @@ impl TraceTokenKind {
     pub fn as_str(self) -> &'static str {
         match self {
             TraceTokenKind::Keyword => "keyword",
+            TraceTokenKind::Mod => "mod",
             TraceTokenKind::Label => "literal",
             TraceTokenKind::Ident => "ident",
             TraceTokenKind::Literal => "literal",
