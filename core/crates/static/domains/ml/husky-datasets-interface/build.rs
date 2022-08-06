@@ -8,12 +8,8 @@ static FILENAME: &str = &"husky_ml_datasets";
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
-    let husky_dir = "/home/xiyuzhai/Documents/husky";
-    let rust_code_path = format!(
-        "{}/core/crates/static/domains/ml/husky-datasets-interface/src/__rust_code_gen__.rs",
-        husky_dir
-    );
-    write_rust_code(&rust_code_path).unwrap();
+    let rust_code_path = "src/__rust_code_gen__.rs";
+    write_rust_code(rust_code_path).unwrap();
 }
 
 pub static NONPRIMITIVE_TYPES: &'static [&'static str] =

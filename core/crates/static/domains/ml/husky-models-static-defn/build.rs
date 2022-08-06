@@ -8,13 +8,7 @@ static FILENAME: &str = &"husky_ml_models";
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
-    // let husky_dir = std::env::var("HUSKY_DIR").expect("HUSKY_DIR is not set");
-    let husky_dir = "/home/xiyuzhai/Documents/husky";
-    let rust_code_path = format!(
-        "{}/core/crates/static/domains/ml/husky-models-static-defn/src/__rust_code_gen__.rs",
-        husky_dir
-    );
-    write_rust_code(&rust_code_path).unwrap();
+    write_rust_code("src/__rust_code_gen__.rs").unwrap();
 }
 
 pub static NONPRIMITIVE_TYPES: &'static [&'static str] = &["NaiveI32Internal"];
