@@ -31,7 +31,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 );
                 self.push_instruction(Instruction::new(InstructionVariant::Assert, stmt))
             }
-            FuncStmtVariant::Require { ref condition } => {
+            FuncStmtVariant::Require { ref condition, .. } => {
                 self.compile_eager_expr(
                     condition,
                     self.sheet.variable_stack.next_stack_idx(),

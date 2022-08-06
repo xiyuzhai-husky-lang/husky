@@ -99,10 +99,10 @@ impl<'a> EagerParser<'a> {
             }),
             RawStmtVariant::Return {
                 result,
-                output_context,
+                return_context,
             } => Ok(ProcStmtVariant::Return {
                 result: self.parse_eager_expr(result)?,
-                output_context,
+                return_context,
             }),
             RawStmtVariant::Assert(condition) => Ok(ProcStmtVariant::Assert {
                 condition: self.parse_eager_expr(condition)?,
@@ -116,7 +116,7 @@ impl<'a> EagerParser<'a> {
                 panic!("pattern branch must be inside match stmt")
             }
             RawStmtVariant::ReturnXml(_) => todo!(),
-            RawStmtVariant::Require { condition } => todo!(),
+            RawStmtVariant::Require { condition, .. } => todo!(),
         }
     }
 

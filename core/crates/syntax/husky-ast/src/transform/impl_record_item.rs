@@ -65,9 +65,9 @@ impl<'a> AstTransformer<'a> {
         let field_ty = husky_atom::parse_route(self, &token_group[3..])?;
         self.context.set(AstContext::Stmt {
             paradigm: Paradigm::LazyFunctional,
-            output_context: Some(RawOutputContext {
+            return_context: Some(RawReturnContext {
                 output_ty: field_ty,
-                kind: RawOutputContextKind::LazyField,
+                kind: RawReturnContextKind::LazyField,
             }),
         });
         Ok(AstVariant::FieldDefnHead {

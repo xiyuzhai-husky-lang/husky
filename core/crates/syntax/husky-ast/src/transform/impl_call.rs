@@ -51,9 +51,9 @@ impl<'a> AstTransformer<'a> {
         };
         self.context.set(AstContext::Stmt {
             paradigm,
-            output_context: Some(RawOutputContext {
+            return_context: Some(RawReturnContext {
                 output_ty,
-                kind: RawOutputContextKind::Normal,
+                kind: RawReturnContextKind::Normal,
             }),
         });
         self.opt_this_liason.set(opt_this_liason);

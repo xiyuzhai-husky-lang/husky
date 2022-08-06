@@ -42,10 +42,10 @@ impl<'a> EagerParser<'a> {
                         },
                         RawStmtVariant::Return {
                             result,
-                            output_context,
+                            return_context,
                         } => FuncStmtVariant::Return {
                             result: self.parse_eager_expr(result)?,
-                            output_context,
+                            return_context,
                         },
                         RawStmtVariant::Assert(condition) => FuncStmtVariant::Assert {
                             condition: self.parse_eager_expr(condition)?,
@@ -61,8 +61,12 @@ impl<'a> EagerParser<'a> {
                             match_contract,
                         )?,
                         RawStmtVariant::ReturnXml(_) => panic!(),
-                        RawStmtVariant::Require { condition } => FuncStmtVariant::Require {
+                        RawStmtVariant::Require {
+                            condition,
+                            return_context,
+                        } => FuncStmtVariant::Require {
                             condition: self.parse_eager_expr(condition)?,
+                            return_context,
                         },
                     };
                     stmts.push(Arc::new(FuncStmt {

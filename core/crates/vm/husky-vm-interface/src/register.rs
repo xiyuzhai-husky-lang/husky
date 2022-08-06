@@ -141,6 +141,17 @@ impl<'eval> __Register<'eval> {
         }
     }
 
+    pub fn new_opt_eval_ref<T: 'eval>(
+        opt_value: Option<&'eval T>,
+        proto: &'eval __RegisterTyVTable,
+    ) -> __Register<'eval> {
+        if let Some(value) = opt_value {
+            Self::new_eval_ref(value, proto)
+        } else {
+            Self::new_undefined(proto)
+        }
+    }
+
     pub unsafe fn new_temp_ref<T>(
         value: &T,
         proto: &'eval __RegisterTyVTable,

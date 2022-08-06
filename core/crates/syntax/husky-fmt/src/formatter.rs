@@ -5,7 +5,7 @@ use entity_kind::TyKind;
 use fold::LocalValue;
 use husky_ast::{
     Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant,
-    RawOutputContext, RawOutputContextKind, RawStmtVariant, StructItemContext,
+    RawReturnContext, RawReturnContextKind, RawStmtVariant, StructItemContext,
 };
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
@@ -128,9 +128,9 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
-                    output_context: Some(RawOutputContext {
+                    return_context: Some(RawReturnContext {
                         output_ty: todo!(),
-                        kind: RawOutputContextKind::Feature,
+                        kind: RawReturnContextKind::Feature,
                     }),
                 });
                 self.write("main:")
@@ -145,9 +145,9 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm,
-                    output_context: Some(RawOutputContext {
+                    return_context: Some(RawReturnContext {
                         output_ty: todo!(),
-                        kind: RawOutputContextKind::Normal,
+                        kind: RawReturnContextKind::Normal,
                     }),
                 });
                 self.write(match paradigm {
@@ -260,15 +260,15 @@ impl<'a> Formatter<'a> {
                 match self.context.value() {
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerFunctional,
-                        output_context,
+                        return_context,
                     }
                     | AstContext::Stmt {
                         paradigm: Paradigm::LazyFunctional,
-                        output_context,
+                        return_context,
                     }
                     | AstContext::Stmt {
                         paradigm: Paradigm::LazyFunctional,
-                        output_context,
+                        return_context,
                     } => (),
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerProcedural,
@@ -285,7 +285,7 @@ impl<'a> Formatter<'a> {
             RawStmtVariant::Break => todo!(),
             RawStmtVariant::Match { .. } => todo!(),
             RawStmtVariant::ReturnXml(_) => todo!(),
-            RawStmtVariant::Require { condition } => todo!(),
+            RawStmtVariant::Require { condition, .. } => todo!(),
         }
     }
 

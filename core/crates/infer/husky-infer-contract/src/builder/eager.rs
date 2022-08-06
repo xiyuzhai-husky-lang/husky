@@ -48,7 +48,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawConditionBranchKind::Elif { condition } => self.infer_eager_condition(condition),
                 RawConditionBranchKind::Else => (),
             },
-            RawStmtVariant::Require { condition } => self.infer_eager_condition(condition),
+            RawStmtVariant::Require { condition, .. } => self.infer_eager_condition(condition),
             RawStmtVariant::PatternBranch {
                 ref pattern_branch_variant,
             } => match pattern_branch_variant {
@@ -65,14 +65,14 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawStmtVariant::Return {
                 result,
-                output_context,
+                return_context,
             } => {
                 if let Ok(expr_ty) = self.raw_expr_ty(result) {
                     if let Ok(contract) = EagerContract::ret_contract(
                         self.db.upcast(),
                         output_ty,
                         expr_ty,
-                        output_context,
+                        return_context,
                     ) {
                         self.infer_eager_expr(result, contract);
                     }

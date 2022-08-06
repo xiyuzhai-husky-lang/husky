@@ -9,13 +9,13 @@ use husky_word::Paradigm;
 use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct RawOutputContext {
+pub struct RawReturnContext {
     pub output_ty: RangedEntityRoute,
-    pub kind: RawOutputContextKind,
+    pub kind: RawReturnContextKind,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RawOutputContextKind {
+pub enum RawReturnContextKind {
     Normal,
     Feature,
     LazyField,
@@ -27,11 +27,11 @@ pub enum AstContext {
     Module(EntityRoutePtr),
     Stmt {
         paradigm: Paradigm,
-        output_context: Option<RawOutputContext>,
+        return_context: Option<RawReturnContext>,
     },
     Match {
         paradigm: Paradigm,
-        output_context: Option<RawOutputContext>,
+        return_context: Option<RawReturnContext>,
     },
     Visual,
     Struct {
@@ -58,10 +58,10 @@ impl AstContext {
         })
     }
 
-    pub fn output_context(&self) -> Option<RawOutputContext> {
+    pub fn return_context(&self) -> Option<RawReturnContext> {
         match self {
-            AstContext::Stmt { output_context, .. } => *output_context,
-            AstContext::Match { output_context, .. } => *output_context,
+            AstContext::Stmt { return_context, .. } => *return_context,
+            AstContext::Match { return_context, .. } => *return_context,
             _ => panic!(),
         }
     }

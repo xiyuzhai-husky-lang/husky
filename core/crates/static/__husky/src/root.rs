@@ -19,11 +19,22 @@ pub mod __std {
 }
 
 #[macro_export]
-macro_rules! require {
+macro_rules! normal_require {
     ($condition: expr) => {
         if !$condition {
             return None;
         }
     };
 }
-pub use require;
+pub use normal_require;
+
+#[macro_export]
+macro_rules! feature_require {
+    ($ctx: expr, $feature: expr, $OUTPUT_TY_VTABLE: expr, $condition: expr) => {
+        if !$condition {
+            $ctx.cache_feature($feature, Ok(__Register::new_undefined(&$OUTPUT_TY_VTABLE)));
+            return None;
+        }
+    };
+}
+pub use feature_require;

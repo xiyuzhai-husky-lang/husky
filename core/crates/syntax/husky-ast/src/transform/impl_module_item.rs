@@ -39,7 +39,7 @@ impl<'a> AstTransformer<'a> {
                         enter_block(self);
                         self.context.set(AstContext::Stmt {
                             paradigm,
-                            output_context: None,
+                            return_context: None,
                         });
                         return err!(format!("expect `->` or `(`"), token_group[2].range);
                     }
@@ -58,12 +58,12 @@ impl<'a> AstTransformer<'a> {
                     ConfigKeyword::Task => {
                         self.context.set(AstContext::Stmt {
                             paradigm: Paradigm::EagerFunctional,
-                            output_context: Some(RawOutputContext {
+                            return_context: Some(RawReturnContext {
                                 output_ty: RangedEntityRoute {
                                     route: RootIdentifier::DatasetType.into(),
                                     range: Default::default(),
                                 },
-                                kind: RawOutputContextKind::Normal,
+                                kind: RawReturnContextKind::Normal,
                             }),
                         });
                         self.use_all(RootIdentifier::Domains.into(), token_group[0].text_range())?;
@@ -75,7 +75,7 @@ impl<'a> AstTransformer<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
-                    output_context: Some(RawOutputContext {
+                    return_context: Some(RawReturnContext {
                         output_ty: RangedEntityRoute {
                             route: self.db.intern_entity_route(EntityRoute {
                                 variant: EntityRouteVariant::CrateOutputType { main: self.main },
@@ -84,7 +84,7 @@ impl<'a> AstTransformer<'a> {
                             }),
                             range: Default::default(),
                         },
-                        kind: RawOutputContextKind::Feature,
+                        kind: RawReturnContextKind::Feature,
                     }),
                 });
                 Ok(AstVariant::MainDefnHead)
