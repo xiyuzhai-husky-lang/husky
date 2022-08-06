@@ -35,6 +35,8 @@ lto = true
 [profile.release]
 opt-level = 3
 lto = true
+
+[workspace]
 "#
     )
 }
