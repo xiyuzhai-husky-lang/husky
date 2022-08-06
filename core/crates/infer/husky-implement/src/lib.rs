@@ -71,7 +71,7 @@ impl Implementable for EntityRoutePtr {
                     todo!()
                 }
             },
-            EntityRouteVariant::InputValue { main } => todo!(),
+            EntityRouteVariant::CrateInputValue { main } => todo!(),
             EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType => (
                 ctx.this_ty.variant.clone(),
@@ -94,7 +94,7 @@ impl Implementable for EntityRoutePtr {
                     todo!()
                 }
             },
-            EntityRouteVariant::OutputType { main } => todo!(),
+            EntityRouteVariant::CrateOutputType { main } => todo!(),
         };
         for spatial_argument in self.spatial_arguments.iter() {
             spatial_arguments.push(spatial_argument.implement(ctx))

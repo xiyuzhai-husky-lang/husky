@@ -27,7 +27,7 @@ impl<'a> AstTransformer<'a> {
             ));
         let generic_parameters = parser.generic_parameters()?;
         let parameters = parser.parameters()?;
-        let return_ty = parser.func_return_ty()?;
+        let output_ty = parser.func_output_ty()?;
         if let Some(route) = self
             .context
             .value()
@@ -51,9 +51,9 @@ impl<'a> AstTransformer<'a> {
         };
         self.context.set(AstContext::Stmt {
             paradigm,
-            return_context: Some(RawReturnContext {
-                return_ty,
-                kind: ReturnContextKind::Normal,
+            output_context: Some(RawOutputContext {
+                output_ty,
+                kind: RawOutputContextKind::Normal,
             }),
         });
         self.opt_this_liason.set(opt_this_liason);
@@ -87,7 +87,7 @@ impl<'a> AstTransformer<'a> {
             paradigm,
             spatial_parameters: generic_parameters,
             parameters,
-            return_ty,
+            output_ty,
             output_liason: OutputLiason::Transfer,
             opt_this_liason,
         })

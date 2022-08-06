@@ -15,18 +15,18 @@ impl<'a> AstTransformer<'a> {
             token_group[1],
             SemanticTokenKind::Entity(EntityKind::Feature)
         );
-        let return_ty = husky_atom::parse_route(self, &token_group[3..])?;
+        let output_ty = husky_atom::parse_route(self, &token_group[3..])?;
         self.context.set(AstContext::Stmt {
             paradigm,
-            return_context: Some(RawReturnContext {
-                return_ty,
-                kind: ReturnContextKind::Feature,
+            output_context: Some(RawOutputContext {
+                output_ty,
+                kind: RawOutputContextKind::Feature,
             }),
         });
         Ok(AstVariant::FeatureDefnHead {
             paradigm,
             ident,
-            return_ty,
+            output_ty,
         })
     }
 }

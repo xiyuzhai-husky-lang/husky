@@ -29,7 +29,7 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
 
     fn eval_feature_from_uid(&self, feature_uid: u64) -> __VMResult<__Register<'eval>>;
 
-    fn eval_input(&self) -> &__Register<'eval>;
+    fn crate_input(&self) -> &__Register<'eval>;
 }
 
 #[macro_export]

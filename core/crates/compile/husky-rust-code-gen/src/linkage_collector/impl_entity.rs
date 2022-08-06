@@ -32,7 +32,7 @@ impl<'a> LinkageCollector<'a> {
                 ref spatial_parameters,
                 this_liason,
                 ref parameters,
-                return_ty,
+                output_ty,
                 output_liason,
                 method_defn_kind,
                 ref opt_source,
@@ -40,7 +40,7 @@ impl<'a> LinkageCollector<'a> {
                 self.insert(defn.base_route);
                 self.insert(defn.base_route.parent());
                 self.collect_from_parameters(parameters);
-                self.insert(return_ty.route);
+                self.insert(output_ty.route);
                 if let Some(source) = opt_source {
                     self.collect_from_call_form_source(source)
                 }
@@ -160,10 +160,10 @@ impl<'a> LinkageCollector<'a> {
                 file,
                 range,
                 stmts,
-                return_ty,
+                output_ty,
             } => {
                 opt_feature_route.map(|feature_route| self.insert(feature_route));
-                self.insert(return_ty.route);
+                self.insert(output_ty.route);
                 self.collect_from_func_stmts(stmts)
             }
             DefinitionRepr::ProcBlock {

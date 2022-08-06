@@ -43,7 +43,7 @@ impl CallFormDecl {
                 paradigm,
                 ref spatial_parameters,
                 ref parameters,
-                return_ty,
+                output_ty,
                 output_liason,
                 opt_this_liason,
             } => Arc::new(CallFormDecl {
@@ -55,7 +55,7 @@ impl CallFormDecl {
                     .map(|parameter| parameter.into())
                     .collect(),
                 output: OutputDecl {
-                    ty: return_ty.route,
+                    ty: output_ty.route,
                     liason: output_liason,
                 },
                 keyword_parameters: Default::default(),
@@ -75,13 +75,13 @@ impl CallFormDecl {
             EntityStaticDefnVariant::Method {
                 this_liason,
                 parameters,
-                return_ty,
+                output_ty,
                 output_liason,
                 spatial_parameters,
                 method_static_defn_kind: method_kind,
                 ..
             } => {
-                let return_ty = symbol_context.parse_entity_route(return_ty).unwrap();
+                let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
                 Arc::new(Self {
                     opt_base_route: Some(base_route),
                     opt_this_liason: Some(this_liason),
@@ -89,7 +89,7 @@ impl CallFormDecl {
                         .map(|input| ParameterDecl::from_static(symbol_context, input)),
                     output: OutputDecl {
                         liason: output_liason,
-                        ty: return_ty,
+                        ty: output_ty,
                     },
                     spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                         SpatialParameter::from_static(
@@ -230,10 +230,10 @@ pub(crate) fn entity_call_form_decl(
                 }
             }
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
-            EntityRouteVariant::InputValue { main } => todo!(),
+            EntityRouteVariant::CrateInputValue { main } => todo!(),
             EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
-            EntityRouteVariant::OutputType { main } => todo!(),
+            EntityRouteVariant::CrateOutputType { main } => todo!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => match route.variant {
@@ -309,7 +309,7 @@ pub(crate) fn routine_decl_from_static(
         EntityStaticDefnVariant::Function {
             ref spatial_parameters,
             ref parameters,
-            return_ty,
+            output_ty,
             output_liason,
             ref linkage,
             ref variadic_template,
@@ -330,7 +330,7 @@ pub(crate) fn routine_decl_from_static(
                 liason: parameter.liason,
                 ident: db.custom_ident(parameter.name),
             });
-            let return_ty = symbol_context.parse_entity_route(return_ty).unwrap();
+            let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             msg_once!("todo: keyword parameters");
             Arc::new(CallFormDecl {
                 opt_base_route: Some(route),
@@ -338,7 +338,7 @@ pub(crate) fn routine_decl_from_static(
                 primary_parameters: parameters,
                 output: OutputDecl {
                     liason: output_liason,
-                    ty: return_ty,
+                    ty: output_ty,
                 },
                 keyword_parameters: Default::default(),
                 variadic_template: VariadicTemplate::from_static(
@@ -363,7 +363,7 @@ pub(crate) fn routine_decl_from_static(
 //         EntityStaticDefnVariant::Model {
 //             spatial_parameters: ref generic_parameters,
 //             ref parameters,
-//             return_ty,
+//             output_ty,
 //             output_liason,
 //             ..
 //         } => {
@@ -382,7 +382,7 @@ pub(crate) fn routine_decl_from_static(
 //                 liason: parameter.liason,
 //                 ident: db.custom_ident(parameter.name),
 //             });
-//             let return_ty = symbol_context.parse_entity_route(return_ty).unwrap();
+//             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
 //             msg_once!("todo: keyword parameters");
 //             Arc::new(FunctionDecl {
 //                 route,
@@ -390,7 +390,7 @@ pub(crate) fn routine_decl_from_static(
 //                 primary_parameters: parameters,
 //                 output: OutputDecl {
 //                     liason: output_liason,
-//                     ty: return_ty,
+//                     ty: output_ty,
 //                 },
 //                 keyword_parameters: Default::default(),
 //             })

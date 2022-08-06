@@ -604,7 +604,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
         EntityRouteVariant::Root { ident } => true,
         EntityRouteVariant::Package { main, ident } => todo!(),
         EntityRouteVariant::Child { parent, ident } => todo!(),
-        EntityRouteVariant::InputValue { main } => todo!(),
+        EntityRouteVariant::CrateInputValue { main } => todo!(),
         EntityRouteVariant::Any {
             ident, entity_kind, ..
         } => todo!(),
@@ -614,7 +614,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
             trai,
             ident,
         } => todo!(),
-        EntityRouteVariant::OutputType { main } => todo!(),
+        EntityRouteVariant::CrateOutputType { main } => todo!(),
     }
 }
 
@@ -627,7 +627,7 @@ pub(crate) fn call_form_decl_from_static(
         EntityStaticDefnVariant::Method {
             this_liason,
             parameters,
-            return_ty,
+            output_ty,
             output_liason,
             spatial_parameters: generic_parameters,
             // ref kind,
@@ -649,14 +649,14 @@ pub(crate) fn call_form_decl_from_static(
                 liason: parameter.liason,
                 ident: db.custom_ident(parameter.name),
             });
-            let return_ty = symbol_context.parse_entity_route(return_ty).unwrap();
+            let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
             Arc::new(CallFormDecl {
                 spatial_parameters: generic_parameters,
                 primary_parameters,
                 output: OutputDecl {
                     liason: output_liason,
-                    ty: return_ty,
+                    ty: output_ty,
                 },
                 opt_this_liason: Some(this_liason),
                 is_lazy: false,

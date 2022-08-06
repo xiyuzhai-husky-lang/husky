@@ -32,7 +32,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
             liason: ParameterLiason::Pure,
             ty: "f32",
         }],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -55,7 +55,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
             liason: ParameterLiason::Pure,
             ty: "f32",
         }],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -74,7 +74,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        return_ty: "i32",
+        output_ty: "i32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -92,7 +92,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -109,7 +109,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -126,7 +126,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -143,7 +143,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -160,7 +160,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -177,7 +177,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -194,7 +194,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -211,7 +211,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::Pure,
         parameters: &[],
-        return_ty: "f32",
+        output_ty: "f32",
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,

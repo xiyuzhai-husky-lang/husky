@@ -26,7 +26,7 @@ use vm::{EntityUid, VMConfig, __EvalContext, __Register};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,
-    pub eval_input: __Register<'eval>,
+    pub crate_input: __Register<'eval>,
     pub(crate) sheet: &'a EvalSheet<'eval>,
     pub(crate) db: &'a dyn FeatureGenQueryGroup,
     pub(crate) evaluator_config: &'a EvaluatorConfig,
@@ -115,8 +115,8 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn eval_input(&self) -> &__Register<'eval> {
-        &self.eval_input
+    fn crate_input(&self) -> &__Register<'eval> {
+        &self.crate_input
     }
 }
 

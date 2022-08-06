@@ -40,7 +40,7 @@ fn tuple_type() {
 }
 
 #[test]
-fn func_pointer_with_implicitly_void_return_type() {
+fn func_pointer_with_implicitly_void_output_type() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
     let atoms = utils::get_atoms_in_line(&mut db, "Fp(i32, i32)");
     should_eq!(atoms.len(), 1);
@@ -53,7 +53,7 @@ fn func_pointer_with_implicitly_void_return_type() {
 }
 
 #[test]
-fn func_pointer_with_nonvoid_return_type() {
+fn func_pointer_with_nonvoid_output_type() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
     let atoms = utils::get_atoms_in_line(&mut db, "Fp(i32, i32) -> i32");
     should_eq!(atoms.len(), 1);
@@ -67,14 +67,14 @@ fn func_trait() {
 }
 
 #[test]
-fn list_of_default_func_type_with_nonvoid_return_type() {
+fn list_of_default_func_type_with_nonvoid_output_type() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
     let atoms = utils::get_atoms_in_line(&mut db, "Vec<(i32, i32) -> i32>");
     should_eq!(atoms.len(), 1);
 }
 
 #[test]
-fn list_of_default_func_type_with_nonvoid_return_type2() {
+fn list_of_default_func_type_with_nonvoid_output_type2() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
     let atoms = utils::get_atoms_in_line(&mut db, "Vec<() -> i32>");
     should_eq!(atoms.len(), 1);

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{MatchLiason, RawReturnContext, ReturnContextKind};
+use husky_ast::{MatchLiason, RawOutputContext, RawOutputContextKind};
 use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_text::TextRange;
 use husky_word::RootIdentifier;
@@ -126,23 +126,23 @@ impl EagerContract {
 
     pub fn ret_contract(
         db: &dyn DeclQueryGroup,
-        return_ty: EntityRoutePtr,
+        output_ty: EntityRoutePtr,
         expr_ty: EntityRoutePtr,
-        return_context: RawReturnContext,
+        output_context: RawOutputContext,
     ) -> InferResult<Self> {
-        match return_context.kind {
-            ReturnContextKind::Normal => Ok(if return_ty.variant == expr_ty.variant {
-                if db.is_copyable(return_ty)? {
+        match output_context.kind {
+            RawOutputContextKind::Normal => Ok(if output_ty.variant == expr_ty.variant {
+                if db.is_copyable(output_ty)? {
                     EagerContract::Pure
                 } else {
                     EagerContract::Move
                 }
-            } else if return_ty.variant
+            } else if output_ty.variant
                 == (EntityRouteVariant::Root {
                     ident: RootIdentifier::Option,
                 })
             {
-                if return_ty.spatial_arguments[0].take_entity_route() == expr_ty {
+                if output_ty.spatial_arguments[0].take_entity_route() == expr_ty {
                     if db.is_copyable(expr_ty)? {
                         EagerContract::Pure
                     } else {
@@ -154,21 +154,21 @@ impl EagerContract {
             } else {
                 todo!()
             }),
-            ReturnContextKind::Feature | ReturnContextKind::LazyField => {
-                if return_ty.is_ref() {
+            RawOutputContextKind::Feature | RawOutputContextKind::LazyField => {
+                if output_ty.is_ref() {
                     todo!("warn: output ty should be dereferenced")
-                } else if return_ty == expr_ty {
+                } else if output_ty == expr_ty {
                     if db.is_copyable(expr_ty)? {
                         Ok(EagerContract::Pure)
                     } else {
                         Ok(EagerContract::Pass)
                     }
-                } else if return_ty.variant
+                } else if output_ty.variant
                     == (EntityRouteVariant::Root {
                         ident: RootIdentifier::Option,
                     })
                 {
-                    if return_ty.spatial_arguments[0].take_entity_route() == expr_ty {
+                    if output_ty.spatial_arguments[0].take_entity_route() == expr_ty {
                         Ok(if db.is_copyable(expr_ty)? {
                             EagerContract::Pure
                         } else {

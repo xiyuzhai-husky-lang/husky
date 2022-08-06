@@ -5,7 +5,7 @@ use entity_kind::TyKind;
 use fold::LocalValue;
 use husky_ast::{
     Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant,
-    RawReturnContext, RawStmtVariant, ReturnContextKind, StructItemContext,
+    RawOutputContext, RawOutputContextKind, RawStmtVariant, StructItemContext,
 };
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
@@ -128,9 +128,9 @@ impl<'a> Formatter<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
-                    return_context: Some(RawReturnContext {
-                        return_ty: todo!(),
-                        kind: ReturnContextKind::Feature,
+                    output_context: Some(RawOutputContext {
+                        output_ty: todo!(),
+                        kind: RawOutputContextKind::Feature,
                     }),
                 });
                 self.write("main:")
@@ -139,15 +139,15 @@ impl<'a> Formatter<'a> {
                 paradigm,
                 ident,
                 ref parameters,
-                return_ty,
+                output_ty,
                 ..
             } => {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm,
-                    return_context: Some(RawReturnContext {
-                        return_ty: todo!(),
-                        kind: ReturnContextKind::Normal,
+                    output_context: Some(RawOutputContext {
+                        output_ty: todo!(),
+                        kind: RawOutputContextKind::Normal,
                     }),
                 });
                 self.write(match paradigm {
@@ -168,9 +168,9 @@ impl<'a> Formatter<'a> {
                     self.fmt_func_input_liasoned_type(input_placeholder);
                 }
                 self.write(")");
-                if return_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if output_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
                     self.write(" -> ");
-                    self.fmt_ty(return_ty.route);
+                    self.fmt_ty(output_ty.route);
                 }
                 self.write(":");
             }
@@ -260,15 +260,15 @@ impl<'a> Formatter<'a> {
                 match self.context.value() {
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerFunctional,
-                        return_context,
+                        output_context,
                     }
                     | AstContext::Stmt {
                         paradigm: Paradigm::LazyFunctional,
-                        return_context,
+                        output_context,
                     }
                     | AstContext::Stmt {
                         paradigm: Paradigm::LazyFunctional,
-                        return_context,
+                        output_context,
                     } => (),
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerProcedural,

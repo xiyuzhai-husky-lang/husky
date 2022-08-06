@@ -9,7 +9,7 @@ use vm::{__Linkage, __LinkageFp};
 #[derive(Debug, PartialEq, Eq)]
 pub struct TypeCallDefn {
     pub parameters: Arc<Vec<Parameter>>,
-    pub return_ty: RangedEntityRoute,
+    pub output_ty: RangedEntityRoute,
     pub opt_linkage: Option<__Linkage>,
 }
 
@@ -21,15 +21,15 @@ impl TypeCallDefn {
         Arc::new(match static_defn.variant {
             EntityStaticDefnVariant::Function {
                 ref parameters,
-                return_ty,
+                output_ty,
                 linkage,
                 ..
             } => TypeCallDefn {
                 parameters: Arc::new(
                     parameters.map(|parameter| context.parameter_from_static(parameter)),
                 ),
-                return_ty: RangedEntityRoute {
-                    route: context.parse_entity_route(return_ty).unwrap(),
+                output_ty: RangedEntityRoute {
+                    route: context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
                 opt_linkage: Some(linkage),

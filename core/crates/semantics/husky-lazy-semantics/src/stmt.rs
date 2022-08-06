@@ -25,7 +25,7 @@ pub struct LazyStmt {
     pub indent: fold::Indent,
     pub variant: LazyStmtVariant,
     pub instruction_id: InstructionId,
-    pub return_ty: RangedEntityRoute, // return type of the surrounding block
+    pub output_ty: RangedEntityRoute, // return type of the surrounding block
 }
 
 impl InstructionSource for LazyStmt {

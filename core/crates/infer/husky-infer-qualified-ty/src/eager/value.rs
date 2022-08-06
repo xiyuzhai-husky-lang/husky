@@ -283,9 +283,9 @@ impl EagerValueQualifiedTy {
         self,
         db: &dyn InferQualifiedTyQueryGroup,
         output_liason: OutputLiason,
-        return_ty: EntityRoutePtr,
+        output_ty: EntityRoutePtr,
     ) -> bool {
-        if !db.is_implicitly_castable(self.ty, return_ty) {
+        if !db.is_implicitly_castable(self.ty, output_ty) {
             return false;
         }
         match output_liason {

@@ -39,7 +39,7 @@ impl<'a> AstTransformer<'a> {
                         enter_block(self);
                         self.context.set(AstContext::Stmt {
                             paradigm,
-                            return_context: None,
+                            output_context: None,
                         });
                         return err!(format!("expect `->` or `(`"), token_group[2].range);
                     }
@@ -58,12 +58,12 @@ impl<'a> AstTransformer<'a> {
                     ConfigKeyword::Task => {
                         self.context.set(AstContext::Stmt {
                             paradigm: Paradigm::EagerFunctional,
-                            return_context: Some(RawReturnContext {
-                                return_ty: RangedEntityRoute {
+                            output_context: Some(RawOutputContext {
+                                output_ty: RangedEntityRoute {
                                     route: RootIdentifier::DatasetType.into(),
                                     range: Default::default(),
                                 },
-                                kind: ReturnContextKind::Normal,
+                                kind: RawOutputContextKind::Normal,
                             }),
                         });
                         self.use_all(RootIdentifier::Domains.into(), token_group[0].text_range())?;
@@ -75,16 +75,16 @@ impl<'a> AstTransformer<'a> {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
-                    return_context: Some(RawReturnContext {
-                        return_ty: RangedEntityRoute {
+                    output_context: Some(RawOutputContext {
+                        output_ty: RangedEntityRoute {
                             route: self.db.intern_entity_route(EntityRoute {
-                                variant: EntityRouteVariant::OutputType { main: self.main },
+                                variant: EntityRouteVariant::CrateOutputType { main: self.main },
                                 temporal_arguments: Default::default(),
                                 spatial_arguments: Default::default(),
                             }),
                             range: Default::default(),
                         },
-                        kind: ReturnContextKind::Feature,
+                        kind: RawOutputContextKind::Feature,
                     }),
                 });
                 Ok(AstVariant::MainDefnHead)

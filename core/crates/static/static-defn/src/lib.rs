@@ -45,7 +45,7 @@ pub enum EntityStaticDefnVariant {
         spatial_parameters: &'static [StaticSpatialParameter],
         parameters: &'static [StaticParameter],
         variadic_template: StaticVariadicTemplate,
-        return_ty: &'static str,
+        output_ty: &'static str,
         output_liason: OutputLiason,
         linkage: __Linkage,
     },
@@ -74,7 +74,7 @@ pub enum EntityStaticDefnVariant {
     Method {
         this_liason: ParameterLiason,
         parameters: &'static [StaticParameter],
-        return_ty: &'static str,
+        output_ty: &'static str,
         output_liason: OutputLiason,
         spatial_parameters: &'static [StaticSpatialParameter],
         method_static_defn_kind: MethodStaticDefnKind,

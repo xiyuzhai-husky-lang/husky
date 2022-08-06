@@ -33,7 +33,7 @@ impl<'a> DependeeMapBuilder<'a> {
                     }
                 }
             }
-            EntityRouteVariant::InputValue { main } => return,
+            EntityRouteVariant::CrateInputValue { main } => return,
             EntityRouteVariant::Package { main, ident } => todo!(),
             EntityRouteVariant::Child { parent, ident } => {
                 msg_once!("dependences on entity from external packs should be merged");
@@ -48,7 +48,7 @@ impl<'a> DependeeMapBuilder<'a> {
                 trai,
                 ident,
             } => todo!(),
-            EntityRouteVariant::OutputType { main } => todo!(),
+            EntityRouteVariant::CrateOutputType { main } => todo!(),
         }
         if !self.map.has(entity_route) {
             self.map
@@ -172,12 +172,12 @@ impl EntityDefn {
             }
             EntityDefnVariant::Method {
                 parameters: ref parameters,
-                return_ty,
+                output_ty,
                 // ref method_variant,
                 ref opt_source,
                 ..
             } => {
-                extract_call_head_dependees(parameters, return_ty, &mut builder);
+                extract_call_head_dependees(parameters, output_ty, &mut builder);
                 // let opt_source = match method_variant {
                 //     MethodDefnKind::TypeMethod { ty, method_source } => {
                 //         builder.push(*ty);

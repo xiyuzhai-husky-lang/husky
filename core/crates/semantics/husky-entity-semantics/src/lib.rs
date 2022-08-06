@@ -36,7 +36,7 @@ use husky_file::FilePtr;
 use husky_lazy_semantics::parse_lazy_stmts;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use husky_liason_semantics::*;
-use husky_print_utils::{msg_once, p};
+use husky_print_utils::{epin, msg_once, p};
 use husky_static_visualizer::StaticVisualTy;
 use husky_text::*;
 use husky_word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
@@ -214,7 +214,7 @@ pub enum EntityDefnVariant {
         spatial_parameters: IdentDict<SpatialParameter>,
         this_liason: ParameterLiason,
         parameters: Arc<Vec<Parameter>>,
-        return_ty: RangedEntityRoute,
+        output_ty: RangedEntityRoute,
         output_liason: OutputLiason,
         method_defn_kind: MethodDefnKind,
         opt_source: Option<CallFormSource>,
@@ -305,7 +305,7 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::Function {
                 spatial_parameters,
                 parameters,
-                return_ty,
+                output_ty,
                 output_liason,
                 linkage,
                 ref variadic_template,
@@ -320,7 +320,7 @@ impl EntityDefnVariant {
                     parameters.map(|parameter| symbol_context.parameter_from_static(parameter)),
                 ),
                 output: RangedEntityRoute {
-                    route: symbol_context.parse_entity_route(return_ty).unwrap(),
+                    route: symbol_context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
                 source: CallFormSource::Static(linkage),
@@ -387,7 +387,7 @@ impl EntityDefnVariant {
             EntityStaticDefnVariant::Method {
                 this_liason: this_contract,
                 parameters,
-                return_ty,
+                output_ty,
                 output_liason,
                 spatial_parameters: generic_parameters,
                 method_static_defn_kind: method_kind,
@@ -403,8 +403,8 @@ impl EntityDefnVariant {
                 parameters: Arc::new(parameters.map(|input_placeholder| {
                     symbol_context.parameter_from_static(input_placeholder)
                 })),
-                return_ty: RangedEntityRoute {
-                    route: symbol_context.parse_entity_route(return_ty).unwrap(),
+                output_ty: RangedEntityRoute {
+                    route: symbol_context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
                 output_liason,
@@ -430,7 +430,7 @@ pub(crate) fn main_defn(
         match item.value.as_ref().unwrap().variant {
             AstVariant::MainDefnHead => {
                 let ty = RangedEntityRoute {
-                    route: this.eval_output_ty(main_file).unwrap(),
+                    route: this.crate_output_ty(main_file).unwrap(),
                     range: Default::default(),
                 };
                 return Ok(Arc::new(MainDefn {
@@ -495,7 +495,7 @@ pub(crate) fn entity_defn(
                 AstVariant::TypeDefnHead {
                     ident,
                     kind,
-                    spatial_parameters: ref generics,
+                    ref spatial_parameters,
                 } => {
                     let signature = derived_unwrap!(db.ty_decl(entity_route));
                     (
@@ -538,7 +538,7 @@ pub(crate) fn entity_defn(
                 AstVariant::FeatureDefnHead {
                     paradigm,
                     ident,
-                    return_ty: ty,
+                    output_ty: ty,
                 } => (
                     ident,
                     EntityDefnVariant::feature(
