@@ -123,34 +123,34 @@ impl<'a> AstTransformer<'a> {
             HuskyTokenKind::Keyword(Keyword::Paradigm(paradigm)) => paradigm,
             _ => todo!(),
         };
-        self.context.set(AstContext::Stmt {
-            paradigm,
-            return_context: Some(ReturnContext {
-                return_ty: todo!(),
-                kind: ReturnContextKind::LazyField,
-            }),
-        });
         self.opt_this_liason.set(Some(ParameterLiason::EvalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);
         match token_group[2].kind {
             HuskyTokenKind::Special(SpecialToken::LightArrow) => (),
             _ => todo!(),
         }
-        let ty_result = husky_atom::parse_route(self, &token_group[3..]);
+        let field_ty_result = husky_atom::parse_route(self, &token_group[3..]);
         self.symbols.push(Symbol {
             init_ident: ident,
             kind: SymbolKind::ThisField {
                 opt_this_ty: self.opt_this_ty(),
-                opt_field_ty: ty_result.clone().ok(),
+                opt_field_ty: field_ty_result.clone().ok(),
                 field_liason: MemberLiason::Derived,
             },
         });
-        let ty = ty_result?;
+        let field_ty = field_ty_result?;
         context_update_result?;
+        self.context.set(AstContext::Stmt {
+            paradigm,
+            return_context: Some(ReturnContext {
+                return_ty: field_ty,
+                kind: ReturnContextKind::LazyField,
+            }),
+        });
         Ok(AstVariant::FieldDefnHead {
             liason: MemberLiason::Derived,
             ranged_ident: ident,
-            field_ty: ty,
+            field_ty,
             field_ast_kind: FieldAstKind::StructDerivedLazy { paradigm },
         })
     }
