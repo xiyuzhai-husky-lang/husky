@@ -196,12 +196,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             }
             EntityRouteVariant::Root { ident } => todo!(),
             EntityRouteVariant::Package { main, ident } => todo!(),
-            EntityRouteVariant::CrateInputValue { main } => todo!(),
+            EntityRouteVariant::CrateInputValue => todo!(),
             EntityRouteVariant::Any {
                 ident, entity_kind, ..
             } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
-            EntityRouteVariant::CrateOutputType { main } => todo!(),
+            EntityRouteVariant::TargetOutputType => todo!(),
         }
         self.write(
             r#"
@@ -575,6 +575,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     TyKind::HigherKind => todo!(),
                     TyKind::Ref => todo!(),
                     TyKind::Option => todo!(),
+                    TyKind::TargetOutputAny => todo!(),
                 }
             }
             EntityRoutePtr::ThisType => todo!(),

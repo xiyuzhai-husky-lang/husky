@@ -256,7 +256,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     };
                     (kind, feature)
                 }
-                EntityRouteVariant::CrateInputValue { main } => {
+                EntityRouteVariant::CrateInputValue => {
                     let feature = self.features.intern(Feature::Input);
                     let kind = FeatureExprVariant::EvalInput;
                     (kind, feature)
@@ -264,7 +264,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 EntityRouteVariant::Any { ident, .. } => todo!(),
                 EntityRouteVariant::ThisType => todo!(),
                 EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
-                EntityRouteVariant::CrateOutputType { main } => todo!(),
+                EntityRouteVariant::TargetOutputType => todo!(),
             },
         };
         Arc::new(FeatureExpr {

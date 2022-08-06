@@ -8,9 +8,3 @@ pub struct HuskyCompileTimeConfig {
         fn(ident: husky_word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
     pub linkage_table: LinkageTableConfig,
 }
-
-impl HuskyCompileTimeConfig {
-    pub fn target_entrance(&self) -> PathBuf {
-        todo!()
-    }
-}

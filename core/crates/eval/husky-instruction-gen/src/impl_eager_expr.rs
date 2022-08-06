@@ -149,9 +149,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerExprVariant::EntityFp { route } => self.push_instruction(Instruction::new(
                 InstructionVariant::PushEntityFp {
                     opt_linkage: self.db.comptime().routine_linkage(route),
-                    opt_instruction_sheet: self
-                        .db
-                        .entity_instruction_sheet(self.target_entrance, route),
+                    opt_instruction_sheet: self.db.entity_instruction_sheet(route),
                     ty: expr.ty(),
                 },
                 expr.clone(),
@@ -352,6 +350,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 TyKind::HigherKind => todo!(),
                                 TyKind::Ref => todo!(),
                                 TyKind::Option => todo!(),
+                                TyKind::TargetOutputAny => todo!(),
                             }
                         }
                     }
@@ -481,6 +480,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             TyKind::HigherKind => todo!(),
                             TyKind::Ref => todo!(),
                             TyKind::Option => todo!(),
+                            TyKind::TargetOutputAny => todo!(),
                         }
                     }
                     EntityRoutePtr::ThisType => todo!(),
@@ -669,7 +669,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             let call_form_decl = self
                 .db
                 .comptime()
-                .entity_call_form_decl(Some(self.target_entrance), method_route)
+                .entity_call_form_decl(method_route)
                 .unwrap();
             InstructionVariant::CallInterpreted {
                 routine_uid: method_uid,

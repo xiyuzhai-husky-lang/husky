@@ -46,7 +46,7 @@ impl HuskyTraceTime {
                 let routine_defn = self.runtime().comptime().entity_defn(route.route).unwrap();
                 let instruction_sheet = self
                     .runtime()
-                    .entity_instruction_sheet(self.comptime().target_entrance(), route.route)
+                    .entity_instruction_sheet(route.route)
                     .unwrap();
                 self.routine_call_subtraces(
                     parent,
@@ -90,7 +90,7 @@ impl HuskyTraceTime {
                     .unwrap();
                 let instruction_sheet = self
                     .runtime()
-                    .entity_instruction_sheet(self.comptime().target_entrance(), *method_route)
+                    .entity_instruction_sheet(*method_route)
                     .unwrap();
                 self.routine_call_subtraces(
                     parent,

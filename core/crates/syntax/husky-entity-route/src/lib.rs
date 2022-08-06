@@ -110,12 +110,8 @@ pub enum EntityRouteVariant {
         trai: EntityRoutePtr,
         ident: CustomIdentifier,
     },
-    CrateInputValue {
-        main: FilePtr,
-    },
-    CrateOutputType {
-        main: FilePtr,
-    },
+    CrateInputValue,
+    TargetOutputType,
     Any {
         ident: CustomIdentifier,
         entity_kind: EntityKind,
@@ -142,7 +138,7 @@ impl EntityRoute {
             EntityRouteVariant::CrateInputValue { .. } => {
                 ContextualIdentifier::CrateInputValue.into()
             }
-            EntityRouteVariant::CrateOutputType { .. } => {
+            EntityRouteVariant::TargetOutputType { .. } => {
                 ContextualIdentifier::CrateOutputType.into()
             }
             EntityRouteVariant::Any { ident, .. } => ident.into(),
@@ -216,7 +212,7 @@ impl EntityRoute {
             EntityRouteVariant::Package { .. } => false,
             EntityRouteVariant::Child { parent, .. } => parent.is_builtin(),
             EntityRouteVariant::CrateInputValue { .. }
-            | EntityRouteVariant::CrateOutputType { .. } => {
+            | EntityRouteVariant::TargetOutputType { .. } => {
                 todo!()
             }
             EntityRouteVariant::Any { .. } => todo!(),
@@ -236,7 +232,7 @@ impl EntityRoute {
             | EntityRouteVariant::Package { .. }
             | EntityRouteVariant::Any { .. }
             | EntityRouteVariant::ThisType => None,
-            EntityRouteVariant::CrateOutputType { .. } => todo!(),
+            EntityRouteVariant::TargetOutputType { .. } => todo!(),
             EntityRouteVariant::Child { parent, .. } => Some(parent),
             EntityRouteVariant::TypeAsTraitMember { ty: parent, .. } => Some(parent),
         }

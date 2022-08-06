@@ -33,7 +33,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write("::");
                     self.write(&ident)
                 }
-                EntityRouteVariant::CrateInputValue { main } => self.write("__input"),
+                EntityRouteVariant::CrateInputValue => self.write("__input"),
                 EntityRouteVariant::Any { ident, .. } => {
                     p!(entity_route);
                     todo!()
@@ -44,7 +44,7 @@ impl<'a> RustCodeGenerator<'a> {
                     trai,
                     ident,
                 } => todo!(),
-                EntityRouteVariant::CrateOutputType { main } => todo!(),
+                EntityRouteVariant::TargetOutputType => todo!(),
             }
         }
         let needs_eval_ref = match role {
