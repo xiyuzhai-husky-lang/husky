@@ -89,11 +89,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             EntityKind::EnumLiteral => match entity_route {
                 EntityRoutePtr::Root(RootIdentifier::True)
                 | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
-                EntityRoutePtr::Custom(scope) => match scope.variant {
+                EntityRoutePtr::Custom(route) => match route.variant {
                     EntityRouteVariant::Root { ident } => todo!(),
                     EntityRouteVariant::Package { main, ident } => todo!(),
                     EntityRouteVariant::Child { parent, ident } => parent,
-                    EntityRouteVariant::Input { main } => todo!(),
+                    EntityRouteVariant::InputValue { main } => todo!(),
                     EntityRouteVariant::Any { ident, .. } => todo!(),
                     EntityRouteVariant::ThisType => todo!(),
                     EntityRouteVariant::TypeAsTraitMember {
@@ -101,6 +101,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         trai,
                         ident,
                     } => todo!(),
+                    EntityRouteVariant::OutputType { main } => todo!(),
                 },
                 _ => todo!(),
             },

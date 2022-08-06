@@ -33,7 +33,7 @@ impl<'a> DependeeMapBuilder<'a> {
                     }
                 }
             }
-            EntityRouteVariant::Input { main } => return,
+            EntityRouteVariant::InputValue { main } => return,
             EntityRouteVariant::Package { main, ident } => todo!(),
             EntityRouteVariant::Child { parent, ident } => {
                 msg_once!("dependences on entity from external packs should be merged");
@@ -48,6 +48,7 @@ impl<'a> DependeeMapBuilder<'a> {
                 trai,
                 ident,
             } => todo!(),
+            EntityRouteVariant::OutputType { main } => todo!(),
         }
         if !self.map.has(entity_route) {
             self.map

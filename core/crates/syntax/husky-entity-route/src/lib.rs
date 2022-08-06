@@ -110,7 +110,10 @@ pub enum EntityRouteVariant {
         trai: EntityRoutePtr,
         ident: CustomIdentifier,
     },
-    Input {
+    InputValue {
+        main: FilePtr,
+    },
+    OutputType {
         main: FilePtr,
     },
     Any {
@@ -136,7 +139,8 @@ impl EntityRoute {
             EntityRouteVariant::Root { ident } => ident.into(),
             EntityRouteVariant::Package { ident, .. } => ident.into(),
             EntityRouteVariant::Child { ident, .. } => ident.into(),
-            EntityRouteVariant::Input { .. } => ContextualIdentifier::Input.into(),
+            EntityRouteVariant::InputValue { .. } => ContextualIdentifier::InputValue.into(),
+            EntityRouteVariant::OutputType { .. } => ContextualIdentifier::OutputType.into(),
             EntityRouteVariant::Any { ident, .. } => ident.into(),
             EntityRouteVariant::ThisType => todo!(),
             EntityRouteVariant::TypeAsTraitMember { ident, .. } => ident.into(),
@@ -207,7 +211,9 @@ impl EntityRoute {
             EntityRouteVariant::Root { .. } => true,
             EntityRouteVariant::Package { .. } => false,
             EntityRouteVariant::Child { parent, .. } => parent.is_builtin(),
-            EntityRouteVariant::Input { .. } => false,
+            EntityRouteVariant::InputValue { .. } | EntityRouteVariant::OutputType { .. } => {
+                todo!()
+            }
             EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
             EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
@@ -221,10 +227,11 @@ impl EntityRoute {
     pub fn opt_parent(&self) -> Option<EntityRoutePtr> {
         match self.variant {
             EntityRouteVariant::Root { .. }
-            | EntityRouteVariant::Input { .. }
+            | EntityRouteVariant::InputValue { .. }
             | EntityRouteVariant::Package { .. }
             | EntityRouteVariant::Any { .. }
             | EntityRouteVariant::ThisType => None,
+            EntityRouteVariant::OutputType { .. } => todo!(),
             EntityRouteVariant::Child { parent, .. } => Some(parent),
             EntityRouteVariant::TypeAsTraitMember { ty: parent, .. } => Some(parent),
         }

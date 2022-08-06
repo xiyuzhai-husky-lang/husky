@@ -109,9 +109,20 @@ pub trait AtomContext {
         match ident {
             Identifier::Builtin(ident) => Ok(SymbolKind::EntityRoute(ident.into())),
             Identifier::Contextual(ident) => match ident {
-                ContextualIdentifier::Input => Ok(SymbolKind::EntityRoute(
+                ContextualIdentifier::InputValue => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
-                        variant: EntityRouteVariant::Input {
+                        variant: EntityRouteVariant::InputValue {
+                            main: self
+                                .opt_package_main()
+                                .ok_or(error!("can't use implicit without main", range))?,
+                        },
+                        temporal_arguments: thin_vec![],
+                        spatial_arguments: thin_vec![],
+                    }),
+                )),
+                ContextualIdentifier::OutputType => Ok(SymbolKind::EntityRoute(
+                    self.entity_syntax_db().intern_entity_route(EntityRoute {
+                        variant: EntityRouteVariant::OutputType {
                             main: self
                                 .opt_package_main()
                                 .ok_or(error!("can't use implicit without main", range))?,

@@ -604,7 +604,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
         EntityRouteVariant::Root { ident } => true,
         EntityRouteVariant::Package { main, ident } => todo!(),
         EntityRouteVariant::Child { parent, ident } => todo!(),
-        EntityRouteVariant::Input { main } => todo!(),
+        EntityRouteVariant::InputValue { main } => todo!(),
         EntityRouteVariant::Any {
             ident, entity_kind, ..
         } => todo!(),
@@ -614,6 +614,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
             trai,
             ident,
         } => todo!(),
+        EntityRouteVariant::OutputType { main } => todo!(),
     }
 }
 
