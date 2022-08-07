@@ -49,7 +49,7 @@ pub struct HuskyRuntime {
 #[derive(Debug)]
 pub struct HuskyRuntimeConfig {
     pub evaluator: EvaluatorConfig,
-    pub comptime: HuskyCompileTimeConfig,
+    pub comptime: HuskyComptimeConfig,
 }
 
 impl HuskyRuntime {

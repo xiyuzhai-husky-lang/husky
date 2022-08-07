@@ -68,11 +68,11 @@ pub struct HuskyComptime {
     live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
-    config: HuskyCompileTimeConfig,
+    config: HuskyComptimeConfig,
 }
 
 impl HuskyComptime {
-    pub fn new(config: HuskyCompileTimeConfig) -> Self {
+    pub fn new(config: HuskyComptimeConfig) -> Self {
         let live_docs = Default::default();
         let entity_route_interner = husky_entity_route::new_entity_route_interner();
         let entity_route_store = Default::default();
@@ -99,7 +99,7 @@ impl HuskyComptime {
             ident: husky_word::RootIdentifier,
         ) -> &'static static_defn::EntityStaticDefn,
     ) -> Self {
-        Self::new(HuskyCompileTimeConfig {
+        Self::new(HuskyComptimeConfig {
             package_dir: Default::default(),
             __resolve_root_defn: __root_defn,
             linkage_table: Default::default(),
