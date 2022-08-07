@@ -43,3 +43,4 @@ main:
     assert a.get_x_squared() == 1
     assert g1() == 2
     assert f2().x == 1
+    1

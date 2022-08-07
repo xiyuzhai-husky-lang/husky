@@ -10,3 +10,4 @@ task:
 
 main:
     assert for_loop4() == 10
+    1
