@@ -47,7 +47,11 @@ enum HuskyDebuggerCommands {
 async fn main() {
     let cli = HuskyDebuggerCli::parse();
     match cli.command {
-        HuskyDebuggerCommands::Launch { package_dir } => debugger_launch(package_dir, cli.verbose),
-        HuskyDebuggerCommands::Test { packages_dir } => debugger_test(packages_dir, cli.verbose),
+        HuskyDebuggerCommands::Launch { package_dir } => {
+            debugger_launch(package_dir, cli.verbose).await
+        }
+        HuskyDebuggerCommands::Test { packages_dir } => {
+            debugger_test(packages_dir, cli.verbose).await
+        }
     }
 }

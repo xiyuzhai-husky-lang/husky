@@ -24,6 +24,7 @@ use instance::*;
 use internal::HuskyDebuggerInternal;
 use json_result::JsonResult;
 use notif::handle_notif;
+use path_utils::collect_all_package_dirs;
 use std::{
     collections::HashMap,
     convert::Infallible,
@@ -56,10 +57,62 @@ pub type GetLinkagesFromCDylib =
 // let package_dir: PathBuf = flags.package_dir.unwrap().into();
 // mode.apply(&package_dir, linkages_from_cdylib).await
 
-pub fn debugger_launch(package_dir: PathBuf, verbose: bool) {
+pub async fn debugger_launch(package_dir: PathBuf, verbose: bool) {
     todo!()
 }
 
-pub fn debugger_test(packages_dir: PathBuf, verbose: bool) {
-    todo!()
+pub async fn debugger_test(packages_dir: PathBuf, verbose: bool) {
+    assert!(packages_dir.is_dir());
+    let package_dirs = collect_all_package_dirs(&packages_dir);
+    println!(
+        "\n{}Running{} tests on {} example packages:",
+        husky_print_utils::CYAN,
+        husky_print_utils::RESET,
+        package_dirs.len()
+    );
+
+    for package_dir in package_dirs {
+        println!(
+            "\n{}test{} {}",
+            husky_print_utils::CYAN,
+            husky_print_utils::RESET,
+            package_dir.as_os_str().to_str().unwrap(),
+        );
+        let husky_debugger = HuskyDebuggerInstance::new(
+            HuskyDebuggerConfig {
+                package_dir,
+                opt_sample_id: Some(SampleId(23)),
+                verbose: false,
+                compiled: false,
+            },
+            &[],
+        );
+        match husky_debugger
+            .serve_on_error("localhost:51617", SampleId(0))
+            .await
+        {
+            TestResult::Success => finalize_success(),
+            TestResult::Failure => finalize_failure(),
+        }
+    }
+
+    fn finalize_success() {
+        println!(
+            "    {}result{}: {}success{}",
+            husky_print_utils::CYAN,
+            husky_print_utils::RESET,
+            husky_print_utils::GREEN,
+            husky_print_utils::RESET,
+        )
+    }
+
+    fn finalize_failure() {
+        println!(
+            "    {}result{}: {}failure{}",
+            husky_print_utils::CYAN,
+            husky_print_utils::RESET,
+            husky_print_utils::RED,
+            husky_print_utils::RESET,
+        )
+    }
 }
