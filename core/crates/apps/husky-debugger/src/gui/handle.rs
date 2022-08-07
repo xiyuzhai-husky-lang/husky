@@ -7,8 +7,8 @@ use std::{hash::Hash, path::PathBuf};
 use wild_utils::ref_to_mut_ref;
 use xxhash_rust::xxh3::xxh3_64;
 
-pub fn handle_message(
-    debugger: Arc<HuskyDebugger>,
+pub(crate) fn handle_message(
+    debugger: Arc<HuskyDebuggerInstance>,
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
     gui_messages: &[HuskyTracerGuiMessage],
     config: &HuskyDebuggerConfig,
@@ -51,7 +51,7 @@ fn save_server_history(
     println!("{}", "server history saved".red())
 }
 
-impl HuskyDebugger {
+impl HuskyDebuggerInstance {
     fn handle_gui_message(self: Arc<Self>, gui_message: &HuskyTracerGuiMessage) -> Option<String> {
         let internal: &mut HuskyDebuggerInternal = &mut self.internal.lock().unwrap();
         let opt_response_variant = internal.handle_gui_message(gui_message);

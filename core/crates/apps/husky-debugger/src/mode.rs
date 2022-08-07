@@ -61,7 +61,7 @@ async fn test_all_packages_in_dir(dir: &Path) {
             husky_print_utils::RESET,
             package_dir.as_os_str().to_str().unwrap(),
         );
-        let husky_debugger = HuskyDebugger::new(
+        let husky_debugger = HuskyDebuggerInstance::new(
             HuskyDebuggerConfig {
                 package_dir,
                 opt_sample_id: Some(SampleId(23)),
