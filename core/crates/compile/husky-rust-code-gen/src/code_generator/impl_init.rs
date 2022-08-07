@@ -291,19 +291,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             VariadicTemplate::None => (),
             VariadicTemplate::SingleTyped { variadic_ty } => {
                 let variadic_start = decl.variadic_start();
-                let move_or_copy = match self.db.is_copyable(variadic_ty).unwrap() {
-                    true => "copy",
-                    false => "move",
-                };
-                let variadic_ty_vtable = self.db.mangled_ty_vtable(variadic_ty);
-                self.write(&format!(
-                    r#"
-                    let __variadics = 
-                        __arguments[{variadic_start}..]
-                            .iter_mut()
-                            .map(|v|v.downcast_{move_or_copy}(&__registration__::{variadic_ty_vtable}))
-                            .collect();"#,
-                ));
+                if variadic_ty.is_primitive() {
+                    self.write(&format!(
+                        r#"
+                        let __variadics = 
+                            __arguments[{variadic_start}..]
+                                .iter_mut()
+                                .map(|v|v.downcast_{variadic_ty}())
+                                .collect();"#,
+                    ));
+                } else {
+                    let move_or_copy = match self.db.is_copyable(variadic_ty).unwrap() {
+                        true => todo!(),
+                        false => "move",
+                    };
+                    let variadic_ty_vtable = self.db.mangled_ty_vtable(variadic_ty);
+                    self.write(&format!(
+                        r#"
+                        let __variadics = 
+                            __arguments[{variadic_start}..]
+                                .iter_mut()
+                                .map(|v|v.downcast_{move_or_copy}(&__registration__::{variadic_ty_vtable}))
+                                .collect();"#,
+                    ));
+                }
             }
         }
         self.write(&format!(
