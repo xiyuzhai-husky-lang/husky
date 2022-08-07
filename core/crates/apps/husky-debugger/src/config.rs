@@ -16,21 +16,21 @@ pub struct HuskyDebuggerConfig {
 }
 
 impl HuskyDebuggerConfig {
-    pub(crate) fn from_env() -> Self {
-        let flags = match flags::HuskyDebuggerFlags::from_env() {
-            Ok(flags) => flags,
-            Err(_) => panic!(),
-        };
-        let package_dir = flags.package_dir.unwrap();
-        Self {
-            package_dir,
-            opt_sample_id: flags
-                .sample_id
-                .map(|text| SampleId(text.parse::<usize>().unwrap())),
-            verbose: flags.verbose,
-            compiled: flags.compiled,
-        }
-    }
+    // pub(crate) fn from_env() -> Self {
+    // let flags = match flags::HuskyDebuggerFlags::from_env() {
+    //     Ok(flags) => flags,
+    //     Err(_) => panic!(),
+    // };
+    // let package_dir = flags.package_dir.unwrap();
+    // Self {
+    //     package_dir,
+    //     opt_sample_id: flags
+    //         .sample_id
+    //         .map(|text| SampleId(text.parse::<usize>().unwrap())),
+    //     verbose: flags.verbose,
+    //     compiled: flags.compiled,
+    // }
+    // }
 
     pub fn eval_time(&self) -> HuskyRuntimeConfig {
         HuskyRuntimeConfig {

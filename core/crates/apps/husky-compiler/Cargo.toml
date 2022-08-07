@@ -9,7 +9,6 @@ path = "src/bin/main.rs"
 
 [dependencies]
 clap = { version = "3.2.16", features = ["derive"] }
-xflags = "0.2.4"
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
 path-utils = { path = "../../../../common-rs/utils/husky-path-utils" }

@@ -37,10 +37,11 @@ impl From<Option<String>> for Mode {
 }
 
 async fn run(package_dir: &Path, linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)]) {
-    HuskyDebugger::new_from_flags(linkages_from_cdylib)
-        .serve("localhost:51617")
-        .await
-        .expect("")
+    todo!()
+    // HuskyDebugger::new_from_flags(linkages_from_cdylib)
+    //     .serve("localhost:51617")
+    //     .await
+    //     .expect("")
 }
 
 async fn test_all_packages_in_dir(dir: &Path) {

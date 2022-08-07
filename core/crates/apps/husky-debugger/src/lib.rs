@@ -1,6 +1,5 @@
 mod config;
 mod error;
-mod flags;
 mod gui;
 mod internal;
 mod mode;
@@ -8,7 +7,6 @@ mod notif;
 
 pub use config::HuskyDebuggerConfig;
 pub use error::{DebuggerError, DebuggerResult};
-pub use flags::HuskyDebuggerFlags;
 pub use mode::Mode;
 
 use avec::Avec;
@@ -45,12 +43,12 @@ pub struct HuskyDebugger {
 }
 
 impl HuskyDebugger {
-    pub fn new_from_flags(
-        linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)],
-    ) -> Self {
-        let mut config = HuskyDebuggerConfig::from_env();
-        HuskyDebugger::new(config, linkages_from_cdylib)
-    }
+    // pub fn new_from_flags(
+    //     linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)],
+    // ) -> Self {
+    //     let mut config = HuskyDebuggerConfig::from_env();
+    //     HuskyDebugger::new(config, linkages_from_cdylib)
+    // }
     pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
         let package_dir: &Path = &config.package_dir;
         let mut trace_time = HuskyTraceTime::new(

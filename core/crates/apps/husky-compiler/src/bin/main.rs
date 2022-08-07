@@ -3,8 +3,8 @@ use husky_compiler::CompilerInstance;
 use std::path::PathBuf;
 
 #[derive(Parser)]
-#[clap(name = "huskyc")]
-#[clap(author = "Kevin K. <kbknapp@gmail.com>")]
+#[clap(name = "husky-compiler")]
+#[clap(author = "Xiyu Zhai <dirac12345@gmail.com>")]
 pub struct HuskyCompilerCli {
     #[clap(short, long, value_parser)]
     verbose: bool,

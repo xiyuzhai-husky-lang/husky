@@ -28,7 +28,7 @@ pub struct CompilerInstance {
 
 impl CompilerInstance {
     pub fn new(husky_dir: String, verbose: bool, dir: PathBuf) -> Self {
-        // let flags = flags::HuskyCompilerFlags::from_env().expect("invalid arguments");
+        // let flags = flags::husky-compilerompilerFlags::from_env().expect("invalid arguments");
         Self {
             dir,
             husky_dir,

@@ -11,7 +11,7 @@ use vm::InterpreterQueryGroup;
 
 impl fmt::Debug for HuskyComptime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("HuskyCompileTime").finish()
+        f.debug_struct("husky-compilerompileTime").finish()
     }
 }
 
