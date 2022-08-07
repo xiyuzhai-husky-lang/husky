@@ -1,7 +1,8 @@
 mod impl_cargo_build;
 mod impl_cargo_fmt;
+mod impl_clean;
 mod impl_dir;
-mod impl_rsync;
+mod impl_sync_code;
 mod impl_transcribe_rust;
 
 use husky_compile_dir::{getx_child_dir, mkdir};
@@ -31,10 +32,11 @@ impl CompilerInstance {
         let package_dirs = collect_all_package_dirs(&self.dir);
         for package_dir in package_dirs {
             // compile via rust
-            self.transcribe_package_in_rust(package_dir);
-            self.cargo_fmt(package_dir);
-            self.rsync_rust(package_dir);
-            self.cargo_build(package_dir)
+            self.transcribe_package_in_rust(&package_dir);
+            self.cargo_fmt(&package_dir);
+            self.sync_rust_code(&package_dir);
+            self.cargo_build(&package_dir);
+            self.clean_rust_gen_cache(&package_dir)
         }
     }
 }
