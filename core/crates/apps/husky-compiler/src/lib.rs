@@ -15,17 +15,12 @@ use std::path::{Path, PathBuf};
 pub struct CompilerInstance {
     dir: PathBuf,
     husky_dir: String,
-    recursive: bool,
 }
 
 impl CompilerInstance {
-    pub fn new(husky_dir: String, dir: PathBuf, recursive: bool) -> Self {
+    pub fn new(husky_dir: String, dir: PathBuf) -> Self {
         // let flags = flags::HuskyCompilerFlags::from_env().expect("invalid arguments");
-        Self {
-            dir,
-            husky_dir,
-            recursive,
-        }
+        Self { dir, husky_dir }
     }
 
     pub fn compile_all(&self) {
