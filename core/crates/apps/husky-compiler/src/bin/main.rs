@@ -1,5 +1,4 @@
 use clap::Parser;
-use husky_compiler::flags::HuskyCompilerFlags;
 use husky_compiler::CompilerInstance;
 use std::path::PathBuf;
 
