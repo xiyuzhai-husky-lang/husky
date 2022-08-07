@@ -38,11 +38,21 @@ impl CompilerInstance {
 
     pub fn compile_all(&self) {
         let package_dirs = collect_all_package_dirs(&self.dir);
+        if self.verbose {
+            println!(
+                "{GREEN}\x1B[1mCompiling{RESET} {} 🐺 packages",
+                package_dirs.len()
+            )
+        }
         for package_dir in package_dirs {
             // compile via rust
             if self.verbose {
                 use husky_print_utils::*;
-                println!("   {BLUE}\x1B[1mCompiling{RESET} package {package_dir:?}");
+                println!(
+                    "   {GREEN}\x1B[1mCompiling{RESET} 🐺 package `{}` ({})",
+                    package_dir.file_name().unwrap().to_str().unwrap(),
+                    package_dir.as_os_str().to_str().unwrap(),
+                );
             }
 
             let now = Instant::now();
@@ -54,7 +64,7 @@ impl CompilerInstance {
             if self.verbose {
                 use husky_print_utils::*;
                 println!(
-                    "    {BLUE}\x1B[1mFinished{RESET} in {:.2} seconds.",
+                    "    {GREEN}\x1B[1mFinished{RESET} in {:.2} seconds.",
                     now.elapsed().as_millis() as f32 / 1000.
                 );
             }
