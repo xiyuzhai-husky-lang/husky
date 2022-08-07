@@ -14,21 +14,23 @@ use path_utils::collect_all_package_dirs;
 use std::path::{Path, PathBuf};
 
 pub struct CompilerInstance {
-    packages_dir: PathBuf,
+    dir: PathBuf,
     husky_dir: String,
+    recursive: bool,
 }
 
 impl CompilerInstance {
-    pub fn from_env() -> Self {
-        let flags = flags::HuskyCompilerFlags::from_env().expect("invalid arguments");
+    pub fn new(husky_dir: String, dir: PathBuf, recursive: bool) -> Self {
+        // let flags = flags::HuskyCompilerFlags::from_env().expect("invalid arguments");
         Self {
-            packages_dir: flags.packages_dir,
-            husky_dir: std::env::var("HUSKY_DIR").expect("env not set"),
+            dir,
+            husky_dir,
+            recursive,
         }
     }
 
     pub fn compile_all(&self) {
-        let pack_dirs = collect_all_package_dirs(&self.packages_dir);
+        let pack_dirs = collect_all_package_dirs(&self.dir);
         for pack_dir in pack_dirs {
             self.compile_package(pack_dir);
         }
