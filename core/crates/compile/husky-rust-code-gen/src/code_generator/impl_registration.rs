@@ -33,7 +33,14 @@ pub(crate) use __husky::registration::*;
             return;
         }
         match entity_defn.variant {
-            EntityDefnVariant::Ty { .. } => self.gen_ty_registration(entity_route),
+            EntityDefnVariant::Ty { ty_kind, .. } => {
+                match ty_kind {
+                    TyKind::Record => return,
+                    TyKind::HigherKind => return,
+                    _ => (),
+                }
+                self.gen_ty_registration(entity_route)
+            }
             _ => (),
         }
     }
