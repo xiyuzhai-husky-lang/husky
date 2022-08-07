@@ -294,7 +294,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 if variadic_ty.is_primitive() {
                     self.write(&format!(
                         r#"
-                        let __variadics = 
+                        let __variadics =
                             __arguments[{variadic_start}..]
                                 .iter_mut()
                                 .map(|v|v.downcast_{variadic_ty}())
@@ -308,7 +308,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     let variadic_ty_vtable = self.db.mangled_ty_vtable(variadic_ty);
                     self.write(&format!(
                         r#"
-                        let __variadics = 
+                        let __variadics =
                             __arguments[{variadic_start}..]
                                 .iter_mut()
                                 .map(|v|v.downcast_{move_or_copy}(&__registration__::{variadic_ty_vtable}))

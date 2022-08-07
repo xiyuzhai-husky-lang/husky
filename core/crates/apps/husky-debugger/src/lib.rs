@@ -7,7 +7,9 @@ mod mode;
 mod notif;
 
 pub use config::HuskyDebuggerConfig;
+use convert_case::{Case, Casing};
 pub use error::{DebuggerError, DebuggerResult};
+use libloading::Library;
 pub use mode::Mode;
 
 use avec::Avec;
@@ -36,29 +38,28 @@ use std::{sync::Mutex, time::Instant};
 use vm::__Linkage;
 use warp::Filter;
 
-pub type GetLinkagesFromCDylib =
-    unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
+type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
 
-// let flags = HuskyDebuggerFlags::from_env().expect("invalid arguments");
-// let opt_library: Option<Library> = if let Some(cdylib) = flags.cdylib {
-//     Some(unsafe { Library::new(cdylib) }.expect("it should work"))
-// } else {
-//     None
-// };
-// let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
-//     .as_ref()
-//     .map(|library| unsafe {
-//         library
-//             .get::<GetLinkagesFromCDylib>(b"get_linkages")
-//             .expect("what")()
-//     })
-//     .unwrap_or(&[]);
-// let mode: Mode = flags.mode.into();
-// let package_dir: PathBuf = flags.package_dir.unwrap().into();
-// mode.apply(&package_dir, linkages_from_cdylib).await
-
-pub async fn debugger_launch(package_dir: PathBuf, verbose: bool) {
-    todo!()
+pub async fn debugger_run(package_dir: PathBuf, verbose: bool) -> DebuggerResult<()> {
+    let opt_library = get_library(&package_dir);
+    let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
+        .as_ref()
+        .map(|library| unsafe {
+            library
+                .get::<GetLinkagesFromCDylib>(b"get_linkages")
+                .expect("what")()
+        })
+        .unwrap_or(&[]);
+    let husky_debugger = HuskyDebuggerInstance::new(
+        HuskyDebuggerConfig {
+            package_dir,
+            opt_sample_id: None,
+            verbose: false,
+            compiled: false,
+        },
+        linkages_from_cdylib,
+    );
+    husky_debugger.serve("localhost:51617").await
 }
 
 pub async fn debugger_test(packages_dir: PathBuf, verbose: bool) {
@@ -87,32 +88,59 @@ pub async fn debugger_test(packages_dir: PathBuf, verbose: bool) {
             },
             &[],
         );
-        match husky_debugger
-            .serve_on_error("localhost:51617", SampleId(0))
-            .await
-        {
-            TestResult::Success => finalize_success(),
-            TestResult::Failure => finalize_failure(),
-        }
-    }
-
-    fn finalize_success() {
-        println!(
-            "    {}result{}: {}success{}",
-            husky_print_utils::CYAN,
-            husky_print_utils::RESET,
-            husky_print_utils::GREEN,
-            husky_print_utils::RESET,
+        finalize(
+            husky_debugger
+                .serve_on_error("localhost:51617", SampleId(0))
+                .await,
         )
     }
+}
 
-    fn finalize_failure() {
-        println!(
-            "    {}result{}: {}failure{}",
-            husky_print_utils::CYAN,
-            husky_print_utils::RESET,
-            husky_print_utils::RED,
-            husky_print_utils::RESET,
-        )
+fn get_library(package_dir: &Path) -> Option<Library> {
+    let package_name = package_dir
+        .file_name()
+        .unwrap()
+        .to_str()
+        .unwrap()
+        .to_case(Case::Snake);
+    let library_release_path = package_dir.join(format!(
+        "__rust_gen__/target/release/lib{}.so",
+        package_name,
+    ));
+    if library_release_path.exists() {
+        return Some(unsafe { Library::new(library_release_path) }.expect("it should work"));
     }
+    let library_debug_path =
+        package_dir.join(format!("__rust_gen__/target/debug/lib{}.so", package_name,));
+    if library_debug_path.exists() {
+        todo!()
+    }
+    None
+}
+
+fn finalize(test_result: TestResult) {
+    match test_result {
+        TestResult::Success => finalize_success(),
+        TestResult::Failure => finalize_failure(),
+    }
+}
+
+fn finalize_success() {
+    println!(
+        "    {}result{}: {}success{}",
+        husky_print_utils::CYAN,
+        husky_print_utils::RESET,
+        husky_print_utils::GREEN,
+        husky_print_utils::RESET,
+    )
+}
+
+fn finalize_failure() {
+    println!(
+        "    {}result{}: {}failure{}",
+        husky_print_utils::CYAN,
+        husky_print_utils::RESET,
+        husky_print_utils::RED,
+        husky_print_utils::RESET,
+    )
 }

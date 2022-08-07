@@ -18,7 +18,7 @@ pub struct HuskyDebuggerCli {
 #[derive(Subcommand)]
 enum HuskyDebuggerCommands {
     /// serve traces on given package
-    Launch {
+    Run {
         #[clap(value_parser)]
         package_dir: PathBuf,
     },
@@ -28,27 +28,13 @@ enum HuskyDebuggerCommands {
         packages_dir: PathBuf,
     },
 }
-// use std::path::PathBuf;
-
-// xflags::xflags! {
-//     cmd husky-debugger-flags
-//     {
-//         optional --package-dir package_dir: PathBuf
-//         optional --warn-missing-linkage
-//         optional -v, --verbose
-//         optional --sample-id sample_id: String
-//         optional --mode mode: String
-//         optional --cdylib cdylib: String
-//         optional -c, --compiled
-//     }
-// }
 
 #[tokio::main]
 async fn main() {
     let cli = HuskyDebuggerCli::parse();
     match cli.command {
-        HuskyDebuggerCommands::Launch { package_dir } => {
-            debugger_launch(package_dir, cli.verbose).await
+        HuskyDebuggerCommands::Run { package_dir } => {
+            debugger_run(package_dir, cli.verbose).await.unwrap()
         }
         HuskyDebuggerCommands::Test { packages_dir } => {
             debugger_test(packages_dir, cli.verbose).await
