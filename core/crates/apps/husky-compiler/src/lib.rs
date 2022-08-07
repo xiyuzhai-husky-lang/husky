@@ -1,5 +1,4 @@
 mod dir;
-pub mod flags;
 
 use husky_compile_dir::{getx_child_dir, mkdir};
 use husky_compile_time::*;
