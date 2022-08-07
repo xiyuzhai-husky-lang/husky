@@ -25,7 +25,7 @@ enum HuskyDebuggerCommands {
     /// serve traces on first package with error
     Test {
         #[clap(value_parser)]
-        package_dirs: PathBuf,
+        packages_dir: PathBuf,
     },
 }
 // use std::path::PathBuf;
@@ -47,25 +47,7 @@ enum HuskyDebuggerCommands {
 async fn main() {
     let cli = HuskyDebuggerCli::parse();
     match cli.command {
-        HuskyDebuggerCommands::Launch { package_dir } => todo!(),
-        HuskyDebuggerCommands::Test { package_dirs } => todo!(),
+        HuskyDebuggerCommands::Launch { package_dir } => debugger_launch(package_dir, cli.verbose),
+        HuskyDebuggerCommands::Test { packages_dir } => debugger_test(packages_dir, cli.verbose),
     }
-    todo!();
-    // let flags = HuskyDebuggerFlags::from_env().expect("invalid arguments");
-    // let opt_library: Option<Library> = if let Some(cdylib) = flags.cdylib {
-    //     Some(unsafe { Library::new(cdylib) }.expect("it should work"))
-    // } else {
-    //     None
-    // };
-    // let linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)] = opt_library
-    //     .as_ref()
-    //     .map(|library| unsafe {
-    //         library
-    //             .get::<GetLinkagesFromCDylib>(b"get_linkages")
-    //             .expect("what")()
-    //     })
-    //     .unwrap_or(&[]);
-    // let mode: Mode = flags.mode.into();
-    // let package_dir: PathBuf = flags.package_dir.unwrap().into();
-    // mode.apply(&package_dir, linkages_from_cdylib).await
 }
