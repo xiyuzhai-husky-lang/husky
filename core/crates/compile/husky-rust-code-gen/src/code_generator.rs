@@ -45,11 +45,17 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    pub(crate) fn new_lib(db: &'a dyn RustCodeGenQueryGroup, target_entrance: FilePtr) -> Self {
+    pub(crate) fn new_lib(
+        db: &'a dyn RustCodeGenQueryGroup,
+        target_entrance: FilePtr,
+        use_crate_all: bool,
+    ) -> Self {
         let mut symbols = LocalStack::new();
         let package = db.package(target_entrance).unwrap();
-        for entity_defn in package.subentities.iter() {
-            symbols.push(entity_defn.base_route)
+        if use_crate_all {
+            for entity_defn in package.subentities.iter() {
+                symbols.push(entity_defn.base_route)
+            }
         }
         Self {
             db,
