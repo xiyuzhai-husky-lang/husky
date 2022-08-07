@@ -12,5 +12,5 @@ fn __input<'a, 'eval: 'a>(__ctx: &'a dyn __EvalContext<'eval>) -> &'a f32 {
 }
 pub(crate) fn try_require_in_func() -> Option<i32> {
     normal_require!(2 > 1);
-    return 1;
+    return Some(1);
 }

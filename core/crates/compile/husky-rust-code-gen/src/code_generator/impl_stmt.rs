@@ -71,7 +71,14 @@ impl<'a> RustCodeGenerator<'a> {
                 match return_context.kind {
                     RawReturnContextKind::Normal => {
                         self.gen_binding(result);
-                        self.gen_expr(stmt.indent, result)
+                        // ad hoc
+                        if return_context.output_ty.route.is_option() && !result.ty().is_option() {
+                            self.write("Some(");
+                            self.gen_expr(stmt.indent, result);
+                            self.write(")")
+                        } else {
+                            self.gen_expr(stmt.indent, result)
+                        }
                     }
                     RawReturnContextKind::Feature => {
                         self.gen_feature_return(stmt.indent, result, return_context.output_ty.route)

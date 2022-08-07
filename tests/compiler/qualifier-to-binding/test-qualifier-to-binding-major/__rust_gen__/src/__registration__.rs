@@ -1,7 +1,7 @@
 use crate::*;
 pub(crate) use __husky::registration::*;
 
-type A = A;
+type A = crate::A;
 
 // A
 #[no_mangle]
@@ -32,7 +32,7 @@ pub static __A_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     typename_str_hash_u64: 15047818145317598341,
     typename_str: "A",
 };
-type B = B;
+type B = crate::B;
 
 // B
 #[no_mangle]
