@@ -6,7 +6,7 @@ pub(crate) fn rust_init_rs_content(
     target_entrance: FilePtr,
 ) -> Arc<String> {
     msg_once!("deal with submodules");
-    let mut generator = RustCodeGenerator::new_lib(db, target_entrance);
+    let mut generator = RustCodeGenerator::new_lib(db, target_entrance, true);
     generator.gen_init_content();
     Arc::new(generator.finish())
 }
