@@ -20,3 +20,9 @@ pub fn diff_write(path: &Path, content: &str) {
         }
     }
 }
+
+// first read and compare, and then write if different
+pub fn diff_copy(src: &Path, dst: &Path) {
+    let content = std::fs::read_to_string(src).unwrap();
+    diff_write(dst, &content)
+}

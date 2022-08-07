@@ -1,13 +1,13 @@
 use crate::*;
 
 impl CompilerInstance {
-    pub(crate) fn transcribe_package_in_rust(&self, package_dir: PathBuf) {
+    pub(crate) fn transcribe_package_in_rust(&self, package_dir: &Path) {
         let mut comptime = HuskyComptime::new(HuskyComptimeConfig {
             __resolve_root_defn,
             linkage_table: LinkageTableConfig {
                 warn_missing_linkage: false,
             },
-            package_dir: package_dir.clone(),
+            package_dir: package_dir.to_path_buf(),
         });
         comptime.load_package(&package_dir);
         let target_entrance = comptime.unique_main_file();
