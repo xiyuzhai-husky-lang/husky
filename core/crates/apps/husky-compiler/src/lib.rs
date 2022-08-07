@@ -15,28 +15,49 @@ use husky_root_static_defn::__resolve_root_defn;
 use husky_word::snake_to_dash;
 use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
-use std::path::{Path, PathBuf};
+use std::{
+    path::{Path, PathBuf},
+    time::Instant,
+};
 
 pub struct CompilerInstance {
     dir: PathBuf,
     husky_dir: String,
+    verbose: bool,
 }
 
 impl CompilerInstance {
-    pub fn new(husky_dir: String, dir: PathBuf) -> Self {
+    pub fn new(husky_dir: String, verbose: bool, dir: PathBuf) -> Self {
         // let flags = flags::HuskyCompilerFlags::from_env().expect("invalid arguments");
-        Self { dir, husky_dir }
+        Self {
+            dir,
+            husky_dir,
+            verbose,
+        }
     }
 
     pub fn compile_all(&self) {
         let package_dirs = collect_all_package_dirs(&self.dir);
         for package_dir in package_dirs {
             // compile via rust
+            if self.verbose {
+                use husky_print_utils::*;
+                println!("   {BLUE}\x1B[1mCompiling{RESET} package {package_dir:?}");
+            }
+
+            let now = Instant::now();
             self.transcribe_package_in_rust(&package_dir);
             self.cargo_fmt(&package_dir);
             self.sync_rust_code(&package_dir);
             self.cargo_build(&package_dir);
-            self.clean_rust_gen_cache(&package_dir)
+            self.clean_rust_gen_cache(&package_dir);
+            if self.verbose {
+                use husky_print_utils::*;
+                println!(
+                    "    {BLUE}\x1B[1mFinished{RESET} in {:.2} seconds.",
+                    now.elapsed().as_millis() as f32 / 1000.
+                );
+            }
         }
     }
 }

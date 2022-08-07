@@ -49,7 +49,7 @@ test-debugger-with-backtrace-filtered:
 # compiler
 
 test-compiler:
-	scripts/test-compiler.sh
+	cargo run --bin husky-compiler -- -v ../tests
 
 test-compiler-backtraced:
 	RUST_BACKTRACE=1 scripts/test-compiler.sh
