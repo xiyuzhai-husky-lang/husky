@@ -46,7 +46,17 @@ impl HuskyTraceTime {
                         range: Default::default(),
                     },
                 )),
-                EntityKind::Feature => todo!(),
+                EntityKind::Feature => {
+                    let repr = self.runtime().entity_feature_repr(*subentity_route);
+                    root_trace_ids.push(self.new_trace(
+                        None,
+                        0,
+                        TraceVariant::EntityFeature {
+                            route: *subentity_route,
+                            repr,
+                        },
+                    ))
+                }
                 _ => (),
             }
         }

@@ -9,18 +9,18 @@ pub enum Mode {
     Test,
 }
 
-impl Mode {
-    pub async fn apply(
-        &self,
-        dir: &Path,
-        linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)],
-    ) {
-        match self {
-            Mode::Run => run(dir, linkages_from_cdylib).await,
-            Mode::Test => test_all_packages_in_dir(dir).await,
-        }
-    }
-}
+// impl Mode {
+//     pub async fn apply(
+//         &self,
+//         dir: &Path,
+//         linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)],
+//     ) {
+//         match self {
+//             Mode::Run => run(dir, linkages_from_cdylib).await,
+//             Mode::Test => test_all_packages_in_dir(dir).await,
+//         }
+//     }
+// }
 
 impl From<Option<String>> for Mode {
     fn from(opt_str: Option<String>) -> Self {
@@ -44,58 +44,38 @@ async fn run(package_dir: &Path, linkages_from_cdylib: &'static [(__StaticLinkag
     //     .expect("")
 }
 
-async fn test_all_packages_in_dir(dir: &Path) {
-    assert!(dir.is_dir());
-    let package_dirs = collect_all_package_dirs(dir);
-    println!(
-        "\n{}Running{} tests on {} example packages:",
-        husky_print_utils::CYAN,
-        husky_print_utils::RESET,
-        package_dirs.len()
-    );
+// async fn test_all_packages_in_dir(dir: &Path) {
+//     assert!(dir.is_dir());
+//     let package_dirs = collect_all_package_dirs(dir);
+//     println!(
+//         "\n{}Running{} tests on {} example packages:",
+//         husky_print_utils::CYAN,
+//         husky_print_utils::RESET,
+//         package_dirs.len()
+//     );
 
-    for package_dir in package_dirs {
-        println!(
-            "\n{}test{} {}",
-            husky_print_utils::CYAN,
-            husky_print_utils::RESET,
-            package_dir.as_os_str().to_str().unwrap(),
-        );
-        let husky_debugger = HuskyDebuggerInstance::new(
-            HuskyDebuggerConfig {
-                package_dir,
-                opt_sample_id: Some(SampleId(23)),
-                verbose: false,
-                compiled: false,
-            },
-            &[],
-        );
-        match husky_debugger
-            .serve_on_error("localhost:51617", SampleId(0))
-            .await
-        {
-            TestResult::Success => finalize_success(),
-            TestResult::Failure => finalize_failure(),
-        }
-    }
-}
-
-fn finalize_success() {
-    println!(
-        "    {}result{}: {}success{}",
-        husky_print_utils::CYAN,
-        husky_print_utils::RESET,
-        husky_print_utils::GREEN,
-        husky_print_utils::RESET,
-    )
-}
-
-fn finalize_failure() {
-    println!(
-        "    {}result{}: {}failure{}",
-        husky_print_utils::CYAN,
-        husky_print_utils::RESET,
-        husky_print_utils::RED,
-        husky_print_utils::RESET,
-    )
-}
+//     for package_dir in package_dirs {
+//         println!(
+//             "\n{}test{} {}",
+//             husky_print_utils::CYAN,
+//             husky_print_utils::RESET,
+//             package_dir.as_os_str().to_str().unwrap(),
+//         );
+//         let husky_debugger = HuskyDebuggerInstance::new(
+//             HuskyDebuggerConfig {
+//                 package_dir,
+//                 opt_sample_id: Some(SampleId(23)),
+//                 verbose: false,
+//                 compiled: false,
+//             },
+//             &[],
+//         );
+//         match husky_debugger
+//             .serve_on_error("localhost:51617", SampleId(0))
+//             .await
+//         {
+//             TestResult::Success => finalize_success(),
+//             TestResult::Failure => finalize_failure(),
+//         }
+//     }
+// }

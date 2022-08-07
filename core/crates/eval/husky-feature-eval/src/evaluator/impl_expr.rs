@@ -50,13 +50,11 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ty,
                 ref entity,
                 ref opds,
-            } => {
-                todo!()
-                // Ok(self
-                // .sheet
-                // .resolve_class_call(self.db, expr.eval_id, entity, opds)
-                // .into()),
-            }
+            } => todo!(),
+            // Ok(self
+            //     .sheet
+            //     .resolve_record_call(self.db, expr.eval_id, entity, opds)
+            //     .into()),
             FeatureExprVariant::Variable { ref value, .. } => self
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &Self| {
                     evaluator.eval_expr(&value)
