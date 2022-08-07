@@ -1,5 +1,5 @@
 use crate::*;
-use husky_compile_time::HuskyCompileTimeConfig;
+use husky_compile_time::HuskyComptimeConfig;
 use husky_eval_time::HuskyRuntimeConfig;
 use husky_feature_eval::EvaluatorConfig;
 use husky_linkage_table::LinkageTableConfig;
@@ -39,7 +39,7 @@ impl HuskyDebuggerConfig {
                     verbose: self.verbose,
                 },
             },
-            comptime: HuskyCompileTimeConfig {
+            comptime: HuskyComptimeConfig {
                 package_dir: self.package_dir.clone(),
                 __resolve_root_defn,
                 linkage_table: LinkageTableConfig {

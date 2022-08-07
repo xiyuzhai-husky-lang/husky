@@ -1,4 +1,8 @@
-mod dir;
+mod impl_cargo_build;
+mod impl_cargo_fmt;
+mod impl_dir;
+mod impl_rsync;
+mod impl_transcribe_rust;
 
 use husky_compile_dir::{getx_child_dir, mkdir};
 use husky_compile_time::*;
@@ -24,146 +28,13 @@ impl CompilerInstance {
     }
 
     pub fn compile_all(&self) {
-        let pack_dirs = collect_all_package_dirs(&self.dir);
-        for pack_dir in pack_dirs {
-            self.compile_package(pack_dir);
+        let package_dirs = collect_all_package_dirs(&self.dir);
+        for package_dir in package_dirs {
+            // compile via rust
+            self.transcribe_package_in_rust(package_dir);
+            self.cargo_fmt(package_dir);
+            self.rsync_rust(package_dir);
+            self.cargo_build(package_dir)
         }
-    }
-
-    pub fn compile_package(&self, package_dir: PathBuf) {
-        let mut comptime = HuskyComptime::new(HuskyCompileTimeConfig {
-            __resolve_root_defn,
-            linkage_table: LinkageTableConfig {
-                warn_missing_linkage: false,
-            },
-            package_dir: package_dir.clone(),
-        });
-        comptime.load_package(&package_dir);
-        let target_entrance = comptime.unique_main_file();
-        let all_diagnostics = comptime.all_diagnostics();
-        if all_diagnostics.len() > 0 {
-            panic!("{:?}", all_diagnostics);
-        }
-        let package = comptime.package(target_entrance).unwrap();
-        let rust_dir = self.getx_rust_gen_cache_dir(&package);
-        let husky_code_snapshot_dir = self.getx_husky_code_snapshot_dir(&package);
-        let src_dir = getx_child_dir(&rust_dir, "src");
-
-        self.save_husky_code_snapshot(
-            &comptime,
-            &husky_code_snapshot_dir.join("main.hsk"),
-            target_entrance,
-        );
-
-        let cargo_config_path = getx_child_dir(&rust_dir, ".cargo").join("config.toml");
-        diff_write(
-            &cargo_config_path,
-            r#"
-            # Add the contents of this file to `config.toml` to enable "fast build" configuration. Please read the notes below.
-# NOTE: For maximum performance, build using a nightly compiler
-# If you are using rust stable, remove the "-Zshare-generics=y" below.
-[target.x86_64-unknown-linux-gnu]
-linker = "clang"
-rustflags = ["-Awarnings", "-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y"]
-
-# NOTE: you must manually install https://github.com/michaeleisel/zld on mac. you can easily do this with the "brew" package manager:
-# `brew install michaeleisel/zld/zld`
-[target.x86_64-apple-darwin]
-rustflags = ["-C", "link-arg=-fuse-ld=/usr/local/bin/zld", "-Zshare-generics=y"]
-
-[target.aarch64-apple-darwin]
-rustflags = [
-    "-C",
-    "link-arg=-fuse-ld=/opt/homebrew/bin/zld",
-    "-Zshare-generics=y"
-]
-
-[target.x86_64-pc-windows-msvc]
-linker = "rust-lld.exe"
-rustflags = ["-Zshare-generics=n"]
-
-# Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'
-# In most cases the gains are negligible, but if you are on macos and have slow compile times you should see significant gains.
-[profile.dev]
-debug = 1
-"#,
-        );
-
-        // Cargo.toml
-        diff_write(
-            &rust_dir.join("Cargo.toml"),
-            &comptime.cargo_toml_content(target_entrance, &self.husky_dir),
-        );
-
-        // lib.rs
-        diff_write(
-            &src_dir.join("lib.rs"),
-            &comptime.rust_lib_rs_content(target_entrance),
-        );
-
-        // __init__.rs
-        diff_write(
-            &src_dir.join("__init__.rs"),
-            &comptime.rust_init_rs_content(target_entrance),
-        );
-
-        // __init__.rs
-        diff_write(
-            &src_dir.join("__registration__.rs"),
-            &comptime.rust_registration_rs_content(target_entrance),
-        );
-
-        for module in package.subentities.iter() {
-            let module_name = module.ident.as_str();
-            self.compile_maybe_module(
-                &comptime,
-                src_dir.join(format!("{module_name}.rs")),
-                &husky_code_snapshot_dir.join(format!("{module_name}.hsk")),
-                module,
-            )
-        }
-    }
-
-    fn compile_maybe_module(
-        &self,
-        comptime: &HuskyComptime,
-        rust_code_path: PathBuf,
-        husky_code_snapshot_path: &Path,
-        module: &EntityDefn,
-    ) {
-        match module.variant {
-            EntityDefnVariant::Module { .. } => (),
-            _ => return,
-        }
-        diff_write(
-            &rust_code_path,
-            &comptime.rust_mod_rs_content(module.base_route),
-        );
-        self.save_husky_code_snapshot(comptime, husky_code_snapshot_path, module.file);
-        let module_rust_code_gen_dir = rust_code_path.with_extension("");
-        let module_husky_code_snapshot_dir = husky_code_snapshot_path.with_extension("");
-        mkdir(&module_rust_code_gen_dir);
-        mkdir(&module_husky_code_snapshot_dir);
-        for subentity in module.subentities.iter() {
-            let subentity_name = subentity.ident.as_str();
-            self.compile_maybe_module(
-                comptime,
-                module_rust_code_gen_dir.join(format!("{subentity_name}.rs")),
-                &module_husky_code_snapshot_dir.join(format!("{subentity_name}.hsk")),
-                subentity,
-            )
-        }
-    }
-
-    fn save_husky_code_snapshot(
-        &self,
-        comptime: &HuskyComptime,
-        husky_code_snapshot_path: &Path,
-        target_entrance: FilePtr,
-    ) {
-        diff_write(
-            husky_code_snapshot_path,
-            comptime.file_content(target_entrance).to_str().unwrap(),
-        );
     }
 }
