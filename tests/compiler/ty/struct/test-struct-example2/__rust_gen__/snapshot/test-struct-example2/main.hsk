@@ -44,3 +44,4 @@ main:
     assert a.get_x_plus_constant() == 3
     assert a.get_x_squared() == 1
     assert g1() == 2
+    1

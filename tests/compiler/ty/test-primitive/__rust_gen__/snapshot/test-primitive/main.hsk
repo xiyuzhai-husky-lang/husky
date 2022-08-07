@@ -4,3 +4,4 @@ task:
 main:
     assert (1).abs() == 1
     assert 1.0.cos() > 0.0
+    1

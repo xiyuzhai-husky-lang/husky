@@ -79,6 +79,15 @@ pub async fn debugger_test(packages_dir: PathBuf, verbose: bool) {
             husky_print_utils::RESET,
             package_dir.as_os_str().to_str().unwrap(),
         );
+        let opt_library = get_library(&package_dir);
+        let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
+            .as_ref()
+            .map(|library| unsafe {
+                library
+                    .get::<GetLinkagesFromCDylib>(b"get_linkages")
+                    .expect("what")()
+            })
+            .unwrap_or(&[]);
         let husky_debugger = HuskyDebuggerInstance::new(
             HuskyDebuggerConfig {
                 package_dir,
@@ -86,7 +95,7 @@ pub async fn debugger_test(packages_dir: PathBuf, verbose: bool) {
                 verbose: false,
                 compiled: false,
             },
-            &[],
+            linkages_from_cdylib,
         );
         finalize(
             husky_debugger
