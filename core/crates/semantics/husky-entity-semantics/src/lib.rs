@@ -246,8 +246,7 @@ pub enum EntityDefnVariant {
         members: IdentDict<Arc<EntityDefn>>,
     },
     EnumVariant {
-        ident: RangedCustomIdentifier,
-        variant: EnumVariantDefnVariant,
+        enum_variant_defn_variant: EnumVariantDefnVariant,
     },
     Builtin,
     TyField {
@@ -278,7 +277,7 @@ impl std::fmt::Debug for EntityDefnVariant {
             EntityDefnVariant::Proc { .. } => f.write_str("Proc { ... }"),
             EntityDefnVariant::Ty { .. } => f.write_str("Ty { ... }"),
             EntityDefnVariant::Trait { .. } => f.write_str("Trait { ... }"),
-            EntityDefnVariant::EnumVariant { ident, variant } => f.write_str("EnumVariant { ... }"),
+            EntityDefnVariant::EnumVariant { .. } => f.write_str("EnumVariant { ... }"),
             EntityDefnVariant::Builtin => f.write_str("Builtin { ... }"),
             EntityDefnVariant::TyField { .. } => f.write_str("TyField"),
             EntityDefnVariant::TraitAssociatedTypeImpl { .. } => {
@@ -414,7 +413,9 @@ impl EntityDefnVariant {
             }
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
-            EntityStaticDefnVariant::EnumVariant => todo!(),
+            EntityStaticDefnVariant::EnumVariant => EntityDefnVariant::EnumVariant {
+                enum_variant_defn_variant: EnumVariantDefnVariant::Constant,
+            },
         }
     }
 }

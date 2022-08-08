@@ -24,4 +24,4 @@ main:
     if concave_components.ilen() > 0:
         naive_i32(concave_components.ilen())
     else:
-        MnistLabel::O
+        MnistLabel::One

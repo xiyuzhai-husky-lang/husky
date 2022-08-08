@@ -116,7 +116,9 @@ impl<'a> LinkageCollector<'a> {
                 p!(defn.base_route);
                 todo!()
             }
-            EntityDefnVariant::EnumVariant { ident, ref variant } => match variant {
+            EntityDefnVariant::EnumVariant {
+                ref enum_variant_defn_variant,
+            } => match enum_variant_defn_variant {
                 EnumVariantDefnVariant::Constant => todo!(),
             },
             EntityDefnVariant::Builtin => todo!(),

@@ -15,7 +15,10 @@ impl EntityDefnVariant {
             | EntityDefnVariant::Function { .. }
             | EntityDefnVariant::Input { .. } => Default::default(),
             EntityDefnVariant::Ty { members, .. } => members.clone(),
-            EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
+            EntityDefnVariant::EnumVariant {
+                enum_variant_defn_variant: ref variant,
+                ..
+            } => match variant {
                 EnumVariantDefnVariant::Constant => Default::default(),
             },
             EntityDefnVariant::Builtin => todo!(),
