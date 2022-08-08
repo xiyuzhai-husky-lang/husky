@@ -42,7 +42,7 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         parameters: &[],
         variadic_template: StaticVariadicTemplate::None,
-        output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>",
+        output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>",
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(
             |_, _|  unsafe {__Register::new_box(new_binary_dataset(), &__DATASET_VTABLE)} ,

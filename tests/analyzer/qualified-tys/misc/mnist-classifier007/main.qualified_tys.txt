@@ -18,12 +18,15 @@ lazy expr:
     23:19..23:37   concave_components     PureRef []mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent
     23:9..23:18    naive_i32              InferError: failed to infer expr ty
     23:19..23:44   concave_components.ilen()   Copyable i32
-    23:9..23:45    naive_i32(concave_components.ilen())   Copyable ?i32
-    25:9..25:10    1                      Copyable i32
+    23:9..23:45    naive_i32(concave_components.ilen())   Copyable ?domains::ml::datasets::cv::mnist::MnistLabel
+    25:9..25:10    1                      InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
+kind:
+Original { message: "expect ?domains::ml::datasets::cv::mnist::MnistLabel but get i32 instead", range: 25:9..25:10 }
 
 eager expr:
     7:5..7:48      ml::datasets::cv::mnist::new_binary_dataset   InferError: failed to infer expr ty
-    7:5..7:50      ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>
+    7:5..7:50      ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>
 
 lazy expr:
     17:20..17:45   major_connected_component   EvalRef mnist_classifier007::connected_component::ConnectedComponent
@@ -42,5 +45,8 @@ lazy expr:
     23:19..23:37   concave_components     PureRef []mnist_classifier007::line_segment_sketch::concave_component::ConcaveComponent
     23:9..23:18    naive_i32              InferError: failed to infer expr ty
     23:19..23:44   concave_components.ilen()   Copyable i32
-    23:9..23:45    naive_i32(concave_components.ilen())   Copyable ?i32
-    25:9..25:10    1                      Copyable i32
+    23:9..23:45    naive_i32(concave_components.ilen())   Copyable ?domains::ml::datasets::cv::mnist::MnistLabel
+    25:9..25:10    1                      InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
+kind:
+Original { message: "expect ?domains::ml::datasets::cv::mnist::MnistLabel but get i32 instead", range: 25:9..25:10 }

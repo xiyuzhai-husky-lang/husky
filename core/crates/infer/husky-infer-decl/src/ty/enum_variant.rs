@@ -45,10 +45,16 @@ pub struct EnumVariantDecl {
 impl EnumVariantDecl {
     pub fn from_static(
         db: &dyn DeclQueryGroup,
-        static_decl: &EntityStaticDefn,
+        static_defn: &EntityStaticDefn,
         symbol_context: &mut dyn AtomContext,
     ) -> Self {
-        todo!()
+        match static_defn.variant {
+            EntityStaticDefnVariant::EnumVariant => Self {
+                ident: db.custom_ident(static_defn.name),
+                variant: EnumVariantDeclVariant::Constant,
+            },
+            _ => panic!(),
+        }
     }
 
     pub fn instantiate(&self, instantiator: &InstantiationContext) -> Self {
