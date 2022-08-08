@@ -3,8 +3,8 @@ use husky_entity_semantics::StoreEntityRoute;
 use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr, TrainModel};
 use std::time::Instant;
 use upcast::Upcast;
-use vm::__RegistrableSafe;
 use vm::{InterpreterQueryGroup, VMConfig, __Register, __VMResult};
+use vm::{__RegistrableSafe, __VirtualEnum};
 
 impl TrainModel for HuskyRuntime {
     fn train(
@@ -35,7 +35,13 @@ impl TrainModel for HuskyRuntime {
                     todo!()
                     // (sample_id, e)
                 })?;
-            training_data.push((values, labeled_data.label.0.to_register()))
+            training_data.push((
+                values,
+                __VirtualEnum {
+                    kind_idx: labeled_data.label.0,
+                }
+                .to_register(),
+            ))
         }
         let train_result = model.train_dyn(training_data);
         println!(

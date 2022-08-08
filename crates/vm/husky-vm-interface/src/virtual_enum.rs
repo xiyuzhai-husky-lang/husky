@@ -1,8 +1,8 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct __VirtualEnum {
-    pub kind_idx: u8,
+    pub kind_idx: i32,
     // pub route: EntityRoutePtr,
 }
 

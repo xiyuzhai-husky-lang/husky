@@ -10,7 +10,7 @@ use husky_vm_register_method::VMRegisterMethodX;
 use static_defn::*;
 use vm::{
     Model, __Linkage, __ModelLinkage, __Register, __Registrable, __RegistrableSafe, __StaticInfo,
-    __VMResult, __I32_VTABLE,
+    __VMResult, __VirtualEnum, __I32_VTABLE, __VIRTUAL_ENUM_VTABLE,
 };
 
 static_mod! { naive = { naive_i32 } }
@@ -66,7 +66,8 @@ impl Model for NaiveI32 {
         for (arguments, mut label) in training_data {
             assert_eq!(arguments.len(), 1);
             let value = arguments[0].downcast_i32();
-            let label: Label = Label(label.downcast_i32());
+            let label: &__VirtualEnum = label.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
+            let label = Label(label.kind_idx);
             *label_statics_map
                 .entry(value)
                 .or_default()
@@ -96,7 +97,8 @@ impl Model for NaiveI32 {
     ) -> __VMResult<__Register<'eval>> {
         let argument = arguments[0].downcast_i32();
         match internal.most_likely_labels.get(&argument) {
-            Some(l) => Ok(l.0.to_register()),
+            Some(l) => todo!(),
+            // Ok(l.0.to_register()),
             None => {
                 p!(argument);
                 panic!();

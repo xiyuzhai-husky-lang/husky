@@ -131,7 +131,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
                 InstructionVariant::PushLiteralValue {
                     value: __VirtualEnum {
-                        kind_idx: self.db.enum_literal_as_u8(route),
+                        kind_idx: self.db.enum_literal_to_i32(route),
                     }
                     .to_register(),
                     ty: expr.ty(),
@@ -420,7 +420,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                                             &__VIRTUAL_ENUM_VTABLE,
                                                         )
                                                     };
-                                                    (enum_value.kind_idx as i32).to_register()
+                                                    enum_value.kind_idx.to_register()
                                                 },
                                                 none
                                             )

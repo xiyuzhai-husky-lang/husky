@@ -40,7 +40,10 @@ use std::{
     sync::{Arc, Mutex},
 };
 use sync_utils::ASafeRwLock;
-use vm::{__Register, __RegisterDataKind, __RegisterTyVTable, __I32_VTABLE};
+use vm::{
+    __Register, __RegisterDataKind, __RegisterTyVTable, __VirtualEnum, __I32_VTABLE,
+    __VIRTUAL_ENUM_VTABLE,
+};
 
 #[salsa::database(
     husky_file::FileQueryStorage,
@@ -158,7 +161,12 @@ impl HuskyComptime {
             EntityRoutePtr::Custom(_) => {
                 let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
                 match ty_decl.ty_kind {
-                    TyKind::Enum => todo!(),
+                    TyKind::Enum => {
+                        p!(ty);
+                        let value: &__VirtualEnum =
+                            unsafe { value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE) };
+                        todo!()
+                    }
                     TyKind::Record => todo!(),
                     TyKind::Struct => "{ ... }".to_string(),
                     TyKind::Primitive => todo!(),
