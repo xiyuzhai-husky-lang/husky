@@ -1,31 +1,36 @@
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum MnistLabel {
-    Zero,
-    One,
-    Two,
-    Three,
-    Four,
-    Five,
-    Six,
-    Seven,
-    Eight,
-    Nine,
+use entity_kind::TyKind;
+use husky_dev_utils::*;
+use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
+use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
+
+pub static MNIST_LABEL_BASE_ROUTE: &'static str = "domains::ml::datasets::cv::mnist::MnistLabel";
+
+macro_rules! enum_variant_defns {
+    ($($variant: ident),*) => {{
+        [$(EntityStaticDefn {
+            name: stringify!($variant),
+            items: &[],
+            variant: EntityStaticDefnVariant::EnumVariant,
+            dev_src: static_dev_src!(),
+        }),*]
+    }};
 }
 
-impl From<usize> for MnistLabel {
-    fn from(raw: usize) -> Self {
-        match raw {
-            0 => MnistLabel::Zero,
-            1 => MnistLabel::One,
-            2 => MnistLabel::Two,
-            3 => MnistLabel::Three,
-            4 => MnistLabel::Four,
-            5 => MnistLabel::Five,
-            6 => MnistLabel::Six,
-            7 => MnistLabel::Seven,
-            8 => MnistLabel::Eight,
-            9 => MnistLabel::Nine,
-            _ => panic!(),
-        }
-    }
-}
+pub static MNIST_LABEL_DEFN: EntityStaticDefn = EntityStaticDefn {
+    name: "MnistLabel",
+    items: &[],
+    variant: EntityStaticDefnVariant::Ty {
+        base_route: MNIST_LABEL_BASE_ROUTE,
+        spatial_parameters: &[],
+        trait_impls: &[],
+        ty_members: &[],
+        variants: &enum_variant_defns!(Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine),
+        kind: TyKind::Enum,
+        visualizer: StaticVisualizer {
+            visual_ty: StaticVisualTy::Void,
+            fp: StaticVisualizerFp(|_| todo!()),
+        },
+        opt_type_call: None,
+    },
+    dev_src: static_dev_src!(),
+};

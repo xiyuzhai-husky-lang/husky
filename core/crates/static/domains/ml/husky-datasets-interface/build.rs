@@ -4,7 +4,7 @@ use std::io::Write;
 use std::path::PathBuf;
 use std::{env, fs::File};
 
-static FILENAME: &str = &"husky_ml_datasets";
+static FILENAME: &str = "husky_ml_datasets";
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");

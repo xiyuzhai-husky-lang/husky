@@ -565,6 +565,7 @@ pub(crate) fn ty_decl(
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+            EntityStaticDefnVariant::EnumVariant => todo!(),
         }),
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {

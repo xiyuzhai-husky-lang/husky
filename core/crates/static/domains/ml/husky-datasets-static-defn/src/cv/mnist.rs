@@ -26,15 +26,16 @@ use xrng::permutation_from_seed;
 pub static MNIST_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
     name: "mnist",
     items: &[
-        NEW_BINARY_DATASET_SCOPE_DATA,
+        &NEW_BINARY_DATASET_SCOPE_DATA,
         &BINARY_IMAGE_28_TYPE_DEFN,
         &BINARY_GRID_28_TYPE_DEFN,
+        &MNIST_LABEL_DEFN,
     ],
     variant: EntityStaticDefnVariant::Module,
     dev_src: husky_dev_utils::static_dev_src!(),
 };
 
-pub static NEW_BINARY_DATASET_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
+pub static NEW_BINARY_DATASET_SCOPE_DATA: EntityStaticDefn = EntityStaticDefn {
     name: "new_binary_dataset",
     items: &[],
     variant: EntityStaticDefnVariant::Function {
