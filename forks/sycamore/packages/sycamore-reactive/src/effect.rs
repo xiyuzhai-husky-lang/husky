@@ -144,26 +144,6 @@ fn _create_effect<'a>(cx: Scope<'a>, f: &'a mut (dyn FnMut() + 'a), info: String
     cb.borrow_mut()();
 }
 
-/// Creates an effect on signals used inside the effect closure.
-///
-/// Instead of [`create_effect`], this function also provides a new
-/// reactive scope instead the effect closure. This scope is created for each new run of the
-/// effect.
-///
-/// Items created within the scope cannot escape outside the effect because that can result in
-/// an use-after-free.
-///
-/// # Example
-/// ```
-/// # use sycamore_reactive::*;
-/// # create_scope_immediate(|cx| {
-/// create_effect_scoped(cx, |cx| {
-///     // Use the scoped cx inside here.
-///     let _nested_signal = create_signal(cx, 0);
-///     // _nested_signal cannot escape out of the effect closure.
-/// });
-/// # });
-/// ```
 pub fn create_effect_scoped<'a, F>(cx: Scope<'a>, mut f: F, info: String)
 where
     F: for<'child_lifetime> FnMut(BoundedScope<'child_lifetime, 'a>) + 'a,
@@ -191,25 +171,6 @@ where
     );
 }
 
-/// Run the passed closure inside an untracked dependency scope.
-///
-/// See also [`ReadSignal::get_untracked()`].
-///
-/// # Example
-///
-/// ```
-/// # use sycamore_reactive::*;
-/// # create_scope_immediate(|cx| {
-/// let state = create_signal(cx, 1);
-/// let double = create_memo(cx, || untrack(|| *state.get() * 2));
-/// //                              ^^^^^^^
-/// assert_eq!(*double.get(), 2);
-///
-/// state.set(2);
-/// // double value should still be old value because state was untracked
-/// assert_eq!(*double.get(), 2);
-/// # });
-/// ```
 pub fn untrack<T>(f: impl FnOnce() -> T) -> T {
     EFFECTS.with(|effects| {
         let tmp = effects.take();
