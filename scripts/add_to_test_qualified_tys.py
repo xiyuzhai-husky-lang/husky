@@ -3,7 +3,7 @@
 import os
 import shutil
 
-mnist_dir = "examples/cv/mnist-classifier"
+mnist_dir = "examples/mnist-classifier"
 assert os.path.exists(mnist_dir)
 
 qualified_tys_misc_dir = "tests/analyzer/qualified-tys/misc"

@@ -11,6 +11,7 @@ path = "src/bin/main.rs"
 clap = { version = "3.2.16", features = ["derive"] }
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
+relative-path = "1.7.2"
 path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 io-utils = { path = "../../utils/husky-io-utils" }
