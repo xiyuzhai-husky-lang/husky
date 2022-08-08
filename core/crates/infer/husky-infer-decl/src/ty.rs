@@ -610,6 +610,7 @@ pub(crate) fn ty_decl(
         EntitySource::StaticTraitMember(_) => todo!(),
         EntitySource::StaticTypeAsTraitMember => todo!(),
         EntitySource::Any { .. } => todo!(),
+        EntitySource::StaticEnumVariant(_) => todo!(),
     }
 }
 

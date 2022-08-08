@@ -248,6 +248,7 @@ pub(crate) fn entity_call_form_decl(
             _ => todo!(),
         },
         EntitySource::Any { .. } => todo!(),
+        EntitySource::StaticEnumVariant(_) => todo!(),
     };
 }
 

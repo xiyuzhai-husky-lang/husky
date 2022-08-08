@@ -273,7 +273,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     .unwrap();
                 match entity_kind {
                     EntityKind::Module
-                    | EntityKind::EnumLiteral
+                    | EntityKind::EnumVariant
                     | EntityKind::Feature
                     | EntityKind::Member(_) => Ok(thin_vec![]),
                     EntityKind::Type(_) | EntityKind::Trait | EntityKind::Function { .. } => {

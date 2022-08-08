@@ -44,7 +44,7 @@ impl MatchPatternParser {
         Ok(if let Some(atom) = self.next_atom() {
             Some(match atom.variant {
                 HuskyAtomVariant::EntityRoute { route, kind } => match kind {
-                    EntityKind::EnumLiteral => RawPattern::enum_literal(route, atom.range),
+                    EntityKind::EnumVariant => RawPattern::enum_literal(route, atom.range),
                     _ => err!(format!("expect enum literal"), atom.range)?,
                 },
                 HuskyAtomVariant::PrimitiveLiteral(value) => {

@@ -6,7 +6,7 @@ import shutil
 husky_dir = os.getenv("HUSKY_DIR")
 assert os.getcwd() == husky_dir
 
-mnist_dir = os.path.join(husky_dir, "projects/cv/mnist-classifier")
+mnist_dir = os.path.join(husky_dir, "examples/cv/mnist-classifier")
 assert os.path.exists(mnist_dir)
 
 qualified_tys_misc_dir = os.path.join(husky_dir, "tests/analyzer/qualified-tys/misc")
@@ -33,7 +33,11 @@ while True:
         )
     )
     if answer == "yes" or answer == "y":
-        shutil.copytree(mnist_dir, save_dir)
+        shutil.copytree(
+            mnist_dir,
+            save_dir,
+            ignore=lambda _, names: [name for name in names if name.endswith("hsk")],
+        )
         break
     elif answer == "no" or answer == "n":
         print("nothing happens")
