@@ -162,10 +162,10 @@ impl HuskyComptime {
                 let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
                 match ty_decl.ty_kind {
                     TyKind::Enum => {
-                        p!(ty);
                         let value: &__VirtualEnum =
                             unsafe { value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE) };
-                        todo!()
+                        let enum_variant_decl = &ty_decl.variants.data()[value.kind_idx as usize];
+                        format!("{}::{}", intrinsic_ty.ident(), enum_variant_decl.ident)
                     }
                     TyKind::Record => todo!(),
                     TyKind::Struct => "{ ... }".to_string(),
