@@ -216,12 +216,11 @@ impl HuskyComptime {
                     RootIdentifier::TypeType => todo!(),
                     RootIdentifier::TraitType => todo!(),
                     RootIdentifier::ModuleType => todo!(),
-                    RootIdentifier::CloneTrait => todo!(),
-                    RootIdentifier::CopyTrait => todo!(),
                     RootIdentifier::PartialEqTrait => todo!(),
                     RootIdentifier::EqTrait => todo!(),
                     RootIdentifier::Ref => todo!(),
                     RootIdentifier::Option => todo!(),
+                    _ => panic!(),
                 },
                 EntityRoutePtr::Custom(_) => {
                     todo!()
