@@ -37,23 +37,6 @@ impl<T> ReadSignal<T> {
         (**self.value.borrow()).clone()
     }
 
-    /// Get the current value of the state, without tracking this as a dependency if inside a
-    /// reactive context.
-    ///
-    /// # Example
-    ///
-    /// ```
-    /// # use sycamore_reactive::*;
-    /// # create_scope_immediate(|cx| {
-    /// let state = create_signal(cx, 1);
-    /// let double = create_memo(cx, || *state.get_untracked() * 2);
-    /// assert_eq!(*double.get(), 2);
-    ///
-    /// state.set(2);
-    /// // double value should still be old value because state was untracked
-    /// assert_eq!(*double.get(), 2);
-    /// # });
-    /// ```
     #[must_use = "discarding the returned value does nothing"]
     pub fn get_untracked(&self) -> Rc<T> {
         self.value.borrow().clone()

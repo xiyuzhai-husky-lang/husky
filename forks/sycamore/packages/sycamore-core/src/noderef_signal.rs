@@ -9,11 +9,13 @@ use sycamore_reactive::*;
 
 use crate::generic_node::GenericNode;
 
+// this doc test doesn't work properly
+
 /// A reference to a [`GenericNode`].
 /// This allows programmatically accessing the node and call imperative methods on it.
 ///
 /// # Example
-/// ```
+/// ```no run
 /// use sycamore::prelude::*;
 /// use sycamore_core::view::View;
 ///

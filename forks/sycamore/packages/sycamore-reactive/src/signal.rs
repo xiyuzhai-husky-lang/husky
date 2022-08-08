@@ -289,43 +289,6 @@ where
     create_ref(scope, signal)
 }
 
-/// A signal that is not bound to a [`Scope`].
-///
-/// Sometimes, it is useful to have a signal that can escape the enclosing [reactive scope](Scope).
-/// However, this cannot be achieved simply with [`create_signal`] because the resulting
-/// [`Signal`] is tied to the [`Scope`] by it's lifetime. The [`Signal`] can only live as long as
-/// the [`Scope`].
-///
-/// With [`RcSignal`] on the other hand, the lifetime is not tied to a [`Scope`]. Memory is managed
-/// using a reference-counted smart pointer ([`Rc`]). What this means is that [`RcSignal`] cannot
-/// implement the [`Copy`] trait and therefore needs to be manually cloned into all closures where
-/// it is used.
-///
-/// In general, [`create_signal`] should be preferred, both for performance and ergonomics.
-///
-/// # Usage
-///
-/// To create a [`RcSignal`], use the [`create_rc_signal`] function.
-///
-/// # Example
-/// ```
-/// # use sycamore_reactive::*;
-/// let mut outer = None;
-///
-/// create_scope_immediate(|cx| {
-/// // Even though the RcSignal is created inside a reactive scope, it can escape out of it.
-/// let rc_state = create_rc_signal(0);
-/// let rc_state_cloned = rc_state.clone();
-/// let double = create_memo(cx, move || *rc_state_cloned.get() * 2);
-/// assert_eq!(*double.get(), 0);
-///
-/// rc_state.set(1);
-/// assert_eq!(*double.get(), 2);
-///
-/// // This isn't possible with simply create_signal(_)
-/// outer = Some(rc_state);
-/// });
-/// ```
 pub struct RcSignal<T>(Rc<Signal<T>>)
 where
     T: Signalable;
