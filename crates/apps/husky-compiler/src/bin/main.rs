@@ -1,5 +1,6 @@
 use clap::Parser;
 use husky_compiler::CompilerInstance;
+use relative_path::RelativePathBuf;
 use std::path::PathBuf;
 
 #[derive(Parser)]
@@ -14,5 +15,5 @@ pub struct HuskyCompilerCli {
 
 fn main() {
     let cli = HuskyCompilerCli::parse();
-    CompilerInstance::new("".into(), cli.verbose, cli.dir).compile_all();
+    CompilerInstance::new(cli.verbose, RelativePathBuf::from_path(cli.dir).unwrap()).compile_all();
 }

@@ -63,7 +63,7 @@ debug = 1
         // Cargo.toml
         diff_write(
             &rust_dir.join("Cargo.toml"),
-            &comptime.cargo_toml_content(target_entrance, &self.husky_dir),
+            &comptime.cargo_toml_content(target_entrance, &self.husky_dir.to_path("./")),
         );
 
         // lib.rs

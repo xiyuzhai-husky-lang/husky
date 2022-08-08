@@ -7,11 +7,12 @@ use crate::*;
 pub fn cargo_toml_content(
     db: &dyn RustCodeGenQueryGroup,
     target_entrance: FilePtr,
-    husky_dir: &str,
+    husky_dir: &Path,
 ) -> String {
     let package = db.package(target_entrance).unwrap();
     let package_ident = package.ident;
     let dashed_package_ident = snake_to_dash(&package_ident);
+    let husky_dir = husky_dir.to_str().unwrap();
     msg_once!("ad hoc");
     format!(
         r#"[package]
@@ -23,7 +24,7 @@ edition = "2021"
 rust-version = "1.56"
 
 [dependencies]
-__husky = {{ path = "{husky_dir}/core/crates/static/__husky" }}
+__husky = {{ path = "{husky_dir}/crates/static/__husky" }}
 
 [lib]
 crate-type = ["cdylib"]

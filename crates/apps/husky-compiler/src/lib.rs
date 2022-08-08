@@ -15,20 +15,23 @@ use husky_root_static_defn::__resolve_root_defn;
 use husky_word::snake_to_dash;
 use io_utils::diff_write;
 use path_utils::collect_all_package_dirs;
+use relative_path::RelativePathBuf;
 use std::{
     path::{Path, PathBuf},
     time::Instant,
 };
 
 pub struct CompilerInstance {
-    dir: PathBuf,
-    husky_dir: String,
+    dir: RelativePathBuf,
+    husky_dir: RelativePathBuf,
     verbose: bool,
 }
 
 impl CompilerInstance {
-    pub fn new(husky_dir: String, verbose: bool, dir: PathBuf) -> Self {
+    pub fn new(verbose: bool, dir: RelativePathBuf) -> Self {
         // let flags = flags::husky-compilerompilerFlags::from_env().expect("invalid arguments");
+        let husky_dir: RelativePathBuf = "./".into();
+        let husky_dir = dir.join("__rust_gen__").relative(&husky_dir);
         Self {
             dir,
             husky_dir,
@@ -38,7 +41,7 @@ impl CompilerInstance {
 
     pub fn compile_all(&self) {
         use husky_print_utils::*;
-        let package_dirs = collect_all_package_dirs(&self.dir);
+        let package_dirs = collect_all_package_dirs(&self.dir.to_path("./"));
         println!(
             "{GREEN}\x1B[1mCompiling{RESET} {} 🐺 packages:",
             package_dirs.len()
