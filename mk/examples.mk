@@ -24,5 +24,12 @@ mnist-compiled:
 	# debugger
 	@cargo run -q --bin husky-debugger -- run $(examples_dir)/mnist-classifier
 
+mnist-compiled-backtraced:
+	cargo check
+	@echo compiler
+	RUST_BACKTRACE=1 cargo run -q --bin husky-compiler -- $(examples_dir)/mnist-classifier
+	@echo debugger
+	RUST_BACKTRACE=1 cargo run -q --bin husky-debugger -- run $(examples_dir)/mnist-classifier
+
 print-mnist-qualified-tys:
 	cargo run --bin husky-analyzer-printer print-qualified-tys $(examples_dir)/mnist-classifier

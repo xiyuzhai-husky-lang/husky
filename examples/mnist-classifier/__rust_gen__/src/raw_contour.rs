@@ -70,8 +70,8 @@ pub(crate) enum Direction {
     RIGHT,
 }
 
-impl From<u8> for Direction {
-    fn from(__raw: u8) -> Self {
+impl From<i32> for Direction {
+    fn from(__raw: i32) -> Self {
         match __raw {
             0 => Direction::UP,
             1 => Direction::LEFT,

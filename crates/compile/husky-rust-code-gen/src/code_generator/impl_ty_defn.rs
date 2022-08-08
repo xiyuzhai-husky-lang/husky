@@ -40,12 +40,11 @@ pub(crate) enum "#,
             }
         }
         self.result += "}";
-        msg_once!("todo: tell whether From<u8> is okay (equivalent to enum being simple)");
         self.write(&format!(
             r#"
         
-impl From<u8> for {tyname} {{
-    fn from(__raw: u8) -> Self {{
+impl From<i32> for {tyname} {{
+    fn from(__raw: i32) -> Self {{
         match __raw {{"#,
         ));
         for (i, variant) in variants.iter().enumerate() {

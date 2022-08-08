@@ -16,7 +16,7 @@ pub trait InstructionGenQueryGroup: AskCompileTime {
         member_route: EntityRoutePtr,
     ) -> Option<Arc<InstructionSheet>>;
     fn dataset_config_instruction_sheet(&self, target_entrance: FilePtr) -> Arc<InstructionSheet>;
-    fn enum_literal_as_u8(&self, route: EntityRoutePtr) -> u8;
+    fn enum_literal_to_i32(&self, route: EntityRoutePtr) -> i32;
 }
 
 fn entity_instruction_sheet(
@@ -141,7 +141,7 @@ fn dataset_config_instruction_sheet(
     new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
-fn enum_literal_as_u8(db: &dyn InstructionGenQueryGroup, route: EntityRoutePtr) -> u8 {
+fn enum_literal_to_i32(db: &dyn InstructionGenQueryGroup, route: EntityRoutePtr) -> i32 {
     let ty_decl = db.comptime().ty_decl(route.parent()).unwrap();
     ty_decl
         .variants

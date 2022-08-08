@@ -11,7 +11,7 @@ pub struct VMPatternBranch {
 pub enum VMPattern {
     Primitive(__Register<'static>),
     OneOf(Vec<VMPattern>),
-    EnumKind { kind_idx: u8 },
+    EnumKind { kind_idx: i32 },
 }
 
 impl VMPattern {

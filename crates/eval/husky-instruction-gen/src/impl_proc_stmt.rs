@@ -304,7 +304,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     .collect(),
             ),
             ProcStmtPatternVariant::EnumLiteral(route) => VMPattern::EnumKind {
-                kind_idx: self.db.enum_literal_as_u8(route),
+                kind_idx: self.db.enum_literal_to_i32(route),
             },
         }
     }
