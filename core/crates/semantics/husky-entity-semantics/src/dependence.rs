@@ -148,7 +148,10 @@ impl EntityDefn {
                 });
             }
             EntityDefnVariant::Builtin => (),
-            EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
+            EntityDefnVariant::EnumVariant {
+                enum_variant_defn_variant: ref variant,
+                ..
+            } => match variant {
                 EnumVariantDefnVariant::Constant => (),
             },
             EntityDefnVariant::TyField {
@@ -456,7 +459,10 @@ impl EntityDefn {
             builder: &mut DependeeMapBuilder,
         ) {
             match variant_defn.variant {
-                EntityDefnVariant::EnumVariant { ref variant, .. } => match variant {
+                EntityDefnVariant::EnumVariant {
+                    enum_variant_defn_variant: ref variant,
+                    ..
+                } => match variant {
                     EnumVariantDefnVariant::Constant => (),
                 },
                 _ => panic!(),

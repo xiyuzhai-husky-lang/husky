@@ -27,7 +27,9 @@ pub(crate) enum "#,
         self.write(" {\n");
         for enum_variant_defn in variants {
             match enum_variant_defn.variant {
-                EntityDefnVariant::EnumVariant { ident, ref variant } => match variant {
+                EntityDefnVariant::EnumVariant {
+                    enum_variant_defn_variant: ref variant,
+                } => match variant {
                     EnumVariantDefnVariant::Constant => {
                         self.result += "    ";
                         self.result += &enum_variant_defn.ident;

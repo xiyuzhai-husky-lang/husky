@@ -200,14 +200,21 @@ impl EntityDefnVariant {
                 symbol_context.symbols = symbols.into();
                 symbol_context.opt_this_ty = Some(this_ty);
                 let ty_members = ty_members.map(|ty_member| {
-                    let route = symbol_context.db.intern_entity_route(EntityRoute::subroute(
+                    let route = symbol_context.db.subroute(
                         this_ty,
                         symbol_context.db.intern_word(ty_member.name).custom(),
                         thin_vec![],
-                    ));
+                    );
                     EntityDefn::from_static(db, &mut symbol_context, route, ty_member)
                 });
-                let variants = variants.map(|_| todo!());
+                let variants = variants.map(|variant| {
+                    let route = symbol_context.db.subroute(
+                        this_ty,
+                        symbol_context.db.intern_word(variant.name).custom(),
+                        thin_vec![],
+                    );
+                    EntityDefn::from_static(db, &mut symbol_context, route, variant)
+                });
                 let kind = kind;
                 let trait_impls = trait_impls
                     .map(|trait_impl| TraitImplDefn::from_static(&mut symbol_context, trait_impl));
@@ -244,8 +251,7 @@ impl EntityDefnVariant {
                     variants.insert_new(EntityDefn::new(
                         ident.ident.into(),
                         EntityDefnVariant::EnumVariant {
-                            ident,
-                            variant: match raw_variant_kind {
+                            enum_variant_defn_variant: match raw_variant_kind {
                                 EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
                             },
                         },
@@ -342,7 +348,7 @@ impl EntityDefn {
     pub fn method(&self, member_idx: MemberIdx) -> &Arc<EntityDefn> {
         match self.variant {
             EntityDefnVariant::Ty { ref members, .. } => &members[member_idx.0 as usize],
-            EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
+            EntityDefnVariant::EnumVariant { .. } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
             _ => panic!(),
         }
@@ -352,7 +358,7 @@ impl EntityDefn {
             EntityDefnVariant::Ty { ref ty_members, .. } => {
                 ty_members.get_entry(field_ident).unwrap()
             }
-            EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
+            EntityDefnVariant::EnumVariant { .. } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
             _ => panic!(),
         }
@@ -378,8 +384,7 @@ impl EntityDefnVariant {
         children: Option<AstIter>,
     ) -> EntityDefnVariant {
         EntityDefnVariant::EnumVariant {
-            ident,
-            variant: match enum_variant_kind {
+            enum_variant_defn_variant: match enum_variant_kind {
                 EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
             },
         }

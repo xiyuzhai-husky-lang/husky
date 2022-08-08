@@ -116,7 +116,9 @@ impl HuskyTraceTime {
                 spatial_parameters: ref generic_parameters,
                 ref members,
             } => todo!(),
-            EntityDefnVariant::EnumVariant { ident, ref variant } => todo!(),
+            EntityDefnVariant::EnumVariant {
+                ref enum_variant_defn_variant,
+            } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TyField {
                 field_ty: ty,

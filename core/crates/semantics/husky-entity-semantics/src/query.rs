@@ -65,7 +65,8 @@ pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRout
         EntitySource::StaticModuleItem(_)
         | EntitySource::StaticTypeMember(_)
         | EntitySource::StaticTraitMember(_)
-        | EntitySource::StaticTypeAsTraitMember => (),
+        | EntitySource::StaticTypeAsTraitMember
+        | EntitySource::StaticEnumVariant(_) => (),
         EntitySource::TargetInput { .. } => (), // ad hoc, should consider the task config block
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::Module { file } => todo!(),
@@ -77,7 +78,6 @@ pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRout
             let _dependees = db.entity_dependees(entity_route);
         }
         EntitySource::Any { .. } => todo!(),
-        EntitySource::StaticEnumVariant(_) => todo!(),
     }
     db.entity_route_store().add(entity_route)
 }
