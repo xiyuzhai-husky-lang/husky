@@ -1,0 +1,29 @@
+[package]
+name = "husky-linkage-table"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[dependencies]
+smallvec = "1.8.0"
+colored = "2.0.0"
+vm = { path = "../../vm/husky-vm" }
+map-collect = { path = "../../abstraction/map-collect" }
+upcast = { path = "../../abstraction/upcast" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+sync-utils = { path = "../../utils/husky-sync-utils" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-word = { path = "../../syntax/husky-word" }
+static-defn = { path = "../../static/static-defn" }
+thin-vec = { path = "../../../forks/thin-vec" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-instantiate = { path = "../../infer/husky-instantiate" }
+__husky = { path = "../../static/__husky" }
+husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
+    "binding"
+] }

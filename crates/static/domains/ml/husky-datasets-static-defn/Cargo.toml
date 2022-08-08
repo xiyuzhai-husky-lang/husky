@@ -1,0 +1,23 @@
+[package]
+name = "husky-datasets-static-defn"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+
+[dependencies]
+rand = "0.8.5"
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+xrng = { path = "../../../../utils/husky-rng-utils" }
+husky-word = { path = "../../../../syntax/husky-word" }
+husky-entity-route = { path = "../../../../syntax/husky-entity-route" }
+vm = { path = "../../../../vm/husky-vm" }
+husky-print-utils = { path = "../../../../utils/husky-print-utils" }
+husky-dev-utils = { path = "../../../../utils/husky-dev-utils" }
+husky-static-visualizer = { path = "../../../../static/husky-static-visualizer" }
+entity-kind = { path = "../../../../syntax/entity-kind" }
+static-defn = { path = "../../../static-defn" }
+husky-liason-semantics = { path = "../../../../semantics/husky-liason-semantics" }
+husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
+husky-datasets-interface = { path = "../husky-datasets-interface" }

@@ -182,15 +182,13 @@ where
     T: Signalable,
 {
     pub fn take(&self) -> Rc<T> {
-        todo!()
-        // let ret = self.0.value.take();
-        // self.0.emitter.trigger_subscribers();
-        // ret
+        let ret = self.0.value.take();
+        self.0.emitter.trigger_subscribers();
+        ret
     }
 
     pub fn take_silent(&self) -> Rc<T> {
-        todo!()
-        // self.0.value.take()
+        self.0.value.take()
     }
 }
 

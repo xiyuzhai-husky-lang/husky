@@ -1,0 +1,26 @@
+[package]
+name = "husky-models-static-defn"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+husky-word = { path = "../../../../syntax/husky-word" }
+husky-entity-route = { path = "../../../../syntax/husky-entity-route" }
+vm = { path = "../../../../vm/husky-vm" }
+husky-print-utils = { path = "../../../../utils/husky-print-utils" }
+husky-dev-utils = { path = "../../../../utils/husky-dev-utils" }
+husky-static-visualizer = { path = "../../../../static/husky-static-visualizer" }
+entity-kind = { path = "../../../../syntax/entity-kind" }
+static-defn = { path = "../../../static-defn" }
+husky-liason-semantics = { path = "../../../../semantics/husky-liason-semantics" }
+husky-trace-protocol = { path = "../../../../trace/husky-trace-protocol" }
+husky-vm-register-method = { path = "../../../../vm/husky-vm-register-method" }
+
+[build-dependencies]
+bindgen = "0.60.1"
+husky-rust-code-repr = { path = "../../../../compile/husky-rust-code-repr" }
+husky-write-utils = { path = "../../../../utils/husky-write-utils" }

@@ -1,0 +1,20 @@
+[package]
+name = "husky-vm-interface"
+version = "0.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+husky-vm-binding = { path = "../husky-vm-binding", optional = true }
+husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+
+[features]
+binding = ["dep:husky-vm-binding"]
+vtype = []
+extra = ["binding", "vtype"]
+check = []
+
+[build-dependencies]
+husky-vm-interface-code-gen = { path = "husky-vm-interface-code-gen" }

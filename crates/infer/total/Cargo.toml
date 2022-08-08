@@ -1,0 +1,17 @@
+[package]
+edition = "2021"
+name = "infer-total"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+infer-error = { path = "../error" }
+infer-decl = { path = "../husky-infer-decl" }
+husky-infer-entity-route = { path = "../husky-infer-entity-route" }
+infer-contract = { path = "../husky-infer-contract" }
+husky-infer-qualified-ty = { path = "../husky-infer-qualified-ty" }

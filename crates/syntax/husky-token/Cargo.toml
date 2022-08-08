@@ -1,0 +1,24 @@
+[package]
+edition = "2021"
+name = "husky-token"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+lsp-types = { version = "0.93", features = ["proposed"] }
+salsa = "0.17.0-pre.2"
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+wild-utils = { path = "../../utils/husky-unsafe-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+fold = { path = "../../abstraction/fold" }
+husky-file = { path = "../husky-file" }
+husky-text = { path = "../husky-text" }
+husky-word = { path = "../husky-word" }
+entity-kind = { path = "../entity-kind" }
+husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
+husky-opn-syntax = { path = "../husky-opn-syntax" }

@@ -3,13 +3,10 @@
 import os
 import shutil
 
-husky_dir = os.getenv("HUSKY_DIR")
-assert os.getcwd() == husky_dir
-
-mnist_dir = os.path.join(husky_dir, "examples/cv/mnist-classifier")
+mnist_dir = "examples/cv/mnist-classifier"
 assert os.path.exists(mnist_dir)
 
-qualified_tys_misc_dir = os.path.join(husky_dir, "tests/analyzer/qualified-tys/misc")
+qualified_tys_misc_dir = "tests/analyzer/qualified-tys/misc"
 assert os.path.exists(qualified_tys_misc_dir)
 
 mnist_dir_pattern = "mnist-classifier"

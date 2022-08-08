@@ -1,0 +1,41 @@
+[package]
+name = "husky-eval-time"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+salsa = "0.17.0-pre.2"
+lsp-types = { version = "0.93", features = ["proposed"] }
+indexmap = "1.8.1"
+json-map = { path = "../../abstraction/json-map" }
+singleton = { path = "../../abstraction/singleton" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+interner = { path = "../../abstraction/interner" }
+fold = { path = "../../abstraction/fold" }
+upcast = { path = "../../abstraction/upcast" }
+map-collect = { path = "../../abstraction/map-collect" }
+arena = { path = "../../abstraction/arena" }
+json-result = { path = "../../abstraction/json-result" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-word = { path = "../../syntax/husky-word" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-compile-time = { path = "../../compile/husky-compile-time" }
+vm = { path = "../../vm/husky-vm" }
+trivial-iter = { path = "../../abstraction/trivial-iter" }
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
+husky-feature-gen = { path = "../husky-feature-gen" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+defn-head = { path = "../../syntax/defn-head" }
+husky-feature-eval = { path = "../husky-feature-eval" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-instruction-gen = { path = "../husky-instruction-gen" }
+static-defn = { path = "../../static/static-defn" }
+husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }
+husky-atom = { path = "../../syntax/husky-atom" }
+husky-data-viewer = { path = "../husky-data-viewer" }

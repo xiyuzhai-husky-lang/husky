@@ -1,0 +1,45 @@
+[package]
+name = "husky-rust-code-gen"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+doctest = false
+
+[dependencies]
+convert_case = "0.5.0"
+salsa = "0.17.0-pre.2"
+vec-like = { path = "../../abstraction/vec-like" }
+fold = { path = "../../abstraction/fold" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-token = { path = "../../syntax/husky-token" }
+husky-word = { path = "../../syntax/husky-word" }
+husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-ast = { path = "../../syntax/husky-ast" }
+infer-decl = { path = "../../infer/husky-infer-decl" }
+defn-head = { path = "../../syntax/defn-head" }
+entity-kind = { path = "../../syntax/entity-kind" }
+husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-linkage-table = { path = "../husky-linkage-table" }
+husky-instantiate = { path = "../../infer/husky-instantiate" }
+husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
+husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
+husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
+husky-vm-binding = { path = "../../vm/husky-vm-binding" }
+husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
+husky-rust-code-repr = { path = "../husky-rust-code-repr", features = [
+    "entity_route"
+] }
+husky-write-utils = { path = "../../utils/husky-write-utils" }
