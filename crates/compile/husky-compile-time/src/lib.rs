@@ -182,53 +182,6 @@ impl HuskyComptime {
             EntityRoutePtr::ThisType => todo!(),
         }
     }
-
-    // ad hoc
-    pub fn vtable<'eval>(&self, ty: EntityRoutePtr) -> &'eval __RegisterTyVTable {
-        unsafe {
-            // ad hoc: how to do with Option<>
-            match ty.intrinsic() {
-                EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                    RootIdentifier::Void => todo!(),
-                    RootIdentifier::I32 => &__I32_VTABLE,
-                    RootIdentifier::I64 => todo!(),
-                    RootIdentifier::F32 => todo!(),
-                    RootIdentifier::F64 => todo!(),
-                    RootIdentifier::B32 => todo!(),
-                    RootIdentifier::B64 => todo!(),
-                    RootIdentifier::Bool => todo!(),
-                    RootIdentifier::True => todo!(),
-                    RootIdentifier::False => todo!(),
-                    RootIdentifier::Vec => todo!(),
-                    RootIdentifier::Tuple => todo!(),
-                    RootIdentifier::Debug => todo!(),
-                    RootIdentifier::Std => todo!(),
-                    RootIdentifier::Core => todo!(),
-                    RootIdentifier::Mor => todo!(),
-                    RootIdentifier::Fp => todo!(),
-                    RootIdentifier::Fn => todo!(),
-                    RootIdentifier::FnMut => todo!(),
-                    RootIdentifier::FnOnce => todo!(),
-                    RootIdentifier::Array => todo!(),
-                    RootIdentifier::Domains => todo!(),
-                    RootIdentifier::DatasetType => todo!(),
-                    RootIdentifier::VisualType => todo!(),
-                    RootIdentifier::TypeType => todo!(),
-                    RootIdentifier::TraitType => todo!(),
-                    RootIdentifier::ModuleType => todo!(),
-                    RootIdentifier::PartialEqTrait => todo!(),
-                    RootIdentifier::EqTrait => todo!(),
-                    RootIdentifier::Ref => todo!(),
-                    RootIdentifier::Option => todo!(),
-                    _ => panic!(),
-                },
-                EntityRoutePtr::Custom(_) => {
-                    todo!()
-                }
-                EntityRoutePtr::ThisType => todo!(),
-            }
-        }
-    }
 }
 
 pub trait AskCompileTime {

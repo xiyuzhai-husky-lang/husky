@@ -207,12 +207,12 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_unreturned(vtable: &'eval __RegisterTyVTable) -> __Register<'eval> {
+    pub fn new_unreturned() -> __Register<'eval> {
         unsafe {
             __Register {
                 data_kind: __RegisterDataKind::Unreturned,
                 data: __RegisterData { as_void: () },
-                vtable,
+                vtable: &__VOID_VTABLE,
             }
         }
     }
