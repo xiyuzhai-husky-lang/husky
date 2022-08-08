@@ -89,7 +89,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
             }
         }
         EntityKind::Feature => return false,
-        EntityKind::EnumLiteral => return false,
+        EntityKind::EnumVariant => return false,
         EntityKind::Main => todo!(),
     }
     false

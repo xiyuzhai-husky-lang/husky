@@ -214,7 +214,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     ty,
                 )),
                 EntityKind::Member(_) | EntityKind::Function { .. } => todo!(),
-                EntityKind::EnumLiteral => {
+                EntityKind::EnumVariant => {
                     Ok(LazyValueQualifiedTy::new(LazyExprQualifier::Copyable, ty))
                 }
                 EntityKind::Main => panic!(),

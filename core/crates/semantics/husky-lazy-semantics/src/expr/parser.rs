@@ -49,7 +49,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 ..
             } => match kind {
                 EntityKind::Module => todo!(),
-                EntityKind::EnumLiteral => match entity_route {
+                EntityKind::EnumVariant => match entity_route {
                     EntityRoutePtr::Root(RootIdentifier::True) => {
                         LazyExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(true))
                     }
@@ -424,7 +424,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                         }
                     }
                     EntityKind::Feature => todo!(),
-                    EntityKind::EnumLiteral => todo!(),
+                    EntityKind::EnumVariant => todo!(),
                     EntityKind::Member(_) => todo!(),
                     EntityKind::Main => panic!(),
                 };

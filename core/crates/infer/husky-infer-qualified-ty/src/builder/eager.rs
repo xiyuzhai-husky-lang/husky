@@ -293,7 +293,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Feature => Ok(EagerValueQualifiedTy::feature_ty(
                     self.raw_expr_ty(raw_expr_idx)?,
                 )),
-                EntityKind::EnumLiteral => Ok(EagerValueQualifiedTy {
+                EntityKind::EnumVariant => Ok(EagerValueQualifiedTy {
                     qual: EagerExprQualifier::Copyable,
                     ty: self.raw_expr_intrinsic_ty(raw_expr_idx)?,
                 }),

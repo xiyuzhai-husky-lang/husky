@@ -2,6 +2,7 @@ mod module_tree;
 mod rel;
 
 use husky_check_utils::should_satisfy;
+use husky_print_utils::p;
 pub use module_tree::*;
 pub use rel::*;
 

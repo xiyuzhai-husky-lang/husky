@@ -608,6 +608,7 @@ pub(crate) fn entity_defn(
             file,
             range,
         } => Ok(EntityDefn::from_generic(ident, route, file, range)),
+        EntitySource::StaticEnumVariant(_) => todo!(),
     }
 }
 

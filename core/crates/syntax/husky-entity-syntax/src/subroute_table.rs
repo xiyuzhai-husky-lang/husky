@@ -266,7 +266,14 @@ impl SubrouteTable {
                     })
                 }
                 for variant in variants {
-                    todo!()
+                    entries.push(SubrouteEntry {
+                        ident: Some(RangedCustomIdentifier {
+                            ident: db.custom_ident(variant.name),
+                            range: Default::default(),
+                        }),
+                        kind: EntityKind::EnumVariant,
+                        source: EntitySource::StaticEnumVariant(variant),
+                    })
                 }
             }
             EntityStaticDefnVariant::Trait {

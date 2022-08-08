@@ -87,7 +87,7 @@ impl SemanticTokenKind {
                 },
                 EntityKind::Function { .. } => SemanticTokenType::FUNCTION,
                 EntityKind::Feature => SemanticTokenType::VARIABLE,
-                EntityKind::EnumLiteral => SemanticTokenType::VARIABLE,
+                EntityKind::EnumVariant => SemanticTokenType::VARIABLE,
                 EntityKind::Main => panic!(),
             },
             SemanticTokenKind::GenericPlaceholder => SemanticTokenType::TYPE_PARAMETER,

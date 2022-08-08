@@ -9,6 +9,7 @@ pub enum EntitySource {
     StaticModuleItem(&'static EntityStaticDefn),
     StaticTypeMember(&'static EntityStaticDefn),
     StaticTraitMember(&'static EntityStaticDefn),
+    StaticEnumVariant(&'static EntityStaticDefn),
     StaticTypeAsTraitMember,
     WithinBuiltinModule,
     WithinModule {

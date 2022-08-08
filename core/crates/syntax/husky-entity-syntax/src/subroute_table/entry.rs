@@ -35,7 +35,7 @@ impl SubrouteEntry {
                             ident,
                             range: token_group[0].range,
                         }),
-                        kind: EntityKind::EnumLiteral,
+                        kind: EntityKind::EnumVariant,
                         source: EntitySource::from_file(file, token_group_index),
                     }))
                 }

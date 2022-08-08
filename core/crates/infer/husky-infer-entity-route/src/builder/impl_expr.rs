@@ -86,7 +86,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         Ok(match entity_kind {
             EntityKind::Module => EntityRoutePtr::Root(RootIdentifier::ModuleType),
-            EntityKind::EnumLiteral => match entity_route {
+            EntityKind::EnumVariant => match entity_route {
                 EntityRoutePtr::Root(RootIdentifier::True)
                 | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
                 EntityRoutePtr::Custom(route) => match route.variant {

@@ -42,7 +42,7 @@ fn subroute_table(
     match db.entity_kind(entity_route)? {
         EntityKind::Function { .. }
         | EntityKind::Feature
-        | EntityKind::EnumLiteral
+        | EntityKind::EnumVariant
         | EntityKind::Main
         | EntityKind::Member(_) => Ok(Arc::new(SubrouteTable::new(entity_route, entity_kind))),
         EntityKind::Module | EntityKind::Type(_) | EntityKind::Trait => {
@@ -72,6 +72,7 @@ fn subroute_table(
                 EntitySource::StaticTraitMember(_) => todo!(),
                 EntitySource::StaticTypeAsTraitMember => todo!(),
                 EntitySource::Any { .. } => todo!(),
+                EntitySource::StaticEnumVariant(_) => todo!(),
             }))
         }
     }
@@ -139,7 +140,7 @@ fn entity_kind_from_entity_route_kind(
             RootIdentifier::TraitType | RootIdentifier::TypeType | RootIdentifier::ModuleType => {
                 EntityKind::Type(TyKind::HigherKind)
             }
-            RootIdentifier::True | RootIdentifier::False => EntityKind::EnumLiteral,
+            RootIdentifier::True | RootIdentifier::False => EntityKind::EnumVariant,
             RootIdentifier::Fn | RootIdentifier::FnMut | RootIdentifier::FnOnce => {
                 EntityKind::Trait
             }
@@ -220,6 +221,7 @@ fn entity_source(
                     EntitySource::StaticTraitMember(_) => todo!(),
                     EntitySource::StaticTypeAsTraitMember => todo!(),
                     EntitySource::Any { .. } => todo!(),
+                    EntitySource::StaticEnumVariant(_) => todo!(),
                 }
             }
         },
@@ -377,6 +379,7 @@ pub trait EntitySyntaxQueryGroup:
             EntitySource::StaticTraitMember(_) => todo!(),
             EntitySource::StaticTypeAsTraitMember => todo!(),
             EntitySource::Any { .. } => todo!(),
+            EntitySource::StaticEnumVariant(_) => todo!(),
         })
     }
 

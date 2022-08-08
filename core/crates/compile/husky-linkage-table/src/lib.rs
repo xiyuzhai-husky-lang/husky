@@ -225,6 +225,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
                 EntitySource::Module { file } => todo!(),
                 EntitySource::TargetInput => todo!(),
                 EntitySource::Any { .. } => todo!(),
+                EntitySource::StaticEnumVariant(_) => todo!(),
             },
             || format!("routine {routine}"),
         )

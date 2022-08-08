@@ -43,7 +43,7 @@ pub enum EntityKind {
     Member(MemberKind),
     Function { requires_lazy: bool },
     Feature,
-    EnumLiteral,
+    EnumVariant,
     Main,
 }
 
