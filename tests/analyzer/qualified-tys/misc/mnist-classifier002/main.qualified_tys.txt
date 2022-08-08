@@ -25,12 +25,14 @@ lazy expr:
     35:9..35:34    find_connected_components   InferError: failed to infer expr ty
     35:35..35:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     35:9..35:41    find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
-    36:5..36:6     d                      PureRef []domains::ml::datasets::cv::mnist::BinaryImage28
-    36:5..36:13    d.ilen()               Copyable i32
+    36:5..36:13    d.ilen()               InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
+kind:
+Original { message: "expect ?domains::ml::datasets::cv::mnist::MnistLabel but get i32 instead", range: 36:5..36:13 }
 
 eager expr:
     4:5..4:48      ml::datasets::cv::mnist::new_binary_dataset   InferError: failed to infer expr ty
-    4:5..4:50      ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>
+    4:5..4:50      ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>
     8:23..8:24     x                      Copyable     b32
     8:28..8:29     1                      Copyable     i32
     8:23..8:29     x << 1                 Copyable     b32
@@ -134,5 +136,7 @@ lazy expr:
     35:9..35:34    find_connected_components   InferError: failed to infer expr ty
     35:35..35:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     35:9..35:41    find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
-    36:5..36:6     d                      PureRef []domains::ml::datasets::cv::mnist::BinaryImage28
-    36:5..36:13    d.ilen()               Copyable i32
+    36:5..36:13    d.ilen()               InferError: InferError:
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
+kind:
+Original { message: "expect ?domains::ml::datasets::cv::mnist::MnistLabel but get i32 instead", range: 36:5..36:13 }
