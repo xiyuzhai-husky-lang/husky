@@ -88,6 +88,7 @@ pub enum EntityStaticDefnVariant {
         ty: &'static str,
     },
     TraitAssociatedConstSize,
+    EnumVariant,
 }
 
 impl EntityStaticDefnVariant {
@@ -108,6 +109,7 @@ impl EntityStaticDefnVariant {
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+            EntityStaticDefnVariant::EnumVariant => EntityKind::EnumLiteral,
         }
     }
 }

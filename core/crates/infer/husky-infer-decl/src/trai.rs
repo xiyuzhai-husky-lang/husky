@@ -225,6 +225,7 @@ pub(crate) fn trait_decl(
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: route } => todo!(),
+            EntityStaticDefnVariant::EnumVariant => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
         EntitySource::WithinModule {

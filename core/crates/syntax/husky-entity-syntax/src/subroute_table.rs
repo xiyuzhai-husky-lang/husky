@@ -299,6 +299,7 @@ impl SubrouteTable {
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: route } => todo!(),
+            EntityStaticDefnVariant::EnumVariant => todo!(),
         }
         Self {
             route,
