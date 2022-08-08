@@ -1,0 +1,30 @@
+[workspace]
+members = [
+    "crates/syntax/*",
+    "crates/infer/*",
+    "crates/semantics/*",
+    "crates/compile/*",
+    "crates/eval/*",
+    "crates/vm/*",
+    "crates/trace/*",
+    "crates/apps/*",
+    "crates/static/husky-root-static-defn",
+    "crates/static/static-defn",
+    "crates/static/domains/ml/*",
+    "crates/static/__husky",
+    "crates/static/static-defn",
+    "crates/static/husky-static-visualizer",
+    "crates/try",
+    "crates/gui/*"
+]
+
+[profile.dev]
+opt-level = 1
+panic = "unwind"
+
+[profile.test]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
+lto = true

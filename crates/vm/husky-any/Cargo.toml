@@ -1,0 +1,26 @@
+[package]
+name = "husky-any"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+indexmap = "1.8.1"
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+path-utils = { path = "../../utils/husky-path-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+vec-like = { path = "../../abstraction/vec-like" }
+husky-word = { path = "../../syntax/husky-word" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+thin-vec = { path = "../../../forks/thin-vec" }
+husky-vm-runtime-error = { path = "../husky-vm-runtime-error" }
+husky-vm-interface = { path = "../../vm/husky-vm-interface" }
+
+[build-dependencies]
+husky-rust-code-repr = { path = "../../compile/husky-rust-code-repr" }
+husky-write-utils = { path = "../../utils/husky-write-utils" }

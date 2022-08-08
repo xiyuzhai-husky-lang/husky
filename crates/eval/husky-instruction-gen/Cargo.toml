@@ -1,0 +1,38 @@
+[package]
+name = "husky-instruction-gen"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+doctest = false
+
+[dependencies]
+salsa = "0.17.0-pre.2"
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+fold = { path = "../../abstraction/fold" }
+map-collect = { path = "../../abstraction/map-collect" }
+avec = { path = "../../abstraction/avec" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-word = { path = "../../syntax/husky-word" }
+husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+vm = { path = "../../vm/husky-vm" }
+infer-decl = { path = "../../infer/husky-infer-decl" }
+husky-linkage-table = { path = "../../compile/husky-linkage-table" }
+static-defn = { path = "../../static/static-defn" }
+entity-kind = { path = "../../syntax/entity-kind" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-compile-time = { path = "../../compile/husky-compile-time" }
+husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-literal-semantics" }
+husky-vm-primitive-opr-linkage = { path = "../../vm/husky-vm-primitive-opr-linkage" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
+husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
+husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }

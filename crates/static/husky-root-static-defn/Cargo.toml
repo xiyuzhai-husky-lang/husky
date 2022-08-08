@@ -1,0 +1,29 @@
+[package]
+name = "husky-root-static-defn"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+
+[dependencies]
+rand = "0.8.5"
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+xrng = { path = "../../utils/husky-rng-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-test-utils = { path = "../../utils/husky-test-utils" }
+cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+husky-word = { path = "../../syntax/husky-word" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+vm = { path = "../../vm/husky-vm" }
+husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
+entity-kind = { path = "../../syntax/entity-kind" }
+static-defn = { path = "../static-defn" }
+husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-models-static-defn = { path = "../domains/ml/husky-models-static-defn" }
+husky-datasets-static-defn = { path = "../domains/ml/husky-datasets-static-defn" }
+__husky = { path = "../__husky" }
+husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }

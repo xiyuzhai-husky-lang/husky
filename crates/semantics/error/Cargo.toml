@@ -1,0 +1,16 @@
+[package]
+edition = "2021"
+name = "semantics-error"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+vm = { path = "../../vm/husky-vm" }
+infer-error = { path = "../../infer/error" }

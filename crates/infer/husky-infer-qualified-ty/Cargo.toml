@@ -1,0 +1,35 @@
+[package]
+edition = "2021"
+name = "husky-infer-qualified-ty"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+salsa = "0.17.0-pre.2"
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-test-utils = { path = "../../utils/husky-test-utils" }
+husky-display-utils = { path = "../../utils/husky-display-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+fold = { path = "../../abstraction/fold" }
+arena = { path = "../../abstraction/arena" }
+vec-like = { path = "../../abstraction/vec-like" }
+vm = { path = "../../vm/husky-vm" }
+infer-error = { path = "../error" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-infer-entity-route = { path = "../husky-infer-entity-route" }
+infer-contract = { path = "../husky-infer-contract" }
+infer-decl = { path = "../husky-infer-decl" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-word = { path = "../../syntax/husky-word" }
+entity-kind = { path = "../../syntax/entity-kind" }
+defn-head = { path = "../../syntax/defn-head" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-init-syntax = { path = "../../syntax/husky-init-syntax" }

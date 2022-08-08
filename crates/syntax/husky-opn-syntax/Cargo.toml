@@ -1,0 +1,13 @@
+[package]
+name = "husky-opn-syntax"
+version = "0.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+husky-pattern-syntax = { path = "../husky-pattern-syntax" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-entity-route = { path = "../../syntax/husky-entity-route" }
+thin-vec = { path = "../../../forks/thin-vec" }
+husky-word = { path = "../husky-word" }
+husky-text = { path = "../husky-text" }
