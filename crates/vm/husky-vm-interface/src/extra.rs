@@ -246,7 +246,11 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => panic!(),
             __RegisterDataKind::TempMut => panic!(),
             __RegisterDataKind::Moved => panic!(),
-            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Undefined => {
+                if unsafe { !self.data.as_ptr.is_null() } {
+                    todo!()
+                }
+            }
             __RegisterDataKind::Unreturned => panic!(),
         }
     }
@@ -262,8 +266,9 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => unsafe { self.verbatim_copy() },
+            __RegisterDataKind::Undefined | __RegisterDataKind::Unreturned => unsafe {
+                self.verbatim_copy()
+            },
         }
     }
 

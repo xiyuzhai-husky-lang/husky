@@ -386,7 +386,6 @@ impl<'eval> Drop for __Register<'eval> {
                 if !unsafe { self.data.as_ptr }.is_null() {
                     todo!()
                 }
-                todo!()
             }
             _ => (),
         }
