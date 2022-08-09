@@ -58,7 +58,12 @@ fn feature_repr_opt_stats(
     if !comptime.is_implicitly_castable(repr.ty(), target_output_ty) {
         return Ok(None);
     }
+    let mut samples = 0;
+    let mut arrivals = 0;
+    let mut trues = 0;
+    let mut falses = 0;
     for labeled_data in db.session().dev().each_labeled_data() {
+        samples += 1;
         let sample_id = labeled_data.sample_id;
         if !db
             .eval_opt_arrival_indicator(opt_arrival_indicator, sample_id)
@@ -66,6 +71,7 @@ fn feature_repr_opt_stats(
         {
             continue;
         }
+        arrivals += 1;
         let value = db
             .eval_feature_repr_cached(repr, sample_id)
             .map_err(|_| todo!())?;
@@ -79,8 +85,8 @@ fn feature_repr_opt_stats(
                         .kind_idx,
                 );
                 match prediction == labeled_data.label {
-                    true => todo!(),
-                    false => todo!(),
+                    true => trues += 1,
+                    false => falses += 1,
                 }
             }
             __RegisterDataKind::TempRef => todo!(),
@@ -89,7 +95,6 @@ fn feature_repr_opt_stats(
             __RegisterDataKind::Undefined => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
-        todo!()
     }
     // runtime.
     todo!()

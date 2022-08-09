@@ -9,7 +9,7 @@ impl HuskyTraceTime {
         expr: &FeatureExpr,
     ) -> Option<Vec<TraceId>> {
         match expr.variant {
-            FeatureExprVariant::PrimitiveLiteral(_)
+            FeatureExprVariant::Literal(_)
             | FeatureExprVariant::PrimitiveBinaryOpr { .. }
             | FeatureExprVariant::Variable { .. } => None,
             FeatureExprVariant::RoutineCall {
@@ -51,7 +51,6 @@ impl HuskyTraceTime {
             FeatureExprVariant::ThisValue { ref repr } => todo!(),
             FeatureExprVariant::RecordDerivedField { .. } => todo!(),
             FeatureExprVariant::StructOriginalField { .. } => panic!(),
-            FeatureExprVariant::EnumKindLiteral { .. } => panic!(),
             FeatureExprVariant::EvalInput => panic!(),
             FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
             FeatureExprVariant::StructDerivedLazyField { ref repr, .. } => {

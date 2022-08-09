@@ -20,7 +20,7 @@ impl<'a> TraceTokenBuilder<'a> {
             None
         };
         match expr.variant {
-            FeatureExprVariant::PrimitiveLiteral(_) => match expr.expr.variant {
+            FeatureExprVariant::Literal(_) => match expr.expr.variant {
                 LazyExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
                 _ => panic!(),
             },
@@ -103,7 +103,6 @@ impl<'a> TraceTokenBuilder<'a> {
                 },
                 _ => panic!(),
             },
-            FeatureExprVariant::EnumKindLiteral { .. } => todo!(),
             FeatureExprVariant::EntityFeature { .. } => {
                 let text = self
                     .runtime_singleton

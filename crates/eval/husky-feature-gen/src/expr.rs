@@ -7,7 +7,7 @@ use husky_primitive_literal_semantics::{
 };
 pub use xml::*;
 
-use vm::{__Linkage, __Register};
+use vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
 use husky_entity_route::EntityRouteVariant;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
@@ -54,11 +54,7 @@ impl<'eval> Eq for FeatureExpr {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureExprVariant {
-    PrimitiveLiteral(__Register<'static>),
-    EnumKindLiteral {
-        entity_route: EntityRoutePtr,
-        uid: EntityUid,
-    },
+    Literal(__Register<'static>),
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,
         opds: Vec<Arc<FeatureExpr>>,
@@ -137,8 +133,7 @@ pub enum FeatureExprVariant {
 impl FeatureExprVariant {
     pub fn kind(&self) -> &'static str {
         match self {
-            FeatureExprVariant::PrimitiveLiteral(_) => "PrimitiveLiteral",
-            FeatureExprVariant::EnumKindLiteral { .. } => "EnumKindLiteral",
+            FeatureExprVariant::Literal(_) => "Literal",
             FeatureExprVariant::PrimitiveBinaryOpr { .. } => "PrimitiveBinaryOpr",
             FeatureExprVariant::Variable { .. } => "Variable",
             FeatureExprVariant::ThisValue { .. } => "ThisValue",
@@ -208,10 +203,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 })
                 .unwrap(),
             LazyExprVariant::PrimitiveLiteral(data) => (
-                FeatureExprVariant::PrimitiveLiteral(convert_primitive_literal_to_register(
-                    data,
-                    expr.ty(),
-                )),
+                FeatureExprVariant::Literal(convert_primitive_literal_to_register(data, expr.ty())),
                 self.features.intern(Feature::PrimitiveLiteral(
                     convert_primitive_literal_to_value(data, expr.ty()),
                 )),
@@ -222,10 +214,12 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
             LazyExprVariant::Lambda(_, _) => todo!(),
             LazyExprVariant::EnumLiteral { entity_route } => (
-                FeatureExprVariant::EnumKindLiteral {
-                    entity_route,
-                    uid: self.db.comptime().entity_uid(entity_route),
-                },
+                FeatureExprVariant::Literal(
+                    __VirtualEnum {
+                        kind_idx: self.db.enum_literal_to_i32(entity_route),
+                    }
+                    .to_register(),
+                ),
                 self.features.intern(Feature::EnumLiteral(entity_route)),
             ),
             LazyExprVariant::ThisValue { .. } => (

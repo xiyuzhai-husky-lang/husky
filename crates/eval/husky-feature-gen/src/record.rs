@@ -72,10 +72,9 @@ pub(crate) fn expr_record_field<'eval>(
             }
             _ => panic!(),
         },
-        FeatureExprVariant::EnumKindLiteral { .. }
-        | FeatureExprVariant::PrimitiveBinaryOpr { .. }
+        FeatureExprVariant::PrimitiveBinaryOpr { .. }
         | FeatureExprVariant::StructOriginalField { .. }
-        | FeatureExprVariant::PrimitiveLiteral(_) => {
+        | FeatureExprVariant::Literal(_) => {
             p!(this.variant);
             panic!()
         }

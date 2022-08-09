@@ -440,10 +440,9 @@ impl<'a> FeatureExprBuilder<'a> {
                 _ => panic!(),
             },
             FeatureExprVariant::RoutineCall { .. }
-            | FeatureExprVariant::EnumKindLiteral { .. }
             | FeatureExprVariant::PrimitiveBinaryOpr { .. }
             | FeatureExprVariant::StructOriginalField { .. }
-            | FeatureExprVariant::PrimitiveLiteral(_) => {
+            | FeatureExprVariant::Literal(_) => {
                 panic!()
             }
             FeatureExprVariant::ThisValue { ref repr } => todo!(),

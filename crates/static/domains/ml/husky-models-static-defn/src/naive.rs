@@ -98,14 +98,7 @@ impl Model for NaiveI32 {
         let argument = arguments[0].downcast_i32();
         match internal.most_likely_labels.get(&argument) {
             Some(l) => Ok(__VirtualEnum { kind_idx: l.0 }.to_register()),
-            // Ok(l.0.to_register()),
-            None => {
-                p!(argument);
-                panic!();
-                Ok(__Register::new_undefined(
-                    todo!(), // &__I64_VTABLE
-                ))
-            }
+            None => Ok(__Register::new_undefined(&__VIRTUAL_ENUM_VTABLE)),
         }
     }
 
