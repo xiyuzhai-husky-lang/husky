@@ -16,10 +16,7 @@ use super::FeatureEvaluator;
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn eval_expr(&self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
         match expr.variant {
-            FeatureExprVariant::PrimitiveLiteral(ref value) => Ok(unsafe { value.verbatim_copy() }),
-            FeatureExprVariant::EnumKindLiteral { entity_route, uid } => {
-                todo!()
-            }
+            FeatureExprVariant::Literal(ref value) => Ok(unsafe { value.verbatim_copy() }),
             FeatureExprVariant::PrimitiveBinaryOpr {
                 linkage, ref opds, ..
             } => self.eval_routine_call(&None, Some(linkage), expr.expr.ty(), opds),

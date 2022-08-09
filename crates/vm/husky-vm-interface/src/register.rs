@@ -192,7 +192,9 @@ impl<'eval> __Register<'eval> {
     pub fn new_undefined(proto: &'eval __RegisterTyVTable) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
-            data: __RegisterData { as_void: () },
+            data: __RegisterData {
+                as_ptr: std::ptr::null_mut(),
+            },
             vtable: proto,
         }
     }
@@ -381,6 +383,9 @@ impl<'eval> Drop for __Register<'eval> {
             },
             __RegisterDataKind::Undefined => {
                 // when undefined, opt_data might hold a message
+                if !unsafe { self.data.as_ptr }.is_null() {
+                    todo!()
+                }
                 todo!()
             }
             _ => (),

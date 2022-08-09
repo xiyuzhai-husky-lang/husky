@@ -29,11 +29,10 @@ impl<'eval> TraceVariant<'eval> {
             | TraceVariant::EntityFeature { .. }
             | TraceVariant::FeatureBranch(_) => true,
             TraceVariant::FeatureExpr(expr) => match expr.variant {
-                FeatureExprVariant::PrimitiveLiteral(_)
+                FeatureExprVariant::Literal(_)
                 | FeatureExprVariant::PrimitiveBinaryOpr { .. }
                 | FeatureExprVariant::Variable { .. } => false,
                 FeatureExprVariant::StructOriginalField { .. } => false,
-                FeatureExprVariant::EnumKindLiteral { .. } => false,
                 FeatureExprVariant::EntityFeature { .. } => true,
                 FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
                 FeatureExprVariant::RecordOriginalField { .. } => false,
