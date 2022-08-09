@@ -1,5 +1,6 @@
 use crate::*;
 use husky_compile_time::*;
+use husky_trace_protocol::TraceStats;
 use vm::{__RegisterDataKind, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 
 impl<'eval> TraceVariant<'eval> {
@@ -60,6 +61,7 @@ fn feature_repr_opt_stats(
     }
     let mut samples = 0;
     let mut arrivals = 0;
+    let mut nulls = 0;
     let mut trues = 0;
     let mut falses = 0;
     for labeled_data in db.session().dev().each_labeled_data() {
@@ -92,10 +94,15 @@ fn feature_repr_opt_stats(
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::Undefined => nulls += 1,
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
-    // runtime.
-    todo!()
+    Ok(Some(TraceStats::Classification {
+        samples,
+        arrivals,
+        nulls,
+        trues,
+        falses,
+    }))
 }
