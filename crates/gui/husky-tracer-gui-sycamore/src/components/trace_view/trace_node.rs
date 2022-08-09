@@ -1,6 +1,6 @@
-use web_sys::Event;
-
 use super::*;
+use husky_trace_protocol::TraceStats;
+use web_sys::Event;
 
 #[derive(Prop)]
 pub struct TraceNodeProps<'a> {
@@ -46,7 +46,8 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                             None
                         }
                     });
-                view! { scope,
+                view! {
+                    scope,
                     TraceLine {
                         data: line_data,
                         is_trace_active,
@@ -78,6 +79,16 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 },
             ) {
                 (trace_lines)
+                (if let Some(ref stats) = trace.opt_stats {
+                    view!{
+                        scope,
+                        TraceStatsView {
+                            stats,
+                        }
+                    }
+                } else {
+                    view!{ scope, }
+                })
             }
         }
     }
