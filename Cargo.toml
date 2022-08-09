@@ -14,9 +14,9 @@ members = [
     "crates/static/__husky",
     "crates/static/static-defn",
     "crates/static/husky-static-visualizer",
-    "crates/try",
-    "crates/gui/*"
+    "crates/try"
 ]
+exclude = ["crates/gui"]
 
 [profile.dev]
 opt-level = 1
