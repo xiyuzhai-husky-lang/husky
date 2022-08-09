@@ -149,6 +149,7 @@ impl HuskyTraceTime {
                     reachable,
                     lines,
                     kind: variant.kind(),
+                    opt_stats: variant.opt_stats(self.runtime()),
                 },
                 variant,
                 file,
