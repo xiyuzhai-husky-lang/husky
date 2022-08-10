@@ -18,8 +18,8 @@ pub(crate) enum A {
     Haha,
 }
 
-impl From<u8> for A {
-    fn from(__raw: u8) -> Self {
+impl From<i32> for A {
+    fn from(__raw: i32) -> Self {
         match __raw {
             0 => A::Haha,
             _ => panic!(),

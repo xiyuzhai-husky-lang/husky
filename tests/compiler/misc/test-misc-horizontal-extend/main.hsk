@@ -1,3 +1,5 @@
+use domains::ml::datasets::cv::mnist::MnistLabel
+
 task:
     ml::datasets::cv::mnist::new_binary_dataset()
 
@@ -14,4 +16,4 @@ main:
     assert horizontal_extend(0b32, 0b32) == 0b32
     assert horizontal_extend(3b32, 1b32) == 3b32
     assert horizontal_extend(255b32, 1b32) == 255b32
-    1
+    MnistLabel::Nine
