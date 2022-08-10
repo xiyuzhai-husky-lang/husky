@@ -9,7 +9,7 @@ Still, if one's curious about what's going on, please take a look at the other r
 
 # Useful Links
 
-## Repository
+## Repositories
 
 Torch Quantum <https://github.com/mit-han-lab/torchquantum/>
 
