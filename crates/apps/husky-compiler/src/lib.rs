@@ -33,7 +33,7 @@ impl CompilerInstance {
 
     pub fn compile_all(&self) {
         use husky_print_utils::*;
-        let package_dirs = collect_all_package_dirs(&self.dir.to_path("./"));
+        let package_dirs = collect_all_package_dirs(&self.dir.to_path(""));
         println!(
             "{GREEN}\x1B[1mCompiling{RESET} {} 🐺 packages:",
             package_dirs.len()

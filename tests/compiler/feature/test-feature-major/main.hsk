@@ -1,4 +1,5 @@
 use domains::ml::datasets::cv::mnist::BinaryImage28
+use domains::ml::datasets::cv::mnist::MnistLabel
 
 task:
     ml::datasets::cv::mnist::new_binary_dataset()
@@ -7,4 +8,8 @@ def a_feature -> i32:
     1
 
 main:
-    a_feature
+    a = a_feature
+    if a == 1:
+        MnistLabel::One
+    else:
+        MnistLabel::Zero
