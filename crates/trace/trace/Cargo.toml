@@ -30,3 +30,4 @@ husky-ast = { path = "../../syntax/husky-ast" }
 defn-head = { path = "../../syntax/defn-head" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-compile-time = { path = "../../compile/husky-compile-time" }
+entity-kind = { path = "../../syntax/entity-kind" }
