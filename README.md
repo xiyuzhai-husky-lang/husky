@@ -9,9 +9,11 @@ Still, if one's curious about what's going on, please take a look at the other r
 
 # Useful Links
 
-## Greate Youtube Channels
+## Great Youtube Channels I Saw
 
 ### programming
+
+Healthy Software Developer <https://www.youtube.com/c/JaymeEdwardsMedia/>
 
 Jon Gjengset <https://www.youtube.com/c/JonGjengset/>
 
