@@ -9,7 +9,11 @@ Still, if one's curious about what's going on, please take a look at the other r
 
 # Useful Links
 
-## Great Youtube Channels I Saw
+## Repository
+
+Torch Quantum <https://github.com/mit-han-lab/torchquantum/>
+
+## Youtube Channels
 
 ### programming
 
