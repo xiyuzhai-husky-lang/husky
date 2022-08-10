@@ -23,20 +23,12 @@ use std::{
 
 pub struct CompilerInstance {
     dir: RelativePathBuf,
-    husky_dir: RelativePathBuf,
     verbose: bool,
 }
 
 impl CompilerInstance {
     pub fn new(verbose: bool, dir: RelativePathBuf) -> Self {
-        // let flags = flags::husky-compilerompilerFlags::from_env().expect("invalid arguments");
-        let husky_dir: RelativePathBuf = "./".into();
-        let husky_dir = dir.join("__rust_gen__").relative(&husky_dir);
-        Self {
-            dir,
-            husky_dir,
-            verbose,
-        }
+        Self { dir, verbose }
     }
 
     pub fn compile_all(&self) {
