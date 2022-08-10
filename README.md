@@ -1,4 +1,4 @@
-# husky
+# Husky
 The Husky Programming Language
 
 Make programming great again!
@@ -7,16 +7,18 @@ Warning: this repo is still under heavy construction. For example, documentation
 
 Still, if one's curious about what's going on, please take a look at the other repo xiyuzhai/husky-book, where I'll update on a higher priority.
 
-# greate youtube channels
+# Useful Links
 
-## programming
+## Greate Youtube Channels
+
+### programming
 
 Jon Gjengset <https://www.youtube.com/c/JonGjengset/>
 
 ThePrimeagen <https://www.youtube.com/c/ThePrimeagen/>
 
 
-## huskies
+### huskies
 
 Gone to the Snow Dogs <https://www.youtube.com/gttsd/>
 
