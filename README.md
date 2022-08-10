@@ -9,9 +9,15 @@ Still, if one's curious about what's going on, please take a look at the other r
 
 # useful links
 ## husky
+
 Gone to the Snow Dogs <https://www.youtube.com/gttsd/>
+
 Maya Husky <https://www.youtube.com/c/MayaHusky/>
+
 K'eyush The Stunt Dog <https://www.youtube.com/c/KeyushTheStuntDog/>
+
 Gohan The Husky <https://www.youtube.com/c/GohanTheHusky/>
+
 Skaya Siberian <https://www.youtube.com/c/SkayaSiberian/>
+
 Sixty Formula <https://www.youtube.com/c/SixtyFormula/>
