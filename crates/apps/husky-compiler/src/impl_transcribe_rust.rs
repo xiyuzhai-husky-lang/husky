@@ -60,10 +60,15 @@ debug = 1
 "#,
         );
 
+        let husky_dir: RelativePathBuf = "./".into();
+        let husky_dir = RelativePathBuf::from_path(package_dir.join("__rust_gen__"))
+            .unwrap()
+            .relative(&husky_dir);
+
         // Cargo.toml
         diff_write(
             &rust_dir.join("Cargo.toml"),
-            &comptime.cargo_toml_content(target_entrance, &self.husky_dir.to_path("./")),
+            &comptime.cargo_toml_content(target_entrance, &husky_dir.to_path("./")),
         );
 
         // lib.rs
