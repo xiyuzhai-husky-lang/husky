@@ -1,7 +1,8 @@
 use crate::*;
 use husky_compile_time::*;
 use husky_trace_protocol::TraceStats;
-use vm::{__RegisterDataKind, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
+use husky_word::RootIdentifier;
+use vm::{__Register, __RegisterDataKind, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 
 impl<'eval> TraceVariant<'eval> {
     pub fn opt_stats(&self, runtime: &dyn EvalFeature) -> __VMResult<Option<TraceStats>> {
@@ -64,6 +65,37 @@ fn feature_repr_opt_stats(
     let mut nulls = 0;
     let mut trues = 0;
     let mut falses = 0;
+    let convert_register_to_label = {
+        let target_output_ty_intrinsic = target_output_ty.intrinsic();
+        if target_output_ty_intrinsic == RootIdentifier::I32.into() {
+            convert_i32_register_to_label
+        } else {
+            let target_output_ty_intrinsic_decl =
+                comptime.ty_decl(target_output_ty_intrinsic).unwrap();
+            use entity_kind::TyKind;
+            match target_output_ty_intrinsic_decl.ty_kind {
+                TyKind::Enum => convert_enum_register_to_label,
+                TyKind::Record => todo!(),
+                TyKind::Struct => todo!(),
+                TyKind::Primitive => todo!(),
+                TyKind::Vec => todo!(),
+                TyKind::Slice => todo!(),
+                TyKind::CyclicSlice => todo!(),
+                TyKind::Array => todo!(),
+                TyKind::Tuple => todo!(),
+                TyKind::Mor => todo!(),
+                TyKind::Fp => todo!(),
+                TyKind::AssociatedAny => todo!(),
+                TyKind::ThisAny => todo!(),
+                TyKind::TargetOutputAny => todo!(),
+                TyKind::SpatialPlaceholderAny => todo!(),
+                TyKind::BoxAny => todo!(),
+                TyKind::HigherKind => todo!(),
+                TyKind::Ref => todo!(),
+                TyKind::Option => todo!(),
+            }
+        }
+    };
     for labeled_data in db.session().dev().each_labeled_data() {
         samples += 1;
         let sample_id = labeled_data.sample_id;
@@ -77,25 +109,13 @@ fn feature_repr_opt_stats(
         let value = db
             .eval_feature_repr_cached(repr, sample_id)
             .map_err(|_| todo!())?;
-        match value.data_kind() {
-            __RegisterDataKind::PrimitiveValue => todo!(),
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => {
-                let prediction = Label(
-                    value
-                        .downcast_temp_ref::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE)
-                        .kind_idx,
-                );
-                match prediction == labeled_data.label {
-                    true => trues += 1,
-                    false => falses += 1,
-                }
+        if let Some(prediction) = convert_register_to_label(&value) {
+            match prediction == labeled_data.label {
+                true => trues += 1,
+                false => falses += 1,
             }
-            __RegisterDataKind::TempRef => todo!(),
-            __RegisterDataKind::TempMut => todo!(),
-            __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => nulls += 1,
-            __RegisterDataKind::Unreturned => todo!(),
+        } else {
+            nulls += 1
         }
     }
     Ok(Some(TraceStats::Classification {
@@ -105,4 +125,34 @@ fn feature_repr_opt_stats(
         trues,
         falses,
     }))
+}
+
+fn convert_enum_register_to_label<'eval>(value: &__Register<'eval>) -> Option<Label> {
+    match value.data_kind() {
+        __RegisterDataKind::PrimitiveValue => todo!(),
+        __RegisterDataKind::Box => todo!(),
+        __RegisterDataKind::EvalRef => Some(Label(
+            value
+                .downcast_temp_ref::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE)
+                .kind_idx,
+        )),
+        __RegisterDataKind::TempRef => todo!(),
+        __RegisterDataKind::TempMut => todo!(),
+        __RegisterDataKind::Moved => todo!(),
+        __RegisterDataKind::Undefined => None,
+        __RegisterDataKind::Unreturned => todo!(),
+    }
+}
+
+fn convert_i32_register_to_label<'eval>(value: &__Register<'eval>) -> Option<Label> {
+    match value.data_kind() {
+        __RegisterDataKind::PrimitiveValue => todo!(),
+        __RegisterDataKind::Box => todo!(),
+        __RegisterDataKind::EvalRef => Some(Label(value.downcast_i32())),
+        __RegisterDataKind::TempRef => todo!(),
+        __RegisterDataKind::TempMut => todo!(),
+        __RegisterDataKind::Moved => todo!(),
+        __RegisterDataKind::Undefined => None,
+        __RegisterDataKind::Unreturned => todo!(),
+    }
 }
