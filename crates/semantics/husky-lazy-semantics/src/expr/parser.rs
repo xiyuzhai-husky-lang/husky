@@ -322,10 +322,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
     ) -> SemanticResult<LazyExprVariant> {
         let this = self.parse_lazy_expr(opds.start)?;
         Ok(match opr {
-            RawSuffixOpr::Incr => todo!(),
-            RawSuffixOpr::Decr => todo!(),
+            RawSuffixOpr::Incr => panic!(),
+            RawSuffixOpr::Decr => panic!(),
             RawSuffixOpr::AsTy(_) => todo!(),
-            RawSuffixOpr::BePattern(_) => todo!(),
+            RawSuffixOpr::BePattern(raw_patt) => LazyExprVariant::BePattern { patt: todo!() },
         })
     }
 

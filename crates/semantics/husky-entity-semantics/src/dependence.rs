@@ -412,6 +412,7 @@ impl EntityDefn {
                     this_binding,
                     field_binding,
                 } => todo!(),
+                LazyExprVariant::BePattern { ref patt } => todo!(),
             }
         }
 

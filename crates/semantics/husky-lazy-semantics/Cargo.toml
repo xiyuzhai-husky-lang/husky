@@ -32,3 +32,4 @@ husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }

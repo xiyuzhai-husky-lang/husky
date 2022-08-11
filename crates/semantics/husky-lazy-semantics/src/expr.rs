@@ -2,6 +2,7 @@ mod opn;
 mod parser;
 mod xml;
 
+use husky_pattern_semantics::ExprPattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 pub use xml::*;
 
@@ -77,6 +78,9 @@ pub enum LazyExprVariant {
     EntityFeature {
         entity_route: EntityRoutePtr,
     },
+    BePattern {
+        patt: ExprPattern,
+    },
 }
 
 impl std::fmt::Debug for LazyExprVariant {
@@ -117,6 +121,21 @@ impl std::fmt::Debug for LazyExprVariant {
                 .debug_struct("EntityFeature")
                 .field("entity_route", entity_route)
                 .finish(),
+            LazyExprVariant::Variable { varname, binding } => todo!(),
+            LazyExprVariant::PrimitiveLiteral(_) => todo!(),
+            LazyExprVariant::EnumLiteral { entity_route } => todo!(),
+            LazyExprVariant::Bracketed(_) => todo!(),
+            LazyExprVariant::Opn { opn_kind, opds } => todo!(),
+            LazyExprVariant::Lambda(_, _) => todo!(),
+            LazyExprVariant::ThisValue { binding } => todo!(),
+            LazyExprVariant::ThisField {
+                field_ident,
+                this_ty,
+                this_binding,
+                field_binding,
+            } => todo!(),
+            LazyExprVariant::EntityFeature { entity_route } => todo!(),
+            LazyExprVariant::BePattern { patt } => todo!(),
         }
     }
 }
