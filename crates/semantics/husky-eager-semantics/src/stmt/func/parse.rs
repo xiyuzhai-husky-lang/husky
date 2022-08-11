@@ -38,17 +38,17 @@ impl<'a> EagerParser<'a> {
                             init_kind: kind,
                         } => FuncStmtVariant::Init {
                             varname,
-                            initial_value: self.parse_eager_expr(initial_value)?,
+                            initial_value: self.parse_eager_expr(initial_value, None)?,
                         },
                         RawStmtVariant::Return {
                             result,
                             return_context,
                         } => FuncStmtVariant::Return {
-                            result: self.parse_eager_expr(result)?,
+                            result: self.parse_eager_expr(result, None)?,
                             return_context,
                         },
                         RawStmtVariant::Assert(condition) => FuncStmtVariant::Assert {
-                            condition: self.parse_eager_expr(condition)?,
+                            condition: self.parse_eager_expr(condition, None)?,
                         },
                         RawStmtVariant::Break => todo!(),
                         RawStmtVariant::Match {
@@ -65,7 +65,7 @@ impl<'a> EagerParser<'a> {
                             condition,
                             return_context,
                         } => FuncStmtVariant::Require {
-                            condition: self.parse_eager_expr(condition)?,
+                            condition: self.parse_eager_expr(condition, None)?,
                             return_context,
                         },
                     };
@@ -96,7 +96,7 @@ impl<'a> EagerParser<'a> {
             RawConditionBranchKind::If { condition } => {
                 branches.push(Arc::new(FuncConditionFlowBranch {
                     variant: FuncConditionFlowBranchVariant::If {
-                        condition: self.parse_eager_expr(condition)?,
+                        condition: self.parse_eager_expr(condition, None)?,
                     },
                     stmts: self.parse_func_stmts(children)?,
                     range: stmt.range,
@@ -154,7 +154,7 @@ impl<'a> EagerParser<'a> {
         match_expr: RawExprIdx,
         match_contract: MatchLiason,
     ) -> SemanticResult<FuncStmtVariant> {
-        let match_expr = self.parse_eager_expr(match_expr)?;
+        let match_expr = self.parse_eager_expr(match_expr, None)?;
         Ok(FuncStmtVariant::Match {
             branches: children
                 .map(|item| {

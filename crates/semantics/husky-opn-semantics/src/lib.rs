@@ -21,3 +21,38 @@ impl EagerSuffixOpr {
         }
     }
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ImplicitConversion {
+    None,
+    WrapInSome,
+    ConvertToBool,
+}
+
+impl Default for ImplicitConversion {
+    fn default() -> Self {
+        Self::None
+    }
+}
+
+impl ImplicitConversion {
+    pub fn from_opt_expectation(
+        opt_expectation: Option<EntityRoutePtr>,
+        ty: EntityRoutePtr,
+    ) -> Self {
+        if let Some(expectation) = opt_expectation {
+            if expectation == ty {
+                return Default::default();
+            }
+
+            if expectation.is_option() && expectation.spatial_arguments[0].take_entity_route() == ty
+            {
+                return ImplicitConversion::WrapInSome;
+            }
+
+            todo!()
+        } else {
+            Default::default()
+        }
+    }
+}

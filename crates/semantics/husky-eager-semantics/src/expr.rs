@@ -23,6 +23,7 @@ pub struct EagerExpr {
     pub file: FilePtr,
     pub range: TextRange,
     pub qualified_ty: EagerValueQualifiedTy,
+    pub implicit_conversion: ImplicitConversion,
     pub contract: EagerContract,
     pub variant: EagerExprVariant,
     pub instruction_id: InstructionId,
@@ -144,5 +145,5 @@ pub fn parse_eager_expr(
     file: FilePtr,
     raw_expr_idx: RawExprIdx,
 ) -> SemanticResultArc<EagerExpr> {
-    EagerParser::new(db, arena, file).parse_eager_expr(raw_expr_idx)
+    EagerParser::new(db, arena, file).parse_eager_expr(raw_expr_idx, None)
 }

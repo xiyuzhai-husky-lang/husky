@@ -19,7 +19,11 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
     fn file(&self) -> FilePtr;
     fn target_entrance(&self) -> FilePtr;
 
-    fn parse_eager_expr(&mut self, idx: RawExprIdx) -> SemanticResult<Arc<EagerExpr>> {
+    fn parse_eager_expr(
+        &mut self,
+        idx: RawExprIdx,
+        opt_expectation: Option<EntityRoutePtr>,
+    ) -> SemanticResult<Arc<EagerExpr>> {
         let raw_expr = &self.arena()[idx];
         let variant = match raw_expr.variant {
             RawExprVariant::Variable {
@@ -77,7 +81,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             },
             RawExprVariant::PrimitiveLiteral(value) => EagerExprVariant::PrimitiveLiteral(value),
             RawExprVariant::Bracketed(expr) => {
-                EagerExprVariant::Bracketed(self.parse_eager_expr(expr)?)
+                EagerExprVariant::Bracketed(self.parse_eager_expr(expr, Default::default())?)
             }
             RawExprVariant::Opn {
                 opn_variant: ref opr,
@@ -156,6 +160,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             variant,
             file: self.file(),
             instruction_id: Default::default(),
+            implicit_conversion: ImplicitConversion::from_opt_expectation(
+                opt_expectation,
+                qualified_ty.ty,
+            ),
             qualified_ty,
             contract: self.eager_expr_contract(idx).unwrap(),
         }))
@@ -195,8 +203,11 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         idx: RawExprIdx,
         opds: RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
+        let ty = self.eager_expr_qualified_ty(idx).unwrap().ty;
+        let elem_ty = ty.spatial_arguments[0].take_entity_route();
+
         let elements: Vec<_> = opds
-            .map(|raw| self.parse_eager_expr(raw))
+            .map(|opd| self.parse_eager_expr(opd, Some(elem_ty)))
             .collect::<SemanticResult<_>>()?;
         let opn_variant = EagerOpnVariant::NewVecFromList;
         Ok(EagerExprVariant::Opn {
@@ -208,11 +219,29 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
     fn parse_binary_opr(
         &mut self,
         opr: BinaryOpr,
-        raw_opd_idx_range: &RawExprRange,
+        raw_opds: &RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
-        let raw_opds = &self.arena()[raw_opd_idx_range];
-        let lopd = self.parse_eager_expr(raw_opd_idx_range.start)?;
-        let ropd = self.parse_eager_expr(raw_opd_idx_range.start + 1)?;
+        let (lopd_opt_expectation, ropd_opt_expectation) = match opr {
+            BinaryOpr::Pure(PureBinaryOpr::Eq) => {
+                let lopd_raw_ty = self.raw_expr_ty(raw_opds.start).unwrap();
+                let ropd_raw_ty = self.raw_expr_ty(raw_opds.start + 1).unwrap();
+                if lopd_raw_ty == ropd_raw_ty {
+                    (None, None)
+                } else {
+                    assert_eq!(lopd_raw_ty.intrinsic(), ropd_raw_ty.intrinsic());
+                    if lopd_raw_ty.is_option() {
+                        (None, Some(lopd_raw_ty))
+                    } else if ropd_raw_ty.is_option() {
+                        (Some(ropd_raw_ty), None)
+                    } else {
+                        todo!()
+                    }
+                }
+            }
+            _ => (None, None),
+        };
+        let lopd = self.parse_eager_expr(raw_opds.start, lopd_opt_expectation)?;
+        let ropd = self.parse_eager_expr(raw_opds.start + 1, ropd_opt_expectation)?;
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Binary {
                 opr,
@@ -228,7 +257,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         raw_opds: &RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
         let opd_idx = raw_opds.start;
-        let opd = self.parse_eager_expr(opd_idx)?;
+        let opd = self.parse_eager_expr(opd_idx, None)?;
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Prefix {
                 opr,
@@ -244,7 +273,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         raw_opds: &RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
         let opd_idx = raw_opds.start;
-        let opd = self.parse_eager_expr(opd_idx)?;
+        let opd = self.parse_eager_expr(opd_idx, None)?;
         let opr = match raw_opr {
             RawSuffixOpr::Incr => EagerSuffixOpr::Incr,
             RawSuffixOpr::Decr => EagerSuffixOpr::Decr,
@@ -267,7 +296,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
         let this_idx = raw_opds.start;
-        let this = self.parse_eager_expr(this_idx)?;
+        let this = self.parse_eager_expr(this_idx, None)?;
         let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
         let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
         let field_liason = field_decl.liason;
@@ -306,7 +335,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 }
                 let arguments: Vec<_> = input_opd_idx_range
                     .clone()
-                    .map(|raw| self.parse_eager_expr(raw))
+                    .map(|raw| self.parse_eager_expr(raw, None))
                     .collect::<SemanticResult<_>>()?;
                 Ok(EagerExprVariant::Opn {
                     opn_variant: EagerOpnVariant::RoutineCall(RangedEntityRoute {
@@ -324,7 +353,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 let signature = derived_unwrap!(self.decl_db().entity_call_form_decl(route));
                 let arguments: Vec<_> = input_opd_idx_range
                     .enumerate()
-                    .map(|(i, raw)| self.parse_eager_expr(raw))
+                    .map(|(i, raw)| self.parse_eager_expr(raw, None))
                     .collect::<SemanticResult<_>>()?;
                 Ok(EagerExprVariant::Opn {
                     opn_variant: EagerOpnVariant::TypeCall {
@@ -343,7 +372,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             _ => Ok(EagerExprVariant::Opn {
                 opn_variant: EagerOpnVariant::ValueCall,
                 opds: opds
-                    .map(|raw| self.parse_eager_expr(raw))
+                    .map(|raw| self.parse_eager_expr(raw, None))
                     .collect::<SemanticResult<_>>()?,
             }),
         }
@@ -356,7 +385,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         method_ident: RangedCustomIdentifier,
         idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
-        let this = self.parse_eager_expr(this_idx)?;
+        let this = self.parse_eager_expr(this_idx, None)?;
         let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
         let output_binding = {
             let output_contract = self.eager_expr_contract(idx).unwrap();
@@ -366,7 +395,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         let opds = {
             let mut opds = vec![this];
             let arguments = arguments
-                .map(|idx| self.parse_eager_expr(idx))
+                .map(|idx| self.parse_eager_expr(idx, None))
                 .collect::<SemanticResult<Vec<_>>>()?;
             opds.extend(arguments);
             opds
@@ -401,7 +430,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 },
             },
             opds: opds
-                .map(|raw| self.parse_eager_expr(raw))
+                .map(|raw| self.parse_eager_expr(raw, None))
                 .collect::<SemanticResult<_>>()?,
         })
     }
