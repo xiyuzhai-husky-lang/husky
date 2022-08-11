@@ -130,7 +130,7 @@ pub enum FeatureExprVariant {
     },
     BePattern {
         this: Arc<FeatureExpr>,
-        pure_pattern: Arc<PurePattern>,
+        patt: Arc<PurePattern>,
     },
 }
 
@@ -153,7 +153,10 @@ impl FeatureExprVariant {
             FeatureExprVariant::NewRecord { .. } => "NewRecord",
             FeatureExprVariant::NewVecFromList { .. } => "NewVecFromList",
             FeatureExprVariant::CustomBinaryOpr { .. } => "CustomBinaryOpr",
-            FeatureExprVariant::BePattern { this, pure_pattern } => "BePattern",
+            FeatureExprVariant::BePattern {
+                this,
+                patt: pure_pattern,
+            } => "BePattern",
         }
     }
 }
@@ -274,7 +277,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 });
                 let variant = FeatureExprVariant::BePattern {
                     this,
-                    pure_pattern: todo!(),
+                    patt: patt.clone(),
                 };
                 (variant, feature)
             }

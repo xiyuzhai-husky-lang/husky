@@ -148,7 +148,7 @@ impl<'a> TraceTokenBuilder<'a> {
             }
             FeatureExprVariant::BePattern {
                 ref this,
-                ref pure_pattern,
+                patt: ref pure_pattern,
             } => todo!(),
         }
     }
