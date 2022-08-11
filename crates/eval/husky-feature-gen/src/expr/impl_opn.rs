@@ -30,7 +30,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     .iter()
                     .map(|opd| self.new_expr(opd.clone()))
                     .collect::<Vec<_>>();
-                let feature = self.features.intern(Feature::FunctionCall {
+                let feature = self.feature_interner.intern(Feature::FunctionCall {
                     func: routine.route,
                     uid,
                     inputs: opds.iter().map(|expr| expr.feature).collect(),
@@ -64,7 +64,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     .iter()
                     .map(|opd| self.new_expr(opd.clone()))
                     .collect::<Vec<_>>();
-                let feature = self.features.intern(Feature::FunctionCall {
+                let feature = self.feature_interner.intern(Feature::FunctionCall {
                     func: routine.route,
                     uid,
                     inputs: opds.iter().map(|expr| expr.feature).collect(),
@@ -91,7 +91,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     opds[0].clone(),
                     self.symbols,
                     self.opt_arrival_indicator,
-                    self.features,
+                    self.feature_interner,
                 )
                 .into(),
                 field_binding,
@@ -111,7 +111,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     .iter()
                     .map(|opd| self.new_expr(opd.clone()))
                     .collect::<Vec<_>>();
-                let feature = self.features.intern(Feature::RecordTypeCall {
+                let feature = self.feature_interner.intern(Feature::RecordTypeCall {
                     ty: ty.route,
                     uid,
                     opds: opds.iter().map(|opd| opd.feature).collect(),
@@ -130,7 +130,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     .iter()
                     .map(|opd| self.new_expr(opd.clone()))
                     .collect::<Vec<_>>();
-                let feature = self.features.intern(Feature::NewVecFromList {
+                let feature = self.feature_interner.intern(Feature::NewVecFromList {
                     elements: elements.iter().map(|elem| elem.feature).collect(),
                 });
                 let kind = FeatureExprVariant::NewVecFromList {
@@ -156,7 +156,7 @@ impl<'a> FeatureExprBuilder<'a> {
             | EntityRoutePtr::Root(RootIdentifier::F64)
             | EntityRoutePtr::Root(RootIdentifier::B32)
             | EntityRoutePtr::Root(RootIdentifier::B64) => {
-                let feature = self.features.intern(Feature::PrimitiveBinaryOpr {
+                let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
                     opr,
                     lopd: lopd.feature,
                     ropd: ropd.feature,
@@ -206,7 +206,7 @@ impl<'a> FeatureExprBuilder<'a> {
             PureBinaryOpr::Shr => todo!(),
             PureBinaryOpr::Sub => todo!(),
         };
-        let feature = self.features.intern(Feature::PrimitiveBinaryOpr {
+        let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
             opr,
             lopd: lopd.feature,
             ropd: ropd.feature,
@@ -233,7 +233,7 @@ impl<'a> FeatureExprBuilder<'a> {
             .iter()
             .map(|opd| self.new_expr(opd.clone()))
             .collect::<Vec<_>>();
-        let feature = self.features.intern(Feature::MethodCall {
+        let feature = self.feature_interner.intern(Feature::MethodCall {
             method_ident: method_ident.ident,
             opds: opds.iter().map(|opd| opd.feature).collect(),
         });
@@ -267,7 +267,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FieldKind::StructOriginal
             | FieldKind::StructDefault
             | FieldKind::StructDerivedEager => {
-                let feature = self.features.intern(Feature::FieldAccess {
+                let feature = self.feature_interner.intern(Feature::FieldAccess {
                     this: this.feature(),
                     field_ident: field_ident.ident,
                 });
@@ -402,7 +402,7 @@ impl<'a> FeatureExprBuilder<'a> {
         element_binding: Binding,
     ) -> (FeatureExprVariant, FeaturePtr) {
         let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
-        let feature = self.features.intern(Feature::Index {
+        let feature = self.feature_interner.intern(Feature::Index {
             opds: opds.map(|opd| opd.feature),
         });
         let feature_expr_kind = FeatureExprVariant::ElementAccess {

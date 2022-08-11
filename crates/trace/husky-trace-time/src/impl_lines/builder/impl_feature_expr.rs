@@ -146,6 +146,10 @@ impl<'a> TraceTokenBuilder<'a> {
             FeatureExprVariant::NewVecFromList { ref elements, .. } => {
                 self.gen_new_vec_from_list_tokens(elements, opt_assoc_id, config)
             }
+            FeatureExprVariant::BePattern {
+                ref this,
+                ref pure_pattern,
+            } => todo!(),
         }
     }
 

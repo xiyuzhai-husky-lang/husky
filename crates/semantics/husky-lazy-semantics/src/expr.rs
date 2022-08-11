@@ -80,7 +80,7 @@ pub enum LazyExprVariant {
     },
     BePattern {
         this: Arc<LazyExpr>,
-        patt: PurePattern,
+        patt: Arc<PurePattern>,
     },
 }
 

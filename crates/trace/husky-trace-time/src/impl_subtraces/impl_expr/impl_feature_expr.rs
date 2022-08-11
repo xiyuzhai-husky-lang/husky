@@ -65,6 +65,10 @@ impl HuskyTraceTime {
             } => todo!(),
             FeatureExprVariant::NewVecFromList { .. } => todo!(),
             FeatureExprVariant::CustomBinaryOpr { .. } => todo!(),
+            FeatureExprVariant::BePattern {
+                ref this,
+                ref pure_pattern,
+            } => todo!(),
         }
     }
 }
