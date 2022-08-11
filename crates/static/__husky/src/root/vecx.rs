@@ -21,6 +21,8 @@ pub trait __VecX<T> {
     fn pop_with_opt_largest_f32_copyable(&mut self, f: impl Fn(T) -> Option<f32>) -> Option<T>
     where
         T: Copy;
+
+    fn pop_with_opt_largest_f32_borrow(&mut self, f: impl Fn(&T) -> Option<f32>) -> Option<T>;
 }
 
 impl<T> __VecX<T> for Vec<T> {
@@ -56,6 +58,19 @@ impl<T> __VecX<T> for Vec<T> {
         let mut vmax = f32::MIN;
         for i in 0..self.len() {
             if let Some(v) = f(self[i]) {
+                if v > vmax {
+                    imax = Some(i)
+                }
+            }
+        }
+        imax.map(|imax| self.remove(imax))
+    }
+
+    fn pop_with_opt_largest_f32_borrow(&mut self, f: impl Fn(&T) -> Option<f32>) -> Option<T> {
+        let mut imax = None;
+        let mut vmax = f32::MIN;
+        for i in 0..self.len() {
+            if let Some(v) = f(&self[i]) {
                 if v > vmax {
                     imax = Some(i)
                 }
