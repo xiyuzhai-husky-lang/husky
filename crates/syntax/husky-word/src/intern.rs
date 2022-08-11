@@ -16,6 +16,7 @@ impl Deref for WordPtr {
             WordPtr::Identifier(ident) => ident.deref(),
             WordPtr::Opr(opr) => opr.deref(),
             WordPtr::Decorator(decorator) => decorator.deref(),
+            WordPtr::Pattern(patt) => patt.deref(),
         }
     }
 }
@@ -114,6 +115,8 @@ pub fn new_word_interner() -> Arc<WordInternerSingletonKeeper> {
             Decorator::Private.into(),
             Decorator::Async.into(),
             Decorator::Static.into(),
+            WordPattern::Some.into(),
+            WordPattern::None.into(),
         ])
         .into(),
     )

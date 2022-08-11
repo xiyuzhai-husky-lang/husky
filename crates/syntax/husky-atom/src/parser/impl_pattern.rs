@@ -50,7 +50,10 @@ impl MatchPatternParser {
                 HuskyAtomVariant::PrimitiveLiteral(value) => {
                     RawPattern::primitive_literal(value, atom.range)
                 }
-                _ => err!(format!("expect pattern"), atom.range)?,
+                _ => err!(
+                    format!("expect pattern but got `{:?}` instead", atom),
+                    atom.range
+                )?,
             })
         } else {
             None
