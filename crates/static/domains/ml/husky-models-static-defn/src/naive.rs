@@ -10,7 +10,7 @@ use husky_vm_register_method::VMRegisterMethodX;
 use static_defn::*;
 use vm::{
     Model, __Linkage, __ModelLinkage, __Register, __Registrable, __RegistrableSafe, __StaticInfo,
-    __VMResult, __VirtualEnum, __I32_VTABLE, __VIRTUAL_ENUM_VTABLE,
+    __VMResult, __VirtualEnum, __I32_VTABLE, __VIRTUAL_ENUM_VTABLE, __VIRTUAL_FUNCTION_VTABLE,
 };
 
 static_mod! { naive = { naive_i32 } }
