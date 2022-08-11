@@ -10,7 +10,7 @@ type IterType<'a> = fold::FoldableIter<'a, AstResult<Ast>, fold::FoldableList<As
 impl<'a> EagerParser<'a> {
     fn parse_boundary(&mut self, boundary: RawBoundary) -> SemanticResult<Boundary> {
         let bound = if let Some(bound) = boundary.opt_bound {
-            Some(self.parse_eager_expr(bound)?)
+            Some(self.parse_eager_expr(bound, None)?)
         } else {
             None
         };
@@ -79,7 +79,7 @@ impl<'a> EagerParser<'a> {
                 expr,
                 discard: silent,
             } => {
-                let expr = self.parse_eager_expr(expr)?;
+                let expr = self.parse_eager_expr(expr, None)?;
                 if !silent && expr.ty() != EntityRoutePtr::Root(RootIdentifier::Void) {
                     err!(format!(
                         "expect non-silent executed expression to be of type void, but got {:?} instead",
@@ -94,18 +94,18 @@ impl<'a> EagerParser<'a> {
                 init_kind,
             } => Ok(ProcStmtVariant::Init {
                 varname,
-                initial_value: self.parse_eager_expr(initial_value)?,
+                initial_value: self.parse_eager_expr(initial_value, None)?,
                 init_kind,
             }),
             RawStmtVariant::Return {
                 result,
                 return_context,
             } => Ok(ProcStmtVariant::Return {
-                result: self.parse_eager_expr(result)?,
+                result: self.parse_eager_expr(result, None)?,
                 return_context,
             }),
             RawStmtVariant::Assert(condition) => Ok(ProcStmtVariant::Assert {
-                condition: self.parse_eager_expr(condition)?,
+                condition: self.parse_eager_expr(condition, None)?,
             }),
             RawStmtVariant::Break => Ok(ProcStmtVariant::Break),
             RawStmtVariant::Match {
@@ -132,7 +132,7 @@ impl<'a> EagerParser<'a> {
             RawConditionBranchKind::If { condition } => {
                 branches.push(Arc::new(ProcConditionFlowBranch {
                     variant: ProcConditionFlowBranchVariant::If {
-                        condition: self.parse_eager_expr(condition)?,
+                        condition: self.parse_eager_expr(condition, None)?,
                     },
                     stmts: self.parse_proc_stmts(children)?,
                     range: stmt.range,
@@ -174,7 +174,7 @@ impl<'a> EagerParser<'a> {
                         }
                         branches.push(Arc::new(ProcConditionFlowBranch {
                             variant: ProcConditionFlowBranchVariant::Elif {
-                                condition: self.parse_eager_expr(condition)?,
+                                condition: self.parse_eager_expr(condition, None)?,
                             },
                             stmts: self.parse_proc_stmts(not_none!(item.opt_children))?,
                             range: stmt.range,
@@ -235,7 +235,7 @@ impl<'a> EagerParser<'a> {
                 }
             }
             RawLoopKind::While { condition } => {
-                let condition = self.parse_eager_expr(condition)?;
+                let condition = self.parse_eager_expr(condition, None)?;
                 match condition.ty() {
                     EntityRoutePtr::Root(RootIdentifier::Bool)
                     | EntityRoutePtr::Root(RootIdentifier::I32)
@@ -250,7 +250,7 @@ impl<'a> EagerParser<'a> {
                 }
             }
             RawLoopKind::DoWhile { condition } => {
-                let condition = self.parse_eager_expr(condition)?;
+                let condition = self.parse_eager_expr(condition, None)?;
                 match condition.ty() {
                     EntityRoutePtr::Root(RootIdentifier::Bool)
                     | EntityRoutePtr::Root(RootIdentifier::I32)
@@ -274,7 +274,7 @@ impl<'a> EagerParser<'a> {
         match_expr: RawExprIdx,
         match_contract: MatchLiason,
     ) -> SemanticResult<ProcStmtVariant> {
-        let match_expr = self.parse_eager_expr(match_expr)?;
+        let match_expr = self.parse_eager_expr(match_expr, None)?;
         Ok(ProcStmtVariant::Match {
             branches: children
                 .map(|item| {
