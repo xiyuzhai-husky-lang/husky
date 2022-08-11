@@ -12,6 +12,10 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(keyword!("assert "));
                 self.gen_feature_expr_tokens(condition, ExprTokenConfig::stmt())
             }
+            FeatureLazyStmtVariant::Require { ref condition } => {
+                self.push(keyword!("assert "));
+                self.gen_feature_expr_tokens(condition, ExprTokenConfig::stmt())
+            }
             FeatureLazyStmtVariant::Return { ref result } => {
                 self.gen_feature_expr_tokens(result, ExprTokenConfig::stmt())
             }

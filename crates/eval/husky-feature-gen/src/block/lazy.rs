@@ -55,7 +55,9 @@ impl<'eval> FeatureLazyBlock {
                 feature_interner,
             );
             match stmt.variant {
-                FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => (),
+                FeatureLazyStmtVariant::Init { .. }
+                | FeatureLazyStmtVariant::Assert { .. }
+                | FeatureLazyStmtVariant::Require { .. } => (),
                 FeatureLazyStmtVariant::Return { .. }
                 | FeatureLazyStmtVariant::ReturnXml { .. } => finish_flag = true,
                 FeatureLazyStmtVariant::ConditionFlow { .. } => {

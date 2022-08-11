@@ -148,7 +148,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         match opr {
             RawOpnVariant::Binary(opr) => self.parse_binary_opr(*opr, opds),
             RawOpnVariant::Prefix(_) => todo!(),
-            RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(opr, opds),
+            RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(opr, opds.start),
             RawOpnVariant::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
                 ListOpr::NewVec => self.parse_new_vec_from_list(idx, opds.clone()),
@@ -318,14 +318,17 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
     fn parse_suffix_opr(
         &mut self,
         opr: &RawSuffixOpr,
-        opds: &RawExprRange,
+        opd: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
-        let this = self.parse_lazy_expr(opds.start)?;
+        let this = self.parse_lazy_expr(opd)?;
         Ok(match opr {
             RawSuffixOpr::Incr => panic!(),
             RawSuffixOpr::Decr => panic!(),
             RawSuffixOpr::AsTy(_) => todo!(),
-            RawSuffixOpr::BePattern(raw_patt) => LazyExprVariant::BePattern { patt: todo!() },
+            RawSuffixOpr::BePattern(raw_patt) => LazyExprVariant::BePattern {
+                patt: ExprPattern::from_raw(self.db(), raw_patt, this.ty()),
+                this,
+            },
         })
     }
 

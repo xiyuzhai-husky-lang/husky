@@ -34,6 +34,9 @@ impl HuskyTraceTime {
                 FeatureLazyStmtVariant::Assert { ref condition } => {
                     self.trace_stalk_from_expr(condition, sample_id)
                 }
+                FeatureLazyStmtVariant::Require { ref condition } => {
+                    self.trace_stalk_from_expr(condition, sample_id)
+                }
                 FeatureLazyStmtVariant::Return { ref result } => {
                     self.trace_stalk_from_expr(result, sample_id)
                 }

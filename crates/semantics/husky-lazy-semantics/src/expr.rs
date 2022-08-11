@@ -79,6 +79,7 @@ pub enum LazyExprVariant {
         entity_route: EntityRoutePtr,
     },
     BePattern {
+        this: Arc<LazyExpr>,
         patt: ExprPattern,
     },
 }
@@ -135,7 +136,7 @@ impl std::fmt::Debug for LazyExprVariant {
                 field_binding,
             } => todo!(),
             LazyExprVariant::EntityFeature { entity_route } => todo!(),
-            LazyExprVariant::BePattern { patt } => todo!(),
+            LazyExprVariant::BePattern { .. } => todo!(),
         }
     }
 }

@@ -9,6 +9,9 @@ pub enum FeatureLazyStmtVariant {
     Assert {
         condition: Arc<FeatureExpr>,
     },
+    Require {
+        condition: Arc<FeatureExpr>,
+    },
     Return {
         result: Arc<FeatureExpr>,
     },
@@ -26,6 +29,11 @@ impl FeatureLazyStmtVariant {
             FeatureLazyStmtVariant::Init { .. } => None,
             FeatureLazyStmtVariant::Assert { condition } => {
                 Some(feature_interner.intern(Feature::Assert {
+                    condition: condition.feature,
+                }))
+            }
+            FeatureLazyStmtVariant::Require { condition } => {
+                Some(feature_interner.intern(Feature::Require {
                     condition: condition.feature,
                 }))
             }

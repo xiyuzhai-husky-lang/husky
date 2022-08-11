@@ -83,6 +83,17 @@ impl FeatureStmt {
                 );
                 FeatureLazyStmtVariant::Assert { condition }
             }
+            LazyStmtVariant::Require { ref condition } => {
+                let condition = FeatureExpr::new(
+                    db,
+                    opt_this.clone(),
+                    condition.clone(),
+                    &symbols,
+                    opt_arrival_indicator.as_ref(),
+                    feature_interner,
+                );
+                FeatureLazyStmtVariant::Require { condition }
+            }
             LazyStmtVariant::Return { ref result } => FeatureLazyStmtVariant::Return {
                 result: FeatureExpr::new(
                     db,
@@ -116,7 +127,6 @@ impl FeatureStmt {
                 ref match_expr,
                 ref branches,
             } => todo!(),
-            LazyStmtVariant::Require { ref condition } => todo!(),
         };
         Arc::new(FeatureStmt {
             file: lazy_stmt.file,

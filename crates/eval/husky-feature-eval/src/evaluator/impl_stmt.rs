@@ -17,6 +17,13 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     Err(__VMError::new_normal(format!("assertion failed")))
                 }
             }
+            FeatureLazyStmtVariant::Require { ref condition } => {
+                if self.satisfies(condition)? {
+                    Ok(__Register::new_unreturned())
+                } else {
+                    Ok(__Register::new_undefined())
+                }
+            }
             FeatureLazyStmtVariant::Return { ref result } => self.eval_expr(result),
             FeatureLazyStmtVariant::ReturnXml { ref result } => self.eval_xml_expr(result),
             FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => {
