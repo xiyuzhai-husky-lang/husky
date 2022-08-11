@@ -122,7 +122,7 @@ fn derive_is_copyable(
         TyKind::CyclicSlice => false,
         TyKind::Tuple => todo!(),
         TyKind::Mor => todo!(),
-        TyKind::Fp => todo!(),
+        TyKind::Fp => true,
         TyKind::AssociatedAny => todo!(),
         TyKind::TargetOutputAny => todo!(),
         TyKind::ThisAny => todo!(),

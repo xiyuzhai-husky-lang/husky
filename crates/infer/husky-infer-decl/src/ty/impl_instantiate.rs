@@ -8,10 +8,10 @@ impl TyDecl {
         db: &dyn DeclQueryGroup,
         spatial_arguments: &[SpatialArgument],
     ) -> Arc<Self> {
-        should_eq!(self.generic_parameters.len(), spatial_arguments.len());
+        // should_eq!(self.spatial_parameters.len(), spatial_arguments.len());
         let ctx = InstantiationContext {
             db: db.upcast(),
-            spatial_parameters: &self.generic_parameters,
+            spatial_parameters: &self.spatial_parameters,
             spatial_arguments,
         };
         Self::new(

@@ -327,9 +327,10 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let is_output_ty_option = decl.output.ty().is_option();
         if !is_output_ty_primitive {
             if is_output_ty_option {
-                todo!()
+                self.write("__Register::new_opt_box(");
+            } else {
+                self.write("__Register::new_box(");
             }
-            self.write("__Register::new_box(");
         }
         gen_caller(self);
         self.write("(");

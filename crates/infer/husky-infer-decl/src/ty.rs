@@ -32,7 +32,7 @@ use vm::TySignature;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyDecl {
     pub this_ty: EntityRoutePtr,
-    pub generic_parameters: IdentDict<SpatialParameter>,
+    pub spatial_parameters: IdentDict<SpatialParameter>,
     pub ty_members: IdentDict<TyMemberDecl>,
     pub variants: IdentDict<EnumVariantDecl>,
     pub ty_kind: TyKind,
@@ -350,7 +350,7 @@ impl TyDecl {
         let members = MemberDecl::collect_all(db, &ty_members, &trait_impls);
         Arc::new(Self {
             this_ty,
-            generic_parameters,
+            spatial_parameters: generic_parameters,
             ty_members,
             variants,
             ty_kind: kind,
@@ -550,10 +550,11 @@ pub(crate) fn ty_decl(
             EntityStaticDefnVariant::Ty { .. } => {
                 let base_decl = TyDecl::from_static(db, static_defn)?;
                 if ty_route.spatial_arguments.len() > 0 {
-                    assert_eq!(
-                        ty_route.spatial_arguments.len(),
-                        base_decl.generic_parameters.len()
-                    );
+                    // p!(ty_route);
+                    // assert_eq!(
+                    //     ty_route.spatial_arguments.len(),
+                    //     base_decl.spatial_parameters.len()
+                    // );
                     base_decl.instantiate(db, &ty_route.spatial_arguments)
                 } else {
                     base_decl
