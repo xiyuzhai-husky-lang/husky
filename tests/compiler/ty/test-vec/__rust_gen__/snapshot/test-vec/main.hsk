@@ -14,7 +14,18 @@ proc change_element() -> i32:
     v[0] = 3
     return v[0]
 
+proc test_pop_with() -> i32:
+    var v = [0, 1, 2, 4, 3]
+    let b = v.pop_with_opt_largest_f32(score)
+    assert b == 4
+    assert v == [0, 1, 2, 3]
+    return v.ilen()
+
+func score(a: i32) -> ?f32:
+    a as f32
+
 main:
     assert f() == 1
     assert change_element() == 3
+    assert test_pop_with() == 3
     1
