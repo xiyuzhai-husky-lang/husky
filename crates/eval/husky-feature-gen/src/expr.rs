@@ -128,6 +128,10 @@ pub enum FeatureExprVariant {
         elements: Vec<Arc<FeatureExpr>>,
         linkage: __Linkage,
     },
+    BePattern {
+        this: Arc<FeatureExpr>,
+        pure_pattern: Arc<PurePattern>,
+    },
 }
 
 impl FeatureExprVariant {
@@ -149,6 +153,7 @@ impl FeatureExprVariant {
             FeatureExprVariant::NewRecord { .. } => "NewRecord",
             FeatureExprVariant::NewVecFromList { .. } => "NewVecFromList",
             FeatureExprVariant::CustomBinaryOpr { .. } => "CustomBinaryOpr",
+            FeatureExprVariant::BePattern { this, pure_pattern } => "BePattern",
         }
     }
 }
@@ -165,7 +170,7 @@ impl FeatureExpr {
         FeatureExprBuilder {
             db,
             symbols,
-            features: interner,
+            feature_interner: interner,
             opt_this: this,
             opt_arrival_indicator,
         }
@@ -176,7 +181,7 @@ impl FeatureExpr {
 struct FeatureExprBuilder<'a> {
     db: &'a dyn FeatureGenQueryGroup,
     symbols: &'a [FeatureSymbol],
-    features: &'a FeatureInterner,
+    feature_interner: &'a FeatureInterner,
     opt_this: Option<FeatureRepr>,
     opt_arrival_indicator: Option<&'a Arc<FeatureArrivalIndicator>>,
 }
@@ -204,7 +209,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 .unwrap(),
             LazyExprVariant::PrimitiveLiteral(data) => (
                 FeatureExprVariant::Literal(convert_primitive_literal_to_register(data, expr.ty())),
-                self.features.intern(Feature::PrimitiveLiteral(
+                self.feature_interner.intern(Feature::PrimitiveLiteral(
                     convert_primitive_literal_to_value(data, expr.ty()),
                 )),
             ),
@@ -220,7 +225,8 @@ impl<'a> FeatureExprBuilder<'a> {
                     }
                     .to_register(),
                 ),
-                self.features.intern(Feature::EnumLiteral(entity_route)),
+                self.feature_interner
+                    .intern(Feature::EnumLiteral(entity_route)),
             ),
             LazyExprVariant::ThisValue { .. } => (
                 FeatureExprVariant::ThisValue {
@@ -241,27 +247,36 @@ impl<'a> FeatureExprBuilder<'a> {
                 EntityRouteVariant::Root { .. } | EntityRouteVariant::Package { .. } => panic!(),
                 EntityRouteVariant::Child { .. } => {
                     let uid = self.db.comptime().entity_uid(entity_route);
-                    let feature = self.features.intern(Feature::EntityFeature {
+                    let feature = self.feature_interner.intern(Feature::EntityFeature {
                         route: entity_route,
                         uid,
                     });
-                    let kind = FeatureExprVariant::EntityFeature {
+                    let variant = FeatureExprVariant::EntityFeature {
                         repr: self.db.entity_feature_repr(entity_route),
                     };
-                    (kind, feature)
+                    (variant, feature)
                 }
                 EntityRouteVariant::CrateInputValue => {
-                    let feature = self.features.intern(Feature::Input);
-                    let kind = FeatureExprVariant::EvalInput;
-                    (kind, feature)
+                    let feature = self.feature_interner.intern(Feature::Input);
+                    let variant = FeatureExprVariant::EvalInput;
+                    (variant, feature)
                 }
                 EntityRouteVariant::Any { ident, .. } => todo!(),
                 EntityRouteVariant::ThisType => todo!(),
                 EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
                 EntityRouteVariant::TargetOutputType => todo!(),
             },
-            LazyExprVariant::BePattern { .. } => {
-                todo!()
+            LazyExprVariant::BePattern { ref this, ref patt } => {
+                let this = self.new_expr(this.clone());
+                let feature = self.feature_interner.intern(Feature::BePattern {
+                    this: this.feature,
+                    expr_pattern: Feature::intern_expr_pattern(self.feature_interner, patt),
+                });
+                let variant = FeatureExprVariant::BePattern {
+                    this,
+                    pure_pattern: todo!(),
+                };
+                (variant, feature)
             }
         };
         Arc::new(FeatureExpr {

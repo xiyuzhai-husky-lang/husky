@@ -15,7 +15,7 @@ pub use block::*;
 pub use branch::*;
 pub use eval_id::*;
 pub use expr::*;
-use husky_pattern_semantics::PurePattern;
+use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_vm_primitive_value::PrimitiveValueData;
 use husky_xml_syntax::XmlTagKind;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
@@ -141,17 +141,23 @@ pub enum Feature {
 }
 
 impl Feature {
-    pub fn block(features: &FeatureInterner, stmts: &[Arc<FeatureStmt>]) -> FeaturePtr {
+    pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<FeatureStmt>]) -> FeaturePtr {
         let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
         if stmt_features.len() == 1 {
             stmt_features[0]
         } else {
-            features.intern(Feature::Cascade(stmt_features))
+            interner.intern(Feature::Cascade(stmt_features))
         }
     }
 
-    pub fn expr_pattern(patt: &PurePattern) -> FeaturePtr {
-        todo!()
+    pub fn intern_expr_pattern(interner: &FeatureInterner, patt: &PurePattern) -> FeaturePtr {
+        match patt.variant {
+            PurePatternVariant::PrimitiveLiteral(_) => todo!(),
+            PurePatternVariant::OneOf { ref subpatterns } => todo!(),
+            PurePatternVariant::EnumLiteral(_) => todo!(),
+            PurePatternVariant::Some => interner.intern(Feature::PurePatternSome),
+            PurePatternVariant::None => todo!(),
+        }
     }
 }
 

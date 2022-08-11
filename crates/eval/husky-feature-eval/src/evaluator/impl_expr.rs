@@ -122,6 +122,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref opt_instruction_sheet,
                 opt_linkage,
             } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, expr.expr.ty(), opds),
+            FeatureExprVariant::BePattern {
+                ref this,
+                ref pure_pattern,
+            } => todo!(),
         }
     }
 

@@ -69,7 +69,7 @@ impl<'eval> FeatureLazyBlock {
             };
             stmts.push(stmt)
         }
-        let feature = Feature::block(feature_interner, &stmts);
+        let feature = Feature::intern_block(feature_interner, &stmts);
         let file = stmts[0].file;
         let range = stmts.text_range();
         Arc::new(FeatureLazyBlock {
