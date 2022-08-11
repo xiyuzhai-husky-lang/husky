@@ -2,7 +2,7 @@ mod opn;
 mod parser;
 mod xml;
 
-use husky_pattern_semantics::ExprPattern;
+use husky_pattern_semantics::PurePattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 pub use xml::*;
 
@@ -80,7 +80,7 @@ pub enum LazyExprVariant {
     },
     BePattern {
         this: Arc<LazyExpr>,
-        patt: ExprPattern,
+        patt: PurePattern,
     },
 }
 

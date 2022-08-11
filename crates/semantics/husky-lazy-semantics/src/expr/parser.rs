@@ -326,7 +326,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             RawSuffixOpr::Decr => panic!(),
             RawSuffixOpr::AsTy(_) => todo!(),
             RawSuffixOpr::BePattern(raw_patt) => LazyExprVariant::BePattern {
-                patt: ExprPattern::from_raw(self.db(), raw_patt, this.ty()),
+                patt: PurePattern::from_raw(self.db(), raw_patt, this.ty()),
                 this,
             },
         })

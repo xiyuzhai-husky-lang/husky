@@ -1,5 +1,5 @@
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
-use husky_pattern_semantics::ExprPattern;
+use husky_pattern_semantics::PurePattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use std::borrow::Cow;
 
@@ -8,7 +8,7 @@ pub enum EagerSuffixOpr {
     Incr,                    // ++
     Decr,                    // --
     AsTy(RangedEntityRoute), // :
-    BePattern(ExprPattern),
+    BePattern(PurePattern),
 }
 
 impl EagerSuffixOpr {

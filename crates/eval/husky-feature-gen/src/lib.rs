@@ -15,7 +15,7 @@ pub use block::*;
 pub use branch::*;
 pub use eval_id::*;
 pub use expr::*;
-use husky_pattern_semantics::ExprPattern;
+use husky_pattern_semantics::PurePattern;
 use husky_vm_primitive_value::PrimitiveValueData;
 use husky_xml_syntax::XmlTagKind;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
@@ -127,13 +127,17 @@ pub enum Feature {
     NewVecFromList {
         elements: Vec<FeaturePtr>,
     },
-    ExprPatternPrimitiveLiteral(FeaturePtr),
-    ExprPatternOneOf {
+    PurePatternPrimitiveLiteral(FeaturePtr),
+    PurePatternOneOf {
         subpatterns: Vec<FeaturePtr>,
     },
-    ExprPatternEnumLiteral(FeaturePtr),
-    ExprPatternSome,
-    ExprPatternNone,
+    PurePatternEnumLiteral(FeaturePtr),
+    PurePatternSome,
+    PurePatternNone,
+    BePattern {
+        this: FeaturePtr,
+        expr_pattern: FeaturePtr,
+    },
 }
 
 impl Feature {
@@ -146,7 +150,7 @@ impl Feature {
         }
     }
 
-    pub fn expr_pattern(patt: &ExprPattern) -> FeaturePtr {
+    pub fn expr_pattern(patt: &PurePattern) -> FeaturePtr {
         todo!()
     }
 }

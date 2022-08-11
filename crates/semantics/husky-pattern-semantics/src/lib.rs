@@ -4,28 +4,28 @@ use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use infer_total::InferQueryGroup;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ExprPattern {
+pub struct PurePattern {
     pub ty: EntityRoutePtr,
-    pub variant: ExprPatternVariant,
+    pub variant: PurePatternVariant,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ExprPatternVariant {
+pub enum PurePatternVariant {
     PrimitiveLiteral(PrimitiveLiteralData),
-    OneOf { subpatterns: Vec<ExprPattern> },
+    OneOf { subpatterns: Vec<PurePattern> },
     EnumLiteral(EntityRoutePtr),
     Some,
     None,
 }
 
-impl ExprPattern {
+impl PurePattern {
     pub fn from_raw(db: &dyn InferQueryGroup, raw_patt: &RawPattern, ty: EntityRoutePtr) -> Self {
         let variant = match raw_patt.variant {
             RawPatternVariant::PrimitiveLiteral(_) => todo!(),
             RawPatternVariant::OneOf { ref subpatterns } => todo!(),
             RawPatternVariant::EnumLiteral(_) => todo!(),
-            RawPatternVariant::Some => ExprPatternVariant::Some,
-            RawPatternVariant::None => ExprPatternVariant::None,
+            RawPatternVariant::Some => PurePatternVariant::Some,
+            RawPatternVariant::None => PurePatternVariant::None,
         };
         Self { ty, variant }
     }
