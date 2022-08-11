@@ -4,20 +4,20 @@ use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum SuffixOpr {
+pub enum EagerSuffixOpr {
     Incr,                    // ++
     Decr,                    // --
     AsTy(RangedEntityRoute), // :
     BePattern(ExprPattern),
 }
 
-impl SuffixOpr {
+impl EagerSuffixOpr {
     pub fn code(&self) -> Cow<'static, str> {
         match self {
-            SuffixOpr::Incr => "++".into(),
-            SuffixOpr::Decr => "--".into(),
-            SuffixOpr::AsTy(ty) => format!(" as {}", ty.route).into(),
-            SuffixOpr::BePattern(_) => todo!(),
+            EagerSuffixOpr::Incr => "++".into(),
+            EagerSuffixOpr::Decr => "--".into(),
+            EagerSuffixOpr::AsTy(ty) => format!(" as {}", ty.route).into(),
+            EagerSuffixOpr::BePattern(_) => todo!(),
         }
     }
 }
