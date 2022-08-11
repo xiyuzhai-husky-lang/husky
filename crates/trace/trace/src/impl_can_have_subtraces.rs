@@ -70,7 +70,7 @@ impl<'eval> TraceVariant<'eval> {
                 } => opt_instruction_sheet.is_some(),
                 FeatureExprVariant::BePattern {
                     ref this,
-                    ref pure_pattern,
+                    patt: ref pure_pattern,
                 } => todo!(),
             },
             TraceVariant::EagerExpr {

@@ -45,3 +45,4 @@ wild-utils = { path = "../../utils/husky-unsafe-utils" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
 entity-kind = { path = "../../syntax/entity-kind" }
 husky-data-viewer = { path = "../husky-data-viewer" }
+husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }

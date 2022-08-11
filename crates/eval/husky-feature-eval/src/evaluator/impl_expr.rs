@@ -3,6 +3,7 @@ use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
 use husky_lazy_semantics::LazyStmt;
+use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
 use husky_word::IdentPairDict;
@@ -122,10 +123,9 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref opt_instruction_sheet,
                 opt_linkage,
             } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, expr.expr.ty(), opds),
-            FeatureExprVariant::BePattern {
-                ref this,
-                ref pure_pattern,
-            } => todo!(),
+            FeatureExprVariant::BePattern { ref this, ref patt } => {
+                self.eval_be_pattern(this, patt)
+            }
         }
     }
 
@@ -240,5 +240,29 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             arguments.len().try_into().unwrap(),
             vm_config,
         )
+    }
+
+    fn eval_be_pattern(
+        &self,
+        this: &FeatureExpr,
+        patt: &PurePattern,
+    ) -> __VMResult<__Register<'eval>> {
+        let this_value = self.eval_expr(this)?;
+        Ok(match patt.variant {
+            PurePatternVariant::PrimitiveLiteral(_) => todo!(),
+            PurePatternVariant::OneOf { ref subpatterns } => todo!(),
+            PurePatternVariant::EnumLiteral(_) => todo!(),
+            PurePatternVariant::Some => match this_value.data_kind() {
+                __RegisterDataKind::PrimitiveValue => true.to_register(),
+                __RegisterDataKind::Box => todo!(),
+                __RegisterDataKind::EvalRef => todo!(),
+                __RegisterDataKind::TempRef => todo!(),
+                __RegisterDataKind::TempMut => todo!(),
+                __RegisterDataKind::Moved => todo!(),
+                __RegisterDataKind::Undefined => todo!(),
+                __RegisterDataKind::Unreturned => todo!(),
+            },
+            PurePatternVariant::None => todo!(),
+        })
     }
 }
