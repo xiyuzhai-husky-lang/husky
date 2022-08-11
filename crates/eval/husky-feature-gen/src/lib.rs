@@ -15,6 +15,7 @@ pub use block::*;
 pub use branch::*;
 pub use eval_id::*;
 pub use expr::*;
+use husky_pattern_semantics::ExprPattern;
 use husky_vm_primitive_value::PrimitiveValueData;
 use husky_xml_syntax::XmlTagKind;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
@@ -50,6 +51,9 @@ pub enum Feature {
     PrimitiveLiteral(PrimitiveValueData),
     EnumLiteral(EntityRoutePtr),
     Assert {
+        condition: FeaturePtr,
+    },
+    Require {
         condition: FeaturePtr,
     },
     Cascade(Vec<FeaturePtr>),
@@ -123,6 +127,13 @@ pub enum Feature {
     NewVecFromList {
         elements: Vec<FeaturePtr>,
     },
+    ExprPatternPrimitiveLiteral(FeaturePtr),
+    ExprPatternOneOf {
+        subpatterns: Vec<FeaturePtr>,
+    },
+    ExprPatternEnumLiteral(FeaturePtr),
+    ExprPatternSome,
+    ExprPatternNone,
 }
 
 impl Feature {
@@ -133,6 +144,10 @@ impl Feature {
         } else {
             features.intern(Feature::Cascade(stmt_features))
         }
+    }
+
+    pub fn expr_pattern(patt: &ExprPattern) -> FeaturePtr {
+        todo!()
     }
 }
 

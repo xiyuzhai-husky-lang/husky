@@ -148,7 +148,7 @@ impl<'eval> __Register<'eval> {
         if let Some(value) = opt_value {
             Self::new_eval_ref(value, proto)
         } else {
-            Self::new_undefined(proto)
+            Self::new_undefined()
         }
     }
 
@@ -189,13 +189,13 @@ impl<'eval> __Register<'eval> {
         std::mem::replace(self, moved)
     }
 
-    pub fn new_undefined(proto: &'eval __RegisterTyVTable) -> __Register<'eval> {
+    pub fn new_undefined() -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Undefined,
             data: __RegisterData {
                 as_ptr: std::ptr::null_mut(),
             },
-            vtable: proto,
+            vtable: &__VOID_VTABLE,
         }
     }
 

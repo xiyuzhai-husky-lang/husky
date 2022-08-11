@@ -24,12 +24,8 @@ use vm::*;
 pub trait InferQualifiedTy {
     fn qualified_ty_sheet(&self) -> &QualifiedTySheet;
 
-    fn lazy_expr_qualified_ty(
-        &self,
-        raw_expr_idx: RawExprIdx,
-    ) -> InferResult<LazyValueQualifiedTy> {
-        self.qualified_ty_sheet()
-            .lazy_expr_qualified_ty(raw_expr_idx)
+    fn lazy_expr_qualified_ty(&self, idx: RawExprIdx) -> InferResult<LazyValueQualifiedTy> {
+        self.qualified_ty_sheet().lazy_expr_qualified_ty(idx)
     }
 
     fn eager_expr_qualified_ty(
