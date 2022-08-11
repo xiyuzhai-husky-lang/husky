@@ -114,6 +114,16 @@ impl<'a> RustCodeGenerator<'a> {
                             self.gen_expr(indent, &opds[0]);
                             self.write(".");
                             self.write(&method_ident.ident);
+                            // ad hoc
+                            if method_ident.ident.as_str() == "pop_with_opt_largest_f32" {
+                                let elem_ty =
+                                    method_route.parent().spatial_arguments[0].take_entity_route();
+                                if self.db.is_copyable(elem_ty).unwrap() {
+                                    self.write("_copyable")
+                                } else {
+                                    self.write("_borrow")
+                                }
+                            }
                             self.write("(");
                             self.gen_arguments(indent, &opds[1..]);
                             self.write(")");

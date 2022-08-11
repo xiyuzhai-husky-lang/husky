@@ -45,6 +45,24 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine {
+            route: "test_vec::test_pop_with",
+        },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    test_pop_with().to_register()
+                }
+                __wrapper
+            },
+            opt_fp: Some(test_pop_with as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Routine {
             route: "Vec<i32>::ilen",
         },
         __Linkage::Transfer(__LinkageFp {
@@ -118,6 +136,53 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             opt_fp: Some(Vec::<i32>::push as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "test_vec::score",
+        },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let a: i32 = __arguments[0].downcast_i32();
+                    __Register::new_opt_box(score(a), &__registration__::__F32_VTABLE)
+                }
+                __wrapper
+            },
+            opt_fp: Some(score as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "Vec<i32>::pop_with_opt_largest_f32",
+        },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let __this: &mut Vec<i32> = unsafe { __arb_ref(&__arguments[0]) }
+                        .downcast_temp_mut(&__registration__::__VEC_I_32_VTABLE);
+                    let f: Fp<i32, Option<f32>> = __arguments[1]
+                        .downcast_temp_ref::<__VirtualFunction>(
+                            &__registration__::__VIRTUAL_FUNCTION_VTABLE,
+                        )
+                        .fp();
+                    __Register::new_opt_box(
+                        __this.pop_with_opt_largest_f32(f),
+                        &__registration__::__I32_VTABLE,
+                    )
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<i32>::pop_with_opt_largest_f32_copyable as *const ()),
         }),
     ),
 ];

@@ -1,7 +1,7 @@
 use crate::*;
 
 pub(crate) fn is_defn_static(db: &dyn RustCodeGenQueryGroup, entity_route: EntityRoutePtr) -> bool {
-    let entity_route = entity_route.deref_route();
+    let entity_route = entity_route.intrinsic();
     match entity_route.variant {
         EntityRouteVariant::Root { ident } => true,
         EntityRouteVariant::Package { main, ident } => false,
@@ -23,7 +23,7 @@ pub(crate) fn contains_spatial_parameters(
     db: &dyn RustCodeGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> bool {
-    let entity_route = entity_route.deref_route();
+    let entity_route = entity_route.intrinsic();
     if entity_route.spatial_arguments.len() > 0 {
         return true;
     }

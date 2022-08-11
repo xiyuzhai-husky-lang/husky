@@ -25,3 +25,14 @@ pub(crate) fn change_element() -> i32 {
     v[(0) as usize] = 3;
     return v[(0) as usize];
 }
+
+pub(crate) fn test_pop_with() -> i32 {
+    let mut v = vec![0, 1, 2, 4, 3];
+    let b = v.pop_with_opt_largest_f32_copyable(&score);
+    assert!(b == 4);
+    assert!(v == vec![0, 1, 2, 3]);
+    return v.ilen();
+}
+pub(crate) fn score(a: i32) -> Option<f32> {
+    return Some(a as f32);
+}

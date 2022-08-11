@@ -31,7 +31,16 @@ impl<'a> RustCodeGenerator<'a> {
                 EntityRouteVariant::Child { parent, ident } => {
                     self.gen_entity_route(parent, role);
                     self.write("::");
-                    self.write(&ident)
+                    self.write(&ident);
+                    // ad hoc
+                    if ident.as_str() == "pop_with_opt_largest_f32" {
+                        let elem_ty = parent.spatial_arguments[0].take_entity_route();
+                        if self.db.is_copyable(elem_ty).unwrap() {
+                            self.write("_copyable")
+                        } else {
+                            self.write("_borrow")
+                        }
+                    }
                 }
                 EntityRouteVariant::CrateInputValue => self.write("__input"),
                 EntityRouteVariant::Any { ident, .. } => {
