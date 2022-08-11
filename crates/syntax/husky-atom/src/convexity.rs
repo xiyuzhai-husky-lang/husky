@@ -1,3 +1,5 @@
+use husky_word::WordPattern;
+
 use super::*;
 impl HuskyAtomVariant {
     pub(super) fn left_convexity(&self) -> Convexity {
@@ -22,6 +24,7 @@ impl HuskyAtomVariant {
             | HuskyAtomVariant::SilentEnd => Convexity::Concave,
             HuskyAtomVariant::Be => Convexity::Concave,
             HuskyAtomVariant::BePattern(_) => Convexity::Concave,
+            HuskyAtomVariant::WordPattern { .. } => Convexity::Convex,
         }
     }
 
@@ -47,6 +50,10 @@ impl HuskyAtomVariant {
             | HuskyAtomVariant::LambdaHead(_) => Convexity::Concave,
             HuskyAtomVariant::Be => Convexity::Concave,
             HuskyAtomVariant::BePattern(_) => Convexity::Convex,
+            HuskyAtomVariant::WordPattern { patt } => match patt {
+                WordPattern::Some => Convexity::Any,
+                WordPattern::None => Convexity::Convex,
+            },
         }
     }
 }

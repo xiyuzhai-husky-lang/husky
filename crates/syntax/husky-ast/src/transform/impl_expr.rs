@@ -46,6 +46,7 @@ impl<'a> AstTransformer<'a> {
                     stack.accept_suffix(RawSuffixOpr::BePattern(pattern), end)
                 }
                 HuskyAtomVariant::Be => panic!(),
+                HuskyAtomVariant::WordPattern { .. } => panic!(),
             }
         }
         stack.finish()
