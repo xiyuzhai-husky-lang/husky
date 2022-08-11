@@ -13,6 +13,8 @@ pub enum RawPatternVariant {
     PrimitiveLiteral(PrimitiveLiteralData),
     OneOf { subpatterns: Vec<RawPattern> },
     EnumLiteral(EntityRoutePtr),
+    Some,
+    None,
 }
 
 impl TextRanged for RawPattern {
@@ -48,6 +50,8 @@ impl RawPattern {
                 patterns.push(new_pattern);
                 patterns
             }
+            RawPatternVariant::Some => todo!(),
+            RawPatternVariant::None => todo!(),
         };
         RawPattern {
             variant: RawPatternVariant::OneOf {

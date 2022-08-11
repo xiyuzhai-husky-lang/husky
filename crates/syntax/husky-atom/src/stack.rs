@@ -34,6 +34,14 @@ impl AtomStack {
         }
     }
 
+    pub(crate) fn can_be_convex(&self) -> bool {
+        match self.convexity() {
+            Convexity::Convex => true,
+            Convexity::Concave => false,
+            Convexity::WordPatternAny => true,
+        }
+    }
+
     pub(crate) fn is_convex(&self) -> bool {
         self.convexity() == Convexity::Convex
     }
@@ -212,7 +220,7 @@ impl AtomStack {
 
     pub(super) fn unfreeze(&mut self) -> AtomResult<Vec<HuskyAtom>> {
         let last_freeze = self.freezes.pop().unwrap();
-        if self.is_convex() {
+        if self.can_be_convex() {
             Ok(self.atoms.drain(last_freeze..).collect())
             // Ok(self.stack.into())
         } else if self.atoms.len() > last_freeze {

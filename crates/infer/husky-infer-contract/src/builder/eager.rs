@@ -95,6 +95,8 @@ impl<'a> ContractSheetBuilder<'a> {
             RawPatternVariant::PrimitiveLiteral(_) => (),
             RawPatternVariant::OneOf { .. } => (),
             RawPatternVariant::EnumLiteral(_) => (),
+            RawPatternVariant::Some => todo!(),
+            RawPatternVariant::None => todo!(),
         }
     }
 

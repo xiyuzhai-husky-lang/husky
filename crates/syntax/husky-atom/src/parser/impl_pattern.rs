@@ -1,6 +1,7 @@
 use super::*;
 use husky_opn_syntax::{BinaryOpr, PureBinaryOpr};
-use husky_pattern_syntax::RawPattern;
+use husky_pattern_syntax::{RawPattern, RawPatternVariant};
+use husky_word::WordPattern;
 
 impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn parse_pattern(&mut self) -> AtomResult<(RawPattern, Vec<HuskyAtom>)> {
@@ -50,7 +51,23 @@ impl MatchPatternParser {
                 HuskyAtomVariant::PrimitiveLiteral(value) => {
                     RawPattern::primitive_literal(value, atom.range)
                 }
-                HuskyAtomVariant::WordPattern { .. } => todo!(),
+                HuskyAtomVariant::WordPattern { patt, .. } => match patt {
+                    WordPattern::Some => {
+                        let atom_range = atom.range;
+                        if self.peek_atom().is_some() {
+                            todo!()
+                        } else {
+                            RawPattern {
+                                range: atom_range,
+                                variant: RawPatternVariant::Some,
+                            }
+                        }
+                    }
+                    WordPattern::None => RawPattern {
+                        range: atom.range,
+                        variant: RawPatternVariant::None,
+                    },
+                },
                 _ => err!(
                     format!("expect pattern but got `{:?}` instead", atom),
                     atom.range
@@ -80,6 +97,14 @@ impl MatchPatternParser {
             let next = self.next;
             self.next += 1;
             Some(&self.atoms[next])
+        }
+    }
+
+    fn peek_atom(&self) -> Option<&HuskyAtom> {
+        if self.next >= self.atoms.len() {
+            None
+        } else {
+            Some(&self.atoms[self.next])
         }
     }
 
