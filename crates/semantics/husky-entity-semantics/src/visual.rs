@@ -22,6 +22,7 @@ pub enum VisualTy {
     Plot2d,
     Dataset,
     AnyGroup,
+    Fp,
 }
 
 impl Default for VisualTy {
@@ -119,6 +120,7 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
                         VisualTy::Plot2d => todo!(),
                         VisualTy::Any => VisualTy::AnyGroup,
                         VisualTy::AnyGroup => todo!(),
+                        VisualTy::Fp => todo!(),
                     };
                     Arc::new(Visualizer {
                         visual_ty,
@@ -232,8 +234,10 @@ impl VisualTy {
                 VisualTy::Plot2d => todo!(),
                 VisualTy::Any => VisualTy::AnyGroup,
                 VisualTy::AnyGroup => todo!(),
+                VisualTy::Fp => todo!(),
             },
             StaticVisualTy::Dataset => todo!(),
+            StaticVisualTy::Fp => VisualTy::Fp,
         }
     }
 }
