@@ -30,11 +30,8 @@ pub struct HuskyAtom {
 }
 
 impl HuskyAtom {
-    pub fn new(range: TextRange, kind: HuskyAtomVariant) -> HuskyAtom {
-        HuskyAtom {
-            range,
-            variant: kind,
-        }
+    pub fn new(range: TextRange, variant: HuskyAtomVariant) -> HuskyAtom {
+        HuskyAtom { range, variant }
     }
 }
 
@@ -68,7 +65,9 @@ impl From<&HuskyToken> for HuskyAtom {
             HuskyTokenKind::Unrecognized(_) => todo!(),
             HuskyTokenKind::IllFormedLiteral(_) => todo!(),
             HuskyTokenKind::Decorator(_) => todo!(),
-            HuskyTokenKind::WordPattern(_) => todo!(),
+            HuskyTokenKind::WordPattern(patt) => {
+                HuskyAtom::new(token.text_range(), HuskyAtomVariant::WordPattern { patt })
+            }
         }
     }
 }

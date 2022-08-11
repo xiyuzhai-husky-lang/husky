@@ -103,7 +103,15 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         err!(format!("ill formed literal `{:?}`", n), token.range)?
                     }
                     HuskyTokenKind::Decorator(_) => todo!(),
-                    HuskyTokenKind::WordPattern(_) => todo!(),
+                    HuskyTokenKind::WordPattern(_) => {
+                        let range = self.token_stream.text_range(text_start);
+                        self.atom_context
+                            .push_abs_semantic_token(AbsSemanticToken::new(
+                                SemanticTokenKind::WordPattern,
+                                range,
+                            ));
+                        self.stack.push(token.into())?
+                    }
                 }
             } else {
                 break;

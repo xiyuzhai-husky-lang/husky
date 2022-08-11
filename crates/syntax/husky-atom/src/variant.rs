@@ -7,7 +7,7 @@ use husky_pattern_syntax::RawPattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::*;
 use husky_token::SpecialToken;
-use husky_word::{CustomIdentifier, WordOpr};
+use husky_word::{CustomIdentifier, WordOpr, WordPattern};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum HuskyAtomVariant {
@@ -47,6 +47,9 @@ pub enum HuskyAtomVariant {
     SilentEnd,
     Be,
     BePattern(RawPattern),
+    WordPattern {
+        patt: WordPattern,
+    },
 }
 
 pub type LambdaHead = Vec<(Identifier, Option<RangedEntityRoute>)>;

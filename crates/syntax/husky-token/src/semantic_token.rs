@@ -62,6 +62,7 @@ pub enum SemanticTokenKind {
     Method,
     Literal,
     XmlTagKind,
+    WordPattern,
 }
 
 impl SemanticTokenKind {
@@ -96,6 +97,7 @@ impl SemanticTokenKind {
             SemanticTokenKind::Method => SemanticTokenType::METHOD,
             SemanticTokenKind::Literal => SemanticTokenType::NUMBER,
             SemanticTokenKind::XmlTagKind => SemanticTokenType::FUNCTION,
+            SemanticTokenKind::WordPattern => SemanticTokenType::ENUM_MEMBER,
         })
     }
 

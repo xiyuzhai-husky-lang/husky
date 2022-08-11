@@ -24,11 +24,11 @@ impl MatchPatternParser {
     }
 
     pub fn parse_pattern(&mut self) -> AtomResult<RawPattern> {
-        let mut pattern = self.parse_simple_pattern()?.unwrap();
+        let mut pattern = self.parse_next_pattern()?.unwrap();
         while let Some((next_pattern_opr, range)) = self.next_pattern_opr() {
             match next_pattern_opr {
                 PatternOpr::Or => {
-                    if let Some(new_pattern) = self.parse_simple_pattern()? {
+                    if let Some(new_pattern) = self.parse_next_pattern()? {
                         pattern = pattern.or(new_pattern)
                     } else {
                         return err!("expect pattern after `|`", range);
@@ -40,7 +40,7 @@ impl MatchPatternParser {
         Ok(pattern)
     }
 
-    fn parse_simple_pattern(&mut self) -> AtomResult<Option<RawPattern>> {
+    fn parse_next_pattern(&mut self) -> AtomResult<Option<RawPattern>> {
         Ok(if let Some(atom) = self.next_atom() {
             Some(match atom.variant {
                 HuskyAtomVariant::EntityRoute { route, kind } => match kind {
@@ -50,6 +50,7 @@ impl MatchPatternParser {
                 HuskyAtomVariant::PrimitiveLiteral(value) => {
                     RawPattern::primitive_literal(value, atom.range)
                 }
+                HuskyAtomVariant::WordPattern { .. } => todo!(),
                 _ => err!(
                     format!("expect pattern but got `{:?}` instead", atom),
                     atom.range

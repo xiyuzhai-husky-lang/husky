@@ -141,6 +141,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             SpecialToken::QuestionMark => match self.stack.convexity() {
                 Convexity::Convex => todo!(),
                 Convexity::Concave => todo!(),
+                Convexity::Any => todo!(),
             },
             _ => {
                 self.token_stream.text_range(text_start);
