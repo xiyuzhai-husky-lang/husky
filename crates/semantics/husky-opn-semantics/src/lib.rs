@@ -1,4 +1,5 @@
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_pattern_semantics::ExprPattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use std::borrow::Cow;
 
@@ -19,17 +20,4 @@ impl SuffixOpr {
             SuffixOpr::BePattern(_) => todo!(),
         }
     }
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ExprPattern {
-    pub ty: EntityRoutePtr,
-    pub variant: ExprPatternVariant,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ExprPatternVariant {
-    PrimitiveLiteral(PrimitiveLiteralData),
-    OneOf { subpatterns: Vec<ExprPattern> },
-    EnumLiteral(EntityRoutePtr),
 }

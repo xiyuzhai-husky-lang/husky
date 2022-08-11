@@ -260,6 +260,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
                 EntityRouteVariant::TargetOutputType => todo!(),
             },
+            LazyExprVariant::BePattern { ref patt } => todo!(),
         };
         Arc::new(FeatureExpr {
             variant: kind,
