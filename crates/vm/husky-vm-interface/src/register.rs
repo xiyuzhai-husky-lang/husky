@@ -116,6 +116,24 @@ impl<'eval> __Register<'eval> {
         }
     }
 
+    pub fn new_opt_box<T>(
+        opt_value: Option<T>,
+        proto: &'eval __RegisterTyVTable,
+    ) -> __Register<'eval> {
+        if let Some(value) = opt_value {
+            let ptr: *mut T = Box::<T>::into_raw(Box::new(value));
+            __Register {
+                data_kind: __RegisterDataKind::Box,
+                data: __RegisterData {
+                    as_ptr: ptr as *mut (),
+                },
+                vtable: proto,
+            }
+        } else {
+            __Register::new_undefined()
+        }
+    }
+
     pub fn new_box<T>(value: T, proto: &'eval __RegisterTyVTable) -> __Register<'eval> {
         let ptr: *mut T = Box::<T>::into_raw(Box::new(value));
         __Register {

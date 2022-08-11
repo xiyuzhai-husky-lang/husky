@@ -3,7 +3,7 @@ use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_entity_semantics::FieldDefnVariant;
 use husky_infer_qualified_ty::EagerExprQualifier;
-use husky_opn_semantics::EagerSuffixOpr;
+use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_vm_binding::Binding;
 use husky_word::RootIdentifier;
@@ -11,6 +11,12 @@ use infer_decl::{CallFormDecl, VariadicTemplate};
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_expr(&mut self, indent: Indent, expr: &EagerExpr) {
+        match expr.implicit_conversion {
+            ImplicitConversion::None => (),
+            ImplicitConversion::WrapInSome => self.write("Some("),
+            ImplicitConversion::ConvertToBool => todo!(),
+        }
+
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => self.write(&varname),
             EagerExprVariant::ThisValue { .. } => self.write("self"),
@@ -206,6 +212,12 @@ impl<'a> RustCodeGenerator<'a> {
             EagerExprVariant::EntityFp { route } => {
                 self.gen_entity_route(route, EntityRouteRole::Caller)
             }
+        }
+
+        match expr.implicit_conversion {
+            ImplicitConversion::None => (),
+            ImplicitConversion::WrapInSome => self.write(")"),
+            ImplicitConversion::ConvertToBool => todo!(),
         }
     }
     fn gen_type_call_opn(
