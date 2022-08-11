@@ -51,3 +51,7 @@ test-compiler:
 test-compiler-backtraced:
 	RUST_BACKTRACE=1 cargo run --bin husky-compiler tests/compiler
 	RUST_BACKTRACE=1 cargo run --bin husky-debugger test tests/compiler
+
+test-compiler-backtraced-filtered:
+	RUST_BACKTRACE=1 cargo run --bin husky-compiler tests/compiler 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run --bin husky-debugger test tests/compiler 2>&1 | python scripts/filter_rust_backtrace.py

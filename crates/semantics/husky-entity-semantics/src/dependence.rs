@@ -24,9 +24,8 @@ impl<'a> DependeeMapBuilder<'a> {
         let entity_route = entity_route.intrinsic();
         match entity_route.variant {
             EntityRouteVariant::Root { ident, .. } => {
-                if ident == RootIdentifier::Ref {
-                    self.push(entity_route.deref_route());
-                    return;
+                if ident == RootIdentifier::Ref || ident == RootIdentifier::Option {
+                    panic!()
                 } else {
                     if entity_route.spatial_arguments.len() == 0 {
                         return;

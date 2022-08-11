@@ -286,7 +286,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn func_args(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
-        eat!(self, "(");
+        if !try_eat!(self, "(") {
+            return Ok(Default::default());
+        }
         let mut args = thin_comma_list![self, generic!, RPar];
         args.push(if try_eat!(self, "->") {
             self.generic()?

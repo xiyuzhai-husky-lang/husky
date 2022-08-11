@@ -18,6 +18,7 @@ pub enum StaticVisualTy {
     Image2d,
     Graphics2d,
     Dataset,
+    Fp,
 }
 
 impl Default for StaticVisualTy {

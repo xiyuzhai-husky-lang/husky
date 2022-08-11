@@ -47,7 +47,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 },
                 dev_src: dev_src!(),
             })?,
-            RawExprVariant::Entity { route, kind } => self.infer_entity(route, kind)?,
+            RawExprVariant::Entity { route, kind } => self.infer_entity_ty(route, kind)?,
             RawExprVariant::PrimitiveLiteral(value) => {
                 self.infer_primitive_literal(expectation, value)
             }
@@ -79,7 +79,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         Ok(ty)
     }
 
-    fn infer_entity(
+    fn infer_entity_ty(
         &mut self,
         entity_route: EntityRoutePtr,
         entity_kind: EntityKind,

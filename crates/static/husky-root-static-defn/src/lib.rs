@@ -1,6 +1,8 @@
 #![feature(const_trait_impl)]
 #![feature(const_convert)]
 #![feature(panic_info_message)]
+mod __Fp;
+mod __Option;
 mod __b32;
 mod __clone;
 mod __eq;
@@ -11,6 +13,8 @@ mod __vec;
 pub mod domains;
 mod etc;
 
+pub use __Fp::*;
+pub use __Option::*;
 pub use __b32::*;
 pub use __clone::*;
 pub use __eq::*;
@@ -54,7 +58,7 @@ pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::Std => &STD_DEFN,
         RootIdentifier::Core => todo!(),
         RootIdentifier::Mor => todo!(),
-        RootIdentifier::Fp => todo!(),
+        RootIdentifier::Fp => &FP_TYPE_DEFN,
         RootIdentifier::Fn => todo!(),
         RootIdentifier::FnMut => todo!(),
         RootIdentifier::FnOnce => todo!(),
@@ -69,7 +73,7 @@ pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::EqTrait => todo!(),
         RootIdentifier::ModuleType => &MODULE_TYPE_DEFN,
         RootIdentifier::Ref => panic!(),
-        RootIdentifier::Option => panic!(),
+        RootIdentifier::Option => &OPTION_DEFN,
         RootIdentifier::VisualType => todo!(),
     }
     .into()
