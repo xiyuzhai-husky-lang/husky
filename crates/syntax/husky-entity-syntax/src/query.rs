@@ -359,6 +359,7 @@ pub trait EntitySyntaxQueryGroup:
                     Identifier::Contextual(_) => todo!(),
                 },
                 WordPtr::Decorator(_) => todo!(),
+                WordPtr::Pattern(_) => todo!(),
             }
         } else {
             Err(derived_error!(format!(

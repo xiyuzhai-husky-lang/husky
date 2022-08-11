@@ -2,6 +2,7 @@ mod decorator;
 mod intern;
 mod keyword;
 mod opr;
+mod pattern;
 mod style;
 
 pub use decorator::*;
@@ -12,6 +13,7 @@ pub use intern::{
 };
 pub use keyword::*;
 pub use opr::*;
+pub use pattern::*;
 pub use style::*;
 pub type IdentDict<T> = VecMap<CustomIdentifier, T>;
 pub type IdentArcDict<T> = VecMap<CustomIdentifier, Arc<T>>;
@@ -26,6 +28,7 @@ pub enum WordPtr {
     Identifier(Identifier),
     Opr(WordOpr),
     Decorator(Decorator),
+    Pattern(WordPattern),
 }
 
 impl WordPtr {
@@ -35,6 +38,7 @@ impl WordPtr {
             _ => None,
         }
     }
+
     pub fn ident(self) -> Identifier {
         self.opt_ident().unwrap()
     }

@@ -1,5 +1,5 @@
 pub use crate::*;
-use husky_word::{Decorator, Identifier, Keyword, WordOpr, WordPtr};
+use husky_word::{Decorator, Identifier, Keyword, WordOpr, WordPattern, WordPtr};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum HuskyTokenKind {
@@ -8,6 +8,7 @@ pub enum HuskyTokenKind {
     Identifier(Identifier),
     Special(SpecialToken),
     WordOpr(WordOpr),
+    WordPattern(WordPattern),
     PrimitiveLiteral(PrimitiveLiteralData),
     Unrecognized(char),
     IllFormedLiteral(PrimitiveLiteralData),
@@ -24,6 +25,7 @@ impl HuskyTokenKind {
             HuskyTokenKind::PrimitiveLiteral(_) => Some(Convexity::Convex),
             HuskyTokenKind::Unrecognized(_) => None,
             HuskyTokenKind::IllFormedLiteral(_) => Some(Convexity::Convex),
+            HuskyTokenKind::WordPattern(_) => Some(Convexity::Convex),
         }
     }
 }
@@ -45,6 +47,7 @@ impl From<WordPtr> for HuskyTokenKind {
             WordPtr::Identifier(ident) => HuskyTokenKind::Identifier(ident),
             WordPtr::Opr(word_opr) => HuskyTokenKind::WordOpr(word_opr),
             WordPtr::Decorator(decorator) => HuskyTokenKind::Decorator(decorator),
+            WordPtr::Pattern(patt) => HuskyTokenKind::WordPattern(patt),
         }
     }
 }

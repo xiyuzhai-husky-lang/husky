@@ -68,6 +68,7 @@ impl From<&HuskyToken> for HuskyAtom {
             HuskyTokenKind::Unrecognized(_) => todo!(),
             HuskyTokenKind::IllFormedLiteral(_) => todo!(),
             HuskyTokenKind::Decorator(_) => todo!(),
+            HuskyTokenKind::WordPattern(_) => todo!(),
         }
     }
 }

@@ -103,6 +103,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         err!(format!("ill formed literal `{:?}`", n), token.range)?
                     }
                     HuskyTokenKind::Decorator(_) => todo!(),
+                    HuskyTokenKind::WordPattern(_) => todo!(),
                 }
             } else {
                 break;
