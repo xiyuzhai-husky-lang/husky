@@ -15,6 +15,12 @@ pub trait __VecX<T> {
     fn lastx(&self) -> &T;
 
     fn lastx_mut(&mut self) -> &mut T;
+
+    fn collect_refs(&self) -> Vec<&T>;
+
+    fn pop_with_opt_largest_f32_copyable(&mut self, f: impl Fn(T) -> Option<f32>) -> Option<T>
+    where
+        T: Copy;
 }
 
 impl<T> __VecX<T> for Vec<T> {
@@ -36,6 +42,26 @@ impl<T> __VecX<T> for Vec<T> {
 
     fn popx(&mut self) -> T {
         self.pop().unwrap()
+    }
+
+    fn collect_refs(&self) -> Vec<&T> {
+        self.iter().collect()
+    }
+
+    fn pop_with_opt_largest_f32_copyable(&mut self, f: impl Fn(T) -> Option<f32>) -> Option<T>
+    where
+        T: Copy,
+    {
+        let mut imax = None;
+        let mut vmax = f32::MIN;
+        for i in 0..self.len() {
+            if let Some(v) = f(self[i]) {
+                if v > vmax {
+                    imax = Some(i)
+                }
+            }
+        }
+        imax.map(|imax| self.remove(imax))
     }
 
     fn firstx(&self) -> &T {
