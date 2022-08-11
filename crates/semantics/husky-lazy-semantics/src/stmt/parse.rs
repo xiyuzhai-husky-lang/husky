@@ -76,12 +76,14 @@ impl<'a> LazyStmtParser<'a> {
                         RawStmtVariant::Assert(condition) => LazyStmtVariant::Assert {
                             condition: self.parse_lazy_expr(condition)?,
                         },
+                        RawStmtVariant::Require { condition, .. } => LazyStmtVariant::Require {
+                            condition: self.parse_lazy_expr(condition)?,
+                        },
                         RawStmtVariant::Break => todo!(),
                         RawStmtVariant::Match { .. } => panic!(),
                         RawStmtVariant::ReturnXml(ref raw_xml_expr) => LazyStmtVariant::ReturnXml {
                             xml_expr: self.parse_xml_expr(raw_xml_expr)?,
                         },
-                        RawStmtVariant::Require { condition, .. } => todo!(),
                     };
                     stmts.push(Arc::new(LazyStmt {
                         file: self.file,

@@ -263,8 +263,15 @@ impl EntityDefn {
         fn extract_lazy_stmts_dependees(stmts: &[Arc<LazyStmt>], builder: &mut DependeeMapBuilder) {
             for stmt in stmts {
                 match stmt.variant {
-                    LazyStmtVariant::Init { varname, ref value } => todo!(),
-                    LazyStmtVariant::Assert { ref condition } => todo!(),
+                    LazyStmtVariant::Init { varname, ref value } => {
+                        extract_lazy_expr_dependees(value, builder)
+                    }
+                    LazyStmtVariant::Assert { ref condition } => {
+                        extract_lazy_expr_dependees(condition, builder)
+                    }
+                    LazyStmtVariant::Require { ref condition } => {
+                        extract_lazy_expr_dependees(condition, builder)
+                    }
                     LazyStmtVariant::Return { ref result } => {
                         extract_lazy_expr_dependees(result, builder)
                     }

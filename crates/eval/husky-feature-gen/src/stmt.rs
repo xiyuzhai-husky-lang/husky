@@ -116,6 +116,7 @@ impl FeatureStmt {
                 ref match_expr,
                 ref branches,
             } => todo!(),
+            LazyStmtVariant::Require { ref condition } => todo!(),
         };
         Arc::new(FeatureStmt {
             file: lazy_stmt.file,

@@ -51,6 +51,9 @@ pub enum LazyStmtVariant {
     Assert {
         condition: Arc<LazyExpr>,
     },
+    Require {
+        condition: Arc<LazyExpr>,
+    },
     Return {
         result: Arc<LazyExpr>,
     },
