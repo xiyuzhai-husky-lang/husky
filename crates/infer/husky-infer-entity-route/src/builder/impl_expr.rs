@@ -230,7 +230,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 },
                 EntityRoutePtr::Custom(lopd_custom_ty) => match pure_binary_opr {
                     PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
-                        if lopd_ty == ropd_ty {
+                        if lopd_ty.intrinsic() == ropd_ty.intrinsic() {
                             Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
                         } else {
                             todo!()

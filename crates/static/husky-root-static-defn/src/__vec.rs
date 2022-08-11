@@ -1,17 +1,18 @@
 mod cyclic_slice_;
 mod firstx;
 mod lastx;
+mod pop_with_opt_largest_f32;
 
-use cyclic_slice::CyclicSlice;
 pub use cyclic_slice_::*;
 pub use firstx::*;
-use husky_entity_route::EntityRoutePtr;
-use husky_print_utils::msg_once;
-use husky_static_visualizer::StaticVisualTy;
 pub use lastx::*;
+pub use pop_with_opt_largest_f32::VEC_POP_WITH_OPT_LARGEST_F32;
 
 use super::*;
 use husky_check_utils::should_eq;
+use husky_entity_route::EntityRoutePtr;
+use husky_print_utils::msg_once;
+use husky_static_visualizer::StaticVisualTy;
 
 pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Vec",
@@ -59,6 +60,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             &VEC_FIRST,
             &VEC_LAST,
             &VEC_CYCLIC_SLICE,
+            &VEC_POP_WITH_OPT_LARGEST_F32,
         ],
         variants: &[],
         kind: TyKind::Vec,

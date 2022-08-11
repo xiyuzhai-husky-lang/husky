@@ -44,7 +44,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     }
                 }
                 PrimitiveLiteralData::I64(_) => todo!(),
-                PrimitiveLiteralData::Float(_) => todo!(),
+                PrimitiveLiteralData::Float(_) => None,
                 PrimitiveLiteralData::F32(_) => todo!(),
                 PrimitiveLiteralData::F64(_) => todo!(),
                 PrimitiveLiteralData::Bits(_) => todo!(),
