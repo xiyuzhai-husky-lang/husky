@@ -2,7 +2,7 @@ use crate::*;
 use entity_kind::TyKind;
 use husky_ast::FieldAstKind;
 use husky_linkage_table::ResolveLinkage;
-use husky_opn_semantics::SuffixOpr;
+use husky_opn_semantics::EagerSuffixOpr;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use husky_vm_primitive_opr_linkage::{
     resolve_primitive_assign_binary_opr_linkage, resolve_primitive_prefix_opr_linkage,
@@ -391,7 +391,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_suffix(
         &mut self,
-        opr: &SuffixOpr,
+        opr: &EagerSuffixOpr,
         opds: &[Arc<EagerExpr>],
         expr: &Arc<EagerExpr>,
         discard: bool,
@@ -399,93 +399,95 @@ impl<'a> InstructionSheetBuilder<'a> {
         let this_ty = opds[0].ty();
         let ins_variant = InstructionVariant::CallRoutine {
             linkage_fp: match opr {
-                SuffixOpr::Incr | SuffixOpr::Decr | SuffixOpr::AsTy(_) => match this_ty {
-                    EntityRoutePtr::Root(root_identifier) => {
-                        resolve_primitive_suffix_opr_linkage(opr, root_identifier).transfer()
-                    }
-                    EntityRoutePtr::Custom(_) => {
-                        let ty_decl: Arc<TyDecl> = self.db.comptime().ty_decl(this_ty).unwrap();
-                        match ty_decl.ty_kind {
-                            TyKind::Enum => match opr {
-                                SuffixOpr::Incr => todo!(),
-                                SuffixOpr::Decr => todo!(),
-                                SuffixOpr::AsTy(as_ty) => match as_ty.route {
-                                    EntityRoutePtr::Root(root_identifier) => {
-                                        match root_identifier {
-                                            RootIdentifier::Void => todo!(),
-                                            RootIdentifier::I32 => transfer_linkage!(
-                                                |_, args| {
-                                                    let enum_value: &__VirtualEnum = unsafe {
-                                                        args[0].downcast_temp_ref(
-                                                            &__VIRTUAL_ENUM_VTABLE,
-                                                        )
-                                                    };
-                                                    enum_value.kind_idx.to_register()
-                                                },
-                                                none
-                                            )
-                                            .transfer(),
-                                            RootIdentifier::I64 => todo!(),
-                                            RootIdentifier::F32 => todo!(),
-                                            RootIdentifier::F64 => todo!(),
-                                            RootIdentifier::B32 => todo!(),
-                                            RootIdentifier::B64 => todo!(),
-                                            RootIdentifier::Bool => todo!(),
-                                            RootIdentifier::True => todo!(),
-                                            RootIdentifier::False => todo!(),
-                                            RootIdentifier::Vec => todo!(),
-                                            RootIdentifier::Tuple => todo!(),
-                                            RootIdentifier::Debug => todo!(),
-                                            RootIdentifier::Std => todo!(),
-                                            RootIdentifier::Core => todo!(),
-                                            RootIdentifier::Mor => todo!(),
-                                            RootIdentifier::Fp => todo!(),
-                                            RootIdentifier::Fn => todo!(),
-                                            RootIdentifier::FnMut => todo!(),
-                                            RootIdentifier::FnOnce => todo!(),
-                                            RootIdentifier::Array => todo!(),
-                                            RootIdentifier::Domains => todo!(),
-                                            RootIdentifier::DatasetType => todo!(),
-                                            RootIdentifier::VisualType => todo!(),
-                                            RootIdentifier::TypeType => todo!(),
-                                            RootIdentifier::TraitType => todo!(),
-                                            RootIdentifier::ModuleType => todo!(),
-                                            RootIdentifier::CloneTrait => todo!(),
-                                            RootIdentifier::CopyTrait => todo!(),
-                                            RootIdentifier::PartialEqTrait => todo!(),
-                                            RootIdentifier::EqTrait => todo!(),
-                                            RootIdentifier::Ref => todo!(),
-                                            RootIdentifier::Option => todo!(),
-                                        }
-                                    }
-                                    EntityRoutePtr::Custom(_) => todo!(),
-                                    EntityRoutePtr::ThisType => todo!(),
-                                },
-                                SuffixOpr::BePattern(_) => todo!(),
-                            },
-                            TyKind::Record => todo!(),
-                            TyKind::Struct => todo!(),
-                            TyKind::Primitive => todo!(),
-                            TyKind::Vec => todo!(),
-                            TyKind::Array => todo!(),
-                            TyKind::Slice => todo!(),
-                            TyKind::CyclicSlice => todo!(),
-                            TyKind::Tuple => todo!(),
-                            TyKind::Mor => todo!(),
-                            TyKind::Fp => todo!(),
-                            TyKind::AssociatedAny => todo!(),
-                            TyKind::ThisAny => todo!(),
-                            TyKind::SpatialPlaceholderAny => todo!(),
-                            TyKind::BoxAny => todo!(),
-                            TyKind::HigherKind => todo!(),
-                            TyKind::Ref => todo!(),
-                            TyKind::Option => todo!(),
-                            TyKind::TargetOutputAny => todo!(),
+                EagerSuffixOpr::Incr | EagerSuffixOpr::Decr | EagerSuffixOpr::AsTy(_) => {
+                    match this_ty {
+                        EntityRoutePtr::Root(root_identifier) => {
+                            resolve_primitive_suffix_opr_linkage(opr, root_identifier).transfer()
                         }
+                        EntityRoutePtr::Custom(_) => {
+                            let ty_decl: Arc<TyDecl> = self.db.comptime().ty_decl(this_ty).unwrap();
+                            match ty_decl.ty_kind {
+                                TyKind::Enum => match opr {
+                                    EagerSuffixOpr::Incr => todo!(),
+                                    EagerSuffixOpr::Decr => todo!(),
+                                    EagerSuffixOpr::AsTy(as_ty) => match as_ty.route {
+                                        EntityRoutePtr::Root(root_identifier) => {
+                                            match root_identifier {
+                                                RootIdentifier::Void => todo!(),
+                                                RootIdentifier::I32 => transfer_linkage!(
+                                                    |_, args| {
+                                                        let enum_value: &__VirtualEnum = unsafe {
+                                                            args[0].downcast_temp_ref(
+                                                                &__VIRTUAL_ENUM_VTABLE,
+                                                            )
+                                                        };
+                                                        enum_value.kind_idx.to_register()
+                                                    },
+                                                    none
+                                                )
+                                                .transfer(),
+                                                RootIdentifier::I64 => todo!(),
+                                                RootIdentifier::F32 => todo!(),
+                                                RootIdentifier::F64 => todo!(),
+                                                RootIdentifier::B32 => todo!(),
+                                                RootIdentifier::B64 => todo!(),
+                                                RootIdentifier::Bool => todo!(),
+                                                RootIdentifier::True => todo!(),
+                                                RootIdentifier::False => todo!(),
+                                                RootIdentifier::Vec => todo!(),
+                                                RootIdentifier::Tuple => todo!(),
+                                                RootIdentifier::Debug => todo!(),
+                                                RootIdentifier::Std => todo!(),
+                                                RootIdentifier::Core => todo!(),
+                                                RootIdentifier::Mor => todo!(),
+                                                RootIdentifier::Fp => todo!(),
+                                                RootIdentifier::Fn => todo!(),
+                                                RootIdentifier::FnMut => todo!(),
+                                                RootIdentifier::FnOnce => todo!(),
+                                                RootIdentifier::Array => todo!(),
+                                                RootIdentifier::Domains => todo!(),
+                                                RootIdentifier::DatasetType => todo!(),
+                                                RootIdentifier::VisualType => todo!(),
+                                                RootIdentifier::TypeType => todo!(),
+                                                RootIdentifier::TraitType => todo!(),
+                                                RootIdentifier::ModuleType => todo!(),
+                                                RootIdentifier::CloneTrait => todo!(),
+                                                RootIdentifier::CopyTrait => todo!(),
+                                                RootIdentifier::PartialEqTrait => todo!(),
+                                                RootIdentifier::EqTrait => todo!(),
+                                                RootIdentifier::Ref => todo!(),
+                                                RootIdentifier::Option => todo!(),
+                                            }
+                                        }
+                                        EntityRoutePtr::Custom(_) => todo!(),
+                                        EntityRoutePtr::ThisType => todo!(),
+                                    },
+                                    EagerSuffixOpr::BePattern(_) => todo!(),
+                                },
+                                TyKind::Record => todo!(),
+                                TyKind::Struct => todo!(),
+                                TyKind::Primitive => todo!(),
+                                TyKind::Vec => todo!(),
+                                TyKind::Array => todo!(),
+                                TyKind::Slice => todo!(),
+                                TyKind::CyclicSlice => todo!(),
+                                TyKind::Tuple => todo!(),
+                                TyKind::Mor => todo!(),
+                                TyKind::Fp => todo!(),
+                                TyKind::AssociatedAny => todo!(),
+                                TyKind::ThisAny => todo!(),
+                                TyKind::SpatialPlaceholderAny => todo!(),
+                                TyKind::BoxAny => todo!(),
+                                TyKind::HigherKind => todo!(),
+                                TyKind::Ref => todo!(),
+                                TyKind::Option => todo!(),
+                                TyKind::TargetOutputAny => todo!(),
+                            }
+                        }
+                        EntityRoutePtr::ThisType => todo!(),
                     }
-                    EntityRoutePtr::ThisType => todo!(),
-                },
-                SuffixOpr::BePattern(_) => todo!(),
+                }
+                EagerSuffixOpr::BePattern(_) => todo!(),
             },
             nargs: 1,
             output_ty: expr.ty(),

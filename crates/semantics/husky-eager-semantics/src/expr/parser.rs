@@ -246,9 +246,9 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         let opd_idx = raw_opds.start;
         let opd = self.parse_eager_expr(opd_idx)?;
         let opr = match raw_opr {
-            RawSuffixOpr::Incr => SuffixOpr::Incr,
-            RawSuffixOpr::Decr => SuffixOpr::Decr,
-            RawSuffixOpr::AsTy(ty) => SuffixOpr::AsTy(ty.clone()),
+            RawSuffixOpr::Incr => EagerSuffixOpr::Incr,
+            RawSuffixOpr::Decr => EagerSuffixOpr::Decr,
+            RawSuffixOpr::AsTy(ty) => EagerSuffixOpr::AsTy(ty.clone()),
             RawSuffixOpr::BePattern(_) => todo!(),
         };
         Ok(EagerExprVariant::Opn {

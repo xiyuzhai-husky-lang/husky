@@ -1,12 +1,15 @@
 use super::*;
 use husky_entity_route::EntityRoutePtr;
-use husky_opn_semantics::SuffixOpr;
+use husky_opn_semantics::EagerSuffixOpr;
 use husky_vm_interface::*;
 use husky_word::RootIdentifier;
 
-pub fn resolve_primitive_suffix_opr_linkage(opr: &SuffixOpr, this_ty: RootIdentifier) -> __Linkage {
+pub fn resolve_primitive_suffix_opr_linkage(
+    opr: &EagerSuffixOpr,
+    this_ty: RootIdentifier,
+) -> __Linkage {
     match opr {
-        SuffixOpr::Incr => match this_ty {
+        EagerSuffixOpr::Incr => match this_ty {
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => {
                 transfer_linkage!(
@@ -57,7 +60,7 @@ pub fn resolve_primitive_suffix_opr_linkage(opr: &SuffixOpr, this_ty: RootIdenti
             RootIdentifier::Ref => todo!(),
             RootIdentifier::Option => todo!(),
         },
-        SuffixOpr::Decr => match this_ty {
+        EagerSuffixOpr::Decr => match this_ty {
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => {
                 transfer_linkage!(
@@ -108,7 +111,7 @@ pub fn resolve_primitive_suffix_opr_linkage(opr: &SuffixOpr, this_ty: RootIdenti
             RootIdentifier::Ref => todo!(),
             RootIdentifier::Option => todo!(),
         },
-        SuffixOpr::AsTy(as_ty) => match this_ty {
+        EagerSuffixOpr::AsTy(as_ty) => match this_ty {
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => match as_ty.route {
                 EntityRoutePtr::Root(root_identifier) => match root_identifier {
@@ -231,6 +234,6 @@ pub fn resolve_primitive_suffix_opr_linkage(opr: &SuffixOpr, this_ty: RootIdenti
             RootIdentifier::Ref => todo!(),
             RootIdentifier::Option => todo!(),
         },
-        SuffixOpr::BePattern(_) => panic!(),
+        EagerSuffixOpr::BePattern(_) => panic!(),
     }
 }
