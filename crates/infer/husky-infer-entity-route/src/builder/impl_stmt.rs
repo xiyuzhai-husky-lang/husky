@@ -203,6 +203,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 return;
             }
             RawPatternVariant::EnumLiteral(value) => value.parent(),
+            RawPatternVariant::Some => todo!(),
+            RawPatternVariant::None => todo!(),
         };
         if ty != expectation {
             todo!()

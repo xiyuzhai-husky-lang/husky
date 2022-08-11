@@ -191,6 +191,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 subpatterns: ref patterns,
             } => (),
             RawPatternVariant::EnumLiteral(_) => (),
+            RawPatternVariant::Some => todo!(),
+            RawPatternVariant::None => todo!(),
         }
     }
 

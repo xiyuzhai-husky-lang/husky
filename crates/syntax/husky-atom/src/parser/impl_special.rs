@@ -87,7 +87,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 self.atom_context,
             ),
             SpecialToken::SubOrMinus => {
-                if self.stack.is_convex() {
+                if self.stack.convexity() == Convexity::Convex {
                     self.stack.push(HuskyAtom::new(
                         self.token_stream.text_range(text_start),
                         BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
@@ -141,7 +141,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             SpecialToken::QuestionMark => match self.stack.convexity() {
                 Convexity::Convex => todo!(),
                 Convexity::Concave => todo!(),
-                Convexity::Any => todo!(),
+                Convexity::WordPatternAny => todo!(),
             },
             _ => {
                 self.token_stream.text_range(text_start);

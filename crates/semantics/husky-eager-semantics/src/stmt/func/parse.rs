@@ -202,6 +202,8 @@ impl<'a> EagerParser<'a> {
                     .collect::<SemanticResult<_>>()?,
             },
             RawPatternVariant::EnumLiteral(route) => FuncStmtPatternVariant::EnumLiteral(route),
+            RawPatternVariant::Some => todo!(),
+            RawPatternVariant::None => todo!(),
         };
         Ok(FuncStmtPattern { ty, variant })
     }
