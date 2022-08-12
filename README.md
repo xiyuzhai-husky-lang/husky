@@ -25,7 +25,7 @@ Now "explainability" is important for two reasons:
 # Snapshots
 
 ## Pythonic Syntax
-![alt text](snapshots/pythonic-syntax.png)
+![alt text](snapshots/pythonic-syntax2.png)
 
 ## Trace-Based Debugging System
 
