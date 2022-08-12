@@ -6,6 +6,14 @@ pub enum __VirtualFunction {
     Fp(__LinkageFp),
 }
 
+impl __VirtualFunction {
+    pub fn fp(&self) -> *const () {
+        match self {
+            __VirtualFunction::Fp(linkage) => linkage.opt_fp.unwrap(),
+        }
+    }
+}
+
 impl __StaticInfo for __VirtualFunction {
     type __StaticSelf = Self;
 

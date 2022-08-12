@@ -289,9 +289,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EntityKind::Module => Ok(EagerValueQualifiedTy::module_eager_qualified_ty()),
                 EntityKind::Type(_) => Ok(EagerValueQualifiedTy::ty_eager_qualified_ty()),
                 EntityKind::Trait => Ok(EagerValueQualifiedTy::trait_eager_qualified_ty()),
-                EntityKind::Member(_) | EntityKind::Function { .. } => Ok(
-                    EagerValueQualifiedTy::entity_ty(self.raw_expr_ty(raw_expr_idx)?),
-                ),
+                EntityKind::Member(_) | EntityKind::Function { .. } => {
+                    EagerValueQualifiedTy::entity_ty(self.db, self.raw_expr_ty(raw_expr_idx)?)
+                }
                 EntityKind::Feature => Ok(EagerValueQualifiedTy::feature_ty(
                     self.raw_expr_ty(raw_expr_idx)?,
                 )),
