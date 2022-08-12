@@ -13,6 +13,12 @@ Husky is a research oriented programming language that aims primarily to extend 
 
 The primary focus is the language frontend design. In a long time, Husky will rely on Rust/Zig/C/Cpp for compilation so that we don't need to spend too much time in dealing with IRGen.
 
+# About Development
+
+This project was created by and is currently maintained solo by Xiyu Zhai, a Phd in MIT EECS, whose primary background is actually in pure math and has just programmed intensively for the last two years.
+
+It was created as a language to implement certain ideas for efficient image classification, which is hard to do in existing languages. Originally it was written in Cpp, and had gone through many versions that were influenced heavily by Cpp. However, the lacking of ocaml-like clean pattern and memory safety and many other things matching make development hard. Then, a Rust version was created from scratch and despite of the learning curve, the development is quite smooth and the design of language is becoming very similar to Rust.
+
 # Khala Links
 
 ## Repositories
