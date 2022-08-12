@@ -9,7 +9,7 @@ Still, if one's curious about what's going on, please take a look at the other r
 
 # Introduction
 
-Husky is a research oriented programming language that aims primarily to extend the possibilities of programming itself (rather replacing certain languages in certain domains). For example, Husky shall make it possible to write a strongly explainable and efficient classifier for image recognition tasks ... (todo: phrase this more properly;)
+Husky is a research oriented programming language that aims primarily to extend the boundary of programming itself (rather than replacing certain languages in certain domains). For example, Husky shall make it possible to write a strongly explainable and efficient classifier for image recognition tasks by using a more powerful functional programming paradigm combined with eager ones and faciliated by a builtin debugging system ... (todo: phrase this more properly;)
 
 The primary focus is the language frontend design. In a long time, Husky will rely on Rust/Zig/C/Cpp for compilation so that we don't need to spend too much time in dealing with IRGen.
 
