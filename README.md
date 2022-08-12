@@ -22,6 +22,15 @@ Now "explainability" is important for two reasons:
 - allows people to collaborate
 - allows task specific optimization
 
+# Snapshots
+
+## Pythonic Syntax
+![alt text](snapshots/husky-code-snapshot.png)
+
+## Trace-Based Debugging System
+
+TODO
+
 # About Development
 
 This project was created by and is currently maintained solo by Xiyu Zhai, a Phd in MIT EECS, whose primary background is actually in pure math and has just programmed intensively for the last two years. So please help, smart people!
