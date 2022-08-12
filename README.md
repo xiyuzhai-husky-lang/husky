@@ -13,6 +13,15 @@ Husky is a research oriented programming language that aims primarily to extend 
 
 The primary focus is the language frontend design. In a long time, Husky will rely on Rust/Zig/C/Cpp for compilation so that we don't need to spend too much time in dealing with IRGen.
 
+# Core Belief
+
+The core belief is the existence of a strongly explainable program (as explainable as the software we wrote) for a range of AI problems, including computer vision, natural language processing. And Husky is designed to be the language to write that program.
+
+Now "explainability" is important for two reasons:
+
+- allows people to collaborate
+- allows task specific optimization
+
 # About Development
 
 This project was created by and is currently maintained solo by Xiyu Zhai, a Phd in MIT EECS, whose primary background is actually in pure math and has just programmed intensively for the last two years. So please help, smart people!
