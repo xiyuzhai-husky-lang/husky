@@ -170,11 +170,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<i32> = unsafe { __arb_ref(&__arguments[0]) }
                         .downcast_temp_mut(&__registration__::__VEC_I_32_VTABLE);
-                    let f: Fp<i32, Option<f32>> = __arguments[1]
-                        .downcast_temp_ref::<__VirtualFunction>(
-                            &__registration__::__VIRTUAL_FUNCTION_VTABLE,
-                        )
-                        .fp();
+                    let f: fn(i32) -> Option<f32> = std::mem::transmute(
+                        __arguments[1]
+                            .downcast_temp_ref::<__VirtualFunction>(
+                                &__registration__::__VIRTUAL_FUNCTION_VTABLE,
+                            )
+                            .fp(),
+                    );
                     __Register::new_opt_box(
                         __this.pop_with_opt_largest_f32(f),
                         &__registration__::__I32_VTABLE,

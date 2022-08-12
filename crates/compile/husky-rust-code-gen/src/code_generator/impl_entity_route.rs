@@ -17,6 +17,33 @@ impl<'a> RustCodeGenerator<'a> {
                     RootIdentifier::B32 => self.write("u32"),
                     RootIdentifier::B64 => self.write("u64"),
                     RootIdentifier::Std => self.write("__std"),
+                    RootIdentifier::Fp => {
+                        self.write("fn(");
+                        for i in 0..(entity_route.spatial_arguments.len() - 1) {
+                            if i > 0 {
+                                self.write(", ")
+                            }
+                            let argument_ty = entity_route.spatial_arguments[i].take_entity_route();
+                            if !self.db.is_copyable(argument_ty).unwrap() {
+                                self.write("&")
+                            }
+                            self.gen_entity_route(argument_ty, EntityRouteRole::Decl)
+                        }
+                        self.write(")");
+                        let output_ty = entity_route
+                            .spatial_arguments
+                            .last()
+                            .unwrap()
+                            .take_entity_route();
+                        if output_ty != EntityRoutePtr::Root(RootIdentifier::Void) {
+                            self.write("->");
+                            self.gen_entity_route(output_ty, EntityRouteRole::Decl)
+                        }
+                        return;
+                    }
+                    RootIdentifier::FnMut => todo!(),
+                    RootIdentifier::Fn => todo!(),
+                    RootIdentifier::FnOnce => todo!(),
                     RootIdentifier::Ref => {
                         self.write("&'eval ");
                         self.gen_entity_route(

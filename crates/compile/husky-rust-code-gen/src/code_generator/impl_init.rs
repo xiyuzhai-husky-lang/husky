@@ -585,11 +585,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     TyKind::CyclicSlice => todo!(),
                     TyKind::Tuple => todo!(),
                     TyKind::Mor => todo!(),
-                    TyKind::Fp =>self.write(&format!(
-                        r#" = __arguments[{i}]
+                    TyKind::Fp =>{
+                        self.write(&format!(
+                        r#" = std::mem::transmute(__arguments[{i}]
         .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)
-        .fp();"#
-                    )),
+        .fp());"#
+                        ));
+                    },
                     TyKind::AssociatedAny => todo!(),
                     TyKind::ThisAny => todo!(),
                     TyKind::SpatialPlaceholderAny => todo!(),

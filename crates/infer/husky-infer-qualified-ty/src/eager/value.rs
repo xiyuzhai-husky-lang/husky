@@ -167,11 +167,18 @@ impl EagerValueQualifiedTy {
         }
     }
 
-    pub(crate) fn entity_ty(ty: EntityRoutePtr) -> Self {
-        Self {
-            qual: EagerExprQualifier::EvalRef,
+    pub(crate) fn entity_ty(
+        db: &dyn InferQualifiedTyQueryGroup,
+        ty: EntityRoutePtr,
+    ) -> InferResult<Self> {
+        Ok(Self {
+            qual: if db.is_copyable(ty)? {
+                EagerExprQualifier::Copyable
+            } else {
+                EagerExprQualifier::EvalRef
+            },
             ty,
-        }
+        })
     }
 
     pub(crate) fn feature_ty(ty: EntityRoutePtr) -> Self {

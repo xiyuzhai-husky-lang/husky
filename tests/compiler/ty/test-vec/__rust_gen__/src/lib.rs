@@ -28,7 +28,7 @@ pub(crate) fn change_element() -> i32 {
 
 pub(crate) fn test_pop_with() -> i32 {
     let mut v = vec![0, 1, 2, 4, 3];
-    let b = v.pop_with_opt_largest_f32_copyable(&score);
+    let b = v.pop_with_opt_largest_f32_copyable(score);
     assert!(b == Some(4));
     assert!(v == vec![0, 1, 2, 3]);
     return v.ilen();
