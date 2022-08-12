@@ -27,5 +27,5 @@ func score(a: i32) -> ?f32:
 main:
     assert f() == 1
     assert change_element() == 3
-    assert test_pop_with() == 3
+    assert test_pop_with() == 4
     1

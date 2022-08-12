@@ -173,14 +173,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                             ", __registration__::{mangled_ty_vtable}, __registration__::{mangled_output_ty_vtable}, {method_name})"
                         ))
                     }
-                    _ => self.gen_specific_routine_linkage(
-                        Some((this_liason, entity_route.parent())),
-                        |this| {
-                            this.write(&format!("__this.{}", entity_route.ident().as_str()));
-                        },
-                        |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
-                        &call_form_decl,
-                    ),
+                    _ => {
+                        let method_name_extra =
+                            if entity_route.ident().as_str() == "pop_with_opt_largest_f32" {
+                                let elem_ty =
+                                    entity_route.parent().spatial_arguments[0].take_entity_route();
+                                if self.db.is_copyable(elem_ty).unwrap() {
+                                    "_copyable"
+                                } else {
+                                    "_borrow"
+                                }
+                            } else {
+                                ""
+                            };
+                        self.gen_specific_routine_linkage(
+                            Some((this_liason, entity_route.parent())),
+                            |this| {
+                                this.write(&format!("__this.{}", entity_route.ident().as_str()));
+                                // ad hoc
+                                this.write(method_name_extra)
+                            },
+                            |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
+                            &call_form_decl,
+                        )
+                    }
                 }
             }
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {

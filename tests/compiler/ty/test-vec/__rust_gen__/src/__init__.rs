@@ -178,7 +178,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                             .fp(),
                     );
                     __Register::new_opt_box(
-                        __this.pop_with_opt_largest_f32(f),
+                        __this.pop_with_opt_largest_f32_copyable(f),
                         &__registration__::__I32_VTABLE,
                     )
                 }
