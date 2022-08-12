@@ -32,7 +32,11 @@ It was created as a language to implement certain ideas for efficient image clas
 
 ## Repositories
 
-### Research
+### language
+
+<https://github.com/leanprover/lean4/>
+
+### research
 
 Torch Quantum <https://github.com/mit-han-lab/torchquantum/>
 
