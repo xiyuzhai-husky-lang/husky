@@ -106,9 +106,10 @@ fn feature_repr_opt_stats(
             continue;
         }
         arrivals += 1;
-        let value = db
-            .eval_feature_repr_cached(repr, sample_id)
-            .map_err(|_| todo!())?;
+        let value = db.eval_feature_repr_cached(repr, sample_id).map_err(|e| {
+            p!(e);
+            todo!()
+        })?;
         if let Some(prediction) = convert_register_to_label(&value) {
             match prediction == labeled_data.label {
                 true => trues += 1,

@@ -14,7 +14,10 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 if self.satisfies(condition)? {
                     Ok(__Register::new_unreturned())
                 } else {
-                    Err(__VMError::new_normal(format!("assertion failed")))
+                    Err(__VMError::new_normal(format!(
+                        "assertion failed at {:?}:{:?}",
+                        stmt.file, stmt.range.start.row
+                    )))
                 }
             }
             FeatureLazyStmtVariant::Require { ref condition } => {
