@@ -34,7 +34,11 @@ It was created as a language to implement certain ideas for efficient image clas
 
 ### language
 
-<https://github.com/leanprover/lean4/>
+Interesting new languages
+
+Lean 4 <https://github.com/leanprover/lean4/>
+
+Zig <https://github.com/ziglang/zig.git/>
 
 ### research
 
