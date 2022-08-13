@@ -13,7 +13,7 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::EntityFeature { repr, .. } => feature_repr_opt_stats(runtime, repr, None),
             TraceVariant::FeatureStmt(stmt) => feature_stmt_opt_stats(runtime, stmt),
             TraceVariant::FeatureBranch(branch) => feature_branch_opt_stats(runtime, branch),
-            TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, expr, None),
+            TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, expr),
             TraceVariant::FeatureCallArgument { name, argument } => todo!(),
             TraceVariant::FuncStmt { stmt, history } => todo!(),
             TraceVariant::ProcStmt { stmt, history } => todo!(),
@@ -71,9 +71,7 @@ fn feature_stmt_opt_stats<'eval>(
         FeatureLazyStmtVariant::Init { .. }
         | FeatureLazyStmtVariant::Assert { .. }
         | FeatureLazyStmtVariant::Require { .. } => Ok(None),
-        FeatureLazyStmtVariant::Return { ref result } => {
-            feature_expr_opt_stats(db, result, stmt.opt_arrival_indicator.as_ref())
-        }
+        FeatureLazyStmtVariant::Return { ref result } => feature_expr_opt_stats(db, result),
         FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
         FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
     }
@@ -174,14 +172,13 @@ fn feature_opt_stats<'eval>(
 fn feature_expr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     expr: &FeatureExpr,
-    opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
     msg_once!("todo: arrival indicator");
     feature_opt_stats(
         db,
         expr.expr.ty(),
         |sample_id| db.eval_feature_expr(expr, sample_id),
-        opt_arrival_indicator,
+        expr.opt_arrival_indicator.as_ref(),
     )
 }
 
