@@ -35,7 +35,7 @@ Now "explainability" is important for two reasons:
 
 ### stalk
 
-todo
+![alt text](snapshots/debugger-stalk.png)
 
 # About Development
 
