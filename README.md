@@ -1,4 +1,4 @@
-# Husky
+# Work in Progress
 
 The Husky Programming Language
 
@@ -78,6 +78,8 @@ Interesting new languages
 Lean 4 <https://github.com/leanprover/lean4/>
 
 Zig <https://github.com/ziglang/zig.git/>
+
+Roc <https://github.com/roc-lang/roc/>
 
 ### research
 
