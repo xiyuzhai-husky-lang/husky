@@ -30,6 +30,14 @@ Now "explainability" is important for two reasons:
 
 ![alt text](snapshots/pythonic-syntax2.png)
 
+### Powerful yet Safe Semantics
+
+Three paradigms:
+
+- eager procedural
+- eager functional
+- lazy functional
+
 ### Trace-Based Debugging System
 
 #### generic viewpoint: visualize feature over a subset of datapoints
