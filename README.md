@@ -12,6 +12,16 @@ Husky is a research oriented programming language that aims primarily to extend 
 
 The primary focus is the language frontend design. In a long time, Husky will rely on Rust/Zig/C/Cpp for compilation so that we don't need to spend too much time in dealing with IRGen.
 
+## Get Started
+
+### Installation
+
+TODO
+
+### Run Examples
+
+TODO
+
 ## Motivation
 
 ### A Bright Future of AI
