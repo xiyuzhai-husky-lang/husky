@@ -15,10 +15,10 @@ console_error_panic_hook = "0.1.7"
 wasm-bindgen = "0.2.80"
 libmath = "0.2.1"
 js-sys = "0.3.58"
-sycamore = { path = "../../../forks/sycamore/packages/sycamore" }
-vec-like = { path = "../../abstraction/vec-like" }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
-husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
+sycamore = { path = "../../forks/sycamore/packages/sycamore" }
+vec-like = { path = "../../crates/abstraction/vec-like" }
+husky-trace-protocol = { path = "../../crates/trace/husky-trace-protocol" }
+husky-vm-primitive-value = { path = "../../crates/vm/husky-vm-primitive-value" }
 
 [dependencies.web-sys]
 version = "0.3.57"
