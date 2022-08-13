@@ -13,7 +13,7 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::EntityFeature { repr, .. } => feature_repr_opt_stats(runtime, repr, None),
             TraceVariant::FeatureStmt(stmt) => feature_stmt_opt_stats(runtime, stmt),
             TraceVariant::FeatureBranch(branch) => feature_branch_opt_stats(runtime, branch),
-            TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, expr),
+            TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, expr, None),
             TraceVariant::FeatureCallArgument { name, argument } => todo!(),
             TraceVariant::FuncStmt { stmt, history } => todo!(),
             TraceVariant::ProcStmt { stmt, history } => todo!(),
@@ -71,7 +71,9 @@ fn feature_stmt_opt_stats<'eval>(
         FeatureLazyStmtVariant::Init { .. }
         | FeatureLazyStmtVariant::Assert { .. }
         | FeatureLazyStmtVariant::Require { .. } => Ok(None),
-        FeatureLazyStmtVariant::Return { ref result } => todo!(),
+        FeatureLazyStmtVariant::Return { ref result } => {
+            feature_expr_opt_stats(db, result, stmt.opt_arrival_indicator.as_ref())
+        }
         FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
         FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
     }
@@ -81,7 +83,12 @@ fn feature_branch_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     branch: &FeatureBranch,
 ) -> __VMResult<Option<TraceStats>> {
-    todo!()
+    feature_opt_stats(
+        db,
+        branch.block.ty.route,
+        |sample_id| db.eval_feature_lazy_block(&branch.block, sample_id),
+        branch.opt_arrival_indicator.as_ref(),
+    )
 }
 
 fn feature_opt_stats<'eval>(
@@ -167,21 +174,21 @@ fn feature_opt_stats<'eval>(
 fn feature_expr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     expr: &FeatureExpr,
+    opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
     msg_once!("todo: arrival indicator");
     feature_opt_stats(
         db,
         expr.expr.ty(),
         |sample_id| db.eval_feature_expr(expr, sample_id),
-        None,
+        opt_arrival_indicator,
     )
 }
 
 fn convert_enum_register_to_label<'eval>(value: &__Register<'eval>) -> Option<Label> {
     match value.data_kind() {
         __RegisterDataKind::PrimitiveValue => todo!(),
-        __RegisterDataKind::Box => todo!(),
-        __RegisterDataKind::EvalRef => Some(Label(
+        __RegisterDataKind::Box | __RegisterDataKind::EvalRef => Some(Label(
             value
                 .downcast_temp_ref::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE)
                 .kind_idx,

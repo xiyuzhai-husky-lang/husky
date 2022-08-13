@@ -43,10 +43,7 @@ impl HuskyTraceTime {
         let ty = repr.ty();
         let visualizer = self.runtime().comptime().visualizer(ty);
         match visualizer.visual_ty {
-            VisualTy::Void => {
-                p!(ty);
-                todo!()
-            }
+            VisualTy::Void => Ok(FigureCanvasData::void()),
             VisualTy::Bool => todo!(),
             VisualTy::B32 => todo!(),
             VisualTy::B64 => todo!(),

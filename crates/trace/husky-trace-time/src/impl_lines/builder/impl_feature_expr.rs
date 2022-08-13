@@ -22,6 +22,10 @@ impl<'a> TraceTokenBuilder<'a> {
         match expr.variant {
             FeatureExprVariant::Literal(_) => match expr.expr.variant {
                 LazyExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
+                LazyExprVariant::EnumLiteral { entity_route } => {
+                    let text = self.runtime().comptime().text(expr.expr.file).unwrap();
+                    self.push(route!(text.ranged(expr.expr.range), opt_assoc_id))
+                }
                 _ => panic!(),
             },
             FeatureExprVariant::PrimitiveBinaryOpr { opr, ref opds, .. } => {
