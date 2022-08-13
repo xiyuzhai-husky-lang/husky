@@ -11,8 +11,8 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::Main(repr) => feature_repr_opt_stats(runtime, repr, None),
             TraceVariant::Module { route, file, range } => Ok(None),
             TraceVariant::EntityFeature { repr, .. } => feature_repr_opt_stats(runtime, repr, None),
-            TraceVariant::FeatureStmt(_) => todo!(),
-            TraceVariant::FeatureBranch(_) => todo!(),
+            TraceVariant::FeatureStmt(stmt) => feature_stmt_opt_stats(runtime, stmt),
+            TraceVariant::FeatureBranch(branch) => feature_branch_opt_stats(runtime, branch),
             TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, expr),
             TraceVariant::FeatureCallArgument { name, argument } => todo!(),
             TraceVariant::FuncStmt { stmt, history } => todo!(),
@@ -50,15 +50,50 @@ impl<'eval> TraceVariant<'eval> {
 
 const MAX_SAMPING_SIZE: usize = 1000;
 
-fn feature_repr_opt_stats(
-    db: &dyn EvalFeature,
+fn feature_repr_opt_stats<'eval>(
+    db: &dyn EvalFeature<'eval>,
     repr: &FeatureRepr,
+    opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+) -> __VMResult<Option<TraceStats>> {
+    feature_opt_stats(
+        db,
+        repr.ty(),
+        |sample_id| db.eval_feature_repr_cached(repr, sample_id),
+        opt_arrival_indicator,
+    )
+}
+
+fn feature_stmt_opt_stats<'eval>(
+    db: &dyn EvalFeature<'eval>,
+    stmt: &FeatureStmt,
+) -> __VMResult<Option<TraceStats>> {
+    match stmt.variant {
+        FeatureLazyStmtVariant::Init { .. }
+        | FeatureLazyStmtVariant::Assert { .. }
+        | FeatureLazyStmtVariant::Require { .. } => Ok(None),
+        FeatureLazyStmtVariant::Return { ref result } => todo!(),
+        FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
+        FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
+    }
+}
+
+fn feature_branch_opt_stats<'eval>(
+    db: &dyn EvalFeature<'eval>,
+    branch: &FeatureBranch,
+) -> __VMResult<Option<TraceStats>> {
+    todo!()
+}
+
+fn feature_opt_stats<'eval>(
+    db: &dyn EvalFeature,
+    feature_ty: EntityRoutePtr,
+    compute_value: impl Fn(SampleId) -> __VMResult<__Register<'eval>>,
     opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
     let comptime = db.comptime();
     let target_output_ty = comptime.target_output_ty().unwrap();
     // todo check this could cause some problem
-    if !comptime.is_implicitly_castable(repr.ty(), target_output_ty) {
+    if !comptime.is_implicitly_castable(feature_ty, target_output_ty) {
         return Ok(None);
     }
     let mut samples = 0;
@@ -107,7 +142,7 @@ fn feature_repr_opt_stats(
             continue;
         }
         arrivals += 1;
-        let value = db.eval_feature_repr_cached(repr, sample_id).map_err(|e| {
+        let value = compute_value(sample_id).map_err(|e| {
             p!(e);
             todo!()
         })?;
@@ -129,12 +164,17 @@ fn feature_repr_opt_stats(
     }))
 }
 
-fn feature_expr_opt_stats(
-    db: &dyn EvalFeature,
+fn feature_expr_opt_stats<'eval>(
+    db: &dyn EvalFeature<'eval>,
     expr: &FeatureExpr,
 ) -> __VMResult<Option<TraceStats>> {
     msg_once!("todo: arrival indicator");
-    todo!()
+    feature_opt_stats(
+        db,
+        expr.expr.ty(),
+        |sample_id| db.eval_feature_expr(expr, sample_id),
+        None,
+    )
 }
 
 fn convert_enum_register_to_label<'eval>(value: &__Register<'eval>) -> Option<Label> {
