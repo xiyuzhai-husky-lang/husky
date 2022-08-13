@@ -57,6 +57,10 @@ Torch Quantum <https://github.com/mit-han-lab/torchquantum/>
 
 ### programming
 
+Rust <https://www.youtube.com/c/RustVideos/>
+
+Niko Matsakis <https://www.youtube.com/user/nikomatsakis/>
+
 Healthy Software Developer <https://www.youtube.com/c/JaymeEdwardsMedia/>
 
 Jon Gjengset <https://www.youtube.com/c/JonGjengset/>
