@@ -1,6 +1,7 @@
 use entity_kind::TyKind;
 use husky_dev_utils::*;
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
+use husky_trace_protocol::VisualData;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 
 pub static MNIST_LABEL_BASE_ROUTE: &'static str = "domains::ml::datasets::cv::mnist::MnistLabel";
@@ -28,7 +29,7 @@ pub static MNIST_LABEL_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Enum,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Void,
-            fp: StaticVisualizerFp(|_| todo!()),
+            fp: StaticVisualizerFp(|_| Ok(VisualData::void())),
         },
         opt_type_call: None,
     },
