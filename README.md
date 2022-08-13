@@ -29,7 +29,13 @@ Now "explainability" is important for two reasons:
 
 ## Trace-Based Debugging System
 
+### generic point
+
 ![alt text](snapshots/trace-based-debugging-system.png)
+
+### stalk
+
+todo
 
 # About Development
 
