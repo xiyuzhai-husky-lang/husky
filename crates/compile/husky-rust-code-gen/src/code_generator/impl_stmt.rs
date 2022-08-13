@@ -57,7 +57,7 @@ impl<'a> RustCodeGenerator<'a> {
                 RawReturnContextKind::Feature => {
                     let mangled_output_ty_vtable =
                         self.db.mangled_ty_vtable(return_context.output_ty.route);
-                    self.write(format!(r#"feature_require!(__ctx, __feature, __registration__::{mangled_output_ty_vtable}, "#));
+                    self.write(format!(r#"feature_require!(__ctx, __feature, "#));
                     self.gen_expr(stmt.indent, condition);
                     self.write(");");
                 }

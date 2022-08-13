@@ -7,7 +7,7 @@ pub(crate) fn haha<'eval>(__ctx: &dyn __EvalContext<'eval>) -> Option<&'eval i32
             .unwrap()
             .downcast_opt_eval_ref(&__registration__::__I32_VTABLE);
     }
-    feature_require!(__ctx, __feature, __registration__::__I32_VTABLE, 2 > 0);
+    feature_require!(__ctx, __feature, 2 > 0);
     return __ctx
         .cache_feature(
             __feature,

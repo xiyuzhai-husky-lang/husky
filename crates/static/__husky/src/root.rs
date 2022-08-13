@@ -30,9 +30,9 @@ pub use normal_require;
 
 #[macro_export]
 macro_rules! feature_require {
-    ($ctx: expr, $feature: expr, $OUTPUT_TY_VTABLE: expr, $condition: expr) => {
+    ($ctx: expr, $feature: expr, $condition: expr) => {
         if !$condition {
-            $ctx.cache_feature($feature, Ok(__Register::new_undefined(&$OUTPUT_TY_VTABLE)));
+            $ctx.cache_feature($feature, Ok(__Register::new_undefined()));
             return None;
         }
     };
