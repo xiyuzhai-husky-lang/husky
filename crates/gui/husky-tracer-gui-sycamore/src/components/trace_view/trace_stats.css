@@ -1,3 +1,5 @@
 .TraceStatsView {
-    background:white
+    color: yellow;
+    font-size: small;
+    padding-left: 20px;
 }
