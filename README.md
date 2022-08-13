@@ -29,7 +29,7 @@ Now "explainability" is important for two reasons:
 
 ## Trace-Based Debugging System
 
-TODO
+![alt text](snapshots/trace-based-debugging-system.png)
 
 # About Development
 
