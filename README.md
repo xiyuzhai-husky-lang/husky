@@ -94,13 +94,13 @@ It was created as a language to implement certain ideas for efficient image clas
 
 ### Talks
 
-#### language
+#### language talks
 
 "Outperforming Imperative with Pure Functional Languages" by Richard Feldman <https://www.youtube.com/watch?v=vzfy4EKwG_Y/>
 
 ### Repositories
 
-#### language
+#### language repos
 
 Interesting new languages
 
