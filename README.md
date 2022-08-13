@@ -33,6 +33,12 @@ Now "explainability" is important for two reasons:
 - allows people to collaborate
 - allows task specific optimization
 
+In fact, a truly explainable AI can be compared with software developed by humans:
+
+datasets -- tests
+training -- development
+inference -- runtime
+
 ## Designs
 
 ### Pythonic Syntax
