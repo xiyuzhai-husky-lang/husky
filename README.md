@@ -120,7 +120,9 @@ Zig <https://github.com/ziglang/zig.git/>
 
 Roc <https://github.com/roc-lang/roc/>
 
-### research
+### ml frameworks
+
+Google Jax <https://github.com/google/jax/>
 
 Torch Quantum <https://github.com/mit-han-lab/torchquantum/>
 
