@@ -78,6 +78,10 @@ All these are possible:
 
 ### Trace-Based Debugging System
 
+Debugging should be as easy as writing the code itself!
+
+Usually debuggers are designed for procedural languages, because functional ones don't seem to need one. However, the programming problems solved by Husky is intrinsically much harder that a debugger is needed even all code is pure functional. For example, in computer vision, blablabla. The major time cost of debugging is to find which line is wrong.
+
 #### generic viewpoint: visualize feature over a subset of datapoints
 
 ![alt text](snapshots/trace-based-debugging-system.png)
@@ -116,7 +120,9 @@ Zig <https://github.com/ziglang/zig.git/>
 
 Roc <https://github.com/roc-lang/roc/>
 
-### research
+### ml frameworks
+
+Google Jax <https://github.com/google/jax/>
 
 Torch Quantum <https://github.com/mit-han-lab/torchquantum/>
 
