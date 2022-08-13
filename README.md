@@ -32,11 +32,11 @@ Now "explainability" is important for two reasons:
 
 ### Trace-Based Debugging System
 
-#### generic point
+#### generic viewpoint: visualize feature over a subset of datapoints
 
 ![alt text](snapshots/trace-based-debugging-system.png)
 
-#### stalk
+#### specific viewpoint: visualize feature at a fixed datapoint
 
 ![alt text](snapshots/debugger-stalk.png)
 
