@@ -4,7 +4,7 @@ The Husky Programming Language
 
 Make programming great again!
 
-:warning: this repo is still under heavy construction: documentation is still serious lacking, todos are above 2000, and rustc warnings are everywhere!
+:warning: this repo is still under heavy construction: documentation is still serious lacking, number of todos are above 2000, and rustc warnings are everywhere!
 
 Still, if one's curious about what's going on, please take a look at the other repo xiyuzhai/husky-book, where I'll update on a higher priority.
 
