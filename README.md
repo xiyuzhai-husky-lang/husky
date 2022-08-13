@@ -15,7 +15,7 @@ The primary focus is the language frontend design. In a long time, Husky will re
 
 ## Motivation
 
-### a bright future of AI
+### A bright future of AI
 
 The core belief is the existence of a strongly explainable program (as explainable as the software we wrote) for a range of AI problems, including computer vision, natural language processing. And Husky is designed to be the language to write that program.
 
