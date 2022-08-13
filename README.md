@@ -48,6 +48,10 @@ Three paradigms:
 
 ![alt text](snapshots/debugger-stalk.png)
 
+#### visualization can be customed in type definition
+
+TODO
+
 ## About Development
 
 This project was created by and is currently maintained solo by Xiyu Zhai, a Phd in MIT EECS, whose primary background is actually in pure math and has just programmed intensively for the last two years. So please help, smart people!
