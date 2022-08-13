@@ -1,5 +1,6 @@
 use crate::*;
 use husky_compile_time::*;
+use husky_print_utils::msg_once;
 use husky_trace_protocol::TraceStats;
 use husky_word::RootIdentifier;
 use vm::{__Register, __RegisterDataKind, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
@@ -12,7 +13,7 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::EntityFeature { repr, .. } => feature_repr_opt_stats(runtime, repr, None),
             TraceVariant::FeatureStmt(_) => todo!(),
             TraceVariant::FeatureBranch(_) => todo!(),
-            TraceVariant::FeatureExpr(_) => todo!(),
+            TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, expr),
             TraceVariant::FeatureCallArgument { name, argument } => todo!(),
             TraceVariant::FuncStmt { stmt, history } => todo!(),
             TraceVariant::ProcStmt { stmt, history } => todo!(),
@@ -126,6 +127,14 @@ fn feature_repr_opt_stats(
         trues,
         falses,
     }))
+}
+
+fn feature_expr_opt_stats(
+    db: &dyn EvalFeature,
+    expr: &FeatureExpr,
+) -> __VMResult<Option<TraceStats>> {
+    msg_once!("todo: arrival indicator");
+    todo!()
 }
 
 fn convert_enum_register_to_label<'eval>(value: &__Register<'eval>) -> Option<Label> {
