@@ -41,11 +41,13 @@ Now "explainability" is important for two reasons:
 
 ### Powerful yet Safe Semantics
 
-Three paradigms:
+All these are possible:
 
 - eager procedural, like C/C++/Rust/python
 - eager functional, like OCaml
 - lazy functional, like Haskell but advanced to a higher level for the need of machine learning, gui, etc
+
+No interop is needed! (Interop destroys debugging experience, it's good to avoid)
 
 ### Everything is Configurable
 
