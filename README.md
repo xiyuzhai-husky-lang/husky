@@ -34,9 +34,9 @@ Now "explainability" is important for two reasons:
 
 Three paradigms:
 
-- eager procedural
-- eager functional
-- lazy functional
+- eager procedural, like C/C++/Rust/python
+- eager functional, like OCaml
+- lazy functional, like Haskell but advanced to a higher level for the need of machine learning, gui, etc
 
 ### Trace-Based Debugging System
 
