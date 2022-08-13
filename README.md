@@ -47,6 +47,26 @@ Three paradigms:
 - eager functional, like OCaml
 - lazy functional, like Haskell but advanced to a higher level for the need of machine learning, gui, etc
 
+### Everything is Configurable
+
+Husky doesn't make premature assumptions about execution model and memory management.
+
+#### configurable execution
+
+All these are possible:
+
+- interpretation
+- compiled to binary
+- jit
+
+#### memory management
+
+All these are possible:
+
+- individual alloc/dealloc
+- tracing garbage collector
+- batch alloc/dealloc for (&'eval)
+
 ### Trace-Based Debugging System
 
 #### generic viewpoint: visualize feature over a subset of datapoints
