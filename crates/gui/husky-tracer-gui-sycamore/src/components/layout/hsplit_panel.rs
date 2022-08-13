@@ -5,7 +5,7 @@ pub struct HSplitPanelProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
 }
 
-const LEFT_PANEL_PERCENTAGE: u32 = 60;
+const LEFT_PANEL_PERCENTAGE: u32 = 50;
 
 impl<'a> HSplitPanelProps<'a> {
     fn left_panel_dimension(&self) -> PixelDimension {
