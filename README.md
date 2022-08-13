@@ -6,8 +6,6 @@ Make programming great again!
 
 :warning: this repo is still under heavy construction: documentation is still serious lacking, number of todos are above 2000, and rustc warnings are everywhere!
 
-Still, if one's curious about what's going on, please take a look at the other repo xiyuzhai/husky-book, where I'll update on a higher priority.
-
 ## Introduction
 
 Husky is a research oriented programming language that aims primarily to extend the boundary of programming itself (rather than replacing certain languages in certain domains). For example, Husky shall make it possible to write a strongly explainable and efficient classifier for image recognition tasks by using a more powerful functional programming paradigm combined with eager ones and faciliated by a builtin debugging system ... (todo: phrase this more properly;)
