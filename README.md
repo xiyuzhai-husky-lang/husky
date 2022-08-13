@@ -64,8 +64,9 @@ All these are possible:
 All these are possible:
 
 - individual alloc/dealloc
-- tracing garbage collector
 - batch alloc/dealloc for (&'eval)
+- tracing garbage collector
+- automatic refcounting
 
 ### Trace-Based Debugging System
 
