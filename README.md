@@ -1,4 +1,4 @@
-# Husky
+# Work in Progress
 
 The Husky Programming Language
 
@@ -41,11 +41,34 @@ Now "explainability" is important for two reasons:
 
 ### Powerful yet Safe Semantics
 
-Three paradigms:
+All these are possible:
 
 - eager procedural, like C/C++/Rust/python
 - eager functional, like OCaml
 - lazy functional, like Haskell but advanced to a higher level for the need of machine learning, gui, etc
+
+No interop is needed! (Interop destroys debugging experience, it's good to avoid)
+
+### Everything is Configurable
+
+Husky doesn't make premature assumptions about execution model and memory management.
+
+#### configurable execution
+
+All these are possible:
+
+- interpretation
+- compiled to binary
+- jit
+
+#### memory management
+
+All these are possible:
+
+- individual alloc/dealloc
+- batch alloc/dealloc for (&'eval)
+- tracing garbage collector
+- automatic refcounting
 
 ### Trace-Based Debugging System
 
@@ -69,6 +92,12 @@ It was created as a language to implement certain ideas for efficient image clas
 
 ## Khala Links
 
+### Talks
+
+#### language
+
+"Outperforming Imperative with Pure Functional Languages" by Richard Feldman <https://www.youtube.com/watch?v=vzfy4EKwG_Y/>
+
 ### Repositories
 
 #### language
@@ -78,6 +107,8 @@ Interesting new languages
 Lean 4 <https://github.com/leanprover/lean4/>
 
 Zig <https://github.com/ziglang/zig.git/>
+
+Roc <https://github.com/roc-lang/roc/>
 
 ### research
 
