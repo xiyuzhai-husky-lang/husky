@@ -25,6 +25,7 @@ pub struct FeatureExpr {
     pub feature: FeaturePtr,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
+    pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
 }
 
 impl std::fmt::Debug for FeatureExpr {
@@ -287,6 +288,7 @@ impl<'a> FeatureExprBuilder<'a> {
             feature,
             eval_id: Default::default(),
             expr,
+            opt_arrival_indicator: self.opt_arrival_indicator.map(|indi| indi.clone()),
         })
     }
 }
