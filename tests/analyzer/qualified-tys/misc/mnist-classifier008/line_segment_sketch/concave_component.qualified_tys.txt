@@ -20,13 +20,13 @@ eager expr:
     15:15..15:16   1                      Copyable     i32
     16:20..16:21   L                      Copyable     i32
     16:11..16:16   start                  Copyable     i32
-    16:20..16:21   L                      Copyable     i32
+    16:19..16:21   -L                     Copyable     i32
     16:27..16:36   is_convex              InferError: failed to infer expr ty
     16:37..16:56   line_segment_sketch    PureRef      mnist_classifier008::line_segment_sketch::LineSegmentSketch
     16:58..16:63   start                  Copyable     i32
     16:27..16:64   is_convex(line_segment_sketch, start)   Copyable     bool
     16:11..16:21   start > -L             Copyable     bool
-    16:27..16:64   is_convex(line_segment_sketch, start)   Copyable     bool
+    16:26..16:64   !is_convex(line_segment_sketch, start)   Copyable     bool
     16:11..16:64   start > -L and !is_convex(line_segment_sketch, start)   Copyable     bool
     17:9..17:14    start                  RefMut       i32
     17:9..17:16    start--                Copyable     void
@@ -45,7 +45,7 @@ eager expr:
     20:66..20:69   end                    Copyable     i32
     20:35..20:70   is_convex(line_segment_sketch, end)   Copyable     bool
     20:15..20:29   end <= start+L         Copyable     bool
-    20:35..20:70   is_convex(line_segment_sketch, end)   Copyable     bool
+    20:34..20:70   !is_convex(line_segment_sketch, end)   Copyable     bool
     20:15..20:70   end <= start+L and !is_convex(line_segment_sketch, end)   Copyable     bool
     21:13..21:16   end                    RefMut       i32
     21:13..21:18   end++                  Copyable     void

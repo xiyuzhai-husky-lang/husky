@@ -33,29 +33,29 @@ eager expr:
     17:28..17:29   1                      Copyable     i32
     17:23..17:29   x << 1                 Copyable     b32
     17:18..17:19   x                      Copyable     b32
-    17:23..17:30   x << 1)                Copyable     b32
+    17:22..17:30   (x << 1)               Copyable     b32
     17:34..17:35   x                      Copyable     b32
     17:39..17:40   1                      Copyable     i32
     17:34..17:40   x >> 1                 Copyable     b32
     17:18..17:30   x | (x << 1)           Copyable     b32
-    17:34..17:41   x >> 1)                Copyable     b32
+    17:33..17:41   (x >> 1)               Copyable     b32
     17:18..17:41   x | (x << 1) | (x >> 1)   Copyable     b32
     17:13..17:14   a                      Copyable     b32
-    17:18..17:42   x | (x << 1) | (x >> 1))   Copyable     b32
+    17:17..17:42   (x | (x << 1) | (x >> 1))   Copyable     b32
     17:13..17:42   a & (x | (x << 1) | (x >> 1))   Copyable     b32
     18:23..18:24   y                      Copyable     b32
     18:28..18:29   1                      Copyable     i32
     18:23..18:29   y << 1                 Copyable     b32
     18:18..18:19   y                      Copyable     b32
-    18:23..18:30   y << 1)                Copyable     b32
+    18:22..18:30   (y << 1)               Copyable     b32
     18:34..18:35   y                      Copyable     b32
     18:39..18:40   1                      Copyable     i32
     18:34..18:40   y >> 1                 Copyable     b32
     18:18..18:30   y | (y << 1)           Copyable     b32
-    18:34..18:41   y >> 1)                Copyable     b32
+    18:33..18:41   (y >> 1)               Copyable     b32
     18:18..18:41   y | (y << 1) | (y >> 1)   Copyable     b32
     18:13..18:14   a                      Copyable     b32
-    18:18..18:42   y | (y << 1) | (y >> 1))   Copyable     b32
+    18:17..18:42   (y | (y << 1) | (y >> 1))   Copyable     b32
     18:13..18:42   a & (y | (y << 1) | (y >> 1))   Copyable     b32
     19:11..19:12   z                      Copyable     b32
     19:16..19:17   y                      Copyable     b32
@@ -67,15 +67,15 @@ eager expr:
     21:28..21:29   1                      Copyable     i32
     21:23..21:29   y << 1                 Copyable     b32
     21:18..21:19   y                      Copyable     b32
-    21:23..21:30   y << 1)                Copyable     b32
+    21:22..21:30   (y << 1)               Copyable     b32
     21:34..21:35   y                      Copyable     b32
     21:39..21:40   1                      Copyable     i32
     21:34..21:40   y >> 1                 Copyable     b32
     21:18..21:30   y | (y << 1)           Copyable     b32
-    21:34..21:41   y >> 1)                Copyable     b32
+    21:33..21:41   (y >> 1)               Copyable     b32
     21:18..21:41   y | (y << 1) | (y >> 1)   Copyable     b32
     21:13..21:14   a                      Copyable     b32
-    21:18..21:42   y | (y << 1) | (y >> 1))   Copyable     b32
+    21:17..21:42   (y | (y << 1) | (y >> 1))   Copyable     b32
     21:9..21:10    z                      RefMut       b32
     21:13..21:42   a & (y | (y << 1) | (y >> 1))   Copyable     b32
     21:9..21:42    z = a & (y | (y << 1) | (y >> 1))   Copyable     void
@@ -107,7 +107,7 @@ eager expr:
     32:13..32:58   mask[j] = horizontal_extend(a, 1b32 << shift)   Copyable     void
     33:24..33:29   false                  Copyable     bool
     34:20..34:24   flag                   Copyable     bool
-    34:20..34:24   flag                   Copyable     bool
+    34:19..34:24   !flag                  Copyable     bool
     35:17..35:21   flag                   RefMut       bool
     35:24..35:28   true                   Copyable     bool
     35:17..35:28   flag = true            Copyable     void
@@ -133,7 +133,7 @@ eager expr:
     39:45..39:83   horizontal_extend(img[i + 1], mask[i])   Copyable     b32
     39:35..39:83   old_row | horizontal_extend(img[i + 1], mask[i])   Copyable     b32
     40:25..40:32   new_row                Copyable     b32
-    40:25..40:32   new_row                Copyable     bool
+    40:24..40:32   !new_row               Copyable     bool
     42:24..42:31   old_row                Copyable     b32
     42:35..42:42   new_row                Copyable     b32
     42:24..42:42   old_row != new_row     Copyable     bool
@@ -183,7 +183,7 @@ eager expr:
     52:36..52:43   mask[k]                Copyable     b32
     52:35..52:43   ~mask[k]               Copyable     b32
     52:17..52:30   unsearched[k]          RefMut       b32
-    52:35..52:44   ~mask[k])              Copyable     b32
+    52:34..52:44   (~mask[k])             Copyable     b32
     52:17..52:44   unsearched[k] &= (~mask[k])   Copyable     void
     53:25..53:43   ConnectedComponent     EvalRef      Type
     53:44..53:48   mask                   Transient    domains::ml::datasets::cv::mnist::BinaryImage28

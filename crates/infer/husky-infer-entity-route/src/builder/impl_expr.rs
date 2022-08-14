@@ -71,7 +71,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         if let Some(expected_ty) = expectation {
             if !self.db.is_implicitly_castable(ty, expected_ty) {
                 throw!(
-                    format!("expect {:?} but get {:?} instead", expected_ty, ty),
+                    format!("expect `{:?}` but get `{:?}` instead", expected_ty, ty),
                     self.arena[raw_expr_idx].range
                 )
             }

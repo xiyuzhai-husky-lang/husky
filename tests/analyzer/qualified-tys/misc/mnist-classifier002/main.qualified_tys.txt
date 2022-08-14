@@ -28,7 +28,7 @@ lazy expr:
     36:5..36:13    d.ilen()               InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
 kind:
-Original { message: "expect ?domains::ml::datasets::cv::mnist::MnistLabel but get i32 instead", range: 36:5..36:13 }
+Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: 36:5..36:13 }
 
 eager expr:
     4:5..4:48      ml::datasets::cv::mnist::new_binary_dataset   InferError: failed to infer expr ty
@@ -37,29 +37,29 @@ eager expr:
     8:28..8:29     1                      Copyable     i32
     8:23..8:29     x << 1                 Copyable     b32
     8:18..8:19     x                      Copyable     b32
-    8:23..8:30     x << 1)                Copyable     b32
+    8:22..8:30     (x << 1)               Copyable     b32
     8:34..8:35     x                      Copyable     b32
     8:39..8:40     1                      Copyable     i32
     8:34..8:40     x >> 1                 Copyable     b32
     8:18..8:30     x | (x << 1)           Copyable     b32
-    8:34..8:41     x >> 1)                Copyable     b32
+    8:33..8:41     (x >> 1)               Copyable     b32
     8:18..8:41     x | (x << 1) | (x >> 1)   Copyable     b32
     8:13..8:14     a                      Copyable     b32
-    8:18..8:42     x | (x << 1) | (x >> 1))   Copyable     b32
+    8:17..8:42     (x | (x << 1) | (x >> 1))   Copyable     b32
     8:13..8:42     a & (x | (x << 1) | (x >> 1))   Copyable     b32
     9:23..9:24     y                      Copyable     b32
     9:28..9:29     1                      Copyable     i32
     9:23..9:29     y << 1                 Copyable     b32
     9:18..9:19     y                      Copyable     b32
-    9:23..9:30     y << 1)                Copyable     b32
+    9:22..9:30     (y << 1)               Copyable     b32
     9:34..9:35     y                      Copyable     b32
     9:39..9:40     1                      Copyable     i32
     9:34..9:40     y >> 1                 Copyable     b32
     9:18..9:30     y | (y << 1)           Copyable     b32
-    9:34..9:41     y >> 1)                Copyable     b32
+    9:33..9:41     (y >> 1)               Copyable     b32
     9:18..9:41     y | (y << 1) | (y >> 1)   Copyable     b32
     9:13..9:14     a                      Copyable     b32
-    9:18..9:42     y | (y << 1) | (y >> 1))   Copyable     b32
+    9:17..9:42     (y | (y << 1) | (y >> 1))   Copyable     b32
     9:13..9:42     a & (y | (y << 1) | (y >> 1))   Copyable     b32
     10:11..10:12   z                      Copyable     b32
     10:16..10:17   y                      Copyable     b32
@@ -70,15 +70,15 @@ eager expr:
     12:28..12:29   1                      Copyable     i32
     12:23..12:29   y << 1                 Copyable     b32
     12:18..12:19   y                      Copyable     b32
-    12:23..12:30   y << 1)                Copyable     b32
+    12:22..12:30   (y << 1)               Copyable     b32
     12:34..12:35   y                      Copyable     b32
     12:39..12:40   1                      Copyable     i32
     12:34..12:40   y >> 1                 Copyable     b32
     12:18..12:30   y | (y << 1)           Copyable     b32
-    12:34..12:41   y >> 1)                Copyable     b32
+    12:33..12:41   (y >> 1)               Copyable     b32
     12:18..12:41   y | (y << 1) | (y >> 1)   Copyable     b32
     12:13..12:14   a                      Copyable     b32
-    12:18..12:42   y | (y << 1) | (y >> 1))   Copyable     b32
+    12:17..12:42   (y | (y << 1) | (y >> 1))   Copyable     b32
     12:9..12:10    z                      RefMut       b32
     12:13..12:42   a & (y | (y << 1) | (y >> 1))   Copyable     b32
     12:9..12:42    z = a & (y | (y << 1) | (y >> 1))   Copyable     void
@@ -118,7 +118,7 @@ eager expr:
     26:36..26:43   mask[k]                Copyable     b32
     26:35..26:43   ~mask[k]               Copyable     b32
     26:17..26:30   unsearched[k]          RefMut       b32
-    26:35..26:44   ~mask[k])              Copyable     b32
+    26:34..26:44   (~mask[k])             Copyable     b32
     26:17..26:44   unsearched[k] &= (~mask[k])   Copyable     void
     27:13..27:19   result                 RefMut       []domains::ml::datasets::cv::mnist::BinaryImage28
     27:25..27:29   mask                   Transient    domains::ml::datasets::cv::mnist::BinaryImage28
@@ -139,4 +139,4 @@ lazy expr:
     36:5..36:13    d.ilen()               InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
 kind:
-Original { message: "expect ?domains::ml::datasets::cv::mnist::MnistLabel but get i32 instead", range: 36:5..36:13 }
+Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: 36:5..36:13 }

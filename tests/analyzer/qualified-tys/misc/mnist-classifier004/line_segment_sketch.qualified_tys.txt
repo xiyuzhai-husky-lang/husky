@@ -94,8 +94,8 @@ eager expr:
     22:10..22:16   u.x*u.                 Copyable     f32
     22:18..22:24   u.y*u.                 Copyable     f32
     22:10..22:24   u.x*u.x+u.y*u.         Copyable     f32
-    22:10..22:26   u.x*u.x+u.y*u.y)       Copyable     f32
-    22:10..22:33   u.x*u.x+u.y*u.y).sqrt()   Copyable     f32
+    22:9..22:26    (u.x*u.x+u.y*u.y)      Copyable     f32
+    22:9..22:33    (u.x*u.x+u.y*u.y).sqrt()   Copyable     f32
     23:12..23:13   L                      Copyable     f32
     23:16..23:17   r                      Copyable     f32
     23:12..23:17   L > r                  Copyable     bool
@@ -108,9 +108,9 @@ eager expr:
     24:15..24:18   L*L                    Copyable     f32
     24:19..24:22   r*r                    Copyable     f32
     24:15..24:22   L*L-r*r                Copyable     f32
-    24:15..24:23   L*L-r*r)               Copyable     f32
+    24:14..24:23   (L*L-r*r)              Copyable     f32
     24:10..24:13   r*L                    Copyable     f32
-    24:15..24:30   L*L-r*r).sqrt()        Copyable     f32
+    24:14..24:30   (L*L-r*r).sqrt()       Copyable     f32
     24:10..24:30   r*L/(L*L-r*r).sqrt()   Copyable     f32
     25:13..25:14   u                      PureRef      mnist_classifier004::geom2d::Vector2d
     25:10..25:12   dr                     Copyable     f32
@@ -120,11 +120,11 @@ eager expr:
     25:10..25:18   dr*u.y/L               Copyable     f32
     26:11..26:13   dr                     Copyable     f32
     26:14..26:15   u                      PureRef      mnist_classifier004::geom2d::Vector2d
-    26:11..26:13   dr                     Copyable     f32
+    26:10..26:13   -dr                    Copyable     f32
     26:14..26:16   u.                     Copyable     f32
-    26:11..26:16   dr*u.                  Copyable     f32
+    26:10..26:16   -dr*u.                 Copyable     f32
     26:18..26:19   L                      Copyable     f32
-    26:11..26:19   dr*u.x/L               Copyable     f32
+    26:10..26:19   -dr*u.x/L              Copyable     f32
     27:14..27:15   u                      PureRef      mnist_classifier004::geom2d::Vector2d
     27:14..27:16   u.                     Copyable     f32
     27:18..27:20   dx                     Copyable     f32
@@ -146,8 +146,8 @@ eager expr:
     30:10..30:16   u.x*u.                 Copyable     f32
     30:18..30:24   u.y*u.                 Copyable     f32
     30:10..30:24   u.x*u.x+u.y*u.         Copyable     f32
-    30:10..30:26   u.x*u.x+u.y*u.y)       Copyable     f32
-    30:10..30:33   u.x*u.x+u.y*u.y).sqrt()   Copyable     f32
+    30:9..30:26    (u.x*u.x+u.y*u.y)      Copyable     f32
+    30:9..30:33    (u.x*u.x+u.y*u.y).sqrt()   Copyable     f32
     31:12..31:13   L                      Copyable     f32
     31:16..31:17   r                      Copyable     f32
     31:12..31:17   L > r                  Copyable     bool
@@ -160,17 +160,17 @@ eager expr:
     32:15..32:18   L*L                    Copyable     f32
     32:19..32:22   r*r                    Copyable     f32
     32:15..32:22   L*L-r*r                Copyable     f32
-    32:15..32:23   L*L-r*r)               Copyable     f32
+    32:14..32:23   (L*L-r*r)              Copyable     f32
     32:10..32:13   r*L                    Copyable     f32
-    32:15..32:30   L*L-r*r).sqrt()        Copyable     f32
+    32:14..32:30   (L*L-r*r).sqrt()       Copyable     f32
     32:10..32:30   r*L/(L*L-r*r).sqrt()   Copyable     f32
     33:11..33:13   dr                     Copyable     f32
     33:14..33:15   u                      PureRef      mnist_classifier004::geom2d::Vector2d
-    33:11..33:13   dr                     Copyable     f32
+    33:10..33:13   -dr                    Copyable     f32
     33:14..33:16   u.                     Copyable     f32
-    33:11..33:16   dr*u.                  Copyable     f32
+    33:10..33:16   -dr*u.                 Copyable     f32
     33:18..33:19   L                      Copyable     f32
-    33:11..33:19   dr*u.y/L               Copyable     f32
+    33:10..33:19   -dr*u.y/L              Copyable     f32
     34:13..34:14   u                      PureRef      mnist_classifier004::geom2d::Vector2d
     34:10..34:12   dr                     Copyable     f32
     34:13..34:15   u.                     Copyable     f32
@@ -414,9 +414,9 @@ eager expr:
     99:29..99:71   right_bound.rotation_direction_to(dp) >= 0   Copyable     bool
     100:33..100:74 dp.rotation_direction_to(left_bound) >= 0   Copyable     bool
     99:29..100:74  right_bound.rotation_direction_to(dp) >= 0                             and dp.rotation_direction_to(left_bound) >= 0   Copyable     bool
-    99:29..101:26  right_bound.rotation_direction_to(dp) >= 0                             and dp.rotation_direction_to(left_bound) >= 0                        )   Copyable     bool
-    97:20..97:35   start <= start0        Copyable     bool
     98:30..101:26  (                            right_bound.rotation_direction_to(dp) >= 0                             and dp.rotation_direction_to(left_bound) >= 0                        )   Copyable     bool
+    97:20..97:35   start <= start0        Copyable     bool
+    98:29..101:26  !(                            right_bound.rotation_direction_to(dp) >= 0                             and dp.rotation_direction_to(left_bound) >= 0                        )   Copyable     bool
     97:20..101:26  start <= start0                         and !(                            right_bound.rotation_direction_to(dp) >= 0                             and dp.rotation_direction_to(left_bound) >= 0                        )   Copyable     bool
     103:17..103:22 start                  RefMut       i32
     103:17..103:24 start--                Copyable     void

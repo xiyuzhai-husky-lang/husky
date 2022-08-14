@@ -15,7 +15,7 @@ lazy expr:
     16:5..16:13    d.ilen()               InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
 kind:
-Original { message: "expect ?domains::ml::datasets::cv::mnist::MnistLabel but get i32 instead", range: 16:5..16:13 }
+Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: 16:5..16:13 }
 
 eager expr:
     9:5..9:48      ml::datasets::cv::mnist::new_binary_dataset   InferError: failed to infer expr ty
@@ -35,4 +35,4 @@ lazy expr:
     16:5..16:13    d.ilen()               InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
 kind:
-Original { message: "expect ?domains::ml::datasets::cv::mnist::MnistLabel but get i32 instead", range: 16:5..16:13 }
+Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: 16:5..16:13 }

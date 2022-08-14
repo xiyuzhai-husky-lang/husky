@@ -1,1 +1,1 @@
-21:5..21:24	Infer Error: expect ?domains::ml::datasets::cv::mnist::MnistLabel but get i32 instead
+21:5..21:24	Infer Error: expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead

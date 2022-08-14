@@ -83,26 +83,26 @@ eager expr:
     29:18..29:19   1                      Copyable     i32
     29:14..29:19   j - 1                  Copyable     i32
     29:6..29:9     row                    Copyable     b32
-    29:14..29:20   j - 1)                 Copyable     i32
+    29:13..29:20   (j - 1)                Copyable     i32
     29:6..29:20    row >> (j - 1)         Copyable     b32
-    29:6..29:21    row >> (j - 1))        Copyable     b32
+    29:5..29:21    (row >> (j - 1))       Copyable     b32
     29:24..29:28   3b32                   Copyable     b32
-    29:6..29:28    row >> (j - 1)) & 3b32   Copyable     b32
+    29:5..29:28    (row >> (j - 1)) & 3b32   Copyable     b32
     32:6..32:9     row                    Copyable     b32
     32:13..32:14   j                      Copyable     i32
     32:6..32:14    row >> j               Copyable     b32
-    32:6..32:15    row >> j)              Copyable     b32
+    32:5..32:15    (row >> j)             Copyable     b32
     32:18..32:22   1b32                   Copyable     b32
-    32:6..32:22    row >> j) & 1b32       Copyable     b32
+    32:5..32:22    (row >> j) & 1b32      Copyable     b32
     35:14..35:15   j                      Copyable     i32
     35:18..35:19   1                      Copyable     i32
     35:14..35:19   j - 1                  Copyable     i32
     35:6..35:9     row                    Copyable     b32
-    35:14..35:20   j - 1)                 Copyable     i32
+    35:13..35:20   (j - 1)                Copyable     i32
     35:6..35:20    row >> (j - 1)         Copyable     b32
-    35:6..35:21    row >> (j - 1))        Copyable     b32
+    35:5..35:21    (row >> (j - 1))       Copyable     b32
     35:24..35:28   1b32                   Copyable     b32
-    35:6..35:28    row >> (j - 1)) & 1b32   Copyable     b32
+    35:5..35:28    (row >> (j - 1)) & 1b32   Copyable     b32
     38:24..38:38   get_pixel_pair         InferError: failed to infer expr ty
     38:39..38:48   row_above              Copyable     b32
     38:50..38:51   j                      Copyable     i32
@@ -127,18 +127,18 @@ eager expr:
     65:27..65:41   outward as i32         Copyable     i32
     65:46..65:52   inward                 Copyable     mnist_classifier004::raw_contour::Direction
     65:46..65:59   inward as i32          Copyable     i32
-    65:27..65:42   outward as i32)        Copyable     i32
-    65:46..65:60   inward as i32)         Copyable     i32
-    65:27..65:60   outward as i32) - (inward as i32)   Copyable     i32
-    65:26..65:61   (outward as i32) - (inward as i32))   Copyable     i32
-    65:26..65:68   (outward as i32) - (inward as i32)) as b32   Copyable     b32
-    65:25..65:69   ((outward as i32) - (inward as i32)) as b32)   Copyable     b32
+    65:26..65:42   (outward as i32)       Copyable     i32
+    65:45..65:60   (inward as i32)        Copyable     i32
+    65:26..65:60   (outward as i32) - (inward as i32)   Copyable     i32
+    65:25..65:61   ((outward as i32) - (inward as i32))   Copyable     i32
+    65:25..65:68   ((outward as i32) - (inward as i32)) as b32   Copyable     b32
+    65:24..65:69   (((outward as i32) - (inward as i32)) as b32)   Copyable     b32
     65:80..65:81   2                      Copyable     i32
-    65:25..65:82   ((outward as i32) - (inward as i32)) as b32).last_bits(2)   Copyable     b32
+    65:24..65:82   (((outward as i32) - (inward as i32)) as b32).last_bits(2)   Copyable     b32
     66:11..66:27   raw_angle_change       Copyable     b32
     68:13..68:29   raw_angle_change       Copyable     b32
     68:13..68:36   raw_angle_change as i32   Copyable     i32
-    70:14..70:15   1                      Copyable     i32
+    70:13..70:15   -1                     Copyable     i32
     78:24..78:38   get_pixel_pair         InferError: failed to infer expr ty
     78:39..78:48   row_above              Copyable     b32
     78:50..78:51   j                      Copyable     i32
@@ -183,18 +183,18 @@ eager expr:
     128:10..128:13 p0.                    Copyable     f32
     128:17..128:20 p2.                    Copyable     f32
     128:10..128:20 p0.x + p2.             Copyable     f32
-    128:10..128:22 p0.x + p2.x)           Copyable     f32
+    128:9..128:22  (p0.x + p2.x)          Copyable     f32
     128:25..128:28 2.0                    Copyable     f32
     129:10..129:12 p0                     PureRef      mnist_classifier004::geom2d::Point2d
     129:17..129:19 p2                     PureRef      mnist_classifier004::geom2d::Point2d
     129:10..129:13 p0.                    Copyable     f32
     129:17..129:20 p2.                    Copyable     f32
     129:10..129:20 p0.y + p2.             Copyable     f32
-    129:10..129:22 p0.y + p2.y)           Copyable     f32
+    129:9..129:22  (p0.y + p2.y)          Copyable     f32
     129:25..129:28 2.0                    Copyable     f32
     127:5..127:12  Point2d                EvalRef      Type
-    128:10..128:28 p0.x + p2.x) / 2.0     Copyable     f32
-    129:10..129:28 p0.y + p2.y) / 2.0     Copyable     f32
+    128:9..128:28  (p0.x + p2.x) / 2.0    Copyable     f32
+    129:9..129:28  (p0.y + p2.y) / 2.0    Copyable     f32
     127:5..130:6   Point2d(        (p0.x + p2.x) / 2.0,         (p0.y + p2.y) / 2.0,    )   Transient    mnist_classifier004::geom2d::Point2d
     133:18..133:30 []RawContour           EvalRef      Type
     133:18..133:32 []RawContour()         Transient    []mnist_classifier004::raw_contour::RawContour
@@ -232,12 +232,12 @@ eager expr:
     140:61..140:75 r_ur&r_dr&r_ul         Copyable     b32
     140:76..140:80 r_dl                   Copyable     b32
     140:61..140:80 r_ur&r_dr&r_ul&r_dl    Copyable     b32
-    140:61..140:81 r_ur&r_dr&r_ul&r_dl)   Copyable     b32
+    140:60..140:81 (r_ur&r_dr&r_ul&r_dl)   Copyable     b32
     140:59..140:81 ~(r_ur&r_dr&r_ul&r_dl)   Copyable     b32
-    140:35..140:55 r_ur|r_dr|r_ul|r_dl)   Copyable     b32
-    140:59..140:82 ~(r_ur&r_dr&r_ul&r_dl))   Copyable     b32
+    140:34..140:55 (r_ur|r_dr|r_ul|r_dl)   Copyable     b32
+    140:58..140:82 (~(r_ur&r_dr&r_ul&r_dl))   Copyable     b32
     140:9..140:31  boundary_unsearched[i]   RefMut       b32
-    140:35..140:82 r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))   Copyable     b32
+    140:34..140:82 (r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))   Copyable     b32
     140:9..140:82  boundary_unsearched[i] = (r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))   Copyable     void
     141:9..141:10  1                      Copyable     i32
     141:19..141:21 29                     Copyable     i32
@@ -270,9 +270,9 @@ eager expr:
     155:38..155:39 0                      Copyable     i32
     156:38..156:39 0                      Copyable     i32
     157:38..157:39 0                      Copyable     i32
-    160:33..160:34 1                      Copyable     i32
-    161:33..161:34 1                      Copyable     i32
-    162:35..162:36 1                      Copyable     i32
+    160:32..160:34 -1                     Copyable     i32
+    161:32..161:34 -1                     Copyable     i32
+    162:34..162:36 -1                     Copyable     i32
     164:24..164:25 i                      Copyable     i32
     164:29..164:31 i0                     Copyable     i32
     164:36..164:37 j                      Copyable     i32
@@ -284,8 +284,8 @@ eager expr:
     164:24..164:43 i == i0 and j == j0    Copyable     bool
     164:48..164:72 inward_direction == dir0   Copyable     bool
     164:24..164:72 i == i0 and j == j0 and inward_direction == dir0   Copyable     bool
-    164:24..164:73 i == i0 and j == j0 and inward_direction == dir0)   Copyable     bool
     164:23..164:73 (i == i0 and j == j0 and inward_direction == dir0)   Copyable     bool
+    164:22..164:73 !(i == i0 and j == j0 and inward_direction == dir0)   Copyable     bool
     165:41..165:62 get_outward_direction   InferError: failed to infer expr ty
     165:63..165:72 row_above              Copyable     b32
     165:74..165:83 row_below              Copyable     b32
@@ -303,18 +303,18 @@ eager expr:
     168:70..168:74 1b32                   Copyable     b32
     168:78..168:79 j                      Copyable     i32
     168:70..168:79 1b32 << j              Copyable     b32
-    168:70..168:80 1b32 << j)             Copyable     b32
+    168:69..168:80 (1b32 << j)            Copyable     b32
     168:68..168:80 ~(1b32 << j)           Copyable     b32
     168:42..168:64 boundary_unsearched[i]   Copyable     b32
-    168:68..168:81 ~(1b32 << j))          Copyable     b32
+    168:67..168:81 (~(1b32 << j))         Copyable     b32
     168:17..168:39 boundary_unsearched[i]   RefMut       b32
     168:42..168:81 boundary_unsearched[i] & (~(1b32 << j))   Copyable     b32
     168:17..168:81 boundary_unsearched[i] = boundary_unsearched[i] & (~(1b32 << j))   Copyable     void
     169:20..169:32 angle_change           Copyable     i32
     171:24..171:42 prev_angle_change1     Copyable     i32
-    171:47..171:48 1                      Copyable     i32
+    171:46..171:48 -1                     Copyable     i32
     171:53..171:71 prev_angle_change2     Copyable     i32
-    171:76..171:77 1                      Copyable     i32
+    171:75..171:77 -1                     Copyable     i32
     171:24..171:48 prev_angle_change1 == -1   Copyable     bool
     171:53..171:77 prev_angle_change2 == -1   Copyable     bool
     171:82..171:96 current_streak         Copyable     i32
@@ -322,7 +322,7 @@ eager expr:
     171:24..171:77 prev_angle_change1 == -1 and prev_angle_change2 == -1   Copyable     bool
     171:82..171:101current_streak == 1    Copyable     bool
     171:106..171:118prev_streak1           Copyable     i32
-    171:123..171:1241                      Copyable     i32
+    171:122..171:124-1                     Copyable     i32
     171:24..171:101prev_angle_change1 == -1 and prev_angle_change2 == -1 and current_streak == 1   Copyable     bool
     171:106..171:124prev_streak1 != -1     Copyable     bool
     171:129..171:141prev_streak2           Copyable     i32
@@ -343,13 +343,13 @@ eager expr:
     173:38..173:67 Point2d::from_i_shift28(i, j)   Transient    mnist_classifier004::geom2d::Point2d
     173:25..173:68 contour.push(Point2d::from_i_shift28(i, j))   Copyable     void
     174:25..174:37 prev_streak2           RefMut       i32
-    174:41..174:42 1                      Copyable     i32
+    174:40..174:42 -1                     Copyable     i32
     174:25..174:42 prev_streak2 = -1      Copyable     void
     175:25..175:37 prev_streak1           RefMut       i32
-    175:41..175:42 1                      Copyable     i32
+    175:40..175:42 -1                     Copyable     i32
     175:25..175:42 prev_streak1 = -1      Copyable     void
     176:26..176:44 prev_angle_change1     Copyable     i32
-    176:49..176:50 1                      Copyable     i32
+    176:48..176:50 -1                     Copyable     i32
     176:55..176:67 prev_streak1           Copyable     i32
     176:70..176:71 0                      Copyable     i32
     176:26..176:50 prev_angle_change1 == -1   Copyable     bool
@@ -373,7 +373,7 @@ eager expr:
     179:40..179:54 current_streak         Copyable     i32
     179:25..179:54 prev_streak1 = current_streak   Copyable     void
     180:26..180:44 prev_angle_change1     Copyable     i32
-    180:49..180:50 1                      Copyable     i32
+    180:48..180:50 -1                     Copyable     i32
     180:55..180:67 prev_streak1           Copyable     i32
     180:70..180:71 0                      Copyable     i32
     180:26..180:50 prev_angle_change1 == -1   Copyable     bool
@@ -395,10 +395,10 @@ eager expr:
     181:43..181:72 Point2d::from_i_shift28(i, j)   Transient    mnist_classifier004::geom2d::Point2d
     181:25..181:72 contour.lastx() = Point2d::from_i_shift28(i, j)   Copyable     void
     182:25..182:37 prev_streak2           RefMut       i32
-    182:41..182:42 1                      Copyable     i32
+    182:40..182:42 -1                     Copyable     i32
     182:25..182:42 prev_streak2 = -1      Copyable     void
     183:25..183:37 prev_streak1           RefMut       i32
-    183:41..183:42 1                      Copyable     i32
+    183:40..183:42 -1                     Copyable     i32
     183:25..183:42 prev_streak1 = -1      Copyable     void
     185:38..185:61 Point2d::from_i_shift28   InferError: failed to infer expr ty
     185:62..185:63 i                      Copyable     i32
@@ -464,12 +464,12 @@ eager expr:
     209:36..209:53 outward_direction      Copyable     mnist_classifier004::raw_contour::Direction
     209:17..209:53 inward_direction = outward_direction   Copyable     void
     211:20..211:34 current_streak         Copyable     i32
-    211:39..211:40 1                      Copyable     i32
+    211:38..211:40 -1                     Copyable     i32
     211:20..211:40 current_streak != -1   Copyable     bool
     212:21..212:35 current_streak         RefMut       i32
     212:21..212:37 current_streak++       Copyable     void
     213:16..213:34 prev_angle_change1     Copyable     i32
-    213:39..213:40 1                      Copyable     i32
+    213:38..213:40 -1                     Copyable     i32
     213:45..213:59 current_streak         Copyable     i32
     213:63..213:64 1                      Copyable     i32
     213:16..213:40 prev_angle_change1 == -1   Copyable     bool
