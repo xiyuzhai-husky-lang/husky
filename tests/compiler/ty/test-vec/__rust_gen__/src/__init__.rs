@@ -112,7 +112,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             Vec<i32>,
             __registration__::__VEC_I_32_VTABLE,
             __registration__::__I32_VTABLE,
-            invalid,
+            direct,
             mutable
         ),
     ),

@@ -18,7 +18,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
-                    try_vec_opt().to_register()
+                    __Register::new_box(try_vec_opt(), &__registration__::__VEC_OPTION_I_32_VTABLE)
                 }
                 __wrapper
             },
@@ -76,7 +76,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             Vec<Option<i32>>,
             __registration__::__VEC_OPTION_I_32_VTABLE,
             __registration__::__I32_VTABLE,
-            invalid,
+            box,
             mutable
         ),
     ),

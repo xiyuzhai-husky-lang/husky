@@ -153,7 +153,7 @@ impl<'eval> __Register<'eval> {
                 vtable: self.vtable,
             },
             __RegisterDataKind::EvalRef => todo!(),
-            __RegisterDataKind::TempRef => panic!(),
+            __RegisterDataKind::TempRef => panic!("can't bind to temp mut"),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::Undefined => todo!(),
@@ -177,10 +177,10 @@ impl<'eval> __Register<'eval> {
             | __RegisterDataKind::EvalRef
             | __RegisterDataKind::TempRef => self.verbatim_copy(),
             __RegisterDataKind::Box => self.clone_ptr_into_box(),
-            __RegisterDataKind::TempMut => panic!(),
-            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::TempMut => panic!("temp mut"),
+            __RegisterDataKind::Moved => panic!("moved"),
             __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => panic!(),
+            __RegisterDataKind::Unreturned => panic!("unreturned"),
         }
     }
 
@@ -191,9 +191,9 @@ impl<'eval> __Register<'eval> {
             | __RegisterDataKind::TempRef
             | __RegisterDataKind::Box
             | __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
-            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::Moved => panic!("moved"),
             __RegisterDataKind::Undefined => todo!(),
-            __RegisterDataKind::Unreturned => panic!(),
+            __RegisterDataKind::Unreturned => panic!("unreturned"),
         }
     }
 
@@ -211,7 +211,7 @@ impl<'eval> __Register<'eval> {
             | __RegisterDataKind::TempMut => unsafe { self.data.as_ptr },
             __RegisterDataKind::Moved
             | __RegisterDataKind::Undefined
-            | __RegisterDataKind::Unreturned => panic!(),
+            | __RegisterDataKind::Unreturned => panic!("invalid data kind"),
         }
     }
 
