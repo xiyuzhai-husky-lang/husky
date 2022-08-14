@@ -1,0 +1,14 @@
+use crate::line_segment_sketch::concave_component::ConcaveComponent
+
+struct FermiMatchResult:
+    matches: []?&ConcaveComponent
+    others: []&ConcaveComponent
+
+proc fermi_match(concave_components: &[]ConcaveComponent, templates: Vec<(&ConcaveComponent) -> ?f32>) -> FermiMatchResult:
+    var others = concave_components.collect_refs()
+    var matches = []?&ConcaveComponent()
+    // todo: change this to `for template in templates` after introducing `for ... in` loop
+    for i < templates.ilen():
+        let template = templates[i]
+        matches.push(others.pop_with_largest_opt_f32(template))
+    return FermiMatchResult(matches, others)

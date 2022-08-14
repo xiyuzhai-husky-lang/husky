@@ -13,17 +13,32 @@ impl<'a> std::fmt::Display for EntityRouteRepr<'a> {
     }
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EntityRouteRole {
     Caller,
+    StaticCallRoute,
     Decl,
     Other,
+    StaticOther,
 }
 
 impl EntityRouteRole {
+    pub fn parent_role(self) -> Self {
+        match self {
+            EntityRouteRole::Caller => EntityRouteRole::Caller,
+            EntityRouteRole::StaticCallRoute => EntityRouteRole::StaticCallRoute,
+            EntityRouteRole::Decl => EntityRouteRole::Decl,
+            EntityRouteRole::Other => EntityRouteRole::Other,
+            EntityRouteRole::StaticOther => EntityRouteRole::StaticOther,
+        }
+    }
+
     pub fn argument_role(self) -> Self {
         match self {
             EntityRouteRole::Caller => EntityRouteRole::Other,
+            EntityRouteRole::StaticCallRoute | EntityRouteRole::StaticOther => {
+                EntityRouteRole::StaticOther
+            }
             EntityRouteRole::Decl => EntityRouteRole::Decl,
             EntityRouteRole::Other => EntityRouteRole::Other,
         }

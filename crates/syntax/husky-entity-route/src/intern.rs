@@ -156,6 +156,15 @@ impl EntityRoutePtr {
         }
     }
 
+    pub fn is_fp(self) -> bool {
+        match self.variant {
+            EntityRouteVariant::Root {
+                ident: RootIdentifier::Fp,
+            } => true,
+            _ => false,
+        }
+    }
+
     pub fn is_option(self) -> bool {
         match self.deref_route().variant {
             EntityRouteVariant::Root {
