@@ -296,7 +296,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub(crate) fn angled_generics(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
-        Ok(if deprecated_try_eat!(self, SpecialToken::LAngle) {
+        Ok(if try_eat_special!(self, "<") {
             thin_comma_list![self, spatial_argument!+, ">"]
         } else {
             thin_vec![]
