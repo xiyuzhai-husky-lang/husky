@@ -11,7 +11,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         while !self.token_stream.empty() {
             let ranged_ident = get!(self, custom_ident);
             eat_special!(self, "=");
-            deprecated_eat!(self, "{");
+            eat_special!(self, "{");
             let token_start = self.token_stream.token_position();
             let mut layer = 1;
             while layer > 0 {
