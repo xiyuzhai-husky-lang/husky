@@ -14,9 +14,11 @@ pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Integer,
-            fp: StaticVisualizerFp(|value| Ok(VisualData::Primitive {
-                value: value.downcast_i32().into(),
-            })),
+            fp: StaticVisualizerFp(|value| {
+                Ok(VisualData::Primitive {
+                    value: value.downcast_i32().into(),
+                })
+            }),
         },
         opt_type_call: None,
     },
@@ -71,8 +73,9 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(transfer_linkage!(|_, values| 
-                values[0].downcast_i32().sgn().to_register(), some i32::sgn)),
+        opt_linkage: Some(transfer_linkage!(|_, values|
+            values[0].downcast_i32().sgn().to_register(), some i32::sgn
+        )),
     },
     dev_src: static_dev_src!(),
 };

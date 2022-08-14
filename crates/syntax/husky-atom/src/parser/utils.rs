@@ -236,7 +236,11 @@ macro_rules! eat_patt {
     ($parser: expr, $patt: expr) => {{
         if !$parser.try_eat(&$patt)? {
             return err!(
-                format!("expect `{}` after it", $patt),
+                format!(
+                    "expect `{}` but get {:?} instead",
+                    $patt,
+                    $parser.token_stream.peek()
+                ),
                 $parser.token_stream.next_range()
             );
         }
