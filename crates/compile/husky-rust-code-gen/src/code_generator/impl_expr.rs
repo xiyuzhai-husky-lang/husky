@@ -374,7 +374,7 @@ impl<'a> RustCodeGenerator<'a> {
         result: &EagerExpr,
         output_ty: EntityRoutePtr,
     ) {
-        let mangled_ty_vtable = self.db.mangled_ty_vtable(result.ty());
+        let mangled_intrinsic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(result.ty());
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
@@ -385,10 +385,10 @@ impl<'a> RustCodeGenerator<'a> {
                 );
                 self.gen_expr(indent, result);
                 self.write(&format!(
-                    r#", &__registration__::{mangled_ty_vtable})),
+                    r#", &__registration__::{mangled_intrinsic_ty_vtable})),
         )
         .unwrap()
-        .downcast_{}eval_ref(&__registration__::{mangled_ty_vtable})"#,
+        .downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
                     match output_ty.is_option() {
                         true => "opt_",
                         false => "",
@@ -404,9 +404,9 @@ impl<'a> RustCodeGenerator<'a> {
                 );
                 self.gen_expr(indent, result);
                 self.write(&format!(
-                    r#"), &__registration__::{mangled_ty_vtable}).into()),
+                    r#"), &__registration__::{mangled_intrinsic_ty_vtable}).into()),
         )
-        .unwrap().downcast_{}eval_ref(&__registration__::{mangled_ty_vtable})"#,
+        .unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
                     match output_ty.is_option() {
                         true => "opt_",
                         false => "",
@@ -425,7 +425,7 @@ impl<'a> RustCodeGenerator<'a> {
         result: &EagerExpr,
         output_ty: EntityRoutePtr,
     ) {
-        let mangled_ty_vtable = self.db.mangled_ty_vtable(result.ty());
+        let mangled_intrinsic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(result.ty());
         match result.qualified_ty.qual {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
@@ -436,8 +436,8 @@ impl<'a> RustCodeGenerator<'a> {
                 );
                 self.gen_expr(indent, result);
                 self.write(&format!(
-                    r#", &__registration__::{mangled_ty_vtable}))
-    ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_ty_vtable})"#,
+                    r#", &__registration__::{mangled_intrinsic_ty_vtable}))
+    ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
                     match output_ty.is_option() {
                         true => "opt_",
                         false => "",
