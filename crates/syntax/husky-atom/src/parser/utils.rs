@@ -237,9 +237,13 @@ macro_rules! eat_patt {
         if !$parser.try_eat(&$patt)? {
             return err!(
                 format!(
-                    "expect `{}` but get {:?} instead",
+                    "expect `{}` but get {} instead",
                     $patt,
-                    $parser.token_stream.peek()
+                    if let Some(token) = $parser.token_stream.peek() {
+                        format!("{token}")
+                    } else {
+                        "nothing".to_string()
+                    }
                 ),
                 $parser.token_stream.next_range()
             );

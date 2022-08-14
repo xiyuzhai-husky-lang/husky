@@ -32,10 +32,10 @@ eager expr:
     8:68..8:73     index                  Copyable     i32
     8:74..8:75     1                      Copyable     i32
     8:68..8:75     index-1                Copyable     i32
-    8:68..8:76     index-1)               Copyable     i32
+    8:67..8:76     (index-1)              Copyable     i32
     8:77..8:78     L                      Copyable     i32
     8:33..8:53     line_segment_sketch.   PureRef      []mnist_classifier006::line_segment_sketch::LineSegment
-    8:68..8:78     index-1)%L             Copyable     i32
+    8:67..8:78     (index-1)%L            Copyable     i32
     8:33..8:79     line_segment_sketch.line_segments[(index-1)%L]   PureRef      mnist_classifier006::line_segment_sketch::LineSegment
     8:33..8:94     line_segment_sketch.line_segments[(index-1)%L].displacement()   Transient    mnist_classifier006::geom2d::Vector2d
     10:15..10:36   previous_displacement   PureRef      mnist_classifier006::geom2d::Vector2d
@@ -44,15 +44,15 @@ eager expr:
     11:8..11:43    is_rotation_counterclockwise_result   Copyable     i32
     11:47..11:48   0                      Copyable     i32
     11:8..11:48    is_rotation_counterclockwise_result == 0   Copyable     bool
-    12:35..12:43   999999.0               Copyable     f32
+    12:34..12:43   -999999.0              Copyable     f32
     13:33..13:52   line_segment_sketch    PureRef      mnist_classifier006::line_segment_sketch::LineSegmentSketch
     13:68..13:73   index                  Copyable     i32
     13:74..13:75   1                      Copyable     i32
     13:68..13:75   index-1                Copyable     i32
-    13:68..13:76   index-1)               Copyable     i32
+    13:67..13:76   (index-1)              Copyable     i32
     13:77..13:78   L                      Copyable     i32
     13:33..13:53   line_segment_sketch.   PureRef      []mnist_classifier006::line_segment_sketch::LineSegment
-    13:68..13:78   index-1)%L             Copyable     i32
+    13:67..13:78   (index-1)%L            Copyable     i32
     13:33..13:79   line_segment_sketch.line_segments[(index-1)%L]   PureRef      mnist_classifier006::line_segment_sketch::LineSegment
     13:33..13:80   line_segment_sketch.line_segments[(index-1)%L].   PureRef      std::slice::CyclicSlice<mnist_classifier006::geom2d::Point2d>
     14:13..14:30   previous_interval      PureRef      std::slice::CyclicSlice<mnist_classifier006::geom2d::Point2d>
@@ -72,7 +72,7 @@ eager expr:
     16:13..16:31   previous_raw_cross     RefMut       f32
     16:34..16:98   previous_raw_cross.max(current_displacement.cross(displacement))   Copyable     f32
     16:13..16:98   previous_raw_cross = previous_raw_cross.max(current_displacement.cross(displacement))   Copyable     void
-    18:34..18:42   999999.0               Copyable     f32
+    18:33..18:42   -999999.0              Copyable     f32
     19:32..19:51   line_segment_sketch    PureRef      mnist_classifier006::line_segment_sketch::LineSegmentSketch
     19:66..19:71   index                  Copyable     i32
     19:72..19:73   L                      Copyable     i32

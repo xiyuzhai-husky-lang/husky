@@ -33,6 +33,12 @@ pub struct HuskyToken {
     pub kind: HuskyTokenKind,
 }
 
+impl std::fmt::Display for HuskyToken {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.kind.fmt(f)
+    }
+}
+
 impl HuskyToken {
     pub fn new(i: usize, start: usize, end: usize, kind: HuskyTokenKind) -> HuskyToken {
         HuskyToken {

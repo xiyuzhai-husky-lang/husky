@@ -1,5 +1,5 @@
 72:63..72:68	Ast Error: expect ranged_ty
-6:9..6:17	Infer Error: expect mnist_classifier023::geom2d::Vector2d but get Type instead
+6:9..6:17	Infer Error: expect `mnist_classifier023::geom2d::Vector2d` but get `Type` instead
 37:21..37:24	Infer Error: Unrecognized identifier `min`
 39:16..39:44	Infer Error: Unrecognized identifier `is_branch_cut_value_positive`
 44:14..44:15	Infer Error: Unrecognized identifier `v`

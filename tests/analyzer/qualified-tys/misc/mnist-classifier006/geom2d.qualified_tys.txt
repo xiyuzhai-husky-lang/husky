@@ -24,14 +24,14 @@ eager expr:
     6:18..6:20     29                     Copyable     i32
     6:23..6:28     shift                  Copyable     i32
     6:18..6:28     29 - shift             Copyable     i32
-    6:18..6:29     29 - shift)            Copyable     i32
+    6:17..6:29     (29 - shift)           Copyable     i32
     6:39..6:41     29                     Copyable     i32
     6:44..6:45     i                      Copyable     i32
     6:39..6:45     29 - i                 Copyable     i32
-    6:39..6:46     29 - i)                Copyable     i32
+    6:38..6:46     (29 - i)               Copyable     i32
     6:9..6:16      Point2d                EvalRef      Type
-    6:18..6:36     29 - shift) as f32     Copyable     f32
-    6:39..6:53     29 - i) as f32         Copyable     f32
+    6:17..6:36     (29 - shift) as f32    Copyable     f32
+    6:38..6:53     (29 - i) as f32        Copyable     f32
     6:9..6:54      Point2d((29 - shift) as f32, (29 - i) as f32)   Transient    mnist_classifier006::geom2d::Point2d
     9:18..9:22     this                   PureRef      mnist_classifier006::geom2d::Point2d
     9:26..9:30     this                   PureRef      mnist_classifier006::geom2d::Point2d
@@ -62,8 +62,8 @@ eager expr:
     15:10..15:24   this.x * this.         Copyable     f32
     15:28..15:42   this.y * this.         Copyable     f32
     15:10..15:42   this.x * this.x + this.y * this.   Copyable     f32
-    15:10..15:44   this.x * this.x + this.y * this.y)   Copyable     f32
-    15:10..15:51   this.x * this.x + this.y * this.y).sqrt()   Copyable     f32
+    15:9..15:44    (this.x * this.x + this.y * this.y)   Copyable     f32
+    15:9..15:51    (this.x * this.x + this.y * this.y).sqrt()   Copyable     f32
     18:9..18:13    this                   PureRef      mnist_classifier006::geom2d::Point2d
     18:17..18:22   other                  PureRef      mnist_classifier006::geom2d::Point2d
     18:9..18:23    this.to(other)         Transient    mnist_classifier006::geom2d::Vector2d
@@ -97,8 +97,8 @@ eager expr:
     31:10..31:24   this.x * this.         Copyable     f32
     31:28..31:42   this.y * this.         Copyable     f32
     31:10..31:42   this.x * this.x + this.y * this.   Copyable     f32
-    31:10..31:44   this.x * this.x + this.y * this.y)   Copyable     f32
-    31:10..31:51   this.x * this.x + this.y * this.y).sqrt()   Copyable     f32
+    31:9..31:44    (this.x * this.x + this.y * this.y)   Copyable     f32
+    31:9..31:51    (this.x * this.x + this.y * this.y).sqrt()   Copyable     f32
     34:9..34:13    this                   PureRef      mnist_classifier006::geom2d::Vector2d
     34:18..34:23   other                  PureRef      mnist_classifier006::geom2d::Vector2d
     34:9..34:14    this.                  Copyable     f32
@@ -126,9 +126,9 @@ eager expr:
     40:22..40:27   this.                  Copyable     f32
     40:29..40:40   this.norm()            Copyable     f32
     40:22..40:40   this.x/this.norm()     Copyable     f32
-    40:22..40:41   this.x/this.norm())    Copyable     f32
+    40:21..40:41   (this.x/this.norm())   Copyable     f32
     40:46..40:49   1.0                    Copyable     f32
-    40:22..40:50   this.x/this.norm()).min(1.0)   Copyable     f32
+    40:21..40:50   (this.x/this.norm()).min(1.0)   Copyable     f32
     41:12..41:21   cos_value              Copyable     f32
     41:24..41:27   1.0                    Copyable     f32
     41:12..41:27   cos_value + 1.0        Copyable     f32
@@ -136,19 +136,19 @@ eager expr:
     41:12..41:35   cos_value + 1.0 < 0.001   Copyable     bool
     42:16..42:38   is_branch_cut_positive   Copyable     bool
     43:17..43:22   180.0                  Copyable     f32
-    45:18..45:23   180.0                  Copyable     f32
+    45:17..45:23   -180.0                 Copyable     f32
     47:14..47:18   this                   PureRef      mnist_classifier006::geom2d::Vector2d
     47:14..47:19   this.                  Copyable     f32
     47:14..47:27   this.y.sgnx()          Copyable     i32
     47:14..47:34   this.y.sgnx() as f32   Copyable     f32
     47:38..47:47   cos_value              Copyable     f32
-    47:14..47:35   this.y.sgnx() as f32)   Copyable     f32
+    47:13..47:35   (this.y.sgnx() as f32)   Copyable     f32
     47:38..47:54   cos_value.acos()       Copyable     f32
-    47:14..47:54   this.y.sgnx() as f32) * cos_value.acos()   Copyable     f32
+    47:13..47:54   (this.y.sgnx() as f32) * cos_value.acos()   Copyable     f32
     47:57..47:62   180.0                  Copyable     f32
-    47:14..47:62   this.y.sgnx() as f32) * cos_value.acos() * 180.0   Copyable     f32
+    47:13..47:62   (this.y.sgnx() as f32) * cos_value.acos() * 180.0   Copyable     f32
     47:65..47:74   3.1415926              Copyable     f32
-    47:14..47:74   this.y.sgnx() as f32) * cos_value.acos() * 180.0 / 3.1415926   Copyable     f32
+    47:13..47:74   (this.y.sgnx() as f32) * cos_value.acos() * 180.0 / 3.1415926   Copyable     f32
     54:17..54:21   this                   PureRef      mnist_classifier006::geom2d::Vector2d
     54:28..54:33   other                  PureRef      mnist_classifier006::geom2d::Vector2d
     54:17..54:34   this.cross(other)      Copyable     f32
@@ -170,11 +170,11 @@ eager expr:
     62:53..62:63   other_norm             Copyable     f32
     62:41..62:63   this_norm * other_norm   Copyable     f32
     62:22..62:37   this.dot(other)        Copyable     f32
-    62:41..62:64   this_norm * other_norm)   Copyable     f32
+    62:40..62:64   (this_norm * other_norm)   Copyable     f32
     62:22..62:64   this.dot(other) / (this_norm * other_norm)   Copyable     f32
-    62:22..62:65   this.dot(other) / (this_norm * other_norm))   Copyable     f32
+    62:21..62:65   (this.dot(other) / (this_norm * other_norm))   Copyable     f32
     62:70..62:73   1.0                    Copyable     f32
-    62:22..62:74   this.dot(other) / (this_norm * other_norm)).min(1.0)   Copyable     f32
+    62:21..62:74   (this.dot(other) / (this_norm * other_norm)).min(1.0)   Copyable     f32
     63:12..63:21   cos_value              Copyable     f32
     63:24..63:27   1.0                    Copyable     f32
     63:12..63:27   cos_value + 1.0        Copyable     f32
@@ -182,15 +182,15 @@ eager expr:
     63:12..63:35   cos_value + 1.0 < 0.001   Copyable     bool
     64:16..64:38   is_branch_cut_positive   Copyable     bool
     65:17..65:22   180.0                  Copyable     f32
-    67:18..67:23   180.0                  Copyable     f32
+    67:17..67:23   -180.0                 Copyable     f32
     69:26..69:30   this                   PureRef      mnist_classifier006::geom2d::Vector2d
     69:53..69:58   other                  PureRef      mnist_classifier006::geom2d::Vector2d
     69:26..69:59   this.rotation_direction_to(other)   Copyable     i32
     69:26..69:66   this.rotation_direction_to(other) as f32   Copyable     f32
     69:70..69:79   cos_value              Copyable     f32
-    69:26..69:67   this.rotation_direction_to(other) as f32)   Copyable     f32
+    69:25..69:67   (this.rotation_direction_to(other) as f32)   Copyable     f32
     69:70..69:86   cos_value.acos()       Copyable     f32
-    69:26..69:86   this.rotation_direction_to(other) as f32) * cos_value.acos()   Copyable     f32
+    69:25..69:86   (this.rotation_direction_to(other) as f32) * cos_value.acos()   Copyable     f32
     70:13..70:22   arc_angle              Copyable     f32
     70:25..70:30   180.0                  Copyable     f32
     70:13..70:30   arc_angle * 180.0      Copyable     f32
