@@ -18,5 +18,5 @@ fn gen_iter<'temp, 'eval: 'temp, T>(
 where
     T: __Registrable + 'eval,
 {
-    Box::new(slice.iter().map(|t| __Register::new_temp_ref(t)))
+    Box::new(slice.iter().map(|t| __Register::new_temp_ref::<T>(t)))
 }

@@ -56,26 +56,54 @@ macro_rules! method_elem_linkage {
 
 #[macro_export]
 macro_rules! eager_field_linkage {
-    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
         __Linkage::Member(&__MemberLinkage {
-            copy_fp: field_copy_fp!($Type, $TYPE_VTABLE, $FIELD_TY_VTABLE, $field, $copy_kind),
-            eval_ref_fp: field_eval_ref_fp!($Type, $TYPE_VTABLE, $FIELD_TY_VTABLE, $field),
-            temp_ref_fp: field_temp_ref_fp!($Type, $TYPE_VTABLE, $FIELD_TY_VTABLE, $field),
+            copy_fp: field_copy_fp!(
+                $Type,
+                $TYPE_VTABLE,
+                $INTRINSIC_FIELD_TY,
+                $FIELD_TY_VTABLE,
+                $field,
+                $copy_kind
+            ),
+            eval_ref_fp: field_eval_ref_fp!(
+                $Type,
+                $TYPE_VTABLE,
+                $INTRINSIC_FIELD_TY,
+                $FIELD_TY_VTABLE,
+                $field
+            ),
+            temp_ref_fp: field_temp_ref_fp!(
+                $Type,
+                $TYPE_VTABLE,
+                $INTRINSIC_FIELD_TY,
+                $FIELD_TY_VTABLE,
+                $field
+            ),
             temp_mut_fp: field_temp_mut_invalid_fp!($Type, $TYPE_VTABLE, $FIELD_TY_VTABLE, $field),
-            move_fp: field_move_fp!($Type, $TYPE_VTABLE, $FIELD_TY_VTABLE, $field),
+            move_fp: field_move_fp!(
+                $Type,
+                $TYPE_VTABLE,
+                $INTRINSIC_FIELD_TY,
+                $FIELD_TY_VTABLE,
+                $field
+            ),
         })
     }};
 }
 
 #[macro_export]
 macro_rules! lazy_field_linkage {
-    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
         fn __wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
             let this_value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
-            __Register::new_eval_ref(this_value.$field(__opt_ctx.unwrap()), &$FIELD_TY_VTABLE)
+            __Register::new_eval_ref::<$INTRINSIC_FIELD_TY>(
+                this_value.$field(__opt_ctx.unwrap()),
+                &$FIELD_TY_VTABLE,
+            )
         }
         transfer_linkage!(__wrapper, none)
     }};

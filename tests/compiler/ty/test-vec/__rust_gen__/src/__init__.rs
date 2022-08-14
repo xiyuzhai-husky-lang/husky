@@ -94,7 +94,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                         .iter_mut()
                         .map(|v| v.downcast_i32())
                         .collect();
-                    __Register::new_box(
+                    __Register::new_box::<Vec<i32>>(
                         Vec::<i32>::__call__(__variadics),
                         &__registration__::__VEC_I_32_VTABLE,
                     )
@@ -150,7 +150,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
                     let a: i32 = __arguments[0].downcast_i32();
-                    __Register::new_opt_box(score(a), &__registration__::__F32_VTABLE)
+                    __Register::new_opt_box::<f32>(score(a), &__registration__::__F32_VTABLE)
                 }
                 __wrapper
             },
@@ -177,7 +177,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                             )
                             .fp(),
                     );
-                    __Register::new_opt_box(
+                    __Register::new_opt_box::<i32>(
                         __this.pop_with_largest_opt_f32_copyable(f),
                         &__registration__::__I32_VTABLE,
                     )

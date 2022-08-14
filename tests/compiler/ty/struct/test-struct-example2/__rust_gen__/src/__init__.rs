@@ -18,7 +18,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
-                    __Register::new_box(f1(), &__registration__::__A_VTABLE)
+                    __Register::new_box::<A>(f1(), &__registration__::__A_VTABLE)
                 }
                 __wrapper
             },
@@ -116,7 +116,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 ) -> __Register<'eval> {
                     let x: i32 = __arguments[0].downcast_i32();
                     let y: i32 = todo!();
-                    __Register::new_box(
+                    __Register::new_box::<A>(
                         A::__call__(x, /* keyword arguments */ y),
                         &__registration__::__A_VTABLE,
                     )

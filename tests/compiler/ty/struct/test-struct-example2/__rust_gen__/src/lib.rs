@@ -33,7 +33,7 @@ impl A {
             .cache_lazy_field(
                 self as *const _ as *const (),
                 __uid,
-                Ok(__Register::new_box(
+                Ok(__Register::new_box::<i32>(
                     self.x + 1,
                     &__registration__::__I32_VTABLE,
                 )),

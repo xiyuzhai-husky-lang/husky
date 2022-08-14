@@ -407,10 +407,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             if is_output_ty_option {
                 msg_once!("handle ref properly");
                 msg_once!("handle opt primitive properly (no need to put in box)");
-                self.write("__Register::new_opt_box(");
+                self.write("__Register::new_opt_box::<");
             } else {
-                self.write("__Register::new_box(");
+                self.write("__Register::new_box::<");
             }
+            self.gen_entity_route(decl.output.ty().intrinsic(), EntityRouteRole::Decl);
+            self.write(">(")
         }
         gen_caller(self);
         self.write("(");

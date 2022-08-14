@@ -10,6 +10,7 @@ pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDef
         linkage: eager_field_linkage!(
             VirtualCyclicSlice<'eval>,
             &__VIRTUAL_CYCLIC_SLICE_VTABLE,
+            i32,
             &__I32_VTABLE,
             start,
             direct
