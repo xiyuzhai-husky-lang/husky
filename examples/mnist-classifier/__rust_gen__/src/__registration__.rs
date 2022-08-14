@@ -603,153 +603,163 @@ pub static __FERMI_MATCH_RESULT_VTABLE: __RegisterTyVTable = __RegisterTyVTable 
     typename_str_hash_u64: 15105436207856257768,
     typename_str: "FermiMatchResult",
 };
-type Vec__ConcaveComponent<'eval> =
+type Vec__Option__Ref__ConcaveComponent<'eval> =
     Vec<Option<&'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>>>;
 
-// Vec__ConcaveComponent
+// Vec__Option__Ref__ConcaveComponent
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__ConcaveComponent>::into_raw(Box::new(
-        (*(data as *mut Vec__ConcaveComponent)).clone(),
+pub unsafe extern "C" fn __vec_option_ref_concave_component_clone(data: *mut ()) -> *mut () {
+    Box::<Vec__Option__Ref__ConcaveComponent>::into_raw(Box::new(
+        (*(data as *mut Vec__Option__Ref__ConcaveComponent)).clone(),
     )) as *mut ()
 }
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__ConcaveComponent);
+pub unsafe extern "C" fn __vec_option_ref_concave_component_drop(data: *mut ()) {
+    Box::from_raw(data as *mut Vec__Option__Ref__ConcaveComponent);
 }
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__ConcaveComponent)
-        == *(other as *const () as *const Vec__ConcaveComponent)
+pub unsafe extern "C" fn __vec_option_ref_concave_component_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const Vec__Option__Ref__ConcaveComponent)
+        == *(other as *const () as *const Vec__Option__Ref__ConcaveComponent)
 }
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __vec_option_ref_concave_component_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__ConcaveComponent>(&__VEC_CONCAVE_COMPONENT_VTABLE) =
-        registers[1].downcast_move(&__VEC_CONCAVE_COMPONENT_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__Option__Ref__ConcaveComponent>(
+        &__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE,
+    ) = registers[1].downcast_move(&__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE)
 }
 #[no_mangle]
-pub static __VEC_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+pub static __VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
-    clone: __vec_concave_component_clone,
-    drop: __vec_concave_component_drop,
-    eq: __vec_concave_component_eq,
-    assign: __vec_concave_component_assign,
-    typename_str_hash_u64: 17127300658855120924,
-    typename_str: "Vec__ConcaveComponent",
+    clone: __vec_option_ref_concave_component_clone,
+    drop: __vec_option_ref_concave_component_drop,
+    eq: __vec_option_ref_concave_component_eq,
+    assign: __vec_option_ref_concave_component_assign,
+    typename_str_hash_u64: 8896686783611719876,
+    typename_str: "Vec__Option__Ref__ConcaveComponent",
 };
-type Vec__ConcaveComponent<'eval> =
+type Vec__Ref__ConcaveComponent<'eval> =
     Vec<&'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>>;
 
-// Vec__ConcaveComponent
+// Vec__Ref__ConcaveComponent
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__ConcaveComponent>::into_raw(Box::new(
-        (*(data as *mut Vec__ConcaveComponent)).clone(),
+pub unsafe extern "C" fn __vec_ref_concave_component_clone(data: *mut ()) -> *mut () {
+    Box::<Vec__Ref__ConcaveComponent>::into_raw(Box::new(
+        (*(data as *mut Vec__Ref__ConcaveComponent)).clone(),
     )) as *mut ()
 }
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__ConcaveComponent);
+pub unsafe extern "C" fn __vec_ref_concave_component_drop(data: *mut ()) {
+    Box::from_raw(data as *mut Vec__Ref__ConcaveComponent);
 }
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__ConcaveComponent)
-        == *(other as *const () as *const Vec__ConcaveComponent)
+pub unsafe extern "C" fn __vec_ref_concave_component_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const Vec__Ref__ConcaveComponent)
+        == *(other as *const () as *const Vec__Ref__ConcaveComponent)
 }
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __vec_ref_concave_component_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__ConcaveComponent>(&__VEC_CONCAVE_COMPONENT_VTABLE) =
-        registers[1].downcast_move(&__VEC_CONCAVE_COMPONENT_VTABLE)
+    *registers[0]
+        .downcast_temp_mut::<Vec__Ref__ConcaveComponent>(&__VEC_REF_CONCAVE_COMPONENT_VTABLE) =
+        registers[1].downcast_move(&__VEC_REF_CONCAVE_COMPONENT_VTABLE)
 }
 #[no_mangle]
-pub static __VEC_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+pub static __VEC_REF_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
-    clone: __vec_concave_component_clone,
-    drop: __vec_concave_component_drop,
-    eq: __vec_concave_component_eq,
-    assign: __vec_concave_component_assign,
-    typename_str_hash_u64: 17127300658855120924,
-    typename_str: "Vec__ConcaveComponent",
+    clone: __vec_ref_concave_component_clone,
+    drop: __vec_ref_concave_component_drop,
+    eq: __vec_ref_concave_component_eq,
+    assign: __vec_ref_concave_component_assign,
+    typename_str_hash_u64: 12868255181803251158,
+    typename_str: "Vec__Ref__ConcaveComponent",
 };
-type Fp__ConcaveComponent_f32<'eval> = fn(
+type Fp__Ref__ConcaveComponent_Option__f32<'eval> = fn(
     &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
 ) -> Option<f32>;
 
-// Fp__ConcaveComponent_f32
+// Fp__Ref__ConcaveComponent_Option__f32
 #[no_mangle]
-pub unsafe extern "C" fn __fp_concave_component_f_32_clone(data: *mut ()) -> *mut () {
-    Box::<Fp__ConcaveComponent_f32>::into_raw(Box::new(
-        (*(data as *mut Fp__ConcaveComponent_f32)).clone(),
+pub unsafe extern "C" fn __fp_ref_concave_component_option_f_32_clone(data: *mut ()) -> *mut () {
+    Box::<Fp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new(
+        (*(data as *mut Fp__Ref__ConcaveComponent_Option__f32)).clone(),
     )) as *mut ()
 }
 #[no_mangle]
-pub unsafe extern "C" fn __fp_concave_component_f_32_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Fp__ConcaveComponent_f32);
+pub unsafe extern "C" fn __fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
+    Box::from_raw(data as *mut Fp__Ref__ConcaveComponent_Option__f32);
 }
 #[no_mangle]
-pub unsafe extern "C" fn __fp_concave_component_f_32_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Fp__ConcaveComponent_f32)
-        == *(other as *const () as *const Fp__ConcaveComponent_f32)
+pub unsafe extern "C" fn __fp_ref_concave_component_option_f_32_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const Fp__Ref__ConcaveComponent_Option__f32)
+        == *(other as *const () as *const Fp__Ref__ConcaveComponent_Option__f32)
 }
 #[no_mangle]
-pub unsafe extern "C" fn __fp_concave_component_f_32_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __fp_ref_concave_component_option_f_32_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0]
-        .downcast_temp_mut::<Fp__ConcaveComponent_f32>(&__FP_CONCAVE_COMPONENT_F_32_VTABLE) =
-        registers[1].downcast_move(&__FP_CONCAVE_COMPONENT_F_32_VTABLE)
+    *registers[0].downcast_temp_mut::<Fp__Ref__ConcaveComponent_Option__f32>(
+        &__FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE,
+    ) = registers[1].downcast_move(&__FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE)
 }
 #[no_mangle]
-pub static __FP_CONCAVE_COMPONENT_F_32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+pub static __FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
-    clone: __fp_concave_component_f_32_clone,
-    drop: __fp_concave_component_f_32_drop,
-    eq: __fp_concave_component_f_32_eq,
-    assign: __fp_concave_component_f_32_assign,
-    typename_str_hash_u64: 16014993962583689535,
-    typename_str: "Fp__ConcaveComponent_f32",
+    clone: __fp_ref_concave_component_option_f_32_clone,
+    drop: __fp_ref_concave_component_option_f_32_drop,
+    eq: __fp_ref_concave_component_option_f_32_eq,
+    assign: __fp_ref_concave_component_option_f_32_assign,
+    typename_str_hash_u64: 14739934925898725661,
+    typename_str: "Fp__Ref__ConcaveComponent_Option__f32",
 };
-type Vec__Fp__ConcaveComponent_f32<'eval> = Vec<
+type Vec__Fp__Ref__ConcaveComponent_Option__f32<'eval> = Vec<
     fn(
         &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
     ) -> Option<f32>,
 >;
 
-// Vec__Fp__ConcaveComponent_f32
+// Vec__Fp__Ref__ConcaveComponent_Option__f32
 #[no_mangle]
-pub unsafe extern "C" fn __vec_fp_concave_component_f_32_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__Fp__ConcaveComponent_f32>::into_raw(Box::new(
-        (*(data as *mut Vec__Fp__ConcaveComponent_f32)).clone(),
+pub unsafe extern "C" fn __vec_fp_ref_concave_component_option_f_32_clone(
+    data: *mut (),
+) -> *mut () {
+    Box::<Vec__Fp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new(
+        (*(data as *mut Vec__Fp__Ref__ConcaveComponent_Option__f32)).clone(),
     )) as *mut ()
 }
 #[no_mangle]
-pub unsafe extern "C" fn __vec_fp_concave_component_f_32_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__Fp__ConcaveComponent_f32);
+pub unsafe extern "C" fn __vec_fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
+    Box::from_raw(data as *mut Vec__Fp__Ref__ConcaveComponent_Option__f32);
 }
 #[no_mangle]
-pub unsafe extern "C" fn __vec_fp_concave_component_f_32_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__Fp__ConcaveComponent_f32)
-        == *(other as *const () as *const Vec__Fp__ConcaveComponent_f32)
+pub unsafe extern "C" fn __vec_fp_ref_concave_component_option_f_32_eq(
+    this: &(),
+    other: &(),
+) -> bool {
+    *(this as *const () as *const Vec__Fp__Ref__ConcaveComponent_Option__f32)
+        == *(other as *const () as *const Vec__Fp__Ref__ConcaveComponent_Option__f32)
 }
 #[no_mangle]
-pub unsafe extern "C" fn __vec_fp_concave_component_f_32_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __vec_fp_ref_concave_component_option_f_32_assign(
+    registers: *mut __Register,
+) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__Fp__ConcaveComponent_f32>(
-        &__VEC_FP_CONCAVE_COMPONENT_F_32_VTABLE,
-    ) = registers[1].downcast_move(&__VEC_FP_CONCAVE_COMPONENT_F_32_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__Fp__Ref__ConcaveComponent_Option__f32>(
+        &__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE,
+    ) = registers[1].downcast_move(&__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE)
 }
 #[no_mangle]
-pub static __VEC_FP_CONCAVE_COMPONENT_F_32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
-    primitive_value_to_bool: None,
-    primitive_value_to_box: None,
-    clone: __vec_fp_concave_component_f_32_clone,
-    drop: __vec_fp_concave_component_f_32_drop,
-    eq: __vec_fp_concave_component_f_32_eq,
-    assign: __vec_fp_concave_component_f_32_assign,
-    typename_str_hash_u64: 2106702698888971217,
-    typename_str: "Vec__Fp__ConcaveComponent_f32",
-};
+pub static __VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE: __RegisterTyVTable =
+    __RegisterTyVTable {
+        primitive_value_to_bool: None,
+        primitive_value_to_box: None,
+        clone: __vec_fp_ref_concave_component_option_f_32_clone,
+        drop: __vec_fp_ref_concave_component_option_f_32_drop,
+        eq: __vec_fp_ref_concave_component_option_f_32_eq,
+        assign: __vec_fp_ref_concave_component_option_f_32_assign,
+        typename_str_hash_u64: 14448762047548590071,
+        typename_str: "Vec__Fp__Ref__ConcaveComponent_Option__f32",
+    };

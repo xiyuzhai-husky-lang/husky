@@ -52,7 +52,7 @@ impl<'a> RustCodeGenerator<'a> {
         if is_output_option {
             self.write(">")
         }
-        let mangled_output_ty_vtable = self.db.mangled_ty_vtable(output_ty);
+        let mangled_output_ty_vtable = self.db.mangled_intrinsic_ty_vtable(output_ty);
         self.write(&format!(
             r#" {{
     let __feature = feature_ptr!(__ctx, "{feature_route:?}");

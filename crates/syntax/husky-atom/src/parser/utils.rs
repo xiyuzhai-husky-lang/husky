@@ -157,7 +157,7 @@ macro_rules! get{
         if let Some(pattern) = $parser.$patt($($args),*) {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
+            return err!(format!("expect `{}` after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 
@@ -178,7 +178,7 @@ macro_rules! get{
         if let Some(pattern) = $parser.$patt($($args),*)? {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
+            return err!(format!("expect `{}` after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 
@@ -188,7 +188,7 @@ macro_rules! get{
             pattern
         } else {
             return err!(
-                format!("expect {:?} after it", stringify!($patt)),
+                format!("expect `{}` after it", stringify!($patt)),
                 $parser.token_stream.next_range()
             )
         }
@@ -198,7 +198,7 @@ macro_rules! get{
         if let Some(pattern) = this.$patt($args,*)? {
             pattern
         } else {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
+            return err!(format!("expect `{}` after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 }
@@ -207,14 +207,14 @@ macro_rules! get{
 macro_rules! eat {
     ($parser:expr, $patt:ident) => {{
         if $parser.$patt().is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
+            return err!(format!("expect `{}` after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 
     ($parser:expr, $patt:ident, $($args:expr),*) => {{
         if  $parser.$patt($($args),*).is_none() {
             return err!(
-                format!("expect {:?} after it", stringify!($patt)),
+                format!("expect `{}` after it", stringify!($patt)),
                 $parser.token_stream.next_range()
             )
         }
@@ -222,13 +222,13 @@ macro_rules! eat {
 
     ($parser:expr, $patt:ident?) => {{
         if $parser.$patt()?.is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
+            return err!(format!("expect `{}` after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 
     ($parser:expr, $patt:ident?, $($args:expr),*) => {{
         if  $parser.$patt($($args),*)?.is_none() {
-            return err!(format!("expect {:?} after it", stringify!($patt)), $parser.token_stream.next_range())
+            return err!(format!("expect `{}` after it", stringify!($patt)), $parser.token_stream.next_range())
         }
     }};
 

@@ -106,9 +106,9 @@ impl<'a> RustCodeGenerator<'a> {
                 ));
                 self.gen_entity_route(ty, EntityRouteRole::Decl);
                 self.write(", __registration__::");
-                self.write(&self.db.mangled_ty_vtable(ty));
+                self.write(&self.db.mangled_intrinsic_ty_vtable(ty));
                 self.write(", __registration__::");
-                self.write(&self.db.mangled_ty_vtable(field_ty));
+                self.write(&self.db.mangled_intrinsic_ty_vtable(field_ty));
                 self.write(", ");
                 self.write(field_ident);
                 let copy_kind = if self.db.is_copyable(field_ty).unwrap() {
@@ -155,9 +155,9 @@ impl<'a> RustCodeGenerator<'a> {
                     ));
                     self.gen_entity_route(ty, EntityRouteRole::Decl);
                     self.write(", __registration__::");
-                    self.write(&self.db.mangled_ty_vtable(ty));
+                    self.write(&self.db.mangled_intrinsic_ty_vtable(ty));
                     self.write(", __registration__::");
-                    self.write(&self.db.mangled_ty_vtable(output_ty.route));
+                    self.write(&self.db.mangled_intrinsic_ty_vtable(output_ty.route));
                     self.write(", ");
                     self.write(field_ident);
                     self.write(

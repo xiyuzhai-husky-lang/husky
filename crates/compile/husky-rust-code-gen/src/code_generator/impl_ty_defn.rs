@@ -327,7 +327,8 @@ impl From<i32> for {tyname} {{
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
                         self.gen_entity_route(output_ty.route.deref_route(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
-                        let mangled_output_ty_vtable = self.db.mangled_ty_vtable(output_ty.route);
+                        let mangled_output_ty_vtable =
+                            self.db.mangled_intrinsic_ty_vtable(output_ty.route);
                         self.write(&format!(
                             r#" {{
     let __uid = entity_uid!(__ctx, "{route:?}");

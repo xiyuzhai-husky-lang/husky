@@ -28,7 +28,7 @@ use husky_rust_code_repr::entity_route::*;
 use init_content::*;
 use lib_rs_content::*;
 use linkage_collector::*;
-use mangle::{mangled_ty, mangled_ty_vtable};
+use mangle::*;
 use mod_rs_content::*;
 use std::{
     collections::HashSet,
@@ -54,6 +54,8 @@ pub trait RustCodeGenQueryGroup: PackageQueryGroup {
     ) -> Arc<VecSet<EntityRoutePtr>>;
     fn entity_link_dependees(&self, entity_route: EntityRoutePtr) -> Arc<VecSet<EntityRoutePtr>>;
     fn needs_eval_context(&self, entity_route: EntityRoutePtr) -> bool;
+    fn mangled_intrinsic_ty(&self, entity_route: EntityRoutePtr) -> Arc<String>;
+    fn mangled_intrinsic_ty_vtable(&self, entity_route: EntityRoutePtr) -> Arc<String>;
     fn mangled_ty(&self, entity_route: EntityRoutePtr) -> Arc<String>;
     fn mangled_ty_vtable(&self, entity_route: EntityRoutePtr) -> Arc<String>;
 }
