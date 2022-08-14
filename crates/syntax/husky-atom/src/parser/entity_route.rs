@@ -22,7 +22,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     (self.vec_ty()?, TyKind::Vec)
                 } else if try_eat!(self, SpecialToken::Modulo) {
                     eat!(self, token_kind, SpecialToken::RBox.into());
-                    let element = self.generic()?;
+                    let element = self.spatial_argument()?;
                     (
                         entity_route_menu().std_slice_cyclic_slice.call([element]),
                         TyKind::CyclicSlice,
@@ -33,9 +33,10 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     }
                     if let Some(token) = self.token_stream.peek() {
                         match token.left_convexity() {
-                            Some(Convexity::Convex) => {
-                                (EntityRoute::array(self.generic()?, size), TyKind::Array)
-                            }
+                            Some(Convexity::Convex) => (
+                                EntityRoute::array(self.spatial_argument()?, size),
+                                TyKind::Array,
+                            ),
                             _ => return Ok(None),
                         }
                     } else {
@@ -155,7 +156,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn vec_ty(&mut self) -> AtomResult<EntityRoute> {
-        Ok(EntityRoute::vec(self.generic()?))
+        Ok(EntityRoute::vec(self.spatial_argument()?))
     }
 
     fn normal_route(&mut self, route: EntityRoutePtr) -> AtomResult<HuskyAtomVariant> {
@@ -289,9 +290,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         if !try_eat!(self, "(") {
             return Ok(Default::default());
         }
-        let mut args = thin_comma_list![self, generic!, RPar];
+        let mut args = thin_comma_list![self, spatial_argument!, RPar];
         args.push(if try_eat!(self, "->") {
-            self.generic()?
+            self.spatial_argument()?
         } else {
             EntityRoutePtr::Root(RootIdentifier::Void).into()
         });
@@ -300,17 +301,17 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     pub(crate) fn angled_generics(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
         Ok(if try_eat!(self, SpecialToken::LAngle) {
-            thin_comma_list![self, generic!+, ">"]
+            thin_comma_list![self, spatial_argument!+, ">"]
         } else {
             thin_vec![]
         })
     }
 
-    fn generic(&mut self) -> AtomResult<SpatialArgument> {
+    fn spatial_argument(&mut self) -> AtomResult<SpatialArgument> {
         Ok(if try_eat!(self, "(") {
-            let mut args = thin_comma_list!(self, generic!, ")");
+            let mut args = thin_comma_list!(self, spatial_argument!, ")");
             let scope = if try_eat!(self, "->") {
-                args.push(self.generic()?);
+                args.push(self.spatial_argument()?);
                 EntityRoute::default_func_type(args)
             } else {
                 EntityRoute::tuple_or_void(args)
@@ -325,5 +326,34 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         self.atom_context
             .entity_syntax_db()
             .intern_entity_route(scope)
+    }
+}
+
+pub struct AngledSpatialArguments;
+impl AtomParserPattern for AngledSpatialArguments {
+    type Output = ThinVec<SpatialArgument>;
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        Ok(
+            if parser.try_eat(&BeSpecialTokenPattern(SpecialToken::LAngle))? {
+                ThinCommaListPattern {
+                    item: SpatialArgumentPattern,
+                    terminator: BeSpecialTokenPattern(SpecialToken::RAngle),
+                }
+                .get_parsed(parser)?
+            } else {
+                None
+            },
+        )
+    }
+}
+
+pub struct SpatialArgumentPattern;
+
+impl AtomParserPattern for SpatialArgumentPattern {
+    type Output = SpatialArgument;
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        todo!()
     }
 }

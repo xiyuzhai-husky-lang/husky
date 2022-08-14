@@ -1,3 +1,7 @@
+use thin_vec::ThinVec;
+
+use super::*;
+
 #[macro_export]
 macro_rules! try_get {
     ($parser: expr, $patt:ident) => {{
@@ -344,6 +348,26 @@ macro_rules! comma_list {
     ($parser:expr, $patt:ident!+, ">") => {{
         comma_list!($parser, $patt!+, RAngle)
     }};
+}
+
+pub struct ThinCommaListPattern<Item, Terminator>
+where
+    Item: AtomParserPattern,
+    Terminator: AtomParserPattern,
+{
+    pub item: Item,
+    pub terminator: Terminator,
+}
+impl<Item, Terminator> AtomParserPattern for ThinCommaListPattern<Item, Terminator>
+where
+    Item: AtomParserPattern,
+    Terminator: AtomParserPattern,
+{
+    type Output = ThinVec<Item::Output>;
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        todo!()
+    }
 }
 
 #[macro_export]
