@@ -11,33 +11,6 @@ use super::*;
 
 // inner ops
 impl<'a, 'b> AtomParser<'a, 'b> {
-    // pub fn method_defn_head(
-    //     mut self,
-    //     this: ParameterLiason,
-    //     paradigm: Paradigm,
-    // ) -> AtomResult<CallableDefnHead> {
-    //     let routine_ident = get!(self, custom_ident);
-    //     self.atom_context
-    //         .push_abs_semantic_token(AbsSemanticToken::new(
-    //             SemanticTokenKind::Entity(EntityKind::Function {
-    //                 is_lazy: paradigm.is_lazy(),
-    //             }),
-    //             routine_ident.range,
-    //         ));
-    //     let generics = self.generic_parameters()?;
-    //     let parameters = self.parameters()?;
-    //     let output_ty = self.func_output_type()?;
-    //     Ok(CallableDefnHead {
-    //         opt_this_liason: Some(this),
-    //         paradigm,
-    //         ident: routine_ident,
-    //         generic_parameters: generics,
-    //         parameters,
-    //         output_ty,
-    //         output_liason: OutputLiason::Transfer,
-    //     })
-    // }
-
     pub fn spatial_parameters(&mut self) -> AtomResult<IdentDict<SpatialParameter>> {
         if try_eat_special!(self, "<") {
             let spatial_parameters = get_patt!(
