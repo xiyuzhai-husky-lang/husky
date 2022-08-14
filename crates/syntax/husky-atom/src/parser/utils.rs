@@ -376,6 +376,50 @@ macro_rules! comma_list {
     }};
 }
 
+pub struct CommaListPattern<Item, Terminator>
+where
+    Item: AtomParserPattern,
+    Terminator: AtomParserPattern,
+{
+    pub item: Item,
+    pub terminator: Terminator,
+}
+impl<Item, Terminator> std::fmt::Display for CommaListPattern<Item, Terminator>
+where
+    Item: AtomParserPattern,
+    Terminator: AtomParserPattern,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "comma list of {} till {}", self.item, self.terminator)
+    }
+}
+impl<Item, Terminator> AtomParserPattern for CommaListPattern<Item, Terminator>
+where
+    Item: AtomParserPattern,
+    Terminator: AtomParserPattern,
+{
+    type Output = Vec<Item::Output>;
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        let mut args = vec![];
+        if !parser.try_eat(&self.terminator)? {
+            args.push(parser.get(&self.item)?);
+            loop {
+                if try_eat_special!(parser, ",") {
+                    if parser.try_eat(&self.terminator)? {
+                        break;
+                    }
+                    args.push(parser.get(&self.item)?);
+                } else {
+                    eat_patt!(parser, self.terminator);
+                    break;
+                }
+            }
+        }
+        Ok(Some(args))
+    }
+}
+
 pub struct ThinCommaListPattern<Item, Terminator>
 where
     Item: AtomParserPattern,
@@ -383,6 +427,15 @@ where
 {
     pub item: Item,
     pub terminator: Terminator,
+}
+impl<Item, Terminator> std::fmt::Display for ThinCommaListPattern<Item, Terminator>
+where
+    Item: AtomParserPattern,
+    Terminator: AtomParserPattern,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
 }
 impl<Item, Terminator> AtomParserPattern for ThinCommaListPattern<Item, Terminator>
 where
