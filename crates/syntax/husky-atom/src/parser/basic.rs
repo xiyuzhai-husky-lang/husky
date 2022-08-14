@@ -4,6 +4,86 @@ use husky_word::{Keyword, LiasonKeyword, Paradigm};
 
 use super::*;
 
+pub struct OfHuskyTokenKindPattern(HuskyTokenKind);
+impl AtomParserPattern for OfHuskyTokenKindPattern {
+    type Output = ();
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        todo!()
+    }
+}
+
+pub struct ParadigmPattern;
+impl AtomParserPattern for ParadigmPattern {
+    type Output = Paradigm;
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        Ok(
+            if let Some(HuskyToken {
+                kind: HuskyTokenKind::Keyword(Keyword::Paradigm(paradigm)),
+                ..
+            }) = parser.token_stream.next()
+            {
+                Some(*paradigm)
+            } else {
+                None
+            },
+        )
+    }
+}
+
+pub struct UsizeLiteralPattern;
+impl AtomParserPattern for UsizeLiteralPattern {
+    type Output = usize;
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        Ok(
+            if let Some(HuskyToken {
+                kind: HuskyTokenKind::PrimitiveLiteral(data),
+                ..
+            }) = parser.token_stream.next()
+            {
+                match data {
+                    PrimitiveLiteralData::Void => todo!(),
+                    PrimitiveLiteralData::I32(i) => {
+                        if *i < 0 {
+                            None
+                        } else {
+                            Some(*i as usize)
+                        }
+                    }
+                    PrimitiveLiteralData::Integer(i) => {
+                        if *i < 0 {
+                            None
+                        } else {
+                            Some(*i as usize)
+                        }
+                    }
+                    PrimitiveLiteralData::I64(_) => todo!(),
+                    PrimitiveLiteralData::Float(_) => None,
+                    PrimitiveLiteralData::F32(_) => todo!(),
+                    PrimitiveLiteralData::F64(_) => todo!(),
+                    PrimitiveLiteralData::Bits(_) => todo!(),
+                    PrimitiveLiteralData::B32(_) => todo!(),
+                    PrimitiveLiteralData::B64(_) => todo!(),
+                    PrimitiveLiteralData::Bool(_) => todo!(),
+                }
+            } else {
+                None
+            },
+        )
+    }
+}
+
+pub struct BeSpecialTokenPattern(pub SpecialToken);
+impl AtomParserPattern for BeSpecialTokenPattern {
+    type Output = ();
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        OfHuskyTokenKindPattern(self.0.into()).get_parsed(parser)
+    }
+}
+
 impl<'a, 'b> AtomParser<'a, 'b> {
     pub fn special(&mut self, target: SpecialToken) -> Option<()> {
         self.token_kind(target.into())

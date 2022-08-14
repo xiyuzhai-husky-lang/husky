@@ -1,5 +1,5 @@
-mod impl_basic;
-mod impl_entity_route;
+mod basic;
+mod entity_route;
 mod impl_lambda_head;
 mod impl_parameter;
 mod impl_pattern;
@@ -7,9 +7,11 @@ mod impl_special;
 mod impl_state;
 mod impl_word_opr;
 mod impl_xml;
+mod pattern;
 mod utils;
 
 use super::{stack::AtomStack, *};
+use basic::*;
 use husky_check_utils::should;
 use husky_entity_route::{
     EntityKind, EntityRoute, EntityRouteVariant, RangedEntityRoute, SpatialArgument,
@@ -22,6 +24,7 @@ use husky_token::{
     identify_token, AbsSemanticToken, HuskyToken, HuskyTokenKind, SemanticTokenKind, SpecialToken,
     TokenStream,
 };
+use pattern::AtomParserPattern;
 use std::iter::Peekable;
 use utils::*;
 
@@ -118,6 +121,37 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             }
         }
         self.stack.unfreeze()
+    }
+
+    pub fn try_get<P: AtomParserPattern>(&mut self, patt: &P) -> AtomResult<Option<P::Output>> {
+        let saved_state = self.save_state();
+        Ok(if let Some(pattern) = patt.get_parsed(self)? {
+            Some(pattern)
+        } else {
+            self.rollback(saved_state);
+            None
+        })
+    }
+
+    pub fn get<P: AtomParserPattern>(&mut self, patt: &P) -> AtomResult<P::Output> {
+        if let Some(pattern) = self.try_get(patt)? {
+            Ok(pattern)
+        } else {
+            err!(
+                format!("expect {}", stringify!($patt)),
+                self.token_stream.next_range()
+            )
+        }
+    }
+
+    pub fn try_eat<P: AtomParserPattern>(&mut self, patt: &P) -> AtomResult<bool> {
+        let saved_state = self.save_state();
+        Ok(if patt.get_parsed(self)?.is_some() {
+            true
+        } else {
+            self.rollback(saved_state);
+            false
+        })
     }
 
     fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {
