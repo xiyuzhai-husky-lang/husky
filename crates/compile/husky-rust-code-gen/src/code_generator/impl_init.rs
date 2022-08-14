@@ -343,13 +343,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                                     ));
                                 } else if variadic_ty.is_primitive() {
                                     self.write(&format!(
-                                    r#"
+                                        r#"
                                     let __variadics =
                                         __arguments[{variadic_start}..]
                                             .iter_mut()
-                                            .map(|v|v.downcast_opt_{}(&__registration__::{variadic_ty_vtable}))
+                                            .map(|v|v.downcast_opt_{}())
                                             .collect();"#,
-                                    variadic_ty.ident().as_str()));
+                                        variadic_ty.ident().as_str()
+                                    ));
                                 } else {
                                     todo!()
                                 }

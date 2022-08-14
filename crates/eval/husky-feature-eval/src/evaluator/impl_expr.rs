@@ -16,6 +16,7 @@ use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn eval_expr(&self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
+        p!(expr.variant, expr.expr.file, expr.expr.range);
         match expr.variant {
             FeatureExprVariant::Literal(ref value) => Ok(value.clone()),
             FeatureExprVariant::PrimitiveBinaryOpr {
@@ -229,7 +230,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             .map(|expr| self.eval_expr(expr))
             .collect::<Vec<_>>();
         msg_once!("kwargs");
-        eval_fast(
+        let result = eval_fast(
             db.upcast(),
             Some(self),
             opt_instrns.as_ref().map(|v| &**v),
@@ -239,7 +240,12 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             [].into_iter(),
             arguments.len().try_into().unwrap(),
             vm_config,
-        )
+        );
+        match result {
+            Ok(ref v) => p!(v.vtable.typename_str),
+            Err(ref e) => todo!(),
+        }
+        result
     }
 
     fn eval_be_pattern(

@@ -53,7 +53,7 @@ impl<'eval> PartialEq for FeatureExpr {
 
 impl<'eval> Eq for FeatureExpr {}
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum FeatureExprVariant {
     Literal(__Register<'static>),
     PrimitiveBinaryOpr {
@@ -133,6 +133,75 @@ pub enum FeatureExprVariant {
         this: Arc<FeatureExpr>,
         patt: Arc<PurePattern>,
     },
+}
+
+impl std::fmt::Debug for FeatureExprVariant {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Literal(arg0) => f.debug_tuple("Literal").field(arg0).finish(),
+            Self::PrimitiveBinaryOpr { opr, opds, linkage } => {
+                f.debug_struct("PrimitiveBinaryOpr").finish()
+            }
+            Self::CustomBinaryOpr {
+                opr,
+                opds,
+                opt_linkage,
+                opt_instruction_sheet,
+            } => f.debug_struct("CustomBinaryOpr").finish(),
+            Self::Variable { varname, value } => f
+                .debug_struct("Variable")
+                .field("varname", varname)
+                .field("value", value)
+                .finish(),
+            Self::ThisValue { repr } => f.debug_struct("ThisValue").finish(),
+            Self::StructOriginalField {
+                this,
+                field_ident,
+                field_idx,
+                field_binding,
+                opt_linkage,
+            } => f.debug_struct("StructOriginalField").finish(),
+            Self::RecordOriginalField {
+                this,
+                field_ident,
+                repr,
+            } => f.debug_struct("RecordOriginalField").finish(),
+            Self::StructDerivedLazyField {
+                this,
+                field_ident,
+                field_uid,
+                repr,
+            } => f.debug_struct("StructDerivedLazyField").finish(),
+            Self::RecordDerivedField {
+                this,
+                field_ident,
+                field_uid,
+                repr,
+            } => f.debug_struct("RecordDerivedField").finish(),
+            Self::ElementAccess { opds, linkage } => f.debug_struct("ElementAccess").finish(),
+            Self::ModelCall {
+                opds,
+                has_this,
+                model_defn,
+                opt_arrival_indicator,
+                internal,
+            } => f.debug_struct("ModelCall").finish(),
+            Self::RoutineCall {
+                opds,
+                has_this,
+                opt_instruction_sheet,
+                opt_linkage,
+                routine_defn,
+            } => f.debug_struct("RoutineCall").finish(),
+            Self::EntityFeature { repr } => {
+                f.debug_struct("EntityFeature").field("repr", repr).finish()
+            }
+            Self::EvalInput => write!(f, "EvalInput"),
+            Self::NewRecord { ty, entity, opds } => f.debug_struct("NewRecord").finish(),
+            Self::NewVecFromList { elements, linkage } => f.debug_struct("NewVecFromList").finish(),
+            Self::BePattern { this, patt } => f.debug_struct("BePattern").finish(),
+        }
+    }
 }
 
 impl FeatureExprVariant {
