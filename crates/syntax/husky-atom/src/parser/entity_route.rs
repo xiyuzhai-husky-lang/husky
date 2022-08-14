@@ -286,7 +286,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         if !deprecated_try_eat!(self, "(") {
             return Ok(Default::default());
         }
-        let mut args = thin_comma_list![self, spatial_argument!, RPar];
+        let mut args = deprecated_thin_comma_list![self, spatial_argument!, RPar];
         args.push(if deprecated_try_eat!(self, "->") {
             self.spatial_argument()?
         } else {
@@ -297,7 +297,12 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     pub(crate) fn angled_generics(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
         Ok(if try_eat_special!(self, "<") {
-            thin_comma_list![self, spatial_argument!+, ">"]
+            self.try_get(&ThinCommaListPattern {
+                item: SpatialArgumentPattern,
+                terminator: be_special_token_patt!(">"),
+            })?
+            .unwrap()
+            // thin_comma_list![self, spatial_argument!+, ">"]
         } else {
             thin_vec![]
         })
@@ -305,7 +310,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 
     fn spatial_argument(&mut self) -> AtomResult<SpatialArgument> {
         Ok(if deprecated_try_eat!(self, "(") {
-            let mut args = thin_comma_list!(self, spatial_argument!, ")");
+            let mut args = deprecated_thin_comma_list!(self, spatial_argument!, ")");
             let scope = if deprecated_try_eat!(self, "->") {
                 args.push(self.spatial_argument()?);
                 EntityRoute::default_func_type(args)
@@ -359,6 +364,17 @@ impl AtomParserPattern for SpatialArgumentPattern {
     type Output = SpatialArgument;
 
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
-        todo!()
+        Ok(Some(if try_eat_special!(parser, "(") {
+            let mut args = deprecated_thin_comma_list!(parser, spatial_argument!, ")");
+            let scope = if try_eat_special!(parser, "->") {
+                args.push(parser.spatial_argument()?);
+                EntityRoute::default_func_type(args)
+            } else {
+                EntityRoute::tuple_or_void(args)
+            };
+            parser.intern(scope).into()
+        } else {
+            deprecated_get!(parser, ty?).into()
+        }))
     }
 }
