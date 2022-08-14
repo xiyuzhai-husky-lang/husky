@@ -19,15 +19,15 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         token.range,
                     ));
                 let (route, ty_kind) = if try_eat!(self, SpecialToken::RBox) {
-                    (self.vec_ty()?, TyKind::Vec)
-                } else if try_eat!(self, SpecialToken::Modulo) {
+                    (EntityRoute::vec(self.spatial_argument()?), TyKind::Vec)
+                } else if self.try_eat(&be_special_token_patt!("%"))? {
                     eat_special!(self, "]");
                     let element = self.spatial_argument()?;
                     (
                         entity_route_menu().std_slice_cyclic_slice.call([element]),
                         TyKind::CyclicSlice,
                     )
-                } else if let Some(size) = try_get!(self, usize_literal) {
+                } else if let Some(size) = self.try_get(&UsizeLiteralPattern)? {
                     if !self.try_eat(&be_special_token_patt!("]"))? {
                         return Ok(None);
                     }
@@ -153,10 +153,6 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         } else {
             None
         })
-    }
-
-    fn vec_ty(&mut self) -> AtomResult<EntityRoute> {
-        Ok(EntityRoute::vec(self.spatial_argument()?))
     }
 
     fn normal_route(&mut self, route: EntityRoutePtr) -> AtomResult<HuskyAtomVariant> {
