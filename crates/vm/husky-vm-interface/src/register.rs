@@ -419,7 +419,7 @@ macro_rules! register_new_copyable {
         __Register::new_box($argument, &$TYPE_VTABLE)
     }};
     ($argument: expr, $TYPE_VTABLE: expr, invalid) => {{
-        panic!()
+        panic!("register_new_copyable invalid")
     }};
 }
 

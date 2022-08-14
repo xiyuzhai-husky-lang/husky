@@ -505,8 +505,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let mangled_intrinsic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(ty);
         let mangled_elem_ty_vtable = self.db.mangled_intrinsic_ty_vtable(elem_ty);
         self.gen_entity_route(ty, EntityRouteRole::Decl);
-        let copy_kind: &'static str = if self.db.is_copyable(ty).unwrap() {
-            match ty {
+        let copy_kind: &'static str = if self.db.is_copyable(elem_ty).unwrap() {
+            match elem_ty {
                 EntityRoutePtr::Root(root_identifer) => match root_identifer {
                     RootIdentifier::Void
                     | RootIdentifier::I32

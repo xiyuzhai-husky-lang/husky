@@ -11,8 +11,9 @@ fn __input<'a, 'eval: 'a>(__ctx: &'a dyn __EvalContext<'eval>) -> &'a f32 {
     }
 }
 
-pub(crate) fn try_vec_opt() -> () {
+pub(crate) fn try_vec_opt() -> Vec<Option<i32>> {
     let mut v = Vec::<Option<i32>>::__call__(vec![]);
     v.push(Some(1));
     assert!(v[(0) as usize] == Some(1));
+    return v;
 }
