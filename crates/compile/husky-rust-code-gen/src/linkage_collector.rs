@@ -121,7 +121,7 @@ pub(crate) fn entity_link_dependees(
                 EntityRouteVariant::Any { .. } => continue,
                 _ => (),
             }
-            let subroute_dependees = db.entity_immediate_link_dependees(subroute);
+            let subroute_dependees = db.entity_immediate_link_dependees(subroute.intrinsic());
             dependees.extend(&subroute_dependees)
         }
         if dependees.len() > len0 {

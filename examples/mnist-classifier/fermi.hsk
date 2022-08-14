@@ -4,7 +4,7 @@ struct FermiMatchResult:
     matches: []?&ConcaveComponent
     others: []&ConcaveComponent
 
-proc fermi_match(concave_components: &[]ConcaveComponent, templates: Vec<(ConcaveComponent) -> ?f32>) -> FermiMatchResult:
+proc fermi_match(concave_components: &[]ConcaveComponent, templates: Vec<(&ConcaveComponent) -> ?f32>) -> FermiMatchResult:
     var others = concave_components.collect_refs()
     var matches = []?&ConcaveComponent()
     // todo: change this to `for template in templates` after introducing `for ... in` loop

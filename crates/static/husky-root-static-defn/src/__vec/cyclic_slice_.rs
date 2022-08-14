@@ -22,14 +22,14 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
         output_ty: "[%]E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(transfer_linkage!(virtual_cyclic_slice, none)),
+        opt_linkage: Some(transfer_linkage!(virtual_vec_cyclic_slice, none)),
         output_liason: OutputLiason::Transfer,
         // bug if output_liason is OutputLiason::MemberAccess
     },
     dev_src: static_dev_src!(),
 };
 
-unsafe fn virtual_cyclic_slice<'temp, 'eval>(
+unsafe fn virtual_vec_cyclic_slice<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
 ) -> __Register<'eval> {
