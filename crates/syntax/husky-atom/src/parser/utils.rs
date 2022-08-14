@@ -455,12 +455,27 @@ where
     type Output = ThinVec<Item::Output>;
 
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
-        todo!()
+        let mut args = thin_vec::thin_vec![];
+        if !parser.try_eat(&self.terminator)? {
+            args.push(get_patt!(parser, self.item));
+            loop {
+                if try_eat_special!(parser, ",") {
+                    if parser.try_eat(&self.terminator)? {
+                        break;
+                    }
+                    args.push(get_patt!(parser, self.item));
+                } else {
+                    eat_patt!(parser, self.terminator);
+                    break;
+                }
+            }
+        }
+        Ok(Some(args))
     }
 }
 
 #[macro_export]
-macro_rules! thin_comma_list {
+macro_rules! deprecated_thin_comma_list {
     ($parser:expr, $first_patt:ident?, $second_patt:ident!, $terminator:ident) => {{
         let mut firsts = thin_vec![];
         let mut seconds = thin_vec![];
@@ -545,15 +560,7 @@ macro_rules! thin_comma_list {
     }};
 
     ($parser:expr, $patt:ident!, ")") => {{
-        thin_comma_list!($parser, $patt!, RPar)
-    }};
-
-    ($parser:expr, $patt:ident!, "|") => {{
-        thin_comma_list!($parser, $patt!, Vertical)
-    }};
-
-    ($parser:expr, $patt:ident!+, ">") => {{
-        thin_comma_list!($parser, $patt!+, RAngle)
+        deprecated_thin_comma_list!($parser, $patt!, RPar)
     }};
 }
 
