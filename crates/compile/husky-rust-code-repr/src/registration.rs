@@ -78,7 +78,9 @@ pub static __{uppercase_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
 impl<'eval> __Register<'eval> {{
     pub fn downcast_{ty}(&self) -> {ty} {{
         unsafe {{
-            assert_eq!(self.vtable.typename_str_hash_u64, {typename_str_hash_u64});
+            if self.vtable.typename_str_hash_u64 != {typename_str_hash_u64} {{
+                panic!("expect `{ty}` but get {{}} instead", self.vtable.typename_str)
+            }}
             match self.data_kind {{
                 __RegisterDataKind::PrimitiveValue => self.data.as_{ty},
                 __RegisterDataKind::EvalRef
@@ -92,7 +94,9 @@ impl<'eval> __Register<'eval> {{
 
     pub fn downcast_opt_{ty}(&self) -> Option<{ty}> {{
         unsafe {{
-            assert_eq!(self.vtable.typename_str_hash_u64, {typename_str_hash_u64});
+            if self.vtable.typename_str_hash_u64 != {typename_str_hash_u64} {{
+                panic!("expect `{ty}` but get `{{}}` instead", self.vtable.typename_str)
+            }}
             match self.data_kind {{
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_{ty}),
                 __RegisterDataKind::EvalRef

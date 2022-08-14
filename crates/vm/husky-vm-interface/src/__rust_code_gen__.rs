@@ -57,7 +57,9 @@ pub static __VOID_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 impl<'eval> __Register<'eval> {
     pub fn downcast_void(&self) -> void {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 8073556201194512886);
+            if self.vtable.typename_str_hash_u64 != 8073556201194512886 {
+                panic!("expect `void` but get {} instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_void,
                 __RegisterDataKind::EvalRef
@@ -71,7 +73,9 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_opt_void(&self) -> Option<void> {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 8073556201194512886);
+            if self.vtable.typename_str_hash_u64 != 8073556201194512886 {
+                panic!("expect `void` but get `{}` instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_void),
                 __RegisterDataKind::EvalRef
@@ -135,7 +139,9 @@ pub static __BOOL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 impl<'eval> __Register<'eval> {
     pub fn downcast_bool(&self) -> bool {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 729807561129781588);
+            if self.vtable.typename_str_hash_u64 != 729807561129781588 {
+                panic!("expect `bool` but get {} instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_bool,
                 __RegisterDataKind::EvalRef
@@ -149,7 +155,9 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_opt_bool(&self) -> Option<bool> {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 729807561129781588);
+            if self.vtable.typename_str_hash_u64 != 729807561129781588 {
+                panic!("expect `bool` but get `{}` instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_bool),
                 __RegisterDataKind::EvalRef
@@ -213,7 +221,9 @@ pub static __I32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 impl<'eval> __Register<'eval> {
     pub fn downcast_i32(&self) -> i32 {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 6639413044669031007);
+            if self.vtable.typename_str_hash_u64 != 6639413044669031007 {
+                panic!("expect `i32` but get {} instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i32,
                 __RegisterDataKind::EvalRef
@@ -227,7 +237,9 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_opt_i32(&self) -> Option<i32> {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 6639413044669031007);
+            if self.vtable.typename_str_hash_u64 != 6639413044669031007 {
+                panic!("expect `i32` but get `{}` instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_i32),
                 __RegisterDataKind::EvalRef
@@ -291,7 +303,9 @@ pub static __I64_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 impl<'eval> __Register<'eval> {
     pub fn downcast_i64(&self) -> i64 {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 9204872793588273300);
+            if self.vtable.typename_str_hash_u64 != 9204872793588273300 {
+                panic!("expect `i64` but get {} instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i64,
                 __RegisterDataKind::EvalRef
@@ -305,7 +319,9 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_opt_i64(&self) -> Option<i64> {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 9204872793588273300);
+            if self.vtable.typename_str_hash_u64 != 9204872793588273300 {
+                panic!("expect `i64` but get `{}` instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_i64),
                 __RegisterDataKind::EvalRef
@@ -369,7 +385,9 @@ pub static __B32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 impl<'eval> __Register<'eval> {
     pub fn downcast_b32(&self) -> b32 {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 9758498138566595375);
+            if self.vtable.typename_str_hash_u64 != 9758498138566595375 {
+                panic!("expect `b32` but get {} instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_b32,
                 __RegisterDataKind::EvalRef
@@ -383,7 +401,9 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_opt_b32(&self) -> Option<b32> {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 9758498138566595375);
+            if self.vtable.typename_str_hash_u64 != 9758498138566595375 {
+                panic!("expect `b32` but get `{}` instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_b32),
                 __RegisterDataKind::EvalRef
@@ -447,7 +467,9 @@ pub static __B64_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 impl<'eval> __Register<'eval> {
     pub fn downcast_b64(&self) -> b64 {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 11108470303398574121);
+            if self.vtable.typename_str_hash_u64 != 11108470303398574121 {
+                panic!("expect `b64` but get {} instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_b64,
                 __RegisterDataKind::EvalRef
@@ -461,7 +483,9 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_opt_b64(&self) -> Option<b64> {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 11108470303398574121);
+            if self.vtable.typename_str_hash_u64 != 11108470303398574121 {
+                panic!("expect `b64` but get `{}` instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_b64),
                 __RegisterDataKind::EvalRef
@@ -525,7 +549,9 @@ pub static __F32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 impl<'eval> __Register<'eval> {
     pub fn downcast_f32(&self) -> f32 {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 211483071870485656);
+            if self.vtable.typename_str_hash_u64 != 211483071870485656 {
+                panic!("expect `f32` but get {} instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_f32,
                 __RegisterDataKind::EvalRef
@@ -539,7 +565,9 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_opt_f32(&self) -> Option<f32> {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 211483071870485656);
+            if self.vtable.typename_str_hash_u64 != 211483071870485656 {
+                panic!("expect `f32` but get `{}` instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_f32),
                 __RegisterDataKind::EvalRef
@@ -603,7 +631,9 @@ pub static __F64_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 impl<'eval> __Register<'eval> {
     pub fn downcast_f64(&self) -> f64 {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 14456281901843390161);
+            if self.vtable.typename_str_hash_u64 != 14456281901843390161 {
+                panic!("expect `f64` but get {} instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_f64,
                 __RegisterDataKind::EvalRef
@@ -617,7 +647,9 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_opt_f64(&self) -> Option<f64> {
         unsafe {
-            assert_eq!(self.vtable.typename_str_hash_u64, 14456281901843390161);
+            if self.vtable.typename_str_hash_u64 != 14456281901843390161 {
+                panic!("expect `f64` but get `{}` instead", self.vtable.typename_str)
+            }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_f64),
                 __RegisterDataKind::EvalRef
