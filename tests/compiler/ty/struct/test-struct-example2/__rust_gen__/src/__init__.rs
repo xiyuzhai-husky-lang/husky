@@ -134,6 +134,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             A,
             __registration__::__A_VTABLE,
+            i32,
             __registration__::__I32_VTABLE,
             x,
             direct
@@ -147,6 +148,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             A,
             __registration__::__A_VTABLE,
+            i32,
             __registration__::__I32_VTABLE,
             y,
             direct
@@ -160,6 +162,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             A,
             __registration__::__A_VTABLE,
+            i32,
             __registration__::__I32_VTABLE,
             z,
             direct
@@ -172,6 +175,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(
             A,
             __registration__::__A_VTABLE,
+            i32,
             __registration__::__I32_VTABLE,
             w
         ),

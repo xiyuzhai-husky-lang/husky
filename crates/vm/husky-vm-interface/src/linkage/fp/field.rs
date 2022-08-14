@@ -53,7 +53,7 @@ macro_rules! field_temp_ref_fp {
 
 #[macro_export]
 macro_rules! field_temp_mut_fp {
-    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, FIELD_TY_VTABLE: expr, $field: ident) => {{
+    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],

@@ -34,6 +34,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             A,
             __registration__::__A_VTABLE,
+            i32,
             __registration__::__I32_VTABLE,
             x,
             direct
@@ -68,6 +69,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             B,
             __registration__::__B_VTABLE,
+            i32,
             __registration__::__I32_VTABLE,
             x,
             direct
@@ -81,6 +83,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             B,
             __registration__::__B_VTABLE,
+            A,
             __registration__::__A_VTABLE,
             a,
             invalid
@@ -94,6 +97,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             B,
             __registration__::__B_VTABLE,
+            i32,
             __registration__::__I32_VTABLE,
             y,
             direct
