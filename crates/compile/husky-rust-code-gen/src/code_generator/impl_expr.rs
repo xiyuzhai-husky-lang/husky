@@ -381,8 +381,10 @@ impl<'a> RustCodeGenerator<'a> {
                     r#"__ctx
         .cache_feature(
             __feature,
-            Ok(__Register::new_box("#,
+            Ok(__Register::new_box::<"#,
                 );
+                self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+                self.write(">(");
                 self.gen_expr(indent, result);
                 self.write(&format!(
                     r#", &__registration__::{mangled_intrinsic_ty_vtable})),
@@ -400,8 +402,10 @@ impl<'a> RustCodeGenerator<'a> {
                     r#"__ctx
         .cache_feature(
             __feature,
-            Ok(__Register::new_eval_ref(&("#,
+            Ok(__Register::new_eval_ref::<"#,
                 );
+                self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+                self.write(r#">(&("#);
                 self.gen_expr(indent, result);
                 self.write(&format!(
                     r#"), &__registration__::{mangled_intrinsic_ty_vtable}).into()),
@@ -432,8 +436,10 @@ impl<'a> RustCodeGenerator<'a> {
                     r#"__ctx.cache_lazy_field(
         self as *const _ as *const (),
         __uid,
-        Ok(__Register::new_box("#,
+        Ok(__Register::new_box::<"#,
                 );
+                self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+                self.write(r#">("#);
                 self.gen_expr(indent, result);
                 self.write(&format!(
                     r#", &__registration__::{mangled_intrinsic_ty_vtable}))
@@ -449,8 +455,10 @@ impl<'a> RustCodeGenerator<'a> {
                     r#"__ctx.cache_lazy_field(
         self,
         __uid,
-        Ok(__Register::new_eval_ref(&("#,
+        Ok(__Register::new_eval_ref"#,
                 );
+                self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+                self.write(r#"(&("#);
                 self.gen_expr(indent, result);
                 self.write(
                     r#")).into())

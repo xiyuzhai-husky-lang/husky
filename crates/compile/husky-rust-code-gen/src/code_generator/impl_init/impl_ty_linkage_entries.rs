@@ -105,8 +105,13 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                 ));
                 self.gen_entity_route(ty, EntityRouteRole::Decl);
+                // INTRINSIC_THIS_TY_VTABLE
                 self.write(", __registration__::");
                 self.write(&self.db.mangled_intrinsic_ty_vtable(ty));
+                // INTRINSIC_FIELD_TY
+                self.write(", ");
+                self.gen_entity_route(field_ty.intrinsic(), EntityRouteRole::Decl);
+                // INTRINSIC_FIELD_TY_VTABLE
                 self.write(", __registration__::");
                 self.write(&self.db.mangled_intrinsic_ty_vtable(field_ty));
                 self.write(", ");
@@ -154,8 +159,13 @@ impl<'a> RustCodeGenerator<'a> {
         lazy_field_linkage!("#,
                     ));
                     self.gen_entity_route(ty, EntityRouteRole::Decl);
+                    // INTRINSIC_THIS_TY_VTABLE
                     self.write(", __registration__::");
                     self.write(&self.db.mangled_intrinsic_ty_vtable(ty));
+                    // INTRINSIC_FIELD_TY
+                    self.write(", ");
+                    self.gen_entity_route(output_ty.route.intrinsic(), EntityRouteRole::Decl);
+                    // INTRINSIC_FIELD_TY_VTABLE
                     self.write(", __registration__::");
                     self.write(&self.db.mangled_intrinsic_ty_vtable(output_ty.route));
                     self.write(", ");

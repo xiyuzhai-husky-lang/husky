@@ -19,7 +19,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
                     let x: i32 = __arguments[0].downcast_i32();
-                    __Register::new_box(A::__call__(x), &__registration__::__A_VTABLE)
+                    __Register::new_box::<A>(A::__call__(x), &__registration__::__A_VTABLE)
                 }
                 __wrapper
             },
@@ -53,7 +53,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     let x: i32 = __arguments[0].downcast_i32();
                     let a: A = unsafe { __arb_ref(&__arguments[1]) }
                         .downcast_move(&__registration__::__A_VTABLE);
-                    __Register::new_box(B::__call__(x, a), &__registration__::__B_VTABLE)
+                    __Register::new_box::<B>(B::__call__(x, a), &__registration__::__B_VTABLE)
                 }
                 __wrapper
             },

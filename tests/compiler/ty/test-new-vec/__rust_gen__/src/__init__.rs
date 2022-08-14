@@ -40,7 +40,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                         .iter_mut()
                         .map(|v| v.downcast_i32())
                         .collect();
-                    __Register::new_box(
+                    __Register::new_box::<Vec<i32>>(
                         Vec::<i32>::__call__(__variadics),
                         &__registration__::__VEC_I_32_VTABLE,
                     )
