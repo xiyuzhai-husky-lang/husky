@@ -505,7 +505,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         index_linkage!("#
         ));
         let mangled_intrinsic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(ty);
-        let mangled_elem_ty_vtable = self.db.mangled_intrinsic_ty_vtable(elem_ty);
+        let mangled_intrinsic_elem_ty_vtable = self.db.mangled_intrinsic_ty_vtable(elem_ty);
+        let intrinsic_elem_ty = elem_ty.intrinsic();
         self.gen_entity_route(ty, EntityRouteRole::Decl);
         let copy_kind: &'static str = if self.db.is_copyable(elem_ty).unwrap() {
             match elem_ty {
@@ -575,7 +576,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         self.write(format!(
             r#",
     __registration__::{mangled_intrinsic_ty_vtable},
-    __registration__::{mangled_elem_ty_vtable},
+    {intrinsic_elem_ty},
+    __registration__::{mangled_intrinsic_elem_ty_vtable},
     {copy_kind},
     {mutability}
 )"#

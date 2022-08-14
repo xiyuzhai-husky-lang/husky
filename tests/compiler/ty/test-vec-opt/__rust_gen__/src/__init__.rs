@@ -78,6 +78,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         index_linkage!(
             Vec<Option<i32>>,
             __registration__::__VEC_OPTION_I_32_VTABLE,
+            i32,
             __registration__::__I32_VTABLE,
             box,
             mutable

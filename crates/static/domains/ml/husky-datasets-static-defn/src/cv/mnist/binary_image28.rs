@@ -36,7 +36,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         opt_linkage: Some(index_linkage!(
                             BinaryImage28,
                             __BINARY_IMAGE_28_VTABLE,
-                            b32,
+                            u32,
                             __B32_VTABLE,
                             direct,
                             mutable
