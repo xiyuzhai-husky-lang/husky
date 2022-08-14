@@ -521,7 +521,10 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     | RootIdentifier::Bool => "direct",
                     _ => panic!(),
                 },
-                EntityRoutePtr::Custom(_) => "box",
+                EntityRoutePtr::Custom(_) => {
+                    p!(elem_ty);
+                    todo!()
+                }
                 EntityRoutePtr::ThisType => todo!(),
             }
         } else {
