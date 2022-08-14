@@ -72,7 +72,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub fn parameters(&mut self) -> AtomResultArc<Vec<Parameter>> {
-        deprecated_eat!(self, "(");
+        eat_special!(self, "(");
         Ok(Arc::new(comma_list!(self, parameter!, ")")))
     }
 
