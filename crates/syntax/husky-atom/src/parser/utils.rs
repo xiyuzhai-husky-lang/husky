@@ -219,7 +219,7 @@ macro_rules! eat_patt {
     ($parser: expr, $patt: expr) => {{
         if !$parser.try_eat(&$patt)? {
             return err!(
-                format!("expect `{}` after it", stringify!($patt)),
+                format!("expect `{}` after it", $patt),
                 $parser.token_stream.next_range()
             );
         }

@@ -1,1 +1,1 @@
-6:9..6:10	Ast Error: expect `special` after it
+6:7..6:8	Ast Error: expect `:` after it

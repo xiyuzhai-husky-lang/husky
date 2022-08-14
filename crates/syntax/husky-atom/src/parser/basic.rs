@@ -81,6 +81,11 @@ impl AtomParserPattern for UsizeLiteralPattern {
 }
 
 pub struct BeSpecialTokenPattern(pub SpecialToken);
+impl std::fmt::Display for BeSpecialTokenPattern {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.0.fmt(f)
+    }
+}
 impl AtomParserPattern for BeSpecialTokenPattern {
     type Output = ();
 
