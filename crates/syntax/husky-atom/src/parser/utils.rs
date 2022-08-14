@@ -208,6 +208,16 @@ macro_rules! get{
 }
 
 #[macro_export]
+macro_rules! get_patt {
+    ($parser: expr, $patt: expr) => {{
+        $parser.try_get(&$patt)?.ok_or(error!(
+            format!("expect `{}` after it", $patt),
+            $parser.token_stream.next_range()
+        ))?
+    }};
+}
+
+#[macro_export]
 macro_rules! try_eat_special {
     ($parser: expr, $s: tt) => {{
         $parser.try_eat(&be_special_token_patt!($s))?
@@ -403,13 +413,13 @@ where
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
         let mut args = vec![];
         if !parser.try_eat(&self.terminator)? {
-            args.push(parser.get(&self.item)?);
+            args.push(get_patt!(parser, self.item));
             loop {
                 if try_eat_special!(parser, ",") {
                     if parser.try_eat(&self.terminator)? {
                         break;
                     }
-                    args.push(parser.get(&self.item)?);
+                    args.push(get_patt!(parser, self.item));
                 } else {
                     eat_patt!(parser, self.terminator);
                     break;
