@@ -71,10 +71,10 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         })
     }
 
-    pub fn parameters(&mut self) -> AtomResultArc<Vec<Parameter>> {
-        eat_special!(self, "(");
-        Ok(Arc::new(comma_list!(self, parameter!, ")")))
-    }
+    // pub fn parameters(&mut self) -> AtomResultArc<Vec<Parameter>> {
+    //     eat_special!(self, "(");
+    //     Ok(Arc::new(comma_list!(self, parameter!, ")")))
+    // }
 
     pub fn parameter(&mut self) -> AtomResult<Parameter> {
         let ident = get!(self, custom_ident);
@@ -120,5 +120,15 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 range: self.token_stream.next_range(),
             }
         })
+    }
+}
+
+pub struct BracketedParametersPattern;
+impl AtomParserPattern for BracketedParametersPattern {
+    type Output = Arc<Vec<Parameter>>;
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        eat_special!(parser, "(");
+        Ok(Some(Arc::new(comma_list!(parser, parameter!, ")"))))
     }
 }
