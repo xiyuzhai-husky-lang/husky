@@ -51,6 +51,12 @@ pub enum SpecialToken {
     QuestionMark,      // ?
 }
 
+impl std::fmt::Display for SpecialToken {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.code().fmt(f)
+    }
+}
+
 impl SpecialToken {
     pub fn code(&self) -> &'static str {
         match self {
