@@ -13,14 +13,14 @@ impl<'a> AstTransformer<'a> {
         expect_block_head!(token_group);
         let mut token_stream: TokenStream = token_group.into();
         let mut parser = AtomParser::new(self, &mut token_stream);
-        let paradigm = get!(parser, paradigm);
+        let paradigm = deprecated_get!(parser, paradigm);
         enter_block(self);
         self.context.set(AstContext::Stmt {
             paradigm,
             return_context: None,
         });
         let mut parser = AtomParser::new(self, &mut token_stream);
-        let ranged_ident = get!(parser, custom_ident);
+        let ranged_ident = deprecated_get!(parser, custom_ident);
         parser
             .atom_context
             .push_abs_semantic_token(AbsSemanticToken::new(
@@ -29,7 +29,7 @@ impl<'a> AstTransformer<'a> {
                 }),
                 ranged_ident.range,
             ));
-        let generic_parameters = parser.generic_parameters()?;
+        let generic_parameters = parser.spatial_parameters()?;
         let parameters = parser.try_get(&BracketedParametersPattern)?.unwrap();
         let output_ty = parser.func_output_ty()?;
         if let Some(route) = self

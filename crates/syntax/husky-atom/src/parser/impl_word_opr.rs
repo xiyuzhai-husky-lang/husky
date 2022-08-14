@@ -21,7 +21,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 ))
             }
             WordOpr::As => {
-                let ty = get!(self, ranged_ty?);
+                let ty = deprecated_get!(self, ranged_ty?);
                 self.stack.push(HuskyAtom::new(
                     self.token_stream.text_range(text_start),
                     HuskyAtomVariant::Suffix(RawSuffixOpr::AsTy(ty)),

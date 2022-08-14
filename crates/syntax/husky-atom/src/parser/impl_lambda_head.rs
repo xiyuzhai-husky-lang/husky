@@ -16,9 +16,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     pub(crate) fn lambda_parameter(
         &mut self,
     ) -> AtomResult<(RangedCustomIdentifier, Option<RangedEntityRoute>)> {
-        let ident = get!(self, custom_ident);
-        let ty = if try_eat!(self, ":") {
-            Some(get!(self.ranged_ty?))
+        let ident = deprecated_get!(self, custom_ident);
+        let ty = if deprecated_try_eat!(self, ":") {
+            Some(deprecated_get!(self.ranged_ty?))
         } else {
             None
         };

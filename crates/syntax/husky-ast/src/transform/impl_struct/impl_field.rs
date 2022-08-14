@@ -11,10 +11,10 @@ impl<'a> AstTransformer<'a> {
         let mut token_stream: TokenStream = token_group.into();
         let opt_this_ty = self.opt_this_ty();
         let mut parser = AtomParser::new(self, &mut token_stream);
-        let field_liason = MemberLiason::from_opt_keyword(try_get!(parser, liason));
-        let ident = get!(parser, sema_custom_ident, SemanticTokenKind::Field);
+        let field_liason = MemberLiason::from_opt_keyword(deprecated_try_get!(parser, liason));
+        let ident = deprecated_get!(parser, sema_custom_ident, SemanticTokenKind::Field);
         eat_special!(parser, ":");
-        let opt_field_ty = try_get!(parser, ranged_ty?);
+        let opt_field_ty = deprecated_try_get!(parser, ranged_ty?);
         match self.push_new_symbol(Symbol {
             init_ident: ident,
             kind: SymbolKind::ThisField {
@@ -46,7 +46,7 @@ impl<'a> AstTransformer<'a> {
         } else {
             return err!(format!("expect type"), parser.token_stream.next_range());
         };
-        let field_kind = if try_eat!(
+        let field_kind = if deprecated_try_eat!(
             parser,
             token_kind,
             HuskyTokenKind::Special(SpecialToken::Assign)
@@ -72,7 +72,7 @@ impl<'a> AstTransformer<'a> {
             FieldAstKind::StructDefault {
                 default: self.parse_expr_from_atoms(atoms)?,
             }
-        } else if try_eat!(
+        } else if deprecated_try_eat!(
             parser,
             token_kind,
             HuskyTokenKind::Special(SpecialToken::DeriveAssign)

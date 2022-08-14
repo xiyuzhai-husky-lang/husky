@@ -53,7 +53,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     kind: EntityKind::Type(ty_kind),
                 })
             } else if is_special!(token, "&") {
-                let ty = get!(self, ty?);
+                let ty = deprecated_get!(self, ty?);
                 Some(HuskyAtomVariant::EntityRoute {
                     route: self
                         .db()
@@ -61,7 +61,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     kind: EntityKind::Type(TyKind::Ref),
                 })
             } else if is_special!(token, "?") {
-                let ty = get!(self, ty?);
+                let ty = deprecated_get!(self, ty?);
                 Some(HuskyAtomVariant::EntityRoute {
                     route: self
                         .db()
@@ -161,8 +161,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             .atom_context
             .entity_syntax_db()
             .route_call(route, generic_arguments);
-        while try_eat!(self, SpecialToken::DoubleColon) {
-            let ranged_ident = get!(self, custom_ident);
+        while deprecated_try_eat!(self, SpecialToken::DoubleColon) {
+            let ranged_ident = deprecated_get!(self, custom_ident);
             let new_route = make_subroute(route, ranged_ident.ident, Default::default());
             match self.atom_context.entity_syntax_db().entity_kind(new_route) {
                 Ok(_) => (),
@@ -283,11 +283,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn func_args(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
-        if !try_eat!(self, "(") {
+        if !deprecated_try_eat!(self, "(") {
             return Ok(Default::default());
         }
         let mut args = thin_comma_list![self, spatial_argument!, RPar];
-        args.push(if try_eat!(self, "->") {
+        args.push(if deprecated_try_eat!(self, "->") {
             self.spatial_argument()?
         } else {
             EntityRoutePtr::Root(RootIdentifier::Void).into()
@@ -296,7 +296,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub(crate) fn angled_generics(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
-        Ok(if try_eat!(self, SpecialToken::LAngle) {
+        Ok(if deprecated_try_eat!(self, SpecialToken::LAngle) {
             thin_comma_list![self, spatial_argument!+, ">"]
         } else {
             thin_vec![]
@@ -304,9 +304,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn spatial_argument(&mut self) -> AtomResult<SpatialArgument> {
-        Ok(if try_eat!(self, "(") {
+        Ok(if deprecated_try_eat!(self, "(") {
             let mut args = thin_comma_list!(self, spatial_argument!, ")");
-            let scope = if try_eat!(self, "->") {
+            let scope = if deprecated_try_eat!(self, "->") {
                 args.push(self.spatial_argument()?);
                 EntityRoute::default_func_type(args)
             } else {
@@ -314,7 +314,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             };
             self.intern(scope).into()
         } else {
-            get!(self, ty?).into()
+            deprecated_get!(self, ty?).into()
         })
     }
 
