@@ -8,7 +8,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         special: SpecialToken,
         token: &HuskyToken,
     ) -> AtomResult<()> {
-        let text_start = self.token_stream.text_start();
+        let text_start = token.range.start;
         match special {
             SpecialToken::DoubleColon => err!(
                 "unexpected double colon, maybe the identifier before is not recognized as entity_route correctly",
@@ -86,6 +86,24 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 self.token_stream.text_range(text_start),
                 self.atom_context,
             ),
+            SpecialToken::RAngle => {
+                if let Some(next_token) = self.token_stream.peek() {
+                    if next_token.kind == SpecialToken::RAngle.into() {
+                        if text_start.j()+1== next_token.range.start.j() {
+                            self.token_stream.next();
+                            self.stack.push(HuskyAtom::new(
+                                self.token_stream.text_range(text_start),
+                                BinaryOpr::Pure(PureBinaryOpr::Shr).into(),
+                            ));
+                            return Ok(())
+                        }
+                    }
+                }
+                self.stack.push(HuskyAtom::new(
+                    self.token_stream.text_range(text_start),
+                    BinaryOpr::Pure(PureBinaryOpr::Greater).into(),
+                ))
+            }
             SpecialToken::SubOrMinus => {
                 if self.stack.convexity() == Convexity::Convex {
                     self.stack.push(HuskyAtom::new(

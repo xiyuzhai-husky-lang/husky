@@ -283,8 +283,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     fn func_args(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
-        if !deprecated_try_eat!(self, "(") {
-            return Ok(Default::default());
+        if !try_eat_special!(self, "(") {
+            return self.angled_generics();
         }
         let mut args = deprecated_thin_comma_list![self, spatial_argument!, RPar];
         args.push(if deprecated_try_eat!(self, "->") {
@@ -302,7 +302,6 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 terminator: be_special_token_patt!(">"),
             })?
             .unwrap()
-            // thin_comma_list![self, spatial_argument!+, ">"]
         } else {
             thin_vec![]
         })
