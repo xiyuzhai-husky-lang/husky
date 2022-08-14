@@ -4,12 +4,17 @@ use husky_word::{Keyword, LiasonKeyword, Paradigm};
 
 use super::*;
 
-pub struct OfHuskyTokenKindPattern(HuskyTokenKind);
+pub struct OfHuskyTokenKindPattern(pub HuskyTokenKind);
 impl AtomParserPattern for OfHuskyTokenKindPattern {
     type Output = ();
 
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
-        todo!()
+        if let Some(HuskyToken { kind, .. }) = parser.token_stream.next() {
+            if *kind == self.0 {
+                return Ok(Some(()));
+            }
+        }
+        Ok(None)
     }
 }
 
@@ -82,6 +87,13 @@ impl AtomParserPattern for BeSpecialTokenPattern {
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
         OfHuskyTokenKindPattern(self.0.into()).get_parsed(parser)
     }
+}
+
+#[macro_export]
+macro_rules! be_special_token_patt {
+    ($s: tt) => {{
+        BeSpecialTokenPattern(husky_token::special_token!($s))
+    }};
 }
 
 impl<'a, 'b> AtomParser<'a, 'b> {

@@ -13,7 +13,7 @@ impl<'a> AstTransformer<'a> {
         let mut parser = AtomParser::new(self, &mut token_stream);
         let field_liason = MemberLiason::from_opt_keyword(try_get!(parser, liason));
         let ident = get!(parser, sema_custom_ident, SemanticTokenKind::Field);
-        eat!(parser, ":");
+        deprecated_eat!(parser, ":");
         let opt_field_ty = try_get!(parser, ranged_ty?);
         match self.push_new_symbol(Symbol {
             init_ident: ident,

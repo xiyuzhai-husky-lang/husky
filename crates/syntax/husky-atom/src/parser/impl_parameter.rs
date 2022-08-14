@@ -72,7 +72,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub fn parameters(&mut self) -> AtomResultArc<Vec<Parameter>> {
-        eat!(self, "(");
+        deprecated_eat!(self, "(");
         Ok(Arc::new(comma_list!(self, parameter!, ")")))
     }
 
@@ -83,7 +83,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 SemanticTokenKind::Parameter,
                 ident.range,
             ));
-        eat!(self, ":");
+        deprecated_eat!(self, ":");
         let ranged_parameter_liason = self.ranged_parameter_liason();
         let ranged_ty = get!(self, ranged_ty?);
         Ok(Parameter::new(ident, ranged_parameter_liason, ranged_ty))

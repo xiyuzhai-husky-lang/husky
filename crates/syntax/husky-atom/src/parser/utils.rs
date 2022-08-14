@@ -208,7 +208,26 @@ macro_rules! get{
 }
 
 #[macro_export]
-macro_rules! eat {
+macro_rules! eat_special {
+    ($parser: expr, $s: tt) => {{
+        eat_patt!($parser, be_special_token_patt!($s))
+    }};
+}
+
+#[macro_export]
+macro_rules! eat_patt {
+    ($parser: expr, $patt: expr) => {{
+        if !$parser.try_eat(&$patt)? {
+            return err!(
+                format!("expect `{}` after it", stringify!($patt)),
+                $parser.token_stream.next_range()
+            );
+        }
+    }};
+}
+
+#[macro_export]
+macro_rules! deprecated_eat {
     ($parser:expr, $patt:ident) => {{
         if $parser.$patt().is_none() {
             return err!(format!("expect `{}` after it", stringify!($patt)), $parser.token_stream.next_range())
@@ -237,19 +256,19 @@ macro_rules! eat {
     }};
 
     ($parser:expr, "(") => {{
-        eat!($parser, special, SpecialToken::LPar)
+        deprecated_eat!($parser, special, SpecialToken::LPar)
     }};
 
     ($parser:expr, "{") => {{
-        eat!($parser, special, SpecialToken::LCurl)
+        deprecated_eat!($parser, special, SpecialToken::LCurl)
     }};
 
     ($parser:expr, ":") => {{
-        eat!($parser, special, SpecialToken::Colon)
+        deprecated_eat!($parser, special, SpecialToken::Colon)
     }};
 
     ($parser:expr, "=") => {{
-        eat!($parser, special, SpecialToken::Assign)
+        deprecated_eat!($parser, special, SpecialToken::Assign)
     }};
 }
 
@@ -262,7 +281,7 @@ macro_rules! comma_list {
         while let Some(item) = try_get!($parser, $first_patt?) {
             firsts.push(item);
             if !try_eat!($parser, SpecialToken::Comma) {
-                eat!($parser, special, SpecialToken::$terminator);
+                deprecated_eat!($parser, special, SpecialToken::$terminator);
                 done = true;
                 break;
             }
@@ -276,7 +295,7 @@ macro_rules! comma_list {
                     }
                     seconds.push($parser.$second_patt()?);
                 } else {
-                    eat!($parser, special, SpecialToken::$terminator);
+                    deprecated_eat!($parser, special, SpecialToken::$terminator);
                     break;
                 }
             }
@@ -295,7 +314,7 @@ macro_rules! comma_list {
                     }
                     args.push(get!($parser, $patt?));
                 } else {
-                    eat!($parser, special, SpecialToken::$terminator);
+                    deprecated_eat!($parser, special, SpecialToken::$terminator);
                     break;
                 }
             }
@@ -314,7 +333,7 @@ macro_rules! comma_list {
                     }
                     args.push($parser.$patt()?);
                 } else {
-                    eat!($parser, special, SpecialToken::$terminator);
+                    deprecated_eat!($parser, special, SpecialToken::$terminator);
                     break;
                 }
             }
@@ -326,7 +345,7 @@ macro_rules! comma_list {
         let mut items = vec![$parser.$patt()?];
         loop {
             if !try_eat!($parser, SpecialToken::Comma) {
-                eat!($parser, special, SpecialToken::$terminator);
+                deprecated_eat!($parser, special, SpecialToken::$terminator);
                 break;
             }
             if try_eat!($parser, SpecialToken::$terminator) {
@@ -379,7 +398,7 @@ macro_rules! thin_comma_list {
         while let Some(item) = try_get!($parser, $first_patt?) {
             firsts.push(item);
             if !try_eat!($parser, SpecialToken::Comma) {
-                eat!($parser, special, SpecialToken::$terminator);
+                deprecated_eat!($parser, special, SpecialToken::$terminator);
                 done = true;
                 break;
             }
@@ -393,7 +412,7 @@ macro_rules! thin_comma_list {
                     }
                     seconds.push($parser.$second_patt()?);
                 } else {
-                    eat!($parser, special, SpecialToken::$terminator);
+                    deprecated_eat!($parser, special, SpecialToken::$terminator);
                     break;
                 }
             }
@@ -412,7 +431,7 @@ macro_rules! thin_comma_list {
                     }
                     args.push(get!($parser, $patt?));
                 } else {
-                    eat!($parser, special, SpecialToken::$terminator);
+                    deprecated_eat!($parser, special, SpecialToken::$terminator);
                     break;
                 }
             }
@@ -431,7 +450,7 @@ macro_rules! thin_comma_list {
                     }
                     args.push($parser.$patt()?);
                 } else {
-                    eat!($parser, special, SpecialToken::$terminator);
+                    deprecated_eat!($parser, special, SpecialToken::$terminator);
                     break;
                 }
             }
@@ -444,7 +463,7 @@ macro_rules! thin_comma_list {
         items.push($parser.$patt()?);
         loop {
             if !try_eat!($parser, SpecialToken::Comma) {
-                eat!($parser, special, SpecialToken::$terminator);
+                deprecated_eat!($parser, special, SpecialToken::$terminator);
                 break;
             }
             if try_eat!($parser, SpecialToken::$terminator) {
