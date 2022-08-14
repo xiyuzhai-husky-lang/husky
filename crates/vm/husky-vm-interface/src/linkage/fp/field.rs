@@ -6,7 +6,12 @@ macro_rules! field_copy_fp {
             values: &mut [__Register],
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
-            register_new_copyable!(value.$field, $FIELD_TY_VTABLE, $copy_kind)
+            register_new_copyable!(
+                value.$field,
+                $INTRINSIC_FIELD_TY,
+                $FIELD_TY_VTABLE,
+                $copy_kind
+            )
         }
         __LinkageFp {
             wrapper,
@@ -24,7 +29,7 @@ macro_rules! field_eval_ref_fp {
             values: &mut [__Register<'eval>],
         ) -> __Register<'eval> {
             let value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
-            __Register::new_eval_ref(&value.$field, &$FIELD_TY_VTABLE)
+            __Register::new_eval_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
         }
         __LinkageFp {
             wrapper,

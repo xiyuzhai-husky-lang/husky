@@ -412,13 +412,13 @@ impl<'eval> Drop for __Register<'eval> {
 
 #[macro_export]
 macro_rules! register_new_copyable {
-    ($argument: expr, $TYPE_VTABLE: expr, direct) => {{
+    ($argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr, direct) => {{
         ($argument).to_register()
     }};
-    ($argument: expr, $TYPE_VTABLE: expr, box) => {{
-        __Register::new_box($argument, &$TYPE_VTABLE)
+    ($argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr, box) => {{
+        __Register::new_box::<$INTRINSIC_FIELD_TY>($argument, &$TYPE_VTABLE)
     }};
-    ($argument: expr, $TYPE_VTABLE: expr, invalid) => {{
+    ($argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr, invalid) => {{
         panic!("register_new_copyable invalid")
     }};
 }
