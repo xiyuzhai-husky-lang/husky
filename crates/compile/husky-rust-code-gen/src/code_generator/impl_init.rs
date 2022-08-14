@@ -86,7 +86,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 self.gen_specific_routine_linkage(
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
-                    |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
+                    |this| this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute),
                     &call_form_decl,
                 );
                 self.write(
@@ -107,7 +107,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 self.gen_specific_routine_linkage(
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
-                    |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
+                    |this| this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute),
                     &call_form_decl,
                 );
                 self.write(
@@ -193,7 +193,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                                 // ad hoc
                                 this.write(method_name_extra)
                             },
-                            |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
+                            |this| {
+                                this.gen_entity_route(
+                                    entity_route,
+                                    EntityRouteRole::StaticCallRoute,
+                                )
+                            },
                             &call_form_decl,
                         )
                     }
@@ -319,19 +324,64 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                                 .collect();"#,
                     ));
                 } else {
-                    let move_or_copy = match self.db.is_copyable(variadic_ty).unwrap() {
-                        true => todo!(),
-                        false => "move",
-                    };
                     let variadic_ty_vtable = self.db.mangled_ty_vtable(variadic_ty);
-                    self.write(&format!(
-                        r#"
-                        let __variadics =
-                            __arguments[{variadic_start}..]
-                                .iter_mut()
-                                .map(|v|v.downcast_{move_or_copy}(&__registration__::{variadic_ty_vtable}))
-                                .collect();"#,
-                    ));
+                    match self.db.is_copyable(variadic_ty).unwrap() {
+                        true => {
+                            if variadic_ty.is_option() {
+                                let variadic_ty =
+                                    variadic_ty.spatial_arguments[0].take_entity_route();
+                                if variadic_ty.is_ref() {
+                                    self.write(&format!(
+                                    r#"
+                                    let __variadics =
+                                        __arguments[{variadic_start}..]
+                                            .iter_mut()
+                                            .map(|v|v.downcast_opt_eval_ref(&__registration__::{variadic_ty_vtable}))
+                                            .collect();"#,
+                                    ));
+                                } else {
+                                    todo!()
+                                }
+                            } else if variadic_ty.is_ref() {
+                                self.write(&format!(
+                                    r#"
+                                    let __variadics =
+                                        __arguments[{variadic_start}..]
+                                            .iter_mut()
+                                            .map(|v|v.downcast_eval_ref(&__registration__::{variadic_ty_vtable}))
+                                            .collect();"#,
+                                    ));
+                            } else if variadic_ty.is_fp() {
+                                self.write(&format!(
+                                    r#"
+                                    let __variadics =
+                                        __arguments[{variadic_start}..]
+                                            .iter_mut()
+                                            .map(|v| {{
+                                                std::mem::transmute(v.downcast_temp_ref::<__VirtualFunction>(&__registration__::{variadic_ty_vtable}).fp())
+                                            }})
+                                            .collect();"#,
+                                    ));
+                            } else {
+                                p!(variadic_ty);
+                                todo!()
+                            }
+                        }
+                        false => {
+                            if variadic_ty.is_option() {
+                                todo!()
+                            } else {
+                                self.write(&format!(
+                                r#"
+                                let __variadics =
+                                    __arguments[{variadic_start}..]
+                                        .iter_mut()
+                                        .map(|v|v.downcast_move(&__registration__::{variadic_ty_vtable}))
+                                        .collect();"#,
+                                ));
+                            }
+                        }
+                    };
                 }
             }
         }

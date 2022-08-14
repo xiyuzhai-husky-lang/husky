@@ -75,12 +75,17 @@ pub(crate) fn entity_immediate_link_dependees(
         let mut set: VecSet<_> = db
             .entity_immediate_link_dependees(base_route(entity_route))
             .iter()
-            .map(|entity_route| entity_route.instantiate(&ctx).take_entity_route())
+            .map(|entity_route| {
+                entity_route
+                    .instantiate(&ctx)
+                    .take_entity_route()
+                    .intrinsic()
+            })
             .collect();
         for spatial_argument in &entity_route.spatial_arguments {
             match spatial_argument {
                 SpatialArgument::Const(_) => (),
-                SpatialArgument::EntityRoute(route) => set.insert(*route),
+                SpatialArgument::EntityRoute(route) => set.insert(route.intrinsic()),
             }
         }
         Arc::new(set)

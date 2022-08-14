@@ -6,8 +6,12 @@ impl EntityRoute {
         match self.variant {
             EntityRouteVariant::Root { ident } => match ident {
                 RootIdentifier::Vec => {
-                    f.write_str("[]");
-                    return self.spatial_arguments[0].take_entity_route().root_fmt(f);
+                    if self.spatial_arguments.len() > 0 {
+                        f.write_str("[]")?;
+                        return self.spatial_arguments[0].take_entity_route().root_fmt(f);
+                    } else {
+                        f.write_str("Vec")?
+                    }
                 }
                 RootIdentifier::Array => todo!(),
                 RootIdentifier::Option => {

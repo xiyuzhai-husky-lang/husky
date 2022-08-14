@@ -32,7 +32,7 @@ impl<'a> RustCodeGenerator<'a> {
                 this.write("::__call__")
             },
             |this| {
-                this.gen_entity_route(entity_route, EntityRouteRole::Caller);
+                this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute);
                 this.write("::__call__")
             },
             &call_form_decl,

@@ -135,7 +135,7 @@ impl<'a> LinkageCollector<'a> {
                 todo!()
             }
             EntityDefnVariant::Input { .. } => todo!(),
-            EntityDefnVariant::Any => todo!(),
+            EntityDefnVariant::Any => (),
         }
     }
 

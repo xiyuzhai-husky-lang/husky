@@ -133,11 +133,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
-                        let __variadics =
-                            __arguments[0..]
-                                .iter_mut()
-                                .map(|v|v.downcast_move(&__registration__::__RAW_CONTOUR_VTABLE))
-                                .collect();
+                                let __variadics =
+                                    __arguments[0..]
+                                        .iter_mut()
+                                        .map(|v|v.downcast_move(&__registration__::__RAW_CONTOUR_VTABLE))
+                                        .collect();
                     __Register::new_box(Vec::<raw_contour::RawContour>::__call__(__variadics), &__registration__::__VEC_RAW_CONTOUR_VTABLE)
                 }
                 __wrapper
@@ -191,11 +191,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
-                        let __variadics =
-                            __arguments[0..]
-                                .iter_mut()
-                                .map(|v|v.downcast_move(&__registration__::__CONNECTED_COMPONENT_VTABLE))
-                                .collect();
+                                let __variadics =
+                                    __arguments[0..]
+                                        .iter_mut()
+                                        .map(|v|v.downcast_move(&__registration__::__CONNECTED_COMPONENT_VTABLE))
+                                        .collect();
                     __Register::new_box(Vec::<connected_component::ConnectedComponent>::__call__(__variadics), &__registration__::__VEC_CONNECTED_COMPONENT_VTABLE)
                 }
                 __wrapper
@@ -335,11 +335,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
-                        let __variadics =
-                            __arguments[0..]
-                                .iter_mut()
-                                .map(|v|v.downcast_move(&__registration__::__POINT_2_D_VTABLE))
-                                .collect();
+                                let __variadics =
+                                    __arguments[0..]
+                                        .iter_mut()
+                                        .map(|v|v.downcast_move(&__registration__::__POINT_2_D_VTABLE))
+                                        .collect();
                     __Register::new_box(Vec::<geom2d::Point2d>::__call__(__variadics), &__registration__::__VEC_POINT_2_D_VTABLE)
                 }
                 __wrapper
@@ -839,11 +839,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
-                        let __variadics =
-                            __arguments[0..]
-                                .iter_mut()
-                                .map(|v|v.downcast_move(&__registration__::__CONCAVE_COMPONENT_VTABLE))
-                                .collect();
+                                let __variadics =
+                                    __arguments[0..]
+                                        .iter_mut()
+                                        .map(|v|v.downcast_move(&__registration__::__CONCAVE_COMPONENT_VTABLE))
+                                        .collect();
                     __Register::new_box(Vec::<line_segment_sketch::concave_component::ConcaveComponent>::__call__(__variadics), &__registration__::__VEC_CONCAVE_COMPONENT_VTABLE)
                 }
                 __wrapper
@@ -1101,11 +1101,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
-                        let __variadics =
-                            __arguments[0..]
-                                .iter_mut()
-                                .map(|v|v.downcast_move(&__registration__::__LINE_SEGMENT_VTABLE))
-                                .collect();
+                                let __variadics =
+                                    __arguments[0..]
+                                        .iter_mut()
+                                        .map(|v|v.downcast_move(&__registration__::__LINE_SEGMENT_VTABLE))
+                                        .collect();
                     __Register::new_box(Vec::<line_segment_sketch::LineSegment>::__call__(__variadics), &__registration__::__VEC_LINE_SEGMENT_VTABLE)
                 }
                 __wrapper
@@ -1348,6 +1348,274 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             route: "mnist_classifier::one::haha"
         },
         opt_feature_linkage!(one::haha, __registration__::__I32_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::TypeCall {
+            ty: "mnist_classifier::fermi::FermiMatchResult"
+        },
+
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                let matches: Vec<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
+                let others: Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
+                    __Register::new_box(fermi::FermiMatchResult::__call__(matches, others), &__registration__::__FERMI_MATCH_RESULT_VTABLE)
+                }
+                __wrapper
+            },
+            opt_fp: Some(fermi::FermiMatchResult::__call__ as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::StructEagerField {
+            this_ty: "mnist_classifier::fermi::FermiMatchResult",
+            field_ident: "matches",
+        },
+        eager_field_linkage!(fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE, __registration__::__VEC_CONCAVE_COMPONENT_VTABLE, matches, invalid)
+    ),
+    (
+        __StaticLinkageKey::StructEagerField {
+            this_ty: "mnist_classifier::fermi::FermiMatchResult",
+            field_ident: "others",
+        },
+        eager_field_linkage!(fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE, __registration__::__VEC_CONCAVE_COMPONENT_VTABLE, others, invalid)
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<?&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let __this: &Vec<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
+                    __this.ilen().to_register()
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::ilen as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::TypeCall {
+            ty: "[]?&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent"
+        },
+
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                                    let __variadics =
+                                        __arguments[0..]
+                                            .iter_mut()
+                                            .map(|v|v.downcast_opt_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE))
+                                            .collect();
+                    __Register::new_box(Vec::<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent>>::__call__(__variadics), &__registration__::__VEC_CONCAVE_COMPONENT_VTABLE)
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::__call__ as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Index {
+            opd_tys: &["[]?&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent", "i32"],
+        },
+        index_linkage!(Vec<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>>,
+    __registration__::__VEC_CONCAVE_COMPONENT_VTABLE,
+    __registration__::__CONCAVE_COMPONENT_VTABLE,
+    invalid,
+    mutable
+)
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let __this: &Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
+                    __this.ilen().to_register()
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<&line_segment_sketch::concave_component::ConcaveComponent>::ilen as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::TypeCall {
+            ty: "[]&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent"
+        },
+
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                                    let __variadics =
+                                        __arguments[0..]
+                                            .iter_mut()
+                                            .map(|v|v.downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE))
+                                            .collect();
+                    __Register::new_box(Vec::<&'eval line_segment_sketch::concave_component::ConcaveComponent>::__call__(__variadics), &__registration__::__VEC_CONCAVE_COMPONENT_VTABLE)
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<&line_segment_sketch::concave_component::ConcaveComponent>::__call__ as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Index {
+            opd_tys: &["[]&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent", "i32"],
+        },
+        index_linkage!(Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>,
+    __registration__::__VEC_CONCAVE_COMPONENT_VTABLE,
+    __registration__::__CONCAVE_COMPONENT_VTABLE,
+    invalid,
+    mutable
+)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::fermi::fermi_match",
+        },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                let concave_components: &'eval Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_eval_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
+                let templates: &Vec<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>> = __arguments[1].downcast_temp_ref(&__registration__::__VEC_FP_CONCAVE_COMPONENT_F_32_VTABLE);
+                    __Register::new_box(fermi::fermi_match(concave_components, templates), &__registration__::__FERMI_MATCH_RESULT_VTABLE)
+                }
+                __wrapper
+            },
+            opt_fp: Some(fermi::fermi_match as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<Fp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>>::ilen" },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let __this: &Vec<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_FP_CONCAVE_COMPONENT_F_32_VTABLE);
+                    __this.ilen().to_register()
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<for<'eval> fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>::ilen as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::TypeCall {
+            ty: "[]Fp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>"
+        },
+
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                                    let __variadics =
+                                        __arguments[0..]
+                                            .iter_mut()
+                                            .map(|v| {
+                                                std::mem::transmute(v.downcast_temp_ref::<__VirtualFunction>(&__registration__::__FP_CONCAVE_COMPONENT_F_32_VTABLE).fp())
+                                            })
+                                            .collect();
+                    __Register::new_box(Vec::<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>::__call__(__variadics), &__registration__::__VEC_FP_CONCAVE_COMPONENT_F_32_VTABLE)
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<for<'eval> fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>::__call__ as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Index {
+            opd_tys: &["[]Fp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>", "i32"],
+        },
+        index_linkage!(Vec<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>,
+    __registration__::__VEC_FP_CONCAVE_COMPONENT_F_32_VTABLE,
+    __registration__::__FP_CONCAVE_COMPONENT_F_32_VTABLE,
+    invalid,
+    mutable
+)
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::collect_refs" },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let __this: &'eval Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_eval_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
+                    __Register::new_box(__this.collect_refs(), &__registration__::__VEC_CONCAVE_COMPONENT_VTABLE)
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<line_segment_sketch::concave_component::ConcaveComponent>::collect_refs as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::pop_with_largest_opt_f32" },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let __this: &mut Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
+                let f: fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32> = std::mem::transmute(__arguments[1]
+        .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)
+        .fp());
+                    __Register::new_opt_box(__this.pop_with_largest_opt_f32_copyable(f), &__registration__::__CONCAVE_COMPONENT_VTABLE)
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<&line_segment_sketch::concave_component::ConcaveComponent>::pop_with_largest_opt_f32_copyable as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<?&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::push" },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let __this: &mut Vec<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
+                let element: Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    __this.push(element).to_register()
+                }
+                __wrapper
+            },
+            opt_fp: Some(Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::push as *const ()),
+        }),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice" },
