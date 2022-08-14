@@ -25,8 +25,7 @@ pub unsafe extern "C" fn __mnist_label_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __mnist_label_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<MnistLabel>(&__MNIST_LABEL_VTABLE) =
-        registers[1].downcast_move(&__MNIST_LABEL_VTABLE)
+    *registers[0].downcast_temp_mut::<MnistLabel>(&__MNIST_LABEL_VTABLE) = registers[1].downcast_move(&__MNIST_LABEL_VTABLE)
 }
 #[no_mangle]
 pub static __MNIST_LABEL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
@@ -56,8 +55,7 @@ pub unsafe extern "C" fn __binary_image_28_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __binary_image_28_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<BinaryImage28>(&__BINARY_IMAGE_28_VTABLE) =
-        registers[1].downcast_move(&__BINARY_IMAGE_28_VTABLE)
+    *registers[0].downcast_temp_mut::<BinaryImage28>(&__BINARY_IMAGE_28_VTABLE) = registers[1].downcast_move(&__BINARY_IMAGE_28_VTABLE)
 }
 #[no_mangle]
 pub static __BINARY_IMAGE_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
@@ -87,8 +85,7 @@ pub unsafe extern "C" fn __binary_grid_28_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __binary_grid_28_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<BinaryGrid28>(&__BINARY_GRID_28_VTABLE) =
-        registers[1].downcast_move(&__BINARY_GRID_28_VTABLE)
+    *registers[0].downcast_temp_mut::<BinaryGrid28>(&__BINARY_GRID_28_VTABLE) = registers[1].downcast_move(&__BINARY_GRID_28_VTABLE)
 }
 #[no_mangle]
 pub static __BINARY_GRID_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
@@ -118,8 +115,7 @@ pub unsafe extern "C" fn __dataset_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __dataset_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Dataset>(&__DATASET_VTABLE) =
-        registers[1].downcast_move(&__DATASET_VTABLE)
+    *registers[0].downcast_temp_mut::<Dataset>(&__DATASET_VTABLE) = registers[1].downcast_move(&__DATASET_VTABLE)
 }
 #[no_mangle]
 pub static __DATASET_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
