@@ -18,9 +18,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         SemanticTokenKind::Special,
                         token.range,
                     ));
-                let (route, ty_kind) = if try_eat!(self, SpecialToken::RBox) {
+                let (route, ty_kind) = if try_eat_special!(self, "]") {
                     (EntityRoute::vec(self.spatial_argument()?), TyKind::Vec)
-                } else if self.try_eat(&be_special_token_patt!("%"))? {
+                } else if try_eat_special!(self, "%") {
                     eat_special!(self, "]");
                     let element = self.spatial_argument()?;
                     (
@@ -28,7 +28,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         TyKind::CyclicSlice,
                     )
                 } else if let Some(size) = self.try_get(&UsizeLiteralPattern)? {
-                    if !self.try_eat(&be_special_token_patt!("]"))? {
+                    if !try_eat_special!(self, "]") {
                         return Ok(None);
                     }
                     if let Some(token) = self.token_stream.peek() {

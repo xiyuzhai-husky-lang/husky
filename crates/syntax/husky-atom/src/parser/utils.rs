@@ -208,6 +208,13 @@ macro_rules! get{
 }
 
 #[macro_export]
+macro_rules! try_eat_special {
+    ($parser: expr, $s: tt) => {{
+        $parser.try_eat(&be_special_token_patt!($s))?
+    }};
+}
+
+#[macro_export]
 macro_rules! eat_special {
     ($parser: expr, $s: tt) => {{
         eat_patt!($parser, be_special_token_patt!($s))
