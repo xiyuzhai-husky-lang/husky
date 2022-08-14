@@ -123,6 +123,9 @@ impl SpecialToken {
 
 #[macro_export]
 macro_rules! special_token {
+    ("<") => {{
+        SpecialToken::LAngle
+    }};
     ("<=") => {{
         SpecialToken::Leq
     }};

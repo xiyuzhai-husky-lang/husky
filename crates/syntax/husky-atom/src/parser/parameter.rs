@@ -38,10 +38,20 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     //     })
     // }
 
-    pub fn generic_parameters(&mut self) -> AtomResult<IdentDict<SpatialParameter>> {
-        if try_eat!(self, "<") {
-            match IdentDict::from_vec(comma_list![self, spatial_parameter!+, ">"]) {
-                Ok(generic_parameters) => Ok(generic_parameters),
+    pub fn spatial_parameters(&mut self) -> AtomResult<IdentDict<SpatialParameter>> {
+        if try_eat_special!(self, "<") {
+            let spatial_parameters = get_patt!(
+                self,
+                CommaListPattern {
+                    item: SpatialParameterPattern,
+                    terminator: be_special_token_patt!(">")
+                }
+            );
+            if spatial_parameters.len() == 0 {
+                todo!()
+            }
+            match IdentDict::from_vec(spatial_parameters) {
+                Ok(spatial_parameters) => Ok(spatial_parameters),
                 Err(repeat) => todo!(),
             }
         } else {
@@ -49,30 +59,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         }
     }
 
-    pub fn spatial_parameter(&mut self) -> AtomResult<SpatialParameter> {
-        let ranged_ident = get!(self, custom_ident);
-        let mut traits = Vec::new();
-        if try_eat!(self, ":") {
-            traits.push(get!(self, ranged_ty?));
-            if try_eat!(self, "+") {
-                todo!()
-            }
-        }
-        self.atom_context
-            .push_abs_semantic_token(AbsSemanticToken::new(
-                SemanticTokenKind::GenericPlaceholder,
-                ranged_ident.range,
-            ));
-        Ok(SpatialParameter {
-            ident: ranged_ident,
-            variant: SpatialParameterVariant::Type { traits },
-            file: self.atom_context.file(),
-            range: ranged_ident.range,
-        })
-    }
-
     pub fn parameter(&mut self) -> AtomResult<Parameter> {
-        let ident = get!(self, custom_ident);
+        let ident = deprecated_get!(self, custom_ident);
         self.atom_context
             .push_abs_semantic_token(AbsSemanticToken::new(
                 SemanticTokenKind::Parameter,
@@ -80,22 +68,22 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             ));
         eat_special!(self, ":");
         let ranged_parameter_liason = self.ranged_parameter_liason();
-        let ranged_ty = get!(self, ranged_ty?);
+        let ranged_ty = deprecated_get!(self, ranged_ty?);
         Ok(Parameter::new(ident, ranged_parameter_liason, ranged_ty))
     }
 
     pub fn ranged_parameter_liason(&mut self) -> RangedParameterLiason {
         let text_start = self.token_stream.text_start();
-        let liason = if try_eat!(self, "&") {
+        let liason = if deprecated_try_eat!(self, "&") {
             msg_once!("todo: temporal parameter");
             ParameterLiason::EvalRef
-        } else if try_eat!(self, "mut") {
-            if try_eat!(self, "!!") {
+        } else if deprecated_try_eat!(self, "mut") {
+            if deprecated_try_eat!(self, "!!") {
                 ParameterLiason::MoveMut
             } else {
                 ParameterLiason::TempRefMut
             }
-        } else if try_eat!(self, "!!") {
+        } else if deprecated_try_eat!(self, "!!") {
             ParameterLiason::Move
         } else {
             return ParameterLiason::Pure.into();
@@ -107,14 +95,47 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub fn func_output_ty(&mut self) -> AtomResult<RangedEntityRoute> {
-        Ok(if try_eat!(self, "->") {
-            get!(self, ranged_ty?)
+        Ok(if deprecated_try_eat!(self, "->") {
+            deprecated_get!(self, ranged_ty?)
         } else {
             RangedEntityRoute {
                 route: EntityRoutePtr::Root(RootIdentifier::Void),
                 range: self.token_stream.next_range(),
             }
         })
+    }
+}
+
+pub struct SpatialParameterPattern;
+impl std::fmt::Display for SpatialParameterPattern {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        "spatial parameter".fmt(f)
+    }
+}
+impl AtomParserPattern for SpatialParameterPattern {
+    type Output = SpatialParameter;
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        let ranged_ident = deprecated_get!(parser, custom_ident);
+        let mut traits = Vec::new();
+        if try_eat_special!(parser, ":") {
+            traits.push(deprecated_get!(parser, ranged_ty?));
+            if try_eat_special!(parser, "+") {
+                todo!()
+            }
+        }
+        parser
+            .atom_context
+            .push_abs_semantic_token(AbsSemanticToken::new(
+                SemanticTokenKind::GenericPlaceholder,
+                ranged_ident.range,
+            ));
+        Ok(Some(SpatialParameter {
+            ident: ranged_ident,
+            variant: SpatialParameterVariant::Type { traits },
+            file: parser.atom_context.file(),
+            range: ranged_ident.range,
+        }))
     }
 }
 
@@ -129,7 +150,6 @@ impl AtomParserPattern for BracketedParametersPattern {
 
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
         eat_special!(parser, "(");
-        // Ok(Some(Arc::new(comma_list!(parser, parameter!, ")"))))
         Ok(Some(Arc::new(
             CommaListPattern {
                 item: ParameterPattern,
@@ -151,7 +171,7 @@ impl AtomParserPattern for ParameterPattern {
     type Output = Parameter;
 
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
-        let ident = get!(parser, custom_ident);
+        let ident = deprecated_get!(parser, custom_ident);
         parser
             .atom_context
             .push_abs_semantic_token(AbsSemanticToken::new(
@@ -160,7 +180,7 @@ impl AtomParserPattern for ParameterPattern {
             ));
         eat_special!(parser, ":");
         let ranged_parameter_liason = parser.ranged_parameter_liason();
-        let ranged_ty = get!(parser, ranged_ty?);
+        let ranged_ty = deprecated_get!(parser, ranged_ty?);
         Ok(Some(Parameter::new(
             ident,
             ranged_parameter_liason,

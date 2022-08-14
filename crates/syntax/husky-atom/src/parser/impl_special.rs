@@ -58,8 +58,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 .stack
                 .start_list(Bracket::Curl, self.token_stream.text_range(text_start))),
             SpecialToken::RPar => {
-                if try_eat!(self, SpecialToken::LightArrow) {
-                    let output = get!(self, ty?);
+                if deprecated_try_eat!(self, SpecialToken::LightArrow) {
+                    let output = deprecated_get!(self, ty?);
                     self.stack.make_func_type(
                         self.atom_context,
                         output,

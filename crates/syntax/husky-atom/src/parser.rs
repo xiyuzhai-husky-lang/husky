@@ -61,7 +61,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         loop {
             if self.stack.is_concave() {
                 let text_start = self.token_stream.text_start();
-                if let Some(kind) = try_get!(self, symbol?) {
+                if let Some(kind) = deprecated_try_get!(self, symbol?) {
                     {
                         self.stack.push(HuskyAtom::new(
                             self.token_stream.text_range(text_start),
