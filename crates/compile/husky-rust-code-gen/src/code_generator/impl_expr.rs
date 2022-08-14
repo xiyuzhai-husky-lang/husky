@@ -121,7 +121,7 @@ impl<'a> RustCodeGenerator<'a> {
                             self.write(".");
                             self.write(&method_ident.ident);
                             // ad hoc
-                            if method_ident.ident.as_str() == "pop_with_opt_largest_f32" {
+                            if method_ident.ident.as_str() == "pop_with_largest_opt_f32" {
                                 let elem_ty =
                                     method_route.parent().spatial_arguments[0].take_entity_route();
                                 if self.db.is_copyable(elem_ty).unwrap() {

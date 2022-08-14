@@ -31,5 +31,12 @@ mnist-compiled-backtraced:
 	@echo debugger
 	RUST_BACKTRACE=1 cargo run -q --bin husky-debugger -- run $(examples_dir)/mnist-classifier
 
+mnist-compiled-backtraced-filtered:
+	cargo check
+	@echo compiler
+	RUST_BACKTRACE=1 cargo run -q --bin husky-compiler -- $(examples_dir)/mnist-classifier 2>&1 | python scripts/filter_rust_backtrace.py
+	@echo debugger
+	RUST_BACKTRACE=1 cargo run -q --bin husky-debugger -- run $(examples_dir)/mnist-classifier 2>&1 | python scripts/filter_rust_backtrace.py
+
 print-mnist-qualified-tys:
 	cargo run --bin husky-analyzer-printer print-qualified-tys $(examples_dir)/mnist-classifier

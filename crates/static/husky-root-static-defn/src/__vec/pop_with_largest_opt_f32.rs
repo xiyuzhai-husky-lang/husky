@@ -1,7 +1,7 @@
 use super::*;
 
-pub static VEC_POP_WITH_OPT_LARGEST_F32: EntityStaticDefn = EntityStaticDefn {
-    name: "pop_with_opt_largest_f32",
+pub static VEC_POP_WITH_LARGEST_OPT_F32: EntityStaticDefn = EntityStaticDefn {
+    name: "pop_with_largest_opt_f32",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
         this_liason: ParameterLiason::TempRefMut,

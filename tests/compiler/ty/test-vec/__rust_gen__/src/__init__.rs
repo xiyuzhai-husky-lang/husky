@@ -159,7 +159,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine {
-            route: "Vec<i32>::pop_with_opt_largest_f32",
+            route: "Vec<i32>::pop_with_largest_opt_f32",
         },
         __Linkage::Transfer(__LinkageFp {
             dev_src: static_dev_src!(),
@@ -178,13 +178,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                             .fp(),
                     );
                     __Register::new_opt_box(
-                        __this.pop_with_opt_largest_f32_copyable(f),
+                        __this.pop_with_largest_opt_f32_copyable(f),
                         &__registration__::__I32_VTABLE,
                     )
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<i32>::pop_with_opt_largest_f32_copyable as *const ()),
+            opt_fp: Some(Vec::<i32>::pop_with_largest_opt_f32_copyable as *const ()),
         }),
     ),
 ];
