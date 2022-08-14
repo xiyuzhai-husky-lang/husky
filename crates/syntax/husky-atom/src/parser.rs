@@ -1,16 +1,17 @@
 mod basic;
 mod entity_route;
 mod impl_lambda_head;
-mod impl_parameter;
 mod impl_pattern;
 mod impl_special;
 mod impl_state;
 mod impl_word_opr;
 mod impl_xml;
+mod parameter;
 mod pattern;
 mod utils;
 
 pub use basic::*;
+pub use parameter::*;
 
 use super::{stack::AtomStack, *};
 use husky_check_utils::should;

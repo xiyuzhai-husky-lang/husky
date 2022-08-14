@@ -30,7 +30,7 @@ impl<'a> AstTransformer<'a> {
                 ranged_ident.range,
             ));
         let generic_parameters = parser.generic_parameters()?;
-        let parameters = parser.parameters()?;
+        let parameters = parser.try_get(&BracketedParametersPattern)?.unwrap();
         let output_ty = parser.func_output_ty()?;
         if let Some(route) = self
             .context
