@@ -5,6 +5,12 @@ use husky_word::{Keyword, LiasonKeyword, Paradigm};
 use super::*;
 
 pub struct OfHuskyTokenKindPattern(pub HuskyTokenKind);
+impl std::fmt::Display for OfHuskyTokenKindPattern {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        "token of kind ".fmt(f)?;
+        self.0.fmt(f)
+    }
+}
 impl AtomParserPattern for OfHuskyTokenKindPattern {
     type Output = ();
 
@@ -19,6 +25,11 @@ impl AtomParserPattern for OfHuskyTokenKindPattern {
 }
 
 pub struct ParadigmPattern;
+impl std::fmt::Display for ParadigmPattern {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        "paradigm keyword".fmt(f)
+    }
+}
 impl AtomParserPattern for ParadigmPattern {
     type Output = Paradigm;
 
@@ -38,6 +49,11 @@ impl AtomParserPattern for ParadigmPattern {
 }
 
 pub struct UsizeLiteralPattern;
+impl std::fmt::Display for UsizeLiteralPattern {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        "usize literal".fmt(f)
+    }
+}
 impl AtomParserPattern for UsizeLiteralPattern {
     type Output = usize;
 

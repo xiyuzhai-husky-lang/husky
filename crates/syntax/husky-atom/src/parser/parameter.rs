@@ -71,11 +71,6 @@ impl<'a, 'b> AtomParser<'a, 'b> {
         })
     }
 
-    // pub fn parameters(&mut self) -> AtomResultArc<Vec<Parameter>> {
-    //     eat_special!(self, "(");
-    //     Ok(Arc::new(comma_list!(self, parameter!, ")")))
-    // }
-
     pub fn parameter(&mut self) -> AtomResult<Parameter> {
         let ident = get!(self, custom_ident);
         self.atom_context
@@ -124,11 +119,52 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 }
 
 pub struct BracketedParametersPattern;
+impl std::fmt::Display for BracketedParametersPattern {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        "bracketed parameters".fmt(f)
+    }
+}
 impl AtomParserPattern for BracketedParametersPattern {
     type Output = Arc<Vec<Parameter>>;
 
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
         eat_special!(parser, "(");
-        Ok(Some(Arc::new(comma_list!(parser, parameter!, ")"))))
+        // Ok(Some(Arc::new(comma_list!(parser, parameter!, ")"))))
+        Ok(Some(Arc::new(
+            CommaListPattern {
+                item: ParameterPattern,
+                terminator: be_special_token_patt!(")"),
+            }
+            .get_parsed(parser)?
+            .unwrap(),
+        )))
+    }
+}
+
+pub struct ParameterPattern;
+impl std::fmt::Display for ParameterPattern {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        "parameter".fmt(f)
+    }
+}
+impl AtomParserPattern for ParameterPattern {
+    type Output = Parameter;
+
+    fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        let ident = get!(parser, custom_ident);
+        parser
+            .atom_context
+            .push_abs_semantic_token(AbsSemanticToken::new(
+                SemanticTokenKind::Parameter,
+                ident.range,
+            ));
+        eat_special!(parser, ":");
+        let ranged_parameter_liason = parser.ranged_parameter_liason();
+        let ranged_ty = get!(parser, ranged_ty?);
+        Ok(Some(Parameter::new(
+            ident,
+            ranged_parameter_liason,
+            ranged_ty,
+        )))
     }
 }

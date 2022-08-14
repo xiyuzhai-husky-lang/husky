@@ -14,6 +14,12 @@ pub enum HuskyTokenKind {
     IllFormedLiteral(PrimitiveLiteralData),
 }
 
+impl std::fmt::Display for HuskyTokenKind {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
+}
+
 impl HuskyTokenKind {
     pub fn left_convexity(self) -> Option<Convexity> {
         match self {

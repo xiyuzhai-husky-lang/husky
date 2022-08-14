@@ -326,6 +326,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
 }
 
 pub struct AngledSpatialArguments;
+impl std::fmt::Display for AngledSpatialArguments {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        "angled spatial arguments".fmt(f)
+    }
+}
 impl AtomParserPattern for AngledSpatialArguments {
     type Output = ThinVec<SpatialArgument>;
 
@@ -345,7 +350,11 @@ impl AtomParserPattern for AngledSpatialArguments {
 }
 
 pub struct SpatialArgumentPattern;
-
+impl std::fmt::Display for SpatialArgumentPattern {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        "spatial argument".fmt(f)
+    }
+}
 impl AtomParserPattern for SpatialArgumentPattern {
     type Output = SpatialArgument;
 
