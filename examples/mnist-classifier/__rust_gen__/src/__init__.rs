@@ -11,7 +11,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::connected_component::major_connected_component"
         },
-        feature_linkage!(connected_component::major_connected_component, __registration__::__CONNECTED_COMPONENT_VTABLE),
+        feature_linkage!(connected_component::major_connected_component, connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
@@ -180,7 +180,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::connected_component::connected_components"
         },
-        feature_linkage!(connected_component::connected_components, __registration__::__VEC_CONNECTED_COMPONENT_VTABLE),
+        feature_linkage!(connected_component::connected_components, Vec<connected_component::ConnectedComponent>, __registration__::__VEC_CONNECTED_COMPONENT_VTABLE),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::connected_component::ConnectedComponent>::ilen" },
@@ -1493,7 +1493,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::one::haha"
         },
-        opt_feature_linkage!(one::haha, __registration__::__I32_VTABLE),
+        opt_feature_linkage!(one::haha, i32, __registration__::__I32_VTABLE),
     ),
     (
         __StaticLinkageKey::TypeCall {

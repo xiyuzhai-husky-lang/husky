@@ -483,6 +483,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             }
         ));
         self.gen_entity_route(route, EntityRouteRole::Caller);
+        self.write(", ");
+        self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
         self.write(", __registration__::");
         let entity_defn = self.db.entity_defn(route).unwrap();
         self.write(&self.db.mangled_intrinsic_ty_vtable(output_ty));

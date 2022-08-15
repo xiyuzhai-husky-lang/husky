@@ -468,7 +468,7 @@ macro_rules! register_new_copyable {
     (Ref, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         todo!()
     }};
-    (OptionalRef, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (OptionalEvalRef, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         todo!()
     }};
     (Intrinsic, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
@@ -480,7 +480,7 @@ macro_rules! register_new_copyable {
     (Ref, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         todo!()
     }};
-    (OptionalRef, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (OptionalEvalRef, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         todo!()
     }};
     (Intrinsic, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
@@ -492,7 +492,7 @@ macro_rules! register_new_copyable {
     (Ref, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         panic!("register_new_copyable invalid")
     }};
-    (OptionalRef, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (OptionalEvalRef, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         panic!("register_new_copyable invalid")
     }};
 }
