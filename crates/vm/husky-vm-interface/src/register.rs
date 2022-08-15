@@ -82,6 +82,17 @@ pub trait __StaticInfo {
     fn __static_typename() -> std::borrow::Cow<'static, str>;
 }
 
+impl<T> __StaticInfo for Option<T>
+where
+    T: __StaticInfo,
+{
+    type __StaticSelf = Option<T::__StaticSelf>;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        format!("?{}", T::__static_typename()).into()
+    }
+}
+
 impl<'eval> __Register<'eval> {
     fn any_ref(&self) -> &() {
         match self.data_kind {
@@ -412,13 +423,16 @@ impl<'eval> Drop for __Register<'eval> {
 
 #[macro_export]
 macro_rules! register_new_copyable {
-    ($argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr, direct) => {{
+    (Intrinsic, direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         ($argument).to_register()
     }};
-    ($argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr, box) => {{
+    (Optional, direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+        ($argument).to_register()
+    }};
+    (Intrinsic, box, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         __Register::new_box::<$INTRINSIC_FIELD_TY>($argument, &$TYPE_VTABLE)
     }};
-    ($argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr, invalid) => {{
+    (Intrinsic, invalid, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         panic!("register_new_copyable invalid")
     }};
 }

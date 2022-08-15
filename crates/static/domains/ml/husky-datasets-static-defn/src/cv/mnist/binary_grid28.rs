@@ -38,12 +38,13 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(index_linkage!(
+                            mutable,
+                            Intrinsic,
+                            direct,
                             BinaryGrid28,
                             __BINARY_GRID_28_VTABLE,
                             u32,
-                            __B32_VTABLE,
-                            direct,
-                            mutable
+                            __B32_VTABLE
                         )),
                     },
                 },

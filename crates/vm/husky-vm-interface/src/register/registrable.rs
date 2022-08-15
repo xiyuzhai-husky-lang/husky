@@ -17,3 +17,15 @@ impl __StaticInfo for PrimitiveValueData {
         todo!()
     }
 }
+
+impl<'eval, T> __Registrable<'eval> for Option<T>
+where
+    T: __Registrable<'eval>,
+{
+    unsafe fn __to_register(self) -> __Register<'eval> {
+        match self {
+            Some(v) => v.__to_register(),
+            None => __Register::new_undefined(),
+        }
+    }
+}

@@ -511,7 +511,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let copy_kind: &'static str = if self.db.is_copyable(elem_ty).unwrap() {
             let canonical_elem_ty = elem_ty.canonicalize();
             match canonical_elem_ty.kind() {
-                CanonicalEntityRoutePtrKind::Intrinsic => match elem_ty {
+                CanonicalEntityRoutePtrKind::Intrinsic => match canonical_elem_ty.intrinsic() {
                     EntityRoutePtr::Root(root_identifer) => match root_identifer {
                         RootIdentifier::Void
                         | RootIdentifier::I32
@@ -529,7 +529,24 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     }
                     EntityRoutePtr::ThisType => todo!(),
                 },
-                CanonicalEntityRoutePtrKind::Optional => todo!(),
+                CanonicalEntityRoutePtrKind::Optional => match canonical_elem_ty.intrinsic() {
+                    EntityRoutePtr::Root(root_identifer) => match root_identifer {
+                        RootIdentifier::Void
+                        | RootIdentifier::I32
+                        | RootIdentifier::I64
+                        | RootIdentifier::F32
+                        | RootIdentifier::F64
+                        | RootIdentifier::B32
+                        | RootIdentifier::B64
+                        | RootIdentifier::Bool => "opt_direct",
+                        _ => panic!(),
+                    },
+                    EntityRoutePtr::Custom(_) => {
+                        p!(elem_ty);
+                        todo!()
+                    }
+                    EntityRoutePtr::ThisType => todo!(),
+                },
                 CanonicalEntityRoutePtrKind::Ref => todo!(),
                 CanonicalEntityRoutePtrKind::OptionalRef => todo!(),
             }

@@ -2,22 +2,26 @@ use crate::EntityRoutePtr;
 
 // todo: mutable ref
 pub struct CanonicalEntityRoutePtr {
-    pub intrinsic: EntityRoutePtr,
-    pub is_option: bool,
-    pub is_ref: bool,
+    intrinsic: EntityRoutePtr,
+    kind: CanonicalEntityRoutePtrKind,
 }
 
 impl CanonicalEntityRoutePtr {
+    pub(crate) fn new(intrinsic: EntityRoutePtr, kind: CanonicalEntityRoutePtrKind) -> Self {
+        assert!(intrinsic.is_intrinsic());
+        Self { intrinsic, kind }
+    }
+
+    pub fn intrinsic(&self) -> EntityRoutePtr {
+        self.intrinsic
+    }
+
     pub fn kind(&self) -> CanonicalEntityRoutePtrKind {
-        match (self.is_option, self.is_ref) {
-            (true, true) => CanonicalEntityRoutePtrKind::OptionalRef,
-            (true, false) => CanonicalEntityRoutePtrKind::Optional,
-            (false, true) => CanonicalEntityRoutePtrKind::Ref,
-            (false, false) => CanonicalEntityRoutePtrKind::Intrinsic,
-        }
+        self.kind
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum CanonicalEntityRoutePtrKind {
     Intrinsic,
     Optional,
