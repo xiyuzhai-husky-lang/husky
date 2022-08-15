@@ -30,7 +30,9 @@ impl<'eval> RawContour<'eval> {
             .cache_lazy_field(
                 self as *const _ as *const (),
                 __uid,
-                Ok(__Register::new_box(
+                Ok(__Register::new_box::<
+                    crate::line_segment_sketch::LineSegmentSketch<'eval>,
+                >(
                     crate::line_segment_sketch::LineSegmentSketch::new(self, 1.2f32),
                     &__registration__::__LINE_SEGMENT_SKETCH_VTABLE,
                 )),

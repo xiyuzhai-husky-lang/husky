@@ -319,11 +319,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 if variadic_ty.is_primitive() {
                     self.write(&format!(
                         r#"
-                        let __variadics =
-                            __arguments[{variadic_start}..]
-                                .iter_mut()
-                                .map(|v|v.downcast_{variadic_ty}())
-                                .collect();"#,
+                    let __variadics =
+                        __arguments[{variadic_start}..]
+                            .iter_mut()
+                            .map(|v|v.downcast_{variadic_ty}())
+                            .collect();"#,
                     ));
                 } else {
                     let variadic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(variadic_ty);
@@ -335,20 +335,20 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                                 if variadic_ty.is_ref() {
                                     self.write(&format!(
                                     r#"
-                                    let __variadics =
-                                        __arguments[{variadic_start}..]
-                                            .iter_mut()
-                                            .map(|v|v.downcast_opt_eval_ref(&__registration__::{variadic_ty_vtable}))
-                                            .collect();"#,
-                                    ));
+                    let __variadics =
+                        __arguments[{variadic_start}..]
+                            .iter_mut()
+                            .map(|v|v.downcast_opt_eval_ref(&__registration__::{variadic_ty_vtable}))
+                            .collect();"#,
+                    ));
                                 } else if variadic_ty.is_primitive() {
                                     self.write(&format!(
                                         r#"
-                                    let __variadics =
-                                        __arguments[{variadic_start}..]
-                                            .iter_mut()
-                                            .map(|v|v.downcast_opt_{}())
-                                            .collect();"#,
+                    let __variadics =
+                        __arguments[{variadic_start}..]
+                            .iter_mut()
+                            .map(|v|v.downcast_opt_{}())
+                            .collect();"#,
                                         variadic_ty.ident().as_str()
                                     ));
                                 } else {
@@ -357,22 +357,22 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                             } else if variadic_ty.is_ref() {
                                 self.write(&format!(
                                     r#"
-                                    let __variadics =
-                                        __arguments[{variadic_start}..]
-                                            .iter_mut()
-                                            .map(|v|v.downcast_eval_ref(&__registration__::{variadic_ty_vtable}))
-                                            .collect();"#,
-                                    ));
+                    let __variadics =
+                        __arguments[{variadic_start}..]
+                            .iter_mut()
+                            .map(|v|v.downcast_eval_ref(&__registration__::{variadic_ty_vtable}))
+                            .collect();"#,
+                                ));
                             } else if variadic_ty.is_fp() {
                                 self.write(&format!(
                                     r#"
-                                    let __variadics =
-                                        __arguments[{variadic_start}..]
-                                            .iter_mut()
-                                            .map(|v| {{
-                                                std::mem::transmute(v.downcast_temp_ref::<__VirtualFunction>(&__registration__::{variadic_ty_vtable}).fp())
-                                            }})
-                                            .collect();"#,
+                    let __variadics =
+                        __arguments[{variadic_start}..]
+                            .iter_mut()
+                            .map(|v| {{
+                                std::mem::transmute(v.downcast_temp_ref::<__VirtualFunction>(&__registration__::{variadic_ty_vtable}).fp())
+                            }})
+                            .collect();"#,
                                     ));
                             } else {
                                 p!(variadic_ty);
@@ -384,12 +384,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                                 todo!()
                             } else {
                                 self.write(&format!(
-                                r#"
-                                let __variadics =
-                                    __arguments[{variadic_start}..]
-                                        .iter_mut()
-                                        .map(|v|v.downcast_move(&__registration__::{variadic_ty_vtable}))
-                                        .collect();"#,
+                                    r#"
+                    let __variadics =
+                        __arguments[{variadic_start}..]
+                            .iter_mut()
+                            .map(|v|v.downcast_move(&__registration__::{variadic_ty_vtable}))
+                            .collect();"#,
                                 ));
                             }
                         }
@@ -571,7 +571,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let parameter_ty = parameter.ty;
         self.write(&format!(
             r#"
-                let {parameter_name}: "#
+                    let {parameter_name}: "#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
         match parameter_ty {
@@ -630,8 +630,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     TyKind::Fp =>{
                         self.write(&format!(
                         r#" = std::mem::transmute(__arguments[{i}]
-        .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)
-        .fp());"#
+                        .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)
+                        .fp());"#
                         ));
                     },
                     TyKind::AssociatedAny => todo!(),
@@ -653,7 +653,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let parameter_ty = parameter.ty;
         self.write(&format!(
             r#"
-                let {parameter_name}: "#
+                    let {parameter_name}: "#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
         let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
@@ -667,7 +667,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let parameter_ty = parameter.ty;
         self.write(&format!(
             r#"
-                let {parameter_name}: &"#
+                    let {parameter_name}: &"#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
         let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
@@ -681,7 +681,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let parameter_ty = parameter.ty;
         self.write(&format!(
             r#"
-                let {parameter_name}: &'eval "#
+                    let {parameter_name}: &'eval "#
         ));
         let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
         self.gen_entity_route(parameter_ty.deref_route(), EntityRouteRole::Decl);
