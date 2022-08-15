@@ -40,7 +40,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         opt_linkage: Some(index_linkage!(
                             mutable,
                             Intrinsic,
-                            direct,
+                            Direct,
                             BinaryGrid28,
                             __BINARY_GRID_28_VTABLE,
                             u32,

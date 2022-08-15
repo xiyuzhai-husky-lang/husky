@@ -132,12 +132,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             field_ident: "x",
         },
         eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            Direct,
             A,
             __registration__::__A_VTABLE,
             i32,
             __registration__::__I32_VTABLE,
-            x,
-            direct
+            x
         ),
     ),
     (
@@ -146,12 +148,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             field_ident: "y",
         },
         eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            Direct,
             A,
             __registration__::__A_VTABLE,
             i32,
             __registration__::__I32_VTABLE,
-            y,
-            direct
+            y
         ),
     ),
     (
@@ -160,12 +164,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             field_ident: "z",
         },
         eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            Direct,
             A,
             __registration__::__A_VTABLE,
             i32,
             __registration__::__I32_VTABLE,
-            z,
-            direct
+            z
         ),
     ),
     (

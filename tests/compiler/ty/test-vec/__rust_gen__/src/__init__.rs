@@ -109,12 +109,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             opd_tys: &["[]i32", "i32"],
         },
         index_linkage!(
+            mutable,
+            Intrinsic,
+            Direct,
             Vec<i32>,
             __registration__::__VEC_I_32_VTABLE,
             i32,
-            __registration__::__I32_VTABLE,
-            direct,
-            mutable
+            __registration__::__I32_VTABLE
         ),
     ),
     (

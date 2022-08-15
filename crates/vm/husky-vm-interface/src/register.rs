@@ -195,6 +195,24 @@ impl<'eval> __Register<'eval> {
         }
     }
 
+    pub unsafe fn new_opt_temp_ref<T>(
+        opt_value: Option<&T>,
+        proto: &'eval __RegisterTyVTable,
+    ) -> __Register<'eval> {
+        if let Some(value) = opt_value {
+            let ptr: *const T = value;
+            __Register {
+                data_kind: __RegisterDataKind::TempRef,
+                data: __RegisterData {
+                    as_ptr: ptr as *mut (),
+                },
+                vtable: proto,
+            }
+        } else {
+            __Register::new_undefined()
+        }
+    }
+
     pub unsafe fn new_temp_mut<T>(
         value: &mut T,
         proto: &'eval __RegisterTyVTable,
@@ -206,6 +224,24 @@ impl<'eval> __Register<'eval> {
                 as_ptr: ptr as *mut (),
             },
             vtable: proto,
+        }
+    }
+
+    pub unsafe fn new_opt_temp_mut<T>(
+        opt_value: Option<&mut T>,
+        proto: &'eval __RegisterTyVTable,
+    ) -> __Register<'eval> {
+        if let Some(value) = opt_value {
+            let ptr: *const T = value;
+            __Register {
+                data_kind: __RegisterDataKind::TempMut,
+                data: __RegisterData {
+                    as_ptr: ptr as *mut (),
+                },
+                vtable: proto,
+            }
+        } else {
+            __Register::new_undefined()
         }
     }
 
@@ -423,16 +459,40 @@ impl<'eval> Drop for __Register<'eval> {
 
 #[macro_export]
 macro_rules! register_new_copyable {
-    (Intrinsic, direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (Intrinsic, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         ($argument).to_register()
     }};
-    (Optional, direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (Optional, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         ($argument).to_register()
     }};
-    (Intrinsic, box, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (Ref, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+        todo!()
+    }};
+    (OptionalRef, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+        todo!()
+    }};
+    (Intrinsic, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         __Register::new_box::<$INTRINSIC_FIELD_TY>($argument, &$TYPE_VTABLE)
     }};
-    (Intrinsic, invalid, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (Optional, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+        __Register::new_opt_box::<$INTRINSIC_FIELD_TY>($argument, &$TYPE_VTABLE)
+    }};
+    (Ref, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+        todo!()
+    }};
+    (OptionalRef, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+        todo!()
+    }};
+    (Intrinsic, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+        panic!("register_new_copyable invalid")
+    }};
+    (Optional, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+        panic!("register_new_copyable invalid")
+    }};
+    (Ref, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+        panic!("register_new_copyable invalid")
+    }};
+    (OptionalRef, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         panic!("register_new_copyable invalid")
     }};
 }

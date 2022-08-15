@@ -525,7 +525,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         self.write(&format!(
             r#"
         index_linkage!(
-            {mutability}
+            {mutability},
             {canonical_elem_ty_kind},
             {elem_ty_reg_memory_kind},"#
         ));
@@ -534,7 +534,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let intrinsic_elem_ty = elem_ty.intrinsic();
         self.gen_entity_route(ty, EntityRouteRole::Decl);
         self.write(format!(
-            r#"
+            r#",
     __registration__::{mangled_intrinsic_ty_vtable},
     {intrinsic_elem_ty},
     __registration__::{mangled_intrinsic_elem_ty_vtable}

@@ -7,3 +7,4 @@ edition = "2021"
 [dependencies]
 salsa = "0.17.0-pre.2"
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
+infer-decl = { path = "../../infer/husky-infer-decl" }

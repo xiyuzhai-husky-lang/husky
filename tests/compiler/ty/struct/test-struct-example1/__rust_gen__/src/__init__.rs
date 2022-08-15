@@ -145,13 +145,15 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             this_ty: "test_struct_example1::A",
             field_ident: "x",
         },
-        eager_mut_field_linkage!(
+        eager_field_linkage!(
+            mutable,
+            Intrinsic,
+            Direct,
             A,
             __registration__::__A_VTABLE,
             i32,
             __registration__::__I32_VTABLE,
-            x,
-            direct
+            x
         ),
     ),
     (
