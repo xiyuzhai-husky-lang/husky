@@ -3,6 +3,7 @@ mod impl_ty_linkage_entries;
 use husky_entity_route::{entity_route_menu, CanonicalEntityRoutePtrKind};
 use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
+use husky_layout::RegMemoryKind;
 use husky_word::RootIdentifier;
 use infer_decl::{
     CallFormDecl, OutputDecl, ParameterDecl, TraitMemberImplDecl, TyDecl, VariadicTemplate,
@@ -401,19 +402,61 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             r#"
                     "#
         ));
-        let is_output_ty_primitive = decl.output.ty().is_primitive();
-        let is_output_ty_option = decl.output.ty().is_option();
-        if !is_output_ty_primitive {
-            if is_output_ty_option {
-                msg_once!("handle ref properly");
-                msg_once!("handle opt primitive properly (no need to put in box)");
-                self.write("__Register::new_opt_box::<");
-            } else {
-                self.write("__Register::new_box::<");
+        let output_ty = decl.output.ty();
+        let canonical_output_ty = output_ty.canonicalize();
+        let output_ty_reg_memory_kind = self.db.reg_memory_kind(output_ty);
+        let is_intrinsic_output_ty_primitive = canonical_output_ty.is_intrinsic_route_primitive();
+        match canonical_output_ty.kind() {
+            CanonicalEntityRoutePtrKind::Intrinsic => match output_ty_reg_memory_kind {
+                RegMemoryKind::Direct => {
+                    if is_intrinsic_output_ty_primitive {
+                        // pass
+                        ()
+                    } else {
+                        todo!()
+                    }
+                }
+                RegMemoryKind::BoxCopyable | RegMemoryKind::BoxNonCopyable => {
+                    self.write("__Register::new_box::<");
+                    self.gen_entity_route(
+                        canonical_output_ty.intrinsic_route(),
+                        EntityRouteRole::Decl,
+                    );
+                    self.write(">(");
+                }
+            },
+            CanonicalEntityRoutePtrKind::Optional => todo!(),
+            CanonicalEntityRoutePtrKind::EvalRef => todo!(),
+            CanonicalEntityRoutePtrKind::OptionalEvalRef => {
+                self.write("__Register::new_opt_eval_ref::<");
+                self.gen_entity_route(canonical_output_ty.intrinsic_route(), EntityRouteRole::Decl);
+                self.write(">(");
             }
-            self.gen_entity_route(decl.output.ty().intrinsic(), EntityRouteRole::Decl);
-            self.write(">(")
         }
+        // match output_ty_reg_memory_kind {
+        //     RegMemoryKind::Direct => {
+        //         if canonical_output_ty.is_primitive() {
+        //             todo!()
+        //         } else {
+        //             todo!()
+        //         }
+        //     }
+        //     RegMemoryKind::BoxCopyable => todo!(),
+        //     RegMemoryKind::BoxNonCopyable => todo!(),
+        // }
+        // let is_output_ty_primitive = decl.output.ty().is_primitive();
+        // let is_output_ty_option = decl.output.ty().is_option();
+        // if !is_output_ty_primitive {
+        //     if is_output_ty_option {
+        //         msg_once!("handle ref properly");
+        //         msg_once!("handle opt primitive properly (no need to put in box)");
+        //         self.write("__Register::new_opt_box::<");
+        //     } else {
+        //         self.write("__Register::new_box::<");
+        //     }
+        //     self.gen_entity_route(decl.output.ty().intrinsic(), EntityRouteRole::Decl);
+        //     self.write(">(")
+        // }
         gen_caller(self);
         self.write("(");
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
@@ -441,7 +484,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             }
         }
         let mangled_output_ty_vtable = self.db.mangled_intrinsic_ty_vtable(decl.output.ty());
-        if is_output_ty_primitive {
+        if is_intrinsic_output_ty_primitive {
             self.write(&format!(
                 r#").to_register()
                 }}
@@ -537,9 +580,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         self.gen_entity_route(ty, EntityRouteRole::Decl);
         self.write(format!(
             r#",
-    __registration__::{mangled_intrinsic_ty_vtable},
-    {intrinsic_elem_ty},
-    __registration__::{mangled_intrinsic_elem_ty_vtable}
+            __registration__::{mangled_intrinsic_ty_vtable},
+            "#
+        ));
+        self.gen_entity_route(intrinsic_elem_ty, EntityRouteRole::Decl);
+        self.write(format!(
+            r#",
+            __registration__::{mangled_intrinsic_elem_ty_vtable}
 )"#
         ))
     }

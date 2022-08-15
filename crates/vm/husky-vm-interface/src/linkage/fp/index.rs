@@ -68,7 +68,7 @@ macro_rules! index_eval_ref_fp {
             dev_src: static_dev_src!(),
         }
     }};
-    (Ref, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
+    (EvalRef, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
@@ -257,7 +257,7 @@ macro_rules! index_temp_mut_fp {
             dev_src: static_dev_src!(),
         }
     }};
-    (mutable, Ref, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
+    (mutable, EvalRef, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],

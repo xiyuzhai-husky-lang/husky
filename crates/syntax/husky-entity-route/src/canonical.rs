@@ -2,7 +2,7 @@ use crate::EntityRoutePtr;
 
 // todo: mutable ref
 pub struct CanonicalEntityRoutePtr {
-    intrinsic: EntityRoutePtr,
+    intrinsic_route: EntityRoutePtr,
     kind: CanonicalEntityRoutePtrKind,
 }
 
@@ -19,17 +19,24 @@ impl std::fmt::Display for CanonicalEntityRoutePtrKind {
 }
 
 impl CanonicalEntityRoutePtr {
-    pub(crate) fn new(intrinsic: EntityRoutePtr, kind: CanonicalEntityRoutePtrKind) -> Self {
-        assert!(intrinsic.is_intrinsic());
-        Self { intrinsic, kind }
+    pub(crate) fn new(intrinsic_route: EntityRoutePtr, kind: CanonicalEntityRoutePtrKind) -> Self {
+        assert!(intrinsic_route.is_intrinsic());
+        Self {
+            intrinsic_route,
+            kind,
+        }
     }
 
-    pub fn intrinsic(&self) -> EntityRoutePtr {
-        self.intrinsic
+    pub fn intrinsic_route(&self) -> EntityRoutePtr {
+        self.intrinsic_route
     }
 
     pub fn kind(&self) -> CanonicalEntityRoutePtrKind {
         self.kind
+    }
+
+    pub fn is_intrinsic_route_primitive(&self) -> bool {
+        self.intrinsic_route.is_primitive()
     }
 }
 
