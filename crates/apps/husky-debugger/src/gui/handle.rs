@@ -116,13 +116,14 @@ impl HuskyDebuggerInternal {
                 request,
             ),
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
-                if let Some((new_traces, subtrace_ids, trace_stalks)) =
+                if let Some((new_traces, subtrace_ids, trace_stalks, trace_stats)) =
                     self.trace_time.toggle_expansion(trace_id)
                 {
                     Some(HuskyTracerServerMessageVariant::ToggleExpansion {
                         new_traces,
                         subtrace_ids,
                         trace_stalks,
+                        trace_stats,
                     })
                 } else {
                     // ad hoc; should panic here
@@ -131,6 +132,7 @@ impl HuskyDebuggerInternal {
                             new_traces: Default::default(),
                             subtrace_ids: Default::default(),
                             trace_stalks: Default::default(),
+                            trace_stats: Default::default(),
                         })
                     } else {
                         None
@@ -156,11 +158,13 @@ impl HuskyDebuggerInternal {
                 needs_figure_canvas_data,
                 needs_figure_control_data,
                 needs_stalk,
+                needs_stats,
             } => self.handle_set_restriction(
                 restriction,
                 needs_figure_canvas_data,
                 needs_figure_control_data,
                 needs_stalk,
+                needs_stats,
             ),
             HuskyTracerGuiMessageVariant::UpdateFigureControlData {
                 trace_id,
@@ -285,8 +289,10 @@ impl HuskyDebuggerInternal {
         needs_figure_canvas_data: bool,
         needs_figure_control_data: bool,
         needs_stalk: bool,
+        needs_stats: bool,
     ) -> Option<HuskyTracerServerMessageVariant> {
-        let new_trace_stalks = self.trace_time.set_restriction(restriction.clone());
+        let (new_trace_stalks, new_trace_stats) =
+            self.trace_time.set_restriction(restriction.clone());
         if needs_figure_canvas_data || needs_figure_control_data || needs_stalk {
             let (opt_figure_canvas_data, opt_figure_control_data) = if let Some(active_trace_id) =
                 self.trace_time.opt_active_trace_id()
@@ -320,6 +326,7 @@ impl HuskyDebuggerInternal {
                 opt_figure_canvas_data,
                 opt_figure_control_data,
                 new_trace_stalks,
+                new_trace_stats,
             })
         } else {
             None

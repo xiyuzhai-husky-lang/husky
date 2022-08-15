@@ -32,6 +32,7 @@ impl DebuggerContext {
                             new_traces,
                             subtrace_ids,
                             trace_stalks,
+                            trace_stats,
                         } => {
                             self.trace_context
                                 .receive_subtraces(key, self.alloc_value(subtrace_ids));

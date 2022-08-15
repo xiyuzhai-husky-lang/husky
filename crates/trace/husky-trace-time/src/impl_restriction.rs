@@ -12,9 +12,12 @@ impl HuskyTraceTime {
     pub fn set_restriction(
         &mut self,
         restriction: Restriction,
-    ) -> Vec<(TraceStalkKey, TraceStalkData)> {
+    ) -> (
+        Vec<(TraceStalkKey, TraceStalkData)>,
+        Vec<(TraceStatsKey, Option<TraceStats>)>,
+    ) {
         self.restriction = restriction;
-        if let Some(sample_id0) = self.restriction.opt_sample_id() {
+        let new_trace_stalks = if let Some(sample_id0) = self.restriction.opt_sample_id() {
             let target_entrance = self.runtime().comptime().target_entrance();
             let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
             match self
@@ -35,7 +38,8 @@ impl HuskyTraceTime {
             self.collect_new_trace_stalks()
         } else {
             vec![]
-        }
+        };
+        (new_trace_stalks, self.collect_new_trace_stats())
     }
 
     fn set_restriction_raw(&mut self, restriction: Restriction) {
