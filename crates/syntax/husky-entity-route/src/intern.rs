@@ -1,5 +1,6 @@
 use crate::*;
 use core::hash::Hash;
+use husky_print_utils::msg_once;
 use husky_text::RangedCustomIdentifier;
 use interner::{Intern, Interner};
 use paste::paste;
@@ -135,6 +136,48 @@ impl EntityRoutePtr {
                 ident: RootIdentifier::Ref | RootIdentifier::Option,
             } => self.spatial_arguments[0].take_entity_route().intrinsic(),
             _ => self,
+        }
+    }
+
+    pub fn is_intrinsic(self) -> bool {
+        msg_once!("mutable ref");
+        !self.is_option() && !self.is_ref()
+    }
+
+    // todo: needs testing
+    pub fn canonicalize(self) -> CanonicalEntityRoutePtr {
+        if self.is_option() {
+            assert_eq!(self.spatial_arguments.len(), 1);
+            let this1 = self.spatial_arguments[0].take_entity_route();
+            assert!(!this1.is_option());
+            if this1.is_ref() {
+                assert_eq!(this1.spatial_arguments.len(), 1);
+                let this2 = this1.spatial_arguments[0].take_entity_route();
+                assert!(this2.is_intrinsic());
+                CanonicalEntityRoutePtr {
+                    intrinsic: this2,
+                    is_option: true,
+                    is_ref: true,
+                }
+            } else {
+                assert!(this1.is_intrinsic());
+                CanonicalEntityRoutePtr {
+                    intrinsic: this1,
+                    is_option: true,
+                    is_ref: false,
+                }
+            }
+        } else if self.is_ref() {
+            assert_eq!(self.spatial_arguments.len(), 1);
+            let this1 = self.spatial_arguments[0].take_entity_route();
+            assert!(this1.is_intrinsic());
+            CanonicalEntityRoutePtr {
+                intrinsic: this1,
+                is_option: false,
+                is_ref: true,
+            }
+        } else {
+            todo!()
         }
     }
 

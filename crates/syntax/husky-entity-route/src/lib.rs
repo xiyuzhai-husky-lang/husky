@@ -1,4 +1,5 @@
 mod cache;
+mod canonical;
 mod fmt;
 mod intern;
 mod menu;
@@ -8,6 +9,7 @@ pub use cache::{
     insert_new_ty_route, new_ty_route_cache, try_get_ty_route, ty_route_with,
     TyRouteCacheSingletonKeeper,
 };
+pub use canonical::*;
 pub use entity_kind::EntityKind;
 pub use intern::{
     base_route, make_route, make_subroute, make_type_as_trait_member_route,

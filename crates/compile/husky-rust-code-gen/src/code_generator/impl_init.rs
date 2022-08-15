@@ -1,6 +1,6 @@
 mod impl_ty_linkage_entries;
 
-use husky_entity_route::entity_route_menu;
+use husky_entity_route::{entity_route_menu, CanonicalEntityRoutePtrKind};
 use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
 use husky_word::RootIdentifier;
@@ -509,23 +509,29 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let intrinsic_elem_ty = elem_ty.intrinsic();
         self.gen_entity_route(ty, EntityRouteRole::Decl);
         let copy_kind: &'static str = if self.db.is_copyable(elem_ty).unwrap() {
-            match elem_ty {
-                EntityRoutePtr::Root(root_identifer) => match root_identifer {
-                    RootIdentifier::Void
-                    | RootIdentifier::I32
-                    | RootIdentifier::I64
-                    | RootIdentifier::F32
-                    | RootIdentifier::F64
-                    | RootIdentifier::B32
-                    | RootIdentifier::B64
-                    | RootIdentifier::Bool => "direct",
-                    _ => panic!(),
+            let canonical_elem_ty = elem_ty.canonicalize();
+            match canonical_elem_ty.kind() {
+                CanonicalEntityRoutePtrKind::Intrinsic => match elem_ty {
+                    EntityRoutePtr::Root(root_identifer) => match root_identifer {
+                        RootIdentifier::Void
+                        | RootIdentifier::I32
+                        | RootIdentifier::I64
+                        | RootIdentifier::F32
+                        | RootIdentifier::F64
+                        | RootIdentifier::B32
+                        | RootIdentifier::B64
+                        | RootIdentifier::Bool => "direct",
+                        _ => panic!(),
+                    },
+                    EntityRoutePtr::Custom(_) => {
+                        p!(elem_ty);
+                        todo!()
+                    }
+                    EntityRoutePtr::ThisType => todo!(),
                 },
-                EntityRoutePtr::Custom(_) => {
-                    p!(elem_ty);
-                    todo!()
-                }
-                EntityRoutePtr::ThisType => todo!(),
+                CanonicalEntityRoutePtrKind::Optional => todo!(),
+                CanonicalEntityRoutePtrKind::Ref => todo!(),
+                CanonicalEntityRoutePtrKind::OptionalRef => todo!(),
             }
         } else {
             "invalid"
