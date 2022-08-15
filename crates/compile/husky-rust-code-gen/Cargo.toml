@@ -43,3 +43,4 @@ husky-rust-code-repr = { path = "../husky-rust-code-repr", features = [
     "entity_route"
 ] }
 husky-write-utils = { path = "../../utils/husky-write-utils" }
+husky-layout = { path = "../../compile/husky-layout" }

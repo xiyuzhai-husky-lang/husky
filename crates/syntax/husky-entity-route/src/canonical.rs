@@ -6,6 +6,18 @@ pub struct CanonicalEntityRoutePtr {
     kind: CanonicalEntityRoutePtrKind,
 }
 
+impl std::fmt::Display for CanonicalEntityRoutePtrKind {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            CanonicalEntityRoutePtrKind::Intrinsic => "Intrinsic",
+            CanonicalEntityRoutePtrKind::Optional => "Optional",
+            CanonicalEntityRoutePtrKind::Ref => "Ref",
+            CanonicalEntityRoutePtrKind::OptionalRef => "OptionalRef",
+        }
+        .fmt(f)
+    }
+}
+
 impl CanonicalEntityRoutePtr {
     pub(crate) fn new(intrinsic: EntityRoutePtr, kind: CanonicalEntityRoutePtrKind) -> Self {
         assert!(intrinsic.is_intrinsic());

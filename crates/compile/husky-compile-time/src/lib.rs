@@ -59,7 +59,8 @@ use vm::{
     husky_entity_semantics::EntityQueryGroupStorage,
     husky_package_semantics::PackageQueryGroupStorage,
     husky_diagnostics::DiagnosticQueryGroupStorage,
-    husky_rust_code_gen::RustGenQueryStorage
+    husky_rust_code_gen::RustGenQueryStorage,
+    husky_layout::HuskyLayoutQueryGroupStorage
 )]
 pub struct HuskyComptime {
     storage: salsa::Storage<HuskyComptime>,

@@ -31,7 +31,14 @@ macro_rules! field_copy_fp {
 
 #[macro_export]
 macro_rules! field_eval_ref_fp {
-    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    (
+        Intrinsic,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
@@ -48,7 +55,14 @@ macro_rules! field_eval_ref_fp {
 }
 #[macro_export]
 macro_rules! field_temp_ref_fp {
-    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    (
+        Intrinsic,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
@@ -66,7 +80,15 @@ macro_rules! field_temp_ref_fp {
 
 #[macro_export]
 macro_rules! field_temp_mut_fp {
-    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    (
+        mutable,
+        Intrinsic,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
@@ -80,11 +102,14 @@ macro_rules! field_temp_mut_fp {
             dev_src: static_dev_src!(),
         }
     }};
-}
-
-#[macro_export]
-macro_rules! field_temp_mut_invalid_fp {
-    ($Type: ty, $TYPE_VTABLE: expr, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    (
+        immutable,
+        Intrinsic,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
@@ -101,7 +126,13 @@ macro_rules! field_temp_mut_invalid_fp {
 
 #[macro_export]
 macro_rules! field_move_fp {
-    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
+    (
+        Intrinsic,
+        $Type: ty, $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
         fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
