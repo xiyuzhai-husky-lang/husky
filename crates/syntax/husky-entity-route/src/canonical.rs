@@ -11,8 +11,8 @@ impl std::fmt::Display for CanonicalEntityRoutePtrKind {
         match self {
             CanonicalEntityRoutePtrKind::Intrinsic => "Intrinsic",
             CanonicalEntityRoutePtrKind::Optional => "Optional",
-            CanonicalEntityRoutePtrKind::Ref => "Ref",
-            CanonicalEntityRoutePtrKind::OptionalRef => "OptionalRef",
+            CanonicalEntityRoutePtrKind::EvalRef => "EvalRef",
+            CanonicalEntityRoutePtrKind::OptionalEvalRef => "OptionalEvalRef",
         }
         .fmt(f)
     }
@@ -37,6 +37,6 @@ impl CanonicalEntityRoutePtr {
 pub enum CanonicalEntityRoutePtrKind {
     Intrinsic,
     Optional,
-    Ref,
-    OptionalRef,
+    EvalRef,
+    OptionalEvalRef,
 }

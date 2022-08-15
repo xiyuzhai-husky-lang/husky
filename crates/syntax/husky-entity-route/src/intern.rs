@@ -154,7 +154,7 @@ impl EntityRoutePtr {
                 assert_eq!(this1.spatial_arguments.len(), 1);
                 let this2 = this1.spatial_arguments[0].take_entity_route();
                 assert!(this2.is_intrinsic());
-                CanonicalEntityRoutePtr::new(this2, CanonicalEntityRoutePtrKind::OptionalRef)
+                CanonicalEntityRoutePtr::new(this2, CanonicalEntityRoutePtrKind::OptionalEvalRef)
             } else {
                 assert!(this1.is_intrinsic());
                 CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::Optional)
@@ -163,7 +163,7 @@ impl EntityRoutePtr {
             assert_eq!(self.spatial_arguments.len(), 1);
             let this1 = self.spatial_arguments[0].take_entity_route();
             assert!(this1.is_intrinsic());
-            CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::Ref)
+            CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::EvalRef)
         } else {
             CanonicalEntityRoutePtr::new(self, CanonicalEntityRoutePtrKind::Intrinsic)
         }
