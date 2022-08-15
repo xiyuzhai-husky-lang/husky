@@ -34,7 +34,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             immutable,
             Intrinsic,
-            direct,
+            Direct,
             A,
             __registration__::__A_VTABLE,
             i32,
@@ -71,7 +71,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             immutable,
             Intrinsic,
-            direct,
+            Direct,
             B,
             __registration__::__B_VTABLE,
             i32,
@@ -87,7 +87,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             immutable,
             Intrinsic,
-            box,
+            BoxNonCopyable,
             B,
             __registration__::__B_VTABLE,
             A,
@@ -103,7 +103,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         eager_field_linkage!(
             immutable,
             Intrinsic,
-            direct,
+            Direct,
             B,
             __registration__::__B_VTABLE,
             i32,
