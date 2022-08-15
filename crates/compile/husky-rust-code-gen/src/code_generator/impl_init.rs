@@ -494,101 +494,15 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
 
     fn gen_index_linkage(&mut self, ty: EntityRoutePtr, elem_ty: EntityRoutePtr) {
         msg_once!("todo: generic indexing");
-        self.write(&format!(
-            r#"
-        __StaticLinkageKey::Index {{
-            opd_tys: &["{ty:?}", "i32"],
-        }},"#,
-        ));
-        self.write(&format!(
-            r#"
-        index_linkage!("#
-        ));
-        let mangled_intrinsic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(ty);
-        let mangled_intrinsic_elem_ty_vtable = self.db.mangled_intrinsic_ty_vtable(elem_ty);
-        let intrinsic_elem_ty = elem_ty.intrinsic();
-        self.gen_entity_route(ty, EntityRouteRole::Decl);
-        let copy_kind: &'static str = if self.db.is_copyable(elem_ty).unwrap() {
-            let canonical_elem_ty = elem_ty.canonicalize();
-            match canonical_elem_ty.kind() {
-                CanonicalEntityRoutePtrKind::Intrinsic => match canonical_elem_ty.intrinsic() {
-                    EntityRoutePtr::Root(root_identifer) => match root_identifer {
-                        RootIdentifier::Void
-                        | RootIdentifier::I32
-                        | RootIdentifier::I64
-                        | RootIdentifier::F32
-                        | RootIdentifier::F64
-                        | RootIdentifier::B32
-                        | RootIdentifier::B64
-                        | RootIdentifier::Bool => "direct",
-                        _ => panic!(),
-                    },
-                    EntityRoutePtr::Custom(_) => {
-                        p!(elem_ty);
-                        todo!()
-                    }
-                    EntityRoutePtr::ThisType => todo!(),
-                },
-                CanonicalEntityRoutePtrKind::Optional => match canonical_elem_ty.intrinsic() {
-                    EntityRoutePtr::Root(root_identifer) => match root_identifer {
-                        RootIdentifier::Void
-                        | RootIdentifier::I32
-                        | RootIdentifier::I64
-                        | RootIdentifier::F32
-                        | RootIdentifier::F64
-                        | RootIdentifier::B32
-                        | RootIdentifier::B64
-                        | RootIdentifier::Bool => "opt_direct",
-                        _ => panic!(),
-                    },
-                    EntityRoutePtr::Custom(_) => {
-                        p!(elem_ty);
-                        todo!()
-                    }
-                    EntityRoutePtr::ThisType => todo!(),
-                },
-                CanonicalEntityRoutePtrKind::Ref => todo!(),
-                CanonicalEntityRoutePtrKind::OptionalRef => todo!(),
-            }
-        } else {
-            "invalid"
-        };
         // ad hoc
         let mutability = match ty.variant {
             EntityRouteVariant::Root { ident } => match ident {
-                RootIdentifier::Void => todo!(),
-                RootIdentifier::I32 => todo!(),
-                RootIdentifier::I64 => todo!(),
-                RootIdentifier::F32 => todo!(),
-                RootIdentifier::F64 => todo!(),
                 RootIdentifier::B32 => todo!(),
                 RootIdentifier::B64 => todo!(),
-                RootIdentifier::Bool => todo!(),
-                RootIdentifier::True => todo!(),
-                RootIdentifier::False => todo!(),
                 RootIdentifier::Vec => "mutable",
                 RootIdentifier::Tuple => todo!(),
-                RootIdentifier::Debug => todo!(),
-                RootIdentifier::Std => todo!(),
-                RootIdentifier::Core => todo!(),
-                RootIdentifier::Mor => todo!(),
-                RootIdentifier::Fp => todo!(),
-                RootIdentifier::Fn => todo!(),
-                RootIdentifier::FnMut => todo!(),
-                RootIdentifier::FnOnce => todo!(),
                 RootIdentifier::Array => "mutable",
-                RootIdentifier::Domains => todo!(),
-                RootIdentifier::DatasetType => todo!(),
-                RootIdentifier::VisualType => todo!(),
-                RootIdentifier::TypeType => todo!(),
-                RootIdentifier::TraitType => todo!(),
-                RootIdentifier::ModuleType => todo!(),
-                RootIdentifier::CloneTrait => todo!(),
-                RootIdentifier::CopyTrait => todo!(),
-                RootIdentifier::PartialEqTrait => todo!(),
-                RootIdentifier::EqTrait => todo!(),
-                RootIdentifier::Ref => todo!(),
-                RootIdentifier::Option => todo!(),
+                _ => panic!(),
             },
             _ => {
                 let route_menu = entity_route_menu();
@@ -599,13 +513,31 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 }
             }
         };
+        let canonical_elem_ty = elem_ty.canonicalize();
+        self.write(&format!(
+            r#"
+        __StaticLinkageKey::Index {{
+            opd_tys: &["{ty:?}", "i32"],
+        }},"#,
+        ));
+        let canonical_elem_ty_kind = canonical_elem_ty.kind();
+        let elem_ty_reg_memory_kind = self.db.reg_memory_kind(elem_ty);
+        self.write(&format!(
+            r#"
+        index_linkage!(
+            {mutability}
+            {canonical_elem_ty_kind},
+            {elem_ty_reg_memory_kind},"#
+        ));
+        let mangled_intrinsic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(ty);
+        let mangled_intrinsic_elem_ty_vtable = self.db.mangled_intrinsic_ty_vtable(elem_ty);
+        let intrinsic_elem_ty = elem_ty.intrinsic();
+        self.gen_entity_route(ty, EntityRouteRole::Decl);
         self.write(format!(
-            r#",
+            r#"
     __registration__::{mangled_intrinsic_ty_vtable},
     {intrinsic_elem_ty},
-    __registration__::{mangled_intrinsic_elem_ty_vtable},
-    {copy_kind},
-    {mutability}
+    __registration__::{mangled_intrinsic_elem_ty_vtable}
 )"#
         ))
     }

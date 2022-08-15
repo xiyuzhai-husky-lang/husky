@@ -86,23 +86,19 @@ impl<'a> RustCodeGenerator<'a> {
             | FieldDefnVariant::StructDerivedEager { .. } => {
                 self.write("\n    (\n");
                 let field_ident = member.ident.as_str();
+                let canonical_field_ty = field_ty.canonicalize();
+                let field_ty_canonical_kind = canonical_field_ty.kind();
+                let field_ty_reg_memory_kind = self.db.reg_memory_kind(field_ty);
                 self.write(&format!(
                     r#"        __StaticLinkageKey::StructEagerField {{
             this_ty: "{ty}",
             field_ident: "{field_ident}",
         }},
-        {}!("#,
-                    match liason {
-                        MemberLiason::Immutable => "eager_field_linkage",
-                        MemberLiason::Mutable => {
-                            if field_ty.is_ref() {
-                                todo!()
-                            } else {
-                                "eager_mut_field_linkage"
-                            }
-                        }
-                        MemberLiason::Derived => todo!(),
-                    }
+        eager_field_linkage!(
+            {liason},
+            {field_ty_canonical_kind},
+            {field_ty_reg_memory_kind},
+            "#
                 ));
                 self.gen_entity_route(ty, EntityRouteRole::Decl);
                 // INTRINSIC_THIS_TY_VTABLE

@@ -97,6 +97,17 @@ pub enum MemberLiason {
     Derived,
 }
 
+impl std::fmt::Display for MemberLiason {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            MemberLiason::Immutable => "immutable",
+            MemberLiason::Mutable => "mutable",
+            MemberLiason::Derived => "derived",
+        }
+        .fmt(f)
+    }
+}
+
 impl MemberLiason {
     pub fn from_opt_keyword(opt_keyword: Option<LiasonKeyword>) -> MemberLiason {
         match opt_keyword {

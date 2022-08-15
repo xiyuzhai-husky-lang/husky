@@ -1,3 +1,7 @@
+mod query;
+
+pub use query::*;
+
 use std::alloc::{Layout, LayoutError};
 
 pub fn repr_c(fields: &[Layout]) -> Result<(Layout, Vec<usize>), LayoutError> {
