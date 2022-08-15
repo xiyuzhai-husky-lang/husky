@@ -6,7 +6,11 @@ use husky_word::RootIdentifier;
 use vm::{__Register, __RegisterDataKind, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 
 impl<'eval> TraceVariant<'eval> {
-    pub fn opt_stats(&self, runtime: &dyn EvalFeature) -> __VMResult<Option<TraceStats>> {
+    pub fn opt_stats(
+        &self,
+        runtime: &dyn EvalFeature,
+        partitions: &[PartitionDefnData],
+    ) -> __VMResult<Option<TraceStats>> {
         match self {
             TraceVariant::Main(repr) => feature_repr_opt_stats(runtime, repr, None),
             TraceVariant::Module { route, file, range } => Ok(None),
