@@ -114,7 +114,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         },
         eager_field_linkage!(
             immutable,
-            Ref,
+            EvalRef,
             BoxNonCopyable,
             raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE,
             cc
@@ -171,9 +171,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             mutable,
             Intrinsic,
             BoxNonCopyable,Vec<raw_contour::RawContour<'eval>>,
-    __registration__::__VEC_RAW_CONTOUR_VTABLE,
-    mnist_classifier::raw_contour::RawContour,
-    __registration__::__RAW_CONTOUR_VTABLE
+            __registration__::__VEC_RAW_CONTOUR_VTABLE,
+            raw_contour::RawContour<'eval>,
+            __registration__::__RAW_CONTOUR_VTABLE
 )
     ),
     (
@@ -231,9 +231,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             mutable,
             Intrinsic,
             BoxNonCopyable,Vec<connected_component::ConnectedComponent>,
-    __registration__::__VEC_CONNECTED_COMPONENT_VTABLE,
-    mnist_classifier::connected_component::ConnectedComponent,
-    __registration__::__CONNECTED_COMPONENT_VTABLE
+            __registration__::__VEC_CONNECTED_COMPONENT_VTABLE,
+            connected_component::ConnectedComponent,
+            __registration__::__CONNECTED_COMPONENT_VTABLE
 )
     ),
     (
@@ -389,9 +389,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             mutable,
             Intrinsic,
             BoxNonCopyable,Vec<geom2d::Point2d>,
-    __registration__::__VEC_POINT_2_D_VTABLE,
-    mnist_classifier::geom2d::Point2d,
-    __registration__::__POINT_2_D_VTABLE
+            __registration__::__VEC_POINT_2_D_VTABLE,
+            geom2d::Point2d,
+            __registration__::__POINT_2_D_VTABLE
 )
     ),
     (
@@ -422,7 +422,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         },
         eager_field_linkage!(
             immutable,
-            Ref,
+            EvalRef,
             BoxNonCopyable,
             line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE,
             contour
@@ -807,7 +807,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         },
         eager_field_linkage!(
             immutable,
-            Ref,
+            EvalRef,
             BoxNonCopyable,
             line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE,
             line_segment_sketch
@@ -919,9 +919,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             immutable,
             Intrinsic,
             BoxNonCopyable,__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>,
-    __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE,
-    mnist_classifier::line_segment_sketch::LineSegment,
-    __registration__::__LINE_SEGMENT_VTABLE
+            __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE,
+            line_segment_sketch::LineSegment<'eval>,
+            __registration__::__LINE_SEGMENT_VTABLE
 )
     ),
     (
@@ -975,9 +975,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             mutable,
             Intrinsic,
             BoxNonCopyable,Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>,
-    __registration__::__VEC_CONCAVE_COMPONENT_VTABLE,
-    mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent,
-    __registration__::__CONCAVE_COMPONENT_VTABLE
+            __registration__::__VEC_CONCAVE_COMPONENT_VTABLE,
+            line_segment_sketch::concave_component::ConcaveComponent<'eval>,
+            __registration__::__CONCAVE_COMPONENT_VTABLE
 )
     ),
     (
@@ -1082,7 +1082,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         },
         eager_field_linkage!(
             immutable,
-            Ref,
+            EvalRef,
             BoxNonCopyable,
             line_segment_sketch::convex_component::ConvexCompoent<'eval>, __registration__::__CONVEX_COMPOENT_VTABLE, line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE,
             line_segment_sketch
@@ -1207,9 +1207,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             immutable,
             Intrinsic,
             BoxNonCopyable,__std::slice::CyclicSlice<'eval, geom2d::Point2d>,
-    __registration__::__CYCLIC_SLICE_POINT_2_D_VTABLE,
-    mnist_classifier::geom2d::Point2d,
-    __registration__::__POINT_2_D_VTABLE
+            __registration__::__CYCLIC_SLICE_POINT_2_D_VTABLE,
+            geom2d::Point2d,
+            __registration__::__POINT_2_D_VTABLE
 )
     ),
     (
@@ -1265,9 +1265,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             mutable,
             Intrinsic,
             BoxNonCopyable,Vec<line_segment_sketch::LineSegment<'eval>>,
-    __registration__::__VEC_LINE_SEGMENT_VTABLE,
-    mnist_classifier::line_segment_sketch::LineSegment,
-    __registration__::__LINE_SEGMENT_VTABLE
+            __registration__::__VEC_LINE_SEGMENT_VTABLE,
+            line_segment_sketch::LineSegment<'eval>,
+            __registration__::__LINE_SEGMENT_VTABLE
 )
     ),
     (
@@ -1589,11 +1589,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         },
         index_linkage!(
             mutable,
-            OptionalRef,
+            OptionalEvalRef,
             BoxNonCopyable,Vec<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>>,
-    __registration__::__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE,
-    mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent,
-    __registration__::__CONCAVE_COMPONENT_VTABLE
+            __registration__::__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE,
+            line_segment_sketch::concave_component::ConcaveComponent<'eval>,
+            __registration__::__CONCAVE_COMPONENT_VTABLE
 )
     ),
     (
@@ -1643,11 +1643,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         },
         index_linkage!(
             mutable,
-            Ref,
+            EvalRef,
             BoxNonCopyable,Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>,
-    __registration__::__VEC_REF_CONCAVE_COMPONENT_VTABLE,
-    mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent,
-    __registration__::__CONCAVE_COMPONENT_VTABLE
+            __registration__::__VEC_REF_CONCAVE_COMPONENT_VTABLE,
+            line_segment_sketch::concave_component::ConcaveComponent<'eval>,
+            __registration__::__CONCAVE_COMPONENT_VTABLE
 )
     ),
     (
@@ -1721,9 +1721,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             mutable,
             Intrinsic,
             BoxCopyable,Vec<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>,
-    __registration__::__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE,
-    Fp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>,
-    __registration__::__FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE
+            __registration__::__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE,
+            fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>,
+            __registration__::__FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE
 )
     ),
     (
@@ -1756,7 +1756,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     let f: fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32> = std::mem::transmute(__arguments[1]
                         .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)
                         .fp());
-                    __Register::new_opt_box::<line_segment_sketch::concave_component::ConcaveComponent<'eval>>(__this.pop_with_largest_opt_f32_copyable(f), &__registration__::__CONCAVE_COMPONENT_VTABLE)
+                    __Register::new_opt_eval_ref::<line_segment_sketch::concave_component::ConcaveComponent<'eval>>(__this.pop_with_largest_opt_f32_copyable(f), &__registration__::__CONCAVE_COMPONENT_VTABLE)
                 }
                 __wrapper
             },

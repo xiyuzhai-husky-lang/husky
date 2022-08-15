@@ -160,6 +160,51 @@ macro_rules! field_temp_ref_fp {
             dev_src: static_dev_src!(),
         }
     }};
+    (
+        Optional,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
+        unsafe fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
+            __Register::new_opt_temp_ref::<$INTRINSIC_FIELD_TY>(
+                &value.$field.as_ref(),
+                &$FIELD_TY_VTABLE,
+            )
+        }
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+            dev_src: static_dev_src!(),
+        }
+    }};
+    (
+        OptionalEvalRef,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
+        unsafe fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
+            __Register::new_opt_temp_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
+        }
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+            dev_src: static_dev_src!(),
+        }
+    }};
 }
 
 #[macro_export]
@@ -186,6 +231,73 @@ macro_rules! field_temp_mut_fp {
             dev_src: static_dev_src!(),
         }
     }};
+    (
+        mutable,
+        Optional,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
+        unsafe fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            let value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
+            __Register::new_opt_temp_mut::<$INTRINSIC_FIELD_TY>(
+                value.$field.as_mut(),
+                &$FIELD_TY_VTABLE,
+            )
+        }
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+            dev_src: static_dev_src!(),
+        }
+    }};
+    (
+        mutable,
+        EvalRef,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
+        unsafe fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            panic!("invalid")
+        }
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+            dev_src: static_dev_src!(),
+        }
+    }};
+    (
+        mutable,
+        OptionalRef,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
+        unsafe fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            panic!("invalid")
+        }
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+            dev_src: static_dev_src!(),
+        }
+    }};
     (immutable, $($args: tt),*) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
@@ -205,6 +317,63 @@ macro_rules! field_temp_mut_fp {
 macro_rules! field_move_fp {
     (
         Intrinsic,
+        $Type: ty, $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
+        fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            todo!("field_move_fp")
+        }
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+            dev_src: static_dev_src!(),
+        }
+    }};
+    (
+        Optional,
+        $Type: ty, $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
+        fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            todo!("field_move_fp")
+        }
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+            dev_src: static_dev_src!(),
+        }
+    }};
+    (
+        EvalRef,
+        $Type: ty, $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
+        fn wrapper<'eval>(
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            values: &mut [__Register<'eval>],
+        ) -> __Register<'eval> {
+            todo!("field_move_fp")
+        }
+        __LinkageFp {
+            wrapper,
+            opt_fp: None,
+            dev_src: static_dev_src!(),
+        }
+    }};
+    (
+        OptionalEvalRef,
         $Type: ty, $TYPE_VTABLE: expr,
         $INTRINSIC_FIELD_TY: ty,
         $FIELD_TY_VTABLE: expr,
