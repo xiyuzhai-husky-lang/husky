@@ -92,13 +92,24 @@ impl TraceContext {
             trace_nodes.push(trace_node);
         }
     }
+
     pub(crate) fn receive_trace_stalks(
         &self,
         new_trace_stalks: impl Iterator<Item = (TraceStalkKey, &'static TraceStalkData)>,
     ) {
         let mut trace_stalks = self.trace_stalks.borrow_mut(file!(), line!());
-        for (key, raw_data) in new_trace_stalks {
-            assert!(trace_stalks.insert(key, raw_data).is_none());
+        for (key, data) in new_trace_stalks {
+            assert!(trace_stalks.insert(key, data).is_none());
+        }
+    }
+
+    pub(crate) fn receive_trace_stats(
+        &self,
+        new_trace_stats: impl Iterator<Item = (TraceStatsKey, Option<&'static TraceStats>)>,
+    ) {
+        let mut trace_stats = self.trace_stats.borrow_mut(file!(), line!());
+        for (key, data) in new_trace_stats {
+            assert!(trace_stats.insert(key, data).is_none());
         }
     }
 

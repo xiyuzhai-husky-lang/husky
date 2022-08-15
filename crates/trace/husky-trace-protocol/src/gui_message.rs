@@ -35,6 +35,7 @@ pub enum HuskyTracerGuiMessageVariant {
         needs_figure_canvas_data: bool,
         needs_figure_control_data: bool,
         needs_stalk: bool,
+        needs_stats: bool,
     },
     TraceStalk {
         trace_id: TraceId,

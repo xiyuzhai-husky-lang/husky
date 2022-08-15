@@ -38,6 +38,7 @@ pub enum HuskyTracerServerMessageVariant {
         subtrace_ids: Vec<TraceId>,
         new_traces: Vec<TraceNodeData>,
         trace_stalks: Vec<(TraceStalkKey, TraceStalkData)>,
+        trace_stats: Vec<(TraceStatsKey, Option<TraceStats>)>,
     },
     ToggleShow {
         trace_id: TraceId,
@@ -49,6 +50,7 @@ pub enum HuskyTracerServerMessageVariant {
         opt_figure_canvas_data: Option<FigureCanvasData>,
         opt_figure_control_data: Option<FigureControlData>,
         new_trace_stalks: Vec<(TraceStalkKey, TraceStalkData)>,
+        new_trace_stats: Vec<(TraceStatsKey, Option<TraceStats>)>,
     },
     SetRestrictionWithError {
         sample_id: SampleId,

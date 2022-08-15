@@ -15,13 +15,16 @@ impl DebuggerContext {
         let needs_figure_control_data =
             self.needs_figure_control_data(opt_active_trace_id, &new_restriction);
         let needs_stalk = self.needs_stalk(opt_active_trace_id, &new_restriction);
-        let needs_response = needs_figure_canvas_data || needs_figure_control_data || needs_stalk;
+        let needs_stats = todo!();
+        let needs_response =
+            needs_figure_canvas_data || needs_figure_control_data || needs_stalk || needs_stats;
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::SetRestriction {
                 restriction: new_restriction.clone(),
                 needs_figure_canvas_data,
                 needs_figure_control_data,
                 needs_stalk,
+                needs_stats,
             },
             if needs_response {
                 Some(Box::new(move |message| match message.variant {
@@ -29,6 +32,7 @@ impl DebuggerContext {
                         opt_figure_canvas_data,
                         opt_figure_control_data,
                         new_trace_stalks,
+                        new_trace_stats,
                     } => {
                         opt_active_trace_id.map(|active_trace_id| {
                             let active_trace = self.trace_context.trace_data(active_trace_id);
@@ -45,6 +49,11 @@ impl DebuggerContext {
                             new_trace_stalks
                                 .into_iter()
                                 .map(|(k, v)| (k, self.alloc_value(v))),
+                        );
+                        self.trace_context.receive_trace_stats(
+                            new_trace_stats
+                                .into_iter()
+                                .map(|(k, v)| (k, v.map(|v| self.alloc_value(v)))),
                         );
                         self.restriction_context
                             .restriction

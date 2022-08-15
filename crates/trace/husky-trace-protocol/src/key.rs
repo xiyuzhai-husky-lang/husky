@@ -8,5 +8,6 @@ pub use figure::*;
 pub use figure_control::*;
 pub use subtraces::*;
 pub use trace_stalk::*;
+pub use trace_stats::*;
 
 use super::*;

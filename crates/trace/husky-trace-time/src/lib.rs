@@ -7,6 +7,7 @@ mod impl_restriction;
 mod impl_subtraces;
 mod impl_trace;
 mod impl_trace_stalk;
+mod impl_trace_stats;
 mod trace_node;
 
 use avec::Avec;
@@ -180,6 +181,7 @@ impl HuskyTraceTime {
         Vec<TraceNodeData>,
         Vec<TraceId>,
         Vec<(TraceStalkKey, TraceStalkData)>,
+        Vec<(TraceStatsKey, Option<TraceStats>)>,
     )> {
         let old_len = self.trace_nodes.len();
         let expansion = &mut self.trace_nodes[trace_id.0].as_mut().unwrap().expansion;
@@ -191,7 +193,8 @@ impl HuskyTraceTime {
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
             let trace_stalks = self.collect_new_trace_stalks();
-            Some((new_traces, subtrace_ids, trace_stalks))
+            let trace_stats = self.collect_new_trace_stats();
+            Some((new_traces, subtrace_ids, trace_stalks, trace_stats))
         } else {
             None
         }
