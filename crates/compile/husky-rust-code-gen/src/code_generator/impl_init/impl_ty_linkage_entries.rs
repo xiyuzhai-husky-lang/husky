@@ -110,30 +110,12 @@ impl<'a> RustCodeGenerator<'a> {
                 // INTRINSIC_FIELD_TY_VTABLE
                 self.write(", __registration__::");
                 self.write(&self.db.mangled_intrinsic_ty_vtable(field_ty));
-                self.write(", ");
-                self.write(field_ident);
-                let copy_kind = if self.db.is_copyable(field_ty).unwrap() {
-                    match field_ty {
-                        EntityRoutePtr::Root(root_identifer) => match root_identifer {
-                            RootIdentifier::Void
-                            | RootIdentifier::I32
-                            | RootIdentifier::I64
-                            | RootIdentifier::F32
-                            | RootIdentifier::F64
-                            | RootIdentifier::B32
-                            | RootIdentifier::B64
-                            | RootIdentifier::Bool => "direct",
-                            _ => panic!(),
-                        },
-                        EntityRoutePtr::Custom(_) => "box",
-                        EntityRoutePtr::ThisType => todo!(),
-                    }
-                } else {
-                    "invalid"
-                };
-                self.write(", ");
-                self.write(copy_kind);
-                self.write(")\n    ),");
+                self.write(format!(
+                    r#",
+            {field_ident}
+        )
+    ),"#,
+                ));
             }
             FieldDefnVariant::StructDerivedLazy { ref defn_repr } => match **defn_repr {
                 DefinitionRepr::LazyExpr { .. } => (),

@@ -102,14 +102,7 @@ macro_rules! field_temp_mut_fp {
             dev_src: static_dev_src!(),
         }
     }};
-    (
-        immutable,
-        Intrinsic,
-        $Type: ty,
-        $TYPE_VTABLE: expr,
-        $FIELD_TY_VTABLE: expr,
-        $field: ident
-    ) => {{
+    (immutable, $($args: tt),*) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
