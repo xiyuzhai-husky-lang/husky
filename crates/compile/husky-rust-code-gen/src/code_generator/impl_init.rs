@@ -433,30 +433,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 self.write(">(");
             }
         }
-        // match output_ty_reg_memory_kind {
-        //     RegMemoryKind::Direct => {
-        //         if canonical_output_ty.is_primitive() {
-        //             todo!()
-        //         } else {
-        //             todo!()
-        //         }
-        //     }
-        //     RegMemoryKind::BoxCopyable => todo!(),
-        //     RegMemoryKind::BoxNonCopyable => todo!(),
-        // }
-        // let is_output_ty_primitive = decl.output.ty().is_primitive();
-        // let is_output_ty_option = decl.output.ty().is_option();
-        // if !is_output_ty_primitive {
-        //     if is_output_ty_option {
-        //         msg_once!("handle ref properly");
-        //         msg_once!("handle opt primitive properly (no need to put in box)");
-        //         self.write("__Register::new_opt_box::<");
-        //     } else {
-        //         self.write("__Register::new_box::<");
-        //     }
-        //     self.gen_entity_route(decl.output.ty().intrinsic(), EntityRouteRole::Decl);
-        //     self.write(">(")
-        // }
         gen_caller(self);
         self.write("(");
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {

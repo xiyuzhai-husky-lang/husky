@@ -56,37 +56,6 @@ impl TraceTokenKind {
     }
 }
 
-// impl From<__VMError> for TraceTokenData {
-//     fn from(e: __VMError) -> Self {
-//         Self {
-//             kind: TraceTokenKind::Error,
-//             value: e.message,
-//             opt_associated_trace_id: None,
-//         }
-//     }
-// }
-
-// impl<'eval> From<__Register<'eval>> for TraceTokenData {
-//     fn from(reg: __Register<'eval>) -> Self {
-//         log_once!("todo: value trace");
-//         let value = match reg.data_kind() {
-//             __RegisterDataKind::PrimitiveValue => todo!(),
-//             __RegisterDataKind::Box => todo!(),
-//             __RegisterDataKind::EvalRef => todo!(),
-//             __RegisterDataKind::TempRef => todo!(),
-//             __RegisterDataKind::TempMut => todo!(),
-//             __RegisterDataKind::Moved => todo!(),
-//             __RegisterDataKind::Undefined => todo!(),
-//             __RegisterDataKind::Unreturned => todo!(),
-//         };
-//         TraceTokenData {
-//             kind: TraceTokenKind::Fade,
-//             value: "...".to_string(),
-//             opt_associated_trace_id: None,
-//         }
-//     }
-// }
-
 impl std::fmt::Display for TraceTokenKind {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.as_str().fmt(f)

@@ -48,7 +48,7 @@ impl Instruction {
         match self.variant {
             InstructionVariant::PushVariable { .. } => todo!(),
             InstructionVariant::PushLiteralValue { .. } => todo!(),
-            InstructionVariant::CallRoutine { .. } => "CallRoutine",
+            InstructionVariant::CallRoutine { .. } => "call routine",
             InstructionVariant::CallInterpreted { .. } => todo!(),
             InstructionVariant::VirtualStructField { .. } => todo!(),
             InstructionVariant::NewVirtualStruct { .. } => todo!(),
