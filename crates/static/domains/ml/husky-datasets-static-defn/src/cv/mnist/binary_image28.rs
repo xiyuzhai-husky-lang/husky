@@ -34,12 +34,13 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(index_linkage!(
+                            mutable,
+                            Intrinsic,
+                            direct,
                             BinaryImage28,
                             __BINARY_IMAGE_28_VTABLE,
                             u32,
-                            __B32_VTABLE,
-                            direct,
-                            mutable
+                            __B32_VTABLE
                         )),
                     },
                 },

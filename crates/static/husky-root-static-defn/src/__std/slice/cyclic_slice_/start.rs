@@ -8,12 +8,13 @@ pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDef
         liason: MemberLiason::Mutable,
         field_ty: "i32",
         linkage: eager_field_linkage!(
+            Intrinsic,
+            direct,
             VirtualCyclicSlice<'eval>,
             &__VIRTUAL_CYCLIC_SLICE_VTABLE,
             i32,
             &__I32_VTABLE,
-            start,
-            direct
+            start
         ),
     },
     dev_src: husky_dev_utils::static_dev_src!(),

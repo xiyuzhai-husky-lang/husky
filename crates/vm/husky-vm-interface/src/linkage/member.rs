@@ -56,15 +56,24 @@ macro_rules! method_elem_linkage {
 
 #[macro_export]
 macro_rules! eager_field_linkage {
-    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
+    (
+        $canonical_kind: ident,
+        $reg_memory_kind: tt,
+        $Type: ty,
+        $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
         __Linkage::Member(&__MemberLinkage {
             copy_fp: field_copy_fp!(
+                $canonical_kind,
+                $reg_memory_kind,
                 $Type,
                 $TYPE_VTABLE,
                 $INTRINSIC_FIELD_TY,
                 $FIELD_TY_VTABLE,
-                $field,
-                $copy_kind
+                $field
             ),
             eval_ref_fp: field_eval_ref_fp!(
                 $Type,
@@ -156,12 +165,13 @@ macro_rules! eager_mut_field_linkage {
 #[macro_export]
 macro_rules! index_linkage {
     (
+        $mutability: tt,
+        $canonical_kind: tt,
+        $reg_memory_kind: tt,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_ELEMENT_TY: ty,
-        $ELEMENT_TYPE_VTABLE: expr,
-        $copy_kind: tt,
-        $mutability: tt
+        $ELEMENT_TYPE_VTABLE: expr
     ) => {{
         __Linkage::Member(&__MemberLinkage {
             copy_fp: index_copy_fp!(
@@ -169,26 +179,30 @@ macro_rules! index_linkage {
                 $TYPE_VTABLE,
                 $INTRINSIC_ELEMENT_TY,
                 $ELEMENT_TYPE_VTABLE,
-                $copy_kind
+                $canonical_kind,
+                $reg_memory_kind
             ),
             eval_ref_fp: index_eval_ref_fp!(
+                $canonical_kind,
                 $Type,
                 $TYPE_VTABLE,
                 $INTRINSIC_ELEMENT_TY,
                 $ELEMENT_TYPE_VTABLE
             ),
             temp_ref_fp: index_temp_ref_fp!(
+                $canonical_kind,
                 $Type,
                 $TYPE_VTABLE,
                 $INTRINSIC_ELEMENT_TY,
                 $ELEMENT_TYPE_VTABLE
             ),
             temp_mut_fp: index_temp_mut_fp!(
+                $mutability,
+                $canonical_kind,
                 $Type,
                 $TYPE_VTABLE,
                 $INTRINSIC_ELEMENT_TY,
-                $ELEMENT_TYPE_VTABLE,
-                $mutability
+                $ELEMENT_TYPE_VTABLE
             ),
             move_fp: index_move_fp!(
                 $Type,

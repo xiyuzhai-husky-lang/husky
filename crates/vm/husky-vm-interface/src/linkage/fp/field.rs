@@ -1,16 +1,24 @@
 #[macro_export]
 macro_rules! field_copy_fp {
-    ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident, $copy_kind: tt) => {{
+    (
+        $canonical_kind: ident,
+        $reg_memory_kind: tt,
+        $Type: ty, $TYPE_VTABLE: expr,
+        $INTRINSIC_FIELD_TY: ty,
+        $FIELD_TY_VTABLE: expr,
+        $field: ident
+    ) => {{
         unsafe fn wrapper<'eval>(
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             register_new_copyable!(
+                $canonical_kind,
+                $reg_memory_kind,
                 value.$field,
                 $INTRINSIC_FIELD_TY,
-                $FIELD_TY_VTABLE,
-                $copy_kind
+                $FIELD_TY_VTABLE
             )
         }
         __LinkageFp {
