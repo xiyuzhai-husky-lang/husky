@@ -36,6 +36,10 @@ impl TraceContext {
         }
     }
 
+    pub(crate) fn opt_trace_stats(&self, restriction: &Restriction) -> Option<&'static TraceStats> {
+        todo!()
+    }
+
     pub(crate) fn opt_active_trace(&self) -> Option<&'static TraceData> {
         self.opt_active_trace_id
             .cget()

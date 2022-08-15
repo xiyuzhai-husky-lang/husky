@@ -1,6 +1,8 @@
+use husky_signal::Signalable;
+
 use super::*;
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub enum TraceStats {
     Classification {
         samples: usize,
@@ -10,3 +12,5 @@ pub enum TraceStats {
         falses: usize,
     },
 }
+
+impl Signalable for TraceStats {}

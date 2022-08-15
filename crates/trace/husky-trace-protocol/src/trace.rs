@@ -24,7 +24,6 @@ pub struct TraceData {
     pub compile_time_version: usize,
     pub can_have_subtraces: bool,
     pub reachable: bool,
-    pub opt_stats: Option<TraceStats>,
 }
 
 impl TraceData {

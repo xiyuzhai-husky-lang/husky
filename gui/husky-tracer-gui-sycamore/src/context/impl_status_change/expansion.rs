@@ -46,6 +46,11 @@ impl DebuggerContext {
                                     .into_iter()
                                     .map(|(k, v)| (k, self.alloc_value(v))),
                             );
+                            self.trace_context.receive_trace_stats(
+                                trace_stats
+                                    .into_iter()
+                                    .map(|(k, v)| (k, v.map(|v| self.alloc_value(v)))),
+                            );
                             expansion.set(true)
                         }
                         _ => panic!(),
