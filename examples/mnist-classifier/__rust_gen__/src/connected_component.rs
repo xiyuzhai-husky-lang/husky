@@ -26,7 +26,9 @@ impl ConnectedComponent {
             .cache_lazy_field(
                 self as *const _ as *const (),
                 __uid,
-                Ok(__Register::new_box(
+                Ok(__Register::new_box::<
+                    Vec<crate::raw_contour::RawContour<'eval>>,
+                >(
                     crate::raw_contour::find_raw_contours(self),
                     &__registration__::__VEC_RAW_CONTOUR_VTABLE,
                 )),
@@ -64,7 +66,7 @@ pub(crate) fn connected_components<'eval>(
     return __ctx
         .cache_feature(
             __feature,
-            Ok(__Register::new_box(
+            Ok(__Register::new_box::<Vec<ConnectedComponent>>(
                 find_connected_components(&__input(__ctx)),
                 &__registration__::__VEC_CONNECTED_COMPONENT_VTABLE,
             )),
@@ -87,7 +89,7 @@ pub(crate) fn major_connected_component<'eval>(
     return __ctx
         .cache_feature(
             __feature,
-            Ok(__Register::new_eval_ref(
+            Ok(__Register::new_eval_ref::<ConnectedComponent>(
                 &(connected_components(__ctx)[(0) as usize]),
                 &__registration__::__CONNECTED_COMPONENT_VTABLE,
             )

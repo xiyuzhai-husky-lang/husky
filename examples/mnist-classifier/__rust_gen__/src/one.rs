@@ -11,7 +11,10 @@ pub(crate) fn haha<'eval>(__ctx: &dyn __EvalContext<'eval>) -> Option<&'eval i32
     return __ctx
         .cache_feature(
             __feature,
-            Ok(__Register::new_box(1, &__registration__::__I32_VTABLE)),
+            Ok(__Register::new_box::<i32>(
+                1,
+                &__registration__::__I32_VTABLE,
+            )),
         )
         .unwrap()
         .downcast_opt_eval_ref(&__registration__::__I32_VTABLE);

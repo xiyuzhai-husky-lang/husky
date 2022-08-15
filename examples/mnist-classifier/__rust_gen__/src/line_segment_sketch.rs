@@ -77,7 +77,9 @@ impl<'eval> LineSegmentSketch<'eval> {
             .cache_lazy_field(
                 self as *const _ as *const (),
                 __uid,
-                Ok(__Register::new_box(
+                Ok(__Register::new_box::<
+                    Vec<concave_component::ConcaveComponent<'eval>>,
+                >(
                     concave_component::find_concave_components(self),
                     &__registration__::__VEC_CONCAVE_COMPONENT_VTABLE,
                 )),
