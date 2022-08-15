@@ -46,27 +46,6 @@ impl<'eval> VirtualStruct<'eval> {
 
     pub fn bind_field_mut(&mut self, field_idx: u8) -> __Register<'eval> {
         self.fields.data_mut()[field_idx as usize].1.bind_temp_mut()
-        // match field_binding {
-        //     Binding::EvalRef => todo!(),
-        //     Binding::TempRef => todo!(),
-        //     Binding::TempRefMut => {
-        //         let field_value = &mut self.fields.data_mut()[field_idx].1;
-        //         let ptr: *mut dyn __AnyValueDyn = match field_value {
-        //             MemberValue::Copyable(ref mut value) => value.any_mut(),
-        //             MemberValue::Boxed(_) => todo!(),
-        //             MemberValue::GlobalPure(_) => todo!(),
-        //             MemberValue::EvalRef(_) => todo!(),
-        //             MemberValue::Moved => todo!(),
-        //         };
-        //         __TempValue::TempRefMutEval {
-        //             value: unsafe { &mut *ptr },
-        //             owner,
-        //             gen: (),
-        //         }
-        //     }
-        //     Binding::Move => todo!(),
-        //     Binding::Copy => todo!(),
-        // }
     }
 }
 
