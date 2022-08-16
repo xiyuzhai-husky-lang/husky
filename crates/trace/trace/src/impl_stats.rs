@@ -105,11 +105,11 @@ fn feature_opt_stats<'eval>(
     if !comptime.is_implicitly_castable(feature_ty, target_output_ty) {
         return Ok(None);
     }
-    let mut samples = 0;
-    let mut arrivals = 0;
-    let mut nulls = 0;
-    let mut trues = 0;
-    let mut falses = 0;
+    let mut dev_samples = 0;
+    let mut dev_arrivals = 0;
+    let mut dev_nulls = 0;
+    let mut dev_trues = 0;
+    let mut dev_falses = 0;
     let convert_register_to_label = {
         let target_output_ty_intrinsic = target_output_ty.intrinsic();
         if target_output_ty_intrinsic == RootIdentifier::I32.into() {
@@ -141,8 +141,8 @@ fn feature_opt_stats<'eval>(
             }
         }
     };
-    for labeled_data in db.session().val().each_labeled_data() {
-        samples += 1;
+    for labeled_data in db.session().dev().each_labeled_data() {
+        dev_samples += 1;
         let sample_id = labeled_data.sample_id;
         if !db
             .eval_opt_arrival_indicator(opt_arrival_indicator, sample_id)
@@ -150,26 +150,26 @@ fn feature_opt_stats<'eval>(
         {
             continue;
         }
-        arrivals += 1;
+        dev_arrivals += 1;
         let value = compute_value(sample_id).map_err(|e| {
             p!(e);
             todo!()
         })?;
         if let Some(prediction) = convert_register_to_label(&value) {
             match prediction == labeled_data.label {
-                true => trues += 1,
-                false => falses += 1,
+                true => dev_trues += 1,
+                false => dev_falses += 1,
             }
         } else {
-            nulls += 1
+            dev_nulls += 1
         }
     }
     Ok(Some(TraceStats::Classification {
-        samples,
-        arrivals,
-        nulls,
-        trues,
-        falses,
+        dev_samples,
+        dev_arrivals,
+        dev_nulls,
+        dev_trues,
+        dev_falses,
     }))
 }
 
