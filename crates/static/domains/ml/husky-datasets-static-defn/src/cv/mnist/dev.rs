@@ -25,7 +25,7 @@ impl MnistDevLoader {
 
 impl<'eval> LoadSample<'eval> for MnistDevLoader {
     fn len(&self) -> usize {
-        10000
+        50000
     }
 
     fn load<'a>(&'a self, sample_id: SampleId) -> LabeledData<'eval> {
@@ -40,7 +40,7 @@ impl<'eval> LoadSample<'eval> for MnistDevLoader {
         LabeledData {
             input,
             label,
-            sample_id: sample_id,
+            sample_id,
         }
     }
 }
