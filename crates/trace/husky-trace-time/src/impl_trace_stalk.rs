@@ -91,7 +91,9 @@ impl HuskyTraceTime {
         let trace_stalk_key = TraceStalkKey::from_trace_data(sample_id, trace_raw_data);
         let associated_trace_ids = trace_raw_data.associated_trace_ids();
         if !self.trace_stalks.contains_key(&trace_stalk_key) {
-            trace_stalks.push(self.keyed_trace_stalk(trace_id))
+            let (key, data) = self.keyed_trace_stalk(trace_id);
+            self.trace_stalks.insert(key.clone(), data.clone());
+            trace_stalks.push((key, data))
         }
         for associated_trace_id in associated_trace_ids {
             self.collect_new_trace_stalks_within_trace(sample_id, associated_trace_id, trace_stalks)

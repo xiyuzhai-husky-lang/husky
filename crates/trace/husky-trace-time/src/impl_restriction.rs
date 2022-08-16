@@ -39,7 +39,7 @@ impl HuskyTraceTime {
         } else {
             vec![]
         };
-        (new_trace_stalks, self.collect_new_trace_stats())
+        (new_trace_stalks, self.collect_new_trace_statss())
     }
 
     fn set_restriction_raw(&mut self, restriction: Restriction) {

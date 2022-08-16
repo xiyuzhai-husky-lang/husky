@@ -61,6 +61,11 @@ impl HuskyTraceTime {
             }
         }
         root_trace_ids.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
-        self.root_trace_ids = root_trace_ids
+        self.root_trace_ids = root_trace_ids;
+        self.update_trace_statss()
+    }
+
+    fn update_trace_statss(&mut self) {
+        self.collect_new_trace_statss();
     }
 }
