@@ -7,7 +7,7 @@ pub enum FigureCanvasKey {
     Null,
     Generic {
         trace_id: TraceId,
-        partitions: Vec<PartitionDefnData>,
+        partitions: Partitions,
         arrivals: VecSet<TraceId>,
         enters: VecSet<TraceId>,
     },

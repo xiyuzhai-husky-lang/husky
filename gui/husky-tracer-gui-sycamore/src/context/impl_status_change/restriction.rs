@@ -14,8 +14,8 @@ impl DebuggerContext {
             self.needs_figure_canvas_data(opt_active_trace_id, &new_restriction);
         let needs_figure_control_data =
             self.needs_figure_control_data(opt_active_trace_id, &new_restriction);
-        let needs_stalk = self.needs_stalk(opt_active_trace_id, &new_restriction);
-        let needs_stats = todo!();
+        let needs_stalk = self.needs_stalk(&new_restriction);
+        let needs_stats = self.needs_stats(&new_restriction);
         let needs_response =
             needs_figure_canvas_data || needs_figure_control_data || needs_stalk || needs_stats;
         self.ws.send_message(
