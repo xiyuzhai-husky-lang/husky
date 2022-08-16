@@ -43,11 +43,7 @@ impl DebuggerContext {
             .contains_key(&key)
     }
 
-    pub(super) fn needs_stalk(
-        &self,
-        opt_active_trace_id: Option<TraceId>,
-        restriction: &Restriction,
-    ) -> bool {
+    pub(super) fn needs_stalk(&self, restriction: &Restriction) -> bool {
         // let active_trace_id = if let Some(active_trace_id) = opt_active_trace_id {
         //     active_trace_id
         // } else {
@@ -64,6 +60,21 @@ impl DebuggerContext {
                 let key = TraceStalkKey::from_trace_data(sample_id, trace_data);
                 self.trace_context
                     .trace_stalks
+                    .borrow(file!(), line!())
+                    .contains_key(&key)
+            })
+    }
+
+    pub(super) fn needs_stats(&self, new_restriction: &Restriction) -> bool {
+        !self
+            .trace_context
+            .for_all_expanded_traces(new_restriction.opt_sample_id(), |trace_data| {
+                let key = TraceStatsKey {
+                    trace_id: trace_data.id,
+                    partitions: new_restriction.partitions().clone(),
+                };
+                self.trace_context
+                    .trace_statss
                     .borrow(file!(), line!())
                     .contains_key(&key)
             })

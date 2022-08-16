@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 pub struct Restriction {
     is_specific: bool,
     specific_sample_id: SampleId,
-    partitions: Vec<PartitionDefnData>,
+    partitions: Partitions,
     arrivals: VecSet<TraceId>,
     enters: VecSet<TraceId>,
 }
@@ -26,7 +26,7 @@ impl Restriction {
         !self.is_specific
     }
 
-    pub fn partitions(&self) -> &Vec<PartitionDefnData> {
+    pub fn partitions(&self) -> &Partitions {
         &self.partitions
     }
 
@@ -50,7 +50,7 @@ impl Restriction {
         Self {
             is_specific: true,
             specific_sample_id,
-            partitions: vec![PartitionDefnData {
+            partitions: smallvec::smallvec![PartitionDefnData {
                 ncol: 7,
                 variant: PartitionDefnDataVariant::Other,
             }],
@@ -92,7 +92,7 @@ impl Default for Restriction {
         Self {
             is_specific: false,
             specific_sample_id: SampleId(0),
-            partitions: vec![PartitionDefnData {
+            partitions: smallvec::smallvec![PartitionDefnData {
                 ncol: 7,
                 variant: PartitionDefnDataVariant::Other,
             }],
