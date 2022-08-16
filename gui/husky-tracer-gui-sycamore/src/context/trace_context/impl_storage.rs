@@ -22,7 +22,6 @@ impl TraceContext {
             sample_id,
             &self.trace_nodes.borrow(file!(), line!())[trace_id.0].data,
         );
-        // self.trace_stalks.borrow(file!(), line!())[&key]
         if let Some(trace_stalk) = self.trace_stalks.borrow(file!(), line!()).get(&key) {
             trace_stalk
         } else {
@@ -36,8 +35,26 @@ impl TraceContext {
         }
     }
 
-    pub(crate) fn opt_trace_stats(&self, restriction: &Restriction) -> Option<&'static TraceStats> {
-        todo!()
+    pub(crate) fn opt_trace_stats(
+        &self,
+        trace_id: TraceId,
+        restriction: &Restriction,
+    ) -> Option<&'static TraceStats> {
+        let key = TraceStatsKey {
+            trace_id,
+            partitions: restriction.partitions().clone(),
+        };
+        if let Some(opt_trace_stats) = self.trace_statss.borrow(file!(), line!()).get(&key) {
+            opt_trace_stats.clone()
+        } else {
+            log::info!(
+                "self.trace_statss = {:?}",
+                self.trace_statss.borrow(file!(), line!())
+            );
+            let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
+            log::info!("trace: {:?}", trace);
+            panic!("no trace stalk for key {:?}", key);
+        }
     }
 
     pub(crate) fn opt_active_trace(&self) -> Option<&'static TraceData> {
@@ -111,7 +128,7 @@ impl TraceContext {
         &self,
         new_trace_stats: impl Iterator<Item = (TraceStatsKey, Option<&'static TraceStats>)>,
     ) {
-        let mut trace_stats = self.trace_stats.borrow_mut(file!(), line!());
+        let mut trace_stats = self.trace_statss.borrow_mut(file!(), line!());
         for (key, data) in new_trace_stats {
             assert!(trace_stats.insert(key, data).is_none());
         }
@@ -123,38 +140,5 @@ impl TraceContext {
             .borrow_mut(file!(), line!())
             .insert(todo!(), stalk)
             .is_none());
-        // (trace_id, Some(input_id))
     }
-
-    //  fn   get_trace_stalk_store(
-    //         trace_id: TraceId,
-    //         input_id: usize,
-    //         make_request: ()
-    //     ) {
-    //         return self.trace_stalk_store_map.get_store(
-    //             trace_id,
-    //             input_id,
-    //             make_request
-    //         );
-    //     }
-
-    // fn print_state() {
-    //     console.log("trace cache:");
-    //     console.log("    traces");
-    //     self.traces.print_state(8);
-    // }
 }
-
-// function gen_subtraces_key(
-//     effective_opt_input_id_for_subtraces: usize | null,
-//     trace_id: TraceId
-// ): string {
-//     return `${effective_opt_input_id_for_subtraces}:${trace_id}`;
-// }
-
-// function gen_subtraces_effective_opt_input_id(
-//     opt_input_id: usize | null,
-//     trace: Trace
-// ): usize | null {
-//     throw new Error("TODO");
-// }

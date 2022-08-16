@@ -45,6 +45,7 @@ pub struct HuskyTraceTime {
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
     pub trace_stalks: HashMap<TraceStalkKey, TraceStalkData>,
+    pub trace_statss: HashMap<TraceStatsKey, Option<TraceStats>>,
     root_trace_ids: Vec<TraceId>,
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
     figure_controls: HashMap<FigureControlKey, FigureControlData>,
@@ -59,6 +60,7 @@ impl HuskyTraceTime {
             runtime_singleton: HuskyRuntime::new(init_compile_time, eval_time_config),
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
+            trace_statss: Default::default(),
             opt_active_trace_id: Default::default(),
             subtrace_ids_map: Default::default(),
             figure_controls: Default::default(),
@@ -193,7 +195,7 @@ impl HuskyTraceTime {
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
             let trace_stalks = self.collect_new_trace_stalks();
-            let trace_stats = self.collect_new_trace_stats();
+            let trace_stats = self.collect_new_trace_statss();
             Some((new_traces, subtrace_ids, trace_stalks, trace_stats))
         } else {
             None
@@ -239,7 +241,7 @@ impl HuskyTraceTime {
         let pins = self.pins.clone();
         let traces = self.all_trace_nodes();
         InitData {
-            trace_init_data: TraceInitState {
+            trace_init_data: TraceInitData {
                 opt_active_trace_id,
                 trace_nodes: traces,
                 subtrace_ids_map: self
@@ -249,6 +251,11 @@ impl HuskyTraceTime {
                     .collect(),
                 trace_stalks: self
                     .trace_stalks
+                    .iter()
+                    .map(|(k, v)| (k.clone(), v.clone()))
+                    .collect(),
+                trace_statss: self
+                    .trace_statss
                     .iter()
                     .map(|(k, v)| (k.clone(), v.clone()))
                     .collect(),

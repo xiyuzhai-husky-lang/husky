@@ -50,6 +50,12 @@ impl DebuggerContext {
                 .collect(),
             init_data
                 .trace_init_data
+                .trace_statss
+                .into_iter()
+                .map(|(k, v)| (k, v.map(|v| self.alloc_value(v))))
+                .collect(),
+            init_data
+                .trace_init_data
                 .subtrace_ids_map
                 .into_iter()
                 .map(|(k, v)| (k, self.alloc_value(v) as &'static [TraceId]))
