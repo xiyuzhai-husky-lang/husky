@@ -37,6 +37,17 @@ impl FeatureRepr {
         }
     }
 
+    pub fn leading_keyword(&self) -> &'static str {
+        match self {
+            FeatureRepr::Value { .. } => panic!(),
+            FeatureRepr::Expr(_) => "def ",
+            FeatureRepr::LazyBlock(_) => "def ",
+            FeatureRepr::FuncBlock(_) => "func ",
+            FeatureRepr::ProcBlock(_) => "proc ",
+            FeatureRepr::TargetInput { .. } => panic!(),
+        }
+    }
+
     pub fn ty(&self) -> EntityRoutePtr {
         match self {
             FeatureRepr::Value { ty, .. } => *ty,

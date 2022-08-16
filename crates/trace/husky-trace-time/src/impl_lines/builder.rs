@@ -57,8 +57,10 @@ impl<'a> TraceTokenBuilder<'a> {
     pub(super) fn build(mut self) -> Vec<TraceLineData> {
         match self.trace_variant {
             TraceVariant::Main(feature_block) => self.push(keyword!("main")),
-            TraceVariant::EntityFeature { route, .. } => {
-                self.push(keyword!("def "));
+            TraceVariant::EntityFeature {
+                route, ref repr, ..
+            } => {
+                self.push(keyword!(repr.leading_keyword()));
                 self.push(ident!(route.ident().as_str()))
             }
             TraceVariant::Module { route, .. } => {

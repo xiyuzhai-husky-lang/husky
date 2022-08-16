@@ -1490,12 +1490,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         method_elem_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>, __registration__::__VEC_LINE_SEGMENT_VTABLE, __registration__::__LINE_SEGMENT_VTABLE, firstx)
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::one::haha"
-        },
-        opt_feature_linkage!(one::haha, i32, __registration__::__I32_VTABLE),
-    ),
-    (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::fermi::FermiMatchResult"
         },
