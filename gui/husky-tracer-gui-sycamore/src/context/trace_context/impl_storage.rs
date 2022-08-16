@@ -53,7 +53,7 @@ impl TraceContext {
             );
             let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
             log::info!("trace: {:?}", trace);
-            panic!("no trace stalk for key {:?}", key);
+            panic!("no opt trace stats for key {:?}", key);
         }
     }
 
