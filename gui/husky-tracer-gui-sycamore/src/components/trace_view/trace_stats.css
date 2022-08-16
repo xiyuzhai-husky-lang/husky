@@ -4,22 +4,22 @@
     font-family: monospace;  
 }
 
-.SampleStats {
-    color: rgb(113, 96, 0);
+/* .SampleStats {
+    border-bottom: solid 1px rgb(113, 96, 0);
 }
 
 .ArrivalStats {
-    color: rgb(146, 42, 1);
+    border-bottom:  solid 1px  rgb(146, 42, 1);
 }
 
 .NullStats {
-    color: rgb(105, 105, 152);
+    border-bottom: solid 1px  rgb(105, 105, 152);
 }
 
 .TrueStats {
-    color: rgb(0, 95, 0);
+    border-bottom: solid 1px  rgb(0, 95, 0);
 }
 
 .FalseStats {
-    color: rgb(159, 0, 0);
-}
+    border-bottom: solid 1px  rgb(159, 0, 0);
+} */
