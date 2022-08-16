@@ -25,30 +25,30 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                 span (class = "Division") {
                     "dev:"
                 }
+                " "
                 span (class = "SampleStats") {
-                    " samples = "
+                    "samples = "
                     (*dev_samples)
-                    ","
                 }
+                ", "
                 span (class = "ArrivalStats") {
-                    " arrivals = "
+                    "arrivals = "
                     (*dev_arrivals)
-                    ","
                 }
+                ", "
                 span (class = "NullStats") {
-                    " nulls = "
+                    "nulls = "
                     (*dev_nulls)
-                    ","
                 }
+                ", "
                 span (class = "TrueStats") {
-                    " trues = "
+                    "trues = "
                     (*dev_trues)
-                    ","
                 }
+                ", "
                 span (class = "FalseStats") {
-                    " falses = "
+                    "falses = "
                     (*dev_falses)
-                    ","
                 }
                 ", val: todo!()"
             }
