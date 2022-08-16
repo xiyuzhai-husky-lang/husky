@@ -11,7 +11,7 @@ impl HuskyTraceTime {
             FeatureLazyStmtVariant::Return { ref result } => self.feature_expr_figure(result),
             FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
             FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
-            FeatureLazyStmtVariant::Require { ref condition } => todo!(),
+            FeatureLazyStmtVariant::Require { ref condition } => Ok(FigureCanvasData::void()),
         }
     }
 }
