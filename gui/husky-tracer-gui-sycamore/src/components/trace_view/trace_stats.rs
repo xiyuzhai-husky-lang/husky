@@ -22,17 +22,34 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                 class="TraceStatsView",
                 style=format!("padding-left: {}ch", 3 + props.indent),
             ) {
-                "dev: "
-                "samples = "
-                (*dev_samples)
-                ", arrivals = "
-                (*dev_arrivals)
-                ", nulls = "
-                (*dev_nulls)
-                ", trues = "
-                (*dev_trues)
-                ", falses = "
-                (*dev_falses)
+                span (class = "Division") {
+                    "dev:"
+                }
+                span (class = "SampleStats") {
+                    " samples = "
+                    (*dev_samples)
+                    ","
+                }
+                span (class = "ArrivalStats") {
+                    " arrivals = "
+                    (*dev_arrivals)
+                    ","
+                }
+                span (class = "NullStats") {
+                    " nulls = "
+                    (*dev_nulls)
+                    ","
+                }
+                span (class = "TrueStats") {
+                    " trues = "
+                    (*dev_trues)
+                    ","
+                }
+                span (class = "FalseStats") {
+                    " falses = "
+                    (*dev_falses)
+                    ","
+                }
                 ", val: todo!()"
             }
         },
