@@ -10,7 +10,7 @@ use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RawReturnContext {
-    pub output_ty: RangedEntityRoute,
+    pub return_ty: RangedEntityRoute,
     pub kind: RawReturnContextKind,
 }
 

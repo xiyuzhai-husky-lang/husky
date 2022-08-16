@@ -1,3 +1,5 @@
-def is_one -> ?i32:
+use domains::ml::datasets::cv::mnist::MnistLabel
+
+def is_one -> ?MnistLabel:
     require 2 > 0
-    1
+    MnistLabel::One

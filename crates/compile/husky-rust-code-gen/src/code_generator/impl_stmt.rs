@@ -57,7 +57,7 @@ impl<'a> RustCodeGenerator<'a> {
                 RawReturnContextKind::Feature => {
                     let mangled_output_ty_vtable = self
                         .db
-                        .mangled_intrinsic_ty_vtable(return_context.output_ty.route);
+                        .mangled_intrinsic_ty_vtable(return_context.return_ty.route);
                     self.write(format!(r#"feature_require!(__ctx, __feature, "#));
                     self.gen_expr(stmt.indent, condition);
                     self.write(");");
@@ -73,7 +73,7 @@ impl<'a> RustCodeGenerator<'a> {
                     RawReturnContextKind::Normal => {
                         self.gen_binding(result);
                         // ad hoc
-                        if return_context.output_ty.route.is_option() && !result.ty().is_option() {
+                        if return_context.return_ty.route.is_option() && !result.ty().is_option() {
                             self.write("Some(");
                             self.gen_expr(stmt.indent, result);
                             self.write(")")
@@ -82,12 +82,12 @@ impl<'a> RustCodeGenerator<'a> {
                         }
                     }
                     RawReturnContextKind::Feature => {
-                        self.gen_feature_return(stmt.indent, result, return_context.output_ty.route)
+                        self.gen_feature_return(stmt.indent, result, return_context.return_ty.route)
                     }
                     RawReturnContextKind::LazyField => self.gen_lazy_field_return(
                         stmt.indent,
                         result,
-                        return_context.output_ty.route,
+                        return_context.return_ty.route,
                     ),
                 }
                 self.write(";")
