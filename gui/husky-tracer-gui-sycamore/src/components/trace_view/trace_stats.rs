@@ -11,27 +11,29 @@ pub struct TraceStatsProps<'a> {
 pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>) -> View<G> {
     match props.stats {
         TraceStats::Classification {
-            samples,
-            arrivals,
-            nulls,
-            trues,
-            falses,
+            dev_samples,
+            dev_arrivals,
+            dev_nulls,
+            dev_trues,
+            dev_falses,
         } => view! {
             scope,
             div (
                 class="TraceStatsView",
                 style=format!("padding-left: {}ch", 3 + props.indent),
             ) {
+                "dev: "
                 "samples = "
-                (*samples)
+                (*dev_samples)
                 ", arrivals = "
-                (*arrivals)
+                (*dev_arrivals)
                 ", nulls = "
-                (*nulls)
+                (*dev_nulls)
                 ", trues = "
-                (*trues)
+                (*dev_trues)
                 ", falses = "
-                (*falses)
+                (*dev_falses)
+                ", val: todo!()"
             }
         },
     }
