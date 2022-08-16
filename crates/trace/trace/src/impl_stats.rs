@@ -73,7 +73,12 @@ fn feature_stmt_opt_stats<'eval>(
 ) -> __VMResult<Option<TraceStats>> {
     match stmt.variant {
         FeatureStmtVariant::Init { .. } | FeatureStmtVariant::Assert { .. } => Ok(None),
-        FeatureStmtVariant::Require { .. } => todo!(),
+        FeatureStmtVariant::Require { return_context, .. } => feature_opt_stats(
+            db,
+            return_context.return_ty.route,
+            |sample_id| db.eval_feature_stmt(stmt, sample_id),
+            stmt.opt_arrival_indicator.as_ref(),
+        ),
         FeatureStmtVariant::Return { ref result } => feature_expr_opt_stats(db, result),
         FeatureStmtVariant::ReturnXml { ref result } => todo!(),
         FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
@@ -106,7 +111,8 @@ fn feature_opt_stats<'eval>(
     }
     let mut dev_samples = 0;
     let mut dev_arrivals = 0;
-    let mut dev_nulls = 0;
+    let mut dev_unreturneds = 0;
+    let mut dev_undefineds = 0;
     let mut dev_trues = 0;
     let mut dev_falses = 0;
     let convert_register_to_label = {
@@ -157,19 +163,20 @@ fn feature_opt_stats<'eval>(
             p!(e);
             todo!()
         })?;
-        if let Some(prediction) = convert_register_to_label(&value) {
-            match prediction == labeled_data.label {
+        match convert_register_to_label(&value) {
+            __RegisterDowncastResult::Value(prediction) => match prediction == labeled_data.label {
                 true => dev_trues += 1,
                 false => dev_falses += 1,
-            }
-        } else {
-            dev_nulls += 1
+            },
+            __RegisterDowncastResult::Undefined => dev_undefineds += 1,
+            __RegisterDowncastResult::Unreturned => dev_unreturneds += 1,
         }
     }
     Ok(Some(TraceStats::Classification {
         dev_samples,
         dev_arrivals,
-        dev_nulls,
+        dev_undefineds,
+        dev_unreturneds,
         dev_trues,
         dev_falses,
     }))
@@ -187,31 +194,44 @@ fn feature_expr_opt_stats<'eval>(
     )
 }
 
-fn convert_enum_register_to_label<'eval>(value: &__Register<'eval>) -> Option<Label> {
+fn convert_enum_register_to_label<'eval>(
+    value: &__Register<'eval>,
+) -> __RegisterDowncastResult<Label> {
     match value.data_kind() {
         __RegisterDataKind::PrimitiveValue => todo!(),
-        __RegisterDataKind::Box | __RegisterDataKind::EvalRef => Some(Label(
-            value
-                .downcast_temp_ref::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE)
-                .kind_idx,
-        )),
+        __RegisterDataKind::Box | __RegisterDataKind::EvalRef => {
+            __RegisterDowncastResult::Value(Label(
+                value
+                    .downcast_temp_ref::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE)
+                    .kind_idx,
+            ))
+        }
         __RegisterDataKind::TempRef => todo!(),
         __RegisterDataKind::TempMut => todo!(),
         __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::Undefined => None,
-        __RegisterDataKind::Unreturned => todo!(),
+        __RegisterDataKind::Undefined => __RegisterDowncastResult::Undefined,
+        __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
     }
 }
 
-fn convert_i32_register_to_label<'eval>(value: &__Register<'eval>) -> Option<Label> {
+fn convert_i32_register_to_label<'eval>(
+    value: &__Register<'eval>,
+) -> __RegisterDowncastResult<Label> {
     match value.data_kind() {
         __RegisterDataKind::PrimitiveValue => todo!(),
         __RegisterDataKind::Box => todo!(),
-        __RegisterDataKind::EvalRef => Some(Label(value.downcast_i32())),
+        __RegisterDataKind::EvalRef => __RegisterDowncastResult::Value(Label(value.downcast_i32())),
         __RegisterDataKind::TempRef => todo!(),
         __RegisterDataKind::TempMut => todo!(),
         __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::Undefined => None,
-        __RegisterDataKind::Unreturned => todo!(),
+        __RegisterDataKind::Undefined => __RegisterDowncastResult::Undefined,
+        __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
     }
+}
+
+// todo: move this to vm
+pub enum __RegisterDowncastResult<T> {
+    Value(T),
+    Undefined,
+    Unreturned,
 }

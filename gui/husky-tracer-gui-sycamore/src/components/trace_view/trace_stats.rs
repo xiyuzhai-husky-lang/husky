@@ -13,7 +13,8 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
         TraceStats::Classification {
             dev_samples,
             dev_arrivals,
-            dev_nulls,
+            dev_undefineds,
+            dev_unreturneds,
             dev_trues,
             dev_falses,
         } => view! {
@@ -36,9 +37,14 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                     (*dev_arrivals)
                 }
                 ", "
-                span (class = "NullStats") {
-                    "nulls = "
-                    (*dev_nulls)
+                span (class = "UndefinedStats") {
+                    "undefineds = "
+                    (*dev_undefineds)
+                }
+                ", "
+                span (class = "UnreturnedStats") {
+                    "unreturneds = "
+                    (*dev_unreturneds)
                 }
                 ", "
                 span (class = "TrueStats") {

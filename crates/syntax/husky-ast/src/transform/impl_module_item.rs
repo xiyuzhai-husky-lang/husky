@@ -63,7 +63,7 @@ impl<'a> AstTransformer<'a> {
                         self.context.set(AstContext::Stmt {
                             paradigm: Paradigm::EagerFunctional,
                             return_context: Some(RawReturnContext {
-                                output_ty: RangedEntityRoute {
+                                return_ty: RangedEntityRoute {
                                     route: RootIdentifier::DatasetType.into(),
                                     range: Default::default(),
                                 },
@@ -80,7 +80,7 @@ impl<'a> AstTransformer<'a> {
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
                     return_context: Some(RawReturnContext {
-                        output_ty: RangedEntityRoute {
+                        return_ty: RangedEntityRoute {
                             route: self.db.intern_entity_route(EntityRoute {
                                 variant: EntityRouteVariant::TargetOutputType,
                                 temporal_arguments: Default::default(),

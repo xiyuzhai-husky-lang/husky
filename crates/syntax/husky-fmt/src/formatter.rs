@@ -130,7 +130,7 @@ impl<'a> Formatter<'a> {
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
                     return_context: Some(RawReturnContext {
-                        output_ty: RangedEntityRoute {
+                        return_ty: RangedEntityRoute {
                             route: self.db.intern_entity_route(EntityRoute {
                                 variant: EntityRouteVariant::TargetOutputType,
                                 temporal_arguments: Default::default(),
@@ -154,7 +154,7 @@ impl<'a> Formatter<'a> {
                 self.context.set(AstContext::Stmt {
                     paradigm,
                     return_context: Some(RawReturnContext {
-                        output_ty,
+                        return_ty: output_ty,
                         kind: RawReturnContextKind::Normal,
                     }),
                 });
