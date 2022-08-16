@@ -13,7 +13,7 @@ use crate::{eval_id::FeatureEvalId, *};
 #[derive(Debug, Clone)]
 pub struct FeatureStmt {
     pub indent: fold::Indent,
-    pub variant: FeatureLazyStmtVariant,
+    pub variant: FeatureStmtVariant,
     pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
     pub opt_feature: Option<FeaturePtr>,
     pub file: FilePtr,
@@ -67,7 +67,7 @@ impl FeatureStmt {
                     value: value.clone(),
                     feature: value.feature,
                 });
-                FeatureLazyStmtVariant::Init {
+                FeatureStmtVariant::Init {
                     varname: varname.ident,
                     value,
                 }
@@ -81,9 +81,12 @@ impl FeatureStmt {
                     opt_arrival_indicator.as_ref(),
                     feature_interner,
                 );
-                FeatureLazyStmtVariant::Assert { condition }
+                FeatureStmtVariant::Assert { condition }
             }
-            LazyStmtVariant::Require { ref condition } => {
+            LazyStmtVariant::Require {
+                ref condition,
+                return_context,
+            } => {
                 let condition = FeatureExpr::new(
                     db,
                     opt_this.clone(),
@@ -92,9 +95,12 @@ impl FeatureStmt {
                     opt_arrival_indicator.as_ref(),
                     feature_interner,
                 );
-                FeatureLazyStmtVariant::Require { condition }
+                FeatureStmtVariant::Require {
+                    condition,
+                    return_context,
+                }
             }
-            LazyStmtVariant::Return { ref result } => FeatureLazyStmtVariant::Return {
+            LazyStmtVariant::Return { ref result } => FeatureStmtVariant::Return {
                 result: FeatureExpr::new(
                     db,
                     opt_this.clone(),
@@ -104,7 +110,7 @@ impl FeatureStmt {
                     feature_interner,
                 ),
             },
-            LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureLazyStmtVariant::ReturnXml {
+            LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureStmtVariant::ReturnXml {
                 result: FeatureXmlExpr::new(
                     db,
                     opt_this.clone(),
@@ -149,7 +155,7 @@ impl FeatureStmt {
         ty: RangedEntityRoute,
         mut opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
         feature_interner: &interner::Interner<Feature>,
-    ) -> FeatureLazyStmtVariant {
+    ) -> FeatureStmtVariant {
         let mut branches: Vec<Arc<FeatureBranch>> = vec![];
 
         for lazy_branch in lazy_branches {
@@ -240,6 +246,6 @@ impl FeatureStmt {
                 ),
             }))
         }
-        FeatureLazyStmtVariant::ConditionFlow { branches }
+        FeatureStmtVariant::ConditionFlow { branches }
     }
 }

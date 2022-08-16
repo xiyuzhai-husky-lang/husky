@@ -13,21 +13,21 @@ impl HuskyTraceTime {
         stmt: Arc<FeatureStmt>,
     ) -> Vec<TraceId> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { .. }
-            | FeatureLazyStmtVariant::Assert { .. }
-            | FeatureLazyStmtVariant::Require { .. }
-            | FeatureLazyStmtVariant::Return { .. } => {
+            FeatureStmtVariant::Init { .. }
+            | FeatureStmtVariant::Assert { .. }
+            | FeatureStmtVariant::Require { .. }
+            | FeatureStmtVariant::Return { .. } => {
                 vec![self.new_trace(
                     Some(parent.id()),
                     stmt.indent,
                     TraceVariant::FeatureStmt(stmt),
                 )]
             }
-            FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => branches
+            FeatureStmtVariant::ConditionFlow { ref branches, .. } => branches
                 .iter()
                 .map(|branch| self.feature_branch_trace(parent, stmt.indent, branch.clone()))
                 .collect(),
-            FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
+            FeatureStmtVariant::ReturnXml { ref result } => todo!(),
         }
     }
 

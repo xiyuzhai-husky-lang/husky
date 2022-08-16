@@ -55,12 +55,13 @@ impl<'eval> FeatureLazyBlock {
                 feature_interner,
             );
             match stmt.variant {
-                FeatureLazyStmtVariant::Init { .. }
-                | FeatureLazyStmtVariant::Assert { .. }
-                | FeatureLazyStmtVariant::Require { .. } => (),
-                FeatureLazyStmtVariant::Return { .. }
-                | FeatureLazyStmtVariant::ReturnXml { .. } => finish_flag = true,
-                FeatureLazyStmtVariant::ConditionFlow { .. } => {
+                FeatureStmtVariant::Init { .. }
+                | FeatureStmtVariant::Assert { .. }
+                | FeatureStmtVariant::Require { .. } => (),
+                FeatureStmtVariant::Return { .. } | FeatureStmtVariant::ReturnXml { .. } => {
+                    finish_flag = true
+                }
+                FeatureStmtVariant::ConditionFlow { .. } => {
                     opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
                         FeatureBranchIndicatorVariant::AfterStmtNotReturn { stmt: stmt.clone() },
                         feature_interner,

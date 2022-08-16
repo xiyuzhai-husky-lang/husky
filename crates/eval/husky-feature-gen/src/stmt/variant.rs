@@ -1,7 +1,9 @@
+use husky_ast::RawReturnContext;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureLazyStmtVariant {
+pub enum FeatureStmtVariant {
     Init {
         varname: CustomIdentifier,
         value: Arc<FeatureExpr>,
@@ -11,6 +13,7 @@ pub enum FeatureLazyStmtVariant {
     },
     Require {
         condition: Arc<FeatureExpr>,
+        return_context: RawReturnContext,
     },
     Return {
         result: Arc<FeatureExpr>,
@@ -23,23 +26,23 @@ pub enum FeatureLazyStmtVariant {
     },
 }
 
-impl FeatureLazyStmtVariant {
+impl FeatureStmtVariant {
     pub(super) fn opt_feature(&self, feature_interner: &FeatureInterner) -> Option<FeaturePtr> {
         match self {
-            FeatureLazyStmtVariant::Init { .. } => None,
-            FeatureLazyStmtVariant::Assert { condition } => {
+            FeatureStmtVariant::Init { .. } => None,
+            FeatureStmtVariant::Assert { condition } => {
                 Some(feature_interner.intern(Feature::Assert {
                     condition: condition.feature,
                 }))
             }
-            FeatureLazyStmtVariant::Require { condition } => {
+            FeatureStmtVariant::Require { condition, .. } => {
                 Some(feature_interner.intern(Feature::Require {
                     condition: condition.feature,
                 }))
             }
-            FeatureLazyStmtVariant::Return { result } => Some(result.feature),
-            FeatureLazyStmtVariant::ReturnXml { result } => Some(result.feature),
-            FeatureLazyStmtVariant::ConditionFlow { branches } => Some(
+            FeatureStmtVariant::Return { result } => Some(result.feature),
+            FeatureStmtVariant::ReturnXml { result } => Some(result.feature),
+            FeatureStmtVariant::ConditionFlow { branches } => Some(
                 feature_interner.intern(Feature::Branches {
                     branches: branches
                         .iter()
