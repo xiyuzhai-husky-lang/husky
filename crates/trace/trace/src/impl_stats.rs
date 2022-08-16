@@ -72,12 +72,11 @@ fn feature_stmt_opt_stats<'eval>(
     stmt: &FeatureStmt,
 ) -> __VMResult<Option<TraceStats>> {
     match stmt.variant {
-        FeatureLazyStmtVariant::Init { .. }
-        | FeatureLazyStmtVariant::Assert { .. }
-        | FeatureLazyStmtVariant::Require { .. } => Ok(None),
-        FeatureLazyStmtVariant::Return { ref result } => feature_expr_opt_stats(db, result),
-        FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
-        FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
+        FeatureStmtVariant::Init { .. } | FeatureStmtVariant::Assert { .. } => Ok(None),
+        FeatureStmtVariant::Require { .. } => todo!(),
+        FeatureStmtVariant::Return { ref result } => feature_expr_opt_stats(db, result),
+        FeatureStmtVariant::ReturnXml { ref result } => todo!(),
+        FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
     }
 }
 
@@ -142,6 +141,9 @@ fn feature_opt_stats<'eval>(
         }
     };
     for labeled_data in db.session().dev().each_labeled_data() {
+        if dev_samples >= MAX_SAMPING_SIZE {
+            break;
+        }
         dev_samples += 1;
         let sample_id = labeled_data.sample_id;
         if !db
@@ -177,7 +179,6 @@ fn feature_expr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     expr: &FeatureExpr,
 ) -> __VMResult<Option<TraceStats>> {
-    msg_once!("todo: arrival indicator");
     feature_opt_stats(
         db,
         expr.expr.ty(),

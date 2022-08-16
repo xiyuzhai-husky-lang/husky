@@ -20,7 +20,7 @@ use husky_vm_primitive_value::PrimitiveValueData;
 use husky_xml_syntax::XmlTagKind;
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
-pub use stmt::{FeatureLazyStmtVariant, FeatureStmt};
+pub use stmt::{FeatureStmt, FeatureStmtVariant};
 pub use unique_allocate::{
     new_feature_interner, AllocateUniqueFeature, FeatureInterner, FeaturePtr,
 };

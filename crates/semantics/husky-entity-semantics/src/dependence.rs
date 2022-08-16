@@ -268,7 +268,7 @@ impl EntityDefn {
                     LazyStmtVariant::Assert { ref condition } => {
                         extract_lazy_expr_dependees(condition, builder)
                     }
-                    LazyStmtVariant::Require { ref condition } => {
+                    LazyStmtVariant::Require { ref condition, .. } => {
                         extract_lazy_expr_dependees(condition, builder)
                     }
                     LazyStmtVariant::Return { ref result } => {

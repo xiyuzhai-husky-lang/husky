@@ -53,6 +53,7 @@ pub enum LazyStmtVariant {
     },
     Require {
         condition: Arc<LazyExpr>,
+        return_context: RawReturnContext,
     },
     Return {
         result: Arc<LazyExpr>,

@@ -76,8 +76,12 @@ impl<'a> LazyStmtParser<'a> {
                         RawStmtVariant::Assert(condition) => LazyStmtVariant::Assert {
                             condition: self.parse_lazy_expr(condition)?,
                         },
-                        RawStmtVariant::Require { condition, .. } => LazyStmtVariant::Require {
+                        RawStmtVariant::Require {
+                            condition,
+                            return_context,
+                        } => LazyStmtVariant::Require {
                             condition: self.parse_lazy_expr(condition)?,
+                            return_context,
                         },
                         RawStmtVariant::Break => todo!(),
                         RawStmtVariant::Match { .. } => panic!(),

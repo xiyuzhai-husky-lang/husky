@@ -13,7 +13,7 @@ impl<'a> LinkageCollector<'a> {
             match stmt.variant {
                 LazyStmtVariant::Init { ref value, .. } => self.collect_from_lazy_expr(value),
                 LazyStmtVariant::Assert { ref condition } => self.collect_from_lazy_expr(condition),
-                LazyStmtVariant::Require { ref condition } => {
+                LazyStmtVariant::Require { ref condition, .. } => {
                     self.collect_from_lazy_expr(condition)
                 }
                 LazyStmtVariant::Return { ref result } => self.collect_from_lazy_expr(result),

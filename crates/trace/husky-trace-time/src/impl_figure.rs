@@ -12,7 +12,7 @@ use husky_eager_semantics::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
 };
 use husky_feature_eval::EvalFeature;
-use husky_feature_gen::{FeatureExpr, FeatureExprVariant, FeatureLazyStmtVariant, FeatureStmt};
+use husky_feature_gen::{FeatureExpr, FeatureExprVariant, FeatureStmt, FeatureStmtVariant};
 use husky_print_utils::epin;
 use husky_text::TextQueryGroup;
 use map_collect::MapCollect;
