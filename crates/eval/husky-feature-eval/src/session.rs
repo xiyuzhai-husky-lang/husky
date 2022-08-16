@@ -77,4 +77,8 @@ impl<'eval> Session<'eval> {
     pub fn dev(&self) -> &Division<'eval> {
         &self.dev
     }
+
+    pub fn val(&self) -> &Division<'eval> {
+        &self.val
+    }
 }

@@ -141,7 +141,7 @@ fn feature_opt_stats<'eval>(
             }
         }
     };
-    for labeled_data in db.session().dev().each_labeled_data() {
+    for labeled_data in db.session().val().each_labeled_data() {
         samples += 1;
         let sample_id = labeled_data.sample_id;
         if !db
