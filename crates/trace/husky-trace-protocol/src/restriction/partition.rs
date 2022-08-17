@@ -11,7 +11,6 @@ impl std::fmt::Display for PartitionDefnData {
         match self.variant {
             PartitionDefnDataVariant::Label(label) => label.0.fmt(f),
             PartitionDefnDataVariant::LabelSet(_) => todo!(),
-            PartitionDefnDataVariant::Other => f.write_str("_"),
         }
     }
 }
@@ -20,7 +19,6 @@ impl std::fmt::Display for PartitionDefnData {
 pub enum PartitionDefnDataVariant {
     Label(Label),
     LabelSet(Vec<Label>),
-    Other,
 }
 
 impl PartitionDefnData {
@@ -28,7 +26,6 @@ impl PartitionDefnData {
         match self.variant {
             PartitionDefnDataVariant::Label(label) => label == label,
             PartitionDefnDataVariant::LabelSet(ref labels) => labels.contains(&label),
-            PartitionDefnDataVariant::Other => true,
         }
     }
 
@@ -36,32 +33,28 @@ impl PartitionDefnData {
         match self.variant {
             PartitionDefnDataVariant::Label(l) => format!("{}", l.0),
             PartitionDefnDataVariant::LabelSet(_) => todo!(),
-            PartitionDefnDataVariant::Other => "_".to_string(),
         }
     }
 }
 
-pub struct PartitionedSampler<T> {
+pub struct PartitionedSampler<'a, T> {
     // suppose there are three partitions (including Other)
     // then partition_filled is 0...0111
     // the first partition is filled iff the last digit of partition_filled is 0
     // the second partition is filled iff the last second digit of partition_filled is 0
     flags: u32,
-    partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, T)>)>,
+    partitions: &'a Partitions,
+    partitioned_samples: Vec<Vec<(SampleId, T)>>,
     col_len: u32,
 }
 
-impl<T> PartitionedSampler<T> {
-    pub fn new(restriction: &Restriction) -> Self {
-        let flags: u32 = (!0u32 << restriction.partitions.len()) ^ (!0u32);
-        let partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, T)>)> = restriction
-            .partitions
-            .iter()
-            .map(|partition| (partition.clone(), vec![]))
-            .collect();
+impl<'a, T> PartitionedSampler<'a, T> {
+    pub fn new(partitions: &'a Partitions) -> Self {
+        let flags: u32 = (!0u32 << partitions.total_len()) ^ (!0u32);
         Self {
             flags,
-            partitioned_samples,
+            partitions,
+            partitioned_samples: partitions.init_partition_values(),
             col_len: 5,
         }
     }
@@ -72,24 +65,25 @@ impl<T> PartitionedSampler<T> {
         label: Label,
         f: impl FnOnce() -> Result<(SampleId, T), E>,
     ) -> Result<bool, E> {
-        for (i, (partition, samples)) in self.partitioned_samples.iter_mut().enumerate() {
-            if partition.contains(label) {
-                let max_samples_len = (partition.ncol * self.col_len) as usize;
-                if samples.len() < max_samples_len {
-                    samples.push(f()?);
-                    if samples.len() == max_samples_len {
-                        self.flags &= !(1 << i);
-                    }
-                } else {
-                    assert!((self.flags & (1 << i)) == 0)
-                }
-                break;
+        let i = self.partitions.partition_idx(label);
+        let max_samples_len = (self.partition_ncol(i) * self.col_len) as usize;
+        let samples = &mut self.partitioned_samples[i];
+        if samples.len() < max_samples_len {
+            samples.push(f()?);
+            if samples.len() == max_samples_len {
+                self.flags &= !(1 << i);
             }
+        } else {
+            assert!((self.flags & (1 << i)) == 0)
         }
         Ok(self.flags == 0)
     }
 
-    pub fn finish(self) -> Vec<(PartitionDefnData, Vec<(SampleId, T)>)> {
+    fn partition_ncol(&self, partition_idx: usize) -> u32 {
+        todo!()
+    }
+
+    pub fn finish(self) -> Vec<Vec<(SampleId, T)>> {
         self.partitioned_samples
     }
 }

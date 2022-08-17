@@ -54,7 +54,12 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                     let partitions =restriction.partitions();
                     View::new_fragment(dev_partition_noness.iter().enumerate().map(
                         |(idx, dev_partition_nones)| {
-                            let partition_name = partitions[idx].name();
+                            let partition_name =
+                            if idx < partitions.len() {
+                                partitions[idx].name();
+                            } else {
+                                "_".to_string()
+                            }
                             view!{
                                 scope,
                                 div (class = "DevPartitionNoneStats") {

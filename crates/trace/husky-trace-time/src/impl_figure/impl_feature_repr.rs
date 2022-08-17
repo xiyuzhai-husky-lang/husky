@@ -26,20 +26,7 @@ impl HuskyTraceTime {
         &self,
         repr: &FeatureRepr,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
-        assert_eq!(
-            self.restriction.partitions().last().unwrap().variant,
-            PartitionDefnDataVariant::Other
-        );
-        const COLUMN_NUMBER: u32 = 7;
-        const COLUMN_HEIGHT: u32 = 5;
-        let others_size: u32 = COLUMN_HEIGHT
-            * (COLUMN_NUMBER
-                - self
-                    .restriction
-                    .partitions()
-                    .iter()
-                    .map(|partition| partition.ncol)
-                    .sum::<u32>());
+        // const COLUMN_HEIGHT: u32 = 5;
         let ty = repr.ty();
         let visualizer = self.runtime().comptime().visualizer(ty);
         match visualizer.visual_ty {
@@ -96,11 +83,11 @@ impl HuskyTraceTime {
         &self,
         repr: &FeatureRepr,
         map: impl Fn(VisualData) -> T,
-    ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
+    ) -> Result<Vec<Vec<(SampleId, T)>>, (SampleId, __VMError)> {
         let session = self.runtime().session();
         let dev_division = session.dev();
         let restriction = &self.restriction;
-        let mut sampler = PartitionedSampler::<T>::new(restriction);
+        let mut sampler = PartitionedSampler::<T>::new(restriction.partitions());
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
             let sample_id = labeled_data.sample_id;
