@@ -8,7 +8,7 @@ impl DebuggerContext {
             self.needs_figure_canvas_data(Some(new_active_trace_id), &restriction);
         let needs_figure_control_data =
             self.needs_figure_control_data(Some(new_active_trace_id), &restriction);
-        let needs_response = needs_figure_control_data || needs_figure_control_data;
+        let needs_response = needs_figure_canvas_data || needs_figure_control_data;
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::Activate {
                 trace_id: new_active_trace_id,

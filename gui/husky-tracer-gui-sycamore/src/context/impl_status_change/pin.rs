@@ -10,7 +10,7 @@ impl DebuggerContext {
             !pinned && (self.needs_figure_canvas_data(Some(trace_id), &restriction));
         let needs_figure_control_data =
             !pinned && self.needs_figure_control_data(Some(trace_id), &restriction);
-        let needs_response = needs_figure_control_data || needs_figure_control_data;
+        let needs_response = needs_figure_canvas_data || needs_figure_control_data;
 
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::TogglePin {
