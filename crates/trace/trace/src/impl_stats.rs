@@ -9,15 +9,19 @@ impl<'eval> TraceVariant<'eval> {
     pub fn opt_stats(
         &self,
         runtime: &dyn EvalFeature,
-        partitions: &[PartitionDefnData],
+        partitions: &Partitions,
     ) -> __VMResult<Option<TraceStats>> {
         match self {
-            TraceVariant::Main(repr) => feature_repr_opt_stats(runtime, repr, None),
+            TraceVariant::Main(repr) => feature_repr_opt_stats(runtime, partitions, repr, None),
             TraceVariant::Module { route, file, range } => Ok(None),
-            TraceVariant::EntityFeature { repr, .. } => feature_repr_opt_stats(runtime, repr, None),
-            TraceVariant::FeatureStmt(stmt) => feature_stmt_opt_stats(runtime, stmt),
-            TraceVariant::FeatureBranch(branch) => feature_branch_opt_stats(runtime, branch),
-            TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, expr),
+            TraceVariant::EntityFeature { repr, .. } => {
+                feature_repr_opt_stats(runtime, partitions, repr, None)
+            }
+            TraceVariant::FeatureStmt(stmt) => feature_stmt_opt_stats(runtime, partitions, stmt),
+            TraceVariant::FeatureBranch(branch) => {
+                feature_branch_opt_stats(runtime, partitions, branch)
+            }
+            TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, partitions, expr),
             TraceVariant::FeatureCallArgument { name, argument } => todo!(),
             TraceVariant::FuncStmt { stmt, history } => todo!(),
             TraceVariant::ProcStmt { stmt, history } => todo!(),
@@ -56,11 +60,13 @@ const MAX_SAMPING_SIZE: usize = 1000;
 
 fn feature_repr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
+    partitions: &Partitions,
     repr: &FeatureRepr,
     opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
     feature_opt_stats(
         db,
+        partitions,
         repr.ty(),
         |sample_id| db.eval_feature_repr_cached(repr, sample_id),
         opt_arrival_indicator,
@@ -69,17 +75,19 @@ fn feature_repr_opt_stats<'eval>(
 
 fn feature_stmt_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
+    partitions: &Partitions,
     stmt: &FeatureStmt,
 ) -> __VMResult<Option<TraceStats>> {
     match stmt.variant {
         FeatureStmtVariant::Init { .. } | FeatureStmtVariant::Assert { .. } => Ok(None),
         FeatureStmtVariant::Require { return_context, .. } => feature_opt_stats(
             db,
+            partitions,
             return_context.return_ty.route,
             |sample_id| db.eval_feature_stmt(stmt, sample_id),
             stmt.opt_arrival_indicator.as_ref(),
         ),
-        FeatureStmtVariant::Return { ref result } => feature_expr_opt_stats(db, result),
+        FeatureStmtVariant::Return { ref result } => feature_expr_opt_stats(db, partitions, result),
         FeatureStmtVariant::ReturnXml { ref result } => todo!(),
         FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
     }
@@ -87,10 +95,12 @@ fn feature_stmt_opt_stats<'eval>(
 
 fn feature_branch_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
+    partitions: &Partitions,
     branch: &FeatureBranch,
 ) -> __VMResult<Option<TraceStats>> {
     feature_opt_stats(
         db,
+        partitions,
         branch.block.ty.route,
         |sample_id| db.eval_feature_lazy_block(&branch.block, sample_id),
         branch.opt_arrival_indicator.as_ref(),
@@ -99,6 +109,7 @@ fn feature_branch_opt_stats<'eval>(
 
 fn feature_opt_stats<'eval>(
     db: &dyn EvalFeature,
+    partitions: &Partitions,
     feature_ty: EntityRoutePtr,
     compute_value: impl Fn(SampleId) -> __VMResult<__Register<'eval>>,
     opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
@@ -115,6 +126,8 @@ fn feature_opt_stats<'eval>(
     let mut dev_nones = 0;
     let mut dev_trues = 0;
     let mut dev_falses = 0;
+    let mut dev_partition_nones: Vec<usize> =
+        (0..(partitions.len() + 1)).into_iter().map(|_| 0).collect();
     let convert_register_to_label = {
         let target_output_ty_intrinsic = target_output_ty.intrinsic();
         if target_output_ty_intrinsic == RootIdentifier::I32.into() {
@@ -168,7 +181,11 @@ fn feature_opt_stats<'eval>(
                 true => dev_trues += 1,
                 false => dev_falses += 1,
             },
-            __RegisterDowncastResult::None => dev_nones += 1,
+            __RegisterDowncastResult::None => {
+                dev_nones += 1;
+                let idx = partitions.label_idx(labeled_data.label);
+                dev_partition_nones[idx] += 1;
+            }
             __RegisterDowncastResult::Unreturned => dev_unreturneds += 1,
         }
     }
@@ -179,15 +196,18 @@ fn feature_opt_stats<'eval>(
         dev_nones,
         dev_trues,
         dev_falses,
+        dev_partition_nones,
     }))
 }
 
 fn feature_expr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
+    partitions: &Partitions,
     expr: &FeatureExpr,
 ) -> __VMResult<Option<TraceStats>> {
     feature_opt_stats(
         db,
+        partitions,
         expr.expr.ty(),
         |sample_id| db.eval_feature_expr(expr, sample_id),
         expr.opt_arrival_indicator.as_ref(),
