@@ -1,7 +1,11 @@
 use domains::ml::datasets::cv::mnist::MnistLabel
 use crate::connected_component::connected_components
+use crate::connected_component::major_connected_component
+use crate::raw_contour::major_raw_contour
 
 def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
+    require major_connected_component.raw_contours.ilen() == 1
+    require major_raw_contour.line_segment_sketch.concave_components.ilen() == 0
     require 2 > 0
     MnistLabel::One

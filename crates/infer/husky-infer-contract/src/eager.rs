@@ -105,7 +105,14 @@ impl EagerContract {
                     EagerContract::TempRef => todo!(),
                     EagerContract::Pass => todo!(),
                 },
-                MemberLiason::Derived => panic!(),
+                MemberLiason::Derived => match member_contract {
+                    EagerContract::Pure => todo!(),
+                    EagerContract::Move => todo!(),
+                    EagerContract::Pass => Ok(EagerContract::EvalRef),
+                    EagerContract::EvalRef => todo!(),
+                    EagerContract::TempRef => todo!(),
+                    EagerContract::TempRefMut => todo!(),
+                },
             }
         }
     }
