@@ -20,6 +20,10 @@ struct RawContour:
     visual:
         <Contour points={this.points} />
 
+// todo: change `def` to `func`
+def major_raw_contour -> RawContour:
+    major_connected_component.raw_contours[0]
+
 enum Direction:
     UP
     LEFT
