@@ -8,7 +8,7 @@ Make programming great again!
 
 ## Introduction
 
-Husky is **a programming language for problems so hard that haven't seen as programmable**. Husky doesn't need to brand itself as being good in replacing previous languages in certain domains, although it surely can be that good. For example, Husky shall make it possible to write a strongly explainable and efficient classifier for image recognition tasks by using a more powerful functional programming paradigm combined with eager ones and faciliated by a builtin debugging system ... (todo: phrase this more properly;)
+Husky is **a programming language designed for a broad range of important but extremely hard programming problems which haven't seen as programmable at scale**. For example, Husky shall make it possible to write a strongly explainable and efficient classifier for image recognition tasks at any scale. Husky doesn't need to brand itself as being able to replace previous languages in certain domains of traditional software engineering, although it surely can.
 
 The primary focus is the language frontend design. In a long time, Husky will rely on Rust/Zig/C/Cpp for compilation so that we don't need to spend too much time in dealing with IRGen.
 
