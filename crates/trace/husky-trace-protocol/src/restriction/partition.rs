@@ -31,6 +31,14 @@ impl PartitionDefnData {
             PartitionDefnDataVariant::Other => true,
         }
     }
+
+    pub fn name(&self) -> String {
+        match self.variant {
+            PartitionDefnDataVariant::Label(l) => format!("{}", l.0),
+            PartitionDefnDataVariant::LabelSet(_) => todo!(),
+            PartitionDefnDataVariant::Other => "other".to_string(),
+        }
+    }
 }
 
 pub struct PartitionedSampler<T> {
