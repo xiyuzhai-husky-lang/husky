@@ -56,7 +56,8 @@ pub fn GenericGraphics2d<'a, G: Html>(
             style=actual_dimension.cget().to_style()
         ) {
             (View::new_fragment(props.partitioned_samples.iter().enumerate().map(
-                |(idx,(partition, samples))| {
+                |(idx, (partition, samples))| {
+                    assert!(samples.len() > 0);
                     view!{
                         scope,
                         PartitionContent {

@@ -130,7 +130,7 @@ fn FigureContentSwitch<'a, G: Html>(
                 scope,
                 GenericGraphics2d {
                     dimension: props.dimension,
-                    partitioned_samples: partitioned_samples ,
+                    partitioned_samples,
                 }
             }
         }
@@ -141,7 +141,7 @@ fn FigureContentSwitch<'a, G: Html>(
                 scope,
                 GenericI32 {
                     dimension: props.dimension,
-                    partitioned_samples: partitioned_samples,
+                    partitioned_samples,
                 }
             }
         }
@@ -152,7 +152,7 @@ fn FigureContentSwitch<'a, G: Html>(
                 scope,
                 GenericF32 {
                     dimension: props.dimension,
-                    partitioned_samples: partitioned_samples,
+                    partitioned_samples,
                 }
             }
         }

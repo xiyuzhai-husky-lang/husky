@@ -86,7 +86,6 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                     view!{
                         scope,
                         TraceStatsView {
-                            restriction,
                             stats,
                             indent: trace.lines[0].indent
                         }
