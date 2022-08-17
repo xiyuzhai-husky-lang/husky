@@ -14,6 +14,10 @@ The major advancement is the language frontend. In a long time, Husky will rely 
 
 ## Get Started
 
+### Prerequisites
+
+Make sure rust toolchains are installed. To install vscode extension, npm is also required currently.
+
 ### Installation
 
 TODO
