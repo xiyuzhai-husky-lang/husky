@@ -112,7 +112,7 @@ fn feature_opt_stats<'eval>(
     let mut dev_samples = 0;
     let mut dev_arrivals = 0;
     let mut dev_unreturneds = 0;
-    let mut dev_undefineds = 0;
+    let mut dev_nones = 0;
     let mut dev_trues = 0;
     let mut dev_falses = 0;
     let convert_register_to_label = {
@@ -168,15 +168,15 @@ fn feature_opt_stats<'eval>(
                 true => dev_trues += 1,
                 false => dev_falses += 1,
             },
-            __RegisterDowncastResult::Undefined => dev_undefineds += 1,
+            __RegisterDowncastResult::None => dev_nones += 1,
             __RegisterDowncastResult::Unreturned => dev_unreturneds += 1,
         }
     }
     Ok(Some(TraceStats::Classification {
         dev_samples,
         dev_arrivals,
-        dev_undefineds,
         dev_unreturneds,
+        dev_nones,
         dev_trues,
         dev_falses,
     }))
@@ -209,7 +209,7 @@ fn convert_enum_register_to_label<'eval>(
         __RegisterDataKind::TempRef => todo!(),
         __RegisterDataKind::TempMut => todo!(),
         __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::Undefined => __RegisterDowncastResult::Undefined,
+        __RegisterDataKind::Undefined => __RegisterDowncastResult::None,
         __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
     }
 }
@@ -224,7 +224,7 @@ fn convert_i32_register_to_label<'eval>(
         __RegisterDataKind::TempRef => todo!(),
         __RegisterDataKind::TempMut => todo!(),
         __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::Undefined => __RegisterDowncastResult::Undefined,
+        __RegisterDataKind::Undefined => __RegisterDowncastResult::None,
         __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
     }
 }
@@ -232,6 +232,6 @@ fn convert_i32_register_to_label<'eval>(
 // todo: move this to vm
 pub enum __RegisterDowncastResult<T> {
     Value(T),
-    Undefined,
+    None,
     Unreturned,
 }

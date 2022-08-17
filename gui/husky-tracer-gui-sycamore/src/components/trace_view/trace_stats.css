@@ -2,8 +2,18 @@
     color: grey;
     padding-left: 20px;
     font-family: monospace;  
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
-
+.TraceStatsView div {
+    width: 14ch;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
 /* .SampleStats {
     border-bottom: solid 1px rgb(113, 96, 0);
 }

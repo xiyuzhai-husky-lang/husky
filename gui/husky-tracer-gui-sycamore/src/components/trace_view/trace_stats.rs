@@ -13,8 +13,8 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
         TraceStats::Classification {
             dev_samples,
             dev_arrivals,
-            dev_undefineds,
             dev_unreturneds,
+            dev_nones,
             dev_trues,
             dev_falses,
         } => view! {
@@ -23,40 +23,30 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                 class="TraceStatsView",
                 style=format!("padding-left: {}ch", 3 + props.indent),
             ) {
-                span (class = "Division") {
-                    "dev:"
-                }
-                " "
-                span (class = "SampleStats") {
-                    "samples = "
+                div (class = "SampleStats") {
+                    "S "
                     (*dev_samples)
                 }
-                ", "
-                span (class = "ArrivalStats") {
-                    "arrivals = "
+                div (class = "ArrivalStats") {
+                    "A "
                     (*dev_arrivals)
                 }
-                ", "
-                span (class = "UndefinedStats") {
-                    "undefineds = "
-                    (*dev_undefineds)
-                }
-                ", "
-                span (class = "UnreturnedStats") {
-                    "unreturneds = "
+                div (class = "UnreturnedStats") {
+                    "U "
                     (*dev_unreturneds)
                 }
-                ", "
-                span (class = "TrueStats") {
-                    "trues = "
+                div (class = "NoneStats") {
+                    "N "
+                    (*dev_nones)
+                }
+                div (class = "TrueStats") {
+                    "T "
                     (*dev_trues)
                 }
-                ", "
-                span (class = "FalseStats") {
-                    "falses = "
+                div (class = "FalseStats") {
+                    "F "
                     (*dev_falses)
                 }
-                ", val: todo!()"
             }
         },
     }
