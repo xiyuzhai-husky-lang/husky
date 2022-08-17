@@ -1,5 +1,7 @@
 use domains::ml::datasets::cv::mnist::MnistLabel
+use crate::connected_component::connected_components
 
 def is_one -> ?MnistLabel:
+    require connected_components.ilen() == 1
     require 2 > 0
     MnistLabel::One
