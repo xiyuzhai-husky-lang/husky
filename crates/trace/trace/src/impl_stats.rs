@@ -98,6 +98,7 @@ fn feature_branch_opt_stats<'eval>(
     partitions: &Partitions,
     branch: &FeatureBranch,
 ) -> __VMResult<Option<TraceStats>> {
+    msg_once!("consider whether condition is satisfied");
     feature_opt_stats(
         db,
         partitions,
@@ -105,6 +106,40 @@ fn feature_branch_opt_stats<'eval>(
         |sample_id| db.eval_feature_lazy_block(&branch.block, sample_id),
         branch.opt_arrival_indicator.as_ref(),
     )
+}
+
+fn feature_expr_opt_stats<'eval>(
+    db: &dyn EvalFeature<'eval>,
+    partitions: &Partitions,
+    expr: &FeatureExpr,
+) -> __VMResult<Option<TraceStats>> {
+    feature_opt_stats(
+        db,
+        partitions,
+        expr.expr.ty(),
+        |sample_id| db.eval_feature_expr(expr, sample_id),
+        expr.opt_arrival_indicator.as_ref(),
+    )
+}
+
+fn convert_enum_register_to_label<'eval>(
+    value: &__Register<'eval>,
+) -> __RegisterDowncastResult<Label> {
+    match value.data_kind() {
+        __RegisterDataKind::PrimitiveValue => todo!(),
+        __RegisterDataKind::Box | __RegisterDataKind::EvalRef => {
+            __RegisterDowncastResult::Value(Label(
+                value
+                    .downcast_temp_ref::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE)
+                    .kind_idx,
+            ))
+        }
+        __RegisterDataKind::TempRef => todo!(),
+        __RegisterDataKind::TempMut => todo!(),
+        __RegisterDataKind::Moved => todo!(),
+        __RegisterDataKind::Undefined => __RegisterDowncastResult::None,
+        __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
+    }
 }
 
 fn feature_opt_stats<'eval>(
@@ -126,8 +161,7 @@ fn feature_opt_stats<'eval>(
     let mut dev_nones = 0;
     let mut dev_trues = 0;
     let mut dev_falses = 0;
-    let mut dev_partition_noness: Vec<usize> =
-        (0..partitions.len()).into_iter().map(|_| 0).collect();
+    let mut dev_partition_noness = partitions.init_partition_values();
     let convert_register_to_label = {
         let target_output_ty_intrinsic = target_output_ty.intrinsic();
         if target_output_ty_intrinsic == RootIdentifier::I32.into() {
@@ -183,7 +217,7 @@ fn feature_opt_stats<'eval>(
             },
             __RegisterDowncastResult::None => {
                 dev_nones += 1;
-                let idx = partitions.label_idx(labeled_data.label);
+                let idx = partitions.partition_idx(labeled_data.label);
                 dev_partition_noness[idx] += 1;
             }
             __RegisterDowncastResult::Unreturned => dev_unreturneds += 1,
@@ -198,40 +232,6 @@ fn feature_opt_stats<'eval>(
         dev_falses,
         dev_partition_noness,
     }))
-}
-
-fn feature_expr_opt_stats<'eval>(
-    db: &dyn EvalFeature<'eval>,
-    partitions: &Partitions,
-    expr: &FeatureExpr,
-) -> __VMResult<Option<TraceStats>> {
-    feature_opt_stats(
-        db,
-        partitions,
-        expr.expr.ty(),
-        |sample_id| db.eval_feature_expr(expr, sample_id),
-        expr.opt_arrival_indicator.as_ref(),
-    )
-}
-
-fn convert_enum_register_to_label<'eval>(
-    value: &__Register<'eval>,
-) -> __RegisterDowncastResult<Label> {
-    match value.data_kind() {
-        __RegisterDataKind::PrimitiveValue => todo!(),
-        __RegisterDataKind::Box | __RegisterDataKind::EvalRef => {
-            __RegisterDowncastResult::Value(Label(
-                value
-                    .downcast_temp_ref::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE)
-                    .kind_idx,
-            ))
-        }
-        __RegisterDataKind::TempRef => todo!(),
-        __RegisterDataKind::TempMut => todo!(),
-        __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::Undefined => __RegisterDowncastResult::None,
-        __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
-    }
 }
 
 fn convert_i32_register_to_label<'eval>(

@@ -50,11 +50,7 @@ impl Restriction {
         Self {
             is_specific: true,
             specific_sample_id,
-            partitions: smallvec::smallvec![PartitionDefnData {
-                ncol: 7,
-                variant: PartitionDefnDataVariant::Other,
-            }]
-            .into(),
+            partitions: Default::default(),
             arrivals: Default::default(),
             enters: Default::default(),
         }
@@ -92,11 +88,7 @@ impl Default for Restriction {
         Self {
             is_specific: false,
             specific_sample_id: SampleId(0),
-            partitions: smallvec::smallvec![PartitionDefnData {
-                ncol: 7,
-                variant: PartitionDefnDataVariant::Other,
-            }]
-            .into(),
+            partitions: Default::default(),
             arrivals: Default::default(),
             enters: Default::default(),
         }
