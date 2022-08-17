@@ -4,6 +4,7 @@ use web_sys::Event;
 
 #[derive(Prop)]
 pub struct TraceStatsProps<'a> {
+    restriction: &'a Signal<Restriction>,
     stats: &'a TraceStats,
     indent: Indent,
 }
@@ -17,6 +18,7 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
             dev_nones,
             dev_trues,
             dev_falses,
+            dev_partition_noness,
         } => view! {
             scope,
             div (
@@ -47,6 +49,24 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                     "F "
                     (*dev_falses)
                 }
+                ({
+                    let restriction = props.restriction.get();
+                    let partitions =restriction.partitions();
+                    View::new_fragment(dev_partition_noness.iter().enumerate().map(
+                        |(idx, dev_partition_nones)| {
+                            let partition_name = partitions[idx].name();
+                            view!{
+                                scope,
+                                div (class = "DevPartitionNoneStats") {
+                                    "N["
+                                    (partition_name)
+                                    "] "
+                                    (*dev_partition_nones)
+                                }
+                            }
+                        }
+                    ).collect())
+                })
             }
         },
     }

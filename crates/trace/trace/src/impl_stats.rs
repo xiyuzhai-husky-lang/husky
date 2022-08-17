@@ -126,8 +126,8 @@ fn feature_opt_stats<'eval>(
     let mut dev_nones = 0;
     let mut dev_trues = 0;
     let mut dev_falses = 0;
-    let mut dev_partition_nones: Vec<usize> =
-        (0..(partitions.len() + 1)).into_iter().map(|_| 0).collect();
+    let mut dev_partition_noness: Vec<usize> =
+        (0..partitions.len()).into_iter().map(|_| 0).collect();
     let convert_register_to_label = {
         let target_output_ty_intrinsic = target_output_ty.intrinsic();
         if target_output_ty_intrinsic == RootIdentifier::I32.into() {
@@ -184,7 +184,7 @@ fn feature_opt_stats<'eval>(
             __RegisterDowncastResult::None => {
                 dev_nones += 1;
                 let idx = partitions.label_idx(labeled_data.label);
-                dev_partition_nones[idx] += 1;
+                dev_partition_noness[idx] += 1;
             }
             __RegisterDowncastResult::Unreturned => dev_unreturneds += 1,
         }
@@ -196,7 +196,7 @@ fn feature_opt_stats<'eval>(
         dev_nones,
         dev_trues,
         dev_falses,
-        dev_partition_nones,
+        dev_partition_noness,
     }))
 }
 

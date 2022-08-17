@@ -26,11 +26,9 @@ impl Partitions {
     }
 
     pub fn label_idx(&self, label: Label) -> usize {
-        self.opt_label_idx(label).unwrap_or(self.len() + 1)
-    }
-
-    pub fn opt_label_idx(&self, label: Label) -> Option<usize> {
-        self.iter().position(|partition| partition.contains(label))
+        self.iter()
+            .position(|partition| partition.contains(label))
+            .unwrap()
     }
 }
 
