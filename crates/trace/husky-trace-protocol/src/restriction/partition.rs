@@ -11,7 +11,7 @@ impl std::fmt::Display for PartitionDefnData {
         match self.variant {
             PartitionDefnDataVariant::Label(label) => label.0.fmt(f),
             PartitionDefnDataVariant::LabelSet(_) => todo!(),
-            PartitionDefnDataVariant::Other => f.write_str("other"),
+            PartitionDefnDataVariant::Other => f.write_str("_"),
         }
     }
 }
@@ -36,7 +36,7 @@ impl PartitionDefnData {
         match self.variant {
             PartitionDefnDataVariant::Label(l) => format!("{}", l.0),
             PartitionDefnDataVariant::LabelSet(_) => todo!(),
-            PartitionDefnDataVariant::Other => "other".to_string(),
+            PartitionDefnDataVariant::Other => "_".to_string(),
         }
     }
 }
