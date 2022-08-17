@@ -53,7 +53,8 @@ impl Restriction {
             partitions: smallvec::smallvec![PartitionDefnData {
                 ncol: 7,
                 variant: PartitionDefnDataVariant::Other,
-            }],
+            }]
+            .into(),
             arrivals: Default::default(),
             enters: Default::default(),
         }
@@ -80,8 +81,7 @@ impl Restriction {
     }
 
     pub fn add_partition(&mut self, idx: usize, new_partition: PartitionDefnData) {
-        self.partitions.last_mut().unwrap().ncol -= new_partition.ncol;
-        self.partitions.insert(idx, new_partition)
+        self.partitions.add_partition(idx, new_partition)
     }
 }
 
@@ -95,7 +95,8 @@ impl Default for Restriction {
             partitions: smallvec::smallvec![PartitionDefnData {
                 ncol: 7,
                 variant: PartitionDefnDataVariant::Other,
-            }],
+            }]
+            .into(),
             arrivals: Default::default(),
             enters: Default::default(),
         }
