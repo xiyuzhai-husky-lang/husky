@@ -83,7 +83,7 @@ impl HuskyTraceTime {
         &self,
         repr: &FeatureRepr,
         map: impl Fn(VisualData) -> T,
-    ) -> Result<Vec<Vec<(SampleId, T)>>, (SampleId, __VMError)> {
+    ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
         let session = self.runtime().session();
         let dev_division = session.dev();
         let restriction = &self.restriction;
