@@ -200,6 +200,7 @@ impl HuskyDebuggerInternal {
     ) -> Option<HuskyTracerServerMessageVariant> {
         self.trace_time.activate(trace_id);
         let needs_response = needs_figure_canvas_data || needs_figure_control_data;
+        p!(needs_figure_canvas_data, needs_figure_control_data);
         should_eq!(request.opt_request_id.is_some(), needs_response);
         if needs_response {
             let opt_figure_canvas_data = if needs_figure_canvas_data {
