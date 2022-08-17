@@ -1,6 +1,7 @@
 .TraceStatsView {
     color: grey;
     padding-left: 20px;
+    padding-bottom: 4px;
     font-family: monospace;  
     display: flex;
     flex-direction: row;
