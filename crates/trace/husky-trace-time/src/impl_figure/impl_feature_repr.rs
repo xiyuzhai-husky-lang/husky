@@ -131,7 +131,7 @@ impl HuskyTraceTime {
     fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
         let trace = self.trace(trace_id);
         match trace.variant {
-            TraceVariant::Main(_) => todo!(),
+            TraceVariant::Main(_) => Ok(true),
             TraceVariant::Module { .. } => todo!(),
             TraceVariant::EntityFeature { .. } => todo!(),
             TraceVariant::FeatureStmt(ref stmt) => self
