@@ -22,6 +22,61 @@ pub(super) fn TraceArrival<'a, G: Html>(scope: Scope<'a>, props: TraceArrivalPro
     if props.line_idx == 0 {
         view! {
             scope,
+            (if arrival.cget() {
+                view! {
+                    scope,
+                    div (class = "TraceArrivalRefinedControl") {
+                        svg (
+                            stroke="currentColor",
+                            fill="currentColor",
+                            stroke-width="0",
+                            viewBox="0 0 16 16",
+                            height="0.8em",
+                            width="0.8em",
+                            xmlns="http://www.w3.org/2000/svg"
+                        ) {
+                            path (
+                                fill-rule="evenodd",
+                                clip-rule="evenodd",
+                                d="M14.431 3.323l-8.47 10-.79-.036-3.35-4.77.818-.574 2.978 4.24 8.051-9.506.764.646z"
+                            )
+                        }
+                        svg (
+                            stroke="currentColor",
+                            fill="currentColor",
+                            stroke-width="0",
+                            viewBox="0 0 16 16",
+                            height="0.8em",
+                            width="0.8em",
+                            xmlns="http://www.w3.org/2000/svg"
+                        ) {
+                            path (
+                                fill-rule="evenodd",
+                                clip-rule="evenodd",
+                                d="M7.116 8l-4.558 4.558.884.884L8 8.884l4.558 4.558.884-.884L8.884 8l4.558-4.558-.884-.884L8 7.116 3.442 2.558l-.884.884L7.116 8z"
+                            )
+                        }
+                        svg (
+                            stroke="currentColor",
+                            fill="currentColor",
+                            stroke-width="0",
+                            viewBox="0 0 24 24",
+                            height="0.8em",
+                            width="0.8em",
+                            xmlns="http://www.w3.org/2000/svg"
+                        ) {
+                            path (
+                                stroke-linecap="round",
+                                stroke-linejoin="round",
+                                stroke-width="2",
+                                d="M13 10V3L4 14h7v7l9-11h-7z"
+                            )
+                        }
+                    }
+                }
+            } else {
+                view! { scope, }
+            })
             span(
                 class={
                     if arrival.cget() {
