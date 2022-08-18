@@ -12,6 +12,8 @@ Husky is **a programming language designed for many difficult tasks which haven'
 
 The major advancement is the language frontend. In a long time, Husky will rely on Rust/Zig/C/Cpp for compilation so that we don't need to spend too much time in dealing with IRGen.
 
+For a quick review of core ideas in computer vision, see [vision-a programming approach](sparks/impress/vision_a_programming_approach.md).
+
 ## Get Started
 
 ### Prerequisites
