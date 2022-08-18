@@ -41,6 +41,12 @@ We define the following features:
 
 - `major_raw_contours`: the set of contours of `major_connected_component` represented by `Vec<Vec<Point2d>>`. The convention is that `major_raw_contours[0]` is always the counterclosewise (also the outer) one.
 
+![alt text](snapshots/generic-major-raw-contours.png)
+
 - `major_line_segment_sketch`: line segment sketch of `major_raw_contours[0]`. This sketching is roughly speaking, very similar to that in painting. This is key to our interpretable and efficient processing of shapes. It's quite natural, as this technique has been developed in painting for thousands of years.
 
+![alt text](snapshots/generic-major-line-segment-sketch.png)
+
 - `major_concave_components`
+
+![alt text](snapshots/generic-major-concave-components.png)
