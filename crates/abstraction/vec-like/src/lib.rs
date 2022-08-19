@@ -1,6 +1,7 @@
 mod impl_compare;
 mod set;
 
+use serde::{Deserialize, Serialize};
 pub use set::*;
 
 use std::{marker::PhantomData, ops::Deref, sync::Arc};
@@ -10,6 +11,19 @@ where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
 {
     fn key(&self) -> K;
+}
+
+pub trait DefaultVecMapEntry<K> {
+    fn default_from_key(key: K) -> Self;
+}
+
+impl<K, T> DefaultVecMapEntry<K> for (K, T)
+where
+    T: Default,
+{
+    fn default_from_key(key: K) -> Self {
+        (key, T::default())
+    }
 }
 
 impl<K, T> VecMapEntry<K> for (K, T)
@@ -31,7 +45,7 @@ where
     }
 }
 
-#[derive(PartialEq, Eq, Clone, Hash)]
+#[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
 pub struct VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
@@ -180,6 +194,17 @@ where
     {
         for entry in &other.entries {
             self.insert_from_ref(entry)
+        }
+    }
+
+    pub fn toggle(&mut self, key: K)
+    where
+        Entry: DefaultVecMapEntry<K>,
+    {
+        if let Some(position) = self.entries.iter().position(|entry| entry.key() == key) {
+            self.entries.remove(position);
+        } else {
+            self.entries.push(Entry::default_from_key(key))
         }
     }
 }

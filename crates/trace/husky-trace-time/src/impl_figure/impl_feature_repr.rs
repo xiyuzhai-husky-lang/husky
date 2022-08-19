@@ -95,10 +95,7 @@ impl HuskyTraceTime {
                 todo!()
                 //  (sample_id, e)
             };
-            if !self
-                .all_arrived(restriction.arrivals(), sample_id)
-                .map_err(f)?
-            {
+            if !self.all_arrived(restriction, sample_id).map_err(f)? {
                 continue;
             }
             for trace_id in restriction.enters().iter() {
@@ -117,12 +114,15 @@ impl HuskyTraceTime {
         Ok(sampler.finish())
     }
 
-    fn all_arrived(&self, arrivals: &[TraceId], sample_id: SampleId) -> __VMResult<bool> {
+    fn all_arrived(&self, restriction: &Restriction, sample_id: SampleId) -> __VMResult<bool> {
         let mut all_arrived = true;
-        for trace_id in arrivals.iter() {
+        for (trace_id, arrival_refined_control) in restriction.arrivals().iter() {
             if !self.is_trace_arrived(*trace_id, sample_id)? {
                 all_arrived = false;
                 break;
+            }
+            if arrival_refined_control.strike_evil() {
+                todo!()
             }
         }
         Ok(all_arrived)
