@@ -65,7 +65,7 @@ impl HuskyTraceTime {
     ) -> TraceId {
         let tokens = match entity.variant {
             EntityDefnVariant::Func { ref parameters, .. } => routine_call_head_tokens(
-                &self.runtime_singleton.comptime().text(entity.file).unwrap(),
+                &self.runtime.comptime().text(entity.file).unwrap(),
                 "func ",
                 entity.ident,
                 parameters,
@@ -74,7 +74,7 @@ impl HuskyTraceTime {
                 parameters: ref parameters,
                 ..
             } => routine_call_head_tokens(
-                &self.runtime_singleton.comptime().text(entity.file).unwrap(),
+                &self.runtime.comptime().text(entity.file).unwrap(),
                 "proc ",
                 entity.ident,
                 parameters,
@@ -98,7 +98,7 @@ impl HuskyTraceTime {
                 output_liason,
                 ..
             } => routine_call_head_tokens(
-                &self.runtime_singleton.comptime().text(entity.file).unwrap(),
+                &self.runtime.comptime().text(entity.file).unwrap(),
                 "func ",
                 entity.ident,
                 parameters,

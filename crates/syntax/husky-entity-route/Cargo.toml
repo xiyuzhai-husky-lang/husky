@@ -9,7 +9,6 @@ description = "Generic LSP server scaffold."
 [dependencies]
 salsa = "0.17.0-pre.2"
 paste = "1.0"
-singleton = { path = "../../abstraction/singleton" }
 interner = { path = "../../abstraction/interner" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

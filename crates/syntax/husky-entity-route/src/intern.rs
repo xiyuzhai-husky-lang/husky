@@ -4,62 +4,9 @@ use husky_print_utils::msg_once;
 use husky_text::RangedCustomIdentifier;
 use interner::{Intern, Interner};
 use paste::paste;
-use singleton::singleton;
 use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
 
 pub type EntityRouteInterner = Interner<EntityRoute, EntityRoute, EntityRoutePtr>;
-
-singleton! { EntityRouteInterner }
-
-fn entity_route_interner() -> &'static EntityRouteInterner {
-    __access_singleton()
-}
-
-pub fn base_route(route: EntityRoutePtr) -> EntityRoutePtr {
-    entity_route_interner().intern(EntityRoute {
-        variant: route.variant.clone(),
-        temporal_arguments: Default::default(),
-        spatial_arguments: Default::default(),
-    })
-}
-
-pub fn make_route(
-    route: EntityRoutePtr,
-    generic_arguments: ThinVec<SpatialArgument>,
-) -> EntityRoutePtr {
-    let mut generics = route.spatial_arguments.clone();
-    generics.extend(generic_arguments);
-    entity_route_interner().intern(EntityRoute {
-        variant: route.variant.clone(),
-        temporal_arguments: Default::default(),
-        spatial_arguments: generics,
-    })
-}
-
-pub fn make_type_as_trait_member_route(
-    ty: EntityRoutePtr,
-    trai: EntityRoutePtr,
-    ident: CustomIdentifier,
-    spatial_arguments: ThinVec<SpatialArgument>,
-) -> EntityRoutePtr {
-    entity_route_interner().intern(EntityRoute {
-        variant: EntityRouteVariant::TypeAsTraitMember { ty, trai, ident },
-        temporal_arguments: Default::default(),
-        spatial_arguments,
-    })
-}
-
-pub fn make_subroute(
-    parent: EntityRoutePtr,
-    ident: CustomIdentifier,
-    spatial_arguments: ThinVec<SpatialArgument>,
-) -> EntityRoutePtr {
-    entity_route_interner().intern(EntityRoute {
-        variant: EntityRouteVariant::Child { parent, ident },
-        temporal_arguments: Default::default(),
-        spatial_arguments,
-    })
-}
 
 #[derive(Clone, Copy)]
 pub enum EntityRoutePtr {
@@ -384,6 +331,14 @@ pub trait InternEntityRoute {
         })
     }
 
+    fn base_route(&self, route: EntityRoutePtr) -> EntityRoutePtr {
+        self.intern_entity_route(EntityRoute {
+            variant: route.variant.clone(),
+            temporal_arguments: Default::default(),
+            spatial_arguments: Default::default(),
+        })
+    }
+
     fn ty_as_trai_subroute(
         &self,
         ty: EntityRoutePtr,
@@ -411,40 +366,37 @@ pub trait InternEntityRoute {
     }
 }
 
-pub fn new_entity_route_interner() -> Arc<EntityRouteInternerSingletonKeeper> {
-    Arc::new(
-        EntityRouteInterner::new_from::<RootIdentifier>(&[
-            RootIdentifier::Void,
-            RootIdentifier::I32,
-            RootIdentifier::I64,
-            RootIdentifier::F32,
-            RootIdentifier::F64,
-            RootIdentifier::B32,
-            RootIdentifier::B64,
-            RootIdentifier::Bool,
-            RootIdentifier::True,
-            RootIdentifier::False,
-            RootIdentifier::Vec,
-            RootIdentifier::Tuple,
-            RootIdentifier::Debug,
-            RootIdentifier::Std,
-            RootIdentifier::Core,
-            RootIdentifier::Fp,
-            RootIdentifier::Fn,
-            RootIdentifier::FnMut,
-            RootIdentifier::FnOnce,
-            RootIdentifier::Array,
-            RootIdentifier::Domains,
-            RootIdentifier::DatasetType,
-            RootIdentifier::TypeType,
-            RootIdentifier::ModuleType,
-            RootIdentifier::CloneTrait,
-            RootIdentifier::CopyTrait,
-            RootIdentifier::PartialEqTrait,
-            RootIdentifier::EqTrait,
-        ])
-        .into(),
-    )
+pub fn new_entity_route_interner() -> EntityRouteInterner {
+    EntityRouteInterner::new_from::<RootIdentifier>(&[
+        RootIdentifier::Void,
+        RootIdentifier::I32,
+        RootIdentifier::I64,
+        RootIdentifier::F32,
+        RootIdentifier::F64,
+        RootIdentifier::B32,
+        RootIdentifier::B64,
+        RootIdentifier::Bool,
+        RootIdentifier::True,
+        RootIdentifier::False,
+        RootIdentifier::Vec,
+        RootIdentifier::Tuple,
+        RootIdentifier::Debug,
+        RootIdentifier::Std,
+        RootIdentifier::Core,
+        RootIdentifier::Fp,
+        RootIdentifier::Fn,
+        RootIdentifier::FnMut,
+        RootIdentifier::FnOnce,
+        RootIdentifier::Array,
+        RootIdentifier::Domains,
+        RootIdentifier::DatasetType,
+        RootIdentifier::TypeType,
+        RootIdentifier::ModuleType,
+        RootIdentifier::CloneTrait,
+        RootIdentifier::CopyTrait,
+        RootIdentifier::PartialEqTrait,
+        RootIdentifier::EqTrait,
+    ])
 }
 
 #[test]

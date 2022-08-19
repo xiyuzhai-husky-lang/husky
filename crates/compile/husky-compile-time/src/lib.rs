@@ -27,7 +27,7 @@ pub use infer_decl::*;
 pub use infer_total::*;
 
 use husky_check_utils::*;
-use husky_entity_route::{new_ty_route_cache, EntityRoutePtr};
+use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityRouteStore;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
@@ -64,11 +64,10 @@ use vm::{
 )]
 pub struct HuskyComptime {
     storage: salsa::Storage<HuskyComptime>,
-    file_interner: Arc<husky_file::FileInternerSingletonKeeper>,
-    ty_cache: Arc<husky_entity_route::TyRouteCacheSingletonKeeper>,
-    word_interner: Arc<husky_word::WordInternerSingletonKeeper>,
-    entity_route_interner: Arc<husky_entity_route::EntityRouteInternerSingletonKeeper>,
-    entity_route_menu: Arc<husky_entity_route::EntityRouteMenuSingletonKeeper>,
+    file_interner: Arc<husky_file::FileInterner>,
+    ty_cache: Arc<husky_entity_route::TyRouteCache>,
+    word_interner: Arc<husky_word::WordInterner>,
+    entity_route_interner: Arc<husky_entity_route::EntityRouteInterner>,
     live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
@@ -83,15 +82,14 @@ impl HuskyComptime {
         let linkage_table = LinkageTable::new(config.linkage_table.clone());
         let mut comptime = Self {
             storage: Default::default(),
-            file_interner: husky_file::new_file_interner(),
-            word_interner: husky_word::new_word_interner(),
-            entity_route_interner,
+            file_interner: Arc::new(husky_file::new_file_interner()),
+            word_interner: Arc::new(husky_word::new_word_interner()),
             live_docs,
             linkage_table,
             entity_route_store,
             config,
-            ty_cache: new_ty_route_cache(),
-            entity_route_menu: husky_entity_route::new_entity_route_menu(),
+            ty_cache: Default::default(),
+            entity_route_interner: Arc::new(husky_entity_route::new_entity_route_interner()),
         };
         let target_entrance = comptime.intern_file(comptime.config.package_dir.join("main.hsk"));
         comptime.set_opt_target_entrance(Some(target_entrance));

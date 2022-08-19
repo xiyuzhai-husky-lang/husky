@@ -32,6 +32,33 @@ pub trait EntitySyntaxSalsaQueryGroup:
     fn entity_source(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntitySource>;
 
     fn submodules(&self, module: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
+
+    fn entity_route_menu(&self) -> Arc<EntityRouteMenu>;
+}
+
+fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMenu> {
+    let std_mod = EntityRoutePtr::Root(RootIdentifier::Std);
+    let std_ops_mod = db.subroute(std_mod, db.intern_word("ops").custom(), thin_vec![]);
+    let std_ops_index_trai =
+        db.subroute(std_ops_mod, db.intern_word("Index").custom(), thin_vec![]);
+    let std_slice_mod = db.subroute(std_mod, db.intern_word("slice").custom(), thin_vec![]);
+    let std_slice_cyclic_slice = db.subroute(
+        std_slice_mod,
+        db.intern_word("CyclicSlice").custom(),
+        thin_vec![],
+    );
+    Arc::new(EntityRouteMenu {
+        clone_trait: EntityRoutePtr::Root(RootIdentifier::CloneTrait),
+        copy_trait: EntityRoutePtr::Root(RootIdentifier::CopyTrait),
+        void_type: EntityRoutePtr::Root(RootIdentifier::Void),
+        i32_ty: EntityRoutePtr::Root(RootIdentifier::I32),
+        this_ty: EntityRoutePtr::ThisType,
+        vec_ty: EntityRoutePtr::Root(RootIdentifier::Vec),
+        std_mod,
+        std_ops_mod,
+        std_ops_index_trai,
+        std_slice_cyclic_slice,
+    })
 }
 
 fn subroute_table(

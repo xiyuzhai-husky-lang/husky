@@ -58,8 +58,11 @@ impl<'a> RustCodeGenerator<'a> {
                 _ => {
                     let member_entity_route = match member.base_route.variant {
                         EntityRouteVariant::TypeAsTraitMember { trai, ident, .. } => {
-                            if trai.variant == entity_route_menu().std_ops_index_trai.variant {
-                                make_type_as_trait_member_route(ty, trai, ident, Default::default())
+                            if trai.variant
+                                == self.db.entity_route_menu().std_ops_index_trai.variant
+                            {
+                                self.db
+                                    .ty_as_trai_subroute(ty, trai, ident, Default::default())
                             } else {
                                 todo!()
                             }

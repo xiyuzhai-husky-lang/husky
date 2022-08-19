@@ -5,7 +5,6 @@ use std::{
 
 use husky_word::CustomIdentifier;
 use interner::Interner;
-use singleton::singleton;
 
 pub type FileInterner = Interner<Path, PathBuf>;
 pub type FilePtr = interner::InternedPtr<Path>;
@@ -22,11 +21,9 @@ pub trait AllocateUniqueFile {
     }
 }
 
-pub fn new_file_interner() -> Arc<FileInternerSingletonKeeper> {
-    Arc::new(FileInterner::empty().into())
+pub fn new_file_interner() -> FileInterner {
+    FileInterner::empty()
 }
-
-singleton! { FileInterner }
 
 #[test]
 fn test_intern_file() {

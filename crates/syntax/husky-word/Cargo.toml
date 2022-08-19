@@ -10,7 +10,6 @@ doctest = false
 
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
-singleton = { path = "../../abstraction/singleton" }
 husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 interner = { path = "../../abstraction/interner" }

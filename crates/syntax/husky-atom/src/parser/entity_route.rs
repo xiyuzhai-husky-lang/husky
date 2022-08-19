@@ -1,7 +1,7 @@
 use super::context::SymbolKind;
 use super::*;
 use entity_kind::TyKind;
-use husky_entity_route::{entity_route_menu, make_subroute, RangedEntityRoute};
+use husky_entity_route::RangedEntityRoute;
 use husky_text::RangedCustomIdentifier;
 use husky_token::{is_special, special_token, SemanticTokenKind};
 use thin_vec::{thin_vec, ThinVec};
@@ -24,7 +24,10 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     eat_special!(self, "]");
                     let element = self.spatial_argument()?;
                     (
-                        entity_route_menu().std_slice_cyclic_slice.call([element]),
+                        self.db()
+                            .entity_route_menu()
+                            .std_slice_cyclic_slice
+                            .call([element]),
                         TyKind::CyclicSlice,
                     )
                 } else if let Some(size) = self.try_get(&UsizeLiteralPattern)? {
@@ -163,7 +166,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             .route_call(route, generic_arguments);
         while deprecated_try_eat!(self, SpecialToken::DoubleColon) {
             let ranged_ident = deprecated_get!(self, custom_ident);
-            let new_route = make_subroute(route, ranged_ident.ident, Default::default());
+            let new_route = self
+                .db()
+                .subroute(route, ranged_ident.ident, Default::default());
             match self.atom_context.entity_syntax_db().entity_kind(new_route) {
                 Ok(_) => (),
                 Err(e) => {
@@ -172,7 +177,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 }
             }
             let generic_arguments = self.generics(new_route)?;
-            route = make_subroute(route, ranged_ident.ident, generic_arguments);
+            route = self
+                .db()
+                .subroute(route, ranged_ident.ident, generic_arguments);
             self.atom_context
                 .push_abs_semantic_token(AbsSemanticToken::new(
                     SemanticTokenKind::Entity(

@@ -39,7 +39,7 @@ use vm::*;
 use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
-    runtime_singleton: HuskyRuntimeSingletonKeeper,
+    runtime: HuskyRuntime,
     restriction: Restriction,
     pins: VecSet<TraceId>,
     trace_nodes: Vec<Option<TraceNode>>,
@@ -57,7 +57,7 @@ impl HuskyTraceTime {
         eval_time_config: HuskyRuntimeConfig,
     ) -> Self {
         let mut trace_time = Self {
-            runtime_singleton: HuskyRuntime::new(init_compile_time, eval_time_config),
+            runtime: HuskyRuntime::new(init_compile_time, eval_time_config),
             trace_nodes: Default::default(),
             trace_stalks: Default::default(),
             trace_statss: Default::default(),
@@ -86,11 +86,11 @@ impl HuskyTraceTime {
     }
 
     pub fn runtime(&self) -> &HuskyRuntime {
-        &self.runtime_singleton
+        &self.runtime
     }
 
     pub fn comptime(&self) -> &HuskyComptime {
-        self.runtime_singleton.comptime()
+        self.runtime.comptime()
     }
 
     pub fn all_trace_nodes(&self) -> Vec<TraceNodeData> {

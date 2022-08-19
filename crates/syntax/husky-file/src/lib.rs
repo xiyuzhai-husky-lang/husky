@@ -5,9 +5,7 @@ mod query;
 mod utils;
 
 pub use error::*;
-pub use intern::{
-    new_file_interner, AllocateUniqueFile, FileInterner, FileInternerSingletonKeeper, FilePtr,
-};
+pub use intern::{new_file_interner, AllocateUniqueFile, FileInterner, FilePtr};
 pub use query::{FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFiles};
 pub use utils::*;
 pub type URange = std::ops::Range<usize>;

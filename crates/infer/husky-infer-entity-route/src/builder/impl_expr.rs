@@ -3,7 +3,6 @@ use std::iter::zip;
 use super::*;
 use husky_ast::RawExprRange;
 use husky_dev_utils::dev_src;
-use husky_entity_route::entity_route_menu;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::*;
 use infer_decl::TraitMemberImplDecl;
@@ -63,7 +62,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 opt_this_ty: opt_ty,
                 ..
             } => derived_not_none!(opt_ty)?,
-            RawExprVariant::FrameVariable { .. } => entity_route_menu().i32_ty,
+            RawExprVariant::FrameVariable { .. } => self.db.entity_route_menu().i32_ty,
             RawExprVariant::ThisField { opt_field_ty, .. } => {
                 derived_not_none!(opt_field_ty)?.route
             }
@@ -564,7 +563,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         let index_ty = derived_not_none!(self.infer_expr(total_opds.start + 1, None))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty));
         let index_trai = self.db.intern_entity_route(EntityRoute {
-            variant: entity_route_menu().std_ops_index_trai.variant.clone(),
+            variant: self
+                .db
+                .entity_route_menu()
+                .std_ops_index_trai
+                .variant
+                .clone(),
             temporal_arguments: thin_vec![],
             spatial_arguments: thin_vec![SpatialArgument::EntityRoute(index_ty)],
         });

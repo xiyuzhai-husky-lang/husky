@@ -1,7 +1,7 @@
 use super::*;
 use entity_kind::{FieldKind, TyKind};
 use husky_ast::FieldAstKind;
-use husky_entity_route::{make_subroute, EntityRoute, InternEntityRoute};
+use husky_entity_route::{EntityRoute, InternEntityRoute};
 use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
 use husky_vm_primitive_opr_linkage::resolve_primitive_pure_binary_opr_linkage;
@@ -292,7 +292,10 @@ impl<'a> FeatureExprBuilder<'a> {
             FieldKind::StructDerivedLazy { .. } => {
                 let this_ty = this.ty();
                 let this_ty_defn = self.db.comptime().entity_defn(this_ty).unwrap();
-                let lazy_field_route = make_subroute(this_ty, field_ident.ident, thin_vec![]);
+                let lazy_field_route =
+                    self.db
+                        .comptime()
+                        .subroute(this_ty, field_ident.ident, thin_vec![]);
                 let field_uid = self.db.comptime().entity_uid(lazy_field_route);
                 match this_ty_defn.variant {
                     EntityDefnVariant::Ty { ref ty_members, .. } => {
