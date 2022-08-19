@@ -1,5 +1,4 @@
 use super::*;
-use husky_entity_route::entity_route_menu;
 use husky_entity_semantics::{
     CallFormSource, DefinitionRepr, EntityDefn, EntityDefnVariant, EnumVariantDefnVariant,
     FieldDefnVariant, MethodDefnKind,
@@ -80,7 +79,7 @@ impl<'a> LinkageCollector<'a> {
                 if opt_type_call.is_some() {
                     self.insert(defn.base_route)
                 }
-                let entity_route_menu = entity_route_menu();
+                let entity_route_menu = self.db.entity_route_menu();
                 for member in members.iter() {
                     match member.variant {
                         EntityDefnVariant::TyField {

@@ -285,7 +285,7 @@ impl TyDecl {
                         Paradigm::EagerFunctional => throw_query_derived!(members.insert_new(
                             TyMemberDecl::Method(CallFormDecl::from_ast(
                                 db,
-                                make_subroute(this_ty, ident.ident, thin_vec![]),
+                                db.subroute(this_ty, ident.ident, thin_vec![]),
                                 ast,
                             )?)
                         )),

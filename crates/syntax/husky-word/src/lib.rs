@@ -8,9 +8,7 @@ mod style;
 pub use decorator::*;
 use husky_print_utils::p;
 pub use ident::*;
-pub use intern::{
-    intern_word, new_word_interner, InternWord, WordInterner, WordInternerSingletonKeeper,
-};
+pub use intern::{new_word_interner, InternWord, WordInterner};
 pub use keyword::*;
 pub use opr::*;
 pub use pattern::*;

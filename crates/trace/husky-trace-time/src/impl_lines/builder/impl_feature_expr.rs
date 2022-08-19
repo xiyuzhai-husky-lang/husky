@@ -108,11 +108,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 _ => panic!(),
             },
             FeatureExprVariant::EntityFeature { .. } => {
-                let text = self
-                    .runtime_singleton
-                    .comptime()
-                    .text(expr.expr.file)
-                    .unwrap();
+                let text = self.runtime.comptime().text(expr.expr.file).unwrap();
                 self.push(route!(text.ranged(expr.expr.range), opt_assoc_id))
             }
             FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),

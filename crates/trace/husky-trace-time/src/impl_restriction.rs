@@ -21,7 +21,7 @@ impl HuskyTraceTime {
             let target_entrance = self.runtime().comptime().target_entrance();
             let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
             match self
-                .runtime_singleton
+                .runtime
                 .eval_feature_repr(&main_feature_repr, sample_id0)
             {
                 Ok(_) => (),

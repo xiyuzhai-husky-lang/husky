@@ -82,7 +82,9 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
         }),
         _ => {
             let ty_decl = db.ty_decl(ty)?;
-            Ok(ty_decl.trait_impl(entity_route_menu().copy_trait).is_some())
+            Ok(ty_decl
+                .trait_impl(db.entity_route_menu().copy_trait)
+                .is_some())
         }
     }
 }
@@ -90,6 +92,6 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
 pub(crate) fn is_clonable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferResult<bool> {
     let ty_decl = db.ty_decl(ty)?;
     Ok(ty_decl
-        .trait_impl(entity_route_menu().clone_trait)
+        .trait_impl(db.entity_route_menu().clone_trait)
         .is_some())
 }

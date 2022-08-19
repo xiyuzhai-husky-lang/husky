@@ -1,10 +1,10 @@
 # cargo
 
 cargo-test:
-	cargo test -- --test-threads=1
+	cargo test
 
 cargo-test-backtraced:
-	RUST_BACKTRACE=1 cargo test -- --test-threads=1
+	RUST_BACKTRACE=1 cargo test
 
 # analyzer
 

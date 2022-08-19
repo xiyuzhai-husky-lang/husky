@@ -1,5 +1,4 @@
 use entity_kind::{EntityKind, FieldKind};
-use husky_entity_route::entity_route_menu;
 use husky_entity_route::{EntityRoute, EntityRouteVariant, SpatialArgument};
 use husky_word::RootIdentifier;
 use infer_decl::TyMemberDecl;
@@ -29,7 +28,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
     {
         return false;
     }
-    let entity_route_menu = entity_route_menu();
+    let entity_route_menu = db.entity_route_menu();
     if entity_route.variant == entity_route_menu.std_slice_cyclic_slice.variant {
         return true;
     }

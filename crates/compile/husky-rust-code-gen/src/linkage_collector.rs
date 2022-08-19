@@ -1,6 +1,6 @@
 use crate::*;
 use husky_check_utils::should;
-use husky_entity_route::{base_route, entity_route_menu, make_route, SpatialArgument};
+use husky_entity_route::SpatialArgument;
 use husky_instantiate::InstantiationContext;
 use husky_linkage_table::LinkageKey;
 use husky_word::RootIdentifier;
@@ -21,7 +21,7 @@ impl<'a> LinkageCollector<'a> {
     pub(crate) fn insert(&mut self, entity_route: EntityRoutePtr) {
         match entity_route.variant {
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
-                if trai == entity_route_menu().clone_trait {
+                if trai == self.db.entity_route_menu().clone_trait {
                     return;
                 }
             }
@@ -73,7 +73,7 @@ pub(crate) fn entity_immediate_link_dependees(
         };
         use husky_instantiate::Instantiable;
         let mut set: VecSet<_> = db
-            .entity_immediate_link_dependees(base_route(entity_route))
+            .entity_immediate_link_dependees(db.base_route(entity_route))
             .iter()
             .map(|entity_route| {
                 entity_route

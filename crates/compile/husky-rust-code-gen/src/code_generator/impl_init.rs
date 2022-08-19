@@ -1,7 +1,6 @@
 mod impl_ty_linkage_entries;
 
-use husky_entity_route::{entity_route_menu, CanonicalEntityRoutePtrKind};
-use husky_entity_route::{make_subroute, make_type_as_trait_member_route};
+use husky_entity_route::CanonicalEntityRoutePtrKind;
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
 use husky_layout::RegMemoryKind;
 use husky_word::RootIdentifier;
@@ -208,7 +207,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 }
             }
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
-                if trai.variant == entity_route_menu().std_ops_index_trai.variant {
+                if trai.variant == self.db.entity_route_menu().std_ops_index_trai.variant {
                     let this_ty_decl = self.db.ty_decl(ty).unwrap();
                     let trai_impl = this_ty_decl.trait_impl(trai).unwrap();
                     let elem_ty = match trai_impl.member_impls[0] {
@@ -526,7 +525,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 _ => panic!(),
             },
             _ => {
-                let route_menu = entity_route_menu();
+                let route_menu = self.db.entity_route_menu();
                 if ty.variant == route_menu.std_slice_cyclic_slice.variant {
                     "immutable"
                 } else {

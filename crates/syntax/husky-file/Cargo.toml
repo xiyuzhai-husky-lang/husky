@@ -16,7 +16,6 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
 salsa = "0.17.0-pre.2"
 interner = { path = "../../abstraction/interner" }
-singleton = { path = "../../abstraction/singleton" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }

@@ -9,7 +9,7 @@ impl HuskyTraceTime {
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
             let value = self
-                .runtime_singleton
+                .runtime
                 .eval_feature_repr(repr, sample_id)
                 .map_err(|e| (sample_id, e))?;
             Ok(FigureCanvasData::new_specific(

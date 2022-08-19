@@ -79,7 +79,7 @@ impl<'a> TraceTokenBuilder<'a> {
                     self.push(special!("]", associated_trace_id));
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
-                    let text = self.runtime_singleton.comptime().text(expr.file).unwrap();
+                    let text = self.runtime.comptime().text(expr.file).unwrap();
                     self.push(route!(text.ranged(ranged_ty.range)));
                     self.push(special!("("));
                     for i in 0..opds.len() {
@@ -100,7 +100,7 @@ impl<'a> TraceTokenBuilder<'a> {
             }
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
             EagerExprVariant::EntityFeature { .. } => {
-                let text = self.runtime_singleton.comptime().text(expr.file).unwrap();
+                let text = self.runtime.comptime().text(expr.file).unwrap();
                 self.push(route!(text.ranged(expr.range)))
             }
             EagerExprVariant::EntityFp { route } => todo!(),

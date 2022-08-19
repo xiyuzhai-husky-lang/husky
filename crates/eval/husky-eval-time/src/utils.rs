@@ -1,18 +1,15 @@
 use husky_atom::*;
 use husky_entity_route::EntityRoutePtr;
-use singleton::singleton;
 use vm::__StaticInfo;
 
 use crate::*;
 
-singleton! {HuskyRuntime}
-
 // pub(crate) static mut HUSKY_EVAL_TIME_SINGLETON: Option<*const HuskyRuntime> = None;
 
-pub fn eval_time() -> &'static HuskyRuntime {
-    __access_singleton()
-    // unsafe { &*HUSKY_EVAL_TIME_SINGLETON.unwrap() }
-}
+// pub fn eval_time() -> &'static HuskyRuntime {
+//     __access_singleton()
+//     // unsafe { &*HUSKY_EVAL_TIME_SINGLETON.unwrap() }
+// }
 
 // pub fn __ty_route_from_static_binded<T: __StaticInfo>(text: &str) -> EntityRoutePtr {
 //     comptime().ty_route_from_static(std::any::TypeId::of::<T::__StaticSelf>(), text)
@@ -21,9 +18,9 @@ pub fn eval_time() -> &'static HuskyRuntime {
 //     comptime().parse_route_from_text(text)
 // }
 
-pub fn comptime() -> &'static HuskyComptime {
-    eval_time().comptime()
-}
+// pub fn comptime() -> &'static HuskyComptime {
+//     eval_time().comptime()
+// }
 // pub struct HuskyRuntimeSingletonKeeper(Box<HuskyRuntime>);
 
 // impl std::ops::Deref for HuskyRuntimeSingletonKeeper {

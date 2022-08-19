@@ -1,5 +1,3 @@
-use husky_entity_route::make_subroute;
-
 use super::*;
 
 impl EntityDefnVariant {
@@ -52,7 +50,7 @@ impl EntityDefnVariant {
                             defn_repr: parse_definition_repr(
                                 db,
                                 paradigm,
-                                make_subroute(ty_route, ranged_ident.ident, thin_vec![]),
+                                db.subroute(ty_route, ranged_ident.ident, thin_vec![]),
                                 field_ty,
                                 arena,
                                 children,

@@ -7,7 +7,7 @@ pub use symbol::*;
 use super::*;
 use defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
 use entity_kind::TyKind;
-use husky_entity_route::{entity_route_menu, EntityRouteVariant, *};
+use husky_entity_route::{EntityRouteVariant, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
 use husky_file::{FilePtr, FileSalsaQuery};
 use husky_print_utils::p;
@@ -129,9 +129,9 @@ pub trait AtomContext {
                     opt_this_ty: self.opt_this_ty(),
                     opt_this_liason: self.opt_this_liason(),
                 }),
-                ContextualIdentifier::ThisType => {
-                    Ok(SymbolKind::EntityRoute(entity_route_menu().this_ty))
-                }
+                ContextualIdentifier::ThisType => Ok(SymbolKind::EntityRoute(
+                    self.entity_syntax_db().entity_route_menu().this_ty,
+                )),
                 ContextualIdentifier::Crate => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db()
                         .module(self.opt_target_entrance().unwrap())

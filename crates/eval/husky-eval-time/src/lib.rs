@@ -56,7 +56,7 @@ impl HuskyRuntime {
     pub fn new(
         init_comptime: impl FnOnce(&mut HuskyComptime),
         config: HuskyRuntimeConfig,
-    ) -> HuskyRuntimeSingletonKeeper {
+    ) -> HuskyRuntime {
         let mut comptime = HuskyComptime::new(config.comptime.clone());
         init_comptime(&mut comptime);
         let all_main_files = comptime.all_target_entrances();
