@@ -25,4 +25,8 @@ impl<'eval> LoadSample<'eval> for SyntheticSampleLoader<'eval> {
     fn load(&self, sample_id: SampleId) -> LabeledData<'eval> {
         (self.gen)(self.seed, sample_id)
     }
+
+    fn label<'a>(&'a self, idx: SampleId) -> Label {
+        self.load(idx).label
+    }
 }

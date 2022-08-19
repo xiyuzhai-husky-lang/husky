@@ -1,4 +1,4 @@
-use husky_datasets_interface::{DataLoader, LabeledData};
+use husky_datasets_interface::{DataLoader, Label, LabeledData};
 use husky_feature_gen::*;
 
 use crate::*;
@@ -30,6 +30,10 @@ impl<'eval> Division<'eval> {
 
     pub fn load(&self, sample_id: SampleId) -> LabeledData<'eval> {
         self.loader.load(sample_id)
+    }
+
+    pub fn label(&self, sample_id: SampleId) -> Label {
+        self.loader.label(sample_id)
     }
 
     pub fn each_labeled_data<'a>(&'a self) -> impl Iterator<Item = LabeledData<'eval>> + 'a {

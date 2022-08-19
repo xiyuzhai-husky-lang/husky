@@ -30,6 +30,7 @@ use infer_error::*;
 use static_defn::*;
 use std::sync::Arc;
 use target::*;
+use vm::__Register;
 
 #[salsa::query_group(DeclQueryGroupStorage)]
 pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {

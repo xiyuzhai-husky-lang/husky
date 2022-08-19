@@ -43,4 +43,15 @@ impl<'eval> LoadSample<'eval> for MnistDevLoader {
             sample_id,
         }
     }
+
+    fn label<'a>(&'a self, sample_id: SampleId) -> Label {
+        let permuted_idx = self.permutation[sample_id.0] as usize;
+        let input = unsafe {
+            __Register::new_temp_ref::<BinaryImage28>(
+                &self.images[permuted_idx],
+                &__BINARY_IMAGE_28_VTABLE,
+            )
+        };
+        self.labels[permuted_idx]
+    }
 }
