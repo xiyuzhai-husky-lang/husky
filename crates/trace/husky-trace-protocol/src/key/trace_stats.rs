@@ -29,12 +29,14 @@ impl Default for Partitions {
 #[test]
 fn test_partition_idx() {
     let mut partitions = Partitions::default();
-    assert_eq!(partitions.opt_partition_idx(Label(0)), None);
+    assert_eq!(partitions.opt_nondefault_partition_idx(Label(0)), None);
     assert_eq!(partitions.partition_idx(Label(0)), 0);
-    assert_eq!(partitions.opt_partition_idx(Label(1)), None);
+    assert_eq!(partitions.opt_nondefault_partition_idx(Label(1)), None);
     assert_eq!(partitions.partition_idx(Label(1)), 0);
-    assert_eq!(partitions.opt_partition_idx(Label(5)), None);
+    assert_eq!(partitions.opt_nondefault_partition_idx(Label(5)), None);
     assert_eq!(partitions.partition_idx(Label(5)), 0);
+    assert!(!partitions.is_nondefault(Label(0)));
+    assert!(!partitions.is_nondefault(Label(5)));
     partitions.add_partition(
         0,
         PartitionDefnData {
@@ -42,13 +44,15 @@ fn test_partition_idx() {
             variant: PartitionDefnDataVariant::Label(Label(0)),
         },
     );
-    assert_eq!(partitions.opt_partition_idx(Label(0)), Some(0));
+    assert_eq!(partitions.opt_nondefault_partition_idx(Label(0)), Some(0));
     assert_eq!(partitions.partition_idx(Label(0)), 0);
     println!("partitions = {:?}", partitions);
-    assert_eq!(partitions.opt_partition_idx(Label(1)), None);
+    assert_eq!(partitions.opt_nondefault_partition_idx(Label(1)), None);
     assert_eq!(partitions.partition_idx(Label(1)), 1);
-    assert_eq!(partitions.opt_partition_idx(Label(5)), None);
+    assert_eq!(partitions.opt_nondefault_partition_idx(Label(5)), None);
     assert_eq!(partitions.partition_idx(Label(5)), 1);
+    assert!(partitions.is_nondefault(Label(0)));
+    assert!(!partitions.is_nondefault(Label(5)));
 }
 
 impl From<SmallVec<[PartitionDefnData; PARTITION_SMALL_VEC_SIZE]>> for Partitions {
@@ -79,7 +83,7 @@ impl Partitions {
     }
 
     pub fn partition_idx(&self, label: Label) -> usize {
-        self.opt_partition_idx(label)
+        self.opt_nondefault_partition_idx(label)
             .unwrap_or(self.nondefaults.len())
     }
     pub fn partition_ncol(&self, partition_idx: usize) -> u32 {
@@ -89,10 +93,14 @@ impl Partitions {
             .unwrap_or(self.default_partition_ncol)
     }
 
-    pub fn opt_partition_idx(&self, label: Label) -> Option<usize> {
+    pub fn opt_nondefault_partition_idx(&self, label: Label) -> Option<usize> {
         self.nondefaults
             .iter()
             .position(|partition| partition.contains(label))
+    }
+
+    pub fn is_nondefault(&self, label: Label) -> bool {
+        self.opt_nondefault_partition_idx(label).is_some()
     }
 
     pub fn init_partition_values<T>(&self) -> Vec<(PartitionDefnData, T)>
