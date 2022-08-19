@@ -1,5 +1,5 @@
 use crate::*;
-use husky_compile_time::*;
+use husky_compile_time::{utils::__RegisterDowncastResult, *};
 use husky_print_utils::msg_once;
 use husky_trace_protocol::TraceStats;
 use husky_word::RootIdentifier;
@@ -122,26 +122,6 @@ fn feature_expr_opt_stats<'eval>(
     )
 }
 
-fn convert_enum_register_to_label<'eval>(
-    value: &__Register<'eval>,
-) -> __RegisterDowncastResult<Label> {
-    match value.data_kind() {
-        __RegisterDataKind::PrimitiveValue => todo!(),
-        __RegisterDataKind::Box | __RegisterDataKind::EvalRef => {
-            __RegisterDowncastResult::Value(Label(
-                value
-                    .downcast_temp_ref::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE)
-                    .kind_idx,
-            ))
-        }
-        __RegisterDataKind::TempRef => todo!(),
-        __RegisterDataKind::TempMut => todo!(),
-        __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::Undefined => __RegisterDowncastResult::None,
-        __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
-    }
-}
-
 fn feature_opt_stats<'eval>(
     db: &dyn EvalFeature,
     partitions: &Partitions,
@@ -162,37 +142,7 @@ fn feature_opt_stats<'eval>(
     let mut dev_trues = 0;
     let mut dev_falses = 0;
     let mut dev_partition_noness = partitions.init_partition_values();
-    let convert_register_to_label = {
-        let target_output_ty_intrinsic = target_output_ty.intrinsic();
-        if target_output_ty_intrinsic == RootIdentifier::I32.into() {
-            convert_i32_register_to_label
-        } else {
-            let target_output_ty_intrinsic_decl =
-                comptime.ty_decl(target_output_ty_intrinsic).unwrap();
-            use entity_kind::TyKind;
-            match target_output_ty_intrinsic_decl.ty_kind {
-                TyKind::Enum => convert_enum_register_to_label,
-                TyKind::Record => todo!(),
-                TyKind::Struct => todo!(),
-                TyKind::Primitive => todo!(),
-                TyKind::Vec => todo!(),
-                TyKind::Slice => todo!(),
-                TyKind::CyclicSlice => todo!(),
-                TyKind::Array => todo!(),
-                TyKind::Tuple => todo!(),
-                TyKind::Mor => todo!(),
-                TyKind::Fp => todo!(),
-                TyKind::AssociatedAny => todo!(),
-                TyKind::ThisAny => todo!(),
-                TyKind::TargetOutputAny => todo!(),
-                TyKind::SpatialPlaceholderAny => todo!(),
-                TyKind::BoxAny => todo!(),
-                TyKind::HigherKind => todo!(),
-                TyKind::Ref => todo!(),
-                TyKind::Option => todo!(),
-            }
-        }
-    };
+    let convert_register_to_label = comptime.register_to_label_converter();
     for labeled_data in db.session().dev().each_labeled_data() {
         if dev_samples >= MAX_SAMPING_SIZE {
             break;
@@ -232,26 +182,4 @@ fn feature_opt_stats<'eval>(
         dev_falses,
         dev_partition_noness,
     }))
-}
-
-fn convert_i32_register_to_label<'eval>(
-    value: &__Register<'eval>,
-) -> __RegisterDowncastResult<Label> {
-    match value.data_kind() {
-        __RegisterDataKind::PrimitiveValue => todo!(),
-        __RegisterDataKind::Box => todo!(),
-        __RegisterDataKind::EvalRef => __RegisterDowncastResult::Value(Label(value.downcast_i32())),
-        __RegisterDataKind::TempRef => todo!(),
-        __RegisterDataKind::TempMut => todo!(),
-        __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::Undefined => __RegisterDowncastResult::None,
-        __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
-    }
-}
-
-// todo: move this to vm
-pub enum __RegisterDowncastResult<T> {
-    Value(T),
-    None,
-    Unreturned,
 }

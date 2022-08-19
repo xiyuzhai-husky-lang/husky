@@ -1,3 +1,4 @@
+use husky_compile_time::utils::{self, __RegisterDowncastResult};
 use husky_vm_primitive_value::PrimitiveValueData;
 
 use super::*;
@@ -121,8 +122,9 @@ impl HuskyTraceTime {
                 all_arrived = false;
                 break;
             }
-            if arrival_refined_control.strike_evil() {
-                todo!()
+            if !self.is_trace_refined_control_ok(*trace_id, sample_id, arrival_refined_control)? {
+                all_arrived = false;
+                break;
             }
         }
         Ok(all_arrived)
@@ -132,8 +134,8 @@ impl HuskyTraceTime {
         let trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(_) => Ok(true),
-            TraceVariant::Module { .. } => todo!(),
-            TraceVariant::EntityFeature { .. } => todo!(),
+            TraceVariant::Module { .. } => panic!(),
+            TraceVariant::EntityFeature { .. } => Ok(true),
             TraceVariant::FeatureStmt(ref stmt) => self
                 .runtime()
                 .eval_opt_arrival_indicator(stmt.opt_arrival_indicator.as_ref(), sample_id),
@@ -150,6 +152,52 @@ impl HuskyTraceTime {
             TraceVariant::EagerExpr { .. } => todo!(),
             TraceVariant::EagerCallArgument { .. } => todo!(),
             TraceVariant::CallHead { .. } => todo!(),
+        }
+    }
+
+    fn is_trace_refined_control_ok(
+        &self,
+        trace_id: TraceId,
+        sample_id: SampleId,
+        arrival_refined_control: &ArrivalRefinedControl,
+    ) -> __VMResult<bool> {
+        let trace = self.trace(trace_id);
+        let (value, ty) = match trace.variant {
+            TraceVariant::Main(ref repr) => {
+                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+            }
+            TraceVariant::EntityFeature { route, ref repr } => {
+                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+            }
+            TraceVariant::FeatureStmt(ref stmt) => (
+                self.runtime.eval_feature_stmt(stmt, sample_id)?,
+                stmt.output_ty,
+            ),
+            TraceVariant::FeatureBranch(_) => todo!(),
+            TraceVariant::FeatureExpr(_) => todo!(),
+            TraceVariant::FeatureCallArgument { name, ref argument } => todo!(),
+            TraceVariant::FuncStmt {
+                ref stmt,
+                ref history,
+            } => todo!(),
+            TraceVariant::ProcStmt {
+                ref stmt,
+                ref history,
+            } => todo!(),
+            TraceVariant::ProcBranch { .. } => todo!(),
+            TraceVariant::FuncBranch { .. } => todo!(),
+            TraceVariant::LoopFrame { .. } => todo!(),
+            TraceVariant::EagerExpr { .. } => todo!(),
+            TraceVariant::EagerCallArgument { .. } => todo!(),
+            TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
+        };
+        assert!(ty == self.comptime().target_output_ty().unwrap());
+        let label_downcast_result = self.comptime().register_to_label_converter()(&value);
+        let true_label = self.runtime.session().dev().label(sample_id);
+        match label_downcast_result {
+            __RegisterDowncastResult::Value(predicted_label) => Ok(predicted_label != true_label),
+            __RegisterDowncastResult::None => todo!(),
+            __RegisterDowncastResult::Unreturned => Ok(true),
         }
     }
 }

@@ -7,6 +7,7 @@ pub trait LoadSample<'eval>:
 {
     fn len(&self) -> usize;
     fn load<'a>(&'a self, idx: SampleId) -> LabeledData<'eval>;
+    fn label<'a>(&'a self, idx: SampleId) -> Label;
 }
 
 pub type DataLoader<'eval> = Box<dyn LoadSample<'eval>>;
