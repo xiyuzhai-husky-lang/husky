@@ -95,6 +95,17 @@ impl DebuggerContext {
         }
     }
 
+    pub fn toggle_arrival_refined_strike_evil_handler(
+        &'static self,
+        trace_id: TraceId,
+    ) -> impl Fn() {
+        move || {
+            self.handle_status_change(StatusChange::update_restriction(self, |res| {
+                res.toggle_arrival_refined_strike_evil(trace_id)
+            }))
+        }
+    }
+
     pub fn toggle_pin_handler(&'static self, trace_id: TraceId) -> impl Fn() {
         move || self.handle_status_change(StatusChange::TogglePin { trace_id })
     }

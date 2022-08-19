@@ -44,7 +44,7 @@ fn save_server_history(
     let value = serde_json::to_string_pretty(server_history).unwrap();
     let filename = format!("history-{}.json", xxh3_64(value.as_bytes()));
     let filename: &str = &filename;
-    let filepath: PathBuf = format!("tests/debugger/server/{filename}").into();
+    let filepath: PathBuf = format!("tests/debugger/server-history/{filename}").into();
     io_utils::diff_write(&filepath, &value);
     println!("{}", "server history saved".red())
 }
