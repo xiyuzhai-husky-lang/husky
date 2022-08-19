@@ -4,18 +4,31 @@ mod partition;
 use husky_signal::Signalable;
 pub use label::*;
 pub use partition::*;
-use vec_like::VecSet;
+use vec_like::{VecMap, VecPairMap, VecSet};
 
 use super::*;
 use serde::{Deserialize, Serialize};
+
+pub type Arrivals = VecPairMap<TraceId, ArrivalRefinedControl>;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub struct Restriction {
     is_specific: bool,
     specific_sample_id: SampleId,
     partitions: Partitions,
-    arrivals: VecSet<TraceId>,
+    arrivals: Arrivals,
     enters: VecSet<TraceId>,
+}
+
+#[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
+pub struct ArrivalRefinedControl {
+    strike_evil: bool,
+}
+
+impl ArrivalRefinedControl {
+    pub fn strike_evil(&self) -> bool {
+        self.strike_evil
+    }
 }
 
 impl Restriction {
@@ -30,7 +43,7 @@ impl Restriction {
         &self.partitions
     }
 
-    pub fn arrivals(&self) -> &VecSet<TraceId> {
+    pub fn arrivals(&self) -> &Arrivals {
         &self.arrivals
     }
 
