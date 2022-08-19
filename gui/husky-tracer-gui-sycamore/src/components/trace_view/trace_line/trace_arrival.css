@@ -14,3 +14,10 @@ span.TraceArrival {
     background: grey;
     color:rgb(85, 85, 85);
 }
+
+.StrikeEvil.Inactive:hover {
+    color: rgb(102, 102, 15);
+}
+.StrikeEvil.Active {
+    color: yellow;
+}

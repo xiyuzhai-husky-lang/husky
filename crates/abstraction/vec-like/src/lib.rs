@@ -259,3 +259,13 @@ where
         self.get_entry(index).unwrap()
     }
 }
+
+impl<K, V> std::ops::IndexMut<K> for VecMap<K, V>
+where
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    V: VecMapEntry<K>,
+{
+    fn index_mut(&mut self, index: K) -> &mut Self::Output {
+        self.get_mut(index).unwrap()
+    }
+}

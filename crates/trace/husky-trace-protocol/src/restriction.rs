@@ -29,7 +29,13 @@ impl ArrivalRefinedControl {
     pub fn strike_evil(&self) -> bool {
         self.strike_evil
     }
+
+    pub fn toggle_strike_evil(&mut self) {
+        self.strike_evil = !self.strike_evil
+    }
 }
+
+impl Signalable for ArrivalRefinedControl {}
 
 impl Restriction {
     pub fn is_specific(&self) -> bool {
@@ -69,8 +75,8 @@ impl Restriction {
         }
     }
 
-    pub fn arrival(&self, trace_id: TraceId) -> bool {
-        self.arrivals.has(trace_id)
+    pub fn arrival_refined_control(&self, trace_id: TraceId) -> Option<&ArrivalRefinedControl> {
+        self.arrivals.get_entry(trace_id).map(|p| &p.1)
     }
 
     pub fn set_sample_id(&mut self, sample_id: SampleId) {
@@ -79,6 +85,10 @@ impl Restriction {
 
     pub fn toggle_arrival(&mut self, trace_id: TraceId) {
         self.arrivals.toggle(trace_id)
+    }
+
+    pub fn toggle_arrival_refined_strike_evil(&mut self, trace_id: TraceId) {
+        self.arrivals[trace_id].1.toggle_strike_evil()
     }
 
     pub fn toggle_enter(&mut self, trace_id: TraceId) {

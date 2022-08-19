@@ -17,12 +17,18 @@ pub(super) fn TraceArrival<'a, G: Html>(scope: Scope<'a>, props: TraceArrivalPro
         .restriction_context
         .restriction
         .get()
-        .arrival(trace_id));
+        .arrival_refined_control(trace_id)
+        .map(|v| v.clone()));
     let trace_id = props.trace_id;
     if props.line_idx == 0 {
         view! {
             scope,
-            (if arrival.cget() {
+            (if let Some(ref arrival_refined_control) = *arrival.get() {
+                let strike_evil_class= if arrival_refined_control.strike_evil() {
+                    "StrikeEvil Active"
+                } else {
+                    "StrikeEvil Inactive"
+                };
                 view! {
                     scope,
                     div (class = "TraceArrivalRefinedControl") {
@@ -57,13 +63,18 @@ pub(super) fn TraceArrival<'a, G: Html>(scope: Scope<'a>, props: TraceArrivalPro
                             )
                         }
                         svg (
+                            class=strike_evil_class,
                             stroke="currentColor",
                             fill="currentColor",
                             stroke-width="0",
                             viewBox="0 0 24 24",
                             height="0.8em",
                             width="0.8em",
-                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns="http://www.w3.org/2000/svg",
+                            on:mousedown=move |ev:Event|{
+                                ev.stop_propagation();
+                                ctx.toggle_arrival_refined_strike_evil_handler(trace_id)()
+                            }
                         ) {
                             path (
                                 stroke-linecap="round",
@@ -79,7 +90,7 @@ pub(super) fn TraceArrival<'a, G: Html>(scope: Scope<'a>, props: TraceArrivalPro
             })
             span(
                 class={
-                    if arrival.cget() {
+                    if arrival.get().is_some() {
                         "TraceArrival arrival"
                     } else {
                         "TraceArrival ignored"
