@@ -52,6 +52,7 @@ impl HuskyComptime {
 }
 
 // todo: move this to vm
+#[derive(Debug)]
 pub enum __RegisterDowncastResult<T> {
     Value(T),
     None,
