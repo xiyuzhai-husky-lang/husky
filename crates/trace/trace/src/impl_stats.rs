@@ -56,7 +56,7 @@ impl<'eval> TraceVariant<'eval> {
     }
 }
 
-const MAX_SAMPING_SIZE: usize = 1000;
+const MAX_SAMPING_SIZE: usize = 50000;
 
 fn feature_repr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
