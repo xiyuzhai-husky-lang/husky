@@ -6,6 +6,7 @@ use semantics_error::*;
 use std::sync::{Arc, Mutex};
 use sync_utils::ASafeRwLock;
 use upcast::Upcast;
+use utils::module_contains_features;
 use vm::EntityUid;
 
 #[salsa::query_group(EntityQueryGroupStorage)]
@@ -28,6 +29,7 @@ pub trait EntityDefnQueryGroup:
     fn entity_uid(&self, entity_route: EntityRoutePtr) -> EntityUid;
     fn visualizer(&self, ty: EntityRoutePtr) -> Arc<Visualizer>;
     fn visual_ty(&self, ty: EntityRoutePtr) -> VisualTy;
+    fn module_contains_features(&self, module_route: EntityRoutePtr) -> bool;
 }
 
 pub trait StoreEntityRoute {

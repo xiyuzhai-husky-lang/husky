@@ -16,15 +16,19 @@ impl HuskyTraceTime {
             self.comptime().subentity_kinded_routes(module).iter()
         {
             match subentity_kind {
-                EntityKind::Module => subtrace_ids.push(self.new_trace(
-                    None,
-                    0,
-                    TraceVariant::Module {
-                        route: *subentity_route,
-                        file: module_file,
-                        range: Default::default(),
-                    },
-                )),
+                EntityKind::Module => {
+                    if self.comptime().module_contains_features(*subentity_route) {
+                        subtrace_ids.push(self.new_trace(
+                            None,
+                            0,
+                            TraceVariant::Module {
+                                route: *subentity_route,
+                                file: module_file,
+                                range: Default::default(),
+                            },
+                        ))
+                    }
+                }
                 EntityKind::Feature => {
                     let repr = self.runtime().entity_feature_repr(*subentity_route);
                     subtrace_ids.push(self.new_trace(
