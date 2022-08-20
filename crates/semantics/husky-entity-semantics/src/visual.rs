@@ -104,7 +104,7 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
         match ty_defn.variant {
             EntityDefnVariant::Ty { ref visualizer, .. } => match visualizer.visual_ty {
                 VisualTy::AnyGroup => {
-                    let element_ty = ty.spatial_arguments[0].take_entity_route();
+                    let element_ty = ty.entity_route_argument(0);
                     let visual_ty = match db.visualizer(element_ty).visual_ty {
                         VisualTy::Void => todo!(),
                         VisualTy::Bool => todo!(),
@@ -154,7 +154,7 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
     //             TyKind::Primitive => todo!(),
     //             TyKind::Vec | TyKind::Slice | TyKind::CyclicSlice | TyKind::Array => {
     //                 VisualizerVariant::Group {
-    //                     element_ty: ty.spatial_arguments[0].take_entity_route(),
+    //                     element_ty: ty.entity_route_argument(0),
     //                 }
     //             }
     //             TyKind::Tuple => todo!(),
@@ -216,10 +216,7 @@ impl VisualTy {
             StaticVisualTy::Region2d => VisualTy::Region2d,
             StaticVisualTy::Image2d => VisualTy::Image2d,
             StaticVisualTy::Graphics2d => VisualTy::Graphics2d,
-            StaticVisualTy::Group => match db
-                .visualizer(ty.spatial_arguments[0].take_entity_route())
-                .visual_ty
-            {
+            StaticVisualTy::Group => match db.visualizer(ty.entity_route_argument(0)).visual_ty {
                 VisualTy::Void => todo!(),
                 VisualTy::Bool => todo!(),
                 VisualTy::B32 => todo!(),

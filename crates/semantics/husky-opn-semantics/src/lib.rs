@@ -8,7 +8,8 @@ pub enum EagerSuffixOpr {
     Incr,                    // ++
     Decr,                    // --
     AsTy(RangedEntityRoute), // :
-    BePattern(PurePattern),
+    BePattern(PurePattern),  // be <patt>
+    Unveil,                  // ?
 }
 
 impl EagerSuffixOpr {
@@ -18,6 +19,7 @@ impl EagerSuffixOpr {
             EagerSuffixOpr::Decr => "--".into(),
             EagerSuffixOpr::AsTy(ty) => format!(" as {}", ty.route).into(),
             EagerSuffixOpr::BePattern(_) => todo!(),
+            EagerSuffixOpr::Unveil => "?".into(),
         }
     }
 }
@@ -45,8 +47,7 @@ impl ImplicitConversion {
                 return Default::default();
             }
 
-            if expectation.is_option() && expectation.spatial_arguments[0].take_entity_route() == ty
-            {
+            if expectation.is_option() && expectation.entity_route_argument(0) == ty {
                 return ImplicitConversion::WrapInSome;
             }
 

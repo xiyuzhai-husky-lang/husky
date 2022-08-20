@@ -122,8 +122,7 @@ impl<'a> RustCodeGenerator<'a> {
                             self.write(&method_ident.ident);
                             // ad hoc
                             if method_ident.ident.as_str() == "pop_with_largest_opt_f32" {
-                                let elem_ty =
-                                    method_route.parent().spatial_arguments[0].take_entity_route();
+                                let elem_ty = method_route.parent().entity_route_argument(0);
                                 if self.db.is_copyable(elem_ty).unwrap() {
                                     self.write("_copyable")
                                 } else {
@@ -540,6 +539,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(ty.route, EntityRouteRole::Other)
             }
             EagerSuffixOpr::BePattern(_) => todo!(),
+            EagerSuffixOpr::Unveil => panic!("shouldn't be handled here"),
         }
     }
 }

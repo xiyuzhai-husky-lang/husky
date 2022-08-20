@@ -463,6 +463,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                         EntityRoutePtr::ThisType => todo!(),
                                     },
                                     EagerSuffixOpr::BePattern(_) => todo!(),
+                                    EagerSuffixOpr::Unveil => todo!(),
                                 },
                                 TyKind::Record => todo!(),
                                 TyKind::Struct => todo!(),
@@ -488,6 +489,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     }
                 }
                 EagerSuffixOpr::BePattern(_) => todo!(),
+                EagerSuffixOpr::Unveil => todo!(),
             },
             nargs: 1,
             output_ty: expr.ty(),

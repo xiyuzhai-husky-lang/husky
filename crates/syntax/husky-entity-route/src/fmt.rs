@@ -8,7 +8,7 @@ impl EntityRoute {
                 RootIdentifier::Vec => {
                     if self.spatial_arguments.len() > 0 {
                         f.write_str("[]")?;
-                        return self.spatial_arguments[0].take_entity_route().root_fmt(f);
+                        return self.entity_route_argument(0).root_fmt(f);
                     } else {
                         f.write_str("Vec")?
                     }
@@ -16,7 +16,7 @@ impl EntityRoute {
                 RootIdentifier::Array => todo!(),
                 RootIdentifier::Option => {
                     f.write_str("?");
-                    return self.spatial_arguments[0].take_entity_route().root_fmt(f);
+                    return self.entity_route_argument(0).root_fmt(f);
                 }
                 RootIdentifier::Tuple => {
                     f.write_str("(");
@@ -30,7 +30,7 @@ impl EntityRoute {
                 }
                 RootIdentifier::Ref => {
                     f.write_str("&");
-                    return self.spatial_arguments[0].take_entity_route().root_fmt(f);
+                    return self.entity_route_argument(0).root_fmt(f);
                 }
                 _ => f.write_str(&ident)?,
             },

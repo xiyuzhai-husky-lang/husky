@@ -5,10 +5,12 @@ mod impl_match_pattern;
 use fold::Indent;
 use husky_ast::{RawReturnContext, RawReturnContextKind};
 use husky_eager_semantics::{
-    Boundary, EagerExpr, FuncStmt, FuncStmtVariant, LoopVariant, ProcStmt, ProcStmtVariant,
+    Boundary, EagerExpr, EagerExprVariant, EagerOpnVariant, FuncStmt, FuncStmtVariant, LoopVariant,
+    ProcStmt, ProcStmtVariant,
 };
 use husky_entity_route::EntityRoutePtr;
 use husky_infer_qualified_ty::EagerExprQualifier;
+use husky_opn_semantics::EagerSuffixOpr;
 use husky_word::RootIdentifier;
 
 use super::*;
@@ -67,31 +69,63 @@ impl<'a> RustCodeGenerator<'a> {
             FuncStmtVariant::Return {
                 ref result,
                 return_context,
-            } => {
-                self.write("return ");
-                match return_context.kind {
-                    RawReturnContextKind::Normal => {
-                        self.gen_binding(result);
-                        // ad hoc
-                        if return_context.return_ty.route.is_option() && !result.ty().is_option() {
-                            self.write("Some(");
-                            self.gen_expr(stmt.indent, result);
-                            self.write(")")
-                        } else {
-                            self.gen_expr(stmt.indent, result)
+            } => match result.variant {
+                EagerExprVariant::Opn {
+                    opn_variant:
+                        EagerOpnVariant::Suffix {
+                            opr: EagerSuffixOpr::Unveil,
+                            ..
+                        },
+                    ref opds,
+                } => {
+                    self.write("if let Some(result) = ");
+                    self.gen_expr(stmt.indent, &opds[0]);
+                    self.write(" {");
+                    self.newline_indented(stmt.indent + 4);
+                    match return_context.kind {
+                        RawReturnContextKind::Normal => {
+                            if return_context.return_ty.route.is_option() {
+                                self.write("return Some(result);");
+                            } else {
+                                self.write("return result;");
+                            }
                         }
+                        RawReturnContextKind::Feature => todo!(),
+                        RawReturnContextKind::LazyField => todo!(),
                     }
-                    RawReturnContextKind::Feature => {
-                        self.gen_feature_return(stmt.indent, result, return_context.return_ty.route)
-                    }
-                    RawReturnContextKind::LazyField => self.gen_lazy_field_return(
-                        stmt.indent,
-                        result,
-                        return_context.return_ty.route,
-                    ),
+                    self.newline_indented(stmt.indent);
+                    self.write("}")
                 }
-                self.write(";")
-            }
+                _ => {
+                    self.write("return ");
+                    match return_context.kind {
+                        RawReturnContextKind::Normal => {
+                            self.gen_binding(result);
+                            // ad hoc
+                            if return_context.return_ty.route.is_option()
+                                && !result.ty().is_option()
+                            {
+                                self.write("Some(");
+                                self.gen_expr(stmt.indent, result);
+                                self.write(")")
+                            } else {
+                                self.gen_expr(stmt.indent, result)
+                            }
+                        }
+                        RawReturnContextKind::Feature => self.gen_feature_return(
+                            stmt.indent,
+                            result,
+                            return_context.return_ty.route,
+                        ),
+                        RawReturnContextKind::LazyField => self.gen_lazy_field_return(
+                            stmt.indent,
+                            result,
+                            return_context.return_ty.route,
+                        ),
+                    }
+                    self.write(";")
+                }
+            },
             FuncStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_func_condition_flow(stmt.indent, branches)
             }
@@ -134,15 +168,33 @@ impl<'a> RustCodeGenerator<'a> {
             ProcStmtVariant::Return {
                 ref result,
                 return_context,
-            } => match return_context.kind {
-                RawReturnContextKind::Normal => {
-                    self.write("return ");
-                    self.gen_binding(result);
-                    self.gen_expr(stmt.indent, result);
-                    self.write(";")
+            } => match result.variant {
+                EagerExprVariant::Opn {
+                    opn_variant:
+                        EagerOpnVariant::Suffix {
+                            opr: EagerSuffixOpr::Unveil,
+                            ..
+                        },
+                    ref opds,
+                } => {
+                    self.write("if let Some(result) = ");
+                    self.gen_expr(stmt.indent, &opds[0]);
+                    self.write(" {");
+                    self.newline_indented(stmt.indent + 4);
+                    self.write("return result;");
+                    self.newline_indented(stmt.indent);
+                    self.write("}")
                 }
-                RawReturnContextKind::Feature => todo!(),
-                RawReturnContextKind::LazyField => todo!(),
+                _ => match return_context.kind {
+                    RawReturnContextKind::Normal => {
+                        self.write("return ");
+                        self.gen_binding(result);
+                        self.gen_expr(stmt.indent, result);
+                        self.write(";")
+                    }
+                    RawReturnContextKind::Feature => todo!(),
+                    RawReturnContextKind::LazyField => todo!(),
+                },
             },
             ProcStmtVariant::ConditionFlow { ref branches } => {
                 self.gen_proc_condition_flow(stmt.indent, branches)

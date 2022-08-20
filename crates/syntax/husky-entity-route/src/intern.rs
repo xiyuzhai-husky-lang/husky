@@ -73,7 +73,7 @@ impl EntityRoutePtr {
         match self.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref | RootIdentifier::Option,
-            } => self.spatial_arguments[0].take_entity_route().intrinsic(),
+            } => self.entity_route_argument(0).intrinsic(),
             _ => self,
         }
     }
@@ -87,11 +87,11 @@ impl EntityRoutePtr {
     pub fn canonicalize(self) -> CanonicalEntityRoutePtr {
         if self.is_option() {
             assert_eq!(self.spatial_arguments.len(), 1);
-            let this1 = self.spatial_arguments[0].take_entity_route();
+            let this1 = self.entity_route_argument(0);
             assert!(!this1.is_option());
             if this1.is_ref() {
                 assert_eq!(this1.spatial_arguments.len(), 1);
-                let this2 = this1.spatial_arguments[0].take_entity_route();
+                let this2 = this1.entity_route_argument(0);
                 assert!(this2.is_intrinsic());
                 CanonicalEntityRoutePtr::new(this2, CanonicalEntityRoutePtrKind::OptionalEvalRef)
             } else {
@@ -100,7 +100,7 @@ impl EntityRoutePtr {
             }
         } else if self.is_ref() {
             assert_eq!(self.spatial_arguments.len(), 1);
-            let this1 = self.spatial_arguments[0].take_entity_route();
+            let this1 = self.entity_route_argument(0);
             assert!(this1.is_intrinsic());
             CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::EvalRef)
         } else {
@@ -112,7 +112,7 @@ impl EntityRoutePtr {
         match self.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
-            } => self.spatial_arguments[0].take_entity_route().deref_route(),
+            } => self.entity_route_argument(0).deref_route(),
             _ => self,
         }
     }

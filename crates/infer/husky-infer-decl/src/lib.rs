@@ -73,9 +73,7 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
             RootIdentifier::TypeType => false,
             RootIdentifier::TraitType => false,
             RootIdentifier::ModuleType => false,
-            RootIdentifier::Option => {
-                db.is_copyable(ty.spatial_arguments[0].take_entity_route())?
-            }
+            RootIdentifier::Option => db.is_copyable(ty.entity_route_argument(0))?,
             _ => {
                 p!(ident);
                 panic!()

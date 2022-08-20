@@ -204,7 +204,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         opds: RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
         let ty = self.eager_expr_qualified_ty(idx).unwrap().ty;
-        let elem_ty = ty.spatial_arguments[0].take_entity_route();
+        let elem_ty = ty.entity_route_argument(0);
 
         let elements: Vec<_> = opds
             .map(|opd| self.parse_eager_expr(opd, Some(elem_ty)))
@@ -279,7 +279,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawSuffixOpr::Decr => EagerSuffixOpr::Decr,
             RawSuffixOpr::AsTy(ty) => EagerSuffixOpr::AsTy(ty.clone()),
             RawSuffixOpr::BePattern(_) => todo!(),
-            RawSuffixOpr::Unveil => todo!(),
+            RawSuffixOpr::Unveil => EagerSuffixOpr::Unveil,
         };
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Suffix {

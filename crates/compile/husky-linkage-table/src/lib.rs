@@ -40,7 +40,6 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
                 self.entity_route_menu().std_ops_index_trai,
                 thin_vec![SpatialArgument::EntityRoute(opd_tys[1])],
             );
-            p!(opd_tys, std_ops_index_trai);
             let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();
             match index_trai_impl.member_impls[1].variant {
                 EntityDefnVariant::Method { ref opt_source, .. } => {

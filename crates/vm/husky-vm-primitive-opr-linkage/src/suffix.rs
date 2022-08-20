@@ -235,5 +235,6 @@ pub fn resolve_primitive_suffix_opr_linkage(
             RootIdentifier::Option => todo!(),
         },
         EagerSuffixOpr::BePattern(_) => panic!(),
+        EagerSuffixOpr::Unveil => todo!(),
     }
 }

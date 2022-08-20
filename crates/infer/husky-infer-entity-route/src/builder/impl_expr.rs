@@ -416,7 +416,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 if !opd_ty.is_option() {
                     todo!()
                 }
-                Ok(opd_ty.spatial_arguments[0].take_entity_route())
+                Ok(opd_ty.entity_route_argument(0))
             }
         }
     }

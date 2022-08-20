@@ -113,14 +113,22 @@ impl<'eval> __Register<'eval> {
 
     pub fn bind_temp_ref(&self) -> __Register<'eval> {
         match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => todo!(),
-            __RegisterDataKind::Box | __RegisterDataKind::EvalRef | __RegisterDataKind::TempRef => unsafe {
+            __RegisterDataKind::PrimitiveValue => __Register {
+                data_kind: __RegisterDataKind::TempRef,
+                data: unsafe {
+                    __RegisterData {
+                        as_ptr: &self.data as *const _ as *mut (),
+                    }
+                },
+                vtable: self.vtable,
+            },
+            __RegisterDataKind::Box | __RegisterDataKind::EvalRef | __RegisterDataKind::TempRef => {
                 __Register {
                     data_kind: __RegisterDataKind::TempRef,
                     data: self.data,
                     vtable: self.vtable,
                 }
-            },
+            }
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::None => todo!(),

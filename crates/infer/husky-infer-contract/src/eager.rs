@@ -149,7 +149,7 @@ impl EagerContract {
                     ident: RootIdentifier::Option,
                 })
             {
-                if output_ty.spatial_arguments[0].take_entity_route() == expr_ty {
+                if output_ty.entity_route_argument(0) == expr_ty {
                     if db.is_copyable(expr_ty)? {
                         EagerContract::Pure
                     } else {
@@ -175,7 +175,7 @@ impl EagerContract {
                         ident: RootIdentifier::Option,
                     })
                 {
-                    if output_ty.spatial_arguments[0].take_entity_route() == expr_ty {
+                    if output_ty.entity_route_argument(0) == expr_ty {
                         Ok(if db.is_copyable(expr_ty)? {
                             EagerContract::Pure
                         } else {
