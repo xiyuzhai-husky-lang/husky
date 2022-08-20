@@ -62,8 +62,10 @@ impl<'a> TraceTokenBuilder<'a> {
             } => {
                 if let Some(token) = repr.opt_leading_keyword() {
                     self.push(keyword!(token));
+                    self.push(ident!(route.ident().as_str()))
+                } else {
+                    self.push(keyword!(route.ident().as_str()))
                 }
-                self.push(ident!(route.ident().as_str()))
             }
             TraceVariant::Module { route, .. } => {
                 self.push(TraceTokenData {
