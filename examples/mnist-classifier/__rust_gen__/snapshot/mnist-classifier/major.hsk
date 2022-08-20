@@ -1,0 +1,12 @@
+use crate::connected_component::*
+use crate::raw_contour::*
+
+func connected_components -> []ConnectedComponent:
+    find_connected_components(input)
+
+func major_connected_component -> ConnectedComponent:
+    connected_components[0]
+
+// todo: change `def` to `func`
+def major_raw_contour -> RawContour:
+    major_connected_component.raw_contours[0]
