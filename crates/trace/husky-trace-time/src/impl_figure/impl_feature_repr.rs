@@ -202,12 +202,7 @@ impl HuskyTraceTime {
                 __RegisterDowncastResult::Value(predicted_label) => {
                     Ok(predicted_label != true_label)
                 }
-                __RegisterDowncastResult::None => {
-                    if partitions.is_nondefault(true_label) {
-                        todo!()
-                    }
-                    Ok(partitions.is_nondefault(true_label))
-                }
+                __RegisterDowncastResult::None => Ok(partitions.is_nondefault(true_label)),
                 __RegisterDowncastResult::Unreturned => Ok(false),
             }
         } else {
