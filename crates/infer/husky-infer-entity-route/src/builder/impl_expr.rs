@@ -412,6 +412,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 msg_once!("check be pattern ty");
                 Ok(RootIdentifier::Bool.into())
             }
+            RawSuffixOpr::Unveil => {
+                if !opd_ty.is_option() {
+                    todo!()
+                }
+                Ok(opd_ty.spatial_arguments[0].take_entity_route())
+            }
         }
     }
 

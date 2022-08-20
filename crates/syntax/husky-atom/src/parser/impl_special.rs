@@ -157,7 +157,12 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 self.stack.push(HuskyAtom::new(range, atom_variant))
             }
             SpecialToken::QuestionMark => match self.stack.convexity() {
-                Convexity::Convex => todo!(),
+                Convexity::Convex => {
+                    self.stack.push(HuskyAtom::new(
+                        self.token_stream.text_range(text_start),
+                        RawSuffixOpr::Unveil.into(),
+                    ))
+                },
                 Convexity::Concave => todo!(),
                 Convexity::WordPatternAny => todo!(),
             },

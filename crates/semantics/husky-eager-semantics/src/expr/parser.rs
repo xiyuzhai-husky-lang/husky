@@ -279,6 +279,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawSuffixOpr::Decr => EagerSuffixOpr::Decr,
             RawSuffixOpr::AsTy(ty) => EagerSuffixOpr::AsTy(ty.clone()),
             RawSuffixOpr::BePattern(_) => todo!(),
+            RawSuffixOpr::Unveil => todo!(),
         };
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Suffix {

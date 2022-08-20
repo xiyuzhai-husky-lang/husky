@@ -324,6 +324,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 qual: LazyExprQualifier::Copyable,
                 ty: RootIdentifier::Bool.into(),
             }),
+            RawSuffixOpr::Unveil => todo!(),
         }
     }
 

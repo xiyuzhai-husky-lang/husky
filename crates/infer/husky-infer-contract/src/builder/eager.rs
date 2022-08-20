@@ -260,6 +260,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 Ok(())
             }
             RawSuffixOpr::BePattern(_) => todo!(),
+            RawSuffixOpr::Unveil => todo!(),
         }
     }
 
