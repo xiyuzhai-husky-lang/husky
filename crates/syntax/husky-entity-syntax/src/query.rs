@@ -188,7 +188,7 @@ fn entity_kind_from_entity_route_kind(
             EntityRouteVariant::ThisType => EntityKind::Member(MemberKind::TraitAssociatedAny),
             _ => db.subroute_table(*parent).unwrap().entity_kind(*ident)?,
         },
-        EntityRouteVariant::CrateInputValue { .. } => EntityKind::Feature,
+        EntityRouteVariant::TargetInputValue { .. } => EntityKind::Feature,
         EntityRouteVariant::Any { entity_kind, .. } => *entity_kind,
         EntityRouteVariant::ThisType => EntityKind::Type(TyKind::ThisAny),
         EntityRouteVariant::TypeAsTraitMember { .. } => {
@@ -211,7 +211,7 @@ fn entity_source(
         EntityRouteVariant::Child { parent, ident } => {
             db.subroute_table(parent)?.entity_source(ident)
         }
-        EntityRouteVariant::CrateInputValue => Ok(EntitySource::TargetInput),
+        EntityRouteVariant::TargetInputValue => Ok(EntitySource::TargetInput),
         EntityRouteVariant::Any {
             ident, file, range, ..
         } => Ok(EntitySource::Any {

@@ -71,7 +71,7 @@ impl Implementable for EntityRoutePtr {
                     todo!()
                 }
             },
-            EntityRouteVariant::CrateInputValue => todo!(),
+            EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType => (
                 ctx.this_ty.variant.clone(),

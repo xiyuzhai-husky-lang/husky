@@ -329,7 +329,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     };
                     (variant, feature)
                 }
-                EntityRouteVariant::CrateInputValue => {
+                EntityRouteVariant::TargetInputValue => {
                     let feature = self.feature_interner.intern(Feature::Input);
                     let variant = FeatureExprVariant::EvalInput;
                     (variant, feature)

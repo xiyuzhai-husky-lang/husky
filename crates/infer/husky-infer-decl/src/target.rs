@@ -152,7 +152,7 @@ pub(crate) fn implement_target(
             ident,
         },
         EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
-        EntityRouteVariant::CrateInputValue => todo!(),
+        EntityRouteVariant::TargetInputValue => todo!(),
         EntityRouteVariant::TargetOutputType => {
             let target_output_ty = db.target_output_ty()?;
             spatial_arguments = target_output_ty.spatial_arguments.clone();

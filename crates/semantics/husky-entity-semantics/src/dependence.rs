@@ -32,7 +32,7 @@ impl<'a> DependeeMapBuilder<'a> {
                     }
                 }
             }
-            EntityRouteVariant::CrateInputValue => return,
+            EntityRouteVariant::TargetInputValue => return,
             EntityRouteVariant::Package { main, ident } => todo!(),
             EntityRouteVariant::Child { parent, ident } => {
                 msg_once!("dependences on entity from external packs should be merged");

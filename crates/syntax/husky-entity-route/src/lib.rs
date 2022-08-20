@@ -107,7 +107,7 @@ pub enum EntityRouteVariant {
         trai: EntityRoutePtr,
         ident: CustomIdentifier,
     },
-    CrateInputValue,
+    TargetInputValue,
     TargetOutputType,
     Any {
         ident: CustomIdentifier,
@@ -132,7 +132,7 @@ impl EntityRoute {
             EntityRouteVariant::Root { ident } => ident.into(),
             EntityRouteVariant::Package { ident, .. } => ident.into(),
             EntityRouteVariant::Child { ident, .. } => ident.into(),
-            EntityRouteVariant::CrateInputValue { .. } => {
+            EntityRouteVariant::TargetInputValue { .. } => {
                 ContextualIdentifier::CrateInputValue.into()
             }
             EntityRouteVariant::TargetOutputType { .. } => {
@@ -208,7 +208,7 @@ impl EntityRoute {
             EntityRouteVariant::Root { .. } => true,
             EntityRouteVariant::Package { .. } => false,
             EntityRouteVariant::Child { parent, .. } => parent.is_builtin(),
-            EntityRouteVariant::CrateInputValue { .. }
+            EntityRouteVariant::TargetInputValue { .. }
             | EntityRouteVariant::TargetOutputType { .. } => {
                 todo!()
             }
@@ -225,7 +225,7 @@ impl EntityRoute {
     pub fn opt_parent(&self) -> Option<EntityRoutePtr> {
         match self.variant {
             EntityRouteVariant::Root { .. }
-            | EntityRouteVariant::CrateInputValue { .. }
+            | EntityRouteVariant::TargetInputValue { .. }
             | EntityRouteVariant::Package { .. }
             | EntityRouteVariant::Any { .. }
             | EntityRouteVariant::ThisType => None,

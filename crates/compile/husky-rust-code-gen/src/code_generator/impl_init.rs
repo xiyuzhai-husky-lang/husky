@@ -221,7 +221,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             }
             EntityRouteVariant::Root { ident } => todo!(),
             EntityRouteVariant::Package { main, ident } => todo!(),
-            EntityRouteVariant::CrateInputValue => todo!(),
+            EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::Any {
                 ident, entity_kind, ..
             } => todo!(),

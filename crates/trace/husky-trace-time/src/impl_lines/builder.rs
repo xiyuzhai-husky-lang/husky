@@ -60,7 +60,9 @@ impl<'a> TraceTokenBuilder<'a> {
             TraceVariant::EntityFeature {
                 route, ref repr, ..
             } => {
-                self.push(keyword!(repr.leading_keyword()));
+                if let Some(token) = repr.opt_leading_keyword() {
+                    self.push(keyword!(token));
+                }
                 self.push(ident!(route.ident().as_str()))
             }
             TraceVariant::Module { route, .. } => {
