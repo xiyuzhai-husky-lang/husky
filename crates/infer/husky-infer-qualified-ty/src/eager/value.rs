@@ -319,4 +319,11 @@ impl EagerValueQualifiedTy {
             ty,
         })
     }
+
+    pub fn unveil(self) -> Self {
+        Self {
+            qual: self.qual,
+            ty: self.ty.entity_route_argument(0),
+        }
+    }
 }

@@ -178,8 +178,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     _ => {
                         let method_name_extra =
                             if entity_route.ident().as_str() == "pop_with_largest_opt_f32" {
-                                let elem_ty =
-                                    entity_route.parent().spatial_arguments[0].take_entity_route();
+                                let elem_ty = entity_route.parent().entity_route_argument(0);
                                 if self.db.is_copyable(elem_ty).unwrap() {
                                     "_copyable"
                                 } else {
@@ -330,8 +329,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     match self.db.is_copyable(variadic_ty).unwrap() {
                         true => {
                             if variadic_ty.is_option() {
-                                let variadic_ty =
-                                    variadic_ty.spatial_arguments[0].take_entity_route();
+                                let variadic_ty = variadic_ty.entity_route_argument(0);
                                 if variadic_ty.is_ref() {
                                     self.write(&format!(
                                     r#"
@@ -424,7 +422,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     self.write(">(");
                 }
             },
-            CanonicalEntityRoutePtrKind::Optional => todo!(),
+            CanonicalEntityRoutePtrKind::Optional => match output_ty_reg_memory_kind {
+                RegMemoryKind::Direct => {
+                    if is_intrinsic_output_ty_primitive {
+                        // pass
+                        ()
+                    } else {
+                        todo!()
+                    }
+                }
+                RegMemoryKind::BoxCopyable => todo!(),
+                RegMemoryKind::BoxNonCopyable => todo!(),
+            },
             CanonicalEntityRoutePtrKind::EvalRef => todo!(),
             CanonicalEntityRoutePtrKind::OptionalEvalRef => {
                 self.write("__Register::new_opt_eval_ref::<");

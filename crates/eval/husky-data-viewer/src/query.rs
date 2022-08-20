@@ -45,7 +45,7 @@ fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc
                 .unwrap()
                 .transfer(),
             index: comptime.index_linkage(vec![ty, RootIdentifier::I32.into()]),
-            elem_ty: ty.spatial_arguments[0].take_entity_route(),
+            elem_ty: ty.entity_route_argument(0),
         },
         TyKind::Slice => todo!(),
         TyKind::CyclicSlice => HuskyDataViewer::CyclicSlice {
@@ -56,7 +56,7 @@ fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc
                 .field_linkage_fp(ty, comptime.intern_word("end").custom(), Binding::Copy)
                 .unwrap(),
             index: comptime.index_linkage(vec![ty, RootIdentifier::I32.into()]),
-            elem_ty: ty.spatial_arguments[0].take_entity_route(),
+            elem_ty: ty.entity_route_argument(0),
         },
         TyKind::Array => todo!(),
         TyKind::Tuple => todo!(),

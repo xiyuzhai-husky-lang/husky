@@ -118,15 +118,18 @@ impl HuskyComptime {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
                 RootIdentifier::Void => todo!(),
                 RootIdentifier::I32 => match value.data_kind() {
-                    __RegisterDataKind::TempRef => todo!(),
-                    __RegisterDataKind::TempMut => todo!(),
                     __RegisterDataKind::Moved => todo!(),
                     __RegisterDataKind::None => todo!(),
                     __RegisterDataKind::Unreturned => "unreturned".to_string(),
                     _ => format!("{}", value.downcast_i32()),
                 },
                 RootIdentifier::I64 => todo!(),
-                RootIdentifier::F32 => todo!(),
+                RootIdentifier::F32 => match value.data_kind() {
+                    __RegisterDataKind::Moved => todo!(),
+                    __RegisterDataKind::None => todo!(),
+                    __RegisterDataKind::Unreturned => "unreturned".to_string(),
+                    _ => format!("{}", value.downcast_f32()),
+                },
                 RootIdentifier::F64 => todo!(),
                 RootIdentifier::B32 => todo!(),
                 RootIdentifier::B64 => todo!(),

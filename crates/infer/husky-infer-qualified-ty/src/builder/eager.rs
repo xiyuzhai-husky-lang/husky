@@ -391,7 +391,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             }),
             RawSuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
             RawSuffixOpr::BePattern(_) => todo!(),
-            RawSuffixOpr::Unveil => todo!(),
+            RawSuffixOpr::Unveil => Ok(this_qt.unveil()),
         }
     }
 
@@ -405,7 +405,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let this_deref_ty = match this_qt.ty.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
-            } => this_qt.ty.spatial_arguments[0].take_entity_route(),
+            } => this_qt.ty.entity_route_argument(0),
             _ => this_qt.ty,
         };
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));

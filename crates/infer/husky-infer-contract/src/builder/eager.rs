@@ -260,7 +260,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 Ok(())
             }
             RawSuffixOpr::BePattern(_) => todo!(),
-            RawSuffixOpr::Unveil => todo!(),
+            RawSuffixOpr::Unveil => {
+                self.infer_eager_expr(opd, contract);
+                Ok(())
+            }
         }
     }
 

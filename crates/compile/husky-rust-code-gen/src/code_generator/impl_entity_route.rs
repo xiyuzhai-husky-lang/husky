@@ -61,7 +61,7 @@ impl<'a> RustCodeGenerator<'a> {
                             | EntityRouteRole::Other => self.write("&'eval "),
                         }
                         self.gen_entity_route(
-                            entity_route.spatial_arguments[0].take_entity_route(),
+                            entity_route.entity_route_argument(0),
                             role.argument_role(),
                         );
                         return;
@@ -75,7 +75,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(&ident);
                     // ad hoc
                     if ident.as_str() == "pop_with_largest_opt_f32" {
-                        let elem_ty = parent.spatial_arguments[0].take_entity_route();
+                        let elem_ty = parent.entity_route_argument(0);
                         if self.db.is_copyable(elem_ty).unwrap() {
                             self.write("_copyable")
                         } else {
