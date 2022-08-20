@@ -9,9 +9,9 @@ pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
 pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
         __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::connected_component::major_connected_component"
+            route: "mnist_classifier::major::major_connected_component"
         },
-        feature_linkage!(connected_component::major_connected_component, connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE),
+        feature_linkage!(major::major_connected_component, connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
@@ -177,10 +177,43 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
 )
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::connected_component::connected_components"
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::connected_component::horizontal_extend",
         },
-        feature_linkage!(connected_component::connected_components, Vec<connected_component::ConnectedComponent>, __registration__::__VEC_CONNECTED_COMPONENT_VTABLE),
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let a: u32 = __arguments[0].downcast_b32();
+                    let x: u32 = __arguments[1].downcast_b32();
+                    connected_component::horizontal_extend(a, x).to_register()
+                }
+                __wrapper
+            },
+            opt_fp: Some(connected_component::horizontal_extend as *const ()),
+        }),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::connected_component::find_connected_components",
+        },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let img: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref(&__registration__::__BINARY_IMAGE_28_VTABLE);
+                    __Register::new_box::<Vec<connected_component::ConnectedComponent>>(connected_component::find_connected_components(img), &__registration__::__VEC_CONNECTED_COMPONENT_VTABLE)
+                }
+                __wrapper
+            },
+            opt_fp: Some(connected_component::find_connected_components as *const ()),
+        }),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::connected_component::ConnectedComponent>::ilen" },
@@ -235,45 +268,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             connected_component::ConnectedComponent,
             __registration__::__CONNECTED_COMPONENT_VTABLE
 )
-    ),
-    (
-        __StaticLinkageKey::Routine {
-            route: "mnist_classifier::connected_component::find_connected_components",
-        },
-        __Linkage::Transfer(__LinkageFp {
-            dev_src: static_dev_src!(),
-            wrapper: {
-                unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                    __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
-                    let img: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref(&__registration__::__BINARY_IMAGE_28_VTABLE);
-                    __Register::new_box::<Vec<connected_component::ConnectedComponent>>(connected_component::find_connected_components(img), &__registration__::__VEC_CONNECTED_COMPONENT_VTABLE)
-                }
-                __wrapper
-            },
-            opt_fp: Some(connected_component::find_connected_components as *const ()),
-        }),
-    ),
-    (
-        __StaticLinkageKey::Routine {
-            route: "mnist_classifier::connected_component::horizontal_extend",
-        },
-        __Linkage::Transfer(__LinkageFp {
-            dev_src: static_dev_src!(),
-            wrapper: {
-                unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                    __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
-                    let a: u32 = __arguments[0].downcast_b32();
-                    let x: u32 = __arguments[1].downcast_b32();
-                    connected_component::horizontal_extend(a, x).to_register()
-                }
-                __wrapper
-            },
-            opt_fp: Some(connected_component::horizontal_extend as *const ()),
-        }),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::connected_component::ConnectedComponent>::push" },
@@ -1774,6 +1768,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             },
             opt_fp: Some(Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::push as *const ()),
         }),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::major::connected_components"
+        },
+        feature_linkage!(major::connected_components, Vec<connected_component::ConnectedComponent>, __registration__::__VEC_CONNECTED_COMPONENT_VTABLE),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice" },
