@@ -33,6 +33,9 @@ impl HuskyTraceTime {
         );
         let module = self.comptime().module(target_entrance).unwrap();
         let mut root_trace_ids = vec![];
+        // add input trace
+        root_trace_ids.push(self.new_trace(None, 0, TraceVariant::input(self.runtime())));
+        // add module traces
         for (subentity_kind, subentity_route) in
             self.comptime().subentity_kinded_routes(module).iter()
         {
@@ -60,8 +63,6 @@ impl HuskyTraceTime {
                 _ => (),
             }
         }
-        // add input trace
-        root_trace_ids.push(self.new_trace(None, 0, TraceVariant::input(self.runtime())));
         // add main trace
         root_trace_ids.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
         self.root_trace_ids = root_trace_ids;
