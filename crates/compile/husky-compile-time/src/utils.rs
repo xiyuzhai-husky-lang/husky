@@ -69,7 +69,7 @@ fn convert_i32_register_to_label<'eval>(
         __RegisterDataKind::TempRef => todo!(),
         __RegisterDataKind::TempMut => todo!(),
         __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::Undefined => __RegisterDowncastResult::None,
+        __RegisterDataKind::None => __RegisterDowncastResult::None,
         __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
     }
 }
@@ -89,7 +89,7 @@ pub fn convert_enum_register_to_label<'eval>(
         __RegisterDataKind::TempRef => todo!(),
         __RegisterDataKind::TempMut => todo!(),
         __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::Undefined => __RegisterDowncastResult::None,
+        __RegisterDataKind::None => __RegisterDowncastResult::None,
         __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
     }
 }

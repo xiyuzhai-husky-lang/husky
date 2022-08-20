@@ -36,7 +36,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
                     __RegisterDataKind::TempRef => todo!(),
                     __RegisterDataKind::TempMut => todo!(),
                     __RegisterDataKind::Moved => todo!(),
-                    __RegisterDataKind::Undefined => todo!(),
+                    __RegisterDataKind::None => todo!(),
                     __RegisterDataKind::Unreturned => todo!(),
                 }
             }

@@ -121,7 +121,7 @@ impl HuskyComptime {
                     __RegisterDataKind::TempRef => todo!(),
                     __RegisterDataKind::TempMut => todo!(),
                     __RegisterDataKind::Moved => todo!(),
-                    __RegisterDataKind::Undefined => todo!(),
+                    __RegisterDataKind::None => todo!(),
                     __RegisterDataKind::Unreturned => "unreturned".to_string(),
                     _ => format!("{}", value.downcast_i32()),
                 },

@@ -74,7 +74,10 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_opt_void(&self) -> Option<void> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 8073556201194512886 {
-                panic!("expect `void` but get `{}` instead", self.vtable.typename_str)
+                panic!(
+                    "expect `void` but get `{}` instead",
+                    self.vtable.typename_str
+                )
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_void),
@@ -82,7 +85,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const void)),
-                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::None => None,
                 _ => panic!(),
             }
         }
@@ -156,7 +159,10 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_opt_bool(&self) -> Option<bool> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 729807561129781588 {
-                panic!("expect `bool` but get `{}` instead", self.vtable.typename_str)
+                panic!(
+                    "expect `bool` but get `{}` instead",
+                    self.vtable.typename_str
+                )
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_bool),
@@ -164,7 +170,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const bool)),
-                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::None => None,
                 _ => panic!(),
             }
         }
@@ -238,7 +244,10 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_opt_i32(&self) -> Option<i32> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 6639413044669031007 {
-                panic!("expect `i32` but get `{}` instead", self.vtable.typename_str)
+                panic!(
+                    "expect `i32` but get `{}` instead",
+                    self.vtable.typename_str
+                )
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_i32),
@@ -246,7 +255,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const i32)),
-                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::None => None,
                 _ => panic!(),
             }
         }
@@ -320,7 +329,10 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_opt_i64(&self) -> Option<i64> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 9204872793588273300 {
-                panic!("expect `i64` but get `{}` instead", self.vtable.typename_str)
+                panic!(
+                    "expect `i64` but get `{}` instead",
+                    self.vtable.typename_str
+                )
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_i64),
@@ -328,7 +340,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const i64)),
-                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::None => None,
                 _ => panic!(),
             }
         }
@@ -402,7 +414,10 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_opt_b32(&self) -> Option<b32> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 9758498138566595375 {
-                panic!("expect `b32` but get `{}` instead", self.vtable.typename_str)
+                panic!(
+                    "expect `b32` but get `{}` instead",
+                    self.vtable.typename_str
+                )
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_b32),
@@ -410,7 +425,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const b32)),
-                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::None => None,
                 _ => panic!(),
             }
         }
@@ -484,7 +499,10 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_opt_b64(&self) -> Option<b64> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 11108470303398574121 {
-                panic!("expect `b64` but get `{}` instead", self.vtable.typename_str)
+                panic!(
+                    "expect `b64` but get `{}` instead",
+                    self.vtable.typename_str
+                )
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_b64),
@@ -492,7 +510,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const b64)),
-                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::None => None,
                 _ => panic!(),
             }
         }
@@ -566,7 +584,10 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_opt_f32(&self) -> Option<f32> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 211483071870485656 {
-                panic!("expect `f32` but get `{}` instead", self.vtable.typename_str)
+                panic!(
+                    "expect `f32` but get `{}` instead",
+                    self.vtable.typename_str
+                )
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_f32),
@@ -574,7 +595,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const f32)),
-                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::None => None,
                 _ => panic!(),
             }
         }
@@ -648,7 +669,10 @@ impl<'eval> __Register<'eval> {
     pub fn downcast_opt_f64(&self) -> Option<f64> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 14456281901843390161 {
-                panic!("expect `f64` but get `{}` instead", self.vtable.typename_str)
+                panic!(
+                    "expect `f64` but get `{}` instead",
+                    self.vtable.typename_str
+                )
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_f64),
@@ -656,7 +680,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const f64)),
-                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::None => None,
                 _ => panic!(),
             }
         }
@@ -666,7 +690,8 @@ impl<'eval> __Register<'eval> {
 // __VirtualFunction
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_clone(data: *mut ()) -> *mut () {
-    Box::<__VirtualFunction>::into_raw(Box::new((*(data as *mut __VirtualFunction)).clone())) as *mut ()
+    Box::<__VirtualFunction>::into_raw(Box::new((*(data as *mut __VirtualFunction)).clone()))
+        as *mut ()
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
@@ -674,12 +699,14 @@ pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const __VirtualFunction) == *(other as *const () as *const __VirtualFunction)
+    *(this as *const () as *const __VirtualFunction)
+        == *(other as *const () as *const __VirtualFunction)
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<__VirtualFunction>(&__VIRTUAL_FUNCTION_VTABLE) = registers[1].downcast_move(&__VIRTUAL_FUNCTION_VTABLE)
+    *registers[0].downcast_temp_mut::<__VirtualFunction>(&__VIRTUAL_FUNCTION_VTABLE) =
+        registers[1].downcast_move(&__VIRTUAL_FUNCTION_VTABLE)
 }
 #[no_mangle]
 pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
@@ -709,7 +736,8 @@ pub unsafe extern "C" fn __virtual_enum_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_enum_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE) = registers[1].downcast_move(&__VIRTUAL_ENUM_VTABLE)
+    *registers[0].downcast_temp_mut::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE) =
+        registers[1].downcast_move(&__VIRTUAL_ENUM_VTABLE)
 }
 #[no_mangle]
 pub static __VIRTUAL_ENUM_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
