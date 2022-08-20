@@ -391,6 +391,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             }),
             RawSuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
             RawSuffixOpr::BePattern(_) => todo!(),
+            RawSuffixOpr::Unveil => todo!(),
         }
     }
 

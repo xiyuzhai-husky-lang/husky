@@ -18,6 +18,7 @@ pub enum RawSuffixOpr {
     Decr,                    // --
     AsTy(RangedEntityRoute), // :
     BePattern(RawPattern),
+    Unveil,
 }
 
 impl RawSuffixOpr {
@@ -27,6 +28,7 @@ impl RawSuffixOpr {
             RawSuffixOpr::Decr => "--".into(),
             RawSuffixOpr::AsTy(ty) => format!(" as {}", ty.route).into(),
             RawSuffixOpr::BePattern(_) => todo!(),
+            RawSuffixOpr::Unveil => "?".into(),
         }
     }
 }

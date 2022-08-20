@@ -234,6 +234,10 @@ impl EntityRoute {
             EntityRouteVariant::TypeAsTraitMember { ty: parent, .. } => Some(parent),
         }
     }
+
+    pub fn entity_route_argument(&self, idx: usize) -> EntityRoutePtr {
+        self.spatial_arguments[idx].take_entity_route()
+    }
 }
 
 impl From<RootIdentifier> for EntityRoute {

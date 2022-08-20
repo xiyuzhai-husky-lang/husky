@@ -329,6 +329,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 patt: Arc::new(PurePattern::from_raw(self.db(), raw_patt, this.ty())),
                 this,
             },
+            RawSuffixOpr::Unveil => todo!(),
         })
     }
 
