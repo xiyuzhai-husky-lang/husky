@@ -8,7 +8,7 @@ edition = "2021"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 salsa = "0.17.0-pre.2"
-husky-compile-time = { path = "../../compile/husky-compile-time" }
+husky-compile-time = { path = "../../comptime/husky-compile-time" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 entity-kind = { path = "../../syntax/entity-kind" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }

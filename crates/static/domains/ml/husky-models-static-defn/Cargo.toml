@@ -22,5 +22,5 @@ husky-vm-register-method = { path = "../../../../vm/husky-vm-register-method" }
 
 [build-dependencies]
 bindgen = "0.60.1"
-husky-rust-code-repr = { path = "../../../../compile/husky-rust-code-repr" }
+husky-rust-code-repr = { path = "../../../../comptime/husky-rust-code-repr" }
 husky-write-utils = { path = "../../../../utils/husky-write-utils" }

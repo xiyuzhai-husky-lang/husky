@@ -49,4 +49,4 @@ husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 thin-vec = { path = "../../../forks/thin-vec" }
 static-defn = { path = "../../static/static-defn" }
 __husky = { path = "../../static/__husky" }
-husky-layout = { path = "../../compile/husky-layout" }
+husky-layout = { path = "../../comptime/husky-layout" }
