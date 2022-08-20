@@ -8,6 +8,7 @@ mod repr;
 mod subentities;
 mod trai;
 mod ty;
+mod utils;
 mod visual;
 
 pub use call_form::*;
