@@ -104,7 +104,7 @@ impl<'eval> __Register<'eval> {
             },
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::None => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
@@ -141,7 +141,7 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::new_undefined()
+            __Register::new_none()
         }
     }
 
@@ -177,7 +177,7 @@ impl<'eval> __Register<'eval> {
         if let Some(value) = opt_value {
             Self::new_eval_ref(value, proto)
         } else {
-            Self::new_undefined()
+            Self::new_none()
         }
     }
 
@@ -209,7 +209,7 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::new_undefined()
+            __Register::new_none()
         }
     }
 
@@ -241,7 +241,7 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::new_undefined()
+            __Register::new_none()
         }
     }
 
@@ -254,9 +254,9 @@ impl<'eval> __Register<'eval> {
         std::mem::replace(self, moved)
     }
 
-    pub fn new_undefined() -> __Register<'eval> {
+    pub fn new_none() -> __Register<'eval> {
         __Register {
-            data_kind: __RegisterDataKind::Undefined,
+            data_kind: __RegisterDataKind::None,
             data: __RegisterData {
                 as_ptr: std::ptr::null_mut(),
             },
@@ -299,7 +299,7 @@ impl<'eval> __Register<'eval> {
         message: String,
     ) -> __Register<'eval> {
         __Register {
-            data_kind: __RegisterDataKind::Undefined,
+            data_kind: __RegisterDataKind::None,
             data: __RegisterData { as_void: () },
             vtable: proto,
         }
@@ -362,7 +362,7 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::TempRef => todo!(),
                 __RegisterDataKind::TempMut => todo!(),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::Undefined => todo!(),
+                __RegisterDataKind::None => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
             }
         }
@@ -383,7 +383,7 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::TempRef => todo!(),
                 __RegisterDataKind::TempMut => todo!(),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::Undefined => None,
+                __RegisterDataKind::None => None,
                 __RegisterDataKind::Unreturned => todo!(),
             }
         }
@@ -404,7 +404,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut => &*(self.data.as_ptr as *const T),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::Undefined => todo!(),
+                __RegisterDataKind::None => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
             }
         }
@@ -418,7 +418,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => &mut *(self.data.as_ptr as *mut T),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::Undefined => todo!(),
+            __RegisterDataKind::None => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
@@ -432,7 +432,7 @@ pub enum __RegisterDataKind {
     TempRef,
     TempMut,
     Moved,
-    Undefined,
+    None,
     Unreturned,
 }
 
@@ -446,7 +446,7 @@ impl<'eval> Drop for __Register<'eval> {
                 //     .unwrap())
                 // .__drop_dyn__()
             },
-            __RegisterDataKind::Undefined => {
+            __RegisterDataKind::None => {
                 // when undefined, opt_data might hold a message
                 if !unsafe { self.data.as_ptr }.is_null() {
                     todo!()

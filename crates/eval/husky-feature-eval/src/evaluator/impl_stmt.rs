@@ -24,7 +24,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 if self.satisfies(condition)? {
                     Ok(__Register::new_unreturned())
                 } else {
-                    Ok(__Register::new_undefined())
+                    Ok(__Register::new_none())
                 }
             }
             FeatureStmtVariant::Return { ref result } => self.eval_expr(result),

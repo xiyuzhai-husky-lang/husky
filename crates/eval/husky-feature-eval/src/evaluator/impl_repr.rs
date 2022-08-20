@@ -28,7 +28,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         } else {
             let result = self.eval_feature_repr(repr);
             match repr {
-                FeatureRepr::TargetInput { .. } => result,
+                FeatureRepr::TargetInput { .. } => result, // ad hoc
                 _ => self.sheet.try_cache(eval_key, result),
             }
         }

@@ -19,7 +19,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             }
             match argument.data_kind() {
                 __RegisterDataKind::Moved | __RegisterDataKind::Unreturned => panic!(),
-                __RegisterDataKind::Undefined => todo!(),
+                __RegisterDataKind::None => todo!(),
                 _ => (),
             }
         }

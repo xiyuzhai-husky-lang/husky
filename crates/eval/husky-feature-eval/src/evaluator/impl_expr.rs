@@ -129,6 +129,21 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         }
     }
 
+    pub(crate) fn eval_expr_cached(&self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
+        let eval_key = EvalKey::Feature(expr.feature);
+        if let Some(result) = self.sheet.cached_value(eval_key) {
+            result
+        } else {
+            let result = self.eval_expr(expr);
+            match expr.variant {
+                FeatureExprVariant::EntityFeature {
+                    repr: FeatureRepr::TargetInput { .. },
+                } => result, // ad hoc
+                _ => self.sheet.try_cache(eval_key, result),
+            }
+        }
+    }
+
     fn eval_struct_original_field(
         &self,
         opt_linkage: Option<__LinkageFp>,
@@ -259,7 +274,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 __RegisterDataKind::TempRef => todo!(),
                 __RegisterDataKind::TempMut => todo!(),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::Undefined => todo!(),
+                __RegisterDataKind::None => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
             },
             PurePatternVariant::None => todo!(),

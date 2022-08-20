@@ -103,7 +103,22 @@ fn feature_branch_opt_stats<'eval>(
         db,
         partitions,
         branch.block.ty.route,
-        |sample_id| db.eval_feature_lazy_block(&branch.block, sample_id),
+        |sample_id| -> __VMResult<__Register<'eval>> {
+            match branch.variant {
+                FeatureBranchVariant::If { ref condition } => {
+                    if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
+                        return Ok(__Register::new_unreturned());
+                    }
+                }
+                FeatureBranchVariant::Elif { ref condition } => {
+                    if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
+                        return Ok(__Register::new_unreturned());
+                    }
+                }
+                FeatureBranchVariant::Else => (),
+            }
+            db.eval_feature_lazy_block(&branch.block, sample_id)
+        },
         branch.opt_arrival_indicator.as_ref(),
     )
 }
