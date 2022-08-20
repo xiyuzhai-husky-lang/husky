@@ -83,7 +83,7 @@ impl<'a> RustCodeGenerator<'a> {
                         }
                     }
                 }
-                EntityRouteVariant::CrateInputValue => self.write("__input"),
+                EntityRouteVariant::TargetInputValue => self.write("__input"),
                 EntityRouteVariant::Any { ident, .. } => {
                     p!(entity_route);
                     todo!()

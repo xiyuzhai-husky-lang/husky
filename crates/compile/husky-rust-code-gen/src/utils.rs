@@ -10,7 +10,7 @@ pub(crate) fn is_defn_static(db: &dyn RustCodeGenQueryGroup, entity_route: Entit
             msg_once!("ad hoc");
             db.is_defn_static(ty)
         }
-        EntityRouteVariant::CrateInputValue => todo!(),
+        EntityRouteVariant::TargetInputValue => todo!(),
         EntityRouteVariant::Any {
             ident, entity_kind, ..
         } => todo!(),
@@ -34,7 +34,7 @@ pub(crate) fn contains_spatial_parameters(
         EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
             db.contains_spatial_parameters(ty)
         }
-        EntityRouteVariant::CrateInputValue => todo!(),
+        EntityRouteVariant::TargetInputValue => todo!(),
         EntityRouteVariant::Any {
             ident, entity_kind, ..
         } => todo!(),

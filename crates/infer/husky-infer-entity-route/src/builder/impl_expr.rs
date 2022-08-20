@@ -92,7 +92,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     EntityRouteVariant::Root { ident } => todo!(),
                     EntityRouteVariant::Package { main, ident } => todo!(),
                     EntityRouteVariant::Child { parent, ident } => parent,
-                    EntityRouteVariant::CrateInputValue => todo!(),
+                    EntityRouteVariant::TargetInputValue => todo!(),
                     EntityRouteVariant::Any { ident, .. } => todo!(),
                     EntityRouteVariant::ThisType => todo!(),
                     EntityRouteVariant::TypeAsTraitMember {

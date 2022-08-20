@@ -11,10 +11,17 @@ pub(super) fn entity_feature_repr(
         EntityDefnVariant::Feature { ref defn_repr, .. } => {
             FeatureRepr::from_defn(db, None, defn_repr, db.feature_interner())
         }
-        EntityDefnVariant::Input => FeatureRepr::TargetInput {
+        EntityDefnVariant::Input => FeatureRepr::input(db),
+        _ => todo!(),
+    }
+}
+
+impl FeatureRepr {
+    pub fn input(db: &dyn FeatureGenQueryGroup) -> Self {
+        FeatureRepr::TargetInput {
             ty: db.comptime().target_input_ty().unwrap(),
             feature: db.feature_interner().intern(Feature::Input {}),
-        },
-        _ => todo!(),
+            main_file: db.comptime().target_entrance(),
+        }
     }
 }

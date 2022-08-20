@@ -113,7 +113,7 @@ pub trait AtomContext {
             Identifier::Contextual(ident) => match ident {
                 ContextualIdentifier::CrateInputValue => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
-                        variant: EntityRouteVariant::CrateInputValue,
+                        variant: EntityRouteVariant::TargetInputValue,
                         temporal_arguments: thin_vec![],
                         spatial_arguments: thin_vec![],
                     }),

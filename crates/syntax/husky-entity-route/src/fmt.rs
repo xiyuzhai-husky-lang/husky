@@ -40,7 +40,7 @@ impl EntityRoute {
                 f.write_str("::")?;
                 f.write_str(&ident)?
             }
-            EntityRouteVariant::CrateInputValue { .. } => f.write_str("input")?,
+            EntityRouteVariant::TargetInputValue { .. } => f.write_str("input")?,
             EntityRouteVariant::TargetOutputType { .. } => f.write_str("TargetOutput")?,
             EntityRouteVariant::Any { ident, .. } => f.write_str(&ident)?,
             EntityRouteVariant::ThisType => f.write_str("This")?,
@@ -89,7 +89,7 @@ impl EntityRoute {
                 f.write_str("::")?;
                 f.write_str(&ident)?
             }
-            EntityRouteVariant::CrateInputValue { .. } => f.write_str("input")?,
+            EntityRouteVariant::TargetInputValue { .. } => f.write_str("input")?,
             EntityRouteVariant::TargetOutputType { .. } => f.write_str("TargetOutput")?,
             EntityRouteVariant::Any { ident, .. } => f.write_str(&ident)?,
             EntityRouteVariant::ThisType => f.write_str("This")?,

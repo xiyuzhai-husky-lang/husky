@@ -25,7 +25,7 @@ impl<'a> LinkageCollector<'a> {
                     return;
                 }
             }
-            EntityRouteVariant::CrateInputValue { .. } => return,
+            EntityRouteVariant::TargetInputValue { .. } => return,
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Vec,
             } => {

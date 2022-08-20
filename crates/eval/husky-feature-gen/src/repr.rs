@@ -20,6 +20,7 @@ pub enum FeatureRepr {
     FuncBlock(Arc<FeatureFuncBlock>),
     ProcBlock(Arc<FeatureProcBlock>),
     TargetInput {
+        main_file: FilePtr,
         ty: EntityRoutePtr,
         feature: FeaturePtr,
     },
@@ -37,14 +38,14 @@ impl FeatureRepr {
         }
     }
 
-    pub fn leading_keyword(&self) -> &'static str {
+    pub fn opt_leading_keyword(&self) -> Option<&'static str> {
         match self {
             FeatureRepr::Value { .. } => panic!(),
-            FeatureRepr::Expr(_) => "def ",
-            FeatureRepr::LazyBlock(_) => "def ",
-            FeatureRepr::FuncBlock(_) => "func ",
-            FeatureRepr::ProcBlock(_) => "proc ",
-            FeatureRepr::TargetInput { .. } => panic!(),
+            FeatureRepr::Expr(_) => Some("def "),
+            FeatureRepr::LazyBlock(_) => Some("def "),
+            FeatureRepr::FuncBlock(_) => Some("func "),
+            FeatureRepr::ProcBlock(_) => Some("proc "),
+            FeatureRepr::TargetInput { .. } => None,
         }
     }
 
@@ -76,7 +77,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.file,
             FeatureRepr::FuncBlock(block) => block.file,
             FeatureRepr::ProcBlock(block) => block.file,
-            FeatureRepr::TargetInput { .. } => todo!(),
+            FeatureRepr::TargetInput { main_file, .. } => *main_file,
         }
     }
 
@@ -87,7 +88,7 @@ impl FeatureRepr {
             FeatureRepr::LazyBlock(block) => block.range,
             FeatureRepr::FuncBlock(block) => block.range,
             FeatureRepr::ProcBlock(block) => block.range,
-            FeatureRepr::TargetInput { .. } => todo!(),
+            FeatureRepr::TargetInput { .. } => Default::default(),
         }
     }
 

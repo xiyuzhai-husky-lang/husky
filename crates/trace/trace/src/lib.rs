@@ -9,8 +9,10 @@ mod subtraces;
 mod tests;
 
 use fold::Indent;
+use husky_compile_time::EntityRoute;
+use husky_compile_time::*;
 use husky_eager_semantics::*;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
@@ -92,6 +94,19 @@ pub enum TraceVariant<'eval> {
         entity: Arc<EntityDefn>,
         tokens: Vec<TraceTokenData>,
     },
+}
+
+impl<'eval> TraceVariant<'eval> {
+    pub fn input(db: &dyn FeatureGenQueryGroup) -> Self {
+        TraceVariant::EntityFeature {
+            route: db.comptime().intern_entity_route(EntityRoute {
+                variant: EntityRouteVariant::TargetInputValue,
+                temporal_arguments: Default::default(),
+                spatial_arguments: Default::default(),
+            }),
+            repr: FeatureRepr::input(db),
+        }
+    }
 }
 
 impl<'eval> Serialize for TraceVariant<'eval> {

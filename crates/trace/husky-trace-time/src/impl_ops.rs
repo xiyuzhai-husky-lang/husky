@@ -60,6 +60,9 @@ impl HuskyTraceTime {
                 _ => (),
             }
         }
+        // add input trace
+        root_trace_ids.push(self.new_trace(None, 0, TraceVariant::input(self.runtime())));
+        // add main trace
         root_trace_ids.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
         self.root_trace_ids = root_trace_ids;
         self.update_trace_statss()
