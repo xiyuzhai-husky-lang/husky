@@ -28,7 +28,7 @@ husky-text = { path = "../../syntax/husky-text" }
 husky-word = { path = "../../syntax/husky-word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-compile-time = { path = "../../compile/husky-compile-time" }
+husky-compile-time = { path = "../../comptime/husky-compile-time" }
 vm = { path = "../../vm/husky-vm" }
 trivial-iter = { path = "../../abstraction/trivial-iter" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }

@@ -10,7 +10,7 @@ husky-vm-interface = { path = "../../../../vm/husky-vm-interface" }
 husky-datasets-protocol = { path = "../husky-datasets-protocol" }
 
 [build-dependencies]
-husky-rust-code-repr = { path = "../../../../compile/husky-rust-code-repr" }
+husky-rust-code-repr = { path = "../../../../comptime/husky-rust-code-repr" }
 husky-write-utils = { path = "../../../../utils/husky-write-utils" }
 
 [features]

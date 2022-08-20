@@ -15,7 +15,7 @@ husky-entity-route = { path = "../../syntax/husky-entity-route" }
 num = "0.4.0"
 
 [build-dependencies]
-husky-rust-code-repr = { path = "../../compile/husky-rust-code-repr", features = [
+husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features = [
     "registration"
 ] }
 husky-write-utils = { path = "../../utils/husky-write-utils" }

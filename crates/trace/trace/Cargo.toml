@@ -23,11 +23,11 @@ husky-word = { path = "../../syntax/husky-word" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-feature-gen = { path = "../../eval/husky-feature-gen" }
-husky-feature-eval = { path = "../../eval/husky-feature-eval" }
+husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
+husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 husky-ast = { path = "../../syntax/husky-ast" }
 defn-head = { path = "../../syntax/defn-head" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
-husky-compile-time = { path = "../../compile/husky-compile-time" }
+husky-compile-time = { path = "../../comptime/husky-compile-time" }
 entity-kind = { path = "../../syntax/entity-kind" }
