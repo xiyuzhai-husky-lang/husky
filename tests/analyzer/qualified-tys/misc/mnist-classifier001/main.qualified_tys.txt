@@ -31,7 +31,7 @@ lazy expr:
     52:35..52:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     52:9..52:41    find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
     53:5..53:13    d.ilen()               InferError: InferError:
-src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:72
 kind:
 Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: 53:5..53:13 }
 
@@ -210,6 +210,6 @@ lazy expr:
     52:35..52:40   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     52:9..52:41    find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
     53:5..53:13    d.ilen()               InferError: InferError:
-src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:73
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:72
 kind:
 Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: 53:5..53:13 }

@@ -19,7 +19,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         token.range,
                     ));
                 let (route, ty_kind) = if try_eat_special!(self, "]") {
-                    (EntityRoute::vec(self.spatial_argument()?), TyKind::Vec)
+                    if let Some(element_ty) = deprecated_try_get!(self, ty?) {
+                        (EntityRoute::vec(element_ty), TyKind::Vec)
+                    } else {
+                        return Ok(None);
+                    }
                 } else if try_eat_special!(self, "%") {
                     eat_special!(self, "]");
                     let element = self.spatial_argument()?;
@@ -37,7 +41,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     if let Some(token) = self.token_stream.peek() {
                         match token.left_convexity() {
                             Some(Convexity::Convex) => (
-                                EntityRoute::array(self.spatial_argument()?, size),
+                                EntityRoute::array(deprecated_get!(self, ty?), size),
                                 TyKind::Array,
                             ),
                             _ => return Ok(None),
