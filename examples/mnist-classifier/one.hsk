@@ -1,8 +1,12 @@
 use domains::ml::datasets::cv::mnist::MnistLabel
 use crate::major::*
+use crate::fermi::*
 
 def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
     require major_connected_component.raw_contours.ilen() == 1
     require major_raw_contour.line_segment_sketch.concave_components.ilen() == 0
     MnistLabel::One
+
+def one_fermi_match -> FermiMatchResult:
+    fermi_match(major_concave_components, [])

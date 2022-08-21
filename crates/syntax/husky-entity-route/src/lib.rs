@@ -180,12 +180,15 @@ impl EntityRoute {
         }
     }
 
-    pub fn vec(element: SpatialArgument) -> Self {
-        Self::new_root(RootIdentifier::Vec, [element].into_iter().collect())
+    pub fn vec(element: EntityRoutePtr) -> Self {
+        Self::new_root(RootIdentifier::Vec, thin_vec![element.into()])
     }
 
-    pub fn array(element: SpatialArgument, size: usize) -> Self {
-        Self::new_root(RootIdentifier::Array, thin_vec![element, size.into()])
+    pub fn array(element: EntityRoutePtr, size: usize) -> Self {
+        Self::new_root(
+            RootIdentifier::Array,
+            thin_vec![element.into(), size.into()],
+        )
     }
 
     pub fn tuple_or_void(args: ThinVec<SpatialArgument>) -> Self {

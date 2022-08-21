@@ -161,7 +161,7 @@ eager expr:
     123:18..123:30 []RawContour           EvalRef      Type
     123:18..123:32 []RawContour()         Transient    []mnist_classifier003::raw_contour::RawContour
     124:31..124:45 BinaryGrid28()         InferError: InferError:
-src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:47
 kind:
 Original { message: "Unrecognized identifier `BinaryGrid28`", range: 124:31..124:43 }
     125:9..125:10  1                      Copyable     i32
@@ -260,7 +260,7 @@ Original { message: "Unrecognized identifier `BinaryGrid28`", range: 124:31..124
     162:25..162:76 contour.lastx() = get_concave_middle_point(contour)   Copyable     void
     163:25..163:32 contour                RefMut       []mnist_classifier003::geom2d::Point2d
     163:38..163:59 Point2dFromIJ28(i, j)   InferError: InferError:
-src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:47
 kind:
 Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 163:38..163:53 }
     163:25..163:60 contour.push(Point2dFromIJ28(i, j))   Copyable     void
@@ -284,7 +284,7 @@ Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 163:38..
     167:25..167:32 contour                RefMut       []mnist_classifier003::geom2d::Point2d
     167:25..167:40 contour.lastx()        RefMut       mnist_classifier003::geom2d::Point2d
     167:43..167:64 Point2dFromIJ28(i, j)   InferError: InferError:
-src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:47
 kind:
 Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 167:43..167:58 }
     167:25..167:64 contour.lastx() = Point2dFromIJ28(i, j)   InferError: expect not none
@@ -312,7 +312,7 @@ Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 167:43..
     171:25..171:32 contour                RefMut       []mnist_classifier003::geom2d::Point2d
     171:25..171:40 contour.lastx()        RefMut       mnist_classifier003::geom2d::Point2d
     171:43..171:64 Point2dFromIJ28(i, j)   InferError: InferError:
-src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:47
 kind:
 Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 171:43..171:58 }
     171:25..171:64 contour.lastx() = Point2dFromIJ28(i, j)   InferError: expect not none
@@ -324,7 +324,7 @@ Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 171:43..
     173:25..173:42 prev_streak1 = -1      Copyable     void
     175:25..175:32 contour                RefMut       []mnist_classifier003::geom2d::Point2d
     175:38..175:59 Point2dFromIJ28(i, j)   InferError: InferError:
-src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:48
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:47
 kind:
 Original { message: "Unrecognized identifier `Point2dFromIJ28`", range: 175:38..175:53 }
     175:25..175:60 contour.push(Point2dFromIJ28(i, j))   Copyable     void
