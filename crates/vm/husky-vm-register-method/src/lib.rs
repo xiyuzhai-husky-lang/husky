@@ -43,6 +43,7 @@ impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
                     unsafe { self.downcast_temp_ref(&__VIRTUAL_STRUCT_VTABLE) };
                 this_value.bind_field_copy(field_idx)
             }
+            Binding::DerefCopy => todo!(),
         }
     }
 }

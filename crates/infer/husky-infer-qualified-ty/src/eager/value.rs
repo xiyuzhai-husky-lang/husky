@@ -8,6 +8,12 @@ pub struct EagerValueQualifiedTy {
     pub ty: EntityRoutePtr,
 }
 
+impl EagerValueQualifiedTy {
+    pub fn binding(self, db: &dyn DeclQueryGroup, contract: EagerContract) -> Binding {
+        EagerExprQualifier::binding(self.qual, db, self.ty, contract)
+    }
+}
+
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EagerExprQualifier {
     Copyable,
@@ -62,13 +68,26 @@ impl EagerExprQualifier {
         }
     }
 
-    pub fn binding(self, contract: EagerContract) -> Binding {
+    pub fn binding(
+        self,
+        db: &dyn DeclQueryGroup,
+        ty: EntityRoutePtr,
+        contract: EagerContract,
+    ) -> Binding {
         match self {
             EagerExprQualifier::PureRef | EagerExprQualifier::TempRef => Binding::TempRef,
             EagerExprQualifier::Transient => Binding::Move,
             EagerExprQualifier::Copyable => Binding::Copy,
             EagerExprQualifier::EvalRef => match contract {
-                EagerContract::Pure | EagerContract::TempRef => Binding::TempRef,
+                EagerContract::Pure => {
+                    let is_intrinsic_ty_copyable = db.is_copyable(ty.intrinsic()).unwrap();
+                    if is_intrinsic_ty_copyable {
+                        Binding::DerefCopy
+                    } else {
+                        Binding::TempRef
+                    }
+                }
+                EagerContract::TempRef => Binding::TempRef,
                 EagerContract::EvalRef => Binding::EvalRef,
                 EagerContract::Pass => Binding::EvalRef,
                 EagerContract::Move | EagerContract::TempRefMut => panic!(),

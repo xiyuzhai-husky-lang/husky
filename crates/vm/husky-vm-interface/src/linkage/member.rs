@@ -22,6 +22,7 @@ impl __MemberLinkage {
             Binding::TempMut => self.temp_mut_fp,
             Binding::Move => self.move_fp,
             Binding::Copy => self.copy_fp,
+            Binding::DerefCopy => self.copy_fp,
         }
     }
 }

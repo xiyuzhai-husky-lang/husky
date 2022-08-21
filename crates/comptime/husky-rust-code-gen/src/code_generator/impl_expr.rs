@@ -174,6 +174,7 @@ impl<'a> RustCodeGenerator<'a> {
                                 self.write(")");
                             }
                             Binding::Move => todo!(),
+                            Binding::DerefCopy => todo!(),
                         },
                     }
                 }
@@ -494,12 +495,13 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     pub(super) fn gen_binding(&mut self, expr: &EagerExpr) {
-        match expr.qualified_ty.qual.binding(expr.contract) {
+        match expr.qualified_ty.binding(self.db.upcast(), expr.contract) {
             Binding::EvalRef => (),
             Binding::TempRef => self.write("&"),
             Binding::TempMut => self.write("&mut "),
             Binding::Move => (),
             Binding::Copy => (),
+            Binding::DerefCopy => self.write("*"),
         }
     }
 
