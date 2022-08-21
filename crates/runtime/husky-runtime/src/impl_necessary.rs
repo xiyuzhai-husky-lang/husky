@@ -21,7 +21,7 @@ impl AskCompileTime for HuskyRuntime {
 //         &self.trace_factory
 //     }
 // }
-impl AllocateUniqueFeature for HuskyRuntime {
+impl InternFeature for HuskyRuntime {
     fn feature_interner(&self) -> &husky_feature_gen::FeatureInterner {
         &self.feature_interner
     }

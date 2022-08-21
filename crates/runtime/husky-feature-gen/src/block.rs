@@ -12,4 +12,4 @@ use husky_lazy_semantics::*;
 use husky_text::{TextRange, TextRanged};
 use std::sync::Arc;
 
-use crate::{eval_id::FeatureEvalId, unique_allocate::FeatureInterner, *};
+use crate::{eval_id::FeatureEvalId, intern::FeatureInterner, *};

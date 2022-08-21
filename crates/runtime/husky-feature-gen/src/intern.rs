@@ -1,6 +1,6 @@
 use crate::*;
 
-pub trait AllocateUniqueFeature {
+pub trait InternFeature {
     fn feature_interner(&self) -> &FeatureInterner;
 }
 

@@ -7,7 +7,7 @@ use husky_trace_protocol::Restriction;
 pub use main_feature_repr::*;
 use vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
 
-use crate::{record::*, unique_allocate::AllocateUniqueFeature, visual::*, *};
+use crate::{intern::InternFeature, record::*, visual::*, *};
 use husky_compile_time::AskCompileTime;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
@@ -23,7 +23,7 @@ use upcast::Upcast;
 
 #[salsa::query_group(FeatureGenQueryGroupStorage)]
 pub trait FeatureGenQueryGroup:
-    AllocateUniqueFeature
+    InternFeature
     + Upcast<dyn InstructionGenQueryGroup>
     + InstructionGenQueryGroup
     + Upcast<dyn InterpreterQueryGroup>
