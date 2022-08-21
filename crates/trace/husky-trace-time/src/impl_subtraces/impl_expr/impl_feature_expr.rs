@@ -6,13 +6,13 @@ impl HuskyTraceTime {
     pub(crate) fn feature_expr_subtraces(
         &mut self,
         parent: &Trace,
-        expr: &FeatureExpr,
+        expr: &FeatureLazyExpr,
     ) -> Option<Vec<TraceId>> {
         match expr.variant {
-            FeatureExprVariant::Literal(_)
-            | FeatureExprVariant::PrimitiveBinaryOpr { .. }
-            | FeatureExprVariant::Variable { .. } => None,
-            FeatureExprVariant::RoutineCall {
+            FeatureLazyExprVariant::Literal(_)
+            | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
+            | FeatureLazyExprVariant::Variable { .. } => None,
+            FeatureLazyExprVariant::RoutineCall {
                 ref opt_instruction_sheet,
                 ref routine_defn,
                 ref opds,
@@ -39,33 +39,33 @@ impl HuskyTraceTime {
                     )
                 },
             )),
-            FeatureExprVariant::EntityFeature { ref repr, .. } => {
+            FeatureLazyExprVariant::EntityFeature { ref repr, .. } => {
                 self.feature_repr_subtraces(parent, repr)
             }
-            FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureExprVariant::RecordOriginalField {
+            FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+            FeatureLazyExprVariant::RecordOriginalField {
                 ref this,
                 field_ident,
                 ..
             } => todo!(),
-            FeatureExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureExprVariant::RecordDerivedField { .. } => todo!(),
-            FeatureExprVariant::StructOriginalField { .. } => panic!(),
-            FeatureExprVariant::EvalInput => panic!(),
-            FeatureExprVariant::ElementAccess { ref opds, .. } => panic!(),
-            FeatureExprVariant::StructDerivedLazyField { ref repr, .. } => {
+            FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
+            FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
+            FeatureLazyExprVariant::StructOriginalField { .. } => panic!(),
+            FeatureLazyExprVariant::EvalInput => panic!(),
+            FeatureLazyExprVariant::ElementAccess { ref opds, .. } => panic!(),
+            FeatureLazyExprVariant::StructDerivedLazyField { ref repr, .. } => {
                 self.feature_repr_subtraces(parent, repr)
             }
-            FeatureExprVariant::ModelCall {
+            FeatureLazyExprVariant::ModelCall {
                 ref opds,
                 has_this,
                 ref model_defn,
                 ref internal,
                 ..
             } => todo!(),
-            FeatureExprVariant::NewVecFromList { .. } => todo!(),
-            FeatureExprVariant::CustomBinaryOpr { .. } => todo!(),
-            FeatureExprVariant::BePattern {
+            FeatureLazyExprVariant::NewVecFromList { .. } => todo!(),
+            FeatureLazyExprVariant::CustomBinaryOpr { .. } => todo!(),
+            FeatureLazyExprVariant::BePattern {
                 ref this,
                 patt: ref pure_pattern,
             } => todo!(),

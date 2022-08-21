@@ -21,16 +21,18 @@ pub(crate) fn record_field_repr<'eval>(
 
 pub(crate) fn expr_record_field<'eval>(
     db: &dyn FeatureGenQueryGroup,
-    this: &Arc<FeatureExpr>,
+    this: &Arc<FeatureLazyExpr>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     match this.variant {
-        FeatureExprVariant::Variable { ref value, .. } => expr_record_field(db, value, field_ident),
-        FeatureExprVariant::RecordOriginalField { .. } => todo!(),
-        FeatureExprVariant::EntityFeature { ref repr, .. } => {
+        FeatureLazyExprVariant::Variable { ref value, .. } => {
+            expr_record_field(db, value, field_ident)
+        }
+        FeatureLazyExprVariant::RecordOriginalField { .. } => todo!(),
+        FeatureLazyExprVariant::EntityFeature { ref repr, .. } => {
             record_field_repr(db, repr.clone(), field_ident)
         }
-        FeatureExprVariant::NewRecord {
+        FeatureLazyExprVariant::NewRecord {
             ref entity,
             ref opds,
             ..
@@ -72,20 +74,20 @@ pub(crate) fn expr_record_field<'eval>(
             }
             _ => panic!(),
         },
-        FeatureExprVariant::PrimitiveBinaryOpr { .. }
-        | FeatureExprVariant::StructOriginalField { .. }
-        | FeatureExprVariant::Literal(_) => {
+        FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
+        | FeatureLazyExprVariant::StructOriginalField { .. }
+        | FeatureLazyExprVariant::Literal(_) => {
             p!(this.variant);
             panic!()
         }
-        FeatureExprVariant::ThisValue { ref repr } => {
+        FeatureLazyExprVariant::ThisValue { ref repr } => {
             db.record_field_repr(repr.clone(), field_ident)
         }
-        FeatureExprVariant::EvalInput => todo!(),
-        FeatureExprVariant::RoutineCall { .. } => todo!(),
-        FeatureExprVariant::RecordDerivedField { .. } => todo!(),
-        FeatureExprVariant::ElementAccess { ref opds, .. } => todo!(),
-        FeatureExprVariant::StructDerivedLazyField {
+        FeatureLazyExprVariant::EvalInput => todo!(),
+        FeatureLazyExprVariant::RoutineCall { .. } => todo!(),
+        FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
+        FeatureLazyExprVariant::ElementAccess { ref opds, .. } => todo!(),
+        FeatureLazyExprVariant::StructDerivedLazyField {
             ref this,
             field_ident,
             field_uid,
@@ -103,10 +105,10 @@ pub(crate) fn block_record_field(
     let stmt_features = this.stmt_features();
     if stmt_features.len() == 1 {
         match this.stmts.last().unwrap().variant {
-            FeatureStmtVariant::Return { ref result } => {
+            FeatureLazyStmtVariant::Return { ref result } => {
                 db.record_field_repr(result.clone().into(), field_ident)
             }
-            FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
+            FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
             _ => panic!(),
         }
     } else {

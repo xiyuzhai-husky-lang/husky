@@ -15,13 +15,13 @@ use vm::*;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(crate) fn eval_expr(&self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_expr(&self, expr: &FeatureLazyExpr) -> __VMResult<__Register<'eval>> {
         match expr.variant {
-            FeatureExprVariant::Literal(ref value) => Ok(value.clone()),
-            FeatureExprVariant::PrimitiveBinaryOpr {
+            FeatureLazyExprVariant::Literal(ref value) => Ok(value.clone()),
+            FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 linkage, ref opds, ..
             } => self.eval_routine_call(&None, Some(linkage), expr.expr.ty(), opds),
-            FeatureExprVariant::StructOriginalField {
+            FeatureLazyExprVariant::StructOriginalField {
                 ref this,
                 field_idx,
                 field_binding,
@@ -36,15 +36,17 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 field_ident,
                 expr,
             ),
-            FeatureExprVariant::RoutineCall {
+            FeatureLazyExprVariant::RoutineCall {
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
                 has_this,
                 ..
             } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, expr.expr.ty(), opds),
-            FeatureExprVariant::EntityFeature { ref repr } => self.eval_feature_repr_cached(repr),
-            FeatureExprVariant::NewRecord {
+            FeatureLazyExprVariant::EntityFeature { ref repr } => {
+                self.eval_feature_repr_cached(repr)
+            }
+            FeatureLazyExprVariant::NewRecord {
                 ty,
                 ref entity,
                 ref opds,
@@ -53,19 +55,21 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             //     .sheet
             //     .resolve_record_call(self.db, expr.eval_id, entity, opds)
             //     .into()),
-            FeatureExprVariant::Variable { ref value, .. } => self
+            FeatureLazyExprVariant::Variable { ref value, .. } => self
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &Self| {
                     evaluator.eval_expr(&value)
                 }),
-            FeatureExprVariant::RecordOriginalField {
+            FeatureLazyExprVariant::RecordOriginalField {
                 ref this,
                 field_ident,
                 ref repr,
             } => self.eval_feature_repr(repr),
-            FeatureExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
-            FeatureExprVariant::EvalInput => Ok(self.target_input.clone()),
-            FeatureExprVariant::RecordDerivedField { ref repr, .. } => self.eval_feature_repr(repr),
-            FeatureExprVariant::ElementAccess {
+            FeatureLazyExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
+            FeatureLazyExprVariant::EvalInput => Ok(self.target_input.clone()),
+            FeatureLazyExprVariant::RecordDerivedField { ref repr, .. } => {
+                self.eval_feature_repr(repr)
+            }
+            FeatureLazyExprVariant::ElementAccess {
                 ref opds, linkage, ..
             } => {
                 if opds.len() > 2 {
@@ -74,7 +78,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 let values = vec![self.eval_expr(&opds[0])?, self.eval_expr(&opds[1])?];
                 linkage.call_catch_unwind(unsafe { self.some_ctx() }, values)
             }
-            FeatureExprVariant::StructDerivedLazyField {
+            FeatureLazyExprVariant::StructDerivedLazyField {
                 ref this,
                 field_ident,
                 field_uid,
@@ -88,7 +92,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 let result = self.cache(eval_key, |this| this.eval_feature_repr(repr));
                 result
             }
-            FeatureExprVariant::ModelCall {
+            FeatureLazyExprVariant::ModelCall {
                 ref opds,
                 has_this,
                 ref model_defn,
@@ -113,30 +117,30 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 },
                 _ => panic!(),
             },
-            FeatureExprVariant::NewVecFromList {
+            FeatureLazyExprVariant::NewVecFromList {
                 ref elements,
                 linkage,
             } => self.eval_routine_call(&None, Some(linkage), expr.expr.ty(), elements),
-            FeatureExprVariant::CustomBinaryOpr {
+            FeatureLazyExprVariant::CustomBinaryOpr {
                 opr,
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
             } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, expr.expr.ty(), opds),
-            FeatureExprVariant::BePattern { ref this, ref patt } => {
+            FeatureLazyExprVariant::BePattern { ref this, ref patt } => {
                 self.eval_be_pattern(this, patt)
             }
         }
     }
 
-    pub(crate) fn eval_expr_cached(&self, expr: &FeatureExpr) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_expr_cached(&self, expr: &FeatureLazyExpr) -> __VMResult<__Register<'eval>> {
         let eval_key = EvalKey::Feature(expr.feature);
         if let Some(result) = self.sheet.cached_value(eval_key) {
             result
         } else {
             let result = self.eval_expr(expr);
             match expr.variant {
-                FeatureExprVariant::EntityFeature {
+                FeatureLazyExprVariant::EntityFeature {
                     repr: FeatureRepr::TargetInput { .. },
                 } => result, // ad hoc
                 _ => self.sheet.try_cache(eval_key, result),
@@ -151,7 +155,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         field_idx: u8,
         field_binding: Binding,
         field_ident: husky_text::RangedCustomIdentifier,
-        expr: &FeatureExpr,
+        expr: &FeatureLazyExpr,
     ) -> __VMResult<__Register<'eval>> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
@@ -235,7 +239,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         opt_instrns: &Option<Arc<InstructionSheet>>,
         opt_linkage: Option<__Linkage>,
         output_ty: EntityRoutePtr,
-        arguments: &[Arc<FeatureExpr>],
+        arguments: &[Arc<FeatureLazyExpr>],
     ) -> __VMResult<__Register<'eval>> {
         let db = self.db;
         let vm_config = self.vm_config();
@@ -259,7 +263,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
 
     fn eval_be_pattern(
         &self,
-        this: &FeatureExpr,
+        this: &FeatureLazyExpr,
         patt: &PurePattern,
     ) -> __VMResult<__Register<'eval>> {
         let this_value = self.eval_expr(this)?;

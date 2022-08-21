@@ -11,9 +11,9 @@ use vm::__VMResult;
 use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, Clone)]
-pub struct FeatureStmt {
+pub struct FeatureLazyStmt {
     pub indent: fold::Indent,
-    pub variant: FeatureStmtVariant,
+    pub variant: FeatureLazyStmtVariant,
     pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
     pub opt_feature: Option<FeaturePtr>,
     pub file: FilePtr,
@@ -23,27 +23,27 @@ pub struct FeatureStmt {
     pub output_ty: EntityRoutePtr,
 }
 
-impl std::hash::Hash for FeatureStmt {
+impl std::hash::Hash for FeatureLazyStmt {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }
 }
 
-impl PartialEq for FeatureStmt {
+impl PartialEq for FeatureLazyStmt {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl Eq for FeatureStmt {}
+impl Eq for FeatureLazyStmt {}
 
-impl husky_text::TextRanged for FeatureStmt {
+impl husky_text::TextRanged for FeatureLazyStmt {
     fn text_range(&self) -> husky_text::TextRange {
         self.range
     }
 }
 
-impl FeatureStmt {
+impl FeatureLazyStmt {
     pub fn new_from_lazy(
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
@@ -54,7 +54,7 @@ impl FeatureStmt {
     ) -> Arc<Self> {
         let variant = match lazy_stmt.variant {
             LazyStmtVariant::Init { varname, ref value } => {
-                let value = FeatureExpr::new(
+                let value = FeatureLazyExpr::new(
                     db,
                     opt_this.clone(),
                     value.clone(),
@@ -67,13 +67,13 @@ impl FeatureStmt {
                     value: value.clone(),
                     feature: value.feature,
                 });
-                FeatureStmtVariant::Init {
+                FeatureLazyStmtVariant::Init {
                     varname: varname.ident,
                     value,
                 }
             }
             LazyStmtVariant::Assert { ref condition } => {
-                let condition = FeatureExpr::new(
+                let condition = FeatureLazyExpr::new(
                     db,
                     opt_this.clone(),
                     condition.clone(),
@@ -81,13 +81,13 @@ impl FeatureStmt {
                     opt_arrival_indicator.as_ref(),
                     feature_interner,
                 );
-                FeatureStmtVariant::Assert { condition }
+                FeatureLazyStmtVariant::Assert { condition }
             }
             LazyStmtVariant::Require {
                 ref condition,
                 return_context,
             } => {
-                let condition = FeatureExpr::new(
+                let condition = FeatureLazyExpr::new(
                     db,
                     opt_this.clone(),
                     condition.clone(),
@@ -95,13 +95,13 @@ impl FeatureStmt {
                     opt_arrival_indicator.as_ref(),
                     feature_interner,
                 );
-                FeatureStmtVariant::Require {
+                FeatureLazyStmtVariant::Require {
                     condition,
                     return_context,
                 }
             }
-            LazyStmtVariant::Return { ref result } => FeatureStmtVariant::Return {
-                result: FeatureExpr::new(
+            LazyStmtVariant::Return { ref result } => FeatureLazyStmtVariant::Return {
+                result: FeatureLazyExpr::new(
                     db,
                     opt_this.clone(),
                     result.clone(),
@@ -110,7 +110,7 @@ impl FeatureStmt {
                     feature_interner,
                 ),
             },
-            LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureStmtVariant::ReturnXml {
+            LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureLazyStmtVariant::ReturnXml {
                 result: FeatureXmlExpr::new(
                     db,
                     opt_this.clone(),
@@ -134,7 +134,7 @@ impl FeatureStmt {
                 ref branches,
             } => todo!(),
         };
-        Arc::new(FeatureStmt {
+        Arc::new(FeatureLazyStmt {
             file: lazy_stmt.file,
             range: lazy_stmt.range,
             indent: lazy_stmt.indent,
@@ -155,13 +155,13 @@ impl FeatureStmt {
         ty: RangedEntityRoute,
         mut opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
         feature_interner: &interner::Interner<Feature>,
-    ) -> FeatureStmtVariant {
-        let mut branches: Vec<Arc<FeatureBranch>> = vec![];
+    ) -> FeatureLazyStmtVariant {
+        let mut branches: Vec<Arc<FeatureLazyBranch>> = vec![];
 
         for lazy_branch in lazy_branches {
             if let Some(last_branch) = branches.last() {
                 match last_branch.variant {
-                    FeatureBranchVariant::If { ref condition } => {
+                    FeatureLazyBranchVariant::If { ref condition } => {
                         opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
                             FeatureBranchIndicatorVariant::AfterConditionNotMet {
                                 opt_parent: opt_arrival_indicator,
@@ -170,7 +170,7 @@ impl FeatureStmt {
                             feature_interner,
                         ));
                     }
-                    FeatureBranchVariant::Elif { ref condition } => {
+                    FeatureLazyBranchVariant::Elif { ref condition } => {
                         opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
                             FeatureBranchIndicatorVariant::AfterConditionNotMet {
                                 opt_parent: opt_arrival_indicator,
@@ -179,12 +179,12 @@ impl FeatureStmt {
                             feature_interner,
                         ));
                     }
-                    FeatureBranchVariant::Else => panic!(),
+                    FeatureLazyBranchVariant::Else => panic!(),
                 }
             }
             let (variant, block_opt_arrival_indicator) = match lazy_branch.variant {
                 LazyConditionBranchVariant::If { ref condition } => {
-                    let condition = FeatureExpr::new(
+                    let condition = FeatureLazyExpr::new(
                         db,
                         opt_this.clone(),
                         condition.clone(),
@@ -193,7 +193,7 @@ impl FeatureStmt {
                         feature_interner,
                     );
                     (
-                        FeatureBranchVariant::If {
+                        FeatureLazyBranchVariant::If {
                             condition: condition.clone(),
                         },
                         Some(FeatureArrivalIndicator::new(
@@ -206,7 +206,7 @@ impl FeatureStmt {
                     )
                 }
                 LazyConditionBranchVariant::Elif { ref condition } => {
-                    let condition = FeatureExpr::new(
+                    let condition = FeatureLazyExpr::new(
                         db,
                         opt_this.clone(),
                         condition.clone(),
@@ -215,7 +215,7 @@ impl FeatureStmt {
                         feature_interner,
                     );
                     (
-                        FeatureBranchVariant::If {
+                        FeatureLazyBranchVariant::If {
                             condition: condition.clone(),
                         },
                         Some(FeatureArrivalIndicator::new(
@@ -227,11 +227,12 @@ impl FeatureStmt {
                         )),
                     )
                 }
-                LazyConditionBranchVariant::Else => {
-                    (FeatureBranchVariant::Else, opt_arrival_indicator.clone())
-                }
+                LazyConditionBranchVariant::Else => (
+                    FeatureLazyBranchVariant::Else,
+                    opt_arrival_indicator.clone(),
+                ),
             };
-            branches.push(Arc::new(FeatureBranch {
+            branches.push(Arc::new(FeatureLazyBranch {
                 variant,
                 opt_arrival_indicator: opt_arrival_indicator.clone(),
                 eval_id: Default::default(),
@@ -246,6 +247,6 @@ impl FeatureStmt {
                 ),
             }))
         }
-        FeatureStmtVariant::ConditionFlow { branches }
+        FeatureLazyStmtVariant::ConditionFlow { branches }
     }
 }

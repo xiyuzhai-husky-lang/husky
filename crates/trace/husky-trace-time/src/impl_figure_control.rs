@@ -1,5 +1,5 @@
 use husky_eager_semantics::ProcStmtVariant;
-use husky_feature_gen::FeatureStmtVariant;
+use husky_feature_gen::FeatureLazyStmtVariant;
 use husky_print_utils::msg_once;
 use serde::{Deserialize, Serialize};
 use trace::*;

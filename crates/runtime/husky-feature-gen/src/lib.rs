@@ -1,27 +1,27 @@
 mod block;
-mod branch;
 mod eval_id;
-mod expr;
 mod intern;
+mod lazy_branch;
+mod lazy_expr;
+mod lazy_stmt;
 mod object;
 mod query;
 mod record;
 mod repr;
-mod stmt;
 mod temp;
 mod visual;
 
 pub use block::*;
-pub use branch::*;
 pub use eval_id::*;
-pub use expr::*;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_vm_primitive_value::PrimitiveValueData;
 use husky_xml_syntax::XmlTagKind;
 pub use intern::{new_feature_interner, FeatureInterner, FeaturePtr, InternFeature};
+pub use lazy_branch::*;
+pub use lazy_expr::*;
+pub use lazy_stmt::{FeatureLazyStmt, FeatureLazyStmtVariant};
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
-pub use stmt::{FeatureStmt, FeatureStmtVariant};
 
 use husky_compile_time::DeclQueryGroup;
 use husky_entity_route::EntityRoutePtr;
@@ -39,7 +39,7 @@ use vm::EntityUid;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {
     varname: CustomIdentifier,
-    value: Arc<FeatureExpr>,
+    value: Arc<FeatureLazyExpr>,
     feature: FeaturePtr,
 }
 
@@ -139,7 +139,7 @@ pub enum Feature {
 }
 
 impl Feature {
-    pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<FeatureStmt>]) -> FeaturePtr {
+    pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<FeatureLazyStmt>]) -> FeaturePtr {
         let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
         if stmt_features.len() == 1 {
             stmt_features[0]

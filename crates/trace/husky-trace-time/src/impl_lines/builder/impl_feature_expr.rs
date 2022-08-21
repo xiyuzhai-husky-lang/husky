@@ -11,7 +11,7 @@ use vm::InterpreterQueryGroup;
 impl<'a> TraceTokenBuilder<'a> {
     pub(crate) fn gen_feature_expr_tokens(
         &mut self,
-        expr: &Arc<FeatureExpr>,
+        expr: &Arc<FeatureLazyExpr>,
         config: ExprTokenConfig,
     ) {
         let opt_assoc_id = if config.associated {
@@ -20,7 +20,7 @@ impl<'a> TraceTokenBuilder<'a> {
             None
         };
         match expr.variant {
-            FeatureExprVariant::Literal(_) => match expr.expr.variant {
+            FeatureLazyExprVariant::Literal(_) => match expr.expr.variant {
                 LazyExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
                 LazyExprVariant::EnumLiteral { entity_route } => {
                     let text = self.runtime().comptime().text(expr.expr.file).unwrap();
@@ -28,20 +28,20 @@ impl<'a> TraceTokenBuilder<'a> {
                 }
                 _ => panic!(),
             },
-            FeatureExprVariant::PrimitiveBinaryOpr { opr, ref opds, .. } => {
+            FeatureLazyExprVariant::PrimitiveBinaryOpr { opr, ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
                 self.push(special!(opr.spaced_code(), opt_assoc_id));
                 self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
-            FeatureExprVariant::CustomBinaryOpr { opr, ref opds, .. } => {
+            FeatureLazyExprVariant::CustomBinaryOpr { opr, ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
                 self.push(special!(opr.spaced_code(), opt_assoc_id));
                 self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
-            FeatureExprVariant::Variable { varname, .. } => {
+            FeatureLazyExprVariant::Variable { varname, .. } => {
                 self.push(ident!(varname.0, opt_assoc_id))
             }
-            FeatureExprVariant::RoutineCall {
+            FeatureLazyExprVariant::RoutineCall {
                 opds: ref feature_opds,
                 ..
             } => match expr.expr.variant {
@@ -77,7 +77,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 },
                 _ => panic!(""),
             },
-            FeatureExprVariant::ModelCall {
+            FeatureLazyExprVariant::ModelCall {
                 ref opds,
                 has_this,
                 ref model_defn,
@@ -107,14 +107,14 @@ impl<'a> TraceTokenBuilder<'a> {
                 },
                 _ => panic!(),
             },
-            FeatureExprVariant::EntityFeature { .. } => {
+            FeatureLazyExprVariant::EntityFeature { .. } => {
                 let text = self.runtime.comptime().text(expr.expr.file).unwrap();
                 self.push(route!(text.ranged(expr.expr.range), opt_assoc_id))
             }
-            FeatureExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureExprVariant::EvalInput => self.push(keyword!("input")),
-            FeatureExprVariant::ElementAccess { ref opds, .. } => {
+            FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+            FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
+            FeatureLazyExprVariant::EvalInput => self.push(keyword!("input")),
+            FeatureLazyExprVariant::ElementAccess { ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
                 self.push(special!("[", opt_assoc_id.clone()));
                 for i in 1..opds.len() {
@@ -123,30 +123,30 @@ impl<'a> TraceTokenBuilder<'a> {
                 }
                 self.push(special!("]", opt_assoc_id))
             }
-            FeatureExprVariant::RecordDerivedField {
+            FeatureLazyExprVariant::RecordDerivedField {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_eager_field_tokens(config, this, field_ident),
-            FeatureExprVariant::StructOriginalField {
+            FeatureLazyExprVariant::StructOriginalField {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_eager_field_tokens(config, this, field_ident),
-            FeatureExprVariant::RecordOriginalField {
+            FeatureLazyExprVariant::RecordOriginalField {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_eager_field_tokens(config, this, field_ident),
-            FeatureExprVariant::StructDerivedLazyField {
+            FeatureLazyExprVariant::StructDerivedLazyField {
                 ref this,
                 field_ident,
                 ..
             } => self.gen_feature_lazy_field_tokens(this, field_ident, opt_assoc_id, config),
-            FeatureExprVariant::NewVecFromList { ref elements, .. } => {
+            FeatureLazyExprVariant::NewVecFromList { ref elements, .. } => {
                 self.gen_new_vec_from_list_tokens(elements, opt_assoc_id, config)
             }
-            FeatureExprVariant::BePattern {
+            FeatureLazyExprVariant::BePattern {
                 ref this,
                 patt: ref pure_pattern,
             } => todo!(),
@@ -155,7 +155,7 @@ impl<'a> TraceTokenBuilder<'a> {
 
     fn gen_new_vec_from_list_tokens(
         &mut self,
-        elements: &[Arc<FeatureExpr>],
+        elements: &[Arc<FeatureLazyExpr>],
         opt_assoc_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) {
@@ -207,7 +207,7 @@ impl<'a> TraceTokenBuilder<'a> {
         &mut self,
         file: FilePtr,
         ranged_scope: RangedEntityRoute,
-        inputs: &[Arc<FeatureExpr>],
+        inputs: &[Arc<FeatureLazyExpr>],
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) {

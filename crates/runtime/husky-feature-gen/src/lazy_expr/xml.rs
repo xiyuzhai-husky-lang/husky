@@ -22,7 +22,7 @@ impl FeatureXmlExpr {
     ) -> Arc<Self> {
         let variant = match xml_expr.variant {
             XmlExprVariant::Value(ref value_expr) => {
-                FeatureXmlExprVariant::Value(FeatureExpr::new(
+                FeatureXmlExprVariant::Value(FeatureLazyExpr::new(
                     db,
                     this.clone(),
                     value_expr.clone(),
@@ -41,7 +41,7 @@ impl FeatureXmlExpr {
                     .map(|(ident, argument)| {
                         (
                             *ident,
-                            FeatureExpr::new(
+                            FeatureLazyExpr::new(
                                 db,
                                 this.clone(),
                                 argument.clone(),
@@ -65,10 +65,10 @@ impl FeatureXmlExpr {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureXmlExprVariant {
-    Value(Arc<FeatureExpr>),
+    Value(Arc<FeatureLazyExpr>),
     Tag {
         tag_kind: XmlTagKind,
-        props: IdentPairDict<Arc<FeatureExpr>>,
+        props: IdentPairDict<Arc<FeatureLazyExpr>>,
     },
 }
 

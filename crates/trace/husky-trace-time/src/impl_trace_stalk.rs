@@ -28,20 +28,20 @@ impl HuskyTraceTime {
                 repr.ty(),
             ),
             TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
-                FeatureStmtVariant::Init { varname, ref value } => {
+                FeatureLazyStmtVariant::Init { varname, ref value } => {
                     self.trace_stalk_from_expr(value, sample_id)
                 }
-                FeatureStmtVariant::Assert { ref condition } => {
+                FeatureLazyStmtVariant::Assert { ref condition } => {
                     self.trace_stalk_from_expr(condition, sample_id)
                 }
-                FeatureStmtVariant::Require { ref condition, .. } => {
+                FeatureLazyStmtVariant::Require { ref condition, .. } => {
                     self.trace_stalk_from_expr(condition, sample_id)
                 }
-                FeatureStmtVariant::Return { ref result } => {
+                FeatureLazyStmtVariant::Return { ref result } => {
                     self.trace_stalk_from_expr(result, sample_id)
                 }
-                FeatureStmtVariant::ConditionFlow { ref branches } => panic!(),
-                FeatureStmtVariant::ReturnXml { ref result } => todo!(),
+                FeatureLazyStmtVariant::ConditionFlow { ref branches } => panic!(),
+                FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
             },
             TraceVariant::FeatureBranch(_) => TraceStalkData {
                 extra_tokens: vec![],
@@ -105,7 +105,7 @@ impl HuskyTraceTime {
         }
     }
 
-    fn trace_stalk_from_expr(&self, expr: &FeatureExpr, sample_id: SampleId) -> TraceStalkData {
+    fn trace_stalk_from_expr(&self, expr: &FeatureLazyExpr, sample_id: SampleId) -> TraceStalkData {
         self.trace_stalk_from_result(
             self.runtime().eval_feature_expr(expr, sample_id),
             expr.expr.ty(),

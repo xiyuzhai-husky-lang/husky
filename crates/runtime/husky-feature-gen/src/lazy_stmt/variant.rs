@@ -3,59 +3,59 @@ use husky_ast::RawReturnContext;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureStmtVariant {
+pub enum FeatureLazyStmtVariant {
     Init {
         varname: CustomIdentifier,
-        value: Arc<FeatureExpr>,
+        value: Arc<FeatureLazyExpr>,
     },
     Assert {
-        condition: Arc<FeatureExpr>,
+        condition: Arc<FeatureLazyExpr>,
     },
     Require {
-        condition: Arc<FeatureExpr>,
+        condition: Arc<FeatureLazyExpr>,
         return_context: RawReturnContext,
     },
     Return {
-        result: Arc<FeatureExpr>,
+        result: Arc<FeatureLazyExpr>,
     },
     ReturnXml {
         result: Arc<FeatureXmlExpr>,
     },
     ConditionFlow {
-        branches: Vec<Arc<FeatureBranch>>,
+        branches: Vec<Arc<FeatureLazyBranch>>,
     },
 }
 
-impl FeatureStmtVariant {
+impl FeatureLazyStmtVariant {
     pub(super) fn opt_feature(&self, feature_interner: &FeatureInterner) -> Option<FeaturePtr> {
         match self {
-            FeatureStmtVariant::Init { .. } => None,
-            FeatureStmtVariant::Assert { condition } => {
+            FeatureLazyStmtVariant::Init { .. } => None,
+            FeatureLazyStmtVariant::Assert { condition } => {
                 Some(feature_interner.intern(Feature::Assert {
                     condition: condition.feature,
                 }))
             }
-            FeatureStmtVariant::Require { condition, .. } => {
+            FeatureLazyStmtVariant::Require { condition, .. } => {
                 Some(feature_interner.intern(Feature::Require {
                     condition: condition.feature,
                 }))
             }
-            FeatureStmtVariant::Return { result } => Some(result.feature),
-            FeatureStmtVariant::ReturnXml { result } => Some(result.feature),
-            FeatureStmtVariant::ConditionFlow { branches } => Some(
+            FeatureLazyStmtVariant::Return { result } => Some(result.feature),
+            FeatureLazyStmtVariant::ReturnXml { result } => Some(result.feature),
+            FeatureLazyStmtVariant::ConditionFlow { branches } => Some(
                 feature_interner.intern(Feature::Branches {
                     branches: branches
                         .iter()
                         .map(|branch| match branch.variant {
-                            FeatureBranchVariant::If { ref condition } => BranchedFeature {
+                            FeatureLazyBranchVariant::If { ref condition } => BranchedFeature {
                                 condition: Some(condition.feature),
                                 block: branch.block.feature,
                             },
-                            FeatureBranchVariant::Elif { ref condition } => BranchedFeature {
+                            FeatureLazyBranchVariant::Elif { ref condition } => BranchedFeature {
                                 condition: Some(condition.feature),
                                 block: branch.block.feature,
                             },
-                            FeatureBranchVariant::Else => BranchedFeature {
+                            FeatureLazyBranchVariant::Else => BranchedFeature {
                                 condition: None,
                                 block: branch.block.feature,
                             },
