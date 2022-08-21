@@ -15,7 +15,7 @@ pub enum FeatureRepr {
         range: TextRange,
         feature: FeaturePtr,
     },
-    Expr(Arc<FeatureLazyExpr>),
+    LazyExpr(Arc<FeatureLazyExpr>),
     LazyBlock(Arc<FeatureLazyBlock>),
     FuncBlock(Arc<FeatureFuncBlock>),
     ProcBlock(Arc<FeatureProcBlock>),
@@ -29,7 +29,7 @@ pub enum FeatureRepr {
 impl FeatureRepr {
     pub fn is_lazy(&self) -> bool {
         match self {
-            FeatureRepr::Expr(_) => true,
+            FeatureRepr::LazyExpr(_) => true,
             FeatureRepr::LazyBlock(_) => true,
             FeatureRepr::Value { .. } => false,
             FeatureRepr::FuncBlock(_) => false,
@@ -41,7 +41,7 @@ impl FeatureRepr {
     pub fn opt_leading_keyword(&self) -> Option<&'static str> {
         match self {
             FeatureRepr::Value { .. } => panic!(),
-            FeatureRepr::Expr(_) => Some("def "),
+            FeatureRepr::LazyExpr(_) => Some("def "),
             FeatureRepr::LazyBlock(_) => Some("def "),
             FeatureRepr::FuncBlock(_) => Some("func "),
             FeatureRepr::ProcBlock(_) => Some("proc "),
@@ -52,7 +52,7 @@ impl FeatureRepr {
     pub fn ty(&self) -> EntityRoutePtr {
         match self {
             FeatureRepr::Value { ty, .. } => *ty,
-            FeatureRepr::Expr(expr) => expr.expr.ty(),
+            FeatureRepr::LazyExpr(expr) => expr.expr.ty(),
             FeatureRepr::LazyBlock(block) => block.ty.route,
             FeatureRepr::FuncBlock(block) => block.ty.route,
             FeatureRepr::ProcBlock(block) => block.ty.route,
@@ -62,7 +62,7 @@ impl FeatureRepr {
     pub fn feature(&self) -> FeaturePtr {
         match self {
             FeatureRepr::Value { feature, .. } => *feature,
-            FeatureRepr::Expr(expr) => expr.feature,
+            FeatureRepr::LazyExpr(expr) => expr.feature,
             FeatureRepr::LazyBlock(block) => block.feature,
             FeatureRepr::FuncBlock(block) => block.feature,
             FeatureRepr::ProcBlock(block) => block.feature,
@@ -73,7 +73,7 @@ impl FeatureRepr {
     pub fn file(&self) -> FilePtr {
         match self {
             FeatureRepr::Value { file, .. } => *file,
-            FeatureRepr::Expr(expr) => expr.expr.file,
+            FeatureRepr::LazyExpr(expr) => expr.expr.file,
             FeatureRepr::LazyBlock(block) => block.file,
             FeatureRepr::FuncBlock(block) => block.file,
             FeatureRepr::ProcBlock(block) => block.file,
@@ -84,7 +84,7 @@ impl FeatureRepr {
     pub fn text_range(&self) -> TextRange {
         match self {
             FeatureRepr::Value { range, .. } => *range,
-            FeatureRepr::Expr(expr) => expr.expr.range,
+            FeatureRepr::LazyExpr(expr) => expr.expr.range,
             FeatureRepr::LazyBlock(block) => block.range,
             FeatureRepr::FuncBlock(block) => block.range,
             FeatureRepr::ProcBlock(block) => block.range,
@@ -99,7 +99,7 @@ impl FeatureRepr {
         feature_interner: &FeatureInterner,
     ) -> Self {
         let result = match defn_repr {
-            DefinitionRepr::LazyExpr { expr } => FeatureRepr::Expr(FeatureLazyExpr::new(
+            DefinitionRepr::LazyExpr { expr } => FeatureRepr::LazyExpr(FeatureLazyExpr::new(
                 db,
                 opt_this,
                 expr.clone(),
@@ -161,7 +161,7 @@ impl FeatureRepr {
 
 impl<'eval> From<Arc<FeatureLazyExpr>> for FeatureRepr {
     fn from(expr: Arc<FeatureLazyExpr>) -> Self {
-        Self::Expr(expr)
+        Self::LazyExpr(expr)
     }
 }
 

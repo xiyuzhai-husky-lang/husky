@@ -176,7 +176,7 @@ impl<'a> TraceTokenBuilder<'a> {
         field_ident: RangedCustomIdentifier,
     ) {
         match this {
-            FeatureRepr::Expr(this) => {
+            FeatureRepr::LazyExpr(this) => {
                 self.gen_feature_expr_tokens(this, config.subexpr());
                 self.extend([special!("."), ident!(field_ident.ident.as_str())])
             }
@@ -192,7 +192,7 @@ impl<'a> TraceTokenBuilder<'a> {
         config: ExprTokenConfig,
     ) {
         match this {
-            FeatureRepr::Expr(this) => {
+            FeatureRepr::LazyExpr(this) => {
                 self.gen_feature_expr_tokens(this, config.subexpr());
                 self.extend([
                     special!("."),

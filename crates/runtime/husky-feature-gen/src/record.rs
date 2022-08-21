@@ -11,7 +11,7 @@ pub(crate) fn record_field_repr<'eval>(
 ) -> FeatureRepr {
     match this {
         FeatureRepr::Value { .. } => todo!(),
-        FeatureRepr::Expr(ref expr) => expr_record_field(db, expr, field_ident),
+        FeatureRepr::LazyExpr(ref expr) => expr_record_field(db, expr, field_ident),
         FeatureRepr::LazyBlock(ref block) => block_record_field(db, block, field_ident),
         FeatureRepr::FuncBlock(_) => todo!(),
         FeatureRepr::ProcBlock(_) => todo!(),
