@@ -56,7 +56,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Opn {
                 opn_variant: ref opr,
                 ref opds,
-            } => self.infer_opn(opr, opds, raw_expr_idx)?,
+            } => self.infer_opn(raw_expr_idx, expectation, opr, opds)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::ThisValue {
                 opt_this_ty: opt_ty,
@@ -185,16 +185,17 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_opn(
         &mut self,
+        idx: RawExprIdx,
+        expectation: Option<EntityRoutePtr>,
         opr: &RawOpnVariant,
         opds: &RawExprRange,
-        idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let range = self.arena[idx].range;
         match opr {
             RawOpnVariant::Binary(opr) => self.binary_opn(*opr, opds.start, opds.start + 1, range),
             RawOpnVariant::Prefix(opr) => self.infer_prefix(*opr, opds.start),
             RawOpnVariant::Suffix(opr) => self.infer_suffix(opr, opds.start, range),
-            RawOpnVariant::List(opr) => self.list_opn_ty_result(idx, opr, opds, range),
+            RawOpnVariant::List(opr) => self.list_opn_ty_result(idx, expectation, opr, opds, range),
             RawOpnVariant::Field(field_ident) => {
                 self.infer_field_access(*field_ident, opds.start, range)
             }
@@ -434,6 +435,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     fn list_opn_ty_result(
         &mut self,
         idx: RawExprIdx,
+        expectation: Option<EntityRoutePtr>,
         opr: &ListOpr,
         opds: &RawExprRange,
         range: TextRange,
@@ -441,7 +443,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         msg_once!("expectation");
         match opr {
             ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => self.infer_new_vec_from_list(opds, range),
+            ListOpr::NewVec => self.infer_new_vec_from_list(expectation, opds, range),
             ListOpr::NewDict => todo!(),
             ListOpr::FunctionCall => self.infer_function_call(idx, opds, range),
             ListOpr::Index => self.infer_index(opds, range),
@@ -455,12 +457,25 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_new_vec_from_list(
         &mut self,
+        expectation: Option<EntityRoutePtr>,
         opds: &RawExprRange,
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         msg_once!("expectation");
         if opds.start == opds.end {
-            panic!()
+            // empty vec
+            if let Some(expectation) = expectation {
+                if expectation.variant
+                    != (EntityRouteVariant::Root {
+                        ident: RootIdentifier::Vec,
+                    })
+                {
+                    todo!()
+                }
+                return Ok(expectation);
+            } else {
+                todo!()
+            }
         }
         let opt_first_elem_ty = self.infer_expr(opds.start, None);
         let elem_ty = derived_not_none!(opt_first_elem_ty)?;
