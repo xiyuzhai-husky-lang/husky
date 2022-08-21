@@ -177,6 +177,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                             this_value.downcast_temp_ref(&__VIRTUAL_STRUCT_VTABLE);
                         this_value.bind_field_copy(field_idx)
                     }
+                    Binding::DerefCopy => todo!(),
                 }
                 // this_value.field_access(field_idx, field_binding)
             }) {

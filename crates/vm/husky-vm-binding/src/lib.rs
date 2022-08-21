@@ -5,4 +5,5 @@ pub enum Binding {
     TempMut,
     Move,
     Copy,
+    DerefCopy,
 }

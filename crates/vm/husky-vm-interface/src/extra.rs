@@ -176,6 +176,7 @@ impl<'eval> __Register<'eval> {
             Binding::TempMut => self.bind_temp_mut(),
             Binding::Move => self.bind_move(),
             Binding::Copy => self.bind_copy(),
+            Binding::DerefCopy => self.bind_copy(),
         }
     }
 
