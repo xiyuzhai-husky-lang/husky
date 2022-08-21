@@ -3,7 +3,7 @@ use vm::__Register;
 
 #[derive(Debug, Clone)]
 pub struct Object {
-    pub fields: Vec<Arc<FeatureExpr>>,
+    pub fields: Vec<Arc<FeatureLazyExpr>>,
     pub field_features: Vec<Arc<FeatureLazyBlock>>,
 }
 

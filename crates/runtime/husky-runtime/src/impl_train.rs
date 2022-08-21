@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_semantics::StoreEntityRoute;
-use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr, TrainModel};
+use husky_feature_gen::{FeatureArrivalIndicator, FeatureLazyExpr, TrainModel};
 use std::time::Instant;
 use upcast::Upcast;
 use vm::{InterpreterQueryGroup, VMConfig, __Register, __VMResult};
@@ -11,7 +11,7 @@ impl TrainModel for HuskyRuntime {
         &self,
         model: vm::__ModelLinkage,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
-        opds: &[Arc<FeatureExpr>],
+        opds: &[Arc<FeatureLazyExpr>],
     ) -> vm::__VMResult<__Register<'static>> {
         const MAX_SAMPLE_LEN: usize = 1000;
         let session = self.session();

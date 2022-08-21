@@ -76,27 +76,29 @@ fn feature_repr_opt_stats<'eval>(
 fn feature_stmt_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     partitions: &Partitions,
-    stmt: &FeatureStmt,
+    stmt: &FeatureLazyStmt,
 ) -> __VMResult<Option<TraceStats>> {
     match stmt.variant {
-        FeatureStmtVariant::Init { .. } | FeatureStmtVariant::Assert { .. } => Ok(None),
-        FeatureStmtVariant::Require { return_context, .. } => feature_opt_stats(
+        FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => Ok(None),
+        FeatureLazyStmtVariant::Require { return_context, .. } => feature_opt_stats(
             db,
             partitions,
             return_context.return_ty.route,
             |sample_id| db.eval_feature_stmt(stmt, sample_id),
             stmt.opt_arrival_indicator.as_ref(),
         ),
-        FeatureStmtVariant::Return { ref result } => feature_expr_opt_stats(db, partitions, result),
-        FeatureStmtVariant::ReturnXml { ref result } => todo!(),
-        FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
+        FeatureLazyStmtVariant::Return { ref result } => {
+            feature_expr_opt_stats(db, partitions, result)
+        }
+        FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
+        FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
     }
 }
 
 fn feature_branch_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     partitions: &Partitions,
-    branch: &FeatureBranch,
+    branch: &FeatureLazyBranch,
 ) -> __VMResult<Option<TraceStats>> {
     msg_once!("consider whether condition is satisfied");
     feature_opt_stats(
@@ -105,17 +107,17 @@ fn feature_branch_opt_stats<'eval>(
         branch.block.ty.route,
         |sample_id| -> __VMResult<__Register<'eval>> {
             match branch.variant {
-                FeatureBranchVariant::If { ref condition } => {
+                FeatureLazyBranchVariant::If { ref condition } => {
                     if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
                         return Ok(__Register::new_unreturned());
                     }
                 }
-                FeatureBranchVariant::Elif { ref condition } => {
+                FeatureLazyBranchVariant::Elif { ref condition } => {
                     if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
                         return Ok(__Register::new_unreturned());
                     }
                 }
-                FeatureBranchVariant::Else => (),
+                FeatureLazyBranchVariant::Else => (),
             }
             db.eval_feature_lazy_block(&branch.block, sample_id)
         },
@@ -126,7 +128,7 @@ fn feature_branch_opt_stats<'eval>(
 fn feature_expr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     partitions: &Partitions,
-    expr: &FeatureExpr,
+    expr: &FeatureLazyExpr,
 ) -> __VMResult<Option<TraceStats>> {
     feature_opt_stats(
         db,

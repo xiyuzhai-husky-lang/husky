@@ -1,17 +1,17 @@
 use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FeatureBranch {
+pub struct FeatureLazyBranch {
     pub block: Arc<FeatureLazyBlock>,
-    pub variant: FeatureBranchVariant,
+    pub variant: FeatureLazyBranchVariant,
     pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
     pub(crate) eval_id: FeatureEvalId,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureBranchVariant {
-    If { condition: Arc<FeatureExpr> },
-    Elif { condition: Arc<FeatureExpr> },
+pub enum FeatureLazyBranchVariant {
+    If { condition: Arc<FeatureLazyExpr> },
+    Elif { condition: Arc<FeatureLazyExpr> },
     Else,
 }
 
@@ -54,14 +54,14 @@ impl FeatureArrivalIndicator {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureBranchIndicatorVariant {
     AfterStmtNotReturn {
-        stmt: Arc<FeatureStmt>,
+        stmt: Arc<FeatureLazyStmt>,
     },
     AfterConditionNotMet {
         opt_parent: Option<Arc<FeatureArrivalIndicator>>,
-        condition: Arc<FeatureExpr>,
+        condition: Arc<FeatureLazyExpr>,
     },
     IfConditionMet {
         opt_parent: Option<Arc<FeatureArrivalIndicator>>,
-        condition: Arc<FeatureExpr>,
+        condition: Arc<FeatureLazyExpr>,
     },
 }

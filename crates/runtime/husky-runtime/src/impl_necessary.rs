@@ -2,7 +2,7 @@ use std::time::Instant;
 
 use husky_data_viewer::HuskyDataViewerQueryGroup;
 use husky_entity_semantics::StoreEntityRoute;
-use husky_feature_gen::{FeatureArrivalIndicator, FeatureExpr, TrainModel};
+use husky_feature_gen::{FeatureArrivalIndicator, FeatureLazyExpr, TrainModel};
 use upcast::Upcast;
 use vm::{InterpreterQueryGroup, VMConfig};
 

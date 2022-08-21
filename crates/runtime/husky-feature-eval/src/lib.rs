@@ -74,7 +74,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
 
     fn eval_feature_stmt(
         &self,
-        stmt: &FeatureStmt,
+        stmt: &FeatureLazyStmt,
         sample_id: SampleId,
     ) -> __VMResult<__Register<'eval>> {
         self.evaluator(sample_id).eval_stmt(stmt)
@@ -82,7 +82,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
 
     fn eval_feature_expr(
         &self,
-        expr: &FeatureExpr,
+        expr: &FeatureLazyExpr,
         sample_id: SampleId,
     ) -> __VMResult<__Register<'eval>> {
         self.evaluator(sample_id).eval_expr(expr)

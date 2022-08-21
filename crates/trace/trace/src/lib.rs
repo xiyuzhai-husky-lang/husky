@@ -46,12 +46,12 @@ pub enum TraceVariant<'eval> {
         route: EntityRoutePtr,
         repr: FeatureRepr,
     },
-    FeatureStmt(Arc<FeatureStmt>),
-    FeatureBranch(Arc<FeatureBranch>),
-    FeatureExpr(Arc<FeatureExpr>),
+    FeatureStmt(Arc<FeatureLazyStmt>),
+    FeatureBranch(Arc<FeatureLazyBranch>),
+    FeatureExpr(Arc<FeatureLazyExpr>),
     FeatureCallArgument {
         name: &'static str,
-        argument: Arc<FeatureExpr>,
+        argument: Arc<FeatureLazyExpr>,
     },
     FuncStmt {
         stmt: Arc<FuncStmt>,

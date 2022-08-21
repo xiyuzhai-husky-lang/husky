@@ -7,10 +7,10 @@ use crate::*;
 use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_stmt(&self, stmt: &FeatureStmt) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_stmt(&self, stmt: &FeatureLazyStmt) -> __VMResult<__Register<'eval>> {
         match stmt.variant {
-            FeatureStmtVariant::Init { .. } => Ok(__Register::new_unreturned()),
-            FeatureStmtVariant::Assert { ref condition } => {
+            FeatureLazyStmtVariant::Init { .. } => Ok(__Register::new_unreturned()),
+            FeatureLazyStmtVariant::Assert { ref condition } => {
                 if self.satisfies(condition)? {
                     Ok(__Register::new_unreturned())
                 } else {
@@ -20,23 +20,25 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     )))
                 }
             }
-            FeatureStmtVariant::Require { ref condition, .. } => {
+            FeatureLazyStmtVariant::Require { ref condition, .. } => {
                 if self.satisfies(condition)? {
                     Ok(__Register::new_unreturned())
                 } else {
                     Ok(__Register::new_none())
                 }
             }
-            FeatureStmtVariant::Return { ref result } => self.eval_expr(result),
-            FeatureStmtVariant::ReturnXml { ref result } => self.eval_xml_expr(result),
-            FeatureStmtVariant::ConditionFlow { ref branches, .. } => {
+            FeatureLazyStmtVariant::Return { ref result } => self.eval_expr(result),
+            FeatureLazyStmtVariant::ReturnXml { ref result } => self.eval_xml_expr(result),
+            FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => {
                 for branch in branches {
                     let execute_branch: bool = match branch.variant {
-                        FeatureBranchVariant::If { ref condition } => self.satisfies(condition)?,
-                        FeatureBranchVariant::Elif { ref condition } => {
+                        FeatureLazyBranchVariant::If { ref condition } => {
                             self.satisfies(condition)?
                         }
-                        FeatureBranchVariant::Else => true,
+                        FeatureLazyBranchVariant::Elif { ref condition } => {
+                            self.satisfies(condition)?
+                        }
+                        FeatureLazyBranchVariant::Else => true,
                     };
                     if execute_branch {
                         return self.eval_feature_lazy_block(&branch.block);
@@ -47,7 +49,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn satisfies(&self, condition: &FeatureExpr) -> __VMResult<bool> {
+    fn satisfies(&self, condition: &FeatureLazyExpr) -> __VMResult<bool> {
         let value = self.eval_expr(condition)?;
         let value_str = self
             .db

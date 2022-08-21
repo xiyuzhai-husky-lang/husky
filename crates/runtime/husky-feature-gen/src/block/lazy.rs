@@ -1,7 +1,7 @@
 use husky_entity_route::RangedEntityRoute;
 use vm::__VMResult;
 
-use crate::branch::FeatureBranchIndicatorVariant;
+use crate::lazy_branch::FeatureBranchIndicatorVariant;
 
 use super::*;
 
@@ -13,7 +13,7 @@ pub struct FeatureLazyBlock {
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub ty: RangedEntityRoute,
-    pub stmts: Vec<Arc<FeatureStmt>>,
+    pub stmts: Vec<Arc<FeatureLazyStmt>>,
 }
 
 impl<'eval> std::hash::Hash for FeatureLazyBlock {
@@ -43,10 +43,10 @@ impl<'eval> FeatureLazyBlock {
         let mut symbols: Vec<FeatureSymbol> = externals.into();
         // for checking
         let mut finish_flag = false;
-        let mut stmts: Vec<Arc<FeatureStmt>> = vec![];
+        let mut stmts: Vec<Arc<FeatureLazyStmt>> = vec![];
         for lazy_stmt in lazy_stmts {
             assert!(!finish_flag);
-            let stmt = FeatureStmt::new_from_lazy(
+            let stmt = FeatureLazyStmt::new_from_lazy(
                 db,
                 opt_this.clone(),
                 lazy_stmt,
@@ -55,11 +55,11 @@ impl<'eval> FeatureLazyBlock {
                 feature_interner,
             );
             match stmt.variant {
-                FeatureStmtVariant::Init { .. } | FeatureStmtVariant::Assert { .. } => (),
-                FeatureStmtVariant::Return { .. } | FeatureStmtVariant::ReturnXml { .. } => {
-                    finish_flag = true
-                }
-                FeatureStmtVariant::Require { .. } | FeatureStmtVariant::ConditionFlow { .. } => {
+                FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => (),
+                FeatureLazyStmtVariant::Return { .. }
+                | FeatureLazyStmtVariant::ReturnXml { .. } => finish_flag = true,
+                FeatureLazyStmtVariant::Require { .. }
+                | FeatureLazyStmtVariant::ConditionFlow { .. } => {
                     opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
                         FeatureBranchIndicatorVariant::AfterStmtNotReturn { stmt: stmt.clone() },
                         feature_interner,

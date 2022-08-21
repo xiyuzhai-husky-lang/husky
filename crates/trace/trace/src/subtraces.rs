@@ -21,10 +21,10 @@ impl<'eval> Trace {
             | TraceVariant::ProcBranch { .. } => None,
             TraceVariant::Module { .. } => todo!(),
             TraceVariant::FeatureExpr(ref expr) => match expr.variant {
-                FeatureExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
-                FeatureExprVariant::EntityFeature { .. } => None,
-                FeatureExprVariant::RecordDerivedField { .. }
-                | FeatureExprVariant::StructDerivedLazyField { .. } => {
+                FeatureLazyExprVariant::RoutineCall { .. } => Some(SubtracesContainerClass::Call),
+                FeatureLazyExprVariant::EntityFeature { .. } => None,
+                FeatureLazyExprVariant::RecordDerivedField { .. }
+                | FeatureLazyExprVariant::StructDerivedLazyField { .. } => {
                     Some(SubtracesContainerClass::Call)
                 }
                 _ => None,

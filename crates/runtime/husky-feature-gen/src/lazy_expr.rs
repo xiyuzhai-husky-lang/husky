@@ -20,15 +20,15 @@ use vm::{Binding, InstructionSheet, __LinkageFp, __VMResult};
 use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Clone)]
-pub struct FeatureExpr {
-    pub variant: FeatureExprVariant,
+pub struct FeatureLazyExpr {
+    pub variant: FeatureLazyExprVariant,
     pub feature: FeaturePtr,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
     pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
 }
 
-impl std::fmt::Debug for FeatureExpr {
+impl std::fmt::Debug for FeatureLazyExpr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("FeatureExpr")
             .field("variant", &self.variant.kind())
@@ -39,37 +39,37 @@ impl std::fmt::Debug for FeatureExpr {
     }
 }
 
-impl std::hash::Hash for FeatureExpr {
+impl std::hash::Hash for FeatureLazyExpr {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }
 }
 
-impl<'eval> PartialEq for FeatureExpr {
+impl<'eval> PartialEq for FeatureLazyExpr {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl<'eval> Eq for FeatureExpr {}
+impl<'eval> Eq for FeatureLazyExpr {}
 
 #[derive(PartialEq, Eq, Clone)]
-pub enum FeatureExprVariant {
+pub enum FeatureLazyExprVariant {
     Literal(__Register<'static>),
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,
-        opds: Vec<Arc<FeatureExpr>>,
+        opds: Vec<Arc<FeatureLazyExpr>>,
         linkage: __Linkage,
     },
     CustomBinaryOpr {
         opr: PureBinaryOpr,
-        opds: Vec<Arc<FeatureExpr>>,
+        opds: Vec<Arc<FeatureLazyExpr>>,
         opt_linkage: Option<__Linkage>,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
     Variable {
         varname: CustomIdentifier,
-        value: Arc<FeatureExpr>,
+        value: Arc<FeatureLazyExpr>,
     },
     ThisValue {
         repr: FeatureRepr,
@@ -99,18 +99,18 @@ pub enum FeatureExprVariant {
         repr: FeatureRepr,
     },
     ElementAccess {
-        opds: Vec<Arc<FeatureExpr>>,
+        opds: Vec<Arc<FeatureLazyExpr>>,
         linkage: __LinkageFp,
     },
     ModelCall {
-        opds: Vec<Arc<FeatureExpr>>,
+        opds: Vec<Arc<FeatureLazyExpr>>,
         has_this: bool,
         model_defn: Arc<EntityDefn>,
         opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
         internal: __VMResult<__Register<'static>>,
     },
     RoutineCall {
-        opds: Vec<Arc<FeatureExpr>>,
+        opds: Vec<Arc<FeatureLazyExpr>>,
         has_this: bool,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
         opt_linkage: Option<__Linkage>,
@@ -123,19 +123,19 @@ pub enum FeatureExprVariant {
     NewRecord {
         ty: RangedEntityRoute,
         entity: Arc<EntityDefn>,
-        opds: Vec<Arc<FeatureExpr>>,
+        opds: Vec<Arc<FeatureLazyExpr>>,
     },
     NewVecFromList {
-        elements: Vec<Arc<FeatureExpr>>,
+        elements: Vec<Arc<FeatureLazyExpr>>,
         linkage: __Linkage,
     },
     BePattern {
-        this: Arc<FeatureExpr>,
+        this: Arc<FeatureLazyExpr>,
         patt: Arc<PurePattern>,
     },
 }
 
-impl std::fmt::Debug for FeatureExprVariant {
+impl std::fmt::Debug for FeatureLazyExprVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Literal(arg0) => f.debug_tuple("Literal").field(arg0).finish(),
@@ -204,26 +204,26 @@ impl std::fmt::Debug for FeatureExprVariant {
     }
 }
 
-impl FeatureExprVariant {
+impl FeatureLazyExprVariant {
     pub fn kind(&self) -> &'static str {
         match self {
-            FeatureExprVariant::Literal(_) => "Literal",
-            FeatureExprVariant::PrimitiveBinaryOpr { .. } => "PrimitiveBinaryOpr",
-            FeatureExprVariant::Variable { .. } => "Variable",
-            FeatureExprVariant::ThisValue { .. } => "ThisValue",
-            FeatureExprVariant::StructOriginalField { .. } => "StructOriginalFieldAccess",
-            FeatureExprVariant::RecordOriginalField { .. } => "RecordOriginalFieldAccess",
-            FeatureExprVariant::StructDerivedLazyField { .. } => "StructDerivedFieldAccess",
-            FeatureExprVariant::RecordDerivedField { .. } => "RecordDerivedFieldAccess",
-            FeatureExprVariant::ElementAccess { .. } => "ElementAccess",
-            FeatureExprVariant::ModelCall { .. } => "ModelCall",
-            FeatureExprVariant::RoutineCall { .. } => "RoutineCall",
-            FeatureExprVariant::EntityFeature { .. } => "EntityFeature",
-            FeatureExprVariant::EvalInput => "EvalInput",
-            FeatureExprVariant::NewRecord { .. } => "NewRecord",
-            FeatureExprVariant::NewVecFromList { .. } => "NewVecFromList",
-            FeatureExprVariant::CustomBinaryOpr { .. } => "CustomBinaryOpr",
-            FeatureExprVariant::BePattern {
+            FeatureLazyExprVariant::Literal(_) => "Literal",
+            FeatureLazyExprVariant::PrimitiveBinaryOpr { .. } => "PrimitiveBinaryOpr",
+            FeatureLazyExprVariant::Variable { .. } => "Variable",
+            FeatureLazyExprVariant::ThisValue { .. } => "ThisValue",
+            FeatureLazyExprVariant::StructOriginalField { .. } => "StructOriginalFieldAccess",
+            FeatureLazyExprVariant::RecordOriginalField { .. } => "RecordOriginalFieldAccess",
+            FeatureLazyExprVariant::StructDerivedLazyField { .. } => "StructDerivedFieldAccess",
+            FeatureLazyExprVariant::RecordDerivedField { .. } => "RecordDerivedFieldAccess",
+            FeatureLazyExprVariant::ElementAccess { .. } => "ElementAccess",
+            FeatureLazyExprVariant::ModelCall { .. } => "ModelCall",
+            FeatureLazyExprVariant::RoutineCall { .. } => "RoutineCall",
+            FeatureLazyExprVariant::EntityFeature { .. } => "EntityFeature",
+            FeatureLazyExprVariant::EvalInput => "EvalInput",
+            FeatureLazyExprVariant::NewRecord { .. } => "NewRecord",
+            FeatureLazyExprVariant::NewVecFromList { .. } => "NewVecFromList",
+            FeatureLazyExprVariant::CustomBinaryOpr { .. } => "CustomBinaryOpr",
+            FeatureLazyExprVariant::BePattern {
                 this,
                 patt: pure_pattern,
             } => "BePattern",
@@ -231,7 +231,7 @@ impl FeatureExprVariant {
     }
 }
 
-impl FeatureExpr {
+impl FeatureLazyExpr {
     pub fn new(
         db: &(dyn FeatureGenQueryGroup),
         this: Option<FeatureRepr>,
@@ -260,7 +260,7 @@ struct FeatureExprBuilder<'a> {
 }
 
 impl<'a> FeatureExprBuilder<'a> {
-    fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureExpr> {
+    fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureLazyExpr> {
         let (kind, feature) = match expr.variant {
             LazyExprVariant::Variable { varname, .. } => self
                 .symbols
@@ -269,7 +269,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 .find_map(|symbol| {
                     if symbol.varname == varname {
                         Some((
-                            FeatureExprVariant::Variable {
+                            FeatureLazyExprVariant::Variable {
                                 varname,
                                 value: symbol.value.clone(),
                             },
@@ -281,7 +281,10 @@ impl<'a> FeatureExprBuilder<'a> {
                 })
                 .unwrap(),
             LazyExprVariant::PrimitiveLiteral(data) => (
-                FeatureExprVariant::Literal(convert_primitive_literal_to_register(data, expr.ty())),
+                FeatureLazyExprVariant::Literal(convert_primitive_literal_to_register(
+                    data,
+                    expr.ty(),
+                )),
                 self.feature_interner.intern(Feature::PrimitiveLiteral(
                     convert_primitive_literal_to_value(data, expr.ty()),
                 )),
@@ -292,7 +295,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
             LazyExprVariant::Lambda(_, _) => todo!(),
             LazyExprVariant::EnumLiteral { entity_route } => (
-                FeatureExprVariant::Literal(
+                FeatureLazyExprVariant::Literal(
                     __VirtualEnum {
                         kind_idx: self.db.enum_literal_to_i32(entity_route),
                     }
@@ -302,7 +305,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     .intern(Feature::EnumLiteral(entity_route)),
             ),
             LazyExprVariant::ThisValue { .. } => (
-                FeatureExprVariant::ThisValue {
+                FeatureLazyExprVariant::ThisValue {
                     repr: self.opt_this.as_ref().unwrap().clone(),
                 },
                 self.opt_this.as_ref().unwrap().feature(),
@@ -324,14 +327,14 @@ impl<'a> FeatureExprBuilder<'a> {
                         route: entity_route,
                         uid,
                     });
-                    let variant = FeatureExprVariant::EntityFeature {
+                    let variant = FeatureLazyExprVariant::EntityFeature {
                         repr: self.db.entity_feature_repr(entity_route),
                     };
                     (variant, feature)
                 }
                 EntityRouteVariant::TargetInputValue => {
                     let feature = self.feature_interner.intern(Feature::Input);
-                    let variant = FeatureExprVariant::EvalInput;
+                    let variant = FeatureLazyExprVariant::EvalInput;
                     (variant, feature)
                 }
                 EntityRouteVariant::Any { ident, .. } => todo!(),
@@ -345,14 +348,14 @@ impl<'a> FeatureExprBuilder<'a> {
                     this: this.feature,
                     expr_pattern: Feature::intern_expr_pattern(self.feature_interner, patt),
                 });
-                let variant = FeatureExprVariant::BePattern {
+                let variant = FeatureLazyExprVariant::BePattern {
                     this,
                     patt: patt.clone(),
                 };
                 (variant, feature)
             }
         };
-        Arc::new(FeatureExpr {
+        Arc::new(FeatureLazyExpr {
             variant: kind,
             feature,
             eval_id: Default::default(),
