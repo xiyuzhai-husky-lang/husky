@@ -227,7 +227,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 _ => (1, SpecialToken::Vertical),
             },
             '~' => (1, SpecialToken::BitNot),
-            '.' => (1, SpecialToken::MemberAccess),
+            '.' => (1, SpecialToken::FieldAccess),
             ';' => (1, SpecialToken::Semicolon),
             '%' => (1, SpecialToken::Modulo),
             '-' => match self.peek_char() {

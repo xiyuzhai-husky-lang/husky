@@ -1,6 +1,6 @@
-131:17..131:39	Infer Error: can't bind mutable reference to an immutable field
-132:17..132:48	Infer Error: can't turn a copyable immutable member into temp ref (mut)
-147:21..147:24	Infer Error: can't bind mutable reference to an immutable field
-148:21..148:33	Infer Error: can't turn a copyable immutable member into temp ref (mut)
-159:9..159:32	Infer Error: can't bind mutable reference to an immutable field
-160:9..160:41	Infer Error: can't turn a copyable immutable member into temp ref (mut)
+131:17..131:42	Infer Error: can't bind mutable reference to an immutable field
+132:17..132:51	Infer Error: can't turn a copyable immutable member into temp ref (mut)
+147:21..147:29	Infer Error: can't bind mutable reference to an immutable field
+148:21..148:38	Infer Error: can't turn a copyable immutable member into temp ref (mut)
+159:9..159:37	Infer Error: can't bind mutable reference to an immutable field
+160:9..160:46	Infer Error: can't turn a copyable immutable member into temp ref (mut)

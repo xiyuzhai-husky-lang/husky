@@ -19,7 +19,7 @@ eager expr:
     11:36..11:37   i                      Copyable     i32
     11:29..11:38   others[i]              PureRef      mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent
     11:20..11:24   norm                   Copyable     f32
-    11:29..11:39   others[i].             Copyable     f32
+    11:29..11:43   others[i].norm         Copyable     f32
     11:13..11:17   norm                   RefMut       f32
     11:20..11:44   norm.max(others[i].norm)   Copyable     f32
     11:13..11:44   norm = norm.max(others[i].norm)   Copyable     void

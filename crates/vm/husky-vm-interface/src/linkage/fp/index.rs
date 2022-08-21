@@ -109,7 +109,7 @@ macro_rules! index_eval_ref_fp {
 #[macro_export]
 macro_rules! index_temp_ref_fp {
     (
-        Intrinsic, 
+        Intrinsic,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_ELEMENT_TY: ty,
@@ -133,7 +133,7 @@ macro_rules! index_temp_ref_fp {
         }
     }};
     (
-        Optional, 
+        Optional,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_ELEMENT_TY: ty,
@@ -157,7 +157,7 @@ macro_rules! index_temp_ref_fp {
         }
     }};
     (
-        EvalRef, 
+        EvalRef,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_ELEMENT_TY: ty,
@@ -181,7 +181,7 @@ macro_rules! index_temp_ref_fp {
         }
     }};
     (
-        OptionalEvalRef, 
+        OptionalEvalRef,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_ELEMENT_TY: ty,

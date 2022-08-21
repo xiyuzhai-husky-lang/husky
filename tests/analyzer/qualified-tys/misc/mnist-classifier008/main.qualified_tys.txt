@@ -3,14 +3,14 @@ eager variable:
 
 lazy expr:
     19:20..19:45   major_connected_component   EvalRef mnist_classifier008::connected_component::ConnectedComponent
-    19:20..19:46   major_connected_component.   EvalRef []mnist_classifier008::raw_contour::RawContour
+    19:20..19:58   major_connected_component.raw_contours   EvalRef []mnist_classifier008::raw_contour::RawContour
     20:20..20:32   raw_contours           EvalRef []mnist_classifier008::raw_contour::RawContour
     20:33..20:34   0                      Copyable i32
     20:20..20:35   raw_contours[0]        EvalRef mnist_classifier008::raw_contour::RawContour
     21:27..21:39   raw_contour0           EvalRef mnist_classifier008::raw_contour::RawContour
-    21:27..21:40   raw_contour0.          EvalRef mnist_classifier008::line_segment_sketch::LineSegmentSketch
+    21:27..21:59   raw_contour0.line_segment_sketch   EvalRef mnist_classifier008::line_segment_sketch::LineSegmentSketch
     22:26..22:45   line_segment_sketch    EvalRef mnist_classifier008::line_segment_sketch::LineSegmentSketch
-    22:26..22:46   line_segment_sketch.   EvalRef []mnist_classifier008::line_segment_sketch::concave_component::ConcaveComponent
+    22:26..22:64   line_segment_sketch.concave_components   EvalRef []mnist_classifier008::line_segment_sketch::concave_component::ConcaveComponent
     24:8..24:26    concave_components     PureRef []mnist_classifier008::line_segment_sketch::concave_component::ConcaveComponent
     24:8..24:33    concave_components.ilen()   Copyable i32
     24:36..24:37   0                      Copyable i32
@@ -26,14 +26,14 @@ eager expr:
 
 lazy expr:
     19:20..19:45   major_connected_component   EvalRef mnist_classifier008::connected_component::ConnectedComponent
-    19:20..19:46   major_connected_component.   EvalRef []mnist_classifier008::raw_contour::RawContour
+    19:20..19:58   major_connected_component.raw_contours   EvalRef []mnist_classifier008::raw_contour::RawContour
     20:20..20:32   raw_contours           EvalRef []mnist_classifier008::raw_contour::RawContour
     20:33..20:34   0                      Copyable i32
     20:20..20:35   raw_contours[0]        EvalRef mnist_classifier008::raw_contour::RawContour
     21:27..21:39   raw_contour0           EvalRef mnist_classifier008::raw_contour::RawContour
-    21:27..21:40   raw_contour0.          EvalRef mnist_classifier008::line_segment_sketch::LineSegmentSketch
+    21:27..21:59   raw_contour0.line_segment_sketch   EvalRef mnist_classifier008::line_segment_sketch::LineSegmentSketch
     22:26..22:45   line_segment_sketch    EvalRef mnist_classifier008::line_segment_sketch::LineSegmentSketch
-    22:26..22:46   line_segment_sketch.   EvalRef []mnist_classifier008::line_segment_sketch::concave_component::ConcaveComponent
+    22:26..22:64   line_segment_sketch.concave_components   EvalRef []mnist_classifier008::line_segment_sketch::concave_component::ConcaveComponent
     24:8..24:26    concave_components     PureRef []mnist_classifier008::line_segment_sketch::concave_component::ConcaveComponent
     24:8..24:33    concave_components.ilen()   Copyable i32
     24:36..24:37   0                      Copyable i32
