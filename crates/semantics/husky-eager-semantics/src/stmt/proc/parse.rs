@@ -5,8 +5,6 @@ use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use super::{parser::EagerParser, *};
 use crate::*;
 
-type IterType<'a> = fold::FoldableIter<'a, AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>;
-
 impl<'a> EagerParser<'a> {
     fn parse_boundary(&mut self, boundary: RawBoundary) -> SemanticResult<Boundary> {
         let bound = if let Some(bound) = boundary.opt_bound {
@@ -22,7 +20,7 @@ impl<'a> EagerParser<'a> {
 
     pub(super) fn parse_proc_stmts(
         &mut self,
-        iter: IterType,
+        iter: AstIter,
     ) -> SemanticResultArc<Vec<Arc<ProcStmt>>> {
         let mut stmts = Vec::new();
         let mut iter = iter.peekable();
@@ -62,8 +60,8 @@ impl<'a> EagerParser<'a> {
     fn parse_proc_stmt(
         &mut self,
         stmt: &RawStmt,
-        children: Option<IterType>,
-        iter: &mut Peekable<IterType>,
+        children: Option<AstIter>,
+        iter: &mut Peekable<AstIter>,
     ) -> SemanticResult<ProcStmtVariant> {
         match stmt.variant {
             RawStmtVariant::Loop(loop_kind) => self.parse_loop_stmt(loop_kind, not_none!(children)),
@@ -123,7 +121,7 @@ impl<'a> EagerParser<'a> {
     fn parse_proc_condition_flow(
         &mut self,
         stmt: &RawStmt,
-        children: IterType,
+        children: AstIter,
         iter: &mut Peekable<AstIter>,
         condition_branch_kind: RawConditionBranchKind,
     ) -> SemanticResult<ProcStmtVariant> {

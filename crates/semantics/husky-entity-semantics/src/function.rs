@@ -23,7 +23,7 @@ impl EntityDefnVariant {
                 opt_this_liason,
             } => Ok(match paradigm {
                 Paradigm::EagerProcedural => {
-                    let stmts = parse_impr_stmts(parameters, db.upcast(), arena, children, file)?;
+                    let stmts = parse_proc_stmts(db.upcast(), arena, children, file)?;
                     EntityDefnVariant::Proc {
                         spatial_parameters: spatial_parameters.clone(),
                         parameters: parameters.clone(),

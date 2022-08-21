@@ -5,6 +5,10 @@ struct ConcaveComponent:
     line_segment_sketch: &LineSegmentSketch
     line_segments: [%]LineSegment
 
+    func norm -> f32:
+        // temp
+        1.0
+
     visual:
         line_segments
 

@@ -128,7 +128,7 @@ impl<'a> RustCodeGenerator<'a> {
                     file,
                     range,
                     ref stmts,
-                    output_ty,
+                    return_ty,
                 } => {
                     let field_ident = member.ident.as_str();
                     self.write(&format!(
@@ -145,10 +145,10 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(&self.db.mangled_intrinsic_ty_vtable(ty));
                     // INTRINSIC_FIELD_TY
                     self.write(", ");
-                    self.gen_entity_route(output_ty.route.intrinsic(), EntityRouteRole::Decl);
+                    self.gen_entity_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
                     // INTRINSIC_FIELD_TY_VTABLE
                     self.write(", __registration__::");
-                    self.write(&self.db.mangled_intrinsic_ty_vtable(output_ty.route));
+                    self.write(&self.db.mangled_intrinsic_ty_vtable(return_ty.route));
                     self.write(", ");
                     self.write(field_ident);
                     self.write(
@@ -157,11 +157,38 @@ impl<'a> RustCodeGenerator<'a> {
                     );
                 }
                 DefinitionRepr::ProcBlock {
+                    route,
                     file,
                     range,
                     ref stmts,
-                    ty,
-                } => todo!(),
+                    return_ty,
+                } => {
+                    let field_ident = member.ident.as_str();
+                    self.write(&format!(
+                        r#"
+    (
+        __StaticLinkageKey::FeatureEagerBlock {{
+            route: "{route}",
+        }},
+        lazy_field_linkage!("#,
+                    ));
+                    self.gen_entity_route(ty, EntityRouteRole::Decl);
+                    // INTRINSIC_THIS_TY_VTABLE
+                    self.write(", __registration__::");
+                    self.write(&self.db.mangled_intrinsic_ty_vtable(ty));
+                    // INTRINSIC_FIELD_TY
+                    self.write(", ");
+                    self.gen_entity_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
+                    // INTRINSIC_FIELD_TY_VTABLE
+                    self.write(", __registration__::");
+                    self.write(&self.db.mangled_intrinsic_ty_vtable(return_ty.route));
+                    self.write(", ");
+                    self.write(field_ident);
+                    self.write(
+                        r#")
+    ),"#,
+                    );
+                }
             },
             FieldDefnVariant::RecordOriginal | FieldDefnVariant::RecordDerived { .. } => (),
         }

@@ -17,13 +17,14 @@ pub enum DefinitionRepr {
         file: FilePtr,
         range: TextRange,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
-        output_ty: RangedEntityRoute,
+        return_ty: RangedEntityRoute,
     },
     ProcBlock {
+        route: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
-        ty: RangedEntityRoute,
+        return_ty: RangedEntityRoute,
     },
 }
 
@@ -31,7 +32,7 @@ pub(crate) fn parse_definition_repr(
     db: &dyn EntityDefnQueryGroup,
     paradigm: Paradigm,
     route: EntityRoutePtr,
-    output_ty: RangedEntityRoute,
+    return_ty: RangedEntityRoute,
     arena: &RawExprArena,
     children: Option<AstIter>,
     file: FilePtr,
@@ -43,11 +44,11 @@ pub(crate) fn parse_definition_repr(
                 arena,
                 children.unwrap(),
                 file,
-                output_ty,
+                return_ty,
             )?;
             DefinitionRepr::LazyBlock {
                 stmts,
-                ty: output_ty,
+                ty: return_ty,
             }
         }
         Paradigm::EagerFunctional => {
@@ -60,11 +61,25 @@ pub(crate) fn parse_definition_repr(
             DefinitionRepr::FuncBlock {
                 route,
                 file,
-                range: FuncStmt::text_range(&*stmts),
+                range: stmts.text_range(),
                 stmts,
-                output_ty,
+                return_ty,
             }
         }
-        Paradigm::EagerProcedural => todo!(),
+        Paradigm::EagerProcedural => {
+            let stmts = husky_eager_semantics::parse_proc_stmts(
+                db.upcast(),
+                arena,
+                children.unwrap(),
+                file,
+            )?;
+            DefinitionRepr::ProcBlock {
+                route,
+                file,
+                range: stmts.text_range(),
+                stmts,
+                return_ty,
+            }
+        }
     }))
 }

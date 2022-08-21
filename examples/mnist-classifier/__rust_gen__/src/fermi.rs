@@ -17,6 +17,29 @@ impl<'eval> FermiMatchResult<'eval> {
     ) -> Self {
         Self { matches, others }
     }
+    pub(crate) fn norm(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
+        let __uid = entity_uid!(__ctx, "mnist_classifier::fermi::FermiMatchResult::norm");
+        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
+        }
+        let mut norm = 0f32;
+        for i in 0..self.others.ilen() {
+            norm = norm.max(self.others[(i) as usize].norm(__ctx));
+        }
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const (),
+                __uid,
+                Ok(__Register::new_box::<f32>(
+                    norm,
+                    &__registration__::__F32_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE)
+    }
 }
 
 impl<'eval> __StaticInfo for FermiMatchResult<'eval> {
