@@ -1,3 +1,5 @@
+use entity_kind::FieldKind;
+
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -108,6 +110,28 @@ impl EagerExprQualifier {
             EagerExprQualifier::Copyable
         } else {
             EagerExprQualifier::Transient
+        }
+    }
+
+    pub fn field(
+        this_qual: Self,
+        field_kind: FieldKind,
+        member_liason: MemberLiason,
+        member_contract: EagerContract,
+        is_member_copyable: bool,
+    ) -> Self {
+        match field_kind {
+            FieldKind::StructOriginal
+            | FieldKind::StructDefault
+            | FieldKind::StructDerivedEager => Self::member(
+                this_qual,
+                member_liason,
+                member_contract,
+                is_member_copyable,
+            ),
+            FieldKind::StructDerivedLazy => EagerExprQualifier::EvalRef,
+            FieldKind::RecordOriginal => todo!(),
+            FieldKind::RecordDerived => todo!(),
         }
     }
 
@@ -233,10 +257,32 @@ impl EagerValueQualifiedTy {
         }
     }
 
-    pub(crate) fn member_eager_qualified_ty(
+    pub(crate) fn field_eager_qualified_ty(
         db: &dyn InferQualifiedTyQueryGroup,
         this_qual: EagerExprQualifier,
+        field_kind: FieldKind,
         field_ty: EntityRoutePtr,
+        member_liason: MemberLiason,
+        member_contract: EagerContract,
+        is_member_copyable: bool,
+    ) -> InferResult<Self> {
+        msg_once!("ad hoc; consider ref");
+        Ok(Self::new(
+            EagerExprQualifier::field(
+                this_qual,
+                field_kind,
+                member_liason,
+                member_contract,
+                is_member_copyable,
+            ),
+            field_ty,
+        ))
+    }
+
+    pub(crate) fn element_eager_qualified_ty(
+        db: &dyn InferQualifiedTyQueryGroup,
+        this_qual: EagerExprQualifier,
+        member_ty: EntityRoutePtr,
         member_liason: MemberLiason,
         member_contract: EagerContract,
         is_member_copyable: bool,
@@ -249,7 +295,7 @@ impl EagerValueQualifiedTy {
                 member_contract,
                 is_member_copyable,
             ),
-            field_ty,
+            member_ty,
         ))
     }
 

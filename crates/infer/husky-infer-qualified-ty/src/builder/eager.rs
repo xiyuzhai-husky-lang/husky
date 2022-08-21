@@ -253,7 +253,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawExprVariant::ThisField {
                 opt_this_ty,
                 opt_this_liason,
-                field_ident: ident,
+                field_ident,
                 field_liason,
                 opt_field_ty,
             } => {
@@ -275,9 +275,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     this_contract,
                     raw_expr.range,
                 )?;
-                Ok(EagerValueQualifiedTy::member_eager_qualified_ty(
+                let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty.intrinsic()));
+                let field_decl = this_ty_decl.field_decl(field_ident)?;
+                Ok(EagerValueQualifiedTy::field_eager_qualified_ty(
                     self.db,
                     this_qual,
+                    field_decl.field_kind,
                     field_ty.route,
                     field_liason,
                     field_contract,
@@ -328,7 +331,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawOpnVariant::Prefix(prefix_opr) => self.eager_prefix(idx, opds),
             RawOpnVariant::Suffix(suffix_opr) => self.eager_suffix(idx, suffix_opr, opds),
             RawOpnVariant::List(list_opr) => self.eager_list(idx, list_opr, opds),
-            RawOpnVariant::Field(field_ident) => self.eager_field_access(idx, *field_ident, opds),
+            RawOpnVariant::Field(field_ident) => self.eager_field(idx, *field_ident, opds),
         }
     }
 
@@ -395,25 +398,21 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    fn eager_field_access(
+    fn eager_field(
         &mut self,
         raw_expr_idx: RawExprIdx,
         field_ident: RangedCustomIdentifier,
         opds: RawExprRange,
     ) -> InferResult<EagerValueQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(opds.start))?;
-        let this_deref_ty = match this_qt.ty.variant {
-            EntityRouteVariant::Root {
-                ident: RootIdentifier::Ref,
-            } => this_qt.ty.entity_route_argument(0),
-            _ => this_qt.ty,
-        };
-        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
+        let intrinsic_this_ty = this_qt.ty.intrinsic();
+        let this_ty_decl = derived_unwrap!(self.db.ty_decl(intrinsic_this_ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let field_contract = self.eager_expr_contract(raw_expr_idx)?;
-        Ok(EagerValueQualifiedTy::member_eager_qualified_ty(
+        Ok(EagerValueQualifiedTy::field_eager_qualified_ty(
             self.db,
             this_qt.qual,
+            field_decl.field_kind,
             field_decl.ty,
             field_decl.liason,
             field_contract,
@@ -501,7 +500,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let element_ty = self.raw_expr_intrinsic_ty(idx)?;
         let element_contract = self.eager_expr_contract(idx)?;
         msg_once!("todo: other member liason");
-        EagerValueQualifiedTy::member_eager_qualified_ty(
+        EagerValueQualifiedTy::element_eager_qualified_ty(
             self.db,
             this_qt.qual,
             element_ty,
