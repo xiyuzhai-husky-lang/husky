@@ -1,5 +1,7 @@
 use crate::connected_component::*
 use crate::raw_contour::*
+use crate::line_segment_sketch::*
+use crate::line_segment_sketch::concave_component::*
 
 func connected_components -> []ConnectedComponent:
     find_connected_components(input)
@@ -10,3 +12,9 @@ func major_connected_component -> ConnectedComponent:
 // todo: change `def` to `func`
 def major_raw_contour -> RawContour:
     major_connected_component.raw_contours[0]
+
+def major_line_segment_sketch -> LineSegmentSketch:
+    major_raw_contour.line_segment_sketch
+
+def major_concave_components -> []ConcaveComponent:
+    major_line_segment_sketch.concave_components
