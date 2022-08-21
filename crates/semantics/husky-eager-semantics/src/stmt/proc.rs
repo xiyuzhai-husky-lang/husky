@@ -10,7 +10,7 @@ pub use pattern_branch::*;
 use super::*;
 use crate::*;
 use fold::Indent;
-use husky_text::RangedCustomIdentifier;
+use husky_text::{RangedCustomIdentifier, TextRanged};
 use std::sync::Arc;
 use vm::{History, InstructionId, InstructionSource, VMStackIdx};
 
@@ -23,6 +23,12 @@ pub struct ProcStmt {
     pub range: TextRange,
     pub indent: Indent,
     pub instruction_id: InstructionId,
+}
+
+impl TextRanged for ProcStmt {
+    fn text_range(&self) -> TextRange {
+        self.range
+    }
 }
 
 impl InstructionSource for ProcStmt {
@@ -70,11 +76,10 @@ pub enum ProcStmtVariant {
     },
 }
 
-pub fn parse_impr_stmts(
-    parameters: &[Parameter],
+pub fn parse_proc_stmts(
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
-    iter: fold::FoldableIter<AstResult<Ast>, fold::FoldableList<AstResult<Ast>>>,
+    iter: AstIter,
     file: FilePtr,
 ) -> SemanticResultArc<Vec<Arc<ProcStmt>>> {
     EagerParser::new(db, arena, file).parse_proc_stmts(iter)

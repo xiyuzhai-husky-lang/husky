@@ -316,7 +316,7 @@ impl From<i32> for {tyname} {{
                         file,
                         range,
                         ref stmts,
-                        output_ty,
+                        return_ty,
                     } => {
                         self.write("pub(crate) fn ");
                         let ident = ty_member.ident;
@@ -325,10 +325,10 @@ impl From<i32> for {tyname} {{
                             self.write("<'eval>")
                         }
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
-                        self.gen_entity_route(output_ty.route.deref_route(), EntityRouteRole::Decl);
+                        self.gen_entity_route(return_ty.route.deref_route(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
                         let mangled_output_ty_vtable =
-                            self.db.mangled_intrinsic_ty_vtable(output_ty.route);
+                            self.db.mangled_intrinsic_ty_vtable(return_ty.route);
                         self.write(&format!(
                             r#" {{
     let __uid = entity_uid!(__ctx, "{route:?}");
@@ -341,7 +341,7 @@ impl From<i32> for {tyname} {{
             .downcast_{}eval_ref(&__registration__::{mangled_output_ty_vtable});
     }}
 "#,
-                            match output_ty.route.is_option() {
+                            match return_ty.route.is_option() {
                                 true => "opt_",
                                 false => "",
                             }
@@ -350,11 +350,43 @@ impl From<i32> for {tyname} {{
                         self.write("    }\n");
                     }
                     DefinitionRepr::ProcBlock {
+                        route,
                         file,
                         range,
                         ref stmts,
-                        ty,
-                    } => todo!(),
+                        return_ty,
+                    } => {
+                        self.write("pub(crate) fn ");
+                        let ident = ty_member.ident;
+                        self.write(&ident);
+                        if !ty_contains_eval_ref {
+                            self.write("<'eval>")
+                        }
+                        self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
+                        self.gen_entity_route(return_ty.route.deref_route(), EntityRouteRole::Decl);
+                        let route = ty_member.base_route;
+                        let mangled_output_ty_vtable =
+                            self.db.mangled_intrinsic_ty_vtable(return_ty.route);
+                        self.write(&format!(
+                            r#" {{
+    let __uid = entity_uid!(__ctx, "{route:?}");
+    if let Some(__result) = __ctx.opt_cached_lazy_field(
+        self as *const _ as *const (),
+        __uid
+    ) {{
+        return __result
+            .unwrap()
+            .downcast_{}eval_ref(&__registration__::{mangled_output_ty_vtable});
+    }}
+"#,
+                            match return_ty.route.is_option() {
+                                true => "opt_",
+                                false => "",
+                            }
+                        ));
+                        self.gen_proc_stmts(stmts);
+                        self.write("    }\n");
+                    }
                 },
                 FieldDefnVariant::RecordOriginal => (),
                 FieldDefnVariant::RecordDerived { defn_repr } => (),

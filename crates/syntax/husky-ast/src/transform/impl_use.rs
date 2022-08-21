@@ -37,7 +37,10 @@ impl<'a> AstTransformer<'a> {
                     }
                     route
                 }
-                _ => todo!(),
+                _ => {
+                    p!(self.file, atoms[0]);
+                    todo!()
+                }
             };
             self.use_all(parent, atoms[0].range)?;
             Ok(AstVariant::Use {

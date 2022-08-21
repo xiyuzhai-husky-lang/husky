@@ -3,7 +3,7 @@ mod parse;
 mod pattern_branch;
 
 pub use condition_branch::*;
-use husky_text::TextPosition;
+use husky_text::{TextPosition, TextRanged};
 pub use pattern_branch::*;
 
 use super::parser::EagerParser;
@@ -24,11 +24,17 @@ pub struct FuncStmt {
     pub instruction_id: InstructionId,
 }
 
-impl FuncStmt {
-    pub fn text_range(stmts: &[Arc<FuncStmt>]) -> TextRange {
-        let text_start = stmts[0].range.start;
-        (text_start..(Self::text_end(stmts.last().as_ref().unwrap()))).into()
+impl TextRanged for FuncStmt {
+    fn text_range(&self) -> TextRange {
+        self.range
     }
+}
+
+impl FuncStmt {
+    // pub fn stmts_text_range(stmts: &[Arc<FuncStmt>]) -> TextRange {
+    //     let text_start = stmts[0].range.start;
+    //     (text_start..(Self::text_end(stmts.last().as_ref().unwrap()))).into()
+    // }
 
     fn text_end(stmt: &FuncStmt) -> TextPosition {
         match stmt.variant {

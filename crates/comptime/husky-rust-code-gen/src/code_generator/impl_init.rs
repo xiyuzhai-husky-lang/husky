@@ -50,14 +50,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 DefinitionRepr::LazyExpr { ref expr } => (),
                 DefinitionRepr::LazyBlock { ref stmts, ty } => (),
                 DefinitionRepr::FuncBlock {
-                    route, output_ty, ..
+                    route,
+                    return_ty: output_ty,
+                    ..
                 } => self.gen_eager_feature_linkage_entry(route, output_ty.route),
-                DefinitionRepr::ProcBlock {
-                    file,
-                    range,
-                    ref stmts,
-                    ty,
-                } => todo!(),
+                DefinitionRepr::ProcBlock { .. } => todo!(),
             },
             EntityDefnVariant::Function {
                 ref spatial_parameters,

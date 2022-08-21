@@ -20,14 +20,9 @@ impl<'a> RustCodeGenerator<'a> {
                 file,
                 range,
                 stmts,
-                output_ty,
+                return_ty: output_ty,
             } => self.gen_feature_func_block_defn(feature_route, output_ty.route, stmts),
-            DefinitionRepr::ProcBlock {
-                file,
-                range,
-                stmts,
-                ty,
-            } => todo!(),
+            DefinitionRepr::ProcBlock { .. } => todo!(),
         }
     }
 

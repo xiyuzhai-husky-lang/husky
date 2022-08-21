@@ -161,7 +161,7 @@ impl<'a> LinkageCollector<'a> {
                 file,
                 range,
                 stmts,
-                output_ty,
+                return_ty: output_ty,
             } => {
                 opt_feature_route.map(|feature_route| self.insert(feature_route));
                 self.insert(output_ty.route);
@@ -171,10 +171,11 @@ impl<'a> LinkageCollector<'a> {
                 file,
                 range,
                 stmts,
-                ty,
+                return_ty,
+                ..
             } => {
                 opt_feature_route.map(|feature_route| self.insert(feature_route));
-                self.insert(ty.route);
+                self.insert(return_ty.route);
                 self.collect_from_proc_stmts(stmts)
             }
         }

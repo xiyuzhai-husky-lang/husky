@@ -1,0 +1,44 @@
+
+eager variable:
+
+lazy expr:
+    6:13..6:33     connected_components   EvalRef []mnist_classifier009::connected_component::ConnectedComponent
+    6:13..6:40     connected_components.ilen()   Copyable i32
+    6:44..6:45     1                      Copyable i32
+    6:13..6:45     connected_components.ilen() == 1   Transient bool
+    7:13..7:38     major_connected_component   EvalRef mnist_classifier009::connected_component::ConnectedComponent
+    7:13..7:39     major_connected_component.   PureRef []mnist_classifier009::raw_contour::RawContour
+    7:13..7:58     major_connected_component.raw_contours.ilen()   Copyable i32
+    7:62..7:63     1                      Copyable i32
+    7:13..7:63     major_connected_component.raw_contours.ilen() == 1   Transient bool
+    8:13..8:37     major_concave_components   EvalRef []mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent
+    8:13..8:44     major_concave_components.ilen()   Copyable i32
+    8:48..8:49     0                      Copyable i32
+    8:13..8:49     major_concave_components.ilen() == 0   Transient bool
+    9:5..9:20      MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    12:5..12:16    fermi_match            InferError: failed to infer expr ty
+    12:17..12:41   major_concave_components   EvalRef []mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent
+    12:43..12:45   []                     Transient []Fp<&mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
+    12:5..12:46    fermi_match(major_concave_components, [])   Transient mnist_classifier009::fermi::FermiMatchResult
+
+eager expr:
+
+lazy expr:
+    6:13..6:33     connected_components   EvalRef []mnist_classifier009::connected_component::ConnectedComponent
+    6:13..6:40     connected_components.ilen()   Copyable i32
+    6:44..6:45     1                      Copyable i32
+    6:13..6:45     connected_components.ilen() == 1   Transient bool
+    7:13..7:38     major_connected_component   EvalRef mnist_classifier009::connected_component::ConnectedComponent
+    7:13..7:39     major_connected_component.   PureRef []mnist_classifier009::raw_contour::RawContour
+    7:13..7:58     major_connected_component.raw_contours.ilen()   Copyable i32
+    7:62..7:63     1                      Copyable i32
+    7:13..7:63     major_connected_component.raw_contours.ilen() == 1   Transient bool
+    8:13..8:37     major_concave_components   EvalRef []mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent
+    8:13..8:44     major_concave_components.ilen()   Copyable i32
+    8:48..8:49     0                      Copyable i32
+    8:13..8:49     major_concave_components.ilen() == 0   Transient bool
+    9:5..9:20      MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    12:5..12:16    fermi_match            InferError: failed to infer expr ty
+    12:17..12:41   major_concave_components   EvalRef []mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent
+    12:43..12:45   []                     Transient []Fp<&mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
+    12:5..12:46    fermi_match(major_concave_components, [])   Transient mnist_classifier009::fermi::FermiMatchResult

@@ -193,7 +193,11 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write(";")
                     }
                     RawReturnContextKind::Feature => todo!(),
-                    RawReturnContextKind::LazyField => todo!(),
+                    RawReturnContextKind::LazyField => self.gen_lazy_field_return(
+                        stmt.indent,
+                        result,
+                        return_context.return_ty.route,
+                    ),
                 },
             },
             ProcStmtVariant::ConditionFlow { ref branches } => {

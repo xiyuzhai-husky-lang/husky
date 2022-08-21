@@ -821,6 +821,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::norm",
+        },
+        lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, norm)
+    ),
+    (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::LineSegment"
         },
@@ -1529,6 +1535,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE, Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>, __registration__::__VEC_REF_CONCAVE_COMPONENT_VTABLE,
             others
         )
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::fermi::FermiMatchResult::norm",
+        },
+        lazy_field_linkage!(fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE, f32, __registration__::__F32_VTABLE, norm)
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<?&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },

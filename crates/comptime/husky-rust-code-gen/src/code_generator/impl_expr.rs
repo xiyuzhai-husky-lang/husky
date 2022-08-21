@@ -1,4 +1,5 @@
 use super::*;
+use entity_kind::FieldKind;
 use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_entity_semantics::FieldDefnVariant;
@@ -103,10 +104,22 @@ impl<'a> RustCodeGenerator<'a> {
                 } => {
                     self.gen_type_call_opn(indent, ranged_ty.route, opds, ty_decl);
                 }
-                EagerOpnVariant::Field { field_ident, .. } => {
+                EagerOpnVariant::Field {
+                    field_ident,
+                    field_kind,
+                    ..
+                } => {
                     self.gen_expr(indent, &opds[0]);
                     self.write(".");
-                    self.write(&field_ident.ident)
+                    self.write(&field_ident.ident);
+                    match field_kind {
+                        FieldKind::StructOriginal
+                        | FieldKind::StructDefault
+                        | FieldKind::StructDerivedEager => (),
+                        FieldKind::StructDerivedLazy => self.write("(__ctx)"),
+                        FieldKind::RecordOriginal => todo!(),
+                        FieldKind::RecordDerived => todo!(),
+                    }
                 }
                 EagerOpnVariant::MethodCall {
                     method_ident,

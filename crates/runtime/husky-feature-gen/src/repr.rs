@@ -115,7 +115,7 @@ impl FeatureRepr {
                 file,
                 range,
                 route,
-                output_ty,
+                return_ty: output_ty,
             } => FeatureRepr::FuncBlock(Arc::new(FeatureFuncBlock {
                 file: *file,
                 range: *range,
@@ -146,12 +146,7 @@ impl FeatureRepr {
                 ty: *output_ty,
                 opt_linkage: { db.comptime().feature_eager_block_linkage(*route) },
             })),
-            DefinitionRepr::ProcBlock {
-                stmts,
-                file,
-                range,
-                ty,
-            } => {
+            DefinitionRepr::ProcBlock { .. } => {
                 todo!()
             }
         };
