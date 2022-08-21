@@ -26,7 +26,7 @@ pub enum SpecialToken {
     DoubleVertical,    // ||
     BitNot,            // ~
     Modulo,            // %
-    MemberAccess,      // .
+    FieldAccess,       // .
     LightArrow,        // ->
     HeavyArrow,        // =>
     DoubleColon,       // ::
@@ -83,7 +83,7 @@ impl SpecialToken {
             SpecialToken::DoubleVertical => "||",
             SpecialToken::BitNot => "~",
             SpecialToken::Modulo => "%",
-            SpecialToken::MemberAccess => ".",
+            SpecialToken::FieldAccess => ".",
             SpecialToken::LightArrow => "->",
             SpecialToken::HeavyArrow => "=>",
             SpecialToken::DoubleColon => "::",

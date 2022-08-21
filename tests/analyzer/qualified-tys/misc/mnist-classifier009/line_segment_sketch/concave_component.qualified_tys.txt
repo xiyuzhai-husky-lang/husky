@@ -15,7 +15,7 @@ eager expr:
     16:30..16:48   []ConcaveComponent     EvalRef      Type
     16:30..16:50   []ConcaveComponent()   Transient    []mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent
     17:13..17:32   line_segment_sketch    PureRef      mnist_classifier009::line_segment_sketch::LineSegmentSketch
-    17:13..17:33   line_segment_sketch.   PureRef      []mnist_classifier009::line_segment_sketch::LineSegment
+    17:13..17:46   line_segment_sketch.line_segments   PureRef      []mnist_classifier009::line_segment_sketch::LineSegment
     17:13..17:53   line_segment_sketch.line_segments.ilen()   Copyable     i32
     18:17..18:18   0                      Copyable     i32
     19:15..19:16   1                      Copyable     i32
@@ -56,7 +56,7 @@ eager expr:
     26:18..26:27   start + 1              Copyable     i32
     26:12..26:27   end > start + 1        Copyable     bool
     29:17..29:36   line_segment_sketch    EvalRef      mnist_classifier009::line_segment_sketch::LineSegmentSketch
-    29:17..29:37   line_segment_sketch.   EvalRef      []mnist_classifier009::line_segment_sketch::LineSegment
+    29:17..29:50   line_segment_sketch.line_segments   EvalRef      []mnist_classifier009::line_segment_sketch::LineSegment
     29:64..29:69   start                  Copyable     i32
     29:71..29:74   end                    Copyable     i32
     27:37..27:53   ConcaveComponent       EvalRef      Type

@@ -58,7 +58,7 @@ eager variable:
 
 lazy expr:
     21:26..21:30   this                   EvalRef mnist_classifier009::raw_contour::RawContour
-    21:26..21:31   this.                  EvalRef []mnist_classifier009::geom2d::Point2d
+    21:26..21:37   this.points            EvalRef []mnist_classifier009::geom2d::Point2d
 
 eager expr:
     12:9..12:31    LineSegmentSketch::new   InferError: failed to infer expr ty
@@ -66,18 +66,18 @@ eager expr:
     12:38..12:41   1.2                    Copyable     f32
     12:9..12:42    LineSegmentSketch::new(this, 1.2)   Transient    mnist_classifier009::line_segment_sketch::LineSegmentSketch
     15:13..15:17   this                   PureRef      mnist_classifier009::raw_contour::RawContour
-    15:13..15:18   this.                  PureRef      []mnist_classifier009::geom2d::Point2d
+    15:13..15:24   this.points            PureRef      []mnist_classifier009::geom2d::Point2d
     15:13..15:31   this.points.ilen()     Copyable     i32
     16:20..16:24   this                   PureRef      mnist_classifier009::raw_contour::RawContour
     16:32..16:37   start                  Copyable     i32
     16:38..16:39   N                      Copyable     i32
-    16:20..16:25   this.                  PureRef      []mnist_classifier009::geom2d::Point2d
+    16:20..16:31   this.points            PureRef      []mnist_classifier009::geom2d::Point2d
     16:32..16:39   start%N                Copyable     i32
     16:20..16:40   this.points[start%N]   PureRef      mnist_classifier009::geom2d::Point2d
     17:18..17:22   this                   PureRef      mnist_classifier009::raw_contour::RawContour
     17:30..17:33   end                    Copyable     i32
     17:34..17:35   N                      Copyable     i32
-    17:18..17:23   this.                  PureRef      []mnist_classifier009::geom2d::Point2d
+    17:18..17:29   this.points            PureRef      []mnist_classifier009::geom2d::Point2d
     17:30..17:35   end%N                  Copyable     i32
     17:18..17:36   this.points[end%N]     PureRef      mnist_classifier009::geom2d::Point2d
     18:9..18:17    ct_start               PureRef      mnist_classifier009::geom2d::Point2d
@@ -184,16 +184,16 @@ eager expr:
     128:10..128:21 points[N-1]            PureRef      mnist_classifier009::geom2d::Point2d
     130:10..130:12 p0                     PureRef      mnist_classifier009::geom2d::Point2d
     130:17..130:19 p2                     PureRef      mnist_classifier009::geom2d::Point2d
-    130:10..130:13 p0.                    Copyable     f32
-    130:17..130:20 p2.                    Copyable     f32
-    130:10..130:20 p0.x + p2.             Copyable     f32
+    130:10..130:14 p0.x                   Copyable     f32
+    130:17..130:21 p2.x                   Copyable     f32
+    130:10..130:21 p0.x + p2.x            Copyable     f32
     130:9..130:22  (p0.x + p2.x)          Copyable     f32
     130:25..130:28 2.0                    Copyable     f32
     131:10..131:12 p0                     PureRef      mnist_classifier009::geom2d::Point2d
     131:17..131:19 p2                     PureRef      mnist_classifier009::geom2d::Point2d
-    131:10..131:13 p0.                    Copyable     f32
-    131:17..131:20 p2.                    Copyable     f32
-    131:10..131:20 p0.y + p2.             Copyable     f32
+    131:10..131:14 p0.y                   Copyable     f32
+    131:17..131:21 p2.y                   Copyable     f32
+    131:10..131:21 p0.y + p2.y            Copyable     f32
     131:9..131:22  (p0.y + p2.y)          Copyable     f32
     131:25..131:28 2.0                    Copyable     f32
     129:5..129:12  Point2d                EvalRef      Type
@@ -209,11 +209,11 @@ eager expr:
     138:20..138:22 cc                     PureRef      mnist_classifier009::connected_component::ConnectedComponent
     138:28..138:29 i                      Copyable     i32
     138:30..138:31 1                      Copyable     i32
-    138:20..138:23 cc.                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
+    138:20..138:27 cc.mask                PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     138:28..138:31 i-1                    Copyable     i32
     138:20..138:32 cc.mask[i-1]           Copyable     b32
     139:20..139:22 cc                     PureRef      mnist_classifier009::connected_component::ConnectedComponent
-    139:20..139:23 cc.                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
+    139:20..139:27 cc.mask                PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     139:28..139:29 i                      Copyable     i32
     139:20..139:30 cc.mask[i]             Copyable     b32
     140:20..140:24 r_ur                   Copyable     b32
@@ -260,11 +260,11 @@ eager expr:
     149:29..149:31 cc                     PureRef      mnist_classifier009::connected_component::ConnectedComponent
     149:37..149:38 i                      Copyable     i32
     149:39..149:40 1                      Copyable     i32
-    149:29..149:32 cc.                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
+    149:29..149:36 cc.mask                PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     149:37..149:40 i-1                    Copyable     i32
     149:29..149:41 cc.mask[i-1]           Copyable     b32
     150:29..150:31 cc                     PureRef      mnist_classifier009::connected_component::ConnectedComponent
-    150:29..150:32 cc.                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
+    150:29..150:36 cc.mask                PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     150:37..150:38 i                      Copyable     i32
     150:29..150:39 cc.mask[i]             Copyable     b32
     152:36..152:56 get_inward_direction   InferError: failed to infer expr ty
@@ -441,7 +441,7 @@ eager expr:
     201:37..201:39 cc                     PureRef      mnist_classifier009::connected_component::ConnectedComponent
     201:45..201:46 i                      Copyable     i32
     201:47..201:48 1                      Copyable     i32
-    201:37..201:40 cc.                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
+    201:37..201:44 cc.mask                PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     201:45..201:48 i-1                    Copyable     i32
     201:25..201:34 row_above              RefMut       b32
     201:37..201:49 cc.mask[i-1]           Copyable     b32
@@ -455,7 +455,7 @@ eager expr:
     204:37..204:46 row_below              Copyable     b32
     204:25..204:46 row_above = row_below   Copyable     void
     205:37..205:39 cc                     PureRef      mnist_classifier009::connected_component::ConnectedComponent
-    205:37..205:40 cc.                    PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
+    205:37..205:44 cc.mask                PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
     205:45..205:46 i                      Copyable     i32
     205:25..205:34 row_below              RefMut       b32
     205:37..205:47 cc.mask[i]             Copyable     b32
@@ -501,4 +501,4 @@ eager expr:
 
 lazy expr:
     21:26..21:30   this                   EvalRef mnist_classifier009::raw_contour::RawContour
-    21:26..21:31   this.                  EvalRef []mnist_classifier009::geom2d::Point2d
+    21:26..21:37   this.points            EvalRef []mnist_classifier009::geom2d::Point2d

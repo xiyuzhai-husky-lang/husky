@@ -117,12 +117,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                     ))
                 }
             }
-            SpecialToken::MemberAccess => {
-                let range = self.token_stream.text_range(text_start);
+            SpecialToken::FieldAccess => {
                 let field_ident_token = self
                     .token_stream
                     .next()
-                    .ok_or(error!("expect identifier after `.`", range))?;
+                    .ok_or(error!("expect identifier after `.`", self.token_stream.text_range(text_start)))?;
                 let is_lpar_or_langle_next = match self.token_stream.peek_next_bra() {
                     Some(Bracket::Par) | Some(Bracket::Angle) => true,
                     _ => false,
@@ -154,7 +153,9 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 } else {
                     HuskyAtomVariant::FieldAccess(ranged_ident)
                 };
-                self.stack.push(HuskyAtom::new(range, atom_variant))
+                self.stack.push(HuskyAtom::new(
+                    self.token_stream.text_range(text_start), atom_variant
+                ))
             }
             SpecialToken::QuestionMark => match self.stack.convexity() {
                 Convexity::Convex => {

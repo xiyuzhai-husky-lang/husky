@@ -126,32 +126,32 @@ eager expr:
     104:21..104:37 Direction::RIGHT       Copyable     mnist_classifier003::raw_contour::Direction
     106:21..106:36 Direction::DOWN        Copyable     mnist_classifier003::raw_contour::Direction
     114:9..114:16  contour                PureRef      mnist_classifier003::raw_contour::RawContour
-    114:9..114:17  contour.               PureRef      []mnist_classifier003::geom2d::Point2d
+    114:9..114:23  contour.points         PureRef      []mnist_classifier003::geom2d::Point2d
     114:9..114:30  contour.points.ilen()   Copyable     i32
     115:10..115:17 contour                PureRef      mnist_classifier003::raw_contour::RawContour
     115:25..115:26 N                      Copyable     i32
     115:27..115:28 2                      Copyable     i32
-    115:10..115:18 contour.               PureRef      []mnist_classifier003::geom2d::Point2d
+    115:10..115:24 contour.points         PureRef      []mnist_classifier003::geom2d::Point2d
     115:25..115:28 N-2                    Copyable     i32
     115:10..115:29 contour.points[N-2]    PureRef      mnist_classifier003::geom2d::Point2d
     116:10..116:17 contour                PureRef      mnist_classifier003::raw_contour::RawContour
     116:25..116:26 N                      Copyable     i32
     116:27..116:28 1                      Copyable     i32
-    116:10..116:18 contour.               PureRef      []mnist_classifier003::geom2d::Point2d
+    116:10..116:24 contour.points         PureRef      []mnist_classifier003::geom2d::Point2d
     116:25..116:28 N-1                    Copyable     i32
     116:10..116:29 contour.points[N-1]    PureRef      mnist_classifier003::geom2d::Point2d
     118:10..118:12 p0                     PureRef      mnist_classifier003::geom2d::Point2d
     118:17..118:19 p2                     PureRef      mnist_classifier003::geom2d::Point2d
-    118:10..118:13 p0.                    Copyable     f32
-    118:17..118:20 p2.                    Copyable     f32
-    118:10..118:20 p0.x + p2.             Copyable     f32
+    118:10..118:14 p0.x                   Copyable     f32
+    118:17..118:21 p2.x                   Copyable     f32
+    118:10..118:21 p0.x + p2.x            Copyable     f32
     118:9..118:22  (p0.x + p2.x)          Copyable     f32
     118:25..118:28 2.0                    Copyable     f32
     119:10..119:12 p0                     PureRef      mnist_classifier003::geom2d::Point2d
     119:17..119:19 p2                     PureRef      mnist_classifier003::geom2d::Point2d
-    119:10..119:13 p0.                    Copyable     f32
-    119:17..119:20 p2.                    Copyable     f32
-    119:10..119:20 p0.y + p2.             Copyable     f32
+    119:10..119:14 p0.y                   Copyable     f32
+    119:17..119:21 p2.y                   Copyable     f32
+    119:10..119:21 p0.y + p2.y            Copyable     f32
     119:9..119:22  (p0.y + p2.y)          Copyable     f32
     119:25..119:28 2.0                    Copyable     f32
     117:5..117:12  Point2d                EvalRef      Type

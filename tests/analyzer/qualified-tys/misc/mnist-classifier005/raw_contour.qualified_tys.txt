@@ -58,22 +58,22 @@ eager variable:
 
 lazy expr:
     15:26..15:30   this                   EvalRef mnist_classifier005::raw_contour::RawContour
-    15:26..15:31   this.                  EvalRef []mnist_classifier005::geom2d::Point2d
+    15:26..15:37   this.points            EvalRef []mnist_classifier005::geom2d::Point2d
 
 eager expr:
     9:13..9:17     this                   PureRef      mnist_classifier005::raw_contour::RawContour
-    9:13..9:18     this.                  PureRef      []mnist_classifier005::geom2d::Point2d
+    9:13..9:24     this.points            PureRef      []mnist_classifier005::geom2d::Point2d
     9:13..9:31     this.points.ilen()     Copyable     i32
     10:20..10:24   this                   PureRef      mnist_classifier005::raw_contour::RawContour
     10:32..10:37   start                  Copyable     i32
     10:38..10:39   N                      Copyable     i32
-    10:20..10:25   this.                  PureRef      []mnist_classifier005::geom2d::Point2d
+    10:20..10:31   this.points            PureRef      []mnist_classifier005::geom2d::Point2d
     10:32..10:39   start%N                Copyable     i32
     10:20..10:40   this.points[start%N]   PureRef      mnist_classifier005::geom2d::Point2d
     11:18..11:22   this                   PureRef      mnist_classifier005::raw_contour::RawContour
     11:30..11:33   end                    Copyable     i32
     11:34..11:35   N                      Copyable     i32
-    11:18..11:23   this.                  PureRef      []mnist_classifier005::geom2d::Point2d
+    11:18..11:29   this.points            PureRef      []mnist_classifier005::geom2d::Point2d
     11:30..11:35   end%N                  Copyable     i32
     11:18..11:36   this.points[end%N]     PureRef      mnist_classifier005::geom2d::Point2d
     12:9..12:17    ct_start               PureRef      mnist_classifier005::geom2d::Point2d
@@ -180,16 +180,16 @@ eager expr:
     126:10..126:21 points[N-1]            PureRef      mnist_classifier005::geom2d::Point2d
     128:10..128:12 p0                     PureRef      mnist_classifier005::geom2d::Point2d
     128:17..128:19 p2                     PureRef      mnist_classifier005::geom2d::Point2d
-    128:10..128:13 p0.                    Copyable     f32
-    128:17..128:20 p2.                    Copyable     f32
-    128:10..128:20 p0.x + p2.             Copyable     f32
+    128:10..128:14 p0.x                   Copyable     f32
+    128:17..128:21 p2.x                   Copyable     f32
+    128:10..128:21 p0.x + p2.x            Copyable     f32
     128:9..128:22  (p0.x + p2.x)          Copyable     f32
     128:25..128:28 2.0                    Copyable     f32
     129:10..129:12 p0                     PureRef      mnist_classifier005::geom2d::Point2d
     129:17..129:19 p2                     PureRef      mnist_classifier005::geom2d::Point2d
-    129:10..129:13 p0.                    Copyable     f32
-    129:17..129:20 p2.                    Copyable     f32
-    129:10..129:20 p0.y + p2.             Copyable     f32
+    129:10..129:14 p0.y                   Copyable     f32
+    129:17..129:21 p2.y                   Copyable     f32
+    129:10..129:21 p0.y + p2.y            Copyable     f32
     129:9..129:22  (p0.y + p2.y)          Copyable     f32
     129:25..129:28 2.0                    Copyable     f32
     127:5..127:12  Point2d                EvalRef      Type
@@ -490,4 +490,4 @@ eager expr:
 
 lazy expr:
     15:26..15:30   this                   EvalRef mnist_classifier005::raw_contour::RawContour
-    15:26..15:31   this.                  EvalRef []mnist_classifier005::geom2d::Point2d
+    15:26..15:37   this.points            EvalRef []mnist_classifier005::geom2d::Point2d
