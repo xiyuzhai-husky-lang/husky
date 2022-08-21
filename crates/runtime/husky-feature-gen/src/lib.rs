@@ -2,13 +2,13 @@ mod block;
 mod branch;
 mod eval_id;
 mod expr;
+mod intern;
 mod object;
 mod query;
 mod record;
 mod repr;
 mod stmt;
 mod temp;
-mod unique_allocate;
 mod visual;
 
 pub use block::*;
@@ -18,12 +18,10 @@ pub use expr::*;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_vm_primitive_value::PrimitiveValueData;
 use husky_xml_syntax::XmlTagKind;
+pub use intern::{new_feature_interner, FeatureInterner, FeaturePtr, InternFeature};
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
 pub use stmt::{FeatureStmt, FeatureStmtVariant};
-pub use unique_allocate::{
-    new_feature_interner, AllocateUniqueFeature, FeatureInterner, FeaturePtr,
-};
 
 use husky_compile_time::DeclQueryGroup;
 use husky_entity_route::EntityRoutePtr;

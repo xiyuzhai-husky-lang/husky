@@ -5,9 +5,7 @@ mod utils;
 mod variant;
 
 pub use husky_compile_time::*;
-pub use husky_feature_gen::{
-    AllocateUniqueFeature, FeatureGenQueryGroup, FeatureGenQueryGroupStorage,
-};
+pub use husky_feature_gen::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, InternFeature};
 pub use husky_instruction_gen::InstructionGenQueryGroup;
 pub use query::*;
 pub use utils::*;
