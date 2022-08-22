@@ -4,10 +4,10 @@ use super::*;
 #[macro_export]
 macro_rules! transfer_linkage {
     ($wrapper: expr, some $raw_fp: expr) => {{
-        __Linkage::Transfer(linkage_fp!($wrapper, some $raw_fp))
+        __Linkage::Transfer(resolved_linkage!($wrapper, some $raw_fp))
     }};
     ($wrapper: expr, none) => {{
-        __Linkage::Transfer(linkage_fp!($wrapper, none))
+        __Linkage::Transfer(resolved_linkage!($wrapper, none))
     }};
 }
 
@@ -21,7 +21,7 @@ macro_rules! feature_linkage {
         ) -> __Register<'eval> {
             __Register::new_eval_ref::<$OUTPUT_TY>($f(__opt_ctx.unwrap()), &$OUTPUT_TY_VTABLE)
         }
-        __Linkage::Transfer(linkage_fp!(__wrapper, none))
+        __Linkage::Transfer(resolved_linkage!(__wrapper, none))
     }};
 }
 
@@ -35,6 +35,6 @@ macro_rules! opt_feature_linkage {
         ) -> __Register<'eval> {
             __Register::new_opt_eval_ref::<$OUTPUT_TY>($f(__opt_ctx.unwrap()), &$OUTPUT_TY_VTABLE)
         }
-        __Linkage::Transfer(linkage_fp!(__wrapper, none))
+        __Linkage::Transfer(resolved_linkage!(__wrapper, none))
     }};
 }

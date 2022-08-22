@@ -80,7 +80,7 @@ unsafe impl Sync for __ResolvedLinkage {}
 
 #[cfg(feature = "linkage_macro")]
 #[macro_export]
-macro_rules! linkage_fp {
+macro_rules! resolved_linkage {
     ($wrapper: expr, some $raw_fp: expr) => {{
         __ResolvedLinkage {
             wrapper: $wrapper,

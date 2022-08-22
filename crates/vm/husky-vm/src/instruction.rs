@@ -99,7 +99,7 @@ pub enum InstructionVariant {
         explicit: bool,
     },
     CallRoutine {
-        linkage_fp: __ResolvedLinkage,
+        resolved_linkage: __ResolvedLinkage,
         nargs: u8,
         output_ty: EntityRoutePtr,
         discard: bool,
