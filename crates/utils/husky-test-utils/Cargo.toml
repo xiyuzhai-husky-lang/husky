@@ -4,6 +4,5 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
-text-diff = "0.4.0"
 path-utils = { path = "../husky-path-utils" }
 husky-print-utils = { path = "../husky-print-utils" }

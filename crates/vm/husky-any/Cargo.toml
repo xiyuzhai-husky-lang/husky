@@ -18,7 +18,6 @@ husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 thin-vec = { path = "../../../forks/thin-vec" }
-husky-vm-runtime-error = { path = "../husky-vm-runtime-error" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 
 [build-dependencies]
