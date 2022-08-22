@@ -2,6 +2,7 @@ mod __rust_code_gen__;
 mod context;
 mod error;
 mod extra;
+mod fp;
 mod layout;
 mod linkage;
 mod register;

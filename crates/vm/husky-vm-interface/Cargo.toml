@@ -17,4 +17,8 @@ extra = ["binding", "vtype"]
 check = []
 
 [build-dependencies]
-husky-vm-interface-code-gen = { path = "husky-vm-interface-code-gen" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features = [
+    "registration"
+] }
+husky-write-utils = { path = "../../utils/husky-write-utils" }
