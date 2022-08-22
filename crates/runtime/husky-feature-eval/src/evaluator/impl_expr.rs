@@ -150,7 +150,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
 
     fn eval_struct_original_field(
         &self,
-        opt_linkage: Option<__LinkageFp>,
+        opt_linkage: Option<__ResolvedLinkage>,
         this: &FeatureRepr,
         field_idx: u8,
         field_binding: Binding,

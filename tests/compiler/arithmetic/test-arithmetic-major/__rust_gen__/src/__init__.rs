@@ -11,7 +11,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "test_arithmetic_major::add",
         },
-        __Linkage::Transfer(__LinkageFp {
+        __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -31,7 +31,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "test_arithmetic_major::bitor_assign",
         },
-        __Linkage::Transfer(__LinkageFp {
+        __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -49,7 +49,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "test_arithmetic_major::bitand_assign",
         },
-        __Linkage::Transfer(__LinkageFp {
+        __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(

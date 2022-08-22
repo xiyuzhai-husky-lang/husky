@@ -11,7 +11,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "test_proc_branch_in_loop1::f1",
         },
-        __Linkage::Transfer(__LinkageFp {
+        __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -29,7 +29,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "test_proc_branch_in_loop1::f2",
         },
-        __Linkage::Transfer(__LinkageFp {
+        __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -47,7 +47,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "test_proc_branch_in_loop1::f3",
         },
-        __Linkage::Transfer(__LinkageFp {
+        __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(

@@ -11,7 +11,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::TypeCall {
             ty: "test_qualifier_to_binding_major::A",
         },
-        __Linkage::Transfer(__LinkageFp {
+        __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -46,7 +46,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::TypeCall {
             ty: "test_qualifier_to_binding_major::B",
         },
-        __Linkage::Transfer(__LinkageFp {
+        __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -115,7 +115,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "test_qualifier_to_binding_major::take_copyable_eval_ref",
         },
-        __Linkage::Transfer(__LinkageFp {
+        __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(

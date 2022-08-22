@@ -9,7 +9,7 @@ use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer};
 use husky_vm_interface::__Linkage;
 use husky_word::RootIdentifier;
-use vm::__LinkageFp;
+use vm::__ResolvedLinkage;
 
 pub trait ResolveStaticRootDefn {
     fn __root_defn_resolver(&self) -> fn(ident: RootIdentifier) -> &'static EntityStaticDefn;

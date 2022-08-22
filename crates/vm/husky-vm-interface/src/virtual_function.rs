@@ -3,7 +3,7 @@ use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum __VirtualFunction {
-    FatFp(__LinkageFp),
+    FatFp(__ResolvedLinkage),
 }
 
 impl __VirtualFunction {

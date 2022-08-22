@@ -5,7 +5,7 @@ use super::*;
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn call_specific_routine(
         &mut self,
-        f: __LinkageFp,
+        f: __ResolvedLinkage,
         nargs: u8,
         output_ty: EntityRoutePtr,
         discard: bool,

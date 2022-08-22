@@ -23,7 +23,7 @@ use sync_utils::ASafeRwLock;
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
 use vm::{Binding, EntityUid, __Linkage};
-use vm::{__LinkageFp, __VMResult};
+use vm::{__ResolvedLinkage, __VMResult};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup> {
     fn linkage_table(&self) -> &LinkageTable;
@@ -92,7 +92,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         this_ty: EntityRoutePtr,
         field_ident: CustomIdentifier,
         field_binding: Binding,
-    ) -> Option<__LinkageFp> {
+    ) -> Option<__ResolvedLinkage> {
         if let Some(__Linkage) = self.linkage_table().field_linkage_source(
             self.upcast(),
             self.entity_uid(this_ty),

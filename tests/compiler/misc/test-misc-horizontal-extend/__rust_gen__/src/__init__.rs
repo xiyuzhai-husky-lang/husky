@@ -10,7 +10,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
     __StaticLinkageKey::Routine {
         route: "test_misc_horizontal_extend::horizontal_extend",
     },
-    __Linkage::Transfer(__LinkageFp {
+    __Linkage::Transfer(__ResolvedLinkage {
         dev_src: static_dev_src!(),
         wrapper: {
             unsafe fn __wrapper<'eval>(

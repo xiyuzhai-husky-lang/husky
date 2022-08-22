@@ -16,7 +16,7 @@ use husky_entity_route::EntityRoutePtr;
 use husky_text::{RangedCustomIdentifier, TextRange};
 use husky_word::CustomIdentifier;
 use semantics_error::SemanticResultArc;
-use vm::{Binding, InstructionId, InstructionSource, __LinkageFp};
+use vm::{Binding, InstructionId, InstructionSource, __ResolvedLinkage};
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct EagerExpr {

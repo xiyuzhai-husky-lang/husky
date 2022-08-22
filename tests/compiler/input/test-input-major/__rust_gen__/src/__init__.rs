@@ -10,7 +10,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
     __StaticLinkageKey::Routine {
         route: "test_input_major::find_connected_components",
     },
-    __Linkage::Transfer(__LinkageFp {
+    __Linkage::Transfer(__ResolvedLinkage {
         dev_src: static_dev_src!(),
         wrapper: {
             unsafe fn __wrapper<'eval>(

@@ -22,7 +22,7 @@ macro_rules! index_copy_fp {
                 $ELEMENT_TYPE_VTABLE
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -44,7 +44,7 @@ macro_rules! index_eval_ref_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -62,7 +62,7 @@ macro_rules! index_eval_ref_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -80,7 +80,7 @@ macro_rules! index_eval_ref_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -98,7 +98,7 @@ macro_rules! index_eval_ref_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -126,7 +126,7 @@ macro_rules! index_temp_ref_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -150,7 +150,7 @@ macro_rules! index_temp_ref_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -174,7 +174,7 @@ macro_rules! index_temp_ref_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -198,7 +198,7 @@ macro_rules! index_temp_ref_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -209,7 +209,7 @@ macro_rules! index_temp_ref_fp {
 #[macro_export]
 macro_rules! index_move_fp {
     ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper: |_, values| -> __Register { todo!("move") },
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -232,7 +232,7 @@ macro_rules! index_temp_mut_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -251,7 +251,7 @@ macro_rules! index_temp_mut_fp {
                 &$ELEMENT_TYPE_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -264,7 +264,7 @@ macro_rules! index_temp_mut_fp {
         ) -> __Register<'eval> {
             panic!("invalid")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -277,7 +277,7 @@ macro_rules! index_temp_mut_fp {
         ) -> __Register<'eval> {
             panic!("invalid")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -291,7 +291,7 @@ macro_rules! index_temp_mut_fp {
             println!("here index_temp_mut_fp");
             panic!("can't mutate immutable")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),

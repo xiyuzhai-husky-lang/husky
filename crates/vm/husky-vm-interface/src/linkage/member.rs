@@ -3,11 +3,11 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[repr(C)]
 pub struct __MemberLinkage {
-    pub copy_fp: __LinkageFp,
-    pub eval_ref_fp: __LinkageFp,
-    pub temp_ref_fp: __LinkageFp,
-    pub temp_mut_fp: __LinkageFp,
-    pub move_fp: __LinkageFp,
+    pub copy_fp: __ResolvedLinkage,
+    pub eval_ref_fp: __ResolvedLinkage,
+    pub temp_ref_fp: __ResolvedLinkage,
+    pub temp_mut_fp: __ResolvedLinkage,
+    pub move_fp: __ResolvedLinkage,
 }
 
 #[cfg(feature = "binding")]
@@ -15,7 +15,7 @@ use husky_vm_binding::Binding;
 
 #[cfg(feature = "binding")]
 impl __MemberLinkage {
-    pub fn bind(&self, binding: Binding) -> __LinkageFp {
+    pub fn bind(&self, binding: Binding) -> __ResolvedLinkage {
         match binding {
             Binding::EvalRef => self.eval_ref_fp,
             Binding::TempRef => self.temp_ref_fp,

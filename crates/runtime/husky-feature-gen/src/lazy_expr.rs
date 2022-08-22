@@ -15,7 +15,7 @@ use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
 use husky_word::RootIdentifier;
 use std::sync::Arc;
-use vm::{Binding, InstructionSheet, __LinkageFp, __VMResult};
+use vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
 
 use crate::{eval_id::FeatureEvalId, *};
 
@@ -79,7 +79,7 @@ pub enum FeatureLazyExprVariant {
         field_ident: RangedCustomIdentifier,
         field_idx: u8,
         field_binding: Binding,
-        opt_linkage: Option<__LinkageFp>,
+        opt_linkage: Option<__ResolvedLinkage>,
     },
     RecordOriginalField {
         this: FeatureRepr,
@@ -100,7 +100,7 @@ pub enum FeatureLazyExprVariant {
     },
     ElementAccess {
         opds: Vec<Arc<FeatureLazyExpr>>,
-        linkage: __LinkageFp,
+        linkage: __ResolvedLinkage,
     },
     ModelCall {
         opds: Vec<Arc<FeatureLazyExpr>>,
