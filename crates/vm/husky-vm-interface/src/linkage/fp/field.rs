@@ -24,7 +24,7 @@ macro_rules! field_copy_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -50,7 +50,7 @@ macro_rules! field_eval_ref_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -71,7 +71,7 @@ macro_rules! field_eval_ref_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -92,7 +92,7 @@ macro_rules! field_eval_ref_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -113,7 +113,7 @@ macro_rules! field_eval_ref_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -139,7 +139,7 @@ macro_rules! field_temp_ref_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -160,7 +160,7 @@ macro_rules! field_temp_ref_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -184,7 +184,7 @@ macro_rules! field_temp_ref_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -205,7 +205,7 @@ macro_rules! field_temp_ref_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -232,7 +232,7 @@ macro_rules! field_temp_mut_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -257,7 +257,7 @@ macro_rules! field_temp_mut_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -278,7 +278,7 @@ macro_rules! field_temp_mut_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -299,7 +299,7 @@ macro_rules! field_temp_mut_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -312,7 +312,7 @@ macro_rules! field_temp_mut_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -336,7 +336,7 @@ macro_rules! field_move_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -355,7 +355,7 @@ macro_rules! field_move_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -374,7 +374,7 @@ macro_rules! field_move_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -393,7 +393,7 @@ macro_rules! field_move_fp {
         }
         __ResolvedLinkage {
             wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};

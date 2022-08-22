@@ -7,12 +7,12 @@ pub struct VirtualThickFp {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct OptVirtualThickFp {
+pub struct __OptVirtualThickFp {
     needs_eval_context: bool,
     fp: *const (),
 }
 
-impl OptVirtualThickFp {
+impl __OptVirtualThickFp {
     pub const fn none() -> Self {
         Self {
             needs_eval_context: false,

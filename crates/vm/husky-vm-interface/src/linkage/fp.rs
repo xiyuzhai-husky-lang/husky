@@ -12,7 +12,7 @@ pub struct __ResolvedLinkage {
         Option<&dyn __EvalContext<'eval>>,
         &mut [__Register<'eval>],
     ) -> __Register<'eval>,
-    pub opt_thick_fp: OptVirtualThickFp,
+    pub opt_thick_fp: __OptVirtualThickFp,
     pub dev_src: __StaticDevSource,
 }
 
@@ -84,7 +84,7 @@ macro_rules! resolved_linkage {
     ($wrapper: expr, some $raw_fp: expr) => {{
         __ResolvedLinkage {
             wrapper: $wrapper,
-            opt_thick_fp: OptVirtualThickFp::some($raw_fp),
+            opt_thick_fp: __OptVirtualThickFp::some($raw_fp),
             dev_src: static_dev_src!(),
         }
     }};
@@ -92,7 +92,7 @@ macro_rules! resolved_linkage {
     ($wrapper: expr, none) => {{
         __ResolvedLinkage {
             wrapper: $wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
@@ -100,7 +100,7 @@ macro_rules! resolved_linkage {
     ($wrapper: expr) => {{
         __ResolvedLinkage {
             wrapper: $wrapper,
-            opt_thick_fp: OptVirtualThickFp::none(),
+            opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
