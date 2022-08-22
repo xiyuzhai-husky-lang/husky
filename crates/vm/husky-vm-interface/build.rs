@@ -38,26 +38,51 @@ impl std::fmt::Display for ImplFp {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         use itertools::Itertools;
 
+        let arg_types_decl = (0..self.nargs)
+            .into_iter()
+            .map(|i| -> String { format!("A{i}: __Any, ") })
+            .join("");
         let arg_types = (0..self.nargs)
             .into_iter()
-            .map(|i| -> String { format!("A{i}") })
+            .map(|i| -> String { format!(r#"A{i}"#) })
             .join(", ");
+        let arg_types_with_eval_lifetime = (0..self.nargs)
+            .into_iter()
+            .map(|i| -> String {
+                format!(
+                    r#"
+        <A{i} as __WithEvalLifetime<'eval>>::This,"#
+                )
+            })
+            .join("");
         let opt_comma = if self.nargs > 0 { ", " } else { "" };
         f.write_fmt(format_args!(
             r#"
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {arg_types}{opt_comma}Output> ThinFp<'eval>
-    for fn({arg_types}) -> Output {{}}
+impl<'eval, {arg_types_decl}Output: __Any> ThinFp
+    for fn({arg_types}
+    ) -> Output {{}}
 
-impl<'eval, {arg_types}{opt_comma}Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, {arg_types}) -> Output {{}}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {arg_types}{opt_comma}Output> BaseFp<'eval>
+impl<'eval, {arg_types_decl}Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,{arg_types}
+    ) -> Output {{}}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<{arg_types_decl}Output: __Any> const BaseFp
     for fn({arg_types}) -> Output
 {{
-    type WithContext = fn(&dyn __EvalContext<'eval>, {arg_types}) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,{arg_types_with_eval_lifetime}
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {{
+        self as *const ()
+    }}
 }}"#,
         ))
     }

@@ -24,7 +24,7 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(
             |_, _| unsafe{(__Register::new_box(dataset1(), &__DATASET_VTABLE))},
-         some   dataset1
+            some dataset1 as fn() -> Dataset<'static>
         )
         .into(),
     },
@@ -40,10 +40,12 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputLiason::Transfer,
-        linkage: transfer_linkage!(|_, _| unsafe {(__Register::new_box(
-            dataset2(), &__DATASET_VTABLE
-        ))},
-        some   dataset2)
+        linkage: transfer_linkage!(
+            |_, _| unsafe {(__Register::new_box(
+                dataset2(), &__DATASET_VTABLE
+            ))},
+            some dataset2 as fn() -> Dataset<'static>
+        )
         .into(),
     },
     dev_src: husky_dev_utils::static_dev_src!(),

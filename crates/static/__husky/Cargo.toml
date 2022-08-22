@@ -7,7 +7,11 @@ edition = "2021"
 [dependencies]
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 wild-utils = { path = "../../utils/husky-unsafe-utils" }
-husky-vm-interface = { path = "../../vm/husky-vm-interface" }
+husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
+    "any_support",
+    "thin_fp",
+    "linkage_macro"
+] }
 husky-datasets-interface = { path = "../domains/ml/husky-datasets-interface" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 

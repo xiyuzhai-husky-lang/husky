@@ -27,6 +27,7 @@ impl __MemberLinkage {
     }
 }
 
+#[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! method_elem_linkage {
     ($Type: ty, $TYPE_VTABLE: expr, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
@@ -65,6 +66,7 @@ macro_rules! method_elem_linkage {
     }};
 }
 
+#[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! lazy_field_linkage {
     ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
@@ -82,6 +84,7 @@ macro_rules! lazy_field_linkage {
     }};
 }
 
+#[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! eager_field_linkage {
     (

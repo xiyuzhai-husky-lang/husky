@@ -12,7 +12,7 @@ pub struct __ResolvedLinkage {
         Option<&dyn __EvalContext<'eval>>,
         &mut [__Register<'eval>],
     ) -> __Register<'eval>,
-    pub opt_fp: Option<*const ()>,
+    pub opt_thick_fp: OptVirtualThickFp,
     pub dev_src: __StaticDevSource,
 }
 
@@ -65,39 +65,42 @@ impl std::fmt::Debug for __ResolvedLinkage {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("__ResolvedLinkage")
             .field("wrapper", &(self.wrapper as *const ()))
-            .field("opt_fp", &self.opt_fp)
+            .field("opt_fp", &self.opt_thick_fp)
             .finish()
     }
 }
 impl PartialEq for __ResolvedLinkage {
     fn eq(&self, other: &Self) -> bool {
-        self.wrapper as usize == other.wrapper as usize && self.opt_fp == other.opt_fp
+        self.wrapper as usize == other.wrapper as usize && self.opt_thick_fp == other.opt_thick_fp
     }
 }
 impl Eq for __ResolvedLinkage {}
 unsafe impl Send for __ResolvedLinkage {}
 unsafe impl Sync for __ResolvedLinkage {}
 
+#[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! linkage_fp {
     ($wrapper: expr, some $raw_fp: expr) => {{
         __ResolvedLinkage {
             wrapper: $wrapper,
-            opt_fp: Some($raw_fp as *const ()),
+            opt_thick_fp: OptVirtualThickFp::some($raw_fp),
             dev_src: static_dev_src!(),
         }
     }};
+
     ($wrapper: expr, none) => {{
         __ResolvedLinkage {
             wrapper: $wrapper,
-            opt_fp: None,
+            opt_thick_fp: OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};
+
     ($wrapper: expr) => {{
         __ResolvedLinkage {
             wrapper: $wrapper,
-            opt_fp: None,
+            opt_thick_fp: OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
     }};

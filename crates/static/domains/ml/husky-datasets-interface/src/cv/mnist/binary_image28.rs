@@ -6,6 +6,14 @@ pub struct BinaryImage28 {
     pub padded_rows: [u32; 30],
 }
 
+#[cfg(feature = "any_support")]
+impl<'eval> __WithEvalLifetime<'eval> for BinaryImage28 {
+    type This = BinaryGrid28;
+}
+
+#[cfg(feature = "any_support")]
+impl __Any for BinaryImage28 {}
+
 impl std::ops::Index<usize> for BinaryImage28 {
     type Output = u32;
 

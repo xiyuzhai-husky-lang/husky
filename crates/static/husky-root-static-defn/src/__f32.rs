@@ -40,7 +40,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
             let this = values[0].downcast_f32();
             let other = values[0].downcast_f32();
              this.min(other) .to_register() 
-        }, some f32::min)),
+        }, some f32::min as fn (f32,f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -63,7 +63,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
             let this = values[0].downcast_f32();
             let other = values[0].downcast_f32();
              this.max(other) .to_register() 
-        }, some f32::max)),
+        }, some f32::max as fn (f32,f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -81,7 +81,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(transfer_linkage!(|_, values| {
             let f = values[0].downcast_f32();
              f.sgnx() .to_register() 
-        }, some f32::sgnx)),
+        }, some f32::sgnx as fn (f32)-> i32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -98,7 +98,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
              values[0].downcast_f32().abs() .to_register() 
-        }, some f32::abs)),
+        }, some f32::abs as fn (f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -115,7 +115,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
              values[0].downcast_f32().sqrt().to_register()
-        }, some f32::sqrt)),
+        }, some f32::sqrt as fn (f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -132,7 +132,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
             values[0].downcast_f32().cos().to_register()
-        }, some f32::cos)),
+        }, some f32::cos as fn (f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -149,7 +149,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
              values[0].downcast_f32().sin() .to_register() 
-        }, some f32::sin)),
+        }, some f32::sin as fn (f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -166,7 +166,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
              values[0].downcast_f32().tan() .to_register() 
-        }, some f32::tan)),
+        }, some f32::tan as fn (f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -183,7 +183,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
              values[0].downcast_f32().acos() .to_register() 
-        }, some f32::acos)),
+        }, some f32::acos as fn (f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -200,7 +200,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
              values[0].downcast_f32().asin() .to_register() 
-        }, some f32::asin)),
+        }, some f32::asin as fn (f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -217,7 +217,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
              values[0].downcast_f32().atan() .to_register() 
-        }, some f32::atan)),
+        }, some f32::atan as fn (f32)-> f32)),
     },
     dev_src: static_dev_src!(),
 };

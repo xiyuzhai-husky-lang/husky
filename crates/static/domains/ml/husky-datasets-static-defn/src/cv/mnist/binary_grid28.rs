@@ -71,10 +71,12 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputLiason::Transfer,
-        linkage: transfer_linkage!(|_, _values|unsafe  {
-            (__Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE))
-        },
-        some BinaryGrid28::__call__)
+        linkage: transfer_linkage!(
+            |_, _values|unsafe  {
+                (__Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE))
+            },
+            some BinaryGrid28::__call__ as fn() -> BinaryGrid28
+        )
         .into(),
     },
     dev_src: static_dev_src!(),

@@ -15,3 +15,4 @@ husky-write-utils = { path = "../../../../utils/husky-write-utils" }
 
 [features]
 serde_support = ["dep:serde"]
+any_support = ["husky-vm-interface/any_support"]
