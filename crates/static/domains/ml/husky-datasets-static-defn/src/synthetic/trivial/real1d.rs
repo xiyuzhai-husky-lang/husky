@@ -3,7 +3,7 @@ use entity_kind::RoutineKind;
 use husky_liason_semantics::OutputLiason;
 use husky_trace_protocol::SampleId;
 use std::sync::Arc;
-use vm::{__Linkage, __LinkageFp, transfer_linkage};
+use vm::{__Linkage, __ResolvedLinkage, transfer_linkage};
 use xrng::XRng;
 
 pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {

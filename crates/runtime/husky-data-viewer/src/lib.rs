@@ -6,7 +6,7 @@ use husky_vm_binding::Binding;
 use husky_word::{IdentPairDict, RootIdentifier};
 pub use query::*;
 
-use husky_vm_interface::{__Linkage, __LinkageFp, __Register, __RegistrableSafe};
+use husky_vm_interface::{__Linkage, __Register, __RegistrableSafe, __ResolvedLinkage};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HuskyDataViewer {
@@ -17,13 +17,13 @@ pub enum HuskyDataViewer {
         fields: IdentPairDict<(__Linkage, EntityRoutePtr)>,
     },
     Vec {
-        ilen: __LinkageFp,
+        ilen: __ResolvedLinkage,
         index: __Linkage,
         elem_ty: EntityRoutePtr,
     },
     CyclicSlice {
-        start: __LinkageFp,
-        end: __LinkageFp,
+        start: __ResolvedLinkage,
+        end: __ResolvedLinkage,
         index: __Linkage,
         elem_ty: EntityRoutePtr,
     },

@@ -25,7 +25,7 @@ pub enum StaticGenericPlaceholderVariant {
 pub enum FunctionStaticDefnVariant {
     Model(__ModelLinkage),
     Routine {
-        __Linkage: __LinkageFp,
+        __Linkage: __ResolvedLinkage,
         routine_kind: RoutineKind,
     },
 }

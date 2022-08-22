@@ -237,7 +237,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let argidx_base = opt_this.map(|_| 1).unwrap_or(0);
         self.write(&format!(
             r#"
-        __Linkage::Transfer(__LinkageFp {{
+        __Linkage::Transfer(__ResolvedLinkage {{
             dev_src: static_dev_src!(),
             wrapper: {{
                 unsafe fn __wrapper<'eval>(

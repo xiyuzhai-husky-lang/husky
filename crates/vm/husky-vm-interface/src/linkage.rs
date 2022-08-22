@@ -13,7 +13,7 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(C)]
 pub enum __Linkage {
-    Transfer(__LinkageFp),
+    Transfer(__ResolvedLinkage),
     Member(&'static __MemberLinkage),
     Model(__ModelLinkage),
 }
@@ -28,7 +28,7 @@ impl __Linkage {
     }
 
     #[cfg(feature = "binding")]
-    pub fn bind(self, binding: husky_vm_binding::Binding) -> __LinkageFp {
+    pub fn bind(self, binding: husky_vm_binding::Binding) -> __ResolvedLinkage {
         match self {
             __Linkage::Member(linkage) => linkage.bind(binding),
             __Linkage::Transfer(fp) => fp,
@@ -36,7 +36,7 @@ impl __Linkage {
         }
     }
 
-    pub fn transfer(self) -> __LinkageFp {
+    pub fn transfer(self) -> __ResolvedLinkage {
         match self {
             __Linkage::Transfer(fp) => fp,
             __Linkage::Member(_) => todo!(),

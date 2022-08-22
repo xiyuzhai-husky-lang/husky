@@ -21,7 +21,7 @@ macro_rules! field_copy_fp {
                 $FIELD_TY_VTABLE
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -46,7 +46,7 @@ macro_rules! field_eval_ref_fp {
             let value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
             __Register::new_eval_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -67,7 +67,7 @@ macro_rules! field_eval_ref_fp {
             let value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
             __Register::new_opt_eval_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -88,7 +88,7 @@ macro_rules! field_eval_ref_fp {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_eval_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -109,7 +109,7 @@ macro_rules! field_eval_ref_fp {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_opt_eval_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -133,7 +133,7 @@ macro_rules! field_temp_ref_fp {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_temp_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -154,7 +154,7 @@ macro_rules! field_temp_ref_fp {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_temp_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -178,7 +178,7 @@ macro_rules! field_temp_ref_fp {
                 &$FIELD_TY_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -199,7 +199,7 @@ macro_rules! field_temp_ref_fp {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_opt_temp_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -225,7 +225,7 @@ macro_rules! field_temp_mut_fp {
             let value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
             __Register::new_temp_mut::<$INTRINSIC_FIELD_TY>(&mut value.$field, &$FIELD_TY_VTABLE)
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -250,7 +250,7 @@ macro_rules! field_temp_mut_fp {
                 &$FIELD_TY_VTABLE,
             )
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -271,7 +271,7 @@ macro_rules! field_temp_mut_fp {
         ) -> __Register<'eval> {
             panic!("invalid")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -292,7 +292,7 @@ macro_rules! field_temp_mut_fp {
         ) -> __Register<'eval> {
             panic!("invalid")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -305,7 +305,7 @@ macro_rules! field_temp_mut_fp {
         ) -> __Register<'eval> {
             panic!("field_temp_mut_invalid_fp")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -328,7 +328,7 @@ macro_rules! field_move_fp {
         ) -> __Register<'eval> {
             todo!("field_move_fp")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -347,7 +347,7 @@ macro_rules! field_move_fp {
         ) -> __Register<'eval> {
             todo!("field_move_fp")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -366,7 +366,7 @@ macro_rules! field_move_fp {
         ) -> __Register<'eval> {
             todo!("field_move_fp")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
@@ -385,7 +385,7 @@ macro_rules! field_move_fp {
         ) -> __Register<'eval> {
             todo!("field_move_fp")
         }
-        __LinkageFp {
+        __ResolvedLinkage {
             wrapper,
             opt_fp: None,
             dev_src: static_dev_src!(),
