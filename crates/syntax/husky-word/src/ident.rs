@@ -88,5 +88,5 @@ impl Deref for Identifier {
 }
 
 pub fn default_func_type() -> RootIdentifier {
-    RootIdentifier::Fp
+    RootIdentifier::FatFp
 }

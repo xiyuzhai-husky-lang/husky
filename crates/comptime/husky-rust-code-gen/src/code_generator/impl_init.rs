@@ -627,7 +627,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 RootIdentifier::Std => todo!(),
                 RootIdentifier::Core => todo!(),
                 RootIdentifier::Mor => todo!(),
-                RootIdentifier::Fp => todo!(),
+                RootIdentifier::FatFp => todo!(),
                 RootIdentifier::Fn => todo!(),
                 RootIdentifier::FnMut => todo!(),
                 RootIdentifier::FnOnce => todo!(),
@@ -660,7 +660,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     TyKind::CyclicSlice => todo!(),
                     TyKind::Tuple => todo!(),
                     TyKind::Mor => todo!(),
-                    TyKind::Fp =>{
+                    TyKind::FatFp =>{
                         self.write(&format!(
                         r#" = std::mem::transmute(__arguments[{i}]
                         .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)

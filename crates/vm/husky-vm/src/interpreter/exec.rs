@@ -69,8 +69,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::PushEntityFp {
                     opt_linkage, ty, ..
                 } => {
-                    self.stack
-                        .push(__VirtualFunction::Fp(opt_linkage.unwrap().transfer()).to_register());
+                    self.stack.push(
+                        __VirtualFunction::FatFp(opt_linkage.unwrap().transfer()).to_register(),
+                    );
                     if mode == Mode::TrackHistory {
                         self.history.write(
                             ins,

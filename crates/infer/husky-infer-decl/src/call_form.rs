@@ -258,7 +258,7 @@ pub(crate) fn value_call_form_decl(
 ) -> InferQueryResultArc<CallFormDecl> {
     match ty.variant {
         EntityRouteVariant::Root {
-            ident: RootIdentifier::Fp,
+            ident: RootIdentifier::FatFp,
         } => {
             msg_once!("much more todo");
             let nargs = ty.spatial_arguments.len() - 1;

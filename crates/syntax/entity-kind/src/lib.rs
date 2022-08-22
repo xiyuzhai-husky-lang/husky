@@ -14,7 +14,7 @@ pub enum TyKind {
     Array,
     Tuple,
     Mor,
-    Fp,
+    FatFp,
     AssociatedAny,
     ThisAny,
     TargetOutputAny,

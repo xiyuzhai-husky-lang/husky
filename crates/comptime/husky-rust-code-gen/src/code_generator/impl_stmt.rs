@@ -284,7 +284,7 @@ impl<'a> RustCodeGenerator<'a> {
                 | RootIdentifier::Std
                 | RootIdentifier::Core
                 | RootIdentifier::Mor
-                | RootIdentifier::Fp
+                | RootIdentifier::FatFp
                 | RootIdentifier::Fn
                 | RootIdentifier::FnMut
                 | RootIdentifier::FnOnce

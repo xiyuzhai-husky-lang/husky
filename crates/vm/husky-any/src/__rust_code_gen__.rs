@@ -7,8 +7,8 @@ type void = ();
 type b32 = u32;
 type b64 = u64;
 
-use husky_trace_protocol::VisualData;
-
+    use husky_trace_protocol::VisualData;
+    
 // VirtualStruct
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_clone(data: *mut ()) -> *mut () {
@@ -25,8 +25,7 @@ pub unsafe extern "C" fn __virtual_struct_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VirtualStruct>(&__VIRTUAL_STRUCT_VTABLE) =
-        registers[1].downcast_move(&__VIRTUAL_STRUCT_VTABLE)
+    *registers[0].downcast_temp_mut::<VirtualStruct>(&__VIRTUAL_STRUCT_VTABLE) = registers[1].downcast_move(&__VIRTUAL_STRUCT_VTABLE)
 }
 #[no_mangle]
 pub static __VIRTUAL_STRUCT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
@@ -56,8 +55,7 @@ pub unsafe extern "C" fn __virtual_vec_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VirtualVec>(&__VIRTUAL_VEC_VTABLE) =
-        registers[1].downcast_move(&__VIRTUAL_VEC_VTABLE)
+    *registers[0].downcast_temp_mut::<VirtualVec>(&__VIRTUAL_VEC_VTABLE) = registers[1].downcast_move(&__VIRTUAL_VEC_VTABLE)
 }
 #[no_mangle]
 pub static __VIRTUAL_VEC_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
@@ -74,8 +72,7 @@ pub static __VIRTUAL_VEC_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 // VirtualCyclicSlice
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_clone(data: *mut ()) -> *mut () {
-    Box::<VirtualCyclicSlice>::into_raw(Box::new((*(data as *mut VirtualCyclicSlice)).clone()))
-        as *mut ()
+    Box::<VirtualCyclicSlice>::into_raw(Box::new((*(data as *mut VirtualCyclicSlice)).clone())) as *mut ()
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_drop(data: *mut ()) {
@@ -83,14 +80,12 @@ pub unsafe extern "C" fn __virtual_cyclic_slice_drop(data: *mut ()) {
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const VirtualCyclicSlice)
-        == *(other as *const () as *const VirtualCyclicSlice)
+    *(this as *const () as *const VirtualCyclicSlice) == *(other as *const () as *const VirtualCyclicSlice)
 }
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VirtualCyclicSlice>(&__VIRTUAL_CYCLIC_SLICE_VTABLE) =
-        registers[1].downcast_move(&__VIRTUAL_CYCLIC_SLICE_VTABLE)
+    *registers[0].downcast_temp_mut::<VirtualCyclicSlice>(&__VIRTUAL_CYCLIC_SLICE_VTABLE) = registers[1].downcast_move(&__VIRTUAL_CYCLIC_SLICE_VTABLE)
 }
 #[no_mangle]
 pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
@@ -120,8 +115,7 @@ pub unsafe extern "C" fn __visual_data_eq(this: &(), other: &()) -> bool {
 #[no_mangle]
 pub unsafe extern "C" fn __visual_data_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VisualData>(&__VISUAL_DATA_VTABLE) =
-        registers[1].downcast_move(&__VISUAL_DATA_VTABLE)
+    *registers[0].downcast_temp_mut::<VisualData>(&__VISUAL_DATA_VTABLE) = registers[1].downcast_move(&__VISUAL_DATA_VTABLE)
 }
 #[no_mangle]
 pub static __VISUAL_DATA_VTABLE: __RegisterTyVTable = __RegisterTyVTable {

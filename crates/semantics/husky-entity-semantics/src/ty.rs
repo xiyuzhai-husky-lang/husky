@@ -119,7 +119,7 @@ impl EntityDefnVariant {
             TyKind::CyclicSlice => todo!(),
             TyKind::Tuple => todo!(),
             TyKind::Mor => todo!(),
-            TyKind::Fp => todo!(),
+            TyKind::FatFp => todo!(),
             TyKind::AssociatedAny => todo!(),
             TyKind::TargetOutputAny => todo!(),
             TyKind::ThisAny => todo!(),
