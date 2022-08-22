@@ -8,6 +8,7 @@ pub use registrable::*;
 pub use registrable_dyn::*;
 pub use registrable_safe::*;
 pub use vtable::*;
+use wild_utils::wild_arb_ref;
 
 use crate::*;
 use std::{
@@ -80,6 +81,10 @@ pub trait __StaticInfo {
     }
 
     fn __static_typename() -> std::borrow::Cow<'static, str>;
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized;
 }
 
 impl<T> __StaticInfo for &T
@@ -91,6 +96,10 @@ where
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         todo!()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf {
+        wild_arb_ref(self)
+    }
 }
 
 impl<T> __StaticInfo for Option<T>
@@ -101,6 +110,10 @@ where
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         format!("?{}", T::__static_typename()).into()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf {
+        todo!()
     }
 }
 

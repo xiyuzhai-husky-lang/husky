@@ -75,11 +75,18 @@ impl<'a> __StaticInfo for Dataset<'a> {
     fn __static_typename() -> Cow<'static, str> {
         "Dataset".into()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        std::mem::transmute(self)
+    }
 }
 
 #[cfg(feature = "any_support")]
 impl<'eval, 'eval0> __WithEvalLifetime<'eval> for Dataset<'eval0> {
-    type This = Dataset<'eval>;
+    type __ThisWithEvalLifetime = Dataset<'eval>;
 }
 
 #[cfg(feature = "any_support")]

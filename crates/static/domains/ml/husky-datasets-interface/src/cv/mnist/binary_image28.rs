@@ -8,7 +8,7 @@ pub struct BinaryImage28 {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for BinaryImage28 {
-    type This = BinaryGrid28;
+    type __ThisWithEvalLifetime = BinaryGrid28;
 }
 
 #[cfg(feature = "any_support")]
@@ -81,6 +81,13 @@ impl __StaticInfo for BinaryImage28 {
 
     fn __static_typename() -> Cow<'static, str> {
         todo!()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
     }
 }
 

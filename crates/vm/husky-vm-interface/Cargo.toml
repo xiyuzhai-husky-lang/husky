@@ -9,6 +9,7 @@ cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 husky-vm-binding = { path = "../husky-vm-binding", optional = true }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+wild-utils = { path = "../../utils/husky-wild-utils" }
 
 [features]
 binding = ["dep:husky-vm-binding"]

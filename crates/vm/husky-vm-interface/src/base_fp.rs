@@ -1,7 +1,7 @@
 use crate::*;
 
 pub trait BaseFp: ThinFp {
-    type WithContext;
+    type __ThinFpWithContext;
 
-    fn to_raw(self) -> *const ();
+    fn __to_void_pointer(self) -> *const ();
 }

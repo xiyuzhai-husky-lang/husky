@@ -32,7 +32,7 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 path-utils = { path = "../../utils/husky-path-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-wild-utils = { path = "../../utils/husky-unsafe-utils" }
+wild-utils = { path = "../../utils/husky-wild-utils" }
 io-utils = { path = "../../utils/husky-io-utils" }
 map-collect = { path = "../../abstraction/map-collect" }
 json-result = { path = "../../abstraction/json-result" }

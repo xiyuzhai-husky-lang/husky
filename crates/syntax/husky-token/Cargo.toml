@@ -13,7 +13,7 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-wild-utils = { path = "../../utils/husky-unsafe-utils" }
+wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 fold = { path = "../../abstraction/fold" }
 husky-file = { path = "../husky-file" }

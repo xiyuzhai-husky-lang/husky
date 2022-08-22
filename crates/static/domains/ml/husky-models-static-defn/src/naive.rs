@@ -47,6 +47,13 @@ impl __StaticInfo for NaiveI32Internal {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         todo!()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        std::mem::transmute(self)
+    }
 }
 
 impl<'eval> __Registrable<'eval> for NaiveI32Internal {
