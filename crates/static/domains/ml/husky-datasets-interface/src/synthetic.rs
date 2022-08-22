@@ -113,7 +113,7 @@ impl<'a> __StaticInfo for SimpleSyntheticDataset<'a> {
         todo!()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {

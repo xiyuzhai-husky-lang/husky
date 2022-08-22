@@ -13,7 +13,7 @@ impl __StaticInfo for __VirtualEnum {
         todo!()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf {
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
         self
     }
 }

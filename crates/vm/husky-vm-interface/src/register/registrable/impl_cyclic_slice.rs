@@ -12,7 +12,7 @@ where
         format!("CyclicSlice<{}>", T::__static_typename()).into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf {
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
         std::mem::transmute(self)
     }
 }
