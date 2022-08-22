@@ -161,7 +161,7 @@ fn entity_kind_from_entity_route_kind(
             RootIdentifier::Vec => EntityKind::Type(TyKind::Vec),
             RootIdentifier::Tuple => EntityKind::Type(TyKind::Tuple),
             RootIdentifier::Mor => todo!(),
-            RootIdentifier::Fp => EntityKind::Type(TyKind::Fp),
+            RootIdentifier::FatFp => EntityKind::Type(TyKind::FatFp),
             RootIdentifier::Array => todo!(),
             RootIdentifier::DatasetType => EntityKind::Type(TyKind::BoxAny),
             RootIdentifier::TraitType | RootIdentifier::TypeType | RootIdentifier::ModuleType => {

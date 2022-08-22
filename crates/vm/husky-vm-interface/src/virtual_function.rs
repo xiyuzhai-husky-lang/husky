@@ -3,13 +3,13 @@ use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum __VirtualFunction {
-    Fp(__LinkageFp),
+    FatFp(__LinkageFp),
 }
 
 impl __VirtualFunction {
     pub fn fp(&self) -> *const () {
         match self {
-            __VirtualFunction::Fp(linkage) => linkage.opt_fp.unwrap(),
+            __VirtualFunction::FatFp(linkage) => linkage.opt_fp.unwrap(),
         }
     }
 }

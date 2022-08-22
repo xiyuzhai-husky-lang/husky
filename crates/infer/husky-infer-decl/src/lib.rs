@@ -65,7 +65,7 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
             | RootIdentifier::B64
             | RootIdentifier::Bool
             | RootIdentifier::Ref
-            | RootIdentifier::Fp => true,
+            | RootIdentifier::FatFp => true,
             RootIdentifier::Vec => false,
             RootIdentifier::Tuple => false,
             RootIdentifier::Array => false,

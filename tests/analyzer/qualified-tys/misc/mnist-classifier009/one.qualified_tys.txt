@@ -18,7 +18,7 @@ lazy expr:
     9:5..9:20      MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
     12:5..12:16    fermi_match            InferError: failed to infer expr ty
     12:17..12:41   major_concave_components   EvalRef []mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent
-    12:43..12:45   []                     Transient []Fp<&mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
+    12:43..12:45   []                     Transient []FatFp<&mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
     12:5..12:46    fermi_match(major_concave_components, [])   Transient mnist_classifier009::fermi::FermiMatchResult
 
 eager expr:
@@ -40,5 +40,5 @@ lazy expr:
     9:5..9:20      MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
     12:5..12:16    fermi_match            InferError: failed to infer expr ty
     12:17..12:41   major_concave_components   EvalRef []mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent
-    12:43..12:45   []                     Transient []Fp<&mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
+    12:43..12:45   []                     Transient []FatFp<&mnist_classifier009::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
     12:5..12:46    fermi_match(major_concave_components, [])   Transient mnist_classifier009::fermi::FermiMatchResult

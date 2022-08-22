@@ -17,7 +17,7 @@ impl<'a> RustCodeGenerator<'a> {
                     RootIdentifier::B32 => self.write("u32"),
                     RootIdentifier::B64 => self.write("u64"),
                     RootIdentifier::Std => self.write("__std"),
-                    RootIdentifier::Fp => {
+                    RootIdentifier::FatFp => {
                         match role {
                             EntityRouteRole::Caller => (),
                             EntityRouteRole::StaticCallRoute => self.write("for<'eval> "),
