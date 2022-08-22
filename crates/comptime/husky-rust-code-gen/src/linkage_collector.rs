@@ -103,13 +103,9 @@ pub(crate) fn entity_link_dependees(
     db: &dyn RustCodeGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> Arc<VecSet<EntityRoutePtr>> {
-    if entity_route.spatial_arguments.len() > 0 {
-        todo!()
-    } else {
-        let mut dependees = (*db.entity_immediate_link_dependees(entity_route)).clone();
-        visit_all(db, &mut dependees, 0);
-        return Arc::new(dependees);
-    }
+    let mut dependees = (*db.entity_immediate_link_dependees(entity_route)).clone();
+    visit_all(db, &mut dependees, 0);
+    return Arc::new(dependees);
 
     fn visit_all(
         db: &dyn RustCodeGenQueryGroup,

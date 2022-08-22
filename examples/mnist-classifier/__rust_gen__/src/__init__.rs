@@ -1805,7 +1805,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> {
                     let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    one::downmost(cc).to_register()
+                    one::downmost(__opt_ctx.unwrap(), cc).to_register()
                 }
                 __wrapper
             },
