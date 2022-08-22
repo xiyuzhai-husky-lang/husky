@@ -82,7 +82,7 @@ pub trait __StaticInfo {
 
     fn __static_typename() -> std::borrow::Cow<'static, str>;
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized;
 }
@@ -97,7 +97,7 @@ where
         todo!()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf {
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
         wild_arb_ref(self)
     }
 }
@@ -112,7 +112,7 @@ where
         format!("?{}", T::__static_typename()).into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf {
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
         todo!()
     }
 }

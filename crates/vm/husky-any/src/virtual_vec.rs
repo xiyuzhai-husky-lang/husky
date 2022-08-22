@@ -39,7 +39,7 @@ impl<'eval> __StaticInfo for VirtualVec<'eval> {
         "[]Any".into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {

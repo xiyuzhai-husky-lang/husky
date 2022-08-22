@@ -7,7 +7,7 @@ impl __StaticInfo for i32 {
         "i32".into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {
@@ -28,7 +28,7 @@ impl __StaticInfo for i64 {
         "i64".into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {
@@ -49,7 +49,7 @@ impl __StaticInfo for () {
         "void".into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {
@@ -70,7 +70,7 @@ impl __StaticInfo for f32 {
         "f32".into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {
@@ -91,7 +91,7 @@ impl __StaticInfo for f64 {
         "f64".into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {
@@ -112,7 +112,7 @@ impl __StaticInfo for u32 {
         "u32".into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {
@@ -133,7 +133,7 @@ impl __StaticInfo for u64 {
         "u64".into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {
@@ -154,7 +154,7 @@ impl __StaticInfo for bool {
         "bool".into()
     }
 
-    unsafe fn __as_static(self) -> Self::__StaticSelf
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf
     where
         Self: Sized,
     {
