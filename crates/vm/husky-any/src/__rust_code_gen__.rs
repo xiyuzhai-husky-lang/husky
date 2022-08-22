@@ -10,23 +10,28 @@ type b64 = u64;
     use husky_trace_protocol::VisualData;
     
 // VirtualStruct
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_clone(data: *mut ()) -> *mut () {
     Box::<VirtualStruct>::into_raw(Box::new((*(data as *mut VirtualStruct)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_drop(data: *mut ()) {
     Box::from_raw(data as *mut VirtualStruct);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const VirtualStruct) == *(other as *const () as *const VirtualStruct)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<VirtualStruct>(&__VIRTUAL_STRUCT_VTABLE) = registers[1].downcast_move(&__VIRTUAL_STRUCT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VIRTUAL_STRUCT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -40,23 +45,28 @@ pub static __VIRTUAL_STRUCT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 // VirtualVec
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_clone(data: *mut ()) -> *mut () {
     Box::<VirtualVec>::into_raw(Box::new((*(data as *mut VirtualVec)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_drop(data: *mut ()) {
     Box::from_raw(data as *mut VirtualVec);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const VirtualVec) == *(other as *const () as *const VirtualVec)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<VirtualVec>(&__VIRTUAL_VEC_VTABLE) = registers[1].downcast_move(&__VIRTUAL_VEC_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VIRTUAL_VEC_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -70,23 +80,28 @@ pub static __VIRTUAL_VEC_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 // VirtualCyclicSlice
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_clone(data: *mut ()) -> *mut () {
     Box::<VirtualCyclicSlice>::into_raw(Box::new((*(data as *mut VirtualCyclicSlice)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_drop(data: *mut ()) {
     Box::from_raw(data as *mut VirtualCyclicSlice);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const VirtualCyclicSlice) == *(other as *const () as *const VirtualCyclicSlice)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<VirtualCyclicSlice>(&__VIRTUAL_CYCLIC_SLICE_VTABLE) = registers[1].downcast_move(&__VIRTUAL_CYCLIC_SLICE_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -100,23 +115,28 @@ pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterTyVTable = __RegisterTyVTabl
 };
 
 // VisualData
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __visual_data_clone(data: *mut ()) -> *mut () {
     Box::<VisualData>::into_raw(Box::new((*(data as *mut VisualData)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __visual_data_drop(data: *mut ()) {
     Box::from_raw(data as *mut VisualData);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __visual_data_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const VisualData) == *(other as *const () as *const VisualData)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __visual_data_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<VisualData>(&__VISUAL_DATA_VTABLE) = registers[1].downcast_move(&__VISUAL_DATA_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VISUAL_DATA_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,

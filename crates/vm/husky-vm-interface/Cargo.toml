@@ -17,6 +17,7 @@ extra = ["binding", "vtype"]
 check = []
 
 [build-dependencies]
+itertools = "0.10.3"
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features = [
     "registration"

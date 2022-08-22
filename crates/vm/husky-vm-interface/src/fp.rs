@@ -1,5 +1,7 @@
-mod fat;
+mod base;
+mod thick;
 mod thin;
 
-pub use fat::*;
+pub use base::*;
+pub use thick::*;
 pub use thin::*;

@@ -4,23 +4,28 @@ pub(crate) use __husky::registration::*;
 type A = crate::A;
 
 // A
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __a_clone(data: *mut ()) -> *mut () {
     Box::<A>::into_raw(Box::new((*(data as *mut A)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __a_drop(data: *mut ()) {
     Box::from_raw(data as *mut A);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __a_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const A) == *(other as *const () as *const A)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __a_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<A>(&__A_VTABLE) = registers[1].downcast_move(&__A_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __A_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,

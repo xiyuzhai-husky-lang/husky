@@ -29,12 +29,14 @@ impl<'a> Display for RootPrimitiveTypeRegistration<'a> {
             f,
             r#"
 // {ty}
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_primitive_value_to_bool(data: __RegisterData) -> bool {{
     let data = data.as_{ty};
     {result}
 }}
 
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_primitive_value_to_box(data: __RegisterData) -> *mut () {{
     let data = data.as_{ty};
@@ -42,27 +44,32 @@ pub unsafe extern "C" fn __{ty}_primitive_value_to_box(data: __RegisterData) -> 
     ptr as *mut ()
 }}
 
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_clone(data: *mut ()) -> *mut () {{
     Box::<{ty}>::into_raw(Box::new((*(data as *mut {ty})).clone())) as *mut ()
 }}
 
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_drop(data: *mut ()) {{
     Box::from_raw(data as *mut {ty});
 }}
 
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_eq(this: &(), other: &()) -> bool {{
     *(this as *const () as *const {ty}) == *(other as *const () as *const {ty})
 }}
 
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_assign(registers: *mut __Register) {{
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<{ty}>(&__{uppercase_ty}_VTABLE) = registers[1].downcast_{ty}()
 }}
 
+#[rustfmt::skip]
 #[no_mangle]
 pub static __{uppercase_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
     primitive_value_to_bool: Some(__{ty}_primitive_value_to_bool),
@@ -75,6 +82,7 @@ pub static __{uppercase_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
     typename_str_hash_u64: {typename_str_hash_u64},
 }};
 
+#[rustfmt::skip]
 impl<'eval> __Register<'eval> {{
     pub fn downcast_{ty}(&self) -> {ty} {{
         unsafe {{
@@ -128,23 +136,28 @@ impl<'a> Display for NonPrimitiveTypeRegistration<'a> {
             f,
             r#"
 // {ty}
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{snake_ty}_clone(data: *mut ()) -> *mut () {{
     Box::<{ty}>::into_raw(Box::new((*(data as *mut {ty})).clone())) as *mut ()
 }}
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{snake_ty}_drop(data: *mut ()) {{
     Box::from_raw(data as *mut {ty});
 }}
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{snake_ty}_eq(this: &(), other: &()) -> bool {{
     *(this as *const () as *const {ty}) == *(other as *const () as *const {ty})
 }}
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{snake_ty}_assign(registers: *mut __Register) {{
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<{ty}>(&__{upper_snake_ty}_VTABLE) = registers[1].downcast_move(&__{upper_snake_ty}_VTABLE)
 }}
+#[rustfmt::skip]
 #[no_mangle]
 pub static __{upper_snake_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
     primitive_value_to_bool: None,

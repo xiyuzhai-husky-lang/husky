@@ -10,23 +10,28 @@ type b64 = u64;
 use crate::cv::mnist::*;
 
 // MnistLabel
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __mnist_label_clone(data: *mut ()) -> *mut () {
     Box::<MnistLabel>::into_raw(Box::new((*(data as *mut MnistLabel)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __mnist_label_drop(data: *mut ()) {
     Box::from_raw(data as *mut MnistLabel);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __mnist_label_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const MnistLabel) == *(other as *const () as *const MnistLabel)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __mnist_label_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<MnistLabel>(&__MNIST_LABEL_VTABLE) = registers[1].downcast_move(&__MNIST_LABEL_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __MNIST_LABEL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -40,23 +45,28 @@ pub static __MNIST_LABEL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 // BinaryImage28
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_image_28_clone(data: *mut ()) -> *mut () {
     Box::<BinaryImage28>::into_raw(Box::new((*(data as *mut BinaryImage28)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_image_28_drop(data: *mut ()) {
     Box::from_raw(data as *mut BinaryImage28);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_image_28_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const BinaryImage28) == *(other as *const () as *const BinaryImage28)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_image_28_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<BinaryImage28>(&__BINARY_IMAGE_28_VTABLE) = registers[1].downcast_move(&__BINARY_IMAGE_28_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __BINARY_IMAGE_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -70,23 +80,28 @@ pub static __BINARY_IMAGE_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 // BinaryGrid28
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_grid_28_clone(data: *mut ()) -> *mut () {
     Box::<BinaryGrid28>::into_raw(Box::new((*(data as *mut BinaryGrid28)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_grid_28_drop(data: *mut ()) {
     Box::from_raw(data as *mut BinaryGrid28);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_grid_28_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const BinaryGrid28) == *(other as *const () as *const BinaryGrid28)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_grid_28_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<BinaryGrid28>(&__BINARY_GRID_28_VTABLE) = registers[1].downcast_move(&__BINARY_GRID_28_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __BINARY_GRID_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -100,23 +115,28 @@ pub static __BINARY_GRID_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 // Dataset
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __dataset_clone(data: *mut ()) -> *mut () {
     Box::<Dataset>::into_raw(Box::new((*(data as *mut Dataset)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __dataset_drop(data: *mut ()) {
     Box::from_raw(data as *mut Dataset);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __dataset_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const Dataset) == *(other as *const () as *const Dataset)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __dataset_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<Dataset>(&__DATASET_VTABLE) = registers[1].downcast_move(&__DATASET_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __DATASET_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
