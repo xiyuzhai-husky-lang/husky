@@ -1,5 +1,6 @@
 use super::*;
 
+#[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! transfer_linkage {
     ($wrapper: expr, some $raw_fp: expr) => {{
@@ -10,6 +11,7 @@ macro_rules! transfer_linkage {
     }};
 }
 
+#[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! feature_linkage {
     ($f: expr, $OUTPUT_TY: ty, $OUTPUT_TY_VTABLE: expr) => {{
@@ -23,6 +25,7 @@ macro_rules! feature_linkage {
     }};
 }
 
+#[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! opt_feature_linkage {
     ($f: expr, $OUTPUT_TY: ty, $OUTPUT_TY_VTABLE: expr) => {{

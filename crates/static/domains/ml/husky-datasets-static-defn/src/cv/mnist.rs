@@ -46,7 +46,7 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(
             |_, _|  unsafe {__Register::new_box(new_binary_dataset(), &__DATASET_VTABLE)} ,
-            some new_binary_dataset
+            some new_binary_dataset as fn () -> Dataset<'static>
         )
         .into(),
     },

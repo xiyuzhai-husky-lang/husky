@@ -76,3 +76,11 @@ impl<'a> __StaticInfo for Dataset<'a> {
         "Dataset".into()
     }
 }
+
+#[cfg(feature = "any_support")]
+impl<'eval, 'eval0> __WithEvalLifetime<'eval> for Dataset<'eval0> {
+    type This = Dataset<'eval>;
+}
+
+#[cfg(feature = "any_support")]
+impl<'eval> __Any for Dataset<'eval> {}

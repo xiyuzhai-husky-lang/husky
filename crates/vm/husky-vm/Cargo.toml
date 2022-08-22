@@ -29,6 +29,8 @@ thin-vec = { path = "../../../forks/thin-vec" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "binding",
     "extra",
+    "any_support",
+    "thin_fp",
 ] }
 husky-vm-binding = { path = "../husky-vm-binding" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }

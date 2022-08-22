@@ -33,9 +33,10 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(transfer_linkage!(|_, values| {
-            (values[0]. downcast_b32().leading_zeros() as i32).to_register()
-        }, some u32::leading_zeros)),
+        opt_linkage: Some(transfer_linkage!(
+            |_, values| { (values[0].downcast_b32().leading_zeros() as i32).to_register() },
+            some(|x| x.leading_zeros() as i32) as fn(u32) -> i32
+        )),
     },
     dev_src: static_dev_src!(),
 };
@@ -52,7 +53,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|_, values| {
          values[0]. downcast_b32().ctz().to_register()
-        }, some u32::ctz)),
+        }, some u32::ctz as fn(u32) -> i32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -76,7 +77,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
             let i = values[1].downcast_i32();
             let last_bits = b & ((1 << i) - 1);
             last_bits.to_register()
-        }, some u32::last_bits)),
+        }, some u32::last_bits as fn(u32, i32) -> u32)),
     },
     dev_src: static_dev_src!(),
 };

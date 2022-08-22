@@ -11,7 +11,7 @@ macro_rules! method_elem_copy_fp {
         __ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper,
-            opt_fp: None,
+            opt_thick_fp: OptVirtualThickFp::none(),
         }
     }};
 }
@@ -29,7 +29,7 @@ macro_rules! method_elem_eval_ref_fp {
         __ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper,
-            opt_fp: None,
+            opt_thick_fp: OptVirtualThickFp::none(),
         }
     }};
 }
@@ -47,7 +47,7 @@ macro_rules! method_elem_temp_ref_fp {
         __ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper,
-            opt_fp: None,
+            opt_thick_fp: OptVirtualThickFp::none(),
         }
     }};
 }
@@ -58,7 +58,7 @@ macro_rules! method_elem_move_fp {
         __ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: |_, values| -> __Register { todo!("move") },
-            opt_fp: None,
+            opt_thick_fp: OptVirtualThickFp::none(),
         }
     }};
 }
@@ -81,7 +81,7 @@ macro_rules! method_elem_temp_mut_fp {
         __ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper,
-            opt_fp: None,
+            opt_thick_fp: OptVirtualThickFp::none(),
         }
     }};
 }

@@ -97,6 +97,14 @@ impl<'eval> __Register<'eval> {
     }
 }
 
+#[cfg(feature = "any_support")]
+impl<'eval> __WithEvalLifetime<'eval> for void {
+    type This = void;
+}
+
+#[cfg(feature = "any_support")]
+impl<'eval> __Any for void {}
+
 // bool
 #[rustfmt::skip]
 #[no_mangle]
@@ -186,6 +194,14 @@ impl<'eval> __Register<'eval> {
         }
     }
 }
+
+#[cfg(feature = "any_support")]
+impl<'eval> __WithEvalLifetime<'eval> for bool {
+    type This = bool;
+}
+
+#[cfg(feature = "any_support")]
+impl<'eval> __Any for bool {}
 
 // i32
 #[rustfmt::skip]
@@ -277,6 +293,14 @@ impl<'eval> __Register<'eval> {
     }
 }
 
+#[cfg(feature = "any_support")]
+impl<'eval> __WithEvalLifetime<'eval> for i32 {
+    type This = i32;
+}
+
+#[cfg(feature = "any_support")]
+impl<'eval> __Any for i32 {}
+
 // i64
 #[rustfmt::skip]
 #[no_mangle]
@@ -366,6 +390,14 @@ impl<'eval> __Register<'eval> {
         }
     }
 }
+
+#[cfg(feature = "any_support")]
+impl<'eval> __WithEvalLifetime<'eval> for i64 {
+    type This = i64;
+}
+
+#[cfg(feature = "any_support")]
+impl<'eval> __Any for i64 {}
 
 // b32
 #[rustfmt::skip]
@@ -457,6 +489,14 @@ impl<'eval> __Register<'eval> {
     }
 }
 
+#[cfg(feature = "any_support")]
+impl<'eval> __WithEvalLifetime<'eval> for b32 {
+    type This = b32;
+}
+
+#[cfg(feature = "any_support")]
+impl<'eval> __Any for b32 {}
+
 // b64
 #[rustfmt::skip]
 #[no_mangle]
@@ -546,6 +586,14 @@ impl<'eval> __Register<'eval> {
         }
     }
 }
+
+#[cfg(feature = "any_support")]
+impl<'eval> __WithEvalLifetime<'eval> for b64 {
+    type This = b64;
+}
+
+#[cfg(feature = "any_support")]
+impl<'eval> __Any for b64 {}
 
 // f32
 #[rustfmt::skip]
@@ -637,6 +685,14 @@ impl<'eval> __Register<'eval> {
     }
 }
 
+#[cfg(feature = "any_support")]
+impl<'eval> __WithEvalLifetime<'eval> for f32 {
+    type This = f32;
+}
+
+#[cfg(feature = "any_support")]
+impl<'eval> __Any for f32 {}
+
 // f64
 #[rustfmt::skip]
 #[no_mangle]
@@ -727,6 +783,14 @@ impl<'eval> __Register<'eval> {
     }
 }
 
+#[cfg(feature = "any_support")]
+impl<'eval> __WithEvalLifetime<'eval> for f64 {
+    type This = f64;
+}
+
+#[cfg(feature = "any_support")]
+impl<'eval> __Any for f64 {}
+
 // __VirtualFunction
 #[rustfmt::skip]
 #[no_mangle]
@@ -797,143 +861,308 @@ pub static __VIRTUAL_ENUM_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     typename_str: "__VirtualEnum",
 };
 
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, Output> ThinFp<'eval>
-    for fn() -> Output {}
+impl<'eval, Output: __Any> ThinFp
+    for fn(
+    ) -> Output {}
 
-impl<'eval, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, ) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, Output> BaseFp<'eval>
+impl<'eval, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<Output: __Any> const BaseFp
     for fn() -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, ) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, Output> ThinFp<'eval>
-    for fn(A0) -> Output {}
+impl<'eval, A0: __Any, Output: __Any> ThinFp
+    for fn(A0
+    ) -> Output {}
 
-impl<'eval, A0, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, A0) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, Output> BaseFp<'eval>
+impl<'eval, A0: __Any, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,A0
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<A0: __Any, Output: __Any> const BaseFp
     for fn(A0) -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, A0) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+        <A0 as __WithEvalLifetime<'eval>>::This,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, Output> ThinFp<'eval>
-    for fn(A0, A1) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, Output: __Any> ThinFp
+    for fn(A0, A1
+    ) -> Output {}
 
-impl<'eval, A0, A1, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, A0, A1) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, Output> BaseFp<'eval>
+impl<'eval, A0: __Any, A1: __Any, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,A0, A1
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<A0: __Any, A1: __Any, Output: __Any> const BaseFp
     for fn(A0, A1) -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, A0, A1) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+        <A0 as __WithEvalLifetime<'eval>>::This,
+        <A1 as __WithEvalLifetime<'eval>>::This,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, Output> ThinFp<'eval>
-    for fn(A0, A1, A2) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> ThinFp
+    for fn(A0, A1, A2
+    ) -> Output {}
 
-impl<'eval, A0, A1, A2, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, A0, A1, A2) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, Output> BaseFp<'eval>
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<A0: __Any, A1: __Any, A2: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2) -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, A0, A1, A2) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+        <A0 as __WithEvalLifetime<'eval>>::This,
+        <A1 as __WithEvalLifetime<'eval>>::This,
+        <A2 as __WithEvalLifetime<'eval>>::This,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, Output> ThinFp<'eval>
-    for fn(A0, A1, A2, A3) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> ThinFp
+    for fn(A0, A1, A2, A3
+    ) -> Output {}
 
-impl<'eval, A0, A1, A2, A3, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, Output> BaseFp<'eval>
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3) -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+        <A0 as __WithEvalLifetime<'eval>>::This,
+        <A1 as __WithEvalLifetime<'eval>>::This,
+        <A2 as __WithEvalLifetime<'eval>>::This,
+        <A3 as __WithEvalLifetime<'eval>>::This,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, Output> ThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> ThinFp
+    for fn(A0, A1, A2, A3, A4
+    ) -> Output {}
 
-impl<'eval, A0, A1, A2, A3, A4, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, Output> BaseFp<'eval>
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4) -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+        <A0 as __WithEvalLifetime<'eval>>::This,
+        <A1 as __WithEvalLifetime<'eval>>::This,
+        <A2 as __WithEvalLifetime<'eval>>::This,
+        <A3 as __WithEvalLifetime<'eval>>::This,
+        <A4 as __WithEvalLifetime<'eval>>::This,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, A5, Output> ThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4, A5) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> ThinFp
+    for fn(A0, A1, A2, A3, A4, A5
+    ) -> Output {}
 
-impl<'eval, A0, A1, A2, A3, A4, A5, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, A5, Output> BaseFp<'eval>
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4, A5) -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+        <A0 as __WithEvalLifetime<'eval>>::This,
+        <A1 as __WithEvalLifetime<'eval>>::This,
+        <A2 as __WithEvalLifetime<'eval>>::This,
+        <A3 as __WithEvalLifetime<'eval>>::This,
+        <A4 as __WithEvalLifetime<'eval>>::This,
+        <A5 as __WithEvalLifetime<'eval>>::This,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, A5, A6, Output> ThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> ThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6
+    ) -> Output {}
 
-impl<'eval, A0, A1, A2, A3, A4, A5, A6, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, A5, A6, Output> BaseFp<'eval>
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4, A5, A6) -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+        <A0 as __WithEvalLifetime<'eval>>::This,
+        <A1 as __WithEvalLifetime<'eval>>::This,
+        <A2 as __WithEvalLifetime<'eval>>::This,
+        <A3 as __WithEvalLifetime<'eval>>::This,
+        <A4 as __WithEvalLifetime<'eval>>::This,
+        <A5 as __WithEvalLifetime<'eval>>::This,
+        <A6 as __WithEvalLifetime<'eval>>::This,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, A5, A6, A7, Output> ThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> ThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7
+    ) -> Output {}
 
-impl<'eval, A0, A1, A2, A3, A4, A5, A6, A7, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, A5, A6, A7, Output> BaseFp<'eval>
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6, A7
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+        <A0 as __WithEvalLifetime<'eval>>::This,
+        <A1 as __WithEvalLifetime<'eval>>::This,
+        <A2 as __WithEvalLifetime<'eval>>::This,
+        <A3 as __WithEvalLifetime<'eval>>::This,
+        <A4 as __WithEvalLifetime<'eval>>::This,
+        <A5 as __WithEvalLifetime<'eval>>::This,
+        <A6 as __WithEvalLifetime<'eval>>::This,
+        <A7 as __WithEvalLifetime<'eval>>::This,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, A5, A6, A7, A8, Output> ThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> ThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8
+    ) -> Output {}
 
-impl<'eval, A0, A1, A2, A3, A4, A5, A6, A7, A8, Output> ThinFp<'eval>
-    for fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {}
-
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0, A1, A2, A3, A4, A5, A6, A7, A8, Output> BaseFp<'eval>
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6, A7, A8
+    ) -> Output {}
+
+#[cfg(feature = "base_fp")]
+#[rustfmt::skip]
+impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output
 {
-    type WithContext = fn(&dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output;
+    type WithContext = for<'eval> fn(
+        &dyn __EvalContext<'eval>,
+        <A0 as __WithEvalLifetime<'eval>>::This,
+        <A1 as __WithEvalLifetime<'eval>>::This,
+        <A2 as __WithEvalLifetime<'eval>>::This,
+        <A3 as __WithEvalLifetime<'eval>>::This,
+        <A4 as __WithEvalLifetime<'eval>>::This,
+        <A5 as __WithEvalLifetime<'eval>>::This,
+        <A6 as __WithEvalLifetime<'eval>>::This,
+        <A7 as __WithEvalLifetime<'eval>>::This,
+        <A8 as __WithEvalLifetime<'eval>>::This,
+    ) -> Output;
+
+    fn to_raw(self) -> *const () {
+        self as *const ()
+    }
 }
