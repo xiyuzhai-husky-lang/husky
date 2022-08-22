@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_resolved_linkage(
+    pub(super) fn gen_transfer_linkage(
         &mut self,
         needs_eval_context: bool,
         opt_this: Option<(ParameterLiason, EntityRoutePtr)>,
@@ -12,7 +12,7 @@ impl<'a> RustCodeGenerator<'a> {
         let argidx_base = opt_this.map(|_| 1).unwrap_or(0);
         self.write(&format!(
             r#"
-        resolved_linkage!(
+        transfer_linkage!(
             {{
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
@@ -140,9 +140,6 @@ impl<'a> RustCodeGenerator<'a> {
         for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
             if needs_eval_context || i + decl.primary_parameters.len() > 0 {
                 self.write(", ");
-                if i == 0 {
-                    self.write("/* keyword arguments */ ");
-                }
             }
             self.write(&parameter.ident)
         }
@@ -277,7 +274,47 @@ impl<'a> RustCodeGenerator<'a> {
         if needs_eval_context {
             self.write("&__EvalContext<'static>, ")
         }
-        msg_once!("variadics and keyword arguments");
-        todo!()
+        for (i, parameter) in decl.primary_parameters.iter().enumerate() {
+            if needs_eval_context || i > 0 {
+                self.write(", ")
+            }
+            match parameter.liason {
+                ParameterLiason::Pure => {
+                    if self.db.is_copyable(parameter.ty).unwrap() {
+                        ()
+                    } else {
+                        self.write("&")
+                    }
+                }
+                ParameterLiason::Move => todo!(),
+                ParameterLiason::MoveMut => todo!(),
+                ParameterLiason::MemberAccess => todo!(),
+                ParameterLiason::EvalRef => todo!(),
+                ParameterLiason::TempRef => todo!(),
+                ParameterLiason::TempRefMut => todo!(),
+            }
+            self.gen_entity_route(parameter.ty, EntityRouteRole::Decl)
+        }
+        for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
+            if needs_eval_context || i + decl.primary_parameters.len() > 0 {
+                self.write(", ");
+            }
+            todo!()
+            // self.write(&parameter.ident)
+        }
+        match decl.variadic_template {
+            VariadicTemplate::None => (),
+            VariadicTemplate::SingleTyped { .. } => {
+                if needs_eval_context
+                    || decl.primary_parameters.len() > 0
+                    || decl.keyword_parameters.len() > 0
+                {
+                    self.write(", ")
+                }
+                self.write("__variadics")
+            }
+        }
+        self.write(") -> ");
+        self.gen_entity_route(decl.output.ty(), EntityRouteRole::Decl)
     }
 }

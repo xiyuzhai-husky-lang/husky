@@ -81,7 +81,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 ));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
-                self.gen_resolved_linkage(
+                self.gen_transfer_linkage(
                     self.db.needs_eval_context(entity_route),
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
@@ -103,7 +103,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 ));
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
-                self.gen_resolved_linkage(
+                self.gen_transfer_linkage(
                     self.db.needs_eval_context(entity_route),
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
@@ -180,7 +180,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                             } else {
                                 ""
                             };
-                        self.gen_resolved_linkage(
+                        self.gen_transfer_linkage(
                             self.db.needs_eval_context(entity_route),
                             Some((this_liason, entity_route.parent())),
                             |this| {
