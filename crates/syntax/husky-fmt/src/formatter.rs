@@ -191,7 +191,7 @@ impl<'a> Formatter<'a> {
                 match liason {
                     MemberLiason::Immutable => (),
                     MemberLiason::Mutable => todo!(),
-                    MemberLiason::Derived => todo!(),
+                    MemberLiason::DerivedLazy => todo!(),
                 }
                 self.fmt_ident(ranged_ident.ident.into());
                 self.write(": ");

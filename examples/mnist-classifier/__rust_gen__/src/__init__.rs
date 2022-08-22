@@ -827,6 +827,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, norm)
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::displacement",
+        },
+        lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, geom2d::Vector2d, __registration__::__VECTOR_2_D_VTABLE, displacement)
+    ),
+    (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::LineSegment"
         },
@@ -1788,6 +1794,25 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         feature_linkage!(major::connected_components, Vec<connected_component::ConnectedComponent>, __registration__::__VEC_CONNECTED_COMPONENT_VTABLE),
     ),
     (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::one::downmost",
+        },
+        __Linkage::Transfer(__LinkageFp {
+            dev_src: static_dev_src!(),
+            wrapper: {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    one::downmost(cc).to_register()
+                }
+                __wrapper
+            },
+            opt_fp: Some(one::downmost as *const ()),
+        }),
+    ),
+    (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice" },
         __Linkage::Transfer(__LinkageFp {
             dev_src: static_dev_src!(),
@@ -1805,5 +1830,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             },
             opt_fp: Some(Vec::<geom2d::Point2d>::cyclic_slice as *const ()),
         }),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>::firstx" },
+        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE, __registration__::__LINE_SEGMENT_VTABLE, firstx)
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>::lastx" },
+        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE, __registration__::__LINE_SEGMENT_VTABLE, lastx)
     ),
 ];

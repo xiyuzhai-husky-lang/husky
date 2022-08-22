@@ -139,6 +139,10 @@ impl EagerExprQualifier {
         member_contract: EagerContract,
         is_member_copyable: bool,
     ) -> Self {
+        // ad hoc
+        // merge this into member
+        // no need for field_kind
+        // just use member_liason
         match field_kind {
             FieldKind::StructOriginal
             | FieldKind::StructDefault

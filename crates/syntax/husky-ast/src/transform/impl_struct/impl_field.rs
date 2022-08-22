@@ -135,7 +135,7 @@ impl<'a> AstTransformer<'a> {
             kind: SymbolKind::ThisField {
                 opt_this_ty: self.opt_this_ty(),
                 opt_field_ty: field_ty_result.clone().ok(),
-                field_liason: MemberLiason::Derived,
+                field_liason: MemberLiason::DerivedLazy,
             },
         });
         let field_ty = field_ty_result?;
@@ -148,7 +148,7 @@ impl<'a> AstTransformer<'a> {
             }),
         });
         Ok(AstVariant::FieldDefnHead {
-            liason: MemberLiason::Derived,
+            liason: MemberLiason::DerivedLazy,
             ranged_ident: ident,
             field_ty,
             field_ast_kind: FieldAstKind::StructDerivedLazy { paradigm },
