@@ -10,11 +10,11 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
-            copy_resolved_linkage: linkage_fp!(virtual_vec_lastx_copy),
-            eval_ref_resolved_linkage: linkage_fp!(virtual_vec_lastx_eval_ref),
-            temp_ref_resolved_linkage: linkage_fp!(virtual_vec_lastx_temp_ref),
-            temp_mut_resolved_linkage: linkage_fp!(virtual_vec_lastx_temp_mut),
-            move_resolved_linkage: linkage_fp!(virtual_vec_lastx_move),
+            copy_resolved_linkage: resolved_linkage!(virtual_vec_lastx_copy),
+            eval_ref_resolved_linkage: resolved_linkage!(virtual_vec_lastx_eval_ref),
+            temp_ref_resolved_linkage: resolved_linkage!(virtual_vec_lastx_temp_ref),
+            temp_mut_resolved_linkage: resolved_linkage!(virtual_vec_lastx_temp_mut),
+            move_resolved_linkage: resolved_linkage!(virtual_vec_lastx_move),
         })),
         output_liason: OutputLiason::MemberAccess {
             member_liason: MemberLiason::Mutable,

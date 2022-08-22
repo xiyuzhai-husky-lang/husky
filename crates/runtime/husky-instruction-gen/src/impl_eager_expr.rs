@@ -98,7 +98,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             InstructionVariant::CallRoutine {
                                 output_ty: expr.ty(),
                                 nargs: 1,
-                                linkage_fp: linkage,
+                                resolved_linkage: linkage,
                                 discard,
                             }
                         } else {
@@ -186,7 +186,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             InstructionVariant::CallRoutine {
                                 output_ty: expr.ty(),
                                 nargs: opds.len().try_into().unwrap(),
-                                linkage_fp: linkage,
+                                resolved_linkage: linkage,
                                 discard,
                             },
                             expr.clone(),
@@ -222,7 +222,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         *field_binding,
                     ) {
                         InstructionVariant::CallRoutine {
-                            linkage_fp: linkage,
+                            resolved_linkage: linkage,
                             nargs: 1,
                             output_ty: expr.ty(),
                             discard,
@@ -321,7 +321,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
                                     output_ty: expr.ty(),
                                     nargs: opds.len().try_into().unwrap(),
-                                    linkage_fp: linkage,
+                                    resolved_linkage: linkage,
                                     discard,
                                 },
                                 __Linkage::Member(_) => todo!(),
@@ -367,7 +367,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     match linkage {
                         __Linkage::Member(_) => todo!(),
                         __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
-                            linkage_fp: linkage,
+                            resolved_linkage: linkage,
                             nargs: opds.len().try_into().unwrap(),
                             output_ty,
                             discard,
@@ -379,7 +379,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EagerOpnVariant::ValueCall => self.push_instruction(Instruction::new(
                 InstructionVariant::CallRoutine {
-                    linkage_fp: __VALUE_CALL_LINKAGE.transfer(),
+                    resolved_linkage: __VALUE_CALL_LINKAGE.transfer(),
                     nargs: opds.len().try_into().unwrap(),
                     output_ty: expr.ty(),
                     discard,
@@ -398,7 +398,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) {
         let this_ty = opds[0].ty();
         let ins_variant = InstructionVariant::CallRoutine {
-            linkage_fp: match opr {
+            resolved_linkage: match opr {
                 EagerSuffixOpr::Incr | EagerSuffixOpr::Decr | EagerSuffixOpr::AsTy(_) => {
                     match this_ty {
                         EntityRoutePtr::Root(root_identifier) => {
@@ -510,7 +510,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         match opds[0].ty() {
             EntityRoutePtr::Root(_) => {
                 let ins_kind = InstructionVariant::CallRoutine {
-                    linkage_fp: match opr {
+                    resolved_linkage: match opr {
                         BinaryOpr::Pure(pure_binary_opr) => {
                             resolve_primitive_pure_binary_opr_linkage(
                                 opds[0].ty().root(),
@@ -545,7 +545,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::BitXor => todo!(),
                         PureBinaryOpr::Div => todo!(),
                         PureBinaryOpr::Eq => InstructionVariant::CallRoutine {
-                            linkage_fp: __EQ_LINKAGE.transfer(),
+                            resolved_linkage: __EQ_LINKAGE.transfer(),
                             nargs: 2,
                             output_ty: expr.ty(),
                             discard,
@@ -556,7 +556,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::Less => todo!(),
                         PureBinaryOpr::Mul => todo!(),
                         PureBinaryOpr::Neq => InstructionVariant::CallRoutine {
-                            linkage_fp: __NEQ_LINKAGE.transfer(),
+                            resolved_linkage: __NEQ_LINKAGE.transfer(),
                             nargs: 2,
                             output_ty: expr.ty(),
                             discard,
@@ -573,7 +573,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             todo!()
                         } else {
                             InstructionVariant::CallRoutine {
-                                linkage_fp: __ASSIGN_LINKAGE.transfer(),
+                                resolved_linkage: __ASSIGN_LINKAGE.transfer(),
                                 nargs: 2,
                                 output_ty: RootIdentifier::Void.into(),
                                 discard,
@@ -601,7 +601,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EntityRoutePtr::Root(root_identifier) => {
                 let instruction = Instruction::new(
                     InstructionVariant::CallRoutine {
-                        linkage_fp: resolve_primitive_prefix_opr_linkage(
+                        resolved_linkage: resolve_primitive_prefix_opr_linkage(
                             prefix,
                             opds[0].ty().root(),
                         )
@@ -629,7 +629,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             InstructionVariant::CallRoutine {
                 output_ty: expr.ty(),
                 nargs: opds.len().try_into().unwrap(),
-                linkage_fp: self
+                resolved_linkage: self
                     .db
                     .comptime()
                     .index_linkage(opds.map(|opd| opd.ty()))
@@ -654,7 +654,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         if let Some(linkage) = self.db.comptime().method_linkage(method_route) {
             match linkage {
                 __Linkage::Member { .. } => InstructionVariant::CallRoutine {
-                    linkage_fp: linkage.bind(output_binding),
+                    resolved_linkage: linkage.bind(output_binding),
                     nargs,
                     output_ty,
                     discard,
@@ -663,7 +663,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     output_ty,
                     nargs,
 
-                    linkage_fp: linkage,
+                    resolved_linkage: linkage,
                     discard,
                 },
                 __Linkage::Model(_) => todo!(),

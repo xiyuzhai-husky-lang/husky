@@ -44,11 +44,17 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
                         opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
-                            copy_resolved_linkage: linkage_fp!(virtual_vec_index_copy),
-                            eval_ref_resolved_linkage: linkage_fp!(virtual_vec_index_eval_ref),
-                            temp_ref_resolved_linkage: linkage_fp!(virtual_vec_index_temp_ref),
-                            temp_mut_resolved_linkage: linkage_fp!(virtual_vec_index_temp_mut),
-                            move_resolved_linkage: linkage_fp!(virtual_vec_index_move),
+                            copy_resolved_linkage: resolved_linkage!(virtual_vec_index_copy),
+                            eval_ref_resolved_linkage: resolved_linkage!(
+                                virtual_vec_index_eval_ref
+                            ),
+                            temp_ref_resolved_linkage: resolved_linkage!(
+                                virtual_vec_index_temp_ref
+                            ),
+                            temp_mut_resolved_linkage: resolved_linkage!(
+                                virtual_vec_index_temp_mut
+                            ),
+                            move_resolved_linkage: resolved_linkage!(virtual_vec_index_move),
                         })),
                     },
                 },
