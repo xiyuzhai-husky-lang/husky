@@ -10,9 +10,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
     __StaticLinkageKey::Routine {
         route: "test_proc_loop2::for_loop4",
     },
-    __Linkage::Transfer(__ResolvedLinkage {
-        dev_src: static_dev_src!(),
-        wrapper: {
+    resolved_linkage!(
+        {
             unsafe fn __wrapper<'eval>(
                 __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 __arguments: &mut [__Register<'eval>],
@@ -21,6 +20,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
             }
             __wrapper
         },
-        opt_fp: Some(for_loop4 as *const ()),
-    }),
+        some for_loop4 as *const ()
+    ),
 )];

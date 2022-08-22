@@ -12,9 +12,8 @@ impl<'a> RustCodeGenerator<'a> {
         let argidx_base = opt_this.map(|_| 1).unwrap_or(0);
         self.write(&format!(
             r#"
-        __Linkage::Transfer(__ResolvedLinkage {{
-            dev_src: static_dev_src!(),
-            wrapper: {{
+        resolved_linkage!(
+            {{
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
@@ -166,7 +165,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }}
                 __wrapper
             }},
-            opt_fp: Some("#
+            some "#
             ));
         } else {
             self.write(&format!(
@@ -174,14 +173,16 @@ impl<'a> RustCodeGenerator<'a> {
                 }}
                 __wrapper
             }},
-            opt_fp: Some("#
+            some "#
             ));
         }
         gen_call_route(self);
+        self.write(r#" as "#);
+        self.gen_call_ty(needs_eval_context, decl);
         self.write(
-            r#" as *const ()),
-        }),"#,
-        );
+            r#"
+    ),"#,
+        )
     }
 
     fn gen_variadics_downcast(&mut self, decl: &CallFormDecl) {
@@ -269,5 +270,14 @@ impl<'a> RustCodeGenerator<'a> {
                 }
             }
         }
+    }
+
+    fn gen_call_ty(&mut self, needs_eval_context: bool, decl: &CallFormDecl) {
+        self.write("fn(");
+        if needs_eval_context {
+            self.write("&__EvalContext<'static>, ")
+        }
+        msg_once!("variadics and keyword arguments");
+        todo!()
     }
 }
