@@ -14,6 +14,7 @@ mod virtual_function;
 pub use __rust_code_gen__::*;
 pub use context::*;
 pub use error::*;
+pub use fp::*;
 pub use layout::*;
 pub use linkage::*;
 pub use register::*;

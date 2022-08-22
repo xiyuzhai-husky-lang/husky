@@ -1,1 +1,1 @@
-pub trait ThinFp: Copy {}
+pub trait ThinFp<'eval>: Copy {}
