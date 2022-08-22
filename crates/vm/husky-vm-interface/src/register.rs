@@ -82,6 +82,17 @@ pub trait __StaticInfo {
     fn __static_typename() -> std::borrow::Cow<'static, str>;
 }
 
+impl<T> __StaticInfo for &T
+where
+    T: __StaticInfo,
+{
+    type __StaticSelf = &'static T::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+}
+
 impl<T> __StaticInfo for Option<T>
 where
     T: __StaticInfo,

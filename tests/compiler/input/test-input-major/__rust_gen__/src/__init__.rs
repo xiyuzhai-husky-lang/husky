@@ -21,6 +21,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
                 }
                 __wrapper
             },
-            some find_connected_components as fn(&domains::ml::datasets::cv::mnist::BinaryImage28) -> i32
+            some find_connected_components as fn(&'static domains::ml::datasets::cv::mnist::BinaryImage28) -> i32
     ),
 )];
