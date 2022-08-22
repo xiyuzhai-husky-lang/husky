@@ -12,7 +12,9 @@ husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "thin_fp",
     "linkage_macro"
 ] }
-husky-datasets-interface = { path = "../domains/ml/husky-datasets-interface" }
+husky-datasets-interface = { path = "../domains/ml/husky-datasets-interface", features = [
+    "any_support",
+] }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
 [lib]

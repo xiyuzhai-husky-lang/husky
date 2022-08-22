@@ -283,7 +283,7 @@ impl<'a> RustCodeGenerator<'a> {
                     if self.db.is_copyable(parameter.ty).unwrap() {
                         ()
                     } else {
-                        self.write("&")
+                        self.write("&'static ")
                     }
                 }
                 ParameterLiason::Move => todo!(),
