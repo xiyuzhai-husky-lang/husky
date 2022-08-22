@@ -78,7 +78,7 @@ impl ParameterLiason {
                         ParameterLiason::MoveMut
                     }
                 }
-                MemberLiason::Derived => panic!(),
+                MemberLiason::DerivedLazy => panic!(),
             },
         }
     }
@@ -94,7 +94,7 @@ pub enum OutputLiason {
 pub enum MemberLiason {
     Immutable,
     Mutable,
-    Derived,
+    DerivedLazy,
 }
 
 impl std::fmt::Display for MemberLiason {
@@ -102,7 +102,7 @@ impl std::fmt::Display for MemberLiason {
         match self {
             MemberLiason::Immutable => "immutable",
             MemberLiason::Mutable => "mutable",
-            MemberLiason::Derived => "derived",
+            MemberLiason::DerivedLazy => "derived",
         }
         .fmt(f)
     }
@@ -120,7 +120,7 @@ impl MemberLiason {
 
     pub fn mutable(self) -> bool {
         match self {
-            MemberLiason::Immutable | MemberLiason::Derived => false,
+            MemberLiason::Immutable | MemberLiason::DerivedLazy => false,
             MemberLiason::Mutable => true,
         }
     }

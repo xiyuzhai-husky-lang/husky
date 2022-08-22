@@ -1,4 +1,5 @@
 use super::*;
+use entity_kind::FieldKind;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind};
 
@@ -24,7 +25,22 @@ impl<'a> LinkageCollector<'a> {
                     EagerOpnVariant::Suffix { .. } => (),
                     EagerOpnVariant::RoutineCall(routine) => self.insert(routine.route),
                     EagerOpnVariant::TypeCall { ranged_ty, .. } => self.insert(ranged_ty.route),
-                    EagerOpnVariant::Field { .. } => (),
+                    EagerOpnVariant::Field {
+                        field_kind,
+                        field_ident,
+                        ..
+                    } => match field_kind {
+                        FieldKind::StructOriginal
+                        | FieldKind::StructDefault
+                        | FieldKind::StructDerivedEager => (),
+                        FieldKind::StructDerivedLazy => self.insert(self.db.subroute(
+                            opds[0].ty(),
+                            field_ident.ident,
+                            Default::default(),
+                        )),
+                        FieldKind::RecordOriginal => todo!(),
+                        FieldKind::RecordDerived => todo!(),
+                    },
                     EagerOpnVariant::MethodCall { method_route, .. } => {
                         match method_route.variant {
                             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {

@@ -42,6 +42,31 @@ impl<'eval> ConcaveComponent<'eval> {
             .unwrap()
             .downcast_eval_ref(&__registration__::__F32_VTABLE);
     }
+    pub(crate) fn displacement(
+        &'eval self,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> &'eval crate::geom2d::Vector2d {
+        let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::displacement");
+        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__VECTOR_2_D_VTABLE);
+        }
+        return __ctx
+            .cache_lazy_field(
+                self as *const _ as *const (),
+                __uid,
+                Ok(__Register::new_box::<crate::geom2d::Vector2d>(
+                    self.line_segments
+                        .firstx()
+                        .start
+                        .to(&self.line_segments.lastx().end),
+                    &__registration__::__VECTOR_2_D_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__VECTOR_2_D_VTABLE);
+    }
 }
 
 impl<'eval> __StaticInfo for ConcaveComponent<'eval> {

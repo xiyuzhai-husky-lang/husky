@@ -1,4 +1,4 @@
-use entity_kind::EntityKind;
+use entity_kind::{EntityKind, MemberKind};
 
 use crate::*;
 
@@ -12,6 +12,14 @@ pub(crate) fn needs_eval_context(
         match link_entity_kind {
             EntityKind::Feature => return true,
             EntityKind::Main => panic!(),
+            EntityKind::Member(member_kind) => match member_kind {
+                MemberKind::Field => todo!(),
+                MemberKind::Method { .. } => (),
+                MemberKind::Call => todo!(),
+                MemberKind::TraitAssociatedType => todo!(),
+                MemberKind::TraitAssociatedConstSize => todo!(),
+                MemberKind::TraitAssociatedAny => todo!(),
+            },
             _ => (),
         }
     }

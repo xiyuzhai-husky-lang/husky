@@ -61,7 +61,7 @@ impl<'a> ContractSheetBuilder<'a> {
                                     MemberLiason::Immutable | MemberLiason::Mutable => {
                                         EagerContract::Move
                                     }
-                                    MemberLiason::Derived => panic!(),
+                                    MemberLiason::DerivedLazy => panic!(),
                                 },
                             };
                             self.infer_eager_expr(default, contract)

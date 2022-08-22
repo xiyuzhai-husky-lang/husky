@@ -79,7 +79,7 @@ impl EagerContract {
                         )
                     }
                     MemberLiason::Mutable => EagerContract::TempRefMut,
-                    MemberLiason::Derived => {
+                    MemberLiason::DerivedLazy => {
                         throw!(
                             format!("can't turn a copyable derived member into temp ref (mut)"),
                             range
@@ -105,8 +105,8 @@ impl EagerContract {
                     EagerContract::TempRef => todo!(),
                     EagerContract::Pass => todo!(),
                 },
-                MemberLiason::Derived => match member_contract {
-                    EagerContract::Pure => todo!(),
+                MemberLiason::DerivedLazy => match member_contract {
+                    EagerContract::Pure => Ok(EagerContract::Pure),
                     EagerContract::Move => todo!(),
                     EagerContract::Pass => Ok(EagerContract::EvalRef),
                     EagerContract::EvalRef => todo!(),

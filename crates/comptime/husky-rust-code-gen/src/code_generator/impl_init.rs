@@ -129,12 +129,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 enum_variant_defn_variant: ref variant,
             } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TyField {
-                field_ty: ty,
-                ref field_variant,
-                liason,
-                opt_linkage,
-            } => panic!(),
+            EntityDefnVariant::TyField { .. } => (), // this is handled in ty defn
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {}
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             EntityDefnVariant::Input { .. } => todo!(),

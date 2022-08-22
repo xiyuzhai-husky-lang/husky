@@ -83,11 +83,11 @@ impl<'a> LinkageCollector<'a> {
                 for member in members.iter() {
                     match member.variant {
                         EntityDefnVariant::TyField {
-                            field_ty: ty,
+                            field_ty,
                             ref field_variant,
                             liason,
                             opt_linkage,
-                        } => self.insert(ty),
+                        } => self.insert(field_ty),
                         EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {
                             if defn.base_route == entity_route_menu.clone_trait {
                                 ()
@@ -122,11 +122,17 @@ impl<'a> LinkageCollector<'a> {
             },
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TyField {
-                field_ty: ty,
-                ref field_variant,
-                liason,
-                opt_linkage,
-            } => todo!(),
+                ref field_variant, ..
+            } => match field_variant {
+                FieldDefnVariant::StructOriginal => todo!(),
+                FieldDefnVariant::StructDefault { default } => todo!(),
+                FieldDefnVariant::StructDerivedEager { derivation } => todo!(),
+                FieldDefnVariant::StructDerivedLazy { defn_repr } => {
+                    self.collect_from_feature_repr(None, defn_repr)
+                }
+                FieldDefnVariant::RecordOriginal => todo!(),
+                FieldDefnVariant::RecordDerived { defn_repr } => todo!(),
+            },
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {
                 todo!()
             }
