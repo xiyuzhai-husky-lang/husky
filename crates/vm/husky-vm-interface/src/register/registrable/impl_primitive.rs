@@ -6,6 +6,13 @@ impl __StaticInfo for i32 {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "i32".into()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
+    }
 }
 
 impl<'eval> __Registrable<'eval> for i32 {
@@ -20,6 +27,13 @@ impl __StaticInfo for i64 {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "i64".into()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
+    }
 }
 
 impl<'eval> __Registrable<'eval> for i64 {
@@ -30,8 +44,16 @@ impl<'eval> __Registrable<'eval> for i64 {
 
 impl __StaticInfo for () {
     type __StaticSelf = Self;
+
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "void".into()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
     }
 }
 
@@ -43,8 +65,16 @@ impl<'eval> __Registrable<'eval> for () {
 
 impl __StaticInfo for f32 {
     type __StaticSelf = Self;
+
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "f32".into()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
     }
 }
 
@@ -56,8 +86,16 @@ impl<'eval> __Registrable<'eval> for f32 {
 
 impl __StaticInfo for f64 {
     type __StaticSelf = Self;
+
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "f64".into()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
     }
 }
 
@@ -69,8 +107,16 @@ impl<'eval> __Registrable<'eval> for f64 {
 
 impl __StaticInfo for u32 {
     type __StaticSelf = Self;
+
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "u32".into()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
     }
 }
 
@@ -82,8 +128,16 @@ impl<'eval> __Registrable<'eval> for u32 {
 
 impl __StaticInfo for u64 {
     type __StaticSelf = Self;
+
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "u64".into()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
     }
 }
 
@@ -95,8 +149,16 @@ impl<'eval> __Registrable<'eval> for u64 {
 
 impl __StaticInfo for bool {
     type __StaticSelf = Self;
+
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "bool".into()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
     }
 }
 

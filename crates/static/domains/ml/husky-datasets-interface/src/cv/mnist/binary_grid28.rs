@@ -10,7 +10,7 @@ pub struct BinaryGrid28 {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for BinaryGrid28 {
-    type This = BinaryGrid28;
+    type __ThisWithEvalLifetime = BinaryGrid28;
 }
 
 #[cfg(feature = "any_support")]
@@ -70,6 +70,13 @@ impl __StaticInfo for BinaryGrid28 {
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         todo!()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
     }
 }
 

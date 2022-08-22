@@ -7,8 +7,13 @@ where
     T: __StaticInfo,
 {
     type __StaticSelf = CyclicSlice<'static, T::__StaticSelf>;
+
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         format!("CyclicSlice<{}>", T::__static_typename()).into()
+    }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
 

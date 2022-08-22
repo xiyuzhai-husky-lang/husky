@@ -286,10 +286,10 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write("&'static ")
                     }
                 }
-                ParameterLiason::Move => todo!(),
+                ParameterLiason::Move => (),
                 ParameterLiason::MoveMut => todo!(),
                 ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::EvalRef => todo!(),
+                ParameterLiason::EvalRef => self.write("&'static "),
                 ParameterLiason::TempRef => todo!(),
                 ParameterLiason::TempRefMut => todo!(),
             }

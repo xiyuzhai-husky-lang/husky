@@ -31,6 +31,13 @@ impl<'eval> __StaticInfo for VirtualCyclicSlice<'eval> {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "CyclicSlice<Any>".into()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        std::mem::transmute(self)
+    }
 }
 
 impl<'eval> __Registrable<'eval> for VirtualCyclicSlice<'eval> {

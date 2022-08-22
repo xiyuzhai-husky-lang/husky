@@ -99,7 +99,7 @@ impl<'eval> __Register<'eval> {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for void {
-    type This = void;
+    type __ThisWithEvalLifetime = void;
 }
 
 #[cfg(feature = "any_support")]
@@ -197,7 +197,7 @@ impl<'eval> __Register<'eval> {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for bool {
-    type This = bool;
+    type __ThisWithEvalLifetime = bool;
 }
 
 #[cfg(feature = "any_support")]
@@ -295,7 +295,7 @@ impl<'eval> __Register<'eval> {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for i32 {
-    type This = i32;
+    type __ThisWithEvalLifetime = i32;
 }
 
 #[cfg(feature = "any_support")]
@@ -393,7 +393,7 @@ impl<'eval> __Register<'eval> {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for i64 {
-    type This = i64;
+    type __ThisWithEvalLifetime = i64;
 }
 
 #[cfg(feature = "any_support")]
@@ -491,7 +491,7 @@ impl<'eval> __Register<'eval> {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for b32 {
-    type This = b32;
+    type __ThisWithEvalLifetime = b32;
 }
 
 #[cfg(feature = "any_support")]
@@ -589,7 +589,7 @@ impl<'eval> __Register<'eval> {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for b64 {
-    type This = b64;
+    type __ThisWithEvalLifetime = b64;
 }
 
 #[cfg(feature = "any_support")]
@@ -687,7 +687,7 @@ impl<'eval> __Register<'eval> {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for f32 {
-    type This = f32;
+    type __ThisWithEvalLifetime = f32;
 }
 
 #[cfg(feature = "any_support")]
@@ -785,7 +785,7 @@ impl<'eval> __Register<'eval> {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for f64 {
-    type This = f64;
+    type __ThisWithEvalLifetime = f64;
 }
 
 #[cfg(feature = "any_support")]
@@ -879,11 +879,11 @@ impl<'eval, Output: __Any> ThinFp
 impl<Output: __Any> const BaseFp
     for fn() -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
@@ -905,12 +905,12 @@ impl<'eval, A0: __Any, Output: __Any> ThinFp
 impl<A0: __Any, Output: __Any> const BaseFp
     for fn(A0) -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::This,
+        <A0 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
@@ -932,13 +932,13 @@ impl<'eval, A0: __Any, A1: __Any, Output: __Any> ThinFp
 impl<A0: __Any, A1: __Any, Output: __Any> const BaseFp
     for fn(A0, A1) -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::This,
-        <A1 as __WithEvalLifetime<'eval>>::This,
+        <A0 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A1 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
@@ -960,14 +960,14 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> ThinFp
 impl<A0: __Any, A1: __Any, A2: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2) -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::This,
-        <A1 as __WithEvalLifetime<'eval>>::This,
-        <A2 as __WithEvalLifetime<'eval>>::This,
+        <A0 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A1 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A2 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
@@ -989,15 +989,15 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> ThinFp
 impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3) -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::This,
-        <A1 as __WithEvalLifetime<'eval>>::This,
-        <A2 as __WithEvalLifetime<'eval>>::This,
-        <A3 as __WithEvalLifetime<'eval>>::This,
+        <A0 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A1 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A2 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A3 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
@@ -1019,16 +1019,16 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any
 impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4) -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::This,
-        <A1 as __WithEvalLifetime<'eval>>::This,
-        <A2 as __WithEvalLifetime<'eval>>::This,
-        <A3 as __WithEvalLifetime<'eval>>::This,
-        <A4 as __WithEvalLifetime<'eval>>::This,
+        <A0 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A1 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A2 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A3 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A4 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
@@ -1050,17 +1050,17 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Ou
 impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4, A5) -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::This,
-        <A1 as __WithEvalLifetime<'eval>>::This,
-        <A2 as __WithEvalLifetime<'eval>>::This,
-        <A3 as __WithEvalLifetime<'eval>>::This,
-        <A4 as __WithEvalLifetime<'eval>>::This,
-        <A5 as __WithEvalLifetime<'eval>>::This,
+        <A0 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A1 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A2 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A3 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A4 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A5 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
@@ -1082,18 +1082,18 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6
 impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4, A5, A6) -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::This,
-        <A1 as __WithEvalLifetime<'eval>>::This,
-        <A2 as __WithEvalLifetime<'eval>>::This,
-        <A3 as __WithEvalLifetime<'eval>>::This,
-        <A4 as __WithEvalLifetime<'eval>>::This,
-        <A5 as __WithEvalLifetime<'eval>>::This,
-        <A6 as __WithEvalLifetime<'eval>>::This,
+        <A0 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A1 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A2 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A3 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A4 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A5 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A6 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
@@ -1115,19 +1115,19 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6
 impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::This,
-        <A1 as __WithEvalLifetime<'eval>>::This,
-        <A2 as __WithEvalLifetime<'eval>>::This,
-        <A3 as __WithEvalLifetime<'eval>>::This,
-        <A4 as __WithEvalLifetime<'eval>>::This,
-        <A5 as __WithEvalLifetime<'eval>>::This,
-        <A6 as __WithEvalLifetime<'eval>>::This,
-        <A7 as __WithEvalLifetime<'eval>>::This,
+        <A0 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A1 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A2 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A3 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A4 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A5 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A6 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A7 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
@@ -1149,20 +1149,20 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6
 impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const BaseFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output
 {
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::This,
-        <A1 as __WithEvalLifetime<'eval>>::This,
-        <A2 as __WithEvalLifetime<'eval>>::This,
-        <A3 as __WithEvalLifetime<'eval>>::This,
-        <A4 as __WithEvalLifetime<'eval>>::This,
-        <A5 as __WithEvalLifetime<'eval>>::This,
-        <A6 as __WithEvalLifetime<'eval>>::This,
-        <A7 as __WithEvalLifetime<'eval>>::This,
-        <A8 as __WithEvalLifetime<'eval>>::This,
+        <A0 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A1 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A2 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A3 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A4 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A5 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A6 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A7 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
+        <A8 as __WithEvalLifetime<'eval>>::__ThisWithEvalLifetime,
     ) -> Output;
 
-    fn to_raw(self) -> *const () {
+    fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }

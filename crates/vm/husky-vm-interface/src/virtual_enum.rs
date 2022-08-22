@@ -12,6 +12,10 @@ impl __StaticInfo for __VirtualEnum {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         todo!()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf {
+        self
+    }
 }
 
 impl<'eval> __Registrable<'eval> for __VirtualEnum {

@@ -24,7 +24,7 @@ impl __OptVirtualThickFp {
     pub const fn some<'eval, F: ~const BaseFp>(f: F) -> Self {
         Self {
             needs_eval_context: false,
-            fp: f.to_raw(),
+            fp: f.__to_void_pointer(),
         }
     }
 }

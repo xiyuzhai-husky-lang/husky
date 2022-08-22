@@ -17,6 +17,13 @@ where
         )
         .into()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        std::mem::transmute(self)
+    }
 }
 
 // impl<K, V> __Registrable for HashMap<K, V>

@@ -20,6 +20,13 @@ impl __StaticInfo for __VirtualFunction {
     fn __static_typename() -> Cow<'static, str> {
         todo!()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        self
+    }
 }
 
 impl<'eval> __Registrable<'eval> for __VirtualFunction {

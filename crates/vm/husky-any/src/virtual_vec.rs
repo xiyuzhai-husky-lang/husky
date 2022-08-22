@@ -38,6 +38,13 @@ impl<'eval> __StaticInfo for VirtualVec<'eval> {
     fn __static_typename() -> Cow<'static, str> {
         "[]Any".into()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf
+    where
+        Self: Sized,
+    {
+        std::mem::transmute(self)
+    }
 }
 
 impl<'eval> __Registrable<'eval> for VirtualVec<'eval> {

@@ -16,6 +16,10 @@ impl __StaticInfo for PrimitiveValueData {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         todo!()
     }
+
+    unsafe fn __as_static(self) -> Self::__StaticSelf {
+        self
+    }
 }
 
 impl<'eval, T> __Registrable<'eval> for Option<T>
