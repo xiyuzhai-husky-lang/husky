@@ -25,7 +25,7 @@ impl<'a> RustCodeGenerator<'a> {
             entity_route
         ));
         let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
-        self.gen_specific_routine_linkage(
+        self.gen_resolved_linkage(
             self.db.needs_eval_context(entity_route),
             None,
             |this| {
