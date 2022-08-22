@@ -81,6 +81,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
+                    self.db.needs_eval_context(entity_route),
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute),
@@ -102,6 +103,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 msg_once!("keyword_parameters");
                 self.gen_specific_routine_linkage(
+                    self.db.needs_eval_context(entity_route),
                     None,
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
                     |this| this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute),
@@ -125,9 +127,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 ref spatial_parameters,
                 ref members,
             } => todo!(),
-            EntityDefnVariant::EnumVariant {
-                enum_variant_defn_variant: ref variant,
-            } => todo!(),
+            EntityDefnVariant::EnumVariant { .. } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TyField { .. } => (), // this is handled in ty defn
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {}
@@ -180,6 +180,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                                 ""
                             };
                         self.gen_specific_routine_linkage(
+                            self.db.needs_eval_context(entity_route),
                             Some((this_liason, entity_route.parent())),
                             |this| {
                                 this.write(&format!("__this.{}", entity_route.ident().as_str()));
@@ -227,6 +228,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
 
     fn gen_specific_routine_linkage(
         &mut self,
+        needs_eval_context: bool,
         opt_this: Option<(ParameterLiason, EntityRoutePtr)>,
         gen_caller: impl FnOnce(&mut Self),
         gen_call_route: impl FnOnce(&mut Self),
@@ -435,14 +437,17 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         }
         gen_caller(self);
         self.write("(");
+        if needs_eval_context {
+            self.write("__opt_ctx.unwrap()")
+        }
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
-            if i > 0 {
+            if needs_eval_context || i > 0 {
                 self.write(", ")
             }
             self.write(&parameter.ident)
         }
         for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
-            if i + decl.primary_parameters.len() > 0 {
+            if needs_eval_context || i + decl.primary_parameters.len() > 0 {
                 self.write(", ");
                 if i == 0 {
                     self.write("/* keyword arguments */ ");
@@ -453,7 +458,10 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         match decl.variadic_template {
             VariadicTemplate::None => (),
             VariadicTemplate::SingleTyped { .. } => {
-                if decl.primary_parameters.len() > 0 || decl.keyword_parameters.len() > 0 {
+                if needs_eval_context
+                    || decl.primary_parameters.len() > 0
+                    || decl.keyword_parameters.len() > 0
+                {
                     self.write(", ")
                 }
                 self.write("__variadics")
