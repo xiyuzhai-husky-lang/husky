@@ -32,7 +32,7 @@ husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-runtime = { path = "../../runtime/husky-runtime" }
-trace = { path = "../trace" }
+husky-trace = { path = "../../trace/husky-trace" }
 husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
