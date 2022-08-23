@@ -51,12 +51,12 @@ impl<'a> LinkageCollector<'a> {
                     }
                     EagerOpnVariant::Index { .. } => (),
                     EagerOpnVariant::NewVecFromList => self.insert(expr.ty()),
-                    EagerOpnVariant::ValueCall => (),
+                    EagerOpnVariant::ValueCall => self.insert(opds[0].ty()),
                 }
             }
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EntityFeature { route } => self.insert(route),
-            EagerExprVariant::EntityFp { route } => self.insert(route),
+            EagerExprVariant::EntityThickFp { route } => self.insert(route),
         }
     }
 

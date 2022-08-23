@@ -828,7 +828,7 @@ impl<'eval, Output: __StaticInfo> const ThinFp
 #[rustfmt::skip]
 impl<Output: __StaticInfo> const __BaseThinFp
     for fn() -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         &dyn __EvalContext<'static>
     ) -> Output;
 }
@@ -903,7 +903,7 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> const ThinFp
 #[rustfmt::skip]
 impl<A0: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0) -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         A0, &dyn __EvalContext<'static>
     ) -> Output;
 }
@@ -980,7 +980,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const Thin
 #[rustfmt::skip]
 impl<A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1) -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         A0, A1, &dyn __EvalContext<'static>
     ) -> Output;
 }
@@ -1059,7 +1059,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
 #[rustfmt::skip]
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2) -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         A0, A1, A2, &dyn __EvalContext<'static>
     ) -> Output;
 }
@@ -1140,7 +1140,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3) -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         A0, A1, A2, A3, &dyn __EvalContext<'static>
     ) -> Output;
 }
@@ -1223,7 +1223,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4) -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         A0, A1, A2, A3, A4, &dyn __EvalContext<'static>
     ) -> Output;
 }
@@ -1308,7 +1308,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4, A5) -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         A0, A1, A2, A3, A4, A5, &dyn __EvalContext<'static>
     ) -> Output;
 }
@@ -1395,7 +1395,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext<'static>
     ) -> Output;
 }
@@ -1484,7 +1484,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext<'static>
     ) -> Output;
 }
@@ -1575,7 +1575,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext<'static>
     ) -> Output;
 }

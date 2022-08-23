@@ -18,7 +18,10 @@ impl<'a> RustCodeGenerator<'a> {
                     RootIdentifier::B64 => self.write("u64"),
                     RootIdentifier::Std => self.write("__std"),
                     RootIdentifier::ThickFp => {
-                        self.write("ThickFp<fn(");
+                        match role {
+                            EntityRouteRole::StaticBaseFpDecl => self.write("fn("),
+                            _ => self.write("ThickFp<fn("),
+                        }
                         for i in 0..(entity_route.spatial_arguments.len() - 1) {
                             if i > 0 {
                                 self.write(", ")
@@ -39,7 +42,10 @@ impl<'a> RustCodeGenerator<'a> {
                             self.write("->");
                             self.gen_entity_route(output_ty, EntityRouteRole::Decl)
                         }
-                        self.write(">");
+                        match role {
+                            EntityRouteRole::StaticBaseFpDecl => self.write(""),
+                            _ => self.write(">"),
+                        }
                         return;
                     }
                     RootIdentifier::FnMut => todo!(),
@@ -53,6 +59,7 @@ impl<'a> RustCodeGenerator<'a> {
                             | EntityRouteRole::Decl
                             | EntityRouteRole::Other => self.write("&'eval "),
                             EntityRouteRole::StaticDecl => todo!(),
+                            EntityRouteRole::StaticBaseFpDecl => todo!(),
                         }
                         self.gen_entity_route(
                             entity_route.entity_route_argument(0),

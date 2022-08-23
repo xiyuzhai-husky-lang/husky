@@ -21,6 +21,7 @@ pub enum EntityRouteRole {
     Other,
     ForAnyLifetimeOther,
     StaticDecl,
+    StaticBaseFpDecl,
 }
 
 impl EntityRouteRole {
@@ -32,6 +33,7 @@ impl EntityRouteRole {
             EntityRouteRole::Other => EntityRouteRole::Other,
             EntityRouteRole::ForAnyLifetimeOther => EntityRouteRole::ForAnyLifetimeOther,
             EntityRouteRole::StaticDecl => EntityRouteRole::StaticDecl,
+            EntityRouteRole::StaticBaseFpDecl => panic!(),
         }
     }
 
@@ -44,6 +46,7 @@ impl EntityRouteRole {
             EntityRouteRole::Decl => EntityRouteRole::Decl,
             EntityRouteRole::Other => EntityRouteRole::Other,
             EntityRouteRole::StaticDecl => EntityRouteRole::StaticDecl,
+            EntityRouteRole::StaticBaseFpDecl => EntityRouteRole::StaticDecl,
         }
     }
 }

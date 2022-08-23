@@ -13,13 +13,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
     transfer_linkage!(
         {
             unsafe fn __wrapper<'eval>(
-                __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 __arguments: &mut [__Register<'eval>],
-            ) -> __Register<'eval> { /*haha*/
-                try_fp().to_register()
+                __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+            ) -> __Register<'eval> {
+                try_fp(__opt_ctx.unwrap()).to_register()
             }
             __wrapper
         },
-        some try_fp as fn() -> i32
+        some ctx try_fp as fn(&dyn __EvalContext<'static>) -> i32
     ),
 )];

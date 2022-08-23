@@ -64,12 +64,6 @@ impl __StaticInfo for A {
     }
 }
 
-impl<'eval> __WithEvalLifetime<'eval> for A {
-    type __SelfWithEvalLifetime = A;
-}
-
-impl __Any for A {}
-
 pub(crate) fn f1() -> A {
     return A::__call__(1);
 }

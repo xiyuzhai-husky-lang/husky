@@ -103,7 +103,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 let text = self.runtime.comptime().text(expr.file).unwrap();
                 self.push(route!(text.ranged(expr.range)))
             }
-            EagerExprVariant::EntityFp { route } => todo!(),
+            EagerExprVariant::EntityThickFp { route } => todo!(),
         };
         if config.appended {
             self.push(fade!(" = "));

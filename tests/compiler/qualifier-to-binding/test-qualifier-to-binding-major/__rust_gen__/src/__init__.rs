@@ -14,15 +14,15 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     let x: i32 = __arguments[0].downcast_i32();
                     __Register::new_box::<A>(A::__call__(x), &__registration__::__A_VTABLE)
                 }
                 __wrapper
             },
-            some A::__call__ as fn(i32) -> A
+            some base A::__call__ as fn(i32) -> A
         ),
     ),
     (
@@ -48,16 +48,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     let x: i32 = __arguments[0].downcast_i32();
                     let a: A = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__A_VTABLE);
                     __Register::new_box::<B>(B::__call__(x, a), &__registration__::__B_VTABLE)
                 }
                 __wrapper
             },
-            some B::__call__ as fn(i32, A) -> B
+            some base B::__call__ as fn(i32, A) -> B
         ),
     ),
     (
@@ -115,15 +115,15 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     let x: &'eval i32 = __arguments[0].downcast_eval_ref(&__registration__::__I32_VTABLE);
                     take_copyable_eval_ref(x).to_register()
                 }
                 __wrapper
             },
-            some take_copyable_eval_ref as fn(&'static i32) -> i32
+            some base take_copyable_eval_ref as fn(&'static i32) -> i32
         ),
     ),
 ];
