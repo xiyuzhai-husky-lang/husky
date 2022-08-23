@@ -28,10 +28,8 @@ impl<'eval> __StaticInfo for ConvexCompoent<'eval> {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for ConvexCompoent<'eval> {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }

@@ -317,8 +317,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let parameter_ty = parameter.ty;
         match parameter.liason {
             ParameterLiason::Pure => {
-                if parameter_ty.is_ref() {
-                    todo!()
+                if parameter_ty.is_eval_ref() {
+                    self.gen_parameter_downcast_eval_ref(i, parameter)
                 } else {
                     if self.db.is_copyable(parameter_ty).unwrap() {
                         self.gen_parameter_downcast_copy(i, parameter)

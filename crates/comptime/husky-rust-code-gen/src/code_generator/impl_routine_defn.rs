@@ -89,11 +89,8 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("<'eval>")
         }
         self.write("(");
-        if needs_eval_context {
-            self.write("__ctx: &dyn __EvalContext<'eval>");
-        }
         for (i, parameter) in parameters.iter().enumerate() {
-            if i > 0 || needs_eval_context {
+            if i > 0 {
                 self.write(", ");
             }
             self.write(&parameter.ranged_ident.ident);
@@ -112,6 +109,13 @@ impl<'a> RustCodeGenerator<'a> {
                 ParameterLiason::TempRef => todo!(),
             }
             self.gen_entity_route(parameter.ranged_ty.route, EntityRouteRole::Decl);
+        }
+        msg_once!("todo: keyword arguments, variadics");
+        if needs_eval_context {
+            if parameters.len() > 0 {
+                self.write(", ")
+            }
+            self.write("__ctx: &dyn __EvalContext<'eval>");
         }
         self.write(") -> ");
         self.gen_entity_route(output, EntityRouteRole::Decl);
@@ -143,14 +147,18 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("<'eval>")
         }
         self.write("(");
-        if needs_eval_context {
-            self.write("__ctx: &dyn __EvalContext<'eval>");
-        }
         for (i, parameter) in parameters.iter().enumerate() {
-            if i > 0 || needs_eval_context {
+            if i > 0 {
                 self.write(", ");
             }
             self.gen_parameter(parameter)
+        }
+        msg_once!("keyword arguments, variadics");
+        if needs_eval_context {
+            if parameters.len() > 0 {
+                self.write(", ")
+            }
+            self.write("__ctx: &dyn __EvalContext<'eval>");
         }
         self.write(") -> ");
         self.gen_entity_route(output, EntityRouteRole::Decl);

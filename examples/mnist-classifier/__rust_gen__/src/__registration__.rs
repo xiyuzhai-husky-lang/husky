@@ -4,26 +4,28 @@ pub(crate) use __husky::registration::*;
 type ConnectedComponent = crate::connected_component::ConnectedComponent;
 
 // ConnectedComponent
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __connected_component_clone(data: *mut ()) -> *mut () {
-    Box::<ConnectedComponent>::into_raw(Box::new((*(data as *mut ConnectedComponent)).clone()))
-        as *mut ()
+    Box::<ConnectedComponent>::into_raw(Box::new((*(data as *mut ConnectedComponent)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __connected_component_drop(data: *mut ()) {
     Box::from_raw(data as *mut ConnectedComponent);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __connected_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const ConnectedComponent)
-        == *(other as *const () as *const ConnectedComponent)
+    *(this as *const () as *const ConnectedComponent) == *(other as *const () as *const ConnectedComponent)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __connected_component_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<ConnectedComponent>(&__CONNECTED_COMPONENT_VTABLE) =
-        registers[1].downcast_move(&__CONNECTED_COMPONENT_VTABLE)
+    *registers[0].downcast_temp_mut::<ConnectedComponent>(&__CONNECTED_COMPONENT_VTABLE) = registers[1].downcast_move(&__CONNECTED_COMPONENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __CONNECTED_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -38,24 +40,28 @@ pub static __CONNECTED_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable
 type RawContour<'eval> = crate::raw_contour::RawContour<'eval>;
 
 // RawContour
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __raw_contour_clone(data: *mut ()) -> *mut () {
     Box::<RawContour>::into_raw(Box::new((*(data as *mut RawContour)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __raw_contour_drop(data: *mut ()) {
     Box::from_raw(data as *mut RawContour);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __raw_contour_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const RawContour) == *(other as *const () as *const RawContour)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __raw_contour_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<RawContour>(&__RAW_CONTOUR_VTABLE) =
-        registers[1].downcast_move(&__RAW_CONTOUR_VTABLE)
+    *registers[0].downcast_temp_mut::<RawContour>(&__RAW_CONTOUR_VTABLE) = registers[1].downcast_move(&__RAW_CONTOUR_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __RAW_CONTOUR_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -70,25 +76,28 @@ pub static __RAW_CONTOUR_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 type Vec__RawContour<'eval> = Vec<crate::raw_contour::RawContour<'eval>>;
 
 // Vec__RawContour
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_raw_contour_clone(data: *mut ()) -> *mut () {
     Box::<Vec__RawContour>::into_raw(Box::new((*(data as *mut Vec__RawContour)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_raw_contour_drop(data: *mut ()) {
     Box::from_raw(data as *mut Vec__RawContour);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_raw_contour_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__RawContour)
-        == *(other as *const () as *const Vec__RawContour)
+    *(this as *const () as *const Vec__RawContour) == *(other as *const () as *const Vec__RawContour)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_raw_contour_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__RawContour>(&__VEC_RAW_CONTOUR_VTABLE) =
-        registers[1].downcast_move(&__VEC_RAW_CONTOUR_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__RawContour>(&__VEC_RAW_CONTOUR_VTABLE) = registers[1].downcast_move(&__VEC_RAW_CONTOUR_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VEC_RAW_CONTOUR_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -103,27 +112,28 @@ pub static __VEC_RAW_CONTOUR_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 type Vec__ConnectedComponent = Vec<crate::connected_component::ConnectedComponent>;
 
 // Vec__ConnectedComponent
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_connected_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__ConnectedComponent>::into_raw(Box::new(
-        (*(data as *mut Vec__ConnectedComponent)).clone(),
-    )) as *mut ()
+    Box::<Vec__ConnectedComponent>::into_raw(Box::new((*(data as *mut Vec__ConnectedComponent)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_connected_component_drop(data: *mut ()) {
     Box::from_raw(data as *mut Vec__ConnectedComponent);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_connected_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__ConnectedComponent)
-        == *(other as *const () as *const Vec__ConnectedComponent)
+    *(this as *const () as *const Vec__ConnectedComponent) == *(other as *const () as *const Vec__ConnectedComponent)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_connected_component_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__ConnectedComponent>(&__VEC_CONNECTED_COMPONENT_VTABLE) =
-        registers[1].downcast_move(&__VEC_CONNECTED_COMPONENT_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__ConnectedComponent>(&__VEC_CONNECTED_COMPONENT_VTABLE) = registers[1].downcast_move(&__VEC_CONNECTED_COMPONENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VEC_CONNECTED_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -138,24 +148,28 @@ pub static __VEC_CONNECTED_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVT
 type Point2d = crate::geom2d::Point2d;
 
 // Point2d
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __point_2_d_clone(data: *mut ()) -> *mut () {
     Box::<Point2d>::into_raw(Box::new((*(data as *mut Point2d)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __point_2_d_drop(data: *mut ()) {
     Box::from_raw(data as *mut Point2d);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __point_2_d_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const Point2d) == *(other as *const () as *const Point2d)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __point_2_d_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Point2d>(&__POINT_2_D_VTABLE) =
-        registers[1].downcast_move(&__POINT_2_D_VTABLE)
+    *registers[0].downcast_temp_mut::<Point2d>(&__POINT_2_D_VTABLE) = registers[1].downcast_move(&__POINT_2_D_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -170,24 +184,28 @@ pub static __POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 type Vec__Point2d = Vec<crate::geom2d::Point2d>;
 
 // Vec__Point2d
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_point_2_d_clone(data: *mut ()) -> *mut () {
     Box::<Vec__Point2d>::into_raw(Box::new((*(data as *mut Vec__Point2d)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_point_2_d_drop(data: *mut ()) {
     Box::from_raw(data as *mut Vec__Point2d);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_point_2_d_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const Vec__Point2d) == *(other as *const () as *const Vec__Point2d)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_point_2_d_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__Point2d>(&__VEC_POINT_2_D_VTABLE) =
-        registers[1].downcast_move(&__VEC_POINT_2_D_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__Point2d>(&__VEC_POINT_2_D_VTABLE) = registers[1].downcast_move(&__VEC_POINT_2_D_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VEC_POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -202,26 +220,28 @@ pub static __VEC_POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 type LineSegmentSketch<'eval> = crate::line_segment_sketch::LineSegmentSketch<'eval>;
 
 // LineSegmentSketch
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __line_segment_sketch_clone(data: *mut ()) -> *mut () {
-    Box::<LineSegmentSketch>::into_raw(Box::new((*(data as *mut LineSegmentSketch)).clone()))
-        as *mut ()
+    Box::<LineSegmentSketch>::into_raw(Box::new((*(data as *mut LineSegmentSketch)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __line_segment_sketch_drop(data: *mut ()) {
     Box::from_raw(data as *mut LineSegmentSketch);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __line_segment_sketch_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const LineSegmentSketch)
-        == *(other as *const () as *const LineSegmentSketch)
+    *(this as *const () as *const LineSegmentSketch) == *(other as *const () as *const LineSegmentSketch)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __line_segment_sketch_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<LineSegmentSketch>(&__LINE_SEGMENT_SKETCH_VTABLE) =
-        registers[1].downcast_move(&__LINE_SEGMENT_SKETCH_VTABLE)
+    *registers[0].downcast_temp_mut::<LineSegmentSketch>(&__LINE_SEGMENT_SKETCH_VTABLE) = registers[1].downcast_move(&__LINE_SEGMENT_SKETCH_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __LINE_SEGMENT_SKETCH_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -236,24 +256,28 @@ pub static __LINE_SEGMENT_SKETCH_VTABLE: __RegisterTyVTable = __RegisterTyVTable
 type Direction = crate::raw_contour::Direction;
 
 // Direction
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __direction_clone(data: *mut ()) -> *mut () {
     Box::<Direction>::into_raw(Box::new((*(data as *mut Direction)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __direction_drop(data: *mut ()) {
     Box::from_raw(data as *mut Direction);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __direction_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const Direction) == *(other as *const () as *const Direction)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __direction_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Direction>(&__DIRECTION_VTABLE) =
-        registers[1].downcast_move(&__DIRECTION_VTABLE)
+    *registers[0].downcast_temp_mut::<Direction>(&__DIRECTION_VTABLE) = registers[1].downcast_move(&__DIRECTION_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __DIRECTION_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -268,24 +292,28 @@ pub static __DIRECTION_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 type StreakCache = crate::raw_contour::StreakCache;
 
 // StreakCache
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __streak_cache_clone(data: *mut ()) -> *mut () {
     Box::<StreakCache>::into_raw(Box::new((*(data as *mut StreakCache)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __streak_cache_drop(data: *mut ()) {
     Box::from_raw(data as *mut StreakCache);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __streak_cache_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const StreakCache) == *(other as *const () as *const StreakCache)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __streak_cache_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<StreakCache>(&__STREAK_CACHE_VTABLE) =
-        registers[1].downcast_move(&__STREAK_CACHE_VTABLE)
+    *registers[0].downcast_temp_mut::<StreakCache>(&__STREAK_CACHE_VTABLE) = registers[1].downcast_move(&__STREAK_CACHE_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __STREAK_CACHE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -300,24 +328,28 @@ pub static __STREAK_CACHE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 type Vector2d = crate::geom2d::Vector2d;
 
 // Vector2d
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vector_2_d_clone(data: *mut ()) -> *mut () {
     Box::<Vector2d>::into_raw(Box::new((*(data as *mut Vector2d)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vector_2_d_drop(data: *mut ()) {
     Box::from_raw(data as *mut Vector2d);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vector_2_d_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const Vector2d) == *(other as *const () as *const Vector2d)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vector_2_d_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vector2d>(&__VECTOR_2_D_VTABLE) =
-        registers[1].downcast_move(&__VECTOR_2_D_VTABLE)
+    *registers[0].downcast_temp_mut::<Vector2d>(&__VECTOR_2_D_VTABLE) = registers[1].downcast_move(&__VECTOR_2_D_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VECTOR_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -333,26 +365,28 @@ type ConcaveComponent<'eval> =
     crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>;
 
 // ConcaveComponent
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<ConcaveComponent>::into_raw(Box::new((*(data as *mut ConcaveComponent)).clone()))
-        as *mut ()
+    Box::<ConcaveComponent>::into_raw(Box::new((*(data as *mut ConcaveComponent)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __concave_component_drop(data: *mut ()) {
     Box::from_raw(data as *mut ConcaveComponent);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const ConcaveComponent)
-        == *(other as *const () as *const ConcaveComponent)
+    *(this as *const () as *const ConcaveComponent) == *(other as *const () as *const ConcaveComponent)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __concave_component_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<ConcaveComponent>(&__CONCAVE_COMPONENT_VTABLE) =
-        registers[1].downcast_move(&__CONCAVE_COMPONENT_VTABLE)
+    *registers[0].downcast_temp_mut::<ConcaveComponent>(&__CONCAVE_COMPONENT_VTABLE) = registers[1].downcast_move(&__CONCAVE_COMPONENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -367,24 +401,28 @@ pub static __CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 type LineSegment<'eval> = crate::line_segment_sketch::LineSegment<'eval>;
 
 // LineSegment
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __line_segment_clone(data: *mut ()) -> *mut () {
     Box::<LineSegment>::into_raw(Box::new((*(data as *mut LineSegment)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __line_segment_drop(data: *mut ()) {
     Box::from_raw(data as *mut LineSegment);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __line_segment_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const LineSegment) == *(other as *const () as *const LineSegment)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __line_segment_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<LineSegment>(&__LINE_SEGMENT_VTABLE) =
-        registers[1].downcast_move(&__LINE_SEGMENT_VTABLE)
+    *registers[0].downcast_temp_mut::<LineSegment>(&__LINE_SEGMENT_VTABLE) = registers[1].downcast_move(&__LINE_SEGMENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __LINE_SEGMENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -400,28 +438,28 @@ type CyclicSlice__LineSegment<'eval> =
     __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegment<'eval>>;
 
 // CyclicSlice__LineSegment
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __cyclic_slice_line_segment_clone(data: *mut ()) -> *mut () {
-    Box::<CyclicSlice__LineSegment>::into_raw(Box::new(
-        (*(data as *mut CyclicSlice__LineSegment)).clone(),
-    )) as *mut ()
+    Box::<CyclicSlice__LineSegment>::into_raw(Box::new((*(data as *mut CyclicSlice__LineSegment)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __cyclic_slice_line_segment_drop(data: *mut ()) {
     Box::from_raw(data as *mut CyclicSlice__LineSegment);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __cyclic_slice_line_segment_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const CyclicSlice__LineSegment)
-        == *(other as *const () as *const CyclicSlice__LineSegment)
+    *(this as *const () as *const CyclicSlice__LineSegment) == *(other as *const () as *const CyclicSlice__LineSegment)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __cyclic_slice_line_segment_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0]
-        .downcast_temp_mut::<CyclicSlice__LineSegment>(&__CYCLIC_SLICE_LINE_SEGMENT_VTABLE) =
-        registers[1].downcast_move(&__CYCLIC_SLICE_LINE_SEGMENT_VTABLE)
+    *registers[0].downcast_temp_mut::<CyclicSlice__LineSegment>(&__CYCLIC_SLICE_LINE_SEGMENT_VTABLE) = registers[1].downcast_move(&__CYCLIC_SLICE_LINE_SEGMENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __CYCLIC_SLICE_LINE_SEGMENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -437,27 +475,28 @@ type Vec__ConcaveComponent<'eval> =
     Vec<crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>>;
 
 // Vec__ConcaveComponent
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__ConcaveComponent>::into_raw(Box::new(
-        (*(data as *mut Vec__ConcaveComponent)).clone(),
-    )) as *mut ()
+    Box::<Vec__ConcaveComponent>::into_raw(Box::new((*(data as *mut Vec__ConcaveComponent)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_concave_component_drop(data: *mut ()) {
     Box::from_raw(data as *mut Vec__ConcaveComponent);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__ConcaveComponent)
-        == *(other as *const () as *const Vec__ConcaveComponent)
+    *(this as *const () as *const Vec__ConcaveComponent) == *(other as *const () as *const Vec__ConcaveComponent)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_concave_component_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__ConcaveComponent>(&__VEC_CONCAVE_COMPONENT_VTABLE) =
-        registers[1].downcast_move(&__VEC_CONCAVE_COMPONENT_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__ConcaveComponent>(&__VEC_CONCAVE_COMPONENT_VTABLE) = registers[1].downcast_move(&__VEC_CONCAVE_COMPONENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VEC_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -472,24 +511,28 @@ pub static __VEC_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTab
 type ConvexCompoent<'eval> = crate::line_segment_sketch::convex_component::ConvexCompoent<'eval>;
 
 // ConvexCompoent
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __convex_compoent_clone(data: *mut ()) -> *mut () {
     Box::<ConvexCompoent>::into_raw(Box::new((*(data as *mut ConvexCompoent)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __convex_compoent_drop(data: *mut ()) {
     Box::from_raw(data as *mut ConvexCompoent);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __convex_compoent_eq(this: &(), other: &()) -> bool {
     *(this as *const () as *const ConvexCompoent) == *(other as *const () as *const ConvexCompoent)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __convex_compoent_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<ConvexCompoent>(&__CONVEX_COMPOENT_VTABLE) =
-        registers[1].downcast_move(&__CONVEX_COMPOENT_VTABLE)
+    *registers[0].downcast_temp_mut::<ConvexCompoent>(&__CONVEX_COMPOENT_VTABLE) = registers[1].downcast_move(&__CONVEX_COMPOENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __CONVEX_COMPOENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -504,26 +547,28 @@ pub static __CONVEX_COMPOENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 type CyclicSlice__Point2d<'eval> = __std::slice::CyclicSlice<'eval, crate::geom2d::Point2d>;
 
 // CyclicSlice__Point2d
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __cyclic_slice_point_2_d_clone(data: *mut ()) -> *mut () {
-    Box::<CyclicSlice__Point2d>::into_raw(Box::new((*(data as *mut CyclicSlice__Point2d)).clone()))
-        as *mut ()
+    Box::<CyclicSlice__Point2d>::into_raw(Box::new((*(data as *mut CyclicSlice__Point2d)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __cyclic_slice_point_2_d_drop(data: *mut ()) {
     Box::from_raw(data as *mut CyclicSlice__Point2d);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __cyclic_slice_point_2_d_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const CyclicSlice__Point2d)
-        == *(other as *const () as *const CyclicSlice__Point2d)
+    *(this as *const () as *const CyclicSlice__Point2d) == *(other as *const () as *const CyclicSlice__Point2d)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __cyclic_slice_point_2_d_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<CyclicSlice__Point2d>(&__CYCLIC_SLICE_POINT_2_D_VTABLE) =
-        registers[1].downcast_move(&__CYCLIC_SLICE_POINT_2_D_VTABLE)
+    *registers[0].downcast_temp_mut::<CyclicSlice__Point2d>(&__CYCLIC_SLICE_POINT_2_D_VTABLE) = registers[1].downcast_move(&__CYCLIC_SLICE_POINT_2_D_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __CYCLIC_SLICE_POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -538,26 +583,28 @@ pub static __CYCLIC_SLICE_POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTa
 type Vec__LineSegment<'eval> = Vec<crate::line_segment_sketch::LineSegment<'eval>>;
 
 // Vec__LineSegment
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_line_segment_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__LineSegment>::into_raw(Box::new((*(data as *mut Vec__LineSegment)).clone()))
-        as *mut ()
+    Box::<Vec__LineSegment>::into_raw(Box::new((*(data as *mut Vec__LineSegment)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_line_segment_drop(data: *mut ()) {
     Box::from_raw(data as *mut Vec__LineSegment);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_line_segment_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__LineSegment)
-        == *(other as *const () as *const Vec__LineSegment)
+    *(this as *const () as *const Vec__LineSegment) == *(other as *const () as *const Vec__LineSegment)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_line_segment_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__LineSegment>(&__VEC_LINE_SEGMENT_VTABLE) =
-        registers[1].downcast_move(&__VEC_LINE_SEGMENT_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__LineSegment>(&__VEC_LINE_SEGMENT_VTABLE) = registers[1].downcast_move(&__VEC_LINE_SEGMENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VEC_LINE_SEGMENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -572,26 +619,28 @@ pub static __VEC_LINE_SEGMENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 type FermiMatchResult<'eval> = crate::fermi::FermiMatchResult<'eval>;
 
 // FermiMatchResult
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __fermi_match_result_clone(data: *mut ()) -> *mut () {
-    Box::<FermiMatchResult>::into_raw(Box::new((*(data as *mut FermiMatchResult)).clone()))
-        as *mut ()
+    Box::<FermiMatchResult>::into_raw(Box::new((*(data as *mut FermiMatchResult)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __fermi_match_result_drop(data: *mut ()) {
     Box::from_raw(data as *mut FermiMatchResult);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __fermi_match_result_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const FermiMatchResult)
-        == *(other as *const () as *const FermiMatchResult)
+    *(this as *const () as *const FermiMatchResult) == *(other as *const () as *const FermiMatchResult)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __fermi_match_result_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<FermiMatchResult>(&__FERMI_MATCH_RESULT_VTABLE) =
-        registers[1].downcast_move(&__FERMI_MATCH_RESULT_VTABLE)
+    *registers[0].downcast_temp_mut::<FermiMatchResult>(&__FERMI_MATCH_RESULT_VTABLE) = registers[1].downcast_move(&__FERMI_MATCH_RESULT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __FERMI_MATCH_RESULT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -607,28 +656,28 @@ type Vec__Option__Ref__ConcaveComponent<'eval> =
     Vec<Option<&'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>>>;
 
 // Vec__Option__Ref__ConcaveComponent
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_option_ref_concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__Option__Ref__ConcaveComponent>::into_raw(Box::new(
-        (*(data as *mut Vec__Option__Ref__ConcaveComponent)).clone(),
-    )) as *mut ()
+    Box::<Vec__Option__Ref__ConcaveComponent>::into_raw(Box::new((*(data as *mut Vec__Option__Ref__ConcaveComponent)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_option_ref_concave_component_drop(data: *mut ()) {
     Box::from_raw(data as *mut Vec__Option__Ref__ConcaveComponent);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_option_ref_concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__Option__Ref__ConcaveComponent)
-        == *(other as *const () as *const Vec__Option__Ref__ConcaveComponent)
+    *(this as *const () as *const Vec__Option__Ref__ConcaveComponent) == *(other as *const () as *const Vec__Option__Ref__ConcaveComponent)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_option_ref_concave_component_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__Option__Ref__ConcaveComponent>(
-        &__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE,
-    ) = registers[1].downcast_move(&__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__Option__Ref__ConcaveComponent>(&__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE) = registers[1].downcast_move(&__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -644,28 +693,28 @@ type Vec__Ref__ConcaveComponent<'eval> =
     Vec<&'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>>;
 
 // Vec__Ref__ConcaveComponent
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_ref_concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__Ref__ConcaveComponent>::into_raw(Box::new(
-        (*(data as *mut Vec__Ref__ConcaveComponent)).clone(),
-    )) as *mut ()
+    Box::<Vec__Ref__ConcaveComponent>::into_raw(Box::new((*(data as *mut Vec__Ref__ConcaveComponent)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_ref_concave_component_drop(data: *mut ()) {
     Box::from_raw(data as *mut Vec__Ref__ConcaveComponent);
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_ref_concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__Ref__ConcaveComponent)
-        == *(other as *const () as *const Vec__Ref__ConcaveComponent)
+    *(this as *const () as *const Vec__Ref__ConcaveComponent) == *(other as *const () as *const Vec__Ref__ConcaveComponent)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_ref_concave_component_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0]
-        .downcast_temp_mut::<Vec__Ref__ConcaveComponent>(&__VEC_REF_CONCAVE_COMPONENT_VTABLE) =
-        registers[1].downcast_move(&__VEC_REF_CONCAVE_COMPONENT_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__Ref__ConcaveComponent>(&__VEC_REF_CONCAVE_COMPONENT_VTABLE) = registers[1].downcast_move(&__VEC_REF_CONCAVE_COMPONENT_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
 pub static __VEC_REF_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
@@ -677,89 +726,85 @@ pub static __VEC_REF_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTy
     typename_str_hash_u64: 12868255181803251158,
     typename_str: "Vec__Ref__ConcaveComponent",
 };
-type Fp__Ref__ConcaveComponent_Option__f32<'eval> = fn(
-    &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
-) -> Option<f32>;
-
-// Fp__Ref__ConcaveComponent_Option__f32
-#[no_mangle]
-pub unsafe extern "C" fn __fp_ref_concave_component_option_f_32_clone(data: *mut ()) -> *mut () {
-    Box::<Fp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new(
-        (*(data as *mut Fp__Ref__ConcaveComponent_Option__f32)).clone(),
-    )) as *mut ()
-}
-#[no_mangle]
-pub unsafe extern "C" fn __fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Fp__Ref__ConcaveComponent_Option__f32);
-}
-#[no_mangle]
-pub unsafe extern "C" fn __fp_ref_concave_component_option_f_32_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Fp__Ref__ConcaveComponent_Option__f32)
-        == *(other as *const () as *const Fp__Ref__ConcaveComponent_Option__f32)
-}
-#[no_mangle]
-pub unsafe extern "C" fn __fp_ref_concave_component_option_f_32_assign(registers: *mut __Register) {
-    let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Fp__Ref__ConcaveComponent_Option__f32>(
-        &__FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE,
-    ) = registers[1].downcast_move(&__FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE)
-}
-#[no_mangle]
-pub static __FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
-    primitive_value_to_bool: None,
-    primitive_value_to_box: None,
-    clone: __fp_ref_concave_component_option_f_32_clone,
-    drop: __fp_ref_concave_component_option_f_32_drop,
-    eq: __fp_ref_concave_component_option_f_32_eq,
-    assign: __fp_ref_concave_component_option_f_32_assign,
-    typename_str_hash_u64: 14739934925898725661,
-    typename_str: "Fp__Ref__ConcaveComponent_Option__f32",
-};
-type Vec__Fp__Ref__ConcaveComponent_Option__f32<'eval> = Vec<
+type ThickFp__Ref__ConcaveComponent_Option__f32<'eval> = ThickFp<
     fn(
-        &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
+        &'static crate::line_segment_sketch::concave_component::ConcaveComponent<'static>,
     ) -> Option<f32>,
 >;
 
-// Vec__Fp__Ref__ConcaveComponent_Option__f32
+// ThickFp__Ref__ConcaveComponent_Option__f32
+#[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_fp_ref_concave_component_option_f_32_clone(
-    data: *mut (),
-) -> *mut () {
-    Box::<Vec__Fp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new(
-        (*(data as *mut Vec__Fp__Ref__ConcaveComponent_Option__f32)).clone(),
-    )) as *mut ()
+pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_clone(data: *mut ()) -> *mut () {
+    Box::<ThickFp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new((*(data as *mut ThickFp__Ref__ConcaveComponent_Option__f32)).clone())) as *mut ()
 }
+#[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__Fp__Ref__ConcaveComponent_Option__f32);
+pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
+    Box::from_raw(data as *mut ThickFp__Ref__ConcaveComponent_Option__f32);
 }
+#[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_fp_ref_concave_component_option_f_32_eq(
-    this: &(),
-    other: &(),
-) -> bool {
-    *(this as *const () as *const Vec__Fp__Ref__ConcaveComponent_Option__f32)
-        == *(other as *const () as *const Vec__Fp__Ref__ConcaveComponent_Option__f32)
+pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const ThickFp__Ref__ConcaveComponent_Option__f32) == *(other as *const () as *const ThickFp__Ref__ConcaveComponent_Option__f32)
 }
+#[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_fp_ref_concave_component_option_f_32_assign(
-    registers: *mut __Register,
-) {
+pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__Fp__Ref__ConcaveComponent_Option__f32>(
-        &__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE,
-    ) = registers[1].downcast_move(&__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE)
+    *registers[0].downcast_temp_mut::<ThickFp__Ref__ConcaveComponent_Option__f32>(&__THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE) = registers[1].downcast_move(&__THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE)
 }
+#[rustfmt::skip]
 #[no_mangle]
-pub static __VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE: __RegisterTyVTable =
-    __RegisterTyVTable {
-        primitive_value_to_bool: None,
-        primitive_value_to_box: None,
-        clone: __vec_fp_ref_concave_component_option_f_32_clone,
-        drop: __vec_fp_ref_concave_component_option_f_32_drop,
-        eq: __vec_fp_ref_concave_component_option_f_32_eq,
-        assign: __vec_fp_ref_concave_component_option_f_32_assign,
-        typename_str_hash_u64: 14448762047548590071,
-        typename_str: "Vec__Fp__Ref__ConcaveComponent_Option__f32",
-    };
+pub static __THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __thick_fp_ref_concave_component_option_f_32_clone,
+    drop: __thick_fp_ref_concave_component_option_f_32_drop,
+    eq: __thick_fp_ref_concave_component_option_f_32_eq,
+    assign: __thick_fp_ref_concave_component_option_f_32_assign,
+    typename_str_hash_u64: 2410464468364455782,
+    typename_str: "ThickFp__Ref__ConcaveComponent_Option__f32",
+};
+type Vec__ThickFp__Ref__ConcaveComponent_Option__f32<'eval> = Vec<
+    ThickFp<
+        fn(
+            &'static crate::line_segment_sketch::concave_component::ConcaveComponent<'static>,
+        ) -> Option<f32>,
+    >,
+>;
+
+// Vec__ThickFp__Ref__ConcaveComponent_Option__f32
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_clone(data: *mut ()) -> *mut () {
+    Box::<Vec__ThickFp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new((*(data as *mut Vec__ThickFp__Ref__ConcaveComponent_Option__f32)).clone())) as *mut ()
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
+    Box::from_raw(data as *mut Vec__ThickFp__Ref__ConcaveComponent_Option__f32);
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const Vec__ThickFp__Ref__ConcaveComponent_Option__f32) == *(other as *const () as *const Vec__ThickFp__Ref__ConcaveComponent_Option__f32)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<Vec__ThickFp__Ref__ConcaveComponent_Option__f32>(&__VEC_THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE) = registers[1].downcast_move(&__VEC_THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub static __VEC_THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __vec_thick_fp_ref_concave_component_option_f_32_clone,
+    drop: __vec_thick_fp_ref_concave_component_option_f_32_drop,
+    eq: __vec_thick_fp_ref_concave_component_option_f_32_eq,
+    assign: __vec_thick_fp_ref_concave_component_option_f_32_assign,
+    typename_str_hash_u64: 14858446301517109270,
+    typename_str: "Vec__ThickFp__Ref__ConcaveComponent_Option__f32",
+};

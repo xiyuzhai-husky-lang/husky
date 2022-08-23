@@ -162,7 +162,7 @@ impl EagerContract {
                 todo!()
             }),
             RawReturnContextKind::Feature | RawReturnContextKind::LazyField => {
-                if output_ty.is_ref() {
+                if output_ty.is_eval_ref() {
                     todo!("warn: output ty should be dereferenced")
                 } else if output_ty == expr_ty {
                     if db.is_copyable(expr_ty)? {

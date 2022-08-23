@@ -15,40 +15,38 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<line_segment_sketch::concave_component::ConcaveComponent>::ilen as *const ()),
-        }),
+            some base Vec::<line_segment_sketch::concave_component::ConcaveComponent>::ilen as fn(&'static Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::connected_component::ConnectedComponent"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let mask: domains::ml::datasets::cv::mnist::BinaryImage28 = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__BINARY_IMAGE_28_VTABLE);
                     __Register::new_box::<connected_component::ConnectedComponent>(connected_component::ConnectedComponent::__call__(mask), &__registration__::__CONNECTED_COMPONENT_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(connected_component::ConnectedComponent::__call__ as *const ()),
-        }),
+            some base connected_component::ConnectedComponent::__call__ as fn(domains::ml::datasets::cv::mnist::BinaryImage28) -> connected_component::ConnectedComponent
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -71,32 +69,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::raw_contour::RawContour>::ilen" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &Vec<raw_contour::RawContour<'eval>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_RAW_CONTOUR_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<raw_contour::RawContour>::ilen as *const ()),
-        }),
+            some base Vec::<raw_contour::RawContour>::ilen as fn(&'static Vec<raw_contour::RawContour<'static>>) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::raw_contour::RawContour"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
                     let points: Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__VEC_POINT_2_D_VTABLE);
@@ -104,8 +100,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::RawContour::__call__ as *const ()),
-        }),
+            some base raw_contour::RawContour::__call__ as fn(&'static connected_component::ConnectedComponent, Vec<geom2d::Point2d>) -> raw_contour::RawContour<'static>
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -144,12 +140,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             ty: "[]mnist_classifier::raw_contour::RawContour"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __variadics =
                         __arguments[0..]
@@ -160,8 +155,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<raw_contour::RawContour>::__call__ as *const ()),
-        }),
+            some base Vec::<raw_contour::RawContour>::__call__ as fn(Vec<raw_contour::RawContour<'static>>) -> Vec<raw_contour::RawContour<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::Index {
@@ -180,12 +175,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::connected_component::horizontal_extend",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let a: u32 = __arguments[0].downcast_b32();
                     let x: u32 = __arguments[1].downcast_b32();
@@ -193,56 +187,53 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(connected_component::horizontal_extend as *const ()),
-        }),
+            some base connected_component::horizontal_extend as fn(u32, u32) -> u32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::connected_component::find_connected_components",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let img: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref(&__registration__::__BINARY_IMAGE_28_VTABLE);
                     __Register::new_box::<Vec<connected_component::ConnectedComponent>>(connected_component::find_connected_components(img), &__registration__::__VEC_CONNECTED_COMPONENT_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(connected_component::find_connected_components as *const ()),
-        }),
+            some base connected_component::find_connected_components as fn(&'static domains::ml::datasets::cv::mnist::BinaryImage28) -> Vec<connected_component::ConnectedComponent>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::connected_component::ConnectedComponent>::ilen" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &Vec<connected_component::ConnectedComponent> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_CONNECTED_COMPONENT_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<connected_component::ConnectedComponent>::ilen as *const ()),
-        }),
+            some base Vec::<connected_component::ConnectedComponent>::ilen as fn(&'static Vec<connected_component::ConnectedComponent>) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "[]mnist_classifier::connected_component::ConnectedComponent"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __variadics =
                         __arguments[0..]
@@ -253,8 +244,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<connected_component::ConnectedComponent>::__call__ as *const ()),
-        }),
+            some base Vec::<connected_component::ConnectedComponent>::__call__ as fn(Vec<connected_component::ConnectedComponent>) -> Vec<connected_component::ConnectedComponent>
+        ),
     ),
     (
         __StaticLinkageKey::Index {
@@ -271,12 +262,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::connected_component::ConnectedComponent>::push" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<connected_component::ConnectedComponent> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_CONNECTED_COMPONENT_VTABLE);
                     let element: connected_component::ConnectedComponent = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CONNECTED_COMPONENT_VTABLE);
@@ -284,37 +274,35 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<connected_component::ConnectedComponent>::push as *const ()),
-        }),
+            some base Vec::<connected_component::ConnectedComponent>::push as fn(&'static mut Vec<connected_component::ConnectedComponent>, connected_component::ConnectedComponent) -> ()
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::ilen" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_POINT_2_D_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<geom2d::Point2d>::ilen as *const ()),
-        }),
+            some base Vec::<geom2d::Point2d>::ilen as fn(&'static Vec<geom2d::Point2d>) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::geom2d::Point2d"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let x: f32 = __arguments[0].downcast_f32();
                     let y: f32 = __arguments[1].downcast_f32();
@@ -322,8 +310,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(geom2d::Point2d::__call__ as *const ()),
-        }),
+            some base geom2d::Point2d::__call__ as fn(f32, f32) -> geom2d::Point2d
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -356,12 +344,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             ty: "[]mnist_classifier::geom2d::Point2d"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __variadics =
                         __arguments[0..]
@@ -372,8 +359,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<geom2d::Point2d>::__call__ as *const ()),
-        }),
+            some base Vec::<geom2d::Point2d>::__call__ as fn(Vec<geom2d::Point2d>) -> Vec<geom2d::Point2d>
+        ),
     ),
     (
         __StaticLinkageKey::Index {
@@ -393,12 +380,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let contour: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
                     let line_segments: Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
@@ -406,8 +392,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::LineSegmentSketch::__call__ as *const ()),
-        }),
+            some base line_segment_sketch::LineSegmentSketch::__call__ as fn(&'static raw_contour::RawContour<'static>, Vec<line_segment_sketch::LineSegment<'static>>) -> line_segment_sketch::LineSegmentSketch<'static>
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -445,12 +431,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_pixel_pair",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let row: u32 = __arguments[0].downcast_b32();
                     let j: i32 = __arguments[1].downcast_i32();
@@ -458,19 +443,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::get_pixel_pair as *const ()),
-        }),
+            some base raw_contour::get_pixel_pair as fn(u32, i32) -> u32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_pixel_to_the_left",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let row: u32 = __arguments[0].downcast_b32();
                     let j: i32 = __arguments[1].downcast_i32();
@@ -478,19 +462,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::get_pixel_to_the_left as *const ()),
-        }),
+            some base raw_contour::get_pixel_to_the_left as fn(u32, i32) -> u32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_pixel_to_the_right",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let row: u32 = __arguments[0].downcast_b32();
                     let j: i32 = __arguments[1].downcast_i32();
@@ -498,19 +481,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::get_pixel_to_the_right as *const ()),
-        }),
+            some base raw_contour::get_pixel_to_the_right as fn(u32, i32) -> u32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_inward_direction",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let row_above: u32 = __arguments[0].downcast_b32();
                     let row_below: u32 = __arguments[1].downcast_b32();
@@ -519,19 +501,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::get_inward_direction as *const ()),
-        }),
+            some base raw_contour::get_inward_direction as fn(u32, u32, i32) -> raw_contour::Direction
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_angle_change",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let inward: raw_contour::Direction = __arguments[0].downcast_temp_ref::<__VirtualEnum>(&__registration__::__VIRTUAL_ENUM_VTABLE).kind_idx.into();
                     let outward: raw_contour::Direction = __arguments[1].downcast_temp_ref::<__VirtualEnum>(&__registration__::__VIRTUAL_ENUM_VTABLE).kind_idx.into();
@@ -539,19 +520,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::get_angle_change as *const ()),
-        }),
+            some base raw_contour::get_angle_change as fn(raw_contour::Direction, raw_contour::Direction) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_outward_direction",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let row_above: u32 = __arguments[0].downcast_b32();
                     let row_below: u32 = __arguments[1].downcast_b32();
@@ -561,20 +541,19 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::get_outward_direction as *const ()),
-        }),
+            some base raw_contour::get_outward_direction as fn(u32, u32, i32, raw_contour::Direction) -> raw_contour::Direction
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::raw_contour::StreakCache"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let prev1: i32 = __arguments[0].downcast_i32();
                     let prev2: i32 = __arguments[1].downcast_i32();
@@ -582,8 +561,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::StreakCache::__call__ as *const ()),
-        }),
+            some base raw_contour::StreakCache::__call__ as fn(i32, i32) -> raw_contour::StreakCache
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -615,39 +594,37 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_concave_middle_point",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let points: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_POINT_2_D_VTABLE);
                     __Register::new_box::<geom2d::Point2d>(raw_contour::get_concave_middle_point(points), &__registration__::__POINT_2_D_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::get_concave_middle_point as *const ()),
-        }),
+            some base raw_contour::get_concave_middle_point as fn(&'static Vec<geom2d::Point2d>) -> geom2d::Point2d
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::find_raw_contours",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
                     __Register::new_box::<Vec<raw_contour::RawContour<'eval>>>(raw_contour::find_raw_contours(cc), &__registration__::__VEC_RAW_CONTOUR_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::find_raw_contours as *const ()),
-        }),
+            some base raw_contour::find_raw_contours as fn(&'static connected_component::ConnectedComponent) -> Vec<raw_contour::RawContour<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::lastx" },
@@ -657,12 +634,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::geom2d::Point2d::from_i_shift28",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let i: i32 = __arguments[0].downcast_i32();
                     let shift: i32 = __arguments[1].downcast_i32();
@@ -670,17 +646,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(geom2d::Point2d::from_i_shift28 as *const ()),
-        }),
+            some base geom2d::Point2d::from_i_shift28 as fn(i32, i32) -> geom2d::Point2d
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::push" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_POINT_2_D_VTABLE);
                     let element: geom2d::Point2d = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__POINT_2_D_VTABLE);
@@ -688,34 +663,32 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<geom2d::Point2d>::push as *const ()),
-        }),
+            some base Vec::<geom2d::Point2d>::push as fn(&'static mut Vec<geom2d::Point2d>, geom2d::Point2d) -> ()
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::popx" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_POINT_2_D_VTABLE);
                     __Register::new_box::<geom2d::Point2d>(__this.popx(), &__registration__::__POINT_2_D_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<geom2d::Point2d>::popx as *const ()),
-        }),
+            some base Vec::<geom2d::Point2d>::popx as fn(&'static mut Vec<geom2d::Point2d>) -> geom2d::Point2d
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::raw_contour::RawContour>::push" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<raw_contour::RawContour<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_RAW_CONTOUR_VTABLE);
                     let element: raw_contour::RawContour<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__RAW_CONTOUR_VTABLE);
@@ -723,20 +696,19 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<raw_contour::RawContour>::push as *const ()),
-        }),
+            some base Vec::<raw_contour::RawContour>::push as fn(&'static mut Vec<raw_contour::RawContour<'static>>, raw_contour::RawContour<'static>) -> ()
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::geom2d::Vector2d"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let x: f32 = __arguments[0].downcast_f32();
                     let y: f32 = __arguments[1].downcast_f32();
@@ -744,8 +716,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(geom2d::Vector2d::__call__ as *const ()),
-        }),
+            some base geom2d::Vector2d::__call__ as fn(f32, f32) -> geom2d::Vector2d
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -778,12 +750,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__LINE_SEGMENT_SKETCH_VTABLE);
                     let line_segments: __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE);
@@ -791,8 +762,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::concave_component::ConcaveComponent::__call__ as *const ()),
-        }),
+            some base line_segment_sketch::concave_component::ConcaveComponent::__call__ as fn(&'static line_segment_sketch::LineSegmentSketch<'static>, __std::slice::CyclicSlice<'static, line_segment_sketch::LineSegment<'static>>) -> line_segment_sketch::concave_component::ConcaveComponent<'static>
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -837,20 +808,19 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             ty: "mnist_classifier::line_segment_sketch::LineSegment"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let points: __std::slice::CyclicSlice<'eval, geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__CYCLIC_SLICE_POINT_2_D_VTABLE);
                     __Register::new_box::<line_segment_sketch::LineSegment<'eval>>(line_segment_sketch::LineSegment::__call__(points), &__registration__::__LINE_SEGMENT_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::LineSegment::__call__ as *const ()),
-        }),
+            some base line_segment_sketch::LineSegment::__call__ as fn(__std::slice::CyclicSlice<'static, geom2d::Point2d>) -> line_segment_sketch::LineSegment<'static>
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -934,32 +904,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::line_segment_sketch::concave_component::find_concave_components",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__LINE_SEGMENT_SKETCH_VTABLE);
                     __Register::new_box::<Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>>(line_segment_sketch::concave_component::find_concave_components(line_segment_sketch), &__registration__::__VEC_CONCAVE_COMPONENT_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::concave_component::find_concave_components as *const ()),
-        }),
+            some base line_segment_sketch::concave_component::find_concave_components as fn(&'static line_segment_sketch::LineSegmentSketch<'static>) -> Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "[]mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __variadics =
                         __arguments[0..]
@@ -970,8 +938,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<line_segment_sketch::concave_component::ConcaveComponent>::__call__ as *const ()),
-        }),
+            some base Vec::<line_segment_sketch::concave_component::ConcaveComponent>::__call__ as fn(Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>) -> Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::Index {
@@ -988,31 +956,29 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::ilen" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<line_segment_sketch::LineSegment>::ilen as *const ()),
-        }),
+            some base Vec::<line_segment_sketch::LineSegment>::ilen as fn(&'static Vec<line_segment_sketch::LineSegment<'static>>) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::line_segment_sketch::convexity::is_convex",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let line_segment_sketch: &line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__LINE_SEGMENT_SKETCH_VTABLE);
                     let index: i32 = __arguments[1].downcast_i32();
@@ -1020,17 +986,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::convexity::is_convex as *const ()),
-        }),
+            some base line_segment_sketch::convexity::is_convex as fn(&'static line_segment_sketch::LineSegmentSketch<'static>, i32) -> bool
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::cyclic_slice" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &'eval Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_eval_ref(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
                     let start: i32 = __arguments[1].downcast_i32();
@@ -1039,17 +1004,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<line_segment_sketch::LineSegment>::cyclic_slice as *const ()),
-        }),
+            some base Vec::<line_segment_sketch::LineSegment>::cyclic_slice as fn(&'static Vec<line_segment_sketch::LineSegment<'static>>, i32, i32) -> __std::slice::CyclicSlice<'static, line_segment_sketch::LineSegment<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::push" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
                     let element: line_segment_sketch::concave_component::ConcaveComponent<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CONCAVE_COMPONENT_VTABLE);
@@ -1057,20 +1021,19 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<line_segment_sketch::concave_component::ConcaveComponent>::push as *const ()),
-        }),
+            some base Vec::<line_segment_sketch::concave_component::ConcaveComponent>::push as fn(&'static mut Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>, line_segment_sketch::concave_component::ConcaveComponent<'static>) -> ()
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__LINE_SEGMENT_SKETCH_VTABLE);
                     let line_segments: __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE);
@@ -1078,8 +1041,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::convex_component::ConvexCompoent::__call__ as *const ()),
-        }),
+            some base line_segment_sketch::convex_component::ConvexCompoent::__call__ as fn(&'static line_segment_sketch::LineSegmentSketch<'static>, __std::slice::CyclicSlice<'static, line_segment_sketch::LineSegment<'static>>) -> line_segment_sketch::convex_component::ConvexCompoent<'static>
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -1109,29 +1072,27 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::LineSegment::displacement" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &line_segment_sketch::LineSegment<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__LINE_SEGMENT_VTABLE);
                     __Register::new_box::<geom2d::Vector2d>(__this.displacement(), &__registration__::__VECTOR_2_D_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::LineSegment::displacement as *const ()),
-        }),
+            some base line_segment_sketch::LineSegment::displacement as fn(&'static line_segment_sketch::LineSegment<'static>) -> geom2d::Vector2d
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::rotation_direction_to" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
                     let other: &geom2d::Vector2d = __arguments[1].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
@@ -1139,17 +1100,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(geom2d::Vector2d::rotation_direction_to as *const ()),
-        }),
+            some base geom2d::Vector2d::rotation_direction_to as fn(&'static geom2d::Vector2d, &'static geom2d::Vector2d) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "mnist_classifier::raw_contour::RawContour::displacement" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &raw_contour::RawContour<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__RAW_CONTOUR_VTABLE);
                     let start: i32 = __arguments[1].downcast_i32();
@@ -1158,17 +1118,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(raw_contour::RawContour::displacement as *const ()),
-        }),
+            some base raw_contour::RawContour::displacement as fn(&'static raw_contour::RawContour<'static>, i32, i32) -> geom2d::Vector2d
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::cross" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
                     let other: &geom2d::Vector2d = __arguments[1].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
@@ -1176,8 +1135,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(geom2d::Vector2d::cross as *const ()),
-        }),
+            some base geom2d::Vector2d::cross as fn(&'static geom2d::Vector2d, &'static geom2d::Vector2d) -> f32
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -1222,12 +1181,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::line_segment_sketch::LineSegment::new",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
                     let from: i32 = __arguments[1].downcast_i32();
@@ -1236,20 +1194,19 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::LineSegment::new as *const ()),
-        }),
+            some base line_segment_sketch::LineSegment::new as fn(&'static raw_contour::RawContour<'static>, i32, i32) -> line_segment_sketch::LineSegment<'static>
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "[]mnist_classifier::line_segment_sketch::LineSegment"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __variadics =
                         __arguments[0..]
@@ -1260,8 +1217,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<line_segment_sketch::LineSegment>::__call__ as *const ()),
-        }),
+            some base Vec::<line_segment_sketch::LineSegment>::__call__ as fn(Vec<line_segment_sketch::LineSegment<'static>>) -> Vec<line_segment_sketch::LineSegment<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::Index {
@@ -1280,12 +1237,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::line_segment_sketch::LineSegmentSketch::new",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
                     let r: f32 = __arguments[1].downcast_f32();
@@ -1293,19 +1249,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::LineSegmentSketch::new as *const ()),
-        }),
+            some base line_segment_sketch::LineSegmentSketch::new as fn(&'static raw_contour::RawContour<'static>, f32) -> line_segment_sketch::LineSegmentSketch<'static>
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::line_segment_sketch::go_right",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let u: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
                     let r: f32 = __arguments[1].downcast_f32();
@@ -1313,19 +1268,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::go_right as *const ()),
-        }),
+            some base line_segment_sketch::go_right as fn(&'static geom2d::Vector2d, f32) -> geom2d::Vector2d
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::line_segment_sketch::go_left",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let u: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
                     let r: f32 = __arguments[1].downcast_f32();
@@ -1333,19 +1287,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::go_left as *const ()),
-        }),
+            some base line_segment_sketch::go_left as fn(&'static geom2d::Vector2d, f32) -> geom2d::Vector2d
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::line_segment_sketch::extend_end",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
                     let start: i32 = __arguments[1].downcast_i32();
@@ -1354,36 +1307,34 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::extend_end as *const ()),
-        }),
+            some base line_segment_sketch::extend_end as fn(&'static raw_contour::RawContour<'static>, i32, f32) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::norm" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
                     __this.norm().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(geom2d::Vector2d::norm as *const ()),
-        }),
+            some base geom2d::Vector2d::norm as fn(&'static geom2d::Vector2d) -> f32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::line_segment_sketch::extend_start",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
                     let start0: i32 = __arguments[1].downcast_i32();
@@ -1393,19 +1344,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::extend_start as *const ()),
-        }),
+            some base line_segment_sketch::extend_start as fn(&'static raw_contour::RawContour<'static>, i32, i32, f32) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::line_segment_sketch::find_line_segments",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
                     let r: f32 = __arguments[1].downcast_f32();
@@ -1413,8 +1363,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(line_segment_sketch::find_line_segments as *const ()),
-        }),
+            some base line_segment_sketch::find_line_segments as fn(&'static raw_contour::RawContour<'static>, f32) -> Vec<line_segment_sketch::LineSegment<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::lastx" },
@@ -1422,12 +1372,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::dot" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
                     let other: &geom2d::Vector2d = __arguments[1].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
@@ -1435,17 +1384,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(geom2d::Vector2d::dot as *const ()),
-        }),
+            some base geom2d::Vector2d::dot as fn(&'static geom2d::Vector2d, &'static geom2d::Vector2d) -> f32
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Point2d::to" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &geom2d::Point2d = __arguments[0].downcast_temp_ref(&__registration__::__POINT_2_D_VTABLE);
                     let other: &geom2d::Point2d = __arguments[1].downcast_temp_ref(&__registration__::__POINT_2_D_VTABLE);
@@ -1453,34 +1401,32 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(geom2d::Point2d::to as *const ()),
-        }),
+            some base geom2d::Point2d::to as fn(&'static geom2d::Point2d, &'static geom2d::Point2d) -> geom2d::Vector2d
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::popx" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
                     __Register::new_box::<line_segment_sketch::LineSegment<'eval>>(__this.popx(), &__registration__::__LINE_SEGMENT_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<line_segment_sketch::LineSegment>::popx as *const ()),
-        }),
+            some base Vec::<line_segment_sketch::LineSegment>::popx as fn(&'static mut Vec<line_segment_sketch::LineSegment<'static>>) -> line_segment_sketch::LineSegment<'static>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::push" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
                     let element: line_segment_sketch::LineSegment<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__LINE_SEGMENT_VTABLE);
@@ -1488,8 +1434,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<line_segment_sketch::LineSegment>::push as *const ()),
-        }),
+            some base Vec::<line_segment_sketch::LineSegment>::push as fn(&'static mut Vec<line_segment_sketch::LineSegment<'static>>, line_segment_sketch::LineSegment<'static>) -> ()
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::firstx" },
@@ -1500,12 +1446,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             ty: "mnist_classifier::fermi::FermiMatchResult"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let matches: Vec<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE);
                     let others: Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__VEC_REF_CONCAVE_COMPONENT_VTABLE);
@@ -1513,8 +1458,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(fermi::FermiMatchResult::__call__ as *const ()),
-        }),
+            some base fermi::FermiMatchResult::__call__ as fn(Vec<Option<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>>, Vec<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>) -> fermi::FermiMatchResult<'static>
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -1550,32 +1495,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<?&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &Vec<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::ilen as *const ()),
-        }),
+            some base Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::ilen as fn(&'static Vec<Option<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>>) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "[]?&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __variadics =
                         __arguments[0..]
@@ -1586,8 +1529,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::__call__ as *const ()),
-        }),
+            some base Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::__call__ as fn(Vec<Option<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>>) -> Vec<Option<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>>
+        ),
     ),
     (
         __StaticLinkageKey::Index {
@@ -1604,32 +1547,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_REF_CONCAVE_COMPONENT_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<&line_segment_sketch::concave_component::ConcaveComponent>::ilen as *const ()),
-        }),
+            some base Vec::<&line_segment_sketch::concave_component::ConcaveComponent>::ilen as fn(&'static Vec<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "[]&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __variadics =
                         __arguments[0..]
@@ -1640,8 +1581,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<&line_segment_sketch::concave_component::ConcaveComponent>::__call__ as *const ()),
-        }),
+            some base Vec::<&line_segment_sketch::concave_component::ConcaveComponent>::__call__ as fn(Vec<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>) -> Vec<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::Index {
@@ -1660,64 +1601,63 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::fermi::fermi_match",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let concave_components: &'eval Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_eval_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
-                    let templates: &Vec<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>> = __arguments[1].downcast_temp_ref(&__registration__::__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE);
-                    __Register::new_box::<fermi::FermiMatchResult<'eval>>(fermi::fermi_match(concave_components, templates), &__registration__::__FERMI_MATCH_RESULT_VTABLE)
+                    let templates: &Vec<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>> = __arguments[1].downcast_temp_ref(&__registration__::__VEC_THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE);
+                    __Register::new_box::<fermi::FermiMatchResult<'eval>>(fermi::fermi_match(concave_components, templates, __opt_ctx.unwrap()), &__registration__::__FERMI_MATCH_RESULT_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(fermi::fermi_match as *const ()),
-        }),
+            some ctx fermi::fermi_match as fn(&'static Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>, &'static Vec<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>>, &dyn __EvalContext<'static>) -> fermi::FermiMatchResult<'static>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<ThickFp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>>::ilen" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let __this: &Vec<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE);
+                    let __this: &Vec<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<for<'eval> fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>::ilen as *const ()),
-        }),
+            some base Vec::<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>>::ilen as fn(&'static Vec<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>>) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "[]ThickFp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>"
         },
 
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __variadics =
                         __arguments[0..]
                             .iter_mut()
                             .map(|v| {
-                                std::mem::transmute(v.downcast_temp_ref::<__VirtualFunction>(&__registration__::__FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE).fp())
+                                v.downcast_temp_ref::<__VirtualFunction>(
+                                    &__registration__::__THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE
+                                ).downcast_thick_fp()
                             })
                             .collect();
-                    __Register::new_box::<Vec<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>>(Vec::<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>::__call__(__variadics), &__registration__::__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE)
+                    __Register::new_box::<Vec<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>>>(Vec::<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>>::__call__(__variadics), &__registration__::__VEC_THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<for<'eval> fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>::__call__ as *const ()),
-        }),
+            some base Vec::<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>>::__call__ as fn(Vec<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>>) -> Vec<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>>
+        ),
     ),
     (
         __StaticLinkageKey::Index {
@@ -1726,57 +1666,54 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         index_linkage!(
             mutable,
             Intrinsic,
-            BoxCopyable,Vec<fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>>,
-            __registration__::__VEC_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE,
-            fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32>,
-            __registration__::__FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE
+            BoxCopyable,Vec<ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>>,
+            __registration__::__VEC_THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE,
+            ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>,
+            __registration__::__THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE
 )
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::collect_refs" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &'eval Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_eval_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
                     __Register::new_box::<Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>>(__this.collect_refs(), &__registration__::__VEC_REF_CONCAVE_COMPONENT_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<line_segment_sketch::concave_component::ConcaveComponent>::collect_refs as *const ()),
-        }),
+            some base Vec::<line_segment_sketch::concave_component::ConcaveComponent>::collect_refs as fn(&'static Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>) -> Vec<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::pop_with_largest_opt_f32" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_REF_CONCAVE_COMPONENT_VTABLE);
-                    let f: fn(&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>)->Option<f32> = std::mem::transmute(__arguments[1]
+                    let f: ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>> = unsafe { __arguments[1]
                         .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)
-                        .fp());
-                    __Register::new_opt_eval_ref::<line_segment_sketch::concave_component::ConcaveComponent<'eval>>(__this.pop_with_largest_opt_f32_copyable(f), &__registration__::__CONCAVE_COMPONENT_VTABLE)
+                        .downcast_thick_fp() };
+                    __Register::new_opt_eval_ref::<line_segment_sketch::concave_component::ConcaveComponent<'eval>>(__this.pop_with_largest_opt_f32_copyable(f, __opt_ctx.unwrap()), &__registration__::__CONCAVE_COMPONENT_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<&line_segment_sketch::concave_component::ConcaveComponent>::pop_with_largest_opt_f32_copyable as *const ()),
-        }),
+            some ctx Vec::<&line_segment_sketch::concave_component::ConcaveComponent>::pop_with_largest_opt_f32_copyable as fn(&'static mut Vec<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>, ThickFp<fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>>, &dyn __EvalContext<'static>) -> Option<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<?&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::push" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE);
                     let element: Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CONCAVE_COMPONENT_VTABLE);
@@ -1784,8 +1721,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::push as *const ()),
-        }),
+            some base Vec::<Option<&line_segment_sketch::concave_component::ConcaveComponent>>::push as fn(&'static mut Vec<Option<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>>, Option<&'static line_segment_sketch::concave_component::ConcaveComponent<'static>>) -> ()
+        ),
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
@@ -1797,29 +1734,27 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::one::downmost",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    one::downmost(__opt_ctx.unwrap(), cc).to_register()
+                    one::downmost(cc, __opt_ctx.unwrap()).to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(one::downmost as *const ()),
-        }),
+            some ctx one::downmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice" },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &'eval Vec<geom2d::Point2d> = __arguments[0].downcast_eval_ref(&__registration__::__VEC_POINT_2_D_VTABLE);
                     let start: i32 = __arguments[1].downcast_i32();
@@ -1828,8 +1763,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            opt_fp: Some(Vec::<geom2d::Point2d>::cyclic_slice as *const ()),
-        }),
+            some base Vec::<geom2d::Point2d>::cyclic_slice as fn(&'static Vec<geom2d::Point2d>, i32, i32) -> __std::slice::CyclicSlice<'static, geom2d::Point2d>
+        ),
     ),
     (
         __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>::firstx" },

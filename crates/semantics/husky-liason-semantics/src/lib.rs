@@ -51,35 +51,22 @@ impl ParameterLiason {
         member_ty: EntityRoutePtr,
         is_copyable: bool,
     ) -> ParameterLiason {
-        match member_ty.variant {
-            EntityRouteVariant::Root {
-                ident: RootIdentifier::Ref,
-            } => {
-                if member_ty.temporal_arguments.len() == 0
-                    || member_ty.temporal_arguments[0] == TemporalArgument::Eval
-                {
-                    ParameterLiason::EvalRef
+        match member_liason {
+            MemberLiason::Immutable => {
+                if is_copyable {
+                    ParameterLiason::Pure
                 } else {
-                    ParameterLiason::TempRef
+                    ParameterLiason::Move
                 }
             }
-            _ => match member_liason {
-                MemberLiason::Immutable => {
-                    if is_copyable {
-                        ParameterLiason::Pure
-                    } else {
-                        ParameterLiason::Move
-                    }
+            MemberLiason::Mutable => {
+                if is_copyable {
+                    ParameterLiason::Pure
+                } else {
+                    ParameterLiason::MoveMut
                 }
-                MemberLiason::Mutable => {
-                    if is_copyable {
-                        ParameterLiason::Pure
-                    } else {
-                        ParameterLiason::MoveMut
-                    }
-                }
-                MemberLiason::DerivedLazy => panic!(),
-            },
+            }
+            MemberLiason::DerivedLazy => panic!(),
         }
     }
 }

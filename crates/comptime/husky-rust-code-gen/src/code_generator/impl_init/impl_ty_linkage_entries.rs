@@ -26,7 +26,7 @@ impl<'a> RustCodeGenerator<'a> {
         ));
         let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
         self.gen_transfer_linkage(
-            self.db.needs_eval_context(entity_route),
+            false, // ad hoc
             None,
             |this| {
                 this.gen_entity_route(entity_route, EntityRouteRole::Caller);

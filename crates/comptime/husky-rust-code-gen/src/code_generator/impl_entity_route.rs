@@ -30,7 +30,7 @@ impl<'a> RustCodeGenerator<'a> {
                             if !self.db.is_copyable(argument_ty).unwrap() {
                                 self.write("&")
                             }
-                            self.gen_entity_route(argument_ty, EntityRouteRole::Decl)
+                            self.gen_entity_route(argument_ty, EntityRouteRole::StaticDecl)
                         }
                         self.write(")");
                         let output_ty = entity_route
@@ -40,7 +40,7 @@ impl<'a> RustCodeGenerator<'a> {
                             .take_entity_route();
                         if output_ty != EntityRoutePtr::Root(RootIdentifier::Void) {
                             self.write("->");
-                            self.gen_entity_route(output_ty, EntityRouteRole::Decl)
+                            self.gen_entity_route(output_ty, EntityRouteRole::StaticDecl)
                         }
                         match role {
                             EntityRouteRole::StaticBaseFpDecl => self.write(""),
@@ -99,7 +99,11 @@ impl<'a> RustCodeGenerator<'a> {
             }
         }
         let needs_eval_ref = match role {
-            EntityRouteRole::Decl => self.db.entity_route_variant_contains_eval_ref(entity_route),
+            EntityRouteRole::Decl
+            | EntityRouteRole::StaticBaseFpDecl
+            | EntityRouteRole::StaticDecl => {
+                self.db.entity_route_variant_contains_eval_ref(entity_route)
+            }
             _ => false,
         };
         if needs_eval_ref || entity_route.spatial_arguments.len() > 0 {
@@ -109,7 +113,13 @@ impl<'a> RustCodeGenerator<'a> {
             }
             self.write("<");
             if needs_eval_ref {
-                self.write("'eval");
+                match role {
+                    EntityRouteRole::Decl => self.write("'eval"),
+                    EntityRouteRole::StaticBaseFpDecl | EntityRouteRole::StaticDecl => {
+                        self.write("'static")
+                    }
+                    _ => panic!(),
+                }
             }
             for i in 0..entity_route.spatial_arguments.len() {
                 if i > 0 || needs_eval_ref {

@@ -188,8 +188,8 @@ macro_rules! index_temp_ref_fp {
         $ELEMENT_TYPE_VTABLE: expr
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;

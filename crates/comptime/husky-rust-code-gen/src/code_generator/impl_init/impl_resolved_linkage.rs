@@ -210,7 +210,7 @@ impl<'a> RustCodeGenerator<'a> {
                         true => {
                             if variadic_ty.is_option() {
                                 let variadic_ty = variadic_ty.entity_route_argument(0);
-                                if variadic_ty.is_ref() {
+                                if variadic_ty.is_eval_ref() {
                                     self.write(&format!(
                                     r#"
                     let __variadics =
@@ -232,7 +232,7 @@ impl<'a> RustCodeGenerator<'a> {
                                 } else {
                                     todo!()
                                 }
-                            } else if variadic_ty.is_ref() {
+                            } else if variadic_ty.is_eval_ref() {
                                 self.write(&format!(
                                     r#"
                     let __variadics =
@@ -248,10 +248,12 @@ impl<'a> RustCodeGenerator<'a> {
                         __arguments[{variadic_start}..]
                             .iter_mut()
                             .map(|v| {{
-                                std::mem::transmute(v.downcast_temp_ref::<__VirtualFunction>(&__registration__::{variadic_ty_vtable}).fp())
+                                v.downcast_temp_ref::<__VirtualFunction>(
+                                    &__registration__::{variadic_ty_vtable}
+                                ).downcast_thick_fp()
                             }})
                             .collect();"#,
-                                    ));
+                                ));
                             } else {
                                 p!(variadic_ty);
                                 todo!()
@@ -306,13 +308,17 @@ impl<'a> RustCodeGenerator<'a> {
                     if self.db.is_copyable(parameter.ty).unwrap() {
                         ()
                     } else {
+                        assert!(!parameter.ty.is_eval_ref());
                         self.write("&'static ")
                     }
                 }
                 ParameterLiason::Move => (),
                 ParameterLiason::MoveMut => todo!(),
                 ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::EvalRef => self.write("&'static "),
+                ParameterLiason::EvalRef => {
+                    assert!(!parameter.ty.is_eval_ref());
+                    self.write("&'static ")
+                }
                 ParameterLiason::TempRef => todo!(),
                 ParameterLiason::TempRefMut => todo!(),
             }
