@@ -8,14 +8,6 @@ pub struct BinaryGrid28 {
     padded_rows: [u32; 31],
 }
 
-#[cfg(feature = "any_support")]
-impl<'eval> __WithEvalLifetime<'eval> for BinaryGrid28 {
-    type __SelfWithEvalLifetime = BinaryGrid28;
-}
-
-#[cfg(feature = "any_support")]
-impl __Any for BinaryGrid28 {}
-
 impl std::ops::Index<usize> for BinaryGrid28 {
     type Output = u32;
 

@@ -10,9 +10,10 @@ pub struct ThickFp<F: for<'eval> __BaseThinFp> {
 }
 
 impl<F: for<'eval> __BaseThinFp> ThickFp<F> {
-    pub fn call1<'eval, A1, Output>(self, __ctx: &dyn __EvalContext<'eval>, a1: A1) -> Output
+    pub fn call1<'eval, A1, Output>(self, a1: A1, __ctx: &dyn __EvalContext<'eval>) -> Output
     where
-        F: Fn(A1) -> Output,
+        A1: __StaticInfo,
+        F: Fn(A1::__StaticSelf) -> Output,
     {
         todo!()
     }
@@ -35,9 +36,3 @@ where
         todo!()
     }
 }
-
-impl<'eval, F: __BaseThinFp> __WithEvalLifetime<'eval> for ThickFp<F> {
-    type __SelfWithEvalLifetime = Self;
-}
-
-impl<F: for<'eval> __BaseThinFp> __Any for ThickFp<F> where F::__StaticSelf: for<'eval> __BaseThinFp {}

@@ -128,17 +128,14 @@ impl<'a> RustCodeGenerator<'a> {
         }
         gen_caller(self);
         self.write("(");
-        if needs_eval_context {
-            self.write("__opt_ctx.unwrap()")
-        }
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
-            if needs_eval_context || i > 0 {
+            if i > 0 {
                 self.write(", ")
             }
             self.write(&parameter.ident)
         }
         for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
-            if needs_eval_context || i + decl.primary_parameters.len() > 0 {
+            if i + decl.primary_parameters.len() > 0 {
                 self.write(", ");
             }
             self.write(&parameter.ident)
@@ -146,14 +143,20 @@ impl<'a> RustCodeGenerator<'a> {
         match decl.variadic_template {
             VariadicTemplate::None => (),
             VariadicTemplate::SingleTyped { .. } => {
-                if needs_eval_context
-                    || decl.primary_parameters.len() > 0
-                    || decl.keyword_parameters.len() > 0
-                {
+                if decl.primary_parameters.len() > 0 || decl.keyword_parameters.len() > 0 {
                     self.write(", ")
                 }
                 self.write("__variadics")
             }
+        }
+        if needs_eval_context {
+            if decl.primary_parameters.len() > 0
+                || decl.keyword_parameters.len() > 0
+                || decl.variadic_template.is_some()
+            {
+                self.write(", ")
+            }
+            self.write("__opt_ctx.unwrap()")
         }
         let mangled_output_ty_vtable = self.db.mangled_intrinsic_ty_vtable(decl.output.ty());
         if is_intrinsic_output_ty_primitive {
@@ -295,7 +298,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.gen_entity_route(this_ty, EntityRouteRole::StaticDecl)
         }
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
-            if needs_eval_context || decl.opt_this_liason.is_some() || i > 0 {
+            if decl.opt_this_liason.is_some() || i > 0 {
                 self.write(", ")
             }
             match parameter.liason {
@@ -316,10 +319,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.gen_entity_route(parameter.ty, EntityRouteRole::StaticDecl)
         }
         for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
-            if needs_eval_context
-                || decl.opt_this_liason.is_some()
-                || i + decl.primary_parameters.len() > 0
-            {
+            if decl.opt_this_liason.is_some() || i + decl.primary_parameters.len() > 0 {
                 self.write(", ");
             }
             match parameter.liason {
@@ -342,8 +342,7 @@ impl<'a> RustCodeGenerator<'a> {
         match decl.variadic_template {
             VariadicTemplate::None => (),
             VariadicTemplate::SingleTyped { variadic_ty } => {
-                if needs_eval_context
-                    || decl.opt_this_liason.is_some()
+                if decl.opt_this_liason.is_some()
                     || decl.primary_parameters.len() > 0
                     || decl.keyword_parameters.len() > 0
                 {

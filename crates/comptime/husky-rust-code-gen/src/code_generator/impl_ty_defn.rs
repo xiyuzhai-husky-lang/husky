@@ -64,7 +64,6 @@ impl From<i32> for {tyname} {{
         );
         let ty_contains_eval_ref = self.db.entity_route_variant_contains_eval_ref(base_route);
         self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
-        self.gen_any_value_impl(base_route, tyname, ty_contains_eval_ref);
     }
 
     pub(super) fn gen_struct_defn(
@@ -144,8 +143,6 @@ impl From<i32> for {tyname} {{
         self.write("}\n");
 
         self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
-
-        self.gen_any_value_impl(base_route, tyname, ty_contains_eval_ref);
 
         for trait_impl in trait_impls {
             self.gen_trait_impl(tyname, trait_impl)
@@ -429,35 +426,6 @@ impl From<i32> for {tyname} {{
 }}
 "#
         ));
-    }
-
-    fn gen_any_value_impl(
-        &mut self,
-        base_route: EntityRoutePtr,
-        tyname: CustomIdentifier,
-        ty_contains_eval_ref: bool,
-    ) {
-        if ty_contains_eval_ref {
-            self.write(format!(
-                r#"
-impl<'eval, 'eval0> __WithEvalLifetime<'eval0> for {tyname}<'eval0> {{
-    type __SelfWithEvalLifetime = {tyname}<'eval>;
-}}
-
-impl<'eval> __Any for {tyname}<'eval> {{}}
-    "#,
-            ));
-        } else {
-            self.write(format!(
-                r#"
-impl<'eval> __WithEvalLifetime<'eval> for {tyname} {{
-    type __SelfWithEvalLifetime = {tyname};
-}}
-
-impl __Any for {tyname} {{}}
-    "#,
-            ));
-        }
     }
 
     fn gen_trait_impl(&mut self, tyname: CustomIdentifier, trait_impl: &TraitImplDefn) {
