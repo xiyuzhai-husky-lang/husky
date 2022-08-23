@@ -13,4 +13,4 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 vm = { path = "../../vm/husky-vm" }
-infer-error = { path = "../../infer/error" }
+husky-infer-error = { path = "../../infer/husky-infer-error" }

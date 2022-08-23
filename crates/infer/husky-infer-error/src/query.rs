@@ -98,8 +98,8 @@ macro_rules! query_error {
 #[macro_export]
 macro_rules! query_derived_not_none {
     ($opt_value: expr) => {{
-        $opt_value.ok_or(infer_error::InferQueryError {
-            kind: infer_error::InferQueryErrorKind::Derived,
+        $opt_value.ok_or(husky_infer_error::InferQueryError {
+            kind: husky_infer_error::InferQueryErrorKind::Derived,
             message: "expect not none".to_string(),
             dev_src: husky_dev_utils::dev_src!(),
         })
@@ -109,8 +109,8 @@ macro_rules! query_derived_not_none {
 #[macro_export]
 macro_rules! throw_query_derived {
     ($result: expr) => {{
-        $result.map_err(|_| infer_error::InferQueryError {
-            kind: infer_error::InferQueryErrorKind::Derived,
+        $result.map_err(|_| husky_infer_error::InferQueryError {
+            kind: husky_infer_error::InferQueryErrorKind::Derived,
             message: "expect ok".to_string(),
             dev_src: husky_dev_utils::dev_src!(),
         })?

@@ -3,10 +3,10 @@ use std::iter::zip;
 use crate::*;
 use husky_ast::*;
 use husky_entity_route::EntityRoutePtr;
+use husky_infer_error::*;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_text::TextRange;
 use husky_text::{RangedCustomIdentifier, TextPosition};
-use infer_error::*;
 
 use super::*;
 use crate::*;
@@ -318,7 +318,7 @@ impl<'a> ContractSheetBuilder<'a> {
         idx: arena::ArenaIdx<RawExpr>,
         elements: RawExprRange,
         contract: EagerContract,
-    ) -> Result<(), infer_error::InferError> {
+    ) -> Result<(), husky_infer_error::InferError> {
         let element_ty = self.raw_expr_ty(elements.start)?;
         let element_contract = match self.db.is_copyable(element_ty)? {
             true => EagerContract::Pure,

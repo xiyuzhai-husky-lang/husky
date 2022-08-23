@@ -5,14 +5,14 @@ use husky_check_utils::should;
 use husky_defn_head::Parameter;
 use husky_entity_kind::EntityKind;
 use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
+use husky_infer_error::{
+    derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
+};
 use husky_opn_syntax::RawOpnVariant;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_print_utils::{epin, msg_once, p};
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
 use husky_text::{TextRange, TextRanged};
-use infer_error::{
-    derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
-};
 
 use super::*;
 

@@ -10,7 +10,7 @@ description = "Generic LSP server scaffold."
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-infer-error = { path = "../error" }
+husky-infer-error = { path = "../husky-infer-error" }
 infer-decl = { path = "../husky-infer-decl" }
 husky-infer-entity-route = { path = "../husky-infer-entity-route" }
 infer-contract = { path = "../husky-infer-contract" }

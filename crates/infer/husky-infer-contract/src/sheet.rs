@@ -2,7 +2,7 @@ use arena::map::ArenaMap;
 use fold::FoldableStorage;
 use husky_ast::{RawExprArena, RawExprMap};
 use husky_infer_entity_route::EntityRouteSheet;
-use infer_error::*;
+use husky_infer_error::*;
 use std::{collections::HashMap, sync::Arc};
 
 use crate::{builder::ContractSheetBuilder, *};

@@ -2,11 +2,11 @@ use std::{iter::zip, sync::Arc};
 
 use husky_ast::*;
 
+use husky_infer_error::*;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_text::TextRange;
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
 use infer_decl::CallFormDecl;
-use infer_error::*;
 use vm::*;
 
 use super::*;

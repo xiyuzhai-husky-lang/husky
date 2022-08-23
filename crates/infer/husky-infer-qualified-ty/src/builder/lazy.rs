@@ -2,14 +2,14 @@ use husky_ast::*;
 use husky_check_utils::should;
 use husky_defn_head::Parameter;
 use husky_entity_kind::EntityKind;
+use husky_infer_error::derived;
+use husky_infer_error::derived_not_none;
+use husky_infer_error::derived_unwrap;
+use husky_infer_error::throw_derived;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_print_utils::p;
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRanged;
-use infer_error::derived;
-use infer_error::derived_not_none;
-use infer_error::derived_unwrap;
-use infer_error::throw_derived;
 
 use super::*;
 

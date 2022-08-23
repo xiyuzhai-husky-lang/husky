@@ -134,8 +134,8 @@ impl BindTextRangeFrom<VMCompileError> for InferError {
 #[macro_export]
 macro_rules! error {
     ($msg:expr, $range: expr) => {{
-        infer_error::InferError {
-            variant: infer_error::InferErrorVariant::Original {
+        husky_infer_error::InferError {
+            variant: husky_infer_error::InferErrorVariant::Original {
                 message: $msg.into(),
                 range: $range,
             },
@@ -147,8 +147,8 @@ macro_rules! error {
 #[macro_export]
 macro_rules! throw {
     ($msg:expr, $range: expr) => {{
-        Err(infer_error::InferError {
-            variant: infer_error::InferErrorVariant::Original {
+        Err(husky_infer_error::InferError {
+            variant: husky_infer_error::InferErrorVariant::Original {
                 message: $msg.into(),
                 range: $range,
             },
@@ -160,8 +160,8 @@ macro_rules! throw {
 #[macro_export]
 macro_rules! throw_derived {
     ($msg:expr) => {{
-        Err(infer_error::InferError {
-            variant: infer_error::InferErrorVariant::Derived {
+        Err(husky_infer_error::InferError {
+            variant: husky_infer_error::InferErrorVariant::Derived {
                 message: $msg.into(),
             },
             dev_src: husky_dev_utils::dev_src!(),
@@ -185,8 +185,8 @@ macro_rules! ok_or {
 #[macro_export]
 macro_rules! derived_not_none {
     ($opt_value: expr) => {{
-        $opt_value.ok_or(infer_error::InferError {
-            variant: infer_error::InferErrorVariant::Derived {
+        $opt_value.ok_or(husky_infer_error::InferError {
+            variant: husky_infer_error::InferErrorVariant::Derived {
                 message: "expect not none".to_string(),
             },
             dev_src: husky_dev_utils::dev_src!(),
@@ -197,8 +197,8 @@ macro_rules! derived_not_none {
 #[macro_export]
 macro_rules! derived {
     ($message: expr) => {{
-        infer_error::InferError {
-            variant: infer_error::InferErrorVariant::Derived {
+        husky_infer_error::InferError {
+            variant: husky_infer_error::InferErrorVariant::Derived {
                 message: $message.into(),
             },
             dev_src: husky_dev_utils::dev_src!(),
@@ -209,8 +209,8 @@ macro_rules! derived {
 #[macro_export]
 macro_rules! derived_unwrap {
     ($result: expr) => {{
-        $result.map_err(|e| infer_error::InferError {
-            variant: infer_error::InferErrorVariant::Derived {
+        $result.map_err(|e| husky_infer_error::InferError {
+            variant: husky_infer_error::InferErrorVariant::Derived {
                 message: format!("expect ok but got {e:?} instead"),
             },
             dev_src: husky_dev_utils::dev_src!(),
