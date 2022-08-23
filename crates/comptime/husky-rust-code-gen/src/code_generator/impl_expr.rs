@@ -144,6 +144,12 @@ impl<'a> RustCodeGenerator<'a> {
                             }
                             self.write("(");
                             self.gen_arguments(indent, &opds[1..]);
+                            if self.db.needs_eval_context(*method_route) {
+                                if opds.len() > 1 {
+                                    self.write(", ")
+                                }
+                                self.write("__ctx")
+                            }
                             self.write(")");
                         }
                         OutputLiason::MemberAccess { .. } => match output_binding {
