@@ -291,7 +291,7 @@ impl<'a> RustCodeGenerator<'a> {
                 ParameterLiason::Move => todo!(),
                 ParameterLiason::MoveMut => todo!(),
                 ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::EvalRef => todo!(),
+                ParameterLiason::EvalRef => self.write("&'static "),
                 ParameterLiason::TempRef => todo!(),
                 ParameterLiason::TempRefMut => self.write("&'static mut "),
             }
