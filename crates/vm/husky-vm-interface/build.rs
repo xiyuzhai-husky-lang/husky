@@ -71,6 +71,8 @@ impl std::fmt::Display for ImplFp {
         let opt_comma = if self.nargs > 0 { ", " } else { "" };
         f.write_fmt(format_args!(
             r#"
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({arg_types}
@@ -89,35 +91,68 @@ impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({ar
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {arg_types_decl}Output: __Any> ThinFp
-    for fn({arg_types}) -> Output {{}}
+impl<'eval, {arg_types_decl}Output: __Any> const ThinFp
+    for fn({arg_types}) -> Output {{
+    fn needs_context() -> bool {{
+        false
+    }}
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, {arg_types_decl}Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,{arg_types}
-    ) -> Output {{}}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, {arg_types_decl}Output: __Any> __GetCtxThinFp<'eval>
-    for fn({arg_types}) -> Output
-{{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,{arg_types}
-    ) -> Output;
+    fn __to_void_pointer(self) -> *const () {{
+        self as *const ()
+    }}
 }}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {arg_types_decl}Output: __Any> const BaseThinFp
-    for fn({arg_types}) -> Output
-{{
+impl<'eval, {arg_types_decl}Output: __Any> const __BaseThinFp
+    for fn({arg_types}) -> Output {{
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,{arg_types}
+    ) -> Output;
+}}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, {arg_types}
+    ) -> Output {{
+    type __StaticSelf = fn({static_arg_types}
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {{
+        todo!()
+    }}
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {{
+        todo!()
+    }}
+}}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, {arg_types_decl}Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, {arg_types}
+    ) -> Output {{
+    fn needs_context() -> bool {{
+        false
+    }}
+
     fn __to_void_pointer(self) -> *const () {{
         self as *const ()
     }}
-}}"#,
+}}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, {arg_types_decl}Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, {arg_types}
+    ) -> Output {{}}
+"#,
         ))
     }
 }
