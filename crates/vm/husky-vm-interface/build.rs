@@ -42,6 +42,10 @@ impl std::fmt::Display for ImplFp {
             .into_iter()
             .map(|i| -> String { format!("A{i}: __Any, ") })
             .join("");
+        let static_arg_types_decl = (0..self.nargs)
+            .into_iter()
+            .map(|i| -> String { format!("A{i}: __StaticInfo, ") })
+            .join("");
         let arg_types = (0..self.nargs)
             .into_iter()
             .map(|i| -> String { format!(r#"A{i}"#) })
@@ -55,14 +59,38 @@ impl std::fmt::Display for ImplFp {
                 )
             })
             .join("");
+        let static_arg_types = (0..self.nargs)
+            .into_iter()
+            .map(|i| -> String {
+                format!(
+                    r#"
+        <A{i} as __StaticInfo>::__StaticSelf,"#
+                )
+            })
+            .join("");
         let opt_comma = if self.nargs > 0 { ", " } else { "" };
         f.write_fmt(format_args!(
             r#"
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({arg_types}
+) -> Output {{
+    type __StaticSelf = fn({static_arg_types}
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {{
+        todo!()
+    }}
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {{
+        todo!()
+    }}
+}}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, {arg_types_decl}Output: __Any> ThinFp
-    for fn({arg_types}
-    ) -> Output {{}}
+    for fn({arg_types}) -> Output {{}}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]

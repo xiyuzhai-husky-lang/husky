@@ -1,3 +1,5 @@
+use husky_vm_interface::{__Any, __EvalContext, __ThickFp};
+
 use crate::*;
 pub trait __VecX<T> {
     fn ilen(&self) -> i32;
@@ -18,9 +20,13 @@ pub trait __VecX<T> {
 
     fn collect_refs(&self) -> Vec<&T>;
 
-    fn pop_with_largest_opt_f32_copyable(&mut self, f: fn(T) -> Option<f32>) -> Option<T>
+    fn pop_with_largest_opt_f32_copyable<'eval>(
+        &mut self,
+        __ctx: &dyn __EvalContext<'eval>,
+        f: __ThickFp<fn(T) -> Option<f32>>,
+    ) -> Option<T>
     where
-        T: Copy + std::fmt::Debug;
+        T: Copy + std::fmt::Debug + __Any;
 
     fn pop_with_largest_opt_f32_borrow(&mut self, f: fn(&T) -> Option<f32>) -> Option<T>;
 }
@@ -50,14 +56,18 @@ impl<T> __VecX<T> for Vec<T> {
         self.iter().collect()
     }
 
-    fn pop_with_largest_opt_f32_copyable(&mut self, f: fn(T) -> Option<f32>) -> Option<T>
+    fn pop_with_largest_opt_f32_copyable<'eval>(
+        &mut self,
+        __ctx: &dyn __EvalContext<'eval>,
+        f: __ThickFp<fn(T) -> Option<f32>>,
+    ) -> Option<T>
     where
-        T: Copy + std::fmt::Debug,
+        T: Copy + std::fmt::Debug + __Any,
     {
         let mut imax = None;
         let mut vmax = f32::MIN;
         for i in 0..self.len() {
-            if let Some(v) = f(self[i]) {
+            if let Some(v) = f.call1(__ctx, self[i]) {
                 if v > vmax {
                     imax = Some(i);
                     vmax = v

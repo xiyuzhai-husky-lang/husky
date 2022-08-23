@@ -10,6 +10,7 @@ wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "any_support",
     "thin_fp",
+    "thick_fp",
     "linkage_macro"
 ] }
 husky-datasets-interface = { path = "../domains/ml/husky-datasets-interface", features = [
