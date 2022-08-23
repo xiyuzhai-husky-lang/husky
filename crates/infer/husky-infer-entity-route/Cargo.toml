@@ -31,7 +31,7 @@ husky-word = { path = "../../syntax/husky-word" }
 vm = { path = "../../vm/husky-vm" }
 infer-error = { path = "../error" }
 infer-decl = { path = "../husky-infer-decl" }
-defn-head = { path = "../../syntax/defn-head" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }

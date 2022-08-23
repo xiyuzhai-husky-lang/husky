@@ -28,7 +28,7 @@ husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-ast = { path = "../../syntax/husky-ast" }
-defn-head = { path = "../../syntax/defn-head" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-runtime = { path = "../../runtime/husky-runtime" }

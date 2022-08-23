@@ -16,10 +16,10 @@ pub use stmt::*;
 pub use transform::*;
 pub use xml::*;
 
-use defn_head::*;
 use error::*;
 use husky_atom::*;
 use husky_check_utils::*;
+use husky_defn_head::*;
 use husky_dev_utils::*;
 use husky_entity_kind::*;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};

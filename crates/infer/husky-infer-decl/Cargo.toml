@@ -31,7 +31,7 @@ husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-instantiate = { path = "../husky-instantiate" }
 husky-implement = { path = "../husky-implement" }
 static-defn = { path = "../../static/static-defn" }
-defn-head = { path = "../../syntax/defn-head" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-atom = { path = "../../syntax/husky-atom" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 thin-vec = { path = "../../../forks/thin-vec" }

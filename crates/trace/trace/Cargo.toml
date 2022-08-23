@@ -27,7 +27,7 @@ husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 husky-ast = { path = "../../syntax/husky-ast" }
-defn-head = { path = "../../syntax/defn-head" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

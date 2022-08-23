@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use crate::*;
-use defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
+use husky_defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
 use husky_entity_route::*;
 use husky_print_utils::msg_once;
 use husky_token::SemanticTokenKind;

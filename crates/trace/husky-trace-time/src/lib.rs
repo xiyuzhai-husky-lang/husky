@@ -11,8 +11,8 @@ mod impl_trace_stats;
 mod trace_node;
 
 use avec::Avec;
-use defn_head::Parameter;
 use husky_comptime::*;
+use husky_defn_head::Parameter;
 use husky_eager_semantics::*;
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;

@@ -21,13 +21,13 @@ pub use ty::*;
 pub use visual::*;
 
 use avec::Avec;
-use defn_head::*;
 use fold::{FoldIterItem, FoldableStorage};
 use husky_ast::AstVariant;
 use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext, AtomContextStandalone,
 };
+use husky_defn_head::*;
 use husky_eager_semantics::*;
 use husky_entity_kind::*;
 use husky_entity_route::{EntityRoute, EntityRouteVariant};

@@ -13,7 +13,6 @@ pub use trait_impl::*;
 pub use vec::*;
 
 use crate::*;
-use defn_head::*;
 pub use enum_variant::*;
 use fold::LocalStack;
 use husky_ast::AstIter;
@@ -21,6 +20,7 @@ use husky_atom::{
     context::{AtomContextKind, Symbol, SymbolKind},
     AtomContext, AtomContextStandalone,
 };
+use husky_defn_head::*;
 use husky_entity_route::*;
 use husky_text::*;
 use husky_word::{IdentArcDict, IdentDict, Paradigm};
