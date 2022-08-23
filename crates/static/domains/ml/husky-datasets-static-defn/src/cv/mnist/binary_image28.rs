@@ -75,7 +75,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(|_, _values| unsafe {
             (__Register::new_box(BinaryImage28::default(), &__BINARY_IMAGE_28_VTABLE))
-        }, some BinaryImage28::__call__ as fn() -> BinaryImage28)
+        }, some base BinaryImage28::__call__ as fn() -> BinaryImage28)
         .into(),
     },
     dev_src: static_dev_src!(),

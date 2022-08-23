@@ -883,10 +883,6 @@ impl<'eval, Output: __StaticInfo> __StaticInfo for fn(
 #[rustfmt::skip]
 impl<'eval, Output: __Any> const ThinFp
     for fn() -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -927,10 +923,6 @@ impl<'eval, Output: __Any> const ThinFp
     for fn(
         &dyn __EvalContext<'eval>, 
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -966,10 +958,6 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0
 #[rustfmt::skip]
 impl<'eval, A0: __Any, Output: __Any> const ThinFp
     for fn(A0) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1011,10 +999,6 @@ impl<'eval, A0: __Any, Output: __Any> const ThinFp
     for fn(
         &dyn __EvalContext<'eval>, A0
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1051,10 +1035,6 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, Output: __Any> const ThinFp
     for fn(A0, A1) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1097,10 +1077,6 @@ impl<'eval, A0: __Any, A1: __Any, Output: __Any> const ThinFp
     for fn(
         &dyn __EvalContext<'eval>, A0, A1
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1138,10 +1114,6 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
 #[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> const ThinFp
     for fn(A0, A1, A2) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1185,10 +1157,6 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> const ThinFp
     for fn(
         &dyn __EvalContext<'eval>, A0, A1, A2
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1227,10 +1195,6 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const ThinFp
     for fn(A0, A1, A2, A3) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1275,10 +1239,6 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const Thi
     for fn(
         &dyn __EvalContext<'eval>, A0, A1, A2, A3
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1318,10 +1278,6 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const ThinFp
     for fn(A0, A1, A2, A3, A4) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1367,10 +1323,6 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any
     for fn(
         &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1411,10 +1363,6 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1461,10 +1409,6 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Ou
     for fn(
         &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1506,10 +1450,6 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1557,10 +1497,6 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6
     for fn(
         &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1603,10 +1539,6 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1655,10 +1587,6 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6
     for fn(
         &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1702,10 +1630,6 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1755,10 +1679,6 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6
     for fn(
         &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7, A8
     ) -> Output {
-    fn needs_context() -> bool {
-        false
-    }
-
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }

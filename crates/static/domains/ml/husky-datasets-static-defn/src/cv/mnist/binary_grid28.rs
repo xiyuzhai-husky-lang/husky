@@ -75,7 +75,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
             |_, _values|unsafe  {
                 (__Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE))
             },
-            some BinaryGrid28::__call__ as fn() -> BinaryGrid28
+            some base BinaryGrid28::__call__ as fn() -> BinaryGrid28
         )
         .into(),
     },

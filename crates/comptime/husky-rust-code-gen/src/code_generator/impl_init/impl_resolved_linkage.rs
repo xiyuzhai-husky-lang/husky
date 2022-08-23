@@ -173,6 +173,11 @@ impl<'a> RustCodeGenerator<'a> {
             some "#
             ));
         }
+        if needs_eval_context {
+            self.write("ctx ")
+        } else {
+            self.write("base ")
+        }
         gen_call_route(self);
         self.write(r#" as "#);
         self.gen_call_ty(needs_eval_context, decl);
@@ -271,9 +276,6 @@ impl<'a> RustCodeGenerator<'a> {
 
     fn gen_call_ty(&mut self, needs_eval_context: bool, decl: &CallFormDecl) {
         self.write("fn(");
-        if needs_eval_context {
-            self.write("&__EvalContext<'static>")
-        }
         if let Some(this_ty) = decl.opt_this_ty() {
             match decl.opt_this_liason.unwrap() {
                 ParameterLiason::Pure => {
@@ -291,6 +293,12 @@ impl<'a> RustCodeGenerator<'a> {
                 ParameterLiason::TempRefMut => self.write("&'static mut "),
             }
             self.gen_entity_route(this_ty, EntityRouteRole::StaticDecl)
+        }
+        if needs_eval_context {
+            if decl.opt_this_liason.is_some() {
+                self.write(", ")
+            }
+            self.write("&dyn __EvalContext<'static>")
         }
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
             if needs_eval_context || decl.opt_this_liason.is_some() || i > 0 {
