@@ -48,11 +48,9 @@ impl<'eval> __StaticInfo for FermiMatchResult<'eval> {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::fermi::FermiMatchResult".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for FermiMatchResult<'eval> {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
 
@@ -61,10 +59,13 @@ pub(crate) fn fermi_match<'eval>(
         crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
     >,
     templates: &Vec<
-        fn(
-            &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
-        ) -> Option<f32>,
+        ThickFp<
+            fn(
+                &'static crate::line_segment_sketch::concave_component::ConcaveComponent<'static>,
+            ) -> Option<f32>,
+        >,
     >,
+    __ctx: &dyn __EvalContext<'eval>,
 ) -> FermiMatchResult<'eval> {
     let mut others = concave_components.collect_refs();
     let mut matches = Vec::<
@@ -72,7 +73,7 @@ pub(crate) fn fermi_match<'eval>(
     >::__call__(vec![]);
     for i in 0..templates.ilen() {
         let template = templates[(i) as usize];
-        matches.push(others.pop_with_largest_opt_f32_copyable(template));
+        matches.push(others.pop_with_largest_opt_f32_copyable(template, __ctx));
     }
     return FermiMatchResult::__call__(matches, others);
 }

@@ -77,7 +77,7 @@ impl EntityRoutePtr {
 
     pub fn is_intrinsic(self) -> bool {
         msg_once!("mutable ref");
-        !self.is_option() && !self.is_ref()
+        !self.is_option() && !self.is_eval_ref()
     }
 
     // todo: needs testing
@@ -86,7 +86,7 @@ impl EntityRoutePtr {
             assert_eq!(self.spatial_arguments.len(), 1);
             let this1 = self.entity_route_argument(0);
             assert!(!this1.is_option());
-            if this1.is_ref() {
+            if this1.is_eval_ref() {
                 assert_eq!(this1.spatial_arguments.len(), 1);
                 let this2 = this1.entity_route_argument(0);
                 assert!(this2.is_intrinsic());
@@ -95,7 +95,7 @@ impl EntityRoutePtr {
                 assert!(this1.is_intrinsic());
                 CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::Optional)
             }
-        } else if self.is_ref() {
+        } else if self.is_eval_ref() {
             assert_eq!(self.spatial_arguments.len(), 1);
             let this1 = self.entity_route_argument(0);
             assert!(this1.is_intrinsic());
@@ -114,11 +114,17 @@ impl EntityRoutePtr {
         }
     }
 
-    pub fn is_ref(self) -> bool {
+    pub fn is_eval_ref(self) -> bool {
         match self.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
-            } => true,
+            } => {
+                if self.temporal_arguments.len() > 0 {
+                    todo!()
+                } else {
+                    true
+                }
+            }
             _ => false,
         }
     }

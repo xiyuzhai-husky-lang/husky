@@ -36,11 +36,9 @@ impl __StaticInfo for Point2d {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::geom2d::Point2d".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for Point2d {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
 #[derive(Debug, Clone, PartialEq)]
@@ -116,10 +114,8 @@ impl __StaticInfo for Vector2d {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::geom2d::Vector2d".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for Vector2d {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }

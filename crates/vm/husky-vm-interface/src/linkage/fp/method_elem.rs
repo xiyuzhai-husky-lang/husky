@@ -2,8 +2,8 @@
 macro_rules! method_elem_copy_fp {
     ($Type: ty, $TYPE_VTABLE: expr, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
         fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let this_value: &$Type = unsafe { values[0].downcast_temp_ref(&$TYPE_VTABLE) };
             todo!()
@@ -20,8 +20,8 @@ macro_rules! method_elem_copy_fp {
 macro_rules! method_elem_eval_ref_fp {
     ($Type: ty, $TYPE_VTABLE: expr, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
         fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let this_value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
             __Register::new_eval_ref(this_value.$method_name(), &$ELEMENT_TYPE_VTABLE)
@@ -38,8 +38,8 @@ macro_rules! method_elem_eval_ref_fp {
 macro_rules! method_elem_temp_ref_fp {
     ($Type: ty, $TYPE_VTABLE: expr, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
         fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let this_value: &$Type = unsafe { values[0].downcast_temp_ref(&$TYPE_VTABLE) };
             unsafe { __Register::new_temp_ref(this_value.$method_name(), &$ELEMENT_TYPE_VTABLE) }
@@ -67,8 +67,8 @@ macro_rules! method_elem_move_fp {
 macro_rules! method_elem_temp_mut_fp {
     ($Type: ty, $TYPE_VTABLE: expr, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let this_value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
             todo!()

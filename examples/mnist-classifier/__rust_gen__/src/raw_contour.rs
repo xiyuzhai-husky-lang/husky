@@ -54,11 +54,9 @@ impl<'eval> __StaticInfo for RawContour<'eval> {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::raw_contour::RawContour".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for RawContour<'eval> {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
 
@@ -89,11 +87,9 @@ impl __StaticInfo for Direction {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::raw_contour::Direction".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for Direction {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
 pub(crate) fn get_pixel_pair(row: u32, j: i32) -> u32 {
@@ -241,11 +237,9 @@ impl __StaticInfo for StreakCache {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::raw_contour::StreakCache".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for StreakCache {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
 pub(crate) fn get_concave_middle_point(

@@ -44,11 +44,9 @@ impl __StaticInfo for ConnectedComponent {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::connected_component::ConnectedComponent".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for ConnectedComponent {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
 

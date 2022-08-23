@@ -37,11 +37,9 @@ impl<'eval> __StaticInfo for LineSegment<'eval> {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::line_segment_sketch::LineSegment".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for LineSegment<'eval> {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
 #[derive(Debug, Clone, PartialEq)]
@@ -101,11 +99,9 @@ impl<'eval> __StaticInfo for LineSegmentSketch<'eval> {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "mnist_classifier::line_segment_sketch::LineSegmentSketch".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for LineSegmentSketch<'eval> {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
 pub(crate) fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
