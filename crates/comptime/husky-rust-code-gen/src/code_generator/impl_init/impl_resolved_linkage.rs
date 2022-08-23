@@ -355,8 +355,7 @@ impl<'a> RustCodeGenerator<'a> {
             }
         }
         if needs_eval_context {
-            if needs_eval_context
-                || decl.opt_this_liason.is_some()
+            if decl.opt_this_liason.is_some()
                 || decl.primary_parameters.len() > 0
                 || decl.keyword_parameters.len() > 0
                 || decl.variadic_template.is_some()

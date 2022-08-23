@@ -50,6 +50,10 @@ impl std::fmt::Display for ImplFp {
             .into_iter()
             .map(|i| -> String { format!(r#"A{i}"#) })
             .join(", ");
+        let arg_types_with_comma = (0..self.nargs)
+            .into_iter()
+            .map(|i| -> String { format!(r#"A{i}, "#) })
+            .join("");
         let arg_types_with_eval_lifetime = (0..self.nargs)
             .into_iter()
             .map(|i| -> String {
@@ -100,10 +104,10 @@ impl<'eval, {arg_types_decl}Output: __Any> const ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {arg_types_decl}Output: __Any> const __BaseThinFp
+impl<{arg_types_decl}Output: __Any> const __BaseThinFp
     for fn({arg_types}) -> Output {{
     type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'static>,{arg_types}
+        {arg_types_with_comma}&dyn __EvalContext<'static>
     ) -> Output;
 }}
 
@@ -113,7 +117,7 @@ impl<'eval, {arg_types_decl}Output: __Any> const __BaseThinFp
 #[rustfmt::skip]
 impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo
     for fn(
-        &dyn __EvalContext<'eval>, {arg_types}
+        {arg_types_with_comma}&dyn __EvalContext<'eval>
     ) -> Output {{
     type __StaticSelf = fn({static_arg_types}
     ) -> <Output as __StaticInfo>::__StaticSelf;
@@ -131,7 +135,7 @@ impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo
 #[rustfmt::skip]
 impl<'eval, {arg_types_decl}Output: __Any> const ThinFp
     for fn(
-        &dyn __EvalContext<'eval>, {arg_types}
+        {arg_types_with_comma}&dyn __EvalContext<'eval>
     ) -> Output {{
     fn __to_void_pointer(self) -> *const () {{
         self as *const ()
@@ -142,7 +146,7 @@ impl<'eval, {arg_types_decl}Output: __Any> const ThinFp
 #[rustfmt::skip]
 impl<'eval, {arg_types_decl}Output: __Any> const __CtxThinFp
     for fn(
-        &dyn __EvalContext<'eval>, {arg_types}
+        {arg_types_with_comma}&dyn __EvalContext<'eval>
     ) -> Output {{}}
 "#,
         ))
