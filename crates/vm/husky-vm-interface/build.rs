@@ -106,7 +106,7 @@ impl<'eval, {arg_types_decl}Output: __StaticInfo> const ThinFp
 #[rustfmt::skip]
 impl<{arg_types_decl}Output: __StaticInfo> const __BaseThinFp
     for fn({arg_types}) -> Output {{
-    type __ThinFpWithContext = fn(
+    type __CtxThinFp = fn(
         {arg_types_with_comma}&dyn __EvalContext<'static>
     ) -> Output;
 }}

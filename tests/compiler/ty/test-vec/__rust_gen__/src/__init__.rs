@@ -14,14 +14,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     f().to_register()
                 }
                 __wrapper
             },
-            some f as fn() -> i32
+            some base f as fn() -> i32
         ),
     ),
     (
@@ -31,14 +31,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     change_element().to_register()
                 }
                 __wrapper
             },
-            some change_element as fn() -> i32
+            some base change_element as fn() -> i32
         ),
     ),
     (
@@ -48,14 +48,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
-                    test_pop_with().to_register()
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    test_pop_with(__opt_ctx.unwrap()).to_register()
                 }
                 __wrapper
             },
-            some test_pop_with as fn() -> i32
+            some ctx test_pop_with as fn(&dyn __EvalContext<'static>) -> i32
         ),
     ),
     (
@@ -65,15 +65,15 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     let __this: &Vec<i32> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_I_32_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            some Vec::<i32>::ilen as fn(&'static Vec<i32>) -> i32
+            some base Vec::<i32>::ilen as fn(&'static Vec<i32>) -> i32
         ),
     ),
     (
@@ -81,9 +81,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     let __variadics =
                         __arguments[0..]
                             .iter_mut()
@@ -93,7 +93,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 }
                 __wrapper
             },
-            some Vec::<i32>::__call__ as fn(Vec<i32>) -> Vec<i32>
+            some base Vec::<i32>::__call__ as fn(Vec<i32>) -> Vec<i32>
         ),
     ),
     (
@@ -117,16 +117,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     let __this: &mut Vec<i32> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_I_32_VTABLE);
                     let element: i32 = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__I32_VTABLE);
                     __this.push(element).to_register()
                 }
                 __wrapper
             },
-            some Vec::<i32>::push as fn(&'static mut Vec<i32>, i32) -> ()
+            some base Vec::<i32>::push as fn(&'static mut Vec<i32>, i32) -> ()
         ),
     ),
     (
@@ -136,15 +136,15 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     let a: i32 = __arguments[0].downcast_i32();
                     score(a).to_register()
                 }
                 __wrapper
             },
-            some score as fn(i32) -> Option<f32>
+            some base score as fn(i32) -> Option<f32>
         ),
     ),
     (
@@ -154,18 +154,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     let __this: &mut Vec<i32> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_I_32_VTABLE);
-                    let f: ThickFp<fn(i32)->Option<f32>> = std::mem::transmute(__arguments[1]
+                    let f: ThickFp<fn(i32)->Option<f32>> = unsafe { __arguments[1]
                         .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)
-                        .fp());
-                    __this.pop_with_largest_opt_f32_copyable(f).to_register()
+                        .downcast_thick_fp() };
+                    __this.pop_with_largest_opt_f32_copyable(f, __opt_ctx.unwrap()).to_register()
                 }
                 __wrapper
             },
-            some Vec::<i32>::pop_with_largest_opt_f32_copyable as fn(&'static mut Vec<i32>, ThickFp<fn(i32)->Option<f32>>) -> Option<i32>
+            some ctx Vec::<i32>::pop_with_largest_opt_f32_copyable as fn(&'static mut Vec<i32>, ThickFp<fn(i32)->Option<f32>>, &dyn __EvalContext<'static>) -> Option<i32>
         ),
     ),
 ];

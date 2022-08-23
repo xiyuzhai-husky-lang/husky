@@ -88,7 +88,7 @@ pub enum EagerExprVariant {
         Vec<(CustomIdentifier, Option<EntityRoutePtr>)>,
         Box<EagerExpr>,
     ),
-    EntityFp {
+    EntityThickFp {
         route: EntityRoutePtr,
     },
     EntityFeature {
@@ -130,7 +130,9 @@ impl std::fmt::Debug for EagerExprVariant {
                 .field("opn_variant", opn_variant)
                 .finish(),
             Self::Lambda(arg0, arg1) => f.debug_tuple("Lambda").field(arg0).field(arg1).finish(),
-            Self::EntityFp { route } => f.debug_struct("EntityFp").field("route", route).finish(),
+            Self::EntityThickFp { route } => {
+                f.debug_struct("EntityFp").field("route", route).finish()
+            }
             Self::EntityFeature { route } => f
                 .debug_struct("EntityFeature")
                 .field("route", route)

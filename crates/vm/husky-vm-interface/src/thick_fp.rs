@@ -3,11 +3,19 @@ use std::marker::PhantomData;
 use crate::*;
 
 #[derive(Clone, Copy)]
-pub struct ThickFp<F: for<'eval> __BaseThinFp> {
+pub struct ThickFp<F: __BaseThinFp> {
     needs_eval_context: bool,
     fp: *const (),
     phantom: PhantomData<F>,
 }
+
+impl<F: __BaseThinFp> PartialEq for ThickFp<F> {
+    fn eq(&self, other: &Self) -> bool {
+        self.needs_eval_context == other.needs_eval_context && self.fp == other.fp
+    }
+}
+
+impl<F: __BaseThinFp> Eq for ThickFp<F> {}
 
 impl<F> ThickFp<F>
 where
@@ -17,6 +25,22 @@ where
         Self {
             needs_eval_context,
             fp,
+            phantom: PhantomData,
+        }
+    }
+
+    pub fn __base(f: F) -> Self {
+        Self {
+            needs_eval_context: false,
+            fp: f.__to_void_pointer(),
+            phantom: PhantomData,
+        }
+    }
+
+    pub fn __ctx(f: F::__CtxThinFp) -> Self {
+        Self {
+            needs_eval_context: true,
+            fp: f.__to_void_pointer(),
             phantom: PhantomData,
         }
     }

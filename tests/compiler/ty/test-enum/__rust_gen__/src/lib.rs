@@ -32,10 +32,8 @@ impl __StaticInfo for A {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "test_enum::A".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for A {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }

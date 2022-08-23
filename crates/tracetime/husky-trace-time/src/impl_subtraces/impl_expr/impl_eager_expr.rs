@@ -26,7 +26,7 @@ impl HuskyTraceTime {
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
             EagerExprVariant::EntityFeature { .. } => todo!(),
-            EagerExprVariant::EntityFp { route } => panic!(),
+            EagerExprVariant::EntityThickFp { route } => panic!(),
         }
     }
 

@@ -26,9 +26,10 @@ pub(crate) fn change_element() -> i32 {
     return v[(0) as usize];
 }
 
-pub(crate) fn test_pop_with() -> i32 {
+pub(crate) fn test_pop_with<'eval>(__ctx: &dyn __EvalContext<'eval>) -> i32 {
     let mut v = vec![0, 1, 2, 4, 3];
-    let b = v.pop_with_largest_opt_f32_copyable(score);
+    let b = v
+        .pop_with_largest_opt_f32_copyable(ThickFp::__base(score as fn(i32) -> Option<f32>), __ctx);
     assert!(b == Some(4));
     assert!(v == vec![0, 1, 2, 3]);
     return v.ilen();

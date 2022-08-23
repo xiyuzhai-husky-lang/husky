@@ -5,7 +5,7 @@ pub trait ThinFp: Copy {
 }
 
 pub trait __BaseThinFp: ~const ThinFp + __StaticInfo {
-    type __ThinFpWithContext: __CtxThinFp;
+    type __CtxThinFp: __CtxThinFp;
 }
 
 pub trait __CtxThinFp: ~const ThinFp + __StaticInfo {}

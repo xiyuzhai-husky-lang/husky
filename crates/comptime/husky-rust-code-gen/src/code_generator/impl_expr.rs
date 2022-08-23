@@ -214,10 +214,10 @@ impl<'a> RustCodeGenerator<'a> {
                         }
                         self.gen_expr(indent, opd);
                         if i == 0 {
-                            self.write("(")
+                            self.write(format!(".call{}(", opds.len() - 1))
                         }
                     }
-                    self.write(")")
+                    self.write(", __ctx)")
                 }
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
@@ -228,8 +228,18 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(route, EntityRouteRole::Caller);
                 self.write("(__ctx)")
             }
-            EagerExprVariant::EntityFp { route } => {
-                self.gen_entity_route(route, EntityRouteRole::Caller)
+            EagerExprVariant::EntityThickFp { route } => {
+                let ty = expr.ty();
+                self.write("ThickFp::");
+                if self.db.needs_eval_context(ty) {
+                    self.write("__ctx(")
+                } else {
+                    self.write("__base(")
+                }
+                self.gen_entity_route(route, EntityRouteRole::Decl);
+                self.write(" as ");
+                self.gen_entity_route(ty, EntityRouteRole::StaticBaseFpDecl);
+                self.write(")")
             }
         }
 

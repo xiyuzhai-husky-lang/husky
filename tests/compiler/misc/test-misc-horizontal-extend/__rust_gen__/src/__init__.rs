@@ -10,12 +10,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
     __StaticLinkageKey::Routine {
         route: "test_misc_horizontal_extend::horizontal_extend",
     },
-    __Linkage::Transfer(__ResolvedLinkage {
-        dev_src: static_dev_src!(),
-        wrapper: {
+    transfer_linkage!(
+        {
             unsafe fn __wrapper<'eval>(
-                __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 __arguments: &mut [__Register<'eval>],
+                __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             ) -> __Register<'eval> {
                 let a: u32 = __arguments[0].downcast_b32();
                 let x: u32 = __arguments[1].downcast_b32();
@@ -23,6 +22,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
             }
             __wrapper
         },
-        opt_fp: Some(horizontal_extend as *const ()),
-    }),
+        some base horizontal_extend as fn(u32, u32) -> u32
+    ),
 )];

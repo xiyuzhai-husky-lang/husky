@@ -14,14 +14,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     for_loop1().to_register()
                 }
                 __wrapper
             },
-            some for_loop1 as fn() -> i32
+            some base for_loop1 as fn() -> i32
         ),
     ),
     (
@@ -31,14 +31,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     for_loop2().to_register()
                 }
                 __wrapper
             },
-            some for_loop2 as fn() -> i32
+            some base for_loop2 as fn() -> i32
         ),
     ),
     (
@@ -48,14 +48,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     for_loop3().to_register()
                 }
                 __wrapper
             },
-            some for_loop3 as fn() -> i32
+            some base for_loop3 as fn() -> i32
         ),
     ),
     (
@@ -65,14 +65,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     for_loop4().to_register()
                 }
                 __wrapper
             },
-            some for_loop4 as fn() -> i32
+            some base for_loop4 as fn() -> i32
         ),
     ),
     (
@@ -82,14 +82,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     forext_loop1().to_register()
                 }
                 __wrapper
             },
-            some forext_loop1 as fn() -> i32
+            some base forext_loop1 as fn() -> i32
         ),
     ),
     (
@@ -99,14 +99,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     forext_loop2().to_register()
                 }
                 __wrapper
             },
-            some forext_loop2 as fn() -> i32
+            some base forext_loop2 as fn() -> i32
         ),
     ),
     (
@@ -116,14 +116,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     forext_loop3().to_register()
                 }
                 __wrapper
             },
-            some forext_loop3 as fn() -> i32
+            some base forext_loop3 as fn() -> i32
         ),
     ),
     (
@@ -133,14 +133,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     while_loop1().to_register()
                 }
                 __wrapper
             },
-            some while_loop1 as fn() -> i32
+            some base while_loop1 as fn() -> i32
         ),
     ),
     (
@@ -150,14 +150,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     while_loop2().to_register()
                 }
                 __wrapper
             },
-            some while_loop2 as fn() -> i32
+            some base while_loop2 as fn() -> i32
         ),
     ),
     (
@@ -167,14 +167,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     while_loop3().to_register()
                 }
                 __wrapper
             },
-            some while_loop3 as fn() -> i32
+            some base while_loop3 as fn() -> i32
         ),
     ),
     (
@@ -184,14 +184,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     while_loop4().to_register()
                 }
                 __wrapper
             },
-            some while_loop4 as fn() -> i32
+            some base while_loop4 as fn() -> i32
         ),
     ),
     (
@@ -201,14 +201,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     do_while_loop1().to_register()
                 }
                 __wrapper
             },
-            some do_while_loop1 as fn() -> i32
+            some base do_while_loop1 as fn() -> i32
         ),
     ),
     (
@@ -218,14 +218,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     do_while_loop2().to_register()
                 }
                 __wrapper
             },
-            some do_while_loop2 as fn() -> i32
+            some base do_while_loop2 as fn() -> i32
         ),
     ),
     (
@@ -235,14 +235,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     do_while_loop3().to_register()
                 }
                 __wrapper
             },
-            some do_while_loop3 as fn() -> i32
+            some base do_while_loop3 as fn() -> i32
         ),
     ),
     (
@@ -252,14 +252,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     do_while_loop4().to_register()
                 }
                 __wrapper
             },
-            some do_while_loop4 as fn() -> i32
+            some base do_while_loop4 as fn() -> i32
         ),
     ),
 ];

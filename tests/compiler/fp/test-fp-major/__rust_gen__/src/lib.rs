@@ -10,7 +10,7 @@ fn __input<'a, 'eval: 'a>(__ctx: &'a dyn __EvalContext<'eval>) -> &'a f32 {
             .downcast_temp_ref(&__registration__::__F32_VTABLE)
     }
 }
-pub(crate) fn try_fp() -> i32 {
-    let f1 = i32::sgn;
-    return f1(1);
+pub(crate) fn try_fp<'eval>(__ctx: &dyn __EvalContext<'eval>) -> i32 {
+    let f1 = ThickFp::__base(i32::sgn as fn(i32) -> i32);
+    return f1.call1(1, __ctx);
 }

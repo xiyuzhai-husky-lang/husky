@@ -14,14 +14,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     f1().to_register()
                 }
                 __wrapper
             },
-            some f1 as fn() -> i32
+            some base f1 as fn() -> i32
         ),
     ),
     (
@@ -31,14 +31,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     f2().to_register()
                 }
                 __wrapper
             },
-            some f2 as fn() -> i32
+            some base f2 as fn() -> i32
         ),
     ),
     (
@@ -48,14 +48,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> { /*haha*/
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
                     f3().to_register()
                 }
                 __wrapper
             },
-            some f3 as fn() -> i32
+            some base f3 as fn() -> i32
         ),
     ),
 ];
