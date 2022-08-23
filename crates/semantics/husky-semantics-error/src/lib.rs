@@ -1,6 +1,6 @@
 use husky_dev_utils::{dev_src, DevSource};
 use husky_entity_syntax::EntitySyntaxError;
-use infer_error::InferError;
+use husky_infer_error::InferError;
 use std::sync::Arc;
 use vm::VMCompileError;
 

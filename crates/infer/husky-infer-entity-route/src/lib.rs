@@ -11,11 +11,11 @@ use husky_defn_head::*;
 use husky_entity_route::*;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use husky_file::FilePtr;
+use husky_infer_error::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_word::RootIdentifier;
 use infer_decl::{CallFormDecl, DeclQueryGroup, TyDecl};
-use infer_error::*;
 
 pub trait InferEntityRoute {
     fn decl_db(&self) -> &dyn DeclQueryGroup;

@@ -11,6 +11,7 @@ pub use sheet::*;
 
 use husky_ast::RawExprIdx;
 use husky_entity_route::EntityRoutePtr;
+use husky_infer_error::InferResult;
 use husky_init_syntax::*;
 use husky_liason_semantics::*;
 use husky_opn_syntax::*;
@@ -18,7 +19,6 @@ use husky_print_utils::msg_once;
 use husky_text::{Row, TextRange};
 use husky_word::{CustomIdentifier, Identifier};
 use infer_contract::*;
-use infer_error::InferResult;
 use vm::*;
 
 pub trait InferQualifiedTy {

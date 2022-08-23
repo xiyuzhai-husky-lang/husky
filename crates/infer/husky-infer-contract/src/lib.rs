@@ -15,10 +15,10 @@ use husky_check_utils::*;
 use husky_entity_syntax::EntitySyntaxResultArc;
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRouteQueryGroup;
+use husky_infer_error::InferResult;
 use husky_liason_semantics::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
-use infer_error::InferResult;
 
 pub trait InferContract {
     fn contract_sheet(&self) -> &ContractSheet;
