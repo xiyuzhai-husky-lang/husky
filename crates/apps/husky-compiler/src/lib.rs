@@ -1,4 +1,5 @@
 mod impl_cargo_build;
+mod impl_cargo_check;
 mod impl_cargo_fmt;
 mod impl_clean;
 mod impl_dir;
@@ -38,21 +39,34 @@ impl CompilerInstance {
             "{GREEN}\x1B[1mCompiling{RESET} {} 🐺 packages:",
             package_dirs.len()
         );
+        for package_dir in package_dirs.iter() {
+            // transcribe to rust
+            println!(
+                "   {GREEN}\x1B[1mTranscribing{RESET} 🐺 package `{}` ({})",
+                package_dir.file_name().unwrap().to_str().unwrap(),
+                package_dir.as_os_str().to_str().unwrap(),
+            );
+            let now = Instant::now();
+            self.transcribe_package_in_rust(&package_dir);
+            self.cargo_check(&package_dir);
+            println!(
+                "    {GREEN}\x1B[1mFinished{RESET} transcription in {:.2} seconds.",
+                now.elapsed().as_millis() as f32 / 1000.
+            );
+        }
         for package_dir in package_dirs {
-            // compile via rust
             println!(
                 "   {GREEN}\x1B[1mCompiling{RESET} 🐺 package `{}` ({})",
                 package_dir.file_name().unwrap().to_str().unwrap(),
                 package_dir.as_os_str().to_str().unwrap(),
             );
             let now = Instant::now();
-            self.transcribe_package_in_rust(&package_dir);
             self.cargo_fmt(&package_dir);
             self.sync_rust_code(&package_dir);
             self.cargo_build(&package_dir);
             self.clean_rust_gen_cache(&package_dir);
             println!(
-                "    {GREEN}\x1B[1mFinished{RESET} in {:.2} seconds.",
+                "    {GREEN}\x1B[1mFinished{RESET} compilation in {:.2} seconds.",
                 now.elapsed().as_millis() as f32 / 1000.
             );
         }
