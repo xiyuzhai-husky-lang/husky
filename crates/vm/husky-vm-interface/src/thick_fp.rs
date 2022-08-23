@@ -3,13 +3,13 @@ use std::marker::PhantomData;
 use crate::*;
 
 #[derive(Clone, Copy)]
-pub struct ThickFp<F: for<'eval> BaseThinFp> {
+pub struct ThickFp<F: for<'eval> __BaseThinFp> {
     needs_eval_context: bool,
     fp: *const (),
     phantom: PhantomData<F>,
 }
 
-impl<F: for<'eval> BaseThinFp> ThickFp<F> {
+impl<F: for<'eval> __BaseThinFp> ThickFp<F> {
     pub fn call1<'eval, A1, Output>(self, __ctx: &dyn __EvalContext<'eval>, a1: A1) -> Output
     where
         F: Fn(A1) -> Output,
@@ -18,9 +18,9 @@ impl<F: for<'eval> BaseThinFp> ThickFp<F> {
     }
 }
 
-impl<'eval, F: BaseThinFp> __StaticInfo for ThickFp<F>
+impl<'eval, F: __BaseThinFp> __StaticInfo for ThickFp<F>
 where
-    F::__StaticSelf: BaseThinFp,
+    F::__StaticSelf: __BaseThinFp,
 {
     type __StaticSelf = ThickFp<F::__StaticSelf>;
 
@@ -36,8 +36,8 @@ where
     }
 }
 
-impl<'eval, F: BaseThinFp> __WithEvalLifetime<'eval> for ThickFp<F> {
+impl<'eval, F: __BaseThinFp> __WithEvalLifetime<'eval> for ThickFp<F> {
     type __SelfWithEvalLifetime = Self;
 }
 
-impl<F: for<'eval> BaseThinFp> __Any for ThickFp<F> where F::__StaticSelf: for<'eval> BaseThinFp {}
+impl<F: for<'eval> __BaseThinFp> __Any for ThickFp<F> where F::__StaticSelf: for<'eval> __BaseThinFp {}

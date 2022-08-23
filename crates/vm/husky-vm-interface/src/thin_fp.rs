@@ -1,11 +1,13 @@
 use crate::__StaticInfo;
 
-pub trait ThinFp: Copy {}
+pub trait ThinFp: Copy {
+    fn needs_context() -> bool;
 
-pub trait __GetCtxThinFp<'eval> {
-    type __ThinFpWithContext;
-}
-
-pub trait BaseThinFp: for<'eval> __GetCtxThinFp<'eval> + ThinFp + __StaticInfo {
     fn __to_void_pointer(self) -> *const ();
 }
+
+pub trait __BaseThinFp: ~const ThinFp + __StaticInfo {
+    type __ThinFpWithContext: __CtxThinFp;
+}
+
+pub trait __CtxThinFp: ~const ThinFp + __StaticInfo {}

@@ -861,6 +861,8 @@ pub static __VIRTUAL_ENUM_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     typename_str: "__VirtualEnum",
 };
 
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, Output: __StaticInfo> __StaticInfo for fn(
@@ -879,35 +881,70 @@ impl<'eval, Output: __StaticInfo> __StaticInfo for fn(
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, Output: __Any> ThinFp
-    for fn() -> Output {}
+impl<'eval, Output: __Any> const ThinFp
+    for fn() -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, Output: __Any> __GetCtxThinFp<'eval>
-    for fn() -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, Output: __Any> const BaseThinFp
-    for fn() -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, Output: __Any> const __BaseThinFp
+    for fn() -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, 
+    ) -> Output {
+    type __StaticSelf = fn(
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, 
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, 
+    ) -> Output {}
+
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0
@@ -927,35 +964,71 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __Any, Output: __Any> ThinFp
-    for fn(A0) -> Output {}
+impl<'eval, A0: __Any, Output: __Any> const ThinFp
+    for fn(A0) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,A0
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, Output: __Any> __GetCtxThinFp<'eval>
-    for fn(A0) -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,A0
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, Output: __Any> const BaseThinFp
-    for fn(A0) -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, Output: __Any> const __BaseThinFp
+    for fn(A0) -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,A0
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, A0
+    ) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0
+    ) -> Output {}
+
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1
@@ -976,35 +1049,72 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, Output: __Any> ThinFp
-    for fn(A0, A1) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, Output: __Any> const ThinFp
+    for fn(A0, A1) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,A0, A1
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, Output: __Any> __GetCtxThinFp<'eval>
-    for fn(A0, A1) -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,A0, A1
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, Output: __Any> const BaseThinFp
-    for fn(A0, A1) -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, Output: __Any> const __BaseThinFp
+    for fn(A0, A1) -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,A0, A1
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1
+    ) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1
+    ) -> Output {}
+
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2
@@ -1026,35 +1136,73 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> const ThinFp
+    for fn(A0, A1, A2) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> __GetCtxThinFp<'eval>
-    for fn(A0, A1, A2) -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> const BaseThinFp
-    for fn(A0, A1, A2) -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> const __BaseThinFp
+    for fn(A0, A1, A2) -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,A0, A1, A2
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2
+    ) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2
+    ) -> Output {}
+
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3
@@ -1077,35 +1225,74 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const ThinFp
+    for fn(A0, A1, A2, A3) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> __GetCtxThinFp<'eval>
-    for fn(A0, A1, A2, A3) -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const BaseThinFp
-    for fn(A0, A1, A2, A3) -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const __BaseThinFp
+    for fn(A0, A1, A2, A3) -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,A0, A1, A2, A3
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3
+    ) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3
+    ) -> Output {}
+
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4
@@ -1129,35 +1316,75 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const ThinFp
+    for fn(A0, A1, A2, A3, A4) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> __GetCtxThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4) -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const BaseThinFp
-    for fn(A0, A1, A2, A3, A4) -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const __BaseThinFp
+    for fn(A0, A1, A2, A3, A4) -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,A0, A1, A2, A3, A4
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4
+    ) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4
+    ) -> Output {}
+
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5
@@ -1182,35 +1409,76 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4, A5) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const ThinFp
+    for fn(A0, A1, A2, A3, A4, A5) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> __GetCtxThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4, A5) -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const BaseThinFp
-    for fn(A0, A1, A2, A3, A4, A5) -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const __BaseThinFp
+    for fn(A0, A1, A2, A3, A4, A5) -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,A0, A1, A2, A3, A4, A5
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5
+    ) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+        <A5 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5
+    ) -> Output {}
+
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6
@@ -1236,35 +1504,77 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const ThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> __GetCtxThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4, A5, A6) -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const BaseThinFp
-    for fn(A0, A1, A2, A3, A4, A5, A6) -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const __BaseThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,A0, A1, A2, A3, A4, A5, A6
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6
+    ) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+        <A5 as __StaticInfo>::__StaticSelf,
+        <A6 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6
+    ) -> Output {}
+
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7
@@ -1291,35 +1601,78 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const ThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6, A7
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> __GetCtxThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6, A7
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const BaseThinFp
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const __BaseThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,A0, A1, A2, A3, A4, A5, A6, A7
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7
+    ) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+        <A5 as __StaticInfo>::__StaticSelf,
+        <A6 as __StaticInfo>::__StaticSelf,
+        <A7 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7
+    ) -> Output {}
+
+// base
+
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8
@@ -1347,32 +1700,73 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {}
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const ThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
 
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> ThinFp
-    for fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6, A7, A8
-    ) -> Output {}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> __GetCtxThinFp<'eval>
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output
-{
-    type __ThinFpWithContext = fn(
-        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6, A7, A8
-    ) -> Output;
-}
-
-#[cfg(feature = "thin_fp")]
-#[rustfmt::skip]
-impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const BaseThinFp
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output
-{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
 }
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const __BaseThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'static>,A0, A1, A2, A3, A4, A5, A6, A7, A8
+    ) -> Output;
+}
+
+// ctx
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> __StaticInfo
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7, A8
+    ) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+        <A5 as __StaticInfo>::__StaticSelf,
+        <A6 as __StaticInfo>::__StaticSelf,
+        <A7 as __StaticInfo>::__StaticSelf,
+        <A8 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const ThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7, A8
+    ) -> Output {
+    fn needs_context() -> bool {
+        false
+    }
+
+    fn __to_void_pointer(self) -> *const () {
+        self as *const ()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const __CtxThinFp
+    for fn(
+        &dyn __EvalContext<'eval>, A0, A1, A2, A3, A4, A5, A6, A7, A8
+    ) -> Output {}
