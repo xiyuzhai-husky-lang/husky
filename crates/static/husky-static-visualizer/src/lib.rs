@@ -18,7 +18,7 @@ pub enum StaticVisualTy {
     Image2d,
     Graphics2d,
     Dataset,
-    FatFp,
+    ThickFp,
 }
 
 impl Default for StaticVisualTy {

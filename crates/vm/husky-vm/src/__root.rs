@@ -24,7 +24,7 @@ pub static __VALUE_CALL_LINKAGE: __Linkage = transfer_linkage!(
         let call_form_value: &__VirtualFunction =
             values[0].downcast_temp_ref(&__VIRTUAL_FUNCTION_VTABLE);
         match call_form_value {
-            __VirtualFunction::FatFp(resolved_linkage) => {
+            __VirtualFunction::ThickFp(resolved_linkage) => {
                 resolved_linkage.call(ctx, &mut values[1..])
             }
         }

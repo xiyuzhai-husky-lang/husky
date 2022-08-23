@@ -37,7 +37,7 @@ impl HuskyComptime {
                 TyKind::Array => todo!(),
                 TyKind::Tuple => todo!(),
                 TyKind::Mor => todo!(),
-                TyKind::FatFp => todo!(),
+                TyKind::ThickFp => todo!(),
                 TyKind::AssociatedAny => todo!(),
                 TyKind::ThisAny => todo!(),
                 TyKind::TargetOutputAny => todo!(),

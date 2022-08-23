@@ -70,7 +70,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     opt_linkage, ty, ..
                 } => {
                     self.stack.push(
-                        __VirtualFunction::FatFp(opt_linkage.unwrap().transfer()).to_register(),
+                        __VirtualFunction::ThickFp(opt_linkage.unwrap().transfer()).to_register(),
                     );
                     if mode == Mode::TrackHistory {
                         self.history.write(

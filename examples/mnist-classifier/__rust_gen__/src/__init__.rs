@@ -1677,7 +1677,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         }),
     ),
     (
-        __StaticLinkageKey::Routine { route: "Vec<FatFp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>>::ilen" },
+        __StaticLinkageKey::Routine { route: "Vec<ThickFp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>>::ilen" },
         __Linkage::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
@@ -1695,7 +1695,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::TypeCall {
-            ty: "[]FatFp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>"
+            ty: "[]ThickFp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>"
         },
 
         __Linkage::Transfer(__ResolvedLinkage {
@@ -1721,7 +1721,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Index {
-            opd_tys: &["[]FatFp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>", "i32"],
+            opd_tys: &["[]ThickFp<&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, ?f32>", "i32"],
         },
         index_linkage!(
             mutable,

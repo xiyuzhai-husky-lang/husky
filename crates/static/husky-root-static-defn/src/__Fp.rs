@@ -11,9 +11,9 @@ pub static FP_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         trait_impls: &[],
         ty_members: &[],
         variants: &[],
-        kind: TyKind::FatFp,
+        kind: TyKind::ThickFp,
         visualizer: StaticVisualizer {
-            visual_ty: StaticVisualTy::FatFp,
+            visual_ty: StaticVisualTy::ThickFp,
             fp: StaticVisualizerFp(|value| todo!()),
         },
         opt_type_call: None,
