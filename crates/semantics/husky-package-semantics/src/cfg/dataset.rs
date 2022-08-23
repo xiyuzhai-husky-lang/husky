@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use vm::{Instruction, InstructionSheet, InstructionVariant};
+use husky_vm::{Instruction, InstructionSheet, InstructionVariant};
 
 use husky_eager_semantics::*;
 

@@ -23,7 +23,7 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 upcast = { path = "../../abstraction/upcast" }
 fold = { path = "../../abstraction/fold" }
-vm = { path = "../../vm/husky-vm" }
+husky-vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-word = { path = "../../syntax/husky-word" }
 husky-token = { path = "../../syntax/husky-token" }

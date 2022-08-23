@@ -17,9 +17,9 @@ use husky_liason_semantics::*;
 use husky_opn_syntax::*;
 use husky_print_utils::msg_once;
 use husky_text::{Row, TextRange};
+use husky_vm::*;
 use husky_word::{CustomIdentifier, Identifier};
 use infer_contract::*;
-use vm::*;
 
 pub trait InferQualifiedTy {
     fn qualified_ty_sheet(&self) -> &QualifiedTySheet;

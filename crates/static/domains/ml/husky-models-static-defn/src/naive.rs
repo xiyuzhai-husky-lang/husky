@@ -7,11 +7,11 @@ use husky_dev_utils::static_dev_src;
 use husky_print_utils::p;
 use husky_static_defn::*;
 use husky_trace_protocol::Label;
-use husky_vm_register_method::VMRegisterMethodX;
-use vm::{
+use husky_vm::{
     Model, __Linkage, __ModelLinkage, __Register, __Registrable, __RegistrableSafe, __StaticInfo,
     __VMResult, __VirtualEnum, __I32_VTABLE, __VIRTUAL_ENUM_VTABLE, __VIRTUAL_FUNCTION_VTABLE,
 };
+use husky_vm_register_method::VMRegisterMethodX;
 
 static_mod! { naive = { naive_i32 } }
 
@@ -109,7 +109,7 @@ impl Model for NaiveI32 {
         }
     }
 
-    fn internal_ty_vtable() -> &'static vm::__RegisterTyVTable {
+    fn internal_ty_vtable() -> &'static husky_vm::__RegisterTyVTable {
         &__NAIVE_I_32_INTERNAL_VTABLE
     }
 }

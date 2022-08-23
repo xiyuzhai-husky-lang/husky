@@ -19,7 +19,7 @@ arena = { path = "../../abstraction/arena" }
 vec-like = { path = "../../abstraction/vec-like" }
 interner = { path = "../../abstraction/interner" }
 husky-text = { path = "../../syntax/husky-text" }
-vm = { path = "../../vm/husky-vm" }
+husky-vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

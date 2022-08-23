@@ -4,8 +4,8 @@ use husky_feature_eval::EvaluatorConfig;
 use husky_linkage_table::LinkageTableConfig;
 use husky_root_static_defn::__resolve_root_defn;
 use husky_runtime::HuskyRuntimeConfig;
+use husky_vm::VMConfig;
 use serde::{Deserialize, Serialize};
-use vm::VMConfig;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct HuskyDebuggerConfig {

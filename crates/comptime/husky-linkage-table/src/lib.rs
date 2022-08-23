@@ -16,14 +16,14 @@ use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
 use husky_print_utils::p;
 use husky_static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
+use husky_vm::{Binding, EntityUid, __Linkage};
+use husky_vm::{__ResolvedLinkage, __VMResult};
 use husky_word::{CustomIdentifier, RootIdentifier};
 use map_collect::MapCollect;
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
-use vm::{Binding, EntityUid, __Linkage};
-use vm::{__ResolvedLinkage, __VMResult};
 
 pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup> {
     fn linkage_table(&self) -> &LinkageTable;

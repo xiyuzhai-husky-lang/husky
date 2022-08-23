@@ -22,7 +22,7 @@ husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
-vm = { path = "../../vm/husky-vm" }
+husky-vm = { path = "../../vm/husky-vm" }
 infer-decl = { path = "../../infer/husky-infer-decl" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-static-defn = { path = "../../static/husky-static-defn" }

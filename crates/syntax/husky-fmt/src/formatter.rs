@@ -14,8 +14,8 @@ use husky_liason_semantics::{MemberLiason, ParameterLiason};
 use husky_opn_syntax::{ListOpr, RawOpnVariant};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_print_utils::msg_once;
+use husky_vm::*;
 use husky_word::{Paradigm, RootIdentifier, WordInterner};
-use vm::*;
 
 pub struct Formatter<'a> {
     db: &'a dyn EntitySyntaxQueryGroup,

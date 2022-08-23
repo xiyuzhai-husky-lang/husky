@@ -3,8 +3,8 @@ use husky_datasets_interface::mnist::BinaryGrid28;
 use husky_liason_semantics::{MemberLiason, ParameterLiason};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_trace_protocol::*;
+use husky_vm::*;
 use std::any::TypeId;
-use vm::*;
 
 pub static BINARY_GRID_28_BASE_ROUTE: &'static str =
     "domains::ml::datasets::cv::mnist::BinaryGrid28";

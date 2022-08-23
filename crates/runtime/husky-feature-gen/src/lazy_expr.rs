@@ -7,15 +7,15 @@ use husky_primitive_literal_semantics::{
 };
 pub use xml::*;
 
-use vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
+use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
 use husky_entity_route::EntityRouteVariant;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
+use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
 use husky_word::RootIdentifier;
 use std::sync::Arc;
-use vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
 
 use crate::{eval_id::FeatureEvalId, *};
 

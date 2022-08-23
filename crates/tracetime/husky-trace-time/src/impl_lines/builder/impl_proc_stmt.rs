@@ -1,4 +1,4 @@
-use vm::FrameKind;
+use husky_vm::FrameKind;
 
 use super::*;
 

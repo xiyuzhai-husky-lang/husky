@@ -5,9 +5,9 @@ use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{EagerExprQualifier, EagerVariableQualifier, InferQualifiedTy};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
+use husky_vm::*;
 use husky_word::{ContextualIdentifier, Identifier, RootIdentifier};
 use infer_contract::{EagerContract, InferContract};
-use vm::*;
 
 use crate::*;
 use husky_semantics_error::{derived_unwrap, err};

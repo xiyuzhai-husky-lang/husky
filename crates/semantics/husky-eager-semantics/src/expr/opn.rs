@@ -2,9 +2,9 @@ use crate::*;
 use husky_entity_kind::FieldKind;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
+use husky_vm::Binding;
 use infer_decl::TyDecl;
 use std::sync::Arc;
-use vm::Binding;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EagerOpnVariant {

@@ -19,6 +19,7 @@ use husky_file::{FilePtr, FileQueryGroup};
 use husky_print_utils::*;
 use husky_text::TextQueryGroupStorage;
 use husky_trace_protocol::*;
+use husky_vm::{Instruction, VMConfig};
 use indexmap::IndexMap;
 use json_map::JsonListMap;
 use json_result::JsonResult;
@@ -28,7 +29,6 @@ use std::{
     sync::{Arc, Mutex},
 };
 use variant::*;
-use vm::{Instruction, VMConfig};
 
 #[salsa::database(
     husky_feature_gen::FeatureGenQueryGroupStorage,

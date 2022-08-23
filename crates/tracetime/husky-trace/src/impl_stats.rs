@@ -2,8 +2,8 @@ use crate::*;
 use husky_comptime::{utils::__RegisterDowncastResult, *};
 use husky_print_utils::msg_once;
 use husky_trace_protocol::TraceStats;
+use husky_vm::{__Register, __RegisterDataKind, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use husky_word::RootIdentifier;
-use vm::{__Register, __RegisterDataKind, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 
 impl<'eval> TraceVariant<'eval> {
     pub fn opt_stats(

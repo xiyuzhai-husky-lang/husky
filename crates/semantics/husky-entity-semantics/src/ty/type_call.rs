@@ -2,9 +2,9 @@ use husky_atom::AtomContext;
 use husky_defn_head::Parameter;
 use husky_entity_route::RangedEntityRoute;
 use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
+use husky_vm::{__Linkage, __ResolvedLinkage};
 use map_collect::MapCollect;
 use std::sync::Arc;
-use vm::{__Linkage, __ResolvedLinkage};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TypeCallDefn {

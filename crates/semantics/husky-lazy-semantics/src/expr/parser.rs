@@ -8,9 +8,9 @@ use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{InferQualifiedTy, LazyExprQualifier};
 use husky_text::RangedCustomIdentifier;
+use husky_vm::*;
 use husky_word::{CustomIdentifier, RootIdentifier};
 use infer_contract::{InferContract, LazyContract};
-use vm::*;
 
 use super::*;
 use husky_semantics_error::*;

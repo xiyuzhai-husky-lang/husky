@@ -1,7 +1,7 @@
 use __husky::init::__StaticLinkageKey;
+use husky_vm::__Linkage;
 use smallvec::SmallVec;
 use upcast::Upcast;
-use vm::__Linkage;
 
 use crate::*;
 

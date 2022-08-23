@@ -36,9 +36,9 @@ use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_static_defn::StaticParameter;
 use husky_static_defn::*;
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
+use husky_vm::*;
 use husky_vm_register_method::VMRegisterMethodX;
 use husky_word::RootIdentifier;
-use vm::*;
 
 pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
     match ident {

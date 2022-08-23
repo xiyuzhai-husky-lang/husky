@@ -31,10 +31,10 @@ use husky_loop_syntax::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_text::*;
+use husky_vm::EntityUid;
 use husky_word::{CustomIdentifier, IdentPairDict};
 use std::sync::Arc;
 use temp::*;
-use vm::EntityUid;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {

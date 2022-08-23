@@ -7,7 +7,7 @@ pub use branch::*;
 use husky_ast::*;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_semantics_error::SemanticResultArc;
-use vm::{InstructionId, InstructionSource};
+use husky_vm::{InstructionId, InstructionSource};
 
 use parse::LazyStmtParser;
 

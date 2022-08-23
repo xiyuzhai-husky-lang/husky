@@ -6,11 +6,11 @@ use husky_lazy_semantics::LazyStmt;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
+use husky_vm::__Linkage;
+use husky_vm::*;
 use husky_word::IdentPairDict;
 use husky_xml_syntax::XmlValue;
 use std::{iter::zip, panic::catch_unwind, sync::Arc};
-use vm::__Linkage;
-use vm::*;
 
 use super::FeatureEvaluator;
 

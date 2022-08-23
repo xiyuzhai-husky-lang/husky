@@ -1,8 +1,8 @@
 use crate::*;
 use husky_entity_route::RangedEntityRoute;
 use husky_entity_semantics::{Visualizer, VisualizerVariant};
+use husky_vm::__VMResult;
 use husky_word::RootIdentifier;
-use vm::__VMResult;
 
 pub(crate) fn visual_feature_lazy_block(
     db: &dyn FeatureGenQueryGroup,

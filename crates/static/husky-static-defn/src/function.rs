@@ -1,5 +1,5 @@
 use crate::*;
-use vm::*;
+use husky_vm::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticParameter {

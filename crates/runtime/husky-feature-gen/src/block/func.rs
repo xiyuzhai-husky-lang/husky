@@ -1,7 +1,7 @@
 use super::*;
 use avec::Avec;
 use husky_entity_route::RangedEntityRoute;
-use vm::{InstructionSheet, __Linkage, __ResolvedLinkage};
+use husky_vm::{InstructionSheet, __Linkage, __ResolvedLinkage};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FeatureFuncBlock {

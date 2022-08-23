@@ -5,9 +5,9 @@ use husky_ast::RawExprRange;
 use husky_dev_utils::dev_src;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::*;
+use husky_vm::*;
 use infer_decl::TraitMemberImplDecl;
 use thin_vec::{thin_vec, ThinVec};
-use vm::*;
 
 impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn infer_expr(

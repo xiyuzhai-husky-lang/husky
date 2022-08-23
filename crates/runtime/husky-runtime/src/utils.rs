@@ -1,6 +1,6 @@
 use husky_atom::*;
 use husky_entity_route::EntityRoutePtr;
-use vm::__StaticInfo;
+use husky_vm::__StaticInfo;
 
 use crate::*;
 

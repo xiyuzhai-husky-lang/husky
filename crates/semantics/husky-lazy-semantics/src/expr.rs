@@ -15,8 +15,8 @@ pub(crate) use parser::LazyExprParser;
 
 use husky_entity_route::{EntityRoute, EntityRoutePtr, RangedEntityRoute};
 use husky_text::{RangedCustomIdentifier, TextRange};
+use husky_vm::*;
 use husky_word::{CustomIdentifier, Identifier};
-use vm::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LazyExpr {

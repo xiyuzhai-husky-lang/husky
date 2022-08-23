@@ -18,10 +18,10 @@ use husky_init_syntax::*;
 use husky_loop_syntax::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
+use husky_vm::{Instruction, InstructionSheet};
 use husky_word::*;
 use infer_decl::DeclQueryGroup;
 use std::sync::Arc;
-use vm::{Instruction, InstructionSheet};
 
 pub fn new_visual_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,

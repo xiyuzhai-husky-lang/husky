@@ -4,8 +4,8 @@ mod main_feature_repr;
 pub use entity_feature_repr::*;
 use husky_data_viewer::HuskyDataViewerQueryGroup;
 use husky_trace_protocol::Restriction;
+use husky_vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
 pub use main_feature_repr::*;
-use vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
 
 use crate::{intern::InternFeature, record::*, visual::*, *};
 use husky_comptime::AskCompileTime;

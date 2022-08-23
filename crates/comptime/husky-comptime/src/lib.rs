@@ -32,6 +32,10 @@ use husky_entity_semantics::EntityRouteStore;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
 use husky_print_utils::*;
+use husky_vm::{
+    __Register, __RegisterDataKind, __RegisterTyVTable, __VirtualEnum, __I32_VTABLE,
+    __VIRTUAL_ENUM_VTABLE,
+};
 use husky_word::RootIdentifier;
 use indexmap::IndexMap;
 use std::{
@@ -40,10 +44,6 @@ use std::{
     sync::{Arc, Mutex},
 };
 use sync_utils::ASafeRwLock;
-use vm::{
-    __Register, __RegisterDataKind, __RegisterTyVTable, __VirtualEnum, __I32_VTABLE,
-    __VIRTUAL_ENUM_VTABLE,
-};
 
 #[salsa::database(
     husky_file::FileQueryStorage,

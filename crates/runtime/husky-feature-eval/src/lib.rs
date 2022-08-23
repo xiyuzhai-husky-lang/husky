@@ -7,6 +7,7 @@ use husky_trace_protocol::{SampleId, VisualData};
 pub use session::*;
 
 use husky_feature_gen::*;
+use husky_vm::{VMConfig, __Register, __RegisterDataKind, __VMResult};
 use husky_vm_register_method::VMRegisterMethodX;
 use std::{
     borrow::Cow,
@@ -14,7 +15,6 @@ use std::{
     sync::{Arc, Mutex},
 };
 use upcast::Upcast;
-use vm::{VMConfig, __Register, __RegisterDataKind, __VMResult};
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {
     fn session(&self) -> &Session<'eval>;

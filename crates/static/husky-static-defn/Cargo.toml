@@ -11,7 +11,7 @@ paste = "1.0"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 husky-word = { path = "../../syntax/husky-word" }
-vm = { path = "../../vm/husky-vm" }
+husky-vm = { path = "../../vm/husky-vm" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

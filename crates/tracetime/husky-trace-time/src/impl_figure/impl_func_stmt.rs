@@ -1,5 +1,5 @@
 use husky_text::HuskyText;
-use vm::{History, VMControl};
+use husky_vm::{History, VMControl};
 
 use super::*;
 use crate::*;

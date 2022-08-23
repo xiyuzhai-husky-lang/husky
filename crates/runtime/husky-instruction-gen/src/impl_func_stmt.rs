@@ -1,7 +1,7 @@
 use crate::*;
 use avec::Avec;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
-use vm::{Instruction, InstructionVariant, VMConditionBranch, VMPattern, VMPatternBranch};
+use husky_vm::{Instruction, InstructionVariant, VMConditionBranch, VMPattern, VMPatternBranch};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {

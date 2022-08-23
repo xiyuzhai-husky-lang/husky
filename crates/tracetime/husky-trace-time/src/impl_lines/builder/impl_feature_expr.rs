@@ -5,8 +5,8 @@ use husky_feature_eval::EvalFeature;
 use husky_lazy_semantics::{LazyExprVariant, LazyOpnKind};
 use husky_print_utils::epin;
 use husky_text::RangedCustomIdentifier;
+use husky_vm::InterpreterQueryGroup;
 use husky_word::CustomIdentifier;
-use vm::InterpreterQueryGroup;
 
 impl<'a> TraceTokenBuilder<'a> {
     pub(crate) fn gen_feature_expr_tokens(

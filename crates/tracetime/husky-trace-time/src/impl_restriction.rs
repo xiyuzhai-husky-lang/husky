@@ -2,7 +2,7 @@ use std::time::Instant;
 
 use crate::*;
 use husky_text::HuskyText;
-use vm::{History, VMControl};
+use husky_vm::{History, VMControl};
 
 impl HuskyTraceTime {
     pub fn restriction(&self) -> &Restriction {

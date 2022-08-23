@@ -3,7 +3,7 @@ use husky_ast::FieldAstKind;
 use husky_entity_kind::FieldKind;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
-use vm::*;
+use husky_vm::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LazyOpnKind {

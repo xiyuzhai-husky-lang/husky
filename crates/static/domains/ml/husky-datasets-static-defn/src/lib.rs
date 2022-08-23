@@ -12,11 +12,10 @@ use husky_static_defn::*;
 use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_trace_protocol::VisualData;
+use husky_vm::*;
 use husky_word::RootIdentifier;
 use serde::Serialize;
 use std::{borrow::Cow, sync::Arc};
-use vm::__StaticInfo;
-use vm::*;
 
 pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "datasets",

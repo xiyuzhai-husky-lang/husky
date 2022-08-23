@@ -1,4 +1,4 @@
-use vm::VMConfig;
+use husky_vm::VMConfig;
 
 #[derive(Debug)]
 pub struct EvaluatorConfig {

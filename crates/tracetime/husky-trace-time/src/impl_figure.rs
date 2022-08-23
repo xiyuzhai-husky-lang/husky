@@ -17,8 +17,8 @@ use husky_feature_gen::{
 };
 use husky_print_utils::epin;
 use husky_text::TextQueryGroup;
+use husky_vm::{History, HistoryEntry, MutationData, MutationDataVariant, StackSnapshot};
 use map_collect::MapCollect;
-use vm::{History, HistoryEntry, MutationData, MutationDataVariant, StackSnapshot};
 
 impl HuskyTraceTime {
     pub fn figure_canvas(
