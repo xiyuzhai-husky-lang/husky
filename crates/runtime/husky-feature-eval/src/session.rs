@@ -4,7 +4,7 @@ mod tests;
 pub use division::*;
 
 use crate::*;
-use husky_compile_time::HuskyComptime;
+use husky_comptime::HuskyComptime;
 use husky_datasets_interface::{Dataset, DatasetDyn, __rust_code_gen__::__DATASET_VTABLE};
 use husky_eager_semantics::FuncStmt;
 use husky_feature_gen::{Feature, FeaturePtr};

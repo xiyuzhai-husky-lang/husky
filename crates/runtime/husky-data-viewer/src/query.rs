@@ -1,6 +1,6 @@
 use crate::*;
 use entity_kind::TyKind;
-use husky_compile_time::*;
+use husky_comptime::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_vm_binding::Binding;
 use husky_word::RootIdentifier;

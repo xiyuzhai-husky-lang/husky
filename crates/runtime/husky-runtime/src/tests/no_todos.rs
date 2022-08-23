@@ -1,4 +1,4 @@
-use husky_compile_time::*;
+use husky_comptime::*;
 
 fn walkthrough(main_source: &'static str) {
     let mut db = husky - compilerompileTime::new_default(__root_defn);

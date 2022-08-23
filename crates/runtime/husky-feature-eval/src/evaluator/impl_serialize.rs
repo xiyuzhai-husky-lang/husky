@@ -1,6 +1,6 @@
 use super::*;
 use entity_kind::TyKind;
-use husky_compile_time::*;
+use husky_comptime::*;
 use husky_data_viewer::HuskyDataViewer;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {

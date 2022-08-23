@@ -12,8 +12,8 @@ mod utils;
 pub use utils::*;
 
 use husky_check_utils::*;
-use husky_compile_time::HuskyComptime;
-use husky_compile_time::*;
+use husky_comptime::HuskyComptime;
+use husky_comptime::*;
 use husky_display_utils::{compare_saved_data, HuskyDisplay};
 use husky_entity_route::EntityRoute;
 use husky_entity_route::EntityRoutePtr;

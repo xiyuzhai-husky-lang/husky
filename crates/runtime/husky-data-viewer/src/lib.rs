@@ -1,6 +1,6 @@
 mod query;
 
-use husky_compile_time::HuskyComptime;
+use husky_comptime::HuskyComptime;
 use husky_entity_route::EntityRoutePtr;
 use husky_vm_binding::Binding;
 use husky_word::{IdentPairDict, RootIdentifier};

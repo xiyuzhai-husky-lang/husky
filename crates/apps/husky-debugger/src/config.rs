@@ -1,5 +1,5 @@
 use crate::*;
-use husky_compile_time::HuskyComptimeConfig;
+use husky_comptime::HuskyComptimeConfig;
 use husky_feature_eval::EvaluatorConfig;
 use husky_linkage_table::LinkageTableConfig;
 use husky_root_static_defn::__resolve_root_defn;

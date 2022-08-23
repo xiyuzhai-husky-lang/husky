@@ -19,7 +19,7 @@ reserve = { path = "../../abstraction/reserve" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-compile-time = { path = "../../comptime/husky-compile-time" }
+husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-compile-dir = { path = "../../comptime/husky-compile-dir" }
 husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 semantics-error = { path = "../../semantics/error" }

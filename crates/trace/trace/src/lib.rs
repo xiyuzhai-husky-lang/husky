@@ -9,8 +9,8 @@ mod subtraces;
 mod tests;
 
 use fold::Indent;
-use husky_compile_time::EntityRoute;
-use husky_compile_time::*;
+use husky_comptime::EntityRoute;
+use husky_comptime::*;
 use husky_eager_semantics::*;
 use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_entity_semantics::*;

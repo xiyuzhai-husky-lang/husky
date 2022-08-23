@@ -12,7 +12,7 @@ mod trace_node;
 
 use avec::Avec;
 use defn_head::Parameter;
-use husky_compile_time::*;
+use husky_comptime::*;
 use husky_eager_semantics::*;
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;
