@@ -3,16 +3,16 @@ use husky_print_utils::msg_once;
 use super::*;
 
 pub(super) fn virtual_cyclic_slice_index_move<'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     msg_once!("the current impl of virtual vec is deprecated");
     todo!()
 }
 
 pub(super) unsafe fn virtual_cyclic_slice_index_copy<'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     msg_once!("the current impl of virtual vec is deprecated");
     assert_eq!(
@@ -26,8 +26,8 @@ pub(super) unsafe fn virtual_cyclic_slice_index_copy<'eval>(
 }
 
 pub(super) unsafe fn virtual_cyclic_slice_index_eval_ref<'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     msg_once!("the current impl of virtual vec is deprecated");
     assert_eq!(
@@ -41,8 +41,8 @@ pub(super) unsafe fn virtual_cyclic_slice_index_eval_ref<'eval>(
 }
 
 pub(super) unsafe fn virtual_cyclic_slice_index_temp_ref<'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     msg_once!("the current impl of virtual vec is deprecated");
     let this_value: &VirtualCyclicSlice =
@@ -52,8 +52,8 @@ pub(super) unsafe fn virtual_cyclic_slice_index_temp_ref<'eval>(
 }
 
 pub(super) unsafe fn virtual_cyclic_slice_index_temp_mut<'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     panic!()
     // let i: usize = values[1].downcast_i32() as usize;

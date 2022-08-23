@@ -16,8 +16,8 @@ pub static VEC_COLLECT_REFS: EntityStaticDefn = EntityStaticDefn {
 };
 
 unsafe fn virtual_vec_collect_refs<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
     // let this: &'eval VirtualVec = values[0].downcast_eval_ref(&__VIRTUAL_VEC_VTABLE);

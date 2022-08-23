@@ -40,7 +40,7 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(
-            transfer_linkage!(|_, values| todo!(), some base i32::min as fn (i32, i32)-> i32),
+            transfer_linkage!(|values, _| todo!(), some base i32::min as fn (i32, i32)-> i32),
         ),
     },
     dev_src: static_dev_src!(),
@@ -61,7 +61,7 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(
-            transfer_linkage!(|_, values| todo!(), some base i32::max as fn (i32, i32)-> i32),
+            transfer_linkage!(|values, _| todo!(), some base i32::max as fn (i32, i32)-> i32),
         ),
     },
     dev_src: static_dev_src!(),
@@ -77,7 +77,7 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(transfer_linkage!(|_, values|
+        opt_linkage: Some(transfer_linkage!(|values, _|
             values[0].downcast_i32().sgn().to_register(), some base i32::sgn as fn (i32)-> i32
         )),
     },
@@ -94,7 +94,7 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(transfer_linkage!(|_, values| {
+        opt_linkage: Some(transfer_linkage!(|values, _| {
             values[0].downcast_i32().abs().to_register()
         }, some base i32::abs as fn (i32)-> i32)),
     },

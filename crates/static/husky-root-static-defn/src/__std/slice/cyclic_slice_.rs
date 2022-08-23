@@ -101,15 +101,15 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
 };
 
 fn virtual_cyclic_slice_first_copy<'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
 }
 
 unsafe fn virtual_cyclic_slice_first_eval_ref<'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     let virtual_cyclic_slice: &'eval VirtualCyclicSlice<'eval> =
         values[0].downcast_eval_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
@@ -117,8 +117,8 @@ unsafe fn virtual_cyclic_slice_first_eval_ref<'eval>(
 }
 
 unsafe fn virtual_cyclic_slice_first_temp_ref<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     let virtual_cyclic_slice: &VirtualCyclicSlice<'eval> =
         values[0].downcast_temp_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
@@ -126,15 +126,15 @@ unsafe fn virtual_cyclic_slice_first_temp_ref<'temp, 'eval>(
 }
 
 fn virtual_cyclic_slice_first_temp_mut<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!("deprecated")
 }
 
 fn virtual_cyclic_slice_first_move<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
 }
@@ -163,15 +163,15 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
 };
 
 fn virtual_cyclic_slice_last_copy<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
 }
 
 unsafe fn virtual_cyclic_slice_last_eval_ref<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     let virtual_cyclic_slice: &'eval VirtualCyclicSlice<'eval> =
         values[0].downcast_eval_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
@@ -179,8 +179,8 @@ unsafe fn virtual_cyclic_slice_last_eval_ref<'temp, 'eval>(
 }
 
 unsafe fn virtual_cyclic_slice_last_temp_ref<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     let virtual_cyclic_slice: &VirtualCyclicSlice<'eval> =
         values[0].downcast_temp_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
@@ -188,15 +188,15 @@ unsafe fn virtual_cyclic_slice_last_temp_ref<'temp, 'eval>(
 }
 
 fn virtual_cyclic_slice_last_temp_mut<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!("deprecated")
 }
 
 fn virtual_cyclic_slice_last_move<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
 }

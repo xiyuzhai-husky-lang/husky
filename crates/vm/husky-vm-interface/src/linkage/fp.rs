@@ -9,8 +9,8 @@ use std::panic::catch_unwind;
 #[repr(C)]
 pub struct __ResolvedLinkage {
     pub wrapper: for<'eval> unsafe fn(
-        Option<&dyn __EvalContext<'eval>>,
         &mut [__Register<'eval>],
+        Option<&dyn __EvalContext<'eval>>,
     ) -> __Register<'eval>,
     pub opt_thick_fp: __OptVirtualThickFp,
     pub dev_src: __StaticDevSource,
@@ -57,7 +57,7 @@ impl __ResolvedLinkage {
         opt_ctx: Option<&dyn __EvalContext<'eval>>,
         arguments: &mut [__Register<'eval>],
     ) -> __Register<'eval> {
-        unsafe { (self.wrapper)(opt_ctx, arguments) }
+        unsafe { (self.wrapper)(arguments, opt_ctx) }
     }
 }
 

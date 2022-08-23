@@ -10,8 +10,8 @@ macro_rules! field_copy_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             register_new_copyable!(
@@ -42,8 +42,8 @@ macro_rules! field_eval_ref_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
             __Register::new_eval_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
@@ -63,8 +63,8 @@ macro_rules! field_eval_ref_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
             __Register::new_opt_eval_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
@@ -84,8 +84,8 @@ macro_rules! field_eval_ref_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_eval_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
@@ -105,8 +105,8 @@ macro_rules! field_eval_ref_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_opt_eval_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
@@ -131,8 +131,8 @@ macro_rules! field_temp_ref_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_temp_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
@@ -152,8 +152,8 @@ macro_rules! field_temp_ref_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_temp_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
@@ -173,8 +173,8 @@ macro_rules! field_temp_ref_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_opt_temp_ref::<$INTRINSIC_FIELD_TY>(
@@ -197,8 +197,8 @@ macro_rules! field_temp_ref_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             __Register::new_opt_temp_ref::<$INTRINSIC_FIELD_TY>(&value.$field, &$FIELD_TY_VTABLE)
@@ -224,8 +224,8 @@ macro_rules! field_temp_mut_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
             __Register::new_temp_mut::<$INTRINSIC_FIELD_TY>(&mut value.$field, &$FIELD_TY_VTABLE)
@@ -246,8 +246,8 @@ macro_rules! field_temp_mut_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
             __Register::new_opt_temp_mut::<$INTRINSIC_FIELD_TY>(
@@ -271,8 +271,8 @@ macro_rules! field_temp_mut_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             panic!("invalid")
         }
@@ -292,8 +292,8 @@ macro_rules! field_temp_mut_fp {
         $field: ident
     ) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             panic!("invalid")
         }
@@ -305,8 +305,8 @@ macro_rules! field_temp_mut_fp {
     }};
     (immutable, $($args: tt),*) => {{
         unsafe fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             panic!("field_temp_mut_invalid_fp")
         }
@@ -329,8 +329,8 @@ macro_rules! field_move_fp {
         $field: ident
     ) => {{
         fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             todo!("field_move_fp")
         }
@@ -348,8 +348,8 @@ macro_rules! field_move_fp {
         $field: ident
     ) => {{
         fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             todo!("field_move_fp")
         }
@@ -367,8 +367,8 @@ macro_rules! field_move_fp {
         $field: ident
     ) => {{
         fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             todo!("field_move_fp")
         }
@@ -386,8 +386,8 @@ macro_rules! field_move_fp {
         $field: ident
     ) => {{
         fn wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             todo!("field_move_fp")
         }

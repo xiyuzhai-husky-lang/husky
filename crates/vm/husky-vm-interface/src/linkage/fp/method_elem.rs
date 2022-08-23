@@ -57,7 +57,7 @@ macro_rules! method_elem_move_fp {
     ($Type: ty, $TYPE_VTABLE: expr, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
         __ResolvedLinkage {
             dev_src: static_dev_src!(),
-            wrapper: |_, values| -> __Register { todo!("move") },
+            wrapper: |values, _| -> __Register { todo!("move") },
             opt_thick_fp: __OptVirtualThickFp::none(),
         }
     }};

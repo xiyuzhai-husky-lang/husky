@@ -80,7 +80,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             f,
             r#"
         ({lopd_ty_ident:?}, {opr:?}, {ropd_ty_ident:?}) => transfer_linkage!(
-            |_,arguments| unsafe {{
+            |arguments, _| unsafe {{
                 (arguments[0].downcast_{lopd_ty_husky_name}() {opr_code} arguments[1].downcast_{ropd_ty_husky_name}()).to_register()
             }},
             none
@@ -92,13 +92,13 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         f,
         r#"
         (I32, Power, I32) => transfer_linkage!(
-            |_,arguments| unsafe {{
+            |arguments, _| unsafe {{
                 num::pow(arguments[0].downcast_i32(), arguments[1].downcast_i32() as usize).to_register()
             }},
             none
         ),
         (I32, RemEuclid, I32) => transfer_linkage!(
-            |_, arguments| unsafe {{
+            |arguments, _| unsafe {{
                 let dividend = arguments[0].downcast_i32();
                 let divisor = arguments[1].downcast_i32();
                 dividend.rem_euclid(divisor).to_register()
@@ -158,7 +158,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
                 f,
                 r#"
             ({lopd_ty_ident:?}, Some({opr:?}), {ropd_ty_ident:?}) => transfer_linkage!(
-                |_,arguments| unsafe {{
+                |arguments, _| unsafe {{
                     let new_value: {lopd_ty_husky_name} = (arguments[0].downcast_{lopd_ty_husky_name}() {opr_code} arguments[1].downcast_{ropd_ty_husky_name}());
                     *arguments[0].downcast_temp_mut::<{lopd_ty_husky_name}>(&__{upper_lopd_ty_husky_name}_VTABLE) = new_value;
                     __Register::new_void()
@@ -171,7 +171,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
                 f,
                 r#"
             ({lopd_ty_ident:?}, None, {ropd_ty_ident:?}) => transfer_linkage!(
-                |_,arguments| unsafe {{
+                |arguments, _| unsafe {{
                     *arguments[0].downcast_temp_mut::<{lopd_ty_husky_name}>(&__{upper_lopd_ty_husky_name}_VTABLE) = arguments[1].downcast_{ropd_ty_husky_name}();
                     __Register::new_void()
                 }},

@@ -30,8 +30,8 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
 };
 
 unsafe fn virtual_vec_cyclic_slice<'temp, 'eval>(
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
     values: &mut [__Register<'eval>],
+    opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     let this: &'eval VirtualVec = values[0].downcast_eval_ref(&__VIRTUAL_VEC_VTABLE);
     let start = values[1].downcast_i32();

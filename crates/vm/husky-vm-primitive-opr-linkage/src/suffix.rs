@@ -13,7 +13,7 @@ pub fn resolve_primitive_suffix_opr_linkage(
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => {
                 transfer_linkage!(
-                    |_, args| {
+                    |args, _| {
                         unsafe { *args[0].downcast_temp_mut::<i32>(&__I32_VTABLE) += 1 }
                             .to_register()
                     },
@@ -22,7 +22,7 @@ pub fn resolve_primitive_suffix_opr_linkage(
             }
             RootIdentifier::I64 => {
                 transfer_linkage!(
-                    |_, args| {
+                    |args, _| {
                         unsafe { *args[0].downcast_temp_mut::<i64>(&__I64_VTABLE) += 1 }
                             .to_register()
                     },
@@ -64,7 +64,7 @@ pub fn resolve_primitive_suffix_opr_linkage(
             RootIdentifier::Void => todo!(),
             RootIdentifier::I32 => {
                 transfer_linkage!(
-                    |_, args| {
+                    |args, _| {
                         unsafe { *args[0].downcast_temp_mut::<i32>(&__I32_VTABLE) -= 1 }
                             .to_register()
                     },
@@ -73,7 +73,7 @@ pub fn resolve_primitive_suffix_opr_linkage(
             }
             RootIdentifier::I64 => {
                 transfer_linkage!(
-                    |_, args| {
+                    |args, _| {
                         unsafe { *args[0].downcast_temp_mut::<i64>(&__I64_VTABLE) -= 1 }
                             .to_register()
                     },
@@ -119,15 +119,15 @@ pub fn resolve_primitive_suffix_opr_linkage(
                     RootIdentifier::I32 => todo!(),
                     RootIdentifier::I64 => todo!(),
                     RootIdentifier::F32 => transfer_linkage!(
-                        |_, args| (args[0].downcast_i32() as f32).to_register(),
+                        |args, _| (args[0].downcast_i32() as f32).to_register(),
                         none
                     ),
                     RootIdentifier::F64 => transfer_linkage!(
-                        |_, args| (args[0].downcast_i32() as u64).to_register(),
+                        |args, _| (args[0].downcast_i32() as u64).to_register(),
                         none
                     ),
                     RootIdentifier::B32 => transfer_linkage!(
-                        |_, args| (args[0].downcast_i32() as u32).to_register(),
+                        |args, _| (args[0].downcast_i32() as u32).to_register(),
                         none
                     ),
                     RootIdentifier::B64 => todo!(),
@@ -168,7 +168,7 @@ pub fn resolve_primitive_suffix_opr_linkage(
                 EntityRoutePtr::Root(root_identifier) => match root_identifier {
                     RootIdentifier::Void => todo!(),
                     RootIdentifier::I32 => transfer_linkage!(
-                        |_, args| (args[0].downcast_b32() as i32).to_register(),
+                        |args, _| (args[0].downcast_b32() as i32).to_register(),
                         none
                     ),
                     RootIdentifier::I64 => todo!(),
