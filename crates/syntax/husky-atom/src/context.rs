@@ -85,7 +85,7 @@ pub trait AtomContext {
                 RootIdentifier::Std => todo!(),
                 RootIdentifier::Core => todo!(),
                 RootIdentifier::Mor => TyKind::Mor,
-                RootIdentifier::FatFp => TyKind::FatFp,
+                RootIdentifier::ThickFp => TyKind::FatFp,
                 RootIdentifier::Fn => todo!(),
                 RootIdentifier::FnMut => todo!(),
                 RootIdentifier::FnOnce => todo!(),

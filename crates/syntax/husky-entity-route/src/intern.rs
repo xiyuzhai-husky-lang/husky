@@ -46,7 +46,7 @@ impl EntityRoutePtr {
                 RootIdentifier::Tuple => todo!(),
                 RootIdentifier::Debug => todo!(),
                 RootIdentifier::Mor => todo!(),
-                RootIdentifier::FatFp => todo!(),
+                RootIdentifier::ThickFp => todo!(),
                 RootIdentifier::Fn => todo!(),
                 RootIdentifier::FnMut => todo!(),
                 RootIdentifier::FnOnce => todo!(),
@@ -129,7 +129,7 @@ impl EntityRoutePtr {
     pub fn is_fp(self) -> bool {
         match self.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::FatFp,
+                ident: RootIdentifier::ThickFp,
             } => true,
             _ => false,
         }
@@ -251,7 +251,7 @@ impl Deref for EntityRoutePtr {
 
         match self {
             EntityRoutePtr::Root(ident) => match_root!(
-                ident => Void, I32, I64, F32, F64, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Mor, FatFp, Fn,
+                ident => Void, I32, I64, F32, F64, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Mor, ThickFp, Fn,
                 FnMut, FnOnce, Array, Domains, DatasetType, VisualType, TypeType, TraitType, ModuleType,
                 CloneTrait,
                 CopyTrait,
@@ -383,7 +383,7 @@ pub fn new_entity_route_interner() -> EntityRouteInterner {
         RootIdentifier::Debug,
         RootIdentifier::Std,
         RootIdentifier::Core,
-        RootIdentifier::FatFp,
+        RootIdentifier::ThickFp,
         RootIdentifier::Fn,
         RootIdentifier::FnMut,
         RootIdentifier::FnOnce,

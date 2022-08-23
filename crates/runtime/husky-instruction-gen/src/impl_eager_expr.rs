@@ -440,7 +440,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                                 RootIdentifier::Std => todo!(),
                                                 RootIdentifier::Core => todo!(),
                                                 RootIdentifier::Mor => todo!(),
-                                                RootIdentifier::FatFp => todo!(),
+                                                RootIdentifier::ThickFp => todo!(),
                                                 RootIdentifier::Fn => todo!(),
                                                 RootIdentifier::FnMut => todo!(),
                                                 RootIdentifier::FnOnce => todo!(),

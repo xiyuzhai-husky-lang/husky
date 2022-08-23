@@ -82,7 +82,7 @@ pub fn new_word_interner() -> WordInterner {
         RootIdentifier::Array.into(),
         RootIdentifier::Tuple.into(),
         RootIdentifier::Mor.into(),
-        RootIdentifier::FatFp.into(),
+        RootIdentifier::ThickFp.into(),
         RootIdentifier::Fn.into(),
         RootIdentifier::FnMut.into(),
         RootIdentifier::FnOnce.into(),

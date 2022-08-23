@@ -58,7 +58,7 @@ pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::Std => &STD_DEFN,
         RootIdentifier::Core => todo!(),
         RootIdentifier::Mor => todo!(),
-        RootIdentifier::FatFp => &FP_TYPE_DEFN,
+        RootIdentifier::ThickFp => &FP_TYPE_DEFN,
         RootIdentifier::Fn => todo!(),
         RootIdentifier::FnMut => todo!(),
         RootIdentifier::FnOnce => todo!(),

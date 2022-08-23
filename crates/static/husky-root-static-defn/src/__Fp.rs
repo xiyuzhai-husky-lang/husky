@@ -3,10 +3,10 @@ use husky_trace_protocol::VisualData;
 use super::*;
 
 pub static FP_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "FatFp",
+    name: "ThickFp",
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
-        base_route: "FatFp",
+        base_route: "ThickFp",
         spatial_parameters: &[],
         trait_impls: &[],
         ty_members: &[],

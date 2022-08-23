@@ -49,7 +49,7 @@ fn is_implicitly_castable(
                     RootIdentifier::Void
                     | RootIdentifier::Vec
                     | RootIdentifier::Tuple
-                    | RootIdentifier::FatFp
+                    | RootIdentifier::ThickFp
                     | RootIdentifier::Fn
                     | RootIdentifier::FnMut
                     | RootIdentifier::FnOnce
@@ -63,7 +63,7 @@ fn is_implicitly_castable(
             },
             RootIdentifier::Vec => false,
             RootIdentifier::Tuple => false,
-            RootIdentifier::FatFp => false,
+            RootIdentifier::ThickFp => false,
             RootIdentifier::Fn => false,
             RootIdentifier::FnMut => false,
             RootIdentifier::FnOnce => false,

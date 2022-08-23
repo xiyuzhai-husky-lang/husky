@@ -111,7 +111,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 let base_route: EntityRoutePtr = if decl.is_lazy {
                     RootIdentifier::Mor
                 } else {
-                    RootIdentifier::FatFp
+                    RootIdentifier::ThickFp
                 }
                 .into();
                 msg_once!("handle temporal/spatial parameters");

@@ -262,7 +262,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::TraitType
                 | RootIdentifier::ModuleType => Ok(thin_vec![]),
                 RootIdentifier::Mor
-                | RootIdentifier::FatFp
+                | RootIdentifier::ThickFp
                 | RootIdentifier::Fn
                 | RootIdentifier::FnMut
                 | RootIdentifier::FnOnce => Ok(self.func_args()?),

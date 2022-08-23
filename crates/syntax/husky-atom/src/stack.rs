@@ -142,7 +142,7 @@ impl AtomStack {
                         route: EntityRoutePtr::Root(ident),
                         ..
                     } => match ident {
-                        RootIdentifier::FatFp
+                        RootIdentifier::ThickFp
                         | RootIdentifier::Fn
                         | RootIdentifier::FnMut
                         | RootIdentifier::FnOnce => Ok(ident),
