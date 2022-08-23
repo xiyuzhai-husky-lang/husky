@@ -35,4 +35,10 @@ impl __OptVirtualThickFp {
             fp: f.__to_void_pointer(),
         }
     }
+
+    #[cfg(feature = "thick_fp")]
+    #[inline(always)]
+    pub const unsafe fn downcast_thick_fp<F: __BaseThinFp>(self) -> ThickFp<F> {
+        ThickFp::new(self.needs_eval_context, self.fp)
+    }
 }

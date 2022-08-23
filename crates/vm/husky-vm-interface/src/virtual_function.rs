@@ -6,13 +6,19 @@ pub enum __VirtualFunction {
     ThickFp(__ResolvedLinkage),
 }
 
-// impl __VirtualFunction {
-//     pub fn fp(&self) -> *const () {
-//         match self {
-//             __VirtualFunction::ThickFp(linkage) => linkage.opt_thick_fp.unwrap(),
-//         }
-//     }
-// }
+impl __VirtualFunction {
+    // pub fn fp(&self) -> *const () {
+    //     match self {
+    //         __VirtualFunction::ThickFp(linkage) => linkage.opt_thick_fp.unwrap(),
+    //     }
+    // }
+
+    pub unsafe fn downcast_thick_fp<F: __BaseThinFp>(&self) -> ThickFp<F> {
+        match self {
+            __VirtualFunction::ThickFp(linkage) => linkage.opt_thick_fp.downcast_thick_fp(),
+        }
+    }
+}
 
 impl __StaticInfo for __VirtualFunction {
     type __StaticSelf = Self;
