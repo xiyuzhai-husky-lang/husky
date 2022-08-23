@@ -10,7 +10,7 @@ use infer_contract::{EagerContract, InferContract};
 use vm::*;
 
 use crate::*;
-use semantics_error::{derived_unwrap, err};
+use husky_semantics_error::{derived_unwrap, err};
 
 use super::EagerOpnVariant;
 

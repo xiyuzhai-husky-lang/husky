@@ -13,7 +13,7 @@ use infer_contract::{InferContract, LazyContract};
 use vm::*;
 
 use super::*;
-use semantics_error::*;
+use husky_semantics_error::*;
 
 pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedTy {
     fn arena(&self) -> &'a RawExprArena;

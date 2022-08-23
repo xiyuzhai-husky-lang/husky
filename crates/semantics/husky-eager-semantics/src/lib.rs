@@ -14,7 +14,7 @@ use husky_loop_syntax::*;
 use husky_opn_semantics::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
+use husky_semantics_error::*;
 use husky_word::CustomIdentifier;
 use infer_total::InferQueryGroup;
-use semantics_error::*;
 use std::sync::Arc;

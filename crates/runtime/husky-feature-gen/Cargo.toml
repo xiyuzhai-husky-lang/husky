@@ -30,7 +30,7 @@ husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-word = { path = "../../syntax/husky-word" }
 husky-ast = { path = "../../syntax/husky-ast" }
-semantics-error = { path = "../../semantics/error" }
+husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }

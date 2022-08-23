@@ -5,7 +5,7 @@ use husky_eager_semantics::parse_func_stmts;
 use husky_entity_route::EntityRouteVariant;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_file::FilePtr;
-use semantics_error::*;
+use husky_semantics_error::*;
 
 #[salsa::query_group(PackageQueryGroupStorage)]
 pub trait PackageQueryGroup: EntityDefnQueryGroup {

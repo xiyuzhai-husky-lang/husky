@@ -14,7 +14,7 @@ use husky_entity_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
 use husky_instruction_gen::InstructionGenQueryGroup;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::*;
-use semantics_error::SemanticResult;
+use husky_semantics_error::SemanticResult;
 use std::{
     marker::PhantomData,
     panic::{RefUnwindSafe, UnwindSafe},

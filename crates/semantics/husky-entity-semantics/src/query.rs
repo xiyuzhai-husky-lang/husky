@@ -1,8 +1,8 @@
 use crate::dependence::*;
 use crate::*;
 use husky_entity_route::EntityRoutePtr;
+use husky_semantics_error::*;
 use infer_total::InferQueryGroup;
-use semantics_error::*;
 use std::sync::{Arc, Mutex};
 use sync_utils::ASafeRwLock;
 use upcast::Upcast;

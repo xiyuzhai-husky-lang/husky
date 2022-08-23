@@ -25,7 +25,7 @@ husky-text = { path = "../../syntax/husky-text" }
 husky-word = { path = "../../syntax/husky-word" }
 fold = { path = "../../abstraction/fold" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
-semantics-error = { path = "../../semantics/error" }
+husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
