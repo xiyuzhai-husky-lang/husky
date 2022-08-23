@@ -39,12 +39,12 @@ use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, Laz
 use husky_liason_semantics::*;
 use husky_print_utils::{epin, msg_once, p};
 use husky_semantics_error::*;
+use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use husky_static_visualizer::StaticVisualTy;
 use husky_text::*;
 use husky_word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 use map_collect::MapCollect;
 use module::module_defn;
-use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 use thin_vec::{thin_vec, ThinVec};

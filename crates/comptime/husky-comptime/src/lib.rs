@@ -99,7 +99,7 @@ impl HuskyComptime {
     pub fn new_default(
         __root_defn: fn(
             ident: husky_word::RootIdentifier,
-        ) -> &'static static_defn::EntityStaticDefn,
+        ) -> &'static husky_static_defn::EntityStaticDefn,
     ) -> Self {
         Self::new(HuskyComptimeConfig {
             package_dir: Default::default(),

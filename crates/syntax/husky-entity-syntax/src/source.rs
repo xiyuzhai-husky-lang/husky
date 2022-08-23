@@ -1,8 +1,8 @@
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
+use husky_static_defn::EntityStaticDefn;
 use husky_text::TextRange;
 use husky_word::CustomIdentifier;
-use static_defn::EntityStaticDefn;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EntitySource {
