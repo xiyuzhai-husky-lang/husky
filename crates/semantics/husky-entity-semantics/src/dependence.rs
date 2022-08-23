@@ -1,6 +1,6 @@
 use husky_entity_route::EntityRouteVariant;
 use husky_print_utils::msg_once;
-use semantics_error::*;
+use husky_semantics_error::*;
 use vec_like::{VecMap, VecPairMap};
 
 use crate::*;

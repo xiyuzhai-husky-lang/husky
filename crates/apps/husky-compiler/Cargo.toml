@@ -22,7 +22,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-compile-dir = { path = "../../comptime/husky-compile-dir" }
 husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
-semantics-error = { path = "../../semantics/error" }
+husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }

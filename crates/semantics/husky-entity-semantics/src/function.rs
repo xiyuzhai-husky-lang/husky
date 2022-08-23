@@ -1,8 +1,8 @@
 use crate::*;
 use husky_ast::{Ast, AstIter, RawExprArena};
+use husky_semantics_error::*;
 use husky_word::Paradigm;
 use infer_total::InferQueryGroup;
-use semantics_error::*;
 
 impl EntityDefnVariant {
     pub(crate) fn function(

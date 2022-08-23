@@ -4,10 +4,10 @@ use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
+use husky_semantics_error::*;
 use husky_word::{CustomIdentifier, IdentPairDict};
 use husky_xml_syntax::XmlTagKind;
 use infer_contract::{ContractSheet, InferContract};
-use semantics_error::*;
 use std::{iter::Peekable, sync::Arc};
 use vm::{VMCompileResult, VMStackIdx, __VMResult};
 

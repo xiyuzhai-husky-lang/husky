@@ -19,7 +19,7 @@ husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-token = { path = "../../syntax/husky-token" }
-semantics-error = { path = "../error" }
+husky-semantics-error = { path = "../husky-semantics-error" }
 husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
 infer-decl = { path = "../../infer/husky-infer-decl" }
 infer-total = { path = "../../infer/total" }

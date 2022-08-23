@@ -23,4 +23,4 @@ infer-total = { path = "../../infer/total" }
 infer-error = { path = "../../infer/error" }
 husky-token = { path = "../../syntax/husky-token" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-semantics-error = { path = "../../semantics/error" }
+husky-semantics-error = { path = "../../semantics/husky-semantics-error" }

@@ -3,7 +3,7 @@ use husky_entity_route::{EntityKind, EntityRoutePtr};
 use husky_entity_syntax::SubrouteTable;
 use husky_file::FilePtr;
 use husky_print_utils::{msg_once, p};
-use semantics_error::SemanticErrorVariant;
+use husky_semantics_error::SemanticErrorVariant;
 
 use crate::*;
 

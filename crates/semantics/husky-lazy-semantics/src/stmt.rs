@@ -6,7 +6,7 @@ use std::sync::Arc;
 pub use branch::*;
 use husky_ast::*;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
-use semantics_error::SemanticResultArc;
+use husky_semantics_error::SemanticResultArc;
 use vm::{InstructionId, InstructionSource};
 
 use parse::LazyStmtParser;
