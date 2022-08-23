@@ -42,7 +42,7 @@ entity-kind = { path = "../../syntax/entity-kind" }
 static-defn = { path = "../../static/static-defn" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
-husky-compile-time = { path = "../../comptime/husky-compile-time" }
+husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-literal-semantics" }

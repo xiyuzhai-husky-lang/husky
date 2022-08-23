@@ -1,5 +1,5 @@
 use husky_compile_test::*;
-use husky_compile_time::*;
+use husky_comptime::*;
 use husky_test_utils::TestResult;
 use std::path::Path;
 

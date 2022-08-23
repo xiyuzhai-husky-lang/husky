@@ -7,7 +7,7 @@ mod impl_proc_stmt;
 mod utils;
 
 use crate::*;
-use husky_compile_time::*;
+use husky_comptime::*;
 use husky_eager_semantics::{
     EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
 };

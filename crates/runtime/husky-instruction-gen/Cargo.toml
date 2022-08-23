@@ -28,7 +28,7 @@ husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 static-defn = { path = "../../static/static-defn" }
 entity-kind = { path = "../../syntax/entity-kind" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-compile-time = { path = "../../comptime/husky-compile-time" }
+husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-literal-semantics" }
 husky-vm-primitive-opr-linkage = { path = "../../vm/husky-vm-primitive-opr-linkage" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

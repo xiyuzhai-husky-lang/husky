@@ -1,5 +1,5 @@
 use crate::*;
-use husky_compile_time::{utils::__RegisterDowncastResult, *};
+use husky_comptime::{utils::__RegisterDowncastResult, *};
 use husky_print_utils::msg_once;
 use husky_trace_protocol::TraceStats;
 use husky_word::RootIdentifier;

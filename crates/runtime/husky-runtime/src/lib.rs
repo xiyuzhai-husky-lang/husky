@@ -4,14 +4,14 @@ mod query;
 mod utils;
 mod variant;
 
-pub use husky_compile_time::*;
+pub use husky_comptime::*;
 pub use husky_feature_gen::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, InternFeature};
 pub use husky_instruction_gen::InstructionGenQueryGroup;
 pub use query::*;
 pub use utils::*;
 
 use husky_check_utils::*;
-use husky_compile_time::*;
+use husky_comptime::*;
 use husky_datasets_interface::LabeledData;
 use husky_feature_eval::*;
 use husky_feature_eval::{EvalFeature, Session};

@@ -34,7 +34,7 @@ path-utils = { path = "../../utils/husky-path-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-compile-time = { path = "../../comptime/husky-compile-time" }
+husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-compile-test = { path = "../../comptime/husky-compile-test" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-file = { path = "../../syntax/husky-file" }

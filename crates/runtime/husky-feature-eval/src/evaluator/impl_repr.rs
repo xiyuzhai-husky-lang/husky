@@ -1,7 +1,7 @@
 use super::FeatureEvaluator;
 use crate::*;
 use husky_check_utils::{should, should_eq};
-use husky_compile_time::*;
+use husky_comptime::*;
 use husky_print_utils::{epin, p};
 use vm::*;
 

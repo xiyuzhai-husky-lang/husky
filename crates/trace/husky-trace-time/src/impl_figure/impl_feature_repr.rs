@@ -1,4 +1,4 @@
-use husky_compile_time::utils::{self, __RegisterDowncastResult};
+use husky_comptime::utils::{self, __RegisterDowncastResult};
 use husky_vm_primitive_value::PrimitiveValueData;
 
 use super::*;

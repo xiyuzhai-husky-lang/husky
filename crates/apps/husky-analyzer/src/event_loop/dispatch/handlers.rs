@@ -1,8 +1,8 @@
 use crate::{convert::from_lsp_types, *};
 
-type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_compile_time::HuskyComptime>;
+type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_comptime::HuskyComptime>;
 
-use husky_compile_time::{AllocateUniqueFile, AstSalsaQueryGroup};
+use husky_comptime::{AllocateUniqueFile, AstSalsaQueryGroup};
 use husky_token::AbsSemanticToken;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,

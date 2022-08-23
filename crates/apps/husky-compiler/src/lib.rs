@@ -6,7 +6,7 @@ mod impl_sync_code;
 mod impl_transcribe_rust;
 
 use husky_compile_dir::{getx_child_dir, mkdir};
-use husky_compile_time::*;
+use husky_comptime::*;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTableConfig;

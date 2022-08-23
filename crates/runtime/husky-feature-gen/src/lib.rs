@@ -23,7 +23,7 @@ pub use lazy_stmt::{FeatureLazyStmt, FeatureLazyStmtVariant};
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
 
-use husky_compile_time::DeclQueryGroup;
+use husky_comptime::DeclQueryGroup;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_init_syntax::*;
