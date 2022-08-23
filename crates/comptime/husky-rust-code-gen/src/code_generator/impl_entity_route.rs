@@ -58,8 +58,8 @@ impl<'a> RustCodeGenerator<'a> {
                             EntityRouteRole::Caller
                             | EntityRouteRole::Decl
                             | EntityRouteRole::Other => self.write("&'eval "),
-                            EntityRouteRole::StaticDecl => todo!(),
-                            EntityRouteRole::StaticBaseFpDecl => todo!(),
+                            EntityRouteRole::StaticDecl => self.write("&'static "),
+                            EntityRouteRole::StaticBaseFpDecl => self.write("&'static "),
                         }
                         self.gen_entity_route(
                             entity_route.entity_route_argument(0),
