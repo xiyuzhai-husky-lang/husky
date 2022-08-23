@@ -25,7 +25,7 @@ impl HuskyComptime {
             convert_i32_register_to_label
         } else {
             let target_output_ty_intrinsic_decl = self.ty_decl(target_output_ty_intrinsic).unwrap();
-            use entity_kind::TyKind;
+            use husky_entity_kind::TyKind;
             match target_output_ty_intrinsic_decl.ty_kind {
                 TyKind::Enum => convert_enum_register_to_label,
                 TyKind::Record => todo!(),

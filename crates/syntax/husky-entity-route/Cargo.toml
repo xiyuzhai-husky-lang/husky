@@ -16,5 +16,5 @@ vec-like = { path = "../../abstraction/vec-like" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
 husky-word = { path = "../husky-word" }
-entity-kind = { path = "../entity-kind" }
+husky-entity-kind = { path = "../husky-entity-kind" }
 thin-vec = { path = "../../../forks/thin-vec" }

@@ -160,12 +160,12 @@ pub(crate) fn implement_target(
         }
         EntityRouteVariant::Any {
             ident,
-            entity_kind,
+            husky_entity_kind,
             file,
             range,
         } => EntityRouteVariant::Any {
             ident,
-            entity_kind,
+            husky_entity_kind,
             file,
             range,
         },

@@ -19,7 +19,7 @@ husky-word = { path = "../../syntax/husky-word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 vm = { path = "../../vm/husky-vm" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
-entity-kind = { path = "../../syntax/entity-kind" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 static-defn = { path = "../static-defn" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }

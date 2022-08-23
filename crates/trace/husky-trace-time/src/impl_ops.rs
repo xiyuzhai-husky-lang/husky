@@ -1,7 +1,7 @@
 use std::time::Instant;
 
 use crate::*;
-use entity_kind::EntityKind;
+use husky_entity_kind::EntityKind;
 use husky_text::HuskyText;
 use vm::{History, VMControl};
 

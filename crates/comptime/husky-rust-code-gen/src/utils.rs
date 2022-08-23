@@ -12,7 +12,9 @@ pub(crate) fn is_defn_static(db: &dyn RustCodeGenQueryGroup, entity_route: Entit
         }
         EntityRouteVariant::TargetInputValue => todo!(),
         EntityRouteVariant::Any {
-            ident, entity_kind, ..
+            ident,
+            husky_entity_kind,
+            ..
         } => todo!(),
         EntityRouteVariant::ThisType => todo!(),
         EntityRouteVariant::TargetOutputType => todo!(),
@@ -36,7 +38,9 @@ pub(crate) fn contains_spatial_parameters(
         }
         EntityRouteVariant::TargetInputValue => todo!(),
         EntityRouteVariant::Any {
-            ident, entity_kind, ..
+            ident,
+            husky_entity_kind,
+            ..
         } => todo!(),
         EntityRouteVariant::ThisType => todo!(),
         EntityRouteVariant::TargetOutputType => todo!(),

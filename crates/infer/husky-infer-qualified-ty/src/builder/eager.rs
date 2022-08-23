@@ -1,9 +1,9 @@
 use std::iter::zip;
 
 use defn_head::Parameter;
-use entity_kind::EntityKind;
 use husky_ast::*;
 use husky_check_utils::should;
+use husky_entity_kind::EntityKind;
 use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_opn_syntax::RawOpnVariant;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};

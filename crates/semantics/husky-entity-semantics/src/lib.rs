@@ -22,7 +22,6 @@ pub use visual::*;
 
 use avec::Avec;
 use defn_head::*;
-use entity_kind::*;
 use fold::{FoldIterItem, FoldableStorage};
 use husky_ast::AstVariant;
 use husky_atom::{
@@ -30,6 +29,7 @@ use husky_atom::{
     AtomContext, AtomContextStandalone,
 };
 use husky_eager_semantics::*;
+use husky_entity_kind::*;
 use husky_entity_route::{EntityRoute, EntityRouteVariant};
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_syntax::EntitySource;
@@ -490,7 +490,7 @@ pub(crate) fn entity_defn(
                 .unwrap();
             let ast = value.as_ref().unwrap();
 
-            let (ident, entity_kind) = match ast.variant {
+            let (ident, husky_entity_kind) = match ast.variant {
                 AstVariant::TypeDefnHead {
                     ident,
                     kind,
@@ -555,7 +555,7 @@ pub(crate) fn entity_defn(
             };
             Ok(EntityDefn::new(
                 ident.ident.into(),
-                entity_kind,
+                husky_entity_kind,
                 entity_route,
                 file,
                 ast.range,

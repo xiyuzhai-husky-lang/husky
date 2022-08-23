@@ -39,7 +39,9 @@ impl<'a> DependeeMapBuilder<'a> {
                 ()
             }
             EntityRouteVariant::Any {
-                ident, entity_kind, ..
+                ident,
+                husky_entity_kind,
+                ..
             } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
             EntityRouteVariant::TypeAsTraitMember {

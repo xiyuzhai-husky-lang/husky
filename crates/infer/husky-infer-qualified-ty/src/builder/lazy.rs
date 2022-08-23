@@ -1,7 +1,7 @@
 use defn_head::Parameter;
-use entity_kind::EntityKind;
 use husky_ast::*;
 use husky_check_utils::should;
+use husky_entity_kind::EntityKind;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_print_utils::p;
 use husky_text::RangedCustomIdentifier;

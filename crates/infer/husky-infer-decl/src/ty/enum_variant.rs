@@ -1,4 +1,4 @@
-use entity_kind::EnumVariantKind;
+use husky_entity_kind::EnumVariantKind;
 use vec_like::VecMapEntry;
 
 use super::*;

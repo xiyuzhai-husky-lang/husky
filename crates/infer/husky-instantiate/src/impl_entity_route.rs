@@ -4,7 +4,7 @@ impl Instantiable for EntityRoutePtr {
     type Target = SpatialArgument;
 
     fn instantiate(&self, ctx: &InstantiationContext) -> SpatialArgument {
-        match ctx.db.entity_kind(*self).unwrap() {
+        match ctx.db.husky_entity_kind(*self).unwrap() {
             EntityKind::Module => SpatialArgument::EntityRoute(*self),
             EntityKind::EnumVariant => todo!(),
             _ => {

@@ -41,4 +41,4 @@ husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
-entity-kind = { path = "../../syntax/entity-kind" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

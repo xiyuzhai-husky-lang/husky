@@ -5,8 +5,8 @@ mod vec;
 
 use std::iter::Peekable;
 
-use entity_kind::{EnumVariantKind, FieldKind};
 use husky_check_utils::{should, should_eq};
+use husky_entity_kind::{EnumVariantKind, FieldKind};
 use husky_liason_semantics::OutputLiason;
 use husky_print_utils::{msg_once, p};
 pub use trait_impl::*;
@@ -622,7 +622,9 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
         EntityRouteVariant::Child { parent, ident } => todo!(),
         EntityRouteVariant::TargetInputValue => todo!(),
         EntityRouteVariant::Any {
-            ident, entity_kind, ..
+            ident,
+            husky_entity_kind,
+            ..
         } => todo!(),
         EntityRouteVariant::ThisType => todo!(),
         EntityRouteVariant::TypeAsTraitMember {

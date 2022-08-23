@@ -30,8 +30,8 @@ pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
 pub use std::sync::Arc as __Arc;
 
-use entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_dev_utils::*;
+use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_vm_register_method::VMRegisterMethodX;

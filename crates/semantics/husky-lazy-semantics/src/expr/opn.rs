@@ -1,6 +1,6 @@
 use crate::*;
-use entity_kind::FieldKind;
 use husky_ast::FieldAstKind;
+use husky_entity_kind::FieldKind;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use vm::*;

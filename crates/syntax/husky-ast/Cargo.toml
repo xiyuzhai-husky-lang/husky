@@ -29,7 +29,7 @@ husky-token = { path = "../husky-token" }
 husky-entity-route = { path = "../husky-entity-route" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
-entity-kind = { path = "../entity-kind" }
+husky-entity-kind = { path = "../husky-entity-kind" }
 husky-atom = { path = "../husky-atom" }
 defn-head = { path = "../defn-head" }
 static-defn = { path = "../../static/static-defn" }

@@ -42,7 +42,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
             SpatialArgument::EntityRoute(self.intern_entity_route(EntityRoute {
                 variant: EntityRouteVariant::Any {
                     ident: spatial_parameter.ident.ident,
-                    entity_kind: spatial_parameter.entity_kind(),
+                    husky_entity_kind: spatial_parameter.husky_entity_kind(),
                     file: spatial_parameter.file,
                     range: spatial_parameter.range,
                 },
@@ -63,7 +63,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
                 kind: SymbolKind::EntityRoute(self.intern_entity_route(EntityRoute {
                     variant: EntityRouteVariant::Any {
                         ident: spatial_parameter.ident.ident,
-                        entity_kind: spatial_parameter.entity_kind(),
+                        husky_entity_kind: spatial_parameter.husky_entity_kind(),
                         file: spatial_parameter.file,
                         range: spatial_parameter.range,
                     },

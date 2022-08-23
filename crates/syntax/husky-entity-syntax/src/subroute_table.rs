@@ -3,8 +3,8 @@ mod entry;
 pub use entry::*;
 
 use crate::{error::*, *};
-use entity_kind::MemberKind;
 use husky_dev_utils::dev_src;
+use husky_entity_kind::MemberKind;
 use husky_entity_route::*;
 use husky_file::FilePtr;
 use husky_print_utils::p;
@@ -36,7 +36,7 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &HuskyToken) -> Option<En
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SubrouteTable {
     pub route: EntityRoutePtr,
-    pub entity_kind: EntityKind,
+    pub husky_entity_kind: EntityKind,
     pub entries: Vec<SubrouteEntry>,
     pub errors: Vec<EntitySyntaxError>,
 }
@@ -59,10 +59,10 @@ impl std::fmt::Display for SubrouteTable {
 }
 
 impl SubrouteTable {
-    pub fn new(route: EntityRoutePtr, entity_kind: EntityKind) -> Self {
+    pub fn new(route: EntityRoutePtr, husky_entity_kind: EntityKind) -> Self {
         Self {
             route,
-            entity_kind,
+            husky_entity_kind,
             entries: Vec::new(),
             errors: Vec::new(),
         }
@@ -72,13 +72,19 @@ impl SubrouteTable {
         db: &dyn EntitySyntaxSalsaQueryGroup,
         file: FilePtr,
         route: EntityRoutePtr,
-        entity_kind: EntityKind,
+        husky_entity_kind: EntityKind,
         token_groups: TokenGroupIter,
     ) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(|item| {
-                match SubrouteEntry::from_token_group(db, file, entity_kind, item.idx, item.value) {
+                match SubrouteEntry::from_token_group(
+                    db,
+                    file,
+                    husky_entity_kind,
+                    item.idx,
+                    item.value,
+                ) {
                     Ok(opt_entry) => opt_entry,
                     Err(e) => {
                         errors.push(e);
@@ -89,7 +95,7 @@ impl SubrouteTable {
             .collect();
         Self {
             route,
-            entity_kind,
+            husky_entity_kind,
             entries,
             errors,
         }
@@ -123,7 +129,7 @@ impl SubrouteTable {
         )
     }
 
-    pub fn entity_kind(&self, ident: CustomIdentifier) -> EntitySyntaxResult<EntityKind> {
+    pub fn husky_entity_kind(&self, ident: CustomIdentifier) -> EntitySyntaxResult<EntityKind> {
         self.entries
             .iter()
             .find(|entry| {
@@ -227,7 +233,7 @@ impl SubrouteTable {
     pub(crate) fn from_static(
         db: &dyn EntitySyntaxSalsaQueryGroup,
         route: EntityRoutePtr,
-        entity_kind: EntityKind,
+        husky_entity_kind: EntityKind,
         data: &EntityStaticDefn,
     ) -> Self {
         let mut entries: Vec<SubrouteEntry> = data
@@ -238,7 +244,7 @@ impl SubrouteTable {
                     ident: db.intern_word(data.name).opt_custom().unwrap(),
                     range: Default::default(),
                 }),
-                kind: data.variant.entity_kind(),
+                kind: data.variant.husky_entity_kind(),
                 source: (*data).into(),
             })
             .collect();
@@ -310,7 +316,7 @@ impl SubrouteTable {
         }
         Self {
             route,
-            entity_kind,
+            husky_entity_kind,
             entries,
             errors: vec![],
         }

@@ -216,7 +216,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             EntityRouteVariant::Package { main, ident } => todo!(),
             EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::Any {
-                ident, entity_kind, ..
+                ident,
+                husky_entity_kind,
+                ..
             } => todo!(),
             EntityRouteVariant::ThisType => todo!(),
             EntityRouteVariant::TargetOutputType => todo!(),

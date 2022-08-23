@@ -1,6 +1,6 @@
 use super::context::SymbolKind;
 use super::*;
-use entity_kind::TyKind;
+use husky_entity_kind::TyKind;
 use husky_entity_route::RangedEntityRoute;
 use husky_text::RangedCustomIdentifier;
 use husky_token::{is_special, special_token, SemanticTokenKind};
@@ -82,7 +82,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         self.atom_context
                             .push_abs_semantic_token(AbsSemanticToken::new(
                                 SemanticTokenKind::Entity(
-                                    self.atom_context.entity_kind(route, token.range)?,
+                                    self.atom_context.husky_entity_kind(route, token.range)?,
                                 ),
                                 token.range,
                             ));
@@ -173,7 +173,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             let new_route = self
                 .db()
                 .subroute(route, ranged_ident.ident, Default::default());
-            match self.atom_context.entity_syntax_db().entity_kind(new_route) {
+            match self
+                .atom_context
+                .entity_syntax_db()
+                .husky_entity_kind(new_route)
+            {
                 Ok(_) => (),
                 Err(e) => {
                     let message = e.message;
@@ -187,7 +191,8 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             self.atom_context
                 .push_abs_semantic_token(AbsSemanticToken::new(
                     SemanticTokenKind::Entity(
-                        self.atom_context.entity_kind(route, ranged_ident.range)?,
+                        self.atom_context
+                            .husky_entity_kind(route, ranged_ident.range)?,
                     ),
                     ranged_ident.range,
                 ));
@@ -196,7 +201,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             route,
             kind: self
                 .atom_context
-                .entity_kind(route, Default::default())
+                .husky_entity_kind(route, Default::default())
                 .unwrap(),
         });
     }
@@ -275,11 +280,11 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 RootIdentifier::VisualType => todo!(),
             },
             _ => {
-                let entity_kind = self
+                let husky_entity_kind = self
                     .atom_context
-                    .entity_kind(route, Default::default())
+                    .husky_entity_kind(route, Default::default())
                     .unwrap();
-                match entity_kind {
+                match husky_entity_kind {
                     EntityKind::Module
                     | EntityKind::EnumVariant
                     | EntityKind::Feature

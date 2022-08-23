@@ -13,8 +13,8 @@ mod utils;
 
 use crate::*;
 use context::*;
-use entity_kind::TyKind;
 use fold::LocalStack;
+use husky_entity_kind::TyKind;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use husky_package_semantics::Package;
 use impl_entity_route::*;

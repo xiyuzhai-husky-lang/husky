@@ -1,6 +1,6 @@
 use crate::*;
-use entity_kind::TyKind;
 use husky_ast::FieldAstKind;
+use husky_entity_kind::TyKind;
 use husky_linkage_table::ResolveLinkage;
 use husky_opn_semantics::EagerSuffixOpr;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;

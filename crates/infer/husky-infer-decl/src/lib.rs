@@ -15,10 +15,10 @@ pub use trai::*;
 pub use ty::*;
 
 use defn_head::*;
-use entity_kind::TyKind;
 use feature::*;
 use fold::FoldableStorage;
 use husky_ast::*;
+use husky_entity_kind::TyKind;
 use husky_entity_route::*;
 use husky_entity_syntax::*;
 use husky_file::FilePtr;

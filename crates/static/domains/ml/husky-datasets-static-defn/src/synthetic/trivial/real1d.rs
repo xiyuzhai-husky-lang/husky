@@ -1,5 +1,5 @@
 use crate::*;
-use entity_kind::RoutineKind;
+use husky_entity_kind::RoutineKind;
 use husky_liason_semantics::OutputLiason;
 use husky_trace_protocol::SampleId;
 use std::sync::Arc;

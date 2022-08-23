@@ -22,7 +22,7 @@ husky-text = { path = "../husky-text" }
 husky-word = { path = "../husky-word" }
 husky-token = { path = "../husky-token" }
 husky-entity-route = { path = "../husky-entity-route" }
-entity-kind = { path = "../entity-kind" }
+husky-entity-kind = { path = "../husky-entity-kind" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 vm = { path = "../../vm/husky-vm" }
 static-defn = { path = "../../static/static-defn" }

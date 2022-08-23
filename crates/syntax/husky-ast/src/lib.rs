@@ -17,11 +17,11 @@ pub use transform::*;
 pub use xml::*;
 
 use defn_head::*;
-use entity_kind::*;
 use error::*;
 use husky_atom::*;
 use husky_check_utils::*;
 use husky_dev_utils::*;
+use husky_entity_kind::*;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_file::FilePtr;
 use husky_liason_semantics::*;

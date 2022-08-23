@@ -26,7 +26,7 @@ husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
 infer-contract = { path = "../../infer/husky-infer-contract" }
 infer-decl = { path = "../../infer/husky-infer-decl" }
 husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
-entity-kind = { path = "../../syntax/entity-kind" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 defn-head = { path = "../../syntax/defn-head" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }

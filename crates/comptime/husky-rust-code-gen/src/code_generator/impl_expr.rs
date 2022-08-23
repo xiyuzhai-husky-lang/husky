@@ -1,7 +1,7 @@
 use super::*;
-use entity_kind::FieldKind;
 use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
+use husky_entity_kind::FieldKind;
 use husky_entity_semantics::FieldDefnVariant;
 use husky_infer_qualified_ty::EagerExprQualifier;
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};

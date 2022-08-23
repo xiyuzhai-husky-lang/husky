@@ -1,9 +1,9 @@
 use crate::*;
-use entity_kind::{FieldKind, MemberKind};
 use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext,
 };
+use husky_entity_kind::{FieldKind, MemberKind};
 use husky_implement::ImplementationContext;
 use husky_print_utils::{msg_once, p};
 use map_collect::MapCollect;
