@@ -158,14 +158,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __arguments: &mut [__Register<'eval>],
                 ) -> __Register<'eval> { /*haha*/
                     let __this: &mut Vec<i32> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_I_32_VTABLE);
-                    let f: fn(i32)->Option<f32> = std::mem::transmute(__arguments[1]
+                    let f: ThickFp<fn(i32)->Option<f32>> = std::mem::transmute(__arguments[1]
                         .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)
                         .fp());
                     __this.pop_with_largest_opt_f32_copyable(f).to_register()
                 }
                 __wrapper
             },
-            some Vec::<i32>::pop_with_largest_opt_f32_copyable as fn(&'static mut Vec<i32>, fn(i32)->Option<f32>) -> Option<i32>
+            some Vec::<i32>::pop_with_largest_opt_f32_copyable as fn(&'static mut Vec<i32>, ThickFp<fn(i32)->Option<f32>>) -> Option<i32>
         ),
     ),
 ];

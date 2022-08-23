@@ -1,4 +1,4 @@
-use husky_vm_interface::{__Any, __EvalContext, __ThickFp};
+use husky_vm_interface::{ThickFp, __Any, __EvalContext};
 
 use crate::*;
 pub trait __VecX<T> {
@@ -23,7 +23,7 @@ pub trait __VecX<T> {
     fn pop_with_largest_opt_f32_copyable<'eval>(
         &mut self,
         __ctx: &dyn __EvalContext<'eval>,
-        f: __ThickFp<fn(T) -> Option<f32>>,
+        f: ThickFp<fn(T) -> Option<f32>>,
     ) -> Option<T>
     where
         T: Copy + std::fmt::Debug + __Any;
@@ -59,7 +59,7 @@ impl<T> __VecX<T> for Vec<T> {
     fn pop_with_largest_opt_f32_copyable<'eval>(
         &mut self,
         __ctx: &dyn __EvalContext<'eval>,
-        f: __ThickFp<fn(T) -> Option<f32>>,
+        f: ThickFp<fn(T) -> Option<f32>>,
     ) -> Option<T>
     where
         T: Copy + std::fmt::Debug + __Any,
