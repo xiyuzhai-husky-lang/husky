@@ -101,13 +101,19 @@ impl<'eval, {arg_types_decl}Output: __Any> ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<{arg_types_decl}Output: __Any> const BaseFp
+impl<'eval, {arg_types_decl}Output: __Any> __GetCtxThinFp<'eval>
     for fn({arg_types}) -> Output
 {{
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,{arg_types_with_eval_lifetime}
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,{arg_types}
     ) -> Output;
+}}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, {arg_types_decl}Output: __Any> const BaseThinFp
+    for fn({arg_types}) -> Output
+{{
     fn __to_void_pointer(self) -> *const () {{
         self as *const ()
     }}
