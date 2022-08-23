@@ -395,7 +395,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     TyKind::CyclicSlice => todo!(),
                     TyKind::Tuple => todo!(),
                     TyKind::Mor => todo!(),
-                    TyKind::FatFp =>{
+                    TyKind::ThickFp =>{
                         self.write(&format!(
                         r#" = std::mem::transmute(__arguments[{i}]
                         .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)

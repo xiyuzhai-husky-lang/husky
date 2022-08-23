@@ -11,7 +11,7 @@ pub static OPTION_DEFN: EntityStaticDefn = EntityStaticDefn {
         trait_impls: &[],
         ty_members: &[],
         variants: &[],
-        kind: TyKind::FatFp,
+        kind: TyKind::ThickFp,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Void,
             fp: StaticVisualizerFp(|value| todo!()),

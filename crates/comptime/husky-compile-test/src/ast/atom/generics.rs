@@ -42,7 +42,7 @@ fn tuple_type() {
 #[test]
 fn func_pointer_with_implicitly_void_output_type() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
-    let atoms = utils::get_atoms_in_line(&mut db, "FatFp(i32, i32)");
+    let atoms = utils::get_atoms_in_line(&mut db, "ThickFp(i32, i32)");
     should_eq!(atoms.len(), 1);
     let atom = &atoms[0];
     if let HuskyAtomVariant::EntityRoute { route, .. } = atom.variant {
@@ -55,7 +55,7 @@ fn func_pointer_with_implicitly_void_output_type() {
 #[test]
 fn func_pointer_with_nonvoid_output_type() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
-    let atoms = utils::get_atoms_in_line(&mut db, "FatFp(i32, i32) -> i32");
+    let atoms = utils::get_atoms_in_line(&mut db, "ThickFp(i32, i32) -> i32");
     should_eq!(atoms.len(), 1);
 }
 

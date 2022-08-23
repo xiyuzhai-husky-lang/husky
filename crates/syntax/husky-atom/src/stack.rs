@@ -131,7 +131,7 @@ impl AtomStack {
     }
 
     fn func_generic(&mut self, attr: ListStartAttr) -> AtomResult<RootIdentifier> {
-        let expectation = "expect FatFp, Fn, FnMut, FnOnce";
+        let expectation = "expect ThickFp, Fn, FnMut, FnOnce";
 
         match attr {
             ListStartAttr::None => Ok(husky_word::default_func_type()),
