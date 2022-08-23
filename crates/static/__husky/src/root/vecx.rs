@@ -94,7 +94,7 @@ impl<T> __VecX<T> for Vec<T> {
         let mut imax = None;
         let mut vmax = f32::MIN;
         for i in 0..self.len() {
-            if let Some(v) = f.call1(&self[i], __ctx) {
+            if let Some(v) = unsafe { f.call1(&self[i], __ctx) } {
                 if v > vmax {
                     imax = Some(i);
                     vmax = v

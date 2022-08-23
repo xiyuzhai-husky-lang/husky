@@ -50,7 +50,19 @@ where
         A1: __StaticInfo,
         F: Fn(A1::__StaticSelf) -> Output,
     {
-        todo!()
+        unsafe {
+            match self.needs_eval_context {
+                true => {
+                    let f: fn(A1, &dyn __EvalContext<'eval>) -> Output =
+                        std::mem::transmute(self.fp);
+                    f(a1, __ctx)
+                }
+                false => {
+                    let f: fn(A1) -> Output = std::mem::transmute(self.fp);
+                    f(a1)
+                }
+            }
+        }
     }
 }
 
