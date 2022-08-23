@@ -308,10 +308,10 @@ impl EntityDefnVariant {
                 linkage,
                 ref variadic_template,
             } => EntityDefnVariant::Function {
-                spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
+                spatial_parameters: spatial_parameters.map(|spatial_parameter| {
                     SpatialParameter::from_static(
                         symbol_context.entity_syntax_db(),
-                        static_spatial_parameter,
+                        spatial_parameter,
                     )
                 }),
                 parameters: Arc::new(
@@ -382,7 +382,7 @@ impl EntityDefnVariant {
             }
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Method {
-                this_liason: this_contract,
+                this_liason,
                 parameters,
                 output_ty,
                 output_liason,
@@ -396,7 +396,7 @@ impl EntityDefnVariant {
                         static_generic_placeholder,
                     )
                 }),
-                this_liason: this_contract,
+                this_liason,
                 parameters: Arc::new(parameters.map(|input_placeholder| {
                     symbol_context.parameter_from_static(input_placeholder)
                 })),
@@ -574,8 +574,8 @@ pub(crate) fn entity_defn(
             }))
         }
         EntitySource::StaticTypeMember(_) => match entity_route.variant {
-            EntityRouteVariant::Child { parent: ty, ident } => {
-                let ty_defn = db.entity_defn(ty).unwrap();
+            EntityRouteVariant::Child { parent, ident } => {
+                let ty_defn = db.entity_defn(parent).unwrap();
                 match ty_defn.variant {
                     EntityDefnVariant::Ty { ref ty_members, .. } => Ok(ty_members[ident].clone()),
                     _ => panic!(),
@@ -603,7 +603,16 @@ pub(crate) fn entity_defn(
             },
             _ => panic!(),
         },
-        EntitySource::StaticTraitMember(_) => todo!(),
+        EntitySource::StaticTraitMember(_) => match entity_route.variant {
+            EntityRouteVariant::Child { parent, ident } => {
+                let trai_defn = db.entity_defn(parent).unwrap();
+                match trai_defn.variant {
+                    EntityDefnVariant::Trait { ref members, .. } => Ok(members[ident].clone()),
+                    _ => panic!(),
+                }
+            }
+            _ => panic!(),
+        },
         EntitySource::Any {
             route,
             ident,
