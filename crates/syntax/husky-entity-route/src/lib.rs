@@ -112,10 +112,15 @@ pub enum EntityRouteVariant {
     Any {
         ident: CustomIdentifier,
         husky_entity_kind: EntityKind,
+        // ad hoc, replace this with the type/trait it is associated to
         file: FilePtr,
         range: TextRange,
     },
-    ThisType,
+    ThisType {
+        // ad hoc, replace this with the type/trait it is associated to
+        file: FilePtr,
+        range: TextRange,
+    },
 }
 
 impl EntityRoute {
@@ -139,7 +144,7 @@ impl EntityRoute {
                 ContextualIdentifier::CrateOutputType.into()
             }
             EntityRouteVariant::Any { ident, .. } => ident.into(),
-            EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::ThisType { .. } => todo!(),
             EntityRouteVariant::TypeAsTraitMember { ident, .. } => ident.into(),
         }
     }
@@ -216,7 +221,7 @@ impl EntityRoute {
                 todo!()
             }
             EntityRouteVariant::Any { .. } => todo!(),
-            EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::ThisType { .. } => todo!(),
             EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
         }
     }
@@ -231,7 +236,7 @@ impl EntityRoute {
             | EntityRouteVariant::TargetInputValue { .. }
             | EntityRouteVariant::Package { .. }
             | EntityRouteVariant::Any { .. }
-            | EntityRouteVariant::ThisType => None,
+            | EntityRouteVariant::ThisType { .. } => None,
             EntityRouteVariant::TargetOutputType { .. } => todo!(),
             EntityRouteVariant::Child { parent, .. } => Some(parent),
             EntityRouteVariant::TypeAsTraitMember { ty: parent, .. } => Some(parent),

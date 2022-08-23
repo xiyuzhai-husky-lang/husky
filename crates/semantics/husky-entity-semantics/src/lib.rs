@@ -43,7 +43,7 @@ use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStati
 use husky_static_visualizer::StaticVisualTy;
 use husky_text::*;
 use husky_vm::*;
-use husky_word::{CustomIdentifier, IdentDict, Identifier, RootIdentifier};
+use husky_word::{ContextualIdentifier, CustomIdentifier, IdentDict, Identifier, RootIdentifier};
 use map_collect::MapCollect;
 use module::module_defn;
 use std::sync::atomic::{AtomicUsize, Ordering};
@@ -110,6 +110,20 @@ impl EntityDefn {
         range: TextRange,
     ) -> Arc<Self> {
         Self::new(ident.into(), EntityDefnVariant::Any, route, file, range)
+    }
+
+    pub fn this_type(db: &dyn EntityDefnQueryGroup, file: FilePtr, range: TextRange) -> Arc<Self> {
+        Self::new(
+            Identifier::Contextual(ContextualIdentifier::ThisType),
+            EntityDefnVariant::Any,
+            db.intern_entity_route(EntityRoute {
+                variant: EntityRouteVariant::ThisType { file, range },
+                temporal_arguments: Default::default(),
+                spatial_arguments: Default::default(),
+            }),
+            file,
+            range,
+        )
     }
 
     pub(crate) fn new(
@@ -537,14 +551,14 @@ pub(crate) fn entity_defn(
                 AstVariant::FeatureDefnHead {
                     paradigm,
                     ident,
-                    output_ty: ty,
+                    output_ty,
                 } => (
                     ident,
                     EntityDefnVariant::feature(
                         db,
                         entity_route,
                         paradigm,
-                        ty,
+                        output_ty,
                         opt_children,
                         arena,
                         file,
@@ -620,6 +634,7 @@ pub(crate) fn entity_defn(
             range,
         } => Ok(EntityDefn::from_generic(ident, route, file, range)),
         EntitySource::StaticEnumVariant(_) => todo!(),
+        EntitySource::ThisType { file, range } => Ok(EntityDefn::this_type(db, file, range)),
     }
 }
 

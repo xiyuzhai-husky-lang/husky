@@ -112,8 +112,7 @@ impl<'a> LinkageCollector<'a> {
                 ref spatial_parameters,
                 ref members,
             } => {
-                p!(defn.base_route);
-                todo!()
+                msg_once!("ad hoc ignore")
             }
             EntityDefnVariant::EnumVariant {
                 ref enum_variant_defn_variant,

@@ -10,7 +10,6 @@ pub struct EntityRouteMenu {
     pub copy_trait: EntityRoutePtr,
     pub void_type: EntityRoutePtr,
     pub i32_ty: EntityRoutePtr,
-    pub this_ty: EntityRoutePtr,
     pub vec_ty: EntityRoutePtr,
     pub std_ops_index_trai: EntityRoutePtr,
     pub std_mod: EntityRoutePtr,

@@ -82,7 +82,7 @@ impl<'a> RustCodeGenerator<'a> {
                     p!(entity_route);
                     todo!()
                 }
-                EntityRouteVariant::ThisType => todo!(),
+                EntityRouteVariant::ThisType { .. } => todo!(),
                 EntityRouteVariant::TypeAsTraitMember {
                     ty: parent,
                     trai,

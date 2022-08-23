@@ -303,7 +303,6 @@ impl<'a> RustCodeGenerator<'a> {
                 RootIdentifier::VisualType => todo!(),
             },
             EntityRoutePtr::Custom(_) => panic!(),
-            EntityRoutePtr::ThisType => todo!(),
         }
     }
 }

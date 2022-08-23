@@ -220,7 +220,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 husky_entity_kind,
                 ..
             } => todo!(),
-            EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::ThisType { .. } => todo!(),
             EntityRouteVariant::TargetOutputType => todo!(),
         }
         self.write(
@@ -414,7 +414,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     TyKind::TargetOutputAny => todo!(),
                 }
             }
-            EntityRoutePtr::ThisType => todo!(),
         }
     }
 

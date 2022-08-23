@@ -612,6 +612,7 @@ pub(crate) fn ty_decl(
         EntitySource::StaticTypeAsTraitMember => todo!(),
         EntitySource::Any { .. } => todo!(),
         EntitySource::StaticEnumVariant(_) => todo!(),
+        EntitySource::ThisType { .. } => todo!(),
     }
 }
 
@@ -626,7 +627,7 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
             husky_entity_kind,
             ..
         } => todo!(),
-        EntityRouteVariant::ThisType => todo!(),
+        EntityRouteVariant::ThisType { .. } => todo!(),
         EntityRouteVariant::TypeAsTraitMember {
             ty: parent,
             trai,

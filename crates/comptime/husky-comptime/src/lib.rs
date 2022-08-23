@@ -189,7 +189,6 @@ impl HuskyComptime {
                     TyKind::TargetOutputAny => todo!(),
                 }
             }
-            EntityRoutePtr::ThisType => todo!(),
         }
     }
 }

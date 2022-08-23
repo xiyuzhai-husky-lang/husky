@@ -80,6 +80,7 @@ pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRout
             let _dependees = db.entity_dependees(entity_route);
         }
         EntitySource::Any { .. } => todo!(),
+        EntitySource::ThisType { .. } => todo!(),
     }
     db.entity_route_store().add(entity_route)
 }

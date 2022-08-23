@@ -114,11 +114,11 @@ impl TraitDecl {
         Ok(match static_defn.variant {
             EntityStaticDefnVariant::Trait {
                 base_route,
-                spatial_parameters: ref generic_parameters,
+                ref spatial_parameters,
                 ref members,
             } => {
-                let generic_parameters = db.spatial_parameters_from_static(generic_parameters);
-                let symbols = db.symbols_from_spatial_parameters(&generic_parameters);
+                let spatial_parameters = db.spatial_parameters_from_static(spatial_parameters);
+                let symbols = db.symbols_from_spatial_parameters(&spatial_parameters);
                 let member_context: Vec<_> = members.map(|member| {
                     (
                         db.intern_word(member.name).custom(),
@@ -143,7 +143,7 @@ impl TraitDecl {
                 };
                 let base_route = symbol_context.parse_entity_route(base_route).unwrap();
                 let spatial_arguments =
-                    db.spatial_arguments_from_spatial_parameters(&generic_parameters);
+                    db.spatial_arguments_from_spatial_parameters(&spatial_parameters);
                 should_eq!(base_route.spatial_arguments.len(), 0);
                 let trai = db.intern_entity_route(EntityRoute {
                     variant: base_route.variant.clone(),
@@ -156,7 +156,7 @@ impl TraitDecl {
                 };
                 Arc::new(TraitDecl {
                     trai,
-                    generic_parameters,
+                    generic_parameters: spatial_parameters,
                     members: members
                         .iter()
                         .map(|member| {
@@ -164,7 +164,14 @@ impl TraitDecl {
                                 db,
                                 &mut symbol_context,
                                 db.ty_as_trai_subroute(
-                                    EntityRoutePtr::ThisType,
+                                    db.intern_entity_route(EntityRoute {
+                                        variant: EntityRouteVariant::ThisType {
+                                            file: db.intern_file(static_defn.dev_src.file.into()),
+                                            range: static_defn.dev_src.into(),
+                                        },
+                                        temporal_arguments: Default::default(),
+                                        spatial_arguments: Default::default(),
+                                    }),
                                     trai,
                                     db.intern_word(member.name).custom(),
                                     thin_vec![],
@@ -239,6 +246,7 @@ pub(crate) fn trait_decl(
         EntitySource::StaticTypeAsTraitMember => todo!(),
         EntitySource::Any { .. } => todo!(),
         EntitySource::StaticEnumVariant(_) => todo!(),
+        EntitySource::ThisType { .. } => todo!(),
     }
 }
 
