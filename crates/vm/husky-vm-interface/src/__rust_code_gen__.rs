@@ -863,9 +863,24 @@ pub static __VIRTUAL_ENUM_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, Output: __StaticInfo> __StaticInfo for fn(
+) -> Output {
+    type __StaticSelf = fn(
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, Output: __Any> ThinFp
-    for fn(
-    ) -> Output {}
+    for fn() -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
@@ -889,9 +904,25 @@ impl<Output: __Any> const BaseFp
 }
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0
+) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, A0: __Any, Output: __Any> ThinFp
-    for fn(A0
-    ) -> Output {}
+    for fn(A0) -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
@@ -916,9 +947,26 @@ impl<A0: __Any, Output: __Any> const BaseFp
 }
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1
+) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, Output: __Any> ThinFp
-    for fn(A0, A1
-    ) -> Output {}
+    for fn(A0, A1) -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
@@ -944,9 +992,27 @@ impl<A0: __Any, A1: __Any, Output: __Any> const BaseFp
 }
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2
+) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2
-    ) -> Output {}
+    for fn(A0, A1, A2) -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
@@ -973,9 +1039,28 @@ impl<A0: __Any, A1: __Any, A2: __Any, Output: __Any> const BaseFp
 }
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3
+) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3
-    ) -> Output {}
+    for fn(A0, A1, A2, A3) -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
@@ -1003,9 +1088,29 @@ impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const BaseFp
 }
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4
+) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4
-    ) -> Output {}
+    for fn(A0, A1, A2, A3, A4) -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
@@ -1034,9 +1139,30 @@ impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const
 }
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5
+) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+        <A5 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4, A5
-    ) -> Output {}
+    for fn(A0, A1, A2, A3, A4, A5) -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
@@ -1066,9 +1192,31 @@ impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: _
 }
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6
+) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+        <A5 as __StaticInfo>::__StaticSelf,
+        <A6 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4, A5, A6
-    ) -> Output {}
+    for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
@@ -1099,9 +1247,32 @@ impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any
 }
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7
+) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+        <A5 as __StaticInfo>::__StaticSelf,
+        <A6 as __StaticInfo>::__StaticSelf,
+        <A7 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7
-    ) -> Output {}
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
@@ -1133,9 +1304,33 @@ impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any
 }
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
+impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8
+) -> Output {
+    type __StaticSelf = fn(
+        <A0 as __StaticInfo>::__StaticSelf,
+        <A1 as __StaticInfo>::__StaticSelf,
+        <A2 as __StaticInfo>::__StaticSelf,
+        <A3 as __StaticInfo>::__StaticSelf,
+        <A4 as __StaticInfo>::__StaticSelf,
+        <A5 as __StaticInfo>::__StaticSelf,
+        <A6 as __StaticInfo>::__StaticSelf,
+        <A7 as __StaticInfo>::__StaticSelf,
+        <A8 as __StaticInfo>::__StaticSelf,
+    ) -> <Output as __StaticInfo>::__StaticSelf;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        todo!()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        todo!()
+    }
+}
+
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
 impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> ThinFp
-    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8
-    ) -> Output {}
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]

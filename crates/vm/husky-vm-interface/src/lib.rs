@@ -26,8 +26,8 @@ pub use error::*;
 pub use layout::*;
 pub use linkage::*;
 pub use register::*;
-#[cfg(feature = "thin_fp")]
-pub use thin_fp::*;
+#[cfg(feature = "thick_fp")]
+pub use thick_fp::*;
 #[cfg(feature = "thin_fp")]
 pub use thin_fp::*;
 pub use virtual_enum::*;
