@@ -422,6 +422,10 @@ impl From<i32> for {tyname} {{
     fn __static_typename() -> std::borrow::Cow<'static, str> {{
         "{base_route:?}".into()
     }}
+    
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {{
+        std::mem::transmute(self)
+    }}
 }}
 "#
         ));
@@ -433,24 +437,27 @@ impl From<i32> for {tyname} {{
         tyname: CustomIdentifier,
         ty_contains_eval_ref: bool,
     ) {
-        self.write("\nimpl<'eval> __Registrable<'eval> for ");
-        self.write(&tyname);
         if ty_contains_eval_ref {
-            self.write("<'eval>")
-        }
-        let into_eval_value_impl = if self.db.is_copyable(base_route).unwrap() {
-            "todo!()"
-        } else {
-            "__Register::Owned(__OwnedValue::new(self))"
-        };
-        self.write(&format!(
-            r#" {{
-    unsafe fn __to_register(self) -> __Register<'eval> {{
-        todo!()
-    }}
+            self.write(format!(
+                r#"
+impl<'eval, 'eval0> __WithEvalLifetime<'eval0> for {tyname}<'eval0> {{
+    type __SelfWithEvalLifetime = {tyname}<'eval>;
 }}
-"#,
-        ));
+
+impl<'eval> __Any for {tyname}<'eval> {{}}
+    "#,
+            ));
+        } else {
+            self.write(format!(
+                r#"
+impl<'eval> __WithEvalLifetime<'eval> for {tyname} {{
+    type __SelfWithEvalLifetime = {tyname};
+}}
+
+impl __Any for {tyname} {{}}
+    "#,
+            ));
+        }
     }
 
     fn gen_trait_impl(&mut self, tyname: CustomIdentifier, trait_impl: &TraitImplDefn) {

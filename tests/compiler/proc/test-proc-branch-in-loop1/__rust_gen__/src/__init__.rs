@@ -12,16 +12,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             route: "test_proc_branch_in_loop1::f1",
         },
         transfer_linkage!(
-                {
-                    unsafe fn __wrapper<'eval>(
-                        __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                        __arguments: &mut [__Register<'eval>],
-                    ) -> __Register<'eval> {
-                        f1().to_register()
-                    }
-                    __wrapper
-                },
-                some f1 as fn() -> i32
+            {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> { /*haha*/
+                    f1().to_register()
+                }
+                __wrapper
+            },
+            some f1 as fn() -> i32
         ),
     ),
     (
@@ -29,16 +29,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             route: "test_proc_branch_in_loop1::f2",
         },
         transfer_linkage!(
-                {
-                    unsafe fn __wrapper<'eval>(
-                        __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                        __arguments: &mut [__Register<'eval>],
-                    ) -> __Register<'eval> {
-                        f2().to_register()
-                    }
-                    __wrapper
-                },
-                some f2 as fn() -> i32
+            {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> { /*haha*/
+                    f2().to_register()
+                }
+                __wrapper
+            },
+            some f2 as fn() -> i32
         ),
     ),
     (
@@ -46,16 +46,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             route: "test_proc_branch_in_loop1::f3",
         },
         transfer_linkage!(
-                {
-                    unsafe fn __wrapper<'eval>(
-                        __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                        __arguments: &mut [__Register<'eval>],
-                    ) -> __Register<'eval> {
-                        f3().to_register()
-                    }
-                    __wrapper
-                },
-                some f3 as fn() -> i32
+            {
+                unsafe fn __wrapper<'eval>(
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                    __arguments: &mut [__Register<'eval>],
+                ) -> __Register<'eval> { /*haha*/
+                    f3().to_register()
+                }
+                __wrapper
+            },
+            some f3 as fn() -> i32
         ),
     ),
 ];

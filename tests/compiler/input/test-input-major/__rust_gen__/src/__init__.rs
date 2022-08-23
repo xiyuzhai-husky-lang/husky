@@ -11,16 +11,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
         route: "test_input_major::find_connected_components",
     },
     transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                    __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
-                    let binary_image: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref(&__registration__::__BINARY_IMAGE_28_VTABLE);
-                    find_connected_components(binary_image).to_register()
-                }
-                __wrapper
-            },
-            some find_connected_components as fn(&'static domains::ml::datasets::cv::mnist::BinaryImage28) -> i32
+        {
+            unsafe fn __wrapper<'eval>(
+                __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                __arguments: &mut [__Register<'eval>],
+            ) -> __Register<'eval> { /*haha*/
+                let binary_image: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref(&__registration__::__BINARY_IMAGE_28_VTABLE);
+                find_connected_components(binary_image).to_register()
+            }
+            __wrapper
+        },
+        some find_connected_components as fn(&'static domains::ml::datasets::cv::mnist::BinaryImage28) -> i32
     ),
 )];

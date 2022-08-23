@@ -19,7 +19,8 @@ pub enum EntityRouteRole {
     StaticCallRoute,
     Decl,
     Other,
-    StaticOther,
+    ForAnyLifetimeOther,
+    StaticDecl,
 }
 
 impl EntityRouteRole {
@@ -29,18 +30,20 @@ impl EntityRouteRole {
             EntityRouteRole::StaticCallRoute => EntityRouteRole::StaticCallRoute,
             EntityRouteRole::Decl => EntityRouteRole::Decl,
             EntityRouteRole::Other => EntityRouteRole::Other,
-            EntityRouteRole::StaticOther => EntityRouteRole::StaticOther,
+            EntityRouteRole::ForAnyLifetimeOther => EntityRouteRole::ForAnyLifetimeOther,
+            EntityRouteRole::StaticDecl => EntityRouteRole::StaticDecl,
         }
     }
 
     pub fn argument_role(self) -> Self {
         match self {
             EntityRouteRole::Caller => EntityRouteRole::Other,
-            EntityRouteRole::StaticCallRoute | EntityRouteRole::StaticOther => {
-                EntityRouteRole::StaticOther
+            EntityRouteRole::StaticCallRoute | EntityRouteRole::ForAnyLifetimeOther => {
+                EntityRouteRole::ForAnyLifetimeOther
             }
             EntityRouteRole::Decl => EntityRouteRole::Decl,
             EntityRouteRole::Other => EntityRouteRole::Other,
+            EntityRouteRole::StaticDecl => EntityRouteRole::StaticDecl,
         }
     }
 }

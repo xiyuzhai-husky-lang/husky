@@ -27,13 +27,17 @@ impl __StaticInfo for A {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "test_qualifier_to_binding_major::A".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for A {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
+
+impl<'eval> __WithEvalLifetime<'eval> for A {
+    type __SelfWithEvalLifetime = A;
+}
+
+impl __Any for A {}
 #[derive(Debug, Clone, PartialEq)]
 pub(crate) struct B {
     pub(crate) x: i32,
@@ -57,13 +61,17 @@ impl __StaticInfo for B {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "test_qualifier_to_binding_major::B".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for B {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
+
+impl<'eval> __WithEvalLifetime<'eval> for B {
+    type __SelfWithEvalLifetime = B;
+}
+
+impl __Any for B {}
 pub(crate) fn take_copyable_eval_ref<'eval>(x: &'eval i32) -> i32 {
     return 1;
 }

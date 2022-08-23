@@ -11,120 +11,108 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "test_struct_example2::f1",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
+                ) -> __Register<'eval> { /*haha*/
                     __Register::new_box::<A>(f1(), &__registration__::__A_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(f1 as *const ()),
-        }),
+            some f1 as fn() -> A
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "test_struct_example2::A::get_x",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
-                    let __this: &A =
-                        __arguments[0].downcast_temp_ref(&__registration__::__A_VTABLE);
+                ) -> __Register<'eval> { /*haha*/
+                    let __this: &A = __arguments[0].downcast_temp_ref(&__registration__::__A_VTABLE);
                     __this.get_x().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(A::get_x as *const ()),
-        }),
+            some A::get_x as fn(&'static A) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "test_struct_example2::A::get_x_plus_constant",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
-                    let __this: &A =
-                        __arguments[0].downcast_temp_ref(&__registration__::__A_VTABLE);
+                ) -> __Register<'eval> { /*haha*/
+                    let __this: &A = __arguments[0].downcast_temp_ref(&__registration__::__A_VTABLE);
                     __this.get_x_plus_constant().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(A::get_x_plus_constant as *const ()),
-        }),
+            some A::get_x_plus_constant as fn(&'static A) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "test_struct_example2::A::get_x_squared",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
-                    let __this: &A =
-                        __arguments[0].downcast_temp_ref(&__registration__::__A_VTABLE);
+                ) -> __Register<'eval> { /*haha*/
+                    let __this: &A = __arguments[0].downcast_temp_ref(&__registration__::__A_VTABLE);
                     __this.get_x_squared().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(A::get_x_squared as *const ()),
-        }),
+            some A::get_x_squared as fn(&'static A) -> i32
+        ),
     ),
     (
         __StaticLinkageKey::Routine {
             route: "test_struct_example2::g1",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
+                ) -> __Register<'eval> { /*haha*/
                     g1().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(g1 as *const ()),
-        }),
+            some g1 as fn() -> i32
+        ),
     ),
     (
         __StaticLinkageKey::TypeCall {
             ty: "test_struct_example2::A",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
+                ) -> __Register<'eval> { /*haha*/
                     let x: i32 = __arguments[0].downcast_i32();
                     let y: i32 = todo!();
-                    __Register::new_box::<A>(
-                        A::__call__(x, /* keyword arguments */ y),
-                        &__registration__::__A_VTABLE,
-                    )
+                    __Register::new_box::<A>(A::__call__(x, y), &__registration__::__A_VTABLE)
                 }
                 __wrapper
             },
-            opt_fp: Some(A::__call__ as *const ()),
-        }),
+            some A::__call__ as fn(i32, i32) -> A
+        ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
@@ -190,18 +178,17 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "test_struct_example2::f3",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
-            dev_src: static_dev_src!(),
-            wrapper: {
+        transfer_linkage!(
+            {
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
+                ) -> __Register<'eval> { /*haha*/
                     f3().to_register()
                 }
                 __wrapper
             },
-            opt_fp: Some(f3 as *const ()),
-        }),
+            some f3 as fn() -> ()
+        ),
     ),
 ];
