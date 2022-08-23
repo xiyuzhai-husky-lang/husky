@@ -1,4 +1,4 @@
-use entity_kind::TyKind;
+use husky_entity_kind::TyKind;
 use upcast::Upcast;
 
 use crate::*;

@@ -1,12 +1,12 @@
 use std::ops::AddAssign;
 
 use defn_head::Parameter;
-use entity_kind::TyKind;
 use fold::LocalValue;
 use husky_ast::{
     Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant,
     RawReturnContext, RawReturnContextKind, RawStmtVariant, StructItemContext,
 };
+use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityRoute, EntityRoutePtr, EntityRouteVariant, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_init_syntax::InitKind;

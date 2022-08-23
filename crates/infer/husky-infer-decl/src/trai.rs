@@ -1,10 +1,10 @@
 use crate::*;
-use entity_kind::MemberKind;
 use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext, AtomContextStandalone,
 };
 use husky_check_utils::should_eq;
+use husky_entity_kind::MemberKind;
 use husky_implement::{Implementable, ImplementationContext};
 use husky_instantiate::{Instantiable, InstantiationContext};
 use husky_word::IdentDict;

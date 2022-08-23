@@ -6,7 +6,7 @@ pub use symbol::*;
 
 use super::*;
 use defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
-use entity_kind::TyKind;
+use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityRouteVariant, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
 use husky_file::{FilePtr, FileSalsaQuery};
@@ -153,7 +153,7 @@ pub trait AtomContext {
             .find(|symbol| symbol.init_ident.ident == ident)
     }
 
-    fn entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
+    fn husky_entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
         let kind_result: EntitySyntaxResult<EntityKind> = match route.variant {
             EntityRouteVariant::Child {
                 parent,
@@ -182,10 +182,10 @@ pub trait AtomContext {
                         }
                     }
                 },
-                _ => self.entity_syntax_db().entity_kind(route),
+                _ => self.entity_syntax_db().husky_entity_kind(route),
             },
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
-            _ => self.entity_syntax_db().entity_kind(route),
+            _ => self.entity_syntax_db().husky_entity_kind(route),
         };
         match kind_result {
             Ok(kind) => Ok(kind),
@@ -269,7 +269,7 @@ pub trait AtomContext {
             SpatialArgument::EntityRoute(self.entity_syntax_db().intern_entity_route(EntityRoute {
                 variant: EntityRouteVariant::Any {
                     ident: spatial_parameter.ident.ident,
-                    entity_kind: spatial_parameter.entity_kind(),
+                    husky_entity_kind: spatial_parameter.husky_entity_kind(),
                     file: spatial_parameter.file,
                     range: spatial_parameter.range,
                 },
@@ -291,7 +291,7 @@ pub trait AtomContext {
                     EntityRoute {
                         variant: EntityRouteVariant::Any {
                             ident: spatial_parameter.ident.ident,
-                            entity_kind: spatial_parameter.entity_kind(),
+                            husky_entity_kind: spatial_parameter.husky_entity_kind(),
                             file: spatial_parameter.file,
                             range: spatial_parameter.range,
                         },

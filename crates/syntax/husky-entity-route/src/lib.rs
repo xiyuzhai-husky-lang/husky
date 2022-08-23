@@ -7,7 +7,7 @@ mod utils;
 
 pub use cache::*;
 pub use canonical::*;
-pub use entity_kind::EntityKind;
+pub use husky_entity_kind::EntityKind;
 pub use intern::{
     new_entity_route_interner, EntityRouteInterner, EntityRoutePtr, InternEntityRoute,
 };
@@ -111,7 +111,7 @@ pub enum EntityRouteVariant {
     TargetOutputType,
     Any {
         ident: CustomIdentifier,
-        entity_kind: EntityKind,
+        husky_entity_kind: EntityKind,
         file: FilePtr,
         range: TextRange,
     },

@@ -12,7 +12,7 @@ pub use parser::AtomParser;
 pub use parser::*;
 pub use variant::{HuskyAtomVariant, LambdaHead};
 
-use entity_kind::*;
+use husky_entity_kind::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_liason_semantics::*;
 use husky_opn_syntax::*;

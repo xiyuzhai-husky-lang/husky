@@ -26,7 +26,7 @@ vm = { path = "../../vm/husky-vm" }
 infer-decl = { path = "../../infer/husky-infer-decl" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 static-defn = { path = "../../static/static-defn" }
-entity-kind = { path = "../../syntax/entity-kind" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-literal-semantics" }

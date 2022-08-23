@@ -19,7 +19,7 @@ husky-entity-route = { path = "../husky-entity-route" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
 husky-ast = { path = "../husky-ast" }
 vm = { path = "../../vm/husky-vm" }
-entity-kind = { path = "../entity-kind" }
+husky-entity-kind = { path = "../husky-entity-kind" }
 defn-head = { path = "../defn-head" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }

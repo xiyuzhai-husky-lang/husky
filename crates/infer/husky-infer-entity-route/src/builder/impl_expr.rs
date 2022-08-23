@@ -81,9 +81,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     fn infer_entity_ty(
         &mut self,
         entity_route: EntityRoutePtr,
-        entity_kind: EntityKind,
+        husky_entity_kind: EntityKind,
     ) -> InferResult<EntityRoutePtr> {
-        Ok(match entity_kind {
+        Ok(match husky_entity_kind {
             EntityKind::Module => EntityRoutePtr::Root(RootIdentifier::ModuleType),
             EntityKind::EnumVariant => match entity_route {
                 EntityRoutePtr::Root(RootIdentifier::True)

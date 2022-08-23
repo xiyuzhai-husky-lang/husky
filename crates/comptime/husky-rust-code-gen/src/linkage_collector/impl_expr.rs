@@ -1,6 +1,6 @@
 use super::*;
-use entity_kind::FieldKind;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
+use husky_entity_kind::FieldKind;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind};
 
 impl<'a> LinkageCollector<'a> {

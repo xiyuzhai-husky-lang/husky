@@ -1,7 +1,7 @@
 use crate::*;
-use entity_kind::{MemberKind, TyKind};
 use husky_check_utils::{should, should_eq};
 use husky_dev_utils::dev_src;
+use husky_entity_kind::{MemberKind, TyKind};
 use husky_entity_route::*;
 use husky_file::{FileError, FileErrorKind, FilePtr};
 use husky_print_utils::{epin, msg_once, p};
@@ -27,7 +27,7 @@ pub trait EntitySyntaxSalsaQueryGroup:
         entity_route: EntityRoutePtr,
     ) -> Arc<Vec<(EntityKind, EntityRoutePtr)>>;
 
-    fn entity_kind(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityKind>;
+    fn husky_entity_kind(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityKind>;
 
     fn entity_source(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntitySource>;
 
@@ -65,17 +65,20 @@ fn subroute_table(
     db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResultArc<SubrouteTable> {
-    let entity_kind = db.entity_kind(entity_route)?;
-    match db.entity_kind(entity_route)? {
+    let husky_entity_kind = db.husky_entity_kind(entity_route)?;
+    match db.husky_entity_kind(entity_route)? {
         EntityKind::Function { .. }
         | EntityKind::Feature
         | EntityKind::EnumVariant
         | EntityKind::Main
-        | EntityKind::Member(_) => Ok(Arc::new(SubrouteTable::new(entity_route, entity_kind))),
+        | EntityKind::Member(_) => Ok(Arc::new(SubrouteTable::new(
+            entity_route,
+            husky_entity_kind,
+        ))),
         EntityKind::Module | EntityKind::Type(_) | EntityKind::Trait => {
             Ok(Arc::new(match db.entity_source(entity_route)? {
                 EntitySource::StaticModuleItem(data) => {
-                    SubrouteTable::from_static(db, entity_route, entity_kind, data)
+                    SubrouteTable::from_static(db, entity_route, husky_entity_kind, data)
                 }
                 EntitySource::WithinModule {
                     file,
@@ -84,14 +87,14 @@ fn subroute_table(
                     let text = db.tokenized_text(file)?;
                     let item = text.iter_from(token_group_index).next().unwrap();
                     if let Some(children) = item.opt_children {
-                        SubrouteTable::parse(db, file, entity_route, entity_kind, children)
+                        SubrouteTable::parse(db, file, entity_route, husky_entity_kind, children)
                     } else {
-                        SubrouteTable::new(entity_route, entity_kind)
+                        SubrouteTable::new(entity_route, husky_entity_kind)
                     }
                 }
                 EntitySource::Module { file: file_id } => {
                     let text = db.tokenized_text(file_id)?;
-                    SubrouteTable::parse(db, file_id, entity_route, entity_kind, text.iter())
+                    SubrouteTable::parse(db, file_id, entity_route, husky_entity_kind, text.iter())
                 }
                 EntitySource::WithinBuiltinModule => todo!(),
                 EntitySource::TargetInput { .. } => todo!(),
@@ -137,7 +140,7 @@ fn submodules(
     )
 }
 
-fn entity_kind(
+fn husky_entity_kind(
     db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResult<EntityKind> {
@@ -186,10 +189,15 @@ fn entity_kind_from_entity_route_kind(
         EntityRouteVariant::Package { .. } => EntityKind::Module,
         EntityRouteVariant::Child { parent, ident } => match parent.variant {
             EntityRouteVariant::ThisType => EntityKind::Member(MemberKind::TraitAssociatedAny),
-            _ => db.subroute_table(*parent).unwrap().entity_kind(*ident)?,
+            _ => db
+                .subroute_table(*parent)
+                .unwrap()
+                .husky_entity_kind(*ident)?,
         },
         EntityRouteVariant::TargetInputValue { .. } => EntityKind::Feature,
-        EntityRouteVariant::Any { entity_kind, .. } => *entity_kind,
+        EntityRouteVariant::Any {
+            husky_entity_kind, ..
+        } => *husky_entity_kind,
         EntityRouteVariant::ThisType => EntityKind::Type(TyKind::ThisAny),
         EntityRouteVariant::TypeAsTraitMember { .. } => {
             EntityKind::Member(MemberKind::TraitAssociatedAny)

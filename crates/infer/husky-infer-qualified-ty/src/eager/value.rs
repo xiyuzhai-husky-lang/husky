@@ -1,4 +1,4 @@
-use entity_kind::FieldKind;
+use husky_entity_kind::FieldKind;
 
 use super::*;
 

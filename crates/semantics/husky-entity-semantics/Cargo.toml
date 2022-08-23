@@ -32,7 +32,7 @@ husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
 infer-contract = { path = "../../infer/husky-infer-contract" }
 infer-decl = { path = "../../infer/husky-infer-decl" }
 infer-total = { path = "../../infer/total" }
-entity-kind = { path = "../../syntax/entity-kind" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 defn-head = { path = "../../syntax/defn-head" }
 static-defn = { path = "../../static/static-defn" }
 husky-atom = { path = "../../syntax/husky-atom" }

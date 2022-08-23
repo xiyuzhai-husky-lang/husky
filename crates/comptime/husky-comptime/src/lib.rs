@@ -6,9 +6,9 @@ mod impl_necessary;
 pub mod utils;
 
 pub use config::*;
-use entity_kind::TyKind;
 pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use husky_diagnostics::DiagnosticQuery;
+use husky_entity_kind::TyKind;
 pub use husky_entity_route::{EntityRoute, InternEntityRoute};
 pub use husky_entity_semantics::EntityDefnQueryGroup;
 pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};

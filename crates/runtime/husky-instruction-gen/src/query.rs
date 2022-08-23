@@ -1,7 +1,7 @@
 use crate::*;
-use entity_kind::TyKind;
 use husky_check_utils::should_eq;
 use husky_comptime::AskCompileTime;
+use husky_entity_kind::TyKind;
 use husky_file::FilePtr;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;

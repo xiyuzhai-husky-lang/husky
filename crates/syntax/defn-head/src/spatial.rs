@@ -1,4 +1,4 @@
-use entity_kind::TyKind;
+use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_file::FilePtr;
@@ -34,7 +34,7 @@ impl SpatialParameter {
 }
 
 impl SpatialParameter {
-    pub fn entity_kind(&self) -> EntityKind {
+    pub fn husky_entity_kind(&self) -> EntityKind {
         match self.variant {
             SpatialParameterVariant::Const => todo!(),
             SpatialParameterVariant::Type { .. } => EntityKind::Type(TyKind::SpatialPlaceholderAny),

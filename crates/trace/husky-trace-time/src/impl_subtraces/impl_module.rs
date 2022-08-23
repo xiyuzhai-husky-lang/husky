@@ -1,5 +1,5 @@
 use crate::*;
-use entity_kind::EntityKind;
+use husky_entity_kind::EntityKind;
 use husky_entity_route::EntityRoutePtr;
 use husky_feature_eval::FeatureEvaluator;
 use std::sync::Arc;

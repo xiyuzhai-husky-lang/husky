@@ -1,6 +1,6 @@
 use super::*;
 use crate::*;
-use entity_kind::TyKind;
+use husky_entity_kind::TyKind;
 use husky_token::*;
 use husky_word::*;
 

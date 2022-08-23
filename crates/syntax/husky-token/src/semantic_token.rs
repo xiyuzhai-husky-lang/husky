@@ -1,4 +1,4 @@
-use entity_kind::{EntityKind, MemberKind};
+use husky_entity_kind::{EntityKind, MemberKind};
 use husky_text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -74,7 +74,7 @@ impl SemanticTokenKind {
             SemanticTokenKind::Variable => SemanticTokenType::VARIABLE,
             SemanticTokenKind::ThisValue => SemanticTokenType::VARIABLE,
             SemanticTokenKind::FrameVariable => SemanticTokenType::VARIABLE,
-            SemanticTokenKind::Entity(entity_kind) => match entity_kind {
+            SemanticTokenKind::Entity(husky_entity_kind) => match husky_entity_kind {
                 EntityKind::Module => SemanticTokenType::NAMESPACE,
                 EntityKind::Type(_) => SemanticTokenType::TYPE,
                 EntityKind::Trait => SemanticTokenType::TYPE,
