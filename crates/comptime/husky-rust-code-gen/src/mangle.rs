@@ -46,6 +46,5 @@ pub(crate) fn mangled_ty_vtable(
             "__{}_VTABLE",
             &db.mangled_ty(entity_route).to_case(Case::UpperSnake)
         ),
-        EntityRoutePtr::ThisType => todo!(),
     })
 }

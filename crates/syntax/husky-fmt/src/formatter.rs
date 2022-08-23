@@ -232,7 +232,6 @@ impl<'a> Formatter<'a> {
         match ty {
             EntityRoutePtr::Root(ident) => self.write(&ident),
             EntityRoutePtr::Custom(_) => todo!(),
-            EntityRoutePtr::ThisType => self.write("This"),
         }
     }
 

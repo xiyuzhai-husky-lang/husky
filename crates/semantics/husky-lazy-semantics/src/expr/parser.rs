@@ -220,12 +220,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     ropd_root_ty,
                 ),
                 EntityRoutePtr::Custom(_) => todo!(),
-                EntityRoutePtr::ThisType => todo!(),
             },
             EntityRoutePtr::Custom(_) => {
                 self.infer_custom_pure_binary_opr_type(pure_binary_opr, lopd_ty, ropd_ty)
             }
-            EntityRoutePtr::ThisType => todo!(),
         }
     }
 

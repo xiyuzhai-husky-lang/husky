@@ -43,7 +43,7 @@ impl<'a> DependeeMapBuilder<'a> {
                 husky_entity_kind,
                 ..
             } => todo!(),
-            EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::ThisType { .. } => todo!(),
             EntityRouteVariant::TypeAsTraitMember {
                 ty: parent,
                 trai,

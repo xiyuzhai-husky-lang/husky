@@ -12,7 +12,6 @@ pub type EntityRouteInterner = Interner<EntityRoute, EntityRoute, EntityRoutePtr
 pub enum EntityRoutePtr {
     Root(RootIdentifier),
     Custom(&'static EntityRoute),
-    ThisType,
 }
 
 impl EntityRoutePtr {
@@ -20,7 +19,6 @@ impl EntityRoutePtr {
         match self {
             EntityRoutePtr::Root(_) => None,
             EntityRoutePtr::Custom(scope) => Some(scope),
-            EntityRoutePtr::ThisType => todo!(),
         }
     }
 
@@ -61,7 +59,6 @@ impl EntityRoutePtr {
                 _ => panic!(),
             },
             EntityRoutePtr::Custom(_) => false,
-            EntityRoutePtr::ThisType => todo!(),
         }
     }
 
@@ -161,7 +158,7 @@ impl EntityRoutePtr {
             }
             EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::Any { .. } => return true,
-            EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::ThisType { .. } => todo!(),
             _ => (),
         }
         for spatial_argument in self.spatial_arguments.iter() {
@@ -212,7 +209,6 @@ impl Hash for EntityRoutePtr {
         match self {
             EntityRoutePtr::Root(ident) => ident.hash(state),
             EntityRoutePtr::Custom(scope) => (*scope as *const EntityRoute).hash(state),
-            EntityRoutePtr::ThisType => (),
         }
     }
 }
@@ -243,12 +239,6 @@ impl Deref for EntityRoutePtr {
             }}
         }
 
-        const THIS_TYPE_ROUTE: &EntityRoute = &EntityRoute {
-            variant: EntityRouteVariant::ThisType,
-            temporal_arguments: thin_vec![],
-            spatial_arguments: thin_vec![],
-        };
-
         match self {
             EntityRoutePtr::Root(ident) => match_root!(
                 ident => Void, I32, I64, F32, F64, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Mor, ThickFp, Fn,
@@ -259,7 +249,6 @@ impl Deref for EntityRoutePtr {
                 EqTrait, Ref, Option
             ),
             EntityRoutePtr::Custom(scope) => scope,
-            EntityRoutePtr::ThisType => THIS_TYPE_ROUTE,
         }
     }
 }

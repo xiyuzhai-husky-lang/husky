@@ -26,6 +26,10 @@ pub enum EntitySource {
         range: TextRange,
         route: EntityRoutePtr,
     },
+    ThisType {
+        file: FilePtr,
+        range: TextRange,
+    },
 }
 
 impl EntitySource {

@@ -16,7 +16,7 @@ pub(crate) fn is_defn_static(db: &dyn RustCodeGenQueryGroup, entity_route: Entit
             husky_entity_kind,
             ..
         } => todo!(),
-        EntityRouteVariant::ThisType => todo!(),
+        EntityRouteVariant::ThisType { .. } => todo!(),
         EntityRouteVariant::TargetOutputType => todo!(),
     }
 }
@@ -42,7 +42,7 @@ pub(crate) fn contains_spatial_parameters(
             husky_entity_kind,
             ..
         } => todo!(),
-        EntityRouteVariant::ThisType => todo!(),
+        EntityRouteVariant::ThisType { .. } => todo!(),
         EntityRouteVariant::TargetOutputType => todo!(),
     }
 }

@@ -236,7 +236,7 @@ pub(crate) fn entity_call_form_decl(
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
             EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::Any { .. } => todo!(),
-            EntityRouteVariant::ThisType => todo!(),
+            EntityRouteVariant::ThisType { .. } => todo!(),
             EntityRouteVariant::TargetOutputType => todo!(),
         },
         EntitySource::StaticTraitMember(_) => todo!(),
@@ -254,6 +254,7 @@ pub(crate) fn entity_call_form_decl(
         },
         EntitySource::Any { .. } => todo!(),
         EntitySource::StaticEnumVariant(_) => todo!(),
+        EntitySource::ThisType { .. } => todo!(),
     };
 }
 

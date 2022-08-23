@@ -169,7 +169,9 @@ pub(crate) fn implement_target(
             file,
             range,
         },
-        EntityRouteVariant::ThisType => EntityRouteVariant::ThisType,
+        EntityRouteVariant::ThisType { file, range } => {
+            EntityRouteVariant::ThisType { file, range }
+        }
     };
     for arg in ty.spatial_arguments.iter() {
         spatial_arguments.push(match arg {

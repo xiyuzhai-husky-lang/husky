@@ -94,7 +94,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     EntityRouteVariant::Child { parent, ident } => parent,
                     EntityRouteVariant::TargetInputValue => todo!(),
                     EntityRouteVariant::Any { ident, .. } => todo!(),
-                    EntityRouteVariant::ThisType => todo!(),
+                    EntityRouteVariant::ThisType { .. } => todo!(),
                     EntityRouteVariant::TypeAsTraitMember {
                         ty: parent,
                         trai,
@@ -226,7 +226,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                             range
                         )
                     }
-                    EntityRoutePtr::ThisType => todo!(),
                 },
                 EntityRoutePtr::Custom(lopd_custom_ty) => match pure_binary_opr {
                     PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
@@ -241,7 +240,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         todo!()
                     }
                 },
-                EntityRoutePtr::ThisType => todo!(),
             },
             BinaryOpr::Assign(_) => {
                 if lopd_ty != ropd_ty {
@@ -363,7 +361,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     _ => Err(todo!()),
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
-                EntityRoutePtr::ThisType => todo!(),
             },
             PrefixOpr::Not => {
                 if self
@@ -382,7 +379,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     _ => todo!(),
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
-                EntityRoutePtr::ThisType => todo!(),
             },
             PrefixOpr::Shared => todo!(),
             PrefixOpr::Move => todo!(),
@@ -404,7 +400,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         _ => todo!(),
                     },
                     EntityRoutePtr::Custom(_) => todo!(),
-                    EntityRoutePtr::ThisType => todo!(),
                 }
                 Ok(EntityRoutePtr::Root(RootIdentifier::Void))
             }

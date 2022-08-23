@@ -35,7 +35,9 @@ impl Instantiable for EntityRoutePtr {
                             todo!()
                         }
                     }
-                    EntityRouteVariant::ThisType => (EntityRouteVariant::ThisType, thin_vec![]),
+                    EntityRouteVariant::ThisType { file, range } => {
+                        (EntityRouteVariant::ThisType { file, range }, thin_vec![])
+                    }
                     EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => (
                         EntityRouteVariant::TypeAsTraitMember {
                             ty: ty.instantiate(ctx).take_entity_route(),

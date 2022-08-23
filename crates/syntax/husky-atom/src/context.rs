@@ -130,7 +130,15 @@ pub trait AtomContext {
                     opt_this_liason: self.opt_this_liason(),
                 }),
                 ContextualIdentifier::ThisType => Ok(SymbolKind::EntityRoute(
-                    self.entity_syntax_db().entity_route_menu().this_ty,
+                    self.entity_syntax_db().intern_entity_route(EntityRoute {
+                        // ad hoc
+                        variant: EntityRouteVariant::ThisType {
+                            file: self.file(),
+                            range,
+                        },
+                        temporal_arguments: Default::default(),
+                        spatial_arguments: Default::default(),
+                    }),
                 )),
                 ContextualIdentifier::Crate => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db()
@@ -159,7 +167,7 @@ pub trait AtomContext {
                 parent,
                 ident: ident0,
             } => match parent.variant {
-                EntityRouteVariant::ThisType => match self.kind() {
+                EntityRouteVariant::ThisType { .. } => match self.kind() {
                     AtomContextKind::Normal => todo!(),
                     AtomContextKind::Trait {
                         member_kinds: members,

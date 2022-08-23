@@ -338,7 +338,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     (variant, feature)
                 }
                 EntityRouteVariant::Any { ident, .. } => todo!(),
-                EntityRouteVariant::ThisType => todo!(),
+                EntityRouteVariant::ThisType { .. } => todo!(),
                 EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
                 EntityRouteVariant::TargetOutputType => todo!(),
             },

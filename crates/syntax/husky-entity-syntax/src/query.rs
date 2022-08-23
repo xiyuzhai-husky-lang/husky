@@ -52,7 +52,6 @@ fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMen
         copy_trait: EntityRoutePtr::Root(RootIdentifier::CopyTrait),
         void_type: EntityRoutePtr::Root(RootIdentifier::Void),
         i32_ty: EntityRoutePtr::Root(RootIdentifier::I32),
-        this_ty: EntityRoutePtr::ThisType,
         vec_ty: EntityRoutePtr::Root(RootIdentifier::Vec),
         std_mod,
         std_ops_mod,
@@ -103,6 +102,7 @@ fn subroute_table(
                 EntitySource::StaticTypeAsTraitMember => todo!(),
                 EntitySource::Any { .. } => todo!(),
                 EntitySource::StaticEnumVariant(_) => todo!(),
+                EntitySource::ThisType { .. } => todo!(),
             }))
         }
     }
@@ -188,7 +188,9 @@ fn entity_kind_from_entity_route_kind(
         },
         EntityRouteVariant::Package { .. } => EntityKind::Module,
         EntityRouteVariant::Child { parent, ident } => match parent.variant {
-            EntityRouteVariant::ThisType => EntityKind::Member(MemberKind::TraitAssociatedAny),
+            EntityRouteVariant::ThisType { .. } => {
+                EntityKind::Member(MemberKind::TraitAssociatedAny)
+            }
             _ => db
                 .subroute_table(*parent)
                 .unwrap()
@@ -198,7 +200,7 @@ fn entity_kind_from_entity_route_kind(
         EntityRouteVariant::Any {
             husky_entity_kind, ..
         } => *husky_entity_kind,
-        EntityRouteVariant::ThisType => EntityKind::Type(TyKind::ThisAny),
+        EntityRouteVariant::ThisType { .. } => EntityKind::Type(TyKind::ThisAny),
         EntityRouteVariant::TypeAsTraitMember { .. } => {
             EntityKind::Member(MemberKind::TraitAssociatedAny)
         }
@@ -228,7 +230,7 @@ fn entity_source(
             file,
             range,
         }),
-        EntityRouteVariant::ThisType => panic!(),
+        EntityRouteVariant::ThisType { file, range } => Ok(EntitySource::ThisType { file, range }),
         EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
             EntityRoutePtr::Root(root_ident) => match root_ident {
                 RootIdentifier::CloneTrait => {
@@ -238,27 +240,30 @@ fn entity_source(
                 }
                 _ => todo!(),
             },
-            EntityRoutePtr::Custom(_) => todo!(),
-            EntityRoutePtr::ThisType => {
-                let ty_source = db.entity_source(ty).unwrap();
-                match ty_source {
-                    EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
-                        EntityStaticDefnVariant::Ty { .. } => {
-                            Ok(EntitySource::StaticTypeAsTraitMember)
-                        }
-                        _ => panic!(),
-                    },
-                    EntitySource::WithinBuiltinModule => todo!(),
-                    EntitySource::WithinModule { .. } => todo!(),
-                    EntitySource::Module { .. } => todo!(),
-                    EntitySource::TargetInput { .. } => todo!(),
-                    EntitySource::StaticTypeMember(_) => todo!(),
-                    EntitySource::StaticTraitMember(_) => todo!(),
-                    EntitySource::StaticTypeAsTraitMember => todo!(),
-                    EntitySource::Any { .. } => todo!(),
-                    EntitySource::StaticEnumVariant(_) => todo!(),
+            EntityRoutePtr::Custom(_) => match trai.variant {
+                EntityRouteVariant::ThisType { file, range } => {
+                    let ty_source = db.entity_source(ty).unwrap();
+                    match ty_source {
+                        EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
+                            EntityStaticDefnVariant::Ty { .. } => {
+                                Ok(EntitySource::StaticTypeAsTraitMember)
+                            }
+                            _ => panic!(),
+                        },
+                        EntitySource::WithinBuiltinModule => todo!(),
+                        EntitySource::WithinModule { .. } => todo!(),
+                        EntitySource::Module { .. } => todo!(),
+                        EntitySource::TargetInput { .. } => todo!(),
+                        EntitySource::StaticTypeMember(_) => todo!(),
+                        EntitySource::StaticTraitMember(_) => todo!(),
+                        EntitySource::StaticTypeAsTraitMember => todo!(),
+                        EntitySource::Any { .. } => todo!(),
+                        EntitySource::StaticEnumVariant(_) => todo!(),
+                        EntitySource::ThisType { .. } => todo!(),
+                    }
                 }
-            }
+                _ => todo!(),
+            },
         },
         EntityRouteVariant::TargetOutputType => todo!(),
     }
@@ -416,6 +421,7 @@ pub trait EntitySyntaxQueryGroup:
             EntitySource::StaticTypeAsTraitMember => todo!(),
             EntitySource::Any { .. } => todo!(),
             EntitySource::StaticEnumVariant(_) => todo!(),
+            EntitySource::ThisType { .. } => todo!(),
         })
     }
 

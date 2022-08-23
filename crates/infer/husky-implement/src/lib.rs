@@ -62,7 +62,7 @@ impl Implementable for EntityRoutePtr {
             EntityRouteVariant::Root { ident } => todo!(),
             EntityRouteVariant::Package { main, ident } => todo!(),
             EntityRouteVariant::Child { parent, ident } => match parent.variant {
-                EntityRouteVariant::ThisType => {
+                EntityRouteVariant::ThisType { .. } => {
                     let route = ctx.spatial_argument(ident).take_entity_route();
                     (route.variant.clone(), route.spatial_arguments.clone())
                 }
@@ -73,12 +73,12 @@ impl Implementable for EntityRoutePtr {
             },
             EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::Any { .. } => todo!(),
-            EntityRouteVariant::ThisType => (
+            EntityRouteVariant::ThisType { .. } => (
                 ctx.this_ty.variant.clone(),
                 ctx.this_ty.spatial_arguments.clone(),
             ),
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match ty.variant {
-                EntityRouteVariant::ThisType => {
+                EntityRouteVariant::ThisType { .. } => {
                     if let Some(spatial_argument) = ctx.opt_spatial_argument(ident) {
                         match spatial_argument {
                             SpatialArgument::EntityRoute(_) => todo!(),

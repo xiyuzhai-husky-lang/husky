@@ -460,7 +460,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                                             }
                                         }
                                         EntityRoutePtr::Custom(_) => todo!(),
-                                        EntityRoutePtr::ThisType => todo!(),
                                     },
                                     EagerSuffixOpr::BePattern(_) => todo!(),
                                     EagerSuffixOpr::Unveil => todo!(),
@@ -485,7 +484,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 TyKind::TargetOutputAny => todo!(),
                             }
                         }
-                        EntityRoutePtr::ThisType => todo!(),
                     }
                 }
                 EagerSuffixOpr::BePattern(_) => todo!(),
@@ -584,7 +582,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                 let instruction = Instruction::new(ins_variant, expr.clone());
                 self.push_instruction(instruction)
             }
-            EntityRoutePtr::ThisType => todo!(),
         }
     }
 
@@ -615,7 +612,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.push_instruction(instruction)
             }
             EntityRoutePtr::Custom(_) => todo!(),
-            EntityRoutePtr::ThisType => todo!(),
         }
     }
 

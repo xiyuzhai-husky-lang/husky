@@ -59,7 +59,6 @@ fn is_implicitly_castable(
                     _ => panic!(),
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
-                EntityRoutePtr::ThisType => todo!(),
             },
             RootIdentifier::Vec => false,
             RootIdentifier::Tuple => false,
@@ -87,7 +86,6 @@ fn is_implicitly_castable(
             msg_once!("handle convertible");
             false
         }
-        EntityRoutePtr::ThisType => todo!(),
     }
 }
 
@@ -117,7 +115,6 @@ fn is_explicitly_castable(
                 _ => todo!(),
             },
             EntityRoutePtr::Custom(_) => todo!(),
-            EntityRoutePtr::ThisType => todo!(),
         },
         _ => false,
     })
