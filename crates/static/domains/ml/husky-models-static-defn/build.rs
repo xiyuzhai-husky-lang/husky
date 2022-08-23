@@ -19,7 +19,7 @@ pub fn write_rust_code(rust_code_path: &str) -> std::io::Result<()> {
     w!(f; BuildCodeGenStart);
     w!(f; r#"
 use crate::{*, naive::*};
-use vm::*;
+use husky_vm::*;
 
 "#);
     for ty in NONPRIMITIVE_TYPES {

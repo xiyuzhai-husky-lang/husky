@@ -1,4 +1,4 @@
-use vm::InstructionVariant;
+use husky_vm::InstructionVariant;
 
 use crate::*;
 

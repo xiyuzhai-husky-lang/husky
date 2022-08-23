@@ -21,8 +21,8 @@ use crate::*;
 use husky_entity_semantics::*;
 use husky_feature_gen::FeatureEvalId;
 use husky_trace_protocol::SampleId;
-use vm::__VMResult;
-use vm::{EntityUid, VMConfig, __EvalContext, __Register};
+use husky_vm::__VMResult;
+use husky_vm::{EntityUid, VMConfig, __EvalContext, __Register};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,

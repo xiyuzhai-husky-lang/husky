@@ -19,7 +19,7 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
-vm = { path = "../../vm/husky-vm" }
+husky-vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-word = { path = "../../syntax/husky-word" }

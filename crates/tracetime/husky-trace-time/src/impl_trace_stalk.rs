@@ -1,8 +1,8 @@
 use crate::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_text::HuskyText;
+use husky_vm::{ControlSnapshot, History, VMControl};
 use husky_word::RootIdentifier;
-use vm::{ControlSnapshot, History, VMControl};
 
 impl HuskyTraceTime {
     pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalkData) {

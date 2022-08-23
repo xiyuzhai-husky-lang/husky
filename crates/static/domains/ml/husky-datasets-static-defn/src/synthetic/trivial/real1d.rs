@@ -2,8 +2,8 @@ use crate::*;
 use husky_entity_kind::RoutineKind;
 use husky_liason_semantics::OutputLiason;
 use husky_trace_protocol::SampleId;
+use husky_vm::{__Linkage, __ResolvedLinkage, transfer_linkage};
 use std::sync::Arc;
-use vm::{__Linkage, __ResolvedLinkage, transfer_linkage};
 use xrng::XRng;
 
 pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {

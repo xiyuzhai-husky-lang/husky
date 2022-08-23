@@ -9,7 +9,7 @@ rust-version = "1.56"
 [dependencies]
 smallvec = "1.8.0"
 colored = "2.0.0"
-vm = { path = "../../vm/husky-vm" }
+husky-vm = { path = "../../vm/husky-vm" }
 map-collect = { path = "../../abstraction/map-collect" }
 upcast = { path = "../../abstraction/upcast" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }

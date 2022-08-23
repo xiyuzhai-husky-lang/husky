@@ -1,6 +1,6 @@
 use crate::*;
 
-use vm::{Instruction, InstructionSource, VMStackIdx};
+use husky_vm::{Instruction, InstructionSource, VMStackIdx};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn push_instruction(&mut self, instr: Instruction) {

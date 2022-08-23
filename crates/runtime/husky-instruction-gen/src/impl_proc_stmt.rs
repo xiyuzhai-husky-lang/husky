@@ -1,7 +1,7 @@
 use crate::*;
 use avec::Avec;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
-use vm::{
+use husky_vm::{
     Instruction, InstructionVariant, VMConditionBranch, VMLoopKind, VMPattern, VMPatternBranch,
     __RegistrableSafe,
 };

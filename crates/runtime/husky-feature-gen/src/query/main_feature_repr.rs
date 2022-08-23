@@ -1,5 +1,5 @@
 use super::*;
-use vm::__VMResult;
+use husky_vm::__VMResult;
 
 pub(super) fn main_feature_repr(
     db: &dyn FeatureGenQueryGroup,

@@ -1,8 +1,8 @@
 use std::collections::HashMap;
 
 use husky_check_utils::should;
+use husky_vm::{EntityUid, __Register, __RegisterDataKind, __VMResult};
 use husky_word::CustomIdentifier;
-use vm::{EntityUid, __Register, __RegisterDataKind, __VMResult};
 
 use super::*;
 

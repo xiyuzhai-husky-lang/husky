@@ -17,7 +17,7 @@ husky-test-utils = { path = "../../utils/husky-test-utils" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 husky-word = { path = "../../syntax/husky-word" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
-vm = { path = "../../vm/husky-vm" }
+husky-vm = { path = "../../vm/husky-vm" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-static-defn = { path = "../husky-static-defn" }

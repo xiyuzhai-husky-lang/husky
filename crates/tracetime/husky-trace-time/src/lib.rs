@@ -27,6 +27,7 @@ use husky_runtime::*;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_trace::*;
 use husky_trace_protocol::*;
+use husky_vm::*;
 use impl_lines::*;
 use serde::Deserialize;
 use std::collections::HashMap;
@@ -35,7 +36,6 @@ use sync_utils::ASafeRwLock;
 use trace_node::*;
 use upcast::Upcast;
 use vec_like::VecSet;
-use vm::*;
 use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {

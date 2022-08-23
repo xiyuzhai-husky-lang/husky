@@ -5,11 +5,11 @@ use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use husky_semantics_error::*;
+use husky_vm::{VMCompileResult, VMStackIdx, __VMResult};
 use husky_word::{CustomIdentifier, IdentPairDict};
 use husky_xml_syntax::XmlTagKind;
 use infer_contract::{ContractSheet, InferContract};
 use std::{iter::Peekable, sync::Arc};
-use vm::{VMCompileResult, VMStackIdx, __VMResult};
 
 pub(super) struct LazyStmtParser<'a> {
     pub(super) db: &'a dyn InferQueryGroup,

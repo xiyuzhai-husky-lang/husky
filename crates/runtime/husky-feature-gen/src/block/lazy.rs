@@ -1,5 +1,5 @@
 use husky_entity_route::RangedEntityRoute;
-use vm::__VMResult;
+use husky_vm::__VMResult;
 
 use crate::lazy_branch::FeatureBranchIndicatorVariant;
 

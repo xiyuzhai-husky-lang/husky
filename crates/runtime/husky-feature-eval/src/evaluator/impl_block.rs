@@ -1,7 +1,7 @@
 use super::*;
 use crate::*;
 use husky_print_utils::{epin, msg_once, p};
-use vm::{__RegisterDataKind, eval_fast};
+use husky_vm::{__RegisterDataKind, eval_fast};
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn eval_feature_lazy_block(
@@ -32,7 +32,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         };
         let nargs: u8 = arguments.len().try_into().unwrap();
         msg_once!("kwargs");
-        let result = vm::eval_fast(
+        let result = husky_vm::eval_fast(
             self.db.upcast(),
             unsafe { self.some_ctx() },
             Some(&block.instruction_sheet),

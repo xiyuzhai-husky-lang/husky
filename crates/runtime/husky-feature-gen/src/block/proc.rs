@@ -2,7 +2,7 @@ use super::*;
 use avec::Avec;
 use husky_eager_semantics::ProcStmt;
 use husky_entity_route::RangedEntityRoute;
-use vm::__ResolvedLinkage;
+use husky_vm::__ResolvedLinkage;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FeatureProcBlock {

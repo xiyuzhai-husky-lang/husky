@@ -1,4 +1,4 @@
-use vm::VMStackIdx;
+use husky_vm::VMStackIdx;
 
 #[derive(Copy, Clone, Debug)]
 pub(crate) enum InstructionGenContext {

@@ -21,10 +21,12 @@ use husky_file::FilePtr;
 use husky_print_utils::p;
 use husky_text::{HuskyText, TextRange};
 use husky_trace_protocol::*;
+use husky_vm::{
+    History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch, VMControl,
+};
 use husky_word::CustomIdentifier;
 use serde::{ser::SerializeStruct, Serialize};
 use std::{borrow::Cow, sync::Arc};
-use vm::{History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch, VMControl};
 
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug)]

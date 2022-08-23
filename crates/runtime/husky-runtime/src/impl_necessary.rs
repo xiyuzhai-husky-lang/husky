@@ -3,8 +3,8 @@ use std::time::Instant;
 use husky_data_viewer::HuskyDataViewerQueryGroup;
 use husky_entity_semantics::StoreEntityRoute;
 use husky_feature_gen::{FeatureArrivalIndicator, FeatureLazyExpr, TrainModel};
+use husky_vm::{InterpreterQueryGroup, VMConfig};
 use upcast::Upcast;
-use vm::{InterpreterQueryGroup, VMConfig};
 
 use crate::*;
 
@@ -36,8 +36,8 @@ impl Upcast<dyn InstructionGenQueryGroup> for HuskyRuntime {
 impl InterpreterQueryGroup for HuskyRuntime {
     fn entity_opt_instruction_sheet_by_uid(
         &self,
-        uid: vm::EntityUid,
-    ) -> Option<Arc<vm::InstructionSheet>> {
+        uid: husky_vm::EntityUid,
+    ) -> Option<Arc<husky_vm::InstructionSheet>> {
         let entity_route = self.comptime.entity_route_by_uid(uid);
         self.entity_instruction_sheet(entity_route)
         // self.comptime.entity_opt_instruction_sheet_by_uid(uid)

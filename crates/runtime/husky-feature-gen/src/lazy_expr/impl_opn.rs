@@ -4,11 +4,11 @@ use husky_entity_kind::{FieldKind, TyKind};
 use husky_entity_route::{EntityRoute, InternEntityRoute};
 use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
+use husky_vm::{Binding, __ModelLinkage, __VMResult, __root::__NEQ_LINKAGE};
+use husky_vm::{__Linkage, __root::__EQ_LINKAGE};
 use husky_vm_primitive_opr_linkage::resolve_primitive_pure_binary_opr_linkage;
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
-use vm::{Binding, __ModelLinkage, __VMResult, __root::__NEQ_LINKAGE};
-use vm::{__Linkage, __root::__EQ_LINKAGE};
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(

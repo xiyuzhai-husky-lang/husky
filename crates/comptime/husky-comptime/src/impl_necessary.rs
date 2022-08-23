@@ -5,9 +5,9 @@ use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
 use husky_linkage_table::{LinkageTable, ResolveLinkage};
 use husky_static_defn::ResolveStaticRootDefn;
 use husky_trace_protocol::*;
+use husky_vm::InterpreterQueryGroup;
 use infer_total::InferQueryGroup;
 use upcast::Upcast;
-use vm::InterpreterQueryGroup;
 
 impl fmt::Debug for HuskyComptime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {

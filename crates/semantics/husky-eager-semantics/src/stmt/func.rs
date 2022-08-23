@@ -12,8 +12,8 @@ use crate::*;
 use husky_file::FilePtr;
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRange;
+use husky_vm::{InstructionId, InstructionSource};
 use std::sync::Arc;
-use vm::{InstructionId, InstructionSource};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FuncStmt {

@@ -6,8 +6,8 @@ use husky_infer_error::*;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_text::TextRange;
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
+use husky_vm::*;
 use infer_decl::CallFormDecl;
-use vm::*;
 
 use super::*;
 use crate::*;

@@ -28,7 +28,7 @@ husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
 husky-word = { path = "../../syntax/husky-word" }
-vm = { path = "../../vm/husky-vm" }
+husky-vm = { path = "../../vm/husky-vm" }
 husky-infer-error = { path = "../husky-infer-error" }
 infer-decl = { path = "../husky-infer-decl" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }

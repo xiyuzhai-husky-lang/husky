@@ -23,11 +23,11 @@ use husky_atom::{
 use husky_defn_head::*;
 use husky_entity_route::*;
 use husky_text::*;
+use husky_vm::TySignature;
 use husky_word::{IdentArcDict, IdentDict, Paradigm};
 use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
 use vec_like::VecMap;
-use vm::TySignature;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyDecl {

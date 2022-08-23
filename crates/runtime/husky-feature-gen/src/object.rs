@@ -1,5 +1,5 @@
 use super::*;
-use vm::__Register;
+use husky_vm::__Register;
 
 #[derive(Debug, Clone)]
 pub struct Object {

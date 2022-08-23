@@ -11,8 +11,8 @@ use super::*;
 use crate::*;
 use fold::Indent;
 use husky_text::{RangedCustomIdentifier, TextRanged};
+use husky_vm::{History, InstructionId, InstructionSource, VMStackIdx};
 use std::sync::Arc;
-use vm::{History, InstructionId, InstructionSource, VMStackIdx};
 
 use parser::EagerParser;
 

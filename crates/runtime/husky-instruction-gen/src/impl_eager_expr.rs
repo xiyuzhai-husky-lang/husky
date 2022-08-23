@@ -4,16 +4,16 @@ use husky_entity_kind::TyKind;
 use husky_linkage_table::ResolveLinkage;
 use husky_opn_semantics::EagerSuffixOpr;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
+use husky_vm::{
+    __root::{__ASSIGN_LINKAGE, __EQ_LINKAGE, __NEQ_LINKAGE, __VALUE_CALL_LINKAGE},
+    *,
+};
 use husky_vm_primitive_opr_linkage::{
     resolve_primitive_assign_binary_opr_linkage, resolve_primitive_prefix_opr_linkage,
     resolve_primitive_pure_binary_opr_linkage, resolve_primitive_suffix_opr_linkage,
 };
 use infer_decl::TyDecl;
 use map_collect::MapCollect;
-use vm::{
-    __root::{__ASSIGN_LINKAGE, __EQ_LINKAGE, __NEQ_LINKAGE, __VALUE_CALL_LINKAGE},
-    *,
-};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_eager_expr(

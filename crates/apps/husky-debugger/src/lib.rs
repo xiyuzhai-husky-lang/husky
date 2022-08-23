@@ -22,6 +22,7 @@ use husky_root_static_defn::__StaticLinkageKey;
 use husky_test_utils::TestResult;
 use husky_trace_protocol::*;
 use husky_trace_time::HuskyTraceTime;
+use husky_vm::__Linkage;
 use instance::*;
 use internal::HuskyDebuggerInternal;
 use json_result::JsonResult;
@@ -35,7 +36,6 @@ use std::{
     sync::Arc,
 };
 use std::{sync::Mutex, time::Instant};
-use vm::__Linkage;
 use warp::Filter;
 
 type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];

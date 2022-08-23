@@ -1,7 +1,7 @@
 mod query;
 
+use husky_vm::VMCompileError;
 pub use query::*;
-use vm::VMCompileError;
 
 use std::fmt::Write;
 use std::sync::Arc;

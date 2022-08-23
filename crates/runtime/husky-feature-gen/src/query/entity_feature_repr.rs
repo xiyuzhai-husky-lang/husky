@@ -1,4 +1,4 @@
-use vm::__VMResult;
+use husky_vm::__VMResult;
 
 use super::*;
 

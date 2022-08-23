@@ -1,6 +1,6 @@
 use __husky::init::__StaticLinkageKey;
 use husky_linkage_table::LinkageKey;
-use vm::__Linkage;
+use husky_vm::__Linkage;
 
 use crate::*;
 use std::{fs, path::Path};
