@@ -399,9 +399,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     TyKind::Mor => todo!(),
                     TyKind::ThickFp =>{
                         self.write(&format!(
-                        r#" = std::mem::transmute(__arguments[{i}]
+                        r#" = unsafe {{ __arguments[{i}]
                         .downcast_temp_ref::<__VirtualFunction>(&__registration__::__VIRTUAL_FUNCTION_VTABLE)
-                        .fp());"#
+                        .downcast_thick_fp() }};"#
                         ));
                     },
                     TyKind::AssociatedAny => todo!(),

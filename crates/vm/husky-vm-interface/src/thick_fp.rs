@@ -9,7 +9,18 @@ pub struct ThickFp<F: for<'eval> __BaseThinFp> {
     phantom: PhantomData<F>,
 }
 
-impl<F: for<'eval> __BaseThinFp> ThickFp<F> {
+impl<F> ThickFp<F>
+where
+    F: for<'eval> __BaseThinFp,
+{
+    pub(crate) const fn new(needs_eval_context: bool, fp: *const ()) -> Self {
+        Self {
+            needs_eval_context,
+            fp,
+            phantom: PhantomData,
+        }
+    }
+
     pub fn call1<'eval, A1, Output>(self, a1: A1, __ctx: &dyn __EvalContext<'eval>) -> Output
     where
         A1: __StaticInfo,
