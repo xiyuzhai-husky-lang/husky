@@ -272,7 +272,7 @@ impl<'a> RustCodeGenerator<'a> {
     fn gen_call_ty(&mut self, needs_eval_context: bool, decl: &CallFormDecl) {
         self.write("fn(");
         if needs_eval_context {
-            self.write("&__EvalContext<'static>, ")
+            self.write("&__EvalContext<'static>")
         }
         if let Some(this_ty) = decl.opt_this_ty() {
             match decl.opt_this_liason.unwrap() {
