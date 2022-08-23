@@ -1,4 +1,4 @@
-use husky_entity_kind::{EntityKind, MemberKind};
+use husky_entity_kind::{EntityKind, MemberKind, TyKind};
 
 use crate::*;
 
@@ -20,6 +20,7 @@ pub(crate) fn needs_eval_context(
                 MemberKind::TraitAssociatedConstSize => todo!(),
                 MemberKind::TraitAssociatedAny => todo!(),
             },
+            EntityKind::Type(TyKind::ThickFp) => return true,
             _ => (),
         }
     }
