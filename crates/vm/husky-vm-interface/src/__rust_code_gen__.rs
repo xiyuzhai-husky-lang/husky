@@ -891,13 +891,19 @@ impl<'eval, Output: __Any> ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<Output: __Any> const BaseFp
+impl<'eval, Output: __Any> __GetCtxThinFp<'eval>
     for fn() -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
+    type __ThinFpWithContext = fn(
         &dyn __EvalContext<'eval>,
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, Output: __Any> const BaseThinFp
+    for fn() -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -933,14 +939,19 @@ impl<'eval, A0: __Any, Output: __Any> ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<A0: __Any, Output: __Any> const BaseFp
+impl<'eval, A0: __Any, Output: __Any> __GetCtxThinFp<'eval>
     for fn(A0) -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,A0
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, Output: __Any> const BaseThinFp
+    for fn(A0) -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -977,15 +988,19 @@ impl<'eval, A0: __Any, A1: __Any, Output: __Any> ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<A0: __Any, A1: __Any, Output: __Any> const BaseFp
+impl<'eval, A0: __Any, A1: __Any, Output: __Any> __GetCtxThinFp<'eval>
     for fn(A0, A1) -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A1 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,A0, A1
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, Output: __Any> const BaseThinFp
+    for fn(A0, A1) -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1023,16 +1038,19 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<A0: __Any, A1: __Any, A2: __Any, Output: __Any> const BaseFp
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> __GetCtxThinFp<'eval>
     for fn(A0, A1, A2) -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A1 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A2 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, Output: __Any> const BaseThinFp
+    for fn(A0, A1, A2) -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1071,17 +1089,19 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const BaseFp
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> __GetCtxThinFp<'eval>
     for fn(A0, A1, A2, A3) -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A1 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A2 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A3 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, Output: __Any> const BaseThinFp
+    for fn(A0, A1, A2, A3) -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1121,18 +1141,19 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const BaseFp
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> __GetCtxThinFp<'eval>
     for fn(A0, A1, A2, A3, A4) -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A1 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A2 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A3 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A4 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, Output: __Any> const BaseThinFp
+    for fn(A0, A1, A2, A3, A4) -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1173,19 +1194,19 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Ou
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const BaseFp
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> __GetCtxThinFp<'eval>
     for fn(A0, A1, A2, A3, A4, A5) -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A1 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A2 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A3 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A4 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A5 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, Output: __Any> const BaseThinFp
+    for fn(A0, A1, A2, A3, A4, A5) -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1227,20 +1248,19 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const BaseFp
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> __GetCtxThinFp<'eval>
     for fn(A0, A1, A2, A3, A4, A5, A6) -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A1 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A2 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A3 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A4 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A5 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A6 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, Output: __Any> const BaseThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6) -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1283,21 +1303,19 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const BaseFp
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> __GetCtxThinFp<'eval>
     for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A1 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A2 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A3 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A4 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A5 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A6 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A7 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6, A7
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, Output: __Any> const BaseThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
@@ -1341,22 +1359,19 @@ impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const BaseFp
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> __GetCtxThinFp<'eval>
     for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output
 {
-    type __ThinFpWithContext = for<'eval> fn(
-        &dyn __EvalContext<'eval>,
-        <A0 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A1 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A2 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A3 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A4 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A5 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A6 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A7 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
-        <A8 as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,
+    type __ThinFpWithContext = fn(
+        &dyn __EvalContext<'eval>,A0, A1, A2, A3, A4, A5, A6, A7, A8
     ) -> Output;
+}
 
+#[cfg(feature = "thin_fp")]
+#[rustfmt::skip]
+impl<'eval, A0: __Any, A1: __Any, A2: __Any, A3: __Any, A4: __Any, A5: __Any, A6: __Any, A7: __Any, A8: __Any, Output: __Any> const BaseThinFp
+    for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output
+{
     fn __to_void_pointer(self) -> *const () {
         self as *const ()
     }
