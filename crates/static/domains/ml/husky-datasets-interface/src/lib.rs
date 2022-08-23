@@ -83,11 +83,3 @@ impl<'a> __StaticInfo for Dataset<'a> {
         std::mem::transmute(self)
     }
 }
-
-#[cfg(feature = "any_support")]
-impl<'eval, 'eval0> __WithEvalLifetime<'eval> for Dataset<'eval0> {
-    type __SelfWithEvalLifetime = Dataset<'eval>;
-}
-
-#[cfg(feature = "any_support")]
-impl<'eval> __Any for Dataset<'eval> {}

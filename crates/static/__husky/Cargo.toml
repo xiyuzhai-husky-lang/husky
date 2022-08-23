@@ -8,14 +8,11 @@ edition = "2021"
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
-    "any_support",
     "thin_fp",
     "thick_fp",
     "linkage_macro"
 ] }
-husky-datasets-interface = { path = "../domains/ml/husky-datasets-interface", features = [
-    "any_support",
-] }
+husky-datasets-interface = { path = "../domains/ml/husky-datasets-interface" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
 [lib]

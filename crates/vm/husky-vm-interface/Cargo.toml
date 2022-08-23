@@ -16,10 +16,9 @@ binding = ["dep:husky-vm-binding"]
 vtype = []
 extra = ["binding", "vtype"]
 check = []
-any_support = []
-thin_fp = ["any_support"]
-thick_fp = ["any_support", "thin_fp"]
-linkage_macro = ["any_support", "thin_fp", "thin_fp"]
+thin_fp = []
+thick_fp = ["thin_fp"]
+linkage_macro = ["thin_fp", "thin_fp"]
 
 [build-dependencies]
 itertools = "0.10.3"

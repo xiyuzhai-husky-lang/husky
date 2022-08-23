@@ -117,14 +117,6 @@ impl<'eval> __Register<'eval> {{
         }}
     }}
 }}
-
-#[cfg(feature = "any_support")]
-impl<'eval> __WithEvalLifetime<'eval> for {ty} {{
-    type __SelfWithEvalLifetime = {ty};
-}}
-
-#[cfg(feature = "any_support")]
-impl<'eval> __Any for {ty} {{}}
 "#
         )
     }

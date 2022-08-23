@@ -7,8 +7,7 @@ mod vecx;
 pub use b32x::*;
 pub use f32x::*;
 pub use husky_vm_interface::{
-    __Any, __EvalContext, __Register, __Registrable, __StaticInfo, __WithEvalLifetime, entity_uid,
-    feature_ptr, ThickFp,
+    __EvalContext, __Register, __Registrable, __StaticInfo, entity_uid, feature_ptr, ThickFp,
 };
 pub use i32x::*;
 pub use vecx::*;

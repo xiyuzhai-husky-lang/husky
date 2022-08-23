@@ -1,4 +1,4 @@
-use husky_vm_interface::{ThickFp, __Any, __EvalContext};
+use husky_vm_interface::{ThickFp, __EvalContext, __StaticInfo};
 
 use crate::*;
 pub trait __VecX<T> {
@@ -22,13 +22,19 @@ pub trait __VecX<T> {
 
     fn pop_with_largest_opt_f32_copyable<'eval>(
         &mut self,
+        f: ThickFp<fn(T::__StaticSelf) -> Option<f32>>,
         __ctx: &dyn __EvalContext<'eval>,
-        f: ThickFp<fn(T) -> Option<f32>>,
     ) -> Option<T>
     where
-        T: Copy + std::fmt::Debug + __Any;
+        T: Copy + std::fmt::Debug + __StaticInfo;
 
-    fn pop_with_largest_opt_f32_borrow(&mut self, f: fn(&T) -> Option<f32>) -> Option<T>;
+    fn pop_with_largest_opt_f32_borrow<'eval>(
+        &mut self,
+        f: ThickFp<fn(&'static T::__StaticSelf) -> Option<f32>>,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> Option<T>
+    where
+        T: __StaticInfo;
 }
 
 impl<T> __VecX<T> for Vec<T> {
@@ -58,16 +64,16 @@ impl<T> __VecX<T> for Vec<T> {
 
     fn pop_with_largest_opt_f32_copyable<'eval>(
         &mut self,
+        f: ThickFp<fn(T::__StaticSelf) -> Option<f32>>,
         __ctx: &dyn __EvalContext<'eval>,
-        f: ThickFp<fn(T) -> Option<f32>>,
     ) -> Option<T>
     where
-        T: Copy + std::fmt::Debug + __Any,
+        T: Copy + std::fmt::Debug + __StaticInfo,
     {
         let mut imax = None;
         let mut vmax = f32::MIN;
         for i in 0..self.len() {
-            if let Some(v) = f.call1(__ctx, self[i]) {
+            if let Some(v) = f.call1(self[i], __ctx) {
                 if v > vmax {
                     imax = Some(i);
                     vmax = v
@@ -77,11 +83,18 @@ impl<T> __VecX<T> for Vec<T> {
         imax.map(|imax| self.remove(imax))
     }
 
-    fn pop_with_largest_opt_f32_borrow(&mut self, f: fn(&T) -> Option<f32>) -> Option<T> {
+    fn pop_with_largest_opt_f32_borrow<'eval>(
+        &mut self,
+        f: ThickFp<fn(&'static T::__StaticSelf) -> Option<f32>>,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> Option<T>
+    where
+        T: __StaticInfo,
+    {
         let mut imax = None;
         let mut vmax = f32::MIN;
         for i in 0..self.len() {
-            if let Some(v) = f(&self[i]) {
+            if let Some(v) = f.call1(&self[i], __ctx) {
                 if v > vmax {
                     imax = Some(i);
                     vmax = v
