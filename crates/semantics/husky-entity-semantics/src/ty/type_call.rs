@@ -1,5 +1,5 @@
-use defn_head::Parameter;
 use husky_atom::AtomContext;
+use husky_defn_head::Parameter;
 use husky_entity_route::RangedEntityRoute;
 use map_collect::MapCollect;
 use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};

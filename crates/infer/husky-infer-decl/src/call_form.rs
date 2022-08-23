@@ -6,12 +6,12 @@ pub use output::*;
 pub use parameter::*;
 pub use variadic::*;
 
-use defn_head::*;
 use fold::LocalStack;
 use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext, AtomContextStandalone,
 };
+use husky_defn_head::*;
 use husky_implement::{Implementable, ImplementationContext};
 use husky_instantiate::InstantiationContext;
 use husky_print_utils::{msg_once, p};

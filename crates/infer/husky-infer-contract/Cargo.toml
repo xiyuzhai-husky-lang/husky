@@ -30,7 +30,7 @@ infer-error = { path = "../error" }
 husky-infer-entity-route = { path = "../husky-infer-entity-route" }
 husky-atom = { path = "../../syntax/husky-atom" }
 infer-decl = { path = "../husky-infer-decl" }
-defn-head = { path = "../../syntax/defn-head" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

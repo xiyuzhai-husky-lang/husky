@@ -6,7 +6,7 @@ pub use expr::*;
 pub use stmt::*;
 pub use variable::EagerVariable;
 
-use defn_head::*;
+use husky_defn_head::*;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_init_syntax::*;
 use husky_liason_semantics::*;

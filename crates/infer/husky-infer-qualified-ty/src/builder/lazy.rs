@@ -1,6 +1,6 @@
-use defn_head::Parameter;
 use husky_ast::*;
 use husky_check_utils::should;
+use husky_defn_head::Parameter;
 use husky_entity_kind::EntityKind;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_print_utils::p;

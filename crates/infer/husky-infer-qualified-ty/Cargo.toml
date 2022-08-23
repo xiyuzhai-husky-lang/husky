@@ -26,7 +26,7 @@ husky-file = { path = "../../syntax/husky-file" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-word = { path = "../../syntax/husky-word" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-defn-head = { path = "../../syntax/defn-head" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }

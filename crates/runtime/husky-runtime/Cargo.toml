@@ -30,7 +30,7 @@ husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-feature-gen = { path = "../husky-feature-gen" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-defn-head = { path = "../../syntax/defn-head" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-feature-eval = { path = "../husky-feature-eval" }
 husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }

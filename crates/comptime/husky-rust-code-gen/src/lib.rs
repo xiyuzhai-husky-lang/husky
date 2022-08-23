@@ -15,8 +15,8 @@ use husky_layout::HuskyLayoutQueryGroup;
 
 use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
-use defn_head::*;
 use eval_context::*;
+use husky_defn_head::*;
 use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_file::FilePtr;
 use husky_init_syntax::*;

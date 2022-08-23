@@ -5,7 +5,7 @@ pub use standalone::*;
 pub use symbol::*;
 
 use super::*;
-use defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
+use husky_defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
 use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityRouteVariant, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
