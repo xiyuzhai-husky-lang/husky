@@ -415,7 +415,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                             match root_identifier {
                                                 RootIdentifier::Void => todo!(),
                                                 RootIdentifier::I32 => transfer_linkage!(
-                                                    |_, args| {
+                                                    |args, _| {
                                                         let enum_value: &__VirtualEnum = unsafe {
                                                             args[0].downcast_temp_ref(
                                                                 &__VIRTUAL_ENUM_VTABLE,

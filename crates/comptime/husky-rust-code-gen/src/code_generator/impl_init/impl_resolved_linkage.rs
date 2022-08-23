@@ -15,9 +15,9 @@ impl<'a> RustCodeGenerator<'a> {
         transfer_linkage!(
             {{
                 unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {{ /*haha*/"#
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {{"#
         ));
         if let Some((this_liason, this_ty)) = opt_this {
             let mangled_this_ty_vtable = self.db.mangled_intrinsic_ty_vtable(this_ty);
@@ -294,12 +294,6 @@ impl<'a> RustCodeGenerator<'a> {
             }
             self.gen_entity_route(this_ty, EntityRouteRole::StaticDecl)
         }
-        if needs_eval_context {
-            if decl.opt_this_liason.is_some() {
-                self.write(", ")
-            }
-            self.write("&dyn __EvalContext<'static>")
-        }
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
             if needs_eval_context || decl.opt_this_liason.is_some() || i > 0 {
                 self.write(", ")
@@ -359,6 +353,17 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(variadic_ty, EntityRouteRole::StaticDecl);
                 self.write(">")
             }
+        }
+        if needs_eval_context {
+            if needs_eval_context
+                || decl.opt_this_liason.is_some()
+                || decl.primary_parameters.len() > 0
+                || decl.keyword_parameters.len() > 0
+                || decl.variadic_template.is_some()
+            {
+                self.write(", ")
+            }
+            self.write("&dyn __EvalContext<'static>")
         }
         self.write(") -> ");
         self.gen_entity_route(decl.output.ty(), EntityRouteRole::StaticDecl)

@@ -34,7 +34,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
-            |_, values| { (values[0].downcast_b32().leading_zeros() as i32).to_register() },
+            |values, _| { (values[0].downcast_b32().leading_zeros() as i32).to_register() },
             some base (|x| x.leading_zeros() as i32) as fn(u32) -> i32
         )),
     },
@@ -52,7 +52,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
-            |_, values| values[0]. downcast_b32().ctz().to_register(),
+            |values, _| values[0]. downcast_b32().ctz().to_register(),
             some base u32::ctz as fn(u32) -> i32
         )),
     },
@@ -74,7 +74,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
-            |_, values| {
+            |values, _| {
                 let b = values[0].downcast_b32();
                 let i = values[1].downcast_i32();
                 let last_bits = b & ((1 << i) - 1);

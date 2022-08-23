@@ -71,8 +71,8 @@ macro_rules! method_elem_linkage {
 macro_rules! lazy_field_linkage {
     ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
         fn __wrapper<'eval>(
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
             values: &mut [__Register<'eval>],
+            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
             let this_value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
             __Register::new_eval_ref::<$INTRINSIC_FIELD_TY>(

@@ -24,6 +24,13 @@ impl VariadicTemplate {
             },
         }
     }
+
+    pub fn is_some(&self) -> bool {
+        match self {
+            VariadicTemplate::None => false,
+            VariadicTemplate::SingleTyped { variadic_ty } => true,
+        }
+    }
 }
 
 impl Instantiable for VariadicTemplate {
