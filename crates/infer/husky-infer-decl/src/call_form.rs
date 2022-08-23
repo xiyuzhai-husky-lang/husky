@@ -121,6 +121,11 @@ impl CallFormDecl {
     pub fn variadic_start(&self) -> usize {
         self.primary_parameters.len() + self.keyword_parameters.len()
     }
+
+    pub fn opt_this_ty(&self) -> Option<EntityRoutePtr> {
+        self.opt_this_liason
+            .map(|_| self.opt_base_route.unwrap().parent())
+    }
 }
 
 impl Instantiable for CallFormDecl {

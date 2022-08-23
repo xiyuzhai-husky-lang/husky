@@ -18,9 +18,8 @@ extra = ["binding", "vtype"]
 check = []
 any_support = []
 thin_fp = ["any_support"]
-base_fp = ["thin_fp"]
-thick_fp = ["any_support", "base_fp"]
-linkage_macro = ["any_support", "thin_fp", "base_fp"]
+thick_fp = ["any_support", "thin_fp"]
+linkage_macro = ["any_support", "thin_fp", "thin_fp"]
 
 [build-dependencies]
 itertools = "0.10.3"

@@ -10,17 +10,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
     __StaticLinkageKey::Routine {
         route: "test_fp_major::try_fp",
     },
-    __Linkage::Transfer(__ResolvedLinkage {
-        dev_src: static_dev_src!(),
-        wrapper: {
+    transfer_linkage!(
+        {
             unsafe fn __wrapper<'eval>(
                 __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 __arguments: &mut [__Register<'eval>],
-            ) -> __Register<'eval> {
+            ) -> __Register<'eval> { /*haha*/
                 try_fp().to_register()
             }
             __wrapper
         },
-        opt_fp: Some(try_fp as *const ()),
-    }),
+        some try_fp as fn() -> i32
+    ),
 )];

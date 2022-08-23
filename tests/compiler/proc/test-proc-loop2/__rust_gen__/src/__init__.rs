@@ -11,15 +11,15 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
         route: "test_proc_loop2::for_loop4",
     },
     transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                    __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {
-                    for_loop4().to_register()
-                }
-                __wrapper
-            },
-            some for_loop4 as fn() -> i32
+        {
+            unsafe fn __wrapper<'eval>(
+                __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                __arguments: &mut [__Register<'eval>],
+            ) -> __Register<'eval> { /*haha*/
+                for_loop4().to_register()
+            }
+            __wrapper
+        },
+        some for_loop4 as fn() -> i32
     ),
 )];

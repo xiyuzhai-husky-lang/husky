@@ -61,13 +61,17 @@ impl __StaticInfo for A {
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "test_struct_example2::A".into()
     }
-}
 
-impl<'eval> __Registrable<'eval> for A {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        todo!()
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
     }
 }
+
+impl<'eval> __WithEvalLifetime<'eval> for A {
+    type __SelfWithEvalLifetime = A;
+}
+
+impl __Any for A {}
 
 pub(crate) fn f1() -> A {
     return {

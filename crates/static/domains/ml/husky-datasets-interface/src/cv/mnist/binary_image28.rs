@@ -8,7 +8,7 @@ pub struct BinaryImage28 {
 
 #[cfg(feature = "any_support")]
 impl<'eval> __WithEvalLifetime<'eval> for BinaryImage28 {
-    type __ThisWithEvalLifetime = BinaryGrid28;
+    type __SelfWithEvalLifetime = BinaryGrid28;
 }
 
 #[cfg(feature = "any_support")]

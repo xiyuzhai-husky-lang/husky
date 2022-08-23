@@ -51,7 +51,7 @@ impl std::fmt::Display for ImplFp {
             .map(|i| -> String {
                 format!(
                     r#"
-        <A{i} as __WithEvalLifetime<'eval>>::This,"#
+        <A{i} as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,"#
                 )
             })
             .join("");
@@ -71,16 +71,16 @@ impl<'eval, {arg_types_decl}Output: __Any> ThinFp
         &dyn __EvalContext<'eval>,{arg_types}
     ) -> Output {{}}
 
-#[cfg(feature = "base_fp")]
+#[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
 impl<{arg_types_decl}Output: __Any> const BaseFp
     for fn({arg_types}) -> Output
 {{
-    type WithContext = for<'eval> fn(
+    type __ThinFpWithContext = for<'eval> fn(
         &dyn __EvalContext<'eval>,{arg_types_with_eval_lifetime}
     ) -> Output;
 
-    fn to_raw(self) -> *const () {{
+    fn __to_void_pointer(self) -> *const () {{
         self as *const ()
     }}
 }}"#,

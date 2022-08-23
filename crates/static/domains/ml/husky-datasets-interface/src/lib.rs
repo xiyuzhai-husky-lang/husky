@@ -86,7 +86,7 @@ impl<'a> __StaticInfo for Dataset<'a> {
 
 #[cfg(feature = "any_support")]
 impl<'eval, 'eval0> __WithEvalLifetime<'eval> for Dataset<'eval0> {
-    type __ThisWithEvalLifetime = Dataset<'eval>;
+    type __SelfWithEvalLifetime = Dataset<'eval>;
 }
 
 #[cfg(feature = "any_support")]

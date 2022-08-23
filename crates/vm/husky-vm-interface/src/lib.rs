@@ -2,8 +2,6 @@
 mod __rust_code_gen__;
 #[cfg(feature = "any_support")]
 mod any;
-#[cfg(feature = "base_fp")]
-mod base_fp;
 mod context;
 mod error;
 mod extra;
@@ -23,13 +21,13 @@ mod virtual_thick_fp;
 pub use __rust_code_gen__::*;
 #[cfg(feature = "any_support")]
 pub use any::*;
-#[cfg(feature = "base_fp")]
-pub use base_fp::*;
 pub use context::*;
 pub use error::*;
 pub use layout::*;
 pub use linkage::*;
 pub use register::*;
+#[cfg(feature = "thin_fp")]
+pub use thin_fp::*;
 #[cfg(feature = "thin_fp")]
 pub use thin_fp::*;
 pub use virtual_enum::*;

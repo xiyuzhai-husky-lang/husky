@@ -21,9 +21,10 @@ impl<'a> RustCodeGenerator<'a> {
                         match role {
                             EntityRouteRole::Caller => (),
                             EntityRouteRole::StaticCallRoute => self.write("for<'eval> "),
-                            EntityRouteRole::StaticOther => self.write("for<'eval> "),
+                            EntityRouteRole::ForAnyLifetimeOther => self.write("for<'eval> "),
                             EntityRouteRole::Decl => (),
                             EntityRouteRole::Other => (),
+                            EntityRouteRole::StaticDecl => (),
                         }
                         self.write("fn(");
                         for i in 0..(entity_route.spatial_arguments.len() - 1) {
@@ -53,12 +54,12 @@ impl<'a> RustCodeGenerator<'a> {
                     RootIdentifier::FnOnce => todo!(),
                     RootIdentifier::Ref => {
                         match role {
-                            EntityRouteRole::StaticCallRoute | EntityRouteRole::StaticOther => {
-                                self.write("&")
-                            }
+                            EntityRouteRole::StaticCallRoute
+                            | EntityRouteRole::ForAnyLifetimeOther => self.write("&"),
                             EntityRouteRole::Caller
                             | EntityRouteRole::Decl
                             | EntityRouteRole::Other => self.write("&'eval "),
+                            EntityRouteRole::StaticDecl => todo!(),
                         }
                         self.gen_entity_route(
                             entity_route.entity_route_argument(0),

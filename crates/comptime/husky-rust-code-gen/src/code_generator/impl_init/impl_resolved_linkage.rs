@@ -17,7 +17,7 @@ impl<'a> RustCodeGenerator<'a> {
                 unsafe fn __wrapper<'eval>(
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                     __arguments: &mut [__Register<'eval>],
-                ) -> __Register<'eval> {{"#
+                ) -> __Register<'eval> {{ /*haha*/"#
         ));
         if let Some((this_liason, this_ty)) = opt_this {
             let mangled_this_ty_vtable = self.db.mangled_intrinsic_ty_vtable(this_ty);
@@ -178,7 +178,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.gen_call_ty(needs_eval_context, decl);
         self.write(
             r#"
-    ),"#,
+        ),"#,
         )
     }
 
@@ -274,8 +274,26 @@ impl<'a> RustCodeGenerator<'a> {
         if needs_eval_context {
             self.write("&__EvalContext<'static>, ")
         }
+        if let Some(this_ty) = decl.opt_this_ty() {
+            match decl.opt_this_liason.unwrap() {
+                ParameterLiason::Pure => {
+                    if self.db.is_copyable(this_ty).unwrap() {
+                        ()
+                    } else {
+                        self.write("&'static ")
+                    }
+                }
+                ParameterLiason::Move => todo!(),
+                ParameterLiason::MoveMut => todo!(),
+                ParameterLiason::MemberAccess => todo!(),
+                ParameterLiason::EvalRef => todo!(),
+                ParameterLiason::TempRef => todo!(),
+                ParameterLiason::TempRefMut => self.write("&'static mut "),
+            }
+            self.gen_entity_route(this_ty, EntityRouteRole::StaticDecl)
+        }
         for (i, parameter) in decl.primary_parameters.iter().enumerate() {
-            if needs_eval_context || i > 0 {
+            if needs_eval_context || decl.opt_this_liason.is_some() || i > 0 {
                 self.write(", ")
             }
             match parameter.liason {
@@ -293,28 +311,48 @@ impl<'a> RustCodeGenerator<'a> {
                 ParameterLiason::TempRef => todo!(),
                 ParameterLiason::TempRefMut => todo!(),
             }
-            self.gen_entity_route(parameter.ty, EntityRouteRole::Decl)
+            self.gen_entity_route(parameter.ty, EntityRouteRole::StaticDecl)
         }
         for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
-            if needs_eval_context || i + decl.primary_parameters.len() > 0 {
+            if needs_eval_context
+                || decl.opt_this_liason.is_some()
+                || i + decl.primary_parameters.len() > 0
+            {
                 self.write(", ");
             }
-            todo!()
-            // self.write(&parameter.ident)
+            match parameter.liason {
+                ParameterLiason::Pure => {
+                    if self.db.is_copyable(parameter.ty).unwrap() {
+                        ()
+                    } else {
+                        self.write("&'static ")
+                    }
+                }
+                ParameterLiason::Move => (),
+                ParameterLiason::MoveMut => todo!(),
+                ParameterLiason::MemberAccess => todo!(),
+                ParameterLiason::EvalRef => self.write("&'static "),
+                ParameterLiason::TempRef => todo!(),
+                ParameterLiason::TempRefMut => todo!(),
+            }
+            self.gen_entity_route(parameter.ty, EntityRouteRole::StaticDecl)
         }
         match decl.variadic_template {
             VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { .. } => {
+            VariadicTemplate::SingleTyped { variadic_ty } => {
                 if needs_eval_context
+                    || decl.opt_this_liason.is_some()
                     || decl.primary_parameters.len() > 0
                     || decl.keyword_parameters.len() > 0
                 {
                     self.write(", ")
                 }
-                self.write("__variadics")
+                self.write("Vec<");
+                self.gen_entity_route(variadic_ty, EntityRouteRole::StaticDecl);
+                self.write(">")
             }
         }
         self.write(") -> ");
-        self.gen_entity_route(decl.output.ty(), EntityRouteRole::Decl)
+        self.gen_entity_route(decl.output.ty(), EntityRouteRole::StaticDecl)
     }
 }
