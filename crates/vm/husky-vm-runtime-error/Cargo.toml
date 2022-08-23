@@ -5,4 +5,4 @@ edition = "2021"
 
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }

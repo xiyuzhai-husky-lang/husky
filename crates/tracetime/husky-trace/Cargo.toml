@@ -1,5 +1,5 @@
 [package]
-name = "husky-trace-time"
+name = "husky-trace"
 version = "0.0.0"
 edition = "2021"
 
@@ -11,10 +11,8 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
-wild-utils = { path = "../../utils/husky-wild-utils" }
 fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
-vec-like = { path = "../../abstraction/vec-like" }
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
 husky-file = { path = "../../syntax/husky-file" }
@@ -25,20 +23,11 @@ husky-word = { path = "../../syntax/husky-word" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
+husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
-husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
-husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
-husky-runtime = { path = "../../runtime/husky-runtime" }
-husky-trace = { path = "../../trace/husky-trace" }
-husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
-husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
-husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
-husky-vm-interface = { path = "../../vm/husky-vm-interface" }
-husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
-husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
+husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
+husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

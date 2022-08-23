@@ -8,6 +8,6 @@ edition = "2021"
 husky-word = { path = "../husky-word" }
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-husky-trace-protocol = { path = "../../trace/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
