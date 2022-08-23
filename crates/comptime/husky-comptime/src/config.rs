@@ -5,6 +5,6 @@ use std::path::PathBuf;
 pub struct HuskyComptimeConfig {
     pub package_dir: PathBuf,
     pub __resolve_root_defn:
-        fn(ident: husky_word::RootIdentifier) -> &'static static_defn::EntityStaticDefn,
+        fn(ident: husky_word::RootIdentifier) -> &'static husky_static_defn::EntityStaticDefn,
     pub linkage_table: LinkageTableConfig,
 }

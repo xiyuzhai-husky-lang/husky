@@ -1,8 +1,8 @@
 use husky_atom::AtomContext;
 use husky_defn_head::Parameter;
 use husky_entity_route::RangedEntityRoute;
+use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use map_collect::MapCollect;
-use static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::sync::Arc;
 use vm::{__Linkage, __ResolvedLinkage};
 

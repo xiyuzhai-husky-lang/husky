@@ -3,9 +3,9 @@ use std::{collections::HashMap, sync::Mutex};
 use crate::*;
 use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
 use husky_linkage_table::{LinkageTable, ResolveLinkage};
+use husky_static_defn::ResolveStaticRootDefn;
 use husky_trace_protocol::*;
 use infer_total::InferQueryGroup;
-use static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
 use vm::InterpreterQueryGroup;
 
@@ -68,7 +68,7 @@ impl TokenQueryGroup for HuskyComptime {}
 impl ResolveStaticRootDefn for HuskyComptime {
     fn __root_defn_resolver(
         &self,
-    ) -> fn(ident: husky_word::RootIdentifier) -> &'static static_defn::EntityStaticDefn {
+    ) -> fn(ident: husky_word::RootIdentifier) -> &'static husky_static_defn::EntityStaticDefn {
         self.config.__resolve_root_defn
     }
 }

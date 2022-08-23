@@ -22,6 +22,6 @@ husky-token = { path = "../husky-token" }
 husky-entity-route = { path = "../husky-entity-route" }
 husky-entity-kind = { path = "../husky-entity-kind" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
-static-defn = { path = "../../static/static-defn" }
+husky-static-defn = { path = "../../static/husky-static-defn" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 vm = { path = "../../vm/husky-vm" }

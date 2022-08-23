@@ -34,7 +34,7 @@ infer-decl = { path = "../../infer/husky-infer-decl" }
 infer-total = { path = "../../infer/total" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
-static-defn = { path = "../../static/static-defn" }
+husky-static-defn = { path = "../../static/husky-static-defn" }
 husky-atom = { path = "../../syntax/husky-atom" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }

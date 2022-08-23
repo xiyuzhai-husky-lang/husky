@@ -15,9 +15,9 @@ use husky_defn_head::*;
 use husky_implement::{Implementable, ImplementationContext};
 use husky_instantiate::InstantiationContext;
 use husky_print_utils::{msg_once, p};
+use husky_static_defn::{EntityStaticDefnVariant, StaticParameter};
 use husky_word::IdentDict;
 use map_collect::MapCollect;
-use static_defn::{EntityStaticDefnVariant, StaticParameter};
 use vec_like::VecMapEntry;
 
 use crate::*;

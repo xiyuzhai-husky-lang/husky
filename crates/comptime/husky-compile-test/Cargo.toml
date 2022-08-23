@@ -42,6 +42,6 @@ husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-atom = { path = "../../syntax/husky-atom" }
 husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
 thin-vec = { path = "../../../forks/thin-vec" }
-static-defn = { path = "../../static/static-defn" }
+husky-static-defn = { path = "../../static/husky-static-defn" }
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
 husky-comptime = { path = "../husky-comptime" }

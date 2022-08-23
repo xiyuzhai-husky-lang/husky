@@ -8,11 +8,11 @@ use husky_entity_kind::MemberKind;
 use husky_entity_route::*;
 use husky_file::FilePtr;
 use husky_print_utils::p;
+use husky_static_defn::*;
 use husky_text::{RangedCustomIdentifier, TextRange, TextRanged};
 use husky_token::{HuskyToken, HuskyTokenKind, SpecialToken, TokenGroupIter};
 use husky_word::Identifier;
 use husky_word::{CustomIdentifier, Decorator, Keyword};
-use static_defn::*;
 use thin_vec::thin_vec;
 
 pub fn tell_entity_kind(keyword: Keyword, third_token: &HuskyToken) -> Option<EntityKind> {

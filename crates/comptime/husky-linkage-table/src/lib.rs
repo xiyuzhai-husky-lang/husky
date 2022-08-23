@@ -15,9 +15,9 @@ use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVar
 use husky_entity_syntax::EntitySource;
 use husky_file::FilePtr;
 use husky_print_utils::p;
+use husky_static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use husky_word::{CustomIdentifier, RootIdentifier};
 use map_collect::MapCollect;
-use static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
 use thin_vec::{thin_vec, ThinVec};

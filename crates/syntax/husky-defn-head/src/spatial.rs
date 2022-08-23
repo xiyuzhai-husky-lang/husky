@@ -2,9 +2,9 @@ use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_file::FilePtr;
+use husky_static_defn::StaticSpatialParameter;
 use husky_text::{RangedCustomIdentifier, TextRange};
 use husky_word::CustomIdentifier;
-use static_defn::StaticSpatialParameter;
 use vec_like::VecMapEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

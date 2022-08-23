@@ -33,11 +33,11 @@ pub use std::sync::Arc as __Arc;
 use husky_dev_utils::*;
 use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
+use husky_static_defn::StaticParameter;
+use husky_static_defn::*;
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_vm_register_method::VMRegisterMethodX;
 use husky_word::RootIdentifier;
-use static_defn::StaticParameter;
-use static_defn::*;
 use vm::*;
 
 pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {

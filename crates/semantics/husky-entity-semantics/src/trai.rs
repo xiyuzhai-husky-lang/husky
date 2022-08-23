@@ -2,8 +2,8 @@ use crate::EntityDefn;
 use crate::*;
 use husky_atom::AtomContext;
 use husky_dev_utils::DevSource;
+use husky_static_defn::{EntityStaticDefn, MethodStaticDefnKind, StaticTraitImplDefn};
 use map_collect::MapCollect;
-use static_defn::{EntityStaticDefn, MethodStaticDefnKind, StaticTraitImplDefn};
 use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]

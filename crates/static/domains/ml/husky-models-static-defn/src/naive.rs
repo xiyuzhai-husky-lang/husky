@@ -5,9 +5,9 @@ use crate::__rust_code_gen__::__NAIVE_I_32_INTERNAL_VTABLE;
 use super::*;
 use husky_dev_utils::static_dev_src;
 use husky_print_utils::p;
+use husky_static_defn::*;
 use husky_trace_protocol::Label;
 use husky_vm_register_method::VMRegisterMethodX;
-use static_defn::*;
 use vm::{
     Model, __Linkage, __ModelLinkage, __Register, __Registrable, __RegistrableSafe, __StaticInfo,
     __VMResult, __VirtualEnum, __I32_VTABLE, __VIRTUAL_ENUM_VTABLE, __VIRTUAL_FUNCTION_VTABLE,
