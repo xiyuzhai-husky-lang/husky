@@ -1,8 +1,6 @@
-use crate::__StaticInfo;
+use crate::*;
 
 pub trait ThinFp: Copy {
-    fn needs_context() -> bool;
-
     fn __to_void_pointer(self) -> *const ();
 }
 

@@ -36,7 +36,7 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentif
             RootIdentifier::Bool => {
                 transfer_linkage!(
                     |_, args|(!args[0].downcast_bool()).to_register(),
-                    some bool::not as fn(bool) -> bool
+                    some base bool::not as fn(bool) -> bool
                 )
             }
             _ => panic!(),
@@ -50,7 +50,7 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentif
             RootIdentifier::B32 => {
                 transfer_linkage!(
                     |_, args| (!args[0].downcast_b32()).to_register(),
-                    some u32::not as fn(u32) -> u32
+                    some base u32::not as fn(u32) -> u32
                 )
             }
             RootIdentifier::B64 => todo!(),

@@ -93,10 +93,6 @@ impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({ar
 #[rustfmt::skip]
 impl<'eval, {arg_types_decl}Output: __Any> const ThinFp
     for fn({arg_types}) -> Output {{
-    fn needs_context() -> bool {{
-        false
-    }}
-
     fn __to_void_pointer(self) -> *const () {{
         self as *const ()
     }}
@@ -137,10 +133,6 @@ impl<'eval, {arg_types_decl}Output: __Any> const ThinFp
     for fn(
         &dyn __EvalContext<'eval>, {arg_types}
     ) -> Output {{
-    fn needs_context() -> bool {{
-        false
-    }}
-
     fn __to_void_pointer(self) -> *const () {{
         self as *const ()
     }}

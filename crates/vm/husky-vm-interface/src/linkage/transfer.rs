@@ -3,8 +3,11 @@ use super::*;
 #[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! transfer_linkage {
-    ($wrapper: expr, some $raw_fp: expr) => {{
-        __Linkage::Transfer(resolved_linkage!($wrapper, some $raw_fp))
+    ($wrapper: expr, some base $raw_fp: expr) => {{
+        __Linkage::Transfer(resolved_linkage!($wrapper, some base $raw_fp))
+    }};
+    ($wrapper: expr, some ctx $raw_fp: expr) => {{
+        __Linkage::Transfer(resolved_linkage!($wrapper, some ctx $raw_fp))
     }};
     ($wrapper: expr, none) => {{
         __Linkage::Transfer(resolved_linkage!($wrapper, none))

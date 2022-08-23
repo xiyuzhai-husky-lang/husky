@@ -81,10 +81,18 @@ unsafe impl Sync for __ResolvedLinkage {}
 #[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! resolved_linkage {
-    ($wrapper: expr, some $raw_fp: expr) => {{
+    ($wrapper: expr, some base $raw_fp: expr) => {{
         __ResolvedLinkage {
             wrapper: $wrapper,
-            opt_thick_fp: __OptVirtualThickFp::some($raw_fp),
+            opt_thick_fp: __OptVirtualThickFp::some_base($raw_fp),
+            dev_src: static_dev_src!(),
+        }
+    }};
+
+    ($wrapper: expr, some ctx $raw_fp: expr) => {{
+        __ResolvedLinkage {
+            wrapper: $wrapper,
+            opt_thick_fp: __OptVirtualThickFp::some_ctx($raw_fp),
             dev_src: static_dev_src!(),
         }
     }};

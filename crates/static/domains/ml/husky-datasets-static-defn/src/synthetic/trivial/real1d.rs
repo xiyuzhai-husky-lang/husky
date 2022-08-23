@@ -24,7 +24,7 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         output_liason: OutputLiason::Transfer,
         linkage: transfer_linkage!(
             |_, _| unsafe{(__Register::new_box(dataset1(), &__DATASET_VTABLE))},
-            some dataset1 as fn() -> Dataset<'static>
+            some base dataset1 as fn() -> Dataset<'static>
         )
         .into(),
     },
@@ -44,7 +44,7 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
             |_, _| unsafe {(__Register::new_box(
                 dataset2(), &__DATASET_VTABLE
             ))},
-            some dataset2 as fn() -> Dataset<'static>
+            some base dataset2 as fn() -> Dataset<'static>
         )
         .into(),
     },
