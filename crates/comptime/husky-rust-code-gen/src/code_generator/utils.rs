@@ -7,22 +7,22 @@ use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_parameter(&mut self, parameter: &Parameter) {
-        self.write(&parameter.ranged_ident.ident);
+        self.write(&parameter.ident());
         self.write(": ");
-        match parameter.ranged_liason.liason {
-            ParameterLiason::Pure => {
-                if !self.db.is_copyable(parameter.ranged_ty.route).unwrap() {
+        match parameter.liason() {
+            ParameterModifier::None => {
+                if !self.db.is_copyable(parameter.ty()).unwrap() {
                     self.write("&")
                 }
             }
-            ParameterLiason::EvalRef => self.write("&'eval "),
-            ParameterLiason::Move => (),
-            ParameterLiason::TempRefMut => self.write("&mut "),
-            ParameterLiason::MoveMut => todo!(),
-            ParameterLiason::MemberAccess => todo!(),
-            ParameterLiason::TempRef => todo!(),
+            ParameterModifier::EvalRef => self.write("&'eval "),
+            ParameterModifier::Move => (),
+            ParameterModifier::TempRefMut => self.write("&mut "),
+            ParameterModifier::MoveMut => todo!(),
+            ParameterModifier::MemberAccess => todo!(),
+            ParameterModifier::TempRef => todo!(),
         }
-        self.gen_entity_route(parameter.ranged_ty.route, EntityRouteRole::Decl);
+        self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
     }
 
     pub(crate) fn gen_call_form_source(&mut self, source: &CallFormSource) {

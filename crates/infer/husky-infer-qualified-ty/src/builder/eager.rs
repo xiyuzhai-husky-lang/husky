@@ -30,19 +30,12 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn add_eager_inputs(&mut self, inputs: &[Parameter]) {
         for parameter in inputs {
-            let ty = parameter.ranged_ty.route;
+            let ty = parameter.ty();
             self.qualified_ty_sheet
                 .eager_variable_qualified_tys
                 .insert_new((
-                    (
-                        parameter.ranged_ident.ident.into(),
-                        parameter.ranged_ident.range,
-                    ),
-                    EagerVariableQualifiedTy::from_parameter(
-                        self.db,
-                        ty,
-                        parameter.ranged_liason.liason,
-                    ),
+                    (parameter.ident().into(), parameter.ranged_ident().range),
+                    EagerVariableQualifiedTy::from_parameter(self.db, ty, parameter.liason()),
                 ));
         }
     }

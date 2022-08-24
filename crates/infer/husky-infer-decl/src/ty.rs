@@ -662,11 +662,8 @@ pub(crate) fn call_form_decl_from_static(
                 kind: AtomContextKind::Normal,
                 opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
             };
-            let primary_parameters = parameters.map(|parameter| ParameterDecl {
-                ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),
-                liason: parameter.liason,
-                ident: db.custom_ident(parameter.name),
-            });
+            let primary_parameters = parameters
+                .map(|parameter| ParameterDecl::from_static(&mut symbol_context, parameter));
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
             Ok(Arc::new(CallFormDecl {

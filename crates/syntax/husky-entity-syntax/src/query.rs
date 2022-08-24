@@ -185,6 +185,7 @@ fn entity_kind_from_entity_route_kind(
             RootIdentifier::Ref => EntityKind::Type(TyKind::Ref),
             RootIdentifier::Option => EntityKind::Type(TyKind::Option),
             RootIdentifier::VisualType => todo!(),
+            RootIdentifier::RefMut => todo!(),
         },
         EntityRouteVariant::Package { .. } => EntityKind::Module,
         EntityRouteVariant::Child { parent, ident } => match parent.variant {

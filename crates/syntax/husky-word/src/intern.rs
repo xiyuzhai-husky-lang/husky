@@ -97,6 +97,7 @@ pub fn new_word_interner() -> WordInterner {
         RootIdentifier::TraitType.into(),
         RootIdentifier::ModuleType.into(),
         RootIdentifier::Ref.into(),
+        RootIdentifier::RefMut.into(),
         RootIdentifier::Option.into(),
         ContextualIdentifier::Crate.into(),
         ContextualIdentifier::CrateInputValue.into(),

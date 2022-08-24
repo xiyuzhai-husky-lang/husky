@@ -4,10 +4,10 @@ pub static VEC_POP_WITH_LARGEST_OPT_F32: EntityStaticDefn = EntityStaticDefn {
     name: "pop_with_largest_opt_f32",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::TempRefMut,
+        this_liason: ParameterModifier::TempRefMut,
         parameters: &[StaticParameter {
             name: "f",
-            liason: ParameterLiason::Pure,
+            liason: ParameterModifier::None,
             ty: "(E) -> ?f32",
         }],
         output_ty: "?E",

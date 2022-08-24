@@ -5,7 +5,7 @@ use husky_text::RangedCustomIdentifier;
 use husky_word::{CustomIdentifier, IdentPairDict};
 
 // inner ops
-impl<'a, 'b> AtomParser<'a, 'b> {
+impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub fn xml_props(mut self) -> AtomResult<Vec<(RangedCustomIdentifier, URange)>> {
         let mut props: Vec<(RangedCustomIdentifier, URange)> = Vec::new();
         while !self.token_stream.empty() {

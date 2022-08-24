@@ -456,6 +456,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                                 RootIdentifier::PartialEqTrait => todo!(),
                                                 RootIdentifier::EqTrait => todo!(),
                                                 RootIdentifier::Ref => todo!(),
+                                                RootIdentifier::RefMut => todo!(),
                                                 RootIdentifier::Option => todo!(),
                                             }
                                         }

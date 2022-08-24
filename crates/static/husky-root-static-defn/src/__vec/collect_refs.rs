@@ -4,7 +4,7 @@ pub static VEC_COLLECT_REFS: EntityStaticDefn = EntityStaticDefn {
     name: "collect_refs",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::EvalRef,
+        this_liason: ParameterModifier::EvalRef,
         parameters: &[],
         output_ty: "[]&E",
         spatial_parameters: &[],

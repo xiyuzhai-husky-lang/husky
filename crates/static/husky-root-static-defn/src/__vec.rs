@@ -35,7 +35,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_liason: ParameterLiason::MemberAccess,
+                        this_liason: ParameterModifier::MemberAccess,
                         parameters: &[],
                         output_ty: "E",
                         output_liason: OutputLiason::MemberAccess {
@@ -191,7 +191,7 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
     name: "ilen",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
         spatial_parameters: &[],
@@ -215,9 +215,9 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     name: "push",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::TempRefMut,
+        this_liason: ParameterModifier::TempRefMut,
         parameters: &[StaticParameter {
-            liason: ParameterLiason::Move,
+            liason: ParameterModifier::Move,
             ty: "E",
             name: "element",
         }],
@@ -234,7 +234,7 @@ pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
     name: "popx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::TempRefMut,
+        this_liason: ParameterModifier::TempRefMut,
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],

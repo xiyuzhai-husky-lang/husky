@@ -15,7 +15,7 @@ impl HuskyDisplay for LazyVariableQualifiedTy {
 impl LazyVariableQualifiedTy {
     pub(crate) fn parameter_lazy_qualified_ty(
         db: &dyn InferQualifiedTyQueryGroup,
-        parameter_liason: ParameterLiason,
+        parameter_liason: ParameterModifier,
         ty: EntityRoutePtr,
     ) -> InferResult<Self> {
         Ok(LazyVariableQualifiedTy::new(
@@ -78,21 +78,21 @@ impl LazyVariableQualifier {
         })
     }
 
-    pub fn parameter(parameter_liason: ParameterLiason, is_copyable: bool) -> Self {
+    pub fn parameter(parameter_liason: ParameterModifier, is_copyable: bool) -> Self {
         match parameter_liason {
-            ParameterLiason::Pure => {
+            ParameterModifier::None => {
                 if is_copyable {
                     LazyVariableQualifier::Copyable
                 } else {
                     LazyVariableQualifier::PureRef
                 }
             }
-            ParameterLiason::EvalRef => LazyVariableQualifier::EvalRef,
-            ParameterLiason::Move
-            | ParameterLiason::MemberAccess
-            | ParameterLiason::TempRef
-            | ParameterLiason::TempRefMut
-            | ParameterLiason::MoveMut => {
+            ParameterModifier::EvalRef => LazyVariableQualifier::EvalRef,
+            ParameterModifier::Move
+            | ParameterModifier::MemberAccess
+            | ParameterModifier::TempRef
+            | ParameterModifier::TempRefMut
+            | ParameterModifier::MoveMut => {
                 panic!()
             }
         }

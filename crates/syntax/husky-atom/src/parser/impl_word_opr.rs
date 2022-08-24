@@ -6,7 +6,7 @@ use husky_word::WordOpr;
 
 use super::*;
 
-impl<'a, 'b> AtomParser<'a, 'b> {
+impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub(super) fn handle_word_opr(
         &mut self,
         word_opr: WordOpr,

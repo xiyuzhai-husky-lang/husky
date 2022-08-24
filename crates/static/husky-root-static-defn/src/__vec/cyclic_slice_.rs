@@ -6,16 +6,16 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
     name: "cyclic_slice",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::EvalRef,
+        this_liason: ParameterModifier::EvalRef,
         parameters: &[
             StaticParameter {
                 name: "start",
-                liason: ParameterLiason::Pure,
+                liason: ParameterModifier::None,
                 ty: "i32",
             },
             StaticParameter {
                 name: "end",
-                liason: ParameterLiason::Pure,
+                liason: ParameterModifier::None,
                 ty: "i32",
             },
         ],

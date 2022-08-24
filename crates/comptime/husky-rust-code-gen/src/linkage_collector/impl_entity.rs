@@ -145,7 +145,7 @@ impl<'a> LinkageCollector<'a> {
 
     fn collect_from_parameters(&mut self, parameters: &[Parameter]) {
         for parameter in parameters {
-            self.insert(parameter.ranged_ty.route)
+            self.insert(parameter.ty())
         }
     }
 

@@ -10,7 +10,7 @@ impl<'a> AstTransformer<'a> {
         let context_update_result =
             self.update_struct_item_context(StructItemContext::Method, token_group);
         let ast_kind =
-            self.call_defn_head(token_group, Some(ParameterLiason::Pure), enter_block)?;
+            self.call_defn_head(token_group, Some(ParameterModifier::None), enter_block)?;
         context_update_result?;
         Ok(ast_kind)
     }

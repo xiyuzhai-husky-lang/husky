@@ -158,6 +158,7 @@ impl HuskyComptime {
                 RootIdentifier::PartialEqTrait => todo!(),
                 RootIdentifier::EqTrait => todo!(),
                 RootIdentifier::Ref => todo!(),
+                RootIdentifier::RefMut => todo!(),
                 RootIdentifier::Option => todo!(),
             },
             EntityRoutePtr::Custom(_) => {

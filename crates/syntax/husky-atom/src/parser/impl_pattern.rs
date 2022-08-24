@@ -3,7 +3,7 @@ use husky_opn_syntax::{BinaryOpr, PureBinaryOpr};
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_word::WordPattern;
 
-impl<'a, 'b> AtomParser<'a, 'b> {
+impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub fn parse_pattern(&mut self) -> AtomResult<(RawPattern, Vec<HuskyAtom>)> {
         let pattern_parser = MatchPatternParser::new(self.parse_all_remaining_atoms()?);
         pattern_parser.parse_into_pattern()

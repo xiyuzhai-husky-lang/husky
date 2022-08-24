@@ -12,7 +12,7 @@ pub struct TySheetVarEntry {
 impl TySheetVarEntry {
     pub(super) fn from_parameter(parameter: &Parameter) -> Self {
         TySheetVarEntry {
-            opt_ty: Some(parameter.ranged_ty.route),
+            opt_ty: Some(parameter.ty()),
             errors: vec![],
         }
     }

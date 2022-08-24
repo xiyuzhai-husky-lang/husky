@@ -70,7 +70,7 @@ impl EagerVariableQualifier {
     pub fn parameter_eager_variable_qualifier(
         db: &dyn DeclQueryGroup,
         parameter_ty: EntityRoutePtr,
-        parameter_liason: ParameterLiason,
+        parameter_liason: ParameterModifier,
     ) -> InferResult<Self> {
         Ok(match parameter_ty.variant {
             EntityRouteVariant::Root {
@@ -85,19 +85,19 @@ impl EagerVariableQualifier {
             _ => {
                 let is_copyable = db.is_copyable(parameter_ty)?;
                 match parameter_liason {
-                    ParameterLiason::Pure => {
+                    ParameterModifier::None => {
                         if is_copyable {
                             EagerVariableQualifier::Copyable
                         } else {
                             EagerVariableQualifier::PureRef
                         }
                     }
-                    ParameterLiason::EvalRef => EagerVariableQualifier::EvalRef,
-                    ParameterLiason::Move => EagerVariableQualifier::Owned,
-                    ParameterLiason::MoveMut => EagerVariableQualifier::OwnedMut,
-                    ParameterLiason::TempRefMut => EagerVariableQualifier::TempRefMut,
-                    ParameterLiason::TempRef => EagerVariableQualifier::TempRef,
-                    ParameterLiason::MemberAccess => todo!(),
+                    ParameterModifier::EvalRef => EagerVariableQualifier::EvalRef,
+                    ParameterModifier::Move => EagerVariableQualifier::Owned,
+                    ParameterModifier::MoveMut => EagerVariableQualifier::OwnedMut,
+                    ParameterModifier::TempRefMut => EagerVariableQualifier::TempRefMut,
+                    ParameterModifier::TempRef => EagerVariableQualifier::TempRef,
+                    ParameterModifier::MemberAccess => todo!(),
                 }
             }
         })
@@ -190,7 +190,7 @@ impl EagerVariableQualifiedTy {
     pub(crate) fn from_parameter(
         db: &dyn InferQualifiedTyQueryGroup,
         ty: EntityRoutePtr,
-        parameter_liason: ParameterLiason,
+        parameter_liason: ParameterModifier,
     ) -> InferResult<Self> {
         Ok(EagerVariableQualifiedTy {
             qual: EagerVariableQualifier::parameter_eager_variable_qualifier(

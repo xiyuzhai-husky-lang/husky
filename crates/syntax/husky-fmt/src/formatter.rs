@@ -10,7 +10,7 @@ use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityRoute, EntityRoutePtr, EntityRouteVariant, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_init_syntax::InitKind;
-use husky_liason_semantics::{MemberLiason, ParameterLiason};
+use husky_liason_semantics::{MemberLiason, ParameterModifier};
 use husky_opn_syntax::{ListOpr, RawOpnVariant};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_print_utils::msg_once;
@@ -170,10 +170,8 @@ impl<'a> Formatter<'a> {
                     if i > 0 {
                         self.write(", ");
                     }
-                    let input_placeholder = &parameters[i];
-                    self.fmt_ident(input_placeholder.ranged_ident.ident.into());
-                    self.write(": ");
-                    self.fmt_func_input_liasoned_type(input_placeholder);
+                    let parameter = &parameters[i];
+                    self.fmt_parameter(parameter);
                 }
                 self.write(")");
                 if output_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
@@ -215,17 +213,19 @@ impl<'a> Formatter<'a> {
         self.result.add_assign(&ident)
     }
 
-    fn fmt_func_input_liasoned_type(&mut self, ty: &Parameter) {
-        match ty.ranged_liason.liason {
-            ParameterLiason::Pure => (),
-            ParameterLiason::EvalRef => self.write("&"),
-            ParameterLiason::Move => self.write("!!"),
-            ParameterLiason::TempRefMut => self.write("mut"),
-            ParameterLiason::MoveMut => self.write("mut !!"),
-            ParameterLiason::MemberAccess => todo!(),
-            ParameterLiason::TempRef => todo!(),
+    fn fmt_parameter(&mut self, parameter: &Parameter) {
+        match parameter.liason() {
+            ParameterModifier::None => (),
+            ParameterModifier::EvalRef => self.write("&"),
+            ParameterModifier::Move => self.write("!!"),
+            ParameterModifier::TempRefMut => self.write("mut"),
+            ParameterModifier::MoveMut => self.write("mut !!"),
+            ParameterModifier::MemberAccess => todo!(),
+            ParameterModifier::TempRef => todo!(),
         }
-        self.fmt_ty(ty.ranged_ty.route);
+        self.fmt_ident(parameter.ident().into());
+        self.write(": ");
+        self.fmt_ty(parameter.raw_ty());
     }
 
     fn fmt_ty(&mut self, ty: EntityRoutePtr) {

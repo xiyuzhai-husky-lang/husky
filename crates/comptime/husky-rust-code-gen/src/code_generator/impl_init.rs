@@ -152,7 +152,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
                 let this_liason = call_form_decl.this_liason();
                 match this_liason {
-                    ParameterLiason::MemberAccess => {
+                    ParameterModifier::MemberAccess => {
                         self.write(&format!(
                             r#"
         method_elem_linkage!("#
@@ -314,9 +314,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
 
     fn gen_parameter_downcast(&mut self, i: usize, parameter: &ParameterDecl) {
         let parameter_name = parameter.ident;
-        let parameter_ty = parameter.ty;
+        let parameter_ty = parameter.ty();
         match parameter.liason {
-            ParameterLiason::Pure => {
+            ParameterModifier::None => {
                 if parameter_ty.is_eval_ref() {
                     self.gen_parameter_downcast_eval_ref(i, parameter)
                 } else {
@@ -327,18 +327,18 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     }
                 }
             }
-            ParameterLiason::Move => self.gen_parameter_downcast_move(i, parameter),
-            ParameterLiason::MoveMut => todo!(),
-            ParameterLiason::MemberAccess => todo!(),
-            ParameterLiason::EvalRef => self.gen_parameter_downcast_eval_ref(i, parameter),
-            ParameterLiason::TempRef => todo!(),
-            ParameterLiason::TempRefMut => todo!(),
+            ParameterModifier::Move => self.gen_parameter_downcast_move(i, parameter),
+            ParameterModifier::MoveMut => todo!(),
+            ParameterModifier::MemberAccess => todo!(),
+            ParameterModifier::EvalRef => self.gen_parameter_downcast_eval_ref(i, parameter),
+            ParameterModifier::TempRef => todo!(),
+            ParameterModifier::TempRefMut => todo!(),
         }
     }
 
     fn gen_parameter_downcast_copy(&mut self, i: usize, parameter: &ParameterDecl) {
         let parameter_name = parameter.ident;
-        let parameter_ty = parameter.ty;
+        let parameter_ty = parameter.ty();
         self.write(&format!(
             r#"
                     let {parameter_name}: "#
@@ -380,6 +380,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 RootIdentifier::PartialEqTrait => todo!(),
                 RootIdentifier::EqTrait => todo!(),
                 RootIdentifier::Ref => todo!(),
+                RootIdentifier::RefMut => todo!(),
                 RootIdentifier::Option => todo!(),
             },
             EntityRoutePtr::Custom(_) => {
@@ -419,7 +420,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
 
     fn gen_parameter_downcast_move(&mut self, i: usize, parameter: &ParameterDecl) {
         let parameter_name = parameter.ident;
-        let parameter_ty = parameter.ty;
+        let parameter_ty = parameter.ty();
         self.write(&format!(
             r#"
                     let {parameter_name}: "#
@@ -433,7 +434,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
 
     fn gen_parameter_downcast_temp_ref(&mut self, i: usize, parameter: &ParameterDecl) {
         let parameter_name = parameter.ident;
-        let parameter_ty = parameter.ty;
+        let parameter_ty = parameter.ty();
         self.write(&format!(
             r#"
                     let {parameter_name}: &"#
@@ -447,13 +448,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
 
     fn gen_parameter_downcast_eval_ref(&mut self, i: usize, parameter: &ParameterDecl) {
         let parameter_name = parameter.ident;
-        let parameter_ty = parameter.ty;
+        let parameter_ty = parameter.ty();
         self.write(&format!(
             r#"
                     let {parameter_name}: &'eval "#
         ));
         let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
-        self.gen_entity_route(parameter_ty.deref_route(), EntityRouteRole::Decl);
+        self.gen_entity_route(parameter_ty.intrinsic(), EntityRouteRole::Decl);
         self.write(&format!(" = __arguments[{i}].downcast_eval_ref(&__registration__::{mangled_parameter_ty_vtable});"))
     }
 }

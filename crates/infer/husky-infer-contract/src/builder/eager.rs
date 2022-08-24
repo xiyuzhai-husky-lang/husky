@@ -345,8 +345,8 @@ impl<'a> ContractSheetBuilder<'a> {
             call_decl.primary_parameters.iter(),
         ) {
             let argument_contract = EagerContract::argument_eager_contract(
-                parameter.ty,
                 parameter.liason,
+                parameter.ty(),
                 call_decl.output.liason(),
                 self.arena[argument].range,
             );
@@ -374,8 +374,8 @@ impl<'a> ContractSheetBuilder<'a> {
             call_form_decl.primary_parameters.iter(),
         ) {
             let argument_contract = EagerContract::argument_eager_contract(
-                parameter.ty,
                 parameter.liason,
+                parameter.ty(),
                 call_form_decl.output.liason(),
                 self.arena[argument].range,
             );

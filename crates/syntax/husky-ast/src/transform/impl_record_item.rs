@@ -59,7 +59,7 @@ impl<'a> AstTransformer<'a> {
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         enter_block(self);
-        self.opt_this_liason.set(Some(ParameterLiason::Pure));
+        self.opt_this_liason.set(Some(ParameterModifier::None));
         let ident = identify_token!(self, &token_group[1], SemanticTokenKind::Field);
         msg_once!("field contract");
         let field_ty = husky_atom::parse_route(self, &token_group[3..])?;

@@ -21,9 +21,9 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_liason: ParameterLiason::MemberAccess,
+                        this_liason: ParameterModifier::MemberAccess,
                         parameters: &[StaticParameter {
-                            liason: ParameterLiason::Pure,
+                            liason: ParameterModifier::None,
                             ty: "i32",
                             name: "todo!()",
                         }],

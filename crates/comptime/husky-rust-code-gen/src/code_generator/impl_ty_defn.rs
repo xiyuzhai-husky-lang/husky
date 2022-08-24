@@ -265,13 +265,13 @@ impl From<i32> for {tyname} {{
                 self.write(&ty_member.ident);
                 self.write("(");
                 match this_contract {
-                    ParameterLiason::Pure => self.write("&self"),
-                    ParameterLiason::EvalRef => todo!(),
-                    ParameterLiason::Move => todo!(),
-                    ParameterLiason::TempRefMut => todo!(),
-                    ParameterLiason::MoveMut => todo!(),
-                    ParameterLiason::MemberAccess => todo!(),
-                    ParameterLiason::TempRef => todo!(),
+                    ParameterModifier::None => self.write("&self"),
+                    ParameterModifier::EvalRef => todo!(),
+                    ParameterModifier::Move => todo!(),
+                    ParameterModifier::TempRefMut => todo!(),
+                    ParameterModifier::MoveMut => todo!(),
+                    ParameterModifier::MemberAccess => todo!(),
+                    ParameterModifier::TempRef => todo!(),
                 }
                 for parameter in parameters.iter() {
                     self.write(", ");
@@ -321,8 +321,11 @@ impl From<i32> for {tyname} {{
                         if !ty_contains_eval_ref {
                             self.write("<'eval>")
                         }
+                        if return_ty.route.is_option() {
+                            todo!()
+                        }
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
-                        self.gen_entity_route(return_ty.route.deref_route(), EntityRouteRole::Decl);
+                        self.gen_entity_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
                         let mangled_output_ty_vtable =
                             self.db.mangled_intrinsic_ty_vtable(return_ty.route);
@@ -359,8 +362,11 @@ impl From<i32> for {tyname} {{
                         if !ty_contains_eval_ref {
                             self.write("<'eval>")
                         }
+                        if return_ty.route.is_option() {
+                            todo!()
+                        }
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
-                        self.gen_entity_route(return_ty.route.deref_route(), EntityRouteRole::Decl);
+                        self.gen_entity_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
                         let mangled_output_ty_vtable =
                             self.db.mangled_intrinsic_ty_vtable(return_ty.route);

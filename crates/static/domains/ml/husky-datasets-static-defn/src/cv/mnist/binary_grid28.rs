@@ -1,6 +1,6 @@
 use super::*;
 use husky_datasets_interface::mnist::BinaryGrid28;
-use husky_liason_semantics::{MemberLiason, ParameterLiason};
+use husky_liason_semantics::{MemberLiason, ParameterModifier};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_trace_protocol::*;
 use husky_vm::*;
@@ -25,9 +25,9 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_liason: ParameterLiason::MemberAccess,
+                        this_liason: ParameterModifier::MemberAccess,
                         parameters: &[StaticParameter {
-                            liason: ParameterLiason::Pure,
+                            liason: ParameterModifier::None,
                             ty: "i32",
                             name: "todo!()",
                         }],

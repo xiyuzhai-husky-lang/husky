@@ -29,10 +29,10 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
     name: "min",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[StaticParameter {
             name: "other",
-            liason: ParameterLiason::Pure,
+            liason: ParameterModifier::None,
             ty: "i32",
         }],
         output_ty: "i32",
@@ -50,10 +50,10 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
     name: "max",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[StaticParameter {
             name: "other",
-            liason: ParameterLiason::Pure,
+            liason: ParameterModifier::None,
             ty: "i32",
         }],
         output_ty: "i32",
@@ -71,7 +71,7 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
     name: "sgn",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
@@ -88,7 +88,7 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
     name: "abs",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,

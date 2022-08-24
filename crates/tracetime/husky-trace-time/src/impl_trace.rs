@@ -138,10 +138,19 @@ impl HuskyTraceTime {
                 special!("("),
             ];
             for i in 0..parameters.len() {
-                let input_placeholder = &parameters[i];
-                tokens.push(ident!(input_placeholder.ranged_ident.ident.as_str()));
+                let parameter = &parameters[i];
+                match parameter.liason() {
+                    ParameterModifier::None => (),
+                    ParameterModifier::Move => todo!(),
+                    ParameterModifier::MoveMut => todo!(),
+                    ParameterModifier::MemberAccess => todo!(),
+                    ParameterModifier::EvalRef => todo!(),
+                    ParameterModifier::TempRef => todo!(),
+                    ParameterModifier::TempRefMut => todo!(),
+                }
+                tokens.push(ident!(parameter.ident().as_str()));
                 tokens.push(special!(": "));
-                tokens.push(route!(text.ranged(input_placeholder.ranged_ty.range)));
+                tokens.push(route!(text.ranged(parameter.raw_ty_range())));
                 if i < parameters.len() - 1 {
                     tokens.push(special!(", "));
                 }

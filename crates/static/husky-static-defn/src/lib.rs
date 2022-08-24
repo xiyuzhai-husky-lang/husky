@@ -5,7 +5,7 @@ pub use function::*;
 
 use husky_dev_utils::__StaticDevSource;
 use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
-use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
+use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterModifier};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer};
 use husky_vm::__ResolvedLinkage;
 use husky_vm_interface::__Linkage;
@@ -72,7 +72,7 @@ pub enum EntityStaticDefnVariant {
         linkage: __Linkage,
     },
     Method {
-        this_liason: ParameterLiason,
+        this_liason: ParameterModifier,
         parameters: &'static [StaticParameter],
         output_ty: &'static str,
         output_liason: OutputLiason,

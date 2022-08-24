@@ -27,17 +27,17 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     fn add_lazy_inputs(&mut self, inputs: &[Parameter]) {
         for input in inputs {
-            let ty = input.ranged_ty.route;
+            let ty = input.ty();
             self.qualified_ty_sheet
                 .lazy_variable_qualified_tys
                 .insert_new((
-                    (input.ranged_ident.ident.into(), input.ranged_ident.range),
+                    (
+                        input.ranged_ident().ident.into(),
+                        input.ranged_ident().range,
+                    ),
                     self.db.is_copyable(ty).map(|is_copyable| {
                         LazyVariableQualifiedTy::new(
-                            LazyVariableQualifier::parameter(
-                                input.ranged_liason.liason,
-                                is_copyable,
-                            ),
+                            LazyVariableQualifier::parameter(input.liason(), is_copyable),
                             ty,
                         )
                     }),

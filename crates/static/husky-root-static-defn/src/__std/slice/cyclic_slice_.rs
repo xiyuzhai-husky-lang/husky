@@ -36,7 +36,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_liason: ParameterLiason::MemberAccess,
+                        this_liason: ParameterModifier::MemberAccess,
                         parameters: &[],
                         output_ty: "E",
                         output_liason: OutputLiason::MemberAccess {
@@ -81,7 +81,7 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
     name: "firstx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::MemberAccess,
+        this_liason: ParameterModifier::MemberAccess,
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],
@@ -143,7 +143,7 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
     name: "lastx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::MemberAccess,
+        this_liason: ParameterModifier::MemberAccess,
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],

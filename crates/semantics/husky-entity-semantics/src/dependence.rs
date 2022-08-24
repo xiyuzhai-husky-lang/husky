@@ -231,7 +231,7 @@ impl EntityDefn {
             builder: &mut DependeeMapBuilder,
         ) {
             for input_placeholder in inputs.iter() {
-                builder.push(input_placeholder.ranged_ty.route)
+                builder.push(input_placeholder.ty())
             }
             builder.push(output.route);
         }

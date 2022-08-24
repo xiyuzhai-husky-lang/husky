@@ -29,7 +29,7 @@ pub enum SymbolKind {
     Unrecognized(CustomIdentifier),
     ThisValue {
         opt_this_ty: Option<EntityRoutePtr>,
-        opt_this_liason: Option<ParameterLiason>,
+        opt_this_liason: Option<ParameterModifier>,
     },
     ThisMethod,
     ThisField {
