@@ -88,7 +88,9 @@ impl EntityDefn {
             },
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
-            _ => panic!(),
+            EntityDefnVariant::Func { .. } => msg_once!("todo"),
+            EntityDefnVariant::Proc { .. } => msg_once!("todo"),
+            _ => panic!("unexpected EntityDefnVariant {:?}", self.variant),
         }
     }
 
@@ -119,7 +121,13 @@ impl EntityDefn {
                 ref field_variant,
                 liason,
                 opt_linkage,
-            } => todo!(),
+            } => match member_decl {
+                MemberDecl::TypeField(field_decl) => {
+                    field_decl.ty.verify_consistency_with_base_route(field_ty);
+                    assert_eq!(self.ident, field_decl.ident.into())
+                }
+                _ => panic!(),
+            },
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => match member_decl {
                 MemberDecl::TraitAssociatedTypeImpl { ident, ty: decl_ty } => {
                     decl_ty.verify_consistency_with_base_route(ty)
@@ -127,6 +135,8 @@ impl EntityDefn {
                 _ => panic!(),
             },
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::Func { .. } => msg_once!("todo"),
+            EntityDefnVariant::Proc { .. } => msg_once!("todo"),
             _ => panic!(),
         }
     }

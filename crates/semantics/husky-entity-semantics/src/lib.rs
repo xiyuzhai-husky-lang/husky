@@ -234,10 +234,10 @@ pub enum EntityDefnVariant {
     },
     Method {
         spatial_parameters: IdentDict<SpatialParameter>,
-        this_liason: ParameterModifier,
+        this_modifier: ParameterModifier,
         parameters: Arc<Vec<Parameter>>,
         output_ty: RangedEntityRoute,
-        output_liason: OutputModifier,
+        output_modifier: OutputModifier,
         method_defn_kind: MethodDefnKind,
         opt_source: Option<CallFormSource>,
     },
@@ -417,7 +417,7 @@ impl EntityDefnVariant {
                         static_generic_placeholder,
                     )
                 }),
-                this_liason,
+                this_modifier: this_liason,
                 parameters: Arc::new(parameters.map(|input_placeholder| {
                     symbol_context.parameter_from_static(input_placeholder)
                 })),
@@ -425,7 +425,7 @@ impl EntityDefnVariant {
                     route: symbol_context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
-                output_liason,
+                output_modifier: output_liason,
                 method_defn_kind: MethodDefnKind::from_static(symbol_context, method_kind),
                 opt_source: opt_linkage.map(|linkage| linkage.into()),
             },

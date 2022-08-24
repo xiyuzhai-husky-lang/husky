@@ -65,7 +65,7 @@ impl<'a> RustCodeGenerator<'a> {
                                 self.db
                                     .ty_as_trai_subroute(ty, trai, ident, Default::default())
                             } else {
-                                todo!()
+                                continue;
                             }
                         }
                         _ => continue,

@@ -29,10 +29,10 @@ impl<'a> LinkageCollector<'a> {
             } => self.collect_from_call_form_source(source),
             EntityDefnVariant::Method {
                 ref spatial_parameters,
-                this_liason,
+                this_modifier: this_liason,
                 ref parameters,
                 output_ty,
-                output_liason,
+                output_modifier: output_liason,
                 method_defn_kind,
                 ref opt_source,
             } => {

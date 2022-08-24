@@ -109,8 +109,8 @@ impl EntityDefnVariant {
                     route: context.parse_entity_route(output_ty).unwrap(),
                     range: Default::default(),
                 },
-                this_liason,
-                output_liason,
+                this_modifier: this_liason,
+                output_modifier: output_liason,
                 spatial_parameters: spatial_parameters.map(|spatial_parameter| {
                     SpatialParameter::from_static(context.entity_syntax_db(), spatial_parameter)
                 }),

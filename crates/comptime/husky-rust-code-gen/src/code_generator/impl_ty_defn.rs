@@ -1,7 +1,7 @@
 use husky_entity_semantics::{
     CallFormSource, DefinitionRepr, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
 };
-use husky_word::CustomIdentifier;
+use husky_word::{CustomIdentifier, RootIdentifier};
 use infer_decl::FieldDecl;
 
 use super::*;
@@ -244,10 +244,10 @@ impl From<i32> for {tyname} {{
         match ty_member.variant {
             EntityDefnVariant::Method {
                 ref spatial_parameters,
-                this_liason: this_contract,
+                this_modifier: this_contract,
                 ref parameters,
                 output_ty,
-                output_liason,
+                output_modifier: output_liason,
                 opt_source: Some(ref source),
                 ..
             } => {
@@ -435,6 +435,13 @@ impl From<i32> for {tyname} {{
     }
 
     fn gen_trait_impl(&mut self, tyname: CustomIdentifier, trait_impl: &TraitImplDefn) {
+        if trait_impl.trai == RootIdentifier::CopyTrait.into() {
+            return;
+        }
+        if trait_impl.trai == RootIdentifier::CloneTrait.into() {
+            return;
+        }
+        p!(trait_impl.trai);
         todo!()
     }
 }

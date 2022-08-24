@@ -55,6 +55,10 @@ impl From<(i32, i32)> for TextPosition {
 }
 
 impl TextPosition {
+    pub fn line(&self) -> u32 {
+        self.row.0 + 1
+    }
+
     pub fn i(&self) -> u32 {
         self.row.0
     }

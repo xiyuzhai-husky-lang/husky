@@ -79,8 +79,8 @@ impl EntityDefnVariant {
                             EntityDefnVariant::Method {
                                 parameters: parameters.clone(),
                                 output_ty,
-                                this_liason: this_contract,
-                                output_liason: OutputModifier::Transfer,
+                                this_modifier: this_contract,
+                                output_modifier: OutputModifier::Transfer,
                                 spatial_parameters: spatial_parameters.clone(),
                                 method_defn_kind: MethodDefnKind::TypeMethod { ty: ty_route },
                                 opt_source: Some(method_source),
