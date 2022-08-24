@@ -24,14 +24,14 @@ use infer_contract::*;
 pub trait InferQualifiedTy {
     fn qualified_ty_sheet(&self) -> &QualifiedTySheet;
 
-    fn lazy_expr_qualified_ty(&self, idx: RawExprIdx) -> InferResult<LazyValueQualifiedTy> {
+    fn lazy_expr_qualified_ty(&self, idx: RawExprIdx) -> InferResult<LazyExprQualifiedTy> {
         self.qualified_ty_sheet().lazy_expr_qualified_ty(idx)
     }
 
     fn eager_expr_qualified_ty(
         &self,
         raw_expr_idx: RawExprIdx,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         self.qualified_ty_sheet()
             .eager_expr_qualified_ty(raw_expr_idx)
     }

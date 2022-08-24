@@ -10,7 +10,7 @@ def is_one -> ?MnistLabel:
     others = one_fermi_match.others
     MnistLabel::One
 
-def one_fermi_match -> FermiMatchResult:
+func one_fermi_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downmost])
 
 func downmost(cc: &ConcaveComponent) -> ?f32:

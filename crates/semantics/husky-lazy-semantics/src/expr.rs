@@ -9,7 +9,7 @@ pub use xml::*;
 use std::sync::Arc;
 
 use husky_file::FilePtr;
-use husky_infer_qualified_ty::LazyValueQualifiedTy;
+use husky_infer_qualified_ty::LazyExprQualifiedTy;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
@@ -22,7 +22,7 @@ use husky_word::{CustomIdentifier, Identifier};
 pub struct LazyExpr {
     pub file: FilePtr,
     pub range: TextRange,
-    pub qualified_ty: LazyValueQualifiedTy,
+    pub qualified_ty: LazyExprQualifiedTy,
     pub variant: LazyExprVariant,
     pub instruction_id: InstructionId,
 }

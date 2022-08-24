@@ -3,18 +3,32 @@ use husky_print_utils::msg_once;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct LazyValueQualifiedTy {
+pub struct LazyExprQualifiedTy {
     pub qual: LazyExprQualifier,
     pub ty: EntityRoutePtr,
 }
 
-impl HuskyDisplay for LazyValueQualifiedTy {
+impl HuskyDisplay for LazyExprQualifiedTy {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         write!(result, "{: <12?} {:?}", self.qual, self.ty).unwrap()
     }
 }
 
-impl LazyValueQualifiedTy {
+impl LazyExprQualifiedTy {
+    pub(crate) fn entity_ty(
+        db: &dyn InferQualifiedTyQueryGroup,
+        ty: EntityRoutePtr,
+    ) -> InferResult<Self> {
+        Ok(Self {
+            qual: if db.is_copyable(ty)? {
+                LazyExprQualifier::Copyable
+            } else {
+                LazyExprQualifier::EvalRef
+            },
+            ty,
+        })
+    }
+
     pub(crate) fn ty_lazy_qualified_ty() -> Self {
         Self {
             qual: LazyExprQualifier::EvalRef,
@@ -59,7 +73,7 @@ impl LazyValueQualifiedTy {
         ty: EntityRoutePtr,
         contract: LazyContract,
     ) -> InferResult<Self> {
-        Ok(LazyValueQualifiedTy::new(
+        Ok(LazyExprQualifiedTy::new(
             LazyVariableQualifier::parameter(parameter_liason, db.is_copyable(ty)?)
                 .variable_use(contract)?,
             ty,

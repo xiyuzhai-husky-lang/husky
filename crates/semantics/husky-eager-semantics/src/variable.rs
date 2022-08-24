@@ -1,4 +1,4 @@
-use husky_infer_qualified_ty::{EagerValueQualifiedTy, EagerVariableQualifiedTy, QualifiedTySheet};
+use husky_infer_qualified_ty::{EagerExprQualifiedTy, EagerVariableQualifiedTy, QualifiedTySheet};
 
 use crate::*;
 
