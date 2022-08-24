@@ -93,6 +93,7 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
             },
         });
     }
+    let ty = ty.deref_route();
     let ty_defn = db.entity_defn(ty).unwrap();
     if ty.spatial_arguments.len() == 0 {
         match ty_defn.variant {

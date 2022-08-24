@@ -2,7 +2,6 @@
 #![feature(const_convert)]
 #![feature(panic_info_message)]
 mod __Fp;
-mod __Option;
 mod __b32;
 mod __clone;
 mod __eq;
@@ -14,7 +13,6 @@ pub mod domains;
 mod etc;
 
 pub use __Fp::*;
-pub use __Option::*;
 pub use __b32::*;
 pub use __clone::*;
 pub use __eq::*;
@@ -73,7 +71,7 @@ pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::EqTrait => todo!(),
         RootIdentifier::ModuleType => &MODULE_TYPE_DEFN,
         RootIdentifier::Ref => panic!(),
-        RootIdentifier::Option => &OPTION_DEFN,
+        RootIdentifier::Option => panic!(),
         RootIdentifier::VisualType => todo!(),
         RootIdentifier::RefMut => todo!(),
     }
