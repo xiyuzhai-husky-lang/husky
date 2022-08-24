@@ -74,10 +74,10 @@ impl HuskyTraceTime {
                 EntityDefnVariant::Function { .. } => todo!(),
                 EntityDefnVariant::Method {
                     ref spatial_parameters,
-                    this_liason,
+                    this_modifier: this_liason,
                     ref parameters,
                     output_ty,
-                    output_liason,
+                    output_modifier: output_liason,
                     ref opt_source,
                     ..
                 } => match opt_source.as_ref().unwrap() {

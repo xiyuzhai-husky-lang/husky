@@ -1,7 +1,9 @@
 mod member;
+mod trait_impl;
 mod type_call;
 
 use husky_check_utils::should;
+use husky_dev_utils::DevSource;
 pub use member::*;
 pub use type_call::*;
 
@@ -43,7 +45,8 @@ impl EntityDefnVariant {
         };
         let mut children = children.peekable();
         let mut ty_members = IdentDict::default();
-        let mut trait_impls = Vec::new();
+        msg_once!("should pass this_ty for collect_trait_impls");
+        let mut trait_impls = Self::collect_trait_impls(db, ty, file, head.range);
         msg_once!("todo");
 
         let variants = match kind {
@@ -58,7 +61,7 @@ impl EntityDefnVariant {
             TyKind::Record => Some(Arc::new(TypeCallDefn {
                 parameters: Arc::new(ty_members.map(|ty_member| match ty_member.variant {
                     EntityDefnVariant::TyField {
-                        field_ty: ty,
+                        field_ty,
                         ref field_variant,
                         liason,
                         ..
@@ -70,8 +73,8 @@ impl EntityDefnVariant {
                                 range: Default::default(),
                             },
                             liason,
-                            ty,
-                            db.is_copyable(ty).unwrap(),
+                            field_ty,
+                            db.is_copyable(field_ty).unwrap(),
                         ),
                         _ => {
                             p!(field_variant);

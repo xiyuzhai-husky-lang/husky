@@ -92,10 +92,10 @@ impl HuskyTraceTime {
             } => todo!(),
             EntityDefnVariant::Method {
                 spatial_parameters: ref generic_parameters,
-                this_liason: this_contract,
+                this_modifier: this_contract,
                 ref parameters,
                 output_ty,
-                output_liason,
+                output_modifier: output_liason,
                 ..
             } => routine_call_head_tokens(
                 &self.runtime.comptime().text(entity.file).unwrap(),

@@ -1,15 +1,18 @@
 use crate::*;
 
 impl EntityRoutePtr {
-    pub fn verify_consistency_with_base_route(self, other: EntityRoutePtr) {
-        assert_eq!(
-            std::mem::discriminant(&self.variant),
-            std::mem::discriminant(&other.variant)
-        );
+    pub fn verify_consistency_with_base_route(self, base_route: EntityRoutePtr) {
+        match base_route.variant {
+            EntityRouteVariant::Any { .. } => return,
+            _ => assert_eq!(
+                std::mem::discriminant(&self.variant),
+                std::mem::discriminant(&base_route.variant)
+            ),
+        }
         match self.variant {
-            EntityRouteVariant::Root { ident } => assert_eq!(self.ident(), other.ident()),
-            EntityRouteVariant::Package { main, ident } => todo!(),
-            EntityRouteVariant::Child { parent, ident } => match other.variant {
+            EntityRouteVariant::Root { ident } => assert_eq!(self.ident(), base_route.ident()),
+            EntityRouteVariant::Package { main, ident } => (),
+            EntityRouteVariant::Child { parent, ident } => match base_route.variant {
                 EntityRouteVariant::Child {
                     parent: other_parent,
                     ident: other_ident,
@@ -19,7 +22,7 @@ impl EntityRoutePtr {
                 }
                 _ => panic!(),
             },
-            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match other.variant {
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match base_route.variant {
                 EntityRouteVariant::Root { ident } => todo!(),
                 EntityRouteVariant::Package { main, ident } => todo!(),
                 EntityRouteVariant::Child { parent, ident } => todo!(),
