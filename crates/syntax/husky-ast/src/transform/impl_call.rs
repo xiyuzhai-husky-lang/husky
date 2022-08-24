@@ -76,7 +76,10 @@ impl<'a> AstTransformer<'a> {
                         | ParameterModifier::EvalRef
                         | ParameterModifier::TempRef => (),
                         ParameterModifier::TempRefMut | ParameterModifier::MoveMut => {
-                            return err!("invalid  parameter liason", parameter.liason_range())
+                            return err!(
+                                "invalid parameter liason in this paradigm",
+                                parameter.liason_range()
+                            )
                         }
                         ParameterModifier::MemberAccess => todo!(),
                     }
