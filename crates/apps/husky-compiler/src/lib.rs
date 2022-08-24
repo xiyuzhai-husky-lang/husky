@@ -48,6 +48,8 @@ impl CompilerInstance {
             );
             let now = Instant::now();
             self.transcribe_package_in_rust(&package_dir);
+            self.cargo_fmt(&package_dir);
+            self.sync_rust_code(&package_dir);
             self.cargo_check(&package_dir);
             println!(
                 "    {GREEN}\x1B[1mFinished{RESET} in {:.2} seconds.",
@@ -61,8 +63,6 @@ impl CompilerInstance {
                 package_dir.as_os_str().to_str().unwrap(),
             );
             let now = Instant::now();
-            self.cargo_fmt(&package_dir);
-            self.sync_rust_code(&package_dir);
             self.cargo_build(&package_dir);
             self.clean_rust_gen_cache(&package_dir);
             println!(

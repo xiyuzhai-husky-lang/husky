@@ -7,7 +7,7 @@ impl CompilerInstance {
             .current_dir(
                 (std::fs::canonicalize(package_dir)
                     .unwrap()
-                    .join("__rust_gen_cache__")),
+                    .join("__rust_gen__")),
             )
             .arg("check")
             .output()
