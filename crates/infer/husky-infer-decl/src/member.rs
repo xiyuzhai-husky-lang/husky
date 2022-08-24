@@ -20,7 +20,7 @@ pub enum MemberDecl {
     TypeMethod(Arc<CallFormDecl>),
     TypeAssociatedCall(Arc<CallFormDecl>),
     TraitMethodImpl {
-        trait_route: EntityRoutePtr,
+        trai: EntityRoutePtr,
         method: Arc<CallFormDecl>,
     },
     TraitAssociatedTypeImpl {
@@ -47,31 +47,33 @@ impl MemberDecl {
         }
     }
 
-    pub fn opt_route(&self) -> EntityRoutePtr {
+    pub fn info(&self) -> (&'static str, EntityRoutePtr) {
         match self {
             MemberDecl::AssociatedType => todo!(),
             MemberDecl::AssociatedCall => todo!(),
-            MemberDecl::TypeField(_) => todo!(),
-            MemberDecl::TypeMethod(ty_method) => ty_method.opt_route.unwrap(),
+            MemberDecl::TypeField(field_decl) => ("TypeField", field_decl.ty),
+            MemberDecl::TypeMethod(ty_method) => ("TypeMethod", ty_method.opt_route.unwrap()),
             MemberDecl::TypeAssociatedCall(_) => todo!(),
-            MemberDecl::TraitMethodImpl {
-                trait_route,
-                method,
-            } => method.opt_route.unwrap(),
-            MemberDecl::TraitAssociatedTypeImpl { ident, ty } => *ty,
+            MemberDecl::TraitMethodImpl { trai, method } => {
+                ("TypeMethodImpl", method.opt_route.unwrap())
+            }
+            MemberDecl::TraitAssociatedTypeImpl { ident, ty } => ("TraitAssociatedTypeImpl", *ty),
             MemberDecl::TraitAssociatedConstSizeImpl { ident, value } => todo!(),
         }
     }
 
     pub(crate) fn from_trait_member_impl(
-        trait_route: EntityRoutePtr,
-        trait_member_impl: &TraitMemberImplDecl,
+        trai: EntityRoutePtr,
+        trai_member_impl: &TraitMemberImplDecl,
     ) -> Self {
-        match trait_member_impl {
-            TraitMemberImplDecl::Method(method) => MemberDecl::TraitMethodImpl {
-                trait_route,
-                method: method.clone(),
-            },
+        match trai_member_impl {
+            TraitMemberImplDecl::Method(method) => {
+                assert!(!method.opt_route.unwrap().parent().is_self_ty_alias());
+                MemberDecl::TraitMethodImpl {
+                    trai,
+                    method: method.clone(),
+                }
+            }
             TraitMemberImplDecl::AssociatedType { ident, ty } => {
                 MemberDecl::TraitAssociatedTypeImpl {
                     ident: *ident,

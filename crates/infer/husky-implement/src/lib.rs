@@ -64,6 +64,7 @@ impl Implementable for EntityRoutePtr {
             EntityRouteVariant::Child { parent, ident } => match parent.variant {
                 EntityRouteVariant::ThisType { .. } => {
                     let route = ctx.spatial_argument(ident).take_entity_route();
+                    assert!(route.is_implemented());
                     (route.variant.clone(), route.spatial_arguments.clone())
                 }
                 _ => {
@@ -73,10 +74,12 @@ impl Implementable for EntityRoutePtr {
             },
             EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::Any { .. } => todo!(),
-            EntityRouteVariant::ThisType { .. } => (
-                ctx.this_ty.variant.clone(),
-                ctx.this_ty.spatial_arguments.clone(),
-            ),
+            EntityRouteVariant::ThisType { .. } => {
+                assert!(!ctx.this_ty.is_self_ty_alias());
+                let mut spatial_arguments = ctx.this_ty.spatial_arguments.clone();
+                spatial_arguments.extend(self.spatial_arguments.clone());
+                (ctx.this_ty.variant.clone(), spatial_arguments)
+            }
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match ty.variant {
                 EntityRouteVariant::ThisType { .. } => {
                     if let Some(spatial_argument) = ctx.opt_spatial_argument(ident) {
@@ -85,7 +88,14 @@ impl Implementable for EntityRoutePtr {
                             SpatialArgument::Const(_) => todo!(),
                         }
                     } else {
-                        (self.variant.clone(), thin_vec![])
+                        (
+                            EntityRouteVariant::TypeAsTraitMember {
+                                ty: ctx.this_ty,
+                                trai,
+                                ident,
+                            },
+                            thin_vec![],
+                        )
                     }
                     // (route.kind, route.spatial_arguments.clone())
                 }
@@ -99,11 +109,13 @@ impl Implementable for EntityRoutePtr {
         for spatial_argument in self.spatial_arguments.iter() {
             spatial_arguments.push(spatial_argument.implement(ctx))
         }
-        SpatialArgument::EntityRoute(ctx.db.intern_entity_route(EntityRoute {
+        let route = EntityRoute {
             variant,
             temporal_arguments: thin_vec![],
             spatial_arguments,
-        }))
+        };
+        assert!(route.is_implemented());
+        SpatialArgument::EntityRoute(ctx.db.intern_entity_route(route))
     }
 }
 

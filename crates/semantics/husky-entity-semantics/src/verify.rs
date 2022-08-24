@@ -20,7 +20,16 @@ macro_rules! informative_assert_eq {
 }
 
 impl EntityDefn {
-    pub fn check_consistency_with_ty_decl(&self, ty_decl: &TyDecl) {
+    pub(crate) fn verify(&self, db: &dyn EntityDefnQueryGroup) {
+        match self.variant {
+            EntityDefnVariant::Ty { .. } => {
+                self.verify_consistency_with_ty_decl(&db.ty_decl(self.base_route).unwrap())
+            }
+            _ => (),
+        }
+    }
+
+    fn verify_consistency_with_ty_decl(&self, ty_decl: &TyDecl) {
         match self.variant {
             EntityDefnVariant::Ty {
                 ref ty_members,
@@ -30,7 +39,7 @@ impl EntityDefn {
                 assert_eq!(ty_members.len(), ty_decl.ty_members.len());
                 for i in 0..ty_members.len() {
                     ty_members.data()[i]
-                        .check_consistency_with_ty_member_decl(&ty_decl.ty_members.data()[i])
+                        .verify_consistency_with_ty_member_decl(&ty_decl.ty_members.data()[i])
                 }
                 informative_assert_eq!(
                     self,
@@ -43,24 +52,24 @@ impl EntityDefn {
                     ty_decl
                         .members
                         .iter()
-                        .map(|member| member.opt_route())
+                        .map(|member| member.info())
                         .collect::<Vec<_>>()
                 );
                 for i in 0..members.len() {
-                    members[i].check_consistency_with_member_decl(&ty_decl.members[i])
+                    members[i].verify_consistency_with_member_decl(&ty_decl.members[i])
                 }
             }
             _ => panic!(),
         }
     }
 
-    pub fn check_consistency_with_ty_member_decl(&self, ty_decl: &TyMemberDecl) {
+    pub fn verify_consistency_with_ty_member_decl(&self, ty_decl: &TyMemberDecl) {
         match self.variant {
             EntityDefnVariant::Method { .. } => match ty_decl {
                 TyMemberDecl::Method(method_decl) => method_decl
                     .opt_route
                     .unwrap()
-                    .check_consistency_with_base_route(self.base_route),
+                    .verify_consistency_with_base_route(self.base_route),
                 TyMemberDecl::Field(_) => panic!(),
                 TyMemberDecl::Call(_) => panic!(),
             },
@@ -70,16 +79,40 @@ impl EntityDefn {
                 ref field_variant,
                 liason,
                 opt_linkage,
-            } => todo!(),
+            } => match ty_decl {
+                TyMemberDecl::Field(field_decl) => {
+                    field_decl.ty.verify_consistency_with_base_route(field_ty);
+                    assert_eq!(self.ident, field_decl.ident.into())
+                }
+                _ => panic!(),
+            },
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             _ => panic!(),
         }
     }
 
-    pub fn check_consistency_with_member_decl(&self, ty_decl: &MemberDecl) {
+    pub fn verify_consistency_with_member_decl(&self, member_decl: &MemberDecl) {
         match self.variant {
-            EntityDefnVariant::Method { .. } => todo!(),
+            EntityDefnVariant::Method {
+                method_defn_kind, ..
+            } => match method_defn_kind {
+                MethodDefnKind::TypeMethod { ty } => match member_decl {
+                    MemberDecl::TypeMethod(decl) => decl
+                        .opt_route
+                        .unwrap()
+                        .verify_consistency_with_base_route(self.base_route),
+                    _ => panic!(),
+                },
+                MethodDefnKind::TraitMethod { trai } => todo!(),
+                MethodDefnKind::TraitMethodImpl { trai } => match member_decl {
+                    MemberDecl::TraitMethodImpl { trai, method } => method
+                        .opt_route
+                        .unwrap()
+                        .verify_consistency_with_base_route(self.base_route),
+                    _ => panic!(),
+                },
+            },
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TyField {
                 field_ty,
@@ -87,7 +120,12 @@ impl EntityDefn {
                 liason,
                 opt_linkage,
             } => todo!(),
-            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => match member_decl {
+                MemberDecl::TraitAssociatedTypeImpl { ident, ty: decl_ty } => {
+                    decl_ty.verify_consistency_with_base_route(ty)
+                }
+                _ => panic!(),
+            },
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
             _ => panic!(),
         }

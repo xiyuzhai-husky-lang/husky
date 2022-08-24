@@ -159,10 +159,16 @@ impl Implementable for CallFormDecl {
     type Target = Arc<Self>;
 
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
+        let opt_route = self
+            .opt_route
+            .map(|route| route.implement(ctx).take_entity_route());
+        opt_route.map(|route| {
+            route
+                .opt_parent()
+                .map(|parent| assert!(!parent.is_self_ty_alias()))
+        });
         Arc::new(Self {
-            opt_route: self
-                .opt_route
-                .map(|route| route.implement(ctx).take_entity_route()),
+            opt_route,
             opt_this_liason: self.opt_this_liason,
             primary_parameters: self
                 .primary_parameters

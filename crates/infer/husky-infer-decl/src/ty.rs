@@ -468,7 +468,7 @@ impl TyDecl {
                         MemberDecl::TypeField(_) => todo!(),
                         MemberDecl::TypeMethod(_) => todo!(),
                         MemberDecl::TraitMethodImpl {
-                            trait_route,
+                            trai: trait_route,
                             method,
                         } => {
                             if is_trait_availabe(*trait_route, trait_uses) {
@@ -522,7 +522,7 @@ impl TyDecl {
                     .iter()
                     .position(|member| match member {
                         MemberDecl::TraitMethodImpl {
-                            trait_route,
+                            trai: trait_route,
                             method,
                         } => *trait_route == trai && method.ident() == ident,
                         _ => false,
