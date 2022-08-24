@@ -22,7 +22,7 @@ mnist-compiled:
 	# compiler
 	@cargo run -q --bin husky-compiler -- $(examples_dir)/mnist-classifier
 	# debugger
-	@cargo run -q --bin husky-debugger -- run $(examples_dir)/mnist-classifier
+	@cargo run --bin husky-debugger -- run $(examples_dir)/mnist-classifier
 
 mnist-compiled-backtraced:
 	cargo check
