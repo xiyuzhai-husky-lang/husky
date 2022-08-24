@@ -4,7 +4,7 @@ mod parser;
 use crate::*;
 use husky_ast::{AstIter, RawExprArena, RawExprIdx};
 use husky_file::FilePtr;
-use husky_infer_qualified_ty::{EagerValueQualifiedTy, EagerVariableQualifier};
+use husky_infer_qualified_ty::{EagerExprQualifiedTy, EagerVariableQualifier};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use infer_contract::EagerContract;
 use infer_total::InferQueryGroup;
@@ -22,7 +22,7 @@ use husky_word::CustomIdentifier;
 pub struct EagerExpr {
     pub file: FilePtr,
     pub range: TextRange,
-    pub qualified_ty: EagerValueQualifiedTy,
+    pub qualified_ty: EagerExprQualifiedTy,
     pub implicit_conversion: ImplicitConversion,
     pub contract: EagerContract,
     pub variant: EagerExprVariant,

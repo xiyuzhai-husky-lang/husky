@@ -19,8 +19,8 @@ pub struct QualifiedTySheet {
         VecPairMap<(CustomIdentifier, TextRange), InferResult<EagerVariableQualifiedTy>>,
     pub(crate) lazy_variable_qualified_tys:
         VecPairMap<(CustomIdentifier, TextRange), InferResult<LazyVariableQualifiedTy>>,
-    pub(crate) eager_expr_qualified_tys: RawExprMap<InferResult<EagerValueQualifiedTy>>,
-    pub(crate) lazy_expr_qualified_tys: RawExprMap<InferResult<LazyValueQualifiedTy>>,
+    pub(crate) eager_expr_qualified_tys: RawExprMap<InferResult<EagerExprQualifiedTy>>,
+    pub(crate) lazy_expr_qualified_tys: RawExprMap<InferResult<LazyExprQualifiedTy>>,
     pub(crate) contract_sheet: Arc<ContractSheet>,
     pub(crate) extra_errors: Vec<InferError>,
 }
@@ -41,7 +41,7 @@ impl QualifiedTySheet {
     pub fn lazy_expr_qualified_ty(
         &self,
         raw_expr_idx: RawExprIdx,
-    ) -> InferResult<LazyValueQualifiedTy> {
+    ) -> InferResult<LazyExprQualifiedTy> {
         match derived_not_none!(self.lazy_expr_qualified_tys.get(raw_expr_idx))? {
             Ok(qt) => Ok(*qt),
             Err(e) => Err(e.derived()),
@@ -51,7 +51,7 @@ impl QualifiedTySheet {
     pub fn eager_expr_qualified_ty(
         &self,
         raw_expr_idx: RawExprIdx,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         match derived_not_none!(self.eager_expr_qualified_tys.get(raw_expr_idx))? {
             Ok(qt) => Ok(*qt),
             Err(e) => Err(e.derived()),

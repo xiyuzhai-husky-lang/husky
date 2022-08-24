@@ -189,7 +189,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    pub(super) fn infer_eager_expr(&mut self, idx: RawExprIdx) -> Option<EagerValueQualifiedTy> {
+    pub(super) fn infer_eager_expr(&mut self, idx: RawExprIdx) -> Option<EagerExprQualifiedTy> {
         let qualified_qualified_ty_result = self.eager_expr(idx);
         let opt_qualified_ty = qualified_qualified_ty_result
             .as_ref()
@@ -201,7 +201,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opt_qualified_ty
     }
 
-    fn eager_expr(&mut self, raw_expr_idx: RawExprIdx) -> InferResult<EagerValueQualifiedTy> {
+    fn eager_expr(&mut self, raw_expr_idx: RawExprIdx) -> InferResult<EagerExprQualifiedTy> {
         let raw_expr = &self.arena[raw_expr_idx];
         match raw_expr.variant {
             RawExprVariant::Variable {
@@ -215,7 +215,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             {
                 Ok(variable_qt) => {
                     let variable_contract = self.eager_expr_contract(raw_expr_idx)?;
-                    Ok(EagerValueQualifiedTy {
+                    Ok(EagerExprQualifiedTy {
                         qual: variable_qt
                             .qual
                             .variable_use_eager_expr_qualifier(variable_contract, raw_expr.range)?,
@@ -224,7 +224,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
                 Err(ref e) => Err(e.derived()),
             },
-            RawExprVariant::FrameVariable { .. } => Ok(EagerValueQualifiedTy {
+            RawExprVariant::FrameVariable { .. } => Ok(EagerExprQualifiedTy {
                 qual: EagerExprQualifier::Copyable,
                 ty: EntityRoutePtr::Root(RootIdentifier::I32),
             }),
@@ -235,7 +235,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let this_ty = derived_not_none!(opt_this_ty)?;
                 let this_liason = derived_not_none!(opt_this_liason)?;
                 let this_contract = self.eager_expr_contract(raw_expr_idx)?;
-                EagerValueQualifiedTy::from_parameter_use(
+                EagerExprQualifiedTy::from_parameter_use(
                     self.db,
                     this_liason,
                     this_ty,
@@ -270,7 +270,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 )?;
                 let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_ty.intrinsic()));
                 let field_decl = this_ty_decl.field_decl(field_ident)?;
-                Ok(EagerValueQualifiedTy::field_eager_qualified_ty(
+                Ok(EagerExprQualifiedTy::field_eager_qualified_ty(
                     self.db,
                     this_qual,
                     field_decl.field_kind,
@@ -282,22 +282,22 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             }
             RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized")),
             RawExprVariant::Entity { route, kind } => match kind {
-                EntityKind::Module => Ok(EagerValueQualifiedTy::module_eager_qualified_ty()),
-                EntityKind::Type(_) => Ok(EagerValueQualifiedTy::ty_eager_qualified_ty()),
-                EntityKind::Trait => Ok(EagerValueQualifiedTy::trait_eager_qualified_ty()),
+                EntityKind::Module => Ok(EagerExprQualifiedTy::module_eager_qualified_ty()),
+                EntityKind::Type(_) => Ok(EagerExprQualifiedTy::ty_eager_qualified_ty()),
+                EntityKind::Trait => Ok(EagerExprQualifiedTy::trait_eager_qualified_ty()),
                 EntityKind::Member(_) | EntityKind::Function { .. } => {
-                    EagerValueQualifiedTy::entity_ty(self.db, self.raw_expr_ty(raw_expr_idx)?)
+                    EagerExprQualifiedTy::entity_ty(self.db, self.raw_expr_ty(raw_expr_idx)?)
                 }
-                EntityKind::Feature => Ok(EagerValueQualifiedTy::feature_ty(
+                EntityKind::Feature => Ok(EagerExprQualifiedTy::feature_ty(
                     self.raw_expr_ty(raw_expr_idx)?,
                 )),
-                EntityKind::EnumVariant => Ok(EagerValueQualifiedTy {
+                EntityKind::EnumVariant => Ok(EagerExprQualifiedTy {
                     qual: EagerExprQualifier::Copyable,
                     ty: self.raw_expr_intrinsic_ty(raw_expr_idx)?,
                 }),
                 EntityKind::Main => panic!(),
             },
-            RawExprVariant::PrimitiveLiteral(_) => Ok(EagerValueQualifiedTy {
+            RawExprVariant::PrimitiveLiteral(_) => Ok(EagerExprQualifiedTy {
                 qual: EagerExprQualifier::Copyable,
                 ty: self.raw_expr_intrinsic_ty(raw_expr_idx)?,
             }),
@@ -318,7 +318,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opr: &RawOpnVariant,
         opds: RawExprRange,
         range: TextRange,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         match opr {
             RawOpnVariant::Binary(binary_opr) => self.eager_binary(idx, *binary_opr, opds, range),
             RawOpnVariant::Prefix(prefix_opr) => self.eager_prefix(idx, opds),
@@ -334,7 +334,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opr: BinaryOpr,
         opds: RawExprRange,
         range: TextRange,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(opds.start))?;
         match opr {
             BinaryOpr::Pure(_) => (),
@@ -349,7 +349,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
         self.infer_eager_expr(opds.start + 1);
         let ty = self.raw_expr_intrinsic_ty(idx)?;
-        Ok(EagerValueQualifiedTy::new(
+        Ok(EagerExprQualifiedTy::new(
             if self.db.is_copyable(ty)? {
                 EagerExprQualifier::Copyable
             } else {
@@ -363,10 +363,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         raw_expr_idx: RawExprIdx,
         opds: RawExprRange,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         self.infer_eager_expr(opds.start);
         let ty = self.raw_expr_intrinsic_ty(raw_expr_idx)?;
-        Ok(EagerValueQualifiedTy::new(
+        Ok(EagerExprQualifiedTy::new(
             EagerExprQualifier::transitive(self.db.is_copyable(ty)?),
             self.raw_expr_intrinsic_ty(raw_expr_idx)?,
         ))
@@ -377,11 +377,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
         opr: &RawSuffixOpr,
         opds: RawExprRange,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(opds.start))?;
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.ty));
         match opr {
-            RawSuffixOpr::Incr | RawSuffixOpr::Decr => Ok(EagerValueQualifiedTy {
+            RawSuffixOpr::Incr | RawSuffixOpr::Decr => Ok(EagerExprQualifiedTy {
                 qual: EagerExprQualifier::Copyable,
                 ty: EntityRoutePtr::Root(RootIdentifier::Void),
             }),
@@ -396,13 +396,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         raw_expr_idx: RawExprIdx,
         field_ident: RangedCustomIdentifier,
         opds: RawExprRange,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(opds.start))?;
         let intrinsic_this_ty = this_qt.ty.intrinsic();
         let this_ty_decl = derived_unwrap!(self.db.ty_decl(intrinsic_this_ty));
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let field_contract = self.eager_expr_contract(raw_expr_idx)?;
-        Ok(EagerValueQualifiedTy::field_eager_qualified_ty(
+        Ok(EagerExprQualifiedTy::field_eager_qualified_ty(
             self.db,
             this_qt.qual,
             field_decl.field_kind,
@@ -418,7 +418,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         idx: RawExprIdx,
         list_opr: &ListOpr,
         opds: RawExprRange,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         match list_opr {
             ListOpr::TupleInit => todo!(),
             ListOpr::NewVec => self.eager_new_vec_from_list(idx, opds),
@@ -436,11 +436,11 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         idx: RawExprIdx,
         elements: RawExprRange,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         for element in elements {
             self.infer_eager_expr(element);
         }
-        Ok(EagerValueQualifiedTy::new(
+        Ok(EagerExprQualifiedTy::new(
             EagerExprQualifier::Transient,
             self.raw_expr_ty(idx)?,
         ))
@@ -450,7 +450,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         idx: RawExprIdx,
         total_opds: RawExprRange,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         let call_decl = self.function_call_form_decl(total_opds.start)?;
         self.infer_eager_expr(total_opds.start);
         for opd_idx in (total_opds.start + 1)..total_opds.end {
@@ -467,7 +467,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match call_decl.output.liason() {
             OutputLiason::Transfer => {
                 msg_once!("handle ref");
-                Ok(EagerValueQualifiedTy::new(
+                Ok(EagerExprQualifiedTy::new(
                     if self.db.is_copyable(call_decl.output.ty())? {
                         EagerExprQualifier::Copyable
                     } else {
@@ -484,7 +484,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         idx: RawExprIdx,
         total_opds: RawExprRange,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_eager_expr(total_opds.start))?;
         let this_contract = self.eager_expr_contract(total_opds.start)?;
         for opd in (total_opds.start + 1)..total_opds.end {
@@ -493,7 +493,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let element_ty = self.raw_expr_intrinsic_ty(idx)?;
         let element_contract = self.eager_expr_contract(idx)?;
         msg_once!("todo: other member liason");
-        EagerValueQualifiedTy::element_eager_qualified_ty(
+        EagerExprQualifiedTy::element_eager_qualified_ty(
             self.db,
             this_qt.qual,
             element_ty,
@@ -509,7 +509,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         method_ident: RangedCustomIdentifier,
         inputs: RawExprRange,
         idx: RawExprIdx,
-    ) -> InferResult<EagerValueQualifiedTy> {
+    ) -> InferResult<EagerExprQualifiedTy> {
         let call_form_decl = self.method_call_form_decl(this)?;
         let this_qt = derived_not_none!(self.infer_eager_expr(this))?;
         let this_contract = self.eager_expr_contract(this)?;
@@ -533,6 +533,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 is_element_copyable,
             ),
         };
-        Ok(EagerValueQualifiedTy::new(qual, call_form_decl.output.ty()))
+        Ok(EagerExprQualifiedTy::new(qual, call_form_decl.output.ty()))
     }
 }

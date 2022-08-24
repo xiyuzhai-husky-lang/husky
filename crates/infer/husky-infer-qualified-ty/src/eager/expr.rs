@@ -3,12 +3,12 @@ use husky_entity_kind::FieldKind;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct EagerValueQualifiedTy {
+pub struct EagerExprQualifiedTy {
     pub qual: EagerExprQualifier,
     pub ty: EntityRoutePtr,
 }
 
-impl EagerValueQualifiedTy {
+impl EagerExprQualifiedTy {
     pub fn binding(self, db: &dyn DeclQueryGroup, contract: EagerContract) -> Binding {
         EagerExprQualifier::binding(self.qual, db, self.ty, contract)
     }
@@ -37,7 +37,7 @@ impl std::fmt::Debug for EagerExprQualifier {
     }
 }
 
-impl HuskyDisplay for EagerValueQualifiedTy {
+impl HuskyDisplay for EagerExprQualifiedTy {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
@@ -192,7 +192,7 @@ impl EagerExprQualifier {
     }
 }
 
-impl EagerValueQualifiedTy {
+impl EagerExprQualifiedTy {
     pub(crate) fn ty_eager_qualified_ty() -> Self {
         Self {
             qual: EagerExprQualifier::EvalRef,
@@ -242,7 +242,7 @@ impl EagerValueQualifiedTy {
         contract: EagerContract,
         range: TextRange,
     ) -> InferResult<Self> {
-        Ok(EagerValueQualifiedTy {
+        Ok(EagerExprQualifiedTy {
             qual: EagerExprQualifier::parameter_use_eager_qualifier(
                 db.upcast(),
                 ty,
