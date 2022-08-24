@@ -58,7 +58,7 @@ impl LiveFiles for HuskyComptime {
 impl FileQueryGroup for HuskyComptime {}
 
 impl InternEntityRoute for HuskyComptime {
-    fn scope_interner(&self) -> &husky_entity_route::EntityRouteInterner {
+    fn entity_route_interner(&self) -> &husky_entity_route::EntityRouteInterner {
         &self.entity_route_interner
     }
 }

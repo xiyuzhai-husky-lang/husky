@@ -11,19 +11,20 @@ use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitImplDecl {
-    trait_route: EntityRoutePtr,
+    trai: EntityRoutePtr,
     this_ty: EntityRoutePtr,
     member_impls: Vec<TraitMemberImplDecl>,
 }
 
 impl TraitImplDecl {
     pub(crate) fn new(
-        trait_route: EntityRoutePtr,
+        trai: EntityRoutePtr,
         this_ty: EntityRoutePtr,
         member_impls: Vec<TraitMemberImplDecl>,
     ) -> Self {
+        assert!(!this_ty.is_self_ty_alias());
         Self {
-            trait_route,
+            trai,
             this_ty,
             member_impls,
         }
@@ -52,7 +53,7 @@ impl TraitImplDecl {
     }
 
     pub fn trai(&self) -> EntityRoutePtr {
-        self.trait_route
+        self.trai
     }
 
     pub fn this_ty(&self) -> EntityRoutePtr {
@@ -65,7 +66,7 @@ impl TraitImplDecl {
 
     pub(crate) fn instantiate(&self, ctx: &InstantiationContext) -> Arc<Self> {
         Arc::new(Self {
-            trait_route: self.trait_route.instantiate(ctx).take_entity_route(),
+            trai: self.trai.instantiate(ctx).take_entity_route(),
             this_ty: self.this_ty.instantiate(ctx).take_entity_route(),
             member_impls: self.member_impls.map(|member| member.instantiate(ctx)),
         })
@@ -89,7 +90,7 @@ impl TraitImplDecl {
         let is_copyable = derive_is_copyable(db, ty_kind, ty_members, variants);
         if is_copyable {
             trait_impl_decls.push(Arc::new(TraitImplDecl {
-                trait_route: entity_route_menu.copy_trait,
+                trai: entity_route_menu.copy_trait,
                 this_ty,
                 member_impls: Vec::new(),
             }))
@@ -98,7 +99,7 @@ impl TraitImplDecl {
             msg_once!("much to do here");
             let clone_trait = entity_route_menu.clone_trait;
             trait_impl_decls.push(Arc::new(TraitImplDecl {
-                trait_route: clone_trait,
+                trai: clone_trait,
                 this_ty,
                 member_impls: vec![TraitMemberImplDecl::Method(Arc::new(CallFormDecl {
                     opt_route: Some(db.ty_as_trai_subroute(
@@ -275,29 +276,14 @@ impl TraitMemberImplDecl {
                 )),
                 EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
                 _ => panic!(),
-                // StaticTraitMemberImplDefnVariant::Type { route } =>
-
-                // StaticTraitMemberImplDefnVariant::Method { .. } => None,
             })
             .collect();
-        // let member_impl_context: Vec<_> =
-        //     member_impls.map(|member_impl| (member_impl.ident(), member_impl.generic_argument()));
         let this_ty = symbol_context.opt_this_ty().unwrap();
         let implementor = ImplementationContext::new(db.upcast(), this_ty, &member_symbol_impls);
 
         trait_decl
             .members
             .map(|trait_member_decl| trait_member_decl.implement(db, &implementor))
-        //     match trait_member_decl {
-        //     TraitMemberDecl::Method(call_form_decl) => {
-        //         TraitMemberImplDecl::Method(call_form_decl.implement(&implementor))
-        //     }
-        //     TraitMemberDecl::Type { ident, traits } => {
-        //         TraitMemberImplDecl::AssociatedType { ident: (), ty: () }
-        //     }
-        //     TraitMemberDecl::ConstSize(_) => todo!(),
-        //     TraitMemberDecl::Call {} => todo!(),
-        // }
     }
 
     pub fn instantiate(&self, ctx: &InstantiationContext) -> Self {

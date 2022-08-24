@@ -55,7 +55,6 @@ pub trait InferEntityRoute {
     fn method_call_form_decl(&self, this_idx: RawExprIdx) -> InferResultArc<CallFormDecl> {
         let call_route_result =
             derived_not_none!(self.entity_route_sheet().opt_method_call_route(this_idx))?;
-        p!(call_route_result);
         Ok(derived_unwrap!(self
             .decl_db()
             .entity_call_form_decl(call_route_result?)))

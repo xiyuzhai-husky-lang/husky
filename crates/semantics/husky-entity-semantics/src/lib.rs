@@ -2,7 +2,6 @@ mod call_form;
 mod dependence;
 mod feature;
 mod function;
-mod impl_consistency;
 mod module;
 mod query;
 mod repr;
@@ -10,6 +9,7 @@ mod subentities;
 mod trai;
 mod ty;
 mod utils;
+mod verify;
 mod visual;
 
 pub use call_form::*;
@@ -146,7 +146,7 @@ impl EntityDefn {
             file,
             range,
         };
-        todo!();
+        entity_defn.verify(db);
         Arc::new(entity_defn)
     }
 

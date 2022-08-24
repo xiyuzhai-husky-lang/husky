@@ -311,9 +311,9 @@ impl From<&EntityRoute> for EntityRoute {
 }
 
 pub trait InternEntityRoute {
-    fn scope_interner(&self) -> &EntityRouteInterner;
-    fn intern_entity_route(&self, scope: EntityRoute) -> EntityRoutePtr {
-        self.scope_interner().intern(scope)
+    fn entity_route_interner(&self) -> &EntityRouteInterner;
+    fn intern_entity_route(&self, entity_route: EntityRoute) -> EntityRoutePtr {
+        self.entity_route_interner().intern(entity_route)
     }
 
     fn route_call(

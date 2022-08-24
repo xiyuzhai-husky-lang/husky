@@ -1,10 +1,10 @@
 mod cache;
 mod canonical;
-mod check_consistency;
 mod fmt;
 mod intern;
 mod menu;
 mod utils;
+mod verifiy;
 
 pub use cache::*;
 pub use canonical::*;

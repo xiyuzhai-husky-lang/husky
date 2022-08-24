@@ -62,7 +62,13 @@ impl TraitMemberDecl {
     ) -> TraitMemberImplDecl {
         match self {
             TraitMemberDecl::Method(call_form_decl) => {
-                TraitMemberImplDecl::Method(call_form_decl.implement(&implementor))
+                let call_form_decl_implementation = call_form_decl.implement(&implementor);
+                assert!(!call_form_decl_implementation
+                    .opt_route
+                    .unwrap()
+                    .parent()
+                    .is_self_ty_alias());
+                TraitMemberImplDecl::Method(call_form_decl_implementation)
             }
             TraitMemberDecl::Type { ident, traits } => {
                 if traits.len() > 0 {
