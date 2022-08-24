@@ -4,7 +4,7 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_transfer_linkage(
         &mut self,
         needs_eval_context: bool,
-        opt_this: Option<(ParameterLiason, EntityRoutePtr)>,
+        opt_this: Option<(ParameterModifier, EntityRoutePtr)>,
         gen_caller: impl FnOnce(&mut Self),
         gen_call_route: impl FnOnce(&mut Self),
         decl: &CallFormDecl,
@@ -22,7 +22,7 @@ impl<'a> RustCodeGenerator<'a> {
         if let Some((this_liason, this_ty)) = opt_this {
             let mangled_this_ty_vtable = self.db.mangled_intrinsic_ty_vtable(this_ty);
             match this_liason {
-                ParameterLiason::Pure => {
+                ParameterModifier::None => {
                     self.write(&format!(
                         r#"
                     let __this: "#
@@ -35,10 +35,10 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write(&format!(" = __arguments[0].downcast_temp_ref(&__registration__::{mangled_this_ty_vtable});"))
                     }
                 }
-                ParameterLiason::Move => todo!(),
-                ParameterLiason::MoveMut => todo!(),
-                ParameterLiason::MemberAccess => panic!(),
-                ParameterLiason::EvalRef => {
+                ParameterModifier::Move => todo!(),
+                ParameterModifier::MoveMut => todo!(),
+                ParameterModifier::MemberAccess => panic!(),
+                ParameterModifier::EvalRef => {
                     self.write(&format!(
                         r#"
                     let __this: "#
@@ -51,8 +51,8 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write(&format!(" = __arguments[0].downcast_eval_ref(&__registration__::{mangled_this_ty_vtable});"))
                     }
                 }
-                ParameterLiason::TempRef => todo!(),
-                ParameterLiason::TempRefMut => {
+                ParameterModifier::TempRef => todo!(),
+                ParameterModifier::TempRefMut => {
                     self.write(&format!(
                         r#"
                     let __this: "#
@@ -71,7 +71,7 @@ impl<'a> RustCodeGenerator<'a> {
         msg_once!("keyword parameter overrides");
         for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
             let parameter_name = parameter.ident;
-            let parameter_ty = parameter.ty;
+            let parameter_ty = parameter.ty();
             self.write(&format!(
                 r#"
                     let {parameter_name}: "#
@@ -125,6 +125,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(canonical_output_ty.intrinsic_route(), EntityRouteRole::Decl);
                 self.write(">(");
             }
+            CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
         }
         gen_caller(self);
         self.write("(");
@@ -283,19 +284,19 @@ impl<'a> RustCodeGenerator<'a> {
         self.write("fn(");
         if let Some(this_ty) = decl.opt_this_ty() {
             match decl.opt_this_liason.unwrap() {
-                ParameterLiason::Pure => {
+                ParameterModifier::None => {
                     if self.db.is_copyable(this_ty).unwrap() {
                         ()
                     } else {
                         self.write("&'static ")
                     }
                 }
-                ParameterLiason::Move => todo!(),
-                ParameterLiason::MoveMut => todo!(),
-                ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::EvalRef => self.write("&'static "),
-                ParameterLiason::TempRef => todo!(),
-                ParameterLiason::TempRefMut => self.write("&'static mut "),
+                ParameterModifier::Move => todo!(),
+                ParameterModifier::MoveMut => todo!(),
+                ParameterModifier::MemberAccess => todo!(),
+                ParameterModifier::EvalRef => self.write("&'static "),
+                ParameterModifier::TempRef => todo!(),
+                ParameterModifier::TempRefMut => self.write("&'static mut "),
             }
             self.gen_entity_route(this_ty, EntityRouteRole::StaticDecl)
         }
@@ -304,46 +305,46 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write(", ")
             }
             match parameter.liason {
-                ParameterLiason::Pure => {
-                    if self.db.is_copyable(parameter.ty).unwrap() {
+                ParameterModifier::None => {
+                    if self.db.is_copyable(parameter.ty()).unwrap() {
                         ()
                     } else {
-                        assert!(!parameter.ty.is_eval_ref());
+                        assert!(!parameter.ty().is_eval_ref());
                         self.write("&'static ")
                     }
                 }
-                ParameterLiason::Move => (),
-                ParameterLiason::MoveMut => todo!(),
-                ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::EvalRef => {
-                    assert!(!parameter.ty.is_eval_ref());
+                ParameterModifier::Move => (),
+                ParameterModifier::MoveMut => todo!(),
+                ParameterModifier::MemberAccess => todo!(),
+                ParameterModifier::EvalRef => {
+                    assert!(!parameter.ty().is_eval_ref());
                     self.write("&'static ")
                 }
-                ParameterLiason::TempRef => todo!(),
-                ParameterLiason::TempRefMut => todo!(),
+                ParameterModifier::TempRef => todo!(),
+                ParameterModifier::TempRefMut => todo!(),
             }
-            self.gen_entity_route(parameter.ty, EntityRouteRole::StaticDecl)
+            self.gen_entity_route(parameter.ty(), EntityRouteRole::StaticDecl)
         }
         for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
             if decl.opt_this_liason.is_some() || i + decl.primary_parameters.len() > 0 {
                 self.write(", ");
             }
             match parameter.liason {
-                ParameterLiason::Pure => {
-                    if self.db.is_copyable(parameter.ty).unwrap() {
+                ParameterModifier::None => {
+                    if self.db.is_copyable(parameter.ty()).unwrap() {
                         ()
                     } else {
                         self.write("&'static ")
                     }
                 }
-                ParameterLiason::Move => (),
-                ParameterLiason::MoveMut => todo!(),
-                ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::EvalRef => self.write("&'static "),
-                ParameterLiason::TempRef => todo!(),
-                ParameterLiason::TempRefMut => todo!(),
+                ParameterModifier::Move => (),
+                ParameterModifier::MoveMut => todo!(),
+                ParameterModifier::MemberAccess => todo!(),
+                ParameterModifier::EvalRef => self.write("&'static "),
+                ParameterModifier::TempRef => todo!(),
+                ParameterModifier::TempRefMut => todo!(),
             }
-            self.gen_entity_route(parameter.ty, EntityRouteRole::StaticDecl)
+            self.gen_entity_route(parameter.ty(), EntityRouteRole::StaticDecl)
         }
         match decl.variadic_template {
             VariadicTemplate::None => (),

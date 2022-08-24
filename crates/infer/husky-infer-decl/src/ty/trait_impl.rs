@@ -83,7 +83,7 @@ impl TraitImplDecl {
                         db.intern_word("clone").custom(),
                         thin_vec![],
                     )),
-                    opt_this_liason: Some(ParameterLiason::Pure),
+                    opt_this_liason: Some(ParameterModifier::None),
                     primary_parameters: Default::default(),
                     output: OutputDecl::new(db, OutputLiason::Transfer, this_ty)?,
                     spatial_parameters: Default::default(),

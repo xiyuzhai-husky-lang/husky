@@ -9,7 +9,7 @@ use thin_vec::{thin_vec, ThinVec};
 /// parse atoms from left to right
 /// it's hard to parse a standalone tuple from left to right,
 /// so that is leaved for atom group to handle
-impl<'a, 'b> AtomParser<'a, 'b> {
+impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub(crate) fn symbol(&mut self) -> AtomResult<Option<HuskyAtomVariant>> {
         Ok(if let Some(token) = self.token_stream.next() {
             if is_special!(token, "[") {
@@ -82,7 +82,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                         self.atom_context
                             .push_abs_semantic_token(AbsSemanticToken::new(
                                 SemanticTokenKind::Entity(
-                                    self.atom_context.husky_entity_kind(route, token.range)?,
+                                    self.atom_context.entity_kind(route, token.range)?,
                                 ),
                                 token.range,
                             ));
@@ -191,8 +191,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             self.atom_context
                 .push_abs_semantic_token(AbsSemanticToken::new(
                     SemanticTokenKind::Entity(
-                        self.atom_context
-                            .husky_entity_kind(route, ranged_ident.range)?,
+                        self.atom_context.entity_kind(route, ranged_ident.range)?,
                     ),
                     ranged_ident.range,
                 ));
@@ -201,7 +200,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
             route,
             kind: self
                 .atom_context
-                .husky_entity_kind(route, Default::default())
+                .entity_kind(route, Default::default())
                 .unwrap(),
         });
     }
@@ -278,11 +277,12 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 | RootIdentifier::Ref
                 | RootIdentifier::Option => self.angled_generics(),
                 RootIdentifier::VisualType => todo!(),
+                RootIdentifier::RefMut => todo!(),
             },
             _ => {
                 let husky_entity_kind = self
                     .atom_context
-                    .husky_entity_kind(route, Default::default())
+                    .entity_kind(route, Default::default())
                     .unwrap();
                 match husky_entity_kind {
                     EntityKind::Module

@@ -6,7 +6,7 @@ impl<'a> AstTransformer<'a> {
     pub fn call_defn_head(
         &mut self,
         token_group: &[HuskyToken],
-        opt_this_liason: Option<ParameterLiason>,
+        opt_this_liason: Option<ParameterModifier>,
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         expect_at_least!(token_group, token_group.text_range(), 5);
@@ -64,24 +64,21 @@ impl<'a> AstTransformer<'a> {
         self.symbols.extend(
             parameters
                 .iter()
-                .map(|parameter| Symbol::variable(parameter.ranged_ident)),
+                .map(|parameter| Symbol::variable(parameter.ranged_ident())),
         );
         match paradigm {
             Paradigm::EagerProcedural => (),
             Paradigm::EagerFunctional | Paradigm::LazyFunctional => {
                 for parameter in parameters.iter() {
-                    match parameter.ranged_liason.liason {
-                        ParameterLiason::Pure
-                        | ParameterLiason::Move
-                        | ParameterLiason::EvalRef
-                        | ParameterLiason::TempRef => (),
-                        ParameterLiason::TempRefMut | ParameterLiason::MoveMut => {
-                            return err!(
-                                "invalid  parameter liason",
-                                parameter.ranged_liason.opt_range.unwrap()
-                            )
+                    match parameter.liason() {
+                        ParameterModifier::None
+                        | ParameterModifier::Move
+                        | ParameterModifier::EvalRef
+                        | ParameterModifier::TempRef => (),
+                        ParameterModifier::TempRefMut | ParameterModifier::MoveMut => {
+                            return err!("invalid  parameter liason", parameter.liason_range())
                         }
-                        ParameterLiason::MemberAccess => todo!(),
+                        ParameterModifier::MemberAccess => todo!(),
                     }
                 }
             }

@@ -99,7 +99,7 @@ impl<'a> AstTransformer<'a> {
         expect_block_head!(token_group);
         enter_block(self);
         self.context.set(AstContext::Visual);
-        self.opt_this_liason.set(Some(ParameterLiason::EvalRef));
+        self.opt_this_liason.set(Some(ParameterModifier::EvalRef));
         context_update_result?;
         Ok(AstVariant::Visual)
     }

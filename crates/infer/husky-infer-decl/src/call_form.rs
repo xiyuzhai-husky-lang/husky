@@ -25,7 +25,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct CallFormDecl {
     pub opt_base_route: Option<EntityRoutePtr>,
-    pub opt_this_liason: Option<ParameterLiason>,
+    pub opt_this_liason: Option<ParameterModifier>,
     pub spatial_parameters: IdentDict<SpatialParameter>,
     pub primary_parameters: IdentDict<ParameterDecl>,
     pub variadic_template: VariadicTemplate,
@@ -114,7 +114,7 @@ impl CallFormDecl {
         nargs0 + self.opt_this_liason.map(|_| 1u8).unwrap_or(0u8)
     }
 
-    pub fn this_liason(&self) -> ParameterLiason {
+    pub fn this_liason(&self) -> ParameterModifier {
         self.opt_this_liason.unwrap()
     }
 
@@ -275,10 +275,12 @@ pub(crate) fn value_call_form_decl(
                 primary_parameters: ty.spatial_arguments[0..nargs]
                     .iter()
                     .enumerate()
-                    .map(|(i, spatial_argument)| ParameterDecl {
-                        liason: ParameterLiason::Pure,
-                        ty: spatial_argument.take_entity_route(),
-                        ident: db.intern_word(&format!("arg{}", i)).custom(),
+                    .map(|(i, spatial_argument)| {
+                        ParameterDecl::new(
+                            ParameterModifier::None,
+                            spatial_argument.take_entity_route(),
+                            db.intern_word(&format!("arg{}", i)).custom(),
+                        )
                     })
                     .collect(),
                 variadic_template: Default::default(),
@@ -331,11 +333,8 @@ pub(crate) fn routine_decl_from_static(
                 kind: AtomContextKind::Normal,
                 opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
             };
-            let parameters = parameters.map(|parameter| ParameterDecl {
-                ty: symbol_context.parse_entity_route(parameter.ty).unwrap(),
-                liason: parameter.liason,
-                ident: db.custom_ident(parameter.name),
-            });
+            let parameters = parameters
+                .map(|parameter| ParameterDecl::from_static(&mut symbol_context, parameter));
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             msg_once!("todo: keyword parameters");
             Ok(Arc::new(CallFormDecl {

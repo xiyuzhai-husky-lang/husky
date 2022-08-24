@@ -55,7 +55,7 @@ impl LazyValueQualifiedTy {
 
     pub(crate) fn parameter_use_lazy_qualified_ty(
         db: &dyn InferQualifiedTyQueryGroup,
-        parameter_liason: ParameterLiason,
+        parameter_liason: ParameterModifier,
         ty: EntityRoutePtr,
         contract: LazyContract,
     ) -> InferResult<Self> {
@@ -163,7 +163,7 @@ impl LazyExprQualifier {
     }
 
     pub fn parameter_use_lazy_qualifier(
-        parameter_liason: ParameterLiason,
+        parameter_liason: ParameterModifier,
         is_copyable: bool,
         contract: LazyContract,
     ) -> InferResult<Self> {

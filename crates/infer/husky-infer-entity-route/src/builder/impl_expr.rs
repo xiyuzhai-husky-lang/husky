@@ -115,10 +115,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 .into();
                 msg_once!("handle temporal/spatial parameters");
+                msg_once!("make this into salsa db");
                 let mut spatial_arguments: ThinVec<SpatialArgument> = decl
                     .primary_parameters
                     .iter()
-                    .map(|parameter| parameter.ty.into())
+                    .map(|parameter| parameter.ty().into())
                     .collect();
                 if let Some(this) = decl.opt_this_liason {
                     spatial_arguments
@@ -517,7 +518,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             ((all_opds.start + 1)..all_opds.end).into_iter(),
             call_decl.primary_parameters.iter(),
         ) {
-            self.infer_expr(argument, Some(parameter.ty));
+            self.infer_expr(argument, Some(parameter.ty()));
         }
         Ok(call_decl.output.ty())
     }
@@ -546,7 +547,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             parameters.into_iter(),
             call_form_decl.primary_parameters.iter(),
         ) {
-            self.infer_expr(argument, Some(parameter.ty));
+            self.infer_expr(argument, Some(parameter.ty()));
         }
         let spatial_arguments: ThinVec<SpatialArgument> =
             if call_form_decl.spatial_parameters.len() > 0 {

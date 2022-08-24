@@ -32,7 +32,7 @@ pub use std::sync::Arc as __Arc;
 
 use husky_dev_utils::*;
 use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
-use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterLiason};
+use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterModifier};
 use husky_static_defn::StaticParameter;
 use husky_static_defn::*;
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
@@ -75,6 +75,7 @@ pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {
         RootIdentifier::Ref => panic!(),
         RootIdentifier::Option => &OPTION_DEFN,
         RootIdentifier::VisualType => todo!(),
+        RootIdentifier::RefMut => todo!(),
     }
     .into()
 }

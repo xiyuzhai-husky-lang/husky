@@ -336,7 +336,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("let __this_");
             self.write(&parameter.ident);
             self.write(": ");
-            self.gen_entity_route(parameter.ty, EntityRouteRole::Decl);
+            self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
             self.write(" = ");
             self.gen_binding(expr);
             self.gen_expr(indent, expr);
@@ -354,7 +354,7 @@ impl<'a> RustCodeGenerator<'a> {
                 } => match field_variant {
                     FieldDefnVariant::StructDefault { default } => {
                         self.write(": ");
-                        self.gen_entity_route(parameter.ty, EntityRouteRole::Decl);
+                        self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
                         self.write(" = ");
                         self.gen_expr(indent + 4, default);
                         self.write(";");

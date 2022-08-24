@@ -93,22 +93,22 @@ impl<'a> RustCodeGenerator<'a> {
             if i > 0 {
                 self.write(", ");
             }
-            self.write(&parameter.ranged_ident.ident);
+            self.write(&parameter.ident());
             self.write(": ");
-            match parameter.ranged_liason.liason {
-                ParameterLiason::Pure => {
-                    if !self.db.is_copyable(parameter.ranged_ty.route).unwrap() {
+            match parameter.liason() {
+                ParameterModifier::None => {
+                    if !self.db.is_copyable(parameter.ty()).unwrap() {
                         self.write("&")
                     }
                 }
-                ParameterLiason::EvalRef => self.write("&'eval "),
-                ParameterLiason::Move => todo!(),
-                ParameterLiason::TempRefMut => todo!(),
-                ParameterLiason::MoveMut => todo!(),
-                ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::TempRef => todo!(),
+                ParameterModifier::EvalRef => self.write("&'eval "),
+                ParameterModifier::Move => todo!(),
+                ParameterModifier::TempRefMut => todo!(),
+                ParameterModifier::MoveMut => todo!(),
+                ParameterModifier::MemberAccess => todo!(),
+                ParameterModifier::TempRef => todo!(),
             }
-            self.gen_entity_route(parameter.ranged_ty.route, EntityRouteRole::Decl);
+            self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
         }
         msg_once!("todo: keyword arguments, variadics");
         if needs_eval_context {

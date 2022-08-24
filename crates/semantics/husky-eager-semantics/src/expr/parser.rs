@@ -410,7 +410,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             let arguments =
                 std::iter::zip(arguments.into_iter(), method_decl.primary_parameters.iter())
                     .map(|(idx, primary_parameter)| {
-                        self.parse_eager_expr(idx, Some(primary_parameter.ty))
+                        self.parse_eager_expr(idx, Some(primary_parameter.ty()))
                     })
                     .collect::<SemanticResult<Vec<_>>>()?;
             opds.extend(arguments);

@@ -10,9 +10,9 @@ eager variable:
     c           30:5..30:6  Copyable     i32
     d           31:5..31:6  Copyable     i32
     x           32:5..32:6  Copyable     i32
-    b           35:22..35:23  Owned        major::B
-    b           44:26..44:27  OwnedMut     major::B
-    b           48:30..48:31  RefMut       major::B
+    b           35:24..35:25  Owned        major::B
+    b           44:32..44:33  OwnedMut     major::B
+    b           48:34..48:35  RefMut       RefMut<major::B>
     b           49:9..49:10  Owned        major::B
     c           50:9..50:10  Copyable     i32
     move_from_temp_ref_mut_is_err  51:9..51:38  Copyable     i32

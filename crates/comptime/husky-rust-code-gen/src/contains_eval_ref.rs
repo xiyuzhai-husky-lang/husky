@@ -63,7 +63,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
                 return true;
             }
             for parameter in call_form_decl.primary_parameters.iter() {
-                if db.entity_route_contains_eval_ref(parameter.ty) {
+                if db.entity_route_contains_eval_ref(parameter.ty()) {
                     return true;
                 }
             }
@@ -99,10 +99,10 @@ fn parameter_contains_eval_ref(
     parameter: &infer_decl::ParameterDecl,
 ) -> bool {
     match parameter.liason {
-        ParameterLiason::EvalRef => return true,
+        ParameterModifier::EvalRef => return true,
         _ => (),
     }
-    db.entity_route_contains_eval_ref(parameter.ty)
+    db.entity_route_contains_eval_ref(parameter.ty())
 }
 
 pub(super) fn entity_route_contains_eval_ref(

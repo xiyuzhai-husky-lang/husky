@@ -117,7 +117,7 @@ macro_rules! be_special_token_patt {
     }};
 }
 
-impl<'a, 'b> AtomParser<'a, 'b> {
+impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub fn special(&mut self, target: SpecialToken) -> Option<()> {
         self.token_kind(target.into())
     }

@@ -1,5 +1,5 @@
 use husky_ast::MatchLiason;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::{CanonicalEntityRoutePtrKind, EntityRoutePtr};
 use husky_text::TextRange;
 
 use crate::*;
@@ -25,18 +25,25 @@ impl LazyContract {
     }
 
     pub(crate) fn parameter_lazy_contract(
-        parameter_liason: ParameterLiason,
+        parameter_liason: ParameterModifier,
+        parameter_ty: EntityRoutePtr,
         output: OutputLiason,
         range: TextRange,
     ) -> InferResult<LazyContract> {
         match output {
             OutputLiason::Transfer => Ok(match parameter_liason {
-                ParameterLiason::Pure => LazyContract::Pure,
-                ParameterLiason::Move | ParameterLiason::MoveMut => LazyContract::Move,
-                ParameterLiason::TempRefMut => panic!(),
-                ParameterLiason::MemberAccess => todo!(),
-                ParameterLiason::EvalRef => LazyContract::EvalRef,
-                ParameterLiason::TempRef => todo!(),
+                ParameterModifier::None => match parameter_ty.canonicalize().kind() {
+                    CanonicalEntityRoutePtrKind::Intrinsic => LazyContract::Pure,
+                    CanonicalEntityRoutePtrKind::Optional => LazyContract::Pure,
+                    CanonicalEntityRoutePtrKind::EvalRef => LazyContract::EvalRef,
+                    CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
+                    CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
+                },
+                ParameterModifier::Move | ParameterModifier::MoveMut => LazyContract::Move,
+                ParameterModifier::TempRefMut => panic!(),
+                ParameterModifier::MemberAccess => todo!(),
+                ParameterModifier::EvalRef => LazyContract::EvalRef,
+                ParameterModifier::TempRef => todo!(),
             }),
             OutputLiason::MemberAccess { .. } => todo!(),
         }

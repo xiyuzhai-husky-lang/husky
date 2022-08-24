@@ -17,11 +17,11 @@ pub enum RawExprVariant {
     },
     ThisValue {
         opt_this_ty: Option<EntityRoutePtr>,
-        opt_this_liason: Option<ParameterLiason>,
+        opt_this_liason: Option<ParameterModifier>,
     },
     ThisField {
         opt_this_ty: Option<EntityRoutePtr>,
-        opt_this_liason: Option<ParameterLiason>,
+        opt_this_liason: Option<ParameterModifier>,
         field_ident: RangedCustomIdentifier,
         field_liason: MemberLiason,
         opt_field_ty: Option<RangedEntityRoute>,

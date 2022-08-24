@@ -1,10 +1,12 @@
-use husky_entity_route::{EntityRoutePtr, EntityRouteVariant, TemporalArgument};
+use husky_entity_route::{
+    CanonicalEntityRoutePtrKind, EntityRoutePtr, EntityRouteVariant, TemporalArgument,
+};
 use husky_text::TextRange;
 use husky_word::{LiasonKeyword, RootIdentifier};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ParameterLiason {
-    Pure,
+pub enum ParameterModifier {
+    None,
     Move,
     MoveMut,
     MemberAccess,
@@ -13,14 +15,55 @@ pub enum ParameterLiason {
     TempRefMut,
 }
 
+impl ParameterModifier {
+    pub fn is_compatible(self, ty: EntityRoutePtr) -> bool {
+        match self {
+            ParameterModifier::None => true,
+            ParameterModifier::Move => true,
+            ParameterModifier::MoveMut => {
+                let canonical_ty = ty.canonicalize();
+                match canonical_ty.kind() {
+                    CanonicalEntityRoutePtrKind::Intrinsic => true,
+                    CanonicalEntityRoutePtrKind::Optional => todo!(),
+                    CanonicalEntityRoutePtrKind::EvalRef => todo!(),
+                    CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
+                    CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
+                }
+            }
+            ParameterModifier::MemberAccess => todo!(),
+            ParameterModifier::EvalRef => {
+                let canonical_ty = ty.canonicalize();
+                match canonical_ty.kind() {
+                    CanonicalEntityRoutePtrKind::Intrinsic => false,
+                    CanonicalEntityRoutePtrKind::Optional => todo!(),
+                    CanonicalEntityRoutePtrKind::EvalRef => todo!(),
+                    CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
+                    CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
+                }
+            }
+            ParameterModifier::TempRef => todo!(),
+            ParameterModifier::TempRefMut => {
+                let canonical_ty = ty.canonicalize();
+                match canonical_ty.kind() {
+                    CanonicalEntityRoutePtrKind::Intrinsic => false,
+                    CanonicalEntityRoutePtrKind::Optional => todo!(),
+                    CanonicalEntityRoutePtrKind::EvalRef => todo!(),
+                    CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
+                    CanonicalEntityRoutePtrKind::TempRefMut => true,
+                }
+            }
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RangedParameterLiason {
-    pub liason: ParameterLiason,
+    pub liason: ParameterModifier,
     pub opt_range: Option<TextRange>,
 }
 
-impl From<ParameterLiason> for RangedParameterLiason {
-    fn from(liason: ParameterLiason) -> Self {
+impl From<ParameterModifier> for RangedParameterLiason {
+    fn from(liason: ParameterModifier) -> Self {
         Self {
             liason,
             opt_range: None,
@@ -28,42 +71,25 @@ impl From<ParameterLiason> for RangedParameterLiason {
     }
 }
 
-impl ParameterLiason {
-    pub fn new(ty: EntityRoutePtr) -> Self {
-        match ty.variant {
-            EntityRouteVariant::Root {
-                ident: RootIdentifier::Ref,
-            } => {
-                if ty.temporal_arguments.len() == 0
-                    || ty.temporal_arguments[0] == TemporalArgument::Eval
-                {
-                    ParameterLiason::EvalRef
-                } else {
-                    ParameterLiason::TempRef
-                }
-            }
-            _ => ParameterLiason::Pure,
-        }
-    }
-
+impl ParameterModifier {
     pub fn from_member(
         member_liason: MemberLiason,
         member_ty: EntityRoutePtr,
         is_copyable: bool,
-    ) -> ParameterLiason {
+    ) -> ParameterModifier {
         match member_liason {
             MemberLiason::Immutable => {
                 if is_copyable {
-                    ParameterLiason::Pure
+                    ParameterModifier::None
                 } else {
-                    ParameterLiason::Move
+                    ParameterModifier::Move
                 }
             }
             MemberLiason::Mutable => {
                 if is_copyable {
-                    ParameterLiason::Pure
+                    ParameterModifier::None
                 } else {
-                    ParameterLiason::MoveMut
+                    ParameterModifier::MoveMut
                 }
             }
             MemberLiason::DerivedLazy => panic!(),

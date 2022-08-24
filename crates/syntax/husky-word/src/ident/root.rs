@@ -34,6 +34,7 @@ pub enum RootIdentifier {
     PartialEqTrait,
     EqTrait,
     Ref,
+    RefMut,
     Option,
 }
 
@@ -92,6 +93,7 @@ impl RootIdentifier {
             RootIdentifier::PartialEqTrait => "PartialEq",
             RootIdentifier::EqTrait => "Eq",
             RootIdentifier::Ref => "Ref",
+            RootIdentifier::RefMut => "RefMut",
             RootIdentifier::Option => "Option",
         }
     }

@@ -2,7 +2,7 @@ use husky_opn_syntax::{BinaryOpr, PureBinaryOpr};
 
 use super::*;
 
-impl<'a, 'b> AtomParser<'a, 'b> {
+impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub(super) fn handle_special(
         &mut self,
         special: SpecialToken,

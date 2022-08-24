@@ -30,20 +30,20 @@ use pattern::AtomParserPattern;
 use std::iter::Peekable;
 use utils::*;
 
-pub struct AtomParser<'a, 'b> {
-    pub atom_context: &'a mut dyn AtomContext,
-    pub token_stream: &'a mut TokenStream<'b>,
+pub struct AtomParser<'a, 'b, 'c> {
+    pub atom_context: &'a mut dyn AtomContext<'b>,
+    pub token_stream: &'a mut TokenStream<'c>,
     stack: AtomStack,
 }
 
-impl<'a, 'b> AtomParser<'a, 'b> {
+impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     fn db(&self) -> &dyn EntitySyntaxQueryGroup {
         self.atom_context.entity_syntax_db()
     }
 
     pub fn new(
-        symbol_context: &'a mut dyn AtomContext,
-        token_stream: &'a mut TokenStream<'b>,
+        symbol_context: &'a mut dyn AtomContext<'b>,
+        token_stream: &'a mut TokenStream<'c>,
     ) -> Self {
         Self {
             atom_context: symbol_context,

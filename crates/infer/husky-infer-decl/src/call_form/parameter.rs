@@ -6,8 +6,8 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ParameterDecl {
-    pub liason: ParameterLiason,
-    pub ty: EntityRoutePtr,
+    pub liason: ParameterModifier,
+    ty: EntityRoutePtr,
     pub ident: CustomIdentifier,
 }
 
@@ -18,33 +18,42 @@ impl VecMapEntry<CustomIdentifier> for ParameterDecl {
 }
 
 impl ParameterDecl {
+    pub fn new(liason: ParameterModifier, ty: EntityRoutePtr, ident: CustomIdentifier) -> Self {
+        assert!(liason.is_compatible(ty));
+        Self { liason, ty, ident }
+    }
+
+    pub fn ty(&self) -> EntityRoutePtr {
+        self.ty
+    }
+
     pub fn from_static(symbol_context: &mut dyn AtomContext, input: &StaticParameter) -> Self {
         // opt_this_ty,
-        Self {
-            ty: symbol_context.parse_entity_route(input.ty).unwrap(),
-            liason: input.liason,
-            ident: symbol_context.entity_syntax_db().custom_ident(input.name),
-        }
+        Self::new(
+            input.liason,
+            symbol_context.parse_entity_route(input.ty).unwrap(),
+            symbol_context.entity_syntax_db().custom_ident(input.name),
+        )
     }
 
     pub fn from_field(db: &dyn DeclQueryGroup, field_decl: &FieldDecl) -> InferResult<Self> {
-        Ok(ParameterDecl {
-            liason: ParameterLiason::from_member(
+        Ok(ParameterDecl::new(
+            ParameterModifier::from_member(
                 field_decl.liason,
                 field_decl.ty,
                 db.is_copyable(field_decl.ty)?,
             ),
-            ty: field_decl.ty,
-            ident: field_decl.ident,
-        })
+            field_decl.ty,
+            field_decl.ident,
+        ))
     }
 
     pub fn from_parameter(db: &dyn DeclQueryGroup, parameter: &Parameter) -> InferResult<Self> {
-        Ok(ParameterDecl {
-            liason: parameter.ranged_liason.liason,
-            ty: db.implement_target(parameter.ranged_ty.route)?,
-            ident: parameter.ranged_ident.ident,
-        })
+        Ok(ParameterDecl::new(
+            parameter.liason(),
+            db.implement_target(parameter.ty())?,
+            parameter.ident(),
+        ))
     }
 
     pub fn instantiate(&self, ctx: &InstantiationContext) -> Self {

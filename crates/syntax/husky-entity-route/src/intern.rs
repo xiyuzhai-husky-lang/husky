@@ -100,6 +100,11 @@ impl EntityRoutePtr {
             let this1 = self.entity_route_argument(0);
             assert!(this1.is_intrinsic());
             CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::EvalRef)
+        } else if self.is_temp_ref_mut() {
+            assert_eq!(self.spatial_arguments.len(), 1);
+            let this1 = self.entity_route_argument(0);
+            assert!(this1.is_intrinsic());
+            CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::TempRefMut)
         } else {
             CanonicalEntityRoutePtr::new(self, CanonicalEntityRoutePtrKind::Intrinsic)
         }
@@ -110,6 +115,9 @@ impl EntityRoutePtr {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => self.entity_route_argument(0).deref_route(),
+            EntityRouteVariant::Root {
+                ident: RootIdentifier::Option,
+            } => todo!(),
             _ => self,
         }
     }
@@ -125,6 +133,15 @@ impl EntityRoutePtr {
                     true
                 }
             }
+            _ => false,
+        }
+    }
+
+    pub fn is_temp_ref_mut(self) -> bool {
+        match self.variant {
+            EntityRouteVariant::Root {
+                ident: RootIdentifier::RefMut,
+            } => true,
             _ => false,
         }
     }
@@ -252,7 +269,7 @@ impl Deref for EntityRoutePtr {
                 CloneTrait,
                 CopyTrait,
                 PartialEqTrait,
-                EqTrait, Ref, Option
+                EqTrait, Ref, RefMut, Option
             ),
             EntityRoutePtr::Custom(scope) => scope,
         }

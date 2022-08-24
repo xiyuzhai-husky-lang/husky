@@ -60,7 +60,7 @@ impl<'a> AstTransformer<'a> {
                     kind: RawReturnContextKind::Normal,
                 }),
             });
-            self.opt_this_liason.set(Some(ParameterLiason::Pure));
+            self.opt_this_liason.set(Some(ParameterModifier::None));
             if token_stream.empty() {
                 return err!(
                     format!("expect expr but got nothing"),
@@ -86,7 +86,7 @@ impl<'a> AstTransformer<'a> {
                     kind: RawReturnContextKind::Normal,
                 }),
             });
-            self.opt_this_liason.set(Some(ParameterLiason::Pure));
+            self.opt_this_liason.set(Some(ParameterModifier::None));
             if token_stream.empty() {
                 return err!(
                     format!("expect expr but got nothing"),
@@ -123,7 +123,7 @@ impl<'a> AstTransformer<'a> {
             HuskyTokenKind::Keyword(Keyword::Paradigm(paradigm)) => paradigm,
             _ => todo!(),
         };
-        self.opt_this_liason.set(Some(ParameterLiason::EvalRef));
+        self.opt_this_liason.set(Some(ParameterModifier::EvalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);
         match token_group[2].kind {
             HuskyTokenKind::Special(SpecialToken::LightArrow) => (),

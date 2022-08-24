@@ -35,7 +35,7 @@ pub struct AstTransformer<'a> {
     symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,
     opt_base_ty: LocalValue<Option<EntityRoutePtr>>,
-    opt_this_liason: LocalValue<Option<ParameterLiason>>,
+    opt_this_liason: LocalValue<Option<ParameterModifier>>,
     pub(crate) folded_results: FoldableList<AstResult<Ast>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
     tokenized_text: Arc<TokenizedText>,

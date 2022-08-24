@@ -64,6 +64,7 @@ impl EntityDefnVariant {
                         ..
                     } => match field_variant {
                         FieldDefnVariant::RecordOriginal => Parameter::from_member(
+                            db.upcast(),
                             RangedCustomIdentifier {
                                 ident: ty_member.ident.custom(),
                                 range: Default::default(),
@@ -94,6 +95,7 @@ impl EntityDefnVariant {
                         ..
                     } => match field_variant {
                         FieldDefnVariant::StructOriginal => Parameter::from_member(
+                            db.upcast(),
                             RangedCustomIdentifier {
                                 ident: ty_member.ident.custom(),
                                 range: Default::default(),

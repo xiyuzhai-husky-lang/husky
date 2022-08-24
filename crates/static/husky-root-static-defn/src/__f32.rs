@@ -26,10 +26,10 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
     name: "min",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[StaticParameter {
             name: "other",
-            liason: ParameterLiason::Pure,
+            liason: ParameterModifier::None,
             ty: "f32",
         }],
         output_ty: "f32",
@@ -52,10 +52,10 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
     name: "max",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[StaticParameter {
             name: "other",
-            liason: ParameterLiason::Pure,
+            liason: ParameterModifier::None,
             ty: "f32",
         }],
         output_ty: "f32",
@@ -75,7 +75,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
     name: "sgnx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
@@ -93,7 +93,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
     name: "abs",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -110,7 +110,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
     name: "sqrt",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -127,7 +127,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
     name: "cos",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -144,7 +144,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
     name: "sin",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -161,7 +161,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
     name: "tan",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -178,7 +178,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
     name: "acos",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -195,7 +195,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
     name: "asin",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,
@@ -212,7 +212,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
     name: "atan",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "f32",
         output_liason: OutputLiason::Transfer,

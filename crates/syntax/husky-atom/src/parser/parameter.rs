@@ -10,7 +10,7 @@ use husky_word::{IdentDict, Paradigm};
 use super::*;
 
 // inner ops
-impl<'a, 'b> AtomParser<'a, 'b> {
+impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub fn spatial_parameters(&mut self) -> AtomResult<IdentDict<SpatialParameter>> {
         if try_eat_special!(self, "<") {
             let spatial_parameters = get_patt!(
@@ -33,6 +33,7 @@ impl<'a, 'b> AtomParser<'a, 'b> {
     }
 
     pub fn parameter(&mut self) -> AtomResult<Parameter> {
+        let ranged_parameter_liason = self.ranged_parameter_liason();
         let ident = deprecated_get!(self, custom_ident);
         self.atom_context
             .push_abs_semantic_token(AbsSemanticToken::new(
@@ -40,26 +41,29 @@ impl<'a, 'b> AtomParser<'a, 'b> {
                 ident.range,
             ));
         eat_special!(self, ":");
-        let ranged_parameter_liason = self.ranged_parameter_liason();
         let ranged_ty = deprecated_get!(self, ranged_ty?);
-        Ok(Parameter::new(ident, ranged_parameter_liason, ranged_ty))
+        Ok(Parameter::new(
+            self.atom_context.entity_syntax_db(),
+            ident,
+            ranged_parameter_liason,
+            ranged_ty,
+        ))
     }
 
     pub fn ranged_parameter_liason(&mut self) -> RangedParameterLiason {
         let text_start = self.token_stream.text_start();
         let liason = if deprecated_try_eat!(self, "&") {
-            msg_once!("todo: temporal parameter");
-            ParameterLiason::EvalRef
+            todo!()
         } else if deprecated_try_eat!(self, "mut") {
             if deprecated_try_eat!(self, "!!") {
-                ParameterLiason::MoveMut
+                ParameterModifier::MoveMut
             } else {
-                ParameterLiason::TempRefMut
+                ParameterModifier::TempRefMut
             }
         } else if deprecated_try_eat!(self, "!!") {
-            ParameterLiason::Move
+            ParameterModifier::Move
         } else {
-            return ParameterLiason::Pure.into();
+            return ParameterModifier::None.into();
         };
         RangedParameterLiason {
             liason,
@@ -144,6 +148,7 @@ impl AtomParserPattern for ParameterPattern {
     type Output = Parameter;
 
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
+        let ranged_parameter_liason = parser.ranged_parameter_liason();
         let ident = deprecated_get!(parser, custom_ident);
         parser
             .atom_context
@@ -152,9 +157,9 @@ impl AtomParserPattern for ParameterPattern {
                 ident.range,
             ));
         eat_special!(parser, ":");
-        let ranged_parameter_liason = parser.ranged_parameter_liason();
         let ranged_ty = deprecated_get!(parser, ranged_ty?);
         Ok(Some(Parameter::new(
+            parser.db(),
             ident,
             ranged_parameter_liason,
             ranged_ty,

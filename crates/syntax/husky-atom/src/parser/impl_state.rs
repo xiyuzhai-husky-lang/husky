@@ -6,7 +6,7 @@ use crate::*;
 use super::*;
 
 // inner ops
-impl<'a, 'b> AtomParser<'a, 'b> {
+impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub(crate) fn push(
         &mut self,
         kind: HuskyAtomVariant,

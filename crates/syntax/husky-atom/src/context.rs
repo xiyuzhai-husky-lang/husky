@@ -33,17 +33,17 @@ pub struct AtomContextState {
     pub abs_semantic_tokens_len: usize,
 }
 
-pub trait AtomContext {
+pub trait AtomContext<'a> {
     fn file(&self) -> FilePtr;
-    fn entity_syntax_db(&self) -> &dyn EntitySyntaxQueryGroup;
+    fn entity_syntax_db(&self) -> &'a dyn EntitySyntaxQueryGroup;
     fn opt_target_entrance(&self) -> Option<FilePtr> {
         FileSalsaQuery::opt_target_entrance(self.entity_syntax_db())
     }
     fn opt_this_ty(&self) -> Option<EntityRoutePtr>;
-    fn opt_this_liason(&self) -> Option<ParameterLiason>;
+    fn opt_this_liason(&self) -> Option<ParameterModifier>;
     fn symbols(&self) -> &[Symbol];
     fn kind(&self) -> AtomContextKind;
-    fn as_dyn_mut(&mut self) -> &mut dyn AtomContext;
+    fn as_dyn_mut(&mut self) -> &mut dyn AtomContext<'a>;
     fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken);
     fn save_state(&self) -> AtomContextState;
     fn rollback(&mut self, state: AtomContextState);
@@ -100,6 +100,7 @@ pub trait AtomContext {
                 RootIdentifier::EqTrait => todo!(),
                 RootIdentifier::ModuleType => todo!(),
                 RootIdentifier::Ref => todo!(),
+                RootIdentifier::RefMut => todo!(),
                 RootIdentifier::Option => todo!(),
                 RootIdentifier::VisualType => todo!(),
             }),
@@ -161,7 +162,7 @@ pub trait AtomContext {
             .find(|symbol| symbol.init_ident.ident == ident)
     }
 
-    fn husky_entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
+    fn entity_kind(&self, route: EntityRoutePtr, range: TextRange) -> AtomResult<EntityKind> {
         let kind_result: EntitySyntaxResult<EntityKind> = match route.variant {
             EntityRouteVariant::Child {
                 parent,
@@ -224,20 +225,21 @@ pub trait AtomContext {
     }
 
     fn parameter_from_static(&mut self, static_parameter: &StaticParameter) -> Parameter {
-        Parameter {
-            ranged_ident: RangedCustomIdentifier {
+        Parameter::new(
+            self.entity_syntax_db(),
+            RangedCustomIdentifier {
                 ident: self
                     .entity_syntax_db()
                     .intern_word(static_parameter.name)
                     .custom(),
                 range: Default::default(),
             },
-            ranged_liason: static_parameter.liason.into(),
-            ranged_ty: RangedEntityRoute {
+            static_parameter.liason.into(),
+            RangedEntityRoute {
                 route: self.parse_entity_route(static_parameter.ty).unwrap(),
                 range: Default::default(),
             },
-        }
+        )
     }
 
     fn trai(&self) -> EntityRoutePtr {

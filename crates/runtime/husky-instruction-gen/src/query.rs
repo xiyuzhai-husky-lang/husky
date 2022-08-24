@@ -35,7 +35,7 @@ fn entity_instruction_sheet(
             db,
             parameters
                 .iter()
-                .map(|input_placeholder| input_placeholder.ranged_ident.ident),
+                .map(|input_placeholder| input_placeholder.ranged_ident().ident),
             stmts,
             false,
         )),
@@ -45,9 +45,7 @@ fn entity_instruction_sheet(
             ..
         } => Some(new_proc_instruction_sheet(
             db,
-            parameters
-                .iter()
-                .map(|parameter| parameter.ranged_ident.ident),
+            parameters.iter().map(|parameter| parameter.ident()),
             stmts,
             false, // has_this
         )),
@@ -69,9 +67,7 @@ fn entity_instruction_sheet(
             match opt_source.as_ref()? {
                 CallFormSource::Func { stmts } => Some(new_func_instruction_sheet(
                     db,
-                    parameters
-                        .iter()
-                        .map(|parameter| parameter.ranged_ident.ident),
+                    parameters.iter().map(|parameter| parameter.ident()),
                     stmts,
                     true, // has_this
                 )),
@@ -116,7 +112,7 @@ fn method_opt_instruction_sheet(
                 } => {
                     let inputs = parameters
                         .iter()
-                        .map(|input_placeholder| input_placeholder.ranged_ident.ident);
+                        .map(|input_placeholder| input_placeholder.ranged_ident().ident);
                     match opt_source.as_ref()? {
                         CallFormSource::Func { stmts } => {
                             Some(new_func_instruction_sheet(db, inputs, stmts, true))

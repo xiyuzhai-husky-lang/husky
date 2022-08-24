@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::{MatchLiason, RawReturnContext, RawReturnContextKind};
-use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
+use husky_entity_route::{CanonicalEntityRoutePtrKind, EntityRoutePtr, EntityRouteVariant};
 use husky_infer_error::throw;
 use husky_text::TextRange;
 use husky_word::RootIdentifier;
@@ -18,8 +18,8 @@ pub enum EagerContract {
 
 impl EagerContract {
     pub(crate) fn argument_eager_contract(
+        parameter_liason: ParameterModifier,
         parameter_ty: EntityRoutePtr,
-        parameter_liason: ParameterLiason,
         output_liason: OutputLiason,
         range: TextRange,
     ) -> EagerContract {
@@ -29,12 +29,18 @@ impl EagerContract {
             } => EagerContract::EvalRef,
             _ => match output_liason {
                 OutputLiason::Transfer => match parameter_liason {
-                    ParameterLiason::Pure => EagerContract::Pure,
-                    ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                    ParameterLiason::TempRefMut => EagerContract::TempRefMut,
-                    ParameterLiason::MemberAccess => panic!(),
-                    ParameterLiason::EvalRef => EagerContract::EvalRef,
-                    ParameterLiason::TempRef => todo!(),
+                    ParameterModifier::None => match parameter_ty.canonicalize().kind() {
+                        CanonicalEntityRoutePtrKind::Intrinsic => EagerContract::Pure,
+                        CanonicalEntityRoutePtrKind::Optional => EagerContract::Pure,
+                        CanonicalEntityRoutePtrKind::EvalRef => EagerContract::EvalRef,
+                        CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
+                        CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
+                    },
+                    ParameterModifier::Move | ParameterModifier::MoveMut => EagerContract::Move,
+                    ParameterModifier::TempRefMut => EagerContract::TempRefMut,
+                    ParameterModifier::MemberAccess => panic!(),
+                    ParameterModifier::EvalRef => EagerContract::EvalRef,
+                    ParameterModifier::TempRef => todo!(),
                 },
                 OutputLiason::MemberAccess { .. } => EagerContract::Pure,
             },
@@ -42,18 +48,18 @@ impl EagerContract {
     }
 
     pub(crate) fn method_call_this_eager_contract(
-        parameter_liason: ParameterLiason,
+        parameter_liason: ParameterModifier,
         output_liason: OutputLiason,
         output_contract: EagerContract,
     ) -> EagerContract {
         match output_liason {
             OutputLiason::Transfer => match parameter_liason {
-                ParameterLiason::Pure => EagerContract::Pure,
-                ParameterLiason::Move | ParameterLiason::MoveMut => EagerContract::Move,
-                ParameterLiason::TempRefMut => EagerContract::TempRefMut,
-                ParameterLiason::MemberAccess => panic!(),
-                ParameterLiason::EvalRef => EagerContract::EvalRef,
-                ParameterLiason::TempRef => todo!(),
+                ParameterModifier::None => EagerContract::Pure,
+                ParameterModifier::Move | ParameterModifier::MoveMut => EagerContract::Move,
+                ParameterModifier::TempRefMut => EagerContract::TempRefMut,
+                ParameterModifier::MemberAccess => panic!(),
+                ParameterModifier::EvalRef => EagerContract::EvalRef,
+                ParameterModifier::TempRef => todo!(),
             },
             OutputLiason::MemberAccess { .. } => output_contract,
         }

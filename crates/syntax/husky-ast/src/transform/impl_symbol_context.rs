@@ -2,12 +2,12 @@ use crate::*;
 use husky_atom::context::{AtomContext, AtomContextKind, Symbol};
 use husky_token::AbsSemanticToken;
 
-impl<'a> AtomContext for AstTransformer<'a> {
+impl<'a> AtomContext<'a> for AstTransformer<'a> {
     fn opt_target_entrance(&self) -> Option<FilePtr> {
         Some(self.main)
     }
 
-    fn entity_syntax_db(&self) -> &dyn husky_entity_syntax::EntitySyntaxQueryGroup {
+    fn entity_syntax_db(&self) -> &'a dyn husky_entity_syntax::EntitySyntaxQueryGroup {
         self.db.upcast()
     }
 
@@ -15,7 +15,7 @@ impl<'a> AtomContext for AstTransformer<'a> {
         self.opt_base_ty.value()
     }
 
-    fn opt_this_liason(&self) -> Option<ParameterLiason> {
+    fn opt_this_liason(&self) -> Option<ParameterModifier> {
         self.opt_this_liason.value()
     }
 
@@ -39,7 +39,7 @@ impl<'a> AtomContext for AstTransformer<'a> {
         self.abs_semantic_tokens.push(new_token)
     }
 
-    fn as_dyn_mut(&mut self) -> &mut dyn AtomContext {
+    fn as_dyn_mut(&mut self) -> &mut dyn AtomContext<'a> {
         self
     }
 

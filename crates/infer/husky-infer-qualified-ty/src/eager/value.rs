@@ -105,7 +105,7 @@ impl EagerExprQualifier {
     pub fn parameter_use_eager_qualifier(
         db: &dyn DeclQueryGroup,
         parameter_ty: EntityRoutePtr,
-        parameter_liason: ParameterLiason,
+        parameter_liason: ParameterModifier,
         contract: EagerContract,
         range: TextRange,
     ) -> InferResult<Self> {
@@ -237,7 +237,7 @@ impl EagerValueQualifiedTy {
 
     pub(crate) fn from_parameter_use(
         db: &dyn InferQualifiedTyQueryGroup,
-        parameter_liason: ParameterLiason,
+        parameter_liason: ParameterModifier,
         ty: EntityRoutePtr,
         contract: EagerContract,
         range: TextRange,

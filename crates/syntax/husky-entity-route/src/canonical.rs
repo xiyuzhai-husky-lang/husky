@@ -13,6 +13,7 @@ impl std::fmt::Display for CanonicalEntityRoutePtrKind {
             CanonicalEntityRoutePtrKind::Optional => "Optional",
             CanonicalEntityRoutePtrKind::EvalRef => "EvalRef",
             CanonicalEntityRoutePtrKind::OptionalEvalRef => "OptionalEvalRef",
+            CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
         }
         .fmt(f)
     }
@@ -46,4 +47,5 @@ pub enum CanonicalEntityRoutePtrKind {
     Optional,
     EvalRef,
     OptionalEvalRef,
+    TempRefMut,
 }

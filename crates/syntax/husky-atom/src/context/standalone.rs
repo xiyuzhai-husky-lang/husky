@@ -6,13 +6,13 @@ pub struct AtomContextStandalone<'a> {
     pub opt_file: Option<FilePtr>,
     pub db: &'a dyn EntitySyntaxQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
-    pub opt_this_contract: Option<ParameterLiason>,
+    pub opt_this_contract: Option<ParameterModifier>,
     pub symbols: Cow<'a, [Symbol]>,
     pub kind: AtomContextKind<'a>,
 }
 
-impl<'a> AtomContext for AtomContextStandalone<'a> {
-    fn entity_syntax_db(&self) -> &dyn EntitySyntaxQueryGroup {
+impl<'a> AtomContext<'a> for AtomContextStandalone<'a> {
+    fn entity_syntax_db(&self) -> &'a dyn EntitySyntaxQueryGroup {
         self.db
     }
 
@@ -20,7 +20,7 @@ impl<'a> AtomContext for AtomContextStandalone<'a> {
         self.opt_this_ty
     }
 
-    fn opt_this_liason(&self) -> Option<ParameterLiason> {
+    fn opt_this_liason(&self) -> Option<ParameterModifier> {
         self.opt_this_contract
     }
 
@@ -41,7 +41,7 @@ impl<'a> AtomContext for AtomContextStandalone<'a> {
     //     }
     // }
 
-    fn as_dyn_mut(&mut self) -> &mut dyn AtomContext {
+    fn as_dyn_mut(&mut self) -> &mut dyn AtomContext<'a> {
         self
     }
 

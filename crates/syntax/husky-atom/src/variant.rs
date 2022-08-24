@@ -25,12 +25,12 @@ pub enum HuskyAtomVariant {
     },
     ThisValue {
         opt_this_ty: Option<EntityRoutePtr>,
-        opt_this_liason: Option<ParameterLiason>,
+        opt_this_liason: Option<ParameterModifier>,
     },
     ThisField {
         field_ident: RangedCustomIdentifier,
         opt_this_ty: Option<EntityRoutePtr>,
-        opt_this_liason: Option<ParameterLiason>,
+        opt_this_liason: Option<ParameterModifier>,
         opt_field_ty: Option<RangedEntityRoute>,
         field_liason: MemberLiason,
     },

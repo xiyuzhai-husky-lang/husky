@@ -277,6 +277,7 @@ impl<'a> ContractSheetBuilder<'a> {
         ) {
             let argument_contract = LazyContract::parameter_lazy_contract(
                 parameter.liason,
+                parameter.ty(),
                 call_form_decl.output.liason(),
                 self.arena[argument].range,
             )?;
@@ -296,6 +297,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let call_form_decl = self.method_call_form_decl(this)?;
         let this_contract = LazyContract::parameter_lazy_contract(
             call_form_decl.this_liason(),
+            call_form_decl.opt_base_route.unwrap().parent(),
             call_form_decl.output.liason(),
             self.arena[this].range,
         )?;
@@ -305,6 +307,7 @@ impl<'a> ContractSheetBuilder<'a> {
         {
             let argument_contract = LazyContract::parameter_lazy_contract(
                 parameter.liason,
+                parameter.ty(),
                 call_form_decl.output.liason(),
                 self.arena[argument].range,
             )?;

@@ -22,7 +22,7 @@ pub static NAIVE_I32_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         parameters: &[StaticParameter {
             name: "a",
-            liason: ParameterLiason::Pure,
+            liason: ParameterModifier::None,
             ty: "i32",
         }],
         variadic_template: StaticVariadicTemplate::None,

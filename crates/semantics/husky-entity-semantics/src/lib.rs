@@ -227,7 +227,7 @@ pub enum EntityDefnVariant {
     },
     Method {
         spatial_parameters: IdentDict<SpatialParameter>,
-        this_liason: ParameterLiason,
+        this_liason: ParameterModifier,
         parameters: Arc<Vec<Parameter>>,
         output_ty: RangedEntityRoute,
         output_liason: OutputLiason,

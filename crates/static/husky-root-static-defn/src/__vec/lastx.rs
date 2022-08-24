@@ -4,7 +4,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     name: "lastx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::MemberAccess,
+        this_liason: ParameterModifier::MemberAccess,
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],

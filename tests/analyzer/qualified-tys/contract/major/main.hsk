@@ -32,20 +32,20 @@ func func_eval_ref_is_ok(b: &B) -> i32:
     x = b.x
     1
 
-func func_move_is_ok(b: !!B) -> i32:
+func func_move_is_ok(!!b: B) -> i32:
     1
 
-func func_move_mut_is_err(b: mut !!B) -> i32:
+func func_move_mut_is_err(mut !!b: B) -> i32:
     1
 
-func func_temp_ref_mut_is_err(b: mut B) -> i32:
+func func_temp_ref_mut_is_err(mut b: B) -> i32:
     1
 
-proc proc_move_mut_is_ok(b: mut !!B) -> i32:
+proc proc_move_mut_is_ok(mut !!b: B) -> i32:
     b = B(3, A(1))
     return 1
 
-proc proc_temp_ref_mut_is_ok(b: mut B) -> i32:
+proc proc_temp_ref_mut_is_ok(mut b: B) -> i32:
     let b = B(3, A(1))
     let c = func_pure_is_ok(b)
     let move_from_temp_ref_mut_is_err = func_move_is_ok(b)

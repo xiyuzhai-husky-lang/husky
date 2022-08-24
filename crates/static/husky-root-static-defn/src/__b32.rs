@@ -27,7 +27,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     name: "leading_zeros",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
@@ -45,7 +45,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     name: "ctz",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
         output_liason: OutputLiason::Transfer,
@@ -63,10 +63,10 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
     name: "last_bits",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterLiason::Pure,
+        this_liason: ParameterModifier::None,
         parameters: &[StaticParameter {
             name: "k",
-            liason: ParameterLiason::Pure,
+            liason: ParameterModifier::None,
             ty: "i32",
         }],
         output_ty: "b32",
