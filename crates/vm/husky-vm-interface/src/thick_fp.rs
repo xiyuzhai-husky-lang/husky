@@ -29,7 +29,7 @@ where
         }
     }
 
-    pub fn __base(f: F) -> Self {
+    pub fn __new_base(f: F) -> Self {
         Self {
             needs_eval_context: false,
             fp: f.__to_void_pointer(),
@@ -37,7 +37,7 @@ where
         }
     }
 
-    pub fn __ctx(f: F::__CtxThinFp) -> Self {
+    pub fn __new_ctx(f: F::__CtxThinFp) -> Self {
         Self {
             needs_eval_context: true,
             fp: f.__to_void_pointer(),

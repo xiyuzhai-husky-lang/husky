@@ -76,7 +76,14 @@ impl EagerExprQualifier {
     ) -> Binding {
         match self {
             EagerExprQualifier::PureRef | EagerExprQualifier::TempRef => Binding::TempRef,
-            EagerExprQualifier::Transient => Binding::Move,
+            EagerExprQualifier::Transient => match contract {
+                EagerContract::Pure => Binding::TempRef,
+                EagerContract::Move => Binding::Move,
+                EagerContract::Pass => Binding::Move,
+                EagerContract::EvalRef => todo!(),
+                EagerContract::TempRef => todo!(),
+                EagerContract::TempRefMut => todo!(),
+            },
             EagerExprQualifier::Copyable => Binding::Copy,
             EagerExprQualifier::EvalRef => match contract {
                 EagerContract::Pure => {

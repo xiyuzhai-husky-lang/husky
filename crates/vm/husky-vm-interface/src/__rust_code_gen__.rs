@@ -878,7 +878,7 @@ impl<'eval, Output: __StaticInfo> const __CtxThinFp
 impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0
 ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -904,7 +904,8 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> const ThinFp
 impl<A0: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0) -> Output {
     type __CtxThinFp = fn(
-        A0, &dyn __EvalContext<'static>
+        
+        <A0 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
     ) -> Output;
 }
 
@@ -917,7 +918,7 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo
         A0, &dyn __EvalContext<'eval>
     ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -954,8 +955,8 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1
 ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -981,7 +982,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const Thin
 impl<A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1) -> Output {
     type __CtxThinFp = fn(
-        A0, A1, &dyn __EvalContext<'static>
+        
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
     ) -> Output;
 }
 
@@ -994,8 +997,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticIn
         A0, A1, &dyn __EvalContext<'eval>
     ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1032,9 +1035,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const __Ct
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2
 ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1060,7 +1063,10 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2) -> Output {
     type __CtxThinFp = fn(
-        A0, A1, A2, &dyn __EvalContext<'static>
+        
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
     ) -> Output;
 }
 
@@ -1073,9 +1079,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
         A0, A1, A2, &dyn __EvalContext<'eval>
     ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1112,10 +1118,10 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3
 ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1141,7 +1147,11 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3) -> Output {
     type __CtxThinFp = fn(
-        A0, A1, A2, A3, &dyn __EvalContext<'static>
+        
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
     ) -> Output;
 }
 
@@ -1154,10 +1164,10 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
         A0, A1, A2, A3, &dyn __EvalContext<'eval>
     ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1194,11 +1204,11 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4
 ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1224,7 +1234,12 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4) -> Output {
     type __CtxThinFp = fn(
-        A0, A1, A2, A3, A4, &dyn __EvalContext<'static>
+        
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
     ) -> Output;
 }
 
@@ -1237,11 +1252,11 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
         A0, A1, A2, A3, A4, &dyn __EvalContext<'eval>
     ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1278,12 +1293,12 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5
 ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
-        <A5 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1309,7 +1324,13 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4, A5) -> Output {
     type __CtxThinFp = fn(
-        A0, A1, A2, A3, A4, A5, &dyn __EvalContext<'static>
+        
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
     ) -> Output;
 }
 
@@ -1322,12 +1343,12 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
         A0, A1, A2, A3, A4, A5, &dyn __EvalContext<'eval>
     ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
-        <A5 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1364,13 +1385,13 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6
 ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
-        <A5 as __StaticInfo>::__StaticSelf,
-        <A6 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
+        <A6 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1396,7 +1417,14 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {
     type __CtxThinFp = fn(
-        A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext<'static>
+        
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
+        <A6 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
     ) -> Output;
 }
 
@@ -1409,13 +1437,13 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
         A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext<'eval>
     ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
-        <A5 as __StaticInfo>::__StaticSelf,
-        <A6 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
+        <A6 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1452,14 +1480,14 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7
 ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
-        <A5 as __StaticInfo>::__StaticSelf,
-        <A6 as __StaticInfo>::__StaticSelf,
-        <A7 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
+        <A6 as __StaticInfo>::__StaticSelf, 
+        <A7 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1485,7 +1513,15 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {
     type __CtxThinFp = fn(
-        A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext<'static>
+        
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
+        <A6 as __StaticInfo>::__StaticSelf, 
+        <A7 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
     ) -> Output;
 }
 
@@ -1498,14 +1534,14 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
         A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext<'eval>
     ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
-        <A5 as __StaticInfo>::__StaticSelf,
-        <A6 as __StaticInfo>::__StaticSelf,
-        <A7 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
+        <A6 as __StaticInfo>::__StaticSelf, 
+        <A7 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1542,15 +1578,15 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8
 ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
-        <A5 as __StaticInfo>::__StaticSelf,
-        <A6 as __StaticInfo>::__StaticSelf,
-        <A7 as __StaticInfo>::__StaticSelf,
-        <A8 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
+        <A6 as __StaticInfo>::__StaticSelf, 
+        <A7 as __StaticInfo>::__StaticSelf, 
+        <A8 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
@@ -1576,7 +1612,16 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {
     type __CtxThinFp = fn(
-        A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext<'static>
+        
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
+        <A6 as __StaticInfo>::__StaticSelf, 
+        <A7 as __StaticInfo>::__StaticSelf, 
+        <A8 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
     ) -> Output;
 }
 
@@ -1589,15 +1634,15 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
         A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext<'eval>
     ) -> Output {
     type __StaticSelf = fn(
-        <A0 as __StaticInfo>::__StaticSelf,
-        <A1 as __StaticInfo>::__StaticSelf,
-        <A2 as __StaticInfo>::__StaticSelf,
-        <A3 as __StaticInfo>::__StaticSelf,
-        <A4 as __StaticInfo>::__StaticSelf,
-        <A5 as __StaticInfo>::__StaticSelf,
-        <A6 as __StaticInfo>::__StaticSelf,
-        <A7 as __StaticInfo>::__StaticSelf,
-        <A8 as __StaticInfo>::__StaticSelf,
+        <A0 as __StaticInfo>::__StaticSelf, 
+        <A1 as __StaticInfo>::__StaticSelf, 
+        <A2 as __StaticInfo>::__StaticSelf, 
+        <A3 as __StaticInfo>::__StaticSelf, 
+        <A4 as __StaticInfo>::__StaticSelf, 
+        <A5 as __StaticInfo>::__StaticSelf, 
+        <A6 as __StaticInfo>::__StaticSelf, 
+        <A7 as __StaticInfo>::__StaticSelf, 
+        <A8 as __StaticInfo>::__StaticSelf, 
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
