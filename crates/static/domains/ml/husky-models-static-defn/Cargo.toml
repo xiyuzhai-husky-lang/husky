@@ -23,3 +23,4 @@ husky-vm-register-method = { path = "../../../../vm/husky-vm-register-method" }
 [build-dependencies]
 husky-rust-code-repr = { path = "../../../../comptime/husky-rust-code-repr" }
 husky-write-utils = { path = "../../../../utils/husky-write-utils" }
+husky-io-utils = { path = "../../../../utils/husky-io-utils" }

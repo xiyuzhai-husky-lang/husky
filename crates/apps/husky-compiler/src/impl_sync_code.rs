@@ -1,4 +1,4 @@
-use io_utils::{diff_copy, diff_sync};
+use husky_io_utils::{diff_copy, diff_sync};
 
 use crate::*;
 use std::{

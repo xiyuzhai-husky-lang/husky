@@ -1,5 +1,5 @@
 [package]
-name = "io-utils"
+name = "husky-io-utils"
 version = "0.0.0"
 edition = "2021"
 
