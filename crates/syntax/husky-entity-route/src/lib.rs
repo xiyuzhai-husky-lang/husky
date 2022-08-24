@@ -1,5 +1,6 @@
 mod cache;
 mod canonical;
+mod check_consistency;
 mod fmt;
 mod intern;
 mod menu;

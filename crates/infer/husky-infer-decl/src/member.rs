@@ -33,15 +33,6 @@ pub enum MemberDecl {
     },
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct MemberIdx(pub u8);
-
-impl From<usize> for MemberIdx {
-    fn from(raw: usize) -> Self {
-        Self(raw.try_into().unwrap())
-    }
-}
-
 impl MemberDecl {
     pub fn ident(&self) -> CustomIdentifier {
         match self {
@@ -55,9 +46,23 @@ impl MemberDecl {
             MemberDecl::TypeAssociatedCall(call) => call.ident(),
         }
     }
-}
 
-impl MemberDecl {
+    pub fn opt_route(&self) -> EntityRoutePtr {
+        match self {
+            MemberDecl::AssociatedType => todo!(),
+            MemberDecl::AssociatedCall => todo!(),
+            MemberDecl::TypeField(_) => todo!(),
+            MemberDecl::TypeMethod(ty_method) => ty_method.opt_route.unwrap(),
+            MemberDecl::TypeAssociatedCall(_) => todo!(),
+            MemberDecl::TraitMethodImpl {
+                trait_route,
+                method,
+            } => method.opt_route.unwrap(),
+            MemberDecl::TraitAssociatedTypeImpl { ident, ty } => *ty,
+            MemberDecl::TraitAssociatedConstSizeImpl { ident, value } => todo!(),
+        }
+    }
+
     pub(crate) fn from_trait_member_impl(
         trait_route: EntityRoutePtr,
         trait_member_impl: &TraitMemberImplDecl,
@@ -76,6 +81,15 @@ impl MemberDecl {
             TraitMemberImplDecl::Call {} => todo!(),
             TraitMemberImplDecl::AssociatedConstSize {} => todo!(),
         }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct MemberIdx(pub u8);
+
+impl From<usize> for MemberIdx {
+    fn from(raw: usize) -> Self {
+        Self(raw.try_into().unwrap())
     }
 }
 
