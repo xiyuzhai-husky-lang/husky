@@ -95,6 +95,12 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_entity_route(routine.route, EntityRouteRole::Caller);
                     self.write("(");
                     self.gen_arguments(indent, opds);
+                    if self.db.needs_eval_context(routine.route) {
+                        if opds.len() > 0 {
+                            self.write(", ")
+                        }
+                        self.write("__ctx")
+                    }
                     self.write(")");
                 }
                 EagerOpnVariant::TypeCall {
@@ -231,14 +237,20 @@ impl<'a> RustCodeGenerator<'a> {
             EagerExprVariant::EntityThickFp { route } => {
                 let ty = expr.ty();
                 self.write("ThickFp::");
-                if self.db.needs_eval_context(ty) {
-                    self.write("__ctx(")
+                // is self.db.needs_eval_context(ty) necessary?
+                let needs_eval_context =
+                    self.db.needs_eval_context(ty) || self.db.needs_eval_context(route);
+                if needs_eval_context {
+                    self.write("__new_ctx(")
                 } else {
-                    self.write("__base(")
+                    self.write("__new_base(")
                 }
-                self.gen_entity_route(route, EntityRouteRole::Decl);
+                self.gen_entity_route(route, EntityRouteRole::FpValue);
                 self.write(" as ");
-                self.gen_entity_route(ty, EntityRouteRole::StaticBaseFpDecl);
+                self.gen_entity_route(
+                    ty,
+                    EntityRouteRole::StaticThinFpTyDecl { needs_eval_context },
+                );
                 self.write(")")
             }
         }

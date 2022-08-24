@@ -1732,6 +1732,24 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::major::major_raw_contour"
+        },
+        feature_linkage!(major::major_raw_contour, raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::major::major_line_segment_sketch"
+        },
+        feature_linkage!(major::major_line_segment_sketch, line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::major::major_concave_components"
+        },
+        feature_linkage!(major::major_concave_components, Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>, __registration__::__VEC_CONCAVE_COMPONENT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::one::one_fermi_match"
         },
         feature_linkage!(one::one_fermi_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),

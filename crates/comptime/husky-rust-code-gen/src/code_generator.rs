@@ -1,5 +1,5 @@
 mod context;
-mod impl_entity_route;
+mod gen_entity_route;
 mod impl_expr;
 mod impl_init;
 mod impl_lib;
@@ -17,7 +17,6 @@ use fold::LocalStack;
 use husky_entity_kind::TyKind;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use husky_package_semantics::Package;
-use impl_entity_route::*;
 use std::sync::Arc;
 
 pub(crate) struct RustCodeGenerator<'a> {

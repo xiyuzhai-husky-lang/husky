@@ -21,7 +21,8 @@ pub enum EntityRouteRole {
     Other,
     ForAnyLifetimeOther,
     StaticDecl,
-    StaticBaseFpDecl,
+    StaticThinFpTyDecl { needs_eval_context: bool },
+    FpValue,
 }
 
 impl EntityRouteRole {
@@ -33,7 +34,8 @@ impl EntityRouteRole {
             EntityRouteRole::Other => EntityRouteRole::Other,
             EntityRouteRole::ForAnyLifetimeOther => EntityRouteRole::ForAnyLifetimeOther,
             EntityRouteRole::StaticDecl => EntityRouteRole::StaticDecl,
-            EntityRouteRole::StaticBaseFpDecl => panic!(),
+            EntityRouteRole::StaticThinFpTyDecl { .. } => panic!(),
+            EntityRouteRole::FpValue => todo!(),
         }
     }
 
@@ -46,7 +48,8 @@ impl EntityRouteRole {
             EntityRouteRole::Decl => EntityRouteRole::Decl,
             EntityRouteRole::Other => EntityRouteRole::Other,
             EntityRouteRole::StaticDecl => EntityRouteRole::StaticDecl,
-            EntityRouteRole::StaticBaseFpDecl => EntityRouteRole::StaticDecl,
+            EntityRouteRole::StaticThinFpTyDecl { .. } => EntityRouteRole::StaticDecl,
+            EntityRouteRole::FpValue => todo!(),
         }
     }
 }

@@ -19,7 +19,7 @@ impl<'a> RustCodeGenerator<'a> {
                     RootIdentifier::Std => self.write("__std"),
                     RootIdentifier::ThickFp => {
                         match role {
-                            EntityRouteRole::StaticBaseFpDecl => self.write("fn("),
+                            EntityRouteRole::StaticThinFpTyDecl { .. } => self.write("fn("),
                             _ => self.write("ThickFp<fn("),
                         }
                         for i in 0..(entity_route.spatial_arguments.len() - 1) {
@@ -32,6 +32,21 @@ impl<'a> RustCodeGenerator<'a> {
                             }
                             self.gen_entity_route(argument_ty, EntityRouteRole::StaticDecl)
                         }
+                        if entity_route.ident().as_str() == "downmost" {
+                            p!(self.db.needs_eval_context(entity_route));
+                            todo!()
+                        }
+                        match role {
+                            EntityRouteRole::StaticThinFpTyDecl {
+                                needs_eval_context: true,
+                            } => {
+                                if entity_route.spatial_arguments.len() > 1 {
+                                    self.write(", ")
+                                }
+                                self.write("&dyn __EvalContext<'static>")
+                            }
+                            _ => (),
+                        }
                         self.write(")");
                         let output_ty = entity_route
                             .spatial_arguments
@@ -43,7 +58,7 @@ impl<'a> RustCodeGenerator<'a> {
                             self.gen_entity_route(output_ty, EntityRouteRole::StaticDecl)
                         }
                         match role {
-                            EntityRouteRole::StaticBaseFpDecl => self.write(""),
+                            EntityRouteRole::StaticThinFpTyDecl { .. } => self.write(""),
                             _ => self.write(">"),
                         }
                         return;
@@ -59,7 +74,8 @@ impl<'a> RustCodeGenerator<'a> {
                             | EntityRouteRole::Decl
                             | EntityRouteRole::Other => self.write("&'eval "),
                             EntityRouteRole::StaticDecl => self.write("&'static "),
-                            EntityRouteRole::StaticBaseFpDecl => self.write("&'static "),
+                            EntityRouteRole::StaticThinFpTyDecl { .. } => self.write("&'static "),
+                            EntityRouteRole::FpValue => todo!(),
                         }
                         self.gen_entity_route(
                             entity_route.entity_route_argument(0),
@@ -100,7 +116,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
         let needs_eval_ref = match role {
             EntityRouteRole::Decl
-            | EntityRouteRole::StaticBaseFpDecl
+            | EntityRouteRole::StaticThinFpTyDecl { .. }
             | EntityRouteRole::StaticDecl => {
                 self.db.entity_route_variant_contains_eval_ref(entity_route)
             }
@@ -115,7 +131,7 @@ impl<'a> RustCodeGenerator<'a> {
             if needs_eval_ref {
                 match role {
                     EntityRouteRole::Decl => self.write("'eval"),
-                    EntityRouteRole::StaticBaseFpDecl | EntityRouteRole::StaticDecl => {
+                    EntityRouteRole::StaticThinFpTyDecl { .. } | EntityRouteRole::StaticDecl => {
                         self.write("'static")
                     }
                     _ => panic!(),

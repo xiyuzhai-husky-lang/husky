@@ -64,12 +64,12 @@ impl std::fmt::Display for ImplFp {
                 )
             })
             .join("");
-        let static_arg_types = (0..self.nargs)
+        let static_arg_types_with_comma = (0..self.nargs)
             .into_iter()
             .map(|i| -> String {
                 format!(
                     r#"
-        <A{i} as __StaticInfo>::__StaticSelf,"#
+        <A{i} as __StaticInfo>::__StaticSelf, "#
                 )
             })
             .join("");
@@ -82,7 +82,7 @@ impl std::fmt::Display for ImplFp {
 #[rustfmt::skip]
 impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({arg_types}
 ) -> Output {{
-    type __StaticSelf = fn({static_arg_types}
+    type __StaticSelf = fn({static_arg_types_with_comma}
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {{
@@ -108,7 +108,7 @@ impl<'eval, {arg_types_decl}Output: __StaticInfo> const ThinFp
 impl<{arg_types_decl}Output: __StaticInfo> const __BaseThinFp
     for fn({arg_types}) -> Output {{
     type __CtxThinFp = fn(
-        {arg_types_with_comma}&dyn __EvalContext<'static>
+        {static_arg_types_with_comma}&dyn __EvalContext<'static>
     ) -> Output;
 }}
 
@@ -120,7 +120,7 @@ impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo
     for fn(
         {arg_types_with_comma}&dyn __EvalContext<'eval>
     ) -> Output {{
-    type __StaticSelf = fn({static_arg_types}
+    type __StaticSelf = fn({static_arg_types_with_comma}
     ) -> <Output as __StaticInfo>::__StaticSelf;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {{

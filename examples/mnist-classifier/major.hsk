@@ -10,11 +10,11 @@ func major_connected_component -> ConnectedComponent:
     connected_components[0]
 
 // todo: change `def` to `func`
-def major_raw_contour -> RawContour:
+func major_raw_contour -> RawContour:
     major_connected_component.raw_contours[0]
 
-def major_line_segment_sketch -> LineSegmentSketch:
+func major_line_segment_sketch -> LineSegmentSketch:
     major_raw_contour.line_segment_sketch
 
-def major_concave_components -> []ConcaveComponent:
+func major_concave_components -> []ConcaveComponent:
     major_line_segment_sketch.concave_components
